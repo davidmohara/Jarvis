@@ -1,11 +1,11 @@
 {
   "skill": "omnifocus-tasks",
-  "agent": "knox",
+  "agent": "chief",
   "trigger": "manual",
-  "started": "2026-09-16T14:40:00Z",
-  "completed": "2026-09-16T14:45:00Z",
+  "started": "2026-09-17T18:20:00-05:00",
+  "completed": "2026-09-17T18:22:00-05:00",
   "status": "success",
-  "tool_failures": 1,
+  "tool_failures": 0,
   "error_ids": [],
-  "notes": "3 tasks created via osascript fallback (OmniFocus MCP + Desktop Commander unavailable). Live project/tag lists pulled before creation; all tasks have project + tag. One verification test task deleted."
+  "notes": "osascript fallback (MCP disconnected). Created 'Follow up with Derek Nwamadi on Steve Hall' (Sales, Delegated, due 2026-09-25, id oAf8DvRd0_v). Task later removed from OmniFocus on David's instruction; delegation tracker is the sole record."
 }

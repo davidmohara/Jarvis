@@ -1,0 +1,113 @@
+{
+  "id": "eval-20260917T232746-4MKGN1",
+  "type": "workflow",
+  "name": "daily-review",
+  "agent": "chief",
+  "session_id": "61be22c5-c8cc-49b7-888a-b106ddd74eb7",
+  "trigger": "manual",
+  "started": "2026-09-17T17:30:00Z",
+  "completed": "2026-09-17T23:27:46.723323Z",
+  "duration_seconds": 21466.7,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": false,
+      "outputs_non_empty": false,
+      "assertions_checked": 9,
+      "assertions_passed": 5,
+      "assertion_results": [
+        {
+          "assertion": "daily-001-state-complete",
+          "description": "Daily review workflow state.yaml shows status: complete",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "daily-002-review-written",
+          "description": "Daily review output file was written to reviews/daily/ for the run date (not a prior day)",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "daily-003-review-substantive",
+          "description": "Daily review output for run date is substantive (>300 bytes)",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "daily-004-priorities-section",
+          "description": "Daily review for run date contains priorities or forward-planning section (tomorrow, next, Q-ref, carry-forward language)",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "daily-005-shutdown-section",
+          "description": "Daily review for run date contains completed items or wins section",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "daily_review-wm-written",
+          "description": "Daily review working memory file was written for the run date",
+          "category": "structure",
+          "passed": false
+        },
+        {
+          "assertion": "daily_review-wm-size",
+          "description": "Daily review working memory for run date is substantive (>200 bytes)",
+          "category": "structure",
+          "passed": false
+        },
+        {
+          "assertion": "daily_review-wm-content",
+          "description": "Daily review working memory for run date contains expected content",
+          "category": "structure",
+          "passed": false
+        },
+        {
+          "assertion": "daily-006-guardrail-checkpoint-ran",
+          "description": "step-03b's guardrail checkpoint recorded a result (pass/flag/escalate) on this run \u2014 read from the eval record's own guardrails array, not self-reported by the workflow",
+          "category": "structure",
+          "passed": false
+        }
+      ],
+      "category_breakdown": {
+        "structure": {
+          "passed": 5,
+          "checked": 9
+        },
+        "content": {
+          "passed": 0,
+          "checked": 0
+        },
+        "quality": {
+          "passed": 0,
+          "checked": 0
+        }
+      }
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    }
+  },
+  "version_hash": "3d4257956a914088",
+  "prior_baseline_id": null,
+  "tags": [
+    "phantom-candidate",
+    "cowork-hook"
+  ]
+}

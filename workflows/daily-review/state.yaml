@@ -1,23 +1,21 @@
 ---
 workflow: daily-review
 agent: chief
-status: in-progress
+status: complete
 session-started: "2026-09-17T17:30:00"
 session-id: "chief-2026-09-17-173000"
-current-step: step-01
-session-closed: false
+current-step: step-05
+session-closed: true
 original-request: "Run the daily wrap up workflow."
 accumulated-context:
   review-date: "2026-09-17"
-  mode: "sub-agent interactive — capture questions Q1-Q3 and tomorrow top-3 deferred to controller via Master"
-  omnifocus-status: "MCP connector failed to connect; used data/omnifocus-unified.json (pulled 2026-09-17T16:07Z, status available). 42 tasks, inbox 11, completed today 0, created today 0, overdue 0, flagged 0"
-  calendar-status: "data/calendar-unified.json (pulled 2026-09-17T16:05Z). Today: AA3589 LIT->DFW 7:18a, Sales & Recruiting 9:15, Sales Scrum 10:00 vs GEHC AI Routing 10:00 (double-book), Vegas prep 10:30, Retreat prep 1:00p, Steve Hall follow up 3:00p vs Golf lesson 3:00p (double-book), YPO Spouse Kickoff 6:00p"
-  morning-briefing-status: "found — memory/working/morning-briefing-2026-09-17-111500.md; implicit priorities: protect GEHC, clear AI for Execs handoff, retreat prep / get out clean"
-  delegation-tracker-status: "0 active delegations, 0 overdue"
-  due-2026-09-18: "Coherence breathing 10a, Review prayer list 11a, Send Blake McMillan AI for Execs content 5p, Confirm GitHub location of AI curriculum 5p, Answer Q&A (Forbes) 5p"
-  eval-health: "29 runs today — 20 success, 4 partial, 3 aborted, 1 failure, 1 in-progress (this run)"
-  corrections-today: "3 error entries: system-infrastructure (minor), tool-misuse (moderate), routing-error (moderate)"
-  system-visible-work: "2 Plaud recordings ingested; projects/one-texas-strategy.md produced (Quinn); OmniFocus 5-boot outage resolved; boot completed; revenue/bookings/pipeline/co-sell snapshots run 18:45"
-  root-audit: "scanned — 1 flag: revenue-dallas.png (generated today 13:18, move to reports/?); SETUP.md borderline-keep; evolution.manifest.json permitted"
-  awaiting: "controller answers to step-01 Q1-Q3, step-02 top-3 for 2026-09-18, energy level, root-audit confirmation"
+  mode: "interactive via sub-agent — controller answers relayed by Master"
+  review-file: "reviews/daily/2026-09-17.md"
+  narrative-path: "Daily Reviews/2026-09-17 Naming the Dead Rock Before Houston.md (Obsidian vault, cross-linked from Calendar/2026/09-September/2026-09-17.md)"
+  delegation: "Steve Hall follow up -> Derek Nwamadi, due 2026-09-25, Waiting. OmniFocus mirror created then removed on David's instruction; tracker is sole record."
+  guardrail-checkpoint: "pass (manual review; recorder script found no in-progress eval — noted)"
+  root-audit: "clean — revenue-dallas.png removed by Master mid-run"
+  git-commit: "c6633e73"
+  git-push: "success"
+  eval-record: "eval-20260917T232724-AZ9DQO.json"
   model: sonnet

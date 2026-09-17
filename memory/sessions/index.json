@@ -1,1886 +1,1898 @@
 [
- {
-  "id": "session-2026-05-14-092600",
-  "started": "2026-05-14T09:26:00-05:00",
-  "closed": "2026-05-15T09:40:50-05:00",
-  "current_topic": null,
-  "topics": [
-   {
-    "name": "morning-boot",
-    "loops": [
-     {
-      "task": "boot-sequence",
-      "resolved": true
-     }
-    ]
-   }
-  ]
- },
- {
-  "id": "session-2026-05-15-094050",
-  "started": "2026-05-15T09:40:50-05:00",
-  "closed": "2026-05-22T09:44:04-05:00",
-  "current_topic": null,
-  "topics": [
-   {
-    "name": "morning-boot",
-    "loops": [
-     {
-      "task": "boot-sequence",
-      "resolved": true
-     }
-    ]
-   }
-  ]
- },
- {
-  "id": "session-2026-05-22-094404",
-  "started": "2026-05-22T09:44:04-05:00",
-  "closed": "2026-05-28T10:09:41-05:00",
-  "current_topic": null,
-  "topics": [
-   {
-    "name": "morning-boot",
-    "loops": [
-     {
-      "task": "boot-sequence",
-      "resolved": true
-     }
-    ]
-   }
-  ]
- },
- {
-  "id": "session-2026-05-28-100941",
-  "started": "2026-05-28T10:09:41-05:00",
-  "closed": "2026-06-04T08:10:15-05:00",
-  "current_topic": null,
-  "topics": [
-   {
-    "name": "morning-boot",
-    "loops": [
-     {
-      "task": "boot-sequence",
-      "resolved": true
-     }
-    ]
-   }
-  ]
- },
- {
-  "id": "session-2026-06-04-081015",
-  "started": "2026-06-04T08:10:15-05:00",
-  "closed": "2026-06-12T08:27:00-05:00",
-  "current_topic": null,
-  "topics": [
-   {
-    "name": "morning-boot",
-    "loops": [
-     {
-      "task": "boot-sequence",
-      "resolved": true
-     }
-    ]
-   }
-  ]
- },
- {
-  "id": "session-2026-06-12-082700",
-  "started": "2026-06-12T08:27:00-05:00",
-  "closed": "2026-06-15T09:35:44-05:00",
-  "current_topic": null,
-  "topics": [
-   {
-    "name": "morning-boot",
-    "loops": [
-     {
-      "task": "boot-sequence",
-      "resolved": true
-     }
-    ]
-   },
-   {
-    "name": "plaud-ingest",
-    "loops": [
-     {
-      "task": "3 Jun 9 transcripts processed: Cresta PE (3558ce2d), IBP/Joshua Fryer (8a61f1e), SMU/Aren Cambre (a0c8a0e). Speaker tags corrected (Andrew Neuberger, Cresta Funds). Vault notes updated, staging cleaned. 2 pending recordings surfaced.",
-      "resolved": true
-     }
-    ],
-    "files": [
-     "zzPlaud/Client/2026-06-09 PE Firm AI Consultation - Data Strategy and AI Adoption for Lower Middle Market Fund.md",
-     "zzPlaud/Improving/2026-06-09 IBP Coaching Call - Joshua Fryer on Cohort Dynamics, AI Coaching, and Career Development.md",
-     "zzPlaud/Improving/2026-06-09 SMU MS in AI for Business - Advisory Board Partnership Discussion with Aren Cambre.md",
-     "systems/error-tracking/entries/err-20260612T143248-35EWVQ.json"
-    ]
-   }
-  ]
- },
- {
-  "id": "session-2026-06-15-093544",
-  "started": "2026-06-15T09:35:44-05:00",
-  "closed": "2026-06-16T07:13:55-05:00",
-  "current_topic": null,
-  "topics": [
-   {
-    "name": "morning-boot",
-    "loops": [
-     {
-      "task": "boot-sequence",
-      "resolved": false
-     }
-    ]
-   }
-  ]
- },
- {
-  "id": "session-2026-06-16-071355",
-  "started": "2026-06-16T07:13:55-05:00",
-  "closed": "2026-06-18T08:41:48-05:00",
-  "current_topic": null,
-  "topics": [
-   {
-    "name": "morning-boot",
-    "loops": [
-     {
-      "task": "boot-sequence",
-      "resolved": false
-     }
-    ]
-   }
-  ]
- },
- {
-  "id": "session-2026-06-18-084148",
-  "started": "2026-06-18T08:41:48-05:00",
-  "closed": "2026-06-19T09:27:35-05:00",
-  "current_topic": null,
-  "topics": [
-   {
-    "name": "morning-boot",
-    "loops": [
-     {
-      "task": "boot-sequence",
-      "resolved": false
-     }
-    ]
-   }
-  ]
- },
- {
-  "id": "session-2026-06-19-092735",
-  "started": "2026-06-19T09:27:35-05:00",
-  "closed": "2026-06-23T09:44:57-05:00",
-  "current_topic": null,
-  "topics": [
-   {
-    "name": "morning-boot",
-    "loops": [
-     {
-      "task": "boot-sequence",
-      "resolved": false
-     }
-    ]
-   }
-  ]
- },
- {
-  "id": "session-2026-06-23-094457",
-  "started": "2026-06-23T09:44:57-05:00",
-  "closed": "2026-06-23T17:00:00-05:00",
-  "current_topic": null,
-  "topics": [
-   {
-    "name": "morning-boot",
-    "loops": [
-     {
-      "task": "boot-sequence \u2014 full workflow completed",
-      "resolved": true
-     }
-    ]
-   },
-   {
-    "name": "content-pipeline-rework",
-    "loops": [
-     {
-      "task": "Digest input path, Ghost Admin API consolidation, fast-exit gate \u2014 Rigby built and committed",
-      "resolved": true
-     }
-    ]
-   },
-   {
-    "name": "kazakhstan-deck",
-    "loops": [
-     {
-      "task": "13-slide Improving-branded deck built \u2014 Enterprise Shift slides, Agent Receipts, MIT NANDA, real client stories on What We've Built slide",
-      "resolved": true
-     }
-    ]
-   }
-  ]
- },
- {
-  "id": "session-2026-06-24-000000",
-  "started": "2026-06-24T00:00:00-05:00",
-  "closed": "2026-06-25T03:05:33-05:00",
-  "current_topic": null,
-  "topics": [
-   {
-    "name": "morning-boot",
-    "loops": [
-     {
-      "task": "boot-sequence",
-      "resolved": true
-     }
-    ]
-   },
-   {
-    "name": "plaud-ingest",
-    "loops": [
-     {
-      "task": "3 recordings ingested: xAI/Cole Estrate (Jun 22), Sales Performance Review/McGreal (Jun 23), Strategic Dialogue/Devlin (Jun 23)",
-      "resolved": true
-     }
-    ]
-   },
-   {
-    "name": "content-pipeline-obsidian",
-    "loops": [
-     {
-      "task": "step-02 Obsidian publish integration built \u2014 rename, status:Published, published_url, article vs post routing, obsidian_slug field; step-01 content_type detection added; 5 pending Ghost drafts backfilled",
-      "resolved": true
-     }
-    ]
-   },
-   {
-    "name": "remarkable-fixes",
-    "loops": [
-     {
-      "task": "Cole Estrate \u2014 xAI.pdf renamed and moved to /Meetings; skill updated to prevent new folder creation and enforce conventions",
-      "resolved": true
-     }
-    ]
-   },
-   {
-    "name": "daily-review",
-    "loops": [
-     {
-      "task": "Daily review written to reviews/daily/2026-06-24.md",
-      "resolved": true
-     }
-    ]
-   }
-  ]
- },
- {
-  "id": "session-2026-06-25-080000",
-  "started": "2026-06-25T08:00:00-05:00",
-  "closed": "2026-06-25T21:11:58-05:00",
-  "current_topic": null,
-  "topics": [
-   {
-    "name": "morning-boot",
-    "loops": [
-     {
-      "task": "boot-sequence \u2014 full workflow completed",
-      "resolved": true
-     }
-    ]
-   },
-   {
-    "name": "dexa-review",
-    "loops": [
-     {
-      "task": "DEXA Jun 25 reviewed by Galen \u2014 16.5% BF, -7.4 lbs lean mass, VAT -44%. tracking.json created, supplement-stack corrected.",
-      "resolved": true
-     }
-    ]
-   },
-   {
-    "name": "one-texas-decks",
-    "loops": [
-     {
-      "task": "Monthly Update + Q2 Scorecard recovered from git, moved to OneDrive/Presentations/One Texas/Monthly Meetings/, renamed to convention.",
-      "resolved": true
-     }
-    ]
-   },
-   {
-    "name": "systemic-compliance-prep",
-    "loops": [
-     {
-      "task": "Full research + call prep PDF built and pushed to reMarkable. SOW signed, kick-off Jun 30 4PM.",
-      "resolved": true
-     }
-    ]
-   },
-   {
-    "name": "rmapi-fix",
-    "loops": [
-     {
-      "task": "rmapi config repaired (corrupt JWT \u2192 re-authenticated). Working.",
-      "resolved": true
-     }
-    ]
-   },
-   {
-    "name": "daily-review",
-    "loops": [
-     {
-      "task": "Daily review written to reviews/daily/2026-06-25.md",
-      "resolved": true
-     }
-    ]
-   }
-  ]
- },
- {
-  "id": "session-2026-06-26-000000",
-  "started": "2026-06-26T08:00:00-05:00",
-  "closed": "2026-06-26T18:00:00-05:00",
-  "current_topic": null,
-  "topics": [
-   {
-    "name": "morning-boot",
-    "loops": [
-     {
-      "task": "boot-sequence \u2014 full workflow completed",
-      "resolved": true
-     }
-    ]
-   },
-   {
-    "name": "protein-shake-protocol",
-    "loops": [
-     {
-      "task": "Shake logged to protocol.md \u2014 42g protein, AM post-workout, daily",
-      "resolved": true
-     }
-    ]
-   },
-   {
-    "name": "peptide-stack-start",
-    "loops": [
-     {
-      "task": "Stack starts Jun 29 \u2014 MOTS-C/Tesamorelin/Ipamorelin logged, boot reminder cleared",
-      "resolved": true
-     }
-    ]
-   },
-   {
-    "name": "kazakhstan-prep",
-    "loops": [
-     {
-      "task": "Cultural customs surfaced pre-meeting",
-      "resolved": true
-     }
-    ]
-   },
-   {
-    "name": "shutdown-cleanup",
-    "loops": [
-     {
-      "task": "tasks/ deleted, content/ retained, daily review written, committing",
-      "resolved": true
-     }
-    ]
-   }
-  ]
- },
- {
-  "id": "session-2026-06-29-094900",
-  "started": "2026-06-29T09:49:00-05:00",
-  "closed": "2026-06-29T18:00:00-05:00",
-  "current_topic": null,
-  "topics": [
-   {
-    "name": "morning-boot",
-    "loops": [
-     {
-      "task": "boot-sequence",
-      "resolved": false
-     }
-    ]
-   },
-   {
-    "name": "revenue-tracker",
-    "loops": [
-     {
-      "task": "Revenue pulled \u2014 South Texas 74% 90-day, One Texas -11% vs target, Q2 high-risk close",
-      "resolved": true
-     }
-    ]
-   },
-   {
-    "name": "co-sell-pipeline",
-    "loops": [
-     {
-      "task": "Co-sell snapshot \u2014 Q2 closed with $9.4M gap, PowerBI filter issue identified, June 9 data is accurate One Texas view",
-      "resolved": true
-     }
-    ]
-   },
-   {
-    "name": "daily-review",
-    "loops": [
-     {
-      "task": "Daily review written to reviews/daily/2026-06-29.md",
-      "resolved": true
-     }
-    ]
-   }
-  ]
- },
- {
-  "id": "session-2026-06-30-091420",
-  "started": "2026-06-30T09:14:20-05:00",
-  "closed": "2026-07-01T08:30:00-05:00",
-  "current_topic": null,
-  "topics": [
-   {
-    "name": "morning-boot",
-    "loops": [
-     {
-      "task": "boot-sequence",
-      "resolved": false
-     }
-    ]
-   }
-  ]
- },
- {
-  "id": "session-2026-07-01-083000",
-  "started": "2026-07-01T08:30:00-05:00",
-  "closed": "2026-07-02T09:00:00-05:00",
-  "current_topic": null,
-  "topics": [
-   {
-    "name": "morning-boot",
-    "loops": [
-     {
-      "task": "boot-sequence \u2014 full 7-step workflow completed, briefing delivered",
-      "resolved": true
-     }
-    ]
-   },
-   {
-    "name": "plaud-ingest",
-    "loops": [
-     {
-      "task": "Knox ran plaud-ingest \u2014 3 new Jun 30 recordings found, 1 pending transcription, 2 staged. Awaiting David on 2 ambiguous speaker IDs (Systemic Compliance AI Strategy call).",
-      "resolved": false
-     }
-    ]
-   }
-  ]
- },
- {
-  "id": "session-2026-07-02-000000",
-  "started": "2026-07-02T00:00:00-05:00",
-  "closed": "2026-07-02T17:00:00-05:00",
-  "current_topic": null,
-  "topics": [
-   {
-    "name": "daily-review",
-    "loops": [
-     {
-      "task": "Daily review written to reviews/daily/2026-07-02.md. 3 tasks created in OmniFocus (Scott Sexton follow-up, VP Scorecard for Kevin, Josh Stevenson/Microsoft).",
-      "resolved": true
-     }
-    ]
-   }
-  ]
- },
- {
-  "id": "session-2026-07-03-060938",
-  "started": "2026-07-03T06:09:38-05:00",
-  "closed": "2026-07-06T09:51:00-05:00",
-  "current_topic": null,
-  "topics": [
-   {
-    "name": "morning-briefing",
-    "loops": [
-     {
-      "task": "Scheduled autonomous morning briefing \u2014 David OOO (July 4th holiday, then PTO through 7/13)",
-      "resolved": false
-     }
-    ]
-   }
-  ]
- },
- {
-  "id": "session-2026-07-06-095100",
-  "started": "2026-07-06T09:51:00-05:00",
-  "closed": "2026-07-08T09:53:19-05:00",
-  "current_topic": null,
-  "topics": [
-   {
-    "name": "morning-boot",
-    "loops": [
-     {
-      "task": "boot-sequence",
-      "resolved": false
-     }
-    ]
-   }
-  ]
- },
- {
-  "id": "session-2026-07-08-095319",
-  "started": "2026-07-08T09:53:19-05:00",
-  "closed": "2026-07-09T09:09:44-05:00",
-  "current_topic": null,
-  "topics": [
-   {
-    "name": "morning-boot",
-    "loops": [
-     {
-      "task": "boot-sequence \u2014 stale, closed by next-day session init",
-      "resolved": false
-     }
-    ]
-   }
-  ]
- },
- {
-  "id": "session-2026-07-09-090944",
-  "started": "2026-07-09T09:09:44-05:00",
-  "closed": "2026-07-10T22:21:15-05:00",
-  "current_topic": null,
-  "topics": [
-   {
-    "name": "morning-boot",
-    "loops": [
-     {
-      "task": "boot-sequence",
-      "resolved": false
-     }
-    ]
-   },
-   {
-    "name": "system-eval",
-    "files": [],
-    "loops": [
-     {
-      "text": "run Rigby system-eval workflow \u2014 full eval maintenance cycle",
-      "resolved": true
-     },
-     {
-      "text": "daily-review phantom success at 36% (9/25 runs) \u2014 stale session_id root cause, Chief's scheduled runner not generating fresh context; needs fix before daily-review can be trusted",
-      "resolved": false
-     },
-     {
-      "text": "close-eval-record.py needs --eval-id flag to prevent spurious duplicate on session_id mismatch",
-      "resolved": false
-     }
-    ]
-   }
-  ]
- },
- {
-  "id": "session-2026-07-10-090906",
-  "started": "2026-07-10T09:09:06-05:00",
-  "closed": "2026-07-10T17:30:46-05:00",
-  "current_topic": null,
-  "topics": [
-   {
-    "name": "morning-boot",
-    "loops": [
-     {
-      "task": "boot-sequence",
-      "resolved": false
-     }
-    ]
-   },
-   {
-    "name": "mike-rosa-drc-prep",
-    "loops": [
-     {
-      "task": "Meeting prep built for Mike Rosa/DRC \u2014 meetings/2026-07-10-mike-rosa-drc.md + Mike Rosa.pdf",
-      "resolved": true
-     }
-    ],
-    "files": [
-     "meetings/2026-07-10-mike-rosa-drc.md",
-     "meetings/Mike Rosa.pdf"
-    ]
-   },
-   {
-    "name": "systemic-compliance-synthesis",
-    "loops": [
-     {
-      "task": "Whiteboard notes (Jul 8) and synthesis of committed outcomes (Jul 10) captured for Systemic Compliance account",
-      "resolved": true
-     }
-    ],
-    "files": [
-     "accounts/Systemic Compliance/2026-07-08-whiteboard-notes.md",
-     "accounts/Systemic Compliance/2026-07-10-synthesis-committed-outcomes.md",
-     "accounts/Systemic Compliance/IMG_6315.JPG",
-     "accounts/Systemic Compliance/IMG_6316.JPG"
-    ]
-   },
-   {
-    "name": "weekly-review-w28",
-    "loops": [
-     {
-      "task": "Weekly review written to reviews/weekly/2026-W28.md",
-      "resolved": true
-     }
-    ],
-    "files": [
-     "reviews/weekly/2026-W28.md"
-    ]
-   },
-   {
-    "name": "shutdown-cleanup",
-    "loops": [
-     {
-      "task": "Purged .DS_Store x4 and intermediate meetings/mike-rosa-prep.html, verified naming/gitignore, closed session, committed",
-      "resolved": true
-     }
-    ]
-   }
-  ]
- },
- {
-  "id": "session-2026-07-10-221215",
-  "started": "2026-07-10T22:21:15-05:00",
-  "closed": "2026-07-10T22:21:15-05:00",
-  "current_topic": null,
-  "topics": [
-   {
-    "name": "shutdown-cleanup",
-    "loops": [
-     {
-      "task": "Folder scan + session exit \u2014 ypo_members.xlsx/v2 moved to YPO/, business_os_body_slide.pptx staged in presentations/, content-pipeline state.yaml committed, session index closed.",
-      "resolved": true
-     }
-    ]
-   }
-  ]
- },
- {
-  "id": "session-2026-07-13-094046",
-  "started": "2026-07-13T09:40:46-05:00",
-  "closed": "2026-07-14T09:00:00-05:00",
-  "current_topic": null,
-  "topics": [
-   {
-    "name": "morning-boot",
-    "loops": [
-     {
-      "task": "boot-sequence \u2014 stale, closed by next-day session init",
-      "resolved": false
-     }
-    ]
-   }
-  ]
- },
- {
-  "id": "session-2026-07-14-090000",
-  "started": "2026-07-14T09:00:00-05:00",
-  "closed": "2026-07-14T18:07:00-05:00",
-  "current_topic": null,
-  "topics": [
-   {
-    "name": "morning-boot",
-    "loops": [
-     {
-      "task": "boot-sequence \u2014 completed with 3 errors logged",
-      "resolved": true
-     }
-    ]
-   },
-   {
-    "name": "plaud-ingest",
-    "loops": [
-     {
-      "task": "2 recordings ingested: Jul 13 Kapil Dabi lunch, Jul 14 Steve Hall coffee. 7 OmniFocus tasks created.",
-      "resolved": true
-     }
-    ]
-   },
-   {
-    "name": "one-texas-scorecard",
-    "loops": [
-     {
-      "task": "Scorecard updated through June 2026 \u2014 Dallas +4% CQ, South Texas -23%, H2 needs $42.4M",
-      "resolved": true
-     }
-    ]
-   },
-   {
-    "name": "comp-tracker",
-    "loops": [
-     {
-      "task": "Full rerun with corrected PowerBI data \u2014 BoB $6.68M, regional -5.5% YoY, Comp 3 $0",
-      "resolved": true
-     }
-    ]
-   },
-   {
-    "name": "plaud-ingest-bugfix",
-    "loops": [
-     {
-      "task": "Rigby fixed 2 bugs: transcript in <details> body, working memory writes to IES filesystem. Commit 6de35196.",
-      "resolved": true
-     }
-    ]
-   },
-   {
-    "name": "shutdown-cleanup",
-    "loops": [
-     {
-      "task": "DS_Store purged, working memory written, session closed, committed",
-      "resolved": true
-     }
-    ]
-   }
-  ]
- },
- {
-  "id": "session-2026-07-17-091548",
-  "date": "2026-07-17",
-  "started": "2026-07-17T09:15:48-05:00",
-  "closed": "2026-07-21T14:25:49-05:00",
-  "current_topic": null,
-  "topics": [
-   {
-    "topic": "morning-boot",
-    "files": [],
-    "loops": [
-     {
-      "task": "boot-sequence \u2014 never closed out; superseded by session-2026-07-21-142549 which resumed the in-progress boot workflow. Closing retroactively during 2026-07-22 shutdown sweep.",
-      "resolved": false
-     }
-    ]
-   }
-  ]
- },
- {
-  "id": "session-2026-07-28-103601",
-  "started": "2026-07-28T10:36:01-05:00",
-  "closed": "2026-07-29T09:49:00-05:00",
-  "current_topic": null,
-  "topics": [
-   {
-    "name": "morning-boot",
-    "loops": [
-     {
-      "task": "boot-sequence \u2014 stale, closed by next-day session init",
-      "resolved": false
-     }
-    ]
-   }
-  ]
- },
- {
-  "id": "session-2026-07-29-094900",
-  "started": "2026-07-29T09:49:00-05:00",
-  "closed": "2026-07-30T00:00:00-05:00",
-  "current_topic": null,
-  "topics": [
-   {
-    "name": "morning-boot",
-    "loops": [
-     {
-      "task": "boot-sequence \u2014 stale, closed by next-day session init",
-      "resolved": false
-     }
-    ]
-   }
-  ]
- },
- {
-  "id": "session-2026-07-30-092431",
-  "started": "2026-07-30T09:24:31-05:00",
-  "closed": null,
-  "current_topic": "morning-boot",
-  "topics": [
-   {
-    "name": "morning-boot",
-    "loops": [
-     {
-      "task": "boot-sequence",
-      "resolved": false
-     }
-    ]
-   }
-  ]
- },
- {
-  "id": "session-2026-07-21-142549",
-  "started": "2026-07-21T14:25:49-05:00",
-  "closed": "2026-07-22T11:55:00-05:00",
-  "current_topic": null,
-  "topics": [
-   {
-    "name": "santas-wonderland-vision-slide",
-    "loops": [
-     {
-      "task": "Built new slide 3 'The Vision: One Brand, Every Day of the Year' for the Discovery Proposal deck, matched deck's visual style, validated and QA'd, saved back to account folder",
-      "resolved": true
-     }
-    ],
-    "files": [
-     "accounts/Santa's Wonderland/Santa's Wonderland - Discovery Proposal July 2026 - DOH.pptx"
-    ]
-   },
-   {
-    "name": "morning-boot",
-    "loops": [
-     {
-      "task": "Resumed stalled boot from step-05, refreshed calendar/email live, delivered briefing (2 double-bookings flagged, overdue OmniFocus items, 2 missing data files), all 7 steps verified complete",
-      "resolved": true
-     }
-    ],
-    "files": [
-     "workflows/boot/state.yaml",
-     "workflows/boot/steps/step-05-synthesize-briefing.md",
-     "workflows/boot/steps/step-06-scan-workflows.md",
-     "workflows/boot/steps/step-07-verify-completion.md"
-    ]
-   },
-   {
-    "name": "plaud-ingest-correction",
-    "loops": [
-     {
-      "task": "David corrected stale abort report; logged err-20260722T164142-KOFUWY; spawned Knox live; 2 recordings ingested, 1 shared with Alice, 1 Monday task created",
-      "resolved": true
-     }
-    ],
-    "files": [
-     "systems/error-tracking/entries/err-20260722T164142-KOFUWY.json",
-     "workflows/plaud-ingest/state.yaml",
-     "memory/working/2026-07-22-164500-knox-plaud-ingest.md"
-    ]
-   },
-   {
-    "name": "golf-shutdown-verification",
-    "loops": [
-     {
-      "task": "Verified (not just accepted) David's claim that golf-booking and shutdown-cleanup were fixed \u2014 both confirmed resolved, state.yaml updated on each with evidence",
-      "resolved": true
-     }
-    ],
-    "files": [
-     "workflows/golf-booking/state.yaml",
-     "workflows/shutdown-cleanup/state.yaml"
-    ]
-   },
-   {
-    "name": "shutdown",
-    "loops": [
-     {
-      "task": "Working memory sweep, eval feedback sweep (daily-review rated 3/neutral), session index closed, committing",
-      "resolved": true
-     }
-    ]
-   }
-  ]
- },
- {
-  "session_id": "session-2026-08-03-091450",
-  "started": "2026-08-03T09:14:50.299140-05:00",
-  "closed": "2026-08-03T23:59:59-05:00",
-  "current_topic": null,
-  "topics": {
-   "morning-boot": {
-    "loops": [
-     {
-      "task": "Full boot sequence: identity load, calendar/email/OmniFocus pull, delegation & workflow scan, briefing synthesis",
-      "resolved": false
-     }
-    ],
-    "files": []
-   }
+  {
+    "id": "session-2026-05-14-092600",
+    "started": "2026-05-14T09:26:00-05:00",
+    "closed": "2026-05-15T09:40:50-05:00",
+    "current_topic": null,
+    "topics": [
+      {
+        "name": "morning-boot",
+        "loops": [
+          {
+            "task": "boot-sequence",
+            "resolved": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "session-2026-05-15-094050",
+    "started": "2026-05-15T09:40:50-05:00",
+    "closed": "2026-05-22T09:44:04-05:00",
+    "current_topic": null,
+    "topics": [
+      {
+        "name": "morning-boot",
+        "loops": [
+          {
+            "task": "boot-sequence",
+            "resolved": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "session-2026-05-22-094404",
+    "started": "2026-05-22T09:44:04-05:00",
+    "closed": "2026-05-28T10:09:41-05:00",
+    "current_topic": null,
+    "topics": [
+      {
+        "name": "morning-boot",
+        "loops": [
+          {
+            "task": "boot-sequence",
+            "resolved": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "session-2026-05-28-100941",
+    "started": "2026-05-28T10:09:41-05:00",
+    "closed": "2026-06-04T08:10:15-05:00",
+    "current_topic": null,
+    "topics": [
+      {
+        "name": "morning-boot",
+        "loops": [
+          {
+            "task": "boot-sequence",
+            "resolved": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "session-2026-06-04-081015",
+    "started": "2026-06-04T08:10:15-05:00",
+    "closed": "2026-06-12T08:27:00-05:00",
+    "current_topic": null,
+    "topics": [
+      {
+        "name": "morning-boot",
+        "loops": [
+          {
+            "task": "boot-sequence",
+            "resolved": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "session-2026-06-12-082700",
+    "started": "2026-06-12T08:27:00-05:00",
+    "closed": "2026-06-15T09:35:44-05:00",
+    "current_topic": null,
+    "topics": [
+      {
+        "name": "morning-boot",
+        "loops": [
+          {
+            "task": "boot-sequence",
+            "resolved": true
+          }
+        ]
+      },
+      {
+        "name": "plaud-ingest",
+        "loops": [
+          {
+            "task": "3 Jun 9 transcripts processed: Cresta PE (3558ce2d), IBP/Joshua Fryer (8a61f1e), SMU/Aren Cambre (a0c8a0e). Speaker tags corrected (Andrew Neuberger, Cresta Funds). Vault notes updated, staging cleaned. 2 pending recordings surfaced.",
+            "resolved": true
+          }
+        ],
+        "files": [
+          "zzPlaud/Client/2026-06-09 PE Firm AI Consultation - Data Strategy and AI Adoption for Lower Middle Market Fund.md",
+          "zzPlaud/Improving/2026-06-09 IBP Coaching Call - Joshua Fryer on Cohort Dynamics, AI Coaching, and Career Development.md",
+          "zzPlaud/Improving/2026-06-09 SMU MS in AI for Business - Advisory Board Partnership Discussion with Aren Cambre.md",
+          "systems/error-tracking/entries/err-20260612T143248-35EWVQ.json"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "session-2026-06-15-093544",
+    "started": "2026-06-15T09:35:44-05:00",
+    "closed": "2026-06-16T07:13:55-05:00",
+    "current_topic": null,
+    "topics": [
+      {
+        "name": "morning-boot",
+        "loops": [
+          {
+            "task": "boot-sequence",
+            "resolved": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "session-2026-06-16-071355",
+    "started": "2026-06-16T07:13:55-05:00",
+    "closed": "2026-06-18T08:41:48-05:00",
+    "current_topic": null,
+    "topics": [
+      {
+        "name": "morning-boot",
+        "loops": [
+          {
+            "task": "boot-sequence",
+            "resolved": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "session-2026-06-18-084148",
+    "started": "2026-06-18T08:41:48-05:00",
+    "closed": "2026-06-19T09:27:35-05:00",
+    "current_topic": null,
+    "topics": [
+      {
+        "name": "morning-boot",
+        "loops": [
+          {
+            "task": "boot-sequence",
+            "resolved": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "session-2026-06-19-092735",
+    "started": "2026-06-19T09:27:35-05:00",
+    "closed": "2026-06-23T09:44:57-05:00",
+    "current_topic": null,
+    "topics": [
+      {
+        "name": "morning-boot",
+        "loops": [
+          {
+            "task": "boot-sequence",
+            "resolved": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "session-2026-06-23-094457",
+    "started": "2026-06-23T09:44:57-05:00",
+    "closed": "2026-06-23T17:00:00-05:00",
+    "current_topic": null,
+    "topics": [
+      {
+        "name": "morning-boot",
+        "loops": [
+          {
+            "task": "boot-sequence \u2014 full workflow completed",
+            "resolved": true
+          }
+        ]
+      },
+      {
+        "name": "content-pipeline-rework",
+        "loops": [
+          {
+            "task": "Digest input path, Ghost Admin API consolidation, fast-exit gate \u2014 Rigby built and committed",
+            "resolved": true
+          }
+        ]
+      },
+      {
+        "name": "kazakhstan-deck",
+        "loops": [
+          {
+            "task": "13-slide Improving-branded deck built \u2014 Enterprise Shift slides, Agent Receipts, MIT NANDA, real client stories on What We've Built slide",
+            "resolved": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "session-2026-06-24-000000",
+    "started": "2026-06-24T00:00:00-05:00",
+    "closed": "2026-06-25T03:05:33-05:00",
+    "current_topic": null,
+    "topics": [
+      {
+        "name": "morning-boot",
+        "loops": [
+          {
+            "task": "boot-sequence",
+            "resolved": true
+          }
+        ]
+      },
+      {
+        "name": "plaud-ingest",
+        "loops": [
+          {
+            "task": "3 recordings ingested: xAI/Cole Estrate (Jun 22), Sales Performance Review/McGreal (Jun 23), Strategic Dialogue/Devlin (Jun 23)",
+            "resolved": true
+          }
+        ]
+      },
+      {
+        "name": "content-pipeline-obsidian",
+        "loops": [
+          {
+            "task": "step-02 Obsidian publish integration built \u2014 rename, status:Published, published_url, article vs post routing, obsidian_slug field; step-01 content_type detection added; 5 pending Ghost drafts backfilled",
+            "resolved": true
+          }
+        ]
+      },
+      {
+        "name": "remarkable-fixes",
+        "loops": [
+          {
+            "task": "Cole Estrate \u2014 xAI.pdf renamed and moved to /Meetings; skill updated to prevent new folder creation and enforce conventions",
+            "resolved": true
+          }
+        ]
+      },
+      {
+        "name": "daily-review",
+        "loops": [
+          {
+            "task": "Daily review written to reviews/daily/2026-06-24.md",
+            "resolved": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "session-2026-06-25-080000",
+    "started": "2026-06-25T08:00:00-05:00",
+    "closed": "2026-06-25T21:11:58-05:00",
+    "current_topic": null,
+    "topics": [
+      {
+        "name": "morning-boot",
+        "loops": [
+          {
+            "task": "boot-sequence \u2014 full workflow completed",
+            "resolved": true
+          }
+        ]
+      },
+      {
+        "name": "dexa-review",
+        "loops": [
+          {
+            "task": "DEXA Jun 25 reviewed by Galen \u2014 16.5% BF, -7.4 lbs lean mass, VAT -44%. tracking.json created, supplement-stack corrected.",
+            "resolved": true
+          }
+        ]
+      },
+      {
+        "name": "one-texas-decks",
+        "loops": [
+          {
+            "task": "Monthly Update + Q2 Scorecard recovered from git, moved to OneDrive/Presentations/One Texas/Monthly Meetings/, renamed to convention.",
+            "resolved": true
+          }
+        ]
+      },
+      {
+        "name": "systemic-compliance-prep",
+        "loops": [
+          {
+            "task": "Full research + call prep PDF built and pushed to reMarkable. SOW signed, kick-off Jun 30 4PM.",
+            "resolved": true
+          }
+        ]
+      },
+      {
+        "name": "rmapi-fix",
+        "loops": [
+          {
+            "task": "rmapi config repaired (corrupt JWT \u2192 re-authenticated). Working.",
+            "resolved": true
+          }
+        ]
+      },
+      {
+        "name": "daily-review",
+        "loops": [
+          {
+            "task": "Daily review written to reviews/daily/2026-06-25.md",
+            "resolved": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "session-2026-06-26-000000",
+    "started": "2026-06-26T08:00:00-05:00",
+    "closed": "2026-06-26T18:00:00-05:00",
+    "current_topic": null,
+    "topics": [
+      {
+        "name": "morning-boot",
+        "loops": [
+          {
+            "task": "boot-sequence \u2014 full workflow completed",
+            "resolved": true
+          }
+        ]
+      },
+      {
+        "name": "protein-shake-protocol",
+        "loops": [
+          {
+            "task": "Shake logged to protocol.md \u2014 42g protein, AM post-workout, daily",
+            "resolved": true
+          }
+        ]
+      },
+      {
+        "name": "peptide-stack-start",
+        "loops": [
+          {
+            "task": "Stack starts Jun 29 \u2014 MOTS-C/Tesamorelin/Ipamorelin logged, boot reminder cleared",
+            "resolved": true
+          }
+        ]
+      },
+      {
+        "name": "kazakhstan-prep",
+        "loops": [
+          {
+            "task": "Cultural customs surfaced pre-meeting",
+            "resolved": true
+          }
+        ]
+      },
+      {
+        "name": "shutdown-cleanup",
+        "loops": [
+          {
+            "task": "tasks/ deleted, content/ retained, daily review written, committing",
+            "resolved": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "session-2026-06-29-094900",
+    "started": "2026-06-29T09:49:00-05:00",
+    "closed": "2026-06-29T18:00:00-05:00",
+    "current_topic": null,
+    "topics": [
+      {
+        "name": "morning-boot",
+        "loops": [
+          {
+            "task": "boot-sequence",
+            "resolved": false
+          }
+        ]
+      },
+      {
+        "name": "revenue-tracker",
+        "loops": [
+          {
+            "task": "Revenue pulled \u2014 South Texas 74% 90-day, One Texas -11% vs target, Q2 high-risk close",
+            "resolved": true
+          }
+        ]
+      },
+      {
+        "name": "co-sell-pipeline",
+        "loops": [
+          {
+            "task": "Co-sell snapshot \u2014 Q2 closed with $9.4M gap, PowerBI filter issue identified, June 9 data is accurate One Texas view",
+            "resolved": true
+          }
+        ]
+      },
+      {
+        "name": "daily-review",
+        "loops": [
+          {
+            "task": "Daily review written to reviews/daily/2026-06-29.md",
+            "resolved": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "session-2026-06-30-091420",
+    "started": "2026-06-30T09:14:20-05:00",
+    "closed": "2026-07-01T08:30:00-05:00",
+    "current_topic": null,
+    "topics": [
+      {
+        "name": "morning-boot",
+        "loops": [
+          {
+            "task": "boot-sequence",
+            "resolved": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "session-2026-07-01-083000",
+    "started": "2026-07-01T08:30:00-05:00",
+    "closed": "2026-07-02T09:00:00-05:00",
+    "current_topic": null,
+    "topics": [
+      {
+        "name": "morning-boot",
+        "loops": [
+          {
+            "task": "boot-sequence \u2014 full 7-step workflow completed, briefing delivered",
+            "resolved": true
+          }
+        ]
+      },
+      {
+        "name": "plaud-ingest",
+        "loops": [
+          {
+            "task": "Knox ran plaud-ingest \u2014 3 new Jun 30 recordings found, 1 pending transcription, 2 staged. Awaiting David on 2 ambiguous speaker IDs (Systemic Compliance AI Strategy call).",
+            "resolved": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "session-2026-07-02-000000",
+    "started": "2026-07-02T00:00:00-05:00",
+    "closed": "2026-07-02T17:00:00-05:00",
+    "current_topic": null,
+    "topics": [
+      {
+        "name": "daily-review",
+        "loops": [
+          {
+            "task": "Daily review written to reviews/daily/2026-07-02.md. 3 tasks created in OmniFocus (Scott Sexton follow-up, VP Scorecard for Kevin, Josh Stevenson/Microsoft).",
+            "resolved": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "session-2026-07-03-060938",
+    "started": "2026-07-03T06:09:38-05:00",
+    "closed": "2026-07-06T09:51:00-05:00",
+    "current_topic": null,
+    "topics": [
+      {
+        "name": "morning-briefing",
+        "loops": [
+          {
+            "task": "Scheduled autonomous morning briefing \u2014 David OOO (July 4th holiday, then PTO through 7/13)",
+            "resolved": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "session-2026-07-06-095100",
+    "started": "2026-07-06T09:51:00-05:00",
+    "closed": "2026-07-08T09:53:19-05:00",
+    "current_topic": null,
+    "topics": [
+      {
+        "name": "morning-boot",
+        "loops": [
+          {
+            "task": "boot-sequence",
+            "resolved": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "session-2026-07-08-095319",
+    "started": "2026-07-08T09:53:19-05:00",
+    "closed": "2026-07-09T09:09:44-05:00",
+    "current_topic": null,
+    "topics": [
+      {
+        "name": "morning-boot",
+        "loops": [
+          {
+            "task": "boot-sequence \u2014 stale, closed by next-day session init",
+            "resolved": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "session-2026-07-09-090944",
+    "started": "2026-07-09T09:09:44-05:00",
+    "closed": "2026-07-10T22:21:15-05:00",
+    "current_topic": null,
+    "topics": [
+      {
+        "name": "morning-boot",
+        "loops": [
+          {
+            "task": "boot-sequence",
+            "resolved": false
+          }
+        ]
+      },
+      {
+        "name": "system-eval",
+        "files": [],
+        "loops": [
+          {
+            "text": "run Rigby system-eval workflow \u2014 full eval maintenance cycle",
+            "resolved": true
+          },
+          {
+            "text": "daily-review phantom success at 36% (9/25 runs) \u2014 stale session_id root cause, Chief's scheduled runner not generating fresh context; needs fix before daily-review can be trusted",
+            "resolved": false
+          },
+          {
+            "text": "close-eval-record.py needs --eval-id flag to prevent spurious duplicate on session_id mismatch",
+            "resolved": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "session-2026-07-10-090906",
+    "started": "2026-07-10T09:09:06-05:00",
+    "closed": "2026-07-10T17:30:46-05:00",
+    "current_topic": null,
+    "topics": [
+      {
+        "name": "morning-boot",
+        "loops": [
+          {
+            "task": "boot-sequence",
+            "resolved": false
+          }
+        ]
+      },
+      {
+        "name": "mike-rosa-drc-prep",
+        "loops": [
+          {
+            "task": "Meeting prep built for Mike Rosa/DRC \u2014 meetings/2026-07-10-mike-rosa-drc.md + Mike Rosa.pdf",
+            "resolved": true
+          }
+        ],
+        "files": [
+          "meetings/2026-07-10-mike-rosa-drc.md",
+          "meetings/Mike Rosa.pdf"
+        ]
+      },
+      {
+        "name": "systemic-compliance-synthesis",
+        "loops": [
+          {
+            "task": "Whiteboard notes (Jul 8) and synthesis of committed outcomes (Jul 10) captured for Systemic Compliance account",
+            "resolved": true
+          }
+        ],
+        "files": [
+          "accounts/Systemic Compliance/2026-07-08-whiteboard-notes.md",
+          "accounts/Systemic Compliance/2026-07-10-synthesis-committed-outcomes.md",
+          "accounts/Systemic Compliance/IMG_6315.JPG",
+          "accounts/Systemic Compliance/IMG_6316.JPG"
+        ]
+      },
+      {
+        "name": "weekly-review-w28",
+        "loops": [
+          {
+            "task": "Weekly review written to reviews/weekly/2026-W28.md",
+            "resolved": true
+          }
+        ],
+        "files": [
+          "reviews/weekly/2026-W28.md"
+        ]
+      },
+      {
+        "name": "shutdown-cleanup",
+        "loops": [
+          {
+            "task": "Purged .DS_Store x4 and intermediate meetings/mike-rosa-prep.html, verified naming/gitignore, closed session, committed",
+            "resolved": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "session-2026-07-10-221215",
+    "started": "2026-07-10T22:21:15-05:00",
+    "closed": "2026-07-10T22:21:15-05:00",
+    "current_topic": null,
+    "topics": [
+      {
+        "name": "shutdown-cleanup",
+        "loops": [
+          {
+            "task": "Folder scan + session exit \u2014 ypo_members.xlsx/v2 moved to YPO/, business_os_body_slide.pptx staged in presentations/, content-pipeline state.yaml committed, session index closed.",
+            "resolved": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "session-2026-07-13-094046",
+    "started": "2026-07-13T09:40:46-05:00",
+    "closed": "2026-07-14T09:00:00-05:00",
+    "current_topic": null,
+    "topics": [
+      {
+        "name": "morning-boot",
+        "loops": [
+          {
+            "task": "boot-sequence \u2014 stale, closed by next-day session init",
+            "resolved": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "session-2026-07-14-090000",
+    "started": "2026-07-14T09:00:00-05:00",
+    "closed": "2026-07-14T18:07:00-05:00",
+    "current_topic": null,
+    "topics": [
+      {
+        "name": "morning-boot",
+        "loops": [
+          {
+            "task": "boot-sequence \u2014 completed with 3 errors logged",
+            "resolved": true
+          }
+        ]
+      },
+      {
+        "name": "plaud-ingest",
+        "loops": [
+          {
+            "task": "2 recordings ingested: Jul 13 Kapil Dabi lunch, Jul 14 Steve Hall coffee. 7 OmniFocus tasks created.",
+            "resolved": true
+          }
+        ]
+      },
+      {
+        "name": "one-texas-scorecard",
+        "loops": [
+          {
+            "task": "Scorecard updated through June 2026 \u2014 Dallas +4% CQ, South Texas -23%, H2 needs $42.4M",
+            "resolved": true
+          }
+        ]
+      },
+      {
+        "name": "comp-tracker",
+        "loops": [
+          {
+            "task": "Full rerun with corrected PowerBI data \u2014 BoB $6.68M, regional -5.5% YoY, Comp 3 $0",
+            "resolved": true
+          }
+        ]
+      },
+      {
+        "name": "plaud-ingest-bugfix",
+        "loops": [
+          {
+            "task": "Rigby fixed 2 bugs: transcript in <details> body, working memory writes to IES filesystem. Commit 6de35196.",
+            "resolved": true
+          }
+        ]
+      },
+      {
+        "name": "shutdown-cleanup",
+        "loops": [
+          {
+            "task": "DS_Store purged, working memory written, session closed, committed",
+            "resolved": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "session-2026-07-17-091548",
+    "date": "2026-07-17",
+    "started": "2026-07-17T09:15:48-05:00",
+    "closed": "2026-07-21T14:25:49-05:00",
+    "current_topic": null,
+    "topics": [
+      {
+        "topic": "morning-boot",
+        "files": [],
+        "loops": [
+          {
+            "task": "boot-sequence \u2014 never closed out; superseded by session-2026-07-21-142549 which resumed the in-progress boot workflow. Closing retroactively during 2026-07-22 shutdown sweep.",
+            "resolved": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "session-2026-07-28-103601",
+    "started": "2026-07-28T10:36:01-05:00",
+    "closed": "2026-07-29T09:49:00-05:00",
+    "current_topic": null,
+    "topics": [
+      {
+        "name": "morning-boot",
+        "loops": [
+          {
+            "task": "boot-sequence \u2014 stale, closed by next-day session init",
+            "resolved": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "session-2026-07-29-094900",
+    "started": "2026-07-29T09:49:00-05:00",
+    "closed": "2026-07-30T00:00:00-05:00",
+    "current_topic": null,
+    "topics": [
+      {
+        "name": "morning-boot",
+        "loops": [
+          {
+            "task": "boot-sequence \u2014 stale, closed by next-day session init",
+            "resolved": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "session-2026-07-30-092431",
+    "started": "2026-07-30T09:24:31-05:00",
+    "closed": null,
+    "current_topic": "morning-boot",
+    "topics": [
+      {
+        "name": "morning-boot",
+        "loops": [
+          {
+            "task": "boot-sequence",
+            "resolved": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "session-2026-07-21-142549",
+    "started": "2026-07-21T14:25:49-05:00",
+    "closed": "2026-07-22T11:55:00-05:00",
+    "current_topic": null,
+    "topics": [
+      {
+        "name": "santas-wonderland-vision-slide",
+        "loops": [
+          {
+            "task": "Built new slide 3 'The Vision: One Brand, Every Day of the Year' for the Discovery Proposal deck, matched deck's visual style, validated and QA'd, saved back to account folder",
+            "resolved": true
+          }
+        ],
+        "files": [
+          "accounts/Santa's Wonderland/Santa's Wonderland - Discovery Proposal July 2026 - DOH.pptx"
+        ]
+      },
+      {
+        "name": "morning-boot",
+        "loops": [
+          {
+            "task": "Resumed stalled boot from step-05, refreshed calendar/email live, delivered briefing (2 double-bookings flagged, overdue OmniFocus items, 2 missing data files), all 7 steps verified complete",
+            "resolved": true
+          }
+        ],
+        "files": [
+          "workflows/boot/state.yaml",
+          "workflows/boot/steps/step-05-synthesize-briefing.md",
+          "workflows/boot/steps/step-06-scan-workflows.md",
+          "workflows/boot/steps/step-07-verify-completion.md"
+        ]
+      },
+      {
+        "name": "plaud-ingest-correction",
+        "loops": [
+          {
+            "task": "David corrected stale abort report; logged err-20260722T164142-KOFUWY; spawned Knox live; 2 recordings ingested, 1 shared with Alice, 1 Monday task created",
+            "resolved": true
+          }
+        ],
+        "files": [
+          "systems/error-tracking/entries/err-20260722T164142-KOFUWY.json",
+          "workflows/plaud-ingest/state.yaml",
+          "memory/working/2026-07-22-164500-knox-plaud-ingest.md"
+        ]
+      },
+      {
+        "name": "golf-shutdown-verification",
+        "loops": [
+          {
+            "task": "Verified (not just accepted) David's claim that golf-booking and shutdown-cleanup were fixed \u2014 both confirmed resolved, state.yaml updated on each with evidence",
+            "resolved": true
+          }
+        ],
+        "files": [
+          "workflows/golf-booking/state.yaml",
+          "workflows/shutdown-cleanup/state.yaml"
+        ]
+      },
+      {
+        "name": "shutdown",
+        "loops": [
+          {
+            "task": "Working memory sweep, eval feedback sweep (daily-review rated 3/neutral), session index closed, committing",
+            "resolved": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "session_id": "session-2026-08-03-091450",
+    "started": "2026-08-03T09:14:50.299140-05:00",
+    "closed": "2026-08-03T23:59:59-05:00",
+    "current_topic": null,
+    "topics": {
+      "morning-boot": {
+        "loops": [
+          {
+            "task": "Full boot sequence: identity load, calendar/email/OmniFocus pull, delegation & workflow scan, briefing synthesis",
+            "resolved": false
+          }
+        ],
+        "files": []
+      }
+    }
+  },
+  {
+    "id": "session-2026-08-05-104041",
+    "started": "2026-08-05T10:40:41-05:00",
+    "closed": "2026-08-05T18:00:00-05:00",
+    "current_topic": null,
+    "topics": [
+      {
+        "name": "morning-boot",
+        "loops": [
+          {
+            "task": "boot-sequence",
+            "resolved": false
+          }
+        ]
+      },
+      {
+        "name": "magline-call-prep",
+        "loops": [
+          {
+            "task": "Sourced Thomas DiStefano's Initial call brief.docx from SharePoint. Built single-page PDF call prep sheet (reportlab, 3 iterations). Pushed to reMarkable /Meetings. PDFs cleaned from IES root during shutdown.",
+            "resolved": true
+          }
+        ],
+        "files": [
+          "memory/working/2026-08-05-magline-call-prep.md",
+          "systems/eval-harness/skill-runs/remarkable-upload-latest.json"
+        ]
+      },
+      {
+        "name": "shutdown-cleanup",
+        "loops": [
+          {
+            "task": "Root PDFs purged, gitignore confirmed clean, working memory written, session closed, committing.",
+            "resolved": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "session-2026-08-06-090847",
+    "started": "2026-08-06T09:08:47-05:00",
+    "closed": "2026-08-07T09:00:00-05:00",
+    "current_topic": null,
+    "topics": [
+      {
+        "name": "morning-boot",
+        "loops": [
+          {
+            "task": "boot-sequence",
+            "resolved": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "session-2026-08-07-090000",
+    "started": "2026-08-07T09:00:00-05:00",
+    "closed": "2026-08-07T23:59:00-05:00",
+    "current_topic": null,
+    "topics": [
+      {
+        "name": "morning-boot",
+        "loops": [
+          {
+            "task": "boot-sequence",
+            "resolved": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "session-2026-08-10-090000",
+    "started": "2026-08-10T09:00:00-05:00",
+    "closed": "2026-08-11T09:37:57-05:00",
+    "current_topic": null,
+    "topics": [
+      {
+        "name": "morning-boot",
+        "loops": [
+          {
+            "task": "boot-sequence \u2014 stale, closed by next-day session init",
+            "resolved": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "session-2026-08-11-093757",
+    "started": "2026-08-11T09:37:57-05:00",
+    "closed": "2026-08-12T09:19:44-05:00",
+    "current_topic": null,
+    "topics": [
+      {
+        "name": "morning-boot",
+        "loops": [
+          {
+            "task": "boot-sequence \u2014 stale, closed by next-day session init",
+            "resolved": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "session-2026-08-12-091944",
+    "started": "2026-08-12T09:19:44-05:00",
+    "closed": null,
+    "current_topic": "morning-boot",
+    "topics": [
+      {
+        "name": "morning-boot",
+        "loops": [
+          {
+            "task": "boot-sequence",
+            "resolved": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "session-2026-08-21-121818",
+    "started": "2026-08-21T12:18:18-05:00",
+    "closed": null,
+    "current_topic": "morning-boot",
+    "topics": [
+      {
+        "name": "morning-boot",
+        "loops": [
+          {
+            "task": "Full 7-step boot workflow completed. Ralph verification caught and Master corrected 2 data-accuracy discrepancies (Task G event count, Task H message array). OmniFocus unreachable (tool absent) \u2014 flagged, not faked. Briefing delivered.",
+            "resolved": true
+          }
+        ],
+        "files": [
+          "workflows/boot/state.yaml",
+          "data/calendar-unified.json",
+          "data/email-unified.json",
+          "data/clay-reminders-unified.json",
+          "data/jarvis-inbox-unified.json",
+          "systems/error-tracking/entries/err-20260821T172416-V33KOT.json",
+          ".claude/hooks/post-tool-use.py",
+          "workflows/boot/steps/step-01-load-context.md",
+          "workflows/boot/steps/step-07-verify-completion.md",
+          "workflows/watchtower/steps/daily-step-01-gather.md",
+          "workflows/watchtower/steps/daily-step-06-report.md",
+          "workflows/watchtower/steps/weekly-step-01-synthesize.md",
+          "workflows/watchtower/steps/weekly-step-05-report.md",
+          "systems/eval-harness/schema.md",
+          "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/5dcfee22-ff31-47ff-a35c-90ecbfbf17fb/scratchpad/daily-review-stage4-submission/README.md",
+          "memory/working/eval-harness-hook-fix-2026-08-21.md",
+          "systems/error-tracking/entries/err-20260821T205744-4WG8RU.json",
+          "systems/eval-harness/backfill-all-eval-costs.py",
+          ".claude/hooks/eval-agent-stop.py",
+          "systems/eval-harness/runs/eval-20260822T122158-WSBXCV.json",
+          "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/8c94a4ce-c06e-41b5-adcb-cbccf35ca0d2/scratchpad/guardrail_bypass_test_results.md",
+          "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/8c94a4ce-c06e-41b5-adcb-cbccf35ca0d2/scratchpad/boot_eval_and_guardrail_audit.md",
+          "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/8c94a4ce-c06e-41b5-adcb-cbccf35ca0d2/scratchpad/STAGE_4_SUBMISSION_SUMMARY.md",
+          "workflows/boot/steps/step-01.5-unified-calendar-pull.md",
+          "workflows/boot/steps/step-02-gather-data.md",
+          "workflows/boot/steps/step-03-verify-phase2.md",
+          "workflows/boot/steps/step-04-gather-meeting-context.md",
+          "workflows/boot/steps/step-05-synthesize-briefing.md",
+          "workflows/boot/steps/step-06-scan-workflows.md",
+          "workflows/boot/steps/step-06.5-guardrail-checkpoint.md",
+          "workflows/plaud-ingest/state.yaml",
+          "workflows/plaud-ingest/steps/step-05b-share-with-alice.md",
+          "memory/working/plaud-ingest-2026-08-22-003000.md",
+          "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/8c94a4ce-c06e-41b5-adcb-cbccf35ca0d2/scratchpad/boot-stage4-submission/SUCCESS_RATE_REPORT.md",
+          "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/8c94a4ce-c06e-41b5-adcb-cbccf35ca0d2/scratchpad/boot-stage4-submission/BYPASS_TESTING_EVIDENCE.md",
+          "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/8c94a4ce-c06e-41b5-adcb-cbccf35ca0d2/scratchpad/boot-stage4-submission/MANIFEST.md",
+          "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/8c94a4ce-c06e-41b5-adcb-cbccf35ca0d2/scratchpad/boot-stage4-submission/AUDIT_TRAIL_SUMMARY.md",
+          "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/8c94a4ce-c06e-41b5-adcb-cbccf35ca0d2/scratchpad/boot-stage4-submission/README.md",
+          ".claude/hooks/step-complete.py",
+          "workflows/boot/workflow.md",
+          "workflows/boot/guardrails/step-01-load-context.json",
+          "workflows/boot/guardrails/step-02-gather-data.json",
+          "workflows/boot/guardrails/step-06.5-guardrail-checkpoint.json",
+          "workflows/boot/guardrails/README.md",
+          "workflows/boot/ARCHITECTURE.md",
+          "workflows/boot/guardrails/step-01.5-unified-calendar-pull.json",
+          "workflows/boot/guardrails/step-03-verify-phase2.json",
+          "workflows/boot/guardrails/step-04-gather-meeting-context.json",
+          "workflows/boot/guardrails/step-05-synthesize-briefing.json",
+          "workflows/boot/guardrails/step-06-scan-workflows.json",
+          "workflows/boot/guardrails/step-07-verify-completion.json",
+          "workflows/boot/MASTER-ORCHESTRATION.md",
+          "workflows/boot/STAGE-4-SYSTEM.md",
+          "workflows/boot/steps/step-01.2-unified-data-pull.md",
+          "systems/eval-harness/runs/eval-20260822T133415-O2X9ES.json",
+          "systems/eval-harness/runs/eval-20260822T133821-X2Y9R2.json",
+          "workflows/boot/invoke-step-complete-hook.py",
+          ".claude/hooks/eval-agent-start.py",
+          "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/8c94a4ce-c06e-41b5-adcb-cbccf35ca0d2/scratchpad/plaud_discover.py",
+          "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/8c94a4ce-c06e-41b5-adcb-cbccf35ca0d2/scratchpad/plaud_discover_full.py",
+          "systems/eval-harness/skill-runs/plaud-discover-latest.json",
+          "workflows/plaud-ingest/steps/step-01-discover.md",
+          "workflows/plaud-ingest/steps/step-02-trigger-transcription.md",
+          "workflows/plaud-ingest/steps/step-03-identify-speakers.md",
+          "workflows/plaud-ingest/steps/step-04-fetch-staging.md",
+          "systems/eval-harness/skill-runs/plaud-transcripts-latest.json",
+          "systems/error-tracking/entries/err-20260822T234958-KQ4YM4.json",
+          "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/abe62863-b9e4-45cb-b45a-901059db1bd2/scratchpad/vault_ids.json",
+          "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/abe62863-b9e4-45cb-b45a-901059db1bd2/scratchpad/2026-08-05 Clinical Follow-Up - Diagnostic Injection Relief with Dr. Nathan Walters.md",
+          "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/1c0ee058-8843-49b9-b2a3-4836a7b18891/scratchpad/fetch_plaud_patched.py",
+          "workflows/boot-verification/state.yaml",
+          "systems/error-tracking/entries/err-20260823T180831-DA0JBH.json",
+          "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/1c0ee058-8843-49b9-b2a3-4836a7b18891/scratchpad/boot-eval-fresh-comparison.html",
+          "workflows/error-improvement/state.yaml",
+          "agents/routing.md",
+          "SYSTEM.md",
+          "memory/episodic/2026-08-23-error-improvement-baseline.md",
+          "systems/error-tracking/_meta.json",
+          "systems/eval-harness/skill-runs/rigby-error-analysis-latest.json",
+          "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/c61bf121-56a6-4e8b-a533-377212629f6c/scratchpad/error-improvement-parallel-workflow.md",
+          "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/c61bf121-56a6-4e8b-a533-377212629f6c/scratchpad/step-02-analyze-parallel.md",
+          "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/c61bf121-56a6-4e8b-a533-377212629f6c/scratchpad/step-03-consolidate.md",
+          "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/c61bf121-56a6-4e8b-a533-377212629f6c/scratchpad/PARALLEL-IMPLEMENTATION-GUIDE.md",
+          "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/c61bf121-56a6-4e8b-a533-377212629f6c/scratchpad/architecture-comparison.html",
+          "workflows/dream-cycle/state.yaml",
+          "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/c61bf121-56a6-4e8b-a533-377212629f6c/scratchpad/step01_executor.py",
+          "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/c61bf121-56a6-4e8b-a533-377212629f6c/scratchpad/step03_executor.py",
+          "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/c61bf121-56a6-4e8b-a533-377212629f6c/scratchpad/step04_executor.py",
+          "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/c61bf121-56a6-4e8b-a533-377212629f6c/scratchpad/guardrails-step-01-archive-safety.md",
+          "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/c61bf121-56a6-4e8b-a533-377212629f6c/scratchpad/guardrails-step-02-score-distribution.md",
+          "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/c61bf121-56a6-4e8b-a533-377212629f6c/scratchpad/guardrails-step-03-promotion.md",
+          "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/c61bf121-56a6-4e8b-a533-377212629f6c/scratchpad/guardrails-step-04-compression.md",
+          "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/c61bf121-56a6-4e8b-a533-377212629f6c/scratchpad/guardrails-step-05-git-atomicity.md",
+          "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/c61bf121-56a6-4e8b-a533-377212629f6c/scratchpad/dream-cycle-guardrails-implementation.md",
+          "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/c61bf121-56a6-4e8b-a533-377212629f6c/scratchpad/dream-cycle-guardrails-visual.html",
+          "workflows/dream-cycle/steps/step-01-working-memory-cleanup.md",
+          "workflows/dream-cycle/steps/step-02-salience-scoring.md",
+          "workflows/dream-cycle/steps/step-03-semantic-promotion.md",
+          "workflows/dream-cycle/steps/step-04-episodic-compression.md",
+          "workflows/dream-cycle/steps/step-05-logging.md",
+          "meetings/2026-08-24-robyn-fuentes-1on1.md",
+          "memory/working/2026-08-24-shep-robyn-fuentes-1on1-prep.md",
+          "systems/eval-harness/skill-runs/shep-1on1-prep-latest.json",
+          "systems/error-tracking/entries/err-20260824T141523-QTOQ46.json",
+          "workflows/client-meeting-prep/state.yaml",
+          "meetings/Russell Frees \u2014 Henricksen \u2014 2026-08-24.md",
+          "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/234ee66b-049a-430e-abf2-46dd63c4158f/scratchpad/render_prep_sheet.py",
+          "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/234ee66b-049a-430e-abf2-46dd63c4158f/scratchpad/gen_pdf.py",
+          "systems/eval-harness/skill-runs/remarkable-upload-latest.json",
+          "meetings/2026-08-25-remington-hotels-workshop-context.md",
+          "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/234ee66b-049a-430e-abf2-46dd63c4158f/scratchpad/extract_pptx.py",
+          "meetings/2026-08-25-remington-hotels-workshop-plan.md",
+          "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/af5a0d28-04c8-4e52-bce3-03cce94e0c65/scratchpad/build_remington_deck.py",
+          "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/af5a0d28-04c8-4e52-bce3-03cce94e0c65/scratchpad/build_remington_deck_v2.py",
+          "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/af5a0d28-04c8-4e52-bce3-03cce94e0c65/scratchpad/build_remington_deck_v3.py",
+          "systems/eval-harness/token_usage.py",
+          "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/af5a0d28-04c8-4e52-bce3-03cce94e0c65/scratchpad/backfill_boot_tokens.py"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "session-2026-08-24-060000",
+    "started": "2026-08-24T06:00:00Z",
+    "closed": "2026-08-24T06:05:00Z",
+    "current_topic": null,
+    "topics": [
+      {
+        "name": "morning-boot",
+        "loops": [
+          {
+            "task": "boot-sequence \u2014 full workflow completed, now retroactively evaluated",
+            "resolved": true
+          }
+        ]
+      },
+      {
+        "topic": "unattributed",
+        "files": [
+          ".claude/hooks/eval-agent-start.py",
+          "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/af5a0d28-04c8-4e52-bce3-03cce94e0c65/scratchpad/validate_workflow_eval_coverage.py",
+          "workflows/content-pipeline/state.yaml",
+          "workflows/political-monitor/state.yaml",
+          "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/af5a0d28-04c8-4e52-bce3-03cce94e0c65/scratchpad/ensure_workflow_state_yaml.py",
+          "systems/error-tracking/entries/err-20260824T202814-WYVG7F.json",
+          ".claude/hooks/workflow-start.py",
+          ".claude/settings.json",
+          "workflows/boot/state.yaml",
+          "workflows/plaud-ingest/state.yaml",
+          "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/c0c94618-aad9-4cb8-9a23-9709b3637814/scratchpad/plaud_status_report.md",
+          "systems/eval-harness/skill-runs/plaud-trigger-latest.json",
+          "systems/eval-harness/skill-runs/plaud-speaker-id-latest.json",
+          "systems/error-tracking/entries/err-20260824T212837-2GT07M.json",
+          "systems/eval-harness/runs/eval-20260824T213000-BOOTRUN.json",
+          "systems/error-tracking/entries/err-20260824T213740-U5OFVH.json",
+          "workflows/boot/steps/step-01-load-context.md",
+          "workflows/boot/steps/step-01.5-unified-calendar-pull.md",
+          "workflows/boot/steps/step-02-gather-data.md",
+          "workflows/boot/steps/step-03-verify-phase2.md",
+          "workflows/boot/steps/step-04-gather-meeting-context.md",
+          "workflows/boot/steps/step-05-synthesize-briefing.md",
+          "workflows/boot/steps/step-06-scan-workflows.md",
+          "workflows/boot/steps/step-06.5-guardrail-checkpoint.md",
+          "workflows/boot/steps/step-07-verify-completion.md",
+          "systems/error-tracking/entries/err-20260824T214238-VGAVWC.json",
+          "systems/error-tracking/entries/err-20260824T214840-QRGASF.json",
+          "systems/error-tracking/entries/err-20260824T215128-FKPJYZ.json",
+          "systems/eval-harness/token_usage.py",
+          ".claude/hooks/step-complete.py",
+          ".claude/hooks/eval-agent-stop.py",
+          ".claude/hooks/post-tool-use.py",
+          "systems/eval-harness/validate-token-audit-trail.py",
+          "systems/error-tracking/entries/err-20260824T221402-AUDIT1.json",
+          "workflows/boot/MASTER-ORCHESTRATION.md",
+          "workflows/boot/guardrails/step-02-gather-data.json",
+          "workflows/boot/guardrails/step-05-synthesize-briefing.json",
+          "workflows/boot/guardrails/step-03-verify-phase2.json",
+          "workflows/boot/guardrails/step-04-gather-meeting-context.json",
+          "workflows/boot/guardrails/step-06-scan-workflows.json",
+          "workflows/boot/guardrails/step-07-verify-completion.json",
+          "workflows/boot/guardrails/step-01-load-context.json",
+          "workflows/boot/guardrails/step-01.5-unified-calendar-pull.json",
+          "workflows/boot/guardrails/step-06.5-guardrail-checkpoint.json",
+          "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/c0c94618-aad9-4cb8-9a23-9709b3637814/scratchpad/GUARDRAIL_CHECKPOINT_UPDATE.md",
+          "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/scratchpad/model-adoption-growth.html",
+          "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/scratchpad/model-adoption-cost-growth.html",
+          "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/scratchpad/adoption-vs-costs.html",
+          "data/calendar-unified.json",
+          "data/omnifocus-unified.json",
+          "workflows/boot/steps/step-01.2-unified-data-pull.md"
+        ],
+        "loops": [],
+        "flag": true
+      }
+    ]
+  },
+  {
+    "started": "2026-08-25T16:11:15.046497Z",
+    "closed": "2026-08-25T16:13:04.798914Z",
+    "current_topic": null,
+    "topics": [
+      {
+        "topic": "unattributed",
+        "files": [
+          "workflows/boot/state.yaml",
+          ".claude/hooks/workflow-start.py",
+          ".claude/hooks/post-tool-use.py",
+          "systems/eval-harness/runs/eval-20260825T160434-N58NZ6.json",
+          ".claude/hooks/step-complete.py",
+          "workflows/boot/verify/step-01-load-context.py",
+          "workflows/boot/verify/step-01.2-unified-data-pull.py",
+          "workflows/boot/verify/step-01.5-unified-calendar-pull.py",
+          "workflows/boot/verify/step-02-gather-data.py",
+          "workflows/boot/verify/step-02.5-measure-phase2.py",
+          "workflows/boot/verify/step-03-verify-phase2.py",
+          "workflows/boot/verify/step-04-gather-meeting-context.py",
+          "workflows/boot/verify/step-05-synthesize-briefing.py",
+          "workflows/boot/verify/step-06-scan-workflows.py",
+          "workflows/boot/verify/step-06.5-guardrail-checkpoint.py",
+          "workflows/boot/verify/step-07-verify-completion.py",
+          "workflows/boot/verify/step-08-knox-completion-check.py",
+          "workflows/morning-briefing/state.yaml"
+        ],
+        "loops": [],
+        "flag": true
+      }
+    ]
+  },
+  {
+    "started": "2026-08-25T17:14:37.010916Z",
+    "closed": null,
+    "current_topic": null,
+    "topics": [
+      {
+        "topic": "unattributed",
+        "files": [
+          "workflows/boot/steps/step-06.5-guardrail-checkpoint.md",
+          "workflows/boot/steps/step-07-verify-completion.md",
+          "workflows/boot/state.yaml",
+          "workflows/golf-booking/state.yaml",
+          "workflows/content-pipeline/state.yaml",
+          "workflows/golf-booking/verify/phase-1-preview.py",
+          "workflows/golf-booking/verify/phase-2-booking.py",
+          "workflows/daily-review/verify/step-01-capture.py",
+          "workflows/shutdown-cleanup/verify/step-01-purge-artifacts.py",
+          "workflows/daily-review/verify/step-02-set-tomorrow.py",
+          "workflows/shutdown-cleanup/verify/step-02-organize-deliverables.py",
+          "workflows/daily-review/verify/step-03-update-system.py",
+          "workflows/shutdown-cleanup/verify/step-03-gitignore-check.py",
+          "workflows/daily-review/verify/step-03b-guardrail-checkpoint.py",
+          "workflows/shutdown-cleanup/verify/step-04-commit.py",
+          "workflows/daily-review/verify/step-04-root-audit.py",
+          "workflows/content-pipeline/verify/step-01-discover.py",
+          "workflows/daily-review/verify/step-05-session-close.py",
+          "workflows/rock1-revenue-monthly/verify/step-02-save.py",
+          "workflows/content-pipeline/verify/step-02-approve.py",
+          "workflows/content-pipeline/verify/step-03-git-finalize.py",
+          "workflows/rock4-pipeline-weekly/verify/step-03-save.py",
+          "workflows/daily-review/verify/step-auto.py",
+          "workflows/weekly-review/verify/step-01-wins-and-misses.py",
+          "workflows/weekly-review/verify/step-02-rocks-review.py",
+          "workflows/weekly-review/verify/step-03-delegation-review.py",
+          "workflows/morning-briefing/verify/step-01-gather-calendar.py",
+          "workflows/morning-briefing/verify/step-02-gather-tasks.py",
+          "workflows/weekly-review/verify/step-04-inbox-and-calendar.py",
+          "workflows/morning-briefing/verify/step-03-gather-context.py",
+          "workflows/weekly-review/verify/step-05-people-check.py",
+          "workflows/morning-briefing/verify/step-03b-guardrail-checkpoint.py",
+          "workflows/weekly-review/verify/step-06-set-priorities.py",
+          "workflows/one-on-one-prep/verify/step-01-identify-meeting.py",
+          "workflows/morning-briefing/verify/step-04-synthesize-briefing.py",
+          "workflows/weekly-review/verify/step-07-social-tracker.py",
+          "workflows/one-on-one-prep/verify/step-02-gather-communications.py",
+          "workflows/plaud-ingest/verify/step-01-discover.py",
+          "workflows/one-on-one-prep/verify/step-03-gather-tasks.py",
+          "workflows/weekly-review/verify/step-08-eval-summary.py",
+          "workflows/one-on-one-prep/verify/step-04-assemble-brief.py",
+          "workflows/plaud-ingest/verify/step-02-trigger-transcription.py",
+          "workflows/one-on-one-prep/verify/step-05-quality-check-and-save.py",
+          "workflows/plaud-ingest/verify/step-03-identify-speakers.py",
+          "workflows/podcast-prep/verify/step-01-identify-episode.py",
+          "workflows/plaud-ingest/verify/step-04-fetch-staging.py",
+          "workflows/podcast-prep/verify/step-02-gather-data.py",
+          "workflows/podcast-prep/verify/step-03-build-prep-sheet.py",
+          "workflows/plaud-ingest/verify/step-05-ingest-vault.py",
+          "workflows/podcast-prep/verify/step-04-build-pdf-sheet.py",
+          "workflows/plaud-ingest/verify/step-05b-share-with-alice.py",
+          "workflows/podcast-prep/verify/step-05-generate-pdf.py",
+          "workflows/partner-meeting-prep/verify/step-01-identify-partner.py",
+          "workflows/partner-meeting-prep/verify/step-02-account-overlap.py",
+          "workflows/partner-meeting-prep/verify/step-03-events-and-context.py",
+          "workflows/partner-meeting-prep/verify/step-04-build-document.py",
+          "workflows/content-pipeline/pending-drafts.json",
+          "workflows/plaud-ingest/state.yaml",
+          "workflows/dream-cycle/state.yaml",
+          "memory/semantic/operational/2026-07-04-plaud-pattern.md",
+          "memory/semantic/operational/2026-06-12-dream-summary-pattern.md",
+          "memory/semantic/operational/2026-06-12-daily-review-pattern.md",
+          "memory/semantic/operational/2026-06-18-morning-briefing-pattern.md",
+          "memory/semantic/operational/2026-06-30-session-wrap-pattern.md",
+          "memory/semantic/operational/2026-06-25-system-health-pattern.md",
+          "systems/error-tracking/entries/err-20260826T081314-NBGENM.json",
+          "systems/error-tracking/entries/err-20260826T081453-664W53.json",
+          "memory/working/dream-summary-2026-08-26.md",
+          "workflows/dream-cycle/steps/step-01-working-memory-cleanup.md",
+          "workflows/dream-cycle/steps/step-02-salience-scoring.md",
+          "memory/semantic/operational/2026-06-18-pipeline-review-pattern.md",
+          "memory/semantic/operational/2026-06-24-revenue-tracker-pattern.md",
+          "memory/LESSONS.md",
+          "workflows/dream-cycle/steps/step-03-semantic-promotion.md",
+          "workflows/dream-cycle/steps/step-03b-guardrail-checkpoint.md",
+          "workflows/dream-cycle/steps/step-04-episodic-compression.md",
+          "workflows/dream-cycle/steps/step-05-logging.md",
+          "systems/error-tracking/entries/err-20260827T081312-8HOA70.json",
+          "systems/error-tracking/entries/err-20260826T193944-LZA3KU.json",
+          "data/calendar-unified.json",
+          "systems/eval-harness/hook_utils.py",
+          ".claude/hooks/eval-agent-start.py",
+          ".claude/hooks/eval-turn-start.py",
+          ".claude/settings.json",
+          ".claude/hooks/workflow-start.py",
+          "workflows/shutdown-cleanup/workflow.md",
+          "workflows/weekly-review/workflow.md",
+          "memory/sessions/index.json",
+          "data/email-unified.json",
+          "data/omnifocus-unified.json",
+          "data/clay-reminders-unified.json",
+          "data/jarvis-inbox-unified.json",
+          "workflows/boot/steps/step-01.2-unified-data-pull.md",
+          "workflows/boot/steps/step-01.5-unified-calendar-pull.md",
+          "workflows/morning-briefing/steps/step-01-gather-calendar.md",
+          "workflows/morning-briefing/steps/step-02-gather-tasks.md",
+          "workflows/morning-briefing/state.yaml",
+          "workflows/boot/steps/step-02-gather-data.md",
+          "workflows/boot/steps/step-02.5-measure-phase2.md",
+          "workflows/boot/steps/step-03-verify-phase2.md",
+          "workflows/morning-briefing/steps/step-03-gather-context.md",
+          "workflows/boot/steps/step-04-gather-meeting-context.md",
+          "workflows/morning-briefing/steps/step-03b-guardrail-checkpoint.md",
+          "workflows/morning-briefing/steps/step-04-synthesize-briefing.md",
+          "workflows/boot/steps/step-05-synthesize-briefing.md",
+          "memory/working/morning-briefing-2026-08-27-163900.md",
+          "workflows/boot/steps/step-06-scan-workflows.md",
+          "workflows/boot/steps/step-08-knox-completion-check.md",
+          ".claude/hooks/eval-turn-stop.py",
+          "skills/plaud-speaker-id/SKILL.md",
+          ".claude/skills/plaud-speaker-id/SKILL.md",
+          "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/0faf1016-2bec-49b8-9498-6d25e54e7bbb/scratchpad/h_sallie.md",
+          "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/0faf1016-2bec-49b8-9498-6d25e54e7bbb/scratchpad/h_remington.md",
+          "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/0faf1016-2bec-49b8-9498-6d25e54e7bbb/scratchpad/h_sim.md",
+          "systems/error-tracking/entries/err-20260827T175738-FI83PH.json",
+          "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Improving/2026-08-24 David-Robyn 1-on-1 - Sales Strategy and Account Management Review.md",
+          "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Improving/2026-08-24 Podcast-to-Pipeline Touch Base with Keylor Arroyo and Alice Mburu.md",
+          "systems/error-tracking/entries/err-20260827T182856-NG1ZWO.json",
+          "memory/working/plaud-ingest-2026-08-27-183100.md",
+          "SYSTEM.md",
+          "agents/master.md",
+          "systems/error-tracking/entries/err-20260827T183203-RSVL2A.json",
+          ".claude/hooks/tests/test_detect_workflow.py",
+          "systems/eval-harness/schema.md",
+          "workflows/shutdown-cleanup/state.yaml",
+          "workflows/shutdown-cleanup/steps/step-01-purge-artifacts.md",
+          "workflows/content-pipeline/steps/step-01-discover.md",
+          "workflows/shutdown-cleanup/steps/step-02-organize-deliverables.md",
+          "workflows/shutdown-cleanup/steps/step-03-gitignore-check.md",
+          "workflows/shutdown-cleanup/steps/step-04-commit.md",
+          "memory/working/shutdown-cleanup-2026-08-27-202000.md",
+          "systems/error-tracking/entries/err-20260828T080322-G7M1R6.json",
+          "systems/error-tracking/entries/err-20260828T081109-J571BH.json",
+          "memory/episodic/dream-summary-2026-08-26.md",
+          "memory/working/dream-summary-2026-08-28.md"
+        ],
+        "loops": [],
+        "flag": true
+      }
+    ]
+  },
+  {
+    "id": "session-2026-08-28T085856",
+    "started": "2026-08-28T08:58:56.392400-05:00",
+    "closed": null,
+    "current_topic": null,
+    "topics": [
+      {
+        "topic": "unattributed",
+        "files": [
+          "workflows/plaud-ingest/state.yaml",
+          "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/4378bed7-1972-4c0f-8361-48ef8b8f8d8b/scratchpad/plaud_discover.py",
+          "data/calendar-unified.json",
+          "data/omnifocus-unified.json",
+          "data/email-unified.json",
+          "data/clay-reminders-unified.json",
+          "data/jarvis-inbox-unified.json",
+          "workflows/boot/steps/step-01.2-unified-data-pull.md",
+          "workflows/boot/steps/step-01.5-unified-calendar-pull.md",
+          "workflows/boot/steps/step-02-gather-data.md",
+          "workflows/boot/steps/step-02.5-measure-phase2.md",
+          "workflows/boot/steps/step-03-verify-phase2.md",
+          "workflows/boot/steps/step-04-gather-meeting-context.md",
+          "workflows/boot/steps/step-05-synthesize-briefing.md",
+          "workflows/boot/steps/step-06-scan-workflows.md",
+          "workflows/boot/steps/step-06.5-guardrail-checkpoint.md",
+          "workflows/boot/steps/step-07-verify-completion.md",
+          "workflows/boot/state.yaml",
+          "workflows/boot/steps/step-08-knox-completion-check.md",
+          "systems/error-tracking/entries/err-20260828T140747-814VN9.json",
+          "skills/plaud-discover/SKILL.md",
+          "systems/error-tracking/entries/err-20260826T190948-QQMBTP.json",
+          "systems/error-tracking/entries/err-20260828T144849-I60TAU.json",
+          "systems/eval-harness/hook_utils.py",
+          ".claude/hooks/eval-turn-start.py",
+          ".claude/hooks/eval-turn-stop.py",
+          ".claude/hooks/eval-agent-start.py",
+          ".claude/hooks/post-tool-use.py",
+          ".claude/hooks/eval-tool-failure.py",
+          "systems/eval-harness/schema.md",
+          "systems/eval-harness/runs/eval-20260828T140308-WL89IY.json",
+          "memory/working/rigby-boot-eval-consolidation-2026-08-28.md"
+        ],
+        "loops": [],
+        "flag": true
+      }
+    ]
+  },
+  {
+    "id": "session-2026-08-28T110237",
+    "started": "2026-08-28T11:02:37.201886-05:00",
+    "closed": null,
+    "current_topic": null,
+    "topics": [
+      {
+        "topic": "unattributed",
+        "files": [
+          "data/email-unified.json",
+          "data/omnifocus-unified.json",
+          "data/clay-reminders-unified.json",
+          "data/jarvis-inbox-unified.json",
+          "workflows/boot/state.yaml",
+          "workflows/boot/steps/step-01.2-unified-data-pull.md",
+          "workflows/boot/steps/step-01.5-unified-calendar-pull.md",
+          "workflows/boot/steps/step-02-gather-data.md",
+          "workflows/boot/steps/step-02.5-measure-phase2.md",
+          "workflows/boot/steps/step-03-verify-phase2.md",
+          "workflows/boot/steps/step-04-gather-meeting-context.md",
+          "workflows/boot/steps/step-05-synthesize-briefing.md",
+          "workflows/boot/steps/step-06-scan-workflows.md",
+          "workflows/plaud-ingest/state.yaml",
+          "workflows/boot/steps/step-06.5-guardrail-checkpoint.md",
+          "workflows/boot/steps/step-08-knox-completion-check.md",
+          "workflows/boot/steps/step-07-verify-completion.md",
+          "systems/eval-harness/hook_utils.py",
+          ".claude/hooks/eval-agent-start.py",
+          ".claude/hooks/eval-agent-stop.py",
+          "systems/error-tracking/entries/err-20260828T165054-KKO771.json",
+          "projects/ai-certification-stage4/ies-stage4-certification/README.md",
+          ".claude/hooks/eval-turn-start.py",
+          ".claude/hooks/post-tool-use.py",
+          "memory/working/rigby-boot-eval-cowork-phantom-2026-08-28.md",
+          "/Users/davidohara/develop/improving/scims/docs/2026-08-28-matt-call-prep-sheet.md",
+          "systems/error-tracking/entries/err-20260828T171242-6UDJ3M.json",
+          "memory/working/end-of-day-review-2026-08-28-145136.md",
+          "memory/working/dream-summary-2026-08-27.md",
+          "workflows/dream-cycle/state.yaml",
+          "workflows/dream-cycle/steps/step-01-working-memory-cleanup.md",
+          "workflows/dream-cycle/steps/step-02-salience-scoring.md",
+          "memory/semantic/operational/2026-06-12-dream-summary-pattern.md",
+          "memory/episodic/dream-summary-2026-08-27.md",
+          "memory/LESSONS.md",
+          "workflows/dream-cycle/steps/step-03-semantic-promotion.md",
+          "workflows/dream-cycle/steps/step-03b-guardrail-checkpoint.md",
+          "workflows/dream-cycle/steps/step-04-episodic-compression.md",
+          "memory/working/dream-summary-2026-08-29.md",
+          "workflows/dream-cycle/steps/step-05-logging.md",
+          "memory/episodic/digests/2026-Q2-digest.md",
+          "projects/ai-certification/ies-stage4-certification/06-success-rate-report/e2e-success-rate-report.md",
+          "projects/ai-certification/ies-stage4-certification/README.md",
+          "systems/error-tracking/entries/err-20260829T161002-X7JBHO.json",
+          "systems/error-tracking/entries/err-20260829T161711-3IPMKR.json",
+          ".claude/hooks/eval-turn-stop.py",
+          "systems/eval-harness/close-open-evals.py",
+          ".claude/hooks/tests/test_phantom_boot_record.py",
+          "memory/semantic/operational/2026-07-04-plaud-pattern.md",
+          "memory/semantic/operational/2026-06-30-session-wrap-pattern.md",
+          "memory/episodic/dream-summary-2026-08-28.md",
+          "memory/episodic/plaud-ingest-2026-08-27-183100.md",
+          "memory/episodic/shutdown-cleanup-2026-08-27-202000.md",
+          "memory/working/dream-summary-2026-08-30.md",
+          "memory/episodic/dream-summary-2026-08-29.md",
+          "memory/episodic/end-of-day-review-2026-08-28-145136.md",
+          "systems/error-tracking/entries/err-20260831T080618-284VH8.json",
+          "memory/episodic/shutdown-cleanup-2026-08-07-162834.md",
+          "memory/semantic/operational/2026-06-12-daily-review-pattern.md",
+          "memory/working/dream-summary-2026-08-31.md"
+        ],
+        "loops": [],
+        "flag": true
+      }
+    ]
+  },
+  {
+    "id": "session-2026-08-31-000000",
+    "started": "2026-08-31T00:00:00-05:00",
+    "closed": null,
+    "current_topic": "morning-boot",
+    "topics": [
+      {
+        "name": "morning-boot",
+        "loops": [
+          {
+            "task": "boot-sequence",
+            "resolved": false
+          }
+        ],
+        "files": [
+          "memory/sessions/index.json",
+          "workflows/boot/state.yaml",
+          "workflows/plaud-ingest/state.yaml",
+          "data/email-unified.json",
+          "data/omnifocus-unified.json",
+          "data/clay-reminders-unified.json",
+          "data/jarvis-inbox-unified.json",
+          "workflows/boot/steps/step-01.2-unified-data-pull.md",
+          "data/calendar-unified.json",
+          "workflows/boot/steps/step-01.5-unified-calendar-pull.md",
+          "workflows/boot/steps/step-02-gather-data.md",
+          "workflows/boot/steps/step-02.5-measure-phase2.md",
+          "workflows/boot/steps/step-03-verify-phase2.md",
+          "workflows/boot/steps/step-04-gather-meeting-context.md",
+          "systems/eval-harness/skill-runs/plaud-discover-latest.json",
+          "workflows/boot/steps/step-05-synthesize-briefing.md",
+          "workflows/morning-briefing/state.yaml",
+          "workflows/boot/steps/step-06-scan-workflows.md",
+          "workflows/boot/steps/step-06.5-guardrail-checkpoint.md",
+          "workflows/boot/steps/step-01-load-context.md",
+          "workflows/boot/steps/step-07-verify-completion.md",
+          "systems/error-tracking/entries/err-20260831T144849-LDEIJS.json",
+          "workflows/boot/steps/step-08-knox-completion-check.md",
+          "memory/working/knox-plaud-ingest-2026-08-31.md",
+          "systems/error-tracking/entries/err-20260831T145745-P4UXXX.json",
+          "systems/error-tracking/entries/err-20260831T145746-29X2M7.json",
+          "systems/error-tracking/entries/err-20260831T145747-LDPD1Q.json",
+          "systems/error-tracking/entries/err-20260831T145748-3SVX4A.json",
+          "skills/plaud-discover/SKILL.md",
+          ".claude/skills/plaud-discover/SKILL.md",
+          "workflows/plaud-ingest/steps/step-01-discover.md",
+          "skills/plaud-speaker-id/SKILL.md",
+          "systems/eval-harness/skill-runs/co-sell-pipeline-latest.json",
+          "memory/working/co-sell-pipeline-2026-08-31-150200.md",
+          ".claude/skills/plaud-speaker-id/SKILL.md",
+          "workflows/plaud-ingest/steps/step-03-identify-speakers.md",
+          "/Users/davidohara/Downloads/transcript-staging/plaud_08-26 Professional Catch-Up_ Health_ Family_ and Business Evolution.md",
+          "/Users/davidohara/Downloads/transcript-staging/plaud_08-28 Meeting_ YPO Gold Chapter Strategy_ Events_ Membership_ and Compliance.md",
+          "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/42e7a4be-f83a-42ce-b1f7-a28842ff1cf6/scratchpad/plaud-0826-note.md",
+          "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/YPO/2026-08-28 Meeting - YPO Gold Chapter Strategy, Events, Membership, and Compliance.md",
+          "systems/eval-harness/skill-runs/plaud-speaker-id-latest.json",
+          "/Users/davidohara/develop/improving/scorb/docs/2026-09-02-planning-workshop-stories.md",
+          "skills/vault-freshness-check/SKILL.md",
+          "skills/eval-signal-write/SKILL.md",
+          "skills/powerbi-navigate-slicer/SKILL.md",
+          "skills/powerbi-extract-kpis/SKILL.md",
+          "skills/pipeline-snapshot/SKILL.md",
+          "skills/co-sell-pipeline/SKILL.md",
+          "skills/new-clients/SKILL.md",
+          "skills/revenue-tracker/SKILL.md",
+          "skills/bookings-review/SKILL.md",
+          "skills/_index.md",
+          "content/forbes/2026-06-19-ai-roi-measurements-wrong.md",
+          "workflows/shutdown-cleanup/state.yaml",
+          "memory/working/shutdown-cleanup-2026-08-31-222924.md",
+          "/tmp/claude-0/-home-user-Jarvis/73cb4d36-8f86-5e91-9a2f-03ca4bee110f/scratchpad/scan_working.py",
+          "memory/working/dream-summary-2026-08-30.md",
+          "workflows/dream-cycle/steps/step-01-working-memory-cleanup.md",
+          "workflows/dream-cycle/state.yaml",
+          "/tmp/claude-0/-home-user-Jarvis/73cb4d36-8f86-5e91-9a2f-03ca4bee110f/scratchpad/repair_orphans.py",
+          "systems/error-tracking/entries/err-20260901T081243-R58BYW.json",
+          "workflows/dream-cycle/steps/step-02-salience-scoring.md",
+          "memory/semantic/operational/2026-06-12-dream-summary-pattern.md",
+          "memory/episodic/dream-summary-2026-08-30.md",
+          "workflows/dream-cycle/steps/step-03-semantic-promotion.md",
+          "workflows/dream-cycle/steps/step-03b-guardrail-checkpoint.md",
+          "workflows/dream-cycle/steps/step-04-episodic-compression.md",
+          "memory/dream.log",
+          "memory/working/dream-summary-2026-09-01.md",
+          "workflows/dream-cycle/steps/step-05-logging.md",
+          "systems/eval-harness/skill-runs/dream-cycle-latest.json",
+          "systems/dream-cycle/salience-score.py",
+          "systems/error-tracking/entries/err-20260828T081109-J571BH.json",
+          "systems/error-tracking/entries/err-20260831T080618-284VH8.json",
+          "systems/error-tracking/entries/err-20260825T081039-APAWBB.json",
+          "systems/error-tracking/entries/err-20260826T081314-NBGENM.json",
+          "systems/eval-harness/skill-runs/rigby-error-analysis-latest.json",
+          "memory/working/dream-summary-2026-08-31.md",
+          "memory/working/dream-summary-2026-09-02.md",
+          "systems/eval-harness/skill-runs/git-latest.json",
+          "systems/error-tracking/entries/err-20260902T160414-JDHWVX.json",
+          "systems/error-tracking/entries/err-20260902T160425-E9B7YR.json"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "session-2026-09-02-160000",
+    "started": "2026-09-02T16:00:00-05:00",
+    "closed": "2026-09-02T16:16:00-05:00",
+    "current_topic": "morning-boot",
+    "topics": [
+      {
+        "name": "morning-boot",
+        "loops": [
+          {
+            "task": "boot-sequence-steps-2-12",
+            "resolved": true
+          }
+        ],
+        "files": [
+          "workflows/boot/state.yaml",
+          "data/calendar-unified.json",
+          "data/email-unified.json",
+          "data/omnifocus-unified.json",
+          "data/clay-reminders-unified.json",
+          "data/jarvis-inbox-unified.json",
+          "workflows/boot/steps/step-01.2-unified-data-pull.md",
+          "workflows/boot/steps/step-01.5-unified-calendar-pull.md",
+          "workflows/boot/steps/step-02-gather-data.md",
+          "workflows/boot/steps/step-02.5-measure-phase2.md",
+          "workflows/boot/steps/step-03-verify-phase2.md",
+          "workflows/boot/steps/step-04-gather-meeting-context.md",
+          "workflows/boot/steps/step-05-synthesize-briefing.md",
+          "workflows/boot/steps/step-06-scan-workflows.md",
+          "workflows/boot/steps/step-06.5-guardrail-checkpoint.md",
+          "workflows/boot/steps/step-07-verify-completion.md",
+          "workflows/boot/steps/step-08-knox-completion-check.md",
+          "memory/sessions/index.json",
+          "workflows/plaud-ingest/state.yaml",
+          "skills/plaud-speaker-id/SKILL.md",
+          "workflows/plaud-ingest/steps/step-03-identify-speakers.md",
+          "systems/error-tracking/entries/err-20260902T160425-E9B7YR.json",
+          "systems/eval-harness/skill-runs/omnifocus-tasks-latest.json",
+          "workflows/golf-preview/workflow.md",
+          "workflows/golf-preview/state.yaml",
+          "workflows/golf-preview/steps/step-01-calculate-target-weekend.md",
+          "workflows/golf-preview/steps/step-02-calendar-conflict-check.md",
+          "workflows/golf-preview/steps/step-03-drought-and-weather.md",
+          "workflows/golf-preview/steps/step-04-score-and-write-output.md",
+          "workflows/golf-preview/verify/step-04-output-schema.py",
+          "workflows/golf-preview/steps/step-05-notify-slack.md",
+          "workflows/golf-preview/verify/step-05-slack-delivery.py",
+          "workflows/golf-booking/workflow.md",
+          "workflows/golf-booking/state.yaml",
+          "workflows/golf-booking/steps/step-01-read-preview-and-window-precheck.md",
+          "workflows/golf-booking/verify/step-01-window-precheck.py",
+          "workflows/golf-booking/steps/step-02-login-recovery.md",
+          "workflows/golf-booking/steps/step-03-navigate-select-players.md",
+          "workflows/golf-booking/steps/step-04-select-time-and-confirm.md",
+          "workflows/golf-booking/steps/step-05-visual-verification.md",
+          "workflows/golf-booking/steps/step-06-calendar-block.md",
+          "workflows/golf-booking/steps/step-07-slack-confirmation.md",
+          "workflows/golf-booking/verify/step-07-terminal-outcome.py",
+          "config/scheduled-tasks.json",
+          "agents/sterling.md",
+          "skills/visual-verification/SKILL.md",
+          "skills/calendar-handler/SKILL.md",
+          "skills/_index.md",
+          "evolutions/.pending-changes.json",
+          "systems/eval-harness/skill-runs/rigby-capability-build-latest.json",
+          "systems/eval-harness/skill-runs/git-latest.json",
+          "workflows/golf-booking/preview-output.json",
+          "systems/eval-harness/skill-runs/golf-preview-latest.json",
+          "systems/eval-harness/skill-runs/calendar-handler-latest.json",
+          "workflows/dream-cycle/state.yaml",
+          "workflows/dream-cycle/steps/step-01-working-memory-cleanup.md",
+          "workflows/dream-cycle/steps/step-02-salience-scoring.md",
+          "memory/semantic/operational/2026-06-12-dream-summary-pattern.md",
+          "memory/semantic/operational/2026-06-18-pipeline-review-pattern.md",
+          "memory/semantic/operational/2026-06-24-co-sell-pattern.md",
+          "memory/semantic/operational/2026-06-24-revenue-tracker-pattern.md",
+          "memory/semantic/operational/2026-06-30-session-wrap-pattern.md",
+          "workflows/dream-cycle/steps/step-03-semantic-promotion.md",
+          "workflows/dream-cycle/steps/step-03b-guardrail-checkpoint.md",
+          "workflows/dream-cycle/steps/step-04-episodic-compression.md",
+          "memory/working/dream-summary-2026-09-03.md",
+          "workflows/dream-cycle/steps/step-05-logging.md",
+          "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/a3b183c6-ddba-4967-a515-f6d1a3cb6fef/scratchpad/plaud_dedup.py",
+          "zzPlaud/Improving/2026-09-02 Podcast Interview - Tosan on Legal Tech AI Impact and Transformation.md",
+          "workflows/daily-review/state.yaml",
+          "reviews/daily/2026-09-02.md",
+          "memory/working/dream-summary-2026-09-02.md",
+          "memory/episodic/dream-summary-2026-09-02.md",
+          "memory/working/dream-summary-2026-09-04.md",
+          "systems/error-tracking/entries/err-20260904T081107-GYF8D1.json",
+          "systems/eval-harness/guardrail-checkpoint.py",
+          "/tmp/claude-0/-home-user-Jarvis/941e97eb-d95a-59b1-9505-65dab292dc31/scratchpad/guardrail-test/guardrail-checkpoint-test.py",
+          "memory/episodic/dream-summary-2026-09-03.md",
+          "systems/eval-harness/runs/eval-20260905T080940-W7MEXO.json",
+          "memory/working/dream-summary-2026-09-05.md",
+          "memory/episodic/dream-summary-2026-09-04.md",
+          "memory/LESSONS.md",
+          "memory/working/dream-summary-2026-09-06.md",
+          "memory/personal/quarterly-objectives.md",
+          "memory/semantic/operational/2026-06-25-health-pattern.md",
+          "systems/eval-harness/runs/eval-20260907T080442-PXWEQK.json",
+          "systems/eval-harness/runs/eval-20260907T080518-HJJE2C.json",
+          "memory/episodic/dream-summary-2026-09-05.md",
+          "systems/eval-harness/runs/eval-20260907T080916-ZF09EX.json",
+          "memory/working/dream-summary-2026-09-07.md",
+          "systems/eval-harness/skill-runs/dream-cycle-latest.json",
+          "memory/episodic/dream-summary-2026-09-06.md",
+          "systems/eval-harness/runs/eval-20260908T080733-VLWVWI.json",
+          "memory/working/dream-summary-2026-09-08.md",
+          "memory/working/plaud-ingest-2026-09-04-011500.md",
+          "memory/working/plaud-ingest-2026-09-04-104903.md",
+          "memory/episodic/dream-summary-2026-09-07.md",
+          "memory/semantic/operational/2026-07-04-plaud-pattern.md",
+          "memory/episodic/plaud-ingest-2026-09-04-011500.md",
+          "memory/episodic/plaud-ingest-2026-09-04-104903.md",
+          "systems/eval-harness/runs/eval-20260909T080809-P9BJ9U.json",
+          "memory/working/dream-summary-2026-09-09.md",
+          "systems/eval-harness/runs/eval-20260910T080853-46O0ZP.json",
+          "memory/working/dream-summary-2026-09-10.md",
+          "workflows/watchtower/state.yaml",
+          "workflows/watchtower/steps/daily-step-01-gather.md",
+          "systems/eval-harness/skill-runs/jarvis-inbox-latest.json",
+          "workflows/watchtower/steps/daily-step-02-dedupe.md",
+          "workflows/watchtower/steps/daily-step-03-score.md",
+          "workflows/watchtower/steps/daily-step-04-summarize.md",
+          "workflows/watchtower/steps/daily-step-04b-synthesize.md",
+          "workflows/watchtower/steps/daily-step-05-capture.md",
+          "workflows/watchtower/steps/daily-step-07-prune.md",
+          "workflows/watchtower/steps/daily-step-06-report.md",
+          "workflows/plaud-ingest/steps/step-01-discover.md",
+          "workflows/plaud-ingest/steps/step-02-trigger-transcription.md",
+          "systems/error-tracking/entries/err-20260909T000829-0JTVV6.json",
+          "systems/error-tracking/entries/err-20260909T010719-0BCW7C.json",
+          "systems/error-tracking/entries/err-20260909T011658-7M2K4W.json",
+          "systems/eval-harness/assertions/plaud-speaker-id.json",
+          "memory/episodic/dream-summary-2026-09-09.md",
+          "systems/error-tracking/entries/err-20260911T080849-3TCTQW.json",
+          "memory/working/dream-summary-2026-09-11.md"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "session-2026-09-11-boot",
+    "started": "2026-09-11T09:10:18-05:00",
+    "closed": null,
+    "current_topic": null,
+    "topics": [
+      {
+        "topic": "unattributed",
+        "files": [
+          "data/email-unified.json",
+          "data/omnifocus-unified.json",
+          "data/clay-reminders-unified.json",
+          "data/jarvis-inbox-unified.json",
+          "workflows/boot/state.yaml",
+          "systems/error-tracking/entries/err-20260911T141437-W87S4E.json",
+          "systems/error-tracking/entries/err-20260911T141503-K4M2N7.json",
+          "workflows/plaud-ingest/state.yaml",
+          "workflows/boot/steps/step-01.5-unified-calendar-pull.md",
+          "workflows/boot/steps/step-02-gather-data.md",
+          "workflows/boot/steps/step-02.5-measure-phase2.md",
+          "workflows/boot/steps/step-03-verify-phase2.md",
+          "workflows/boot/steps/step-04-gather-meeting-context.md",
+          "workflows/boot/steps/step-05-synthesize-briefing.md",
+          "workflows/boot/steps/step-06-scan-workflows.md",
+          "workflows/boot/steps/step-06.5-guardrail-checkpoint.md",
+          "workflows/boot/steps/step-01.2-unified-data-pull.md",
+          "workflows/boot/steps/step-07-verify-completion.md",
+          "workflows/boot/steps/step-08-knox-completion-check.md",
+          "zzPlaud/YPO/2026-09-08 Renzi Stone AI Workflow Working Session.md",
+          "Calendar/2026/09-September/2026-09-08.md",
+          "systems/eval-harness/skill-runs/plaud-transcripts-latest.json",
+          "systems/eval-harness/runs/eval-20260912T080306-RF32AB.json",
+          "workflows/dream-cycle/state.yaml",
+          "memory/semantic/operational/2026-06-12-dream-summary-pattern.md",
+          "memory/episodic/dream-summary-2026-09-10.md",
+          "memory/dream.log",
+          "memory/working/dream-summary-2026-09-12.md",
+          "systems/error-tracking/entries/err-20260912T080901-GNRQ9D.json",
+          "memory/working/dream-summary-2026-09-11.md",
+          "workflows/dream-cycle/steps/step-01-working-memory-cleanup.md",
+          "workflows/dream-cycle/steps/step-02-salience-scoring.md",
+          "memory/episodic/dream-summary-2026-09-11.md",
+          "workflows/dream-cycle/steps/step-03-semantic-promotion.md",
+          "systems/eval-harness/runs/eval-20260913T080520-P0BUKD.json",
+          "workflows/dream-cycle/steps/step-03b-guardrail-checkpoint.md",
+          "workflows/dream-cycle/steps/step-04-episodic-compression.md",
+          "memory/working/dream-summary-2026-09-13.md",
+          "workflows/dream-cycle/steps/step-05-logging.md",
+          "systems/eval-harness/skill-runs/git-latest.json",
+          "systems/eval-harness/skill-runs/dream-cycle-latest.json",
+          "memory/episodic/dream-summary-2026-09-12.md",
+          "data/calendar-unified.json",
+          "systems/eval-harness/skill-runs/jarvis-inbox-latest.json",
+          "systems/error-tracking/entries/err-20260914T162405-WCU1XX.json",
+          "workflows/plaud-ingest/steps/step-01-discover.md",
+          "systems/error-tracking/entries/err-20260914T195128-EHFST5.json",
+          "workflows/plaud-ingest/steps/step-02-trigger-transcription.md",
+          "workflows/plaud-ingest/steps/step-03-identify-speakers.md",
+          "systems/eval-harness/skill-runs/plaud-speaker-id-latest.json",
+          "workflows/plaud-ingest/steps/step-04-fetch-staging.md",
+          "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/b1f49c32-bc03-4f66-b943-9cc7f432d45f/scratchpad/note1-acg.md",
+          "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/b1f49c32-bc03-4f66-b943-9cc7f432d45f/scratchpad/note2-workshop.md",
+          "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/b1f49c32-bc03-4f66-b943-9cc7f432d45f/scratchpad/note3-hosting.md",
+          "workflows/plaud-ingest/steps/step-05-ingest-vault.md",
+          "memory/working/plaud-ingest-2026-09-14-150300.md",
+          "systems/eval-harness/skill-runs/delivery-router-latest.json",
+          "workflows/plaud-ingest/steps/step-05b-share-with-alice.md",
+          "workflows/shutdown-cleanup/state.yaml",
+          "systems/error-tracking/entries/err-20260915T120414-IFPD8I.json",
+          "workflows/shutdown-cleanup/steps/step-01-purge-artifacts.md",
+          "workflows/shutdown-cleanup/steps/step-02-organize-deliverables.md",
+          "workflows/shutdown-cleanup/steps/step-03-gitignore-check.md",
+          "workflows/shutdown-cleanup/steps/step-04-commit.md",
+          "memory/working/shutdown-cleanup-2026-09-15-025313.md",
+          "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/YPO/2026-09-08 Architecting a Personalized AI Executive Assistant with Renzi Stone.md",
+          "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Improving/2026-09-02 Podcast Prep Interview with Tosan Ojeahere (Thomson Reuters) - AI in Legal Tech and Talent Transformation.md",
+          "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Improving/2026-08-24 CC Breakfast Alignment with Bethany Hilton - Conscious Capitalism Event Logistics.md",
+          "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/Calendar/2026/08-August/2026-08-24.md",
+          "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/Calendar/2026/09-September/2026-09-02.md",
+          "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/Calendar/2026/09-September/2026-09-08.md",
+          "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Other/2026-09-14 FEI Monthly Meeting - KPMG AI in Finance Transformation Presentation.md",
+          "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/Calendar/2026/09-September/2026-09-14.md",
+          "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Improving/2026-09-14 GEHC AI Routing for DICOM Images - Project Status and Team Intro.md",
+          "systems/eval-harness/runs/eval-20260916T080359-5TGJ3L.json",
+          "memory/working/dream-summary-2026-09-14.md",
+          "memory/episodic/dream-summary-2026-09-14.md",
+          "memory/working/dream-summary-2026-09-16.md"
+        ],
+        "loops": [],
+        "flag": true
+      }
+    ]
+  },
+  {
+    "started": "2026-09-16T09:22:18.369531",
+    "closed": null,
+    "current_topic": "boot",
+    "topics": []
+  },
+  {
+    "started": "2026-09-17T11:02:07.756171",
+    "closed": "2026-09-17T18:26:21.320102",
+    "current_topic": null,
+    "topics": [
+      {
+        "topic": "unattributed",
+        "files": [
+          "delegations/tracker.md",
+          "systems/eval-harness/skill-runs/omnifocus-tasks-latest.json",
+          "systems/eval-harness/skill-runs/git-latest.json",
+          "workflows/daily-review/state.yaml"
+        ],
+        "loops": [],
+        "flag": true
+      }
+    ]
   }
- },
- {
-  "id": "session-2026-08-05-104041",
-  "started": "2026-08-05T10:40:41-05:00",
-  "closed": "2026-08-05T18:00:00-05:00",
-  "current_topic": null,
-  "topics": [
-   {
-    "name": "morning-boot",
-    "loops": [
-     {
-      "task": "boot-sequence",
-      "resolved": false
-     }
-    ]
-   },
-   {
-    "name": "magline-call-prep",
-    "loops": [
-     {
-      "task": "Sourced Thomas DiStefano's Initial call brief.docx from SharePoint. Built single-page PDF call prep sheet (reportlab, 3 iterations). Pushed to reMarkable /Meetings. PDFs cleaned from IES root during shutdown.",
-      "resolved": true
-     }
-    ],
-    "files": [
-     "memory/working/2026-08-05-magline-call-prep.md",
-     "systems/eval-harness/skill-runs/remarkable-upload-latest.json"
-    ]
-   },
-   {
-    "name": "shutdown-cleanup",
-    "loops": [
-     {
-      "task": "Root PDFs purged, gitignore confirmed clean, working memory written, session closed, committing.",
-      "resolved": true
-     }
-    ]
-   }
-  ]
- },
- {
-  "id": "session-2026-08-06-090847",
-  "started": "2026-08-06T09:08:47-05:00",
-  "closed": "2026-08-07T09:00:00-05:00",
-  "current_topic": null,
-  "topics": [
-   {
-    "name": "morning-boot",
-    "loops": [
-     {
-      "task": "boot-sequence",
-      "resolved": false
-     }
-    ]
-   }
-  ]
- },
- {
-  "id": "session-2026-08-07-090000",
-  "started": "2026-08-07T09:00:00-05:00",
-  "closed": "2026-08-07T23:59:00-05:00",
-  "current_topic": null,
-  "topics": [
-   {
-    "name": "morning-boot",
-    "loops": [
-     {
-      "task": "boot-sequence",
-      "resolved": false
-     }
-    ]
-   }
-  ]
- },
- {
-  "id": "session-2026-08-10-090000",
-  "started": "2026-08-10T09:00:00-05:00",
-  "closed": "2026-08-11T09:37:57-05:00",
-  "current_topic": null,
-  "topics": [
-   {
-    "name": "morning-boot",
-    "loops": [
-     {
-      "task": "boot-sequence \u2014 stale, closed by next-day session init",
-      "resolved": false
-     }
-    ]
-   }
-  ]
- },
- {
-  "id": "session-2026-08-11-093757",
-  "started": "2026-08-11T09:37:57-05:00",
-  "closed": "2026-08-12T09:19:44-05:00",
-  "current_topic": null,
-  "topics": [
-   {
-    "name": "morning-boot",
-    "loops": [
-     {
-      "task": "boot-sequence \u2014 stale, closed by next-day session init",
-      "resolved": false
-     }
-    ]
-   }
-  ]
- },
- {
-  "id": "session-2026-08-12-091944",
-  "started": "2026-08-12T09:19:44-05:00",
-  "closed": null,
-  "current_topic": "morning-boot",
-  "topics": [
-   {
-    "name": "morning-boot",
-    "loops": [
-     {
-      "task": "boot-sequence",
-      "resolved": false
-     }
-    ]
-   }
-  ]
- },
- {
-  "id": "session-2026-08-21-121818",
-  "started": "2026-08-21T12:18:18-05:00",
-  "closed": null,
-  "current_topic": "morning-boot",
-  "topics": [
-   {
-    "name": "morning-boot",
-    "loops": [
-     {
-      "task": "Full 7-step boot workflow completed. Ralph verification caught and Master corrected 2 data-accuracy discrepancies (Task G event count, Task H message array). OmniFocus unreachable (tool absent) \u2014 flagged, not faked. Briefing delivered.",
-      "resolved": true
-     }
-    ],
-    "files": [
-     "workflows/boot/state.yaml",
-     "data/calendar-unified.json",
-     "data/email-unified.json",
-     "data/clay-reminders-unified.json",
-     "data/jarvis-inbox-unified.json",
-     "systems/error-tracking/entries/err-20260821T172416-V33KOT.json",
-     ".claude/hooks/post-tool-use.py",
-     "workflows/boot/steps/step-01-load-context.md",
-     "workflows/boot/steps/step-07-verify-completion.md",
-     "workflows/watchtower/steps/daily-step-01-gather.md",
-     "workflows/watchtower/steps/daily-step-06-report.md",
-     "workflows/watchtower/steps/weekly-step-01-synthesize.md",
-     "workflows/watchtower/steps/weekly-step-05-report.md",
-     "systems/eval-harness/schema.md",
-     "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/5dcfee22-ff31-47ff-a35c-90ecbfbf17fb/scratchpad/daily-review-stage4-submission/README.md",
-     "memory/working/eval-harness-hook-fix-2026-08-21.md",
-     "systems/error-tracking/entries/err-20260821T205744-4WG8RU.json",
-     "systems/eval-harness/backfill-all-eval-costs.py",
-     ".claude/hooks/eval-agent-stop.py",
-     "systems/eval-harness/runs/eval-20260822T122158-WSBXCV.json",
-     "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/8c94a4ce-c06e-41b5-adcb-cbccf35ca0d2/scratchpad/guardrail_bypass_test_results.md",
-     "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/8c94a4ce-c06e-41b5-adcb-cbccf35ca0d2/scratchpad/boot_eval_and_guardrail_audit.md",
-     "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/8c94a4ce-c06e-41b5-adcb-cbccf35ca0d2/scratchpad/STAGE_4_SUBMISSION_SUMMARY.md",
-     "workflows/boot/steps/step-01.5-unified-calendar-pull.md",
-     "workflows/boot/steps/step-02-gather-data.md",
-     "workflows/boot/steps/step-03-verify-phase2.md",
-     "workflows/boot/steps/step-04-gather-meeting-context.md",
-     "workflows/boot/steps/step-05-synthesize-briefing.md",
-     "workflows/boot/steps/step-06-scan-workflows.md",
-     "workflows/boot/steps/step-06.5-guardrail-checkpoint.md",
-     "workflows/plaud-ingest/state.yaml",
-     "workflows/plaud-ingest/steps/step-05b-share-with-alice.md",
-     "memory/working/plaud-ingest-2026-08-22-003000.md",
-     "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/8c94a4ce-c06e-41b5-adcb-cbccf35ca0d2/scratchpad/boot-stage4-submission/SUCCESS_RATE_REPORT.md",
-     "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/8c94a4ce-c06e-41b5-adcb-cbccf35ca0d2/scratchpad/boot-stage4-submission/BYPASS_TESTING_EVIDENCE.md",
-     "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/8c94a4ce-c06e-41b5-adcb-cbccf35ca0d2/scratchpad/boot-stage4-submission/MANIFEST.md",
-     "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/8c94a4ce-c06e-41b5-adcb-cbccf35ca0d2/scratchpad/boot-stage4-submission/AUDIT_TRAIL_SUMMARY.md",
-     "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/8c94a4ce-c06e-41b5-adcb-cbccf35ca0d2/scratchpad/boot-stage4-submission/README.md",
-     ".claude/hooks/step-complete.py",
-     "workflows/boot/workflow.md",
-     "workflows/boot/guardrails/step-01-load-context.json",
-     "workflows/boot/guardrails/step-02-gather-data.json",
-     "workflows/boot/guardrails/step-06.5-guardrail-checkpoint.json",
-     "workflows/boot/guardrails/README.md",
-     "workflows/boot/ARCHITECTURE.md",
-     "workflows/boot/guardrails/step-01.5-unified-calendar-pull.json",
-     "workflows/boot/guardrails/step-03-verify-phase2.json",
-     "workflows/boot/guardrails/step-04-gather-meeting-context.json",
-     "workflows/boot/guardrails/step-05-synthesize-briefing.json",
-     "workflows/boot/guardrails/step-06-scan-workflows.json",
-     "workflows/boot/guardrails/step-07-verify-completion.json",
-     "workflows/boot/MASTER-ORCHESTRATION.md",
-     "workflows/boot/STAGE-4-SYSTEM.md",
-     "workflows/boot/steps/step-01.2-unified-data-pull.md",
-     "systems/eval-harness/runs/eval-20260822T133415-O2X9ES.json",
-     "systems/eval-harness/runs/eval-20260822T133821-X2Y9R2.json",
-     "workflows/boot/invoke-step-complete-hook.py",
-     ".claude/hooks/eval-agent-start.py",
-     "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/8c94a4ce-c06e-41b5-adcb-cbccf35ca0d2/scratchpad/plaud_discover.py",
-     "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/8c94a4ce-c06e-41b5-adcb-cbccf35ca0d2/scratchpad/plaud_discover_full.py",
-     "systems/eval-harness/skill-runs/plaud-discover-latest.json",
-     "workflows/plaud-ingest/steps/step-01-discover.md",
-     "workflows/plaud-ingest/steps/step-02-trigger-transcription.md",
-     "workflows/plaud-ingest/steps/step-03-identify-speakers.md",
-     "workflows/plaud-ingest/steps/step-04-fetch-staging.md",
-     "systems/eval-harness/skill-runs/plaud-transcripts-latest.json",
-     "systems/error-tracking/entries/err-20260822T234958-KQ4YM4.json",
-     "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/abe62863-b9e4-45cb-b45a-901059db1bd2/scratchpad/vault_ids.json",
-     "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/abe62863-b9e4-45cb-b45a-901059db1bd2/scratchpad/2026-08-05 Clinical Follow-Up - Diagnostic Injection Relief with Dr. Nathan Walters.md",
-     "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/1c0ee058-8843-49b9-b2a3-4836a7b18891/scratchpad/fetch_plaud_patched.py",
-     "workflows/boot-verification/state.yaml",
-     "systems/error-tracking/entries/err-20260823T180831-DA0JBH.json",
-     "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/1c0ee058-8843-49b9-b2a3-4836a7b18891/scratchpad/boot-eval-fresh-comparison.html",
-     "workflows/error-improvement/state.yaml",
-     "agents/routing.md",
-     "SYSTEM.md",
-     "memory/episodic/2026-08-23-error-improvement-baseline.md",
-     "systems/error-tracking/_meta.json",
-     "systems/eval-harness/skill-runs/rigby-error-analysis-latest.json",
-     "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/c61bf121-56a6-4e8b-a533-377212629f6c/scratchpad/error-improvement-parallel-workflow.md",
-     "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/c61bf121-56a6-4e8b-a533-377212629f6c/scratchpad/step-02-analyze-parallel.md",
-     "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/c61bf121-56a6-4e8b-a533-377212629f6c/scratchpad/step-03-consolidate.md",
-     "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/c61bf121-56a6-4e8b-a533-377212629f6c/scratchpad/PARALLEL-IMPLEMENTATION-GUIDE.md",
-     "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/c61bf121-56a6-4e8b-a533-377212629f6c/scratchpad/architecture-comparison.html",
-     "workflows/dream-cycle/state.yaml",
-     "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/c61bf121-56a6-4e8b-a533-377212629f6c/scratchpad/step01_executor.py",
-     "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/c61bf121-56a6-4e8b-a533-377212629f6c/scratchpad/step03_executor.py",
-     "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/c61bf121-56a6-4e8b-a533-377212629f6c/scratchpad/step04_executor.py",
-     "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/c61bf121-56a6-4e8b-a533-377212629f6c/scratchpad/guardrails-step-01-archive-safety.md",
-     "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/c61bf121-56a6-4e8b-a533-377212629f6c/scratchpad/guardrails-step-02-score-distribution.md",
-     "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/c61bf121-56a6-4e8b-a533-377212629f6c/scratchpad/guardrails-step-03-promotion.md",
-     "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/c61bf121-56a6-4e8b-a533-377212629f6c/scratchpad/guardrails-step-04-compression.md",
-     "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/c61bf121-56a6-4e8b-a533-377212629f6c/scratchpad/guardrails-step-05-git-atomicity.md",
-     "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/c61bf121-56a6-4e8b-a533-377212629f6c/scratchpad/dream-cycle-guardrails-implementation.md",
-     "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/c61bf121-56a6-4e8b-a533-377212629f6c/scratchpad/dream-cycle-guardrails-visual.html",
-     "workflows/dream-cycle/steps/step-01-working-memory-cleanup.md",
-     "workflows/dream-cycle/steps/step-02-salience-scoring.md",
-     "workflows/dream-cycle/steps/step-03-semantic-promotion.md",
-     "workflows/dream-cycle/steps/step-04-episodic-compression.md",
-     "workflows/dream-cycle/steps/step-05-logging.md",
-     "meetings/2026-08-24-robyn-fuentes-1on1.md",
-     "memory/working/2026-08-24-shep-robyn-fuentes-1on1-prep.md",
-     "systems/eval-harness/skill-runs/shep-1on1-prep-latest.json",
-     "systems/error-tracking/entries/err-20260824T141523-QTOQ46.json",
-     "workflows/client-meeting-prep/state.yaml",
-     "meetings/Russell Frees \u2014 Henricksen \u2014 2026-08-24.md",
-     "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/234ee66b-049a-430e-abf2-46dd63c4158f/scratchpad/render_prep_sheet.py",
-     "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/234ee66b-049a-430e-abf2-46dd63c4158f/scratchpad/gen_pdf.py",
-     "systems/eval-harness/skill-runs/remarkable-upload-latest.json",
-     "meetings/2026-08-25-remington-hotels-workshop-context.md",
-     "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/234ee66b-049a-430e-abf2-46dd63c4158f/scratchpad/extract_pptx.py",
-     "meetings/2026-08-25-remington-hotels-workshop-plan.md",
-     "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/af5a0d28-04c8-4e52-bce3-03cce94e0c65/scratchpad/build_remington_deck.py",
-     "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/af5a0d28-04c8-4e52-bce3-03cce94e0c65/scratchpad/build_remington_deck_v2.py",
-     "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/af5a0d28-04c8-4e52-bce3-03cce94e0c65/scratchpad/build_remington_deck_v3.py",
-     "systems/eval-harness/token_usage.py",
-     "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/af5a0d28-04c8-4e52-bce3-03cce94e0c65/scratchpad/backfill_boot_tokens.py"
-    ]
-   }
-  ]
- },
- {
-  "id": "session-2026-08-24-060000",
-  "started": "2026-08-24T06:00:00Z",
-  "closed": "2026-08-24T06:05:00Z",
-  "current_topic": null,
-  "topics": [
-   {
-    "name": "morning-boot",
-    "loops": [
-     {
-      "task": "boot-sequence \u2014 full workflow completed, now retroactively evaluated",
-      "resolved": true
-     }
-    ]
-   },
-   {
-    "topic": "unattributed",
-    "files": [
-     ".claude/hooks/eval-agent-start.py",
-     "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/af5a0d28-04c8-4e52-bce3-03cce94e0c65/scratchpad/validate_workflow_eval_coverage.py",
-     "workflows/content-pipeline/state.yaml",
-     "workflows/political-monitor/state.yaml",
-     "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/af5a0d28-04c8-4e52-bce3-03cce94e0c65/scratchpad/ensure_workflow_state_yaml.py",
-     "systems/error-tracking/entries/err-20260824T202814-WYVG7F.json",
-     ".claude/hooks/workflow-start.py",
-     ".claude/settings.json",
-     "workflows/boot/state.yaml",
-     "workflows/plaud-ingest/state.yaml",
-     "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/c0c94618-aad9-4cb8-9a23-9709b3637814/scratchpad/plaud_status_report.md",
-     "systems/eval-harness/skill-runs/plaud-trigger-latest.json",
-     "systems/eval-harness/skill-runs/plaud-speaker-id-latest.json",
-     "systems/error-tracking/entries/err-20260824T212837-2GT07M.json",
-     "systems/eval-harness/runs/eval-20260824T213000-BOOTRUN.json",
-     "systems/error-tracking/entries/err-20260824T213740-U5OFVH.json",
-     "workflows/boot/steps/step-01-load-context.md",
-     "workflows/boot/steps/step-01.5-unified-calendar-pull.md",
-     "workflows/boot/steps/step-02-gather-data.md",
-     "workflows/boot/steps/step-03-verify-phase2.md",
-     "workflows/boot/steps/step-04-gather-meeting-context.md",
-     "workflows/boot/steps/step-05-synthesize-briefing.md",
-     "workflows/boot/steps/step-06-scan-workflows.md",
-     "workflows/boot/steps/step-06.5-guardrail-checkpoint.md",
-     "workflows/boot/steps/step-07-verify-completion.md",
-     "systems/error-tracking/entries/err-20260824T214238-VGAVWC.json",
-     "systems/error-tracking/entries/err-20260824T214840-QRGASF.json",
-     "systems/error-tracking/entries/err-20260824T215128-FKPJYZ.json",
-     "systems/eval-harness/token_usage.py",
-     ".claude/hooks/step-complete.py",
-     ".claude/hooks/eval-agent-stop.py",
-     ".claude/hooks/post-tool-use.py",
-     "systems/eval-harness/validate-token-audit-trail.py",
-     "systems/error-tracking/entries/err-20260824T221402-AUDIT1.json",
-     "workflows/boot/MASTER-ORCHESTRATION.md",
-     "workflows/boot/guardrails/step-02-gather-data.json",
-     "workflows/boot/guardrails/step-05-synthesize-briefing.json",
-     "workflows/boot/guardrails/step-03-verify-phase2.json",
-     "workflows/boot/guardrails/step-04-gather-meeting-context.json",
-     "workflows/boot/guardrails/step-06-scan-workflows.json",
-     "workflows/boot/guardrails/step-07-verify-completion.json",
-     "workflows/boot/guardrails/step-01-load-context.json",
-     "workflows/boot/guardrails/step-01.5-unified-calendar-pull.json",
-     "workflows/boot/guardrails/step-06.5-guardrail-checkpoint.json",
-     "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/c0c94618-aad9-4cb8-9a23-9709b3637814/scratchpad/GUARDRAIL_CHECKPOINT_UPDATE.md",
-     "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/scratchpad/model-adoption-growth.html",
-     "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/scratchpad/model-adoption-cost-growth.html",
-     "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/scratchpad/adoption-vs-costs.html",
-     "data/calendar-unified.json",
-     "data/omnifocus-unified.json",
-     "workflows/boot/steps/step-01.2-unified-data-pull.md"
-    ],
-    "loops": [],
-    "flag": true
-   }
-  ]
- },
- {
-  "started": "2026-08-25T16:11:15.046497Z",
-  "closed": "2026-08-25T16:13:04.798914Z",
-  "current_topic": null,
-  "topics": [
-   {
-    "topic": "unattributed",
-    "files": [
-     "workflows/boot/state.yaml",
-     ".claude/hooks/workflow-start.py",
-     ".claude/hooks/post-tool-use.py",
-     "systems/eval-harness/runs/eval-20260825T160434-N58NZ6.json",
-     ".claude/hooks/step-complete.py",
-     "workflows/boot/verify/step-01-load-context.py",
-     "workflows/boot/verify/step-01.2-unified-data-pull.py",
-     "workflows/boot/verify/step-01.5-unified-calendar-pull.py",
-     "workflows/boot/verify/step-02-gather-data.py",
-     "workflows/boot/verify/step-02.5-measure-phase2.py",
-     "workflows/boot/verify/step-03-verify-phase2.py",
-     "workflows/boot/verify/step-04-gather-meeting-context.py",
-     "workflows/boot/verify/step-05-synthesize-briefing.py",
-     "workflows/boot/verify/step-06-scan-workflows.py",
-     "workflows/boot/verify/step-06.5-guardrail-checkpoint.py",
-     "workflows/boot/verify/step-07-verify-completion.py",
-     "workflows/boot/verify/step-08-knox-completion-check.py",
-     "workflows/morning-briefing/state.yaml"
-    ],
-    "loops": [],
-    "flag": true
-   }
-  ]
- },
- {
-  "started": "2026-08-25T17:14:37.010916Z",
-  "closed": null,
-  "current_topic": null,
-  "topics": [
-   {
-    "topic": "unattributed",
-    "files": [
-     "workflows/boot/steps/step-06.5-guardrail-checkpoint.md",
-     "workflows/boot/steps/step-07-verify-completion.md",
-     "workflows/boot/state.yaml",
-     "workflows/golf-booking/state.yaml",
-     "workflows/content-pipeline/state.yaml",
-     "workflows/golf-booking/verify/phase-1-preview.py",
-     "workflows/golf-booking/verify/phase-2-booking.py",
-     "workflows/daily-review/verify/step-01-capture.py",
-     "workflows/shutdown-cleanup/verify/step-01-purge-artifacts.py",
-     "workflows/daily-review/verify/step-02-set-tomorrow.py",
-     "workflows/shutdown-cleanup/verify/step-02-organize-deliverables.py",
-     "workflows/daily-review/verify/step-03-update-system.py",
-     "workflows/shutdown-cleanup/verify/step-03-gitignore-check.py",
-     "workflows/daily-review/verify/step-03b-guardrail-checkpoint.py",
-     "workflows/shutdown-cleanup/verify/step-04-commit.py",
-     "workflows/daily-review/verify/step-04-root-audit.py",
-     "workflows/content-pipeline/verify/step-01-discover.py",
-     "workflows/daily-review/verify/step-05-session-close.py",
-     "workflows/rock1-revenue-monthly/verify/step-02-save.py",
-     "workflows/content-pipeline/verify/step-02-approve.py",
-     "workflows/content-pipeline/verify/step-03-git-finalize.py",
-     "workflows/rock4-pipeline-weekly/verify/step-03-save.py",
-     "workflows/daily-review/verify/step-auto.py",
-     "workflows/weekly-review/verify/step-01-wins-and-misses.py",
-     "workflows/weekly-review/verify/step-02-rocks-review.py",
-     "workflows/weekly-review/verify/step-03-delegation-review.py",
-     "workflows/morning-briefing/verify/step-01-gather-calendar.py",
-     "workflows/morning-briefing/verify/step-02-gather-tasks.py",
-     "workflows/weekly-review/verify/step-04-inbox-and-calendar.py",
-     "workflows/morning-briefing/verify/step-03-gather-context.py",
-     "workflows/weekly-review/verify/step-05-people-check.py",
-     "workflows/morning-briefing/verify/step-03b-guardrail-checkpoint.py",
-     "workflows/weekly-review/verify/step-06-set-priorities.py",
-     "workflows/one-on-one-prep/verify/step-01-identify-meeting.py",
-     "workflows/morning-briefing/verify/step-04-synthesize-briefing.py",
-     "workflows/weekly-review/verify/step-07-social-tracker.py",
-     "workflows/one-on-one-prep/verify/step-02-gather-communications.py",
-     "workflows/plaud-ingest/verify/step-01-discover.py",
-     "workflows/one-on-one-prep/verify/step-03-gather-tasks.py",
-     "workflows/weekly-review/verify/step-08-eval-summary.py",
-     "workflows/one-on-one-prep/verify/step-04-assemble-brief.py",
-     "workflows/plaud-ingest/verify/step-02-trigger-transcription.py",
-     "workflows/one-on-one-prep/verify/step-05-quality-check-and-save.py",
-     "workflows/plaud-ingest/verify/step-03-identify-speakers.py",
-     "workflows/podcast-prep/verify/step-01-identify-episode.py",
-     "workflows/plaud-ingest/verify/step-04-fetch-staging.py",
-     "workflows/podcast-prep/verify/step-02-gather-data.py",
-     "workflows/podcast-prep/verify/step-03-build-prep-sheet.py",
-     "workflows/plaud-ingest/verify/step-05-ingest-vault.py",
-     "workflows/podcast-prep/verify/step-04-build-pdf-sheet.py",
-     "workflows/plaud-ingest/verify/step-05b-share-with-alice.py",
-     "workflows/podcast-prep/verify/step-05-generate-pdf.py",
-     "workflows/partner-meeting-prep/verify/step-01-identify-partner.py",
-     "workflows/partner-meeting-prep/verify/step-02-account-overlap.py",
-     "workflows/partner-meeting-prep/verify/step-03-events-and-context.py",
-     "workflows/partner-meeting-prep/verify/step-04-build-document.py",
-     "workflows/content-pipeline/pending-drafts.json",
-     "workflows/plaud-ingest/state.yaml",
-     "workflows/dream-cycle/state.yaml",
-     "memory/semantic/operational/2026-07-04-plaud-pattern.md",
-     "memory/semantic/operational/2026-06-12-dream-summary-pattern.md",
-     "memory/semantic/operational/2026-06-12-daily-review-pattern.md",
-     "memory/semantic/operational/2026-06-18-morning-briefing-pattern.md",
-     "memory/semantic/operational/2026-06-30-session-wrap-pattern.md",
-     "memory/semantic/operational/2026-06-25-system-health-pattern.md",
-     "systems/error-tracking/entries/err-20260826T081314-NBGENM.json",
-     "systems/error-tracking/entries/err-20260826T081453-664W53.json",
-     "memory/working/dream-summary-2026-08-26.md",
-     "workflows/dream-cycle/steps/step-01-working-memory-cleanup.md",
-     "workflows/dream-cycle/steps/step-02-salience-scoring.md",
-     "memory/semantic/operational/2026-06-18-pipeline-review-pattern.md",
-     "memory/semantic/operational/2026-06-24-revenue-tracker-pattern.md",
-     "memory/LESSONS.md",
-     "workflows/dream-cycle/steps/step-03-semantic-promotion.md",
-     "workflows/dream-cycle/steps/step-03b-guardrail-checkpoint.md",
-     "workflows/dream-cycle/steps/step-04-episodic-compression.md",
-     "workflows/dream-cycle/steps/step-05-logging.md",
-     "systems/error-tracking/entries/err-20260827T081312-8HOA70.json",
-     "systems/error-tracking/entries/err-20260826T193944-LZA3KU.json",
-     "data/calendar-unified.json",
-     "systems/eval-harness/hook_utils.py",
-     ".claude/hooks/eval-agent-start.py",
-     ".claude/hooks/eval-turn-start.py",
-     ".claude/settings.json",
-     ".claude/hooks/workflow-start.py",
-     "workflows/shutdown-cleanup/workflow.md",
-     "workflows/weekly-review/workflow.md",
-     "memory/sessions/index.json",
-     "data/email-unified.json",
-     "data/omnifocus-unified.json",
-     "data/clay-reminders-unified.json",
-     "data/jarvis-inbox-unified.json",
-     "workflows/boot/steps/step-01.2-unified-data-pull.md",
-     "workflows/boot/steps/step-01.5-unified-calendar-pull.md",
-     "workflows/morning-briefing/steps/step-01-gather-calendar.md",
-     "workflows/morning-briefing/steps/step-02-gather-tasks.md",
-     "workflows/morning-briefing/state.yaml",
-     "workflows/boot/steps/step-02-gather-data.md",
-     "workflows/boot/steps/step-02.5-measure-phase2.md",
-     "workflows/boot/steps/step-03-verify-phase2.md",
-     "workflows/morning-briefing/steps/step-03-gather-context.md",
-     "workflows/boot/steps/step-04-gather-meeting-context.md",
-     "workflows/morning-briefing/steps/step-03b-guardrail-checkpoint.md",
-     "workflows/morning-briefing/steps/step-04-synthesize-briefing.md",
-     "workflows/boot/steps/step-05-synthesize-briefing.md",
-     "memory/working/morning-briefing-2026-08-27-163900.md",
-     "workflows/boot/steps/step-06-scan-workflows.md",
-     "workflows/boot/steps/step-08-knox-completion-check.md",
-     ".claude/hooks/eval-turn-stop.py",
-     "skills/plaud-speaker-id/SKILL.md",
-     ".claude/skills/plaud-speaker-id/SKILL.md",
-     "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/0faf1016-2bec-49b8-9498-6d25e54e7bbb/scratchpad/h_sallie.md",
-     "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/0faf1016-2bec-49b8-9498-6d25e54e7bbb/scratchpad/h_remington.md",
-     "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/0faf1016-2bec-49b8-9498-6d25e54e7bbb/scratchpad/h_sim.md",
-     "systems/error-tracking/entries/err-20260827T175738-FI83PH.json",
-     "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Improving/2026-08-24 David-Robyn 1-on-1 - Sales Strategy and Account Management Review.md",
-     "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Improving/2026-08-24 Podcast-to-Pipeline Touch Base with Keylor Arroyo and Alice Mburu.md",
-     "systems/error-tracking/entries/err-20260827T182856-NG1ZWO.json",
-     "memory/working/plaud-ingest-2026-08-27-183100.md",
-     "SYSTEM.md",
-     "agents/master.md",
-     "systems/error-tracking/entries/err-20260827T183203-RSVL2A.json",
-     ".claude/hooks/tests/test_detect_workflow.py",
-     "systems/eval-harness/schema.md",
-     "workflows/shutdown-cleanup/state.yaml",
-     "workflows/shutdown-cleanup/steps/step-01-purge-artifacts.md",
-     "workflows/content-pipeline/steps/step-01-discover.md",
-     "workflows/shutdown-cleanup/steps/step-02-organize-deliverables.md",
-     "workflows/shutdown-cleanup/steps/step-03-gitignore-check.md",
-     "workflows/shutdown-cleanup/steps/step-04-commit.md",
-     "memory/working/shutdown-cleanup-2026-08-27-202000.md",
-     "systems/error-tracking/entries/err-20260828T080322-G7M1R6.json",
-     "systems/error-tracking/entries/err-20260828T081109-J571BH.json",
-     "memory/episodic/dream-summary-2026-08-26.md",
-     "memory/working/dream-summary-2026-08-28.md"
-    ],
-    "loops": [],
-    "flag": true
-   }
-  ]
- },
- {
-  "id": "session-2026-08-28T085856",
-  "started": "2026-08-28T08:58:56.392400-05:00",
-  "closed": null,
-  "current_topic": null,
-  "topics": [
-   {
-    "topic": "unattributed",
-    "files": [
-     "workflows/plaud-ingest/state.yaml",
-     "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/4378bed7-1972-4c0f-8361-48ef8b8f8d8b/scratchpad/plaud_discover.py",
-     "data/calendar-unified.json",
-     "data/omnifocus-unified.json",
-     "data/email-unified.json",
-     "data/clay-reminders-unified.json",
-     "data/jarvis-inbox-unified.json",
-     "workflows/boot/steps/step-01.2-unified-data-pull.md",
-     "workflows/boot/steps/step-01.5-unified-calendar-pull.md",
-     "workflows/boot/steps/step-02-gather-data.md",
-     "workflows/boot/steps/step-02.5-measure-phase2.md",
-     "workflows/boot/steps/step-03-verify-phase2.md",
-     "workflows/boot/steps/step-04-gather-meeting-context.md",
-     "workflows/boot/steps/step-05-synthesize-briefing.md",
-     "workflows/boot/steps/step-06-scan-workflows.md",
-     "workflows/boot/steps/step-06.5-guardrail-checkpoint.md",
-     "workflows/boot/steps/step-07-verify-completion.md",
-     "workflows/boot/state.yaml",
-     "workflows/boot/steps/step-08-knox-completion-check.md",
-     "systems/error-tracking/entries/err-20260828T140747-814VN9.json",
-     "skills/plaud-discover/SKILL.md",
-     "systems/error-tracking/entries/err-20260826T190948-QQMBTP.json",
-     "systems/error-tracking/entries/err-20260828T144849-I60TAU.json",
-     "systems/eval-harness/hook_utils.py",
-     ".claude/hooks/eval-turn-start.py",
-     ".claude/hooks/eval-turn-stop.py",
-     ".claude/hooks/eval-agent-start.py",
-     ".claude/hooks/post-tool-use.py",
-     ".claude/hooks/eval-tool-failure.py",
-     "systems/eval-harness/schema.md",
-     "systems/eval-harness/runs/eval-20260828T140308-WL89IY.json",
-     "memory/working/rigby-boot-eval-consolidation-2026-08-28.md"
-    ],
-    "loops": [],
-    "flag": true
-   }
-  ]
- },
- {
-  "id": "session-2026-08-28T110237",
-  "started": "2026-08-28T11:02:37.201886-05:00",
-  "closed": null,
-  "current_topic": null,
-  "topics": [
-   {
-    "topic": "unattributed",
-    "files": [
-     "data/email-unified.json",
-     "data/omnifocus-unified.json",
-     "data/clay-reminders-unified.json",
-     "data/jarvis-inbox-unified.json",
-     "workflows/boot/state.yaml",
-     "workflows/boot/steps/step-01.2-unified-data-pull.md",
-     "workflows/boot/steps/step-01.5-unified-calendar-pull.md",
-     "workflows/boot/steps/step-02-gather-data.md",
-     "workflows/boot/steps/step-02.5-measure-phase2.md",
-     "workflows/boot/steps/step-03-verify-phase2.md",
-     "workflows/boot/steps/step-04-gather-meeting-context.md",
-     "workflows/boot/steps/step-05-synthesize-briefing.md",
-     "workflows/boot/steps/step-06-scan-workflows.md",
-     "workflows/plaud-ingest/state.yaml",
-     "workflows/boot/steps/step-06.5-guardrail-checkpoint.md",
-     "workflows/boot/steps/step-08-knox-completion-check.md",
-     "workflows/boot/steps/step-07-verify-completion.md",
-     "systems/eval-harness/hook_utils.py",
-     ".claude/hooks/eval-agent-start.py",
-     ".claude/hooks/eval-agent-stop.py",
-     "systems/error-tracking/entries/err-20260828T165054-KKO771.json",
-     "projects/ai-certification-stage4/ies-stage4-certification/README.md",
-     ".claude/hooks/eval-turn-start.py",
-     ".claude/hooks/post-tool-use.py",
-     "memory/working/rigby-boot-eval-cowork-phantom-2026-08-28.md",
-     "/Users/davidohara/develop/improving/scims/docs/2026-08-28-matt-call-prep-sheet.md",
-     "systems/error-tracking/entries/err-20260828T171242-6UDJ3M.json",
-     "memory/working/end-of-day-review-2026-08-28-145136.md",
-     "memory/working/dream-summary-2026-08-27.md",
-     "workflows/dream-cycle/state.yaml",
-     "workflows/dream-cycle/steps/step-01-working-memory-cleanup.md",
-     "workflows/dream-cycle/steps/step-02-salience-scoring.md",
-     "memory/semantic/operational/2026-06-12-dream-summary-pattern.md",
-     "memory/episodic/dream-summary-2026-08-27.md",
-     "memory/LESSONS.md",
-     "workflows/dream-cycle/steps/step-03-semantic-promotion.md",
-     "workflows/dream-cycle/steps/step-03b-guardrail-checkpoint.md",
-     "workflows/dream-cycle/steps/step-04-episodic-compression.md",
-     "memory/working/dream-summary-2026-08-29.md",
-     "workflows/dream-cycle/steps/step-05-logging.md",
-     "memory/episodic/digests/2026-Q2-digest.md",
-     "projects/ai-certification/ies-stage4-certification/06-success-rate-report/e2e-success-rate-report.md",
-     "projects/ai-certification/ies-stage4-certification/README.md",
-     "systems/error-tracking/entries/err-20260829T161002-X7JBHO.json",
-     "systems/error-tracking/entries/err-20260829T161711-3IPMKR.json",
-     ".claude/hooks/eval-turn-stop.py",
-     "systems/eval-harness/close-open-evals.py",
-     ".claude/hooks/tests/test_phantom_boot_record.py",
-     "memory/semantic/operational/2026-07-04-plaud-pattern.md",
-     "memory/semantic/operational/2026-06-30-session-wrap-pattern.md",
-     "memory/episodic/dream-summary-2026-08-28.md",
-     "memory/episodic/plaud-ingest-2026-08-27-183100.md",
-     "memory/episodic/shutdown-cleanup-2026-08-27-202000.md",
-     "memory/working/dream-summary-2026-08-30.md",
-     "memory/episodic/dream-summary-2026-08-29.md",
-     "memory/episodic/end-of-day-review-2026-08-28-145136.md",
-     "systems/error-tracking/entries/err-20260831T080618-284VH8.json",
-     "memory/episodic/shutdown-cleanup-2026-08-07-162834.md",
-     "memory/semantic/operational/2026-06-12-daily-review-pattern.md",
-     "memory/working/dream-summary-2026-08-31.md"
-    ],
-    "loops": [],
-    "flag": true
-   }
-  ]
- },
- {
-  "id": "session-2026-08-31-000000",
-  "started": "2026-08-31T00:00:00-05:00",
-  "closed": null,
-  "current_topic": "morning-boot",
-  "topics": [
-   {
-    "name": "morning-boot",
-    "loops": [
-     {
-      "task": "boot-sequence",
-      "resolved": false
-     }
-    ],
-    "files": [
-     "memory/sessions/index.json",
-     "workflows/boot/state.yaml",
-     "workflows/plaud-ingest/state.yaml",
-     "data/email-unified.json",
-     "data/omnifocus-unified.json",
-     "data/clay-reminders-unified.json",
-     "data/jarvis-inbox-unified.json",
-     "workflows/boot/steps/step-01.2-unified-data-pull.md",
-     "data/calendar-unified.json",
-     "workflows/boot/steps/step-01.5-unified-calendar-pull.md",
-     "workflows/boot/steps/step-02-gather-data.md",
-     "workflows/boot/steps/step-02.5-measure-phase2.md",
-     "workflows/boot/steps/step-03-verify-phase2.md",
-     "workflows/boot/steps/step-04-gather-meeting-context.md",
-     "systems/eval-harness/skill-runs/plaud-discover-latest.json",
-     "workflows/boot/steps/step-05-synthesize-briefing.md",
-     "workflows/morning-briefing/state.yaml",
-     "workflows/boot/steps/step-06-scan-workflows.md",
-     "workflows/boot/steps/step-06.5-guardrail-checkpoint.md",
-     "workflows/boot/steps/step-01-load-context.md",
-     "workflows/boot/steps/step-07-verify-completion.md",
-     "systems/error-tracking/entries/err-20260831T144849-LDEIJS.json",
-     "workflows/boot/steps/step-08-knox-completion-check.md",
-     "memory/working/knox-plaud-ingest-2026-08-31.md",
-     "systems/error-tracking/entries/err-20260831T145745-P4UXXX.json",
-     "systems/error-tracking/entries/err-20260831T145746-29X2M7.json",
-     "systems/error-tracking/entries/err-20260831T145747-LDPD1Q.json",
-     "systems/error-tracking/entries/err-20260831T145748-3SVX4A.json",
-     "skills/plaud-discover/SKILL.md",
-     ".claude/skills/plaud-discover/SKILL.md",
-     "workflows/plaud-ingest/steps/step-01-discover.md",
-     "skills/plaud-speaker-id/SKILL.md",
-     "systems/eval-harness/skill-runs/co-sell-pipeline-latest.json",
-     "memory/working/co-sell-pipeline-2026-08-31-150200.md",
-     ".claude/skills/plaud-speaker-id/SKILL.md",
-     "workflows/plaud-ingest/steps/step-03-identify-speakers.md",
-     "/Users/davidohara/Downloads/transcript-staging/plaud_08-26 Professional Catch-Up_ Health_ Family_ and Business Evolution.md",
-     "/Users/davidohara/Downloads/transcript-staging/plaud_08-28 Meeting_ YPO Gold Chapter Strategy_ Events_ Membership_ and Compliance.md",
-     "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/42e7a4be-f83a-42ce-b1f7-a28842ff1cf6/scratchpad/plaud-0826-note.md",
-     "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/YPO/2026-08-28 Meeting - YPO Gold Chapter Strategy, Events, Membership, and Compliance.md",
-     "systems/eval-harness/skill-runs/plaud-speaker-id-latest.json",
-     "/Users/davidohara/develop/improving/scorb/docs/2026-09-02-planning-workshop-stories.md",
-     "skills/vault-freshness-check/SKILL.md",
-     "skills/eval-signal-write/SKILL.md",
-     "skills/powerbi-navigate-slicer/SKILL.md",
-     "skills/powerbi-extract-kpis/SKILL.md",
-     "skills/pipeline-snapshot/SKILL.md",
-     "skills/co-sell-pipeline/SKILL.md",
-     "skills/new-clients/SKILL.md",
-     "skills/revenue-tracker/SKILL.md",
-     "skills/bookings-review/SKILL.md",
-     "skills/_index.md",
-     "content/forbes/2026-06-19-ai-roi-measurements-wrong.md",
-     "workflows/shutdown-cleanup/state.yaml",
-     "memory/working/shutdown-cleanup-2026-08-31-222924.md",
-     "/tmp/claude-0/-home-user-Jarvis/73cb4d36-8f86-5e91-9a2f-03ca4bee110f/scratchpad/scan_working.py",
-     "memory/working/dream-summary-2026-08-30.md",
-     "workflows/dream-cycle/steps/step-01-working-memory-cleanup.md",
-     "workflows/dream-cycle/state.yaml",
-     "/tmp/claude-0/-home-user-Jarvis/73cb4d36-8f86-5e91-9a2f-03ca4bee110f/scratchpad/repair_orphans.py",
-     "systems/error-tracking/entries/err-20260901T081243-R58BYW.json",
-     "workflows/dream-cycle/steps/step-02-salience-scoring.md",
-     "memory/semantic/operational/2026-06-12-dream-summary-pattern.md",
-     "memory/episodic/dream-summary-2026-08-30.md",
-     "workflows/dream-cycle/steps/step-03-semantic-promotion.md",
-     "workflows/dream-cycle/steps/step-03b-guardrail-checkpoint.md",
-     "workflows/dream-cycle/steps/step-04-episodic-compression.md",
-     "memory/dream.log",
-     "memory/working/dream-summary-2026-09-01.md",
-     "workflows/dream-cycle/steps/step-05-logging.md",
-     "systems/eval-harness/skill-runs/dream-cycle-latest.json",
-     "systems/dream-cycle/salience-score.py",
-     "systems/error-tracking/entries/err-20260828T081109-J571BH.json",
-     "systems/error-tracking/entries/err-20260831T080618-284VH8.json",
-     "systems/error-tracking/entries/err-20260825T081039-APAWBB.json",
-     "systems/error-tracking/entries/err-20260826T081314-NBGENM.json",
-     "systems/eval-harness/skill-runs/rigby-error-analysis-latest.json",
-     "memory/working/dream-summary-2026-08-31.md",
-     "memory/working/dream-summary-2026-09-02.md",
-     "systems/eval-harness/skill-runs/git-latest.json",
-     "systems/error-tracking/entries/err-20260902T160414-JDHWVX.json",
-     "systems/error-tracking/entries/err-20260902T160425-E9B7YR.json"
-    ]
-   }
-  ]
- },
- {
-  "id": "session-2026-09-02-160000",
-  "started": "2026-09-02T16:00:00-05:00",
-  "closed": "2026-09-02T16:16:00-05:00",
-  "current_topic": "morning-boot",
-  "topics": [
-   {
-    "name": "morning-boot",
-    "loops": [
-     {
-      "task": "boot-sequence-steps-2-12",
-      "resolved": true
-     }
-    ],
-    "files": [
-     "workflows/boot/state.yaml",
-     "data/calendar-unified.json",
-     "data/email-unified.json",
-     "data/omnifocus-unified.json",
-     "data/clay-reminders-unified.json",
-     "data/jarvis-inbox-unified.json",
-     "workflows/boot/steps/step-01.2-unified-data-pull.md",
-     "workflows/boot/steps/step-01.5-unified-calendar-pull.md",
-     "workflows/boot/steps/step-02-gather-data.md",
-     "workflows/boot/steps/step-02.5-measure-phase2.md",
-     "workflows/boot/steps/step-03-verify-phase2.md",
-     "workflows/boot/steps/step-04-gather-meeting-context.md",
-     "workflows/boot/steps/step-05-synthesize-briefing.md",
-     "workflows/boot/steps/step-06-scan-workflows.md",
-     "workflows/boot/steps/step-06.5-guardrail-checkpoint.md",
-     "workflows/boot/steps/step-07-verify-completion.md",
-     "workflows/boot/steps/step-08-knox-completion-check.md",
-     "memory/sessions/index.json",
-     "workflows/plaud-ingest/state.yaml",
-     "skills/plaud-speaker-id/SKILL.md",
-     "workflows/plaud-ingest/steps/step-03-identify-speakers.md",
-     "systems/error-tracking/entries/err-20260902T160425-E9B7YR.json",
-     "systems/eval-harness/skill-runs/omnifocus-tasks-latest.json",
-     "workflows/golf-preview/workflow.md",
-     "workflows/golf-preview/state.yaml",
-     "workflows/golf-preview/steps/step-01-calculate-target-weekend.md",
-     "workflows/golf-preview/steps/step-02-calendar-conflict-check.md",
-     "workflows/golf-preview/steps/step-03-drought-and-weather.md",
-     "workflows/golf-preview/steps/step-04-score-and-write-output.md",
-     "workflows/golf-preview/verify/step-04-output-schema.py",
-     "workflows/golf-preview/steps/step-05-notify-slack.md",
-     "workflows/golf-preview/verify/step-05-slack-delivery.py",
-     "workflows/golf-booking/workflow.md",
-     "workflows/golf-booking/state.yaml",
-     "workflows/golf-booking/steps/step-01-read-preview-and-window-precheck.md",
-     "workflows/golf-booking/verify/step-01-window-precheck.py",
-     "workflows/golf-booking/steps/step-02-login-recovery.md",
-     "workflows/golf-booking/steps/step-03-navigate-select-players.md",
-     "workflows/golf-booking/steps/step-04-select-time-and-confirm.md",
-     "workflows/golf-booking/steps/step-05-visual-verification.md",
-     "workflows/golf-booking/steps/step-06-calendar-block.md",
-     "workflows/golf-booking/steps/step-07-slack-confirmation.md",
-     "workflows/golf-booking/verify/step-07-terminal-outcome.py",
-     "config/scheduled-tasks.json",
-     "agents/sterling.md",
-     "skills/visual-verification/SKILL.md",
-     "skills/calendar-handler/SKILL.md",
-     "skills/_index.md",
-     "evolutions/.pending-changes.json",
-     "systems/eval-harness/skill-runs/rigby-capability-build-latest.json",
-     "systems/eval-harness/skill-runs/git-latest.json",
-     "workflows/golf-booking/preview-output.json",
-     "systems/eval-harness/skill-runs/golf-preview-latest.json",
-     "systems/eval-harness/skill-runs/calendar-handler-latest.json",
-     "workflows/dream-cycle/state.yaml",
-     "workflows/dream-cycle/steps/step-01-working-memory-cleanup.md",
-     "workflows/dream-cycle/steps/step-02-salience-scoring.md",
-     "memory/semantic/operational/2026-06-12-dream-summary-pattern.md",
-     "memory/semantic/operational/2026-06-18-pipeline-review-pattern.md",
-     "memory/semantic/operational/2026-06-24-co-sell-pattern.md",
-     "memory/semantic/operational/2026-06-24-revenue-tracker-pattern.md",
-     "memory/semantic/operational/2026-06-30-session-wrap-pattern.md",
-     "workflows/dream-cycle/steps/step-03-semantic-promotion.md",
-     "workflows/dream-cycle/steps/step-03b-guardrail-checkpoint.md",
-     "workflows/dream-cycle/steps/step-04-episodic-compression.md",
-     "memory/working/dream-summary-2026-09-03.md",
-     "workflows/dream-cycle/steps/step-05-logging.md",
-     "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/a3b183c6-ddba-4967-a515-f6d1a3cb6fef/scratchpad/plaud_dedup.py",
-     "zzPlaud/Improving/2026-09-02 Podcast Interview - Tosan on Legal Tech AI Impact and Transformation.md",
-     "workflows/daily-review/state.yaml",
-     "reviews/daily/2026-09-02.md",
-     "memory/working/dream-summary-2026-09-02.md",
-     "memory/episodic/dream-summary-2026-09-02.md",
-     "memory/working/dream-summary-2026-09-04.md",
-     "systems/error-tracking/entries/err-20260904T081107-GYF8D1.json",
-     "systems/eval-harness/guardrail-checkpoint.py",
-     "/tmp/claude-0/-home-user-Jarvis/941e97eb-d95a-59b1-9505-65dab292dc31/scratchpad/guardrail-test/guardrail-checkpoint-test.py",
-     "memory/episodic/dream-summary-2026-09-03.md",
-     "systems/eval-harness/runs/eval-20260905T080940-W7MEXO.json",
-     "memory/working/dream-summary-2026-09-05.md",
-     "memory/episodic/dream-summary-2026-09-04.md",
-     "memory/LESSONS.md",
-     "memory/working/dream-summary-2026-09-06.md",
-     "memory/personal/quarterly-objectives.md",
-     "memory/semantic/operational/2026-06-25-health-pattern.md",
-     "systems/eval-harness/runs/eval-20260907T080442-PXWEQK.json",
-     "systems/eval-harness/runs/eval-20260907T080518-HJJE2C.json",
-     "memory/episodic/dream-summary-2026-09-05.md",
-     "systems/eval-harness/runs/eval-20260907T080916-ZF09EX.json",
-     "memory/working/dream-summary-2026-09-07.md",
-     "systems/eval-harness/skill-runs/dream-cycle-latest.json",
-     "memory/episodic/dream-summary-2026-09-06.md",
-     "systems/eval-harness/runs/eval-20260908T080733-VLWVWI.json",
-     "memory/working/dream-summary-2026-09-08.md",
-     "memory/working/plaud-ingest-2026-09-04-011500.md",
-     "memory/working/plaud-ingest-2026-09-04-104903.md",
-     "memory/episodic/dream-summary-2026-09-07.md",
-     "memory/semantic/operational/2026-07-04-plaud-pattern.md",
-     "memory/episodic/plaud-ingest-2026-09-04-011500.md",
-     "memory/episodic/plaud-ingest-2026-09-04-104903.md",
-     "systems/eval-harness/runs/eval-20260909T080809-P9BJ9U.json",
-     "memory/working/dream-summary-2026-09-09.md",
-     "systems/eval-harness/runs/eval-20260910T080853-46O0ZP.json",
-     "memory/working/dream-summary-2026-09-10.md",
-     "workflows/watchtower/state.yaml",
-     "workflows/watchtower/steps/daily-step-01-gather.md",
-     "systems/eval-harness/skill-runs/jarvis-inbox-latest.json",
-     "workflows/watchtower/steps/daily-step-02-dedupe.md",
-     "workflows/watchtower/steps/daily-step-03-score.md",
-     "workflows/watchtower/steps/daily-step-04-summarize.md",
-     "workflows/watchtower/steps/daily-step-04b-synthesize.md",
-     "workflows/watchtower/steps/daily-step-05-capture.md",
-     "workflows/watchtower/steps/daily-step-07-prune.md",
-     "workflows/watchtower/steps/daily-step-06-report.md",
-     "workflows/plaud-ingest/steps/step-01-discover.md",
-     "workflows/plaud-ingest/steps/step-02-trigger-transcription.md",
-     "systems/error-tracking/entries/err-20260909T000829-0JTVV6.json",
-     "systems/error-tracking/entries/err-20260909T010719-0BCW7C.json",
-     "systems/error-tracking/entries/err-20260909T011658-7M2K4W.json",
-     "systems/eval-harness/assertions/plaud-speaker-id.json",
-     "memory/episodic/dream-summary-2026-09-09.md",
-     "systems/error-tracking/entries/err-20260911T080849-3TCTQW.json",
-     "memory/working/dream-summary-2026-09-11.md"
-    ]
-   }
-  ]
- },
- {
-  "id": "session-2026-09-11-boot",
-  "started": "2026-09-11T09:10:18-05:00",
-  "closed": null,
-  "current_topic": null,
-  "topics": [
-   {
-    "topic": "unattributed",
-    "files": [
-     "data/email-unified.json",
-     "data/omnifocus-unified.json",
-     "data/clay-reminders-unified.json",
-     "data/jarvis-inbox-unified.json",
-     "workflows/boot/state.yaml",
-     "systems/error-tracking/entries/err-20260911T141437-W87S4E.json",
-     "systems/error-tracking/entries/err-20260911T141503-K4M2N7.json",
-     "workflows/plaud-ingest/state.yaml",
-     "workflows/boot/steps/step-01.5-unified-calendar-pull.md",
-     "workflows/boot/steps/step-02-gather-data.md",
-     "workflows/boot/steps/step-02.5-measure-phase2.md",
-     "workflows/boot/steps/step-03-verify-phase2.md",
-     "workflows/boot/steps/step-04-gather-meeting-context.md",
-     "workflows/boot/steps/step-05-synthesize-briefing.md",
-     "workflows/boot/steps/step-06-scan-workflows.md",
-     "workflows/boot/steps/step-06.5-guardrail-checkpoint.md",
-     "workflows/boot/steps/step-01.2-unified-data-pull.md",
-     "workflows/boot/steps/step-07-verify-completion.md",
-     "workflows/boot/steps/step-08-knox-completion-check.md",
-     "zzPlaud/YPO/2026-09-08 Renzi Stone AI Workflow Working Session.md",
-     "Calendar/2026/09-September/2026-09-08.md",
-     "systems/eval-harness/skill-runs/plaud-transcripts-latest.json",
-     "systems/eval-harness/runs/eval-20260912T080306-RF32AB.json",
-     "workflows/dream-cycle/state.yaml",
-     "memory/semantic/operational/2026-06-12-dream-summary-pattern.md",
-     "memory/episodic/dream-summary-2026-09-10.md",
-     "memory/dream.log",
-     "memory/working/dream-summary-2026-09-12.md",
-     "systems/error-tracking/entries/err-20260912T080901-GNRQ9D.json",
-     "memory/working/dream-summary-2026-09-11.md",
-     "workflows/dream-cycle/steps/step-01-working-memory-cleanup.md",
-     "workflows/dream-cycle/steps/step-02-salience-scoring.md",
-     "memory/episodic/dream-summary-2026-09-11.md",
-     "workflows/dream-cycle/steps/step-03-semantic-promotion.md",
-     "systems/eval-harness/runs/eval-20260913T080520-P0BUKD.json",
-     "workflows/dream-cycle/steps/step-03b-guardrail-checkpoint.md",
-     "workflows/dream-cycle/steps/step-04-episodic-compression.md",
-     "memory/working/dream-summary-2026-09-13.md",
-     "workflows/dream-cycle/steps/step-05-logging.md",
-     "systems/eval-harness/skill-runs/git-latest.json",
-     "systems/eval-harness/skill-runs/dream-cycle-latest.json",
-     "memory/episodic/dream-summary-2026-09-12.md",
-     "data/calendar-unified.json",
-     "systems/eval-harness/skill-runs/jarvis-inbox-latest.json",
-     "systems/error-tracking/entries/err-20260914T162405-WCU1XX.json",
-     "workflows/plaud-ingest/steps/step-01-discover.md",
-     "systems/error-tracking/entries/err-20260914T195128-EHFST5.json",
-     "workflows/plaud-ingest/steps/step-02-trigger-transcription.md",
-     "workflows/plaud-ingest/steps/step-03-identify-speakers.md",
-     "systems/eval-harness/skill-runs/plaud-speaker-id-latest.json",
-     "workflows/plaud-ingest/steps/step-04-fetch-staging.md",
-     "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/b1f49c32-bc03-4f66-b943-9cc7f432d45f/scratchpad/note1-acg.md",
-     "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/b1f49c32-bc03-4f66-b943-9cc7f432d45f/scratchpad/note2-workshop.md",
-     "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/b1f49c32-bc03-4f66-b943-9cc7f432d45f/scratchpad/note3-hosting.md",
-     "workflows/plaud-ingest/steps/step-05-ingest-vault.md",
-     "memory/working/plaud-ingest-2026-09-14-150300.md",
-     "systems/eval-harness/skill-runs/delivery-router-latest.json",
-     "workflows/plaud-ingest/steps/step-05b-share-with-alice.md",
-     "workflows/shutdown-cleanup/state.yaml",
-     "systems/error-tracking/entries/err-20260915T120414-IFPD8I.json",
-     "workflows/shutdown-cleanup/steps/step-01-purge-artifacts.md",
-     "workflows/shutdown-cleanup/steps/step-02-organize-deliverables.md",
-     "workflows/shutdown-cleanup/steps/step-03-gitignore-check.md",
-     "workflows/shutdown-cleanup/steps/step-04-commit.md",
-     "memory/working/shutdown-cleanup-2026-09-15-025313.md",
-     "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/YPO/2026-09-08 Architecting a Personalized AI Executive Assistant with Renzi Stone.md",
-     "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Improving/2026-09-02 Podcast Prep Interview with Tosan Ojeahere (Thomson Reuters) - AI in Legal Tech and Talent Transformation.md",
-     "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Improving/2026-08-24 CC Breakfast Alignment with Bethany Hilton - Conscious Capitalism Event Logistics.md",
-     "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/Calendar/2026/08-August/2026-08-24.md",
-     "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/Calendar/2026/09-September/2026-09-02.md",
-     "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/Calendar/2026/09-September/2026-09-08.md",
-     "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Other/2026-09-14 FEI Monthly Meeting - KPMG AI in Finance Transformation Presentation.md",
-     "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/Calendar/2026/09-September/2026-09-14.md",
-     "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Improving/2026-09-14 GEHC AI Routing for DICOM Images - Project Status and Team Intro.md",
-     "systems/eval-harness/runs/eval-20260916T080359-5TGJ3L.json",
-     "memory/working/dream-summary-2026-09-14.md",
-     "memory/episodic/dream-summary-2026-09-14.md",
-     "memory/working/dream-summary-2026-09-16.md"
-    ],
-    "loops": [],
-    "flag": true
-   }
-  ]
- },
- {
-  "started": "2026-09-16T09:22:18.369531",
-  "closed": null,
-  "current_topic": "boot",
-  "topics": []
- },
- {
-  "started": "2026-09-17T11:02:07.756171",
-  "closed": "2026-09-17T18:26:21.320102",
-  "current_topic": null,
-  "topics": []
- }
 ]
