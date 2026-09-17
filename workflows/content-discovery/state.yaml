@@ -2,31 +2,27 @@
 workflow: content-discovery
 agent: harper
 status: complete
-session-started: "2026-09-16T12:00:00Z"
-session-id: "harper-20260916-002"
-started-at: "2026-09-16T12:00:00Z"
-completed-at: "2026-09-16T19:12:00Z"
+session-started: "2026-09-17T06:00:00Z"
+session-id: "harper-20260917-001"
+started-at: "2026-09-17T06:00:00Z"
+completed-at: "2026-09-17T06:05:00Z"
 current-step: step-02
 original-request: "Scheduled daily content discovery run"
 accumulated-context:
-  messages_scanned: 8
-  new_urls: 1
+  messages_scanned: 2
+  new_urls: 0
   new_digests: 0
-  posts_drafted: 1
-  gate_1_result: "PASS — ok: true, 8 messages returned via 48h window, channel C0B160MA3EK confirmed"
-  gate_2_result: "PASS — word count 335, all arc elements present, no em-dashes, tags locked list, image landscape, internal link inserted"
-  editorial_threads_checked: 3
+  posts_drafted: 0
+  gate_1_result: "PASS — ok: true, 2 messages returned via 24h window, channel C0B160MA3EK confirmed"
+  gate_2_result: "N/A — no new content to draft"
+  editorial_threads_checked: 5
   editorial_feedback_found: 0
   editorial_edits_applied: 0
   notes: |
-    48h window triggered (24h returned 0 messages with retry warning).
-    1 new user URL: x.com/martinvars tweet on income overlap/gratitude/expectations.
-    David's commentary drove the narrative direction: expectations management, parenting, modeling.
-    Post: "You're Modeling Contentment or You're Modeling Desire" — Ghost draft 6aaae9da57f821028a9e9542.
-    Image: Unsplash photo-1759433169410-b904d63514e0 (Tim Mossholder, open road Zion, 2000x1333 landscape).
-    Image upload to Ghost CDN failed — using external Unsplash URL per failure mode protocol.
-    Internal link inserted: "earn something for yourself" -> Let Them Climb the Tree.
-    Slack notification posted ts: 1789585948.083979.
-    3 Watchtower digest messages (DFW Talent, Expert/AI, Activity Trap) skipped — already in pipeline.
-    3 editorial threads checked — all feedback already processed in prior run. No new unprocessed replies.
+    24h window returned 2 messages — both from yesterday's completed run.
+    David's Martin Varsavsky tweet (ts 1789584864) already in pipeline as ghost post 6aaae9da57f821028a9e9542.
+    Jarvis bot notification (ts 1789585948) skipped as non-digest bot message.
+    5 pending draft threads checked — DFW Talent, Expert/AI, Activity Trap, What College Is Actually For,
+    The Build Decision Changed the Relationship. All prior editorial feedback already processed.
+    No new unprocessed replies within last 24h. Clean exit.
 ---
