@@ -70,9 +70,10 @@
       }
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
-      "grader_notes": null
+      "last_graded": "2026-09-17T03:44:07Z",
+      "grade": "B",
+      "grader_notes": "Skill-hook duplicate of the dream-cycle run, deterministic gate 75% PASS. Same 3 assertion false-positives as SNWEB3 (stale glob path + guardrail result stored only on the canonical record). Underlying execution was complete and correct.",
+      "safety_grade": null
     },
     "controller_feedback": {
       "rating": null,

@@ -64,9 +64,10 @@
       }
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
-      "grader_notes": null
+      "last_graded": "2026-09-17T03:44:07Z",
+      "grade": "B",
+      "grader_notes": "Workflow-level record: 1/4 assertions pass (state-complete). The 3 failed assertions glob memory/working/talking-points-*.md, but the workflow actually wrote to meetings/2026-09-16-ar-ypo-dinner-talking-points.md (present, 15.6KB). Same class of stale-glob false-positive as dream-cycle: an assertion output-path mismatch, not a missing output.",
+      "safety_grade": null
     },
     "controller_feedback": {
       "rating": null,

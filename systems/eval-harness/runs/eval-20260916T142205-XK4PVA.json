@@ -27,10 +27,10 @@
       "assertion_results": []
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
+      "last_graded": "2026-09-17T03:44:07Z",
+      "grade": "B",
       "safety_grade": null,
-      "grader_notes": null
+      "grader_notes": "Plaud ingest correctly terminated at step-01 after proving 0 new recordings (137 API file_ids vs 137 vault file_ids, exact bijection, both set diffs empty). Early termination is the documented 'no new recordings' path, not a defect. One unexplained tool failure kept the status at 'partial' rather than 'success'."
     },
     "controller_feedback": {
       "rating": null,

@@ -89,9 +89,10 @@
       }
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
-      "grader_notes": null
+      "last_graded": "2026-09-17T03:44:07Z",
+      "grade": "A",
+      "grader_notes": "8/8 assertions, 0 tool failures. Canonical pull status available, 34 tasks, completed:false filter verified (assertion 006) confirming the 247-completed-inbox regression guard holds. Closes the loop on the multi-boot OmniFocus degradation.",
+      "safety_grade": null
     },
     "controller_feedback": {
       "rating": null,

@@ -1,0 +1,61 @@
+{
+  "id": "eval-20260917T033710-YSKBXM",
+  "agent_id": "a3bc6dd3335e275b2",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "general-purpose",
+  "session_id": "4ab16b58-4833-4ebf-9010-24e410f12792",
+  "trigger": "unknown",
+  "started": "2026-09-17T03:37:10.289399Z",
+  "completed": "2026-09-17T03:45:20.004707Z",
+  "duration_seconds": 489.72,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/4ab16b58-4833-4ebf-9010-24e410f12792/subagents/agent-a3bc6dd3335e275b2.jsonl",
+  "last_assistant_message": "Grading sweep complete for `--since 2026-09-16`.\n\n## Summary\n\nGraded: 23 eval records (1 skipped: `eval-20260917T033710-YSKBXM` is still `in-progress` with no output)\n\n```\nA: 10\nB: 11\nC: 0\nD: 2\nF: 0\n```\n\nRecords graded:\n- dream-cycle (workflow): A (`eval-20260916T080359-5TGJ3L`)\n- dream-cycle executor (agent): A (`eval-20260916T080243-ZUQDBR`)\n- dream-cycle (hook dup): B (`eval-20260916T080914-SNWEB3`)\n- dream-cycle (skill dup): B (`eval-20260916T081129-BK66AI`)\n- boot (workflow): B (`eval-20260916T142132-0AUI7E`)\n- boot executor (agent): B (`eval-20260916T142213-ENA9E1`)\n- teams-transcripts (skill): B (`eval-20260916T143151-G1T285`)\n- teams-transcripts ingester (agent): B (`eval-20260916T142140-UZE5MF`)\n- plaud-ingest (workflow): A (`eval-20260916T142429-MUKP5C`)\n- plaud-discover (skill): A (`eval-20260916T142432-XHY410`)\n- plaud-ingest executor (agent): B (`eval-20260916T142205-XK4PVA`)\n- unknown (phantom hook): B (`eval-20260916T142758-RQFNT3`)\n- omnifocus-tasks (skill): B (`eval-20260916T143209-3PKEMM`)\n- omnifocus-data (skill): A (`eval-20260916T213104-20ATKZ`)\n- omnifocus-data executor (agent): A (`eval-20260916T213022-2NJABV`)\n- SST prep (agent): A (`eval-20260916T144123-7HZKRA`)\n- GEHC prep (agent): B (`eval-20260916T144123-GG5WYW`)\n- talking-points (workflow): B (`eval-20260916T165703-9EF0QS`)\n- talking-points executor (agent): A (`eval-20260916T165425-W0VPVV`)\n- remarkable-upload (skill): A (`eval-20260916T174501-JDA4YO`)\n- OmniFocus access audit (Explore): A (`eval-20260916T220938-YWWAOL`)\n- boot (failure): D (`eval-20260916T200831-5K8EH5`)\n- boot (incomplete, current session): D (`eval-20260916T213408-6UYHX5`)\n\n## Key findings\n\n1. **OmniFocus degradation recovered today.** `omnifocus-data` hit 8/8 assertions with `status: available` (34 tasks) and the `completed:false` filter guard held (`assertion 006`), closing the five-boot degraded streak. The Explore agent's 25-file OmniFocus access audit (`YWWAOL`) is the research backing the `omnifocus-data`/`omnifocus-tasks` skill extraction.\n\n2. **Stale assertion glob paths are causing false-positive structure failures.** `dream-cycle` assertions glob `memory/working/dream-cycle-*.md` (real output is `dream-summary-{date}.md`, present and substantive) and `talking-points` assertions glob `memory/working/talking-points-*.md` (real output is `meetings/2026-09-16-ar-ypo-dinner-talking-points.md`, 15.6KB). The work was correct; these should be fixed in `systems/eval-harness/assertions/`.\n\n3. **Two boot records are genuine output failures** (both D), documented in notes: the `5K8EH5` boot never delivered a briefing (logged as `err-20260916T204629`), and `6UYHX5` is the current session's boot closed via `session-exit-normal`. Flag for Rigby: `6UYHX5` shows record pollution (stale April/August step timestamps and tool-failure log from an earlier window than its own `started`).\n\n4. **No safety grades applied** \u2014 every record had `bias_assessment.applicable == false` (or absent), so the safety-grading section was correctly skipped and `safety_grade` left null.\n\nDeterministic (Tier 2) grader result:\n\n```\n--- Eval: rigby-eval-grade ---\nNo eval record found yet (signal file may not have been picked up by the hook). Deterministic score: unavailable this run.\n```\n\nThe skill-run signal was written to `/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/systems/eval-harness/skill-runs/rigby-eval-grade-latest.json` with `status: success`, `records_graded: 23`. The deterministic score is unavailable this run because the eval record for this sweep hasn't been generated by the hook yet \u2014 the qualitative grades themselves were written into each of the 23 eval records' `assessment.grading` blocks.",
+  "model": "accounts/fireworks/models/deepseek-v4-pro-0813",
+  "total_tokens_input": 0,
+  "total_tokens_output": 0,
+  "total_cost_usd": 0.09,
+  "cost_estimation_note": "estimated based on general-purpose workflow type"
+}

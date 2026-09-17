@@ -82,10 +82,10 @@
       ]
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
+      "last_graded": "2026-09-17T03:44:07Z",
+      "grade": "B",
       "safety_grade": null,
-      "grader_notes": null
+      "grader_notes": "Boot completed with 3/3 structural assertions and a strong live-data briefing. Gap: OmniFocus unreachable (5th+ consecutive boot) so the briefing carries no task-level context; the guardrail flagged this explicitly rather than failing silently. Otherwise excellent (calendar 40 events, email 16, Clay 3 birthdays)."
     },
     "controller_feedback": {
       "rating": null,

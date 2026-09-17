@@ -68,10 +68,10 @@
       "assertion_results": []
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
+      "last_graded": "2026-09-17T03:44:07Z",
+      "grade": "D",
       "safety_grade": null,
-      "grader_notes": null
+      "grader_notes": "Boot run FAILED: no briefing delivered (status failure, completed null, 3 tool failures, error err-20260916T204629 logged). The session was redirected into OmniFocus read-path debugging and produced a wrong assumption (recommending 'Clean Up' to retire 247 completed inbox tasks), which David corrected. The diagnosis was productive and directly yielded the omnifocus-data assertions that passed 8/8 later that evening, but the boot deliverable itself was never produced."
     },
     "controller_feedback": {
       "rating": null,

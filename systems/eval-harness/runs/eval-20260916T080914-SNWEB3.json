@@ -70,9 +70,10 @@
       }
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
-      "grader_notes": null
+      "last_graded": "2026-09-17T03:44:07Z",
+      "grade": "B",
+      "grader_notes": "Duplicate hook capture of the same dream-cycle run. 2/5 structural assertions pass; the 3 failures (substantive/content/guardrail) are grader glob-path artifacts: dream-cy-002/003 glob memory/working/dream-cycle-*.md but the workflow writes dream-summary-{date}.md (present, 1555 bytes), and the guardrail result lives only in the canonical record 5TGJ3L. Actual work was clean; assertion paths need a fix and the guardrail assertion should tolerate hook records lacking the guardrails array.",
+      "safety_grade": null
     },
     "controller_feedback": {
       "rating": null,

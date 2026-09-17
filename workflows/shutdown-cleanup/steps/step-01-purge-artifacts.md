@@ -1,34 +1,35 @@
 ---
 status: complete
-started-at: "2026-09-15T02:53:13Z"
-completed-at: "2026-09-15T12:04:38Z"
+started-at: "2026-09-17T03:47:19Z"
+completed-at: "2026-09-17T03:48:20Z"
 outputs:
   deleted:
-    - path: "./meetings/.DS_Store"
-      reason: "macOS metadata"
-    - path: "./.claude/hooks/__pycache__"
-      reason: "Python bytecode cache"
+    - path: "./.DS_Store"
+      reason: "macOS folder metadata"
     - path: "./systems/eval-harness/__pycache__"
+      reason: "Python bytecode cache"
+    - path: "./workflows/morning-briefing/verify/__pycache__"
       reason: "Python bytecode cache"
     - path: "./skills/plaud-transcripts/scripts/__pycache__"
       reason: "Python bytecode cache"
     - path: "./systems/eval-harness/scoring/__pycache__"
       reason: "Python bytecode cache"
+    - path: "./workflows/weekly-review/verify/__pycache__"
+      reason: "Python bytecode cache"
     - path: "./systems/eval-harness/vendor/yaml/__pycache__"
       reason: "Python bytecode cache"
-    - path: "./Calendar/"
-      reason: "Non-canonical root entry, orphaned note, controller-approved full delete"
-    - path: "./zzPlaud/"
-      reason: "Non-canonical root entry, Plaud staging area never routed to Obsidian, controller-approved full delete"
-  total_deleted: 8
+  total_deleted: 7
+  skipped:
+    - path: "./skills/omnifocus-data/scripts/__pycache__"
+      reason: "Python bytecode cache, but skills/omnifocus-data/ is explicitly off-limits per session instruction — left untouched and flagged for controller"
+    - path: "./meetings/ar-ypo-dinner-talking-points.html"
+      reason: "Gitignored intermediate HTML build artifact — controller instructed to leave the file in place; not staged"
   root_check:
     resolved:
-      - name: "Calendar/"
-        disposition: "Deleted entirely per controller instruction — no canonical use, orphaned note."
-      - name: "zzPlaud/"
-        disposition: "Deleted entirely per controller instruction — staging area mistake, files should have gone to Obsidian and never got cleaned up."
+      - name: ".DS_Store"
+        disposition: "Deleted — macOS folder metadata."
       - name: ".playwright-mcp/"
-        disposition: "No action — gitignored, untracked tool cache."
+        disposition: "No action — gitignored, untracked tool cache (.gitignore line 36)."
 model: sonnet
 ---
 
