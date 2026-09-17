@@ -46,7 +46,7 @@ Update `systems/credit-cards/card-registry.json`.
 ### 4. Route Alerts to Chief
 
 For any time-sensitive action items (expiring credits, deadlines):
-- Create OmniFocus tasks with due dates
+- Create the OmniFocus tasks with due dates via the `omnifocus-tasks` skill (`skills/omnifocus-tasks/SKILL.md`) — the only authorized path for task creation, and the one that enforces the project + tag gate. Do not hand-write OmniFocus AppleScript.
 - Flag for inclusion in tomorrow's morning briefing
 
 ### 5. Confirm Completion

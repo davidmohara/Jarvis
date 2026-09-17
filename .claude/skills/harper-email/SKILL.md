@@ -47,7 +47,7 @@ Read and execute `workflows/email-drafting/workflow.md`. Follow each step in `wo
   - `mcp__clay__getContact` for full context on key recipients
   - Use Clay data to calibrate tone, add personal references, and set the right level of formality
   - If Clay shows no recent interaction (30+ days), consider opening with a reconnection line
-- **Task management**: OmniFocus via osascript (Bash tool)
+- **Task management**: OmniFocus — reads via the `omnifocus-data` skill, writes via the `omnifocus-tasks` skill (both use osascript under the hood; no MCP dependency)
 - **CRM**: Dynamics 365
 - **Email drafts**: Mac Mail via AppleScript (Bash tool)
 - **Web**: WebSearch, WebFetch tools

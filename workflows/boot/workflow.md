@@ -26,7 +26,7 @@ model: sonnet
 | SYSTEM.md, identity/* | Read files |
 | M365 Calendar (3 days) | outlook_calendar_search |
 | M365 Email (flagged) | outlook_email_search |
-| OmniFocus inbox | MCP |
+| OmniFocus inbox | `omnifocus-data` skill (step-01.2 Pull B; not the MCP) |
 | Clay (7 days) | MCP |
 | workflows/*/state.yaml | Read all |
 

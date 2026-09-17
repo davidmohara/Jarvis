@@ -29,7 +29,7 @@ model: sonnet
 
 **Agent:** Chief
 **Mode:** Fully autonomous — no controller interaction
-**Input:** OmniFocus (osascript), M365 MCP calendar, delegation tracker, quarterly objectives, yesterday's daily review (if exists)
+**Input:** OmniFocus (via the `omnifocus-data` skill), M365 MCP calendar, delegation tracker, quarterly objectives, yesterday's daily review (if exists)
 **Output:** Narrative journal entry written to the knowledge system
 
 ---
@@ -38,7 +38,7 @@ model: sonnet
 
 ### Sequence
 
-1. **Pull OmniFocus data** via osascript (Bash tool):
+1. **Pull OmniFocus data** with the `omnifocus-data` skill (it uses osascript under the hood; do not hand-write the query):
 
    ```bash
    python3 skills/omnifocus-data/scripts/omnifocus_data.py counts --json

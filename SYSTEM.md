@@ -111,9 +111,16 @@ If all 3 strategies return nothing, THEN report it as not found — and say what
 
 ### OmniFocus Data Accuracy
 
-**OmniFocus MCP completion status is unreliable.** The MCP server sometimes returns tasks as incomplete that have already been completed, and vice versa. When surfacing OmniFocus tasks in briefings: caveat any completion status with "(via OmniFocus MCP — verify if disputed)". When David disputes a task's status, re-pull directly via MCP rather than trusting cached state.
+**OmniFocus reads go through the `omnifocus-data` skill** (`skills/omnifocus-data/SKILL.md`). It owns the query logic, the mandatory `completed is false` filter, and the canonical data file `data/omnifocus-unified.json`. Do not hand-write OmniFocus AppleScript, and do not call the MCP directly, to answer a task-data question.
 
-**When reading OmniFocus tasks**, always filter explicitly for `completed:false`. Do not rely on call-level filters alone — cross-check against the task's `completed` property. If completion status is ambiguous, check the task note. Never surface a completed task as active unless David asks for completed items.
+**Earlier guidance here blamed the MCP for unreliable completion status. The MCP was not the cause.** The two real causes, measured 2026-09-16, are structural, and the skill already corrects for both:
+
+- **`flattened tasks` includes each project's root row**, so projects surface as if they were tasks (49 of them here). This is why a task list can contain entries that look like phantom project names.
+- **Archiving a folder in OmniFocus does not complete its tasks.** The 21 projects inside the `Archive` folder hold 73 tasks that stay `completed: false` forever, while OmniFocus's own UI and the MCP both treat them as dropped.
+
+So `count of (flattened tasks whose completed is false)` returns **258** where the honest count of open work is **136**. Use the skill; it returns 136.
+
+**Never surface a completed task as active** unless David asks for completed items. The skill's pull enforces this in the query itself, so do not re-derive the filter by hand. If the count is ever disputed, re-run the skill rather than trusting cached state.
 
 ### Send-Type Task Verification
 
@@ -422,7 +429,7 @@ This failure has been logged 3+ times (err-20260327-004, err-20260404-001, err-2
 ---
 
 <!-- personal:start -->
-See `skills/omnifocus-tasks/SKILL.md` for OmniFocus read patterns, write rules, and AppleScript templates.
+OmniFocus has two skills and they do not overlap. **Reads** go to `skills/omnifocus-data/SKILL.md` (pull, counts, tags, projects, task lists — it owns the query logic and the canonical data file). **Writes** go to `skills/omnifocus-tasks/SKILL.md` (create, move, assign, flag — gate-enforced on project and tag). Neither skill holds the other's job; do not use one where the other belongs.
 <!-- personal:end -->
 
 ---

@@ -48,7 +48,7 @@ Read and execute `workflows/one-on-one-prep/workflow.md`. Follow each step in `w
   - `mcp__clay__getNotes` with contact_ids — recent notes about this person
   - Surface interaction pattern: "Last email: X days ago, Last meeting: X days ago, Total touchpoints: N"
   - Flag if interaction has dropped off (14+ days since last touchpoint for direct reports)
-- **Task management**: OmniFocus via osascript (Bash tool)
+- **Task management**: OmniFocus — reads via the `omnifocus-data` skill, writes via the `omnifocus-tasks` skill (both use osascript under the hood; no MCP dependency)
 - **CRM**: Dynamics 365
 - **Email drafts**: Mac Mail via AppleScript (Bash tool)
 - **Web**: WebSearch, WebFetch tools

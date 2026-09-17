@@ -42,8 +42,11 @@ model: sonnet
 
 ### Sequence
 
-1. **Pull task management inbox status.**
-   - Get all incomplete inbox tasks via task management API.
+1. **Pull task management inbox status** with the `omnifocus-data` skill:
+   ```bash
+   python3 skills/omnifocus-data/scripts/omnifocus_data.py list --kind inbox --json
+   ```
+   - That returns all incomplete inbox tasks. Do NOT hand-write OmniFocus AppleScript — the `completed is false` filter lives in the query.
    - Count total items.
    - Identify the creation date of each item. Flag any older than 7 days.
    - Identify any items older than 14 days as critical.
@@ -136,4 +139,5 @@ Read fully and follow: `step-05-people-check.md`
 <!-- system:end -->
 
 <!-- personal:start -->
+**Task management binding:** "the task management system" and "the task management API" below mean OmniFocus. Reads go through the `omnifocus-data` skill (`skills/omnifocus-data/SKILL.md`) — do not hand-write queries. Writes (create, move, assign, flag, complete) go through the `omnifocus-tasks` skill (`skills/omnifocus-tasks/SKILL.md`), which is gate-enforced on project and tag.
 <!-- personal:end -->

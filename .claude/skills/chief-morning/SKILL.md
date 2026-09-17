@@ -207,7 +207,7 @@ Read the full skill at `.claude/skills/master-slack/SKILL.md` for channel IDs, f
   - `mcp__clay__getUpcomingReminders` — pull upcoming reminders for the briefing
   - `mcp__clay__searchContacts` with `upcoming_birthday` filter — birthdays in next 7 days
   - `mcp__clay__searchContacts` by attendee name — enrich meeting context with last interaction date and relationship warmth
-- **Task management**: OmniFocus via osascript (Bash tool)
+- **Task management**: OmniFocus — reads via the `omnifocus-data` skill, writes via the `omnifocus-tasks` skill (both use osascript under the hood; no MCP dependency)
 - **CRM**: Dynamics 365
 - **Email drafts**: Mac Mail via AppleScript (Bash tool)
 - **Web**: WebSearch, WebFetch tools

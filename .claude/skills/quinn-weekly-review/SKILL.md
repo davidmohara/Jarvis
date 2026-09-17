@@ -110,7 +110,7 @@ Cross-reference verbal and written commitments made this week against what was a
 - **Teams chat messages** (via M365 MCP `chat_message_search`): scan direct messages and channel threads from this week for the same commitment language, especially in 1:1 conversations
 - **Email** (via M365 MCP `outlook_email_search`): scan sent and received emails for commitments made or received
 - **Plaud transcripts in the knowledge system** (via Obsidian MCP): search for Plaud-sourced notes from this week; apply the same commitment language scan
-- **OmniFocus** (via osascript): pull all tasks created this week as the comparison baseline
+- **OmniFocus** (via the `omnifocus-data` skill): pull the open task list as the comparison baseline. Caveat: that pull carries no creation dates, so "created this week" cannot be derived from it — use the MCP's `addedWithin` filter when it is connected, and say the baseline is partial when it is not
 
 **Detection logic:**
 1. Extract all commitment statements found across sources above

@@ -39,10 +39,12 @@ model: sonnet
 
 ### Sequence
 
-1. **Pull all inbox tasks** via the task management API.
-   - Capture: task name, task note, creation date
-   - Query for **incomplete** inbox/unfiled tasks only — filter out completed items
-   - See `reference/omnifocus-commands.md` for the correct query syntax
+1. **Pull all inbox tasks** with the `omnifocus-data` skill:
+   ```bash
+   python3 skills/omnifocus-data/scripts/omnifocus_data.py list --kind inbox --json
+   ```
+   - That command returns incomplete, unfiled inbox tasks only. The `completed is false` filter lives in the query itself, so you do not add one and must not remove it. Do NOT hand-write OmniFocus AppleScript here.
+   - Capture: task name, task note (`note`), creation date
    - Return each task's name, note/description, and creation date
 
 2. **Count inbox items.** Store the total. This is the starting number for the final report.
@@ -117,4 +119,5 @@ Read fully and follow: `step-02-triage-loop.md`
 <!-- system:end -->
 
 <!-- personal:start -->
+**Task management binding:** "the task management system" and "the task management API" below mean OmniFocus. Reads go through the `omnifocus-data` skill (`skills/omnifocus-data/SKILL.md`) — do not hand-write queries. Writes (create, move, assign, flag, complete) go through the `omnifocus-tasks` skill (`skills/omnifocus-tasks/SKILL.md`), which is gate-enforced on project and tag.
 <!-- personal:end -->

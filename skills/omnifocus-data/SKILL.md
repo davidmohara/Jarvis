@@ -37,14 +37,25 @@ consumer re-reads and re-interprets.
 
 | Need | Path |
 |------|------|
-| Ad-hoc interactive read by an agent | **OmniFocus MCP** (`query_omnifocus`, `list_tags`) when its tools are present |
-| The canonical pull, counts, and anything unattended | **This skill's script** |
+| Reading OmniFocus to decide or write something | **This skill's script** — one entry point, no hand-written queries. It picks the best backend itself |
+| The canonical pull, counts, and anything unattended | **This skill's script** (AppleScript) |
 
-The script uses AppleScript, deliberately. The MCP depends on session state:
-the server must be built, running, and connected before the session starts.
-osascript has no such dependency. Boot runs unattended, so the canonical pull
-must not depend on MCP availability. If you have the MCP, prefer it for
-one-off lookups; always use the script for the pull.
+The script fronts two backends and chooses per command:
+
+| Command | Backend |
+|---------|---------|
+| `pull`, `list` | **AppleScript only.** The MCP's `query_omnifocus` returns a display rendering (`• name [id] (project) #status`) that omits `note`, so it cannot produce the canonical record shape |
+| `counts`, `tags`, `projects` | **MCP when reachable, AppleScript otherwise.** These are the reads the MCP does better: it speaks OmniFocus's *effective* status, so archived work is excluded for free |
+
+The MCP depends on session state: the server must be built, running, and
+connected before the session starts. osascript has no such dependency. Boot
+runs unattended, so the **pull** must never depend on MCP availability, and it
+does not.
+
+`--source {auto,mcp,apple}` forces the choice. `auto` (the default) falls back
+to AppleScript and says so on stderr. `--source mcp` never falls back: a caller
+that asked for the MCP wants to hear it is unavailable, not to be quietly
+served something else.
 
 ## The script
 
@@ -55,12 +66,54 @@ skills/omnifocus-data/scripts/omnifocus_data.py
 | Command | Purpose |
 |---------|---------|
 | `pull [--out PATH]` | Write the canonical data file. Never raises: on failure it writes `status: failed` and exits 1 |
-| `counts [--json]` | `inbox_uncompleted`, `flagged_uncompleted`, `total_uncompleted`, `due_within_7` |
-| `tags [--json]` | All tag names |
-| `projects [--json]` | Active project names |
+| `counts [--json]` | `inbox_uncompleted`, `flagged_uncompleted`, `total_uncompleted`, `due_within_7`, `overdue_uncompleted`, `completed_today` |
+| `tags [--json]` | All tag names, including inactive ones |
+| `projects [--json]` | Active project names, excluding those inside archived folders |
 | `list --kind inbox\|due\|flagged [--json]` | Tasks of one kind |
 
-Run it with `python3`. `--days N` shifts the due window (default 7).
+Run it with `python3`. `--days N` shifts the due window (default 7) and must
+precede the subcommand.
+
+Both backends are verified to return identical results for all six counts,
+for `tags`, and for `projects`. If they ever disagree, that is a bug, not a
+preference — the whole point of routing both through one skill is that the
+answer does not depend on which backend happened to answer.
+
+## Counts mean open work, not rows
+
+`total_uncompleted` counts real open tasks: no project-root rows, and nothing
+inside an archived folder. This matters more than it sounds.
+
+`count of (flattened tasks whose completed is false)` — the obvious
+implementation, and the one this skill originally shipped — returns **258** on
+this database. The honest number is **136**, and the 122-row gap is two
+separate traps:
+
+- **`flattened tasks` includes each project's root row.** 49 of them here,
+  each carrying `completed: false`. The MCP's task query returns these too,
+  which is why project names show up in task listings; the script subtracts
+  them.
+- **Archiving a folder in OmniFocus does not complete its tasks.** The 21
+  projects inside the hidden `Archive` folder hold 73 tasks that stay
+  `completed: false` forever. OmniFocus's own UI treats them as dropped, and
+  so does the MCP.
+
+Measured 2026-09-16: `258 = 136 open + 73 archived + 49 project roots`.
+
+Two consequences worth knowing. A consumer that reads `total_uncompleted` as
+"how much work is on my plate" was previously reading a number ~90% too high.
+
+The second is `projects`. AppleScript's `status is active status` returns **30**
+active projects; the honest answer is **27**. The three extras — `Find new
+doctor`, `Build measuring board`, `Personal` — are marked active but sit inside
+the archive, so they are not real targets for new work. The AppleScript path
+now excludes them the same way the MCP does, because this command feeds the
+project-assignment gate in `omnifocus-tasks`: a gate that offers an archived
+project as a target is worse than no gate.
+
+`inbox_uncompleted`, `flagged_uncompleted`, `overdue_uncompleted`,
+`completed_today` and `due_within_7` are unaffected: no project root has a due
+date or a flag, so both backends already agreed on them.
 
 ## The pull
 
@@ -83,6 +136,12 @@ surfaced as a degraded source, never passed over as an empty one.
    `status`. Never let a failure look like a quiet day.
 3. **One writer.** Only this skill writes `data/omnifocus-unified.json`. If you
    find another writer, that is a bug: consolidate it here.
+4. **A count of open work excludes archived work and project roots.** Do not
+   reintroduce `count of (flattened tasks whose completed is false)` as a
+   total. See "Counts mean open work" above.
+5. **Do not hand-write OmniFocus queries.** Every read here has a command. The
+   script picks its own backend precisely so callers never have to reason about
+   which one is connected.
 
 ## Failure handling
 

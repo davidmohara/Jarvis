@@ -103,7 +103,7 @@ python3 skills/omnifocus-data/scripts/omnifocus_data.py pull
 
 That command writes `data/omnifocus-unified.json` and is the single writer for it. Read the file back and report `status` and `task_count`. A `status: failed` pull is a degraded source to surface, never something to pass over as an empty day.
 
-For ad-hoc reads inside this step, the OmniFocus MCP is available when its tools are present: `query_omnifocus` with `filters={ projectName: "inbox" }` or `filters={ dueWithin: 7 }`, always with `includeCompleted: false`. Note that `deferredUntil` is accepted by the schema but silently ignored. Prefer the script for the pull itself, because it does not depend on MCP session state and boot runs unattended.
+For ad-hoc reads inside this step, use the same skill: `list --kind inbox`, `list --kind due`, `counts`. Prefer the script over the MCP for every read here, because it does not depend on MCP session state and boot runs unattended. If the MCP does happen to be connected, the two agree on counts, tags and projects — and note that its `query_omnifocus` returns a display rendering that omits notes, so it cannot stand in for the pull.
 
 Why this is delegated rather than inlined here: OmniFocus query logic previously lived in five separate places and drifted, producing a 247-completed-task query and invented filter keys on 2026-09-16. The filter and the `status` contract now live in code. See `skills/omnifocus-data/SKILL.md`.
 

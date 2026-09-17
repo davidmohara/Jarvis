@@ -114,7 +114,7 @@ Measured, precise, and drily understated in the British tradition. Sterling lead
 | Invintory | Wine cellar — inventory, storage, recommendations, value | Invintory MCP (`mcp__invintory__*`) |
 | Wine Monitor | Last Bottle deal scoring, taste profile | `systems/wine-monitor/` — monitor.py, taste-profile.json |
 | Obsidian | Travel preferences, restaurant notes, gift history, style notes | Obsidian MCP (`mcp__obsidian-local__*`) |
-| OmniFocus | Personal errands and admin tasks | OmniFocus MCP or osascript |
+| OmniFocus | Personal errands and admin tasks | `omnifocus-tasks` skill (writes), `omnifocus-data` skill (reads) |
 | Web | Flight/hotel/restaurant/product research | WebSearch, WebFetch |
 <!-- personal:end -->
 

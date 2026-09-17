@@ -1,0 +1,259 @@
+{
+  "id": "eval-20260916T213408-6UYHX5",
+  "type": "workflow",
+  "name": "boot",
+  "agent": "master",
+  "session_id": "4ab16b58-4833-4ebf-9010-24e410f12792",
+  "trigger": "boot",
+  "started": "2026-09-16T21:34:08.015939Z",
+  "completed": null,
+  "duration_seconds": null,
+  "status": "in-progress",
+  "steps": [
+    {
+      "name": "step-02-gather-tasks.md",
+      "started": "2026-08-27T16:30:00Z",
+      "completed": "2026-08-27T16:31:00Z",
+      "duration_seconds": 60.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "sonnet",
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "name": "step-01-pull-inbox.md",
+      "started": null,
+      "completed": null,
+      "duration_seconds": null,
+      "status": "not-started",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "sonnet",
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "name": "step-03-confirm-zero.md",
+      "started": null,
+      "completed": null,
+      "duration_seconds": null,
+      "status": "not-started",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "sonnet",
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "name": "step-02-triage-loop.md",
+      "started": null,
+      "completed": null,
+      "duration_seconds": null,
+      "status": "not-started",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "sonnet",
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "name": "step-04-inbox-and-calendar.md",
+      "started": null,
+      "completed": null,
+      "duration_seconds": null,
+      "status": "not-started",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "sonnet",
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "name": "step-03-update.md",
+      "started": null,
+      "completed": null,
+      "duration_seconds": null,
+      "status": "not-started",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "sonnet",
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "name": "step-auto.md",
+      "started": "2026-04-17T13:40:00",
+      "completed": "2026-04-17T13:55:00",
+      "duration_seconds": 900.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "sonnet",
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "name": "step-04-assemble-brief.md",
+      "started": null,
+      "completed": null,
+      "duration_seconds": null,
+      "status": "not-started",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "sonnet",
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "name": "step-01.2-unified-data-pull.md",
+      "started": "2026-09-16T14:22:24Z",
+      "completed": "2026-09-16T14:24:00Z",
+      "duration_seconds": 96.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    }
+  ],
+  "subagents": [
+    {
+      "agent_id": "a4312d260078476fd",
+      "agent_type": "Explore",
+      "started": "2026-09-16T22:09:38.151391Z",
+      "completed": "2026-09-16T22:11:57.037140Z",
+      "model": "accounts/fireworks/models/glm-5p3",
+      "tokens_input": 0,
+      "tokens_output": 0,
+      "cost_usd": 0.045,
+      "duration_seconds": 138.89
+    }
+  ],
+  "monitoring": {
+    "active": true,
+    "state_yaml_path": "workflows/boot/state.yaml",
+    "opened_by": "eval-turn-start.py",
+    "trigger_evidence": "boot-first-prompt-of-session"
+  },
+  "assessment": {
+    "mechanical": {
+      "completed": null,
+      "all_steps_finished": true,
+      "tool_failures": 11,
+      "error_ids": [],
+      "tool_failure_log": [
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\n983:983: syntax error: Expected end of line, etc. but found end of script. (-2741)",
+          "duration_ms": 95,
+          "timestamp": "2026-09-16T16:36:30.359834"
+        },
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\n107:108: execution error: OmniFocus got an error: Can\u2019t set c of default document to 5. (-10006)",
+          "duration_ms": 172,
+          "timestamp": "2026-09-16T16:36:55.741907"
+        },
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\n155:161: execution error: Can\u2019t make \u00abclass FCPs\u00bb of item 1 of every \u00abclass FCff\u00bb of \u00abclass FCDo\u00bb of application \"OmniFocus\" into type string. (-1700)",
+          "duration_ms": 184,
+          "timestamp": "2026-09-16T16:38:27.378612"
+        },
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\n265:271: execution error: Can\u2019t make \u00abclass FCPs\u00bb of item 1 of every \u00abclass FCff\u00bb of \u00abclass FCDo\u00bb of application \"OmniFocus\" into type string. (-1700)",
+          "duration_ms": 6032,
+          "timestamp": "2026-09-16T16:39:42.309428"
+        },
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\n175:176: execution error: OmniFocus got an error: Can\u2019t set h of default document to \"?\". (-10006)",
+          "duration_ms": 190,
+          "timestamp": "2026-09-16T16:41:54.742000"
+        },
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\n=== diff file? ===",
+          "duration_ms": 90071,
+          "timestamp": "2026-09-16T16:51:20.862853"
+        },
+        {
+          "tool": "Bash",
+          "error": "Exit code 143\nCommand timed out after 2m 0s",
+          "duration_ms": 120047,
+          "timestamp": "2026-09-16T16:53:26.415858"
+        },
+        {
+          "tool": "Bash",
+          "error": "Exit code 2\n=== counts (auto -> MCP) ===\ninbox_uncompleted: 8\nflagged_uncompleted: 0\ntotal_uncompleted: 136\noverdue_uncompleted: 0\ncompleted_today: 6\ndue_within_7: 26\npython3 skills/omnifocus-data/scripts/omnifocus_data.py counts  0.50s user 0.23s system 3% cpu 18.906 total\n\n=== counts (apple) ===\nusage: omnifocus_data.py [-h] [--days DAYS] [--source {auto,mcp,apple}]\n                         {pull,counts,tags,projects,list} ...\nomnifocus_data.py: error: unrecognized arguments: --source apple\npython3 skills/omnifocus-data/scripts/omnifocus_data.py counts --source apple  0.04s user 0.02s system 88% cpu 0.062 total",
+          "duration_ms": 19002,
+          "timestamp": "2026-09-16T16:56:35.759148"
+        },
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\n=== tags mcp ===\nexit=1\nFAILED: tag parse mismatch: server declared 30, parsed 0\n       0\n=== tags apple ===\n      30\n=== diff ===\n0a1,30\n> One on One\n> Alice\n> Susie\n> Curtis\n> Scott\n> Don\n> Robyn\n> Diana\n> Stephen\n> Tiffany\n> Susan\n> Kevin\n> Bethany\n> Improving\n> Email\n> Reflection\n> Writing\n> Browser\n> Laptop\n> Convo\n> Reading\n> Phone\n> Errands\n> Forum\n> Home Office\n> House\n> Plane\n> Delegated\n> Waiting\n> Goals\n\n=== projects mcp ===\nexit=1\n       1\nFAILED: project parse mismatch: server counted 27, parsed 0\n=== projects apple ===\n      30\n=== diff ===\n1c1,30\n< FAILED: project parse mismatch: server counted 27, parsed 0\n---\n> Next\n> Reachout\n> Accounting\n> Podcast\n> Presentations\n> Speaking\n> Workshops\n> Executive Elevation\n> Family\n> Sales\n> Travel\n> Networking\n> Deliberate Practices\n> Finances\n> Growth\n> Lifebook\n> Writing\n> YPO\n> UTB\n> Maintenance\n> 40\n> Driven to Develop SEO\n> Find new doctor\n> Build measuring board\n> Personal\n> Ideas\n> Book List\n> Kare Devices\n> Marketing\n> Credit Cards",
+          "duration_ms": 1846,
+          "timestamp": "2026-09-16T16:58:25.785516"
+        },
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\ntags exit=0\ntags: IDENTICAL to AppleScript\nprojects exit=1\nprojects DIFF:\n1c1,30\n< FAILED: project parse mismatch: server counted 27, parsed 0\n---\n> Next\n> Reachout\n> Accounting\n> Podcast\n> Presentations\n> Speaking\n> Workshops\n> Executive Elevation\n> Family\n> Sales\n> Travel\n> Networking\n> Deliberate Practices\n> Finances\n> Growth\n> Lifebook\n> Writing\n> YPO\n> UTB\n> Maintenance\n> 40\n> Driven to Develop SEO\n> Find new doctor\n> Build measuring board\n> Personal\n> Ideas\n> Book List\n> Kare Devices\n> Marketing\n> Credit Cards",
+          "duration_ms": 1234,
+          "timestamp": "2026-09-16T16:58:39.467398"
+        },
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\ncounts apple due_within_7:\noverdue_uncompleted: 0\ndue_within_7: 31\ncounts mcp due_within_7:\noverdue_uncompleted: 0\ndue_within_7: 31\nlist --kind due count:\n31\nlist --days 7 count:\nusage: omnifocus_data.py [-h] [--days DAYS] [--source {auto,mcp,apple}]\n                         {pull,counts,tags,projects,list} ...\nomnifocus_data.py: error: unrecognized arguments: --days 7\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import json,sys; print(len(json.load(sys.stdin)))\n                               ~~~~~~~~~^^^^^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/__init__.py\", line 298, in load\n    return loads(fp.read(),\n        cls=cls, object_hook=object_hook,\n        parse_float=parse_float, parse_int=parse_int,\n        parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)\n  File \"/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/__init__.py\", line 352, in loads\n    return _default_decoder.decode(s)\n           ~~~~~~~~~~~~~~~~~~~~~~~^^^\n  File \"/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/decoder.py\", line 345, in decode\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/decoder.py\", line 363, in raw_decode\n    raise JSONDecodeError(\"Expecting value\", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+          "duration_ms": 51769,
+          "timestamp": "2026-09-16T17:02:29.962349"
+        }
+      ]
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [
+    "turn-level"
+  ]
+}

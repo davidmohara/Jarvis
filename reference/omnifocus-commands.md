@@ -39,6 +39,14 @@ The OmniFocus MCP server (`~/develop/omnifocus-mcp`, launched by `run-server.sh`
 
 Two traps worth knowing. `add_omnifocus_task` warns against duplicating an existing task (often one sitting in the Inbox): move it with `edit_item` + `newProjectName` instead. And the MCP connection is established at session start, so the tool index reflects the **connected process**, which can be a stale build; a missing tool means "not connected", never "does not exist". If a tool is absent, fall back to osascript rather than concluding the capability is gone.
 
+### Three more traps, verified live 2026-09-16
+
+**`entity: "tasks"` returns project rows.** Each project appears in the task list as a row named after the project, carrying the project's own id. A query for `projectName: "Family"` returns 16 rows where AppleScript's `flattened tasks of <project>` returns 15 — the extra one is the project. This inflates every unfiltered task count by one per project (28 here), so never compare a raw MCP task count against a task count from AppleScript.
+
+**`query_omnifocus` returns prose, not JSON.** It hands back a display rendering: `• name [id] (project) [due: …] <tags> #status`. It **omits `note` entirely**, and a task name containing `[` or `(` makes it ambiguous to parse. Use it for counts (`summary: true` returns `Found N …`), not for structured extraction. When you need real fields, read the JSON **resources** (`omnifocus://inbox`, `omnifocus://today`, `omnifocus://flagged`) — those return objects with `note`, `tagNames`, `dueDate` and `taskStatus`.
+
+**Archived folders are invisible to the MCP, by default and correctly.** A folder set to hidden is treated as dropped: its 21 projects and their 73 tasks are excluded from results and reported as `status: Dropped` if you ask for dropped items. AppleScript's `completed is false` counts all of them, and `status of containing project` still says `active`. This is the whole reason the raw MCP count (164) and the raw AppleScript count (258) disagree; `skills/omnifocus-data` reconciles them and is the right entry point for anything that needs a number.
+
 Full filter and field reference: `QUERY_TOOL_REFERENCE.md` and `QUERY_TOOL_EXAMPLES.md` in the server repo.
 
 ---

@@ -91,7 +91,7 @@ Read and follow the complete workflow documented in `skills/plaud-transcripts/SK
 6. **Transform to Obsidian notes**: Apply vault conventions — frontmatter tags, note structure, filename format (`YYYY-MM-DD <Title>.md`)
 7. **Route to correct folder**: Based on meeting type per vault-conventions routing table
 8. **Link from daily calendar note**: Add wikilink under `# Notes` heading in `Calendar/YYYY/MM-MonthName/YYYY-MM-DD.md`
-9. **Route O'Hara action items to OmniFocus** via osascript
+9. **Route O'Hara action items to OmniFocus** via the `omnifocus-tasks` skill (`skills/omnifocus-tasks/SKILL.md`). That skill is the only authorized path for task creation and it gates on project + tag, so do not create bare inbox tasks or hand-write AppleScript.
 10. **Clean up staging**: Delete processed `plaud_*.md`, `plaud_*_raw.json`, and `plaud_*_speakers.json` files
 11. **Report**: List what was processed, speakers tagged, action items routed, items for others flagged for delegation
 
@@ -118,7 +118,7 @@ After ingesting transcripts, Knox flags relevant content for other agents:
 - **Staging folder**: Bash, Read tools for scanning `~/Downloads/transcript-staging/`
 - **Fetch script**: `skills/plaud-transcripts/scripts/fetch_plaud.py` via Bash on Mac host (when manual fetch needed)
 - **Calendar cross-reference**: MS 365 MCP (`outlook_calendar_search`) for meeting metadata
-- **OmniFocus**: osascript → OmniFocus inbox task creation
+- **OmniFocus**: task creation via the `omnifocus-tasks` skill (`skills/omnifocus-tasks/SKILL.md`); reads via the `omnifocus-data` skill (`skills/omnifocus-data/SKILL.md`). Not raw osascript, and not inbox-only drops.
 - **Obsidian vault**: Obsidian MCP or direct filesystem write to iCloud Obsidian directory
 
 ## Input

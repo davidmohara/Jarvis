@@ -48,7 +48,7 @@ Read and execute `workflows/client-meeting-prep/workflow.md`. Follow each step i
   - `mcp__clay__getContact` — deep dive on key attendees
   - `mcp__clay__getEmails` with contact_ids — recent email history with attendees
   - Include Clay findings in the "Relationship Map" section of the prep brief
-- **Task management**: OmniFocus via osascript (Bash tool)
+- **Task management**: OmniFocus — reads via the `omnifocus-data` skill, writes via the `omnifocus-tasks` skill (both use osascript under the hood; no MCP dependency)
 - **CRM**: Dynamics 365
 - **Email drafts**: Mac Mail via AppleScript (Bash tool)
 - **Web**: WebSearch, WebFetch tools

@@ -88,7 +88,7 @@ If this is the first brief for this person, note: "First prep brief — no prior
 {Include items from ALL sources:
 - Previous brief's open items (mark resolved ones as Complete, flag stale ones as Overdue)
 - New commitments from email/Teams since last 1:1
-- Tasks tagged with this person in the task management system
+- Tasks tagged with this person in OmniFocus (read via the `omnifocus-data` skill)
 - Delegation tracker entries involving this person
 Every item must have a clear owner and current status.}
 

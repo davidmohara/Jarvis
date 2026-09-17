@@ -112,7 +112,7 @@ These are the operations Master handles directly (not routed to a specialist age
 | Source | What Jarvis Needs | Integration |
 |--------|------------------|-------------|
 | Clay | Upcoming reminders, birthdays (next 7 days), attendee relationship context, interaction recency | MCP (mcp__clay__*) |
-| OmniFocus | Inbox tasks, due tasks, flagged tasks, project tasks, tags, perspectives | MCP (`mcp__omnifocus__*`) preferred, for both reads and writes: `query_omnifocus` for filtered lookups, `list_tags`, `add_omnifocus_task`, `edit_item` to move a task. osascript via the **Bash** tool as fallback. Desktop Commander is not required for AppleScript |
+| OmniFocus | Inbox tasks, due tasks, flagged tasks, project tasks, tags, perspectives | **Reads:** `omnifocus-data` skill — `python3 skills/omnifocus-data/scripts/omnifocus_data.py <pull\|counts\|tags\|projects\|list>`. **Writes:** `omnifocus-tasks` skill (gate-enforced on project + tag). Do not hand-write AppleScript or call the MCP directly; the skills own both, and neither needs Desktop Commander |
 | Obsidian | Full knowledge base — One Texas, Lifebook, talks, meeting notes, project files | Obsidian MCP (mcp__obsidian-mcp-tools__*) |
 | M365 | Calendar, email, Teams chat search | M365 MCP (mcp__claude_ai_Microsoft_365__*) |
 <!-- personal:end -->

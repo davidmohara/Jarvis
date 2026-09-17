@@ -126,4 +126,5 @@ Read fully and follow: `step-04-assemble-brief.md`
 <!-- system:end -->
 
 <!-- personal:start -->
+**Task management binding:** "the task management system" and "the task management API" below mean OmniFocus. Reads go through the `omnifocus-data` skill (`skills/omnifocus-data/SKILL.md`) — do not hand-write queries. Writes (create, move, assign, flag, complete) go through the `omnifocus-tasks` skill (`skills/omnifocus-tasks/SKILL.md`), which is gate-enforced on project and tag.
 <!-- personal:end -->

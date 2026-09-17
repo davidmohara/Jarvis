@@ -70,7 +70,7 @@ That workflow orchestrates these skills:
 6. **Transform to KMS notes**: Apply conventions — frontmatter tags, note structure, filename format (`YYYY-MM-DD <Title>.md`)
 7. **Route to correct folder**: Based on meeting type per vault-conventions routing table
 8. **Link from daily note**: Add link under Notes heading in the daily note for that date
-9. **Route action items to OmniFocus** via osascript
+9. **Route action items to OmniFocus** per the `omnifocus-tasks` skill — the only authorized task-creation path, and the one that enforces the project + tag gate. Not raw AppleScript, and not bare inbox drops.
 10. **Clean up staging**: Delete processed `plaud_*.md`, `plaud_*_raw.json`, and `plaud_*_speakers.json` files
 11. **Report**: List what was processed, speakers tagged, action items routed, items for others flagged for delegation
 
@@ -97,7 +97,7 @@ After ingesting transcripts, the Knowledge Manager flags relevant content for ot
 - **Staging folder**: Bash, Read tools for scanning `~/Downloads/transcript-staging/`
 - **Fetch script**: `skills/plaud-transcripts/scripts/fetch_plaud.py` via Bash on Mac host (when manual fetch needed)
 - **Calendar cross-reference**: Dataverse-configured calendar connector (see `skills/plaud-speaker-id/SKILL.md`)
-- **OmniFocus**: osascript → OmniFocus inbox task creation
+- **OmniFocus**: task creation via the `omnifocus-tasks` skill; reads via the `omnifocus-data` skill. Not raw osascript, and not inbox-only drops.
 - **KMS**: Adapter determined by `kms` config key in `config/settings.json`
 
 ## Input

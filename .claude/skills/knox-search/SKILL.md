@@ -152,7 +152,7 @@ If no results found, state that clearly: "No record of {term}. Checked all vault
 - **Filesystem**: osascript → grep, find on Mac host
 - **Vault access**: Direct filesystem read of Obsidian iCloud directory
 - **Clay**: MCP contact search for person queries
-- **OmniFocus**: osascript for project/task cross-reference
+- **OmniFocus**: `omnifocus-data` skill for project/task cross-reference (reads only — do not hand-write AppleScript)
 
 ## Input
 

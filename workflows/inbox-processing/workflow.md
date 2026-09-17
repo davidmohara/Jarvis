@@ -27,7 +27,7 @@ model: sonnet
 
 | Source | What to Pull | Access Method |
 |--------|-------------|---------------|
-| Task management | All inbox tasks (name, note, date created) | Task management API |
+| Task management | All inbox tasks (name, note, date created) | `omnifocus-data` skill — `python3 skills/omnifocus-data/scripts/omnifocus_data.py list --kind inbox` |
 | Quarterly objectives | Current rocks for prioritization | Read memory/personal/quarterly-objectives.md |
 | Delegation tracker | Current delegations for context | Read delegations/tracker.md |
 
@@ -35,12 +35,14 @@ model: sonnet
 
 | Disposition | Action |
 |-------------|--------|
-| **Do** | Urgent + important. Handle today. Assign to a project in the task management system. |
-| **Delegate** | Hand off. Add to delegation tracker. Create task with person tag. |
-| **Defer** | Important, not urgent. Assign to project with due date. |
+| **Do** | Urgent + important. Handle today. Assign to a project via the `omnifocus-tasks` skill. |
+| **Delegate** | Hand off. Add to delegation tracker. Create task with person tag via the `omnifocus-tasks` skill. |
+| **Defer** | Important, not urgent. Assign to project with due date via the `omnifocus-tasks` skill. |
 | **Decide** | Needs a decision file. Create in decisions/ folder. |
 | **Reference** | Not actionable. File into knowledge layer or reference docs. |
-| **Delete** | Not worth keeping. Mark complete in task management system. |
+| **Delete** | Not worth keeping. Mark complete via the `omnifocus-tasks` skill — assign it to a project first, because inbox tasks cannot be completed directly. |
+
+Every OmniFocus write in this workflow goes through `skills/omnifocus-tasks/SKILL.md`, which is gate-enforced on project and tag. Every OmniFocus read goes through `skills/omnifocus-data/SKILL.md`. There is no other authorized path.
 <!-- system:end -->
 
 <!-- personal:start -->

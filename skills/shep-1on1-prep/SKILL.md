@@ -147,10 +147,12 @@ Also check:
 
 Check for any tasks assigned to or delegated to this person, or tasks David owns that relate to them.
 
+Use the `omnifocus-data` skill rather than hand-written AppleScript:
+```bash
+python3 skills/omnifocus-data/scripts/omnifocus_data.py list --kind due --json
+python3 skills/omnifocus-data/scripts/omnifocus_data.py counts --json
 ```
-mcp__Control_your_Mac__osascript
-  [AppleScript: filter OmniFocus for tasks containing person's name or associated project]
-```
+Then filter the returned tasks for the person's name or associated project. For a targeted lookup you may also read `data/omnifocus-unified.json`, which the skill writes. Do NOT hand-write an OmniFocus AppleScript filter here — the query logic and the `completed is false` filter live in `skills/omnifocus-data/SKILL.md`.
 
 Flag anything overdue or approaching due date.
 

@@ -93,7 +93,7 @@ def main():
             "reason": "step-04 outputs present but no numeric inbox count recorded — the step mandates an exact count",
             "fields": fields,
             "validation_errors": ["inbox_count_missing"],
-            "retry_instruction": "Pull the exact inbox count from the task management API and record it in outputs.",
+            "retry_instruction": "Pull the exact inbox count with the omnifocus-data skill (python3 skills/omnifocus-data/scripts/omnifocus_data.py list --kind inbox) and record it in outputs.",
         }
     else:
         verdict = {

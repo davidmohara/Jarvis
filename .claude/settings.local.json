@@ -26,7 +26,9 @@
       "mcp__claude_ai_monday_com__get_column_type_info",
       "Bash(bash /tmp/wait_ypo.sh)",
       "Bash(/usr/bin/python3 -)",
-      "mcp__claude_ai_monday_com__create_item"
+      "mcp__claude_ai_monday_com__create_item",
+      "mcp__omnifocus__query_omnifocus",
+      "mcp__omnifocus__list_tags"
     ],
     "additionalDirectories": [
       "/Users/davidohara/develop/improving/ies"

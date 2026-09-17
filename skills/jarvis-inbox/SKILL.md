@@ -42,7 +42,7 @@ For each email, determine its type and routing:
 |--------|---------------|----------|
 | Lead, prospect, company intro, "met this person at..." | **Lead / Contact** | Chase — add to lead tracker or Clay |
 | Article, resource, "read this", FYI, newsletter | **Knowledge / Reference** | Knox — file in Obsidian vault |
-| Task, follow-up, reminder, "don't forget to..." | **Action Item** | Chief — create OmniFocus task |
+| Task, follow-up, reminder, "don't forget to..." | **Action Item** | Chief — create OmniFocus task via the `omnifocus-tasks` skill |
 | Meeting request, scheduling, calendar | **Calendar** | Chief — handle directly |
 | Draft request, "write this", content idea | **Comms / Content** | Harper — queue for drafting |
 | Coaching, 1:1 context, team feedback | **People / Coaching** | Shep — add to person file |
@@ -58,7 +58,7 @@ For each classified item:
 2. **Execute the routing**:
    - **Chase items**: Note in working memory for lead review. If a new contact, suggest adding to Clay.
    - **Knox items**: Summarize and note for Obsidian filing. If it's an article URL, capture the link and title.
-   - **Chief items**: Create an OmniFocus task with context from the email.
+   - **Chief items**: Create an OmniFocus task with context from the email, via the `omnifocus-tasks` skill (`skills/omnifocus-tasks/SKILL.md`). It is the only authorized creation path and it gates on project + tag, so pick both before creating.
    - **Harper items**: Note the request with context for the next drafting session.
    - **Shep items**: Note the person and context for the next 1:1 prep.
    - **Wine / Invintory items**: Call `invintory_add_delivery` for each wine line item. Default destination: Classic. For Marathon shipping orders (Last Bottle), set expected_date ~6 weeks out.

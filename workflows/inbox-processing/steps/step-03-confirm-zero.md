@@ -31,9 +31,11 @@ model: sonnet
 
 ### Sequence
 
-1. **Re-query task inbox** via the task management API.
-   - Pull all incomplete inbox tasks (same query as step 01).
-   - Count them.
+1. **Re-query task inbox** with the same command step 01 used (`omnifocus-data` skill):
+   ```bash
+   python3 skills/omnifocus-data/scripts/omnifocus_data.py list --kind inbox --json
+   ```
+   - Pull all incomplete inbox tasks (same command as step 01). Count them.
 
 2. **Compare to expected state:**
    - Expected: 0 items (all processed in step 02)

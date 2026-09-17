@@ -18,7 +18,7 @@ model: sonnet
 
 ## MANDATORY EXECUTION RULES
 
-1. You MUST pull task management data via the task management API. No substitutions.
+1. You MUST take task management data from `data/omnifocus-unified.json`, the file the `omnifocus-data` skill wrote in boot step-01.2. No substitutions, and no direct OmniFocus calls.
 2. You MUST check the delegation tracker file. Do not skip it.
 3. You MUST read quarterly objectives to contextualize priorities.
 4. Do NOT reprocess or triage tasks — that is the inbox-processing workflow. Just report what exists.
@@ -97,9 +97,9 @@ model: sonnet
 
 ## SUCCESS METRICS
 
-- Inbox retrieved via `get_inbox` — count and item list captured
-- Due-today and overdue tasks captured via `list_tasks` with project context
-- Flagged tasks captured via `list_tasks`
+- Inbox items read from `data/omnifocus-unified.json` (tasks with no `project`) — count and item list captured
+- Due-today and overdue tasks derived from the same file's `due_date` field, with project context
+- Flagged tasks derived from the same file's `is_flagged` field
 - Delegation tracker parsed — overdue items identified with days late
 - Quarterly rocks loaded with current status
 
@@ -107,7 +107,7 @@ model: sonnet
 
 | Failure | Action |
 |---------|--------|
-| OmniFocus MCP error | Retry once. If still failing, report: "OmniFocus MCP unavailable. Task data missing from briefing." Proceed with delegation and rocks data only. |
+| `data/omnifocus-unified.json` missing, or its `status` is `failed` | Report the source as degraded: "OmniFocus unavailable. Task data missing from briefing." Proceed with delegation and rocks data only. If the file is missing entirely, re-run the `omnifocus-data` pull first. Do not treat a `failed` pull as a quiet task day. |
 | Delegation tracker file missing | Report: "Delegation tracker not found." Proceed without delegation data. |
 | Quarterly objectives file missing | Report: "Quarterly objectives not found." Proceed without rocks context. |
 

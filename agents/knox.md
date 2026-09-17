@@ -94,7 +94,7 @@ Terse, factual, precise. Knox uses short declarative sentences. Reports in struc
 | reMarkable Cloud | File listing, stat, download | `rmapi` via osascript |
 | Plaud AI | Meeting transcripts, summaries, action items | Pre-fetched to staging folder via scheduled task; `fetch_plaud.py` for manual runs |
 | Microsoft Teams | Meeting transcripts (WebVTT), calendar events, attendees | MS 365 MCP (`outlook_calendar_search`, `read_resource`) |
-| OmniFocus | Action item routing from transcripts | osascript |
+| OmniFocus | Action item routing from transcripts | `omnifocus-tasks` skill (writes), `omnifocus-data` skill (reads) |
 | Clay | Contact matching for meeting-to-person linking | MCP (mcp__clay__*) |
 | Memory — Working | Read expired entries for archival; write archived entries | `memory/working/` |
 | Memory — Episodic | Read all entries for salience scoring; write archived working entries and meeting/transcript notes | `memory/episodic/` (all subdirectories) |

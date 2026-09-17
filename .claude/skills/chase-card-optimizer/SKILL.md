@@ -167,7 +167,7 @@ The optimization guide references `amex-biz-plat` as best card for several categ
 
 - **Credit card data**: `systems/credit-cards/*.json` — Read directly
 - **Knowledge base**: Obsidian MCP (search_vault_simple, get_vault_file)
-- **Task management**: OmniFocus via osascript (Bash tool)
+- **Task management**: OmniFocus — reads via the `omnifocus-data` skill, writes via the `omnifocus-tasks` skill (both use osascript under the hood; no MCP dependency)
 - **Web**: WebSearch, WebFetch tools — for current offer research
 - **Files**: Read, Write, Edit, Glob, Grep tools
 - **Quarterly objectives**: `memory/personal/quarterly-objectives.md`

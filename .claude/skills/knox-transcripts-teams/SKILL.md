@@ -6,7 +6,6 @@ context: fork
 agent: general-purpose
 allowed-tools:
   - "Bash(*)"
-  - "mcp__Control_your_Mac__osascript"
   - "mcp__b8c41a14-7a9b-4ea5-ab12-933ee04bc52f__outlook_calendar_search"
   - "mcp__b8c41a14-7a9b-4ea5-ab12-933ee04bc52f__read_resource"
   - "mcp__obsidian-mcp-tools__*"
@@ -91,7 +90,7 @@ Read and follow the complete workflow documented in `skills/teams-transcripts/SK
 6. **Transform to Obsidian notes**: Apply vault conventions — frontmatter tags (`content/meeting`, `meta/timeline/YYYY/MM/DD`, 1-2 contextual tags), note structure (Meeting Details, Attendees, Summary, Key Discussion Points, Action Items, Transcript in `<details>` block)
 7. **Route to correct folder**: Based on meeting type per vault-conventions routing table
 8. **Link from daily calendar note**: Add wikilink under `# Notes` heading in `Calendar/YYYY/MM-MonthName/YYYY-MM-DD.md`
-9. **Route O'Hara action items to OmniFocus** via osascript
+9. **Route O'Hara action items to OmniFocus** via the `omnifocus-tasks` skill (`skills/omnifocus-tasks/SKILL.md`). That skill is the only authorized path for task creation and it gates on project + tag, so do not create bare inbox tasks or hand-write AppleScript.
 10. **Check for Plaud overlap**: If a Plaud-sourced note already exists for the same meeting (same date + similar title), flag for user — offer to merge or suffix with `(Teams)`
 11. **Report**: List what was processed, skeleton notes created for meetings without transcripts, action items routed
 
@@ -116,7 +115,7 @@ After ingesting transcripts, Knox flags relevant content for other agents:
 
 - **Calendar search**: MS 365 MCP (`outlook_calendar_search`)
 - **Transcript fetch**: MS 365 MCP (`read_resource`) with transcript URIs
-- **OmniFocus**: osascript → OmniFocus inbox task creation
+- **OmniFocus**: task creation via the `omnifocus-tasks` skill (`skills/omnifocus-tasks/SKILL.md`); reads via the `omnifocus-data` skill (`skills/omnifocus-data/SKILL.md`). Not raw osascript, and not inbox-only drops.
 - **Obsidian vault**: Obsidian MCP or direct filesystem write to iCloud Obsidian directory
 
 ## Input

@@ -120,7 +120,7 @@ Include that printed block verbatim (or lightly reformatted to match your closin
   - `mcp__clay__searchContacts` with work_history company filter — who David knows at the account
   - `mcp__clay__getContact` — deep context on key contacts
   - `mcp__clay__searchContacts` with last_interaction_date — warmth assessment
-- **Task management**: OmniFocus via osascript (Bash tool)
+- **Task management**: OmniFocus — reads via the `omnifocus-data` skill, writes via the `omnifocus-tasks` skill (both use osascript under the hood; no MCP dependency)
 - **CRM**: Dynamics 365
 - **Email drafts**: Mac Mail via AppleScript (Bash tool)
 - **Web**: WebSearch, WebFetch tools

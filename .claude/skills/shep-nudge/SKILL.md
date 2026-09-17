@@ -88,7 +88,7 @@ Include that printed block verbatim (or lightly reformatted to match your closin
 - **Calendar/Email/Teams**: M365 MCP (outlook_calendar_search, outlook_email_search, chat_message_search)
 - **Knowledge base**: Obsidian MCP (search_vault_simple, get_vault_file, create_vault_file, etc.)
 - **Clay (relationship intelligence)**: Clay MCP — before drafting nudges, search `mcp__clay__searchContacts` by person name to get last interaction date and notes. Use this to calibrate tone — if recent interaction exists, reference it. If relationship is cold, adjust accordingly.
-- **Task management**: OmniFocus via osascript (Bash tool)
+- **Task management**: OmniFocus — reads via the `omnifocus-data` skill, writes via the `omnifocus-tasks` skill (both use osascript under the hood; no MCP dependency)
 - **CRM**: Dynamics 365
 - **Email drafts**: Mac Mail via AppleScript (Bash tool)
 - **Web**: WebSearch, WebFetch tools

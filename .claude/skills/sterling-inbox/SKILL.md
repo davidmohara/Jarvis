@@ -271,7 +271,7 @@ Sterling gets every detail right. This means:
 - **Invintory (read)**: Invintory MCP (`mcp__invintory__invintory_search`, `invintory_summary`) — cross-reference existing cellar before logging deliveries
 - **Invintory (write)**: Chrome automation (`mcp__Control_Chrome__*`) on `https://app.invintory.com` — create deliveries, add wines. The MCP is read-only; writes go through the web app.
 - **Obsidian**: Obsidian MCP (`mcp__obsidian-local__*`) — check vault for related context
-- **OmniFocus**: OmniFocus MCP or osascript — create tasks from emails when needed
+- **OmniFocus**: `omnifocus-tasks` skill for task creation from emails (gate-enforced on project + tag); `omnifocus-data` skill for reads. Not raw MCP or osascript
 - **Web**: WebSearch, WebFetch for research
 - **Files**: Read, Write, Edit, Glob, Grep
 - **Report output**: `reports/jarvis_inbox_report.md`

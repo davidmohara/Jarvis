@@ -85,12 +85,14 @@ Present batches first, individual items second.
 
    | Disposition | Execution Steps |
    |-------------|----------------|
-   | **Do** | Assign to project via the task management API. Set due date to today. Flag the task. Add to today's priority list. |
-   | **Delegate** | Add row to `delegations/tracker.md` (task, person, today's date, due date, status: Waiting). Create or update task with person tag and due date. Mark original inbox task complete. |
-   | **Defer** | Assign to project via the task management API. Set due date as agreed. Mark original inbox task complete if moved. |
+   | **Do** | Assign to project via the `omnifocus-tasks` skill. Set due date to today. Flag the task. Add to today's priority list. |
+   | **Delegate** | Add row to `delegations/tracker.md` (task, person, today's date, due date, status: Waiting). Create or update task with person tag and due date via the `omnifocus-tasks` skill. Mark original inbox task complete. |
+   | **Defer** | Assign to project via the `omnifocus-tasks` skill. Set due date as agreed. Mark original inbox task complete if moved. |
    | **Decide** | Create decision file: `decisions/YYYY-MM-DD-slug.md` from template. Mark inbox task complete. Note: "Decision file created — add to next review." |
-   | **Reference** | File content into the appropriate reference doc or knowledge base. Mark inbox task complete in the task management system. |
-   | **Delete** | Mark task complete in the task management system. No further action. |
+   | **Reference** | File content into the appropriate reference doc or knowledge base. Mark inbox task complete via the `omnifocus-tasks` skill. |
+   | **Delete** | Mark task complete via the `omnifocus-tasks` skill. No further action. |
+
+   Every one of these is a write. Use `skills/omnifocus-tasks/SKILL.md` for all of them — it is the only authorized path for creating, moving, flagging, or completing an OmniFocus task. In particular, an inbox task **cannot be completed directly**: assign it to a project first, so it lands in completion history. Never delete an inbox task to clear it.
 
 5. **Update the running tally:**
    ```

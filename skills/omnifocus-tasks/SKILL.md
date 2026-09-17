@@ -33,21 +33,18 @@ Before executing ANY task creation call, complete these steps in order:
 
 Do NOT use static/hardcoded lists. Always query OmniFocus for current data.
 
-**Preferred, via the OmniFocus MCP:**
-
-- **Active projects:** `query_omnifocus` with `entity: "projects"` and `filters: { status: ["Active"] }`. The `status` filter is what makes this a valid gate: an unfiltered project listing also returns on-hold and dropped projects.
-- **Tags:** `list_tags`.
-
-**Fallback, via the `omnifocus-data` skill** (works without the MCP and without Desktop Commander):
+**Preferred, via the `omnifocus-data` skill** (works without the MCP and without Desktop Commander, so the gate never depends on session state):
 
 ```bash
 python3 skills/omnifocus-data/scripts/omnifocus_data.py projects --json
 python3 skills/omnifocus-data/scripts/omnifocus_data.py tags --json
 ```
 
-Do not hand-write OmniFocus AppleScript here. Read logic lives in one place, `skills/omnifocus-data/SKILL.md`; duplicating it is what let the query logic drift across five files before 2026-09-16.
+`projects` already excludes archived projects and `tags` includes inactive ones, so both match what the MCP reports. Do not add a `status` filter of your own, and do not hand-write OmniFocus AppleScript here. Read logic lives in one place, `skills/omnifocus-data/SKILL.md`; duplicating it is what let the query logic drift across five files before 2026-09-16.
 
-Either path is acceptable. The MCP is preferred because it returns IDs alongside names, which removes ambiguity. Match on exact name, and where you have an ID prefer passing `projectId` over `projectName`. Project and tag namespaces are separate and names can repeat, so if a name matches more than one item, ask David rather than guessing.
+**Optional enhancement, when the OmniFocus MCP is connected:** `query_omnifocus` with `entity: "projects"` and `filters: { status: ["Active"] }`, and `list_tags`. Its advantage is that it returns IDs alongside names, which removes ambiguity in the next paragraph.
+
+Match on exact name, and where you have an ID prefer passing `projectId` over `projectName`. Project and tag namespaces are separate and names can repeat, so if a name matches more than one item, ask David rather than guessing.
 
 ### Step 2: Populate All Fields
 
@@ -211,7 +208,7 @@ Quick pointers so you do not need to leave this skill for the common cases:
 | Active projects (for the Step 1 gate) | `python3 skills/omnifocus-data/scripts/omnifocus_data.py projects --json` |
 | Whether a task already exists | `query_omnifocus` via the MCP, or `list --kind inbox` |
 
-The OmniFocus MCP is preferred for ad-hoc reads when its tools are present: `query_omnifocus` (filters by project, folder, tags, status, dates), `list_tags`, `list_perspectives`. Desktop Commander is not required for any of this and is usually absent, so do not wait on it.
+Reads belong to the `omnifocus-data` skill, not here — it covers counts, tags, projects and task lists and needs neither the MCP nor Desktop Commander. When the MCP happens to be connected it is a useful extra for ad-hoc filtered lookups (`query_omnifocus` by folder or perspective, `list_perspectives`), but nothing in this skill should block on it.
 
 **Failure handling:**
 If a read fails, report clearly what was unavailable and proceed with what you have. Never silently skip OmniFocus data — if it fails, say so and flag what was missed. Never proceed past the Step 3 gate because a lookup failed.
