@@ -13,9 +13,10 @@ accumulated-context:
     working_summary_reason: "semantic_updated=2 > 0 triggers the mandatory working-summary write per Phase B. Content leads with the 2-file archival, then flags two real items directly: the shutdown-cleanup entry's first-seen git/Xcode-license commit blocker, and the delegation tracker no longer being empty after 18+ consecutive cycles."
     error_logged: "none this cycle -- clean run, no self-detected bugs."
     eval_record: "eval-20260918T080537-SWUKP0 -- created fresh at run start, set name/agent/session_id/trigger/tags on it before any record-step.py calls, backfilled steps 01-04 cleanly, guardrail checkpoint attached correctly on first attempt, manually closed (status:success, completed timestamp)."
-    git_commit: pending
-    git_push: pending
-    git_sync_note: "Cloud sandbox container (Claude Code Remote). No Desktop Commander tool available in this session, consistent with every dream-cycle run since 09-08. Using plain git via Bash."
+    git_commit: success
+    git_push: success
+    git_commit_sha: d0e2c11
+    git_sync_note: "Cloud sandbox container (Claude Code Remote). No Desktop Commander tool available in this session, consistent with every dream-cycle run since 09-08. Used plain git via Bash. Session started in detached HEAD matching origin/main's tip exactly (999d7ca, no divergence) after a fetch; moved to a real 'main' branch via 'git checkout -B main origin/main' before starting. Push was a clean fast-forward (999d7ca..d0e2c11, 330 files changed -- includes the working->episodic rename for both archived files, plus every episodic file's routine salience-score.py rewrite from step-02, plus 3 eval-harness run records (this cycle's own eval-20260918T080537-SWUKP0, plus 2 auto-created phantom-candidate/grader records left as-is per every prior cycle's precedent)."
   step-04-2026-09-18:
     candidates_count: 1
     entries_compressed: 0
