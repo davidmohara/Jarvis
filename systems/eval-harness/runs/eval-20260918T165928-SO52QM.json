@@ -41,10 +41,10 @@
       "assertion_results": []
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
+      "last_graded": "2026-09-18T23:07:15Z",
+      "grade": "A",
       "safety_grade": null,
-      "grader_notes": null
+      "grader_notes": "Model plaud-discover enumeration. Full API pagination to exhaustion (140 recordings), vault cross-reference (139 unique file_ids across 198 notes), hard-gate dedup ledger written with 272 entries and tier coverage on every entry, circuit breaker checked and cleared. Caveats documented precisely: direct urllib 403 vs working cached-token path, Obsidian MCP unavailability worked around with direct vault scan and validated against prior baseline, 30 duplicate file_id hygiene flag carried forward without scope creep, and state.yaml ownership correctly left to the calling workflow step. Even flagged the grader binding to a stale prior-day record. This is what a discovery report should look like."
     },
     "controller_feedback": {
       "rating": null,

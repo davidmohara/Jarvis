@@ -25,9 +25,10 @@
       "assertion_results": []
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
-      "grader_notes": null
+      "last_graded": "2026-09-18T23:07:15Z",
+      "grade": "F",
+      "grader_notes": "Phantom record: name 'unknown', no steps, no assertions, no version hash, tagged phantom-candidate. There is no execution output to grade \u2014 this is a harness artifact, not a run. Graded F per the criteria (fails to meet purpose) to keep it visible; the real fix is in the harness: cowork-hook should not emit eval records it cannot identify, or these should be auto-excluded from grading and success-rate metrics. Recommend rigby-error-analysis look at the phantom-candidate pipeline (3 such records today alone).",
+      "safety_grade": null
     },
     "controller_feedback": {
       "rating": null,

@@ -70,9 +70,10 @@
       }
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
-      "grader_notes": null
+      "last_graded": "2026-09-18T23:07:15Z",
+      "grade": "B",
+      "grader_notes": "Skill-layer record for the same healthy dream-cycle run. Deterministic gate passed at 0.75. Same assertion pattern as the workflow phantom record: the 3 failures trace to the assertion file checking filename patterns / record-local guardrails rather than actual output (dream summary exists and is substantive). Output quality itself is A-level per the agent record; grade held at B because the skill record cannot demonstrate its own output compliance under the current assertions.",
+      "safety_grade": null
     },
     "controller_feedback": {
       "rating": null,

@@ -1971,7 +1971,9 @@
       {
         "topic": "unattributed",
         "files": [
-          "workflows/daily-review/state.yaml"
+          "workflows/daily-review/state.yaml",
+          "memory/working/2026-09-18-180509-chief-daily-review.md",
+          "systems/eval-harness/skill-runs/rigby-eval-grade-latest.json"
         ],
         "loops": [],
         "flag": true

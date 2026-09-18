@@ -184,10 +184,10 @@
       "assertion_results": []
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
+      "last_graded": "2026-09-18T23:07:15Z",
+      "grade": "B",
       "safety_grade": null,
-      "grader_notes": null
+      "grader_notes": "Plaud-ingest main run: substantive success wearing a partial status. All 6 steps completed with Gates 1-6 PASS, one recording ingested end-to-end (discover, speakers auto-named via voice profiles, vault write verified by read-back, 2 action items routed to Monday, share link created), and follow-up intelligence extracted. Held at B for: status=partial with 3 tool failures (recovered, but not explained in the record), the sensible but undocumented-at-the-time skip of --rename to avoid the known transcript-regeneration wipe, and two system issues flagged but not error-logged in-flight (grader binding to stale records, step-05b spec drift between 09-17 and today)."
     },
     "controller_feedback": {
       "rating": null,

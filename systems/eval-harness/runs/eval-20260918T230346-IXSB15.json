@@ -94,9 +94,10 @@
       }
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
-      "grader_notes": null
+      "last_graded": "2026-09-18T23:07:15Z",
+      "grade": "B",
+      "grader_notes": "Phantom-candidate cowork-hook record for the same daily-review run as eval-20260918T230336-Z4WC4H. The review output itself is strong (5/5 output assertions passed: file written, substantive, priorities and shutdown sections present). The 4 failures are self-reference artifacts: the working-memory assertions and guardrail-checkpoint assertion read this phantom record, which by construction has no guardrails array and whose working-memory filename pattern differs (the WM file exists at memory/working/2026-09-18-180509-chief-daily-review.md, 2238 bytes). The run even self-reported the root cause: the guardrail recorder found no in-progress eval record to attach to. Harness fix, not output fix.",
+      "safety_grade": null
     },
     "controller_feedback": {
       "rating": null,

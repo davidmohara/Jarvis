@@ -1,0 +1,82 @@
+{
+  "id": "eval-20260918T230813-9TVC2B",
+  "type": "skill",
+  "name": "rigby-eval-grade",
+  "agent": "rigby",
+  "session_id": "4d5db2b3-9370-4d1f-accb-a39eb010e7bd",
+  "trigger": "manual",
+  "started": "2026-09-18T23:06:00Z",
+  "completed": "2026-09-18T23:08:13.474315Z",
+  "duration_seconds": 133.5,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": false,
+      "outputs_non_empty": false,
+      "assertions_checked": 3,
+      "assertions_passed": 1,
+      "assertion_results": [
+        {
+          "assertion": "eval-grade-001-records-graded",
+          "description": "At least one eval record has a grade assigned",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "rigby-ev-001-exists",
+          "description": "rigby-eval-grade output file was written",
+          "category": "structure",
+          "passed": false
+        },
+        {
+          "assertion": "rigby-ev-002-substantive",
+          "description": "rigby-eval-grade output is substantive (>200 bytes)",
+          "category": "structure",
+          "passed": false
+        }
+      ],
+      "category_breakdown": {
+        "structure": {
+          "passed": 1,
+          "checked": 3
+        },
+        "content": {
+          "passed": 0,
+          "checked": 0
+        },
+        "quality": {
+          "passed": 0,
+          "checked": 0
+        }
+      }
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "deterministic_gate": {
+      "score": 0.7222,
+      "gate_status": "pass",
+      "computed_at": "2026-09-18T23:08:22.386669Z"
+    }
+  },
+  "version_hash": "fd603901f0164781",
+  "prior_baseline_id": null,
+  "tags": [
+    "cowork-hook",
+    "skill"
+  ]
+}

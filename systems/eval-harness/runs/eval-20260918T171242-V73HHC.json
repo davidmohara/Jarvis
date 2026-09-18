@@ -64,9 +64,10 @@
       }
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
-      "grader_notes": null
+      "last_graded": "2026-09-18T23:07:15Z",
+      "grade": "A",
+      "grader_notes": "Workflow-layer record for the plaud-ingest run. 4/4 assertions passed (state complete, working memory written, substantive, expected content \u2014 plaud-ingest-2026-09-18-165915.md verified on disk). Minor nits only: tagged phantom-candidate despite being a real instrumented run, and the completed timestamp (17:12:42) predates the actual final step-05b completion (~17:22), so the record truncates the tail of the run. Neither affects the verified output.",
+      "safety_grade": null
     },
     "controller_feedback": {
       "rating": null,

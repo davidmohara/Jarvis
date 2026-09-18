@@ -70,9 +70,10 @@
       }
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
-      "grader_notes": null
+      "last_graded": "2026-09-18T23:07:15Z",
+      "grade": "B",
+      "grader_notes": "Phantom-candidate cowork-hook record for the same dream-cycle run as eval-20260918T080537-SWUKP0. The underlying run was healthy (see companion record), and the 3 failed assertions (substantive/content/guardrail) are harness mismatches, not output failures: the working summary exists on disk at 1963 bytes and the guardrail checkpoint is recorded on the agent record. The dream-004 assertion reads this record's own guardrails array, which a phantom record never populates. Improvement: harness should either merge phantom-candidate records with their real counterparts or exclude them from assertion scoring.",
+      "safety_grade": null
     },
     "controller_feedback": {
       "rating": null,

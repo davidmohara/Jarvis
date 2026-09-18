@@ -72,10 +72,10 @@
       "assertion_results": []
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
+      "last_graded": "2026-09-18T23:07:15Z",
+      "grade": "A",
       "safety_grade": null,
-      "grader_notes": null
+      "grader_notes": "Cowork-instrumented daily-review record. All 5 steps success, state.yaml closed with a rich accumulated-context (mode disclosure, review file path, narrative path, delegation status, guardrail result, commit SHA). The sub-agent-without-live-controller mode is disclosed honestly in both the state file and the review itself. Git push succeeded after a clean rebase conflict resolution. Paired with the verified review output on disk, this is a complete, well-instrumented run."
     },
     "controller_feedback": {
       "rating": null,
