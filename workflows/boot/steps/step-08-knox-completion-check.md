@@ -1,14 +1,14 @@
 ---
 status: complete
-started-at: "2026-09-17T16:20:00Z"
-completed-at: "2026-09-17T16:21:00Z"
+started-at: "2026-09-18T17:20:00Z"
+completed-at: "2026-09-18T17:22:00Z"
 outputs:
-  knox_status: "still_running"
-  knox_reason: "plaud-ingest workflow (Knox fire-and-forget, session pi-20260917-001, spawned 2026-09-17T16:07:00Z) still in-progress at step-03. 2 new recordings found: 468619c94a7b254df711c693d8e561a4 (2026-09-17, transcript triggered) and e2d6f3c0cfe76328329cd273da8d55cb (09-16 Weekly Meeting, transcript ready-for-fetch). Component Knox sub-skills all succeeded this session: plaud-discover (eval-20260917T160914-E4JGKH), plaud-trigger (eval-20260917T161049-8MBL25), plaud-speaker-id (eval-20260917T161704-RA9I49)."
-  knox_duration_seconds: 424.6
-  knox_eval_id: "eval-20260917T161704-RA9I49 (plaud-speaker-id; plaud-ingest workflow record not yet written)"
-  knox_background_task: "Knox healthy and mid-pipeline (discover -> trigger -> speaker-id all success). No punch_out_signal. plaud-ingest workflow itself still running at step-03; 2 new recordings in flight."
-  note: "Boot completion is not blocked by this. Knox's fire-and-forget background work is progressing normally; step-08 is informational only."
+  knox_status: "success"
+  knox_reason: "plaud-ingest workflow state.yaml shows status: complete, outcome: complete-one-ingested (session pi-20260918-001, spawned 2026-09-18T16:59:15Z, all 6 steps, gates 1-6 PASS). 1 new recording ingested: '09-18 Meeting: AI Project Architecture and Data Routing' (file f96b2c110fc35162f390ac5288d6f7f4, 31.5 min, David + Vladimir Avila auto-named via voice profiles, impromptu call during Houston travel). Note written: zzPlaud/Client/2026-09-18 AI Project Architecture and Data Routing.md. 2 action items routed to Monday (ask Braunstein re self-tuning routing; confirm DICOM destination fan-out). 1 share link created for Alice triage."
+  knox_duration_seconds: 868
+  knox_eval_id: "eval-20260918T165949-QHIIY4 (Knox subagent record, hook-open, closes on its Stop); workflow authority is workflows/plaud-ingest/state.yaml"
+  knox_background_task: "Knox finished clean within this boot run. No punch_out_signal. Late-arriving intelligence from the ingested recording: SST acceptance testing is TODAY 09-18; SST integration-planning session committed for this Friday afternoon (Devlin/Lyn, incl. Alex and Mike) — not on the M365 calendar; Ashok Iyengar's workshop attendee list due end of week."
+  note: "Boot completion was not blocked by Knox. Background job completed successfully before step-08 ran; the noon GEHC briefing context now has a same-morning David+Vlad prep recording in the vault to draw on."
 ---
 
 <!-- system:start -->

@@ -1,23 +1,21 @@
 ---
 status: completed
-started-at: "2026-09-17T16:07:00Z"
-completed-at: "2026-09-17T16:10:00Z"
+started-at: "2026-09-18T17:03:00Z"
+completed-at: "2026-09-18T17:03:30Z"
 model: haiku
 outputs:
   already-ready: 1
-  triggered: 1
-  pending: 1
+  triggered: 0
+  pending: 0
   skipped: 0
   gate_3_result: "pass"
   gate_3_retry_counts: {}
   gate_3_aborted_recordings: []
   note: >
-    pi-20260917-001: 2 new recordings. 1 already ready at discovery time
-    (e2d6f3c0cfe76328329cd273da8d55cb "09-16 Weekly Meeting: P2 AI Project Plan, Model
-    Testing, and Scope Risks") moved to ready-for-fetch. 1 missing
-    (468619c94a7b254df711c693d8e561a4 "2026-09-17 10:00:23") triggered via two-step
-    PATCH + POST; POST returned status=0 msg="task processing" (now pending). Gate 3:
-    pass, no retries. Watcher handoff recorded in plaud_pending.json.
+    pi-20260918-001: 1 new recording. Already ready at discovery time
+    (f96b2c110fc35162f390ac5288d6f7f4 "09-18 Meeting: AI Project Architecture and Data
+    Routing") — moved to ready-for-fetch. No missing or pending recordings; no trigger
+    calls made. Gate 3: pass, no retries, no watcher needed.
 ---
 
 <!-- system:start -->

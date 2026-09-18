@@ -1,33 +1,36 @@
 ---
 status: completed
-started-at: "2026-09-17T16:58:00Z"
-completed-at: "2026-09-17T17:02:00Z"
+started-at: "2026-09-18T17:20:00Z"
+completed-at: "2026-09-18T17:22:00Z"
 model: sonnet
 outputs:
-  shares-attempted: 2
-  shares-succeeded: 2
+  shares-attempted: 1
+  shares-succeeded: 1
   shares-failed: 0
-  tasks-created: 2
+  tasks-created: 1
   share-urls:
-    - file_id: e2d6f3c0cfe76328329cd273da8d55cb
-      url: "https://web.plaud.ai/s/pub_588dd5d2-47e5-4b17-a6ca-200603be5666::7cZCOzWOHs8TYUqiD3pSBc3YxSVMtxQSXYhjIRCmriyDWqnr2obmS_Uvyfzg51B6WrauRQs68tHDjhUC"
-      monday-task-id: 13071539496
-    - file_id: 468619c94a7b254df711c693d8e561a4
-      url: "https://web.plaud.ai/s/pub_707b16d2-dca2-4153-ba5c-f30881b6de94::YamQp04fJtqxIaaWjsGwL0AA0GcQFilGgdFd7Zpz47gF0PmebQ8S9UBhRNCPw_NxhNPcGE-p5jdymZ8C"
-      monday-task-id: 13071504312
+    - file_id: f96b2c110fc35162f390ac5288d6f7f4
+      url: "https://web.plaud.ai/s/pub_178f96d1-c545-424c-ada9-69898fb3041f::7ywz6zn_9l_nGk4qYEtsppQOg8Xn-qz686-TCwGp9ZBGZSSvDKZavJxzw0ih64Gp6oriQVnJKwO6AfIC"
+      monday-task-id: 13081548354
   gate_6_result: "pass"
   gate_6_delivery_confirmations:
-    - file_id: e2d6f3c0cfe76328329cd273da8d55cb
-      task_id: 13071539496
-      recipient_confirmed: true
-      share_url_present: true
-      error: null
-    - file_id: 468619c94a7b254df711c693d8e561a4
-      task_id: 13071504312
-      recipient_confirmed: true
+    - file_id: f96b2c110fc35162f390ac5288d6f7f4
+      task_id: 13081548354
+      assignee_omitted: true
       share_url_present: true
       error: null
   notes: >
+    pi-20260918-001: 1 work recording processed (f96b2c110fc35162f390ac5288d6f7f4
+    "09-18 Meeting: AI Project Architecture and Data Routing"). No personal recordings
+    (0 skipped). `fetch_plaud.py --share` returned a real SHARE_URL on first attempt.
+    Monday review task 13081548354 created via mcp__claude_ai_monday_com__create_item on
+    board 18420619069 group new_group29179, UNASSIGNED (project_owner omitted entirely,
+    per the current Gate 6 spec; note the 09-17 run set Owner=Alice Mburu under the
+    older convention). Gate 6: PASS (assignee omitted, board/group correct, share URL
+    in text_mm50v09n, task ID confirmed). delivery-router skill not in this session's
+    skill list; direct MCP call used with the step's documented config, matching the
+    09-17 run's actual path.
+  notes_prior_run: >
     pi-20260917-001: 2 work recordings processed (e2d6f3c0cfe76328329cd273da8d55cb
     "09-16 Weekly Meeting: P2 AI Project Plan, Model Testing, and Scope Risks";
     468619c94a7b254df711c693d8e561a4 "09-17 GEHC AI Routing weekly sync"). No personal

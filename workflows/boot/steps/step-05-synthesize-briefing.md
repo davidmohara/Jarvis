@@ -1,15 +1,15 @@
 ---
 status: complete
-started-at: "2026-09-17T16:15:00Z"
-completed-at: "2026-09-17T16:17:00Z"
+started-at: "2026-09-18T17:13:00Z"
+completed-at: "2026-09-18T17:16:00Z"
 outputs:
-  briefing_delivered: "yes — full morning briefing synthesized (0 degraded sources) and carried forward through steps 06-08 for verbatim delivery to controller"
-  briefing_sections: "narrative (3 paragraphs), Today's Calendar table, double-book warning line, closing prompt"
-  today_summary: "Thursday, September 17, 2026 — return travel day from Little Rock; GEHC AI Routing sync is the only client meeting; personal retreat prep for tomorrow"
-  action_items: "Attend GEHC AI Routing sync (10am); clear AI for Execs handoff to Blake McMillan (due tomorrow); reply to Opal Group THWET; complete YPO nominee intake forms; decide GEHC vs Sales Scrum 10am overlap and Steve Hall vs golf 3pm overlap"
+  briefing_delivered: "yes — full morning briefing synthesized (0 degraded sources) and carried forward through steps 06-08 for verbatim delivery to controller; working memory written to memory/working/morning-briefing-2026-09-18-121500.md"
+  briefing_sections: "narrative (3 paragraphs), Today's Calendar table, closing prompt"
+  today_summary: "Friday, September 18, 2026 — Houston personal retreat day 1 (David's explicit frame: 'the retreat, not a work day'); GEHC AI routing architecture discussion at noon CT is the one live work thread; AI for Execs handoff due 5pm"
+  action_items: "Handle GEHC architecture review (12pm CT, the doc review agreed yesterday); clear or re-date AI for Execs handoff items (5pm); acknowledge Ashford & Remington Hotels escalation to Diana Stevens; UTB board book comments due today; YPO nominee intake forms deadline; re-date the two missed morning Deliberate Practices items"
   format: "3-paragraph prose narrative (no em-dashes) + Today's Calendar table. Watchtower section omitted (no daily watchtower run today). Reminders section omitted (0 due). Clay birthdays folded into paragraph 3."
-  calendar_today: "9 distinct today-events, live from data/calendar-unified.json. Return travel LIT->DFW; two double-books (10am GEHC/Sales Scrum, 3pm Steve Hall/golf); YPO Spouse Kickoff 6pm."
-  hotspots: "0 degraded data sources this run (OmniFocus recovered, 42 tasks); 5 tasks due tomorrow incl. AI for Execs handoff; Opal Group reply owed; YPO Western US nominee intake forms deadline; Q3 rocks unsigned ~7 weeks; daily review 15 days stale (last 09-02); two double-books today."
+  calendar_today: "7 distinct today-events, live from data/calendar-unified.json. Retreat day: AA1407 landed 9:29am CT; 3 tentative morning items overlapped the flight; GEHC noon call is the only busy work meeting."
+  hotspots: "0 degraded data sources this run; 5 tasks due today incl. AI for Execs handoff at 5pm; Ashford & Remington client escalation (HIGH) landed 8:35am; UTB board approvals due today; YPO nominee forms deadline; Q3 rocks unsigned 50 days; Monday 9:30am double-book (AI Usage policy sync vs Sales Scrum)."
 ---
 
 <!-- system:start -->

@@ -1,11 +1,11 @@
 ---
 status: complete
-started-at: "2026-09-17T16:05:00Z"
-completed-at: "2026-09-17T16:08:00Z"
+started-at: "2026-09-18T17:00:47Z"
+completed-at: "2026-09-18T17:03:00Z"
 outputs:
-  email_pull: "completed — 25 messages in window (2026-09-15 to 2026-09-17, Inbox newest-first), 6 actionable (YPO Western US regional officer nominee intake forms, Opal Group THWET reply owed, Legacy Club 4-member connect, ActivePure happy-hour invite, YPO Arkansas visit survey, UTB Board Training)"
-  omnifocus_pull: "completed — 42 tasks (status: available via omnifocus-data skill), 11 unassigned inbox, 0 due today, 0 overdue, 0 flagged. OmniFocus outage from prior 5+ boots is RESOLVED."
-  clay_pull: "completed — 0 reminders, 2 birthdays (Kevin Gardner 09-20, Justin Etheredge 09-22) via Clay MCP"
+  email_pull: "completed — 17 messages in window (2026-09-16 to 2026-09-18, Inbox newest-first, totalResultCount 17), 10 actionable (Ashford & Remington Hotels escalation from Diana Stevens HIGH importance, UTB board book comments due TODAY 09-18, amazing race updated retreat list, Solace Texans suite ticket push, DCC Sigma Genetics breakfast 9/30, Fortium SIM Enclave follow-up, BofA AI session partnership fwd, World Affairs Council dinner 10/13, Legacy Club 4-member intake replies received, YPO nominee intake forms deadline)"
+  omnifocus_pull: "completed — 42 tasks (status: available via omnifocus-data skill), 11 unassigned inbox, 0 due today, 0 overdue, 0 flagged"
+  clay_pull: "completed — 0 reminders (live getUpcomingReminders check), 2 birthdays in next 7 days (Kevin Gardner 09-20, Justin Etheredge 09-22; confirmed via Clay 09-17, still in window; home-activity feed showed no new upcoming birthdays)"
   jarvis_inbox_pull: "nothing-to-surface — Jarvis folder search returned 0 messages"
   files_created:
     - "data/email-unified.json"

@@ -1,0 +1,122 @@
+{
+  "id": "eval-20260918T165813-0NC0AY",
+  "type": "workflow",
+  "name": "boot",
+  "agent": "master",
+  "session_id": "4d5db2b3-9370-4d1f-accb-a39eb010e7bd",
+  "trigger": "boot",
+  "started": "2026-09-18T16:58:13.137085Z",
+  "completed": null,
+  "duration_seconds": null,
+  "status": "in-progress",
+  "steps": [],
+  "subagents": [
+    {
+      "agent_id": "afd53c61bdd26db03",
+      "agent_type": "general-purpose",
+      "started": "2026-09-18T16:59:00.492710Z",
+      "completed": "2026-09-18T17:13:36.602089Z",
+      "model": "accounts/fireworks/models/kimi-k3",
+      "tokens_input": 719115,
+      "tokens_output": 3838,
+      "cost_usd": 0.09,
+      "duration_seconds": 691.03
+    },
+    {
+      "agent_id": "addb55362d4ef3b60",
+      "agent_type": "general-purpose",
+      "started": "2026-09-18T16:59:28.985853Z",
+      "completed": "2026-09-18T17:02:05.342495Z",
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 238578,
+      "tokens_output": 2986,
+      "cost_usd": 0.09,
+      "duration_seconds": 156.36
+    },
+    {
+      "agent_id": "ac4da5a492473cd64",
+      "agent_type": "general-purpose",
+      "started": "2026-09-18T16:59:49.442849Z",
+      "completed": null,
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "agent_id": "afd53c61bdd26db03",
+      "agent_type": "general-purpose",
+      "started": "2026-09-18T17:02:05.571441Z",
+      "completed": null,
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    }
+  ],
+  "monitoring": {
+    "active": true,
+    "state_yaml_path": "workflows/boot/state.yaml",
+    "opened_by": "eval-turn-start.py",
+    "trigger_evidence": "run the morning boot workflow"
+  },
+  "assessment": {
+    "mechanical": {
+      "completed": null,
+      "all_steps_finished": null,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [
+    "turn-level"
+  ],
+  "guardrails": [
+    {
+      "name": "pre-completion-review",
+      "after_step": "step-06-scan-workflows",
+      "result": "flag",
+      "reason": "Briefing reflects live 2026-09-18 data, 0 degraded sources, no wrong-day data, no PII leakage in briefing or session index (colleague DOB spotted in email-unified.json snippet and scrubbed before completion). Workflow scan integrity verified: empty _active.yaml accurate, plaud-ingest complete this session, boot itself the only in-progress workflow. Session index healthy (session-2026-09-18-115915, not duplicated). No escalate condition met.",
+      "escalated_to_human": false,
+      "timestamp": "2026-09-18T17:16:08.177788+00:00"
+    },
+    {
+      "name": "pre-completion-review",
+      "after_step": "step-06-scan-workflows",
+      "result": "flag",
+      "reason": "Briefing reflects live 2026-09-18 data, 0 degraded sources, no wrong-day data, no PII leakage in briefing or session index (colleague DOB spotted in email-unified.json snippet and scrubbed before completion). Workflow scan integrity verified: empty _active.yaml accurate, plaud-ingest complete this session, boot itself the only in-progress workflow. Session index healthy. No escalate condition met.",
+      "escalated_to_human": false,
+      "timestamp": "2026-09-18T17:16:19.592855+00:00"
+    }
+  ]
+}

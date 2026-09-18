@@ -1,15 +1,15 @@
 ---
 status: complete
-started-at: "2026-09-17T16:05:30Z"
-completed-at: "2026-09-17T16:08:00Z"
+started-at: "2026-09-18T17:03:00Z"
+completed-at: "2026-09-18T17:04:30Z"
 outputs:
   calendar_file: "data/calendar-unified.json"
-  event_count: 25
-  date_range: "2026-09-17 to 2026-09-20"
+  event_count: 24
+  date_range: "2026-09-18 to 2026-09-21"
   status: "written"
-  file_size_kb: 7
+  file_size_kb: 9
   m365_calls: 1
-  note: "1 M365 call (25 events, totalResultCount 25, no pagination). Prior file >12h stale so re-pulled. Today 09-17 is the RETURN travel day from Little Rock: AA3589 LIT→DFW dep 7:18am CT / arr ~8:50am CT, then Sales & Recruiting 9:15am, Sales Scrum + GEHC AI Routing 10am (overlap), Finish Vegas prep 10:30am, Retreat prep 1pm, Steve Hall follow up + golf lesson 3pm (overlap), YPO Spouse Kickoff 6pm. 09-18 Personal retreat begins / AA1407 DFW→IAH 8:20am CT / Houston; 09-20 Texans vs Bengals Suite 870 NRG Stadium 12pm kickoff."
+  note: "1 M365 call (24 events, totalResultCount 24, no pagination). Prior file >24h stale so re-pulled. Today 09-18 = Houston retreat day 1: AA1407 DFW->IAH landed 9:29am CT (conf FURIJD), Virtual Coffee Chat 8am CT (tentative), Sales & Recruiting 9:15am CT (tentative), YPO Industry Insights Share Your AI 10-11am CT (tentative), GEHC AI driven routing architecture discussion 12:00-1:00pm CT (BUSY, in progress at pull time). Personal retreat all-day 09-18 to 09-20, SpringHill Suites Houston NRG check-in today. 09-19 no timed events. 09-20 Texans vs Bengals Suite 870 (doors 10am CT, kickoff 12pm CT) then AA2438 IAH->DFW 7:03pm CT. 09-21 Monday: Prayer Call 8am, Sales & Recruiting 9:15am, Employee AI Usage policy sync (Amber Robinson) 9:30am overlapping Sales Scrum 9:30am, Eagles Challenge golf 10:30am-4pm, GEHC internal check-in 3:30pm, dinner with Makena 6:30pm."
 ---
 
 <!-- system:start -->

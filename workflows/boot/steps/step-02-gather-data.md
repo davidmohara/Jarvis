@@ -1,14 +1,14 @@
 ---
 status: complete
-started-at: "2026-09-17T16:08:00Z"
-completed-at: "2026-09-17T16:10:00Z"
+started-at: "2026-09-18T17:04:30Z"
+completed-at: "2026-09-18T17:08:00Z"
 outputs:
-  phase2_status: "complete — 5/5 tasks executed (morning-briefing 01-02, G, H, I, J), 0 degraded sources (OmniFocus recovered this run)."
+  phase2_status: "complete — 5/5 tasks executed (morning-briefing 01-02, G, H, I, J), 0 degraded sources. record-step.py for morning-briefing declined (no standalone in-progress eval record; covered by boot's turn-level record)."
   completed_tasks: ["morning-briefing-01-02", "task-g-72hr-lookahead", "task-h-email-triage", "task-i-jarvis-inbox", "task-j-reminders"]
-  morning-briefing-steps-01-02: "completed — calendar live (data/calendar-unified.json, today 09-17 = return travel day LIT->DFW); task data LIVE (data/omnifocus-unified.json status:available, 42 active tasks, 11 inbox, 0 due today, 0 overdue, 0 flagged)"
-  task-g-72hr-lookahead: "completed — 09-18 to 09-20 from data/calendar-unified.json. 09-18 Personal retreat begins + AA1407 DFW->IAH 8:20am CT (overlaps Virtual Coffee Chat 8am + Sales & Recruiting 9:15am) + BCA BrainHealth breakfast 7:30am; 09-19 retreat (no timed meetings); 09-20 Texans vs Bengals Suite 870, 12pm kickoff."
-  task-h-email-triage: "completed — 25 messages in window, 6 actionable (YPO Western US nominee intake forms, Opal Group THWET reply owed, Legacy Club 4-member connect, ActivePure happy-hour invite, YPO Arkansas visit survey, UTB Board Training)"
-  task-i-jarvis-inbox: "nothing-to-surface — M365 Jarvis folder search returned 0 messages"
+  morning-briefing-steps-01-02: "completed — calendar live (data/calendar-unified.json; today 09-18 = Houston retreat day 1, GEHC AI routing architecture discussion 12-1pm CT is the only client touch, rest tentative/personal); task data LIVE (data/omnifocus-unified.json status:available, 42 active tasks, 11 inbox, 5 due today, 0 overdue, 0 flagged); delegation tracker has 1 ACTIVE delegation (Steve Hall follow up -> Derek Nwamadi, due 2026-09-25, Waiting); Q3 rocks still draft pending David's review (last-updated 2026-07-30, ~7 weeks unsigned)"
+  task-g-72hr-lookahead: "completed — 09-19 retreat (no timed events); 09-20 Texans vs Bengals Suite 870 (doors 10am CT, kickoff 12pm CT) then AA2438 IAH->DFW 7:03pm CT; 09-21 Monday packed: Prayer Call 8am, Sales & Recruiting 9:15am, Employee AI Usage policy sync (Amber Robinson) 9:30am OVERLAPS Sales Scrum 9:30am, Eagles Challenge golf 10:30am-4pm, GEHC internal check-in 3:30pm, dinner with Makena 6:30pm"
+  task-h-email-triage: "completed — 17 messages in window, 10 actionable (Ashford & Remington Hotels escalation HIGH from Diana Stevens, UTB board book comments due TODAY, amazing race retreat list, Solace Texans suite ticket push, DCC Sigma Genetics breakfast 9/30, Fortium SIM Enclave follow-up, BofA AI session partnership fwd, World Affairs Council dinner 10/13, Legacy Club 4-member intake replies received, YPO nominee intake forms deadline)"
+  task-i-jarvis-inbox: "nothing-to-surface — Jarvis inbox is empty (0 messages); skill-run signal written, deterministic grade 100% PASS"
   task-j-reminders: "nothing-to-surface — data/reminders.json empty (reminders array [])"
 ---
 

@@ -60,6 +60,11 @@
       "rating": null,
       "comment": null,
       "timestamp": null
+    },
+    "deterministic_gate": {
+      "score": 1.0,
+      "gate_status": "pass",
+      "computed_at": "2026-09-18T17:08:09.864825Z"
     }
   },
   "version_hash": "365cb1f1b6f72be0",

@@ -2,14 +2,9 @@
   "skill": "plaud-discover",
   "agent": "knox",
   "trigger": "manual",
-  "started": "2026-09-17T16:00:00Z",
-  "completed": "2026-09-17T16:07:00Z",
+  "started": "2026-09-18T16:59:30Z",
+  "completed": "2026-09-18T17:02:00Z",
   "status": "success",
   "tool_failures": 0,
-  "error_ids": [],
-  "records_scanned": 139,
-  "vault_notes_scanned": 196,
-  "staged_files_scanned": 132,
-  "new_recordings": 2,
-  "note": "Full enumeration. 139 API recordings vs 137 unique vault file_ids. 2 new: 468619c94a7b254df711c693d8e561a4 (2026-09-17, missing) and e2d6f3c0cfe76328329cd273da8d55cb (2026-09-16 weekly, ready). All 132 top-level staged files resolved via Tier 1 file_id match as already-ingested. Ledger: 271 entries."
+  "error_ids": []
 }

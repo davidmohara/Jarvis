@@ -1,12 +1,29 @@
 ---
 status: completed
 model: haiku
-started-at: "2026-09-17T16:10:00Z"
-completed-at: "2026-09-17T16:22:00Z"
+started-at: "2026-09-18T17:03:30Z"
+completed-at: "2026-09-18T17:06:00Z"
 outputs:
   gate_4_result: "pass"
   gate_4_unresolved_speakers: []
   notes: >
+    pi-20260918-001: 1 recording in ready-for-fetch (f96b2c110fc35162f390ac5288d6f7f4,
+    "09-18 Meeting: AI Project Architecture and Data Routing", 2026-09-18 15:36 UTC /
+    10:36 CDT, ~31.5 min). No _speakers.json in staging (pre-fetch); queried live API
+    per skill step -1. Recording's live trans_result already carries real names — Plaud
+    auto-resolved both speakers (registered voice profiles): Speaker 1 = O'Hara (David,
+    39 segments), Speaker 2 = Vladimir Avila (48 segments, Improving Mexico delivery,
+    known from 09-17 GEHC sync). Zero generic labels — no embedding computation, self-ID
+    scan, or controller escalation needed. Self-ID corroborated by transcript ("Hey Vlad.
+    Hey David."). Calendar cross-reference: no event matches the recording window — David
+    is on an all-day personal retreat (Houston hotel check-in 09-18); this was an impromptu
+    ad-hoc call, consistent with transcript small talk ("Are you in the hotel"). No
+    invite exists, so step-3 attendee validation is n/a; both names are registered Plaud
+    profiles (exempt). Informational only: "Mike" referenced as the author of a shared
+    document (likely Michael Braunstein, GEHC team) — mentioned, not a speaker; not
+    blocking. Classification: work (client AI POC architecture/routing discussion; no
+    personal keywords in title or content). Gate 4: pass.
+  notes_prior_run: >
     pi-20260917-001: 1 recording in ready-for-fetch (e2d6f3c0cfe76328329cd273da8d55cb,
     "09-16 Weekly Meeting: P2 AI Project Plan, Model Testing, and Scope Risks",
     2026-09-16 15:00-15:45 UTC). 9 speakers detected: 2 already natively named
@@ -30,7 +47,7 @@ outputs:
     controller escalation (off-invite note only). No unresolved speakers across the
     recording -- Gate 4 result: pass. Classified work (Simpson Strong-Tie P2 AI
     project weekly).
-  notes_prior_run: >
+  notes_prior_runs: >
     pi-20260914-001: 3 recordings, all resolved via calendar/self-ID, Gate 4 pass.
     pi-20260909-001: 1 recording (Speaker 2) escalated to controller, resolved
     separately from that run.

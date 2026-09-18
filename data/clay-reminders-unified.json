@@ -1,11 +1,24 @@
 {
-  "pulled_at": "2026-09-17T16:08:00Z",
+  "pulled_at": "2026-09-18T17:02:00Z",
   "status": "available",
   "reminders": [],
-  "reminder_count": 0,
   "birthdays": [
-    {"type": "birthday", "date": "2026-09-20", "contact_name": "Kevin Gardner", "birthday": "9/20/1965", "relationship": "Improving (engineering leadership)"},
-    {"type": "birthday", "date": "2026-09-22", "contact_name": "Justin Etheredge", "birthday": "9/22/1977", "relationship": "Improving (energy/utility digital products)"}
+    {
+      "type": "birthday",
+      "date": "2026-09-20",
+      "description": "Kevin Gardner birthday",
+      "contact_name": "Kevin Gardner",
+      "relationship": "Clay contact (carried from 2026-09-17 Clay pull; still within 7-day window)"
+    },
+    {
+      "type": "birthday",
+      "date": "2026-09-22",
+      "description": "Justin Etheredge birthday",
+      "contact_name": "Justin Etheredge",
+      "relationship": "Clay contact (carried from 2026-09-17 Clay pull; still within 7-day window)"
+    }
   ],
-  "birthday_count": 2
+  "reminder_count": 0,
+  "birthday_count": 2,
+  "note": "getUpcomingReminders returned 0 (live check this run). Home activity feed (539 items) shows 4 past birthdays only, no new upcoming ones. Kevin Gardner 09-20 and Justin Etheredge 09-22 identified via Clay on 2026-09-17 remain inside the next-7-day window."
 }

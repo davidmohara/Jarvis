@@ -1,12 +1,12 @@
 ---
 status: complete
-started-at: "2026-09-17T16:17:00Z"
-completed-at: "2026-09-17T16:18:00Z"
+started-at: "2026-09-18T17:16:00Z"
+completed-at: "2026-09-18T17:17:00Z"
 outputs:
-  workflows_scanned: "complete — workflows/_active.yaml read (active: []). Full per-directory scan of 58 workflows/*/state.yaml run anyway to verify: the empty index is accurate. 1 genuine in-flight workflow: plaud-ingest (Knox fire-and-forget)."
-  in_flight_list: ["plaud-ingest (knox, step-03, session pi-20260917-001, started 2026-09-17T16:07:00Z)"]
-  status_summary: "plaud-ingest is in-flight at step-03 (parent-spawned Knox background job, 2 new recordings found). boot is in-progress as this run itself. golf-booking is status:deferred (preview-degraded), noted but not treated as in-flight. All others idle/complete."
-  result: "1 in-flight workflow (plaud-ingest, Knox) — NOT auto-resumed, background job expected. Index verified accurate this run (no stale mismatch)."
+  workflows_scanned: "complete — workflows/_active.yaml read (active: []). Targeted verification scan of workflows/*/state.yaml confirms: the only in-progress workflow is boot itself (this run). plaud-ingest is COMPLETE this session (Knox session pi-20260918-001, outcome complete-one-ingested)."
+  in_flight_list: []
+  status_summary: "No in-flight workflows other than boot (this run). plaud-ingest completed: 1 new recording ingested (f96b2c110fc35162f390ac5288d6f7f4, '09-18 Meeting: AI Project Architecture and Data Routing', 31.5 min, transcript ready). All others idle/complete."
+  result: "0 in-flight workflows to surface (excluding boot itself). Index verified accurate this run (no stale mismatch). Nothing to auto-resume."
 ---
 
 <!-- system:start -->

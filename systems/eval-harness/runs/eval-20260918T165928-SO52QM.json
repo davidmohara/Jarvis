@@ -1,0 +1,75 @@
+{
+  "id": "eval-20260918T165928-SO52QM",
+  "agent_id": "addb55362d4ef3b60",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "general-purpose",
+  "session_id": "4d5db2b3-9370-4d1f-accb-a39eb010e7bd",
+  "trigger": "unknown",
+  "started": "2026-09-18T16:59:28.985853Z",
+  "completed": "2026-09-18T17:02:05.342495Z",
+  "duration_seconds": 156.36,
+  "status": "success",
+  "steps": [
+    {
+      "name": "step-01-load-context.md",
+      "started": "2026-09-18T16:59:00Z",
+      "completed": "2026-09-18T17:00:00Z",
+      "duration_seconds": 60.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/4d5db2b3-9370-4d1f-accb-a39eb010e7bd/subagents/agent-addb55362d4ef3b60.jsonl",
+  "last_assistant_message": "**Plaud Discover \u2014 full enumeration (pi-20260918-001)**\n\n**Result: 1 new recording.**\n\n```yaml\nnew_recordings:\n  - file_id: f96b2c110fc35162f390ac5288d6f7f4\n    name: \"09-18 Meeting: AI Project Architecture and Data Routing\"\n    date: 2026-09-18\n    duration_seconds: 1894\n    has_transcript: true\n    transcript_status: ready\n```\n\n**Counts:** API total 140 (paginated `/file/simple/web` to exhaustion, no date filter). Vault scan of `zzPlaud/` = 198 `.md` notes, 139 unique `file_id` values (176 notes carry a `file_id`). api-minus-vault = 1, vault-minus-api = 0.\n\n**Dedup ledger (HARD GATE):** written to `/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/systems/eval-harness/skill-runs/plaud-discover-ledger-latest.json` \u2014 272 entries (140 API + 132 staged), 271 `skip`, 1 `new`. The single `new` entry has `tiers_checked: [1,2,3]`; every skip entry has at least one tier checked.\n\n**Staging:** 132 top-level `plaud_*.md` files (archive/`_not_new_archive` and `_medical_excluded` pruned). All 132 resolved by Tier 1 `file_id` exact match via sibling `_raw.json` (`detail.file_id`). Zero stale-requeue. All 132 remain as already-ingested leftovers \u2014 cleanup backlog, not new work.\n\n**Circuit breaker:** clear. 1 new vs last confirmed count 2 (2026-09-17); not more than double, not >10% of 272 candidates. Vault `confirmed-in-vault` 139 is at/above the prior run's 137.\n\n**Caveats:**\n- Direct `urllib` call to `/file/simple/web` returned 403; authenticated enumeration succeeded only via `fetch_plaud.py`'s `get_token()` + `list_recordings()` (cached token, region `us`). Cached token is valid (expires ~2026-12-21).\n- Obsidian MCP was not used; vault scanned directly at `/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud` (MCP `list_vault_files` unavailable in this session). Counts match the prior run's baseline (196\u2192198 notes), so the read is not degraded.\n- Pre-existing hygiene flag carried forward: 30 `file_id` values each map to two vault notes (root-level duplicates of notes later re-filed into subfolders), up from 30 at the prior run. Does not affect dedup correctness; not acted on.\n- `workflows/plaud-ingest/state.yaml` still holds the **2026-09-17** `accumulated-context` (session id `pi-20260918-001`, `current-step: step-01`). I did not write to it \u2014 per the skill, the calling workflow step owns that write. The parent step-01 should replace `accumulated-context.new-recordings` with the single entry above before advancing.\n\n**Deterministic grade (Tier 2):**\n\n```\nWarning: grading skill 'plaud-discover' against record eval-20260917T160914-E4JGKH whose\nstarted (2026-09-17T16:00:00Z) is not today's date \u2014 this may be a stale record.\n--- Eval: plaud-discover (eval-20260917T160914-E4JGKH) ---\nStructure 4/4 passed\nDeterministic score: 83%  ->  PASS (gate >= 70%)\nTier 3 qualitative grade: pending (runs in tonight's end-of-day sweep)\n```\n\nThe grader fell back to the 2026-09-17 record because today's eval record had not yet been created by the signal-file hook at grading time. Signal file written to `systems/eval-harness/skill-runs/plaud-discover-latest.json` (status `success`, 0 tool failures) immediately before grading.",
+  "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+  "total_tokens_input": 238578,
+  "total_tokens_output": 2986,
+  "total_cost_usd": 0.09,
+  "cost_estimation_note": "estimated based on general-purpose workflow type"
+}

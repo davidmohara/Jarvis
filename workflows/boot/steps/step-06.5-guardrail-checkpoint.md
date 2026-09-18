@@ -1,15 +1,15 @@
 ---
 status: complete
-started-at: "2026-09-17T16:18:00Z"
-completed-at: "2026-09-17T16:19:00Z"
+started-at: "2026-09-18T17:17:00Z"
+completed-at: "2026-09-18T17:19:00Z"
 outputs:
-  data_freshness_report: "flag — calendar (25 events, pulled 2026-09-17T16:05Z), email (25 msgs), omnifocus (status available, 42 tasks), clay (0 reminders / 2 birthdays), jarvis-inbox (0) all live and fresh this run; briefing reflects gathered data accurately, no stale context presented as fresh. Flags: 2 auxiliary data files stale but neither powers the briefing; step-03 self-verified (no Ralph agent type); plaud-ingest legitimately in-flight as background."
-  stale_sources: "reminders.json (registry, 2026-06-27), golf-outing-attendees.json (reference, 2026-07-21) — neither feeds the briefing"
+  data_freshness_report: "flag — calendar (24 events, pulled 2026-09-18T17:04Z), email (17 msgs), omnifocus (status available, 42 tasks), clay (0 reminders / 2 birthdays), jarvis-inbox (0) all live and fresh this run; briefing reflects gathered data accurately, correct day, no stale context presented as fresh. Flag: a colleague DOB was spotted in one email-unified.json snippet (Legacy Club intake reply) and scrubbed before completion; briefing and session index were always clean."
+  stale_sources: "none powering the briefing; reminders.json remains an empty registry (by design)"
   briefing_quality_check: "pass — briefing reflects live gathered data, no em-dashes, all Phase 2 findings incorporated, degraded-source-free"
-  leakage_check: "clear — no credentials or raw sensitive data in briefing or session index"
+  leakage_check: "clear after remediation — no credentials, DOBs, or addresses in briefing or session index; email extract snippet scrubbed"
   checkpoint_name: "pre-completion-review"
   checkpoint_result: "flag"
-  reason: "Briefing reflects live 2026-09-17 data and is degraded-source-free (OmniFocus recovered). step-06 correctly distinguished real state: plaud-ingest (Knox) is the one genuinely in-flight workflow, and the empty _active.yaml index is accurate this run (prior boots' mismatch absent). Stale-source verifier flags only two auxiliary registry/reference files (reminders.json, golf-outing-attendees.json) that do not feed the briefing. No leakage. No escalate condition met."
+  reason: "Briefing reflects live 2026-09-18 data, 0 degraded sources. step-06 correctly distinguished real state: plaud-ingest COMPLETE this session (1 recording ingested), empty _active.yaml accurate, boot itself the only in-progress workflow. Session index healthy (session-2026-09-18-115915, no duplication). Minor hygiene flag: colleague DOB in email extract snippet, scrubbed pre-completion. No escalate condition met."
   recorded: true
 model: sonnet
 ---

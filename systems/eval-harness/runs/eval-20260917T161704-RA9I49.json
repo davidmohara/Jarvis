@@ -90,9 +90,9 @@
       "timestamp": null
     },
     "deterministic_gate": {
-      "score": 0.7917,
-      "gate_status": "pass",
-      "computed_at": "2026-09-17T16:17:05.072731Z"
+      "score": 0.625,
+      "gate_status": "fail",
+      "computed_at": "2026-09-18T17:12:54.975441Z"
     }
   },
   "version_hash": "56bd4a9d21dc826b",

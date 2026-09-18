@@ -1,21 +1,39 @@
 ---
 status: completed
-started-at: "2026-09-17T16:40:00Z"
-completed-at: "2026-09-17T16:58:00Z"
+started-at: "2026-09-18T17:09:00Z"
+completed-at: "2026-09-18T17:20:00Z"
 model: sonnet
 outputs:
   ingested-notes:
-    - "zzPlaud/Client/2026-09-16 SST AI Takeoff Weekly - P2 AI Project Plan, Model Testing, and Scope Risks.md"
-    - "zzPlaud/Client/2026-09-17 GEHC Improving - AI Routing weekly sync.md"
+    - "zzPlaud/Client/2026-09-18 AI Project Architecture and Data Routing.md"
   daily-notes-updated:
-    - "Calendar/2026/09-September/2026-09-16.md"
-    - "Calendar/2026/09-September/2026-09-17.md"
-  monday-tasks-created: 0
-  monday-tasks-logged-manual: 9
-  staging-files-removed: 4
+    - "Calendar/2026/09-September/2026-09-18.md"
+  monday-tasks-created: 2
+  monday-tasks-logged-manual: 0
+  staging-files-removed: 2
   gate_5_result: "pass"
   gate_5_verification_failures: []
   notes: >
+    pi-20260918-001: 1 recording ingested (f96b2c110fc35162f390ac5288d6f7f4,
+    "09-18 Meeting: AI Project Architecture and Data Routing"), classified work,
+    filed to zzPlaud/Client/2026-09-18 AI Project Architecture and Data Routing.md
+    (GEHC AI routing POC project thread, consistent with 09-17 GEHC sync placement).
+    Impromptu call, no calendar event (David on travel day in Houston); attendees
+    David O'Hara and Vladimir Avila, both Plaud-registered voices, zero generic
+    labels. duration_minutes = 1894s / 60 = 31.6. Note written directly to the vault
+    path (iCloud), then Gate 5 verified via Obsidian MCP read-back: file exists at
+    expected path, file_id/date/duration_minutes/source/tags frontmatter confirmed.
+    Daily note Calendar/2026/09-September/2026-09-18.md created from template with
+    wikilink appended. Monday MCP (claude_ai monday_com connector) IS authenticated
+    this session (unlike 09-17): 2 David-owned action items routed (13081558342 ask
+    Mike Braunstein re self-tuning routing, priority High; 13081547249 confirm DICOM
+    destination fan-out with client, priority Medium), no project_owner set. Non-David
+    items left in note as informational: Vladimir (GPU benchmark move, episodic-memory
+    research) and Mike Braunstein (repo access for David, in flight). Reconciliation:
+    this run staged exactly 1 recording, fully processed; staging cleanup removed the
+    2 files staged this run; pre-existing 132-file backlog untouched per standing
+    cleanup-backlog flag. Follow-up intelligence in final report.
+  notes_prior_run: >
     pi-20260917-001: 1 recording ingested (e2d6f3c0cfe76328329cd273da8d55cb,
     "09-16 Weekly Meeting: P2 AI Project Plan, Model Testing, and Scope Risks"),
     classified work (Simpson Strong-Tie client weekly), filed to

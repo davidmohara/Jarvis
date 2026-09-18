@@ -1,13 +1,13 @@
 {
-  "id": "eval-20260917T160914-E4JGKH",
-  "type": "skill",
-  "name": "plaud-discover",
+  "id": "eval-20260918T171242-V73HHC",
+  "type": "workflow",
+  "name": "plaud-ingest",
   "agent": "knox",
-  "session_id": "61be22c5-c8cc-49b7-888a-b106ddd74eb7",
+  "session_id": "4d5db2b3-9370-4d1f-accb-a39eb010e7bd",
   "trigger": "manual",
-  "started": "2026-09-17T16:00:00Z",
-  "completed": "2026-09-17T16:09:14.539529Z",
-  "duration_seconds": 554.5,
+  "started": "2026-09-18T16:59:15Z",
+  "completed": "2026-09-18T17:12:42.865825Z",
+  "duration_seconds": 807.9,
   "status": "success",
   "steps": [],
   "assessment": {
@@ -24,26 +24,26 @@
       "assertions_passed": 4,
       "assertion_results": [
         {
-          "assertion": "plaud-discover-signal-written",
-          "description": "plaud-discover skill-run signal file was written",
+          "assertion": "plaud-001-state-complete",
+          "description": "Plaud ingest workflow state.yaml shows status: complete",
           "category": "structure",
           "passed": true
         },
         {
-          "assertion": "plaud-discover-signal-status",
-          "description": "plaud-discover skill-run did not end in failure",
+          "assertion": "plaud_ingest-wm-written",
+          "description": "Plaud ingest working memory file was written to memory/working/",
           "category": "structure",
           "passed": true
         },
         {
-          "assertion": "plaud-di-002-substantive",
-          "description": "plaud-discover output is substantive (>200 bytes)",
+          "assertion": "plaud_ingest-wm-size",
+          "description": "Plaud ingest working memory file is substantive (>200 bytes)",
           "category": "structure",
           "passed": true
         },
         {
-          "assertion": "plaud-di-003-content",
-          "description": "plaud-discover output contains expected content",
+          "assertion": "plaud_ingest-wm-content",
+          "description": "Plaud ingest working memory contains expected content",
           "category": "structure",
           "passed": true
         }
@@ -72,17 +72,12 @@
       "rating": null,
       "comment": null,
       "timestamp": null
-    },
-    "deterministic_gate": {
-      "score": 0.8333,
-      "gate_status": "pass",
-      "computed_at": "2026-09-18T17:01:35.562813Z"
     }
   },
-  "version_hash": "2072af8f1084ec76",
+  "version_hash": "ef223db3ad68a802",
   "prior_baseline_id": null,
   "tags": [
-    "cowork-hook",
-    "skill"
+    "phantom-candidate",
+    "cowork-hook"
   ]
 }
