@@ -17,8 +17,8 @@ tags:
   - rigby
 related_people: []
 salience:
-  score: 5
-  last-promoted-check: 2026-09-17
+  score: 6
+  last-promoted-check: 2026-09-18
   promoted: true
 ---
 

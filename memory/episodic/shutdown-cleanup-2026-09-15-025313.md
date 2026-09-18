@@ -1,12 +1,26 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "chief-2026-09-15-025313"
 agent-source: chief
 created: 2026-09-15T12:06:15
 expires: 2026-09-17T12:06:15
-status: active
+status: archived
 context: "Shutdown cleanup — 2026-09-15"
+date: 2026-09-15
+source_file: memory/working/shutdown-cleanup-2026-09-15-025313.md
+tags:
+  - session-wrap
+  - chief
+  - system-maintenance
+  - git-blocked
+  - xcode-license
+  - cleanup
+related_people: []
+salience:
+  score: 5
+  last-promoted-check: 2026-09-18
+  promoted: true
 ---
 
 - Step 01 (purge): deleted 6 temp artifacts (`.DS_Store`, 5x `__pycache__`). Root-check flagged two non-canonical root entries — `Calendar/` and `zzPlaud/` — both containing real content (a dated note, two meeting/podcast transcripts). Paused for controller disposition rather than guessing.

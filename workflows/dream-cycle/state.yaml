@@ -1,12 +1,73 @@
 workflow: dream-cycle
 agent: jarvis
 status: complete
-session-started: 2026-09-17T08:02:00Z
-session-id: dream-cycle-2026-09-17-080200
+session-started: 2026-09-18T08:05:00Z
+session-id: dream-cycle-2026-09-18-080000
 current-step: null
 original-request: "Execute dream-cycle workflow for today (scheduled task)"
-last-successful-run: 2026-09-17T08:30:00Z
+last-successful-run: 2026-09-18T08:10:00Z
 accumulated-context:
+  step-05-2026-09-18:
+    dream_log_appended: true
+    working_summary_written: true
+    working_summary_reason: "semantic_updated=2 > 0 triggers the mandatory working-summary write per Phase B. Content leads with the 2-file archival, then flags two real items directly: the shutdown-cleanup entry's first-seen git/Xcode-license commit blocker, and the delegation tracker no longer being empty after 18+ consecutive cycles."
+    error_logged: "none this cycle -- clean run, no self-detected bugs."
+    eval_record: "eval-20260918T080537-SWUKP0 -- created fresh at run start, set name/agent/session_id/trigger/tags on it before any record-step.py calls, backfilled steps 01-04 cleanly, guardrail checkpoint attached correctly on first attempt, manually closed (status:success, completed timestamp)."
+    git_commit: pending
+    git_push: pending
+    git_sync_note: "Cloud sandbox container (Claude Code Remote). No Desktop Commander tool available in this session, consistent with every dream-cycle run since 09-08. Using plain git via Bash."
+  step-04-2026-09-18:
+    candidates_count: 1
+    entries_compressed: 0
+    digests_updated: 0
+    compression_skipped: true
+    compression_skip_reason: "1 compression candidate this cycle (2026-06-19-session.md: date<2026-06-20, salience.score 0, promoted false), well below the 5-entry safety threshold -- skipped, nothing modified."
+  step-03b-2026-09-18:
+    result: pass
+    reason: "2 promoted entries this cycle (dream-summary-2026-09-16.md score 10, shutdown-cleanup-2026-09-15-025313.md score 5), both correctly set promoted:true, neither will appear in step-04's candidate set; volume (2) normal; both semantic writes were substantive narrative appends to existing entries, not stubs."
+  step-03-2026-09-18:
+    candidates_count: 2
+    clusters_found: 2
+    semantic_created: 0
+    semantic_updated: 2
+    promoted_entries: 2
+    promotion_note: "2 candidates this cycle (both today's own step-01 archives): dream-summary-2026-09-16.md (score 10) appended to dream-summary-pattern.md (operational/2026-06-12); shutdown-cleanup-2026-09-15-025313.md (score 5) appended to session-wrap-pattern.md (operational/2026-06-30), noting a first-seen tooling-availability commit blocker (host git refusing to run over an unaccepted Xcode license) distinct from the cluster's established ambiguous-cleanup-decision sub-mode. Delegation tracker re-check found it NO LONGER EMPTY -- an active delegation (Steve Hall follow-up to Derek Nwamadi, due 2026-09-25) now present, breaking an 18+ consecutive-cycle empty streak. Q3 rocks not independently re-checked (outside normal dream-cycle scope). Error-pattern check: 6 distinct qualifying 30-day categories, same set as every recent cycle, all re-verified present and active in LESSONS.md, none appended."
+  step-02-2026-09-18:
+    episodic_scanned: 320
+    score_updates: 320
+    no_tags: 197
+    no_date: 37
+    window_entries: 43
+    score_distribution: "0:208,1:5,2:8,3:2,4:3,5:10,6:16,7:6,8:2,9:6,10:54"
+    note: "Ran systems/dream-cycle/salience-score.py --date 2026-09-18. read_errors:0, write_errors:0. episodic_scanned 318->320, fully explained by today's 2 step-01 archives, no other change. pct_score_0=65.0% (208/320), below the 70% GUARDRAIL-3 escalation threshold. pct_no_date=11.56% (37/320) still crosses the >10% GUARDRAIL-4 threshold, same legacy undated population as every prior cycle. pct_no_tags=61.56% (197/320) stays in the 30-70% warning band, same underlying population. Corpus-wide scan for the frontmatter-corruption signature (duplicate salience: blocks, multiple promoted: keys) found 0 instances, consistent with every cycle since the 09-01 fix."
+  step-01-2026-09-18:
+    working_archived: 2
+    working_deleted: 0
+    working_skipped: 58
+    working_stranded: 0
+    enrichment_method: "manual enrichment by the executing session (no nested claude -p subprocess call -- consistent with every prior cloud-sandbox cycle)"
+    archived_files:
+      - dream-summary-2026-09-16.md
+      - shutdown-cleanup-2026-09-15-025313.md
+    skipped_not_expired:
+      - dream-summary-2026-09-17.md
+      - morning-briefing-2026-09-16-093000.md
+      - morning-briefing-2026-09-17-111500.md
+      - plaud-discover-2026-09-16.md
+      - plaud-ingest-2026-09-16-092409.md
+      - plaud-ingest-2026-09-17-113544.md
+      - shutdown-cleanup-2026-09-16-225100.md
+      - bookings-review-2026-09-17-184500.md
+      - co-sell-pipeline-2026-09-17-184500.md
+      - new-clients-2026-09-17-184500.md
+      - pipeline-snapshot-2026-09-17-184500.md
+      - revenue-tracker-2026-09-17-184500.md
+    skipped_unparseable_count: 45
+    unparseable_left_untouched_missing_status:
+      - knox-plaud-ingest-2026-08-31.md
+    new_unparseable_this_cycle:
+      - quinn-strategy-2026-09-17-134800.md
+    note: "2 archive candidates this cycle (both held back one extra cycle by the same-calendar-day expiry rule on their prior run), both non-trivial, both enriched with date/tags/related_people/source_file and moved working->episodic via mv (rename). 6 new working-memory arrivals since 09-17 not yet expired (revenue-tracker/pipeline-snapshot/bookings-review/co-sell-pipeline/new-clients-2026-09-17-184500, plaud-ingest-2026-09-17-113544, morning-briefing-2026-09-17-111500). knox-plaud-ingest-2026-08-31.md remains untouched per rule 2d."
   step-05-2026-09-17:
     dream_log_appended: true
     working_summary_written: true

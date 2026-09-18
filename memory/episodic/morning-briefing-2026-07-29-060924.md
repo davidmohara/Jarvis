@@ -28,7 +28,7 @@ related_people:
   - teresa-saffold
 salience:
   score: 5
-  last-promoted-check: 2026-09-17
+  last-promoted-check: 2026-09-18
   promoted: true
 ---
 

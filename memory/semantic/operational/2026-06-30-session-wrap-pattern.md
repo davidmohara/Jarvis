@@ -3,8 +3,9 @@ type: semantic
 domain: operational
 subject: "Pattern around session-wrap"
 synthesized-from:
+  - memory/episodic/shutdown-cleanup-2026-09-15-025313.md
   - memory/episodic/shutdown-cleanup-2026-06-16-071444.md
-last-updated: 2026-09-03
+last-updated: 2026-09-18
 tags:
   - calendar
   - co-sell
@@ -84,3 +85,9 @@ Sources this cycle:
 - `memory/episodic/shutdown-cleanup-2026-08-31-222924.md` (score 7) — tags: session-wrap, chief, system-maintenance, git-sync, one-texas, boot. Aug 31 shutdown: purged 7 temp artifacts (3 `.DS_Store`, 4 `__pycache__`); root-check flagged an untracked "2026-08 - One Texas Update.pptx" — genuinely novel, not covered by state.yaml precedent, so paused mid-workflow to surface it rather than guess. David resolved directly (moved to OneDrive, renamed to avoid a same-day filename collision). Committed 77 files (watchtower/standing metrics, Rigby plaud dedup fixes, new skill scaffolds, boot/eval-harness/error-tracking records).
 
 Ninth dated evidence entry, and continues the established pattern most clearly: an ambiguous cleanup decision (an untracked deliverable with no existing routing precedent) escalated to the controller rather than resolved unilaterally, consistent with the 08-27 entry's `drafts/` directory handling. Confidence held at medium — the escalate-when-ambiguous behavior is now well-evidenced but hasn't produced a new *type* of finding since 08-30.
+
+### 2026-09-18 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/shutdown-cleanup-2026-09-15-025313.md` (score 5) — tags: session-wrap, chief, system-maintenance, git-blocked, xcode-license, cleanup. Genuinely new failure mode for this cluster: the shutdown-cleanup commit step was blocked outright by the host's system `git` refusing every invocation with "You have not agreed to the Xcode license agreements," confirmed on both a plain `git status` and `git diff --name-only HEAD`. No alternate git binary was available and `sudo -n true` required an interactive password, so the session couldn't self-resolve — it correctly stopped and left `state.yaml` and the step file marked `status: blocked` rather than guessing or skipping the commit. A separate ambiguous-cleanup decision (two non-canonical root directories, `Calendar/` and `zzPlaud/`, both holding real content) was also escalated to the controller rather than resolved unilaterally, consistent with this cluster's established escalate-when-ambiguous behavior (see the 08-27/08-31/09-03 entries above).
+
+This is the first source in this cluster where the blocker is the git tooling itself rather than routing, naming, or file-placement ambiguity — worth flagging as a distinct sub-mode (tooling-availability blocker) alongside the established ambiguous-cleanup-decision sub-mode, not a replacement for it. Confidence held at medium (10th dated evidence entry) — one new sub-mode isn't yet enough evidence to escalate.

@@ -20,8 +20,8 @@ tags:
 related_people:
   - austin-ledesma
 salience:
-  score: 8
-  last-promoted-check: 2026-09-17
+  score: 9
+  last-promoted-check: 2026-09-18
   promoted: true
 ---
 

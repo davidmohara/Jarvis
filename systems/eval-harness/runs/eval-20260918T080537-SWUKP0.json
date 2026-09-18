@@ -1,0 +1,118 @@
+{
+  "id": "eval-20260918T080537-SWUKP0",
+  "type": "agent",
+  "name": "dream-cycle",
+  "agent": "jarvis",
+  "session_id": "dream-cycle-2026-09-18-080000",
+  "trigger": "scheduled",
+  "started": "2026-09-18T08:05:37.734452Z",
+  "completed": "2026-09-18T08:07:12.825933Z",
+  "duration_seconds": 95.091481,
+  "status": "success",
+  "steps": [
+    {
+      "name": "step-01-working-memory-cleanup",
+      "started": null,
+      "completed": null,
+      "duration_seconds": null,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "name": "step-02-salience-scoring",
+      "started": null,
+      "completed": null,
+      "duration_seconds": null,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "name": "step-03-semantic-promotion",
+      "started": null,
+      "completed": null,
+      "duration_seconds": null,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "name": "step-04-episodic-compression",
+      "started": null,
+      "completed": null,
+      "duration_seconds": null,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [
+    "dream-cycle",
+    "scheduled"
+  ],
+  "guardrails": [
+    {
+      "name": "step-03b-guardrail-checkpoint",
+      "after_step": "step-03-semantic-promotion",
+      "result": "pass",
+      "reason": "2 promoted entries this cycle (dream-summary-2026-09-16.md score 10, shutdown-cleanup-2026-09-15-025313.md score 5), both correctly set promoted:true, neither will appear in step-04's candidate set; volume (2) normal; both semantic writes were substantive narrative appends to existing entries, not stubs.",
+      "escalated_to_human": false,
+      "timestamp": "2026-09-18T08:05:56.721506+00:00"
+    }
+  ]
+}
