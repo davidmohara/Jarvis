@@ -1,15 +1,15 @@
 ---
 status: complete
-started-at: "2026-09-17T06:00:00Z"
-completed-at: "2026-09-17T06:05:00Z"
+started-at: "2026-09-18T06:00:00Z"
+completed-at: "2026-09-18T06:08:00Z"
 outputs:
   messages_scanned: 2
   new_urls: 0
   new_digests: 0
   posts_drafted: 0
-  gate_1_result: "PASS — ok: true, 2 messages returned via 24h window, channel C0B160MA3EK confirmed"
+  gate_1_result: "PASS — ok: true, 2 messages returned via 48h window (24h returned 0, retry triggered), channel C0B160MA3EK confirmed"
   gate_2_result: "N/A — no new content to draft"
-  editorial_threads_checked: 5
+  editorial_threads_checked: 26
   editorial_feedback_found: 0
   editorial_edits_applied: 0
 model: sonnet
