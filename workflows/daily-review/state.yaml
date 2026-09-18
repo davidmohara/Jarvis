@@ -1,21 +1,13 @@
 ---
 workflow: daily-review
 agent: chief
-status: complete
-session-started: "2026-09-17T17:30:00"
-session-id: "chief-2026-09-17-173000"
-current-step: step-05
-session-closed: true
-original-request: "Run the daily wrap up workflow."
+status: in-progress
+session-started: "2026-09-18T21:00:00"
+session-id: "chief-2026-09-18-210000"
+current-step: step-01
+session-closed: false
+original-request: "Run the daily-review workflow for Friday 2026-09-18 (retreat day 1, Houston)."
 accumulated-context:
-  review-date: "2026-09-17"
-  mode: "interactive via sub-agent — controller answers relayed by Master"
-  review-file: "reviews/daily/2026-09-17.md"
-  narrative-path: "Daily Reviews/2026-09-17 Naming the Dead Rock Before Houston.md (Obsidian vault, cross-linked from Calendar/2026/09-September/2026-09-17.md)"
-  delegation: "Steve Hall follow up -> Derek Nwamadi, due 2026-09-25, Waiting. OmniFocus mirror created then removed on David's instruction; tracker is sole record."
-  guardrail-checkpoint: "pass (manual review; recorder script found no in-progress eval — noted)"
-  root-audit: "clean — revenue-dallas.png removed by Master mid-run"
-  git-commit: "c6633e73"
-  git-push: "success"
-  eval-record: "eval-20260917T232724-AZ9DQO.json"
-  model: sonnet
+  review-date: "2026-09-18"
+  mode: "sub-agent run — Master relayed request, no live controller interaction"
+---

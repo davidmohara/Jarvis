@@ -6,9 +6,9 @@
   "session_id": "4d5db2b3-9370-4d1f-accb-a39eb010e7bd",
   "trigger": "boot",
   "started": "2026-09-18T16:58:13.137085Z",
-  "completed": null,
-  "duration_seconds": null,
-  "status": "in-progress",
+  "completed": "2026-09-18T17:21:00.131376Z",
+  "duration_seconds": 1366.99,
+  "status": "success",
   "steps": [],
   "subagents": [
     {
@@ -37,11 +37,12 @@
       "agent_id": "ac4da5a492473cd64",
       "agent_type": "general-purpose",
       "started": "2026-09-18T16:59:49.442849Z",
-      "completed": null,
-      "model": null,
-      "tokens_input": null,
-      "tokens_output": null,
-      "cost_usd": null
+      "completed": "2026-09-18T17:20:29.797843Z",
+      "model": "accounts/fireworks/models/kimi-k3",
+      "tokens_input": 985942,
+      "tokens_output": 2649,
+      "cost_usd": 0.09,
+      "duration_seconds": 1240.35
     },
     {
       "agent_id": "afd53c61bdd26db03",
@@ -55,24 +56,55 @@
     }
   ],
   "monitoring": {
-    "active": true,
+    "active": false,
     "state_yaml_path": "workflows/boot/state.yaml",
     "opened_by": "eval-turn-start.py",
     "trigger_evidence": "run the morning boot workflow"
   },
   "assessment": {
     "mechanical": {
-      "completed": null,
-      "all_steps_finished": null,
+      "completed": true,
+      "all_steps_finished": true,
       "tool_failures": 0,
       "error_ids": []
     },
     "structural": {
       "expected_outputs_written": null,
       "outputs_non_empty": null,
-      "assertions_checked": 0,
-      "assertions_passed": 0,
-      "assertion_results": []
+      "assertions_checked": 6,
+      "assertions_passed": 5,
+      "assertion_results": [
+        {
+          "assertion": "boot-001-state-complete",
+          "description": "Boot workflow state.yaml shows status: complete",
+          "passed": true
+        },
+        {
+          "assertion": "boot-002-session-index-exists",
+          "description": "Session index file exists \u2014 boot's Session Index Boot step must have created/appended it",
+          "passed": true
+        },
+        {
+          "assertion": "boot-003-session-index-substantive",
+          "description": "Session index is a real record, not an empty stub",
+          "passed": true
+        },
+        {
+          "assertion": "boot-005-omnifocus-data-file-exists",
+          "description": "OmniFocus pull (step-01.2 Pull B) wrote its consolidated data file",
+          "passed": true
+        },
+        {
+          "assertion": "boot-007-omnifocus-no-completed-tasks-leaked",
+          "description": "No completed task leaked into the OmniFocus pull. The inbox permanently holds ~247 completed tasks alongside ~8 incomplete ones, and Clean Up does NOT remove them, so the query itself must carry `completed is false`. Any `completed: true` in the output means the filter was dropped from the call.",
+          "passed": true
+        },
+        {
+          "assertion": "boot-008-omnifocus-filter-documented",
+          "description": "Regression guard: the boot pull instructions still mandate the `completed is false` filter on the inbox query. If someone strips that filter from the instructions, this trips before the leak reaches a briefing.",
+          "passed": false
+        }
+      ]
     },
     "grading": {
       "last_graded": null,
@@ -96,7 +128,7 @@
       "remediation_status": "none"
     }
   },
-  "version_hash": null,
+  "version_hash": "31aa5f2d2dc54e7d15d86c24d9a92b349facc0c6ea25918795ffa980e3e37490",
   "prior_baseline_id": null,
   "tags": [
     "turn-level"
@@ -118,5 +150,8 @@
       "escalated_to_human": false,
       "timestamp": "2026-09-18T17:16:19.592855+00:00"
     }
-  ]
+  ],
+  "total_tokens_input": 1943635,
+  "total_tokens_output": 9473,
+  "total_cost_usd": 0.27
 }
