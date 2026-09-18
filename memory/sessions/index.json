@@ -1967,6 +1967,14 @@
           "workflows/daily-review/state.yaml",
           "reviews/daily/2026-09-18.md"
         ]
+      },
+      {
+        "topic": "unattributed",
+        "files": [
+          "workflows/daily-review/state.yaml"
+        ],
+        "loops": [],
+        "flag": true
       }
     ]
   }
