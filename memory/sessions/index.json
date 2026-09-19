@@ -1985,6 +1985,10 @@
           {
             "task": "Rigby dispatched to fix phantom eval-record creation (name-from-path, unknown-name refusal, empty-steps guard, orphan sweep, metric hygiene, assertion fix) + delete today's 4 phantom records",
             "resolved": false
+          },
+          {
+            "task": "Rigby follow-up: unify session-id resolution (close-eval-record.py vs hook payload), GUARD 1 same-day dedupe across id flavors, timezone-naive --started crash",
+            "resolved": false
           }
         ],
         "files": [
@@ -1996,7 +2000,11 @@
           "systems/eval-harness/assertions/rigby-eval-grade.json",
           "systems/eval-harness/skill-runs/rigby-capability-build-latest.json",
           "systems/eval-harness/runs/eval-20260907T080916-ZF09EX.json",
-          "memory/working/2026-09-18-183000-rigby-eval-phantom-fix.md"
+          "memory/working/2026-09-18-183000-rigby-eval-phantom-fix.md",
+          "systems/eval-harness/skill-runs/git-latest.json",
+          "systems/eval-harness/hook_utils.py",
+          ".claude/hooks/session-start.py",
+          "systems/eval-harness/close-eval-record.py"
         ]
       }
     ]

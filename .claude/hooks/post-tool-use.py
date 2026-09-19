@@ -179,6 +179,29 @@ def update_session_index(rel_path: str):
 EVAL_PHANTOMS_DIR = EVAL_RUNS_DIR / "_phantoms"
 _STATE_YAML_PATH_RE = re.compile(r"workflows/([a-z0-9_-]+)/state\.yaml$", re.IGNORECASE)
 
+# How far before the current run's start an existing record may begin and
+# still count as the same run for dedupe. Turn-level records open on the
+# first prompt of the session, which can predate state.yaml's
+# session-started by minutes (boot's record opened 2 min before its
+# session-started on 2026-09-18) — but a genuinely separate rerun of the
+# same workflow starts its own window much later, so a small tolerance
+# distinguishes "same run, two id flavors" from "two real runs".
+SAME_RUN_WINDOW_TOLERANCE_SECONDS = 15 * 60
+
+
+def parse_ts_assume_utc(value) -> "datetime | None":
+    """Parse an ISO-8601 timestamp; naive values are assumed UTC (the same
+    convention eval-turn-stop.py's _parse_ts uses)."""
+    if not value or not isinstance(value, str):
+        return None
+    try:
+        dt = datetime.fromisoformat(value.replace("Z", "+00:00"))
+        if dt.tzinfo is None:
+            dt = dt.replace(tzinfo=timezone.utc)
+        return dt
+    except Exception:
+        return None
+
 
 def workflow_name_from_path(rel_path: str | None) -> str | None:
     """Derive the workflow name from a state.yaml path:
@@ -235,24 +258,52 @@ def find_active_eval_record(session_id: str) -> Path | None:
     return None
 
 
-def find_completed_eval_record(workflow_name: str, session_id: str) -> Path | None:
-    """Find any completed (non-in-progress) eval record for this workflow + session.
+def find_completed_eval_record(workflow_name: str, session_id: str,
+                               run_started: "datetime | None" = None,
+                               alt_session_id: str | None = None) -> Path | None:
+    """Find any completed (non-in-progress) eval record for this workflow that
+    belongs to the SAME RUN the caller is about to record.
 
-    Used to detect duplicate cowork-hook records before creating a new one.
-    Returns the most recent match, or None if none exists.
+    A record counts as the same run when ANY of these holds:
+      - its session_id matches the caller's session_id (harness flavor), or
+      - its session_id matches alt_session_id (the sessions-index flavor —
+        close-eval-record.py historically resolved that flavor, so the
+        authoritative record for this run may live under it), or
+      - its `started` falls within the current run's window
+        ([run_started - SAME_RUN_WINDOW_TOLERANCE, now]).
+
+    The window clause is what catches same-run records written under a
+    session-id flavor the caller has never seen; it deliberately does NOT
+    extend to the whole UTC day, so a genuinely separate earlier run of the
+    same workflow (its record started well before this run's window) still
+    allows a second, legitimate record. Returns the most recent match, or
+    None if none exists.
     """
     try:
         if not EVAL_RUNS_DIR.exists():
             return None
+
+        window_start = None
+        if run_started is not None:
+            from datetime import timedelta
+            window_start = run_started - timedelta(seconds=SAME_RUN_WINDOW_TOLERANCE_SECONDS)
 
         records = []
         for f in EVAL_RUNS_DIR.glob("eval-*.json"):
             try:
                 with open(f, "r") as file:
                     data = json.load(file)
-                if (data.get("session_id") == session_id
-                        and data.get("name") == workflow_name
-                        and data.get("status") != "in-progress"):
+                if (data.get("name") != workflow_name
+                        or data.get("status") == "in-progress"):
+                    continue
+                same_session = data.get("session_id") == session_id
+                same_alt = bool(alt_session_id) and data.get("session_id") == alt_session_id
+                in_window = False
+                if window_start is not None and data.get("started"):
+                    rec_started = parse_ts_assume_utc(data.get("started"))
+                    if rec_started is not None and rec_started >= window_start:
+                        in_window = True
+                if same_session or same_alt or in_window:
                     records.append((f, data.get("started", "")))
             except Exception:
                 continue
@@ -461,11 +512,45 @@ def create_eval_record_from_state(state_data: dict, session_id: str, rel_path: s
         agent = state_data.get("agent", "unknown")
         trigger = infer_trigger(state_data)
 
-        # GUARD 1: Check for an existing completed record for this workflow + session.
+        now = datetime.now(timezone.utc)
+        completed_iso = now.isoformat().replace("+00:00", "Z")
+
+        # Resolve this run's start BEFORE the dedupe guards — GUARD 1 uses it
+        # as the same-run window. Use session-started time if available; fall
+        # back to now-60s.
+        session_started = state_data.get("session-started")
+        started_dt = parse_ts_assume_utc(session_started) if session_started else None
+        if started_dt is not None:
+            started_iso = started_dt.isoformat().replace("+00:00", "Z")
+        else:
+            from datetime import timedelta
+            started_dt = now - timedelta(seconds=60)
+            started_iso = started_dt.isoformat().replace("+00:00", "Z")
+
+        # The other session-id flavor this run's authoritative record might
+        # live under: close-eval-record.py historically resolved the sessions
+        # -index id (e.g. "session-2026-09-18-115915") while hooks carry the
+        # harness id — the two-flavor split that let the 2026-09-18
+        # daily-review phantom past GUARD 1.
+        alt_session_id = None
+        try:
+            index = read_index()
+            if index:
+                candidate = index[-1].get("id")
+                if candidate and candidate != session_id:
+                    alt_session_id = candidate
+        except Exception:
+            pass
+
+        # GUARD 1: Check for an existing completed record for this workflow + same run.
         # close-eval-record.py (invoked by workflow final steps) writes a proper record
         # with steps populated. If that already exists, this cowork-hook path would
-        # produce a duplicate phantom with steps: [] — skip it.
-        existing = find_completed_eval_record(workflow_name, session_id)
+        # produce a duplicate phantom with steps: [] — skip it. Matching is by session
+        # id (either flavor) OR by same-run start window, never by bare same-day name,
+        # so a genuine second run of the workflow later in the day still gets recorded.
+        existing = find_completed_eval_record(
+            workflow_name, session_id,
+            run_started=started_dt, alt_session_id=alt_session_id)
         if existing is not None:
             log_error(
                 f"[GUARD] Skipped phantom workflow eval creation for '{workflow_name}' "
@@ -497,32 +582,12 @@ def create_eval_record_from_state(state_data: dict, session_id: str, rel_path: s
             )
             return
 
-        now = datetime.now(timezone.utc)
-        completed_iso = now.isoformat().replace("+00:00", "Z")
-
-        # Use session-started time if available; fall back to now-60s
-        session_started = state_data.get("session-started")
-        if session_started:
-            try:
-                started_dt = datetime.fromisoformat(str(session_started).replace("Z", "+00:00"))
-                # Many workflows (e.g. boot) write session-started as a bare
-                # ISO string with no offset ("2026-08-21T12:18:18"), which
-                # fromisoformat parses as naive. Subtracting that from an
-                # aware `now` below raises TypeError, which the outer
-                # try/except swallows silently — the record never gets
-                # written and there's no visible failure. Assume local
-                # naive timestamps are UTC-equivalent for duration purposes.
-                if started_dt.tzinfo is None:
-                    started_dt = started_dt.replace(tzinfo=timezone.utc)
-                started_iso = started_dt.isoformat().replace("+00:00", "Z")
-            except ValueError:
-                started_iso = completed_iso
-                started_dt = now
-        else:
-            from datetime import timedelta
-            started_dt = now - timedelta(seconds=60)
-            started_iso = started_dt.isoformat().replace("+00:00", "Z")
-
+        # (started_dt / started_iso / now / completed_iso were resolved above
+        # GUARD 1 — the guard needs this run's start as its same-run window.
+        # Naive session-started values are assumed UTC by parse_ts_assume_utc;
+        # previously a naive timestamp raised TypeError on the duration
+        # subtraction and the outer try/except swallowed it — the record
+        # silently never got written.)
         duration = max(0, round((now - started_dt).total_seconds(), 1))
         eval_id = new_eval_id()
         vhash = workflow_version_hash(workflow_name)

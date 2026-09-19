@@ -23,9 +23,17 @@ from datetime import datetime, timezone
 IES_ROOT = Path(__file__).resolve().parents[2]
 EVAL_RUNS_DIR = IES_ROOT / "systems" / "eval-harness" / "runs"
 SESSION_INDEX_PATH = IES_ROOT / "memory" / "sessions" / "index.json"
+HARNESS_SESSION_PATH = SESSION_INDEX_PATH.parent / "harness-session.json"
 WORKFLOWS_DIR = IES_ROOT / "workflows"
 ERROR_LOG = Path("/tmp/ies-hook-errors.log")
 ALPHABET = string.ascii_uppercase + string.digits
+
+# How long a noted harness session id stays authoritative for CLI scripts
+# (close-eval-record.py) that have no hook payload of their own. Long enough
+# to cover any realistic session, short enough that a stale note from a
+# previous Claude Code session isn't picked up by a later Cowork session
+# (where SessionStart never fires) running the next day.
+HARNESS_SESSION_MAX_AGE_HOURS = 12
 
 _WORKFLOW_PATH_RE = re.compile(r"workflows/([a-z0-9_-]+)/workflow\.md", re.IGNORECASE)
 
@@ -137,6 +145,57 @@ def _read_session_index() -> list:
     return []
 
 
+def note_harness_session(payload: dict | None):
+    """Record the harness-native session id for this session so that
+    payload-less CLI scripts (close-eval-record.py, invoked by workflow
+    final steps via Bash) can resolve the SAME session id the hooks are
+    writing records under.
+
+    Root cause this closes: memory/sessions/index.json entries carry an
+    IES-generated id flavor (e.g. "session-2026-09-18-115915", written by
+    boot's Session Index step mid-run and possibly hours stale), while
+    hooks key records on the payload's harness id (e.g. a UUID). The same
+    logical session ended up with eval records under both flavors, and
+    session-scoped dedupe (post-tool-use.py GUARD 1) missed across flavors —
+    that gap let the 2026-09-18 daily-review phantom slip past the guard
+    while its authoritative sibling existed under the other flavor."""
+    sid = harness_session_id(payload)
+    if not sid:
+        return
+    try:
+        HARNESS_SESSION_PATH.parent.mkdir(parents=True, exist_ok=True)
+        atomic_write_json(HARNESS_SESSION_PATH, {
+            "session_id": sid,
+            "noted_at": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
+        })
+    except Exception as e:
+        log_error(f"note_harness_session failed: {e}")
+
+
+def current_harness_session_id(max_age_hours: float = HARNESS_SESSION_MAX_AGE_HOURS) -> str | None:
+    """The harness-native session id noted by the SessionStart hook, if the
+    note is fresh (within max_age_hours). Returns None when absent, unreadable,
+    or stale — callers fall back to the sessions-index id flavor in that case."""
+    try:
+        if not HARNESS_SESSION_PATH.exists():
+            return None
+        with open(HARNESS_SESSION_PATH, "r") as f:
+            data = json.load(f)
+        sid = data.get("session_id")
+        noted_at = data.get("noted_at")
+        if not sid or not noted_at:
+            return None
+        dt = datetime.fromisoformat(str(noted_at).replace("Z", "+00:00"))
+        if dt.tzinfo is None:
+            dt = dt.replace(tzinfo=timezone.utc)
+        age_hours = (datetime.now(timezone.utc) - dt).total_seconds() / 3600
+        if age_hours > max_age_hours:
+            return None
+        return sid
+    except Exception:
+        return None
+
+
 def harness_session_id(payload: dict | None) -> str | None:
     """The real Claude Code session_id, straight from the hook's own stdin
     payload. Every hook event (UserPromptSubmit, PreToolUse, PostToolUse,
@@ -181,6 +240,14 @@ def infer_session_id(payload: dict | None = None) -> str:
     sid = harness_session_id(payload)
     if sid:
         return sid
+
+    # No payload (standalone CLI caller, e.g. close-eval-record.py). Prefer
+    # the harness session id noted by the SessionStart hook so CLI-written
+    # records land under the same session id flavor as hook-written ones;
+    # the sessions-index `id` flavor is the fallback, not the source.
+    noted = current_harness_session_id()
+    if noted:
+        return noted
 
     try:
         index = _read_session_index()

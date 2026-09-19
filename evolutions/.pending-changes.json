@@ -3676,6 +3676,47 @@
         "eval_artifacts_path": null,
         "notes": "Verified via hook replay tests (boot state.yaml replay deduped against eval-20260918T165813-0NC0AY; uninstrumented cowork path quarantined with correct name; unresolvable name refused; stale cowork-hook stub sweep deleted, fresh stub preserved) plus 26/26 existing hook tests and 100% Tier 2 score on the fixed rigby-eval-grade assertions"
       }
+    },
+    {
+      "id": "work-20260918-session-id-unification",
+      "description": "Unified session-id resolution between hooks and close-eval-record.py (harness id noted at SessionStart is authoritative, sessions-index id is fallback); GUARD 1 dedupe now matches same-run records across session-id flavors via alt-flavor + start-window matching without suppressing legitimate same-day reruns; close-eval-record.py tolerates timezone-naive --started (assume UTC)",
+      "started": "2026-09-18T19:30:00Z",
+      "files": [
+        {
+          "path": "systems/eval-harness/hook_utils.py",
+          "action": "merge",
+          "type": "system",
+          "description": "Added note_harness_session/current_harness_session_id (memory/sessions/harness-session.json, 12h freshness); infer_session_id no-payload fallback now prefers the noted harness id over the index id"
+        },
+        {
+          "path": ".claude/hooks/session-start.py",
+          "action": "merge",
+          "type": "system",
+          "description": "SessionStart hook now records the harness-native session id for payload-less CLI scripts"
+        },
+        {
+          "path": "systems/eval-harness/close-eval-record.py",
+          "action": "merge",
+          "type": "system",
+          "description": "Session resolution prefers harness note with index fallback; naive --started timestamps assumed UTC via _parse_started (was TypeError)"
+        },
+        {
+          "path": ".claude/hooks/post-tool-use.py",
+          "action": "merge",
+          "type": "system",
+          "description": "GUARD 1 find_completed_eval_record matches same run across session-id flavors (either flavor id, or record started within run window minus 15min tolerance); run start resolved before guards"
+        }
+      ],
+      "validation": {
+        "evals_run": true,
+        "eval_count": 5,
+        "iterations": 1,
+        "stopped_at_cap": false,
+        "final_pass_rate": 1.0,
+        "description_optimized": false,
+        "eval_artifacts_path": null,
+        "notes": "Replay-verified: harness-note preference and index fallback in close-eval-record.py; daily-review phantom scenario deduped across flavors; window-only cross-flavor dedupe; legitimate same-day rerun produced a second record; naive --started no longer throws; boot replay regression clean; 26/26 hook tests pass"
+      }
     }
   ]
 }

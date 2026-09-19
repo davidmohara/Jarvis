@@ -49,6 +49,17 @@ EVAL_RUNS_DIR = IES_ROOT / "systems" / "eval-harness" / "runs"
 SESSION_INDEX = IES_ROOT / "memory" / "sessions" / "index.json"
 ALPHABET = string.ascii_uppercase + string.digits
 
+# Shared hook helpers: session-id resolution must match what the hooks use
+# (harness payload id noted at SessionStart), not a parallel flavor derived
+# from the sessions index — the two-flavor split is what let the 2026-09-18
+# daily-review phantom slip past post-tool-use.py's session-scoped dedupe
+# guard while its authoritative sibling existed under the other flavor.
+sys.path.insert(0, str(IES_ROOT / "systems" / "eval-harness"))
+try:
+    from hook_utils import current_harness_session_id
+except Exception:
+    current_harness_session_id = None
+
 
 def new_id() -> str:
     now = datetime.now(timezone.utc)
@@ -58,6 +69,14 @@ def new_id() -> str:
 
 
 def current_session_id() -> str:
+    """Resolve the current session id. Prefer the harness-native id noted by
+    the SessionStart hook (same value the hooks key their records under);
+    fall back to the sessions-index id flavor only when no fresh note exists
+    (e.g. Cowork sessions, where SessionStart never fires)."""
+    if current_harness_session_id is not None:
+        noted = current_harness_session_id()
+        if noted:
+            return noted
     try:
         if SESSION_INDEX.exists():
             data = json.loads(SESSION_INDEX.read_text())
@@ -66,6 +85,20 @@ def current_session_id() -> str:
     except Exception:
         pass
     return ""
+
+
+def _parse_started(value: str) -> Optional[datetime]:
+    """Parse an ISO-8601 timestamp, tolerating naive values by assuming UTC
+    (same convention as eval-turn-stop.py's _parse_ts). A naive --started
+    previously raised TypeError on the aware/naive subtraction below and the
+    record never got written — flagged by Chief on 2026-09-18."""
+    try:
+        dt = datetime.fromisoformat(value.replace("Z", "+00:00"))
+    except (ValueError, AttributeError):
+        return None
+    if dt.tzinfo is None:
+        dt = dt.replace(tzinfo=timezone.utc)
+    return dt
 
 
 def version_hash(name: str, eval_type: str) -> Optional[str]:
@@ -185,18 +218,12 @@ def main():
     #   2. --started argument passed by the caller
     #   3. Warn and use now (no fabricated 60s offset; duration will be ~0 but honest)
     if stub is not None and stub.get("started"):
-        try:
-            started_dt = datetime.fromisoformat(stub["started"].replace("Z", "+00:00"))
-        except ValueError:
-            started_dt = None
+        started_dt = _parse_started(stub["started"])
     else:
         started_dt = None
 
     if started_dt is None and args.started:
-        try:
-            started_dt = datetime.fromisoformat(args.started.replace("Z", "+00:00"))
-        except ValueError:
-            started_dt = None
+        started_dt = _parse_started(args.started)
 
     if started_dt is None:
         print(
