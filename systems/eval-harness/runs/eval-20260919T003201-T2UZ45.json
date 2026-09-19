@@ -1,0 +1,61 @@
+{
+  "id": "eval-20260919T003201-T2UZ45",
+  "agent_id": "a6c88505e4af37a20",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "general-purpose",
+  "session_id": "4d5db2b3-9370-4d1f-accb-a39eb010e7bd",
+  "trigger": "unknown",
+  "started": "2026-09-19T00:32:01.748431Z",
+  "completed": "2026-09-19T00:40:19.816391Z",
+  "duration_seconds": 498.07,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/4d5db2b3-9370-4d1f-accb-a39eb010e7bd/subagents/agent-a6c88505e4af37a20.jsonl",
+  "last_assistant_message": "Follow-up build complete. Final report to Master:\n\n## What changed (file:line level)\n\n**`systems/eval-harness/hook_utils.py`**\n- ~line 27: `HARNESS_SESSION_PATH = memory/sessions/harness-session.json` + `HARNESS_SESSION_MAX_AGE_HOURS = 12`.\n- ~line 152 (new): `note_harness_session(payload)` \u2014 atomically records the harness-native session id with a timestamp.\n- ~line 181 (new): `current_harness_session_id()` \u2014 returns the noted id only if the note is fresh (\u226412h), else None.\n- `infer_session_id` no-payload fallback (~line 236): now prefers the noted harness id before the sessions-index `id` flavor.\n\n**`.claude/hooks/session-start.py`** \u2014 parses its payload and calls `note_harness_session(payload)`; this is the bridge that gives payload-less CLI scripts the same id the hooks use. Cowork (no SessionStart hook) simply leaves no fresh note, and everything falls back to today's behavior.\n\n**`systems/eval-harness/close-eval-record.py`**\n- ~line 50: imports `current_harness_session_id` from hook_utils.\n- `current_session_id()` (~line 70): harness note first, index `id` as fallback.\n- `_parse_started()` (~line 88, new): naive ISO timestamps assumed UTC (same convention as `eval-turn-stop.py:_parse_ts`); both the stub-started and `--started` parse sites now route through it \u2014 the Chief-flagged TypeError path is gone.\n\n**`.claude/hooks/post-tool-use.py`**\n- ~line 187: `SAME_RUN_WINDOW_TOLERANCE_SECONDS = 900` + `parse_ts_assume_utc()` helper.\n- `find_completed_eval_record` (~line 235): new `run_started` / `alt_session_id` params. A completed record counts as the same run if its session_id matches either flavor OR its `started` \u2265 run start minus 15 minutes. Bare same-day name match is never sufficient.\n- `create_eval_record_from_state` (~line 470): run start (`started_dt`) and the index-flavor alt id are resolved before GUARD 1; the guard call passes both. The old post-guard started-parsing block collapsed into a duration computation (naive-timestamp handling subsumed by the shared parser).\n\n## Verification evidence\n\n- `py_compile` clean on all four files; `test_detect_workflow.py` 26/26 pass.\n- **Req 1**: fresh note \u2192 close-eval-record.py wrote `session_id: test-harness-aaa` (harness flavor). Stale note \u2192 fell back to `session-2026-09-18-115915` (index flavor). Both asserted programmatically.\n- **Req 4**: `--started \"2026-09-18T21:00:00\"` (naive) \u2192 exit 0, record started `2026-09-18T21:00:00Z`, real duration computed.\n- **Req 2 (daily-review replay)**: authoritative record seeded under the index flavor, then the real `workflows/daily-review/state.yaml` replayed through post-tool-use.py carrying `test-harness-bbb` \u2192 `GUARD 1: Skipped phantom ... completed record already exists at eval-...CWI0MQ.json`. File count 716 \u2192 716, nothing in `_phantoms/`.\n- **Window-only match**: seed under a third, unknown flavor, started 5 min before the run's session-started \u2192 skipped via window.\n- **Req 3 (legit rerun)**: seed an 07:00-completed same-day record, replay an 18:05 run \u2192 new record created (quarantined path), both records on disk. Not suppressed.\n- **Boot regression replay**: still dedupes against `0NC0AY` (checksum `a10dce...` unchanged).\n- All test artifacts removed; `memory/sessions/harness-session.json` now holds this session's real id (`4d5db2b3...`), so the fix is live for the rest of today's session.\n- Tracked in `evolutions/.pending-changes.json` as `work-20260918-session-id-unification`, alongside the earlier entry.\n- Committed `fc052f71 fix(rigby): unify session-id resolution and close cross-flavor dedupe gap` \u2014 not pushed, per instruction.\n- Deterministic grade: `rigby-capability-build` 100% (2/2 structure), PASS.\n\n## Deliberately not done\n\n- **12h freshness window on the harness note** is a judgment call: long enough for any realistic session, short enough that a stale Claude Code note can't leak into a next-day Cowork run. If sessions regularly exceed 12h, the fallback silently reverts to index flavor \u2014 same as pre-fix behavior, never worse.\n- **Did not change boot's Session Index step** (the source of the index-flavor ids). The unification makes that flavor harmless; rewriting the boot workflow's bookkeeping is a content change beyond this fix's scope.\n- **Did not migrate existing records' session_ids** \u2014 historical records stay as written; the window/alt-flavor matching makes cross-flavor history dedupe-safe going forward without rewriting the archive.\n- The grade_skill_run stale-record warning fired again (UTC rolled to 09-19 mid-session; the record was seconds old). Still a separate known issue, still untouched.",
+  "model": "accounts/fireworks/models/kimi-k3",
+  "total_tokens_input": 1176730,
+  "total_tokens_output": 2818,
+  "total_cost_usd": 0.09,
+  "cost_estimation_note": "estimated based on general-purpose workflow type"
+}

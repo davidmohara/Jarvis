@@ -38,3 +38,14 @@ PH2FIV (boot phantom), 4A3L9C (dream-cycle), IXSB15 (daily-review), J4EJWW (orph
 - Master additionally repaired `eval-20260907T080916-ZF09EX.json` (stray `<<<<<<< HEAD` marker from the 09-07 rebase incident) — now valid JSON, close-open-evals runs clean.
 
 Commit: `adc09ccc fix(rigby): stop phantom eval records at creation, sweep, and metrics` (pushed by Master in session wrap).
+
+## Follow-up build (same evening, David: "Fix it"): session-id unification
+
+Root cause of the residual daily-review phantom: `close-eval-record.py` read the session id from the sessions index (`session-2026-09-18-...` flavor) while hooks carry the harness id (`4d5db2b3-...`), so GUARD 1 dedupe missed cross-flavor siblings.
+
+- `hook_utils.py`: new `note_harness_session()` + `current_harness_session_id()` — a fresh (≤12h) harness-id note at `memory/sessions/harness-session.json`, bridged by `session-start.py`; payload-less CLI scripts now resolve the same id as hooks. Index flavor remains fallback.
+- `close-eval-record.py`: uses the note first; new `_parse_started()` assumes UTC for naive ISO — the Chief-flagged TypeError on `--started` is gone.
+- `post-tool-use.py` GUARD 1: same-run matching now accepts either session-id flavor OR a started-timestamp within a 15-min window. Bare same-day name match never suffices, so legitimate same-day reruns still produce their own records (verified).
+- Verified: daily-review replay deduped (716→716 files), boot replay still dedupes 0NC0AY, naive `--started` exits 0, fresh/stale note fallback both asserted. 26/26 existing tests pass.
+- Tracked as `work-20260918-session-id-unification`. Commit `fc052f71` (pushed by Master).
+- Known residual (untouched, minor): grade_skill_run stale-record warning fires spuriously when UTC rolls past midnight mid-session.
