@@ -304,10 +304,23 @@ def sweep_orphaned_records(exclude: Path | None):
     workflow name (not session_id) to stop this at open-time; this sweep is
     the belt-and-suspenders for anything that slips through anyway —
     without it, an orphan sits at status: in-progress forever, since no
-    future Stop event's session_id would ever match it either."""
+    future Stop event's session_id would ever match it either.
+
+    Second pass (2026-09-18): cowork-hook stubs. The turn-level branch above
+    only matches records carrying monitoring.active (set by
+    eval-turn-start.py). Cowork-hook stubs have no monitoring block at all,
+    so an in-progress one previously sat open until the session-exit script
+    swept it — and if grading ran first, it got graded as if it were a real
+    run (eval-20260918T230528-J4EJWW was graded F mid-flight this way).
+    A cowork-hook stub that is in-progress with zero steps AND zero
+    subagents after 2h has no completion path left — delete it rather than
+    finalize it, same precedent as the phantom-turn-record deletion above
+    and close-open-evals.py (err-20260829T161711-3IPMKR: phantom records
+    are deleted, not archived or marked)."""
     if not EVAL_RUNS_DIR.exists():
         return
     import json
+    now = datetime.now(timezone.utc)
     for f in EVAL_RUNS_DIR.glob("eval-*.json"):
         if exclude is not None and f == exclude:
             continue
@@ -323,6 +336,23 @@ def sweep_orphaned_records(exclude: Path | None):
         ):
             if try_finalize(f):
                 log_info(f"Swept orphaned turn-level record {f.name} for '{data.get('name')}'", TAG)
+            continue
+        if (
+            "cowork-hook" in data.get("tags", [])
+            and data.get("status") == "in-progress"
+            and not data.get("steps")
+            and not data.get("subagents")
+        ):
+            started = _parse_ts(data.get("started"))
+            age_hours = (now - started).total_seconds() / 3600 if started else float("inf")
+            if age_hours >= STALE_RECORD_ABORT_AFTER_HOURS:
+                try:
+                    f.unlink()
+                    log_info(
+                        f"Deleted orphaned cowork-hook stub {f.name} for '{data.get('name')}' — "
+                        f"in-progress with no steps/subagents after {age_hours:.1f}h, no completion path", TAG)
+                except Exception as e:
+                    log_error(f"Failed to delete orphaned cowork-hook stub {f}: {e}", TAG)
 
 
 def main():

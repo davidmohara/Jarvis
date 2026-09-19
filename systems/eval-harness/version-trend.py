@@ -42,6 +42,10 @@ def load_records(workflow_name: str) -> list[dict]:
                 data = json.load(file)
         except Exception:
             continue
+        # Phantom-candidates (unverifiable cowork-hook records) are not real
+        # runs of this workflow — exclude them from version trend math.
+        if "phantom-candidate" in data.get("tags", []):
+            continue
         if data.get("name") == workflow_name:
             data["_file"] = f.name
             records.append(data)

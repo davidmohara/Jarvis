@@ -176,6 +176,41 @@ def update_session_index(rel_path: str):
 # EVAL HARNESS FUNCTIONS
 # ============================================================================
 
+EVAL_PHANTOMS_DIR = EVAL_RUNS_DIR / "_phantoms"
+_STATE_YAML_PATH_RE = re.compile(r"workflows/([a-z0-9_-]+)/state\.yaml$", re.IGNORECASE)
+
+
+def workflow_name_from_path(rel_path: str | None) -> str | None:
+    """Derive the workflow name from a state.yaml path:
+    `workflows/<name>/state.yaml` → `<name>`. Returns None if the path
+    doesn't match. This is the authoritative source — several workflows
+    (boot being the canonical case, err class of 2026-09-18) have a
+    state.yaml schema with NO `workflow:` field at all, so relying on the
+    YAML content alone resolved those runs to "unknown" and defeated both
+    dedupe guards in create_eval_record_from_state (they keyed on a name
+    that never matched the real record), producing one phantom eval record
+    per boot completion."""
+    if not rel_path:
+        return None
+    m = _STATE_YAML_PATH_RE.search(rel_path.replace("\\", "/"))
+    return m.group(1) if m else None
+
+
+def resolve_workflow_name(state_data: dict, rel_path: str | None = None) -> str | None:
+    """Resolve the workflow name for a state.yaml write. Path first
+    (authoritative — always present in the tool payload), YAML `workflow:`
+    field as fallback. Returns None when neither yields a name; callers
+    must treat None as unresolvable, not coerce it to "unknown" — a record
+    the harness cannot identify has zero eval value."""
+    name = workflow_name_from_path(rel_path)
+    if name:
+        return name
+    name = state_data.get("workflow")
+    if name and name != "unknown":
+        return name
+    return None
+
+
 def find_active_eval_record(session_id: str) -> Path | None:
     """Find the most recent in-progress eval record for this session."""
     try:
@@ -394,7 +429,7 @@ def create_eval_record_from_skill_run(skill_run_data: dict, session_id: str):
         log_error(f"Failed to create eval record from skill-run signal: {e}")
 
 
-def create_eval_record_from_state(state_data: dict, session_id: str):
+def create_eval_record_from_state(state_data: dict, session_id: str, rel_path: str | None = None):
     """Create a complete eval record when state.yaml reaches status: complete
     and no in-progress stub exists (Cowork path — SubagentStart hook never fired).
 
@@ -405,7 +440,24 @@ def create_eval_record_from_state(state_data: dict, session_id: str):
     try:
         EVAL_RUNS_DIR.mkdir(parents=True, exist_ok=True)
 
-        workflow_name = state_data.get("workflow", "unknown")
+        # Name resolution: the state.yaml PATH is authoritative (boot's
+        # state.yaml has no `workflow:` field at all — resolving from YAML
+        # alone produced "unknown", which never matched the real record's
+        # name in GUARD 1/2 below, so every boot completion wrote a phantom.
+        # 2026-09-18: three phantom-candidates and one orphan in one day).
+        workflow_name = resolve_workflow_name(state_data, rel_path)
+        if workflow_name is None:
+            # Never write a record named "unknown" — the harness cannot
+            # identify it, it cannot be deduped, and its only observable
+            # effect is polluting the grade distribution (two graded F by
+            # the Tier 3 sweep on 2026-09-18).
+            log_error(
+                f"[GUARD] Refused to create workflow eval record for session='{session_id}' "
+                f"— workflow name unresolvable from both state.yaml path ({rel_path!r}) "
+                f"and YAML content. No record written."
+            )
+            return
+
         agent = state_data.get("agent", "unknown")
         trigger = infer_trigger(state_data)
 
@@ -520,19 +572,34 @@ def create_eval_record_from_state(state_data: dict, session_id: str):
         # Run structural assertions and merge results
         record["assessment"]["structural"] = run_assertions(workflow_name, record)
 
-        # GUARD: If steps are empty after record construction, this record is unverifiable.
-        # Tag it as a phantom-candidate and log a warning so it can be filtered from metrics.
-        # A proper record will arrive via close-eval-record.py when the workflow step calls it.
+        # GUARD: steps are ALWAYS empty on this path (they only get populated
+        # into an already-open in-progress record via the step-frontmatter
+        # branch of process_eval_harness; this function creates the record at
+        # completion time, after any such window). The old behavior tagged
+        # these "phantom-candidate" but still wrote them into the main runs
+        # dir — a label, not a guard — where they were picked up by the
+        # Tier 3 grading sweep and the success-rate math and distorted both
+        # (2026-09-18 incident). The legitimate Cowork coverage case (a
+        # workflow that completes with no close-eval-record.py call and no
+        # turn-level record) still depends on this record existing, so it is
+        # not dropped — it is quarantined to runs/_phantoms/ instead, with
+        # its correctly-resolved name, where every metrics/grading reader
+        # (non-recursive globs + phantom-candidate tag filters) ignores it
+        # but it remains on disk for diagnosis. The authoritative record for
+        # a properly instrumented workflow arrives via close-eval-record.py
+        # or eval-turn-stop.py into the main runs dir as before.
         if not record.get("steps"):
-            log_error(
-                f"[GUARD] Writing cowork-hook workflow eval for '{workflow_name}' "
-                f"session='{session_id}' with steps: [] — record is unverifiable. "
-                f"Tagging as phantom-candidate. Ensure close-eval-record.py is called "
-                f"by the workflow's final step to produce an authoritative record."
-            )
             record["tags"] = list(set(record.get("tags", [])) | {"phantom-candidate"})
-
-        path = EVAL_RUNS_DIR / f"{eval_id}.json"
+            EVAL_PHANTOMS_DIR.mkdir(parents=True, exist_ok=True)
+            path = EVAL_PHANTOMS_DIR / f"{eval_id}.json"
+            log_error(
+                f"[GUARD] Quarantined cowork-hook workflow eval for '{workflow_name}' "
+                f"session='{session_id}' to _phantoms/{eval_id}.json — steps: [] means this "
+                f"path cannot produce a verifiable record. If this workflow SHOULD have an "
+                f"authoritative record in runs/, have its final step call close-eval-record.py."
+            )
+        else:
+            path = EVAL_RUNS_DIR / f"{eval_id}.json"
         atomic_write_json(path, record)
     except Exception as e:
         log_error(f"Failed to create eval record from state.yaml: {e}")
@@ -555,7 +622,14 @@ def update_eval_record_state_yaml(eval_path: Path, file_path: str, content: str)
         if not state_data:
             return True  # nothing to apply, but not a conflict — don't fall through
 
-        workflow_name = state_data.get("workflow", "unknown")
+        # Path-derived name is authoritative (boot's state.yaml carries no
+        # `workflow:` field); YAML field is the fallback. If neither resolves,
+        # keep the record's existing name rather than stamping "unknown".
+        workflow_name = (
+            resolve_workflow_name(state_data, file_path)
+            or eval_record.get("name")
+            or "unknown"
+        )
 
         # Guard: find_active_eval_record() matches on session_id alone, not
         # workflow name. If the global session index hasn't rotated (a stale
@@ -758,7 +832,7 @@ def process_eval_harness(rel_path: str, file_path: str, session_id: str, transcr
             # Extract workflow name and status for logging
             try:
                 state_data = yaml.safe_load(extract_frontmatter_block(content)) or {}
-                workflow_name = state_data.get("workflow", "unknown")
+                workflow_name = resolve_workflow_name(state_data, rel_path) or "unknown"
                 status = state_data.get("status", "unknown")
                 log_error(f"[EVAL-HARNESS] Processing state.yaml write: workflow={workflow_name}, status={status}, session_id={session_id}")
             except Exception:
@@ -780,7 +854,7 @@ def process_eval_harness(rel_path: str, file_path: str, session_id: str, transcr
                     state_data = yaml.safe_load(extract_frontmatter_block(content)) or {}
                     if state_data.get("status") == "complete":
                         log_error(f"[EVAL-HARNESS] Creating new eval record (cowork path) for {workflow_name}")
-                        create_eval_record_from_state(state_data, session_id)
+                        create_eval_record_from_state(state_data, session_id, rel_path=rel_path)
                 except Exception as e:
                     log_error(f"Failed to parse state.yaml for eval creation: {e}")
 

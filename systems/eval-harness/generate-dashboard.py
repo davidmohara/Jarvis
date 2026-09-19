@@ -40,6 +40,17 @@ def load_eval_records(eval_dir, recent, period, workflow, skill, agent):
             with open(f, "r") as file:
                 data = json.load(file)
 
+            # Exclude phantom-candidates from every metric (success rate,
+            # grade distribution, assertion rates). These are cowork-hook
+            # records with no verifiable execution behind them — including
+            # them distorted the 2026-09-18 daily grade distribution (two
+            # graded F as harness artifacts, not real runs). Quarantined
+            # records under runs/_phantoms/ are already excluded by the
+            # non-recursive glob above; this catches any legacy tagged
+            # record still sitting in the main dir.
+            if "phantom-candidate" in data.get("tags", []):
+                continue
+
             # Apply filters
             if workflow and data.get("name") != workflow:
                 continue

@@ -1929,8 +1929,8 @@
   {
     "id": "session-2026-09-18-115915",
     "started": "2026-09-18T11:59:15-05:00",
-    "closed": "2026-09-18T18:00:18-05:00",
-    "current_topic": null,
+    "closed": null,
+    "current_topic": "eval-harness-phantom-fix",
     "topics": [
       {
         "name": "morning-boot",
@@ -1973,10 +1973,28 @@
         "files": [
           "workflows/daily-review/state.yaml",
           "memory/working/2026-09-18-180509-chief-daily-review.md",
-          "systems/eval-harness/skill-runs/rigby-eval-grade-latest.json"
+          "systems/eval-harness/skill-runs/rigby-eval-grade-latest.json",
+          "systems/eval-harness/skill-runs/git-latest.json"
         ],
         "loops": [],
         "flag": true
+      },
+      {
+        "name": "eval-harness-phantom-fix",
+        "loops": [
+          {
+            "task": "Rigby dispatched to fix phantom eval-record creation (name-from-path, unknown-name refusal, empty-steps guard, orphan sweep, metric hygiene, assertion fix) + delete today's 4 phantom records",
+            "resolved": false
+          }
+        ],
+        "files": [
+          ".claude/hooks/post-tool-use.py",
+          ".claude/hooks/eval-turn-stop.py",
+          "systems/eval-harness/generate-dashboard.py",
+          "systems/eval-harness/version-trend.py",
+          ".claude/skills/rigby-eval-grade/SKILL.md",
+          "systems/eval-harness/assertions/rigby-eval-grade.json"
+        ]
       }
     ]
   }

@@ -18,10 +18,10 @@
       "error_ids": []
     },
     "structural": {
-      "expected_outputs_written": false,
-      "outputs_non_empty": false,
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
       "assertions_checked": 3,
-      "assertions_passed": 1,
+      "assertions_passed": 3,
       "assertion_results": [
         {
           "assertion": "eval-grade-001-records-graded",
@@ -30,21 +30,21 @@
           "passed": true
         },
         {
-          "assertion": "rigby-ev-001-exists",
-          "description": "rigby-eval-grade output file was written",
+          "assertion": "eval-grade-002-grading-stamped",
+          "description": "At least one eval record carries an ISO last_graded timestamp (the skill's actual deliverable is in-place grading updates to eval records, not a standalone output file)",
           "category": "structure",
-          "passed": false
+          "passed": true
         },
         {
-          "assertion": "rigby-ev-002-substantive",
-          "description": "rigby-eval-grade output is substantive (>200 bytes)",
+          "assertion": "eval-grade-003-notes-substantive",
+          "description": "At least one graded eval record has substantive grader_notes (>20 chars) explaining the grade rationale",
           "category": "structure",
-          "passed": false
+          "passed": true
         }
       ],
       "category_breakdown": {
         "structure": {
-          "passed": 1,
+          "passed": 3,
           "checked": 3
         },
         "content": {
@@ -68,9 +68,9 @@
       "timestamp": null
     },
     "deterministic_gate": {
-      "score": 0.7222,
+      "score": 1.0,
       "gate_status": "pass",
-      "computed_at": "2026-09-18T23:08:22.386669Z"
+      "computed_at": "2026-09-19T00:15:56.143018Z"
     }
   },
   "version_hash": "fd603901f0164781",
