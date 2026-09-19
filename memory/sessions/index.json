@@ -1993,7 +1993,10 @@
           "systems/eval-harness/generate-dashboard.py",
           "systems/eval-harness/version-trend.py",
           ".claude/skills/rigby-eval-grade/SKILL.md",
-          "systems/eval-harness/assertions/rigby-eval-grade.json"
+          "systems/eval-harness/assertions/rigby-eval-grade.json",
+          "systems/eval-harness/skill-runs/rigby-capability-build-latest.json",
+          "systems/eval-harness/runs/eval-20260907T080916-ZF09EX.json",
+          "memory/working/2026-09-18-183000-rigby-eval-phantom-fix.md"
         ]
       }
     ]

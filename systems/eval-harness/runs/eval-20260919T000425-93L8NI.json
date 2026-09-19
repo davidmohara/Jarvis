@@ -1,0 +1,61 @@
+{
+  "id": "eval-20260919T000425-93L8NI",
+  "agent_id": "a6c88505e4af37a20",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "general-purpose",
+  "session_id": "4d5db2b3-9370-4d1f-accb-a39eb010e7bd",
+  "trigger": "unknown",
+  "started": "2026-09-19T00:04:25.633208Z",
+  "completed": "2026-09-19T00:19:12.944682Z",
+  "duration_seconds": 887.31,
+  "status": "partial",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 3,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/4d5db2b3-9370-4d1f-accb-a39eb010e7bd/subagents/agent-a6c88505e4af37a20.jsonl",
+  "last_assistant_message": "Done. Final report to Master:\n\n## What changed (file:line level)\n\n**`.claude/hooks/post-tool-use.py`**\n- Lines 179-209 (new): `workflow_name_from_path()` + `resolve_workflow_name()` \u2014 derive the name from `workflows/<name>/state.yaml` in the tool payload; YAML `workflow:` field is now only a fallback. `EVAL_PHANTOMS_DIR = runs/_phantoms` defined alongside.\n- `create_eval_record_from_state` (now ~line 436, new `rel_path` param): name resolved via path first; if still unresolvable, `log_error` and return \u2014 a record named \"unknown\" is never written (fix 2). The old tag-and-write \"phantom-candidate\" block (~line 566) is now a real guard: empty-steps records are written to `runs/_phantoms/` with the correctly resolved name instead of the main runs dir (fix 3, quarantine branch \u2014 see \"deliberately not done\" below for why quarantine over skip).\n- `update_eval_record_state_yaml` (~line 603): same path-first resolution; on total failure it keeps the record's existing name rather than stamping \"unknown\".\n- `process_eval_harness` (~lines 812, 834): log line uses resolved name; `rel_path` passed through to `create_eval_record_from_state`.\n\n**`.claude/hooks/eval-turn-stop.py`** \u2014 `sweep_orphaned_records` (~line 340): second pass deletes cowork-hook stubs that are `in-progress` with zero steps AND zero subagents after 2h (reuses `STALE_RECORD_ABORT_AFTER_HOURS`), per the err-20260829T161711-3IPMKR delete-don't-archive precedent (fix 4).\n\n**Metric hygiene (fix 5)**: `systems/eval-harness/generate-dashboard.py` `load_eval_records` (~line 44) and `systems/eval-harness/version-trend.py` `load_records` (~line 46) now skip `phantom-candidate`-tagged records; `.claude/skills/rigby-eval-grade/SKILL.md` Step 1 gained exclusion rules (phantom-candidate tag, `_phantoms/` dir, name \"unknown\", and zero-activity in-progress stubs \u2014 the rule that would have prevented the sweep grading its own subagent stub an F).\n\n**`systems/eval-harness/assertions/rigby-eval-grade.json`** (fix 6): the two assertions expecting `memory/working/rigby-eval-grade-*.md` (a file the skill never produces) replaced with `eval-grade-002-grading-stamped` (ISO `last_graded` on a record) and `eval-grade-003-notes-substantive` (grader_notes >20 chars) \u2014 matching the actual in-place-update deliverable.\n\n**`evolutions/.pending-changes.json`**: tracked as `work-20260918-eval-phantom-guards`.\n\n## Verification evidence\n\n- `py_compile` clean on all four edited Python files; existing suite `test_detect_workflow.py` 26/26 pass.\n- **Boot replay** (the exact phantom-producing write, real session id): hook logged `Skipped phantom workflow eval creation for 'boot' ... completed record already exists at eval-20260918T165813-0NC0AY.json` \u2014 name resolved from path, GUARD 1 fired, zero new files, 0NC0AY checksum `a10dce...` identical before/after.\n- **Legitimate cowork path**: synthetic workflow with no `workflow:` field \u2192 record written to `_phantoms/` named `test-phantom-fix` (not \"unknown\"), tagged cowork-hook+phantom-candidate, main runs dir untouched.\n- **Unresolvable name** (state.yaml outside workflows/, no YAML field): refused, logged, nothing written anywhere.\n- **Orphan sweep**: seeded 23h-old in-progress cowork-hook stub deleted; seeded 30-min-old stub survived (both cleaned up after).\n- **Metrics**: dashboard loader over today's records leaks zero phantom-candidates; `rigby-eval-grade` Tier 2 now scores **100% (3/3 structure)** on the same record that scored 72% this morning.\n\n## Records deleted (all siblings re-verified immediately prior)\n\n- `eval-20260918T171804-PH2FIV` (\"unknown\") \u2192 sibling `0NC0AY` (boot, success)\n- `eval-20260918T080705-4A3L9C` (dream-cycle) \u2192 sibling `SWUKP0` (success, 4 steps)\n- `eval-20260918T230346-IXSB15` (daily-review) \u2192 sibling `Z4WC4H` (success, 5 steps)\n- `eval-20260918T230528-J4EJWW` (orphan agent stub) \u2192 sibling `9TVC2B` (rigby-eval-grade skill, success, same session). Note: J4EJWW had in fact finalized to `success` by deletion time (eval-agent-stop caught it after grading) \u2014 the \"stuck in-progress forever\" premise was overtaken by events, but the F grade it attracted was exactly the distortion being removed.\n\nCommitted: `adc09ccc fix(rigby): stop phantom eval records at creation, sweep, and metrics` (main, not pushed \u2014 left for the session-end protocol).\n\n## Deliberately not done\n\n- **Chose quarantine over hard-skip for fix 3.** Master's two instructions conflict (skip empty-steps writes vs. never regress the uninstrumented cowork path); the quarantine fallback Master specified resolves it \u2014 the record exists with its correct name for diagnosis but no metrics reader sees it.\n- **Did not widen GUARD 1's session_id scoping.** The daily-review phantom slipped past GUARD 1 because `close-eval-record.py` read a stale session id from the index (`session-2026-09-18-115915`) while the hook payload carried `4d5db2b3...`. Name-only dedupe would suppress legitimate same-day reruns; the quarantine now catches this residue instead. The stale-index-id issue itself is a separate root cause worth its own entry.\n- **Did not repair `eval-20260907T080916-ZF09EX.json`** \u2014 it contains a committed, unresolved git merge conflict (`<<<<<<< HEAD` at line 9) from the 2026-09-07 rebase incident. All readers skip it silently; repair-or-delete is your call.\n- **Did not touch** the grader's stale-record date warning (it fired spuriously tonight because UTC rolled to 09-19 mid-session) \u2014 already flagged in the sweep's own findings as a separate issue.",
+  "model": "accounts/fireworks/models/kimi-k3",
+  "total_tokens_input": 1049022,
+  "total_tokens_output": 3475,
+  "total_cost_usd": 0.09,
+  "cost_estimation_note": "estimated based on general-purpose workflow type"
+}
