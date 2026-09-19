@@ -13,9 +13,10 @@ accumulated-context:
     working_summary_reason: "semantic_updated=3 > 0 triggers the mandatory working-summary write per Phase B. Content leads with the 5-file archival, then flags the two unchanged carry-forward items directly: the delegation tracker (still one active item, not empty) and Q3 rocks (still an unsigned draft)."
     error_logged: "none this cycle -- clean run, no self-detected bugs."
     eval_record: "eval-20260919T080916-I4UKKI -- created fresh at run start, set name/agent/session_id/trigger/tags on it before any record-step.py calls, backfilled steps 01-04 cleanly, guardrail checkpoint attached correctly on first attempt, manually closed (status:success, completed timestamp)."
-    git_commit: pending
-    git_push: pending
-    git_sync_note: "Cloud sandbox container (Claude Code Remote). No Desktop Commander tool available in this session, consistent with every dream-cycle run since 09-08. Using plain git via Bash, one command per call, no chaining, no git status."
+    git_commit: success
+    git_push: success
+    git_commit_sha: 8960bb3
+    git_sync_note: "Cloud sandbox container (Claude Code Remote). No Desktop Commander tool available in this session, consistent with every dream-cycle run since 09-08. Used plain git via Bash. Session started in detached HEAD matching origin/main's tip exactly (81f2c74, no divergence) after a fetch; moved to a real 'main' branch via 'git checkout -B main origin/main' before committing. Push was a clean fast-forward (81f2c74..8960bb3, 342 files changed -- includes the working->episodic rename for all 5 archived files, plus every episodic file's routine salience-score.py rewrite from step-02, plus 3 eval-harness run records (this cycle's own eval-20260919T080916-I4UKKI, plus 2 auto-created phantom-candidate/grader records left as-is per every prior cycle's precedent)."
   step-04-2026-09-19:
     candidates_count: 1
     entries_compressed: 0
