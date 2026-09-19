@@ -1,23 +1,32 @@
 ---
 status: completed
-started-at: 2026-09-17T08:02:00Z
-completed-at: 2026-09-17T08:10:00Z
+started-at: 2026-09-19T08:05:00Z
+completed-at: 2026-09-19T08:20:00Z
 outputs:
-  working_archived: 3
+  working_archived: 5
   working_deleted: 0
-  working_skipped: 49
+  working_skipped: 61
   working_stranded: 0
   enrichment_method: "manual enrichment by the executing session (no nested claude -p subprocess call -- consistent with every prior cloud-sandbox cycle)"
   archived_files:
-    - dream-summary-2026-09-15.md
-    - plaud-ingest-2026-09-14-150300.md
-    - revenue-tracker-2026-09-14-001500.md
-  skipped_not_expired:
-    - dream-summary-2026-09-16.md
+    - dream-summary-2026-09-17.md
     - morning-briefing-2026-09-16-093000.md
     - plaud-discover-2026-09-16.md
     - plaud-ingest-2026-09-16-092409.md
-    - shutdown-cleanup-2026-09-15-025313.md
+    - shutdown-cleanup-2026-09-16-225100.md
+  skipped_not_expired:
+    - 2026-09-18-121343-knox-plaud-ingest.md
+    - 2026-09-18-180509-chief-daily-review.md
+    - 2026-09-18-183000-rigby-eval-phantom-fix.md
+    - bookings-review-2026-09-17-184500.md
+    - co-sell-pipeline-2026-09-17-184500.md
+    - dream-summary-2026-09-18-080600.md
+    - morning-briefing-2026-09-17-111500.md
+    - new-clients-2026-09-17-184500.md
+    - pipeline-snapshot-2026-09-17-184500.md
+    - plaud-ingest-2026-09-17-113544.md
+    - plaud-ingest-2026-09-18-165915.md
+    - revenue-tracker-2026-09-17-184500.md
   skipped_unparseable:
     - plaud-discover-2026-09-08.md
     - 2026-07-08.md
@@ -62,12 +71,20 @@ outputs:
     - solace-meeting-prep-2026-07-27.md
     - omnifocus-tasks-2026-09-16.md
     - teams-transcripts-2026-09-16.md
+    - golf-booking-2026-09-18-deferred.md
+    - golf-preview-2026-09-15.md
+    - morning-briefing-2026-09-18-121500.md
+    - omnifocus-data-2026-09-16-223600.md
+    - quinn-strategy-2026-09-17-134800.md
   unparseable_left_untouched_missing_status:
     - knox-plaud-ingest-2026-08-31.md
   new_unparseable_this_cycle:
-    - omnifocus-tasks-2026-09-16.md
-    - teams-transcripts-2026-09-16.md
-  self_caught_bug_note: "Own mutation bug caught and fixed this cycle: the initial frontmatter-append approach for the 3 archive candidates left a duplicate `type:` key (original `type: working` plus the new `type: working-archive` appended below it) since the merge appended new fields instead of replacing the existing key. Caught on read-back before the mv to episodic; fixed by editing the original `type: working` line in place for all 3 files rather than appending a second key."
+    - golf-booking-2026-09-18-deferred.md
+    - golf-preview-2026-09-15.md
+    - morning-briefing-2026-09-18-121500.md
+    - omnifocus-data-2026-09-16-223600.md
+    - quinn-strategy-2026-09-17-134800.md
+  self_caught_bug_note: "none this cycle -- frontmatter mutated in-place per the corrected pattern from 09-17 (edit existing type/status keys directly rather than appending duplicates), read back clean on all 5 files before mv."
 ---
 
 <!-- system:start -->

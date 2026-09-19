@@ -2004,7 +2004,27 @@
           "systems/eval-harness/skill-runs/git-latest.json",
           "systems/eval-harness/hook_utils.py",
           ".claude/hooks/session-start.py",
-          "systems/eval-harness/close-eval-record.py"
+          "systems/eval-harness/close-eval-record.py",
+          "memory/working/dream-summary-2026-09-17.md",
+          "memory/working/morning-briefing-2026-09-16-093000.md",
+          "memory/working/plaud-discover-2026-09-16.md",
+          "memory/working/plaud-ingest-2026-09-16-092409.md",
+          "memory/working/shutdown-cleanup-2026-09-16-225100.md",
+          "workflows/dream-cycle/state.yaml",
+          "workflows/dream-cycle/steps/step-01-working-memory-cleanup.md",
+          "workflows/dream-cycle/steps/step-02-salience-scoring.md",
+          "memory/semantic/operational/2026-06-12-dream-summary-pattern.md",
+          "memory/semantic/operational/2026-06-12-plaud-pattern.md",
+          "memory/semantic/operational/2026-04-24-briefing-travel-calendar-pattern.md",
+          "memory/episodic/dream-summary-2026-09-17.md",
+          "memory/episodic/morning-briefing-2026-09-16-093000.md",
+          "memory/episodic/plaud-discover-2026-09-16.md",
+          "memory/episodic/plaud-ingest-2026-09-16-092409.md",
+          "workflows/dream-cycle/steps/step-03-semantic-promotion.md",
+          "workflows/dream-cycle/steps/step-03b-guardrail-checkpoint.md",
+          "workflows/dream-cycle/steps/step-04-episodic-compression.md",
+          "memory/working/dream-summary-2026-09-19.md",
+          "workflows/dream-cycle/steps/step-05-logging.md"
         ]
       }
     ]

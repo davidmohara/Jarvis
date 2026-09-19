@@ -10,7 +10,7 @@ tags:
 - error-naming
 salience:
   score: 0
-  last-promoted-check: 2026-09-18
+  last-promoted-check: 2026-09-19
   promoted: true
 ---
 

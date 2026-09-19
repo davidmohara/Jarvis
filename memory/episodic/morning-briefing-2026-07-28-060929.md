@@ -30,8 +30,8 @@ related_people:
   - ben-kennedy
   - alice-mburu
 salience:
-  score: 9
-  last-promoted-check: 2026-09-18
+  score: 10
+  last-promoted-check: 2026-09-19
   promoted: true
 ---
 

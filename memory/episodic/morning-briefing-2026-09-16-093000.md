@@ -1,12 +1,33 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "boot-2026-09-16-092224"
 agent-source: master
 created: 2026-09-16T09:30:00-05:00
 expires: 2026-09-18T09:30:00-05:00
-status: active
+status: archived
 context: "Boot 2026-09-16 — morning briefing delivered (AR YPO travel day to Little Rock), all boot steps 01.2-08 executed as the spawned boot subagent."
+date: 2026-09-16
+source_file: memory/working/morning-briefing-2026-09-16-093000.md
+tags:
+  - briefing
+  - master
+  - travel
+  - calendar
+  - utb-board
+  - omnifocus
+  - ypo
+  - opal-group
+related_people:
+  - court-westcott
+  - alice-mburu
+  - robyn-fuentes
+  - mark-anastasio
+  - marco-prado
+salience:
+  score: 3
+  last-promoted-check: 2026-09-19
+  promoted: true
 ---
 
 # Morning Briefing — 2026-09-16 (boot)

@@ -1,12 +1,26 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "knox-2026-09-16-092409"
 agent-source: knox
 created: 2026-09-16T09:24:09
 expires: 2026-09-18T09:24:09
-status: active
+status: archived
 context: "plaud-discover full enumeration — 2026-09-16"
+date: 2026-09-16
+source_file: memory/working/plaud-discover-2026-09-16.md
+tags:
+  - plaud-discover
+  - knox
+  - plaud
+  - dedup
+  - vault-hygiene
+  - no-new-recordings
+related_people: []
+salience:
+  score: 3
+  last-promoted-check: 2026-09-19
+  promoted: true
 ---
 
 # plaud-discover — 2026-09-16 (session pi-20260916-001)

@@ -1,0 +1,92 @@
+{
+  "id": "eval-20260919T081128-S472DJ",
+  "type": "workflow",
+  "name": "dream-cycle",
+  "agent": "jarvis",
+  "session_id": "349a8a3d-1a25-58ca-86a6-f729068d7df7",
+  "trigger": "scheduled",
+  "started": "2026-09-19T08:09:16.529710Z",
+  "completed": "2026-09-19T08:11:28.187986Z",
+  "duration_seconds": 131.7,
+  "status": "success",
+  "steps": [
+    {
+      "name": "step-01-working-memory-cleanup",
+      "started": "2026-09-19T08:09:16.529710Z",
+      "completed": "2026-09-19T08:09:49.444279Z",
+      "duration_seconds": 32.9,
+      "status": "success",
+      "data_sources_used": [],
+      "data_source_failures": []
+    },
+    {
+      "name": "step-02-salience-scoring",
+      "started": "2026-09-19T08:09:49.444279Z",
+      "completed": "2026-09-19T08:10:22.358848Z",
+      "duration_seconds": 32.9,
+      "status": "success",
+      "data_sources_used": [],
+      "data_source_failures": []
+    },
+    {
+      "name": "step-03-semantic-promotion",
+      "started": "2026-09-19T08:10:22.358848Z",
+      "completed": "2026-09-19T08:10:55.273417Z",
+      "duration_seconds": 32.9,
+      "status": "success",
+      "data_sources_used": [],
+      "data_source_failures": []
+    },
+    {
+      "name": "step-04-episodic-compression",
+      "started": "2026-09-19T08:10:55.273417Z",
+      "completed": "2026-09-19T08:11:28.187986Z",
+      "duration_seconds": 32.9,
+      "status": "success",
+      "data_sources_used": [],
+      "data_source_failures": []
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": [],
+      "abort_reason": null
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": "2798d95737254b2f",
+  "prior_baseline_id": null,
+  "tags": [
+    "cowork-instrumented"
+  ]
+}

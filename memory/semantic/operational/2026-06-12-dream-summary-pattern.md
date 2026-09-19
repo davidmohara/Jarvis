@@ -3,9 +3,9 @@ type: semantic
 domain: operational
 primary-tag: dream-summary
 created: 2026-06-12
-last-updated: 2026-09-18
+last-updated: 2026-09-19
 confidence: high
-synthesized-from: 29
+synthesized-from: 30
   - dream-summary-2026-09-16.md
   - dream-summary-2026-09-13.md
   - dream-summary-2026-05-25.md
@@ -120,6 +120,7 @@ synthesized-from:
   - memory/episodic/dream-summary-2026-09-12.md
   - memory/episodic/dream-summary-2026-09-13.md
   - memory/episodic/dream-summary-2026-09-15.md
+  - memory/episodic/dream-summary-2026-09-17.md
 ---
 # Pattern: Dream Summary
 
@@ -450,3 +451,9 @@ Sources this cycle:
 - `memory/episodic/dream-summary-2026-09-16.md` (score 10) — held back one cycle by the same-calendar-date rule (expires fell on 09-17, that run's own date). Its substantive content: `tool-misuse/tool-ignorance` re-entering the 30-day error window at exactly 3 occurrences (already documented in LESSONS.md, no new entry needed), and the `error-log.json` rebuild bug that broke on 09-15 parsing cleanly this cycle — noted at the time as "looks fixed, not just worked around" (09-17's own cycle later proved this assessment wrong; the rebuild script itself was fine, the committed aggregate file was the stale artifact — see err-20260917T080756-YTMOLT).
 
 Re-checked the delegation tracker directly again this cycle: `delegations/tracker.md` still shows zero active delegations — now confirmed empty across at least 18 consecutive cycles. Q3 rocks status remains outside dream-cycle's normal scope and was not independently re-verified. Corpus-wide frontmatter-corruption scan (320 episodic files) found 0 instances, consistent with every cycle since the 09-01 fix. South Texas's 90-Day forecast deterioration remains un-re-pulled by dream-cycle itself — no fresh commentary in this cycle's source entry either, still worth a direct live pull whenever revenue-tracker next runs (a fresh revenue-tracker-2026-09-17-184500.md snapshot landed in working memory yesterday but hasn't expired into episodic yet, so its numbers weren't available to this cycle's promotion pass).
+
+### 2026-09-19 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/dream-summary-2026-09-17.md` (score 10) — the lone dream-summary archive candidate this cycle. Its substantive content: a real pre-existing bug found and logged the prior cycle (`systems/error-tracking/error-log.json` stale/corrupted, `err-20260917T080756-YTMOLT`, since re-verified resolved), and confirmation that South Texas's 90-Day forecast (74%) was still a repeated cached figure rather than a fresh deterioration as of that cycle's writing.
+
+Re-checked the delegation tracker directly again this cycle: `delegations/tracker.md` still shows one active delegation (Steve Hall follow-up to Derek Nwamadi, due 2026-09-25) — the 18+ consecutive-cycle empty streak stays broken, first flagged 09-18, unchanged since. Q3 rocks status remains outside dream-cycle's normal scope and was not independently re-verified — `memory/personal/quarterly-objectives.md` still shows `last-updated: 2026-07-30`, unchanged. Error-pattern check: 6 distinct qualifying 30-day categories, same set as every recent cycle (assumption-error/wrong-assumption:9, process-skip/protocol-skip:8, tool-misuse/protocol-skip:7, tool-misuse/pattern-mismatch:5, tool-misuse/tool-ignorance:3, missed-context/lazy-search:3), all re-verified present and active in LESSONS.md at the same line numbers as every prior cycle's check, none appended. South Texas's 90-Day forecast deterioration remains un-re-pulled by dream-cycle itself — the 09-17 revenue-tracker snapshot that landed in working memory two cycles ago still hasn't expired into episodic (`expires: 2026-09-19`, will surface next cycle); still worth a direct live pull whenever revenue-tracker next runs.

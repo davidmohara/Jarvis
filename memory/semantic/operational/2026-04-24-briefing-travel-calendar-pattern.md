@@ -4,8 +4,8 @@ domain: operational
 tags: [briefing, calendar, omnifocus, google-next, travel, overdue-tasks, leads]
 confidence: high
 created: 2026-04-24
-last-updated: 2026-07-02
-synthesized-from: 16
+last-updated: 2026-09-19
+synthesized-from: 17
   - memory/episodic/2026-04-20-morning-briefing.md
   - memory/episodic/2026-04-21-morning-briefing.md
   - memory/episodic/2026-04-20-afternoon-boot.md
@@ -53,6 +53,7 @@ synthesized-from: 16
   - 2026-05-22-061501-session-boot-morning-briefing.md
   - 2026-05-15-094050-session-boot-morning-briefing.md
   - morning-briefing-2026-05-29-070948.md
+  - memory/episodic/morning-briefing-2026-09-16-093000.md
 ---
 # Pattern: Morning Briefings Consistently Flag Travel-Calendar Conflicts
 
@@ -544,3 +545,16 @@ Threshold patterns in the 30-day error log are unchanged from yesterday: process
 
 - The promoted-flag drift from 2026-06-03 → 2026-06-04 confirms the chronic sync gap is corrupting state across runs. Even when a step claims success in state.yaml, the file-system writes can be silently rolled back if the sandbox/git interaction loses them. Need an external integrity check that re-reads files after writes to confirm persistence.
 - Pattern saturation is real. After yesterday's confidence escalation to `high` and 23 sources added, today's run found zero new evidence to add — only the same sources to re-promote. The pattern has stabilized; future dream cycles should expect to find subsidiary patterns (glc-chicago + flight-conflict, alice-mburu + travel, gold-forum + cabo) rather than further evidence for the parent.
+
+## Evidence (added 2026-09-19)
+
+### September 16 Morning Briefing — Automated Boot, AR YPO Travel Day
+- Automated boot at 9:30 AM CDT. AR YPO travel day to Little Rock: AA3850 DFW→LIT already departed as of boot. OmniFocus DEGRADED (5th+ consecutive boot with this source unavailable in this session's tool roster) — same chronic MCP-availability gap this pattern has tracked since April.
+- 11 Dallas recurring meetings marked tentative that David would miss while traveling — same "flagged, not resolved" conflict-detection pattern (Implication #1).
+- 5 UTB board approvals rolled a day in the fiduciary queue; a 5:00pm Overflow block (UTB Board) stacked directly against the 6:00pm AR YPO Dinner — another same-day stacking conflict surfaced but not mitigated.
+- Q3 rocks still unsigned (draft since 2026-07-30, ~7 weeks at the time) and daily review gap over a month — both chronic drift items this pattern has periodically cross-referenced.
+
+## Implications (added 2026-09-19)
+
+39. **The OmniFocus degradation mode has shifted from "timeout" to "tool not present in roster."** Earlier entries in this pattern (Implications #2, #7, #20) describe MCP timeouts during automated runs. The September 16 entry describes a different failure signature: the Desktop Commander/osascript tool simply absent from the session's tool roster on a 5th+ consecutive boot, not a timeout. This is a tooling-availability regression, not the original latency issue — worth distinguishing when triaging future OmniFocus-degraded briefings.
+40. **The overlapping-block stacking failure mode (Implication for same-day back-to-back conflicts) reproduces on a fourth distinct trip type.** Google Next, GLC Chicago, and Cabo all showed this; the AR YPO Little Rock trip repeats it (UTB Overflow block directly against the YPO Dinner). This is now a cross-trip structural gap, not tied to any one travel context.

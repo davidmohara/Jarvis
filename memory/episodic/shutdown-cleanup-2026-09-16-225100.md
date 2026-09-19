@@ -1,12 +1,24 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "chief-2026-09-16-225100"
 agent-source: chief
 created: 2026-09-16T22:51:00
 expires: 2026-09-18T22:51:00
-status: active
+status: archived
 context: "Shutdown cleanup — 2026-09-16"
+date: 2026-09-16
+source_file: memory/working/shutdown-cleanup-2026-09-16-225100.md
+tags:
+  - shutdown-cleanup
+  - chief
+  - session-wrap
+  - git-commit
+  - cleanup
+related_people: []
+salience:
+  score: 1
+  last-promoted-check: 2026-09-19
 ---
 
 # Shutdown Cleanup — 2026-09-16

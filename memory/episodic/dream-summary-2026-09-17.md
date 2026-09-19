@@ -1,12 +1,27 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "dream-cycle-2026-09-17-080200"
 agent-source: jarvis
 created: 2026-09-17T03:30:00-05:00
 expires: 2026-09-18T03:30:00-05:00
-status: active
+status: archived
 context: "Dream cycle summary — 2026-09-17"
+date: 2026-09-17
+source_file: memory/working/dream-summary-2026-09-17.md
+tags:
+  - dream-summary
+  - jarvis
+  - memory-consolidation
+  - revenue-tracker
+  - error-tracking
+  - quarterly-rocks
+  - delegation-tracker
+related_people: []
+salience:
+  score: 10
+  last-promoted-check: 2026-09-19
+  promoted: true
 ---
 
 Three working-memory items aged out overnight and folded into existing semantic patterns: yesterday's dream summary, a Sept 14 Plaud ingest report, and a Sept 14 revenue-tracker snapshot. Nothing new to report on the revenue side — the South Texas 90-Day forecast is still sitting at 74%, but this is the same cached figure from Sept 7 repeating (the PowerBI South Texas filter failed validation again on the Sept 14 run), not a fresh deterioration. Worth a live re-pull whenever revenue-tracker next runs, since it's now going stale rather than trending.

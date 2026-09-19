@@ -27,8 +27,8 @@ related_people:
   - derek-nwamadi
   - teresa-saffold
 salience:
-  score: 5
-  last-promoted-check: 2026-09-18
+  score: 6
+  last-promoted-check: 2026-09-19
   promoted: true
 ---
 

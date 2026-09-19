@@ -1,23 +1,23 @@
 ---
 status: completed
-started-at: 2026-09-17T08:14:00Z
-completed-at: 2026-09-17T08:20:00Z
+started-at: 2026-09-19T08:26:00Z
+completed-at: 2026-09-19T08:35:00Z
 outputs:
-  candidates_count: 3
+  candidates_count: 4
   clusters_found: 3
   semantic_created: 0
   semantic_updated: 3
-  promoted_entries: 3
-  promotion_note: "3 candidates this cycle (all today's own step-01 archives): dream-summary-2026-09-15.md, revenue-tracker-2026-09-14-001500.md, plaud-ingest-2026-09-14-150300.md -- appended to their respective existing operational/ semantic entries. Independently re-confirmed delegations/tracker.md still empty, now 17+ consecutive cycles."
+  promoted_entries: 4
+  promotion_note: "4 candidates this cycle (all today's own step-01 archives; shutdown-cleanup-2026-09-16-225100.md scored below the 3-point threshold and did not qualify): dream-summary-2026-09-17.md (score 10), plaud-discover-2026-09-16.md + plaud-ingest-2026-09-16-092409.md (score 3 each, paired session), morning-briefing-2026-09-16-093000.md (score 3) -- appended to their respective existing operational/ semantic entries. Independently re-confirmed delegations/tracker.md now shows one active delegation (Steve Hall/Derek Nwamadi, due 2026-09-25) -- the 18+ consecutive-cycle empty streak stays broken, unchanged since 09-18."
   cluster_actions:
     - {tag: dream-summary, domain: operational, size: 1, action: update, target: memory/semantic/operational/2026-06-12-dream-summary-pattern.md, confidence: "high (unchanged)"}
-    - {tag: revenue-tracker, domain: operational, size: 1, action: update, target: memory/semantic/operational/2026-06-24-revenue-tracker-pattern.md, confidence: "medium (unchanged)"}
-    - {tag: plaud-ingest, domain: operational, size: 1, action: update, target: memory/semantic/operational/2026-07-04-plaud-pattern.md, confidence: "high (unchanged)"}
+    - {tag: plaud, domain: operational, size: 2, action: update, target: memory/semantic/operational/2026-06-12-plaud-pattern.md, confidence: "low -> medium"}
+    - {tag: briefing, domain: operational, size: 1, action: update, target: memory/semantic/operational/2026-04-24-briefing-travel-calendar-pattern.md, confidence: "high (unchanged)"}
   error_categories_30d: "assumption-error/wrong-assumption:9, process-skip/protocol-skip:8, tool-misuse/protocol-skip:7, tool-misuse/pattern-mismatch:5, tool-misuse/tool-ignorance:3, missed-context/lazy-search:3"
   error_total_30d: 429
-  error_malformed_30d: 14
+  error_malformed_30d: 61
   lessons_appended: 0
-  lessons_note: "Same 6 qualifying categories as 09-16, all re-verified present and active in LESSONS.md at the same line numbers as every prior cycle's check. No new entry appended. Self-detected err-20260917T080756-YTMOLT: proved rebuild-log.py is NOT broken (valid JSON via --out); the committed error-log.json is a stale corrupted artifact being read directly -- the 09-16 'resolved' assessment was itself wrong. Worked around via the 429 per-file entries directly, per the established fallback."
+  lessons_note: "Same 6 qualifying categories as every recent cycle, all re-verified present and active in LESSONS.md at the documented line numbers. No new entry appended. No self-detected errors this cycle."
 ---
 
 <!-- system:start -->
