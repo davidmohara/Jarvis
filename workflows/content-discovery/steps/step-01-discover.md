@@ -1,13 +1,13 @@
 ---
 status: complete
-started-at: "2026-09-18T06:00:00Z"
-completed-at: "2026-09-18T06:08:00Z"
+started-at: "2026-09-19T06:00:00Z"
+completed-at: "2026-09-19T06:08:00Z"
 outputs:
-  messages_scanned: 2
+  messages_scanned: 6
   new_urls: 0
   new_digests: 0
   posts_drafted: 0
-  gate_1_result: "PASS — ok: true, 2 messages returned via 48h window (24h returned 0, retry triggered), channel C0B160MA3EK confirmed"
+  gate_1_result: "PASS — ok: true, 6 messages returned via 96h window (24h/48h returned 0; read.py auto-escalated to 96h), channel C0B160MA3EK confirmed"
   gate_2_result: "N/A — no new content to draft"
   editorial_threads_checked: 26
   editorial_feedback_found: 0

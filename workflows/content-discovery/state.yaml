@@ -2,26 +2,26 @@
 workflow: content-discovery
 agent: harper
 status: complete
-session-started: "2026-09-18T06:00:00Z"
-session-id: "harper-20260918-002"
-started-at: "2026-09-18T06:00:00Z"
-completed-at: "2026-09-18T06:30:00Z"
+session-started: "2026-09-19T06:00:00Z"
+session-id: "harper-20260919-001"
+started-at: "2026-09-19T06:00:00Z"
+completed-at: "2026-09-19T06:08:00Z"
 current-step: step-02
 original-request: "Scheduled daily content discovery run"
 accumulated-context:
-  messages_scanned: 1
+  messages_scanned: 6
   new_urls: 0
   new_digests: 0
   posts_drafted: 0
-  gate_1_result: "PASS — ok: true, 1 message returned via 48h window (24h window returned 0, 48h retry triggered per rule), channel C0B160MA3EK confirmed"
+  gate_1_result: "PASS — ok: true, 6 messages returned via 96h window (24h/48h returned 0; read.py auto-escalated to 96h), channel C0B160MA3EK confirmed"
   gate_2_result: "N/A — no new content to draft"
   editorial_threads_checked: 26
   editorial_feedback_found: 0
   editorial_edits_applied: 0
   notes: |
-    Run 2 of 2 for 2026-09-18 (session harper-20260918-002).
-    24h window returned 0 messages; 48h retry returned 1.
-    Bot message ts 1789585948.083979 (Jarvis draft notification for "You're Modeling Contentment or You're Modeling Desire") — SKIP (operational noise, no digest signal).
+    24h window returned 0 messages with warning; 48h returned 0; read.py escalated to 96h and returned 6.
+    5 bot messages (Jarvis draft notifications) — SKIP (operational noise, no digest signal).
+    1 user message ts 1789584864.764889 — URL path — DEDUP HIT: x.com/martinvars/2095842517191106683 already in pipeline as "You're Modeling Contentment or You're Modeling Desire" (status: pending, ghost_post_id 6aaae9da57f821028a9e9542).
     26 pending draft threads checked for editorial feedback in last 24h — 0 new replies.
     All prior editorial feedback already handled and logged in pending-drafts.json.
     Clean exit.
