@@ -1,18 +1,19 @@
 ---
 status: complete
-started-at: "2026-09-19T06:00:00Z"
-completed-at: "2026-09-19T06:08:00Z"
+started-at: "2026-09-19T14:00:00Z"
+completed-at: "2026-09-19T19:13:00Z"
 outputs:
-  messages_scanned: 6
-  new_urls: 0
+  messages_scanned: 1
+  new_urls: 1
   new_digests: 0
-  posts_drafted: 0
-  gate_1_result: "PASS — ok: true, 6 messages returned via 96h window (24h/48h returned 0; read.py auto-escalated to 96h), channel C0B160MA3EK confirmed"
-  gate_2_result: "N/A — no new content to draft"
-  editorial_threads_checked: 26
+  posts_drafted: 1
+  gate_1_result: "PASS — ok: true, 1 message returned via 24h window, channel C0B160MA3EK confirmed"
+  gate_2_result: "PASS — Hook/Story/Insight/Challenge present, no em-dashes, voice original, tags valid, image landscape, internal link inserted"
+  editorial_threads_checked: 0
   editorial_feedback_found: 0
   editorial_edits_applied: 0
 model: sonnet
+ghost_post_id: "6aaedeb057f821028a9e9561"
 ---
 
 <!-- personal:start -->
