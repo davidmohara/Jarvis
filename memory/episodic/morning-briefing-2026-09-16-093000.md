@@ -25,8 +25,8 @@ related_people:
   - mark-anastasio
   - marco-prado
 salience:
-  score: 3
-  last-promoted-check: 2026-09-19
+  score: 4
+  last-promoted-check: 2026-09-20
   promoted: true
 ---
 

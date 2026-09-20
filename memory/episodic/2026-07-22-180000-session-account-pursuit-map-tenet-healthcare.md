@@ -21,8 +21,8 @@ related_people:
   - loan-nguyen
   - paola-arbour
 salience:
-  score: 6
-  last-promoted-check: 2026-09-19
+  score: 8
+  last-promoted-check: 2026-09-20
   promoted: true
 ---
 

@@ -1,32 +1,29 @@
 ---
 status: completed
-started-at: 2026-09-19T08:05:00Z
-completed-at: 2026-09-19T08:20:00Z
+started-at: 2026-09-20T08:02:53Z
+completed-at: 2026-09-20T08:08:00Z
 outputs:
-  working_archived: 5
-  working_deleted: 0
-  working_skipped: 61
+  working_archived: 6
+  working_deleted: 1
+  working_skipped: 55
   working_stranded: 0
-  enrichment_method: "manual enrichment by the executing session (no nested claude -p subprocess call -- consistent with every prior cloud-sandbox cycle)"
+  enrichment_method: "manual enrichment by the executing session via systems/dream-cycle/backfill-episodic-tags.py heuristic functions imported directly (no nested claude -p subprocess call, no Desktop Commander -- consistent with every prior cloud-sandbox cycle)"
   archived_files:
-    - dream-summary-2026-09-17.md
-    - morning-briefing-2026-09-16-093000.md
-    - plaud-discover-2026-09-16.md
-    - plaud-ingest-2026-09-16-092409.md
-    - shutdown-cleanup-2026-09-16-225100.md
-  skipped_not_expired:
-    - 2026-09-18-121343-knox-plaud-ingest.md
-    - 2026-09-18-180509-chief-daily-review.md
-    - 2026-09-18-183000-rigby-eval-phantom-fix.md
-    - bookings-review-2026-09-17-184500.md
     - co-sell-pipeline-2026-09-17-184500.md
-    - dream-summary-2026-09-18-080600.md
     - morning-briefing-2026-09-17-111500.md
     - new-clients-2026-09-17-184500.md
     - pipeline-snapshot-2026-09-17-184500.md
     - plaud-ingest-2026-09-17-113544.md
-    - plaud-ingest-2026-09-18-165915.md
     - revenue-tracker-2026-09-17-184500.md
+  deleted_trivial_files:
+    - bookings-review-2026-09-17-184500.md
+  skipped_not_expired:
+    - 2026-09-18-121343-knox-plaud-ingest.md
+    - 2026-09-18-180509-chief-daily-review.md
+    - 2026-09-18-183000-rigby-eval-phantom-fix.md
+    - dream-summary-2026-09-18-080600.md
+    - dream-summary-2026-09-19.md
+    - plaud-ingest-2026-09-18-165915.md
   skipped_unparseable:
     - plaud-discover-2026-09-08.md
     - 2026-07-08.md
@@ -78,13 +75,8 @@ outputs:
     - quinn-strategy-2026-09-17-134800.md
   unparseable_left_untouched_missing_status:
     - knox-plaud-ingest-2026-08-31.md
-  new_unparseable_this_cycle:
-    - golf-booking-2026-09-18-deferred.md
-    - golf-preview-2026-09-15.md
-    - morning-briefing-2026-09-18-121500.md
-    - omnifocus-data-2026-09-16-223600.md
-    - quinn-strategy-2026-09-17-134800.md
-  self_caught_bug_note: "none this cycle -- frontmatter mutated in-place per the corrected pattern from 09-17 (edit existing type/status keys directly rather than appending duplicates), read back clean on all 5 files before mv."
+  new_unparseable_this_cycle: []
+  self_caught_bug_note: "none this cycle -- frontmatter mutated in-place per the corrected pattern from 09-17 (edit existing type/status keys directly rather than appending duplicates), read back clean on all 6 non-trivial files before mv; trivial file's status set then delete verified."
 ---
 
 <!-- system:start -->

@@ -1,23 +1,23 @@
 ---
 status: completed
-started-at: 2026-09-19T08:26:00Z
-completed-at: 2026-09-19T08:35:00Z
+started-at: 2026-09-20T08:12:00Z
+completed-at: 2026-09-20T08:22:00Z
 outputs:
   candidates_count: 4
   clusters_found: 3
   semantic_created: 0
   semantic_updated: 3
   promoted_entries: 4
-  promotion_note: "4 candidates this cycle (all today's own step-01 archives; shutdown-cleanup-2026-09-16-225100.md scored below the 3-point threshold and did not qualify): dream-summary-2026-09-17.md (score 10), plaud-discover-2026-09-16.md + plaud-ingest-2026-09-16-092409.md (score 3 each, paired session), morning-briefing-2026-09-16-093000.md (score 3) -- appended to their respective existing operational/ semantic entries. Independently re-confirmed delegations/tracker.md now shows one active delegation (Steve Hall/Derek Nwamadi, due 2026-09-25) -- the 18+ consecutive-cycle empty streak stays broken, unchanged since 09-18."
+  promotion_note: "4 candidates this cycle (all today's own step-01 archives; the other 2 archives from today -- new-clients-2026-09-17-184500.md and plaud-ingest-2026-09-17-113544.md -- scored below the 3-point threshold and did not qualify): co-sell-pipeline-2026-09-17-184500.md (score 10) + pipeline-snapshot-2026-09-17-184500.md (score 7, paired by 3 shared tags) appended to pipeline-review-pattern.md; revenue-tracker-2026-09-17-184500.md (score 7) appended to revenue-tracker-pattern.md; morning-briefing-2026-09-17-111500.md (score 6) appended to briefing-travel-calendar-pattern.md. Independently re-confirmed delegations/tracker.md still shows one active delegation (Steve Hall/Derek Nwamadi, due 2026-09-25) -- unchanged since 09-18."
   cluster_actions:
-    - {tag: dream-summary, domain: operational, size: 1, action: update, target: memory/semantic/operational/2026-06-12-dream-summary-pattern.md, confidence: "high (unchanged)"}
-    - {tag: plaud, domain: operational, size: 2, action: update, target: memory/semantic/operational/2026-06-12-plaud-pattern.md, confidence: "low -> medium"}
+    - {tag: pipeline-review, domain: operational, size: 2, action: update, target: memory/semantic/operational/2026-06-18-pipeline-review-pattern.md, confidence: "medium (unchanged)"}
+    - {tag: revenue-tracker, domain: operational, size: 1, action: update, target: memory/semantic/operational/2026-06-24-revenue-tracker-pattern.md, confidence: "medium (unchanged)"}
     - {tag: briefing, domain: operational, size: 1, action: update, target: memory/semantic/operational/2026-04-24-briefing-travel-calendar-pattern.md, confidence: "high (unchanged)"}
-  error_categories_30d: "assumption-error/wrong-assumption:9, process-skip/protocol-skip:8, tool-misuse/protocol-skip:7, tool-misuse/pattern-mismatch:5, tool-misuse/tool-ignorance:3, missed-context/lazy-search:3"
+  error_categories_30d: "assumption-error/wrong-assumption:9, process-skip/protocol-skip:7, tool-misuse/protocol-skip:6, tool-misuse/pattern-mismatch:5, missed-context/lazy-search:3"
   error_total_30d: 429
-  error_malformed_30d: 61
+  error_malformed_30d_note: "8-10 entries missing category/failure_mode fields across the full 429-entry corpus; not directly comparable to prior cycles' error_malformed_30d figure since rebuild-log.py has no built-in malformed-in-window metric."
   lessons_appended: 0
-  lessons_note: "Same 6 qualifying categories as every recent cycle, all re-verified present and active in LESSONS.md at the documented line numbers. No new entry appended. No self-detected errors this cycle."
+  lessons_note: "Same 5 qualifying categories as 09-19 minus tool-misuse/tool-ignorance, which aged out of the 30-day window (now 2 occurrences, below threshold). All 5 re-verified present and active in LESSONS.md. No new entry appended. No self-detected errors this cycle."
 ---
 
 <!-- system:start -->

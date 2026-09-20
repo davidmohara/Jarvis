@@ -1,12 +1,32 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "boot-2026-09-17-160500"
 agent-source: master
 created: 2026-09-17T11:15:00-05:00
 expires: 2026-09-19T11:15:00-05:00
-status: active
+status: archived
 context: "Boot 2026-09-17 — morning briefing delivered (return travel day from Little Rock), all boot steps 01.2-08 executed as the spawned boot subagent."
+date: 2026-09-17
+source_file: memory/working/morning-briefing-2026-09-17-111500.md
+tags:
+  - briefing
+  - master
+  - morning-briefing
+  - calendar
+  - omnifocus
+  - travel
+  - flight
+  - ypo
+  - utb-board
+  - quarterly-rocks
+related_people:
+  - steve-hall
+  - derek-nwamadi
+salience:
+  score: 6
+  last-promoted-check: 2026-09-20
+  promoted: true
 ---
 
 # Morning Briefing — 2026-09-17 (boot)

@@ -1,11 +1,11 @@
 ---
 status: completed
-started-at: 2026-09-19T08:35:00Z
-completed-at: 2026-09-19T08:36:00Z
+started-at: 2026-09-20T08:22:00Z
+completed-at: 2026-09-20T08:24:00Z
 outputs:
   result: pass
-  reason: "4 promoted entries this cycle (dream-summary-2026-09-17.md score 10, morning-briefing-2026-09-16-093000.md score 3, plaud-discover-2026-09-16.md score 3, plaud-ingest-2026-09-16-092409.md score 3), all correctly excluded from any future compression candidate set via promoted:true and score>=2; volume (4) normal; all 3 semantic writes were substantive dated narrative appends, not stubs."
-  eval_record_note: "Created eval-20260919T080916-I4UKKI via new-eval.py, set name/agent/session_id/trigger/tags on it before any record-step.py calls, backfilled steps 01-03 cleanly, checkpoint attached correctly on first attempt."
+  reason: "4 promoted entries this cycle (co-sell-pipeline-2026-09-17-184500.md score 10, pipeline-snapshot-2026-09-17-184500.md score 7, revenue-tracker-2026-09-17-184500.md score 7, morning-briefing-2026-09-17-111500.md score 6), all correctly excluded from any future compression candidate set via promoted:true and score>=2; volume (4) normal; all 3 semantic writes were substantive dated narrative appends with real figures, not stubs."
+  eval_record_note: "Created eval-20260920T080804-DQSM3L via new-eval.py, set name/agent/session_id on it before any record-step.py calls, backfilled steps 01-03 cleanly, checkpoint attached correctly on first attempt."
 model: sonnet
 ---
 

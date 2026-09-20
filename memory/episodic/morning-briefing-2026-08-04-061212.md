@@ -18,8 +18,8 @@ tags:
   - delegations
 related_people: []
 salience:
-  score: 6
-  last-promoted-check: 2026-09-19
+  score: 7
+  last-promoted-check: 2026-09-20
   promoted: true
 ---
 

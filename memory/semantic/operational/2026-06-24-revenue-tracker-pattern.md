@@ -10,7 +10,8 @@ synthesized-from:
   - memory/episodic/revenue-tracker-2026-07-27-001532.md
   - memory/episodic/revenue-tracker-2026-08-24-002000.md
   - memory/episodic/revenue-tracker-2026-09-14-001500.md
-last-updated: 2026-09-17
+  - memory/episodic/revenue-tracker-2026-09-17-184500.md
+last-updated: 2026-09-20
 tags:
   - revenue-tracker
 agent-source: dream-cycle
@@ -70,3 +71,9 @@ Sources this cycle:
 - `memory/episodic/revenue-tracker-2026-09-14-001500.md` (score 6) — tags: revenue-tracker, chase, south-texas, dallas, one-texas, rock1, powerbi, forecast. Sept 14 run: South Texas filter failed validation twice ("Multiple selections" persisted through retry, same failure mode as the 09-07 first-attempt run above), reverted to cached data from Sept 7 (July 2026 actuals; August unavailable). Reported figures are an unchanged repeat of the 09-07 live-pull reading already in this pattern's evidence: South Texas -24%/-20% vs. target/prior-year CQ, -21%/-21% YTD, 90-Day forecast still 74% (16 points below the 90% threshold). Dallas holding +3%/+16% CQ, 101% 90-Day. One Texas -10.5% vs. target, -2% vs. prior year (revenue-weighted). July monthly revenue $5.55M ($2.85M Dallas + $2.70M South Texas). Recommendation logged: PowerBI support escalation for the Business Unit slicer, which has now failed validation on at least two separate runs (09-07 first attempt, 09-14).
 
 This is a cache-fallback repeat, not a fresh data point — the underlying South Texas PowerBI filter instability first surfaced in the 09-07 entry above has recurred rather than resolved. Held confidence at medium; no new trend signal here, just confirmation that the 74% reading has not been superseded by any newer live pull and that the filter reliability issue is recurring rather than one-off.
+
+### 2026-09-20 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/revenue-tracker-2026-09-17-184500.md` (score 7) — tags: chase, one-texas, revenue. Sept 17 live pull, Aug 2026 now the most recent closed month (a genuine monthly-close rollover, not a repeat of the July figures the 09-07/09-14 entries carried). Dallas: +4% YTD vs. target, +11% vs. prior year, 101% 90-Day (unchanged from 09-07). South Texas: -21% YTD vs. target, -21% vs. prior year, 90-Day forecast still 74%. Aug monthly: Dallas ~$3.36M, South Texas ~$2.70M, One Texas ~$6.06M combined.
+
+This is the first fresh live pull carrying new closed-month data since the 09-07 entry that originally broke the 82% plateau — and it confirms 74% rather than moving further, closing the ambiguity the 09-14 and prior carry-forward notes flagged ("no fresher live pull than 09-07"). Three consecutive readings now (09-07 live, 09-14 cache-repeat, 09-17 live) all land on 74%, so this reads as a stabilized new baseline rather than an ongoing slide — the September deterioration appears to have found its floor, not accelerated past it. Held confidence at medium; one more live-sourced snapshot in October (new quarter, new YTD baseline) is the next meaningful signal to watch for.

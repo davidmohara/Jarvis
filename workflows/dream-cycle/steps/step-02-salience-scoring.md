@@ -1,15 +1,15 @@
 ---
 status: completed
-started-at: 2026-09-19T08:20:00Z
-completed-at: 2026-09-19T08:26:00Z
+started-at: 2026-09-20T08:08:00Z
+completed-at: 2026-09-20T08:12:00Z
 outputs:
-  episodic_scanned: 325
-  score_updates: 325
+  episodic_scanned: 331
+  score_updates: 331
   no_tags: 197
   no_date: 37
-  score_distribution: "0:207,1:3,2:12,3:4,4:3,5:1,6:21,7:5,8:7,9:6,10:56"
-  window_entries: 48
-  note: "Ran systems/dream-cycle/salience-score.py --date 2026-09-19. read_errors:0, write_errors:0. episodic_scanned rose 320->325, fully explained by today's 5 step-01 archives, no other change. pct_score_0=63.69% (207/325) stays BELOW the 70% escalation threshold. pct_no_date=11.38% (37/325) still crosses the >10% threshold, same legacy undated population as every prior cycle, no new undated entries. pct_no_tags=60.62% (197/325) stays in the 30-70% 'unusual tag coverage' band, same underlying population as prior cycles, not a new problem. Corpus-wide scan for the frontmatter-stranding corruption signature (duplicate salience: blocks, multiple promoted: keys), scanned within the frontmatter block only, found 0 instances across all 326 scanned episodic files, consistent with every cycle since the 09-01 fix (commit bb2de90)."
+  score_distribution: "0:207,1:3,2:14,3:3,4:3,5:1,6:10,7:14,8:7,9:7,10:62"
+  window_entries: 54
+  note: "Ran systems/dream-cycle/salience-score.py --date 2026-09-20. read_errors:0, write_errors:0. episodic_scanned rose 325->331, fully explained by today's 6 step-01 archives, no other change. pct_score_0=62.54% (207/331) stays BELOW the 70% escalation threshold. pct_no_date=11.18% (37/331) still crosses the >10% threshold, same legacy undated population as every prior cycle, no new undated entries. pct_no_tags=59.52% (197/331) stays in the 30-70% 'unusual tag coverage' band, same underlying population as prior cycles, not a new problem. Corpus-wide scan for the frontmatter-stranding corruption signature (duplicate salience: blocks, multiple promoted: keys), scanned within the frontmatter block only, found 0 instances across all 332 scanned episodic files, consistent with every cycle since the 09-01 fix (commit bb2de90)."
 ---
 
 <!-- system:start -->

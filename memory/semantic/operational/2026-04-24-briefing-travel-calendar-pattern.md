@@ -4,7 +4,7 @@ domain: operational
 tags: [briefing, calendar, omnifocus, google-next, travel, overdue-tasks, leads]
 confidence: high
 created: 2026-04-24
-last-updated: 2026-09-19
+last-updated: 2026-09-20
 synthesized-from: 17
   - memory/episodic/2026-04-20-morning-briefing.md
   - memory/episodic/2026-04-21-morning-briefing.md
@@ -558,3 +558,15 @@ Threshold patterns in the 30-day error log are unchanged from yesterday: process
 
 39. **The OmniFocus degradation mode has shifted from "timeout" to "tool not present in roster."** Earlier entries in this pattern (Implications #2, #7, #20) describe MCP timeouts during automated runs. The September 16 entry describes a different failure signature: the Desktop Commander/osascript tool simply absent from the session's tool roster on a 5th+ consecutive boot, not a timeout. This is a tooling-availability regression, not the original latency issue — worth distinguishing when triaging future OmniFocus-degraded briefings.
 40. **The overlapping-block stacking failure mode (Implication for same-day back-to-back conflicts) reproduces on a fourth distinct trip type.** Google Next, GLC Chicago, and Cabo all showed this; the AR YPO Little Rock trip repeats it (UTB Overflow block directly against the YPO Dinner). This is now a cross-trip structural gap, not tied to any one travel context.
+
+## Evidence (added 2026-09-20)
+
+### September 17 Morning Briefing — Boot, Return Travel Day from Little Rock
+- Boot at 11:15 AM CT, return leg of the AR YPO trip: AA3589 LIT→DFW departed 7:18 AM CT, landed ~8:50 AM CT. OmniFocus back LIVE this boot (42 tasks, 0 overdue) — the 5+ consecutive-boot degradation flagged in the September 16 entry (Implication #39) resolved same-trip, one day later.
+- Two same-day double-books surfaced but not auto-resolved: 10:00 AM Sales Scrum vs. GEHC AI Routing sync, and 3:00 PM Steve Hall follow-up vs. golf lesson — the same "flagged, not mitigated" conflict-detection pattern this cluster has tracked since Implication #1.
+- Q3 rocks still unsigned (draft since 2026-07-30, now ~7 weeks) and daily review gap now 15 days (last on file 2026-09-02) — both chronic drift items continue unresolved with no new movement.
+
+## Implications (added 2026-09-20)
+
+41. **The OmniFocus tooling-availability regression (Implication #39) was transient, not a new steady state.** It resolved within 24 hours of first being logged (Sept 16 absent from roster → Sept 17 LIVE with 42 tasks). Worth downgrading from "regression to track" to "recurring but self-resolving" unless it reappears on a subsequent boot.
+42. **Same-day stacking conflicts are now confirmed independent of travel context.** The Sept 17 entry's two double-books (GEHC/Sales Scrum, Steve Hall/golf) occurred on a routine in-office day, not a travel day — extending Implication #40's "cross-trip structural gap" finding to "not trip-dependent at all." The underlying gap is calendar-wide, not specific to travel-day scheduling.

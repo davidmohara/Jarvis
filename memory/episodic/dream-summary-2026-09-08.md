@@ -22,7 +22,7 @@ related_people:
   - rigby
 salience:
   score: 10
-  last-promoted-check: 2026-09-19
+  last-promoted-check: 2026-09-20
   promoted: true
 ---
 

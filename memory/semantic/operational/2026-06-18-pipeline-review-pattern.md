@@ -13,6 +13,9 @@ synthesized-from:
 synthesized-from:
   - memory/episodic/morning-briefing-2026-06-11-062152.md
   - memory/episodic/dream-summary-2026-06-12.md
+  - memory/episodic/co-sell-pipeline-2026-09-17-184500.md
+  - memory/episodic/pipeline-snapshot-2026-09-17-184500.md
+last-updated: 2026-09-20
 ---
 ## Pattern Summary
 
@@ -49,3 +52,10 @@ Consistent with the fabricated-figure correction this cluster tracked on 09-03 �
 - 2026-07-02: 1 entries reinforce relevance of `pipeline-review` cluster. Watch for further co-occurrence.
 - 2026-06-24: New episodic cluster (pipeline-review, 2 entries) reinforces pattern.
 _TBD — pattern just emerged. Watch for stability over the next 2-3 dream cycles before drawing conclusions._
+
+### 2026-09-20 — Nightly promotion
+Sources this cycle:
+- `memory/episodic/co-sell-pipeline-2026-09-17-184500.md` (score 10) — tags: pipeline-review, chase, rock4, pipeline, co-sell. Sept 17 live PowerBI pull (data updated 9/16/26): co-sell pipeline Dallas $1.32M/8 opps, Houston $565K/3, Austin $50K/1 = $1.94M/12 combined. Won co-sell: Dallas $1.52M/3, Houston $3.07M/5, Austin $0 = $4.59M/8. Rock 4 progress: $6.53M combined vs. $15M target — gap $8.47M (56.5% remaining), essentially flat against the 09-07 reading ($8.57M/57.2% gap). Dallas partner mix: Confluent $785.6K/2, Microsoft $373.95K/4, SAP $298.75K/2, Scrum.org $43K/1.
+- `memory/episodic/pipeline-snapshot-2026-09-17-184500.md` (score 7) — tags: pipeline-review, chase, pipeline. Same-date live pull: total pipeline Dallas $43.15M/90 opps, South Texas $24.11M/74 (Austin $13.75M/40, Houston $10.36M/34). 90-day weighted: Dallas $13M/73, South Texas ~$6M (Austin $3M/33, Houston $3M/24).
+
+Rock 4's $8.47M gap has held essentially flat for six weeks (09-07: $8.57M, now $8.47M) — a $100K move, not meaningful progress at the current pace against a $15M target. The pipeline-snapshot entry adds new context this cluster hasn't carried before: total (non-co-sell) pipeline is nearly 6x the co-sell figure ($67M combined Dallas+South Texas vs. $1.94M co-sell), and 90-day weighted pipeline ($13M Dallas, ~$6M South Texas) dwarfs the co-sell-specific weighted numbers — confirming Rock 4's gap is a co-sell-channel-specific shortfall, not a general pipeline-generation problem. Held confidence at medium; the flat six-week gap is worth flagging as a stall risk if it doesn't move by the next full co-sell snapshot.

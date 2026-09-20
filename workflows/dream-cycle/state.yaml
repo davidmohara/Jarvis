@@ -1,12 +1,135 @@
 workflow: dream-cycle
 agent: jarvis
 status: complete
-session-started: 2026-09-19T08:05:00Z
-session-id: dream-cycle-2026-09-19-080500
+session-started: 2026-09-20T08:02:53Z
+session-id: dream-cycle-2026-09-20-080253
 current-step: null
 original-request: "Execute dream-cycle workflow for today (scheduled task)"
-last-successful-run: 2026-09-19T08:40:00Z
+last-successful-run: 2026-09-20T08:30:00Z
 accumulated-context:
+  step-01-2026-09-20:
+    working_archived: 6
+    working_deleted: 1
+    working_skipped: 55
+    working_stranded: 0
+    skipped_already_archived: []
+    skipped_not_expired:
+      - 2026-09-18-121343-knox-plaud-ingest.md
+      - 2026-09-18-180509-chief-daily-review.md
+      - 2026-09-18-183000-rigby-eval-phantom-fix.md
+      - dream-summary-2026-09-18-080600.md
+      - dream-summary-2026-09-19.md
+      - plaud-ingest-2026-09-18-165915.md
+    skipped_unparseable:
+      - 2026-07-08.md
+      - 2026-07-23-215200-session-felix-derek-persona-rebuild.md
+      - 2026-07-30-morning-briefing.md
+      - 2026-08-05-magline-call-prep.md
+      - 2026-08-11-plaud-ingest-correction.md
+      - 2026-08-12-graph-memory-spec-working.md
+      - 2026-08-24-shep-robyn-fuentes-1on1-prep.md
+      - CORRECTION-20260828-GOLF-BOOKING-ERR.md
+      - eval-harness-cost-visibility-2026-09-01.md
+      - golf-booking-2026-07-10-failed.md
+      - golf-booking-2026-07-11-followup.md
+      - golf-booking-2026-09-18-deferred.md
+      - golf-booking-20260828-5oc5m.md
+      - golf-booking-COMPLETE-20260801.md
+      - golf-booking-blocker-20260820.md
+      - golf-booking-cancel-saturday-20260904.md
+      - golf-booking-early-run-20260730.md
+      - golf-booking-failure-20260731.md
+      - golf-booking-gate-1-abort-2026-09-04.md
+      - golf-booking-gate2-failure-20260904.md
+      - golf-booking-midnight-retry-20260801.md
+      - golf-booking-scheduling-update-20260801.md
+      - golf-booking-success-20260801.md
+      - golf-booking-success-20260904.md
+      - golf-booking-window-closed-2026-09-05.md
+      - golf-override-2026-07-14.md
+      - golf-preview-2026-07-03.md
+      - golf-preview-2026-07-14.md
+      - golf-preview-2026-07-21.md
+      - golf-preview-2026-08-04.md
+      - golf-preview-2026-08-25.md
+      - golf-preview-2026-09-09.md
+      - golf-preview-2026-09-15.md
+      - morning-briefing-2026-08-27-163900.md
+      - morning-briefing-2026-09-18-121500.md
+      - omnifocus-data-2026-09-16-223600.md
+      - omnifocus-tasks-2026-09-16.md
+      - plaud-discover-2026-09-03.md
+      - plaud-discover-2026-09-08.md
+      - quinn-strategy-2026-09-17-134800.md
+      - remarkable-upload-2026-07-23-improve-eval.md
+      - rigby-boot-eval-consolidation-2026-08-28.md
+      - rigby-boot-eval-cowork-phantom-2026-08-28.md
+      - rigby-plaud-discover-fix-2026-08-28.md
+      - sc-executive-brief-2026-07-13.md
+      - slack-notification-golf-booking-20260801.txt
+      - solace-meeting-prep-2026-07-27.md
+      - teams-transcripts-2026-09-16.md
+    unparseable_left_untouched_missing_status:
+      - knox-plaud-ingest-2026-08-31.md
+    archived_files:
+      - co-sell-pipeline-2026-09-17-184500.md
+      - morning-briefing-2026-09-17-111500.md
+      - new-clients-2026-09-17-184500.md
+      - pipeline-snapshot-2026-09-17-184500.md
+      - plaud-ingest-2026-09-17-113544.md
+      - revenue-tracker-2026-09-17-184500.md
+    deleted_trivial_files:
+      - bookings-review-2026-09-17-184500.md
+    enrichment_method: "manual enrichment by the executing session via systems/dream-cycle/backfill-episodic-tags.py heuristic functions imported directly (no nested claude -p subprocess call -- consistent with every prior cloud-sandbox cycle; no Desktop Commander or claude -p auth available in this container)"
+    stranded: []
+    guardrail_1_note: "No interactive controller present (scheduled/unattended run per CLAUDE.md Standing Authorization) -- spot-check and y/n approval gate not applicable; proceeded per standing pre-authorization, consistent with every prior automated dream-cycle run in dream.log. None of the 6 archived non-trivial files were modified in the last 24h (all dated 2026-09-17, expired 2026-09-19)."
+  step-02-2026-09-20:
+    episodic_scanned: 331
+    score_updates: 331
+    window_entries: 54
+    no_date: 37
+    no_tags: 197
+    score_distribution: "0:207,1:3,2:14,3:3,4:3,5:1,6:10,7:14,8:7,9:7,10:62"
+    read_errors: 0
+    write_errors: 0
+    guardrail_3_distribution_check: "pass (pct_score_0=62.54%, below 70% escalation threshold; pct_score_10=18.73%>0, no escalation)"
+    guardrail_4_metadata_check: "pct_no_date=11.18% (37/331) still crosses the >10% threshold -- same legacy undated population as every prior cycle, no new undated entries this cycle (episodic_scanned rose 325->331, fully explained by today's 6 step-01 archives). pct_no_tags=59.52% (197/331) stays in the 30-70% warning band, same underlying population, not a new problem."
+    frontmatter_corruption_scan: "0 instances of duplicate salience: or promoted: blocks across all 332 scanned episodic files, consistent with every cycle since the 09-01 fix (commit bb2de90)."
+  step-03-2026-09-20:
+    candidates_count: 4
+    clusters_found: 3
+    semantic_created: 0
+    semantic_updated: 3
+    promoted_entries: 4
+    promotion_note: "4 candidates this cycle (all today's own step-01 archives; the other 2 archives from today -- new-clients-2026-09-17-184500.md and plaud-ingest-2026-09-17-113544.md -- scored below the 3-point threshold and did not qualify). 3 clusters: co-sell-pipeline-2026-09-17-184500.md (score 10) + pipeline-snapshot-2026-09-17-184500.md (score 7, 3 shared tags: pipeline-review/chase/pipeline) appended together to pipeline-review-pattern.md (operational/2026-06-18) -- Rock 4 gap held flat at $8.47M vs. the 09-07 reading of $8.57M, and the pipeline-snapshot entry newly confirms Rock 4's shortfall is co-sell-channel-specific, not a general pipeline problem (total non-co-sell pipeline is ~6x the co-sell figure); revenue-tracker-2026-09-17-184500.md (score 7) appended to revenue-tracker-pattern.md (operational/2026-06-24) -- first live pull since 09-07 to carry new closed-month data (Aug 2026), confirms South Texas 90-Day forecast holding at 74% rather than declining further, resolving the carry-forward note about no fresher-than-09-07 live data; morning-briefing-2026-09-17-111500.md (score 6) appended to briefing-travel-calendar-pattern.md (operational/2026-04-24) -- OmniFocus tooling-availability regression flagged 09-19 (Implication #39) resolved within 24h (downgraded from steady-state regression to self-resolving); same-day double-book stacking now confirmed on a non-travel day, extending the cross-trip finding to calendar-wide. Delegation tracker re-check: still ONE active delegation (Steve Hall/Derek Nwamadi, due 2026-09-25) -- unchanged since 09-18, streak of no new delegations continues. Q3 rocks re-check: memory/personal/quarterly-objectives.md still 'Q3 draft — pending David's review, not yet finalized', unchanged since 07-30, outside normal dream-cycle scope."
+    cluster_actions:
+      - {tag: pipeline-review, domain: operational, size: 2, action: update, target: memory/semantic/operational/2026-06-18-pipeline-review-pattern.md, confidence: "medium (unchanged)"}
+      - {tag: revenue-tracker, domain: operational, size: 1, action: update, target: memory/semantic/operational/2026-06-24-revenue-tracker-pattern.md, confidence: "medium (unchanged)"}
+      - {tag: briefing, domain: operational, size: 1, action: update, target: memory/semantic/operational/2026-04-24-briefing-travel-calendar-pattern.md, confidence: "high (unchanged)"}
+    error_categories_30d: "assumption-error/wrong-assumption:9, process-skip/protocol-skip:7, tool-misuse/protocol-skip:6, tool-misuse/pattern-mismatch:5, missed-context/lazy-search:3"
+    error_total_30d: 429
+    error_malformed_30d_note: "8-10 entries missing category/failure_mode fields across the full 429-entry corpus (not scoped to 30 days -- rebuild-log.py has no built-in malformed-in-window metric, and the exact methodology behind prior cycles' error_malformed_30d figures (e.g. 61 on 09-19) isn't reproducible from the script alone; reporting what was actually measured rather than guessing at parity)."
+    lessons_appended: 0
+    lessons_note: "Same 5 qualifying categories as 09-19 minus tool-misuse/tool-ignorance, which aged out of the 30-day window (2 occurrences now, below the 3-point threshold) -- expected drift, not a new problem. All 5 remaining categories re-verified present and active in LESSONS.md (process-skip/protocol-skip L120,151; assumption-error/wrong-assumption L247-253; tool-misuse/protocol-skip L444-449; tool-misuse/pattern-mismatch L452-457; missed-context/lazy-search L404-409). No new entry appended. No self-detected errors this cycle."
+  step-03b-2026-09-20:
+    result: pass
+    reason: "4 promoted entries this cycle (co-sell-pipeline-2026-09-17-184500.md score 10, pipeline-snapshot-2026-09-17-184500.md score 7, revenue-tracker-2026-09-17-184500.md score 7, morning-briefing-2026-09-17-111500.md score 6), all correctly set promoted:true, none will appear in step-04's candidate set; volume (4) normal; all 3 semantic writes were substantive dated narrative appends with real figures (Rock 4 gap numbers, revenue percentages, calendar conflicts), not stubs."
+    eval_record: eval-20260920T080804-DQSM3L
+  step-04-2026-09-20:
+    candidates_count: 1
+    entries_compressed: 0
+    digests_updated: 0
+    compression_skipped: true
+    compression_skip_reason: "1 compression candidate this cycle (2026-06-19-session.md: date 2026-06-19 < cutoff 2026-06-22, salience.score 0, promoted false), well below the 5-entry safety threshold -- skipped, nothing modified. GUARDRAIL 7 approval gate not reached."
+  step-05-2026-09-20:
+    dream_log_appended: true
+    working_summary_written: true
+    working_summary_reason: "semantic_updated=3 > 0 triggers the mandatory working-summary write per Phase B. Content leads with the 6-file archival, then the 3 semantic-pattern updates, then flags the two unchanged carry-forward items (delegation tracker, Q3 rocks)."
+    error_logged: "none this cycle -- clean run, no self-detected bugs."
+    eval_record: "eval-20260920T080804-DQSM3L -- created fresh at run start, set name/agent/session_id on it before any record-step.py calls, backfilled steps 01-03 cleanly, guardrail checkpoint attached correctly on first attempt. close-eval-record.py does not update this record in place -- it creates a separate canonical closed record (eval-20260920T080949-L9HVDS, status:success) instead, per every prior cycle's precedent; the original stays in-progress as a phantom record, left as-is."
+    git_commit: pending
+    git_push: pending
+    git_sync_note: "Cloud sandbox container (Claude Code Remote). No Desktop Commander tool available in this session, consistent with every dream-cycle run since 09-08. Using plain git via Bash, one command per call, no chaining, no git status."
   step-05-2026-09-19:
     dream_log_appended: true
     working_summary_written: true
