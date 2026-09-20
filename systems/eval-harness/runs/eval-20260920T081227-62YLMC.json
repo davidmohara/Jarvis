@@ -1,13 +1,13 @@
 {
-  "id": "eval-20260919T004107-RC250Y",
+  "id": "eval-20260920T081227-62YLMC",
   "type": "skill",
   "name": "git",
-  "agent": "master",
-  "session_id": "4d5db2b3-9370-4d1f-accb-a39eb010e7bd",
-  "trigger": "manual",
-  "started": "2026-09-18T19:35:00-05:00",
-  "completed": "2026-09-19T00:41:07.078284Z",
-  "duration_seconds": 367.1,
+  "agent": "jarvis",
+  "session_id": "6f05032d-23d0-592a-8b0b-237e8909d4a8",
+  "trigger": "scheduled",
+  "started": "2026-09-20T08:09:00Z",
+  "completed": "2026-09-20T08:12:27.389355Z",
+  "duration_seconds": 207.4,
   "status": "success",
   "steps": [],
   "assessment": {
@@ -15,7 +15,9 @@
       "completed": true,
       "all_steps_finished": true,
       "tool_failures": 0,
-      "error_ids": []
+      "error_ids": [
+        "err-20260920T081144-4Z5NUY"
+      ]
     },
     "structural": {
       "expected_outputs_written": true,
@@ -60,11 +62,6 @@
       "rating": null,
       "comment": null,
       "timestamp": null
-    },
-    "deterministic_gate": {
-      "score": 1.0,
-      "gate_status": "pass",
-      "computed_at": "2026-09-20T08:12:16.314829Z"
     }
   },
   "version_hash": "5f3ca60c166e5470",
