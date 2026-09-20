@@ -127,9 +127,10 @@ accumulated-context:
     working_summary_reason: "semantic_updated=3 > 0 triggers the mandatory working-summary write per Phase B. Content leads with the 6-file archival, then the 3 semantic-pattern updates, then flags the two unchanged carry-forward items (delegation tracker, Q3 rocks)."
     error_logged: "none this cycle -- clean run, no self-detected bugs."
     eval_record: "eval-20260920T080804-DQSM3L -- created fresh at run start, set name/agent/session_id on it before any record-step.py calls, backfilled steps 01-03 cleanly, guardrail checkpoint attached correctly on first attempt. close-eval-record.py does not update this record in place -- it creates a separate canonical closed record (eval-20260920T080949-L9HVDS, status:success) instead, per every prior cycle's precedent; the original stays in-progress as a phantom record, left as-is."
-    git_commit: pending
-    git_push: pending
-    git_sync_note: "Cloud sandbox container (Claude Code Remote). No Desktop Commander tool available in this session, consistent with every dream-cycle run since 09-08. Using plain git via Bash, one command per call, no chaining, no git status."
+    git_commit: success
+    git_push: success
+    git_commit_sha: d008b88
+    git_sync_note: "Cloud sandbox container (Claude Code Remote). No Desktop Commander tool available in this session, consistent with every dream-cycle run since 09-08. Used plain git via Bash. Session started in detached HEAD (fac31ba, matching true origin/main tip) -- committed while still detached, then discovered the local main branch pointer and refs/remotes/origin/main were both stale at eb6eec1 (37 commits behind, never fetched this session). Ran 'git fetch origin main' before pushing, confirmed the true origin/main tip (fac31ba) was the exact parent of the new commit (clean fast-forward, no divergence), then moved to a real 'main' branch via 'git checkout -B main d008b88' and pushed. Push was a clean fast-forward (fac31ba..d008b88, 350 files changed -- includes the working->episodic rename for all 6 archived files, the trivial-file deletion, every episodic file's routine salience-score.py rewrite from step-02, plus 4 eval-harness run records: this cycle's own eval-20260920T080804-DQSM3L and eval-20260920T080949-L9HVDS, plus 2 auto-created phantom records left as-is per every prior cycle's precedent). Lesson for future cycles: always run 'git fetch origin <branch>' before trusting a checkout's ahead/behind count, even in a freshly-provisioned container -- the local remote-tracking ref is not guaranteed fresh until fetched."
   step-05-2026-09-19:
     dream_log_appended: true
     working_summary_written: true

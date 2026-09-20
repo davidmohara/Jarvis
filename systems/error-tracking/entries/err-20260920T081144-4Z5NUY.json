@@ -1,0 +1,15 @@
+{
+  "id": "err-20260920T081144-4Z5NUY",
+  "timestamp": "2026-09-20T08:11:44.649287Z",
+  "session": "dream-cycle-2026-09-20-080253",
+  "source": "self-detected",
+  "agent": "jarvis",
+  "category": "assumption-error",
+  "description": "Self-caught: during step-05 of the 2026-09-20 dream-cycle run, committed the cycle's changes while in detached HEAD without first running 'git fetch origin main'. The local refs/heads/main and refs/remotes/origin/main pointers were both stale at eb6eec1 (37 commits behind the actual detached-HEAD starting point, fac31ba), because this session had never fetched from origin. Assumed the checkout's ahead/behind count relative to a cached remote-tracking ref reflected the true remote state, without verifying via a fresh fetch.",
+  "correction": "Ran 'git fetch origin main' before pushing. This revealed the true origin/main tip was fac31ba, which was in fact the exact parent of the new commit -- a clean fast-forward, no actual divergence or lost work. Moved to a real 'main' branch via 'git checkout -B main <commit>' and pushed successfully (fac31ba..d008b88).",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "Before trusting any checkout's ahead/behind message or a local remote-tracking ref in a session that hasn't explicitly fetched yet, always run 'git fetch origin <branch>' first -- a container's cloned-at-start git state is not proof that refs/remotes/origin/* is current for this session's git operations, since fetch may not have run yet this session.",
+  "fix_status": "proposed",
+  "severity": "minor",
+  "related_entries": []
+}
