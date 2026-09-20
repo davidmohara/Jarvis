@@ -421,6 +421,14 @@
     "created_at": "2026-09-19T19:13:06Z",
     "status": "pending",
     "source_type": "url",
-    "content_type": "post"
+    "content_type": "post",
+    "editorial_edits": [
+      {
+        "reply_ts": "1789909249.969879",
+        "instruction": "Image is poor representation — mountainside has nothing to do with AI agents. Pick a better image.",
+        "applied_at": "2026-09-20T19:10:09Z",
+        "summary": "Swapped to developer at multiple monitors in dark office: photo-1754039985001-ccafee437736 (Jakub Żerdzicki, landscape 2000x1168, free Unsplash license). Matches agent-monitoring anxiety theme directly."
+      }
+    ]
   }
 ]
