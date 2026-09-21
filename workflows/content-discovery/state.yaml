@@ -2,21 +2,28 @@
 workflow: content-discovery
 agent: harper
 status: complete
-session-started: "2026-09-21T06:00:00Z"
-session-id: "harper-20260921-001"
-started-at: "2026-09-21T06:00:00Z"
-completed-at: "2026-09-21T11:14:27Z"
+session-started: "2026-09-21T12:00:00Z"
+session-id: "harper-20260921-002"
+started-at: "2026-09-21T12:00:00Z"
+completed-at: "2026-09-21T12:05:00Z"
 current-step: step-02
-original-request: "Scheduled daily content discovery run"
+original-request: "Scheduled daily content discovery run (second run)"
 accumulated-context:
   messages_scanned: 2
   new_urls: 0
   new_digests: 0
   posts_drafted: 0
-  gate_1_result: "PASS — ok: true, 2 messages via 48h window, channel C0B160MA3EK confirmed"
-  gate_2_result: "n/a — editorial edit applied to existing draft"
-  editorial_threads_checked: 1
-  editorial_feedback_found: 1
-  editorial_edits_applied: 1
-  notes: "Expanded Agent Anxiety from ~620 to ~850 words. Added Interstitial Spaces, Find What You Seek, Slack (book) links. Ghost updated, Slack reply posted."
+  gate_1_result: "PASS — ok: true, 2 messages via 96h fallback (24h and 48h both returned 0 with warning), channel C0B160MA3EK confirmed"
+  gate_2_result: "n/a — no new content drafted"
+  editorial_threads_checked: 3
+  editorial_feedback_found: 0
+  editorial_edits_applied: 0
+  notes: |
+    24h and 48h windows both returned 0 with retry warning. 96h fallback returned 2 messages.
+    Bot message ts 1789845194.961229 — Jarvis draft notification, SKIP (bot, no digest signal).
+    User message ts 1789831257.011929 — source URL (thenewatlantis.com/publications/the-myth-of-multitasking)
+      already in pending-drafts as 'Agent Anxiety' (status: pending). SKIP new draft (dedup).
+    Agent Anxiety thread scanned — all 3 replies already handled or bot messages. No new editorial feedback.
+    The Interface Moved Inside and You're Modeling Contentment threads — no replies.
+    Clean exit. No new drafts. No new posts.
 ---
