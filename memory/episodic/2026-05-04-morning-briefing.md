@@ -16,7 +16,7 @@ related_people:
 - ric
 salience:
   score: 0
-  last-promoted-check: 2026-09-20
+  last-promoted-check: 2026-09-21
   promoted: true
 ---
 

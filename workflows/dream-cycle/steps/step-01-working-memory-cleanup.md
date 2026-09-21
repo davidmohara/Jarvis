@@ -1,82 +1,28 @@
 ---
 status: completed
-started-at: 2026-09-20T08:02:53Z
-completed-at: 2026-09-20T08:08:00Z
+started-at: 2026-09-21T08:02:23Z
+completed-at: 2026-09-21T08:10:00Z
 outputs:
   working_archived: 6
-  working_deleted: 1
-  working_skipped: 55
+  working_deleted: 0
+  working_skipped: 50
   working_stranded: 0
-  enrichment_method: "manual enrichment by the executing session via systems/dream-cycle/backfill-episodic-tags.py heuristic functions imported directly (no nested claude -p subprocess call, no Desktop Commander -- consistent with every prior cloud-sandbox cycle)"
+  enrichment_method: "manual enrichment by the executing session (no nested claude -p subprocess call, no Desktop Commander -- consistent with every prior cloud-sandbox cycle); tags/related_people derived directly from each file's body content"
   archived_files:
-    - co-sell-pipeline-2026-09-17-184500.md
-    - morning-briefing-2026-09-17-111500.md
-    - new-clients-2026-09-17-184500.md
-    - pipeline-snapshot-2026-09-17-184500.md
-    - plaud-ingest-2026-09-17-113544.md
-    - revenue-tracker-2026-09-17-184500.md
-  deleted_trivial_files:
-    - bookings-review-2026-09-17-184500.md
-  skipped_not_expired:
     - 2026-09-18-121343-knox-plaud-ingest.md
     - 2026-09-18-180509-chief-daily-review.md
     - 2026-09-18-183000-rigby-eval-phantom-fix.md
     - dream-summary-2026-09-18-080600.md
     - dream-summary-2026-09-19.md
     - plaud-ingest-2026-09-18-165915.md
-  skipped_unparseable:
-    - plaud-discover-2026-09-08.md
-    - 2026-07-08.md
-    - 2026-07-23-215200-session-felix-derek-persona-rebuild.md
-    - 2026-07-30-morning-briefing.md
-    - 2026-08-05-magline-call-prep.md
-    - 2026-08-11-plaud-ingest-correction.md
-    - 2026-08-12-graph-memory-spec-working.md
-    - 2026-08-24-shep-robyn-fuentes-1on1-prep.md
-    - CORRECTION-20260828-GOLF-BOOKING-ERR.md
-    - eval-harness-cost-visibility-2026-09-01.md
-    - golf-booking-2026-07-10-failed.md
-    - golf-booking-2026-07-11-followup.md
-    - golf-booking-20260828-5oc5m.md
-    - golf-booking-COMPLETE-20260801.md
-    - golf-booking-blocker-20260820.md
-    - golf-booking-cancel-saturday-20260904.md
-    - golf-booking-early-run-20260730.md
-    - golf-booking-failure-20260731.md
-    - golf-booking-gate-1-abort-2026-09-04.md
-    - golf-booking-gate2-failure-20260904.md
-    - golf-booking-midnight-retry-20260801.md
-    - golf-booking-scheduling-update-20260801.md
-    - golf-booking-success-20260801.md
-    - golf-booking-success-20260904.md
-    - golf-booking-window-closed-2026-09-05.md
-    - golf-override-2026-07-14.md
-    - golf-preview-2026-07-03.md
-    - golf-preview-2026-07-14.md
-    - golf-preview-2026-07-21.md
-    - golf-preview-2026-08-04.md
-    - golf-preview-2026-08-25.md
-    - golf-preview-2026-09-09.md
-    - morning-briefing-2026-08-27-163900.md
-    - plaud-discover-2026-09-03.md
-    - remarkable-upload-2026-07-23-improve-eval.md
-    - rigby-boot-eval-consolidation-2026-08-28.md
-    - rigby-boot-eval-cowork-phantom-2026-08-28.md
-    - rigby-plaud-discover-fix-2026-08-28.md
-    - sc-executive-brief-2026-07-13.md
-    - slack-notification-golf-booking-20260801.txt
-    - solace-meeting-prep-2026-07-27.md
-    - omnifocus-tasks-2026-09-16.md
-    - teams-transcripts-2026-09-16.md
-    - golf-booking-2026-09-18-deferred.md
-    - golf-preview-2026-09-15.md
-    - morning-briefing-2026-09-18-121500.md
-    - omnifocus-data-2026-09-16-223600.md
-    - quinn-strategy-2026-09-17-134800.md
+  deleted_trivial_files: []
+  skipped_not_expired:
+    - dream-summary-2026-09-20.md
+  skipped_unparseable_count: 48
   unparseable_left_untouched_missing_status:
     - knox-plaud-ingest-2026-08-31.md
   new_unparseable_this_cycle: []
-  self_caught_bug_note: "none this cycle -- frontmatter mutated in-place per the corrected pattern from 09-17 (edit existing type/status keys directly rather than appending duplicates), read back clean on all 6 non-trivial files before mv; trivial file's status set then delete verified."
+  self_caught_bug_note: "none this cycle -- all 6 candidates non-trivial (16-31 body lines each), frontmatter mutated in-place, read back yaml-parsed clean before mv on all 6 files. No trivial-deletion path exercised."
 ---
 
 <!-- system:start -->

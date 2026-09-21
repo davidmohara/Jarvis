@@ -26,7 +26,7 @@ related_people:
   - marco-prado
 salience:
   score: 4
-  last-promoted-check: 2026-09-20
+  last-promoted-check: 2026-09-21
   promoted: true
 ---
 

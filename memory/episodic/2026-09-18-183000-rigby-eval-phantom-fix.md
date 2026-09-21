@@ -5,8 +5,22 @@ session_id: "rigby-2026-09-18-183000"
 agent-source: rigby
 created: 2026-09-18T18:30:00-05:00
 expires: 2026-09-20T18:30:00-05:00
-status: active
+status: archived
 context: "Rigby capability build: phantom eval-record prevention — 2026-09-18"
+type: working-archive
+date: 2026-09-18
+source_file: memory/working/2026-09-18-183000-rigby-eval-phantom-fix.md
+tags:
+  - capability-build
+  - rigby
+  - eval-harness
+  - phantom-fix
+  - git-issues
+related_people:
+  []
+salience:
+  score: 0
+  last-promoted-check: 2026-09-21
 ---
 
 ## What was requested

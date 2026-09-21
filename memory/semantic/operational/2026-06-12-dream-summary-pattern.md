@@ -3,7 +3,7 @@ type: semantic
 domain: operational
 primary-tag: dream-summary
 created: 2026-06-12
-last-updated: 2026-09-19
+last-updated: 2026-09-21
 confidence: high
 synthesized-from: 30
   - dream-summary-2026-09-16.md
@@ -121,6 +121,8 @@ synthesized-from:
   - memory/episodic/dream-summary-2026-09-13.md
   - memory/episodic/dream-summary-2026-09-15.md
   - memory/episodic/dream-summary-2026-09-17.md
+  - memory/episodic/dream-summary-2026-09-18-080600.md
+  - memory/episodic/dream-summary-2026-09-19.md
 ---
 # Pattern: Dream Summary
 
@@ -457,3 +459,9 @@ Sources this cycle:
 - `memory/episodic/dream-summary-2026-09-17.md` (score 10) — the lone dream-summary archive candidate this cycle. Its substantive content: a real pre-existing bug found and logged the prior cycle (`systems/error-tracking/error-log.json` stale/corrupted, `err-20260917T080756-YTMOLT`, since re-verified resolved), and confirmation that South Texas's 90-Day forecast (74%) was still a repeated cached figure rather than a fresh deterioration as of that cycle's writing.
 
 Re-checked the delegation tracker directly again this cycle: `delegations/tracker.md` still shows one active delegation (Steve Hall follow-up to Derek Nwamadi, due 2026-09-25) — the 18+ consecutive-cycle empty streak stays broken, first flagged 09-18, unchanged since. Q3 rocks status remains outside dream-cycle's normal scope and was not independently re-verified — `memory/personal/quarterly-objectives.md` still shows `last-updated: 2026-07-30`, unchanged. Error-pattern check: 6 distinct qualifying 30-day categories, same set as every recent cycle (assumption-error/wrong-assumption:9, process-skip/protocol-skip:8, tool-misuse/protocol-skip:7, tool-misuse/pattern-mismatch:5, tool-misuse/tool-ignorance:3, missed-context/lazy-search:3), all re-verified present and active in LESSONS.md at the same line numbers as every prior cycle's check, none appended. South Texas's 90-Day forecast deterioration remains un-re-pulled by dream-cycle itself — the 09-17 revenue-tracker snapshot that landed in working memory two cycles ago still hasn't expired into episodic (`expires: 2026-09-19`, will surface next cycle); still worth a direct live pull whenever revenue-tracker next runs.
+
+### 2026-09-21 — Nightly promotion
+
+Sources this cycle: `memory/episodic/dream-summary-2026-09-18-080600.md` (score 10) and `memory/episodic/dream-summary-2026-09-19.md` (score 10) — both held back one extra cycle each by the same-calendar-day expiry rule, landing together tonight. The 09-18 source's one substantive finding: a first-seen host-git blocker (an unaccepted Xcode license agreement hard-blocking the system `git` binary with no non-interactive workaround) on that night's session-wrap cluster, distinct from the sandbox `index.lock` failure mode this system has tracked since 06-13. The 09-19 source repeats the now-familiar two-item watch list with no new movement of its own.
+
+Re-checked the delegation tracker directly again this cycle: `delegations/tracker.md` still shows the same one active delegation (Steve Hall follow-up to Derek Nwamadi, due 2026-09-25) — unchanged since first appearing 09-18. Q3 rocks status remains outside dream-cycle's normal scope and was not independently re-verified — `memory/personal/quarterly-objectives.md` still shows `last-updated: 2026-07-30`, unchanged. Error-pattern check: 4 distinct qualifying 30-day categories this cycle, down from 5 on 09-20 — `missed-context/lazy-search` aged out of the 30-day window (early-window entries rolled off, an expected drift not a new problem). The remaining 4 (assumption-error/wrong-assumption, process-skip/protocol-skip, tool-misuse/protocol-skip, tool-misuse/pattern-mismatch) were re-verified directly against LESSONS.md via grep of Category:/Failure mode: line pairs at the same line numbers as every prior cycle's check (L249-250, L153-154, L444-445, L452-453) — all confirmed present and active, none appended. South Texas's 90-Day forecast remains at its confirmed-stable 74% reading from the 09-20 live pull — no fresher data available this cycle, not a new carry-forward gap.

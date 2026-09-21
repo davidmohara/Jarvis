@@ -5,8 +5,24 @@ session_id: "chief-2026-09-18-180509"
 agent-source: chief
 created: 2026-09-18T18:05:09-05:00
 expires: 2026-09-20T18:05:09-05:00
-status: active
+status: archived
 context: "Chief daily review for 2026-09-18 (retreat day 1, Houston) — written during day wrap-up"
+type: working-archive
+date: 2026-09-18
+source_file: memory/working/2026-09-18-180509-chief-daily-review.md
+tags:
+  - daily-review
+  - chief
+  - retreat
+  - gehc
+  - quarterly-rocks
+  - delegation
+related_people:
+  - diana-stevens
+  - derek-nwamadi
+salience:
+  score: 2
+  last-promoted-check: 2026-09-21
 ---
 
 ## What ran

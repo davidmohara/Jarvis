@@ -16,7 +16,7 @@ related_people: null
 date: 2026-06-18
 salience:
   score: 0
-  last-promoted-check: 2026-09-20
+  last-promoted-check: 2026-09-21
   promoted: true
 ---
 

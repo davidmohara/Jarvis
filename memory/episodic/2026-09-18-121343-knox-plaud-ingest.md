@@ -5,8 +5,26 @@ session_id: "knox-2026-09-18-121343"
 agent-source: knox
 created: 2026-09-18T12:13:43-05:00
 expires: 2026-09-20T12:13:43-05:00
-status: active
+status: archived
 context: "Knox plaud-ingest (session pi-20260918-001) — 2026-09-18"
+type: working-archive
+date: 2026-09-18
+source_file: memory/working/2026-09-18-121343-knox-plaud-ingest.md
+tags:
+  - plaud-ingest
+  - knox
+  - plaud
+  - travel
+  - gehc
+  - houston
+related_people:
+  - alice-mburu
+  - vladimir-avila
+  - mike-braunstein
+salience:
+  score: 5
+  last-promoted-check: 2026-09-21
+  promoted: true
 ---
 
 ## What ran

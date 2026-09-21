@@ -3,7 +3,7 @@ type: semantic
 domain: operational
 primary-tag: plaud
 created: 2026-06-12
-last-updated: 2026-09-19
+last-updated: 2026-09-21
 confidence: medium
 synthesized-from: 3
 tags:
@@ -15,6 +15,8 @@ synthesized-from:
   - memory/episodic/plaud-ingest-2026-06-04-013000.md
   - memory/episodic/plaud-discover-2026-09-16.md
   - memory/episodic/plaud-ingest-2026-09-16-092409.md
+  - memory/episodic/plaud-ingest-2026-09-18-165915.md
+  - memory/episodic/2026-09-18-121343-knox-plaud-ingest.md
 ---
 # Pattern: Plaud
 
@@ -47,3 +49,9 @@ Cluster of 1 entries sharing tag `plaud`. Recurrence indicates this is a stable 
 Sources this cycle: `memory/episodic/plaud-discover-2026-09-16.md` (score 3) and `memory/episodic/plaud-ingest-2026-09-16-092409.md` (score 3) — paired discover/ingest runs from the same session (pi-20260916-001). Both report the same outcome: 0 new recordings, exact bijection between the 137-recording Plaud API set and the 137 unique `file_id`s in the `zzPlaud/` vault scan, both gates passed, dedup ledger of 269 entries written. Two pre-existing hygiene flags carried (not caused by this run, not acted on): 30 `file_id`s each mapping to two vault notes (174 file_id-bearing notes for 137 recordings, from stale root-level copies), and 132 already-ingested staged files that should be archived or deleted to stop inflating future staging scans.
 
 No new information beyond confirming this is a stable no-op outcome mode — the Plaud pipeline is healthy and current, not stalled. The staging-cleanup flag has now appeared without action across multiple cycles; worth a one-time Knox cleanup pass rather than continuing to carry it as a nightly note.
+
+### 2026-09-21 — Nightly promotion
+
+Sources this cycle: `memory/episodic/plaud-ingest-2026-09-18-165915.md` (score 8) and `memory/episodic/2026-09-18-121343-knox-plaud-ingest.md` (score 5) — a paired chief/Knox report of the same session (pi-20260918-001), a new recording ("AI Project Architecture and Data Routing," David + Vladimir Avila, impromptu GEHC-routing call during Houston travel) auto-resolved by Plaud's registered voice profiles with zero generic speaker labels. Both files agree on outcome: 1 new recording ingested, 2 David-owned Monday action items created (Mike Braunstein self-tuning-routing question; DICOM destination fan-out confirmation), 1 unassigned share-link task for Alice Mburu. This is a real-ingest cycle, not the recent string of no-op discover/ingest pairs — a different mode of the same stable pattern.
+
+Both sources independently flag the same pre-existing hygiene issue carried without action for several cycles now: the deterministic grader repeatedly binding to a stale prior-day eval record (signal-hook timing), plus a step-05b spec-conflict note (09-17's Owner=Alice assignment vs. current Gate 6's unassigned requirement — today's run correctly followed the current spec). Confidence held at medium — two more real-ingest evidence points, not yet enough distinct incident types to escalate to high.

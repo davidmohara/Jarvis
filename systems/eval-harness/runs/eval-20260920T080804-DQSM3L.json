@@ -54,8 +54,16 @@
     "mechanical": {
       "completed": null,
       "all_steps_finished": true,
-      "tool_failures": 0,
-      "error_ids": []
+      "tool_failures": 1,
+      "error_ids": [],
+      "tool_failure_log": [
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\nTraceback (most recent call last):\n  File \"<stdin>\", line 28, in <module>\nTypeError: can't compare offset-naive and offset-aware datetimes",
+          "duration_ms": 86,
+          "timestamp": "2026-09-21T08:05:50.166192"
+        }
+      ]
     },
     "structural": {
       "expected_outputs_written": null,
@@ -97,6 +105,14 @@
       "reason": "4 promoted entries (scores 6-10), all correctly excluded from compression via promoted:true and score>=2; volume normal; both semantic writes substantive dated narrative appends with real figures, not stubs",
       "escalated_to_human": false,
       "timestamp": "2026-09-20T08:08:17.424839+00:00"
+    },
+    {
+      "name": "pre-deletion-review",
+      "after_step": "step-03-semantic-promotion",
+      "result": "pass",
+      "reason": "4 promoted entries this cycle (dream-summary-2026-09-18-080600.md score 10, dream-summary-2026-09-19.md score 10, plaud-ingest-2026-09-18-165915.md score 8, 2026-09-18-121343-knox-plaud-ingest.md score 5), all correctly set promoted:true, none will appear in step-04's candidate set; volume (4) normal; both semantic writes were substantive dated narrative appends, not stubs.",
+      "escalated_to_human": false,
+      "timestamp": "2026-09-21T08:07:15.137291+00:00"
     }
   ]
 }

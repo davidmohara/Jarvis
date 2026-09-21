@@ -1,12 +1,78 @@
 workflow: dream-cycle
 agent: jarvis
 status: complete
-session-started: 2026-09-20T08:02:53Z
-session-id: dream-cycle-2026-09-20-080253
+session-started: 2026-09-21T08:02:23Z
+session-id: dream-cycle-2026-09-21-080223
 current-step: null
 original-request: "Execute dream-cycle workflow for today (scheduled task)"
-last-successful-run: 2026-09-20T08:30:00Z
+last-successful-run: 2026-09-21T08:10:00Z
 accumulated-context:
+  step-01-2026-09-21:
+    working_archived: 6
+    working_deleted: 0
+    working_skipped: 50
+    working_stranded: 0
+    skipped_not_expired:
+      - dream-summary-2026-09-20.md
+    skipped_unparseable_count: 48
+    unparseable_left_untouched_missing_status:
+      - knox-plaud-ingest-2026-08-31.md
+    archived_files:
+      - 2026-09-18-121343-knox-plaud-ingest.md
+      - 2026-09-18-180509-chief-daily-review.md
+      - 2026-09-18-183000-rigby-eval-phantom-fix.md
+      - dream-summary-2026-09-18-080600.md
+      - dream-summary-2026-09-19.md
+      - plaud-ingest-2026-09-18-165915.md
+    deleted_trivial_files: []
+    enrichment_method: "manual enrichment by the executing session (no nested claude -p subprocess call, no Desktop Commander -- consistent with every prior cloud-sandbox cycle); tags/related_people derived directly from each file's body content rather than via backfill-episodic-tags.py's vocab matcher, read back and yaml-parsed clean on all 6 files before mv"
+    stranded: []
+    self_caught_bug_note: "none this cycle -- all 6 candidates were non-trivial (16-31 body lines each), no trivial-deletion path exercised."
+  step-02-2026-09-21:
+    episodic_scanned: 337
+    score_updates: 337
+    window_entries: 59
+    no_date: 37
+    no_tags: 197
+    score_distribution: "0:206,1:4,2:5,3:11,4:4,5:4,6:10,7:8,8:12,9:2,10:71"
+    read_errors: 0
+    write_errors: 0
+    guardrail_3_distribution_check: "pass (pct_score_0=61.13%, below 70% escalation threshold; pct_score_10=71>0, no escalation)"
+    guardrail_4_metadata_check: "pct_no_date=10.98% (37/337) still crosses the >10% threshold -- same legacy undated population as every prior cycle, no new undated entries this cycle (episodic_scanned rose 331->337, fully explained by today's 6 step-01 archives). pct_no_tags=58.46% (197/337) stays in the 30-70% warning band, same underlying population, not a new problem."
+    frontmatter_corruption_scan: "0 instances of duplicate salience: or promoted: blocks across all 338 scanned episodic files, consistent with every cycle since the 09-01 fix (commit bb2de90)."
+  step-03-2026-09-21:
+    candidates_count: 4
+    clusters_found: 2
+    semantic_created: 0
+    semantic_updated: 2
+    promoted_entries: 4
+    promotion_note: "4 candidates this cycle (all today's own step-01 archives; the other 2 archives from today -- 2026-09-18-180509-chief-daily-review.md and 2026-09-18-183000-rigby-eval-phantom-fix.md -- scored below the 3-point threshold and did not qualify). 2 clusters: dream-summary-2026-09-18-080600.md (score 10) + dream-summary-2026-09-19.md (score 10, 4 shared tags) appended together to dream-summary-pattern.md (operational/2026-06-12); plaud-ingest-2026-09-18-165915.md (score 8) + 2026-09-18-121343-knox-plaud-ingest.md (score 5, paired chief/knox report of session pi-20260918-001, 4 shared tags) appended together to plaud-pattern.md (operational/2026-06-12). Delegation tracker re-check: still ONE active delegation (Steve Hall/Derek Nwamadi, due 2026-09-25) -- unchanged since 09-18. Q3 rocks re-check: quarterly-objectives.md still 'Q3 draft -- pending David's review, not yet finalized', unchanged since 07-30."
+    cluster_actions:
+      - {tag: dream-summary, domain: operational, size: 2, action: update, target: memory/semantic/operational/2026-06-12-dream-summary-pattern.md, confidence: "high (unchanged, at ceiling)"}
+      - {tag: plaud, domain: operational, size: 2, action: update, target: memory/semantic/operational/2026-06-12-plaud-pattern.md, confidence: "medium (unchanged)"}
+    error_categories_30d: "assumption-error/wrong-assumption:10, process-skip/protocol-skip:7, tool-misuse/protocol-skip:6, tool-misuse/pattern-mismatch:5"
+    error_total_30d: 434
+    error_malformed_30d: 0
+    lessons_appended: 0
+    lessons_note: "4 distinct qualifying categories this cycle, down from 5 on 09-20 -- missed-context/lazy-search aged out of the 30-day window (expected drift, not a new problem). All 4 re-verified present and active in LESSONS.md at unchanged line numbers (assumption-error/wrong-assumption L249-250; process-skip/protocol-skip L153-154; tool-misuse/protocol-skip L444-445; tool-misuse/pattern-mismatch L452-453). No new entry appended. No self-detected errors this cycle."
+  step-03b-2026-09-21:
+    result: pass
+    reason: "4 promoted entries this cycle (dream-summary-2026-09-18-080600.md score 10, dream-summary-2026-09-19.md score 10, plaud-ingest-2026-09-18-165915.md score 8, 2026-09-18-121343-knox-plaud-ingest.md score 5), all correctly set promoted:true, none will appear in step-04's candidate set; volume (4) normal; both semantic writes were substantive dated narrative appends, not stubs."
+    eval_record: eval-20260921T080731-93RHHG
+  step-04-2026-09-21:
+    candidates_count: 1
+    entries_compressed: 0
+    digests_updated: 0
+    compression_skipped: true
+    compression_skip_reason: "1 compression candidate this cycle (2026-06-19-session.md: date 2026-06-19 < cutoff 2026-06-23, salience.score 0, promoted false), well below the 5-entry safety threshold -- skipped, nothing modified. GUARDRAIL 7 approval gate not reached."
+  step-05-2026-09-21:
+    dream_log_appended: true
+    working_summary_written: true
+    working_summary_reason: "semantic_updated=2 > 0 triggers the mandatory working-summary write per Phase B. Content leads with the 6-file archival, then the 2 semantic-pattern updates, then flags the two unchanged carry-forward items (delegation tracker, Q3 rocks)."
+    error_logged: "none this cycle -- a trivial self-caught TypeError (offset-naive vs. offset-aware datetime comparison) in an ad-hoc error-category-count script during step-03 Phase B, fixed in the very next command before any output was produced from it -- not a process/data bug worth a systems/error-tracking entry, consistent with how prior cycles have handled similarly trivial immediately-corrected scripting mistakes."
+    eval_record: "eval-20260921T080731-93RHHG -- created fresh at run start, set name/agent/session_id on it before any record-step.py calls, backfilled steps 01-05 cleanly, guardrail checkpoint attached correctly on first attempt. close-eval-record.py does not update this record in place -- it creates a separate canonical closed record (eval-20260921T080955-KR653Y, status:success) instead, per every prior cycle's precedent; the original stays in-progress as a phantom record, left as-is. Self-detected (not self-caused): the background tool-failure hook and a duplicate guardrail-checkpoint.py write both bound to yesterday's stale record (eval-20260920T080804-DQSM3L) instead of today's -- the same 'grader binds to stale prior-day eval records' signal-hook-timing issue this system has flagged repeatedly (Knox 09-18, Chief 09-18); left as-is per every prior cycle's precedent of not hand-editing hook-generated duplicates, Rigby's domain to fix at the source."
+    git_commit: pending
+    git_push: pending
   step-01-2026-09-20:
     working_archived: 6
     working_deleted: 1
