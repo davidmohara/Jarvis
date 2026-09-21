@@ -1,17 +1,24 @@
 ---
 status: complete
-started-at: "2026-09-19T14:00:00Z"
-completed-at: "2026-09-19T19:13:00Z"
+started-at: "2026-09-21T06:00:00Z"
+completed-at: "2026-09-21T11:14:27Z"
 outputs:
-  messages_scanned: 1
-  new_urls: 1
+  messages_scanned: 2
+  new_urls: 0
   new_digests: 0
-  posts_drafted: 1
-  gate_1_result: "PASS — ok: true, 1 message returned via 24h window, channel C0B160MA3EK confirmed"
-  gate_2_result: "PASS — Hook/Story/Insight/Challenge present, no em-dashes, voice original, tags valid, image landscape, internal link inserted"
-  editorial_threads_checked: 0
-  editorial_feedback_found: 0
-  editorial_edits_applied: 0
+  posts_drafted: 0
+  gate_1_result: "PASS — ok: true, 2 messages returned via 48h window (24h returned 0 with warning), channel C0B160MA3EK confirmed"
+  gate_2_result: "n/a — no new content drafted; editorial edit applied to existing draft"
+  editorial_threads_checked: 1
+  editorial_feedback_found: 1
+  editorial_edits_applied: 1
+  notes: |
+    24h window returned 0 with retry warning. 48h window returned 2 messages.
+    Bot message ts 1789845194.961229 — Jarvis draft notification, SKIP (bot, no digest signal).
+    User message ts 1789831257.011929 — source URL already in pending-drafts as 'Agent Anxiety'. SKIP new draft (dedup).
+    Message contains editorial instruction: expand to longer post, add links to prior posts on boredom/capacity/slack.
+    Applied: full expansion from ~620 to ~850 words. Added Interstitial Spaces, Find What You Seek, Slack (book) links.
+    Ghost updated successfully (updated_at: 2026-09-21T11:14:27Z). Slack thread reply posted. pending-drafts.json updated.
 model: sonnet
 ghost_post_id: "6aaedeb057f821028a9e9561"
 ---
