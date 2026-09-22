@@ -1,23 +1,21 @@
 ---
 status: completed
-started-at: 2026-09-20T08:12:00Z
-completed-at: 2026-09-20T08:22:00Z
+started-at: 2026-09-22T08:09:00Z
+completed-at: 2026-09-22T08:14:00Z
 outputs:
-  candidates_count: 4
-  clusters_found: 3
+  candidates_count: 1
+  clusters_found: 1
   semantic_created: 0
-  semantic_updated: 3
-  promoted_entries: 4
-  promotion_note: "4 candidates this cycle (all today's own step-01 archives; the other 2 archives from today -- new-clients-2026-09-17-184500.md and plaud-ingest-2026-09-17-113544.md -- scored below the 3-point threshold and did not qualify): co-sell-pipeline-2026-09-17-184500.md (score 10) + pipeline-snapshot-2026-09-17-184500.md (score 7, paired by 3 shared tags) appended to pipeline-review-pattern.md; revenue-tracker-2026-09-17-184500.md (score 7) appended to revenue-tracker-pattern.md; morning-briefing-2026-09-17-111500.md (score 6) appended to briefing-travel-calendar-pattern.md. Independently re-confirmed delegations/tracker.md still shows one active delegation (Steve Hall/Derek Nwamadi, due 2026-09-25) -- unchanged since 09-18."
+  semantic_updated: 1
+  promoted_entries: 1
+  promotion_note: "1 candidate this cycle (today's own step-01 archive, dream-summary-2026-09-20.md, score 10) appended to the existing dream-summary-pattern.md (operational/2026-06-12). Independently re-confirmed delegations/tracker.md still shows one active delegation (Steve Hall/Derek Nwamadi, due 2026-09-25) -- unchanged since 09-18. Q3 rocks re-check: quarterly-objectives.md still 'Q3 draft -- pending David's review, not yet finalized', unchanged since 07-30."
   cluster_actions:
-    - {tag: pipeline-review, domain: operational, size: 2, action: update, target: memory/semantic/operational/2026-06-18-pipeline-review-pattern.md, confidence: "medium (unchanged)"}
-    - {tag: revenue-tracker, domain: operational, size: 1, action: update, target: memory/semantic/operational/2026-06-24-revenue-tracker-pattern.md, confidence: "medium (unchanged)"}
-    - {tag: briefing, domain: operational, size: 1, action: update, target: memory/semantic/operational/2026-04-24-briefing-travel-calendar-pattern.md, confidence: "high (unchanged)"}
-  error_categories_30d: "assumption-error/wrong-assumption:9, process-skip/protocol-skip:7, tool-misuse/protocol-skip:6, tool-misuse/pattern-mismatch:5, missed-context/lazy-search:3"
-  error_total_30d: 429
-  error_malformed_30d_note: "8-10 entries missing category/failure_mode fields across the full 429-entry corpus; not directly comparable to prior cycles' error_malformed_30d figure since rebuild-log.py has no built-in malformed-in-window metric."
+    - {tag: dream-summary, domain: operational, size: 1, action: update, target: memory/semantic/operational/2026-06-12-dream-summary-pattern.md, confidence: "high (unchanged, at ceiling)"}
+  error_categories_30d: "assumption-error/wrong-assumption:10, process-skip/protocol-skip:7, tool-misuse/protocol-skip:6, tool-misuse/pattern-mismatch:5"
+  error_total_30d: 430
+  error_malformed_30d: 10
   lessons_appended: 0
-  lessons_note: "Same 5 qualifying categories as 09-19 minus tool-misuse/tool-ignorance, which aged out of the 30-day window (now 2 occurrences, below threshold). All 5 re-verified present and active in LESSONS.md. No new entry appended. No self-detected errors this cycle."
+  lessons_note: "Same 4 qualifying categories as 09-21, all re-verified present and active in LESSONS.md at the documented line numbers (assumption-error/wrong-assumption L249-250; process-skip/protocol-skip L153-154; tool-misuse/protocol-skip L444-445; tool-misuse/pattern-mismatch L452-453). No new entry appended. No self-detected errors this cycle."
 ---
 
 <!-- system:start -->

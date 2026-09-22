@@ -1,28 +1,23 @@
 ---
 status: completed
-started-at: 2026-09-21T08:02:23Z
-completed-at: 2026-09-21T08:10:00Z
+started-at: 2026-09-22T08:02:00Z
+completed-at: 2026-09-22T08:06:00Z
 outputs:
-  working_archived: 6
+  working_archived: 1
   working_deleted: 0
-  working_skipped: 50
+  working_skipped: 49
   working_stranded: 0
-  enrichment_method: "manual enrichment by the executing session (no nested claude -p subprocess call, no Desktop Commander -- consistent with every prior cloud-sandbox cycle); tags/related_people derived directly from each file's body content"
+  enrichment_method: "manual enrichment by the executing session via systems/dream-cycle/backfill-episodic-tags.py heuristic functions imported directly (no nested claude -p subprocess call, no Desktop Commander -- consistent with every prior cloud-sandbox cycle since 09-08)"
   archived_files:
-    - 2026-09-18-121343-knox-plaud-ingest.md
-    - 2026-09-18-180509-chief-daily-review.md
-    - 2026-09-18-183000-rigby-eval-phantom-fix.md
-    - dream-summary-2026-09-18-080600.md
-    - dream-summary-2026-09-19.md
-    - plaud-ingest-2026-09-18-165915.md
+    - dream-summary-2026-09-20.md
   deleted_trivial_files: []
   skipped_not_expired:
-    - dream-summary-2026-09-20.md
-  skipped_unparseable_count: 48
+    - dream-summary-2026-09-21.md
+  skipped_unparseable_count: 47
   unparseable_left_untouched_missing_status:
     - knox-plaud-ingest-2026-08-31.md
   new_unparseable_this_cycle: []
-  self_caught_bug_note: "none this cycle -- all 6 candidates non-trivial (16-31 body lines each), frontmatter mutated in-place, read back yaml-parsed clean before mv on all 6 files. No trivial-deletion path exercised."
+  self_caught_bug_note: "none this cycle -- the single candidate (dream-summary-2026-09-20.md, 14 body lines, non-trivial) was enriched, read back yaml-parsed clean, then moved via mv. Only 1 candidate this cycle vs. 6 on 09-21: dream-summary-2026-09-21.md carries the same expires-equals-today hold-back rule and lands next cycle."
 ---
 
 <!-- system:start -->

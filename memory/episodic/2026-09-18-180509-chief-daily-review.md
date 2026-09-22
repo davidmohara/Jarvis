@@ -22,7 +22,7 @@ related_people:
   - derek-nwamadi
 salience:
   score: 2
-  last-promoted-check: 2026-09-21
+  last-promoted-check: 2026-09-22
 ---
 
 ## What ran

@@ -20,7 +20,7 @@ related_people:
   []
 salience:
   score: 0
-  last-promoted-check: 2026-09-21
+  last-promoted-check: 2026-09-22
 ---
 
 ## What was requested
