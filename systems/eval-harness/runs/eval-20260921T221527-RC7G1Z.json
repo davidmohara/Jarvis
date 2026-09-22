@@ -1,0 +1,61 @@
+{
+  "id": "eval-20260921T221527-RC7G1Z",
+  "agent_id": "ae3d7f2c83bc8679d",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "general-purpose",
+  "session_id": "0239510f-ae24-42de-bacf-6da99a1adf83",
+  "trigger": "unknown",
+  "started": "2026-09-21T22:15:27.560117Z",
+  "completed": "2026-09-21T22:24:41.535642Z",
+  "duration_seconds": 553.98,
+  "status": "partial",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 2,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/0239510f-ae24-42de-bacf-6da99a1adf83/subagents/agent-ae3d7f2c83bc8679d.jsonl",
+  "last_assistant_message": "Research complete. Note on method: the WebSearch/WebFetch tools were not actually available in my toolset (ToolSearch returned no such tools), so I ran ~25 distinct queries/fetches via curl plus the Playwright browser against DuckDuckGo, Brave, Bing, and Google, and fetched source pages directly. Findings below; every claim is attributed.\n\n## Disambiguation anchor\nThe Goosehead/DFW Craig Darling is confirmed as: LinkedIn **linkedin.com/in/craigsdarling**, headline \"Master uncertainty for unfettered happiness,\" located **Roanoke, Texas**, associated with **Goosehead Insurance** and **University of Maine** \u2014 this triple-match is consistent across Google's LinkedIn knowledge panel, the LinkedIn public profile itself, and ZoomInfo/RocketReach directory listings. His work email is c***@goosehead.com (matches craig.darling@goosehead.com).\n\n## 1. Current role/title\n- **Chief Information Security Officer (CISO), Goosehead Insurance** \u2014 CONFIRMED (multiple independent sources):\n  - ZoomInfo person page title: \"Contact Craig Darling, Email: c***@goosehead.com & Phone Number | Chief Information Security Officer at GooseHead Insurance\" \u2014 https://www.zoominfo.com/p/Craig-Darling/1304853638\n  - ZoomInfo Goosehead company page: \"Craig Darling has recently been promoted from Cyber Security Architect to the role of Chief Information Security Officer\" \u2014 https://www.zoominfo.com/c/goosehead-insurance-agency-llc/103727195\n  - Datanyze: \"Craig Darling works as a Chief Information Security Officer at GooseHead Insurance\" \u2014 https://www.datanyze.com (GooseHead Insurance company profile)\n  - ISMG Cyber Resilience Summit Dallas 2026 speaker listing: \"Craig Darling, CISO, Goosehead Insurance Agency\" \u2014 https://ismg.events/summit/summitpast/cyber-resilience-summit-dallas-2026/\n  - APEX Assembly LinkedIn post: \"welcoming Craig Darling, CISO, Goosehead Insurance, as a featured speaker at the National Transformation Assembly ... Dallas ... April 15\" \u2014 https://www.linkedin.com/posts/apexassembly_technology-whereleadersassemble-technologyevents-activity-7449803697263378432-tusJ\n- Earlier title **Cyber Security Architect, Goosehead** (2025) \u2014 CONFIRMED via ZoomInfo work-history block and multiple 2025 LinkedIn interview posts (he was still \"Cybersecurity Architect\" as of Nov 2025, then promoted).\n- Goosehead HQ: 1500 Solana Blvd, Westlake, TX 76262 \u2014 CONFIRMED (ZoomInfo company block). He is not listed on Goosehead's public site (site:goosehead.com returned zero results).\n\n## 2. Career background\nSource: ZoomInfo work-history block (https://www.zoominfo.com/p/Craig-Darling/1304853638) \u2014 treat employer detail as **LIKELY** (aggregator data; note internal inconsistencies in dates):\n- **Microsoft** \u2014 Principal Product Manager (2023\u20132025); summary says he also held \"Security Service Engineer, Program Manager, and Cloud Solution Architect\" roles; \"participated in the Azure Synapse Quest Program.\" (LIKELY)\n- **RIMA Systems** \u2014 Chief Technology Officer (2025\u2013 ); LinkedIn shows \"RIMA Systems. Jan 2025 - Present.\" (LIKELY)\n- **Unum** \u2014 enterprise architecture consultant / workflow engineer. (LIKELY)\n- Prior email domains on file: @microsoft.com and @hms.com (Datanyze) \u2014 corroborates a Microsoft tenure and possibly an HMS role. (LIKELY)\n- **Education: University of Maine** \u2014 CONFIRMED as his school (LinkedIn profile header + ZoomInfo + Datanyze \"Where did Craig Darling go to college? ... University of Maine\"). LinkedIn shows the education entry dated **1992\u20131994** (masked), implying he is likely early-50s. (CONFIRMED school; dates LIKELY)\n- **Microsoft-certified**: LinkedIn Licenses & Certifications include Azure Solutions Architect Expert (2020), Azure AI Engineer Associate, Azure Data Engineer Associate, Azure Database Administrator Associate, Microsoft Global Challenger, multiple OpenHack credentials. Recommendation from Michael McNelis cites \"one of our most difficult Microsoft Technical Training programs.\" \u2014 CONFIRMED (LinkedIn profile)\n- **IDEXX network analyst** (Maine) \u2014 a 2001-era Network World article references \"Craig Darling, the company's network analyst\" at Idexx (https://archive.org stream \"networkworld1715unse_djvu\"). Same name + Maine/University-of-Maine fit, so suggestive but **UNCONFIRMED**.\n\n## 3. LinkedIn\n- **https://www.linkedin.com/in/craigsdarling** \u2014 CONFIRMED. Public profile loaded: \"Craig Darling \u2014 Roanoke, Texas, United States \u2014 849 followers \u2014 500+ connections \u2014 Goosehead Insurance \u2014 University of Maine.\" About: \"I've worked in the IT space for 20+ years performing systems architecture, application architecture, and enterprise architecture work...\" Google knowledge panel confirms same profile (843\u2013849 followers, Goosehead Insurance, University of Maine, Roanoke, TX).\n- Other LinkedIn \"Craig Darling\" profiles to EXCLUDE (not him): Acrisure Re / Guy Carpenter (craig-darling-6ab67821a), Natera oncology sales (craig-darling-19196), Baird Green Bay WI, Gilson Gray (Scotland), gracespring church (ex-Minnesota Vikings), Rhino Staging, etc.\n\n## 4. Public info (articles, talks, webinars, board seats)\n- **ISMG Cyber Resilience Summit Dallas 2026** (June 2026) \u2014 panelist: \"Craig Darling, CISO, Goosehead Insurance Agency,\" session 3:40\u20134:20 pm, \"Panel Discussion: Security vs Resilience: Are We Focusing on the Wrong Thing?\" \u2014 https://ismg.events/summit/summitpast/cyber-resilience-summit-dallas-2026/\n- **BankInfoSecurity** coverage of that summit: \"Codling joined Craig Darling of Goosehead Insurance Agency to discuss integrating security into cloud and AI initiatives from the outset.\" \u2014 https://www.bankinfosecurity.com/cyber-resilience-summit-dallas-prioritizes-risk-management-a-31983 (fetched and verified the quote)\n- **CyberEd.io on-demand session** (ISMG): \"Don Codling and Craig Darling examine security-by-design principles for AI, cloud and enterprise architecture, covering governance, compliance, identity...\" \u2014 https://cyberedio.matrixlms.com (Security Insights Library)\n- **APEX Assembly / National Transformation Assembly, Dallas** \u2014 featured speaker (CISO, Goosehead). \u2014 https://www.linkedin.com/posts/apexassembly_technology-whereleadersassemble-technologyevents-activity-7449803697263378432-tusJ ; also appears in an APEX membership speaker list (activity-7448376771751632896)\n- **North Texas ISSA Golf Championship interview** (Foresite Cybersecurity video series \"Why Is Your SIEM Still Broken?\", Nov 17, 2025) \u2014 interviewed on camera about SIEM; transcript: \"Hi Craig with Goosehead insurance ... North Texas ISSA golf tournament ... good luck with the rest of tournament ... hit the air cannon.\" \u2014 https://www.linkedin.com/posts/abhegani_siem-googlesecops-cybersecurity-activity-7396214110893486080-WV2s (fetched, transcript verified). A near-duplicate post by Tracy Fox: https://www.linkedin.com/posts/tracylfox_getting-too...\n- **Board of Directors, Level-Up for a Cure** (501(c)(3) nonprofit, Trophy Club/Roanoke, DFW) \u2014 CONFIRMED via his own LinkedIn post (\"Excited to Join the Board of Directors for Level-Up for a Cure\") and Jesse Pettyjohn's board-announcement post. Org site: https://levelup4cure.org/\n- **Patents: nothing found** (a patent search hit referencing \"Napolitano, Craig; Darling...\" is an unrelated medical-device patent \u2014 UNCONFIRMED/not him).\n- **Press releases / podcasts: nothing found** beyond the above.\n\n## 5. Location\n- **Roanoke, Texas** (Dallas\u2013Fort Worth metroplex) \u2014 CONFIRMED (LinkedIn profile header, RocketReach directory sidebar: \"CISO at Goosehead Insurance, Roanoke, TX, US\"). Employer HQ is Westlake, TX.\n\n## 6. Personal-interest items for golf small talk\n- **Golf: strong, CONFIRMED.** Plays in the **North Texas ISSA Golf Championship** (interviewed on the course), and repeatedly reposts the **Level-Up for a Cure golf tournament** (\"Level Up for a Cure Golf Tournament,\" held at **Cowboys Golf Club, Grapevine, TX**). The 2026 Ryan McPherson Memorial Golf Tournament is Oct 22, 2026, 8:00 AM, Cowboys Golf Club \u2014 https://levelup4cure.org/tournament.html\n- **Charity/community: CONFIRMED.** Board member of Level-Up for a Cure (cancer/leukemia support; funds housing nights near treatment; benefits MD Anderson). In his own words, cancer \"took my father\" and \"the son of one of my dearest friends\" (Ryan McPherson, son of board founder Steve McPherson). Personal and emotional topic \u2014 handle with care.\n- **Family: LIKELY/CONFIRMED from his LinkedIn reposts.** Wife appears to be **Shawni Darling** (runs \"Darling Creative Works,\" fused-glass art workshops in Fort Worth/Lewisville/Keller, TX). A child, **Sage Darling**, posted about earning a master's degree (bioinformatics, Northeastern University's Roux Institute; works at IDEXX) and he shared it \"Proud Dad moment ... Love Dad.\"\n- **Microsoft ties: CONFIRMED and highly relevant.** Microsoft alum (Principal PM and other roles), heavily Microsoft-certified (Azure architect/AI/data), and publicly a Microsoft-cloud advocate. Natural bridge for a Microsoft-hosted event.\n- **Alumni tie: University of Maine** (1992\u20131994). (No active Maine-alumni club activity found.)\n- **Sports teams (Cowboys/Rangers/Mavericks/Stars, college football): nothing found.** Explicit searches returned no personal sports-team affiliation.\n- **Content interests:** cybersecurity (SIEM, cloud-native security, security-by-design for AI/cloud), Microsoft Azure, and cloud/AI architecture \u2014 his public posts are largely cybersecurity commentary and Goosehead tech-hiring reposts.\n\n## Noise to ignore (same-name, not him)\nRecurring search noise attributed to unrelated Craig Darlings: a Philadelphia Chamber-of-Commerce podcast guest (\"TEXT COLLAB to 21000\"), a Bahamas radio guest, Baird wealth advisor (Green Bay, WI), Acrisure/Guy Carpenter reinsurance exec, Natera oncology sales director, Gilson Gray (Scotland) lawyer, and a gracespring church elder/ex-NFL player. Do not attribute any of these to the Goosehead CISO.",
+  "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+  "total_tokens_input": 2157860,
+  "total_tokens_output": 2924,
+  "total_cost_usd": 0.09,
+  "cost_estimation_note": "estimated based on general-purpose workflow type"
+}

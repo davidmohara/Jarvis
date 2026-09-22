@@ -6,9 +6,9 @@
   "session_id": "dream-cycle-2026-09-22-080200",
   "trigger": "manual",
   "started": "2026-09-22T08:02:18.100142Z",
-  "completed": null,
+  "completed": "2026-09-22T18:07:43.990356",
   "duration_seconds": null,
-  "status": "in-progress",
+  "status": "aborted",
   "steps": [
     {
       "name": "step-01-working-memory-cleanup",
@@ -65,9 +65,9 @@
   ],
   "assessment": {
     "mechanical": {
-      "completed": null,
+      "completed": false,
       "all_steps_finished": true,
-      "tool_failures": 1,
+      "tool_failures": 6,
       "error_ids": [],
       "tool_failure_log": [
         {
@@ -75,8 +75,39 @@
           "error": "Exit code 1\nTraceback (most recent call last):\n  File \"<string>\", line 4, in <module>\nModuleNotFoundError: No module named 'backfill_episodic_tags'",
           "duration_ms": 67,
           "timestamp": "2026-09-22T08:02:49.742125"
+        },
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\nRebasing (1/1)\rAuto-merging memory/sessions/harness-session.json\nCONFLICT (content): Merge conflict in memory/sessions/harness-session.json\nAuto-merging memory/sessions/index.json\nCONFLICT (content): Merge conflict in memory/sessions/index.json\nerror: could not apply bb237544... Cleanup\nhint: Resolve all conflicts manually, mark them as resolved with\nhint: \"git add/rm <conflicted_files>\", then run \"git rebase --continue\".\nhint: You can instead skip this commit: run \"git rebase --skip\".\nhint: To abort and get back to the state before \"git rebase\", run \"git rebase --abort\".\nhint: Disable this message with \"git config set advice.mergeConflict false\"\nCould not apply bb237544... # Cleanup",
+          "duration_ms": 827,
+          "timestamp": "2026-09-22T09:58:50.781955"
+        },
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\nYou must edit all merge conflicts and then\nmark them as resolved using git add",
+          "duration_ms": 45,
+          "timestamp": "2026-09-22T10:02:15.315283"
+        },
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\nYou must edit all merge conflicts and then\nmark them as resolved using git add",
+          "duration_ms": 41,
+          "timestamp": "2026-09-22T10:02:41.626274"
+        },
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\nsystems/eval-harness/runs/eval-20260922T080218-3LX8VR.json: needs update",
+          "duration_ms": 47,
+          "timestamp": "2026-09-22T10:04:24.227155"
+        },
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\nYou must edit all merge conflicts and then\nmark them as resolved using git add",
+          "duration_ms": 43,
+          "timestamp": "2026-09-22T10:04:54.712205"
         }
-      ]
+      ],
+      "abort_reason": "session-ended"
     },
     "structural": {
       "expected_outputs_written": null,

@@ -97,6 +97,10 @@ Running list of potential blog topics. Jarvis captures these proactively from co
 | "What Happens to an Expert When AI Knows Everything They Know" | Content pipeline (2026-09-15) | AI, thinking, leadership | Ghost draft — pending approval |
 | "DFW Is Now the AI Talent Market" | Content pipeline (2026-09-15) | business, AI, growth | Ghost draft — pending approval |
 | "You're Modeling Contentment or You're Modeling Desire" | Content pipeline (2026-09-16) | life, thoughts, family | Ghost draft — pending approval. Ghost ID: 6aaae9da57f821028a9e9542 |
+| "The Rate Card Is the Argument" | Watchtower W39 (2026-09-22) [watchtower] | consulting, AI, business, leadership | Draft at `Mind/Posts/_the-rate-card-is-the-argument.md` |
+| "Culture Is the Constraint" | Watchtower W39 (2026-09-22) [watchtower] | leadership, AI, business, org-design | Draft at `Mind/Posts/_culture-is-the-constraint.md` |
+| "The Apprenticeship Just Got Harder" | Watchtower W39 (2026-09-22) [watchtower] | consulting, AI, talent, leadership | Draft at `Mind/Posts/_the-apprenticeship-just-got-harder.md` |
+| "Uniform Governance Is How Agents Die" | Watchtower W39 (2026-09-22) [watchtower] | AI, agentic, business, technology, governance | Draft at `Mind/Posts/_uniform-governance-is-how-agents-die.md` |
 
 ## Published (for reference / avoid repeats)
 

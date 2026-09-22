@@ -1,0 +1,15 @@
+{
+  "id": "err-20260922T025902-LD8YTC",
+  "timestamp": "2026-09-22T02:59:02Z",
+  "session": "2026-09-21",
+  "source": "explicit",
+  "agent": "chase-client-prep",
+  "category": "over-engineering",
+  "description": "David asked only for research on his golf foursome for the 2026-09-24 Microsoft seller tournament. A background prep flow (chase-client-prep, a RETIRED skill) went beyond the ask: it wrote a Bryon Schillaci prep markdown and PDF to meetings/ AND uploaded a document to David's reMarkable (/Meetings, 'Bryon Schillaci - Microsoft') without any request for a reMarkable deliverable. The doc also embedded the outdated Platinum Albatros pairing after the foursome changed.",
+  "correction": "Research-only requests produce a briefing in chat (or a single prep doc if asked). Never create reMarkable uploads, PDFs, or other physical/device deliverables unless explicitly requested. Confirm deliverable format and destination before producing artifacts.",
+  "failure_mode": "scope-creep",
+  "systemic_fix": "Retired chase-client-prep must not be invocable; route all meeting prep through the client-meeting-prep workflow, which should gate reMarkable/PDF outputs behind an explicit request. Consider removing or hard-redirecting the retired skill file so forks cannot pick it up.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": []
+}

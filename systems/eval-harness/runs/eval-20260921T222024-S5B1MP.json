@@ -1,0 +1,136 @@
+{
+  "id": "eval-20260921T222024-S5B1MP",
+  "type": "agent",
+  "name": "client-meeting-prep",
+  "agent": "chase",
+  "session_id": "prep-bryon-schillaci-2026-09-21-1714",
+  "trigger": "manual",
+  "started": "2026-09-21T22:20:24.700210Z",
+  "completed": "2026-09-22T18:07:43.340836",
+  "duration_seconds": null,
+  "status": "aborted",
+  "steps": [
+    {
+      "name": "step-04-build-prep-sheet",
+      "started": "2026-09-21T17:14:01-05:00",
+      "completed": "2026-09-21T17:20:24-0500",
+      "duration_seconds": 383.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "name": "step-05-remarkable-delivery",
+      "started": "2026-09-21T17:19:00-05:00",
+      "completed": "2026-09-21T17:21:34-0500",
+      "duration_seconds": 154.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": false,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": [],
+      "abort_reason": "session-ended"
+    },
+    "structural": {
+      "expected_outputs_written": true,
+      "outputs_non_empty": true,
+      "assertions_checked": 6,
+      "assertions_passed": 6,
+      "assertion_results": [
+        {
+          "assertion": "chase-client-prep-signal-written",
+          "description": "chase-client-prep skill-run signal file was written",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "chase-client-prep-signal-status",
+          "description": "chase-client-prep skill-run did not end in failure",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "chase-client-prep-pdf-exists",
+          "description": "prep sheet PDF was generated in meetings/ (naming convention: {Attendee Name} - {Company}.pdf, no dates/underscores)",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "chase-client-prep-pdf-substantive",
+          "description": "prep sheet PDF is a real rendered document (checked against the most recently written PDF in meetings/, since this skill's naming convention has no skill/date prefix to glob-scope by)",
+          "category": "quality",
+          "passed": true
+        },
+        {
+          "assertion": "chase-client-prep-md-substantive",
+          "description": "prep sheet markdown has real research depth, not a thin stub (most recently written .md in meetings/)",
+          "category": "content",
+          "passed": true
+        },
+        {
+          "assertion": "chase-client-prep-no-banned-phrases",
+          "description": "no em-dashes or placeholder text in the prep sheet markdown (most recently written .md in meetings/)",
+          "category": "quality",
+          "passed": true
+        }
+      ],
+      "category_breakdown": {
+        "structure": {
+          "passed": 3,
+          "checked": 3
+        },
+        "content": {
+          "passed": 1,
+          "checked": 1
+        },
+        "quality": {
+          "passed": 2,
+          "checked": 2
+        }
+      }
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    },
+    "deterministic_gate": {
+      "score": 0.5833,
+      "gate_status": "fail",
+      "computed_at": "2026-09-21T22:21:59.555988Z"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": []
+}

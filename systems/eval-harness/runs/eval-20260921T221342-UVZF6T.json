@@ -1,0 +1,61 @@
+{
+  "id": "eval-20260921T221342-UVZF6T",
+  "agent_id": "a25869a9de16fa253",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "general-purpose",
+  "session_id": "0239510f-ae24-42de-bacf-6da99a1adf83",
+  "trigger": "unknown",
+  "started": "2026-09-21T22:13:42.017491Z",
+  "completed": "2026-09-21T22:22:17.736193Z",
+  "duration_seconds": 515.72,
+  "status": "partial",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 5,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/0239510f-ae24-42de-bacf-6da99a1adf83/subagents/agent-a25869a9de16fa253.jsonl",
+  "last_assistant_message": "Prep complete and delivered. Summary:\n\n**Prep sheet ready for Bryon Schillaci at Microsoft, Thursday Sep 24, 12:00-5:00 PM CDT (box lunch noon, first tee 1:00 PM), Brookhaven Country Club (Masters Course), Farmers Branch, TX.**\n\n**Classification: peer/relationship/referral (partner ecosystem event)** \u2014 the single most important thing going in: this is an informal, seller-organized scramble (explicitly not an official Microsoft event), and Bryon is on a different team (Green Whisperers, with organizer Jean Cadena), so any interaction is incidental. Be a good playing partner and let business surface at the post-round gathering in \"the 55.\" Do not pitch.\n\nKey findings from the evidence trail:\n- **How David got in:** Derek Nwamadi (Improving Sr. AE) invited him by email on 9/10; Improving is co-sponsoring with Aliando for $500 (Longest Drive + Closest to the Pin prizes, split of post-round F&B). Derek is also playing and can broker warm intros.\n- **David's team:** Platinum Albatros with Preston Peten, David Ruggiero, and Tony Dillon (all Microsoft).\n- **Bryon Schillaci:** Business Applications Sales Executive, Midwest at Microsoft (Dynamics 365 / Power Platform), based in Grand Rapids, MI, traveling in. Active LinkedIn poster on D365 Copilot and Power Platform. Unverified but plausible DFW tie via a prior CHRISTUS association (Irving, TX). No prior contact with David exists in email, IES, Clay, or the vault. First touch.\n- **Context:** ~35 attendees, mostly Microsoft sellers plus partner vendors (Improving, Aliando, BlueVoyant, Goosehead). Clay shows 132 Microsoft contacts in David's network; Jonathan Swartz (Director, Azure Sales) is also on the attendee list.\n- **$107/player** paid individually at the pro shop; ClubCorp/Invited members get a reduced rate via Tim Montpas.\n- 4 open items flagged in the sheet (tee-time pairings unpublished, Bryon's patch unknown, CHRISTUS/realtor threads unverified, CRM not checked \u2014 no Dynamics connector active).\n\nDeliverables:\n- Markdown: `/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/meetings/Bryon Schillaci \u2014 Microsoft \u2014 2026-09-24.md`\n- PDF: `/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/meetings/Bryon Schillaci - Microsoft.pdf`\n- reMarkable: uploaded to `/Meetings` as \"Bryon Schillaci - Microsoft\", verified on device.\n\nNotes: Obsidian and OmniFocus MCP servers failed to connect this session; I searched the vault directly on disk instead (no impact). LinkedIn mutual connections could not be pulled (no browser automation in this session) and is marked \"unavailable\" in the sheet.\n\nGrader output (run with explicit eval ID since the record was created under the workflow name):\n\n```\n--- Eval: chase-client-prep (eval-20260921T222024-S5B1MP) ---\nStructure 3/3 passed\nContent   1/1 passed\nQuality   2/2 passed\nDeterministic score: 58%  ->  FAIL (gate >= 70%)\nTier 3 qualitative grade: pending (runs in tonight's end-of-day sweep)\n```\n\nAll six assertions passed; the sub-gate composite reflects missing hook-populated mechanical fields (tokens/cost) from this manual run, not assertion failures.",
+  "model": "accounts/fireworks/models/kimi-k3",
+  "total_tokens_input": 242592,
+  "total_tokens_output": 598,
+  "total_cost_usd": 0.09,
+  "cost_estimation_note": "estimated based on general-purpose workflow type"
+}

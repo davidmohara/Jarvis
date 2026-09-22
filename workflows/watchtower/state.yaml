@@ -1,72 +1,146 @@
 workflow: watchtower
 agent: knox
 status: complete
-session-started: '2026-09-14T12:47:38Z'
-session-completed: '2026-09-14T13:05:00Z'
-session-id: wt-weekly-2026-W38
+session-started: '2026-09-22T07:05:00Z'
+session-completed: '2026-09-22T07:45:00Z'
+session-id: wt-weekly-2026-W39
 current-step: complete
-original-request: watchtower-weekly run (Knox) — scheduled Monday 7am, 2026-09-14
-  (W38)
+original-request: watchtower-weekly run (Knox) — scheduled Monday 7am, 2026-09-22 (W39)
 retirements_today: []
 accumulated-context:
   content_queue: []
   delta_check_applied: true
-  dropped_as_continuing: 2
-  used_fallback: false
-  obsidian_unavailable: false
+  dropped_as_continuing: 1
+  used_fallback: true
+  obsidian_unavailable: true
   weekly_themes:
   - theme_id: 1
-    theme_title: The Activity Trap
-    synthesis: '61% of leaders are under more pressure to prove AI ROI than a year
-      ago, yet only 23% report significant ROI from AI agents. Kyndryl and Gartner
-      both diagnose the same problem: enterprises are measuring activity (usage, deployments,
-      pilots) instead of outcomes (P&L impact, cost-per-outcome). The consulting angle
-      has shifted from "here''s how to build AI" to "here''s how to tie what you built
-      to a number someone owns." New from W37: W37 covered the governance gap and
-      adoption theater; this week''s signal is specifically the ROI accountability
-      squeeze and what value realization actually requires operationally.'
+    theme_title: The Rate Card Is the Argument
+    synthesis: 'Cognizant announced on Sept 16 that outcome-based and fixed-price work
+      now represents 58% of its mix, and published an "AI-infused rate card" framework
+      ranging from A0 (fully human effort) to A3 (autonomous effort). This is not
+      another headline about the consulting pyramid dying — it is the first time a
+      major IT services firm has published a concrete pricing taxonomy for the human-to-AI
+      effort spectrum. Firms that define this vocabulary for their clients own the
+      pricing conversation for the next several years. New this week: W27-W34b covered
+      the theoretical shift; this week gives it a named artifact and live execution
+      data from a named firm.'
     source_items:
-    - 'Why value realization is key to achieving ROI in 2026 — Kyndryl (2026-02)'
-    - 'Accelerate Enterprise AI Value Realization — Gartner CIO Guide (2026)'
-    - 'Enterprise AI in 2026: How Business and IT Co-Create Real ROI — Futransolutions
-      (2026)'
+    - 'Cognizant Pivots to AI-Driven Outcomes, Digital Labor Model — MarketBeat/DefenseWorld
+      (2026-09-16)'
+    - 'AI in PS Delivery: What Works in 2026 — Rocketlane (2026)'
     content_angles:
-    - The Activity Trap
+    - The Rate Card Is the Argument
   - theme_id: 2
-    theme_title: Intuition Rust
-    synthesis: 'CHI 2026 research introduced "intuition rust": the gradual dulling
-      of expert judgment when AI consistently handles the analysis layer, leaving the
-      human to atrophy the cognitive muscle that built their expertise. AIIM''s 2026
-      Industry Watch captured the same effect across information professions globally.
-      This is the professional identity question David''s config pushes toward — what
-      it means to be an expert, a consultant, a leader when AI compresses information
-      asymmetry. Entirely new territory not covered in any prior Watchtower week.'
+    theme_title: Culture Is the Constraint
+    synthesis: "McKinsey's State of Organizations 2026 (10,000+ executives) found
+      88% of organizations are deploying AI but 81% report no bottom-line impact.
+      Organizational culture is nearly twice as predictive of AI value delivery as
+      personal readiness. 86% of leaders say their org was not prepared; only 14%
+      report leaders consistently championing adoption. New this week: W38 diagnosed
+      what is being measured wrong; this week identifies the underlying reason why
+      even organizations that know better still fail to change."
     source_items:
-    - 'AI and identity work: fragmentation of professional identity — ScienceDirect
+    - 'McKinsey The State of Organizations 2026 — McKinsey & Company (2026)'
+    - 'AI Adoption in 2026: How Leaders Must Redesign Their Org Now — Barry O''Reilly
       (2026)'
-    - 'From Future of Work to Future of Workers: Asymptomatic AI Harms — CHI 2026'
-    - 'AIIM 2026 Industry Watch: Work, Skills, and Identity of the Information Professional'
     content_angles:
-    - What Happens to an Expert When AI Knows Everything They Know
+    - Culture Is the Constraint
   - theme_id: 3
-    theme_title: DFW Is Now the AI Talent Market
-    synthesis: 'CBRE''s Scoring Tech Talent 2026 ranked DFW eighth in North America
-      overall with 37,230 net new tech workers added (2022-2025), the second-largest
-      gain of any tracked market. CompTIA put DFW fifth specifically for AI-role hiring.
-      Pudu Robotics relocated its U.S. HQ from Silicon Valley to Richardson. This
-      is a talent story, not an infrastructure story — distinct from the data center
-      and policy coverage that dominated W28-W34b, and directly aligned with config
-      push toward regional business stories beyond Texas infrastructure.'
+    theme_title: The Apprenticeship Just Got Harder
+    synthesis: "PwC's 2026 AI Jobs Barometer (1 billion+ job ads, 27 countries) found
+      a two-track labor market forming: professionalised roles growing at 2x the rate
+      with 42% faster salary growth, and AI-exposed junior U.S. roles now 7x more
+      likely to require advanced human skills. New this week: W38's Intuition Rust
+      covered expert judgment atrophy for existing professionals; PwC's finding specifically
+      targets the pipeline problem — how you build the next generation of consultants
+      when the apprenticeship path no longer exists."
     source_items:
-    - 'Dallas-Fort Worth Ranks Among Top Metros for Tech Talent Growth and AI Hiring
-      — Dallas Innovates (2026-09)'
-    - 'CBRE Scoring Tech Talent 2026 Report'
+    - 'PwC 2026 Global AI Jobs Barometer — PwC (2026)'
     content_angles:
-    - DFW Is Now the AI Talent Market
+    - The Apprenticeship Just Got Harder
+  - theme_id: 4
+    theme_title: Uniform Governance Is How Agents Die
+    synthesis: 'Gartner predicts 40% of enterprises will demote or decommission autonomous
+      AI agents by 2027 due to governance gaps identified after production incidents.
+      Only 14.4% of orgs send agents to production with full security approval. The
+      failure mode is uniform governance applied indiscriminately across all agent
+      actions regardless of risk profile. New this week: W32 covered accountability
+      ownership; W33 covered agent identity; this week covers the governance architecture
+      failure — differentiation by risk profile is the missing piece.'
+    source_items:
+    - 'Gartner Says Applying Uniform Governance Across AI Agents Will Lead to Enterprise
+      AI Agent Failure — Gartner (2026-05-26)'
+    - 'Why Enterprise AI Agents Fail: 2026 Gartner and IDC Data — Beri.net (2026)'
+    content_angles:
+    - Uniform Governance Is How Agents Die
   draft_paths:
-  - Mind/Posts/_the-activity-trap.md
-  - Mind/Posts/_intuition-rust.md
-  - Mind/Posts/_dfw-is-now-the-ai-talent-market.md
-  weekly_tweets: []
-  source_proposals_batch: 14
+  - vault://Mind/Posts/_the-rate-card-is-the-argument.md
+  - vault://Mind/Posts/_culture-is-the-constraint.md
+  - vault://Mind/Posts/_the-apprenticeship-just-got-harder.md
+  - vault://Mind/Posts/_uniform-governance-is-how-agents-die.md
+  weekly_tweets:
+  - text: "Cognizant just published an A0-to-A3 pricing taxonomy for AI-augmented
+      work. A0 = fully human. A3 = autonomous. 58% of their business is now outcome-based.
+      The vocabulary shift is the strategic play, not the billing change."
+    supporting_url: https://www.defenseworld.net/2026/09/18/cognizant-pivots-to-ai-driven-outcomes-digital-labor-model.html
+    intent_url: https://twitter.com/intent/tweet?text=Cognizant%20just%20published%20an%20A0-to-A3%20pricing%20taxonomy%20for%20AI-augmented%20work.%20A0%20%3D%20fully%20human.%20A3%20%3D%20autonomous.%2058%25%20of%20their%20business%20is%20now%20outcome-based.%20The%20vocabulary%20shift%20is%20the%20strategic%20play%2C%20not%20the%20billing%20change.&url=https%3A%2F%2Fwww.defenseworld.net%2F2026%2F09%2F18%2Fcognizant-pivots-to-ai-driven-outcomes-digital-labor-model.html
+    angle_type: data
+  - text: "McKinsey surveyed 10,000 executives. 88% deploying AI. 81% no bottom-line
+      impact. Culture is twice as predictive of success as personal readiness. The
+      technology is not the problem."
+    supporting_url: null
+    intent_url: https://twitter.com/intent/tweet?text=McKinsey%20surveyed%2010%2C000%20executives.%2088%25%20deploying%20AI.%2081%25%20no%20bottom-line%20impact.%20Culture%20is%20twice%20as%20predictive%20of%20success%20as%20personal%20readiness.%20The%20technology%20is%20not%20the%20problem.
+    angle_type: data
+  - text: "PwC analyzed a billion job postings. Junior roles in the U.S. exposed
+      to AI are now 7x more likely to require leadership and creativity. We automated
+      the work that used to teach those skills. Nobody has figured out what replaces
+      it."
+    supporting_url: https://www.pwc.com/gx/en/news-room/press-releases/2026/pwc-2026-ai-jobs-barometer.html
+    intent_url: https://twitter.com/intent/tweet?text=PwC%20analyzed%20a%20billion%20job%20postings.%20Junior%20roles%20in%20the%20U.S.%20exposed%20to%20AI%20are%20now%207x%20more%20likely%20to%20require%20leadership%20and%20creativity.%20We%20automated%20the%20work%20that%20used%20to%20teach%20those%20skills.%20Nobody%20has%20figured%20out%20what%20replaces%20it.&url=https%3A%2F%2Fwww.pwc.com%2Fgx%2Fen%2Fnews-room%2Fpress-releases%2F2026%2Fpwc-2026-ai-jobs-barometer.html
+    angle_type: data
+  - text: "Gartner says 40% of enterprises will decommission their AI agents by 2027.
+      The cause is not that agents made mistakes. It is that every agent action was
+      governed identically, regardless of what it actually did."
+    supporting_url: https://www.gartner.com/en/newsroom/press-releases/2026-05-26-gartner-says-applying-uniform-governance-across-ai-agents-will-lead-to-enterprise-ai-agent-failure
+    intent_url: https://twitter.com/intent/tweet?text=Gartner%20says%2040%25%20of%20enterprises%20will%20decommission%20their%20AI%20agents%20by%202027.%20The%20cause%20is%20not%20that%20agents%20made%20mistakes.%20It%20is%20that%20every%20agent%20action%20was%20governed%20identically%2C%20regardless%20of%20what%20it%20actually%20did.&url=https%3A%2F%2Fwww.gartner.com%2Fen%2Fnewsroom%2Fpress-releases%2F2026-05-26-gartner-says-applying-uniform-governance-across-ai-agents-will-lead-to-enterprise-ai-agent-failure
+    angle_type: data
+  - text: "Only 14% of leaders are consistently championing AI adoption inside their
+      organizations. Every other leader is waiting to see if it sticks. That is the
+      culture gap in one number."
+    supporting_url: null
+    intent_url: https://twitter.com/intent/tweet?text=Only%2014%25%20of%20leaders%20are%20consistently%20championing%20AI%20adoption%20inside%20their%20organizations.%20Every%20other%20leader%20is%20waiting%20to%20see%20if%20it%20sticks.%20That%20is%20the%20culture%20gap%20in%20one%20number.
+    angle_type: provocative
+  - text: "The consulting business model has always sold access to expertise. AI is
+      repricing expertise. The firms that name what their expertise is worth in an
+      AI world will own the conversation. The rest will be explaining themselves."
+    supporting_url: null
+    intent_url: https://twitter.com/intent/tweet?text=The%20consulting%20business%20model%20has%20always%20sold%20access%20to%20expertise.%20AI%20is%20repricing%20expertise.%20The%20firms%20that%20name%20what%20their%20expertise%20is%20worth%20in%20an%20AI%20world%20will%20own%20the%20conversation.%20The%20rest%20will%20be%20explaining%20themselves.
+    angle_type: provocative
+  - text: "How do you develop a first-year consultant when AI does the work a first-year
+      consultant used to do? That is not a hypothetical question. It is the talent
+      pipeline problem of 2026 for every professional services firm."
+    supporting_url: null
+    intent_url: https://twitter.com/intent/tweet?text=How%20do%20you%20develop%20a%20first-year%20consultant%20when%20AI%20does%20the%20work%20a%20first-year%20consultant%20used%20to%20do%3F%20That%20is%20not%20a%20hypothetical%20question.%20It%20is%20the%20talent%20pipeline%20problem%20of%202026%20for%20every%20professional%20services%20firm.
+    angle_type: question
+  - text: "56% of CEOs report zero measurable ROI from AI despite active deployment.
+      Only 1 in 6 organizations has a clear C-Suite owner of AI. You cannot drive
+      what nobody owns."
+    supporting_url: null
+    intent_url: https://twitter.com/intent/tweet?text=56%25%20of%20CEOs%20report%20zero%20measurable%20ROI%20from%20AI%20despite%20active%20deployment.%20Only%201%20in%206%20organizations%20has%20a%20clear%20C-Suite%20owner%20of%20AI.%20You%20cannot%20drive%20what%20nobody%20owns.
+    angle_type: data
+  - text: "The A3 agent that executes autonomously and the A0 task that still needs
+      a human are not interchangeable. Treating them the same in a governance model
+      is how you end up with a pilot that works and a production deployment that gets
+      killed."
+    supporting_url: null
+    intent_url: https://twitter.com/intent/tweet?text=The%20A3%20agent%20that%20executes%20autonomously%20and%20the%20A0%20task%20that%20still%20needs%20a%20human%20are%20not%20interchangeable.%20Treating%20them%20the%20same%20in%20a%20governance%20model%20is%20how%20you%20end%20up%20with%20a%20pilot%20that%20works%20and%20a%20production%20deployment%20that%20gets%20killed.
+    angle_type: practitioner
+  - text: "Professionalised roles are growing twice as fast as democratised ones and
+      paying 42% more. AI is not flattening the labor market. It is sharpening it.
+      The question is which track you are building toward."
+    supporting_url: https://www.pwc.com/gx/en/news-room/press-releases/2026/pwc-2026-ai-jobs-barometer.html
+    intent_url: https://twitter.com/intent/tweet?text=Professionalised%20roles%20are%20growing%20twice%20as%20fast%20as%20democratised%20ones%20and%20paying%2042%25%20more.%20AI%20is%20not%20flattening%20the%20labor%20market.%20It%20is%20sharpening%20it.%20The%20question%20is%20which%20track%20you%20are%20building%20toward.&url=https%3A%2F%2Fwww.pwc.com%2Fgx%2Fen%2Fnews-room%2Fpress-releases%2F2026%2Fpwc-2026-ai-jobs-barometer.html
+    angle_type: question
+  source_proposals_batch: 15
   source_proposals_count: 5

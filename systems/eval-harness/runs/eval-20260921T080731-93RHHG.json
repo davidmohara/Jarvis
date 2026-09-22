@@ -6,9 +6,9 @@
   "session_id": "dream-cycle-2026-09-21-080223",
   "trigger": "manual",
   "started": "2026-09-21T08:07:31.836443Z",
-  "completed": null,
+  "completed": "2026-09-22T18:07:43.345948",
   "duration_seconds": null,
-  "status": "in-progress",
+  "status": "aborted",
   "steps": [
     {
       "name": "step-01-working-memory-cleanup",
@@ -78,10 +78,11 @@
   ],
   "assessment": {
     "mechanical": {
-      "completed": null,
+      "completed": false,
       "all_steps_finished": true,
       "tool_failures": 0,
-      "error_ids": []
+      "error_ids": [],
+      "abort_reason": "session-ended"
     },
     "structural": {
       "expected_outputs_written": null,
