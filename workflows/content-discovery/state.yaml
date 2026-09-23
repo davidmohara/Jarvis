@@ -2,29 +2,29 @@
 workflow: content-discovery
 agent: harper
 status: complete
-session-started: "2026-09-22T12:00:00Z"
-session-id: "harper-20260922-002"
-started-at: "2026-09-22T12:00:00Z"
-completed-at: "2026-09-22T12:05:00Z"
+session-started: "2026-09-23T06:00:00Z"
+session-id: "harper-20260923-001"
+started-at: "2026-09-23T06:00:00Z"
+completed-at: "2026-09-23T06:07:00Z"
 current-step: step-02
 original-request: "Scheduled daily content discovery run"
 accumulated-context:
-  messages_scanned: 2
+  messages_scanned: 4
   new_urls: 0
   new_digests: 0
   posts_drafted: 0
-  gate_1_result: "PASS — ok: true, 2 messages via 96h fallback (24h returned 0 with warning, 48h returned 0 with warning), channel C0B160MA3EK confirmed"
+  gate_1_result: "PASS — ok: true, 4 messages via 192h fallback (24h returned 0 with warning, 48h returned 0 with warning, 96h escalated to 192h), channel C0B160MA3EK confirmed"
   gate_2_result: "n/a — no new content drafted"
-  editorial_threads_checked: 2
+  editorial_threads_checked: 7
   editorial_feedback_found: 0
   editorial_edits_applied: 0
   notes: |
-    24h and 48h windows both returned 0 with retry warning. 96h fallback returned 2 messages.
-    Bot message ts 1789845194.961229 — Jarvis draft notification, SKIP (bot, no digest signal).
-    User message ts 1789831257.011929 — source URL already in pending-drafts as 'Agent Anxiety' (status: pending).
-    Editorial instruction from this message already logged and applied 2026-09-21 (expanded to ~850 words, added links).
-    Agent Anxiety thread checked: last human reply ts 1789909249.969879 (image swap) already applied. No new human replies.
-    The Interface Moved Inside thread checked: no replies.
-    Morning run (harper-20260922-001) already checked remaining 5 threads — all clean.
+    24h and 48h windows both returned 0 with retry warning. 96h escalated to 192h, returned 4 messages.
+    Bot message ts 1789845194.961229 — Jarvis draft notification for 'Agent Anxiety', no digest signal. SKIP.
+    Bot message ts 1789585948.083979 — Jarvis draft notification for 'You're Modeling Contentment...', no digest signal. SKIP.
+    User message ts 1789831257.011929 — source URL matches 'Agent Anxiety' in pending-drafts (status: pending). Editorial instruction already applied 2026-09-21. SKIP.
+    User message ts 1789584864.764889 — source URL matches "You're Modeling Contentment..." in pending-drafts (status: pending). SKIP.
+    Pending draft threads checked: Agent Anxiety (all replies handled), The Interface Moved Inside (no replies), You're Modeling Contentment (no replies), The Activity Trap (all replies handled), What Happens to an Expert (all replies handled), DFW Is Now the AI Talent Market (all replies handled), The Opposition Got Here First (no replies), What College Is Actually For (no replies), NIST Is Wiring the Agent Standards Layer (no replies). All clean.
     Clean exit. No new drafts. No new posts.
+model: sonnet
 ---
