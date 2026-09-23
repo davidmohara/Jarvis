@@ -3,7 +3,7 @@ type: semantic
 domain: operational
 primary-tag: dream-summary
 created: 2026-06-12
-last-updated: 2026-09-22
+last-updated: 2026-09-23
 confidence: high
 synthesized-from: 30
   - dream-summary-2026-09-16.md
@@ -124,6 +124,7 @@ synthesized-from:
   - memory/episodic/dream-summary-2026-09-18-080600.md
   - memory/episodic/dream-summary-2026-09-19.md
   - memory/episodic/dream-summary-2026-09-20.md
+  - memory/episodic/dream-summary-2026-09-21.md
 ---
 # Pattern: Dream Summary
 
@@ -470,5 +471,11 @@ Re-checked the delegation tracker directly again this cycle: `delegations/tracke
 ### 2026-09-22 — Nightly promotion
 
 Sources this cycle: `memory/episodic/dream-summary-2026-09-20.md` (score 10) — the lone dream-summary archive candidate this cycle (dream-summary-2026-09-21.md is held back one cycle by the same-calendar-day expiry rule, expected next run). Its substantive content: the Rock 4 co-sell gap holding essentially flat at $8.47M (a $100K move in six weeks) with the finding that total non-co-sell pipeline runs ~6x the co-sell figure, confirming the shortfall is channel-specific; the South Texas 90-Day forecast confirmed holding at 74% via a genuine fresh live pull rather than another cache repeat; and the OmniFocus tooling-availability regression flagged two nights prior resolving within 24 hours.
+
+Re-checked the delegation tracker directly again this cycle: `delegations/tracker.md` still shows the same one active delegation (Steve Hall follow-up to Derek Nwamadi, due 2026-09-25) — unchanged since first appearing 09-18. Q3 rocks status remains outside dream-cycle's normal scope and was not independently re-verified — `memory/personal/quarterly-objectives.md` still shows `last-updated: 2026-07-30`, unchanged. South Texas's 90-Day forecast remains at its confirmed-stable 74% reading — no fresher live data available this cycle, not a new carry-forward gap.
+
+### 2026-09-23 — Nightly promotion
+
+Sources this cycle: `memory/episodic/dream-summary-2026-09-21.md` (score 10) — the lone dream-summary archive candidate this cycle (dream-summary-2026-09-22.md is held back one cycle by the same-calendar-day expiry rule, expected next run). Its substantive content: confirmation of the first-seen 09-18 host-git Xcode-license blocker as distinct from the sandbox index.lock failure mode, and the 09-17 GEHC-routing real-ingest cycle (1 new recording, 2 Monday action items, 1 Alice share-link task) — no new information beyond what the 09-21 and 09-22 promotions already captured from the same underlying events.
 
 Re-checked the delegation tracker directly again this cycle: `delegations/tracker.md` still shows the same one active delegation (Steve Hall follow-up to Derek Nwamadi, due 2026-09-25) — unchanged since first appearing 09-18. Q3 rocks status remains outside dream-cycle's normal scope and was not independently re-verified — `memory/personal/quarterly-objectives.md` still shows `last-updated: 2026-07-30`, unchanged. South Texas's 90-Day forecast remains at its confirmed-stable 74% reading — no fresher live data available this cycle, not a new carry-forward gap.

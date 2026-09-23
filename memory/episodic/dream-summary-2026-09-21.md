@@ -1,12 +1,32 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "dream-cycle-2026-09-21-080223"
 agent-source: jarvis
 created: 2026-09-21T03:08:15-05:00
 expires: 2026-09-22
-status: active
+status: archived
 context: "Dream cycle summary — 2026-09-21"
+date: 2026-09-21
+source_file: memory/working/dream-summary-2026-09-21.md
+tags:
+  - dream-summary
+  - jarvis
+  - calendar
+  - revenue
+  - plaud
+  - dream-cycle
+  - git-issues
+  - rigby
+  - knox
+  - chief
+related_people:
+  - steve-hall
+  - derek-nwamadi
+salience:
+  promoted: true
+  score: 10
+  last-promoted-check: 2026-09-23
 ---
 
 Six working-memory items aged out overnight, all held back one extra cycle by the same-calendar-day expiry rule: a Knox plaud-ingest report, a Chief daily review, a Rigby eval-phantom-fix build note, two dream summaries (09-18 and 09-19), and a Chief plaud-ingest summary. All non-trivial, all enriched and moved cleanly into episodic memory.

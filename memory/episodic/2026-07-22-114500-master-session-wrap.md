@@ -23,7 +23,7 @@ related_people:
   - andrew-rauch
 salience:
   score: 4
-  last-promoted-check: 2026-09-22
+  last-promoted-check: 2026-09-23
   promoted: true
 ---
 

@@ -3,7 +3,7 @@ type: semantic
 domain: operational
 primary-tag: plaud
 created: 2026-06-12
-last-updated: 2026-09-21
+last-updated: 2026-09-23
 confidence: medium
 synthesized-from: 3
 tags:
@@ -17,6 +17,7 @@ synthesized-from:
   - memory/episodic/plaud-ingest-2026-09-16-092409.md
   - memory/episodic/plaud-ingest-2026-09-18-165915.md
   - memory/episodic/2026-09-18-121343-knox-plaud-ingest.md
+  - memory/episodic/plaud-ingest-2026-09-17-113544.md
 ---
 # Pattern: Plaud
 
@@ -55,3 +56,9 @@ No new information beyond confirming this is a stable no-op outcome mode — the
 Sources this cycle: `memory/episodic/plaud-ingest-2026-09-18-165915.md` (score 8) and `memory/episodic/2026-09-18-121343-knox-plaud-ingest.md` (score 5) — a paired chief/Knox report of the same session (pi-20260918-001), a new recording ("AI Project Architecture and Data Routing," David + Vladimir Avila, impromptu GEHC-routing call during Houston travel) auto-resolved by Plaud's registered voice profiles with zero generic speaker labels. Both files agree on outcome: 1 new recording ingested, 2 David-owned Monday action items created (Mike Braunstein self-tuning-routing question; DICOM destination fan-out confirmation), 1 unassigned share-link task for Alice Mburu. This is a real-ingest cycle, not the recent string of no-op discover/ingest pairs — a different mode of the same stable pattern.
 
 Both sources independently flag the same pre-existing hygiene issue carried without action for several cycles now: the deterministic grader repeatedly binding to a stale prior-day eval record (signal-hook timing), plus a step-05b spec-conflict note (09-17's Owner=Alice assignment vs. current Gate 6's unassigned requirement — today's run correctly followed the current spec). Confidence held at medium — two more real-ingest evidence points, not yet enough distinct incident types to escalate to high.
+
+### 2026-09-23 — Nightly promotion
+
+Sources this cycle: `memory/episodic/plaud-ingest-2026-09-17-113544.md` (score 3) — a real-ingest Knox report (session knox-2026-09-17-113544): 2 new recordings (SST AI Takeoff Weekly, GEHC AI Routing weekly sync), 12 generic speaker labels resolved via transcript self-ID plus calendar and 12 voice profiles registered for future auto-labeling, both public share URLs captured for manual routing to Alice Mburu. One recurring hygiene flag repeated here: Monday task creation was unavailable that session (no authenticated Monday MCP server configured), so 9 action items were logged in the run report for manual creation rather than created directly — the same class of tooling-availability gap this cluster and the dream-summary cluster have both tracked before.
+
+Confidence held at medium — this source predates (09-17) the two real-ingest evidence points already promoted on 09-21 from the 09-18 session; it adds a third distinct real-ingest incident rather than new information about a already-covered one, but the Monday-MCP-unavailable gap is now a second sighting worth watching if it recurs a third time.
