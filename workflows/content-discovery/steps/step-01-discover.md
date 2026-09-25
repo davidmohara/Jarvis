@@ -1,25 +1,23 @@
 ---
 status: complete
-started-at: "2026-09-24T06:00:00Z"
-completed-at: "2026-09-24T06:08:00Z"
+started-at: "2026-09-25T06:00:00Z"
+completed-at: "2026-09-25T06:08:00Z"
 outputs:
-  messages_scanned: 4
+  messages_scanned: 2
   new_urls: 0
   new_digests: 0
   posts_drafted: 0
-  gate_1_result: "PASS — ok: true, 4 messages via 192h fallback (24h/48h/96h all returned 0 with warning), channel C0B160MA3EK confirmed"
+  gate_1_result: "PASS — ok: true, 2 messages via 192h fallback (24h/48h returned 0 with warning, 96h escalated to 192h), channel C0B160MA3EK confirmed"
   gate_2_result: "n/a — no new content drafted"
-  editorial_threads_checked: 28
+  editorial_threads_checked: 4
   editorial_feedback_found: 0
   editorial_edits_applied: 0
   notes: |
-    24h, 48h, 96h all returned 0 with retry warning. Escalated to 192h, returned 4 messages.
+    24h returned 0 with retry warning. 48h returned 0 with retry warning. 96h escalated to 192h, returned 2 messages.
     Bot message ts 1789845194.961229 — Jarvis draft notification for Agent Anxiety, no digest signal. SKIP.
-    Bot message ts 1789585948.083979 — Jarvis draft notification for You're Modeling Contentment. SKIP.
-    User message ts 1789831257.011929 — thread reply (thread_ts != ts, in Agent Anxiety thread). SKIP.
-    User message ts 1789584864.764889 — source URL matches You're Modeling Contentment in pending-drafts (status: pending). SKIP.
-    All 28 pending draft threads checked. Zero new human replies in last 24h. All prior editorial edits accounted for.
-    Clean exit. No new drafts. No new posts.
+    User message ts 1789831257.011929 — top-level user message. Agent Anxiety source URL already in pending-drafts (status: pending), editorial edit for this ts already applied 2026-09-21. SKIP.
+    Editorial thread scan: Agent Anxiety (3 replies, all accounted for), You're Modeling Contentment (0 replies), The Interface Moved Inside (0 replies), DFW Is Now the AI Talent Market (4 replies, all accounted for).
+    Zero new human replies in last 24h. Clean exit. No new drafts. No new posts.
 model: sonnet
 ---
 
