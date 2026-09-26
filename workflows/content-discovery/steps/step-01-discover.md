@@ -1,7 +1,7 @@
 ---
 status: complete
-started-at: "2026-09-25T06:00:00Z"
-completed-at: "2026-09-25T06:08:00Z"
+started-at: "2026-09-26T06:00:00Z"
+completed-at: "2026-09-26T06:10:00Z"
 outputs:
   messages_scanned: 2
   new_urls: 0
@@ -9,14 +9,14 @@ outputs:
   posts_drafted: 0
   gate_1_result: "PASS — ok: true, 2 messages via 192h fallback (24h/48h returned 0 with warning, 96h escalated to 192h), channel C0B160MA3EK confirmed"
   gate_2_result: "n/a — no new content drafted"
-  editorial_threads_checked: 4
+  editorial_threads_checked: 6
   editorial_feedback_found: 0
   editorial_edits_applied: 0
   notes: |
     24h returned 0 with retry warning. 48h returned 0 with retry warning. 96h escalated to 192h, returned 2 messages.
     Bot message ts 1789845194.961229 — Jarvis draft notification for Agent Anxiety, no digest signal. SKIP.
-    User message ts 1789831257.011929 — top-level user message. Agent Anxiety source URL already in pending-drafts (status: pending), editorial edit for this ts already applied 2026-09-21. SKIP.
-    Editorial thread scan: Agent Anxiety (3 replies, all accounted for), You're Modeling Contentment (0 replies), The Interface Moved Inside (0 replies), DFW Is Now the AI Talent Market (4 replies, all accounted for).
+    User message ts 1789831257.011929 — top-level user message. Agent Anxiety source URL already in pending-drafts (status: pending), editorial edits already applied 2026-09-21. SKIP.
+    Editorial thread scan (6 threads): Agent Anxiety (3 replies, all accounted for), Interface Moved Inside (0 replies), You're Modeling Contentment (0 replies), DFW Is Now the AI Talent Market (4 replies, all accounted for), What Happens to an Expert (4 replies, all accounted for), The Activity Trap (2 replies, all accounted for).
     Zero new human replies in last 24h. Clean exit. No new drafts. No new posts.
 model: sonnet
 ---
