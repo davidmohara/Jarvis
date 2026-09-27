@@ -3,19 +3,20 @@ agent: sterling
 status: complete
 session-started: 2026-09-18T05:00:00Z
 session-id: scheduled-golf-tee-time-booking
-current-step: step-01-completed
-execution-run: 2026-09-18
-latest-check: 2026-09-18T05:00:00Z
-latest-check-result: "Preview data unavailable (M365 connector offline, weather API unreachable). Golf booking halted at Gate 1 pre-check with documented no_viable_reason. No booking window opened."
+current-step: gate-1-precheck-degraded
+execution-run: 2026-09-25
+latest-check: 2026-09-25T06:30:00Z
+latest-check-result: "Golf booking workflow invoked 2026-09-25. Preview output data unavailable: no top_options generated, no_viable_reason populated. M365 connector offline, weather API unreachable. Insufficient data for booking. No action taken per workflow specification."
 gate-failures:
-  - reason: "Insufficient data for confident booking"
+  - reason: "Insufficient data for confident booking — no viable tee time options"
     data_sources_unavailable: ["calendar", "weather"]
     top_options_empty: true
+    triggered_at: "2026-09-25T06:30:00Z"
 booking-id: null
 booking-date: null
 booking-time: null
 grade: null
-resolution-note: "Golf preview degraded: Calendar data unavailable (M365 connector offline) and weather data unavailable (API unreachable). Insufficient data for confident window scoring. No tee time options generated. Booking halted at data-source gate."
+resolution-note: "Golf preview degraded: Calendar data unavailable (M365 connector offline) and weather data unavailable (API unreachable). Insufficient data for confident window scoring. No tee time options generated. Booking halted at preview Gate 1 requirement (no viable options to select from). No booking window opened. Workflow exited silently per spec."
 
 original-request: ~
 accumulated-context: []
