@@ -1,16 +1,13 @@
 ---
-status: complete
-started-at: "2026-09-28T06:10:00Z"
-completed-at: "2026-09-28T06:12:00Z"
+status: in-progress
+started-at: "2026-09-28T14:05:00Z"
+completed-at: null
 outputs:
-  files_changed: 3
-  files_committed:
-    - workflows/content-discovery/state.yaml
-    - workflows/content-discovery/steps/step-01-discover.md
-    - workflows/content-discovery/steps/step-02-git-finalize.md
-  commit_hash: "918d42c4"
-  push_status: success
-  outcome: "committed and pushed — clean no-op run, no new content, 0 editorial replies in last 24h"
+  files_changed: null
+  files_committed: []
+  commit_hash: null
+  push_status: null
+  outcome: null
 model: sonnet
 ---
 
