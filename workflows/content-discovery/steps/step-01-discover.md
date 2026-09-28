@@ -1,22 +1,31 @@
 ---
 status: complete
-started-at: "2026-09-27T06:00:00Z"
-completed-at: "2026-09-27T06:10:00Z"
+started-at: "2026-09-28T06:00:00Z"
+completed-at: "2026-09-28T06:10:00Z"
 outputs:
-  messages_scanned: 2
+  messages_scanned: 11
   new_urls: 0
   new_digests: 0
   posts_drafted: 0
-  gate_1_result: "PASS — ok: true, 2 messages via 192h fallback (24h/48h/96h returned 0 with warnings), channel C0B160MA3EK confirmed"
+  gate_1_result: "PASS — ok: true, 11 messages via 384h fallback (24h/48h/96h/192h returned 0 with warnings), channel C0B160MA3EK confirmed"
   gate_2_result: "n/a — no new content drafted"
-  editorial_threads_checked: 8
+  editorial_threads_checked: 0
   editorial_feedback_found: 0
   editorial_edits_applied: 0
   notes: |
-    24h returned 0 with retry warning. 48h returned 0 with warning. 96h escalated to 192h, returned 2 messages.
-    Bot message ts 1789845194.961229 — Jarvis draft notification for Agent Anxiety, no digest signal. SKIP.
-    User message ts 1789831257.011929 — top-level user message. Agent Anxiety source URL already in pending-drafts (status: pending, ghost_post_id 6aaedeb057f821028a9e9561), editorial expansion already applied 2026-09-21. SKIP.
-    Editorial thread scan (8 threads): Agent Anxiety (3 replies, all accounted for), Interface Moved Inside (0 replies), You're Modeling Contentment (0 replies), DFW Is Now the AI Talent Market (4 replies, all accounted for), What Happens to an Expert (4 replies, all accounted for), The Activity Trap (2 replies, all accounted for), The Build Decision Changed the Relationship (0 replies), Your Manager Is the AI Strategy (0 replies).
+    24h/48h/96h/192h all returned 0 with warnings. 384h returned 11 messages (same set as 2026-09-27 run).
+    ts 1789845194.961229: Bot (Jarvis draft notification, Agent Anxiety). No digest signal. SKIP.
+    ts 1789831257.011929: User message (Agent Anxiety editorial expansion, already applied 2026-09-21, reply_ts matched existing editorial_edit entry). SKIP.
+    ts 1789585948.083979: Bot (Jarvis review notification, You're Modeling Contentment). No digest signal. SKIP.
+    ts 1789584864.764889: User message. x.com/martinvars URL already in pending-drafts as "You're Modeling Contentment or You're Modeling Desire" (status: pending). SKIP.
+    ts 1789509032.258479: Bot (Jarvis, The Interface Moved Inside notification). No digest signal. SKIP.
+    ts 1789470813.902589: Bot (Jarvis, The Activity Trap notification). No digest signal. SKIP.
+    ts 1789470810.904319: Bot (Jarvis, What Happens to an Expert notification). No digest signal. SKIP.
+    ts 1789470806.234339: Bot (Jarvis, DFW Is Now the AI Talent Market notification). No digest signal. SKIP.
+    ts 1789416082.353789: Bot Watchtower digest "DFW Is Now the AI Talent Market" — title match in pending-drafts (status: pending, created 2026-09-15). SKIP.
+    ts 1789416067.637719: Bot Watchtower digest "What Happens to an Expert When AI Knows Everything They Know" — title match in pending-drafts (status: pending, created 2026-09-15). SKIP.
+    ts 1789416051.541039: Bot Watchtower digest "The Activity Trap" — title match in pending-drafts (status: pending, created 2026-09-15). SKIP.
+    Editorial thread scan: most recent human reply (Agent Anxiety ts 1789989286) processed 2026-09-21. All other pending threads show no replies in last 24h.
     Zero new human replies in last 24h. Clean exit. No new drafts. No new posts.
 model: sonnet
 ---
