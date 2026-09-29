@@ -2,25 +2,33 @@
 workflow: content-discovery
 agent: harper
 status: complete
-session-started: "2026-09-28T14:00:00Z"
-session-id: "harper-20260928-002"
-started-at: "2026-09-28T14:00:00Z"
-completed-at: "2026-09-28T14:05:00Z"
-current-step: step-02
+session-started: "2026-09-29T06:00:00Z"
+session-id: "harper-20260929-001"
+started-at: "2026-09-29T06:00:00Z"
+completed-at: "2026-09-29T06:24:00Z"
+current-step: complete
 original-request: "Scheduled daily content discovery run"
 accumulated-context:
-  messages_scanned: 11
-  new_urls: 0
-  new_digests: 0
-  posts_drafted: 0
-  gate_1_result: "PASS — ok: true, 11 messages via 384h fallback (24h/48h/96h/192h returned 0 with warnings), channel C0B160MA3EK confirmed"
-  gate_2_result: "n/a — no new content drafted"
-  editorial_threads_checked: 5
-  editorial_feedback_found: 0
-  editorial_edits_applied: 0
-  notes: |
-    Second run of 2026-09-28. Same 11-message set. All skipped (dedup or no digest signal).
-    Editorial scan across 5 threads. All human replies already processed. No new replies in last 24h.
-    Clean exit.
+  posts-created: 5
+  posts-skipped: 1
+  skipped:
+    - title: "Uniform Governance Is How Agents Die"
+      reason: "Topic covered by published post: Governance Isn't Your Problem. Uniform Governance Is."
+  drafts:
+    - id: "6abb9f9b10d8f802896a7a01"
+      title: "Culture Is the Constraint"
+      slack_ts: "1790681031.544309"
+    - id: "6abb9fa010d8f802896a7a09"
+      title: "DFW's Innovation Economy Is Wider Than You Think"
+      slack_ts: "1790681041.965699"
+    - id: "6abb9fa110d8f802896a7a11"
+      title: "The Restructuring Is Not Coming. It's Here."
+      slack_ts: "1790681042.439169"
+    - id: "6abb9fa210d8f802896a7a19"
+      title: "Reversibility Is the Governing Criterion"
+      slack_ts: "1790681056.680019"
+    - id: "6abb9fa410d8f802896a7a21"
+      title: "Shadow AI Is Shadow IT at 10x"
+      slack_ts: "1790681056.979069"
 model: sonnet
 ---

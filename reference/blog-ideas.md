@@ -10,6 +10,11 @@ Running list of potential blog topics. Jarvis captures these proactively from co
 
 | Idea | Source | Tags | Notes |
 |------|--------|------|-------|
+| "Culture Is the Constraint" | Content pipeline (2026-09-29) | leadership, culture, AI | Ghost draft — pending approval |
+| "DFW's Innovation Economy Is Wider Than You Think" | Content pipeline (2026-09-29) | leadership, growth, AI | Ghost draft — pending approval |
+| "The Restructuring Is Not Coming. It's Here." | Content pipeline (2026-09-29) | leadership, business, AI | Ghost draft — pending approval. Internal link: Accenture Just Set the Reskilling Bar. |
+| "Reversibility Is the Governing Criterion" | Content pipeline (2026-09-29) | AI, technology, leadership | Ghost draft — pending approval |
+| "Shadow AI Is Shadow IT at 10x" | Content pipeline (2026-09-29) | AI, technology, leadership | Ghost draft — pending approval. Internal link: You Can't Govern an Inventory You Don't Know You Have. |
 | "Agent Anxiety" | Content pipeline (2026-09-19) | productivity, AI, thinking | Ghost draft — pending approval |
 | "The Thinking You're Outsourcing Is the Thinking That Defines You" | Content pipeline (2026-07-31) | AI, leadership, productivity | Ghost draft — pending approval |
 | "Having Standards is Hard" | OmniFocus inbox (Feb 9) | thoughts, growth | Draft created in Obsidian `Mind/Posts/_Having Standards is Hard.md`. Rich brainstorm notes included. |

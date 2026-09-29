@@ -425,9 +425,9 @@
     "editorial_edits": [
       {
         "reply_ts": "1789909249.969879",
-        "instruction": "Image is poor representation — mountainside has nothing to do with AI agents. Pick a better image.",
+        "instruction": "Image is poor representation \u2014 mountainside has nothing to do with AI agents. Pick a better image.",
         "applied_at": "2026-09-20T19:10:09Z",
-        "summary": "Swapped to developer at multiple monitors in dark office: photo-1754039985001-ccafee437736 (Jakub Żerdzicki, landscape 2000x1168, free Unsplash license). Matches agent-monitoring anxiety theme directly."
+        "summary": "Swapped to developer at multiple monitors in dark office: photo-1754039985001-ccafee437736 (Jakub \u017berdzicki, landscape 2000x1168, free Unsplash license). Matches agent-monitoring anxiety theme directly."
       },
       {
         "reply_ts": "1789831257.011929",
@@ -436,5 +436,60 @@
         "summary": "Full expansion from ~620 to ~850 words. Added links to Interstitial Spaces, Find What You Seek, and Slack (Tom DeMarco book). Wove in the full emotional texture: checking behaviors, regulation struggle, the irony paragraph, the cognitive ceiling / expense-reports natural ceiling that compute abundance broke. Work and Rest Aren't Opposites link retained. Both source articles (New Atlantis, NPR) retained. Reading time now 4 minutes."
       }
     ]
+  },
+  {
+    "ghost_post_id": "6abb9f9b10d8f802896a7a01",
+    "slack_thread_ts": "1790681031.544309",
+    "slack_channel": "C0B160MA3EK",
+    "title": "Culture Is the Constraint",
+    "source_url": "digest",
+    "created_at": "2026-09-29T06:00:00Z",
+    "status": "pending",
+    "source_type": "digest",
+    "content_type": "post"
+  },
+  {
+    "ghost_post_id": "6abb9fa010d8f802896a7a09",
+    "slack_thread_ts": "1790681041.965699",
+    "slack_channel": "C0B160MA3EK",
+    "title": "DFW's Innovation Economy Is Wider Than You Think",
+    "source_url": "digest",
+    "created_at": "2026-09-29T06:00:00Z",
+    "status": "pending",
+    "source_type": "digest",
+    "content_type": "post"
+  },
+  {
+    "ghost_post_id": "6abb9fa110d8f802896a7a11",
+    "slack_thread_ts": "1790681042.439169",
+    "slack_channel": "C0B160MA3EK",
+    "title": "The Restructuring Is Not Coming. It's Here.",
+    "source_url": "digest",
+    "created_at": "2026-09-29T06:00:00Z",
+    "status": "pending",
+    "source_type": "digest",
+    "content_type": "post"
+  },
+  {
+    "ghost_post_id": "6abb9fa210d8f802896a7a19",
+    "slack_thread_ts": "1790681056.680019",
+    "slack_channel": "C0B160MA3EK",
+    "title": "Reversibility Is the Governing Criterion",
+    "source_url": "digest",
+    "created_at": "2026-09-29T06:00:00Z",
+    "status": "pending",
+    "source_type": "digest",
+    "content_type": "post"
+  },
+  {
+    "ghost_post_id": "6abb9fa410d8f802896a7a21",
+    "slack_thread_ts": "1790681056.979069",
+    "slack_channel": "C0B160MA3EK",
+    "title": "Shadow AI Is Shadow IT at 10x",
+    "source_url": "digest",
+    "created_at": "2026-09-29T06:00:00Z",
+    "status": "pending",
+    "source_type": "digest",
+    "content_type": "post"
   }
 ]
