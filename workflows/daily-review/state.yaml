@@ -1,13 +1,22 @@
 ---
 workflow: daily-review
 agent: chief
-status: in-progress
+status: complete
 session-started: "2026-09-28T22:45:00"
 session-id: "chief-2026-09-28-224500"
-current-step: step-01
-session-closed: false
+current-step: step-05
+session-closed: true
 original-request: "Run the daily-review workflow for Monday 2026-09-28 (last day before Improving Retreat / travel to LAS)."
 accumulated-context:
   review-date: "2026-09-28"
-  mode: "sub-agent run — no live controller; answers synthesized from morning briefing, calendar, OmniFocus unified pull (degraded), weekly review 2026-W40, LSG board update; controller-confirm items marked in review"
+  mode: "sub-agent run — no live controller; answers synthesized from morning briefing, calendar, OmniFocus unified pull (degraded), weekly review 2026-W40, LSG board update; controller-confirm items marked [confirm] in review"
+  review-file: "reviews/daily/2026-09-28.md"
+  narrative-path: "Daily Reviews/2026-09-28 The Marathon Before Wheels Up.md (Obsidian vault; no calendar daily note existed for 09-28, cross-link skipped per convention)"
+  delegation: "No changes — Steve Hall follow-up remains with Derek Nwamadi, due 2026-09-25, 3 days overdue; decision (close or kill) flagged for David"
+  guardrail-checkpoint: "pass (no leakage, tracker untouched, unverified outcomes marked [confirm], quarterly objectives not modified)"
+  root-audit: "clean"
+  git-commit: "80fbd819 (rebased onto origin/main)"
+  git-push: "success (after stash of in-flight Knox eval record, rebase, stash pop)"
+  eval-record: "eval-20260929T031202-O3KXJB.json"
+  notes: "OmniFocus MCP down all session — unified JSON pull used; close-eval-record.py created a new record rather than closing the in-progress one (eval-20260929T030303-0W2JQU remains open) — flag for Rigby"
 ---
