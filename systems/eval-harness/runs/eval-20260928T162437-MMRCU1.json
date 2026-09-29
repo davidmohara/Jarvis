@@ -64,9 +64,10 @@
       }
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
-      "grader_notes": null
+      "last_graded": "2026-09-29T03:18:33Z",
+      "grade": "A",
+      "grader_notes": "plaud-discover: 4/4 assertions, deterministic score 1.0. Enumerated recent Plaud recordings, cross-referenced the vault, identified the new/un-ingested set (d0200e83, a93aa078, 5214979f, bc6b122e, 71aa19de, fa0e4f1f), wrote signal and a substantive 43KB discovery ledger. Clean scheduled run, zero tool failures.",
+      "safety_grade": null
     },
     "controller_feedback": {
       "rating": null,

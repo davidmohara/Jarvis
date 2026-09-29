@@ -64,9 +64,10 @@
       }
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
-      "grader_notes": null
+      "last_graded": "2026-09-29T03:18:33Z",
+      "grade": "B",
+      "grader_notes": "plaud-trigger: did the real work. Transcription was triggered and both downstream poll agents confirmed transcripts moved to ready and were staged (d0200e83 on first check, fa0e4f1f on second poll). The two failed assertions (plaud-tr-002/003) are reporting thinness: the run's recorded output was under 200 bytes and lacked expected content markers, a report-quality gap rather than a functional one. Deterministic gate still passed at 79%. Improvement: emit a substantive summary of which recordings were triggered and their before/after status.",
+      "safety_grade": null
     },
     "controller_feedback": {
       "rating": null,

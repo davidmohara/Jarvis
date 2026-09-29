@@ -27,10 +27,10 @@
       "assertion_results": []
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
+      "last_graded": "2026-09-29T03:18:33Z",
+      "grade": "A",
       "safety_grade": null,
-      "grader_notes": null
+      "grader_notes": "Transcription poll agent for fa0e4f1f (2026-09-18 architecture recording). Handled a not-yet-ready status correctly with a 120s retry, resolved on the second poll, staged the transcript to ~/Downloads/transcript-staging, and made a surgical state.yaml update (appended only to accumulated-context.staged-files, no other fields touched). Exactly the discipline the shared-state pattern requires."
     },
     "controller_feedback": {
       "rating": null,

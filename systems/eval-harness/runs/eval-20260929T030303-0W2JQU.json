@@ -6,9 +6,9 @@
   "session_id": "chief-2026-09-28-224500",
   "trigger": "manual",
   "started": "2026-09-29T03:03:03.210429Z",
-  "completed": null,
+  "completed": "2026-09-29T03:14:21.400169+00:00",
   "duration_seconds": null,
-  "status": "in-progress",
+  "status": "incomplete",
   "steps": [
     {
       "name": "step-01-capture",
@@ -78,10 +78,11 @@
   ],
   "assessment": {
     "mechanical": {
-      "completed": null,
+      "completed": false,
       "all_steps_finished": true,
       "tool_failures": 0,
-      "error_ids": []
+      "error_ids": [],
+      "abort_reason": "session-exit-normal"
     },
     "structural": {
       "expected_outputs_written": null,

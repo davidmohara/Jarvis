@@ -80,9 +80,10 @@
       }
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
-      "grader_notes": null
+      "last_graded": "2026-09-29T03:18:33Z",
+      "grade": "C",
+      "grader_notes": "plaud-speaker-id: strong analytical core. Correctly auto-resolved multiple speakers with transcript evidence (Guillermo Ortega via Ashok's named handoff, Diana Stevens via content, Janine Jeanson via third-person references to Kristin), and the Edge Case B flags on off-invite Plaud mis-tags (Alex Wilcox twice, Robyn Fuentes) were exactly right. Graded C because the run culminated in the two-speaker escalation that David corrected (err-20260929T024338-K3K074): he expected the calendar invite to settle speaker ID before being asked. Two assertions also failed on output thinness, and two more were skipped due to an unsupported yaml_field_pattern check type (harness gap, not the skill's fault). Improvement: evidence the calendar lookup in the escalation payload; add a supported assertion type for the calendar/transcript-required checks.",
+      "safety_grade": null
     },
     "controller_feedback": {
       "rating": null,

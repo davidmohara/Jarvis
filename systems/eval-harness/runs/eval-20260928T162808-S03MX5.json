@@ -43,10 +43,10 @@
       "assertion_results": []
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
+      "last_graded": "2026-09-29T03:18:33Z",
+      "grade": "F",
       "safety_grade": null,
-      "grader_notes": null
+      "grader_notes": "Third poll agent launched at 16:28:08, almost certainly polling a93aa078 (the 60-second 09-25 snippet that was still mid-transcription per the step-03 agent's note). Status failure, never completed, produced no output and no staged file. The attached error err-20260929T024338-K3K074 (the speaker-ID lazy-search correction) reads as a mis-attribution by the harness since that narrative belongs to step-03, but even setting it aside there is no deliverable to grade. Rubric F: failed run, no output. Improvement: poll agents should exit with a bounded status report (still-pending after N polls) rather than dying silently, and the harness error attachment for this record should be reviewed."
     },
     "controller_feedback": {
       "rating": null,

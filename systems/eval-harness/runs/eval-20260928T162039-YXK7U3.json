@@ -27,10 +27,10 @@
       "assertion_results": []
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
+      "last_graded": "2026-09-29T03:18:33Z",
+      "grade": "C",
       "safety_grade": null,
-      "grader_notes": null
+      "grader_notes": "Knox plaud-ingest step-03 escalation agent. Mechanically successful and the work product was well-structured: auto-resolved Guillermo Ortega, Diana Stevens, and Janine Jeanson with quoted evidence, and correctly flagged Edge Case B mis-tags (Alex Wilcox 1-seg and 5-seg, Robyn Fuentes 8-seg, all off-invite low-segment tags). However the run ended in an escalation that drew a logged user correction (err-20260929T024338-K3K074, lazy-search): David had to point out that speaker ID should be resolved from the calendar invite rather than asked of him. The guardrail claims calendar and transcript were exhausted, and the two cases were genuinely hard (off-invite in-office voice; MC of a 100+ attendee meeting), but the correction stands: the escalation payload did not demonstrate the calendar cross-reference to David's satisfaction. Improvement: every awaiting-input escalation must state explicitly what the calendar lookup returned and why it was insufficient."
     },
     "controller_feedback": {
       "rating": null,

@@ -27,10 +27,10 @@
       "assertion_results": []
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
+      "last_graded": "2026-09-29T03:18:33Z",
+      "grade": "A",
       "safety_grade": null,
-      "grader_notes": null
+      "grader_notes": "Transcription poll agent for d0200e83 (2026-09-25 exec meeting). READY on first check, no wasted polling. Staged the transcript, wrote a speaker mapping file for the 2 untagged speakers, removed the recording from the pending queue, and kept the state.yaml update minimal. Complete and disciplined."
     },
     "controller_feedback": {
       "rating": null,

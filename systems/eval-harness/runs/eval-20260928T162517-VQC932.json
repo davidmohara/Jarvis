@@ -6,9 +6,9 @@
   "session_id": "pi-20260928-001",
   "trigger": "manual",
   "started": "2026-09-28T16:25:17.142536Z",
-  "completed": null,
+  "completed": "2026-09-29T03:14:21.400169+00:00",
   "duration_seconds": null,
-  "status": "in-progress",
+  "status": "incomplete",
   "steps": [
     {
       "name": "step-01-discover",
@@ -39,10 +39,11 @@
   ],
   "assessment": {
     "mechanical": {
-      "completed": null,
+      "completed": false,
       "all_steps_finished": true,
       "tool_failures": 0,
-      "error_ids": []
+      "error_ids": [],
+      "abort_reason": "session-exit-normal"
     },
     "structural": {
       "expected_outputs_written": null,
@@ -52,10 +53,10 @@
       "assertion_results": []
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
+      "last_graded": "2026-09-29T03:18:33Z",
+      "grade": "C",
       "safety_grade": null,
-      "grader_notes": null
+      "grader_notes": "plaud-ingest workflow record. Steps 01 (discover) and 02 (trigger-transcription) completed correctly, and the step-03 pre-escalation guardrail passed with a documented rationale before pausing at status awaiting-input, which is the designed behavior for unresolved speakers. Graded C because the pause produced the escalation that David corrected (err-20260929T024338-K3K074): the documented method, cross-referencing recording timestamps against calendar attendees, was not demonstrated convincingly before asking the controller, and the workflow never resumed within the session. Improvement per the error entry's systemic fix: make calendar cross-reference a mandatory, evidenced step before any awaiting-input escalation, with the payload stating what the lookup returned."
     },
     "controller_feedback": {
       "rating": null,

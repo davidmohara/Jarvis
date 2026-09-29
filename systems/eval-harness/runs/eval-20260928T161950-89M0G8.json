@@ -118,10 +118,10 @@
       ]
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
+      "last_graded": "2026-09-29T03:18:33Z",
+      "grade": "B",
       "safety_grade": null,
-      "grader_notes": null
+      "grader_notes": "Boot completed end-to-end (state.yaml status: complete) with strong outputs: a candid late-evening briefing (memory/working/morning-briefing-2026-09-28-212900.md) that flagged the OmniFocus partial-pull discrepancy against the weekly review's fuller numbers instead of papering over it, surfaced the AA1550 flight/meeting collisions, Q3 rock deadline, and the missing 09-27 daily review; plus the Lone Star Gold board update and daily review files. 5/6 assertions passed. Two dings: (1) boot-008 regression guard tripped, though inspection shows step-01.2 still mandates completed=false at line 140, so this looks like assertion pattern drift rather than a real filter regression, and boot-007 (no completed-task leak) passed; (2) in-session correction err-20260929T024338-K3K074: Master relayed Knox's speaker-ID escalation to David uncritically instead of challenging it against the calendar first. Improvement: tighten boot-008's pattern to match the current step-01.2 wording, and have Master push back on speaker escalations lacking calendar-lookup evidence."
     },
     "controller_feedback": {
       "rating": null,

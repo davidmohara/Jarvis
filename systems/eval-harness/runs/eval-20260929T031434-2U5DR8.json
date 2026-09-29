@@ -1,0 +1,61 @@
+{
+  "id": "eval-20260929T031434-2U5DR8",
+  "agent_id": "ace0ed9e93f86cf09",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "general-purpose",
+  "session_id": "32a528bb-7160-4991-b802-c48903ee6770",
+  "trigger": "unknown",
+  "started": "2026-09-29T03:14:34.972756Z",
+  "completed": "2026-09-29T03:19:07.906378Z",
+  "duration_seconds": 272.93,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/32a528bb-7160-4991-b802-c48903ee6770/subagents/agent-ace0ed9e93f86cf09.jsonl",
+  "last_assistant_message": "Grading sweep complete for `--since 2026-09-28`.\n\n**Graded: 11 eval records**\n- A: 4\n- B: 3\n- C: 3\n- D: 0\n- F: 1\n\n**Records graded:**\n- boot (eval-20260928T161950-89M0G8): **B** \u2014 rich, candid briefing with honest OmniFocus discrepancy flagging; dinged for the boot-008 regression-guard trip (looks like assertion pattern drift, not a real filter regression) and Master's uncritical relay of the Knox speaker escalation (err-20260929T024338-K3K074)\n- general-purpose / Knox step-03 escalation (eval-20260928T162039-YXK7U3): **C** \u2014 well-structured escalation and correct mis-tag flags, but the escalation itself drew David's logged lazy-search correction\n- general-purpose / boot+plaud pulls (eval-20260928T162123-WLV6F1): **B** \u2014 steps completed; incomplete status is the session-exit stub closure, one benign glob tool failure\n- plaud-discover (eval-20260928T162437-MMRCU1): **A** \u2014 4/4 assertions, 100% deterministic, substantive discovery ledger\n- plaud-ingest workflow (eval-20260928T162517-VQC932): **C** \u2014 discover/trigger clean, guardrailed pause by design, but the pause produced the corrected escalation and never resumed in-session\n- plaud-trigger (eval-20260928T162736-UAZGS7): **B** \u2014 real work done (both transcripts reached ready), failed assertions were report-thinness only\n- poll agent fa0e4f1f (eval-20260928T162808-DKDP9M): **A** \u2014 clean retry, staged, surgical state.yaml update\n- poll agent d0200e83 (eval-20260928T162808-QB7SMX): **A** \u2014 ready first check, staged, mapping file written\n- poll agent 3 (eval-20260928T162808-S03MX5): **F** \u2014 failed, no output; attached error appears mis-attributed (likely polled the 60-second snippet still mid-transcription)\n- plaud-speaker-id (eval-20260928T163649-ZQQBT7): **C** \u2014 strong auto-resolution core, but culminated in the corrected escalation; two assertions skipped on unsupported check type (harness gap)\n- general-purpose / Lone Star Gold board update (eval-20260928T195703-0ZOIBG): **A** \u2014 excellent sourced speaking aid with a key Shelby Meyer vs Tiffany Geib disambiguation\n\nNo record had `bias_assessment.applicable: true`, so no safety grades assigned. Recurring theme worth Rigby's attention: three records trace back to the single speaker-ID escalation correction \u2014 the systemic fix (mandatory evidenced calendar cross-reference before any awaiting-input escalation) is already proposed in err-20260929T024338-K3K074.\n\n**Deterministic grade for this run:**\n```\n--- Eval: rigby-eval-grade (eval-20260918T230813-9TVC2B) ---\nStructure 3/3 passed\nDeterministic score: 100%  ->  PASS (gate >= 70%)\nTier 3 qualitative grade: pending\n```\nNote: the grader warned it matched a stale Sept 18 record rather than today's signal \u2014 the hook may not have picked up `rigby-eval-grade-latest.json` as a new record. Worth a look if tomorrow's sweep shows this run missing.",
+  "model": "accounts/fireworks/models/kimi-k3",
+  "total_tokens_input": 131502,
+  "total_tokens_output": 936,
+  "total_cost_usd": 0.09,
+  "cost_estimation_note": "estimated based on general-purpose workflow type"
+}
