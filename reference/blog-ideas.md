@@ -101,6 +101,10 @@ Running list of potential blog topics. Jarvis captures these proactively from co
 | "Culture Is the Constraint" | Watchtower W39 (2026-09-22) [watchtower] | leadership, AI, business, org-design | Draft at `Mind/Posts/_culture-is-the-constraint.md` |
 | "The Apprenticeship Just Got Harder" | Watchtower W39 (2026-09-22) [watchtower] | consulting, AI, talent, leadership | Draft at `Mind/Posts/_the-apprenticeship-just-got-harder.md` |
 | "Uniform Governance Is How Agents Die" | Watchtower W39 (2026-09-22) [watchtower] | AI, agentic, business, technology, governance | Draft at `Mind/Posts/_uniform-governance-is-how-agents-die.md` |
+| "Shadow AI Is Shadow IT at 10x" | Watchtower W40 (2026-09-28) [watchtower] | AI, security, governance, leadership, consulting | Draft at `workflows/watchtower/fallback/drafts/_shadow-ai-is-shadow-it-at-10x.md` |
+| "Reversibility Is the Governing Criterion" | Watchtower W40 (2026-09-28) [watchtower] | AI, agentic, governance, leadership, technology | Draft at `workflows/watchtower/fallback/drafts/_reversibility-is-the-governing-criterion.md` |
+| "The Restructuring Is Not Coming. It's Here." | Watchtower W40 (2026-09-28) [watchtower] | consulting, AI, talent, leadership, business | Draft at `workflows/watchtower/fallback/drafts/_the-restructuring-is-not-coming-its-here.md` |
+| "DFW's Innovation Economy Is Wider Than You Think" | Watchtower W40 (2026-09-28) [watchtower] | texas, DFW, AI, business, leadership, innovation | Draft at `workflows/watchtower/fallback/drafts/_dfws-innovation-economy-is-wider-than-you-think.md` |
 
 ## Published (for reference / avoid repeats)
 
@@ -121,3 +125,7 @@ Running list of potential blog topics. Jarvis captures these proactively from co
 - Digging Deep (Apr 2025)
 | "The CIO Is Holding the Bag" | Watchtower W37 (2026-09-11) [watchtower] | consulting, leadership, AI, governance | Draft at `Mind/Posts/_the-cio-is-holding-the-bag.md` |
 | "Adoption Is Real. Scale Is Theater." | Watchtower W37 (2026-09-11) [watchtower] | AI, agentic, consulting, business | Draft at `Mind/Posts/_adoption-is-real-scale-is-theater.md` |
+| "Shadow AI Is Shadow IT at 10x" | Watchtower W40 (2026-09-28) [watchtower] | AI, security, governance, leadership, consulting | Draft at `Mind/Posts/_shadow-ai-is-shadow-it-at-10x.md` |
+| "Reversibility Is the Governing Criterion" | Watchtower W40 (2026-09-28) [watchtower] | AI, agentic, governance, leadership, technology | Draft at `Mind/Posts/_reversibility-is-the-governing-criterion.md` |
+| "The Restructuring Is Not Coming. It's Here." | Watchtower W40 (2026-09-28) [watchtower] | consulting, AI, talent, leadership, business | Draft at `Mind/Posts/_the-restructuring-is-not-coming-its-here.md` |
+| "DFW's Innovation Economy Is Wider Than You Think" | Watchtower W40 (2026-09-28) [watchtower] | texas, DFW, AI, business, leadership, innovation | Draft at `Mind/Posts/_dfws-innovation-economy-is-wider-than-you-think.md` |

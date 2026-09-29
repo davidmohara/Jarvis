@@ -1,0 +1,25 @@
+{
+  "id": "err-20260928T101600-OBSIDIAN-BYPASS",
+  "timestamp": "2026-09-28T10:16:00Z",
+  "agent": "chase",
+  "task": "rock4-cosell-pipeline",
+  "severity": "critical",
+  "category": "vault-access-violation",
+  "source": "co-sell-pipeline skill execution (Phase 5 output)",
+  "description": "Agent wrote directly to Obsidian vault file using Write tool instead of using Obsidian MCP server. This bypasses vault integrity checks, conflict resolution, and proper sync mechanisms.",
+  "context": {
+    "file_path": "/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/Mind/One Texas/Rock 4 - Pipeline Snapshots.md",
+    "method": "Write tool (direct filesystem)",
+    "correct_method": "mcp__obsidian-local__ MCP server"
+  },
+  "violation": "Obsidian vault files must ONLY be written through the Obsidian MCP server. Direct filesystem writes bypass vault locking, conflict detection, and sync protocols.",
+  "root_cause": "Agent used Write tool for vault output instead of routing through Obsidian MCP.",
+  "impact": "Potential vault corruption, sync conflicts, file corruption if Obsidian was accessing the file simultaneously.",
+  "remediation_taken": [
+    "File deleted immediately upon correction",
+    "Error logged with critical severity",
+    "Agent instructed on correct Obsidian access pattern"
+  ],
+  "correct_pattern": "Use mcp__obsidian-local__create_vault_file or mcp__obsidian-local__update_active_file for all vault writes",
+  "status": "resolved"
+}

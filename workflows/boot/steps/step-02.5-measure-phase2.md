@@ -1,12 +1,12 @@
 ---
 status: complete
-started-at: "2026-09-18T17:08:30Z"
-completed-at: "2026-09-18T17:09:30Z"
+started-at: "2026-09-28T16:39:00Z"
+completed-at: "2026-09-28T16:40:00Z"
 outputs:
-  phase2_measurement_file: "systems/boot-instrumentation/measurements/measurement-state-20260918T170906.json"
-  total_kb: 2.77
-  total_tokens: 708
-  measurement_method: "measure.py run against state.yaml; total 2832 bytes. Top bloat sources: phase1-point5.unified-data-pulls.email (111 tok), phase1-point5-calendar.note (98 tok), phase2.task-h-email-triage (67 tok), phase2.morning-briefing-steps-01-02 (66 tok). Well within normal range, no action needed."
+  phase2_measurement_file: "systems/boot-instrumentation/measurements/measurement-state-20260928T163120.json"
+  total_kb: 3.27
+  total_tokens: 837
+  measurement_method: "measure.py run against state.yaml; total 3351 bytes. Top bloat sources: phase1-point5-calendar.note (98 tok), phase2.morning-briefing-steps-01-02 (82 tok), phase1-point5.unified-data-pulls.email (81 tok), boot-2026-09-18.result (82 tok). Well within normal range, no action needed."
 ---
 
 <!-- system:start -->

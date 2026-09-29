@@ -1,146 +1,143 @@
 workflow: watchtower
 agent: knox
 status: complete
-session-started: '2026-09-22T07:05:00Z'
-session-completed: '2026-09-22T07:45:00Z'
-session-id: wt-weekly-2026-W39
+session-started: '2026-09-28T07:05:00Z'
+session-completed: '2026-09-28T07:45:00Z'
+session-id: wt-weekly-2026-W40
 current-step: complete
-original-request: watchtower-weekly run (Knox) — scheduled Monday 7am, 2026-09-22 (W39)
+original-request: watchtower-weekly run (Knox) — scheduled Monday 7am, 2026-09-28 (W40)
 retirements_today: []
 accumulated-context:
   content_queue: []
   delta_check_applied: true
-  dropped_as_continuing: 1
+  dropped_as_continuing: 0
   used_fallback: true
-  obsidian_unavailable: true
+  obsidian_unavailable: false
   weekly_themes:
   - theme_id: 1
-    theme_title: The Rate Card Is the Argument
-    synthesis: 'Cognizant announced on Sept 16 that outcome-based and fixed-price work
-      now represents 58% of its mix, and published an "AI-infused rate card" framework
-      ranging from A0 (fully human effort) to A3 (autonomous effort). This is not
-      another headline about the consulting pyramid dying — it is the first time a
-      major IT services firm has published a concrete pricing taxonomy for the human-to-AI
-      effort spectrum. Firms that define this vocabulary for their clients own the
-      pricing conversation for the next several years. New this week: W27-W34b covered
-      the theoretical shift; this week gives it a named artifact and live execution
-      data from a named firm.'
+    theme_title: Shadow AI Is Shadow IT at 10x
+    synthesis: 'AWS Reimagine 2026 (154 executives, 128 orgs) and companion shadow AI
+      research found 78% of AI users using unapproved tools and unsanctioned AI inside
+      43% of security incidents — more than doubling year over year. The root cause
+      is governance processes built for 6-month IT programs applied to 2-week AI experiments:
+      teams stop asking permission when approval takes longer than the project. New
+      from W39: W39 covered governance architecture failure (risk classification); this
+      week the argument shifts to why enforcement-first governance structurally fails
+      and what the design fix is (make the compliant path competitive).'
     source_items:
-    - 'Cognizant Pivots to AI-Driven Outcomes, Digital Labor Model — MarketBeat/DefenseWorld
-      (2026-09-16)'
-    - 'AI in PS Delivery: What Works in 2026 — Rocketlane (2026)'
+    - 'AWS Reimagine 2026 AI Agent Security Report — Help Net Security (2026-09-28)'
+    - 'Shadow AI Statistics 2026: Key Data Points Every CISO Needs — Airia (2026)'
     content_angles:
-    - The Rate Card Is the Argument
+    - Shadow AI Is Shadow IT at 10x
   - theme_id: 2
-    theme_title: Culture Is the Constraint
-    synthesis: "McKinsey's State of Organizations 2026 (10,000+ executives) found
-      88% of organizations are deploying AI but 81% report no bottom-line impact.
-      Organizational culture is nearly twice as predictive of AI value delivery as
-      personal readiness. 86% of leaders say their org was not prepared; only 14%
-      report leaders consistently championing adoption. New this week: W38 diagnosed
-      what is being measured wrong; this week identifies the underlying reason why
-      even organizations that know better still fail to change."
+    theme_title: Reversibility Is the Governing Criterion
+    synthesis: "Akamai's Sept 22 State of the Internet report (\"Speed, Scale, and
+      Nonhuman Identity\") introduced a specific design principle: grant operational
+      autonomy to AI agents based on how reversible a potential failure is — not based
+      on task type or risk category. An agent in a reversible context (draft for review)
+      needs less oversight than one in an irreversible context (direct financial system
+      write), regardless of autonomy level. New from W39: W39's uniform governance
+      theme said \"don't govern all agents the same.\" This week supplies the specific
+      variable that should govern the differentiation: reversibility."
     source_items:
-    - 'McKinsey The State of Organizations 2026 — McKinsey & Company (2026)'
-    - 'AI Adoption in 2026: How Leaders Must Redesign Their Org Now — Barry O''Reilly
-      (2026)'
+    - 'Akamai State of the Internet Report: Speed, Scale, and Nonhuman Identity (2026-09-22)'
     content_angles:
-    - Culture Is the Constraint
+    - Reversibility Is the Governing Criterion
   - theme_id: 3
-    theme_title: The Apprenticeship Just Got Harder
-    synthesis: "PwC's 2026 AI Jobs Barometer (1 billion+ job ads, 27 countries) found
-      a two-track labor market forming: professionalised roles growing at 2x the rate
-      with 42% faster salary growth, and AI-exposed junior U.S. roles now 7x more
-      likely to require advanced human skills. New this week: W38's Intuition Rust
-      covered expert judgment atrophy for existing professionals; PwC's finding specifically
-      targets the pipeline problem — how you build the next generation of consultants
-      when the apprenticeship path no longer exists."
+    theme_title: The Restructuring Is Not Coming. It's Here.
+    synthesis: "Accenture announced 11,000 layoffs ($865M restructuring program focused
+      on AI reorientation). KPMG cut 400 U.S. advisory positions. Deloitte restructuring
+      select practices. Thomson Reuters 2026 AI in Professional Services Report names
+      junior talent crisis explicitly. The work being eliminated (high-volume, structured,
+      document-heavy) is the exact profile of junior analyst roles. Promoted from continuing
+      story: W39's Apprenticeship theme was forward-looking (PwC data on what junior
+      roles will require); this week the moves are operational and the recommended
+      action changes from planning to responding."
     source_items:
-    - 'PwC 2026 Global AI Jobs Barometer — PwC (2026)'
+    - 'Accenture Layoffs 2026: $865M AI Restructuring — multiple sources'
+    - 'KPMG US Advisory Cuts 2026 — LayoffLink'
+    - 'Thomson Reuters 2026 AI in Professional Services Report'
     content_angles:
-    - The Apprenticeship Just Got Harder
+    - The Restructuring Is Not Coming. It's Here.
   - theme_id: 4
-    theme_title: Uniform Governance Is How Agents Die
-    synthesis: 'Gartner predicts 40% of enterprises will demote or decommission autonomous
-      AI agents by 2027 due to governance gaps identified after production incidents.
-      Only 14.4% of orgs send agents to production with full security approval. The
-      failure mode is uniform governance applied indiscriminately across all agent
-      actions regardless of risk profile. New this week: W32 covered accountability
-      ownership; W33 covered agent identity; this week covers the governance architecture
-      failure — differentiation by risk profile is the missing piece.'
+    theme_title: DFW Innovation Economy Is Wider Than the Data Center Story
+    synthesis: "DFW Startup Week launched Sept 28 across 15+ Texas cities. TechFW
+      and UNT Health Fort Worth debuted Innovation Forum (startups + Cowtown Angels
+      + wet labs). Dallas ranked No. 27 globally in startup ecosystems — an 11-place
+      jump. 45% YoY growth in AI-specific workers (29,840). DFW ranked third nationally
+      for economic development project volume. New territory: David's steering explicitly
+      asks to move beyond Texas infrastructure/data center coverage; this week's signals
+      are ecosystem-formation stories (founders, capital, institutions) rather than
+      capex announcements."
     source_items:
-    - 'Gartner Says Applying Uniform Governance Across AI Agents Will Lead to Enterprise
-      AI Agent Failure — Gartner (2026-05-26)'
-    - 'Why Enterprise AI Agents Fail: 2026 Gartner and IDC Data — Beri.net (2026)'
+    - 'Dallas Jumps to No. 27 Among World Startup Ecosystems — Dallas Innovates (2026)'
+    - 'TechFW / UNT Health Innovation Forum Launch — Hoodline (2026-09)'
+    - 'DFW Tech Talent Growth — Dallas Innovates (2026)'
     content_angles:
-    - Uniform Governance Is How Agents Die
+    - DFW's Innovation Economy Is Wider Than You Think
   draft_paths:
-  - vault://Mind/Posts/_the-rate-card-is-the-argument.md
-  - vault://Mind/Posts/_culture-is-the-constraint.md
-  - vault://Mind/Posts/_the-apprenticeship-just-got-harder.md
-  - vault://Mind/Posts/_uniform-governance-is-how-agents-die.md
+  - vault://Mind/Posts/_shadow-ai-is-shadow-it-at-10x.md
+  - vault://Mind/Posts/_reversibility-is-the-governing-criterion.md
+  - vault://Mind/Posts/_the-restructuring-is-not-coming-its-here.md
+  - vault://Mind/Posts/_dfws-innovation-economy-is-wider-than-you-think.md
   weekly_tweets:
-  - text: "Cognizant just published an A0-to-A3 pricing taxonomy for AI-augmented
-      work. A0 = fully human. A3 = autonomous. 58% of their business is now outcome-based.
-      The vocabulary shift is the strategic play, not the billing change."
-    supporting_url: https://www.defenseworld.net/2026/09/18/cognizant-pivots-to-ai-driven-outcomes-digital-labor-model.html
-    intent_url: https://twitter.com/intent/tweet?text=Cognizant%20just%20published%20an%20A0-to-A3%20pricing%20taxonomy%20for%20AI-augmented%20work.%20A0%20%3D%20fully%20human.%20A3%20%3D%20autonomous.%2058%25%20of%20their%20business%20is%20now%20outcome-based.%20The%20vocabulary%20shift%20is%20the%20strategic%20play%2C%20not%20the%20billing%20change.&url=https%3A%2F%2Fwww.defenseworld.net%2F2026%2F09%2F18%2Fcognizant-pivots-to-ai-driven-outcomes-digital-labor-model.html
+  - text: "78% of AI users at work are using tools IT never approved. IBM found unsanctioned
+      AI in 43% of security incidents — double from last year. This is not a discipline
+      problem. It is a design problem."
+    supporting_url: https://www.helpnetsecurity.com/2026/09/28/ai-agent-security-governance-aws-report/
+    intent_url: https://twitter.com/intent/tweet?text=78%25%20of%20AI%20users%20at%20work%20are%20using%20tools%20IT%20never%20approved.%20IBM%20found%20unsanctioned%20AI%20in%2043%25%20of%20security%20incidents%20%E2%80%94%20double%20from%20last%20year.%20This%20is%20not%20a%20discipline%20problem.%20It%20is%20a%20design%20problem.&url=https%3A%2F%2Fwww.helpnetsecurity.com%2F2026%2F09%2F28%2Fai-agent-security-governance-aws-report%2F
     angle_type: data
-  - text: "McKinsey surveyed 10,000 executives. 88% deploying AI. 81% no bottom-line
-      impact. Culture is twice as predictive of success as personal readiness. The
-      technology is not the problem."
-    supporting_url: null
-    intent_url: https://twitter.com/intent/tweet?text=McKinsey%20surveyed%2010%2C000%20executives.%2088%25%20deploying%20AI.%2081%25%20no%20bottom-line%20impact.%20Culture%20is%20twice%20as%20predictive%20of%20success%20as%20personal%20readiness.%20The%20technology%20is%20not%20the%20problem.
-    angle_type: data
-  - text: "PwC analyzed a billion job postings. Junior roles in the U.S. exposed
-      to AI are now 7x more likely to require leadership and creativity. We automated
-      the work that used to teach those skills. Nobody has figured out what replaces
-      it."
-    supporting_url: https://www.pwc.com/gx/en/news-room/press-releases/2026/pwc-2026-ai-jobs-barometer.html
-    intent_url: https://twitter.com/intent/tweet?text=PwC%20analyzed%20a%20billion%20job%20postings.%20Junior%20roles%20in%20the%20U.S.%20exposed%20to%20AI%20are%20now%207x%20more%20likely%20to%20require%20leadership%20and%20creativity.%20We%20automated%20the%20work%20that%20used%20to%20teach%20those%20skills.%20Nobody%20has%20figured%20out%20what%20replaces%20it.&url=https%3A%2F%2Fwww.pwc.com%2Fgx%2Fen%2Fnews-room%2Fpress-releases%2F2026%2Fpwc-2026-ai-jobs-barometer.html
-    angle_type: data
-  - text: "Gartner says 40% of enterprises will decommission their AI agents by 2027.
-      The cause is not that agents made mistakes. It is that every agent action was
-      governed identically, regardless of what it actually did."
-    supporting_url: https://www.gartner.com/en/newsroom/press-releases/2026-05-26-gartner-says-applying-uniform-governance-across-ai-agents-will-lead-to-enterprise-ai-agent-failure
-    intent_url: https://twitter.com/intent/tweet?text=Gartner%20says%2040%25%20of%20enterprises%20will%20decommission%20their%20AI%20agents%20by%202027.%20The%20cause%20is%20not%20that%20agents%20made%20mistakes.%20It%20is%20that%20every%20agent%20action%20was%20governed%20identically%2C%20regardless%20of%20what%20it%20actually%20did.&url=https%3A%2F%2Fwww.gartner.com%2Fen%2Fnewsroom%2Fpress-releases%2F2026-05-26-gartner-says-applying-uniform-governance-across-ai-agents-will-lead-to-enterprise-ai-agent-failure
-    angle_type: data
-  - text: "Only 14% of leaders are consistently championing AI adoption inside their
-      organizations. Every other leader is waiting to see if it sticks. That is the
-      culture gap in one number."
-    supporting_url: null
-    intent_url: https://twitter.com/intent/tweet?text=Only%2014%25%20of%20leaders%20are%20consistently%20championing%20AI%20adoption%20inside%20their%20organizations.%20Every%20other%20leader%20is%20waiting%20to%20see%20if%20it%20sticks.%20That%20is%20the%20culture%20gap%20in%20one%20number.
-    angle_type: provocative
-  - text: "The consulting business model has always sold access to expertise. AI is
-      repricing expertise. The firms that name what their expertise is worth in an
-      AI world will own the conversation. The rest will be explaining themselves."
-    supporting_url: null
-    intent_url: https://twitter.com/intent/tweet?text=The%20consulting%20business%20model%20has%20always%20sold%20access%20to%20expertise.%20AI%20is%20repricing%20expertise.%20The%20firms%20that%20name%20what%20their%20expertise%20is%20worth%20in%20an%20AI%20world%20will%20own%20the%20conversation.%20The%20rest%20will%20be%20explaining%20themselves.
-    angle_type: provocative
-  - text: "How do you develop a first-year consultant when AI does the work a first-year
-      consultant used to do? That is not a hypothetical question. It is the talent
-      pipeline problem of 2026 for every professional services firm."
-    supporting_url: null
-    intent_url: https://twitter.com/intent/tweet?text=How%20do%20you%20develop%20a%20first-year%20consultant%20when%20AI%20does%20the%20work%20a%20first-year%20consultant%20used%20to%20do%3F%20That%20is%20not%20a%20hypothetical%20question.%20It%20is%20the%20talent%20pipeline%20problem%20of%202026%20for%20every%20professional%20services%20firm.
-    angle_type: question
-  - text: "56% of CEOs report zero measurable ROI from AI despite active deployment.
-      Only 1 in 6 organizations has a clear C-Suite owner of AI. You cannot drive
-      what nobody owns."
-    supporting_url: null
-    intent_url: https://twitter.com/intent/tweet?text=56%25%20of%20CEOs%20report%20zero%20measurable%20ROI%20from%20AI%20despite%20active%20deployment.%20Only%201%20in%206%20organizations%20has%20a%20clear%20C-Suite%20owner%20of%20AI.%20You%20cannot%20drive%20what%20nobody%20owns.
-    angle_type: data
-  - text: "The A3 agent that executes autonomously and the A0 task that still needs
-      a human are not interchangeable. Treating them the same in a governance model
-      is how you end up with a pilot that works and a production deployment that gets
-      killed."
-    supporting_url: null
-    intent_url: https://twitter.com/intent/tweet?text=The%20A3%20agent%20that%20executes%20autonomously%20and%20the%20A0%20task%20that%20still%20needs%20a%20human%20are%20not%20interchangeable.%20Treating%20them%20the%20same%20in%20a%20governance%20model%20is%20how%20you%20end%20up%20with%20a%20pilot%20that%20works%20and%20a%20production%20deployment%20that%20gets%20killed.
+  - text: "The governance question for AI agents is not \"how risky is this?\" It
+      is \"if this gets it wrong, can we undo it?\" Reversibility is the actual governing
+      variable. Akamai just named it."
+    supporting_url: https://www.globenewswire.com/news-release/2026/09/22/3366103/0/en/akamai-report-securing-agentic-ai-requires-shift-to-behavioral-governance.html
+    intent_url: https://twitter.com/intent/tweet?text=The%20governance%20question%20for%20AI%20agents%20is%20not%20%22how%20risky%20is%20this%3F%22%20It%20is%20%22if%20this%20gets%20it%20wrong%2C%20can%20we%20undo%20it%3F%22%20Reversibility%20is%20the%20actual%20governing%20variable.%20Akamai%20just%20named%20it.&url=https%3A%2F%2Fwww.globenewswire.com%2Fnews-release%2F2026%2F09%2F22%2F3366103%2F0%2Fen%2Fakamai-report-securing-agentic-ai-requires-shift-to-behavioral-governance.html
     angle_type: practitioner
-  - text: "Professionalised roles are growing twice as fast as democratised ones and
-      paying 42% more. AI is not flattening the labor market. It is sharpening it.
-      The question is which track you are building toward."
-    supporting_url: https://www.pwc.com/gx/en/news-room/press-releases/2026/pwc-2026-ai-jobs-barometer.html
-    intent_url: https://twitter.com/intent/tweet?text=Professionalised%20roles%20are%20growing%20twice%20as%20fast%20as%20democratised%20ones%20and%20paying%2042%25%20more.%20AI%20is%20not%20flattening%20the%20labor%20market.%20It%20is%20sharpening%20it.%20The%20question%20is%20which%20track%20you%20are%20building%20toward.&url=https%3A%2F%2Fwww.pwc.com%2Fgx%2Fen%2Fnews-room%2Fpress-releases%2F2026%2Fpwc-2026-ai-jobs-barometer.html
+  - text: "Accenture: 11,000 layoffs, $865 million restructuring. KPMG: 400 U.S.
+      advisory cuts. The consulting talent model shift that everyone was planning for
+      in 2027 is running on 2026 time."
+    supporting_url: https://founderreports.com/ai-layoffs-tracker/
+    intent_url: https://twitter.com/intent/tweet?text=Accenture%3A%2011%2C000%20layoffs%2C%20%24865%20million%20restructuring.%20KPMG%3A%20400%20U.S.%20advisory%20cuts.%20The%20consulting%20talent%20model%20shift%20that%20everyone%20was%20planning%20for%20in%202027%20is%20running%20on%202026%20time.&url=https%3A%2F%2Ffounderreports.com%2Fai-layoffs-tracker%2F
+    angle_type: data
+  - text: "When the compliant AI tool is slower and less useful than the unapproved
+      one, governance policy is just making the inventory harder to find. That is
+      the real shadow AI problem."
+    supporting_url: null
+    intent_url: https://twitter.com/intent/tweet?text=When%20the%20compliant%20AI%20tool%20is%20slower%20and%20less%20useful%20than%20the%20unapproved%20one%2C%20governance%20policy%20is%20just%20making%20the%20inventory%20harder%20to%20find.%20That%20is%20the%20real%20shadow%20AI%20problem.
+    angle_type: provocative
+  - text: "An AI agent that drafts an email for human review: reversible. An agent
+      that submits a change order directly to a financial system: not reversible.
+      Are you governing these the same way?"
+    supporting_url: null
+    intent_url: https://twitter.com/intent/tweet?text=An%20AI%20agent%20that%20drafts%20an%20email%20for%20human%20review%3A%20reversible.%20An%20agent%20that%20submits%20a%20change%20order%20directly%20to%20a%20financial%20system%3A%20not%20reversible.%20Are%20you%20governing%20these%20the%20same%20way%3F
     angle_type: question
-  source_proposals_batch: 15
+  - text: "Dallas jumped to No. 27 in the Global Startup Ecosystem Report — an 11-place
+      climb. 29,840 AI-specific workers. 45% year-over-year growth. DFW is not just
+      a data center market anymore."
+    supporting_url: https://dallasinnovates.com/dallas-jumps-to-no-27-among-the-worlds-startup-ecosystems/
+    intent_url: https://twitter.com/intent/tweet?text=Dallas%20jumped%20to%20No.%2027%20in%20the%20Global%20Startup%20Ecosystem%20Report%20%E2%80%94%20an%2011-place%20climb.%2029%2C840%20AI-specific%20workers.%2045%25%20year-over-year%20growth.%20DFW%20is%20not%20just%20a%20data%20center%20market%20anymore.&url=https%3A%2F%2Fdallasinnovates.com%2Fdallas-jumps-to-no-27-among-the-worlds-startup-ecosystems%2F
+    angle_type: data
+  - text: "The work Accenture is cutting is high-volume, structured, and document-heavy.
+      That is also the description of a first-year analyst role at most consulting
+      firms. This is not a coincidence."
+    supporting_url: null
+    intent_url: https://twitter.com/intent/tweet?text=The%20work%20Accenture%20is%20cutting%20is%20high-volume%2C%20structured%2C%20and%20document-heavy.%20That%20is%20also%20the%20description%20of%20a%20first-year%20analyst%20role%20at%20most%20consulting%20firms.%20This%20is%20not%20a%20coincidence.
+    angle_type: practitioner
+  - text: "67% of executives believe their company already suffered a breach from
+      an employee using an unapproved AI tool. The governance gap is not theoretical
+      anymore. It is on the board agenda."
+    supporting_url: null
+    intent_url: https://twitter.com/intent/tweet?text=67%25%20of%20executives%20believe%20their%20company%20already%20suffered%20a%20breach%20from%20an%20employee%20using%20an%20unapproved%20AI%20tool.%20The%20governance%20gap%20is%20not%20theoretical%20anymore.%20It%20is%20on%20the%20board%20agenda.
+    angle_type: provocative
+  - text: "If your junior consultants are no longer doing the structured, document-heavy
+      work that used to develop them, what is year one actually preparing them for?"
+    supporting_url: null
+    intent_url: https://twitter.com/intent/tweet?text=If%20your%20junior%20consultants%20are%20no%20longer%20doing%20the%20structured%2C%20document-heavy%20work%20that%20used%20to%20develop%20them%2C%20what%20is%20year%20one%20actually%20preparing%20them%20for%3F
+    angle_type: question
+  - text: "DFW Startup Week is running across 15+ Texas cities this week. The infrastructure
+      story was the last chapter. The ecosystem story is the current one."
+    supporting_url: null
+    intent_url: https://twitter.com/intent/tweet?text=DFW%20Startup%20Week%20is%20running%20across%2015%2B%20Texas%20cities%20this%20week.%20The%20infrastructure%20story%20was%20the%20last%20chapter.%20The%20ecosystem%20story%20is%20the%20current%20one.
+    angle_type: data
+  source_proposals_batch: 16
   source_proposals_count: 5

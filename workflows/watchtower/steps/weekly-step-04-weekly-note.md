@@ -18,7 +18,8 @@ outputs:
 2. Use the Obsidian MCP server for vault writes — do NOT write to filesystem vault paths directly.
 3. Filename format: `YYYY-Www.md` (ISO week number, zero-padded). Use the week of the run date.
 4. If the weekly note already exists (re-run), overwrite it.
-5. Write `status: complete`, `completed-at`, and `outputs` when done.
+5. **Also update the Watchtower Weekly artifact** (`watchtower-weekly`) with the W40 week block — both the vault note AND the artifact are required outputs of this step.
+6. Write `status: complete`, `completed-at`, and `outputs` when done.
 
 ---
 
@@ -29,19 +30,21 @@ outputs:
 | Agent | Knox |
 | Model | haiku |
 | Input | `accumulated-context.weekly_themes`, `accumulated-context.weekly_tweets`, step outputs from steps 01-03 and 02b, `config.yaml` |
-| Output | Obsidian weekly note at `Watchtower/Weekly/YYYY-Www.md` |
+| Output | (1) Obsidian weekly note at `Watchtower/Weekly/YYYY-Www.md`; (2) Updated Watchtower Weekly artifact with new week block |
 
 ---
 
 ## CONTEXT BOUNDARIES
 
-- Scope: write the weekly Obsidian note. No new analysis, no new drafts.
-- This note is the vault-side archive of the week's synthesis, content candidates, and pending source proposals.
-- It is NOT the terminal report to David — that is step-05.
+- Scope: write the weekly Obsidian note AND update the artifact. No new analysis, no new drafts.
+- The vault note is the archive. The artifact is the live skimmable view David uses each Monday.
+- Neither is the terminal report to David — that is step-05.
 
 ---
 
 ## YOUR TASK
+
+### Part A — Obsidian vault note
 
 1. Derive the ISO week identifier from today's date: `YYYY-Www` (e.g., `2026-W25`).
 
@@ -96,13 +99,34 @@ outputs:
 
 4. Write the note to Obsidian `Watchtower/Weekly/YYYY-Www.md` via MCP.
 
-5. Write `outputs` to this file's frontmatter:
+### Part B — Artifact update
+
+5. Update the Watchtower Weekly artifact (`watchtower-weekly`):
+   - Add `YYYY-Www` option to the `<select>` dropdown as the first/selected option
+   - Add entry to the `runMeta` JS object
+   - Add a new `view-wNN` div as the first week-view with `class="week-view active"`
+   - Remove `active` class from the previously-active week div
+   - Update the header `run-meta` default text
+   - Draft path links: use `obsidian://open?vault=IES&file=Mind%2FPosts%2F<filename>` format for confirmed vault drafts
+
+   Week-view structure (follow W38/W39 pattern):
+   - Action banner (themes count, batch status, one-line summary)
+   - Dropped-themes banner (if any themes dropped)
+   - Stats row (themes / content drafts / sources proposed)
+   - Expandable theme-cards
+   - Content Drafts table
+   - Source Proposals table (pending or resolved)
+   - Tweets section (10 tweets with Post to X links)
+   - Note box (run metadata one-liner)
+
+6. Write `outputs` to this file's frontmatter:
    ```yaml
    outputs:
      weekly_note_path: "Watchtower/Weekly/YYYY-Www.md"
+     artifact_updated: true
      themes_in_note: <int>
      candidates_listed: <int>
-     tweets_in_note: <int>   # count of tweets written into the Tweets This Week section
+     tweets_in_note: <int>
    ```
 
 ---
@@ -110,7 +134,8 @@ outputs:
 ## SUCCESS METRICS
 
 - Weekly note exists at correct path in Obsidian vault.
-- All themes and content candidates from this run appear in the note.
+- Artifact shows current week as active/default.
+- All themes and content candidates from this run appear in both.
 - Source proposal count matches step-03 output.
 
 ---
@@ -119,8 +144,9 @@ outputs:
 
 | Failure | Action |
 |---------|--------|
-| Obsidian MCP unavailable | Write note to `workflows/watchtower/fallback/weekly/YYYY-Www.md`; log path |
-| `weekly_themes` empty | Write a minimal note noting no themes this week; do not skip the file |
+| Obsidian MCP unavailable | Write note to `workflows/watchtower/fallback/weekly/YYYY-Www.md`; log path; still update artifact |
+| Artifact update fails | Log error; surface to David in step-05; vault note still required |
+| `weekly_themes` empty | Write a minimal note noting no themes this week; do not skip either output |
 | ISO week calculation fails | Use `YYYY-MM-DD` format in filename as fallback; log it |
 
 ---

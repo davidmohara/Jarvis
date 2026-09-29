@@ -1,0 +1,216 @@
+{
+  "id": "eval-20260928T161950-89M0G8",
+  "type": "workflow",
+  "name": "boot",
+  "agent": "master",
+  "session_id": "32a528bb-7160-4991-b802-c48903ee6770",
+  "trigger": "boot",
+  "started": "2026-09-28T16:19:50.799540Z",
+  "completed": "2026-09-29T02:35:42.247734Z",
+  "duration_seconds": 36951.45,
+  "status": "success",
+  "steps": [],
+  "subagents": [
+    {
+      "agent_id": "a2cee690698ca373c",
+      "agent_type": "general-purpose",
+      "started": "2026-09-28T16:20:39.790308Z",
+      "completed": "2026-09-28T16:37:19.154948Z",
+      "model": "accounts/fireworks/models/kimi-k3",
+      "tokens_input": 453217,
+      "tokens_output": 2793,
+      "cost_usd": 0.09,
+      "duration_seconds": 999.36
+    },
+    {
+      "agent_id": "a3f07c29d7246318e",
+      "agent_type": "general-purpose",
+      "started": "2026-09-28T16:21:23.771510Z",
+      "completed": null,
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "agent_id": "a3fa55975c24e22be",
+      "agent_type": "general-purpose",
+      "started": "2026-09-28T16:28:08.993053Z",
+      "completed": "2026-09-28T16:28:28.917479Z",
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 24306,
+      "tokens_output": 195,
+      "cost_usd": 0.09,
+      "duration_seconds": 19.92
+    },
+    {
+      "agent_id": "a96263b34ea991f39",
+      "agent_type": "general-purpose",
+      "started": "2026-09-28T19:57:03.029707Z",
+      "completed": "2026-09-28T20:00:20.259456Z",
+      "model": "accounts/fireworks/models/kimi-k3",
+      "tokens_input": 0,
+      "tokens_output": 0,
+      "cost_usd": 0.09,
+      "duration_seconds": 197.23
+    },
+    {
+      "agent_id": "aa5a691e264b5bcb7",
+      "agent_type": "general-purpose",
+      "started": "2026-09-29T02:21:31.054122Z",
+      "completed": "2026-09-29T02:34:43.203449Z",
+      "model": "accounts/fireworks/models/kimi-k3",
+      "tokens_input": 351632,
+      "tokens_output": 2022,
+      "cost_usd": 0.09,
+      "duration_seconds": 792.15
+    }
+  ],
+  "monitoring": {
+    "active": false,
+    "state_yaml_path": "workflows/boot/state.yaml",
+    "opened_by": "eval-turn-start.py",
+    "trigger_evidence": "run the morning boot up workflow"
+  },
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 6,
+      "assertions_passed": 5,
+      "assertion_results": [
+        {
+          "assertion": "boot-001-state-complete",
+          "description": "Boot workflow state.yaml shows status: complete",
+          "passed": true
+        },
+        {
+          "assertion": "boot-002-session-index-exists",
+          "description": "Session index file exists \u2014 boot's Session Index Boot step must have created/appended it",
+          "passed": true
+        },
+        {
+          "assertion": "boot-003-session-index-substantive",
+          "description": "Session index is a real record, not an empty stub",
+          "passed": true
+        },
+        {
+          "assertion": "boot-005-omnifocus-data-file-exists",
+          "description": "OmniFocus pull (step-01.2 Pull B) wrote its consolidated data file",
+          "passed": true
+        },
+        {
+          "assertion": "boot-007-omnifocus-no-completed-tasks-leaked",
+          "description": "No completed task leaked into the OmniFocus pull. The inbox permanently holds ~247 completed tasks alongside ~8 incomplete ones, and Clean Up does NOT remove them, so the query itself must carry `completed is false`. Any `completed: true` in the output means the filter was dropped from the call.",
+          "passed": true
+        },
+        {
+          "assertion": "boot-008-omnifocus-filter-documented",
+          "description": "Regression guard: the boot pull instructions still mandate the `completed is false` filter on the inbox query. If someone strips that filter from the instructions, this trips before the leak reaches a briefing.",
+          "passed": false
+        }
+      ]
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": "31aa5f2d2dc54e7d15d86c24d9a92b349facc0c6ea25918795ffa980e3e37490",
+  "prior_baseline_id": null,
+  "tags": [
+    "turn-level"
+  ],
+  "guardrails": [
+    {
+      "name": "step-01.5-checkpoint",
+      "after_step": "step-01.5-unified-calendar-pull",
+      "result": "pass",
+      "reason": "calendar_file present (data/calendar-unified.json), event_count 43, date_range 2026-09-28 to 2026-10-01 (4-day window); all 3 rules satisfied",
+      "escalated_to_human": false,
+      "timestamp": "2026-09-28T16:28:45.339136+00:00"
+    },
+    {
+      "name": "step-02-checkpoint",
+      "after_step": "step-02-gather-data",
+      "result": "pass",
+      "reason": "phase2_status present (5/5 tasks, 0 degraded), completed_tasks non-empty (5 tasks listed); both rules satisfied",
+      "escalated_to_human": false,
+      "timestamp": "2026-09-28T16:30:57.524569+00:00"
+    },
+    {
+      "name": "step-03-checkpoint",
+      "after_step": "step-03-verify-phase2",
+      "result": "pass",
+      "reason": "Self-verified 11/11 file-evidence checks PASS; 0 critical failures; 0 reruns; ralph unavailable so self-verification per failure-mode table",
+      "escalated_to_human": false,
+      "timestamp": "2026-09-28T16:37:39.612175+00:00"
+    },
+    {
+      "name": "step-04-checkpoint",
+      "after_step": "step-04-gather-meeting-context",
+      "result": "pass",
+      "reason": "Meeting context gathered for all 7 flagged meetings (Lone Star Gold, GEHC internal, CRM-Dodds, Shelly Kaiser, SMU Cox panel, McMichael 1:1, Dr Walters); Clay live via this run's unified pull (0 reminders, 1 birthday today: Dawn Dearstone); yesterday daily review missing (last 2026-09-18) \u2014 flagged as accountability gap.",
+      "escalated_to_human": false,
+      "timestamp": "2026-09-29T02:25:22.616816+00:00"
+    },
+    {
+      "name": "step-04-checkpoint",
+      "after_step": "step-04-gather-meeting-context",
+      "result": "pass",
+      "reason": "Meeting context gathered for all 7 flagged meetings (Lone Star Gold, GEHC internal, CRM-Dodds, Shelly Kaiser, SMU Cox panel, McMichael 1:1, Dr Walters); Clay live via this run's unified pull (0 reminders, 1 birthday today: Dawn Dearstone); yesterday daily review missing (last 2026-09-18) \u2014 flagged as accountability gap. Note: morning-briefing pre-synthesis-review checkpoint could not be recorded (no in-progress mb eval record in this resumed boot run) \u2014 flagged in briefing text.",
+      "escalated_to_human": false,
+      "timestamp": "2026-09-29T02:25:29.624131+00:00"
+    },
+    {
+      "name": "step-05-checkpoint",
+      "after_step": "step-05-synthesize-briefing",
+      "result": "pass",
+      "reason": "Briefing synthesized per mb step-04 format: 3 prose paragraphs + calendar table, no em-dashes, all Phase 2 findings woven in (email triage, 72hr lookahead, delegation, rocks, Clay birthday), OmniFocus partial-pull discrepancy flagged in narrative, working memory written to memory/working/morning-briefing-2026-09-28-212900.md",
+      "escalated_to_human": false,
+      "timestamp": "2026-09-29T02:29:20.560906+00:00"
+    },
+    {
+      "name": "step-06-checkpoint",
+      "after_step": "step-06-scan-workflows",
+      "result": "pass",
+      "reason": "Index read (active: []), but targeted scan found plaud-ingest session pi-20260928-001 status awaiting-input at step-03 (2 unresolved speaker mappings awaiting David) \u2014 stale-index mismatch surfaced, not auto-resumed. Boot itself is the only other in-progress workflow.",
+      "escalated_to_human": false,
+      "timestamp": "2026-09-29T02:31:43.156982+00:00"
+    },
+    {
+      "name": "pre-completion-review",
+      "after_step": "step-06-scan-workflows",
+      "result": "flag",
+      "reason": "Briefing reflects live 2026-09-28 data (calendar 43 events fresh, email 19, Clay live, Obsidian live) with the one degraded element (partial OmniFocus pull, 26 tasks vs weekly-review fuller count) explicitly disclosed in paragraph 2, not presented as clean. Step-06 correctly distinguished real state: boot in-progress (this run), plaud-ingest awaiting-input at step-03 (2 unresolved speakers) despite empty _active.yaml \u2014 stale-index mismatch surfaced. Session index healthy (1 record for today, hook-maintained, no duplication). Leakage check clear: no credentials, DOBs, or raw sensitive data in briefing, working memory, or session index. No escalate condition met.",
+      "escalated_to_human": false,
+      "timestamp": "2026-09-29T02:32:27.681596+00:00"
+    }
+  ],
+  "total_tokens_input": 829155,
+  "total_tokens_output": 5010,
+  "total_cost_usd": 0.36
+}

@@ -1,10 +1,10 @@
 ---
 status: complete
-started-at: "2026-08-27T16:38:30Z"
-completed-at: "2026-08-27T16:39:00Z"
+started-at: "2026-09-29T02:27:00Z"
+completed-at: "2026-09-29T02:28:00Z"
 outputs:
   checkpoint_result: "flag"
-  reason: "Clay birthday data not parsed (getUpcomingEvents payload exceeded tool output limit); all other data (calendar, tasks, meeting context) fresh and dated correctly for 2026-08-27, no wrong-day data, no attendee mismatches"
+  reason: "Calendar fresh (43 events, pulled 16:30Z, first event matches 2026-09-28); meeting context mapped to correct recurring series. Flag: boot OmniFocus unified pull partial (26 tasks, 1 overdue) vs same-day weekly review fuller pull (22 overdue, 1 due today) — briefing uses fuller numbers. Recorded on eval-20260929T022743-NJ95H5."
 model: sonnet
 ---
 

@@ -1,0 +1,20 @@
+{
+  "id": "err-20260928T102000-FALSE-UPDATE-CLAIM",
+  "timestamp": "2026-09-28T10:20:00Z",
+  "agent": "chase",
+  "task": "rock4-cosell-pipeline",
+  "severity": "critical",
+  "category": "false-completion-claim",
+  "source": "Rock 4 co-sell pipeline skill — Phase 5 output update",
+  "description": "Agent claimed to have updated Obsidian file with corrected Rock 4 numbers ($536.75K pipeline, $5.69M won, $8.77M gap). Screenshot evidence shows file still contains OLD/FABRICATED data (Austin $13.5M pipeline, $3.77M won). Update did NOT succeed.",
+  "context": {
+    "claimed_action": "Updated Obsidian file via mcp__obsidian-local__create_vault_file",
+    "actual_state": "File unchanged — still shows fabricated Austin numbers",
+    "evidence": "User screenshot of Obsidian showing original incorrect data"
+  },
+  "what_happened": "Agent called MCP tool to create_vault_file with corrected content, received 'File created successfully' response, and falsely claimed update was complete. In reality, either: (1) MCP did not actually update the file, (2) file was not properly saved, or (3) agent fabricated the success response.",
+  "root_cause": "Agent made a false completion claim without verification. Did not read back the file from Obsidian to confirm update succeeded.",
+  "impact": "David's Rock 4 snapshot in Obsidian still contains fabricated numbers ($23.5M instead of $6.2M combined progress). Critical gap data is wrong.",
+  "correct_action_needed": "Agent must verify the update actually took effect by reading the file back from Obsidian using mcp__obsidian-local__get_vault_file before claiming completion.",
+  "status": "unresolved"
+}

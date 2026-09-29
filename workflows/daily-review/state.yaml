@@ -1,22 +1,13 @@
 ---
 workflow: daily-review
 agent: chief
-status: complete
-session-started: "2026-09-18T21:00:00"
-session-id: "chief-2026-09-18-210000"
-current-step: step-05
-session-closed: true
-original-request: "Run the daily-review workflow for Friday 2026-09-18 (retreat day 1, Houston)."
+status: in-progress
+session-started: "2026-09-28T22:45:00"
+session-id: "chief-2026-09-28-224500"
+current-step: step-01
+session-closed: false
+original-request: "Run the daily-review workflow for Monday 2026-09-28 (last day before Improving Retreat / travel to LAS)."
 accumulated-context:
-  review-date: "2026-09-18"
-  mode: "sub-agent run — no live controller; answers synthesized from task system, calendar, email, Knox ingest records; controller-confirm items marked in review"
-  review-file: "reviews/daily/2026-09-18.md"
-  narrative-path: "Daily Reviews/2026-09-18 The Handoff That Cleared Before the Retreat.md (Obsidian vault, cross-linked from Calendar/2026/09-September/2026-09-18.md)"
-  delegation: "No changes — Steve Hall follow-up remains with Derek Nwamadi, due 2026-09-25, Waiting"
-  guardrail-checkpoint: "pass (manual review; recorder found no in-progress eval record — noted in closing summary)"
-  root-audit: "clean"
-  git-commit: "88250659"
-  git-push: "success (after rebase onto origin/main; trivial conflict in skill-runs/git-latest.json resolved keeping newer entry)"
-  eval-record: "eval-20260918T230336-Z4WC4H.json"
-  notes: "close-eval-record.py requires timezone-aware --started (offset-naive input throws TypeError) — flag for Rigby"
+  review-date: "2026-09-28"
+  mode: "sub-agent run — no live controller; answers synthesized from morning briefing, calendar, OmniFocus unified pull (degraded), weekly review 2026-W40, LSG board update; controller-confirm items marked in review"
 ---

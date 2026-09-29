@@ -1,15 +1,16 @@
 ---
 status: complete
-started-at: "2026-08-27T16:30:00Z"
-completed-at: "2026-08-27T16:31:00Z"
+started-at: "2026-09-28T16:34:00Z"
+completed-at: "2026-09-28T16:36:00Z"
 outputs:
-  inbox_count: 12
+  inbox_count: 18
   due_today: []
-  overdue: []
+  overdue: ["Schedule window cleaning — Maintenance, due 2026-09-22, 6 days late"]
   flagged: []
-  delegations_active: 0
-  rocks_source: "memory/personal/quarterly-objectives.md (Q3 2026 draft, unsigned)"
-  summary: "12 unassigned OmniFocus inbox items, none dated/flagged/projected. No active delegations on tracker. Q3 rocks still in draft awaiting David's sign-off."
+  delegations_active: 1
+  delegations_overdue: ["Steve Hall follow up -> Derek Nwamadi, due 2026-09-25, 3 days late, status Waiting"]
+  rocks_source: "memory/personal/quarterly-objectives.md (Q3 2026 draft, unsigned since 2026-07-30; quarter ends 2026-09-30, 2 days)"
+  summary: "26 active tasks: 18 unassigned inbox, 0 due today, 1 overdue (window cleaning 6 days), 0 flagged. 1 active delegation (Steve Hall follow up -> Derek Nwamadi, 3 days overdue). Q3 rocks still draft unsigned with quarter ending Wednesday."
 model: sonnet
 ---
 

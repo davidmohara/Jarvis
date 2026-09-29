@@ -1,16 +1,22 @@
 ---
 status: complete
-started-at: "2026-09-14T20:00:00Z"
-completed-at: "2026-09-14T20:15:00Z"
+started-at: "2026-09-29T02:50:00Z"
+completed-at: "2026-09-29T03:05:00Z"
 outputs:
   drafts_sent:
-    - Mind/Posts/_the-activity-trap.md
-    - Mind/Posts/_intuition-rust.md
-    - Mind/Posts/_dfw-is-now-the-ai-talent-market.md
-  drafts_skipped: []
+    - Mind/Posts/_shadow-ai-is-shadow-it-at-10x.md
+    - Mind/Posts/_reversibility-is-the-governing-criterion.md
+    - Mind/Posts/_the-restructuring-is-not-coming-its-here.md
+    - Mind/Posts/_dfws-innovation-economy-is-wider-than-you-think.md
+    - Mind/Posts/_culture-is-the-constraint.md
+    - Mind/Posts/_uniform-governance-is-how-agents-die.md
+  drafts_skipped:
+    - path: Mind/Posts/_the-rate-card-is-the-argument.md
+      reason: vault_read_failed (iCloud stub not downloaded; file confirmed in vault via search but 0 bytes on disk)
   channel: C0B160MA3EK
   step_skipped: false
   guardrail: pass
+  selection: david-specified (W39+W40 except Apprenticeship Got Harder)
 ---
 
 <!-- system:start -->

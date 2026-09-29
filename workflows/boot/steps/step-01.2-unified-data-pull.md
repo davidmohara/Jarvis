@@ -1,11 +1,11 @@
 ---
 status: complete
-started-at: "2026-09-18T17:00:47Z"
-completed-at: "2026-09-18T17:03:00Z"
+started-at: "2026-09-28T16:21:40Z"
+completed-at: "2026-09-28T16:26:00Z"
 outputs:
-  email_pull: "completed — 17 messages in window (2026-09-16 to 2026-09-18, Inbox newest-first, totalResultCount 17), 10 actionable (Ashford & Remington Hotels escalation from Diana Stevens HIGH importance, UTB board book comments due TODAY 09-18, amazing race updated retreat list, Solace Texans suite ticket push, DCC Sigma Genetics breakfast 9/30, Fortium SIM Enclave follow-up, BofA AI session partnership fwd, World Affairs Council dinner 10/13, Legacy Club 4-member intake replies received, YPO nominee intake forms deadline)"
-  omnifocus_pull: "completed — 42 tasks (status: available via omnifocus-data skill), 11 unassigned inbox, 0 due today, 0 overdue, 0 flagged"
-  clay_pull: "completed — 0 reminders (live getUpcomingReminders check), 2 birthdays in next 7 days (Kevin Gardner 09-20, Justin Etheredge 09-22; confirmed via Clay 09-17, still in window; home-activity feed showed no new upcoming birthdays)"
+  email_pull: "completed — 19 messages in window (2026-09-25 to 2026-09-28, Inbox newest-first, totalResultCount 19), 7 actionable (YPO Tech Network reply from Kyle Vermeer asking for 30 min, helpdesk CRM ticket 69244 needs error text before Monday meeting, Vegas Retreat CorpLanta dress code HIGH importance, LSYPO member acknowledgment/liability waiver ACTION, Windsor Court New Orleans upcoming stay, USAM Tips prototype v2.1 Artifact invite from sbeck@beckventures.com, HRSouthwest Conference connect request Oct 11-13)"
+  omnifocus_pull: "completed — 26 tasks (status: available via omnifocus-data skill), 18 unassigned inbox, 0 due today, 1 overdue (Schedule window cleaning due 09-22), 0 flagged"
+  clay_pull: "completed — 0 reminders (live getUpcomingReminders check), 1 birthday in next 7 days (Dawn Dearstone 2026-09-28, today; via home-activity feed, 603 items)"
   jarvis_inbox_pull: "nothing-to-surface — Jarvis folder search returned 0 messages"
   files_created:
     - "data/email-unified.json"

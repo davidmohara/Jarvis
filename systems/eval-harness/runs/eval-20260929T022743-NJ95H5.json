@@ -1,0 +1,93 @@
+{
+  "id": "eval-20260929T022743-NJ95H5",
+  "type": "agent",
+  "name": "morning-briefing",
+  "agent": "chief",
+  "session_id": "",
+  "trigger": "manual",
+  "started": "2026-09-29T02:27:43.768472Z",
+  "completed": null,
+  "duration_seconds": null,
+  "status": "success",
+  "steps": [
+    {
+      "name": "step-03-gather-context",
+      "started": "2026-09-29T02:24:00Z",
+      "completed": "2026-09-29T02:27:00Z",
+      "duration_seconds": 180.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "name": "step-04-synthesize-briefing",
+      "started": "2026-09-29T02:27:00Z",
+      "completed": "2026-09-29T02:31:00Z",
+      "duration_seconds": 240.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": null,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "guardrails": [
+    {
+      "name": "pre-synthesis-review",
+      "after_step": "step-03-gather-context",
+      "result": "flag",
+      "reason": "Calendar fresh (43 events, pulled 16:30Z, first event matches 09-28). Meeting context mapped to correct recurring series. Flag: boot OmniFocus unified pull partial (26 tasks, 1 overdue) vs same-day weekly review fuller pull (22 overdue, 1 due today) \u2014 briefing uses fuller numbers and notes the discrepancy. Late-evening boot (9:23pm CT): meeting context is retrospective, not prep. No watchtower output today. No sensitive data in gathered context.",
+      "escalated_to_human": false,
+      "timestamp": "2026-09-29T02:27:43.991195+00:00"
+    }
+  ],
+  "completed_at": "2026-09-29T02:31:00Z",
+  "notes": [
+    "Closed manually by Master (boot resume run): close-eval-record.py created accidental stub eval-20260929T022920-UE7CLE instead of closing this in-progress record; stub removed, canonical record closed here. Briefing delivered: memory/working/morning-briefing-2026-09-28-212900.md"
+  ]
+}

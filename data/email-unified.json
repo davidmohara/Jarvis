@@ -1,160 +1,178 @@
 {
-  "pulled_at": "2026-09-18T17:01:00Z",
-  "message_count": 17,
-  "window": "2026-09-16 to 2026-09-18 (Inbox, newest-first)",
+  "pulled_at": "2026-09-28T16:25:00Z",
+  "message_count": 19,
+  "window": "2026-09-25 to 2026-09-28 (Inbox newest-first, totalResultCount 19)",
   "messages": [
     {
-      "id": "AAMk...okEAAA=",
-      "subject": "Meeting with Ayotunde, CIO of Ashford and Remington Hotels",
-      "from": "Diana.Stevens@Improving.com",
-      "received_at": "2026-09-18T13:35:22Z",
-      "is_flagged": false,
+      "subject": "Re: Reply from YPO Group - Tech Network",
+      "from": "kvermeer@brocksolutions.com",
+      "received_at": "2026-09-28T14:04:45Z",
+      "is_read": false,
+      "importance": "normal",
+      "snippet": "Appreciate the quick response. None seem to be 'I'm done and can share the experience'. Would value 30 minutes of your time to share thoughts on where my head is at.",
+      "actionable": true
+    },
+    {
+      "subject": "Re: CRM - Contacts (helpdesk ticket 69244)",
+      "from": "helpdesk@improving.com",
+      "received_at": "2026-09-25T22:22:00Z",
+      "is_read": false,
+      "importance": "normal",
+      "snippet": "Before our meeting on Monday, can you copy the full text from that error and attach it to ticket 69244 as a simple text file?",
+      "actionable": true
+    },
+    {
+      "subject": "Vegas Retreat - CorpLanta Dress Code",
+      "from": "Sara.Jop@improving.com",
+      "received_at": "2026-09-26T18:09:56Z",
+      "is_read": true,
       "importance": "high",
-      "snippet": "Just got off the phone with Ayotunde early this morning. She called regarding the engagement AP sold and a Consultant Chris Bergstrom did. They are very disappointed in the demo they had with him this last week and the Exec team met and sai..."
+      "snippet": "CorpLanta: Cowboys & Cowgirls in Vegas. Personalized cowboy hats in Welcome Room with welcome kit. Crew of 77.",
+      "actionable": true
     },
     {
-      "id": "AAMk...okJAAA=",
-      "subject": "updated list for amazing race",
-      "from": "Dawn.Dearstone@Improving.com",
-      "received_at": "2026-09-18T15:16:23Z",
-      "is_flagged": false,
+      "subject": "ACTION: LSYPO MEMBER ACKNOWLEDGMENT AND LIABILITY WAIVER",
+      "from": "mail@lonestarypo.com",
+      "received_at": "2026-09-25T22:19:53Z",
+      "is_read": true,
       "importance": "normal",
-      "snippet": "Here is the updated list for Saturday night. I removed those that cancelled for the retreat."
+      "snippet": "Lone Star YPO Chapter Member Acknowledgment and Liability Waiver requiring signature as condition of membership.",
+      "actionable": true
     },
     {
-      "id": "AAMk...okFAAA=",
-      "subject": "Re: See you on Sunday! (Texans suite details inside)",
-      "from": "austin.ledesma@solace.com",
-      "received_at": "2026-09-18T13:40:53Z",
-      "is_flagged": false,
+      "subject": "Enhance your upcoming stay at The Windsor Court",
+      "from": "reservations@windsorcourthotel.com",
+      "received_at": "2026-09-27T22:01:04Z",
+      "is_read": true,
       "importance": "normal",
-      "snippet": "Making one last push today to get last-minute buy-in on the extra tickets. Will let you know ASAP."
+      "snippet": "Upcoming reservation at The Windsor Court (New Orleans) - arrival fast approaching.",
+      "actionable": true
     },
     {
-      "id": "AAMk...okDAAA=",
-      "subject": "DCC - Sigma Genetics Breakfast 9/30 8AM",
-      "from": "mike@westcott.com (on behalf of Court Westcott)",
-      "received_at": "2026-09-18T13:30:28Z",
-      "is_flagged": false,
+      "subject": "You've been invited to view an Artifact (USAM Tips prototype v2.1)",
+      "from": "no-reply-claude@mail.anthropic.com",
+      "received_at": "2026-09-27T13:15:11Z",
+      "is_read": false,
       "importance": "normal",
-      "snippet": "Invite to breakfast at Dallas Country Club Wed Sep 30, 8am, to meet Zachary Rapp, CEO of Sigma Genetics."
+      "snippet": "Invited by sbeck@beckventures.com to view 'USAM Tips prototype v2.1' Artifact.",
+      "actionable": true
     },
     {
-      "id": "AAMk...okCAAA=",
-      "subject": "Re: Great connecting at SIM Enclave",
-      "from": "mark.urbis@fortiumpartners.com",
-      "received_at": "2026-09-18T13:17:13Z",
-      "is_flagged": false,
+      "subject": "Connecting at The HRSouthwest Conference",
+      "from": "afaulk@relevante.com",
+      "received_at": "2026-09-28T16:14:04Z",
+      "is_read": false,
       "importance": "normal",
-      "snippet": "Not sure if it will come from the company or the Fortium partner on the engagement. A few of us provided info on Improving via the dlavk channel."
+      "snippet": "Relevante exhibiting at HRSouthwest Conference Fort Worth Oct 11-13, booth #829, hoping to connect.",
+      "actionable": true
     },
     {
-      "id": "AAMk...ojpAAA=",
-      "subject": "Reminder: Board Book Comments and Outstanding Approval Requests Due September 18",
-      "from": "alerts@boardvantage.com (Teresa Saffold, United Texas Bank)",
-      "received_at": "2026-09-17T22:15:19Z",
-      "is_flagged": false,
+      "subject": "Re: Twenty Percent Nobody Budgeted Review",
+      "from": "Faizan.Fahim@improving.com",
+      "received_at": "2026-09-28T07:50:20Z",
+      "is_read": true,
       "importance": "normal",
-      "snippet": "Friendly reminder that tomorrow, September 18, is the requested due date for board book comments and outstanding approval requests."
+      "snippet": "Agrees monitoring should be at least 20%. Image and article updates in progress.",
+      "actionable": false
     },
     {
-      "id": "AAMk...ojKAAA=",
-      "subject": "Fw: Exploring a Partnership Opportunity for an AI Session for Mid-Level Managers",
-      "from": "Bethany.Hilton@Improving.com",
-      "received_at": "2026-09-17T19:31:30Z",
-      "is_flagged": false,
+      "subject": "Invitation to DFW Networking Event",
+      "from": "mike@tipclub.com",
+      "received_at": "2026-09-28T16:12:29Z",
+      "is_read": false,
       "importance": "normal",
-      "snippet": "Opportunity from Neha Maharish, Bank of America tech exec. Asian Society of Engineers in Dallas, BofA heavily involved. Asking if David can join the call to speak to Improving AI."
+      "snippet": "Virtual Dallas-Fort Worth Business Networking Event next week.",
+      "actionable": false
     },
     {
-      "id": "AAMk...ojAAAA=",
-      "subject": "World Affairs Council President Circle Dinner",
-      "from": "Bethany.Hilton@Improving.com",
-      "received_at": "2026-09-17T18:29:24Z",
-      "is_flagged": false,
+      "subject": "Hi David, here are our upcoming events and nominations",
+      "from": "replydallas@engaged.bizjournals.com",
+      "received_at": "2026-09-28T15:45:12Z",
+      "is_read": false,
       "importance": "normal",
-      "snippet": "Are you available October 13th to attend an executive dinner with the World Affairs Council? Curtis usually attends but is busy."
+      "snippet": "Dallas Business Journal weekly events/nominations guide.",
+      "actionable": false
     },
     {
-      "id": "AAMk...oi7AAA=",
-      "subject": "Re: Legacy Club",
-      "from": "Don.McGreal@Improving.com",
-      "received_at": "2026-09-17T17:58:51Z",
-      "is_flagged": false,
+      "subject": "Would your team know what to do first?",
+      "from": "ashley@defendify.com",
+      "received_at": "2026-09-28T15:59:05Z",
+      "is_read": false,
       "importance": "normal",
-      "snippet": "Don.McGreal provided Legacy Club intake info (details withheld from extract; see original email)."
+      "snippet": "Defendify incident-prep marketing email.",
+      "actionable": false
     },
     {
-      "id": "AAMk...oi2AAA=",
-      "subject": "RE: Legacy Club",
-      "from": "diana.stevens@improving.com",
-      "received_at": "2026-09-17T17:10:44Z",
-      "is_flagged": false,
+      "subject": "Will You Join Us in Prayer for the Jewish People?",
+      "from": "news@christiansengaged.com",
+      "received_at": "2026-09-28T15:31:41Z",
+      "is_read": false,
       "importance": "normal",
-      "snippet": "diana.stevens provided Legacy Club intake info (details withheld from extract; see original email)."
+      "snippet": "Christians Engaged newsletter.",
+      "actionable": false
     },
     {
-      "id": "AAMk...G8WEAAA=",
-      "subject": "Re: Legacy Club",
-      "from": "Curtis.Hite@Improving.com",
-      "received_at": "2026-09-17T16:58:04Z",
-      "is_flagged": false,
+      "subject": "Ready: AI For Everyone",
+      "from": "Coursera@m.learn.coursera.org",
+      "received_at": "2026-09-28T15:23:00Z",
+      "is_read": false,
       "importance": "normal",
-      "snippet": "Curtis.Hite provided Legacy Club intake info (details withheld from extract; see original email)."
+      "snippet": "Coursera promo: 3 months Google AI Pro.",
+      "actionable": false
     },
     {
-      "id": "AAMk...G8WDAAA=",
-      "subject": "Re: Legacy Club",
-      "from": "Bethany.Hilton@Improving.com",
-      "received_at": "2026-09-17T16:55:04Z",
-      "is_flagged": false,
+      "subject": "These are great odds!",
+      "from": "membership@mail.texastribune.org",
+      "received_at": "2026-09-27T21:14:48Z",
+      "is_read": false,
       "importance": "normal",
-      "snippet": "Bethany.Hilton provided Legacy Club intake info (details withheld from extract; see original email)."
+      "snippet": "Texas Tribune Fall Member Drive.",
+      "actionable": false
     },
     {
-      "id": "AAMk...G8VJAAA=",
-      "subject": "Thank You for Completing Your Visit",
-      "from": "chaptersandregions@ypo.org",
-      "received_at": "2026-09-17T05:01:04Z",
-      "is_flagged": false,
+      "subject": "Chicken Salad",
+      "from": "rex@gomindshift.com",
+      "received_at": "2026-09-27T15:20:46Z",
+      "is_read": false,
       "importance": "normal",
-      "snippet": "Reminder to complete YPO Arkansas Integrated chapter visit survey."
+      "snippet": "Rex/Mindshift personal newsletter about Lucy.",
+      "actionable": false
     },
     {
-      "id": "AAMk...G8U6AAA=",
-      "subject": "Fwd: [EXTERNAL] You're Invited to Happy Hour!",
-      "from": "ACarenza@activepure.com",
-      "received_at": "2026-09-16T23:13:33Z",
-      "is_flagged": false,
+      "subject": "RE: Annual Golf Tournament --- Reminder (thank-you thread)",
+      "from": "tmontpas@microsoft.com",
+      "received_at": "2026-09-25T17:26:17Z",
+      "is_read": true,
       "importance": "normal",
-      "snippet": "Invite to ActivePure/Cosm happy hour next week."
+      "snippet": "Thanks to everyone for joining the outing; thanks to Aliando and Improving friends.",
+      "actionable": false
     },
     {
-      "id": "AAMk...G8UmAAA=",
-      "subject": "ACTION: Complete Western US regional officer nominee intake forms",
-      "from": "smeyer@ypo.org",
-      "received_at": "2026-09-16T18:50:29Z",
-      "is_flagged": false,
+      "subject": "(AI Mastermind) two things to share if you're interested",
+      "from": "notifications@app.basecamp.com",
+      "received_at": "2026-09-25T16:50:15Z",
+      "is_read": true,
       "importance": "normal",
-      "snippet": "Reminder: personalized link to nominee intake form sent Sept 9. Deadline noted in body."
+      "snippet": "AI Mastermind Basecamp: paper written for International Jacques Ellul Society Conference at Notre Dame.",
+      "actionable": false
     },
     {
-      "id": "AAMk...oj7AAA=",
-      "subject": "Uproar and silence: Bo French's racist comments",
-      "from": "thebrief@mail.texastribune.org",
-      "received_at": "2026-09-18T11:17:23Z",
-      "is_flagged": false,
+      "subject": "Re: Annual Golf Tournament --- Reminder",
+      "from": "Scott.Shimp@microsoft.com",
+      "received_at": "2026-09-25T13:33:56Z",
+      "is_read": true,
       "importance": "normal",
-      "snippet": "Texas Tribune newsletter (noise)."
+      "snippet": "Thank-you reply in golf thread.",
+      "actionable": false
     },
     {
-      "id": "AAMk...okNAAA=",
-      "subject": "In case you missed it: HR challenges grow fast",
-      "from": "teamtrinet@comms.trinet.com",
-      "received_at": "2026-09-18T17:00:41Z",
-      "is_flagged": false,
+      "subject": "Re: Annual Golf Tournament --- Reminder",
+      "from": "kruchlin@yahoo.com",
+      "received_at": "2026-09-25T12:53:09Z",
+      "is_read": true,
       "importance": "normal",
-      "snippet": "TriNet marketing email (noise)."
+      "snippet": "Thank-you reply with photo attachment.",
+      "actionable": false
     }
   ]
 }

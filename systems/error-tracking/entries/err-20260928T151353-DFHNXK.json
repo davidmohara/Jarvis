@@ -1,0 +1,15 @@
+{
+  "id": "err-20260928T151353-DFHNXK",
+  "timestamp": "2026-09-28T15:13:53Z",
+  "session": "chase-revenue-tracker-scheduled",
+  "source": "explicit",
+  "agent": "chase",
+  "category": "tool-misuse",
+  "description": "During Rock 1 revenue tracker execution, wrote output files directly to /Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/ folder instead of using Obsidian MCP for vault writes. Created revenue-tracker-2026-09-28.md and memory/working/revenue-tracker-2026-09-28-114502.md as local files. These are duplicates of content that should only exist in the Obsidian vault via mcp__obsidian-local__ tools.",
+  "correction": "All Obsidian vault writes must use mcp__obsidian-local__create_vault_file or mcp__obsidian-local__append_to_vault_file. Local filesystem writes to IES folder bypass the vault and create sync conflicts. The correct flow was: pull data from PowerBI → write snapshot to Obsidian via MCP (Rock 1 - Revenue Snapshots.md) → output report to workspace. Local files were created: revenue-tracker-2026-09-28.md and memory/working/revenue-tracker-2026-09-28-114502.md (read-only, require manual deletion). Only Obsidian MCP writes (Rock 1 - Revenue Snapshots.md) are authoritative.",
+  "failure_mode": "tool-ignorance",
+  "systemic_fix": "Add pre-execution check in revenue-tracker skill SKILL.md Phase 4 section to explicitly state: 'Obsidian writes ONLY via mcp__obsidian-local__ tools. Do not write .md files to /IES/ directly.' Update CLAUDE.md Obsidian section to clarify: 'All Obsidian vault operations go through the MCP server. Local filesystem writes to the IES folder are not vault updates and will cause sync issues.'",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": []
+}

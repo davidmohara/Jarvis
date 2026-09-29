@@ -1,0 +1,15 @@
+{
+  "id": "err-20260929T024338-K3K074",
+  "timestamp": "2026-09-29T02:43:38Z",
+  "session": "2026-09-28-boot",
+  "source": "explicit",
+  "agent": "knox",
+  "category": "tool-misuse",
+  "description": "Knox stalled plaud-ingest at step-03 (awaiting-input) asking David to identify Speaker 3 on the 09-24 GEHC architecture recording and Speaker 1 on the 09-25 4th Friday Executive Meeting, when both recordings' timestamps could be cross-referenced against calendar attendees to resolve the speakers. The plaud-speaker-id skill's documented method is exactly this: cross-reference recording timestamps against calendar attendees. David's correction: 'Why are you asking me about speaker ID when it's in the calendar invite?' Master also relayed the question to David uncritically instead of redirecting Knox to the calendar first.",
+  "correction": "Before escalating an unresolved speaker to David, cross-reference the recording's date/time window against calendar event attendees (data/calendar-unified.json or M365 outlook_calendar_search). Only ask David when the calendar cross-reference genuinely fails or produces ambiguity the data cannot resolve.",
+  "failure_mode": "lazy-search",
+  "systemic_fix": "Reinforce in plaud-speaker-id / plaud-ingest step-03: calendar-attendee cross-reference is a mandatory step before any 'awaiting-input' escalation to the controller; an escalation payload must state what the calendar lookup returned and why it was insufficient. Master should challenge speaker-ID escalations that lack evidence of a calendar lookup.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": []
+}

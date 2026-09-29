@@ -1,0 +1,15 @@
+{
+  "id": "err-20260929T024619-HJDD7S",
+  "timestamp": "2026-09-29T02:46:19Z",
+  "session": "2026-09-28",
+  "source": "explicit",
+  "agent": "knox",
+  "category": "process-skip",
+  "description": "Told David that Slack was unavailable and could not send draft posts to #content channel. Failed to consult the routing rules or workflow for how Slack access is handled (master-slack skill). Also offered fallback/filesystem draft paths instead of the Obsidian vault versions of files, ignoring that David's edits live in Obsidian.",
+  "correction": "Read agents/routing.md (loaded at boot) to find the master-slack skill path. Use that skill to post to Slack. Always use vault-path (Mind/Posts/) versions of draft files — those contain David's edits. Fallback paths are Knox's working copies only.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "Before any Slack operation, check routing.md for the master-slack skill. Never surface fallback paths to David when vault paths exist — vault paths are canonical.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": []
+}

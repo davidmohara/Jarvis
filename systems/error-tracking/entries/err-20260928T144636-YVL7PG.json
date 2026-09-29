@@ -1,0 +1,15 @@
+{
+  "id": "err-20260928T144636-YVL7PG",
+  "timestamp": "2026-09-28T14:46:36Z",
+  "session": "2026-09-28",
+  "source": "explicit",
+  "agent": "jarvis",
+  "category": "data-accuracy",
+  "description": "In the weekly review (2026-W40.md), attributed the Forgiveness Letter item to OmniFocus. The item does not exist in OmniFocus — it was sourced from memory/personal/quarterly-objectives.md. The review file itself was correct (it appears under 'Carried Forward — Needs a Decision'), but the verbal summary implied it came from an OmniFocus task query.",
+  "correction": "The Forgiveness Letter is tracked only in quarterly-objectives.md, not in OmniFocus. When surfacing non-OmniFocus items in a review, explicitly name the source file rather than grouping them under task system findings.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "When summarizing overdue or carried items in the weekly review, always annotate the source (OmniFocus, delegations/tracker.md, quarterly-objectives.md, etc.) so David can immediately verify or dismiss each item without guessing where it came from.",
+  "fix_status": "proposed",
+  "severity": "minor",
+  "related_entries": []
+}

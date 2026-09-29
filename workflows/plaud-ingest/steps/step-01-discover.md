@@ -1,17 +1,39 @@
 ---
 status: completed
-model: haiku
-started-at: "2026-09-18T16:59:15Z"
-completed-at: "2026-09-18T17:02:00Z"
+model: kimi-k3
+started-at: "2026-09-28T16:21:32Z"
+completed-at: "2026-09-28T16:26:00Z"
 outputs:
-  new-recordings-count: 1
-  api-total: 140
-  confirmed-in-vault: 139
+  new-recordings-count: 6
+  api-total: 146
+  confirmed-in-vault: 140
   gate_1_result: "pass"
   gate_1_auth_method: "cached-token"
   gate_2_result: "pass"
   gate_2_flagged_recordings: []
   note: >
+    pi-20260928-001: FULL ENUMERATION (catch-up mode, no target-date). Plaud API returned
+    146 recordings (paginated /file/simple/web, all pages; cached token, 84 days remaining).
+    Live vault scan of zzPlaud/ found 199 .md notes, 140 unique file_ids. After Tier 1/2/3
+    dedup: 6 new. (1) d0200e83ccd8c442ba958c3587a0f3d7 "2026-09-25 09:29:53" (1225s, missing).
+    (2) a93aa078b699d69c62c4a2cef8dcf5b2 "2026-09-25 09:27:43" (60s, missing). (3)
+    5214979feed38c9bc43683493c70c961 "09-25 Weekly Meeting: AI Project Reset and Innovation
+    Lab Proposal" (2084s, pending). (4) bc6b122ea831c77ac527d4889f7bf4d3 "09-24 Weekly
+    Meeting: Podcast Strategy, Content Performance, and Scheduling" (1528s, pending). (5)
+    71aa19de30d2d2a67f7fc608dfa126bf "09-24 Meeting: Architecture Proposal for Event Routing
+    and AI-Driven Dispatch" (1378s, pending). (6) fa0e4f1fa0ed3f892a83cc6218f4c80d
+    "2026-09-18 12:01:01" (4016s, missing). Circuit breaker clear (6 new vs last confirmed
+    count 2 from 2026-09-17; 6 is >2x baseline but only 2.2% of 278 candidates, <10%).
+    Staging scan: 132 top-level plaud_*.md files, all 132 resolved by Tier 1 file_id exact
+    match via sibling _raw.json; already-ingested leftovers, zero stale-requeue. Ledger
+    written with 278 entries (272 skip + 6 new).
+  previous-run-results:
+    - date: "2026-09-18"
+      new-recordings-count: 1
+      api-total: 140
+      confirmed-in-vault: 139
+      note: "pi-20260918-001: 1 new recording (f96b2c110fc35162f390ac5288d6f7f4, ready)."
+  prior-note-archive: >
     pi-20260917-001: FULL ENUMERATION (catch-up mode, no target-date). Plaud API returned
     139 recordings (paginated /file/simple/web, all pages). Live vault scan of zzPlaud/
     found 196 .md notes, 137 unique file_ids. api-minus-vault: 2 new; vault-minus-api: 0.

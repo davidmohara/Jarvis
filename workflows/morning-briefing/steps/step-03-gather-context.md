@@ -1,18 +1,25 @@
 ---
 status: complete
-started-at: "2026-08-27T16:36:00Z"
-completed-at: "2026-08-27T16:38:00Z"
+started-at: "2026-09-29T02:24:00Z"
+completed-at: "2026-09-29T02:27:00Z"
 outputs:
   meeting_context:
-    - meeting: "one-on-one Scott McMichael (2:00pm CDT)"
-      prep_status: "ready — standing 1:1, no client/deal-specific prep required beyond usual cadence"
-    - meeting: "Lone Star Gold 2026 Board Retreat (all-day, Malakoff TX)"
-      prep_status: "ready — personal board commitment, context already known"
-    - meeting: "Sales & Recruiting Meeting, Sales Scrum, Dallas Town Hall, Confidential Bday Reveal"
-      prep_status: "recurring-skip — standing/social meetings, no prep needed; flagged only for the scheduling conflict against the board retreat block"
+    - meeting: "Lone Star Gold 2026 September Board Meeting (1:30pm CDT)"
+      prep_status: "ready — YPO Gold chapter board; vault note Remarkable/YPO/Board/Lone Star Gold.md (officer training, GLC Chicago Apr 27-28, bylaw review)"
+    - meeting: "GEHC Twice Weekly Internal Check-In (3:00pm CDT)"
+      prep_status: "ready — 2 open client questions due today from 09-17/09-18 Plaud notes (self-tuning routing ask for Braunstein; DICOM destination fan-out count); tomorrow's 11am client deep dive conflicts with AA1550 flight, handoff to Vlad Avila/Lisa Barnes needed"
+    - meeting: "Re: CRM - Contacts w/ Jeff Dodds (3:40pm CDT)"
+      prep_status: "ready — pairs with helpdesk CRM ticket 69244 email (error text needed before Monday meeting)"
+    - meeting: "Sync with Shelly Kaiser (4:00pm CDT)"
+      prep_status: "low-context — no vault history; likely ties to LSYPO waiver ACTION item in email"
+    - meeting: "SMU Cox MSAIB Panel (5:00pm CDT)"
+      prep_status: "low-context — no vault history; David is panelist; fellow panelists Robinson/Woolley (Jabian), Sorensen (Bestow), Gregor (Dave & Buster's); parking pass on invite"
+    - meeting: "1:1 Scott McMichael (10:30am CDT)"
+      prep_status: "ready — standing 1:1, no open items on file"
   system_status:
-    yesterday_review: "missing — no reviews/daily/2026-08-26.md found (last dated review on file predates this; only auto-*.md entries through 2026-08-12)"
+    yesterday_review: "missing — no reviews/daily/2026-09-27.md (last on file 2026-09-18)"
     yesterday_top_3: null
+  note: "Late-evening boot (9:23pm CT) — context retrospective, not prep-grade. Working memory: memory/working/morning-briefing-2026-09-28-212900.md"
 ---
 
 <!-- system:start -->

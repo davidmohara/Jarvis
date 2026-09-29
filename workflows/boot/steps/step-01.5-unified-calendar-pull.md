@@ -1,15 +1,15 @@
 ---
 status: complete
-started-at: "2026-09-18T17:03:00Z"
-completed-at: "2026-09-18T17:04:30Z"
+started-at: "2026-09-28T16:26:00Z"
+completed-at: "2026-09-28T16:32:00Z"
 outputs:
   calendar_file: "data/calendar-unified.json"
-  event_count: 24
-  date_range: "2026-09-18 to 2026-09-21"
+  event_count: 43
+  date_range: "2026-09-28 to 2026-10-01"
   status: "written"
-  file_size_kb: 9
-  m365_calls: 1
-  note: "1 M365 call (24 events, totalResultCount 24, no pagination). Prior file >24h stale so re-pulled. Today 09-18 = Houston retreat day 1: AA1407 DFW->IAH landed 9:29am CT (conf FURIJD), Virtual Coffee Chat 8am CT (tentative), Sales & Recruiting 9:15am CT (tentative), YPO Industry Insights Share Your AI 10-11am CT (tentative), GEHC AI driven routing architecture discussion 12:00-1:00pm CT (BUSY, in progress at pull time). Personal retreat all-day 09-18 to 09-20, SpringHill Suites Houston NRG check-in today. 09-19 no timed events. 09-20 Texans vs Bengals Suite 870 (doors 10am CT, kickoff 12pm CT) then AA2438 IAH->DFW 7:03pm CT. 09-21 Monday: Prayer Call 8am, Sales & Recruiting 9:15am, Employee AI Usage policy sync (Amber Robinson) 9:30am overlapping Sales Scrum 9:30am, Eagles Challenge golf 10:30am-4pm, GEHC internal check-in 3:30pm, dinner with Makena 6:30pm."
+  file_size_kb: 17
+  m365_calls: 2
+  note: "2 M365 calls (43 events, totalResultCount 43, paginated at 25). Prior file from 09-18 stale so re-pulled. Today 09-28 (Mon): Dr Nathan Walters 8:45-9:45am, 1:1 Scott McMichael 10:30-11am, Lone Star Gold September Board Meeting 1:30-3pm (Dart Interests), GEHC internal check-in 3-3:30pm, CRM-Contacts w/ Jeff Dodds 3:40-3:55pm, Sync w/ Shelly Kaiser (YPO) 4-4:45pm, SMU Cox MSAIB Panel 5-6:30pm. 09-29 (Tue): Improving Company Retreat begins (all-day through 10-04), AA1550 DFW to LAS 8:50am CT (res LCLFFF), GEHC AI Routing deep dive 11am (tent), RTP AI workshop 2pm (tent), Gordon Ramsay Steak dinner 7pm Vegas (tent). 09-30 (Wed): retreat day 2, yWhales yDeep Dive 10:30am (busy), GEHC weekly sync 10:30am (tent, dup invites), Vegas Leadership Celebration 7pm Vegas at Alexxa's. 10-01 (Thu): President's Meeting Global Summit 9:45am-3pm Vegas at The LOFT at Cabo Wabo (busy)."
 ---
 
 <!-- system:start -->

@@ -1,0 +1,61 @@
+{
+  "id": "eval-20260928T162808-QB7SMX",
+  "agent_id": "a3fa55975c24e22be",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "general-purpose",
+  "session_id": "32a528bb-7160-4991-b802-c48903ee6770",
+  "trigger": "unknown",
+  "started": "2026-09-28T16:28:08.993053Z",
+  "completed": "2026-09-28T16:28:28.917479Z",
+  "duration_seconds": 19.92,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/32a528bb-7160-4991-b802-c48903ee6770/subagents/agent-a3fa55975c24e22be.jsonl",
+  "last_assistant_message": "Transcription complete on the first check. No polling needed.\n\n**Staged file:** `/Users/davidohara/Downloads/transcript-staging/plaud_d0200e83ccd8c442ba958c3587a0f3d7_ogg.md`\n\nPlaud status for `d0200e83ccd8c442ba958c3587a0f3d7` (\"2026-09-25 09:29:53\") returned READY (exit 0). The script fetched the transcript, saved it to staging, wrote a mapping file for 2 untagged speakers, and removed the recording from the pending queue.\n\nUpdated `/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/workflows/plaud-ingest/state.yaml` by appending the filename to `accumulated-context.staged-files` only. No other fields touched.",
+  "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+  "total_tokens_input": 24306,
+  "total_tokens_output": 195,
+  "total_cost_usd": 0.09,
+  "cost_estimation_note": "estimated based on general-purpose workflow type"
+}

@@ -1,10 +1,10 @@
 ---
 status: complete
-started-at: "2026-08-27T16:40:00Z"
-completed-at: "2026-08-27T16:45:00Z"
+started-at: "2026-09-29T02:28:00Z"
+completed-at: "2026-09-29T02:31:00Z"
 outputs:
-  briefing_delivered: "yes — full narrative briefing synthesized and passed to boot step-06 for delivery to controller"
-  format: "3-paragraph narrative + calendar table, no Watchtower section (no output found), no Reminders section (0 due)"
+  briefing_delivered: "yes — full narrative briefing synthesized (late-evening run, framed as Monday close-out + Tuesday launch), carried forward through boot steps 06-08 for verbatim delivery; working memory memory/working/morning-briefing-2026-09-28-212900.md; eval eval-20260929T022743-NJ95H5 closed success"
+  format: "3-paragraph narrative + calendar table (11 events), no em-dashes, no Watchtower section (no daily run), no Reminders section (0 due); OmniFocus partial-pull discrepancy flagged in paragraph 2"
 model: sonnet
 ---
 

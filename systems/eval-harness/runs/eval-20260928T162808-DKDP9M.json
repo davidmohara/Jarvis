@@ -1,0 +1,61 @@
+{
+  "id": "eval-20260928T162808-DKDP9M",
+  "agent_id": "a7582b92fc18ed157",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "general-purpose",
+  "session_id": "32a528bb-7160-4991-b802-c48903ee6770",
+  "trigger": "unknown",
+  "started": "2026-09-28T16:28:08.993370Z",
+  "completed": "2026-09-28T16:30:27.931097Z",
+  "duration_seconds": 138.94,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/32a528bb-7160-4991-b802-c48903ee6770/subagents/agent-a7582b92fc18ed157.jsonl",
+  "last_assistant_message": "Transcription ready and staged.\n\n- Recording: fa0e4f1fa0ed3f892a83cc6218f4c80d (\"2026-09-18 12:01:01\"), status now `ready` (was `missing` on first poll).\n- Staged file: `/Users/davidohara/Downloads/transcript-staging/plaud_fa0e4f1fa0ed3f892a83cc6218f4c80d_ogg.md`\n- state.yaml: appended `plaud_fa0e4f1fa0ed3f892a83cc6218f4c80d_ogg.md` to `accumulated-context.staged-files` (only that list; no other field touched).\n\nResolved on the 2nd poll (after one 120s retry).",
+  "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+  "total_tokens_input": 24629,
+  "total_tokens_output": 182,
+  "total_cost_usd": 0.09,
+  "cost_estimation_note": "estimated based on general-purpose workflow type"
+}

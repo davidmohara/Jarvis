@@ -1,78 +1,125 @@
 workflow: plaud-ingest
 agent: knox
-status: complete
-outcome: complete-one-ingested
-session-id: pi-20260918-001
-session-started: '2026-09-18T16:59:15Z'
-current-step: step-05b
+status: awaiting-input
+outcome: null
+session-id: pi-20260928-001
+session-started: '2026-09-28T16:21:32Z'
+current-step: step-03
 original-request: "Knox — run workflows/plaud-ingest/workflow.md in full. Read the workflow file, run the STATE CHECK, and execute all steps as written. Background task."
 blocker: null
 accumulated-context:
   target-date: null
   new-recordings:
-    - file_id: f96b2c110fc35162f390ac5288d6f7f4
-      name: "09-18 Meeting: AI Project Architecture and Data Routing"
-      date: 2026-09-18
-      duration_seconds: 1894
+    - file_id: d0200e83ccd8c442ba958c3587a0f3d7
+      name: "2026-09-25 09:29:53"
+      date: 2026-09-25
+      duration_seconds: 1225
+      has_transcript: false
+      transcript_status: missing
+    - file_id: a93aa078b699d69c62c4a2cef8dcf5b2
+      name: "2026-09-25 09:27:43"
+      date: 2026-09-25
+      duration_seconds: 60
+      has_transcript: false
+      transcript_status: missing
+    - file_id: 5214979feed38c9bc43683493c70c961
+      name: "09-25 Weekly Meeting: AI Project Reset and Innovation Lab Proposal"
+      date: 2026-09-25
+      duration_seconds: 2084
       has_transcript: true
-      transcript_status: ready
+      transcript_status: pending
+    - file_id: bc6b122ea831c77ac527d4889f7bf4d3
+      name: "09-24 Weekly Meeting: Podcast Strategy, Content Performance, and Scheduling"
+      date: 2026-09-24
+      duration_seconds: 1528
+      has_transcript: true
+      transcript_status: pending
+    - file_id: 71aa19de30d2d2a67f7fc608dfa126bf
+      name: "09-24 Meeting: Architecture Proposal for Event Routing and AI-Driven Dispatch"
+      date: 2026-09-24
+      duration_seconds: 1378
+      has_transcript: true
+      transcript_status: pending
+    - file_id: fa0e4f1fa0ed3f892a83cc6218f4c80d
+      name: "2026-09-18 12:01:01"
+      date: 2026-09-18
+      duration_seconds: 4016
+      has_transcript: false
+      transcript_status: missing
   dedup-method: >
     Full enumeration mode (no target-date). Plaud API /file/simple/web paginated to
-    exhaustion via fetch_plaud.py get_token()/list_recordings() (direct urllib call 403;
-    cached token valid, expires ~2026-12-21): 140 recordings. Live vault scan of zzPlaud/
-    (198 .md files) extracted 139 unique file_ids. api-minus-vault: 1 new, vault-minus-api: 0.
-    New recording: f96b2c110fc35162f390ac5288d6f7f4 (2026-09-18, transcript ready).
-    Staging scan: 132 top-level plaud_*.md files, all 132 resolved by Tier 1 file_id exact
-    match via sibling _raw.json (already-ingested leftovers, zero stale-requeue). Ledger:
-    systems/eval-harness/skill-runs/plaud-discover-ledger-latest.json (272 entries:
-    271 skip + 1 new, each with tiers_checked; new entry tiers [1,2,3]).
+    exhaustion via fetch_plaud.py get_token()/list_recordings() (cached token valid,
+    84 days remaining): 146 recordings. Live vault scan of zzPlaud/ (199 .md files)
+    extracted 140 unique file_ids. api-minus-vault after Tier 1/2/3: 6 new.
+    Staging scan: 132 top-level plaud_*.md files, all 132 resolved by Tier 1 file_id
+    exact match via sibling _raw.json (already-ingested leftovers, zero stale-requeue).
+    Ledger: systems/eval-harness/skill-runs/plaud-discover-ledger-latest.json (278
+    entries: 272 skip + 6 new, each with tiers_checked).
   gates:
     gate_1_result: "pass"
     gate_1_auth_method: "cached-token"
     gate_2_result: "pass"
     gate_2_flagged_recordings: []
     gate_2_exclusions: []
-  circuit-breaker: "clear — 1 new vs last confirmed count 2 (2026-09-17); 1 is not >2x baseline and not >10% of 272 candidates; confirmed-in-vault 139 >= prior 137"
-  transcription-triggered: []
-  pending-recordings: []
-  speaker-mappings:
-    f96b2c110fc35162f390ac5288d6f7f4:
-      "Speaker 1": "David O'Hara"
-      "Speaker 2": "Vladimir Avila"
-  pending-speaker-mappings: []
+  circuit-breaker: "clear — 6 new vs last confirmed count 2 (2026-09-17); 6 is >2x baseline but only 2.2% of 278 candidates (<10%); confirmed-in-vault 140 >= prior 139"
+  transcription-triggered:
+    - d0200e83ccd8c442ba958c3587a0f3d7
+    - a93aa078b699d69c62c4a2cef8dcf5b2
+    - fa0e4f1fa0ed3f892a83cc6218f4c80d
+  pending-recordings:
+    - d0200e83ccd8c442ba958c3587a0f3d7
+    - a93aa078b699d69c62c4a2cef8dcf5b2
+    - fa0e4f1fa0ed3f892a83cc6218f4c80d
+  speaker-mappings: {}
+  pending-speaker-mappings:
+    - file_id: 71aa19de30d2d2a67f7fc608dfa126bf
+      recording: "09-24 Meeting: Architecture Proposal for Event Routing and AI-Driven Dispatch"
+      unresolved: ["Speaker 3"]
+      note: "7 segments, third in-office voice with David+Vlad ('Review for demo' invite lists only David + vladimir.avila@improving.com). Embedding top match Vladimir Avila 0.59 (weak, already separately named). No self-ID. Sign-off: 'Vlad. Thank you, David. Keep up the good work.'"
+      proposed: {}
+    - file_id: d0200e83ccd8c442ba958c3587a0f3d7
+      recording: "2026-09-25 09:29:53 (4th Friday Executive Meeting window)"
+      unresolved: ["Speaker 1"]
+      note: "5 segments, meeting MC ('bottom half of the hour... regional update featuring our global delivery team, Guillermo') plus screen-share tech comments. Event organizer is Mark Kovacevich (likely MC) but no embedding match (not registered) and no self-ID. Speaker 3 auto-resolved to Guillermo Ortega via Ashok's addressed handoff + invite."
+      proposed: {"Speaker 3": "Guillermo Ortega"}
+    - file_id: 5214979feed38c9bc43683493c70c961
+      recording: "09-25 Weekly Meeting: AI Project Reset and Innovation Lab Proposal"
+      unresolved: []
+      note: "FLAG (Edge Case B): Plaud tagged 'Alex Wilcox' on 1 segment ('Bye.') but he is not on the 'Reschedule AI Discussion' invite (Diana Stevens, Ayotunde Gibbs, David). Likely mis-tag. Speaker 1 auto-resolved to Diana Stevens (exact-window calendar match + top embedding match 0.61)."
+      proposed: {"Speaker 1": "Diana Stevens"}
+    - file_id: bc6b122ea831c77ac527d4889f7bf4d3
+      recording: "09-24 Weekly Meeting: Podcast Strategy, Content Performance, and Scheduling"
+      unresolved: []
+      note: "FLAG (Edge Case B): Plaud tagged 'Alex Wilcox' on 5 greeting segments ('Hi, David. Hello. How are you?') but he is not on the 'Sync: The Improving Edge' invite (Kristin Johnson, Janine Jeanson, David). Could be Janine's or Kristin's greeting mis-tagged. Speaker 3 auto-resolved to Janine Jeanson (only other invitee; third-person references to Kristin rule her out)."
+      proposed: {"Speaker 3": "Janine Jeanson"}
+    - file_id: fa0e4f1fa0ed3f892a83cc6218f4c80d
+      recording: "2026-09-18 12:01:01 (AI driven routing - architecture discussion)"
+      unresolved: []
+      note: "FLAG (Edge Case B): Plaud tagged 'Robyn Fuentes' on 8 greeting segments ('Hey David, how's it going? Hey Mike...') but she is not on the invite (Michael Braunstein GEHC, Vladimir Avila, David). Same failure class as the Jack Claeys recording mis-tag. Other speakers all named and on-invite: Michael Braunstein (69), O'Hara (45), Vladimir Avila (38)."
+      proposed: {}
   recording-classification:
-    f96b2c110fc35162f390ac5288d6f7f4: "work"
+    5214979feed38c9bc43683493c70c961: "work"
+    bc6b122ea831c77ac527d4889f7bf4d3: "work"
+    71aa19de30d2d2a67f7fc608dfa126bf: "work"
+    d0200e83ccd8c442ba958c3587a0f3d7: "work"
+    fa0e4f1fa0ed3f892a83cc6218f4c80d: "work"
   ready-for-fetch:
-    - f96b2c110fc35162f390ac5288d6f7f4
+    - 5214979feed38c9bc43683493c70c961
+    - bc6b122ea831c77ac527d4889f7bf4d3
+    - 71aa19de30d2d2a67f7fc608dfa126bf
   staged-files:
-    - "plaud_09-18 Meeting_ AI Project Architecture and Data Routing.md"
-    - "plaud_09-18 Meeting_ AI Project Architecture and Data Routing_raw.json"
-  ingested-notes:
-    - "zzPlaud/Client/2026-09-18 AI Project Architecture and Data Routing.md"
-  monday-review-tasks:
-    - file_id: f96b2c110fc35162f390ac5288d6f7f4
-      task_id: 13081548354
-      share_url: "https://web.plaud.ai/s/pub_178f96d1-c545-424c-ada9-69898fb3041f::7ywz6zn_9l_nGk4qYEtsppQOg8Xn-qz686-TCwGp9ZBGZSSvDKZavJxzw0ih64Gp6oriQVnJKwO6AfIC"
-  monday-action-tasks:
-    - file_id: f96b2c110fc35162f390ac5288d6f7f4
-      task_id: 13081558342
-      item: "Ask Mike Braunstein whether GEHC client expects the AI routing system to tune itself over time"
-    - file_id: f96b2c110fc35162f390ac5288d6f7f4
-      task_id: 13081547249
-      item: "Confirm with GEHC client how many destinations typically receive a single DICOM file"
-  unresolved_speakers: []
+    - plaud_d0200e83ccd8c442ba958c3587a0f3d7_ogg.md
+    - plaud_fa0e4f1fa0ed3f892a83cc6218f4c80d_ogg.md
+  ingested-notes: []
+  unresolved_speakers:
+    - file_id: 71aa19de30d2d2a67f7fc608dfa126bf
+      recording: "09-24 Meeting: Architecture Proposal for Event Routing and AI-Driven Dispatch"
+      unresolved: ["Speaker 3"]
+      resolved: false
+    - file_id: d0200e83ccd8c442ba958c3587a0f3d7
+      recording: "2026-09-25 09:29:53 (4th Friday Executive Meeting window)"
+      unresolved: ["Speaker 1"]
+      resolved: false
   stale-staged-files: []
-  steps-executed:
-    - "step-01 (discover) complete, 1 new recording"
-    - "step-02 (trigger-transcription) complete, 0 triggered, 1 already ready"
-    - "step-03 (identify-speakers) complete, both speakers Plaud-auto-named (O'Hara, Vladimir Avila), no generic labels, classified work, Gate 4 pass"
-    - "step-04 (fetch-staging) complete, 1 fetched, 0 renames needed (labels already correct), no gaps"
-    - "step-05 (ingest-vault) complete, 1 note filed to zzPlaud/Client, Gate 5 pass, daily note created, 2 David-owned Monday tasks created (13081558342, 13081547249), staging cleaned"
-    - "step-05b (share-with-alice) complete, 1 share URL generated, 1 unassigned Monday review task created (13081548354), Gate 6 pass"
+  steps-executed: []
   steps-skipped: []
-  vault-hygiene-flags:
-    - issue: "30 file_ids each map to two vault notes (stale root-level zzPlaud/*.md duplicates of notes later re-filed into subfolders)."
-      impact: "Pre-existing; does not affect dedup correctness. Not acted on this run."
-  staging-cleanup-backlog:
-    - issue: "132 top-level plaud_*.md files (plus their _raw.json/_speakers.json siblings) remain in ~/Downloads/transcript-staging/ despite all being already ingested."
-      impact: "Cosmetic/hygiene; flagged for a cleanup pass, not deleted this run."

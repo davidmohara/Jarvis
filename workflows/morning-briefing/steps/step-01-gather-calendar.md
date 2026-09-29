@@ -1,11 +1,11 @@
 ---
 status: complete
-started-at: "2026-08-27T16:28:00Z"
-completed-at: "2026-08-27T16:30:00Z"
+started-at: "2026-09-28T16:32:30Z"
+completed-at: "2026-09-28T16:34:00Z"
 outputs:
-  date: "2026-08-27"
-  meeting_count: 9
-  summary: "Board retreat day (Lone Star Gold, Malakoff TX, lake house) overlapping 5 internal calls David is still booked into (Sales Scrum, Town Hall, Bday reveal event, 1:1 w/ Scott McMichael). DEXA scan 8:45am. Flag: heavy double-booking risk against the retreat block."
+  date: "2026-09-28"
+  meeting_count: 17
+  summary: "Monday pre-retreat day. Busy chain: Dr Nathan Walters 8:45-9:45am (overlaps tentative Sales & Recruiting 9:15 + Sales Scrum 9:30), 1:1 Scott McMichael 10:30-11am, Lone Star Gold September Board Meeting 1:30-3pm (Dart Interests), zero-buffer handoff into GEHC internal check-in 3-3:30pm, then CRM-Contacts w/ Jeff Dodds 3:40-3:55pm, Sync w/ Shelly Kaiser (YPO) 4-4:45pm, SMU Cox MSAIB Panel 5-6:30pm (print parking pass). Boot ran 11:21am CT so morning events already elapsed."
 model: sonnet
 ---
 
