@@ -1,0 +1,61 @@
+{
+  "id": "eval-20260930T155111-F0VHKP",
+  "agent_id": "a5b395d5b7fd12b98",
+  "type": "agent",
+  "name": "fork",
+  "workflow": null,
+  "agent": "fork",
+  "session_id": "c874d35e-054f-41ca-b976-108202739095",
+  "trigger": "unknown",
+  "started": "2026-09-30T15:51:11.009416Z",
+  "completed": "2026-09-30T15:54:48.008408Z",
+  "duration_seconds": 217.0,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/c874d35e-054f-41ca-b976-108202739095/subagents/agent-a5b395d5b7fd12b98.jsonl",
+  "last_assistant_message": "Week-2.md rewrite complete. Report:\n\n**Changes:**\n- Replaced the 7 inlined \"Starter Commands (RT-Only)\" stubs with an orientation to the real DLP student workspace (`../AI-Deep-Learning-Program/student-workspace/`): `skills/` skeletons with frontmatter and File Contracts, `demo-outputs/`, `sample-stories/` trio, `schemas/`, `evaluations/`. Explicit framing: these are the same artifacts grads will coach in DLP Sessions 1-3.\n- Replaced the `../Resources/SDLC-Workflow.png` reference with `../AI-Deep-Learning-Program/images/sdlc-pipeline.svg`, and redrew the inline mermaid diagram to show the YAML handoffs (`stories.yaml`, `plan.yaml`, code, `review.yaml`) including fail-fast notes and the review write-back edge.\n- All Promptfoo content replaced with AI-written Python evaluation scripts: Monday afternoon is now \"Baseline Evaluation for create-prd\" (candidate writes EC by hand, AI writes the script, deterministic first / LLM judge second). All iteration loops, artifacts review, deliverables updated to match.\n- Terminology swept: commands \u2192 skills, test criteria \u2192 EC (with an explicit EC vs AC callout Monday), Context = WHY / Constraints = HOW (Tuesday's Context-first block now teaches the intent-vs-rules distinction plus the \"is this instruction in the right RTCC section?\" diagnostic).\n- Added the three-way quality-bar contrast exercise (good / vague / AI-generated sample stories) Monday afternoon as the EC-sharpening demo.\n- Named the plan quality dependency explicitly in Thursday's plan-story block (code from the plan, never the story) plus the fail-fast contract and AC-coverage schema rule.\n- Added the review feedback loop to Friday: review-implementation writes verdict/notes back into `stories.yaml`; deliverables now require a committed pipeline run showing the write-back.\n- Coaching notes rewritten: new failure modes for \"AI writes the EC\" (inverts EDD) and \"LLM judge for everything\" (deterministic first); kept upstream tracing, audit enforcement, and ambiguity-in-inputs notes.\n\n**Judgment calls:**\n- Kept the H1 title's em-dash (\"# AI Bootcamp \u2014 Week 2: ...\") since it's the naming pattern across all four week files and @Overview; all body/heading/list em-dashes became colons per the canon rule.\n- Assumed Week 1 introduces the Python eval pattern (per the parent's Week 1 fork scope), so Week 2 uses it without re-teaching setup.\n- En-dashes retained in time ranges (\"9:00 \u2013 5:00\"); the rule targets em-dashes.\n\n**Out-of-scope note:** `Week-2.md` no longer references the bootcamp's own katas either; the katas decision belongs to the parent's cleanup pass.",
+  "model": "accounts/fireworks/models/kimi-k3",
+  "total_tokens_input": 0,
+  "total_tokens_output": 0,
+  "total_cost_usd": 0.045,
+  "cost_estimation_note": "estimated based on fork workflow type"
+}

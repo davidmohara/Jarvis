@@ -1,0 +1,15 @@
+{
+  "id": "err-20260930T145822-3K44N3",
+  "timestamp": "2026-09-30T14:58:22Z",
+  "session": "2026-09-30",
+  "source": "explicit",
+  "agent": "jarvis",
+  "category": "data-accuracy",
+  "description": "Recommended the 'Western Gateway' (Plaza glass dome at Main St.) as the 6th Power station for the 2026 Amazing Race, sourced from David's own earlier scout list. David corrected that the dome no longer exists — the space is now a bar. The scout list itself was stale, and I presented it as current ground truth without flagging that scout data ages.",
+  "correction": "Treat even user-supplied scout data as time-boxed; physical venues change. When a scout list is more than a few weeks old, recommend a quick re-verification pass (or a call/walk-by) before locking event locations.",
+  "failure_mode": "stale-cache",
+  "systemic_fix": "For event location planning: date-stamp scout data when captured, and re-confirm any location older than ~60 days before finalizing documents. See also err-20260930T145444-71UE48 (hallucinated locations in the same session).",
+  "fix_status": "proposed",
+  "severity": "minor",
+  "related_entries": ["err-20260930T145444-71UE48"]
+}

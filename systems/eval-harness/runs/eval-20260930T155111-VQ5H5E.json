@@ -1,0 +1,61 @@
+{
+  "id": "eval-20260930T155111-VQ5H5E",
+  "agent_id": "ad1af81475a4a22a9",
+  "type": "agent",
+  "name": "fork",
+  "workflow": null,
+  "agent": "fork",
+  "session_id": "c874d35e-054f-41ca-b976-108202739095",
+  "trigger": "unknown",
+  "started": "2026-09-30T15:51:11.009395Z",
+  "completed": "2026-09-30T15:55:00.071722Z",
+  "duration_seconds": 229.06,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/c874d35e-054f-41ca-b976-108202739095/subagents/agent-ad1af81475a4a22a9.jsonl",
+  "last_assistant_message": "Task complete: Week-4.md updated to DLP v2 canon. Changes made:\n\n- **Objectives**: \"Explain EDD, RTCC...\" now includes v2 vocabulary (RTCC as WHO/WHAT/WHY/HOW, Prompt/Harness/Model, EC). \"Articulate the full DLP arc\" now names the v2 arc (two 6-week loops, sessions at weeks 1/3/5/7/9/11, introduce-then-reinforce, transfer model, Stage 3\u21924). Added a new objective for the two-person delivery model.\n- **Monday 9\u201311**: replaced the stale \"DLP-EE-Candidate-Readiness feedback files\" exercise with required reading of `EE-Playbook.md` (all 8 Wave 1 plays named) plus a \"which plays first\" discussion prompt.\n- **Monday 1\u20133**: \"Teaching the Commands-First Principle\" \u2192 \"Teaching the Earn-the-Next-Step Principle\": invocation-disabled skills by default, the three graduation criteria with the 3+ EDD-cycle prerequisite, adversarial agents/bounded agents after evaluation evidence. Same 5-minute no-slides format.\n- **Monday artifact checklist**: \"manual test file\" \u2192 \"EC test file\"; \"command file\" \u2192 \"skill file\".\n- **Wednesday restructured**: added a 9:00\u201310:30 \"DLP Operating Model\" block (Trainer/EE cadence, EE-owned weekly 30-min touchpoint with fixed agenda, `[PROGRAM FEEDBACK]` loop, escalation split with 24-hour technical-blocker SLA, Loop 1\u2192Loop 2 posture shift, Week 8/10 independence checks, joint Week 12 rubric, handoff document with per-skill transfer status, commitment statements). Handoff checklist compressed to 10:30\u201312:00 and updated: Python eval scripts in `evaluations/` replace the Promptfoo item; adversarial prompt documentation replaces the sentinel/hook item.\n- **Wednesday rehearsal prep**: \"which command\" \u2192 \"which skill\"; added sustainment guides as required reading with the Managers guide's real-adoption-vs-performance checklist tied to the polite-compliance thread; noted the maturity assessment is scored at the gate (3.0+ on dims 1\u20134, total 43\u201358).\n- **Certification Gate rebuilt**: Weeks 1\u20132 artifacts now require EC test files (commit order checked), skill files with `disable-model-invocation: true`, Python eval scripts with baseline + 3+ iterations, Week 2 skills built from the DLP student-workspace skeletons. Week 3 artifacts now require the invocation graduation (or gap spec), an adversarial agent with evaluator-vs-adversarial comparison, and a bounded agent run. Added live demonstration of Python evaluation, and the scored maturity assessment, to Demonstrated Skills. Documentation items updated to the v2 spectrum and the earn-the-next-step paragraph.\n- **Coaching Notes**: updated the test-file bullet to EC test files; added a bullet requiring verbal fluency on the v2 automation spectrum during review.\n\nJudgment calls: placed the Operating Model block on Wednesday morning (compressing the handoff checklist from 3h to 1.5h) rather than Tuesday, since the four resistance scenarios already fill Tuesday. Kept \"Input Prompts + Expected Outputs\" as the name of the manual EC test file format, since canon retains that practice. All Promptfoo/sentinel/hook/governed-flow references eliminated (verified by grep).",
+  "model": "accounts/fireworks/models/kimi-k3",
+  "total_tokens_input": 197393,
+  "total_tokens_output": 755,
+  "total_cost_usd": 0.045,
+  "cost_estimation_note": "estimated based on fork workflow type"
+}

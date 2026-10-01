@@ -1,0 +1,61 @@
+{
+  "id": "eval-20260930T155111-29QH6K",
+  "agent_id": "a37093d72caaa6ccc",
+  "type": "agent",
+  "name": "fork",
+  "workflow": null,
+  "agent": "fork",
+  "session_id": "c874d35e-054f-41ca-b976-108202739095",
+  "trigger": "unknown",
+  "started": "2026-09-30T15:51:11.009310Z",
+  "completed": "2026-09-30T15:54:35.581444Z",
+  "duration_seconds": 204.57,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/c874d35e-054f-41ca-b976-108202739095/subagents/agent-a37093d72caaa6ccc.jsonl",
+  "last_assistant_message": "Task complete. Week-3.md fully rewritten (only file touched).\n\n**What changed:**\n- Retitled to \"Model Invocation, Adversarial Agents, and Bounded Agents\"; hooks/sentinel files/governed flows content removed, with one two-sentence note marking them retired v1 material now belonging to Stage 4.\n- New core concept: the v2 automation spectrum (invocation-disabled \u2192 invocation-enabled \u2192 adversarial agents \u2192 bounded agents \u2192 custom harnesses), each step earned through evaluation evidence.\n- Monday PM: invocation disabled vs. enabled (old team-consensus rationale reframed as evidence-earned graduation), the three graduation criteria, the 3+ EDD-cycle prerequisite, and over- vs. under-invocation (over-invocation as the urgent failure, negative test cases as the defense).\n- Tuesday: EDD for invocation (positive trigger / negative trigger / quality cases), the graduation attempt with both outcomes valid (enable + test cases, or a specific gap document; vague \"not ready\" rejected).\n- Wednesday: adversarial agents. Evaluator-vs-adversarial complementarity (\"scorecard vs. red team\"), two-prompt problem, good-adversarial-prompt criteria (critic role the author is least likely to inhabit, not shown the EC, calibrated blocker/major/minor/nit severity, actionable findings), finding classification (EC gap / skill gap / false positive), and the committed evaluator-vs-adversarial comparison document.\n- Thursday: bounded agents (manual orchestration with human checkpoints, explicitly not automation), the full 4-skill pipeline lab, context window degradation taught after the lab (feel it, then name it), mitigations, custom harness as awareness-only, and the IIOS Stage 3/4 table including the slop cannon line and the 95%-per-step compounding math.\n- Friday: spectrum mapping of Week 1-2 artifacts, and the governance paragraph recast as \"why each spectrum step requires evaluation evidence\" for a manager audience, delivered out loud.\n- Objectives, artifacts review, deliverables, and coaching notes all rebuilt; coaching notes now cover the directive's failure modes (no negative tests, unverified triggers, invocation without EDD history, adversarial duplicating evaluator, adversarial shown the EC, bounded-agent-as-automation, custom-harness jumping, paragraph taken lightly).\n- All em-dashes removed (colons/commas instead), including in headers and the spectrum diagram.\n\n**Judgment calls:**\n- Kept the \"boundary ambiguity workshop\" from the old Week 3 (two engineers with disagreeing skill versions), reframed around disagreeing invocation triggers rather than format migration; it preserves the team-consensus lesson in the new model.\n- Bounded agent lab uses the Week 2 chain (epics-stories \u2192 plan \u2192 implement \u2192 review), consistent with Week 2's pipeline; noted candidates can start from `create-prd` if their full chain is working.\n- The \"Tuesday\u2013Thursday\" en-dash in timing and en-dashes in time ranges were left as-is (en-dashes, matching original style); only em-dashes were stripped.\n\n**Out-of-scope note for the parent:** Week-3.md references Week 1/2 artifacts as skill files with frontmatter and Python evaluation scripts; those assumptions only hold once the Week 1/2 rewrites land. Also, all four week files and @Overview.md still contain em-dashes from the original text if the no-em-dash rule is meant to be enforced retroactively.",
+  "model": "accounts/fireworks/models/kimi-k3",
+  "total_tokens_input": 0,
+  "total_tokens_output": 0,
+  "total_cost_usd": 0.045,
+  "cost_estimation_note": "estimated based on fork workflow type"
+}

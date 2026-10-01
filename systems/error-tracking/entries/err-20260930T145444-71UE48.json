@@ -1,0 +1,15 @@
+{
+  "id": "err-20260930T145444-71UE48",
+  "timestamp": "2026-09-30T14:54:44Z",
+  "session": "2026-09-30",
+  "source": "explicit",
+  "agent": "jarvis",
+  "category": "hallucination",
+  "description": "While proposing Fremont Street locations for the 2026 Amazing Race Power stations, I recommended several Las Vegas locations presented as verified facts (e.g., specific venues and attractions) that David reported do not actually exist. I also embellished details (Mega Bar claims, Fergusons Downtown courtyard, specific Golden Gate telephone artifact) without any verification source — everything was generated from training-data memory of Las Vegas geography.",
+  "correction": "Real-world venue recommendations for events must be verified against a live source (web search, venue sites) before being presented as fact, or clearly flagged as unverified suggestions needing a scout check. David had to scout and discard the fabricated options himself.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "When a task involves real-world physical locations for an upcoming event, treat training-data knowledge as a draft only: either verify via web search before recommending, or label every location claim as 'verify on site.' Add this rule to event-planning-adjacent work.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": []
+}

@@ -1,0 +1,15 @@
+{
+  "id": "err-20260930T150508-3FHQ8N",
+  "timestamp": "2026-09-30T15:05:08Z",
+  "session": "2026-09-30",
+  "source": "explicit",
+  "agent": "jarvis",
+  "category": "data-accuracy",
+  "description": "Claimed Vegas Vickie is viewable from an outdoor plaza 'outside Circa's glass facade' and proposed that plaza ('Neon Alley') as a Power station fallback. David corrected that Vickie is inside Circa, not visible from an outdoor plaza, so the proposed station location doesn't work as described. Third bad Las Vegas location call in one session.",
+  "correction": "Vegas Vickie is installed inside Circa (lobby level). Any quest item or station referencing her must send teams indoors. The Quest 9 item in the new Fremont doc already says '(inside Circa)' — no doc change needed.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "Same systemic fix as err-20260930T145444-71UE48 — no real-world venue claims without verification or an explicit 'verify on site' flag. Three strikes in one session confirms this is a pattern, not a one-off; the fix should be treated as mandatory for event-planning work.",
+  "fix_status": "proposed",
+  "severity": "minor",
+  "related_entries": ["err-20260930T145444-71UE48", "err-20260930T145822-3K44N3"]
+}

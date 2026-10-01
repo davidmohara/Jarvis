@@ -1,0 +1,61 @@
+{
+  "id": "eval-20260930T155111-FEBDBC",
+  "agent_id": "acc19feebc4bc5460",
+  "type": "agent",
+  "name": "fork",
+  "workflow": null,
+  "agent": "fork",
+  "session_id": "c874d35e-054f-41ca-b976-108202739095",
+  "trigger": "unknown",
+  "started": "2026-09-30T15:51:11.009386Z",
+  "completed": "2026-09-30T15:57:59.577328Z",
+  "duration_seconds": 408.57,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/c874d35e-054f-41ca-b976-108202739095/subagents/agent-acc19feebc4bc5460.jsonl",
+  "last_assistant_message": "Task complete: both files rewritten in place. Done, reporting.\n\n**`@Overview.md` changes:**\n- Purpose section now frames the exit bar as DLP v2 Completion using the same artifact formats and vocabulary candidates will deliver with.\n- Candidate profile: tool list updated to Claude Code / Devin / GitHub Copilot (Windsurf dropped); \"commands\" references removed in favor of skill invocation.\n- Pass criteria rewritten: Prompt/Harness/Model + RTCC, EC-first manual test files, directing AI-written Python evaluation scripts (no Python prerequisite), EDD load-bearing discipline, skills with `disable-model-invocation: true` plus invocation graduation and adversarial agents, bounded agent runs, behavior change.\n- New \"Foundational Concepts\" section with three subsections: Prompt/Harness/Model (with \"a model without a harness is a chat interface\"), EDD (Red/Green/Refactor reworded for skills, EC framing, deterministic-first/LLM-judge-second with the regex line), and the v2 Automation Spectrum including IIOS Stage 3/4 framing and the \"slop cannon\" warning.\n- Structure table: Week 2 now references DLP skeleton skills + YAML pipeline contracts; Week 3 retitled \"Model Invocation, Adversarial Agents, and Bounded Agents\".\n- Certification gate checklist fully rebuilt to mirror the DLP EE-Implementation-Guide requirements (Python eval script with baseline + 3+ iterations, adversarial agent with documented findings, invocation graduation or gap spec, bounded agent run, demonstrated evaluation ability, Craft/Evaluate/Iterate/Adopt self-assessment). All Promptfoo and sentinel/hook artifacts removed.\n- Added stretch-practice note wiring in the orphaned `Resources/Katas/`, and a derived-artifact note for `PDFs/`.\n\n**`Week-1.md` changes:**\n- Social media theme, 4-stage pipeline, EDD-first spine, and day/half-day timing all preserved.\n- Monday restructured: EDD block (1:00\u20132:15, EC vocabulary), new Prompt/Harness/Model block (2:15\u20133:00, explains why `disable-model-invocation: true` is a harness-level decision), RTCC block (3:00\u20134:15, updated to WHO/WHAT/WHY/HOW with the \"right RTCC section\" audit diagnostic), reflection (4:15\u20135:00).\n- All four pipeline artifacts are now `.skill.md` files with frontmatter; a \"skill file anatomy\" example added at Tuesday's first build.\n- Tuesday 3:30\u20135:00 \"Introduction to Promptfoo\" replaced with \"AI-Written Python Evaluation Scripts\": AI writes the code, candidate directs and reviews; deterministic-first/LLM-judge-second; JSON structured judgments; exercise produces 2 deterministic + 1 judge check and a recorded Red baseline; the regex/EC-refinement rule included as a blockquote.\n- Wednesday\u2013Friday: every Promptfoo reference swapped to the Python eval workflow (same Red/Green/Refactor, one change per iteration, load-bearing audit made mechanical via the script). \"Commands\" language retired except for slash-command invocation.\n- Coaching notes: Promptfoo-specific bullets replaced with v2 failure modes (AI writing the EC instead of just the script, everything-as-LLM-judge, permissive judge rubrics, unread generated scripts tied to the over-truster failure mode).\n- Objectives, artifacts review, and deliverables checklists updated to match; katas wired in as optional stretch practice.\n\n**Judgment calls:**\n1. Kept em-dashes in structural elements only (page titles, time-block headers like \"### 1:00 \u2013 2:15 PM \u2014 EDD...\", and the \"R \u2014 Role\" bullets) to match the established style of Week-2/3/4 and the DLP source files; all body prose is em-dash-free per canon.\n2. Compressed RTCC to 75 min (not the full original 90) to fit the Prompt/Harness/Model block without moving the 5:00 PM end.\n3. Added a \"read the script, be able to explain each check\" requirement in Tuesday's exercise, since the cert gate now requires demonstrating rather than explaining Python evaluation.\n\n**Out-of-scope note:** Week-2/3/4 still contain Promptfoo, hooks/sentinels, and old RTCC definitions; the parent's other forks are handling those.",
+  "model": "accounts/fireworks/models/kimi-k3",
+  "total_tokens_input": 98732,
+  "total_tokens_output": 4824,
+  "total_cost_usd": 0.045,
+  "cost_estimation_note": "estimated based on fork workflow type"
+}
