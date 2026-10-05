@@ -1,0 +1,61 @@
+{
+  "id": "eval-20261004T025827-J21G6A",
+  "agent_id": "a738a5c2de7866442",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "general-purpose",
+  "session_id": "5f3ba1c0-d8a4-4abe-be16-a17938147550",
+  "trigger": "unknown",
+  "started": "2026-10-04T02:58:27.433035Z",
+  "completed": "2026-10-04T03:01:31.984088Z",
+  "duration_seconds": 184.55,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/5f3ba1c0-d8a4-4abe-be16-a17938147550/subagents/agent-a738a5c2de7866442.jsonl",
+  "last_assistant_message": "Shard 17 complete. Results written to /Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/data/amazing-race/flags-shard-17.json:\n\n- T18-Q6-1 (1791081104498): pass, 20 pts, bonus no\n- T38-Q7-1 (1791081057648): pass, 5 pts (1 landmark: Viva Vision canopy), bonus no\n- T39-Q6-1 (1791081043631): ignore, 0 pts (Chubby Bunny station game), bonus no\n- T9-Q6-1 (1791081036852): ignore, 0 pts (Chubby Bunny station game), bonus no\n- T18-Q6-2 (1791081027224): review, 20 pts pending \u2014 content meets Quest 6 but appears to be a duplicate/alternate take of 1791081104498 (same author, team, quest, venue, ~90s apart); award only once\n- T44-Q12-1 (1791081012450): pass, 15 pts, bonus no\n\nTotal: 6 posts reviewed \u2014 3 pass, 2 ignore, 1 review. Suggested points if all upheld: 60 (40 confirmed pass + 20 pending dedup ruling).",
+  "model": "accounts/fireworks/models/kimi-k3",
+  "total_tokens_input": 51448,
+  "total_tokens_output": 290,
+  "total_cost_usd": 0.09,
+  "cost_estimation_note": "estimated based on general-purpose workflow type"
+}

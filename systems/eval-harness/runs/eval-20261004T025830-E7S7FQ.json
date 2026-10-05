@@ -1,0 +1,61 @@
+{
+  "id": "eval-20261004T025830-E7S7FQ",
+  "agent_id": "ae61d444b552061ce",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "general-purpose",
+  "session_id": "5f3ba1c0-d8a4-4abe-be16-a17938147550",
+  "trigger": "unknown",
+  "started": "2026-10-04T02:58:30.965707Z",
+  "completed": "2026-10-04T03:01:42.977905Z",
+  "duration_seconds": 192.01,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/5f3ba1c0-d8a4-4abe-be16-a17938147550/subagents/agent-ae61d444b552061ce.jsonl",
+  "last_assistant_message": "Shard 18 complete \u2014 results written to /Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/data/amazing-race/flags-shard-18.json.\n\n- T52-Q2-1 | review | 0 pts | bonus: no (Quest 2 is no_channel_post, not channel-scored; drinking visible but not verifiable here)\n- T38-Q15-2 | review | 0 pts | bonus: no (single photo spells \"SIN\"; violates one-letter-per-photo; team name unverifiable)\n- T52-Q1-3 | pass | 20 pts | bonus: yes (3-shot casino win/loss story arc; creative, though background is sportsbook not Viva Vision/Vegas Vic)\n- T52-Q9-4 | pass | 25 pts | bonus: no (5 of 8 items matched: Vegas Vickie, Mega Bar, first telephone, vintage slot machine, dice decor)\n- T33-Q7-5 | fail | 0 pts | bonus: no (Quest 7 requires video, photos only; one image is Chubby Bunny station-game content)\n- T34-Q6-6 | review | 0 pts | bonus: no (labeled \"Power quest 6\" \u2014 host-scored; photo shows no food-review content)\n\nTotal: 6 posts reviewed \u2014 2 pass, 1 fail, 3 review, 0 ignore. 45 points suggested.",
+  "model": "accounts/fireworks/models/kimi-k3",
+  "total_tokens_input": 0,
+  "total_tokens_output": 0,
+  "total_cost_usd": 0.09,
+  "cost_estimation_note": "estimated based on general-purpose workflow type"
+}

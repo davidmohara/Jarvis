@@ -1,0 +1,61 @@
+{
+  "id": "eval-20261004T025823-0C0QOJ",
+  "agent_id": "acb3332ef61932f69",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "general-purpose",
+  "session_id": "5f3ba1c0-d8a4-4abe-be16-a17938147550",
+  "trigger": "unknown",
+  "started": "2026-10-04T02:58:23.420261Z",
+  "completed": "2026-10-04T03:03:18.593419Z",
+  "duration_seconds": 295.17,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/5f3ba1c0-d8a4-4abe-be16-a17938147550/subagents/agent-acb3332ef61932f69.jsonl",
+  "last_assistant_message": "Shard 16 complete \u2014 7 posts reviewed, results written to `/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/data/amazing-race/flags-shard-16.json`.\n\n- T57-Q15-1 | review | 0 pts | no bonus \u2014 6 neon letter photos in one post but letters (J,G,O,S,O,N,H) don't read as a team name; one photo has two letters\n- T35-QUNK-1 | review | 0 pts | no bonus \u2014 text only \"Team 35\"; image is a floor-level shot of feet and a cone, no quest inferable\n- T14-Q1-1 | fail | 0 pts | no bonus \u2014 single image, no 3-4 shot story sequence, no team visible (canopy + zipliner only)\n- T33-QUNK-1 | ignore | 0 pts | no bonus \u2014 station game (Chubby Bunny, marshmallows in mouth), host-scored\n- T44-Q13-1 | review | 0 pts | no bonus \u2014 no zipliner overhead in frames; red envelope + YMCA collage end card instead\n- T54-Q15-1 | review | 0 pts | no bonus \u2014 3 neon letter photos (L?, G, T) one per photo, but team name unverifiable\n- T29-Q3-1 | pass | 20 pts | no bonus \u2014 team dancing with live band on Fremont Street stage, performers and team visible together (matches T18-Q3-1 precedent)\n\nTotal: 7 flags (1 pass, 1 fail, 4 review, 1 ignore). Notes: roster.json has no team names, so Quest 15 \"team name spelled out\" could not be verified for either Q15 post; both went to review rather than pass. No station-game footage beyond the T33 Chubby Bunny photo.",
+  "model": "accounts/fireworks/models/kimi-k3",
+  "total_tokens_input": 0,
+  "total_tokens_output": 0,
+  "total_cost_usd": 0.09,
+  "cost_estimation_note": "estimated based on general-purpose workflow type"
+}

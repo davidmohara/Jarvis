@@ -1,0 +1,61 @@
+{
+  "id": "eval-20261004T031300-7GNMN1",
+  "agent_id": "a6b6ee8615755d6fa",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "general-purpose",
+  "session_id": "5f3ba1c0-d8a4-4abe-be16-a17938147550",
+  "trigger": "unknown",
+  "started": "2026-10-04T03:13:01.007117Z",
+  "completed": "2026-10-04T03:19:12.214445Z",
+  "duration_seconds": 371.21,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/5f3ba1c0-d8a4-4abe-be16-a17938147550/subagents/agent-a6b6ee8615755d6fa.jsonl",
+  "last_assistant_message": "Shard 20 complete. Results written to `/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/data/amazing-race/flags-shard-20.json`.\n\n- T11-Q5-1 (1791083389424) \u2014 pass, 15 pts, bonus no\n- T29-Q8-2 (1791083381293) \u2014 pass, 20 pts (4 of 8 items), bonus no\n- T3-Q5-3 (1791083369933) \u2014 pass, 15 pts, bonus no\n- UNK-4 (1791083305722, Team 54) \u2014 review, 0 pts (single selfie, no quest identifiable), bonus no\n- T11-Q3-5 (1791083291233) \u2014 fail, 0 pts (tagged Q3 but shows bar drinks, no street performer; possible Q2 mistag), bonus no\n- T14-Q12-6 (1791083284407) \u2014 pass, 15 pts, bonus no\n- UNK-7 (1791083269616, Team 43) \u2014 review, 0 pts (casino-floor goofing matches no verified quest), bonus no\n\nTotal: 7 posts reviewed \u2014 4 pass, 1 fail, 2 review, 0 ignore, 0 bonus candidates.",
+  "model": "accounts/fireworks/models/kimi-k3",
+  "total_tokens_input": 0,
+  "total_tokens_output": 0,
+  "total_cost_usd": 0.09,
+  "cost_estimation_note": "estimated based on general-purpose workflow type"
+}

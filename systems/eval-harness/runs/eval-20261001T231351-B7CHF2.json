@@ -1,0 +1,61 @@
+{
+  "id": "eval-20261001T231351-B7CHF2",
+  "agent_id": "a37f96579f805bbbf",
+  "type": "agent",
+  "name": "fork",
+  "workflow": null,
+  "agent": "fork",
+  "session_id": "c874d35e-054f-41ca-b976-108202739095",
+  "trigger": "unknown",
+  "started": "2026-10-01T23:13:51.553633Z",
+  "completed": "2026-10-01T23:16:05.099580Z",
+  "duration_seconds": 133.55,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/c874d35e-054f-41ca-b976-108202739095/subagents/agent-a37f96579f805bbbf.jsonl",
+  "last_assistant_message": "Task complete: created `Pre-Work.md` and rewrote `@Overview.md` for the 2-week intensive.\n\n**Pre-Work.md (new):**\n- Ground rules: ~6h async, hard gate verified at Day 1 check-in, escalation path for blockers\n- Section 1: tooling verification with screenshot/recording evidence\n- Section 2: student workspace clone + one skeleton skill run, output committed\n- Section 3: reading packet written inline (Prompt/Harness/Model with the \"chat interface\" line; RTCC with a worked meeting-summary example showing WHY vs HOW placement; three EE-Playbook plays summarized at 3-5 sentences each)\n- Section 4: baseline maturity assessment, honesty-not-score framing\n- Section 5: bare-prompt exercise with the unedited Red-state output plus a hand-written 5-entry test file, including the bad-vs-good Expected Output example\n- Closing checklist with submission requirements per item\n\n**@Overview.md (rewritten):**\n- Retitled to 2-Week Intensive; Purpose states the exit bar is unchanged and names the three compression mechanisms\n- Candidate profile now leads with the pre-work packet as a hard prerequisite; pass criteria gained the Stage 2 field-evidence requirement\n- Foundational Concepts kept intact (Prompt/Harness/Model, EDD with deterministic-first/LLM-judge-second, v2 spectrum with slop-cannon line)\n- Structure table: Pre-Work / Week 1 / Week 2; 7-hour full days both weeks, no travel half-days; katas repositioned as Day 1-4 evening practice replacing cut in-class reps\n- Certification rewritten as the two-stage gate: Stage 1 (Day 10, full artifact checklist + scored maturity assessment; outcomes Certified-paired / Not yet, no unconditional pass, with the reason stated plainly) and Stage 2 (Day ~30-40 remote: field log + 30-minute live cold load-bearing audit; outcomes Certified-solo / remediation plan)\n- New Validation and Instrumentation section covering the coverage matrix, exit tickets, timing logs, maturity delta, and gate parity\n- Program Files links updated: Pre-Work, Week-1, Week-2, Concept-Coverage-Matrix; Week-3/Week-4 references removed; PDFs derived-artifact note kept\n\n**Judgment calls:**\n- Wrote the reading packet inline per directive; kept each piece tight so the section holds to ~2 hours including note-taking.\n- Kept the Stage 1 checklist verbatim from the prior gate where items carried over, adding only the commit-order check and the scored maturity assessment (both already implied by the old Week 4 detail page).\n- All lists have blank lines before them per the PDF rendering rule; body prose is em-dash-free, headers keep the house style.\n\n**Out-of-scope observation:** the concurrently-edited `generate_pdfs.py` has the new 2-week WEEK_DAYS slugs, but its loops still run `range(1, 5)` (Weeks 1-4) and it does not generate a Pre-Work PDF. Whoever owns final PDF wiring should change the loops to `range(1, 3)` and add a Pre-Work full PDF.",
+  "model": "accounts/fireworks/models/kimi-k3",
+  "total_tokens_input": 0,
+  "total_tokens_output": 0,
+  "total_cost_usd": 0.045,
+  "cost_estimation_note": "estimated based on fork workflow type"
+}

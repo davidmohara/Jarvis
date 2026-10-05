@@ -1,0 +1,61 @@
+{
+  "id": "eval-20261004T015412-1894H6",
+  "agent_id": "ac8a4d4ce374b9dbd",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "general-purpose",
+  "session_id": "5f3ba1c0-d8a4-4abe-be16-a17938147550",
+  "trigger": "unknown",
+  "started": "2026-10-04T01:54:12.582241Z",
+  "completed": "2026-10-04T02:01:03.192503Z",
+  "duration_seconds": 410.61,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/5f3ba1c0-d8a4-4abe-be16-a17938147550/subagents/agent-ac8a4d4ce374b9dbd.jsonl",
+  "last_assistant_message": "Shard 4 complete \u2014 7 posts reviewed, results written to `/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/data/amazing-race/flags-shard-4.json`.\n\n- T6-Q10-1 | 1791077105742 | review | 0 pts | no bonus \u2014 video frames unavailable\n- UNK-2 | 1791077012253 (T36) | review | 0 pts | no bonus \u2014 quest not identified; frames look like a Quest 5-style walk\n- UNK-3 | 1791077009597 | review | 0 pts | no bonus \u2014 no team/quest text; 3-shot slot-bank sequence, possibly part of Team 43's set\n- UNK-4 | 1791076998684 | review | 0 pts | no bonus \u2014 no team/quest text; single celebration photo, same group/setting as UNK-3\n- T43-Q1-5 | 1791076996422 | fail | 0 pts | no bonus \u2014 only 2 of required 3-4 shots, and no Viva Vision/Vegas Vic backdrop\n- T29-Q11-6 | 1791076974829 | review | 0 pts | no bonus \u2014 high-fives visible but all recipients appear to be retreat-shirted teammates; non-team participants unconfirmed\n- T4-Q1-7 | 1791076962948 | fail | 0 pts | BONUS CANDIDATE \u2014 staged mock-proposal story sequence is standout creative, but backdrop is a circular slot machine, not canopy/Vegas Vic\n\nTotals: 7 posts \u2014 0 pass, 2 fail, 5 review, 0 points awarded, 1 bonus candidate (T4-Q1-7).",
+  "model": "accounts/fireworks/models/kimi-k3",
+  "total_tokens_input": 0,
+  "total_tokens_output": 0,
+  "total_cost_usd": 0.09,
+  "cost_estimation_note": "estimated based on general-purpose workflow type"
+}

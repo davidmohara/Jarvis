@@ -1,0 +1,17 @@
+{
+  "id": "err-20261004T021238-YOZGE3",
+  "timestamp": "2026-10-04T02:12:38Z",
+  "session": "2026-10-03-amazing-race-live",
+  "source": "explicit",
+  "agent": "knox",
+  "category": "assumption-error",
+  "description": "During the live Amazing Race event, David reported three dashboard defects in one sweep: (1) clicking Approve on a flag scored 0 points instead of the post's full quest value \u2014 approve was implemented as rubber-stamping the vision verdict's suggested_points, which is 0 for review/fail verdicts; (2) unidentified posts had no action buttons at all; (3) the Reject button did nothing. Root cause of (3): a broken edit to apply_ruling.py (dangling def with no body) crashed the dashboard daemon's import at restart, leaving it down. Follow-up: the real root cause of dead buttons was JS scope \u2014 rule() and classify() were defined inside tick()'s closure, so the buttons' onclick handlers (which execute in global scope) could not resolve them; every click silently threw ReferenceError. The daemon outage was a second, overlapping cause.",
+  "correction": "Approve now awards the quest's full value (full_quest_points: fixed points, or per-item points x matched items, full item list when the reviewer could not confirm, capped at base_item_cap) computed at ruling time. Unidentified posts get team/quest number inputs plus a Classify & score full points button (POST /api/classify rewrites posts.jsonl, updates or creates the flag, applies an ok ruling at full points). Every script edit mid-event is now compile-checked before daemon restart.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "apply_ruling.py (full_quest_points + apply ok-path uses ruled_points) and dashboard_server.py (POST /api/classify + classify UI + JS) updated; scoring.py honors ruled_points for ok rulings. Ruling semantics codified: approve = post counts fully regardless of vision verdict; override = explicit points; reject = 0. Fixed: rule/classify moved to global scope in the dashboard page template; additionally, per David's rule, Approve never offers 0 \u2014 quest is inferred from the post caption (guess_quest keyword table from quest titles) when the number is missing, and the approve_points label shows the value an Approve will award.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": [
+    "err-20261003T002601-FMWBIC"
+  ]
+}

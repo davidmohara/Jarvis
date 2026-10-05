@@ -1,6 +1,6 @@
 # IES Skill Index
 
-Last updated: 2026-09-16 | Total skills: 66
+Last updated: 2026-10-02 | Total skills: 67
 
 | ID | Name | Owner | Model | Trigger Keywords (sample) |
 |----|------|-------|-------|---------------------------|
@@ -54,6 +54,8 @@ Last updated: 2026-09-16 | Total skills: 66
 | campaign-setup | Campaign Setup | harper | sonnet | set up the campaign, create the journey |
 | campaign-send | Campaign Send | harper | sonnet | send the campaign email, trigger the journey send |
 | campaign-response-log | Campaign Response Log | harper | sonnet | log this reply, log campaign response |
+
+| amazing-race-monitor | Amazing Race Channel Monitor | knox | sonnet | amazing race, race sweep, race monitor, race ruling, bonus review candidate |
 
 ## Adding a New Skill
 

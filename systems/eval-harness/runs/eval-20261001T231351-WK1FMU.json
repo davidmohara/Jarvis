@@ -1,0 +1,61 @@
+{
+  "id": "eval-20261001T231351-WK1FMU",
+  "agent_id": "a0deca3996d9bc862",
+  "type": "agent",
+  "name": "fork",
+  "workflow": null,
+  "agent": "fork",
+  "session_id": "c874d35e-054f-41ca-b976-108202739095",
+  "trigger": "unknown",
+  "started": "2026-10-01T23:13:51.554093Z",
+  "completed": "2026-10-01T23:16:46.635520Z",
+  "duration_seconds": 175.08,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/c874d35e-054f-41ca-b976-108202739095/subagents/agent-a0deca3996d9bc862.jsonl",
+  "last_assistant_message": "Task complete: `AI-Bootcamp/Week-1.md` rewritten in place as the 2-week intensive Week 1 (\"Foundations and the SDLC Pipeline,\" Mon-Fri 9-5). Only that file touched.\n\n**Kept (mined from source):** EDD core blocks and Load-Bearing Rule prose, manual-test-file rationale, RTCC WHY/HOW split and the structural diagnostic, the Python eval script block (deterministic first / LLM judge second, regex blockquote, \"read the script\" requirement), the three-way story contrast exercise, workspace orientation lists, the pipeline mermaid diagram, upstream quality dependency framing, and most coaching notes.\n\n**Cut:** Ideation and Graphics skills (social pipeline 4 \u2192 2, with a one-line note that the 7-skill SDLC chain provides the longer pipeline), deep EDD cycles on 5 of 7 SDLC skills (deep on `create-prd` only, working passes on architecture/UX, run-and-read on the rest), travel half-days, and the separate manual-only iteration phase for the second skill.\n\n**Adapted/added per directive:** Monday opens with a 30-min pre-work check-in (incomplete pre-work gets a catch-up plan, does not hold the room); Prompt/Harness/Model and RTCC reframed as discussions of pre-work reading; the pre-work bare-prompt output is scored live as Monday's Red state; the automation spectrum is foreshadowed as a Week 2 map; Thursday/Friday are the full SDLC workspace block (orientation, baseline run, contrast exercise, create-prd EC + baseline Thu, deep cycle + working passes + unseen-input full pipeline Fri, with plan quality dependency and review write-back named); exit tickets close all five days; kata pointers end Days 1-4; coaching notes gained the three compression-specific bullets (pace discipline, Wednesday fatigue watch, pre-work escalation path). Deliverables and artifacts checklists rebuilt to match the new artifact set.\n\n**Judgment calls:** put the create-prd EC-writing on Thursday afternoon (paired with the contrast exercise) so Friday morning starts at hypothesis formation, keeping Friday's full pipeline run protected; made the architecture/UX working passes explicitly point at `demo-outputs/` as the study reference, per the plan's mitigation; kept the \"one change per iteration\" rule only in the deep cycles, not the working passes.\n\n**Out-of-scope note:** `generate_pdfs.py` changed on disk while I worked (2-week `WEEK_DAYS`, Pre-Work.pdf support); it matches my day-heading structure, no conflict. The new Week-1.md assumes `Pre-Work.md` exists (referenced in Timing); the parent's other forks own that file.",
+  "model": "accounts/fireworks/models/kimi-k3",
+  "total_tokens_input": 0,
+  "total_tokens_output": 0,
+  "total_cost_usd": 0.045,
+  "cost_estimation_note": "estimated based on fork workflow type"
+}

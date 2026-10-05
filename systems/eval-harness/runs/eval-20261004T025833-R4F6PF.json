@@ -1,0 +1,61 @@
+{
+  "id": "eval-20261004T025833-R4F6PF",
+  "agent_id": "a89b892918edaa9af",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "general-purpose",
+  "session_id": "5f3ba1c0-d8a4-4abe-be16-a17938147550",
+  "trigger": "unknown",
+  "started": "2026-10-04T02:58:33.979993Z",
+  "completed": "2026-10-04T03:01:49.478453Z",
+  "duration_seconds": 195.5,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/5f3ba1c0-d8a4-4abe-be16-a17938147550/subagents/agent-a89b892918edaa9af.jsonl",
+  "last_assistant_message": "Shard 19 complete \u2014 6 posts reviewed, results written to `/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/data/amazing-race/flags-shard-19.json`.\n\n- T34-Q1-1 | fail | 0 pts | bonus no \u2014 single crowd shot of canopy, no story sequence, no identifiable team\n- T8-Q13-1 | review | 0 pts | bonus no \u2014 pointing skyward under canopy but no rider visible; one frame is an unrelated photo collage\n- T7-Q13-1 | pass | 15 pts | bonus no \u2014 SlotZilla riders clearly overhead, team reacting below\n- T44-Q5-1 | pass | 15 pts | bonus no \u2014 synchronized conga-line group walk, everyone committed\n- T6-Q4-1 | pass | 10 pts | bonus no \u2014 2 items matched (Hand of Faith, The Tank pool), one post, team in both\n- T57-Q11-1 | pass | 20 pts | bonus no \u2014 high-fiving through Fremont crowd, participants visible\n\nTotal: 6 flagged (4 pass, 1 fail, 1 review, 0 ignore). Suggested points: 60.",
+  "model": "accounts/fireworks/models/kimi-k3",
+  "total_tokens_input": 0,
+  "total_tokens_output": 0,
+  "total_cost_usd": 0.09,
+  "cost_estimation_note": "estimated based on general-purpose workflow type"
+}

@@ -1,0 +1,61 @@
+{
+  "id": "eval-20261001T231351-DYXP34",
+  "agent_id": "a12ee27c3f73c6799",
+  "type": "agent",
+  "name": "fork",
+  "workflow": null,
+  "agent": "fork",
+  "session_id": "c874d35e-054f-41ca-b976-108202739095",
+  "trigger": "unknown",
+  "started": "2026-10-01T23:13:51.553651Z",
+  "completed": "2026-10-01T23:20:06.335257Z",
+  "duration_seconds": 374.78,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/c874d35e-054f-41ca-b976-108202739095/subagents/agent-a12ee27c3f73c6799.jsonl",
+  "last_assistant_message": "Task complete. Week-2.md rewritten in place as the 2-week intensive's Week 2 (\"The Spectrum, Coaching, and the Gate\").\n\n**Kept (mined from old Week-3/4):** the automation spectrum intro and key principle, invocation-disabled rationale + Prompt/Harness/Model reconnect, all three graduation criteria verbatim, over/under-invocation framing, the graduation attempt with both-valid-outcomes, the boundary ambiguity pairs workshop, adversarial agent blocks (complementarity, two-prompt problem, good-prompt criteria, finding classification, evaluator-vs-adversarial comparison, value test), bounded agent definition/lab/context-window discipline, custom harness awareness + IIOS table with slop cannon line and 95%\u219236% math, spectrum synthesis + manager paragraph, all four resistance scenarios, player-coach model, both teaching talks, DLP operating model commitments, handoff checklist, behavior observation, rehearsal debrief, and all six coaching-notes bullets.\n\n**Cut:** old Week-3/4 day timing (half-days, separate weeks), the \"are they transferable?\" Monday artifact block (folded into Friday's self-certify + spot-check handoff), the old single-stage Pass/Conditional/Not-yet gate, sustainment-guides rehearsal prep (folded into Thursday's polite-compliance discussion).\n\n**Adapted:** resistance scenarios split 2 live (Skeptic, Over-Truster, 45 min each) + 2 tabletop (Senior, Management Blocker; written approach + 15-min pressure test); rehearsal pairing 90\u219260 min with debrief inside the block; gate rebuilt as two-stage (Stage 1 Day 10: Certified-paired/Not-yet; Stage 2 Day 30-40: field log + cold load-bearing retention probe, Certified-solo/remediation) with the \"trades a fiction for a structure\" rationale stated; exit tickets added to every day; new coaching bullets on fatigue risk and Stage 2 setup.\n\n**Judgment calls:**\n- Friday 2:00-5:00 gate block contains the exit ticket at 4:45-5:00, matching the directive's grid despite the overlap.\n- Bounded agent lab starts at `create-epics-stories` (not the full chain from `create-prd`) since Week 1 ends on a full pipeline run; full-chain noted as the stretch path.\n- EE-Playbook reading is referenced as pre-work review rather than first-read, per the compression plan's pre-work packet.\n\nVerified: zero Promptfoo mentions; the single sentinel/hooks mention is the two-sentence retirement note; day headings match the PDF script's extraction pattern; no orphan lists (blank-line rule enforced).",
+  "model": "accounts/fireworks/models/kimi-k3",
+  "total_tokens_input": 0,
+  "total_tokens_output": 0,
+  "total_cost_usd": 0.045,
+  "cost_estimation_note": "estimated based on fork workflow type"
+}

@@ -1,0 +1,222 @@
+{
+  "event": "2026 Improving Amazing Race",
+  "channel_convention": "Teams post to the Vegas Teams/Photos channel, tag Dawn Dearstone, include Team number and Quest number in the message.",
+  "source_documents": [
+    "Corporate/Retreat/2026/Amazing Race/2026 Amazing Race (Basic Rules).docx",
+    "Corporate/Retreat/2026/Amazing Race/2026 Amazing Race - Quest.docx"
+  ],
+  "scoring_note": "Base quest points only. Dawn's creativity bonuses (0-10 on eligible quests), Power (host-scored), and Fortune (self-reported paper) are NOT scored by this system. Bonus candidates are surfaced for Dawn's review, never auto-scored.",
+  "quests": {
+    "1": {
+      "title": "Creative Group Photo",
+      "points": 20,
+      "points_model": "fixed",
+      "media_required": "photo",
+      "bonus_eligible": true,
+      "vision_criteria": [
+        "Story sequence of 3-4 connected shots (multiple images in one post)",
+        "Background should use the Viva Vision canopy or Vegas Vic",
+        "Creative posing and positioning",
+        "Team visible in the shots"
+      ]
+    },
+    "2": {
+      "title": "Have a Drink",
+      "points": 25,
+      "points_model": "fixed",
+      "media_required": "none",
+      "no_channel_post": true,
+      "vision_criteria": []
+    },
+    "3": {
+      "title": "Acting It Out",
+      "points": 20,
+      "points_model": "fixed",
+      "media_required": "video",
+      "bonus_eligible": false,
+      "vision_criteria": [
+        "Video (~15 sec) of the team performing a routine with a street performer",
+        "The street performer and the team are visible together"
+      ]
+    },
+    "4": {
+      "title": "Go for the Gold (Golden Nugget)",
+      "points": 5,
+      "points_model": "per_item",
+      "media_required": "photo",
+      "one_post": true,
+      "items": [
+        "The Hand of Faith (world's largest gold nugget on display)",
+        "The giant golden hand sign",
+        "The shark tank at The Tank pool",
+        "A Golden Nugget-branded poker chip or playing card",
+        "An AI-enabled bar",
+        "Bevo and the Houston Rodeo memorabilia",
+        "A selfie with a Golden Nugget staff member, preferably cowgirl (with their permission)",
+        "Our CEO's favorite bar with an awesome water view"
+      ],
+      "vision_criteria": [
+        "Team in each item photo, staying together",
+        "Photos shared AS ONE POST"
+      ]
+    },
+    "5": {
+      "title": "Slomo Scenes",
+      "points": 15,
+      "points_model": "fixed",
+      "media_required": "video",
+      "vision_criteria": [
+        "Video (~10 sec) of a synchronized group walk (slow-motion, runway strut, or spy squad)",
+        "Everyone commits to the bit",
+        "Viva Vision canopy makes an excellent backdrop"
+      ]
+    },
+    "6": {
+      "title": "Let's Eat!",
+      "points": 20,
+      "points_model": "fixed",
+      "media_required": "video",
+      "bonus_eligible": true,
+      "vision_criteria": [
+        "Classic downtown Vegas food item (e.g., shrimp cocktail, something deep-fried)",
+        "Food critic video review with team members sampling and rating the item"
+      ]
+    },
+    "7": {
+      "title": "Landmarks",
+      "points": 20,
+      "points_model": "per_item",
+      "media_required": "video",
+      "items": [
+        "Viva Vision canopy (synchronized light show poses)",
+        "Vegas Vic (cowboy tableau)",
+        "SlotZilla (superhero flight poses; bonus timing if a zipliner is overhead)",
+        "Golden Nugget shark tank (swim poses)"
+      ],
+      "vision_criteria": [
+        "Video at each landmark reenacting a scene or pose inspired by it",
+        "Team visible and committing to the scene"
+      ]
+    },
+    "8": {
+      "title": "Horseshoe History (Binion's)",
+      "points": 5,
+      "points_model": "per_item",
+      "media_required": "photo",
+      "one_post": true,
+      "items": [
+        "Team photo with the $1,000,000 cash display",
+        "A World Series of Poker reference",
+        "A photo of Benny Binion himself (statue or portrait)",
+        "Vintage casino carpet",
+        "A single-deck blackjack table",
+        "A roulette scoreboard with 2 '00' on it",
+        "Your favorite haunted encounter",
+        "Group photo with Apache"
+      ],
+      "vision_criteria": [
+        "Team in each item photo, staying together",
+        "Photos shared AS ONE POST"
+      ]
+    },
+    "9": {
+      "title": "Vintage Vegas (Fremont Street)",
+      "points": 5,
+      "points_model": "per_item",
+      "media_required": "photo",
+      "one_post": true,
+      "items": [
+        "Vegas Vickie, the famous kicking neon cowgirl (inside Circa)",
+        "The longest bar in Nevada (Mega Bar)",
+        "Las Vegas's first telephone (phone number 1)",
+        "The 'oldest casino' plaque (est. 1906)",
+        "A $5-or-less table game sign",
+        "A vintage slot machine",
+        "A neon sign with an arrow",
+        "Dice-themed decor"
+      ],
+      "vision_criteria": [
+        "Team in each item photo, staying together",
+        "Photos shared AS ONE POST"
+      ]
+    },
+    "10": {
+      "title": "Human Slot Machine",
+      "points": 15,
+      "points_model": "fixed",
+      "media_required": "video",
+      "bonus_eligible": true,
+      "vision_criteria": [
+        "Video of the team in a row acting as slot machine reels: spin then freeze in poses",
+        "Extra style for doing it in front of a real slot bank (bonus-relevant, not base score)"
+      ]
+    },
+    "11": {
+      "title": "High Five",
+      "points": 20,
+      "points_model": "fixed",
+      "media_required": "video",
+      "bonus_eligible": true,
+      "vision_criteria": [
+        "Video (max 3 min) of 2 team members high-fiving as many people as possible",
+        "Participants (non-team members) visible being high-fived"
+      ]
+    },
+    "12": {
+      "title": "Selfie Confessions",
+      "points": 15,
+      "points_model": "fixed",
+      "media_required": "video",
+      "vision_criteria": [
+        "Video where each team member takes a turn with the phone answering 'craziest thing you've ever done in a meeting'",
+        "Singular continuous video (member hand-offs visible)"
+      ]
+    },
+    "13": {
+      "title": "Zip Bomber",
+      "points": 15,
+      "points_model": "fixed",
+      "media_required": "video",
+      "bonus_eligible": true,
+      "vision_criteria": [
+        "Video from beneath the SlotZilla zipline flight path catching a rider overhead",
+        "Whole team reacting like it's a UFO sighting, committing to the bit"
+      ]
+    },
+    "14": {
+      "title": "Zoltar Speaks",
+      "points": 10,
+      "points_model": "per_item",
+      "base_item_cap": 2,
+      "media_required": "photo",
+      "items": [
+        "Zoltar fortune from a Zoltar machine (at least 2 members at 2 different machines)"
+      ],
+      "vision_criteria": [
+        "Fortunes posted along with a team pic in front of the Zoltar(s) used",
+        "Base score counts the first 2 Zoltars; additional machines are Dawn's bonus territory"
+      ]
+    },
+    "15": {
+      "title": "Neon Alphabet",
+      "points": 10,
+      "points_model": "fixed",
+      "media_required": "photo",
+      "one_post": true,
+      "vision_criteria": [
+        "Team name spelled out in letters from Fremont Street neon signs, one letter per photo",
+        "All letters shared AS ONE POST"
+      ]
+    },
+    "16": {
+      "title": "Elvis Has Entered the Building",
+      "points": 10,
+      "points_model": "fixed",
+      "media_required": "photo",
+      "bonus_eligible": true,
+      "vision_criteria": [
+        "Team photo with one of Fremont's street Elvises (an Elvis impersonator must be visible)"
+      ]
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "id": "eval-20261004T031310-88G0MR",
+  "agent_id": "a0f348720718b469e",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "general-purpose",
+  "session_id": "5f3ba1c0-d8a4-4abe-be16-a17938147550",
+  "trigger": "unknown",
+  "started": "2026-10-04T03:13:10.847321Z",
+  "completed": "2026-10-04T03:16:18.299747Z",
+  "duration_seconds": 187.45,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/5f3ba1c0-d8a4-4abe-be16-a17938147550/subagents/agent-a0f348720718b469e.jsonl",
+  "last_assistant_message": "Shard 22 complete \u2014 6 posts reviewed, results written to `/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/data/amazing-race/flags-shard-22.json`.\n\n- T11-Q13-1 | fail | 0 pts | bonus no (still photo posted for a video quest; team not visibly reacting)\n- T11-Q4-1 | pass | 15 pts | bonus no (3 of 8 items: Hand of Faith, GN poker chip, Bevo/rodeo memorabilia)\n- T36-Q1-1 | pass | 20 pts | bonus YES (4-shot story sequence under Viva Vision, hand-chain finale)\n- T20-Q14-1 | pass | 20 pts | bonus YES (2 Zoltars + fortune; third machine \u2014 Trump Tells All \u2014 is Dawn bonus territory)\n- T11-Q14-1 | review | 10 pts | bonus no (can't confirm 2 different Zoltar machines vs same machine twice)\n- T50-Q5-1 | pass | 15 pts | bonus no (synchronized group strut under Viva Vision canopy)\n\nTotal: 6 posts \u2014 4 pass, 1 fail, 1 review, 0 ignore. Suggested points: 90.",
+  "model": "accounts/fireworks/models/kimi-k3",
+  "total_tokens_input": 0,
+  "total_tokens_output": 0,
+  "total_cost_usd": 0.09,
+  "cost_estimation_note": "estimated based on general-purpose workflow type"
+}

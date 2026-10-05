@@ -1,0 +1,15 @@
+{
+  "id": "err-20261003T002601-FMWBIC",
+  "timestamp": "2026-10-03T00:26:01.169663Z",
+  "session": "2026-10-02-amazing-race-build",
+  "source": "self-detected",
+  "agent": "knox",
+  "category": "tool-misuse",
+  "description": "amazing-race-monitor's vision review was designed to run as a fork, but a fork inherits the controller's model (glm-latest), which rejects image inputs (API 400 on first image Read). The rehearsal vision pass died before reviewing any media.",
+  "correction": "Vision review must run as a general-purpose sub-agent pinned to a vision-capable model (model: sonnet), never as a fork. Re-ran the rehearsal review this way and it proceeded correctly.",
+  "failure_mode": "tool-ignorance",
+  "systemic_fix": "skills/amazing-race-monitor/SKILL.md vision-review section and the .claude wrapper now say explicitly: spawn a general-purpose sub-agent with model: sonnet for vision review, do NOT use a fork (fork inherits the controller model; glm-latest does not accept image inputs). General rule for capability-build: any skill step that renders images to the model must specify a vision-capable model for the executing sub-agent.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": ["err-20260930T145444-71UE48"]
+}
