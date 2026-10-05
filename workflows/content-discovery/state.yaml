@@ -2,33 +2,25 @@
 workflow: content-discovery
 agent: harper
 status: complete
-session-started: "2026-09-29T14:00:00Z"
-session-id: "harper-20260929-002"
-started-at: "2026-09-29T14:00:00Z"
-completed-at: "2026-09-29T14:05:00Z"
+session-started: "2026-10-05T06:00:00Z"
+session-id: "harper-20261005-001"
+started-at: "2026-10-05T06:00:00Z"
+completed-at: "2026-10-05T06:05:00Z"
 current-step: complete
-original-request: "Scheduled daily content discovery run (second run)"
+original-request: "Scheduled daily content discovery run"
 accumulated-context:
   messages_scanned: 11
   new_urls: 0
   new_digests: 0
   posts_drafted: 0
-  gate_1_result: "PASS — ok: true, 11 messages, channel C0B160MA3EK confirmed"
+  gate_1_result: "PASS — ok: true, 11 messages via 192h fallback, channel C0B160MA3EK confirmed"
   gate_2_result: "n/a — no new content drafted"
-  editorial_threads_checked: 5
-  editorial_feedback_found: 0
+  editorial_threads_checked: 3
+  editorial_feedback_found: 3
   editorial_edits_applied: 0
   notes: |
-    Second run of 2026-09-29 (first was 06:00, session harper-20260929-001).
-    All 11 messages evaluated. 5 top messages are Jarvis bot notifications from 06:00 run (SKIP).
-    6 bottom messages are Watchtower digests with bold-header signal. All 6 already in pipeline:
-    - Culture Is the Constraint: pending (drafted 06:00 run)
-    - DFW's Innovation Economy Is Wider Than You Think: pending (drafted 06:00 run)
-    - The Restructuring Is Not Coming. It's Here.: pending (drafted 06:00 run)
-    - Reversibility Is the Governing Criterion: pending (drafted 06:00 run)
-    - Shadow AI Is Shadow IT at 10x: pending (drafted 06:00 run)
-    - Uniform Governance Is How Agents Die: skipped (topic overlap with published post from 06:00 run)
-    Editorial thread scan: checked 5 threads from today's drafts. Zero replies in any thread.
-    Zero new content. Zero editorial feedback. Clean exit.
+    11 messages returned via 192h fallback. All are bot messages. 5 Jarvis notifications (no digest signal, SKIP).
+    6 Watchtower digests all already in pending-drafts (SKIP). 3 threads had editorial replies from 2026-09-29
+    — all outside 24h window, not processed. Clean exit.
 model: sonnet
 ---
