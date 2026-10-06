@@ -2,25 +2,31 @@
 workflow: content-discovery
 agent: harper
 status: complete
-session-started: "2026-10-05T06:00:00Z"
-session-id: "harper-20261005-001"
-started-at: "2026-10-05T06:00:00Z"
-completed-at: "2026-10-05T06:05:00Z"
+session-started: "2026-10-06T06:00:00Z"
+session-id: "harper-20261006-001"
+started-at: "2026-10-06T06:00:00Z"
+completed-at: "2026-10-06T06:17:30Z"
 current-step: complete
 original-request: "Scheduled daily content discovery run"
 accumulated-context:
   messages_scanned: 11
   new_urls: 0
-  new_digests: 0
-  posts_drafted: 0
-  gate_1_result: "PASS — ok: true, 11 messages via 192h fallback, channel C0B160MA3EK confirmed"
-  gate_2_result: "n/a — no new content drafted"
+  new_digests: 1
+  posts_drafted: 1
+  gate_1_result: "PASS — ok: true, 11 messages via 192h fallback (24h/48h/96h returned 0 with warnings), channel C0B160MA3EK confirmed"
+  gate_2_result: "PASS — word count 340, Hook/Story/Insight/Challenge all present, no em-dashes, voice original, tags on locked list in object format, image landscape (2000x1500), internal links to Reversibility and Governance posts"
   editorial_threads_checked: 3
-  editorial_feedback_found: 3
+  editorial_feedback_found: 0
   editorial_edits_applied: 0
   notes: |
-    11 messages returned via 192h fallback. All are bot messages. 5 Jarvis notifications (no digest signal, SKIP).
-    6 Watchtower digests all already in pending-drafts (SKIP). 3 threads had editorial replies from 2026-09-29
-    — all outside 24h window, not processed. Clean exit.
+    Run of 2026-10-06 at 06:00. 24h/48h/96h returned 0 with warnings; 192h returned 11 messages.
+    5 Jarvis draft notification messages (no digest signal): SKIP.
+    6 Watchtower bold-header digests: Culture Is the Constraint, DFW Innovation, The Restructuring, Reversibility, Shadow AI all confirmed in pending-drafts: SKIP.
+    1 new Watchtower digest: "Uniform Governance Is How Agents Die" (ts 1790650264.747459) — not in pending-drafts, not published.
+    Editorial threads: 3 threads have human replies (Shadow AI ts 1790715342, DFW ts 1790715190, Culture ts 1790714983). All outside 24h window (~26h+ ago). SKIP.
+    Draft created: Ghost post 6ac4d89f079128028488b19a, status draft.
+    Image: external Unsplash URL (CDN upload failed), landscape confirmed 2000x1500.
+    Internal links: Reversibility Is the Governing Criterion (published), Governance Isn't Your Problem. Uniform Governance Is. (published).
+    Slack notification posted: ts 1791285435.347439 in channel C0B160MA3EK.
 model: sonnet
 ---
