@@ -1,15 +1,19 @@
 ---
 status: complete
-started-at: "2026-09-15T00:02:00-05:00"
-completed-at: "2026-09-15T00:03:00-05:00"
+started-at: "2026-10-05T22:37:00-05:00"
+completed-at: "2026-10-05T22:38:30-05:00"
 outputs:
   weather_source: "unavailable"
   weather_data_missing: true
-  weather_fetch_failed: "Open-Meteo and NWS unavailable in session"
+  weather_fetch_failed: "Open-Meteo URL too long; NWS returned outdated August data instead of October forecast"
   drought: false
+  drought_last_round: "2026-09-26 (Tarbox & Brown - Kissing Tree Golf Club)"
+  drought_days_since_round: 9
   heat_streak: false
   heat_streak_calc_failed: true
-  heat_streak_default_reason: "Weather unavailable — defaulting to false"
+  heat_streak_default_reason: "Weather data unavailable — defaulting to false (safer $21/1PM default)"
+  preferred_start_default: "1:00 PM CT"
+  preferred_cost_default: "$21/player"
 model: haiku
 ---
 

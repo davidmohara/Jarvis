@@ -1,32 +1,36 @@
 workflow: golf-preview
 agent: sterling
 status: complete
-session-started: "2026-09-15T00:00:00-05:00"
+session-started: "2026-10-05T22:35:00-05:00"
 session-id: scheduled-task-golf-tee-time-preview
 current-step: step-05
-execution-run: "2026-09-15T00:00:00-05:00"
-completion-time: "2026-09-15T00:04:00-05:00"
+execution-run: "2026-10-05T22:35:00-05:00"
+completion-time: "2026-10-05T22:40:00-05:00"
 gate-failures: []
 grade: null
-resolution-note: "Workflow completed with degraded data sources. Calendar and weather unavailable; fallback notification written. All gates passed."
+resolution-note: "Workflow completed successfully. All gates passed. Friday unavailable (bootcamp); Saturday + Sunday viable. Weather data unavailable (soft gate degradation). Preview output written; fallback notification delivered."
 
 original-request: "Weekly golf tee time preview — automated scheduled task"
 accumulated-context:
-  target_friday: "2026-09-25"
-  target_saturday: "2026-09-26"
-  target_sunday: "2026-09-27"
-  calendar_unavailable: true
+  target_friday: "2026-10-16"
+  target_saturday: "2026-10-17"
+  target_sunday: "2026-10-18"
+  calendar_unavailable: false
   weather_data_missing: true
   day_status:
-    friday: { status: "conditional", reason: "Calendar unavailable" }
-    saturday: { status: "conditional", reason: "Calendar unavailable" }
-    sunday: { status: "conditional", reason: "Calendar unavailable" }
+    friday: { status: "unavailable", reason: "All-day event: Houston Bootcamp (remote)" }
+    saturday: { status: "available", reason: "No conflicts; 1:00 PM – 6:30 PM CT" }
+    sunday: { status: "available", reason: "No conflicts after church; 2:30 PM – 6:30 PM CT" }
   drought: false
+  drought_last_round: "2026-09-26"
   heat_streak: false
-  candidate_windows_found: 0
+  heat_streak_calc_failed: true
+  candidate_windows_found: 2
   gate_1_result: "pass"
-  gate_2_result: "pass-degraded"
+  gate_2_result: "pass"
   gate_3_result: "pass-degraded"
   gate_4_result: "pass"
   gate_5_result: "pass"
-  slack_delivery: { path: "fallback", file: "memory/working/golf-preview-2026-09-15.md", error_entry: "err-20260915T000400-GOLF1" }
+  top_option_1: "Saturday Oct 17, 1:00 PM, 18 holes, $21/player, score 0"
+  top_option_2: "Sunday Oct 18, 2:30 PM, 18 holes, $21/player, score 5"
+  slack_delivery: { path: "fallback", file: "memory/working/golf-preview-2026-10-05.md" }

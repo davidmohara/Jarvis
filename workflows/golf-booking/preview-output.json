@@ -1,32 +1,70 @@
 {
-  "generated_at": "2026-09-15T00:03:00-05:00",
+  "generated_at": "2026-10-05T22:38:30",
   "target_weekend": {
-    "friday": "2026-09-25",
-    "saturday": "2026-09-26",
-    "sunday": "2026-09-27"
+    "friday": "2026-10-16",
+    "saturday": "2026-10-17",
+    "sunday": "2026-10-18"
   },
   "day_status": {
     "friday": {
-      "status": "conditional",
-      "reason": "Calendar unavailable — assuming available pending verification"
+      "status": "unavailable",
+      "reason": "All-day event: Houston Bootcamp (remote) — hard block"
     },
     "saturday": {
-      "status": "conditional",
-      "reason": "Calendar unavailable — assuming available pending verification"
+      "status": "available",
+      "reason": "No conflicts; available 1:00 PM – 6:30 PM CT"
     },
     "sunday": {
-      "status": "conditional",
-      "reason": "Calendar unavailable — assuming available pending verification"
+      "status": "available",
+      "reason": "No conflicts after church (ends 1:30 PM CT); available 2:30 PM – 6:30 PM CT"
     }
   },
   "drought": false,
+  "drought_last_round": "2026-09-26",
   "weather_data_missing": true,
+  "weather_data_warning": "Open-Meteo fetch failed (URL too long); NWS returned outdated data. Proceeding with calendar-only scoring.",
   "ct_conversion_flag": false,
-  "top_options": [],
+  "heat_streak": false,
+  "heat_streak_reason": "Weather data unavailable; defaulting to false (safer $21/1PM default)",
+  "top_options": [
+    {
+      "rank": 1,
+      "day": "saturday",
+      "date": "2026-10-17",
+      "preferred_start": "13:00",
+      "preferred_end": "17:30",
+      "holes": 18,
+      "cost_per_player": 21,
+      "total_cost": 42,
+      "weather": {
+        "rain_pct": null,
+        "temp_f": null,
+        "wind_mph": null,
+        "condition": "unavailable"
+      },
+      "score": 0,
+      "rationale": "Saturday 1 PM — best day with no constraints; ideal timing, no weather data available"
+    },
+    {
+      "rank": 2,
+      "day": "sunday",
+      "date": "2026-10-18",
+      "preferred_start": "14:30",
+      "preferred_end": "18:30",
+      "holes": 18,
+      "cost_per_player": 21,
+      "total_cost": 42,
+      "weather": {
+        "rain_pct": null,
+        "temp_f": null,
+        "wind_mph": null,
+        "condition": "unavailable"
+      },
+      "score": 5,
+      "rationale": "Sunday 2:30 PM (post-church) — viable with buffer time; +5 penalty for tighter window and church scheduling"
+    }
+  ],
   "override_instructions": null,
-  "no_viable_reason": "Golf preview degraded: Calendar data unavailable (M365 connector offline) and weather data unavailable (API unreachable). Insufficient data for confident window scoring. Manual review recommended before booking.",
-  "data_sources": {
-    "calendar": "unavailable",
-    "weather": "unavailable"
-  }
+  "no_viable_reason": null,
+  "notes": "Friday blocked by all-day bootcamp. Two viable options on Saturday (best) and Sunday (acceptable). Weather forecast unavailable; recommend checking weather manually before booking. Last round: 2026-09-26 (not a drought)."
 }

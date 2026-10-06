@@ -1,14 +1,17 @@
 ---
 status: complete
-started-at: "2026-09-29T14:05:00Z"
-completed-at: "2026-09-29T14:06:00Z"
+started-at: "2026-10-06T06:17:30Z"
+completed-at: "2026-10-06T06:18:30Z"
 outputs:
-  files_changed: 1
+  files_changed: 4
   files_committed:
+    - reference/blog-ideas.md
+    - workflows/content-approval/pending-drafts.json
     - workflows/content-discovery/state.yaml
-  commit_hash: "8e366830"
+    - workflows/content-discovery/steps/step-01-discover.md
+  commit_hash: "3490a60d"
   push_status: success
-  outcome: "committed and pushed — clean no-op run, no new content, state.yaml updated only"
+  outcome: "committed and pushed — 1 new Ghost draft created: Uniform Governance Is How Agents Die"
 model: sonnet
 ---
 

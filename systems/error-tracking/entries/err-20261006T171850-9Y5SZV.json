@@ -1,0 +1,15 @@
+{
+  "id": "err-20261006T171850-9Y5SZV",
+  "timestamp": "2026-10-06T17:18:50Z",
+  "session": "2026-10-06",
+  "source": "explicit",
+  "agent": "harper",
+  "category": "assumption-error",
+  "description": "Image selected for 'Uniform Governance Is How Agents Die' was a ship navigational bridge/control room (photo-1641467613990-b74163e280e3). A ship has nothing to do with AI agent governance. The image matched the word 'control room' in the search but not the actual post concept.",
+  "correction": "For governance/oversight posts, search for imagery matching the conceptual theme: a compass, a clock, timing mechanisms, a traffic signal, an air traffic control tower (exterior/landscape), or a judge's gavel — anything that signals guidance, timing, calibration, or proportionate control. Do not pick 'control room' as a keyword when the post is about governance principles — it returns literal rooms full of equipment, not conceptual governance imagery.",
+  "failure_mode": "pattern-mismatch",
+  "systemic_fix": "When the post topic is about governance, oversight, calibration, or proportionate control (not physical systems), search Unsplash using abstract/conceptual keywords: 'compass navigation', 'clock timing', 'scales balance', 'traffic light', 'air traffic control tower landscape'. Avoid equipment-room imagery for abstract governance topics.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": []
+}

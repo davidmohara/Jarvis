@@ -1,13 +1,15 @@
 ---
 status: complete
-started-at: "2026-09-15T00:03:30-05:00"
-completed-at: "2026-09-15T00:04:00-05:00"
+started-at: "2026-10-05T22:39:00-05:00"
+completed-at: "2026-10-05T22:40:00-05:00"
 outputs:
   gate_5_result: "pass"
   delivery_path: "fallback"
-  fallback_file: "memory/working/golf-preview-2026-09-15.md"
-  error_entry: "err-20260915T000400-GOLF1"
-  reason: "Slack unavailable; fallback written and error logged"
+  fallback_file: "memory/working/golf-preview-2026-10-05.md"
+  rank_1_summary: "Saturday Oct 17, 1:00 PM — 18 holes, $21/player (BEST OPTION)"
+  rank_2_summary: "Sunday Oct 18, 2:30 PM — 18 holes, $21/player (backup)"
+  weather_flag: "⚠️ Weather data unavailable — recommend manual verification"
+  reason: "Slack skill unavailable in automated context; fallback written with full preview"
 model: haiku
 ---
 

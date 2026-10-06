@@ -1,22 +1,32 @@
 workflow: golf-booking
 agent: sterling
-status: complete
+status: awaiting-window
 session-started: 2026-09-18T05:00:00Z
 session-id: scheduled-golf-tee-time-booking
-current-step: gate-1-precheck-degraded
-execution-run: 2026-09-25
-latest-check: 2026-09-25T06:30:00Z
-latest-check-result: "Golf booking workflow invoked 2026-09-25. Preview output data unavailable: no top_options generated, no_viable_reason populated. M365 connector offline, weather API unreachable. Insufficient data for booking. No action taken per workflow specification."
+current-step: step-01-gate-1-window-check
+execution-run: 2026-10-06
+latest-check: 2026-10-06T00:00:00Z
+latest-check-result: "Golf booking workflow invoked 2026-10-06. M365 connector now online. Valid preview output found with 2 viable tee time options. Target date October 17, 2026 is 12 days from today (October 5) — outside 8-day booking window. Per Quality Gate 1: booking blocked pending window opening. Workflow will retry automatically when date is ≤8 days away."
 gate-failures:
-  - reason: "Insufficient data for confident booking — no viable tee time options"
-    data_sources_unavailable: ["calendar", "weather"]
-    top_options_empty: true
-    triggered_at: "2026-09-25T06:30:00Z"
+  - reason: "Target date outside 8-day booking window"
+    target_date: "2026-10-17"
+    today: "2026-10-05"
+    days_out: 12
+    window_size: 8
+    triggered_at: "2026-10-06T00:00:00Z"
 booking-id: null
 booking-date: null
 booking-time: null
 grade: null
-resolution-note: "Golf preview degraded: Calendar data unavailable (M365 connector offline) and weather data unavailable (API unreachable). Insufficient data for confident window scoring. No tee time options generated. Booking halted at preview Gate 1 requirement (no viable options to select from). No booking window opened. Workflow exited silently per spec."
+resolution-note: "Valid preview output (generated 2026-10-05 22:38:30): Rank 1 - Saturday Oct 17 at 1:00 PM (Score: 0), Rank 2 - Sunday Oct 18 at 2:30 PM (Score: 5). Calendar data available. Weather data unavailable (degraded). Target date outside window per Quality Gate 1 — no substitution made. Retry when window opens."
 
 original-request: ~
-accumulated-context: []
+accumulated-context:
+  target_date: "2026-10-17"
+  target_time: "13:00:00"
+  target_day: "saturday"
+  holes: 18
+  cost_per_player: 21
+  total_cost: 42
+  rank: 1
+  score: 0

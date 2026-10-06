@@ -1,16 +1,17 @@
 ---
 status: complete
-started-at: "2026-09-15T00:01:00-05:00"
-completed-at: "2026-09-15T00:02:00-05:00"
+started-at: "2026-10-05T22:35:30-05:00"
+completed-at: "2026-10-05T22:37:00-05:00"
 outputs:
   calendar_backend: "M365"
-  calendar_unavailable: true
-  calendar_unavailable_reason: "M365 connector unavailable in this session"
+  calendar_unavailable: false
+  calendar_unavailable_reason: null
   day_status:
-    friday: { status: "conditional", reason: "Calendar unavailable — assuming available pending verification" }
-    saturday: { status: "conditional", reason: "Calendar unavailable — assuming available pending verification" }
-    sunday: { status: "conditional", reason: "Calendar unavailable — assuming available pending verification" }
+    friday: { status: "unavailable", reason: "All-day event: Houston Bootcamp (remote) — hard block" }
+    saturday: { status: "available", reason: "No conflicts found", available_window: { earliest_start: "1:00 PM CT", latest_start: "6:30 PM CT" } }
+    sunday: { status: "available", reason: "No conflicts found; church commitment 8:30 AM–1:30 PM CT", available_window: { earliest_start: "2:30 PM CT", latest_start: "6:30 PM CT" } }
   ct_conversion_flag: false
+  events_analyzed: 9
 model: haiku
 ---
 
