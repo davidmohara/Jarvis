@@ -1,7 +1,7 @@
 {
-  "pulled_at": "2026-09-28T16:22:16Z",
+  "pulled_at": "2026-10-05T16:25:32Z",
   "status": "available",
-  "task_count": 26,
+  "task_count": 38,
   "tasks": [
     {
       "id": "o-RwvzTMiSj",
@@ -84,16 +84,6 @@
       "note": "Our offerings Our culture Personal brand"
     },
     {
-      "id": "p1ACeOewAF6",
-      "name": "Build proposal for SC",
-      "completed": false,
-      "due_date": null,
-      "project": null,
-      "tags": null,
-      "is_flagged": false,
-      "note": ""
-    },
-    {
       "id": "ienBiTiEZwY",
       "name": "Build strategic brief for SC",
       "completed": false,
@@ -134,8 +124,8 @@
       "note": ""
     },
     {
-      "id": "cHaT6wNzIVj",
-      "name": "Alice: dinner was at 6:30 not 7:30",
+      "id": "oYKonmFQYtH",
+      "name": "Study: handling the poor today",
       "completed": false,
       "due_date": null,
       "project": null,
@@ -145,7 +135,7 @@
     },
     {
       "id": "nYJveALrKkU",
-      "name": "Alice: parking section in email",
+      "name": "Alice: parking section in email for Texans",
       "completed": false,
       "due_date": null,
       "project": null,
@@ -184,6 +174,46 @@
       "note": ""
     },
     {
+      "id": "iu0MqI-c1an",
+      "name": "Post to read",
+      "completed": false,
+      "due_date": null,
+      "project": null,
+      "tags": null,
+      "is_flagged": false,
+      "note": "https://capitalizeconsulting.com/deterministic-logic-ai-fpa/"
+    },
+    {
+      "id": "iSTPwuYLPdZ",
+      "name": "Talk",
+      "completed": false,
+      "due_date": null,
+      "project": null,
+      "tags": null,
+      "is_flagged": false,
+      "note": "Designing your Life is a Stanford is a class that points to happiness comes from mastery not passion"
+    },
+    {
+      "id": "hmSOAxJUMj8",
+      "name": "Fix leather bench",
+      "completed": false,
+      "due_date": "Saturday, October 10, 2026 at 5:00:00 PM",
+      "project": "Next",
+      "tags": "Errands",
+      "is_flagged": false,
+      "note": ""
+    },
+    {
+      "id": "beu_hHQgdXG",
+      "name": "Build expense report",
+      "completed": false,
+      "due_date": "Tuesday, October 6, 2026 at 5:00:00 PM",
+      "project": "Accounting",
+      "tags": "ImprovingDelegated",
+      "is_flagged": false,
+      "note": ""
+    },
+    {
       "id": "lxfoBd4wxIP",
       "name": "Prep IES instance and training for Renzi Stone visit",
       "completed": false,
@@ -194,20 +224,70 @@
       "note": "From Review AI for Execs (9/15). Renzi Stone (Oklahoma City CEO) is coming down in ~3 weeks wanting to be trained and wanting a version of IES, following Steve Hall's demo at the Principal Business Summit. Two more CEO conversations in flight. Treat as second datapoint for IES velocity learnings. Source: zzPlaud/Improving/2026-09-15 Review AI for Execs current state"
     },
     {
-      "id": "k44l_tSBOLL",
-      "name": "Answer Q&A",
+      "id": "b_xAop_Ytf5",
+      "name": "Clean outside space in island",
       "completed": false,
-      "due_date": "Friday, October 2, 2026 at 5:00:00 PM",
-      "project": "Deliberate Practices",
-      "tags": "Writing",
+      "due_date": "Saturday, October 10, 2026 at 5:00:00 PM",
+      "project": "Family",
+      "tags": "House",
       "is_flagged": false,
-      "note": "https://councils.forbes.com/v2/publishing/expert-panels?tab=open"
+      "note": ""
+    },
+    {
+      "id": "gVfnoJdAS42",
+      "name": "Container store",
+      "completed": false,
+      "due_date": "Saturday, October 10, 2026 at 5:00:00 PM",
+      "project": "Family",
+      "tags": "Errands",
+      "is_flagged": false,
+      "note": "Bins for shelves - Utility stackable Organizer in garage cabinet - can\u2019t find now Shoe box doors - https://www.containerstore.com/s/closet/shoe-storage/drop-front-shoe-box-replacement-doors/12d?productId=11012738"
+    },
+    {
+      "id": "bUZ9ycIB2O0",
+      "name": "Box up journals",
+      "completed": false,
+      "due_date": "Saturday, October 10, 2026 at 5:00:00 PM",
+      "project": "Family",
+      "tags": "Home Office",
+      "is_flagged": false,
+      "note": ""
+    },
+    {
+      "id": "dQ3ia1MGm2d",
+      "name": "Fix media room lights",
+      "completed": false,
+      "due_date": "Saturday, October 10, 2026 at 5:00:00 PM",
+      "project": "Family",
+      "tags": "Home Office",
+      "is_flagged": false,
+      "note": ""
+    },
+    {
+      "id": "enOpUPwoz5i",
+      "name": "Electrician to install patio light",
+      "completed": false,
+      "due_date": "Saturday, October 10, 2026 at 5:00:00 PM",
+      "project": "Family",
+      "tags": "Home Office",
+      "is_flagged": false,
+      "note": ""
+    },
+    {
+      "id": "ksGHQHC_cNP",
+      "name": "Pocket square organizer",
+      "completed": false,
+      "due_date": "Saturday, October 10, 2026 at 5:00:00 PM",
+      "project": "Family",
+      "tags": "House",
+      "is_flagged": false,
+      "note": "Bar - https://www.fergusonhome.com/product/summary/599357?uid=1221302&inv=1&gclsrc=aw.ds&&source=gg-gba-pla_1221302!c15146996769!a128720257425!dc!ng&gad_source=1&gad_campaignid=15146996769&gclid=Cj0KCQjwsdnNBhC4ARIsAA_3hegj8RlwU3GLZTjYU6VP70lZt0OExjo4UmMW2pyT0XmNdhlVv9yVZyoaAuI6EALw_wcB Clips - https://www.staples.com/nahanco-2-ring-clip-white-100-pack-100-pack/product_216638"
     },
     {
       "id": "km9hG5ixbP2",
       "name": "Review prayer list",
       "completed": false,
-      "due_date": "Tuesday, September 29, 2026 at 11:00:00 AM",
+      "due_date": "Tuesday, October 6, 2026 at 11:00:00 AM",
       "project": "Deliberate Practices",
       "tags": "Reflection",
       "is_flagged": false,
@@ -227,21 +307,31 @@
       "id": "cQbtk1HDOKq",
       "name": "Coherence breathing",
       "completed": false,
-      "due_date": "Tuesday, September 29, 2026 at 10:00:00 AM",
+      "due_date": "Tuesday, October 6, 2026 at 10:00:00 AM",
       "project": "Deliberate Practices",
       "tags": "Reflection",
       "is_flagged": false,
       "note": "How: \u2219 Inhale through nose: 5.5 seconds \u2219 Exhale through nose: 5.5 seconds \u2219 No pauses \u2014 smooth, continuous cycle \u2219 10 minutes After 2 weeks shift to 15 minutes and 5 seconds in/6 seconds out Cues: \u2219 Sit upright, relaxed shoulders \u2219 Eyes closed or soft gaze \u2219 Tongue resting on roof of mouth \u2219 Belly expands on inhale, contracts on exhale"
     },
     {
-      "id": "lrP43yOXFIq",
-      "name": "Identify speaking opportunities",
+      "id": "gyr2KAuh6rK",
+      "name": "Spend time on book ideation",
       "completed": false,
-      "due_date": "Wednesday, September 30, 2026 at 5:00:00 PM",
-      "project": "Growth",
-      "tags": "Improving",
+      "due_date": "Saturday, October 10, 2026 at 5:00:00 PM",
+      "project": "Writing",
+      "tags": "ImprovingWriting",
       "is_flagged": false,
-      "note": "SxSW FinTechMeetup (https://fintechmeetup.com/) March XX InnoTech (https://www.innotechdallas.com/) May ATD (http://www.atdconference.org) May Inbound (http://www.inbound.com) Sep Linkage (https://www.linkageinc.com/events/) Oct CEO Talent Summit (https://chiefexecutive.net/ceosummit/) Oct Conscious Capitalism Apr Greenleaf Servant Leadership Conference (https://servantleadersummit.org) June Positive Business Conference (http://positivebusinessconference.com) May"
+      "note": "(Obsidian Link)"
+    },
+    {
+      "id": "h0-PYG6aIxj",
+      "name": "Schedule A/C service",
+      "completed": false,
+      "due_date": "Wednesday, October 7, 2026 at 5:00:00 PM",
+      "project": "Maintenance",
+      "tags": "Phone",
+      "is_flagged": false,
+      "note": "Chrome A/C: (469) 270-6034 ($69) Air Repair Inc. at 972-625-1400 ($37?) Colony Air (972) 591-0293 Airzone Experts (469) 740-4576 - Adrian Racovei"
     },
     {
       "id": "dVVsgqWv7-C",
@@ -254,14 +344,44 @@
       "note": "Miguel Martinez"
     },
     {
-      "id": "fWnIfiac9e4",
-      "name": "Order Grubhub with Citi AAdvantage card this month ($10 credit)",
+      "id": "inYg3vslhL8",
+      "name": "Rain-X bathroom glass",
       "completed": false,
-      "due_date": "Wednesday, September 30, 2026 at 5:00:00 PM",
-      "project": "Credit Cards",
-      "tags": "Home Office",
+      "due_date": "Saturday, October 10, 2026 at 5:00:00 PM",
+      "project": "Maintenance",
+      "tags": "House",
       "is_flagged": false,
-      "note": "$10/mo Grubhub credit on Citi. Use-it-or-lose-it monthly. Jan already lost."
+      "note": ""
+    },
+    {
+      "id": "hstkxl0ktyh",
+      "name": "Clean up bikes",
+      "completed": false,
+      "due_date": "Saturday, October 10, 2026 at 5:00:00 PM",
+      "project": "Maintenance",
+      "tags": "House",
+      "is_flagged": false,
+      "note": ""
+    },
+    {
+      "id": "lKVd8-S0Do2",
+      "name": "Repair drywall in small garage",
+      "completed": false,
+      "due_date": "Saturday, October 10, 2026 at 5:00:00 PM",
+      "project": "Maintenance",
+      "tags": "House",
+      "is_flagged": false,
+      "note": ""
+    },
+    {
+      "id": "fE14Ka6V9rN",
+      "name": "Call Phantom about back screens",
+      "completed": false,
+      "due_date": "Saturday, October 10, 2026 at 5:00:00 PM",
+      "project": "Maintenance",
+      "tags": "Phone",
+      "is_flagged": false,
+      "note": ""
     }
   ]
 }

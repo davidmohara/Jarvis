@@ -27,6 +27,7 @@ dedupe:
 outputs:
   # Daily brief: live dashboard (async review) + Obsidian capture.
   dashboard_artifact_title: "watchtower_daily"
+  weekly_dashboard_artifact_url: "https://claude.ai/artifact/HXWGE8ccCxTCMrU2PKBBnj"  # Watchtower Weekly — pinned artifact; update by URL each run
   # Obsidian vault capture (surfaced knowledge is tagged for future reference).
   obsidian_awareness_folder: "Watchtower/Daily"          # one note per day
   obsidian_source_tag: "#watchtower"

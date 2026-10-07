@@ -20,13 +20,13 @@ outputs:
 3. Explicitly name each content candidate and each source proposal by name — David needs to act on these.
 4. The report surfaces two action items: (a) review content candidates in Obsidian, (b) approve/reject source proposals in proposed-sources.md.
 5. **UPDATE THE DASHBOARD ARTIFACT — PRE-FLIGHT REQUIRED.** Before writing a single line of report content:
-   a. Call `ToolSearch` with query `"select:mcp__cowork__list_artifacts,mcp__cowork__update_artifact"` to load the artifact tools. Do this FIRST. Not after the report. Not as an afterthought. FIRST.
-   b. Call `mcp__cowork__list_artifacts` to find the `watchtower-weekly` artifact id and HTML path.
-   c. Read the artifact HTML at the returned path.
-   d. Prepend a new `<div class="week-view active" id="view-wNN">` block for this week using this run's themes/drafts/proposals/tweets, update the `<select>` to include the new week option, remove `active` from the previous latest week's block, update `runMeta` in the JS.
-   e. Write the updated HTML to a temp file, then call `mcp__cowork__update_artifact` with `id: "watchtower-weekly"`.
+   a. Read `config.yaml` → `outputs.weekly_dashboard_artifact_url` to get the artifact URL.
+   b. Call `Artifact` with `action: "read"` and that URL to get the current HTML.
+   c. Prepend a new `<div class="week-view active" id="view-wNN">` block for this week using this run's themes/drafts/proposals/tweets, update the `<select>` to include the new week option as first/selected, remove `active` from the previous week's block, update `runMeta` in the JS.
+   d. Write the updated HTML to a temp file, then call `Artifact` with `action: "publish"`, `file_path: <temp path>`, `url: <artifact_url>`.
+   e. **If publish is blocked** (Cowork session constraint — error contains "approval card"): write the full updated HTML to `workflows/watchtower/artifact-update/watchtower-weekly.html`. Log `artifact_updated: false`, `artifact_fallback_written: true`. Surface the fallback path to David.
+   f. Do NOT call `mcp__cowork__list_artifacts` or `mcp__cowork__update_artifact` — these tools do not exist and have never existed.
    **This is non-negotiable. The dashboard is the primary way David reviews the week's output.**
-   If the artifact update fails after a genuine attempt, log `artifact_updated: false` in outputs and surface: "Dashboard update failed — open watchtower-weekly artifact manually." Do not silently skip. Do not omit the ToolSearch pre-flight and then claim the tool was unavailable.
 6. Set `state.yaml status: complete` and clear `content_queue` after report is surfaced.
 7. Write `status: complete`, `completed-at`, and `outputs` when done.
 
@@ -53,17 +53,16 @@ outputs:
 
 ## ⛔ ARTIFACT UPDATE GATE — DO NOT PROCEED PAST THIS LINE UNTIL COMPLETE
 
-This step has skipped the dashboard artifact update twice (err-20260831T215941-S03HMB, see also err-20260716T133503-XFSPE2). Both times Knox wrote the terminal report first and logged `artifact_updated: false` without attempting the update. That is not acceptable.
+This step has repeatedly failed the dashboard artifact update (err-20260831T215941-S03HMB, err-20260716T133503-XFSPE2, err-20261005T131604-Z39OIP, err-20261005T163315-8JTC48). The prior mechanism called `mcp__cowork__list_artifacts` and `mcp__cowork__update_artifact` — tools that do not exist and have never existed in any session. That mechanism is permanently retired.
 
-**You may not write the terminal report. You may not update `state.yaml`. You may not write `status: complete` to this file. Until the following three tool calls have been made in sequence:**
+**The correct mechanism:**
+1. Read `config.yaml` → `outputs.weekly_dashboard_artifact_url` for the artifact URL.
+2. Call `Artifact` with `action: "read"` and that URL — get the current HTML.
+3. Update the HTML with this week's block (new week-view div, updated select option, updated runMeta JS).
+4. Write to temp file. Call `Artifact` with `action: "publish"`, `file_path: <temp>`, `url: <artifact_url>`.
+5. If publish is blocked by Cowork session constraint (error contains "approval card"): write the full HTML to `workflows/watchtower/artifact-update/watchtower-weekly.html` as mandatory fallback.
 
-1. `ToolSearch` with query `"select:mcp__cowork__list_artifacts,mcp__cowork__update_artifact"` — load the tools.
-2. `mcp__cowork__list_artifacts` — find the `watchtower-weekly` artifact id and HTML path.
-3. Read the HTML, update it with this week's block, write to temp file, call `mcp__cowork__update_artifact`.
-
-Only after step 3 completes (success or confirmed failure after genuine attempt) do you proceed to `## YOUR TASK`.
-
-If the artifact tools are unavailable after ToolSearch (deferred and not resolvable): log `artifact_updated: false`, note `artifact_tools_unavailable: true` in outputs, and surface the failure message explicitly to David. Do not silently proceed.
+**You may not write the terminal report. You may not update `state.yaml`. You may not write `status: complete` to this file. Until steps 1–4 above have been attempted (success or confirmed Cowork block with fallback file written at step 5).**
 
 ---
 

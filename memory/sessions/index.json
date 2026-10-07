@@ -2137,10 +2137,38 @@
           "data/amazing-race/flags-shard-33.json",
           "data/amazing-race/flags-shard-34.json",
           "data/amazing-race/flags-shard-35.json",
-          "data/amazing-race/flags-shard-36.json"
+          "data/amazing-race/flags-shard-36.json",
+          "data/email-unified.json",
+          "data/clay-reminders-unified.json",
+          "memory/working/morning-briefing-2026-10-05.md"
         ],
         "loops": [],
         "flag": true
+      }
+    ]
+  },
+  {
+    "id": "session-2026-10-05-162800",
+    "started": "2026-10-05T16:28:00-05:00",
+    "closed": null,
+    "current_topic": "morning-boot",
+    "topics": [
+      {
+        "name": "morning-boot",
+        "loops": [
+          {
+            "task": "boot-sequence \u2014 in progress",
+            "resolved": false
+          }
+        ],
+        "files": [
+          "workflows/boot/state.yaml",
+          "_tmp_build_notes.py",
+          "_tmp_daily_links.py",
+          "workflows/plaud-ingest/state.yaml",
+          "systems/error-tracking/entries/err-20261006T175400-5EMQRJ.json",
+          "memory/working/plaud-ingest-2026-10-06-175500.md"
+        ]
       }
     ]
   }

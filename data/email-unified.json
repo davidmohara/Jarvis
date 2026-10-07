@@ -1,178 +1,76 @@
 {
-  "pulled_at": "2026-09-28T16:25:00Z",
-  "message_count": 19,
-  "window": "2026-09-25 to 2026-09-28 (Inbox newest-first, totalResultCount 19)",
+  "pulled_at": "2026-10-05T16:28:00Z",
+  "message_count": 7,
   "messages": [
     {
-      "subject": "Re: Reply from YPO Group - Tech Network",
-      "from": "kvermeer@brocksolutions.com",
-      "received_at": "2026-09-28T14:04:45Z",
-      "is_read": false,
-      "importance": "normal",
-      "snippet": "Appreciate the quick response. None seem to be 'I'm done and can share the experience'. Would value 30 minutes of your time to share thoughts on where my head is at.",
-      "actionable": true
-    },
-    {
-      "subject": "Re: CRM - Contacts (helpdesk ticket 69244)",
-      "from": "helpdesk@improving.com",
-      "received_at": "2026-09-25T22:22:00Z",
-      "is_read": false,
-      "importance": "normal",
-      "snippet": "Before our meeting on Monday, can you copy the full text from that error and attach it to ticket 69244 as a simple text file?",
-      "actionable": true
-    },
-    {
-      "subject": "Vegas Retreat - CorpLanta Dress Code",
-      "from": "Sara.Jop@improving.com",
-      "received_at": "2026-09-26T18:09:56Z",
-      "is_read": true,
+      "id": "AAQkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwAQAHJAzAephx1No8aWa_ey4uM=",
+      "subject": "Your panel at the Principled Business Summit — \"Becoming AI Native\"",
+      "from": "michelle@libertyventures.xyz",
+      "received_at": "2026-10-04T23:10:59Z",
+      "is_flagged": false,
       "importance": "high",
-      "snippet": "CorpLanta: Cowboys & Cowgirls in Vegas. Personalized cowboy hats in Welcome Room with welcome kit. Crew of 77.",
-      "actionable": true
+      "snippet": "Hi Brett, David, Colin, and William — excited to have you together for \"Becoming AI Native\" at the Principled Business Summit. DATE & LOCATION details + Venue Floor Map attached.",
+      "action": "RESPOND — panel logistics, confirm attendance and details"
     },
     {
-      "subject": "ACTION: LSYPO MEMBER ACKNOWLEDGMENT AND LIABILITY WAIVER",
-      "from": "mail@lonestarypo.com",
-      "received_at": "2026-09-25T22:19:53Z",
-      "is_read": true,
+      "id": "AAQkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwAQAMsVfCUt_VRFmk8wRjJ4JMg=",
+      "subject": "View your balance online today.",
+      "from": "noreply@patient-message.com",
+      "received_at": "2026-10-04T13:25:07Z",
+      "is_flagged": false,
       "importance": "normal",
-      "snippet": "Lone Star YPO Chapter Member Acknowledgment and Liability Waiver requiring signature as condition of membership.",
-      "actionable": true
+      "snippet": "TX - Interventional Spine and Pain LLP — new activity on your account.",
+      "action": "PERSONAL — medical bill, review and pay"
     },
     {
-      "subject": "Enhance your upcoming stay at The Windsor Court",
-      "from": "reservations@windsorcourthotel.com",
-      "received_at": "2026-09-27T22:01:04Z",
-      "is_read": true,
+      "id": "AAQkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwAQAAhTmc64VCxDmwNmdqm3Chc=",
+      "subject": "October 14th 2026 Reception Honoring Governor Greg Abbott",
+      "from": "connersearcy@audarelegacy.com",
+      "received_at": "2026-10-03T19:09:00Z",
+      "is_flagged": false,
       "importance": "normal",
-      "snippet": "Upcoming reservation at The Windsor Court (New Orleans) - arrival fast approaching.",
-      "actionable": true
+      "snippet": "Audare Legacy Group reception for Governor Abbott at home of Kathy and Harlan Crow. Oct 14. Address upon RSVP.",
+      "action": "DECIDE — RSVP yes/no"
     },
     {
-      "subject": "You've been invited to view an Artifact (USAM Tips prototype v2.1)",
-      "from": "no-reply-claude@mail.anthropic.com",
-      "received_at": "2026-09-27T13:15:11Z",
-      "is_read": false,
+      "id": "AAQkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwAQAPA9x-8r9qlIkJA09nZO9UI=",
+      "subject": "Nov. 10 MSAIB Advisory Board and student meet-and-greet events",
+      "from": "acambre@smu.edu",
+      "received_at": "2026-10-02T00:13:14Z",
+      "is_flagged": false,
       "importance": "normal",
-      "snippet": "Invited by sbeck@beckventures.com to view 'USAM Tips prototype v2.1' Artifact.",
-      "actionable": true
+      "snippet": "Planning combined Advisory Board meeting and student career event for Tuesday November 10. Asking for confirmation.",
+      "action": "RESPOND — confirm Nov 10 attendance"
     },
     {
-      "subject": "Connecting at The HRSouthwest Conference",
-      "from": "afaulk@relevante.com",
-      "received_at": "2026-09-28T16:14:04Z",
-      "is_read": false,
-      "importance": "normal",
-      "snippet": "Relevante exhibiting at HRSouthwest Conference Fort Worth Oct 11-13, booth #829, hoping to connect.",
-      "actionable": true
-    },
-    {
-      "subject": "Re: Twenty Percent Nobody Budgeted Review",
-      "from": "Faizan.Fahim@improving.com",
-      "received_at": "2026-09-28T07:50:20Z",
-      "is_read": true,
-      "importance": "normal",
-      "snippet": "Agrees monitoring should be at least 20%. Image and article updates in progress.",
-      "actionable": false
-    },
-    {
-      "subject": "Invitation to DFW Networking Event",
-      "from": "mike@tipclub.com",
-      "received_at": "2026-09-28T16:12:29Z",
-      "is_read": false,
-      "importance": "normal",
-      "snippet": "Virtual Dallas-Fort Worth Business Networking Event next week.",
-      "actionable": false
-    },
-    {
-      "subject": "Hi David, here are our upcoming events and nominations",
-      "from": "replydallas@engaged.bizjournals.com",
-      "received_at": "2026-09-28T15:45:12Z",
-      "is_read": false,
-      "importance": "normal",
-      "snippet": "Dallas Business Journal weekly events/nominations guide.",
-      "actionable": false
-    },
-    {
-      "subject": "Would your team know what to do first?",
-      "from": "ashley@defendify.com",
-      "received_at": "2026-09-28T15:59:05Z",
-      "is_read": false,
-      "importance": "normal",
-      "snippet": "Defendify incident-prep marketing email.",
-      "actionable": false
-    },
-    {
-      "subject": "Will You Join Us in Prayer for the Jewish People?",
-      "from": "news@christiansengaged.com",
-      "received_at": "2026-09-28T15:31:41Z",
-      "is_read": false,
-      "importance": "normal",
-      "snippet": "Christians Engaged newsletter.",
-      "actionable": false
-    },
-    {
-      "subject": "Ready: AI For Everyone",
-      "from": "Coursera@m.learn.coursera.org",
-      "received_at": "2026-09-28T15:23:00Z",
-      "is_read": false,
-      "importance": "normal",
-      "snippet": "Coursera promo: 3 months Google AI Pro.",
-      "actionable": false
-    },
-    {
-      "subject": "These are great odds!",
-      "from": "membership@mail.texastribune.org",
-      "received_at": "2026-09-27T21:14:48Z",
-      "is_read": false,
-      "importance": "normal",
-      "snippet": "Texas Tribune Fall Member Drive.",
-      "actionable": false
-    },
-    {
-      "subject": "Chicken Salad",
-      "from": "rex@gomindshift.com",
-      "received_at": "2026-09-27T15:20:46Z",
-      "is_read": false,
-      "importance": "normal",
-      "snippet": "Rex/Mindshift personal newsletter about Lucy.",
-      "actionable": false
-    },
-    {
-      "subject": "RE: Annual Golf Tournament --- Reminder (thank-you thread)",
-      "from": "tmontpas@microsoft.com",
-      "received_at": "2026-09-25T17:26:17Z",
-      "is_read": true,
-      "importance": "normal",
-      "snippet": "Thanks to everyone for joining the outing; thanks to Aliando and Improving friends.",
-      "actionable": false
-    },
-    {
-      "subject": "(AI Mastermind) two things to share if you're interested",
+      "id": "AAQkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwAQAKJlxsZaNxhEvrY1AJ4mom0=",
+      "subject": "(AI Mastermind) Prep for Thursday",
       "from": "notifications@app.basecamp.com",
-      "received_at": "2026-09-25T16:50:15Z",
-      "is_read": true,
+      "received_at": "2026-10-01T19:12:11Z",
+      "is_flagged": false,
       "importance": "normal",
-      "snippet": "AI Mastermind Basecamp: paper written for International Jacques Ellul Society Conference at Notre Dame.",
-      "actionable": false
+      "snippet": "Steve - this is worth going through. AI Mastermind thread, 15 messages.",
+      "action": "READ — ongoing group thread, no urgent action"
     },
     {
-      "subject": "Re: Annual Golf Tournament --- Reminder",
-      "from": "Scott.Shimp@microsoft.com",
-      "received_at": "2026-09-25T13:33:56Z",
-      "is_read": true,
+      "id": "AAQkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwAQAKyPfQvrDOhPu4NohI3pf8I=",
+      "subject": "Basecamp (MindShift): Here's the latest activity",
+      "from": "notifications@app.basecamp.com",
+      "received_at": "2026-10-03T12:02:02Z",
+      "is_flagged": false,
       "importance": "normal",
-      "snippet": "Thank-you reply in golf thread.",
-      "actionable": false
+      "snippet": "Rex scheduled new AI Mastermind event: From Tool to Master: How AI is changing us and Society.",
+      "action": "FYI — check for scheduling conflict"
     },
     {
-      "subject": "Re: Annual Golf Tournament --- Reminder",
-      "from": "kruchlin@yahoo.com",
-      "received_at": "2026-09-25T12:53:09Z",
-      "is_read": true,
+      "id": "AAQkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwAQACt0DMK39qZGlnLwkd3DK3s=",
+      "subject": "Thanks for Coming Out!",
+      "from": "drayton.mcmichael@houstontexans.com",
+      "received_at": "2026-09-28T22:39:51Z",
+      "is_flagged": false,
       "importance": "normal",
-      "snippet": "Thank-you reply with photo attachment.",
-      "actionable": false
+      "snippet": "Great seeing everyone at the game! Touched base with Alice — sounds like a success on the Improving end. Has draft.",
+      "action": "RESPOND — courtesy reply owed, draft exists"
     }
   ]
 }

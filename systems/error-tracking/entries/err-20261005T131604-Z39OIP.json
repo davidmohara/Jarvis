@@ -1,0 +1,15 @@
+{
+  "id": "err-20261005T131604-Z39OIP",
+  "timestamp": "2026-10-05T13:16:04Z",
+  "agent": "knox",
+  "workflow": "watchtower-weekly",
+  "session_type": "scheduled-task",
+  "category": "platform-constraint",
+  "severity": "medium",
+  "title": "Artifact first-publish blocked in scheduled-task session type",
+  "description": "The watchtower-weekly dashboard artifact has never been created. Every Watchtower weekly run hits a hard platform constraint: the Artifact tool's first-time publish requires an approval card that the Cowork scheduled-task session type cannot serve. The error is: 'The first publish to an Artifact from this Cowork session needs the approval card, and no one can answer it in this session.' This is not a transient error — retrying in the same session always fails. The artifact does not appear in the gallery and no URL is stored in the repo.",
+  "correction": "Dashboard artifact creation must happen in an interactive Cowork session, not a scheduled-task session. Once created and a URL obtained, store the URL in workflows/watchtower/config.yaml so future runs can update by URL rather than creating.",
+  "fix_required": "Open an interactive session and say 'create the Watchtower Weekly dashboard artifact.' Store the resulting URL in config.yaml under artifact_url.",
+  "recurring": true,
+  "first_seen": "2026-10-05T13:16:04Z"
+}

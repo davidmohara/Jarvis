@@ -1,16 +1,7 @@
 {
-  "pulled_at": "2026-09-28T16:25:00Z",
+  "pulled_at": "2026-10-05T16:28:00Z",
   "status": "available",
-  "reminders": [
-    {
-      "type": "birthday",
-      "date": "2026-09-28",
-      "description": "Birthday (today)",
-      "contact_name": "Dawn Dearstone",
-      "relationship": "Improving colleague"
-    }
-  ],
+  "reminders": [],
   "reminder_count": 0,
-  "birthday_count": 1,
-  "note": "getUpcomingReminders returned 0. Home activity feed (603 items) showed 1 birthday in next 7 days: Dawn Dearstone 2026-09-28 (today). Recent past: Randy Peterman 09-25, Randy Jones 09-23, Justin Etheredge 09-22."
+  "birthday_count": 0
 }

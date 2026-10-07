@@ -1,125 +1,85 @@
 workflow: plaud-ingest
 agent: knox
-status: awaiting-input
-outcome: null
+status: complete
+outcome: success-with-flags
 session-id: pi-20260928-001
 session-started: '2026-09-28T16:21:32Z'
-current-step: step-03
+resumed-at: '2026-10-05T11:35:00Z'
+completed-at: '2026-10-06T00:00:00Z'
+current-step: step-05b
 original-request: "Knox — run workflows/plaud-ingest/workflow.md in full. Read the workflow file, run the STATE CHECK, and execute all steps as written. Background task."
 blocker: null
 accumulated-context:
   target-date: null
+  discovery:
+    method: "Full enumeration mode. API /file/simple/web paginated to exhaustion via fetch_plaud.py list_recordings (cached token valid, 75 days remaining): 147 recordings. Live vault scan of zzPlaud/ (199 .md, 140 unique file_ids) via filesystem (Obsidian MCP down this session). api-minus-vault (Tier 1 file_id) = 7. Tier 2 title check: no vault collisions. Newest recording on the API = 2026-09-28 21:00 UTC; nothing recorded 09-29..10-05."
+    new-since-last-run: ['604ef918921959ab5228577ba2712680']
   new-recordings:
-    - file_id: d0200e83ccd8c442ba958c3587a0f3d7
-      name: "2026-09-25 09:29:53"
-      date: 2026-09-25
-      duration_seconds: 1225
-      has_transcript: false
-      transcript_status: missing
-    - file_id: a93aa078b699d69c62c4a2cef8dcf5b2
-      name: "2026-09-25 09:27:43"
-      date: 2026-09-25
-      duration_seconds: 60
-      has_transcript: false
-      transcript_status: missing
-    - file_id: 5214979feed38c9bc43683493c70c961
-      name: "09-25 Weekly Meeting: AI Project Reset and Innovation Lab Proposal"
-      date: 2026-09-25
-      duration_seconds: 2084
-      has_transcript: true
-      transcript_status: pending
-    - file_id: bc6b122ea831c77ac527d4889f7bf4d3
-      name: "09-24 Weekly Meeting: Podcast Strategy, Content Performance, and Scheduling"
-      date: 2026-09-24
-      duration_seconds: 1528
-      has_transcript: true
-      transcript_status: pending
-    - file_id: 71aa19de30d2d2a67f7fc608dfa126bf
-      name: "09-24 Meeting: Architecture Proposal for Event Routing and AI-Driven Dispatch"
-      date: 2026-09-24
-      duration_seconds: 1378
-      has_transcript: true
-      transcript_status: pending
-    - file_id: fa0e4f1fa0ed3f892a83cc6218f4c80d
-      name: "2026-09-18 12:01:01"
-      date: 2026-09-18
-      duration_seconds: 4016
-      has_transcript: false
-      transcript_status: missing
-  dedup-method: >
-    Full enumeration mode (no target-date). Plaud API /file/simple/web paginated to
-    exhaustion via fetch_plaud.py get_token()/list_recordings() (cached token valid,
-    84 days remaining): 146 recordings. Live vault scan of zzPlaud/ (199 .md files)
-    extracted 140 unique file_ids. api-minus-vault after Tier 1/2/3: 6 new.
-    Staging scan: 132 top-level plaud_*.md files, all 132 resolved by Tier 1 file_id
-    exact match via sibling _raw.json (already-ingested leftovers, zero stale-requeue).
-    Ledger: systems/eval-harness/skill-runs/plaud-discover-ledger-latest.json (278
-    entries: 272 skip + 6 new, each with tiers_checked).
+    - {file_id: fa0e4f1fa0ed3f892a83cc6218f4c80d, name: "09-18 AI-Driven DICOM Routing Architecture Review", date: 2026-09-18, duration_seconds: 4016, transcript_status: ready}
+    - {file_id: 71aa19de30d2d2a67f7fc608dfa126bf, name: "09-24 Meeting: Architecture Proposal for Event Routing and AI-Driven Dispatch", date: 2026-09-24, duration_seconds: 1378, transcript_status: ready}
+    - {file_id: bc6b122ea831c77ac527d4889f7bf4d3, name: "09-24 Weekly Meeting: Podcast Strategy, Content Performance, and Scheduling", date: 2026-09-24, duration_seconds: 1528, transcript_status: ready}
+    - {file_id: 5214979feed38c9bc43683493c70c961, name: "09-25 Weekly Meeting: AI Project Reset and Innovation Lab Proposal", date: 2026-09-25, duration_seconds: 2084, transcript_status: ready}
+    - {file_id: a93aa078b699d69c62c4a2cef8dcf5b2, name: "2026-09-25 09:27:43 (60s fragment)", date: 2026-09-25, duration_seconds: 60, transcript_status: pending}
+    - {file_id: d0200e83ccd8c442ba958c3587a0f3d7, name: "09-25 GDS Strategic Pivot / 4th Friday Executive Meeting", date: 2026-09-25, duration_seconds: 1225, transcript_status: ready}
+    - {file_id: 604ef918921959ab5228577ba2712680, name: "09-28 Meeting: YPO Chapter Session Design, Facilitation Logistics, and Travel Coordination", date: 2026-09-28, duration_seconds: 1319, transcript_status: ready}
+  speaker-mappings:
+    fa0e4f1fa0ed3f892a83cc6218f4c80d: {method: "Plaud auto (registered voice) + regeneration re-identified 'Robyn Fuentes' -> Lisa Barnes", speakers: ["O'Hara", "Michael Braunstein", "Vladimir Avila", "Lisa Barnes"]}
+    71aa19de30d2d2a67f7fc608dfa126bf: {method: "auto (Vladimir Avila, O'Hara); Speaker 3 resolved as Plaud mismatch of David or Vlad", speakers: ["O'Hara", "Vladimir Avila"]}
+    bc6b122ea831c77ac527d4889f7bf4d3: {method: "calendar (Sync: The Improving Edge)", speakers: {Speaker 3: Janine Jeanson, Alex Wilcox: Janine Jeanson}}
+    5214979feed38c9bc43683493c70c961: {method: "calendar (Reschedule AI Discussion)", speakers: {Speaker 1: Diana Stevens, Alex Wilcox: David O'Hara}}
+    d0200e83ccd8c442ba958c3587a0f3d7: {method: "calendar (4th Friday Executive Meeting, organizer Mark Kovacevich)", speakers: {Speaker 1: Mark Kovacevich, Speaker 3: Guillermo Ortega}}
+    604ef918921959ab5228577ba2712680: {method: "calendar (Sync with Shelly Kaiser)", speakers: {Speaker 2: Shelly Kaiser}}
+  recording-classification:
+    fa0e4f1fa0ed3f892a83cc6218f4c80d: "work"
+    71aa19de30d2d2a67f7fc608dfa126bf: "work"
+    bc6b122ea831c77ac527d4889f7bf4d3: "work"
+    5214979feed38c9bc43683493c70c961: "work"
+    d0200e83ccd8c442ba958c3587a0f3d7: "work"
+    604ef918921959ab5228577ba2712680: "work"
+  ingested-notes:
+    - "zzPlaud/Client/2026-09-18 GEHC AI-Driven DICOM Routing Architecture Review.md"
+    - "zzPlaud/Client/2026-09-24 GEHC Architecture Proposal - Event Routing and AI Dispatch.md"
+    - "zzPlaud/Improving/2026-09-24 The Improving Edge - Podcast Strategy and Content Performance.md"
+    - "zzPlaud/Client/2026-09-25 Remington Hotels - AI Project Reset and Innovation Lab Proposal.md"
+    - "zzPlaud/Improving/2026-09-25 4th Friday Executive Meeting - GDS Strategy and Global Delivery.md"
+    - "zzPlaud/YPO/2026-09-28 YPO Chapter Session Design and Facilitation Logistics.md"
+  daily-notes-updated:
+    - "Calendar/2026/09-September/2026-09-18.md"
+    - "Calendar/2026/09-September/2026-09-24.md"
+    - "Calendar/2026/09-September/2026-09-25.md"
+    - "Calendar/2026/09-September/2026-09-28.md"
+  unresolved_speakers: []
   gates:
     gate_1_result: "pass"
     gate_1_auth_method: "cached-token"
     gate_2_result: "pass"
-    gate_2_flagged_recordings: []
-    gate_2_exclusions: []
-  circuit-breaker: "clear — 6 new vs last confirmed count 2 (2026-09-17); 6 is >2x baseline but only 2.2% of 278 candidates (<10%); confirmed-in-vault 140 >= prior 139"
-  transcription-triggered:
-    - d0200e83ccd8c442ba958c3587a0f3d7
-    - a93aa078b699d69c62c4a2cef8dcf5b2
-    - fa0e4f1fa0ed3f892a83cc6218f4c80d
-  pending-recordings:
-    - d0200e83ccd8c442ba958c3587a0f3d7
-    - a93aa078b699d69c62c4a2cef8dcf5b2
-    - fa0e4f1fa0ed3f892a83cc6218f4c80d
-  speaker-mappings: {}
-  pending-speaker-mappings:
-    - file_id: 71aa19de30d2d2a67f7fc608dfa126bf
-      recording: "09-24 Meeting: Architecture Proposal for Event Routing and AI-Driven Dispatch"
-      unresolved: ["Speaker 3"]
-      note: "7 segments, third in-office voice with David+Vlad ('Review for demo' invite lists only David + vladimir.avila@improving.com). Embedding top match Vladimir Avila 0.59 (weak, already separately named). No self-ID. Sign-off: 'Vlad. Thank you, David. Keep up the good work.'"
-      proposed: {}
-    - file_id: d0200e83ccd8c442ba958c3587a0f3d7
-      recording: "2026-09-25 09:29:53 (4th Friday Executive Meeting window)"
-      unresolved: ["Speaker 1"]
-      note: "5 segments, meeting MC ('bottom half of the hour... regional update featuring our global delivery team, Guillermo') plus screen-share tech comments. Event organizer is Mark Kovacevich (likely MC) but no embedding match (not registered) and no self-ID. Speaker 3 auto-resolved to Guillermo Ortega via Ashok's addressed handoff + invite."
-      proposed: {"Speaker 3": "Guillermo Ortega"}
-    - file_id: 5214979feed38c9bc43683493c70c961
-      recording: "09-25 Weekly Meeting: AI Project Reset and Innovation Lab Proposal"
-      unresolved: []
-      note: "FLAG (Edge Case B): Plaud tagged 'Alex Wilcox' on 1 segment ('Bye.') but he is not on the 'Reschedule AI Discussion' invite (Diana Stevens, Ayotunde Gibbs, David). Likely mis-tag. Speaker 1 auto-resolved to Diana Stevens (exact-window calendar match + top embedding match 0.61)."
-      proposed: {"Speaker 1": "Diana Stevens"}
-    - file_id: bc6b122ea831c77ac527d4889f7bf4d3
-      recording: "09-24 Weekly Meeting: Podcast Strategy, Content Performance, and Scheduling"
-      unresolved: []
-      note: "FLAG (Edge Case B): Plaud tagged 'Alex Wilcox' on 5 greeting segments ('Hi, David. Hello. How are you?') but he is not on the 'Sync: The Improving Edge' invite (Kristin Johnson, Janine Jeanson, David). Could be Janine's or Kristin's greeting mis-tagged. Speaker 3 auto-resolved to Janine Jeanson (only other invitee; third-person references to Kristin rule her out)."
-      proposed: {"Speaker 3": "Janine Jeanson"}
-    - file_id: fa0e4f1fa0ed3f892a83cc6218f4c80d
-      recording: "2026-09-18 12:01:01 (AI driven routing - architecture discussion)"
-      unresolved: []
-      note: "FLAG (Edge Case B): Plaud tagged 'Robyn Fuentes' on 8 greeting segments ('Hey David, how's it going? Hey Mike...') but she is not on the invite (Michael Braunstein GEHC, Vladimir Avila, David). Same failure class as the Jack Claeys recording mis-tag. Other speakers all named and on-invite: Michael Braunstein (69), O'Hara (45), Vladimir Avila (38)."
-      proposed: {}
-  recording-classification:
-    5214979feed38c9bc43683493c70c961: "work"
-    bc6b122ea831c77ac527d4889f7bf4d3: "work"
-    71aa19de30d2d2a67f7fc608dfa126bf: "work"
-    d0200e83ccd8c442ba958c3587a0f3d7: "work"
-    fa0e4f1fa0ed3f892a83cc6218f4c80d: "work"
-  ready-for-fetch:
-    - 5214979feed38c9bc43683493c70c961
-    - bc6b122ea831c77ac527d4889f7bf4d3
-    - 71aa19de30d2d2a67f7fc608dfa126bf
-  staged-files:
-    - plaud_d0200e83ccd8c442ba958c3587a0f3d7_ogg.md
-    - plaud_fa0e4f1fa0ed3f892a83cc6218f4c80d_ogg.md
-  ingested-notes: []
-  unresolved_speakers:
-    - file_id: 71aa19de30d2d2a67f7fc608dfa126bf
-      recording: "09-24 Meeting: Architecture Proposal for Event Routing and AI-Driven Dispatch"
-      unresolved: ["Speaker 3"]
-      resolved: false
-    - file_id: d0200e83ccd8c442ba958c3587a0f3d7
-      recording: "2026-09-25 09:29:53 (4th Friday Executive Meeting window)"
-      unresolved: ["Speaker 1"]
-      resolved: false
-  stale-staged-files: []
-  steps-executed: []
+    gate_3_result: "pass (all ready recordings transcribed; a93aa078 60s fragment still pending)"
+    gate_4_result: "pass-with-unresolved (1 speaker: 71aa19de Speaker 3)"
+    gate_5_result: "pass"
+    gate_5_verification_failures: []
+    gate_6_result: "pass"
+  monday:
+    status: "REVERTED — created in error. David corrected: 'None of those items should be created' (err-20261006T175400-5EMQRJ). Deletion/modify tools (create_items, update_items, all_api_write, all_monday_api) were permission-denied this session, so the 11 items could not be removed programmatically and remain on board 18420619069 / group new_group29179 for manual deletion."
+    items-to-delete-manually:
+      - 13220631984
+      - 13220669827
+      - 13220675640
+      - 13220647466
+      - 13220685643
+      - 13220631275
+      - 13220630968
+      - 13220663493
+      - 13220669365
+      - 13220695025
+      - 13220673191
+  share-urls:
+    - {file_id: fa0e4f1fa0ed3f892a83cc6218f4c80d, url: "https://web.plaud.ai/s/pub_656d3f66-647f-47a2-a032-69bf877f5594::o3q1VY7gTNDmqWR7epqZVHTnuPztGv5Je4p44sZzF5TE358aQhNTS1CeZeGnAvzZNB4oVy7gmQLcEuEC"}
+    - {file_id: 71aa19de30d2d2a67f7fc608dfa126bf, url: "https://web.plaud.ai/s/pub_2b132b1c-e4ec-4eec-8206-e4ca1c41526f::wVLf2652XpxXT2xH1zqPSLAdoftv__LNZDetZdkSwow_29ZvafZ88SJcCVzvWfJY1Zo3ENHYdJaVcW8C"}
+    - {file_id: bc6b122ea831c77ac527d4889f7bf4d3, url: "https://web.plaud.ai/s/pub_a6be1227-659f-4adc-9970-88fd61ac62f8::v0pUHsfBEByBJ1bmjzVzkQxAsR3jgKo7bAkKHX_Bt7kMU490w3tMi8bFOb04YEdrOcqJJYH4ySW_erwC"}
+    - {file_id: 5214979feed38c9bc43683493c70c961, url: "https://web.plaud.ai/s/pub_014dae27-11aa-4546-b799-426821035730::N47Y63rMIo3G9tg329L_iBkuCnbrlRWKK2Z2nLN5uZKGmgIg04qh1e9GAlpVGVyYiVrI3QPeiIg5V4YC"}
+    - {file_id: d0200e83ccd8c442ba958c3587a0f3d7, url: "https://web.plaud.ai/s/pub_a5b0eaf1-4a9e-47a3-a32d-42ef723ac857::gO1eIqlhhtOPFwRaZ9zbc5Y29knCsBFET5KNAZOYW-WxHviBcUA72YZ4IIWjFvexk730iJAxlH-W1gIC"}
+    - {file_id: 604ef918921959ab5228577ba2712680, url: "https://web.plaud.ai/s/pub_42fb7532-3ad8-40cc-bee3-12f123c8451a::2swCtCs5tp3oR-T_2EZyvs5nNpN8gp3f0tKJ0wwHTYs5ogM5g32dM2Huey1G_fVqxxv-yjJ1KU3I-0EC"}
+  staging-files-removed: 18
+  pending-recordings: []
+  steps-executed: [step-01, step-02, step-03, step-04, step-05, step-05b]
   steps-skipped: []

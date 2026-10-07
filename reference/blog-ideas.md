@@ -10,7 +10,9 @@ Running list of potential blog topics. Jarvis captures these proactively from co
 
 | Idea | Source | Tags | Notes |
 |------|--------|------|-------|
-| "Uniform Governance Is How Agents Die" | Content pipeline (2026-10-06) | AI, technology, leadership | Ghost draft — pending approval. Internal links: Reversibility Is the Governing Criterion, Governance Isn't Your Problem. Uniform Governance Is. |
+| "The Agent Governance Stack Is Finally Here" | Watchtower (2026-10-05) [watchtower] | AI, technology, leadership | Draft at `Mind/Posts/_the-agent-governance-stack-is-finally-here.md` |
+| "The Leadership Gap Just Got a Number" | Watchtower (2026-10-05) [watchtower] | leadership, AI, consulting | Draft at `Mind/Posts/_the-leadership-gap-just-got-a-number.md` |
+| "DFW Is Now #4 — and the Capital Layer Is the Real Story" | Watchtower (2026-10-05) [watchtower] | texas, business, leadership, AI | Draft at `Mind/Posts/_dfw-is-now-number-four.md` |
 | "Culture Is the Constraint" | Content pipeline (2026-09-29) | leadership, culture, AI | Ghost draft — pending approval |
 | "DFW's Innovation Economy Is Wider Than You Think" | Content pipeline (2026-09-29) | leadership, growth, AI | Ghost draft — pending approval |
 | "The Restructuring Is Not Coming. It's Here." | Content pipeline (2026-09-29) | leadership, business, AI | Ghost draft — pending approval. Internal link: Accenture Just Set the Reskilling Bar. |

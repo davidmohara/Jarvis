@@ -3,12 +3,15 @@ status: complete
 started-at: "2026-08-31T07:50:00Z"
 completed-at: "2026-08-31T08:00:00Z"
 outputs:
-  weekly_note_path: "Watchtower/Weekly/2026-W36.md"
+  weekly_note_path: "Watchtower/Weekly/2026-W41.md"
   themes_in_note: 3
   candidates_listed: 3
   tweets_in_note: 10
   obsidian_unavailable: false
   fallback_migrated: false
+  artifact_updated: false
+  artifact_fallback_written: true
+  artifact_fallback_path: "workflows/watchtower/artifact-update/watchtower-weekly.html"
 ---
 
 <!-- system:start -->
@@ -101,7 +104,13 @@ outputs:
 
 ### Part B — Artifact update
 
-5. Update the Watchtower Weekly artifact (`watchtower-weekly`):
+5. Update the Watchtower Weekly artifact using the `Artifact` tool's `publish` action:
+   - Read the artifact URL from `config.yaml` → `outputs.weekly_dashboard_artifact_url`
+   - Call `Artifact` with `action: "publish"`, `file_path: <temp html path>`, `url: <artifact_url>`
+   - **If the publish is blocked** (Cowork session constraint — error contains "approval card"): write the full updated HTML to `workflows/watchtower/artifact-update/watchtower-weekly.html` as the mandatory fallback. A future interactive session or the next weekly run will push it.
+   - Do NOT call `mcp__cowork__list_artifacts` or `mcp__cowork__update_artifact` — these tools do not exist.
+
+   Details of the HTML update to make before publishing:
    - Add `YYYY-Www` option to the `<select>` dropdown as the first/selected option
    - Add entry to the `runMeta` JS object
    - Add a new `view-wNN` div as the first week-view with `class="week-view active"`
@@ -145,7 +154,7 @@ outputs:
 | Failure | Action |
 |---------|--------|
 | Obsidian MCP unavailable | Write note to `workflows/watchtower/fallback/weekly/YYYY-Www.md`; log path; still update artifact |
-| Artifact update fails | Log error; surface to David in step-05; vault note still required |
+| Artifact update fails (Cowork session publish block) | Write full updated HTML to `workflows/watchtower/artifact-update/watchtower-weekly.html`. Log `artifact_updated: false` and `artifact_fallback_written: true` in outputs. Surface in step-05. Vault note still required. |
 | `weekly_themes` empty | Write a minimal note noting no themes this week; do not skip either output |
 | ISO week calculation fails | Use `YYYY-MM-DD` format in filename as fallback; log it |
 
