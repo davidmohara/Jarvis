@@ -1,85 +1,28 @@
 workflow: plaud-ingest
 agent: knox
 status: complete
-outcome: success-with-flags
-session-id: pi-20260928-001
-session-started: '2026-09-28T16:21:32Z'
-resumed-at: '2026-10-05T11:35:00Z'
-completed-at: '2026-10-06T00:00:00Z'
+outcome: ingested-1-share-skipped
+session-id: pi-20261008-001
+session-started: '2026-10-08T15:35:00Z'
+completed-at: '2026-10-08T15:55:00Z'
 current-step: step-05b
-original-request: "Knox — run workflows/plaud-ingest/workflow.md in full. Read the workflow file, run the STATE CHECK, and execute all steps as written. Background task."
+original-request: "Knox — run workflows/plaud-ingest/workflow.md in full. Background task. Today's date is 2026-10-08."
 blocker: null
 accumulated-context:
   target-date: null
-  discovery:
-    method: "Full enumeration mode. API /file/simple/web paginated to exhaustion via fetch_plaud.py list_recordings (cached token valid, 75 days remaining): 147 recordings. Live vault scan of zzPlaud/ (199 .md, 140 unique file_ids) via filesystem (Obsidian MCP down this session). api-minus-vault (Tier 1 file_id) = 7. Tier 2 title check: no vault collisions. Newest recording on the API = 2026-09-28 21:00 UTC; nothing recorded 09-29..10-05."
-    new-since-last-run: ['604ef918921959ab5228577ba2712680']
-  new-recordings:
-    - {file_id: fa0e4f1fa0ed3f892a83cc6218f4c80d, name: "09-18 AI-Driven DICOM Routing Architecture Review", date: 2026-09-18, duration_seconds: 4016, transcript_status: ready}
-    - {file_id: 71aa19de30d2d2a67f7fc608dfa126bf, name: "09-24 Meeting: Architecture Proposal for Event Routing and AI-Driven Dispatch", date: 2026-09-24, duration_seconds: 1378, transcript_status: ready}
-    - {file_id: bc6b122ea831c77ac527d4889f7bf4d3, name: "09-24 Weekly Meeting: Podcast Strategy, Content Performance, and Scheduling", date: 2026-09-24, duration_seconds: 1528, transcript_status: ready}
-    - {file_id: 5214979feed38c9bc43683493c70c961, name: "09-25 Weekly Meeting: AI Project Reset and Innovation Lab Proposal", date: 2026-09-25, duration_seconds: 2084, transcript_status: ready}
-    - {file_id: a93aa078b699d69c62c4a2cef8dcf5b2, name: "2026-09-25 09:27:43 (60s fragment)", date: 2026-09-25, duration_seconds: 60, transcript_status: pending}
-    - {file_id: d0200e83ccd8c442ba958c3587a0f3d7, name: "09-25 GDS Strategic Pivot / 4th Friday Executive Meeting", date: 2026-09-25, duration_seconds: 1225, transcript_status: ready}
-    - {file_id: 604ef918921959ab5228577ba2712680, name: "09-28 Meeting: YPO Chapter Session Design, Facilitation Logistics, and Travel Coordination", date: 2026-09-28, duration_seconds: 1319, transcript_status: ready}
+  new-recordings: [6be75a8458161b15cd42dbb8242baf8d]
+  transcription-triggered: []
+  pending-recordings: [a93aa078b699d69c62c4a2cef8dcf5b2]
   speaker-mappings:
-    fa0e4f1fa0ed3f892a83cc6218f4c80d: {method: "Plaud auto (registered voice) + regeneration re-identified 'Robyn Fuentes' -> Lisa Barnes", speakers: ["O'Hara", "Michael Braunstein", "Vladimir Avila", "Lisa Barnes"]}
-    71aa19de30d2d2a67f7fc608dfa126bf: {method: "auto (Vladimir Avila, O'Hara); Speaker 3 resolved as Plaud mismatch of David or Vlad", speakers: ["O'Hara", "Vladimir Avila"]}
-    bc6b122ea831c77ac527d4889f7bf4d3: {method: "calendar (Sync: The Improving Edge)", speakers: {Speaker 3: Janine Jeanson, Alex Wilcox: Janine Jeanson}}
-    5214979feed38c9bc43683493c70c961: {method: "calendar (Reschedule AI Discussion)", speakers: {Speaker 1: Diana Stevens, Alex Wilcox: David O'Hara}}
-    d0200e83ccd8c442ba958c3587a0f3d7: {method: "calendar (4th Friday Executive Meeting, organizer Mark Kovacevich)", speakers: {Speaker 1: Mark Kovacevich, Speaker 3: Guillermo Ortega}}
-    604ef918921959ab5228577ba2712680: {method: "calendar (Sync with Shelly Kaiser)", speakers: {Speaker 2: Shelly Kaiser}}
+    6be75a8458161b15cd42dbb8242baf8d: {"Speaker 2": "David O'Hara"}
+  pending-speaker-mappings: []
   recording-classification:
-    fa0e4f1fa0ed3f892a83cc6218f4c80d: "work"
-    71aa19de30d2d2a67f7fc608dfa126bf: "work"
-    bc6b122ea831c77ac527d4889f7bf4d3: "work"
-    5214979feed38c9bc43683493c70c961: "work"
-    d0200e83ccd8c442ba958c3587a0f3d7: "work"
-    604ef918921959ab5228577ba2712680: "work"
+    6be75a8458161b15cd42dbb8242baf8d: work
+  ready-for-fetch: [6be75a8458161b15cd42dbb8242baf8d]
+  staged-files: []
   ingested-notes:
-    - "zzPlaud/Client/2026-09-18 GEHC AI-Driven DICOM Routing Architecture Review.md"
-    - "zzPlaud/Client/2026-09-24 GEHC Architecture Proposal - Event Routing and AI Dispatch.md"
-    - "zzPlaud/Improving/2026-09-24 The Improving Edge - Podcast Strategy and Content Performance.md"
-    - "zzPlaud/Client/2026-09-25 Remington Hotels - AI Project Reset and Innovation Lab Proposal.md"
-    - "zzPlaud/Improving/2026-09-25 4th Friday Executive Meeting - GDS Strategy and Global Delivery.md"
-    - "zzPlaud/YPO/2026-09-28 YPO Chapter Session Design and Facilitation Logistics.md"
-  daily-notes-updated:
-    - "Calendar/2026/09-September/2026-09-18.md"
-    - "Calendar/2026/09-September/2026-09-24.md"
-    - "Calendar/2026/09-September/2026-09-25.md"
-    - "Calendar/2026/09-September/2026-09-28.md"
-  unresolved_speakers: []
-  gates:
-    gate_1_result: "pass"
-    gate_1_auth_method: "cached-token"
-    gate_2_result: "pass"
-    gate_3_result: "pass (all ready recordings transcribed; a93aa078 60s fragment still pending)"
-    gate_4_result: "pass-with-unresolved (1 speaker: 71aa19de Speaker 3)"
-    gate_5_result: "pass"
-    gate_5_verification_failures: []
-    gate_6_result: "pass"
-  monday:
-    status: "REVERTED — created in error. David corrected: 'None of those items should be created' (err-20261006T175400-5EMQRJ). Deletion/modify tools (create_items, update_items, all_api_write, all_monday_api) were permission-denied this session, so the 11 items could not be removed programmatically and remain on board 18420619069 / group new_group29179 for manual deletion."
-    items-to-delete-manually:
-      - 13220631984
-      - 13220669827
-      - 13220675640
-      - 13220647466
-      - 13220685643
-      - 13220631275
-      - 13220630968
-      - 13220663493
-      - 13220669365
-      - 13220695025
-      - 13220673191
-  share-urls:
-    - {file_id: fa0e4f1fa0ed3f892a83cc6218f4c80d, url: "https://web.plaud.ai/s/pub_656d3f66-647f-47a2-a032-69bf877f5594::o3q1VY7gTNDmqWR7epqZVHTnuPztGv5Je4p44sZzF5TE358aQhNTS1CeZeGnAvzZNB4oVy7gmQLcEuEC"}
-    - {file_id: 71aa19de30d2d2a67f7fc608dfa126bf, url: "https://web.plaud.ai/s/pub_2b132b1c-e4ec-4eec-8206-e4ca1c41526f::wVLf2652XpxXT2xH1zqPSLAdoftv__LNZDetZdkSwow_29ZvafZ88SJcCVzvWfJY1Zo3ENHYdJaVcW8C"}
-    - {file_id: bc6b122ea831c77ac527d4889f7bf4d3, url: "https://web.plaud.ai/s/pub_a6be1227-659f-4adc-9970-88fd61ac62f8::v0pUHsfBEByBJ1bmjzVzkQxAsR3jgKo7bAkKHX_Bt7kMU490w3tMi8bFOb04YEdrOcqJJYH4ySW_erwC"}
-    - {file_id: 5214979feed38c9bc43683493c70c961, url: "https://web.plaud.ai/s/pub_014dae27-11aa-4546-b799-426821035730::N47Y63rMIo3G9tg329L_iBkuCnbrlRWKK2Z2nLN5uZKGmgIg04qh1e9GAlpVGVyYiVrI3QPeiIg5V4YC"}
-    - {file_id: d0200e83ccd8c442ba958c3587a0f3d7, url: "https://web.plaud.ai/s/pub_a5b0eaf1-4a9e-47a3-a32d-42ef723ac857::gO1eIqlhhtOPFwRaZ9zbc5Y29knCsBFET5KNAZOYW-WxHviBcUA72YZ4IIWjFvexk730iJAxlH-W1gIC"}
-    - {file_id: 604ef918921959ab5228577ba2712680, url: "https://web.plaud.ai/s/pub_42fb7532-3ad8-40cc-bee3-12f123c8451a::2swCtCs5tp3oR-T_2EZyvs5nNpN8gp3f0tKJ0wwHTYs5ogM5g32dM2Huey1G_fVqxxv-yjJ1KU3I-0EC"}
-  staging-files-removed: 18
-  pending-recordings: []
-  steps-executed: [step-01, step-02, step-03, step-04, step-05, step-05b]
-  steps-skipped: []
+    - "zzPlaud/Client/2026-10-07 DRC Talent Labs AI, Culture, and Talent Session Planning.md"
+  unresolved_speakers:
+    - {file_id: 6be75a8458161b15cd42dbb8242baf8d, unresolved: ["Robyn Fuentes (3 segs, likely mis-tag, off-invite)"]}
+  notes:
+    - "API total 147 (was 146). 1 new recording. Gate 1 pass (cached token, 74 days). Share step (public Plaud link) was blocked by the permission classifier; Monday review task for Alice not created. Two David-owned Monday tasks created (13239495974, 13239526507). Vault note written directly to iCloud vault path; Obsidian REST returned 404 on read-back so Gate 5 verified via filesystem."

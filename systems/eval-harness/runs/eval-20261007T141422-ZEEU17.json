@@ -1,0 +1,59 @@
+{
+  "id": "eval-20261007T141422-ZEEU17",
+  "agent_id": "ac27a237aa53cf7ed",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "general-purpose",
+  "session_id": "c5f2edfb-372a-4ed1-bd20-f2f8d8ec0c3c",
+  "trigger": "unknown",
+  "started": "2026-10-07T14:14:22.268738Z",
+  "completed": "2026-10-07T14:20:31.615143Z",
+  "duration_seconds": 369.35,
+  "status": "aborted",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": false,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/c5f2edfb-372a-4ed1-bd20-f2f8d8ec0c3c/subagents/agent-ac27a237aa53cf7ed.jsonl",
+  "model": "sonnet",
+  "total_tokens_input": 1463973,
+  "total_tokens_output": 321,
+  "total_cost_usd": 0.797633
+}

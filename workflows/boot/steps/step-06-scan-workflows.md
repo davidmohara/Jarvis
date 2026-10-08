@@ -1,17 +1,14 @@
 ---
 status: complete
-started-at: "2026-09-29T02:33:00Z"
-completed-at: "2026-09-29T02:35:00Z"
+started-at: '2026-10-08T15:24:04Z'
+completed-at: '2026-10-08T15:44:04Z'
 outputs:
-  workflows_scanned: "complete — workflows/_active.yaml read (active: []). Targeted verification scan found a stale-index mismatch: plaud-ingest session pi-20260928-001 (started 2026-09-28T16:21:32Z) is status awaiting-input at step-03 but absent from the index. Boot itself is the only other in-progress workflow (this run)."
-  in_flight_list: ["boot (this run, step-06)", "plaud-ingest (awaiting-input at step-03 — 2 unresolved speaker mappings need David: Speaker 3 on 09-24 Architecture Proposal for Event Routing; Speaker 1 on 09-25 4th Friday Executive Meeting window)"]
-  status_summary: "plaud-ingest made real progress before stalling: 6 new recordings discovered (full enumeration, 146 API vs 140 vault), 3 transcriptions triggered, speaker-ID pass complete with 3 auto-resolutions proposed (Guillermo Ortega, Diana Stevens, Janine Jeanson) and 3 Edge Case B mis-tag flags (Alex Wilcox x2, Robyn Fuentes). Awaiting David's input on 2 unresolved speakers. Not auto-resumed."
-  result: "1 actionable workflow surfaced (plaud-ingest, awaiting-input). Stale-index mismatch noted: _active.yaml empty while plaud-ingest is mid-flight. Say 'resume plaud-ingest' to continue, or 'abort plaud-ingest' to close it out."
+  workflows_scanned: 'complete - _active.yaml read, active: [] so 0 in-progress workflows found'
 prior-run-2026-09-18:
-  workflows_scanned: "complete — workflows/_active.yaml read (active: []). Targeted verification scan of workflows/*/state.yaml confirms: the only in-progress workflow is boot itself (this run). plaud-ingest is COMPLETE this session (Knox session pi-20260918-001, outcome complete-one-ingested)."
+  workflows_scanned: 'complete — workflows/_active.yaml read (active: []). Targeted verification scan of workflows/*/state.yaml confirms: the only in-progress workflow is boot itself (this run). plaud-ingest is COMPLETE this session (Knox session pi-20260918-001, outcome complete-one-ingested).'
   in_flight_list: []
-  status_summary: "No in-flight workflows other than boot (this run). plaud-ingest completed: 1 new recording ingested (f96b2c110fc35162f390ac5288d6f7f4, '09-18 Meeting: AI Project Architecture and Data Routing', 31.5 min, transcript ready). All others idle/complete."
-  result: "0 in-flight workflows to surface (excluding boot itself). Index verified accurate this run (no stale mismatch). Nothing to auto-resume."
+  status_summary: 'No in-flight workflows other than boot (this run). plaud-ingest completed: 1 new recording ingested (f96b2c110fc35162f390ac5288d6f7f4, ''09-18 Meeting: AI Project Architecture and Data Routing'', 31.5 min, transcript ready). All others idle/complete.'
+  result: 0 in-flight workflows to surface (excluding boot itself). Index verified accurate this run (no stale mismatch). Nothing to auto-resume.
 ---
 
 <!-- system:start -->

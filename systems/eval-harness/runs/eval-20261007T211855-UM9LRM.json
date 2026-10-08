@@ -1,0 +1,60 @@
+{
+  "id": "eval-20261007T211855-UM9LRM",
+  "agent_id": "a9b417edd93fed30b",
+  "type": "agent",
+  "name": "fork",
+  "workflow": null,
+  "agent": "fork",
+  "session_id": "c5f2edfb-372a-4ed1-bd20-f2f8d8ec0c3c",
+  "trigger": "unknown",
+  "started": "2026-10-07T21:18:55.323332Z",
+  "completed": "2026-10-07T21:20:14.787804Z",
+  "duration_seconds": 79.46,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/c5f2edfb-372a-4ed1-bd20-f2f8d8ec0c3c/subagents/agent-a9b417edd93fed30b.jsonl",
+  "last_assistant_message": "I have everything I need. Here's the locked outline.\n\n---\n\n## Houston ACG \u2014 Verified Slide Outline\n\n### Baseline Logistics (~4 min)\n\n| # | Content | Source | Notes |\n|---|---------|--------|-------|\n| 1 | Who am I | CEO AI Workshop v6, Slide 2 | \"Technologist / President / Entrepreneur / Early Adopter\" |\n| 2 | Improving offices map | Remington Hotels, Slide 3 | Same map as Topgolf, no Topgolf branding \u2014 Houston listed |\n| 3 | Awards & recognition | Topgolf Executive Briefing, Slide 3 | **No \"Topgolf\" text on this slide** \u2014 it's titled \"Improving Awards\" and safe to use as-is |\n| 4 | By the Numbers | Remington Hotels, Slide 4 | Shows **2,000+ Improvers** \u2014 no revenue figure on this slide. Confirm whether you want to add $300M+ verbally or pull a slide that shows it |\n\n### Frameworks (~9 min)\n\n| # | Content | Source | Notes |\n|---|---------|--------|-------|\n| 5 | **Compression: \"close the books in 3 days instead of 10\"** | Practical AI - Finance & Treasury, Slide 20 | This is the only slide in any deck that uses the word \"compresses\" \u2014 it's finance-specific which is perfect for ACG. The concept is AI compresses the close by automating repetitive work. |\n| 6 | Task matrix \u2014 Level 1: Training | Tactical AI Planning, Slide 7 | |\n| 7 | Task matrix \u2014 Level 2: Orchestrate | Tactical AI Planning, Slide 8 | |\n| 8 | Task matrix \u2014 Level 3: System | Tactical AI Planning, Slide 9 | |\n| 9 | AI Maturity: Trust Evolution (8 stages) | Topgolf Executive Briefing, Slide 41 | No \"Topgolf\" on this slide. Wave 1: Tools, Wave 2: Process, Wave 3: Agentic Operations. |\n\n### Industry Highlights (~5 min)\n\n| # | Content | Source | Notes |\n|---|---------|--------|-------|\n| 10 | Financial Services Today | Practical AI - Finance & Treasury, Slide 9 | |\n| 11 | Deployed vs. Emerging | Practical AI - Finance & Treasury, Slide 10 | JPMorgan OmniAI, Morgan Stanley, 400+ use cases |\n| 12 | **Energy / Utilities** | AI Workshop LSD, Slide 45 | Titled \"Industry Detail - Utilities\" \u2014 covers oil & gas adjacent: permitting/regulatory compliance, operational efficiency analytics, cyber/autonomous protection, asset health, autonomous inspection, consumption forecasting. 6-month vs. 3-year view. Reframe the title to \"Energy & Utilities\" for this audience. |\n\n### Specific Use Cases (~10 min)\n\n| # | Content | Source | Notes |\n|---|---------|--------|-------|\n| 13 | **Penny** (FP&A example) | `penny-slide.html` \u2014 built this session | Positions as the finance use case \u2014 Penny covers both the Penny story and the FP&A board book angle since it's a live finance intelligence tool |\n| 14 | M&A | **BLANK** | No existing slide. You said optional \u2014 call it now: in or out? |\n\n### Close\n\n| # | Content | Source | Notes |\n|---|---------|--------|-------|\n| 15 | Discussion prompt | AI Advantage Workshop, Slide 9 | \"What's 1 task in your organization that could benefit the most from AI?\" |\n| 16 | 60-Day Action Plan | AI Advantage Workshop, Slide 25 | 3 phases: map/pilot, refine/share, scale/next use case |\n| 17 | Questions | AI Advantage Workshop, Slide 27 | david.ohara@improving.com |\n\n---\n\n**One open question:** Do you want the M&A slide in? ACG is the natural audience for it \u2014 deal sourcing, due diligence, integration. If yes I'll build it. If no, you're at 16 slides total which fits your time.",
+  "model": "sonnet",
+  "total_tokens_input": 612214,
+  "total_tokens_output": 1080,
+  "total_cost_usd": 0.252322
+}

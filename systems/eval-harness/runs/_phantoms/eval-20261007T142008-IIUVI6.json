@@ -1,0 +1,83 @@
+{
+  "id": "eval-20261007T142008-IIUVI6",
+  "type": "workflow",
+  "name": "plaud-ingest",
+  "agent": "knox",
+  "session_id": "c5f2edfb-372a-4ed1-bd20-f2f8d8ec0c3c",
+  "trigger": "manual",
+  "started": "2026-10-07T00:00:00Z",
+  "completed": "2026-10-07T14:20:07.868651Z",
+  "duration_seconds": 51607.9,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": true,
+      "outputs_non_empty": true,
+      "assertions_checked": 4,
+      "assertions_passed": 4,
+      "assertion_results": [
+        {
+          "assertion": "plaud-001-state-complete",
+          "description": "Plaud ingest workflow state.yaml shows status: complete",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "plaud_ingest-wm-written",
+          "description": "Plaud ingest working memory file was written to memory/working/",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "plaud_ingest-wm-size",
+          "description": "Plaud ingest working memory file is substantive (>200 bytes)",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "plaud_ingest-wm-content",
+          "description": "Plaud ingest working memory contains expected content",
+          "category": "structure",
+          "passed": true
+        }
+      ],
+      "category_breakdown": {
+        "structure": {
+          "passed": 4,
+          "checked": 4
+        },
+        "content": {
+          "passed": 0,
+          "checked": 0
+        },
+        "quality": {
+          "passed": 0,
+          "checked": 0
+        }
+      }
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    }
+  },
+  "version_hash": "ef223db3ad68a802",
+  "prior_baseline_id": null,
+  "tags": [
+    "cowork-hook",
+    "phantom-candidate"
+  ]
+}

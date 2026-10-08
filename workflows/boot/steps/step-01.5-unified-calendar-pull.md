@@ -1,15 +1,13 @@
 ---
 status: complete
-started-at: "2026-09-28T16:26:00Z"
-completed-at: "2026-09-28T16:32:00Z"
+started-at: '2026-10-08T15:24:04Z'
+completed-at: '2026-10-08T15:44:04Z'
 outputs:
-  calendar_file: "data/calendar-unified.json"
-  event_count: 43
-  date_range: "2026-09-28 to 2026-10-01"
-  status: "written"
-  file_size_kb: 17
-  m365_calls: 2
-  note: "2 M365 calls (43 events, totalResultCount 43, paginated at 25). Prior file from 09-18 stale so re-pulled. Today 09-28 (Mon): Dr Nathan Walters 8:45-9:45am, 1:1 Scott McMichael 10:30-11am, Lone Star Gold September Board Meeting 1:30-3pm (Dart Interests), GEHC internal check-in 3-3:30pm, CRM-Contacts w/ Jeff Dodds 3:40-3:55pm, Sync w/ Shelly Kaiser (YPO) 4-4:45pm, SMU Cox MSAIB Panel 5-6:30pm. 09-29 (Tue): Improving Company Retreat begins (all-day through 10-04), AA1550 DFW to LAS 8:50am CT (res LCLFFF), GEHC AI Routing deep dive 11am (tent), RTP AI workshop 2pm (tent), Gordon Ramsay Steak dinner 7pm Vegas (tent). 09-30 (Wed): retreat day 2, yWhales yDeep Dive 10:30am (busy), GEHC weekly sync 10:30am (tent, dup invites), Vegas Leadership Celebration 7pm Vegas at Alexxa's. 10-01 (Thu): President's Meeting Global Summit 9:45am-3pm Vegas at The LOFT at Cabo Wabo (busy)."
+  calendar_file: data/calendar-unified.json
+  event_count: 14
+  date_range: 2026-10-08 to 2026-10-11
+  status: written
+  m365_calls: 1
 ---
 
 <!-- system:start -->

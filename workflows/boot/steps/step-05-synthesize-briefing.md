@@ -1,23 +1,17 @@
 ---
 status: complete
-started-at: "2026-09-29T02:28:00Z"
-completed-at: "2026-09-29T02:31:00Z"
+started-at: '2026-10-08T15:24:04Z'
+completed-at: '2026-10-08T15:44:04Z'
 outputs:
-  briefing_delivered: "yes — full briefing synthesized per morning-briefing step-04 (late-evening run framed as Monday close-out + Tuesday launch) and carried forward through steps 06-08 for verbatim delivery to controller; working memory memory/working/morning-briefing-2026-09-28-212900.md; morning-briefing eval eval-20260929T022743-NJ95H5 closed success"
-  briefing_sections: "narrative (3 paragraphs), Today's Calendar table (11 events), buffer warning, closing prompt. Watchtower omitted (no daily run). Reminders omitted (0 due)."
-  today_summary: "Monday, September 28, 2026 — marathon day: 10 timed events, zero-buffer chain 1:30-6:30pm (Lone Star Gold board, GEHC internal, CRM-Dodds, Shelly Kaiser YPO, SMU Cox MSAIB panel). Tomorrow: AA1550 8:50am CT to LAS, Improving Company Retreat begins; Q3 ends Wednesday with rocks unsigned since 07-30."
-  action_items: "Tonight: conflict notices/coverage for Tuesday 9:15 Sales & Recruiting, 10:00 Sales Scrum, 11:00 GEHC deep dive (all collide with flight); hand off 2 GEHC client questions (self-tuning routing, destination fan-out) to Vlad Avila/Lisa Barnes; text Dawn Dearstone (birthday today, at tomorrow's dinner); decide the Derek Nwamadi / Steve Hall delegation (3 days overdue); pack per CorpLanta dress code flag. Email actionable: YPO Vermeer 30-min ask, helpdesk CRM ticket 69244, LSYPO waiver, Windsor Court NOLA, USAM Tips v2.1 Artifact, HRSouthwest Oct 11-13."
-  format: "3-paragraph prose narrative (no em-dashes) + Today's Calendar table. Watchtower omitted. Reminders omitted. Clay birthday (Dawn Dearstone, today) folded into paragraph 3. OmniFocus partial-pull discrepancy flagged in paragraph 2."
-  calendar_today: "11 today-events, live from data/calendar-unified.json (pulled 16:30Z). Zero-buffer chain 1:30-6:30pm."
-  hotspots: "OmniFocus unified pull partial (26 tasks) vs weekly review fuller pull (22 overdue, 1 due today, 23 inbox) — flagged; yesterday's daily review missing (last 2026-09-18); delegation overdue 3 days (Steve Hall -> Derek Nwamadi); Q3 rocks unsigned 60 days, quarter ends 09-30; 3 Tuesday-morning meetings collide with AA1550 flight."
+  briefing_delivered: yes - synthesized, carried to caller in final message
 prior-run-2026-09-18:
-  briefing_delivered: "yes — full morning briefing synthesized (0 degraded sources) and carried forward through steps 06-08 for verbatim delivery to controller; working memory written to memory/working/morning-briefing-2026-09-18-121500.md"
-  briefing_sections: "narrative (3 paragraphs), Today's Calendar table, closing prompt"
-  today_summary: "Friday, September 18, 2026 — Houston personal retreat day 1 (David's explicit frame: 'the retreat, not a work day'); GEHC AI routing architecture discussion at noon CT is the one live work thread; AI for Execs handoff due 5pm"
-  action_items: "Handle GEHC architecture review (12pm CT, the doc review agreed yesterday); clear or re-date AI for Execs handoff items (5pm); acknowledge Ashford & Remington Hotels escalation to Diana Stevens; UTB board book comments due today; YPO nominee intake forms deadline; re-date the two missed morning Deliberate Practices items"
-  format: "3-paragraph prose narrative (no em-dashes) + Today's Calendar table. Watchtower section omitted (no daily watchtower run today). Reminders section omitted (0 due). Clay birthdays folded into paragraph 3."
-  calendar_today: "7 distinct today-events, live from data/calendar-unified.json. Retreat day: AA1407 landed 9:29am CT; 3 tentative morning items overlapped the flight; GEHC noon call is the only busy work meeting."
-  hotspots: "0 degraded data sources this run; 5 tasks due today incl. AI for Execs handoff at 5pm; Ashford & Remington client escalation (HIGH) landed 8:35am; UTB board approvals due today; YPO nominee forms deadline; Q3 rocks unsigned 50 days; Monday 9:30am double-book (AI Usage policy sync vs Sales Scrum)."
+  briefing_delivered: yes — full morning briefing synthesized (0 degraded sources) and carried forward through steps 06-08 for verbatim delivery to controller; working memory written to memory/working/morning-briefing-2026-09-18-121500.md
+  briefing_sections: narrative (3 paragraphs), Today's Calendar table, closing prompt
+  today_summary: 'Friday, September 18, 2026 — Houston personal retreat day 1 (David''s explicit frame: ''the retreat, not a work day''); GEHC AI routing architecture discussion at noon CT is the one live work thread; AI for Execs handoff due 5pm'
+  action_items: Handle GEHC architecture review (12pm CT, the doc review agreed yesterday); clear or re-date AI for Execs handoff items (5pm); acknowledge Ashford & Remington Hotels escalation to Diana Stevens; UTB board book comments due today; YPO nominee intake forms deadline; re-date the two missed morning Deliberate Practices items
+  format: 3-paragraph prose narrative (no em-dashes) + Today's Calendar table. Watchtower section omitted (no daily watchtower run today). Reminders section omitted (0 due). Clay birthdays folded into paragraph 3.
+  calendar_today: '7 distinct today-events, live from data/calendar-unified.json. Retreat day: AA1407 landed 9:29am CT; 3 tentative morning items overlapped the flight; GEHC noon call is the only busy work meeting.'
+  hotspots: 0 degraded data sources this run; 5 tasks due today incl. AI for Execs handoff at 5pm; Ashford & Remington client escalation (HIGH) landed 8:35am; UTB board approvals due today; YPO nominee forms deadline; Q3 rocks unsigned 50 days; Monday 9:30am double-book (AI Usage policy sync vs Sales Scrum).
 ---
 
 <!-- system:start -->

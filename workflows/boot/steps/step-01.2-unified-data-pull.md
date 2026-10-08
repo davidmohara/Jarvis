@@ -1,19 +1,19 @@
 ---
 status: complete
-started-at: "2026-09-28T16:21:40Z"
-completed-at: "2026-09-28T16:26:00Z"
+started-at: '2026-10-08T15:24:04Z'
+completed-at: '2026-10-08T15:44:04Z'
 outputs:
-  email_pull: "completed — 19 messages in window (2026-09-25 to 2026-09-28, Inbox newest-first, totalResultCount 19), 7 actionable (YPO Tech Network reply from Kyle Vermeer asking for 30 min, helpdesk CRM ticket 69244 needs error text before Monday meeting, Vegas Retreat CorpLanta dress code HIGH importance, LSYPO member acknowledgment/liability waiver ACTION, Windsor Court New Orleans upcoming stay, USAM Tips prototype v2.1 Artifact invite from sbeck@beckventures.com, HRSouthwest Conference connect request Oct 11-13)"
-  omnifocus_pull: "completed — 26 tasks (status: available via omnifocus-data skill), 18 unassigned inbox, 0 due today, 1 overdue (Schedule window cleaning due 09-22), 0 flagged"
-  clay_pull: "completed — 0 reminders (live getUpcomingReminders check), 1 birthday in next 7 days (Dawn Dearstone 2026-09-28, today; via home-activity feed, 603 items)"
-  jarvis_inbox_pull: "nothing-to-surface — Jarvis folder search returned 0 messages"
+  email_pull: completed - 29 messages 10-05 to 10-08, 7 actionable + Vermeer reschedule found by targeted search
+  omnifocus_pull: completed via MCP fallback - 21 tasks (osascript unavailable in sandbox, skill pull status failed), 18 inbox, 2 overdue, 1 due today, 0 flagged
+  clay_pull: nothing-to-surface - 0 reminders, no birthdays in feed window
+  jarvis_inbox_pull: nothing-to-surface - 0 messages
   files_created:
-    - "data/email-unified.json"
-    - "data/omnifocus-unified.json"
-    - "data/clay-reminders-unified.json"
-    - "data/jarvis-inbox-unified.json"
-  degraded: false
-  degraded_reason: null
+  - data/email-unified.json
+  - data/omnifocus-unified.json
+  - data/clay-reminders-unified.json
+  - data/jarvis-inbox-unified.json
+  degraded: true
+  degraded_reason: omnifocus-data script failed (no osascript in sandbox); MCP fallback used, notes field absent
 ---
 
 <!-- system:start -->

@@ -1,0 +1,119 @@
+{
+  "id": "eval-20261007T141325-XA3DIX",
+  "type": "workflow",
+  "name": "boot",
+  "agent": "master",
+  "session_id": "c5f2edfb-372a-4ed1-bd20-f2f8d8ec0c3c",
+  "trigger": "boot",
+  "started": "2026-10-07T14:13:25.560920Z",
+  "completed": "2026-10-07T19:58:08.067581Z",
+  "duration_seconds": 20682.51,
+  "status": "aborted",
+  "steps": [],
+  "subagents": [
+    {
+      "agent_id": "af9ebfabe87052815",
+      "agent_type": "general-purpose",
+      "started": "2026-10-07T14:14:22.268641Z",
+      "completed": "2026-10-07T14:17:41.289306Z",
+      "model": "sonnet",
+      "tokens_input": 800118,
+      "tokens_output": 22,
+      "cost_usd": 0.735132,
+      "duration_seconds": 199.02
+    },
+    {
+      "agent_id": "ad44ea2c1658fb984",
+      "agent_type": "general-purpose",
+      "started": "2026-10-07T19:58:03.596750Z",
+      "completed": "2026-10-07T19:59:24.610542Z",
+      "model": "sonnet",
+      "tokens_input": 287481,
+      "tokens_output": 8,
+      "cost_usd": 0.550768,
+      "duration_seconds": 81.01
+    }
+  ],
+  "monitoring": {
+    "active": false,
+    "state_yaml_path": "workflows/boot/state.yaml",
+    "opened_by": "eval-turn-start.py",
+    "trigger_evidence": "run morning boot workflow",
+    "close_reason": "state.yaml's own completion timestamp predates this record's open time by 5.7h \u2014 likely a spurious open, not a real run"
+  },
+  "assessment": {
+    "mechanical": {
+      "completed": false,
+      "all_steps_finished": false,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 6,
+      "assertions_passed": 5,
+      "assertion_results": [
+        {
+          "assertion": "boot-001-state-complete",
+          "description": "Boot workflow state.yaml shows status: complete",
+          "passed": true
+        },
+        {
+          "assertion": "boot-002-session-index-exists",
+          "description": "Session index file exists \u2014 boot's Session Index Boot step must have created/appended it",
+          "passed": true
+        },
+        {
+          "assertion": "boot-003-session-index-substantive",
+          "description": "Session index is a real record, not an empty stub",
+          "passed": true
+        },
+        {
+          "assertion": "boot-005-omnifocus-data-file-exists",
+          "description": "OmniFocus pull (step-01.2 Pull B) wrote its consolidated data file",
+          "passed": true
+        },
+        {
+          "assertion": "boot-007-omnifocus-no-completed-tasks-leaked",
+          "description": "No completed task leaked into the OmniFocus pull. The inbox permanently holds ~247 completed tasks alongside ~8 incomplete ones, and Clean Up does NOT remove them, so the query itself must carry `completed is false`. Any `completed: true` in the output means the filter was dropped from the call.",
+          "passed": true
+        },
+        {
+          "assertion": "boot-008-omnifocus-filter-documented",
+          "description": "Regression guard: the boot pull instructions still mandate the `completed is false` filter on the inbox query. If someone strips that filter from the instructions, this trips before the leak reaches a briefing.",
+          "passed": false
+        }
+      ]
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": "31aa5f2d2dc54e7d15d86c24d9a92b349facc0c6ea25918795ffa980e3e37490",
+  "prior_baseline_id": null,
+  "tags": [
+    "turn-level"
+  ],
+  "total_tokens_input": 800118,
+  "total_tokens_output": 22,
+  "total_cost_usd": 0.735132
+}

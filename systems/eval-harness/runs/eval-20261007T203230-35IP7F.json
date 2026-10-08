@@ -1,0 +1,60 @@
+{
+  "id": "eval-20261007T203230-35IP7F",
+  "agent_id": "a2f9754bf80d5fe08",
+  "type": "agent",
+  "name": "fork",
+  "workflow": null,
+  "agent": "fork",
+  "session_id": "c5f2edfb-372a-4ed1-bd20-f2f8d8ec0c3c",
+  "trigger": "unknown",
+  "started": "2026-10-07T20:32:30.257396Z",
+  "completed": "2026-10-07T20:33:51.031795Z",
+  "duration_seconds": 80.77,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/c5f2edfb-372a-4ed1-bd20-f2f8d8ec0c3c/subagents/agent-a2f9754bf80d5fe08.jsonl",
+  "last_assistant_message": "I have enough. Here is the full summary.\n\n---\n\n**Task:** Produce a thorough technical summary of the Penny codebase for a deck briefing.\n\n---\n\n## What Penny Is\n\n**Penny** is an AI-powered revenue variance analyzer built for a professional services firm (Improving). It compares monthly revenue forecasts against actuals, identifies variances by customer and worker, and uses a Claude-powered agent to investigate root causes \u2014 explaining *why* revenue missed or exceeded forecast, not just *that* it did.\n\n**Primary users:**\n- **Finance (Richard's team):** Needs rollup visibility across all enterprises, variance categorization, and exportable reports \u2014 currently doing this manually in Power BI.\n- **Presidents (office leads):** Need per-account explanations of every variance, every month \u2014 currently only get notified when variance exceeds 3% negative.\n\n**The problem it replaces:** Manual screenshot-and-text communication from Finance to presidents, ad-hoc emails, no systematic categorization, and zero trend tracking across months.\n\n---\n\n## Tech Stack\n\n| Layer | Technology |\n|-------|-----------|\n| Frontend | React 18, TypeScript (strict), Vite, Tailwind CSS v4, Zustand |\n| Backend | Python 3.11+, FastAPI, Pydantic, SQLAlchemy (async), Alembic |\n| AI Layer | Anthropic Claude via `anthropic` SDK \u2014 streaming API with `tool_use`, multi-turn, up to 5 concurrent investigations |\n| Database | SQLite (dev), Postgres-compatible via SQLAlchemy |\n| Auth | Microsoft Entra ID (MSAL), RBAC at company/country/enterprise scope |\n| Infra | Docker Compose (3 services: db, backend, frontend), Azure DevOps CI pipeline, nginx for frontend |\n| Excel parsing | openpyxl (`data_only=True`), fuzzy name matching via difflib |\n| Realtime | WebSocket streaming \u2014 agent text deltas and tool call results to the browser live |\n| Testing | pytest (backend), Playwright E2E with Page Object Model (frontend) |\n\n---\n\n## What's Fully Built\n\n**Data ingestion pipeline:**\n- Parses 3 Excel workbook formats from Workday: forecast (resource planner), revenue actuals, and timesheet (time-and-time-off report)\n- Fuzzy customer name resolution against a Client Name Mapping sheet\n- Enterprise alias system \u2014 maps Workday entity names (e.g., \"Winnipeg US\" + \"Winnipeg CA\") to a single Penny enterprise\n- Multi-file-set support (multiple forecast files merged per analysis run)\n\n**Analysis engine:**\n- Aggregator normalizes and joins forecast vs. actuals at the customer level\n- Variance detector identifies mismatches with dollar and percent amounts\n- Hours variance tracking alongside revenue variance\n- Duplicate allocation detector (pre-investigation pass, runs before Claude)\n- Mismatch detector (fuzzy name resolution failures)\n- At-risk detector and flash projector (hours-only mode)\n- 11+ variance categories seeded in the DB (over_allocation, wrong dates, rate mismatch, pipeline hours, etc.) with manual override UI\n\n**Claude agent layer:**\n- `per_variance_investigator.py` \u2014 one focused Claude API call per customer variance record, up to 5 concurrent (semaphore-bounded)\n- `orchestrator.py` \u2014 coordinates all per-variance investigations, collects findings, runs post-processing\n- `post_processor.py` \u2014 extracts structured `IssueFinding` records from LLM output, maps to categories, builds customer and person summaries\n- `chat_tools.py` / `chat_tool_handlers.py` \u2014 separate conversational agent (chat mode) with tool_use for ad-hoc data queries\n- `data_gatherer.py` \u2014 pre-fetches all relevant data for a variance record before the Claude call (context packing)\n- Knowledge graph: `KGNode` and `KGEdge` tables built per analysis run \u2014 represents relationships between workers, customers, projects for agent context\n\n**Frontend \u2014 fully built screens:**\n- Login (Entra SSO)\n- Company, Country, and Enterprise dashboards with KPI cards, variance trend charts, variance by category/type charts, heatmaps\n- Analysis upload flow (enterprise-level, multi-file-set)\n- Real-time streaming analysis log (WebSocket \u2014 shows agent text deltas and tool call cards as they happen)\n- Results page \u2014 per-customer findings, structured finding cards with severity/category/dollar impact/recommendation\n- Rollup results page\n- Flash results page (customer table + top risks)\n- Trend section with configurable window (1-60 months)\n- Chat interface (full sidebar, message thread, tool call inline rendering, chart display, scope selector)\n- Admin pages: User management, Enterprise management, Category management\n- Batch status page\n- History sidebar, breadcrumbs, hierarchy tree navigation\n\n**Auth and RBAC:**\n- Entra object ID-based user records\n- Role assignments scoped to company, country, or enterprise\n- `RoleGate` component in frontend, auth dependencies in backend\n\n---\n\n## What's In Progress or Planned\n\nFrom the backlog and gap analysis (as of March 2026, 44 commits):\n\n| Feature | Status |\n|---------|--------|\n| **Global batch upload** (one file set for all enterprises, auto-partitioned) | Planned (P0, Epic 1) \u2014 enterprise-level upload works; global partitioner is in backlog |\n| **Revenue flash validation** (hours-only mid-month analysis) | Flash detector/projector exist in backend; FlashResultsPage exists in frontend; full end-to-end flow may be partially complete |\n| **PDF/Excel export** of variance reports | Not built \u2014 identified as a gap |\n| **Trend pattern identification** (regional tendencies, not just charts) | TrendService exists; narrative pattern detection is backlog |\n| **Forecast pre-validation scanner** (scan upcoming forecast against historical mistakes) | Phase 3 \u2014 not started |\n| **Automated forecasting** | Phase 4 \u2014 long-term vision |\n| **Entity alias admin UI** | DB model seeded; admin page exists; full partitioner integration is backlog |\n\n---\n\n## Data Model \u2014 Key Entities\n\n```\nCompany \u2192 Country \u2192 Enterprise\nEnterprise \u2192 AnalysisRun (one per month, per enterprise)\nAnalysisRun \u2192 VarianceRecord (one per customer)\nAnalysisRun \u2192 Finding (AI-generated, one per investigation)\nAnalysisRun \u2192 IssueFinding (structured, post-processed, indexed by customer + worker)\nAnalysisRun \u2192 KGNode / KGEdge (knowledge graph for agent context)\nAnalysisRun \u2192 FileSet (uploaded Excel files, status tracked)\nAnalysisRun \u2192 intermediate tables: ForecastLineItem, RevenueActual, TimesheetEntry, NameMapping, WorkerHoursSnapshot\nUser \u2192 UserRoleAssignment (company/country/enterprise scoped)\nChatConversation \u2192 ChatMessage \u2192 ChatAttachment (persistent chat history)\nVarianceCategoryDB (hierarchical, admin-managed, manual override on findings)\nFindingNote (analyst notes on specific findings)\n```\n\n`AnalysisRun.analysis_type` distinguishes full (actuals-based) from flash (hours-only) runs.\n\n---\n\n## How the AI Layer Works\n\n1. Excel files are uploaded and parsed into normalized line-item tables in the DB.\n2. Aggregator joins forecast + actuals + hours at the customer level, producing `VarianceRecord` rows.\n3. The duplicate allocation detector runs a deterministic pre-pass (no LLM needed for obvious duplicates).\n4. `run_investigation()` fans out one `investigate_single_variance()` call per customer, up to 5 concurrent.\n5. Each call: `data_gatherer` pre-fetches all relevant rows (forecast line items, timesheet entries, worker snapshots, KG context) and packs them into the prompt. Claude returns a structured finding via `tool_use`.\n6. `PostProcessor` extracts `IssueFinding` records, resolves categories (from DB taxonomy or LLM output), builds customer and person issue summaries.\n7. Results stream to the browser live via WebSocket \u2014 the frontend renders each agent text delta and tool call result in real time.\n8. Separately, the chat interface supports ad-hoc natural language queries against a loaded analysis run \u2014 Claude uses tools to query the DB and return structured answers with charts.\n\n---\n\n## Current State: How Complete Is It?\n\n**Well-built core.** The end-to-end flow \u2014 upload Excel files, run analysis, stream Claude investigation results, view findings \u2014 is production-grade. The data model is mature (18 Alembic migrations), the agent architecture is solid, and the frontend has a full UI across every major view.\n\n**The gap is scale.** The system works per-enterprise today. The finance team's actual need is global (one upload for all 20+ offices). The global partitioner epic is the biggest remaining work item before this is operationally useful at Improving's scale.\n\n**Contributors:** Devlin Liles (37 commits), Michael Slater (7 commits). Last commit March 4, 2026. 44 total commits, active development cadence of ~20 commits/week while in flight.",
+  "model": "sonnet",
+  "total_tokens_input": 616391,
+  "total_tokens_output": 2257,
+  "total_cost_usd": 0.314389
+}

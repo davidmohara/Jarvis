@@ -1,0 +1,70 @@
+{
+  "id": "eval-20261008T160959-L38DCT",
+  "type": "workflow",
+  "name": "boot",
+  "agent": "master",
+  "session_id": "c874d35e-054f-41ca-b976-108202739095",
+  "trigger": "boot",
+  "started": "2026-10-08T16:09:59.748391Z",
+  "completed": "2026-10-08T13:35:43.331707",
+  "duration_seconds": null,
+  "status": "aborted",
+  "steps": [],
+  "subagents": [],
+  "monitoring": {
+    "active": true,
+    "state_yaml_path": "workflows/boot/state.yaml",
+    "opened_by": "eval-turn-start.py",
+    "trigger_evidence": "boot-first-prompt-of-session"
+  },
+  "assessment": {
+    "mechanical": {
+      "completed": false,
+      "all_steps_finished": null,
+      "tool_failures": 1,
+      "error_ids": [],
+      "tool_failure_log": [
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\nRequest an API key through the API key request portal: https://requests.improving.ai. When asked which service the key is for,\npick Copilot.\n(eval):1: no matches found: AI-Bootcamp/*.md",
+          "duration_ms": 520,
+          "timestamp": "2026-10-08T13:09:30.551126"
+        }
+      ],
+      "abort_reason": "session-ended"
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [
+    "turn-level"
+  ]
+}

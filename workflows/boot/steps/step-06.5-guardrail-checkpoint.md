@@ -1,20 +1,13 @@
 ---
 status: complete
-started-at: "2026-09-29T02:35:00Z"
-completed-at: "2026-09-29T02:37:00Z"
+started-at: '2026-10-08T15:42:24Z'
+completed-at: '2026-10-08T15:44:24Z'
 outputs:
-  data_freshness_report: "flag — calendar (43 events, pulled 2026-09-28T16:30Z), email (19 msgs), Clay (0 reminders / 1 birthday), jarvis-inbox (0), Obsidian all live this run. Flag 1: OmniFocus unified pull partial (26 tasks, 1 overdue) vs same-day weekly review fuller pull (22 overdue, 1 due today, 23 inbox) — disclosed in briefing paragraph 2. Flag 2: _active.yaml empty while plaud-ingest is awaiting-input — stale-index mismatch surfaced in step-06."
-  stale_sources: "none powering the briefing (partial-scope OmniFocus pull disclosed, not silently trusted)"
-  briefing_quality_check: "pass — briefing reflects live gathered data, no em-dashes, all Phase 2 findings incorporated, degraded element explicitly flagged"
-  leakage_check: "clear — no credentials, DOBs, or raw sensitive data in briefing, working memory, or session index"
-  checkpoint_name: "pre-completion-review"
-  checkpoint_result: "flag"
-  reason: "Briefing reflects live 2026-09-28 data with the one degraded element (partial OmniFocus pull) disclosed rather than presented as clean. step-06 correctly distinguished real state: boot in-progress (this run), plaud-ingest awaiting-input at step-03 despite empty _active.yaml. Session index healthy (today's record hook-maintained, no duplication). Leakage clear. No escalate condition met."
-  recorded: true
+  data_freshness_report: flag - calendar/email live, briefing reflects current data; OmniFocus served via MCP fallback (script pull failed, no osascript); no stale context, no credential leakage, session index record appended once
 model: kimi-k3
 prior-run-2026-09-18:
-  data_freshness_report: "flag — calendar (24 events, pulled 2026-09-18T17:04Z), email (17 msgs), omnifocus (status available, 42 tasks), clay (0 reminders / 2 birthdays), jarvis-inbox (0) all live and fresh this run; briefing reflects gathered data accurately, correct day, no stale context presented as fresh. Flag: a colleague DOB was spotted in one email-unified.json snippet (Legacy Club intake reply) and scrubbed before completion; briefing and session index were always clean."
-  checkpoint_result: "flag"
+  data_freshness_report: 'flag — calendar (24 events, pulled 2026-09-18T17:04Z), email (17 msgs), omnifocus (status available, 42 tasks), clay (0 reminders / 2 birthdays), jarvis-inbox (0) all live and fresh this run; briefing reflects gathered data accurately, correct day, no stale context presented as fresh. Flag: a colleague DOB was spotted in one email-unified.json snippet (Legacy Club intake reply) and scrubbed before completion; briefing and session index were always clean.'
+  checkpoint_result: flag
 ---
 
 <!-- system:start -->
