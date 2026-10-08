@@ -1,0 +1,61 @@
+{
+  "id": "eval-20261008T224205-6VJGYW",
+  "agent_id": "ad3201be2e60d4cda",
+  "type": "agent",
+  "name": "fork",
+  "workflow": null,
+  "agent": "fork",
+  "session_id": "c874d35e-054f-41ca-b976-108202739095",
+  "trigger": "unknown",
+  "started": "2026-10-08T22:42:05.281820Z",
+  "completed": "2026-10-08T22:44:03.917592Z",
+  "duration_seconds": 118.64,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/c874d35e-054f-41ca-b976-108202739095/subagents/agent-ad3201be2e60d4cda.jsonl",
+  "last_assistant_message": "All 51 slides of the Week 1 deck reviewed.\n\nPer-slide verdicts:\n\n1. OK \u2014 ACG intro: \"Who am I?\" visible top-left in blue, photo right, four descriptors with icons left\n2. OK \u2014 Check-In (copied S1)\n3. OK \u2014 Session Goals 1/2 (copied S1)\n4. OK \u2014 Session Goals 2/2 (copied S1)\n5. OK \u2014 Welcome lecture (NEW, donor-cloned)\n6. OK \u2014 Prompt, Harness, Model (copied S1)\n7. OK \u2014 P/H/M sequence diagram (copied S1)\n8. OK \u2014 disable-model-invocation (copied S1)\n9. OK \u2014 IDE/Bounded/Custom compare (copied S6)\n10. OK \u2014 EDD: EC Before You Build (copied S1)\n11. OK \u2014 EDD: Red, Green, Refactor (copied S4)\n12. OK \u2014 Applying R/G/R (copied S4); source-native nit: text brushes the right edge of two boxes, present in the DLP original\n13. OK \u2014 Demo: Scoring the Bare-Prompt Artifact (NEW); accent bar and focus box correct\n14. OK \u2014 Basic Prompting vs. DLP Completion (copied S1)\n15. OK \u2014 RTCC (copied S1)\n16. OK \u2014 Lab: Rebuild the Bare Prompt (NEW); no title/steps overlap, no double numbering\n17. OK \u2014 The LLM Judge Pattern (copied S4)\n18. OK \u2014 Structured Output from LLM Judges (copied S4)\n19. OK \u2014 Why LLM Judges, Why Python (copied S4)\n20. OK \u2014 Demo: Python Evaluation with LLM Judge (copied S4)\n21. OK \u2014 Lab: Direct Your First Python Evaluation Script (NEW)\n22. OK \u2014 Day Separator 1 (NEW); chip reads \"SLIDE TYPE \u2014 DAY SEPARATOR\" unclipped\n23. OK \u2014 Check-In Day 2 (NEW); correct large-question hierarchy\n24. OK \u2014 Informal vs. EDD compare (copied S4)\n25. OK \u2014 Lab 2: Baseline, Hypothesize, Iterate (copied S4)\n26. OK \u2014 Context Before Constraints (NEW); takeaway box text no longer clips\n27. OK \u2014 Lab: Prove the Context/Constraints Split (NEW)\n28. OK \u2014 Lab 3: Document the Cycle and Refactor (copied S4)\n29. OK \u2014 Day Separator 2 (NEW)\n30. OK \u2014 Check-In Day 3 (NEW)\n31. OK \u2014 Lab: Build the Development Skill (NEW)\n32. OK \u2014 The Development Loop (donor-cloned from S2 content); content order correct (Plan/Code/Evaluate/Iterate, then \"Why this matters\" block); matches the deck's blue-title design language\n33. OK \u2014 Lab: Connect Trend ID to Development (NEW)\n34. OK \u2014 Day Separator 3 (NEW)\n35. OK \u2014 Check-In Day 4 (NEW)\n36. OK \u2014 The SDLC Pipeline (copied S1)\n37. OK \u2014 Demo: RT-Only Skeleton Outputs (copied S1)\n38. OK \u2014 Lab: Baseline Pipeline Run (NEW)\n39. OK \u2014 Demo: Good Epics and Stories (copied S1)\n40. OK \u2014 What a Review Covers (copied S3); source-native nit: code-box text brushes the right edge, present in the DLP original\n41. OK \u2014 Lab: Write EC for create-prd (NEW); two-line title clears step 1\n42. OK \u2014 Day Separator 4 (NEW)\n43. OK \u2014 Check-In Day 5 (NEW)\n44. OK \u2014 Lab 2 reuse for create-prd deep cycle (copied S4)\n45. OK \u2014 Lab: Working Passes arch/ux (NEW)\n46. OK \u2014 Plan Failure Modes (donor-cloned from S2 content); matches deck design language\n47. OK \u2014 Lab 3: Full Pipeline Assembly (copied S3)\n48. OK \u2014 Basic Prompting revisited (copied S1)\n49. OK \u2014 Day Separator 5 / End of Week 1 (NEW)\n50. OK \u2014 Closing 1/2 (copied S1)\n51. OK \u2014 Closing 2/2 (copied S1)\n\nEvery previously flagged defect is confirmed fixed: slide 1 title, slide 26 clipping, slide 41 overlap, chip clipping, double numbering, double bullets, check-in hierarchy, separator chip legibility. Two remaining nits (slides 12, 40, text brushing a box's right edge) are inherited verbatim from the DLP source decks, not introduced by the build.\n\nVERDICT: Ship-ready. 0 remaining build-introduced defects across all 51 slides.",
+  "model": "accounts/fireworks/models/kimi-k3",
+  "total_tokens_input": 0,
+  "total_tokens_output": 0,
+  "total_cost_usd": 0.045,
+  "cost_estimation_note": "estimated based on fork workflow type"
+}

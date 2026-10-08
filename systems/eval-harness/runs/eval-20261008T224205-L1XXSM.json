@@ -1,0 +1,61 @@
+{
+  "id": "eval-20261008T224205-L1XXSM",
+  "agent_id": "a2de5742522922f20",
+  "type": "agent",
+  "name": "fork",
+  "workflow": null,
+  "agent": "fork",
+  "session_id": "c874d35e-054f-41ca-b976-108202739095",
+  "trigger": "unknown",
+  "started": "2026-10-08T22:42:05.281778Z",
+  "completed": "2026-10-08T22:44:00.814484Z",
+  "duration_seconds": 115.53,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/c874d35e-054f-41ca-b976-108202739095/subagents/agent-a2de5742522922f20.jsonl",
+  "last_assistant_message": "Task: final visual review of Week 2 deck, 47 slides, /tmp/deckreview/w2final/. All 47 read.\n\nPer-slide verdicts:\n1. OK \u2014 intro: BOOTCAMP chip clean, two-line title clears the framing paragraph\n2. OK \u2014 check-in\n3. OK \u2014 goals 1of2 (S5)\n4. OK \u2014 goals 2of2 (S5)\n5. OK \u2014 goals 1of2 (S6)\n6. OK \u2014 goals 2of2 (S6)\n7. OK \u2014 coaching/gate lecture\n8. OK \u2014 3-way compare\n9. OK \u2014 disable-model-invocation\n10. OK \u2014 Flipping the Switch\n11. OK \u2014 graduation exercise\n12. OK \u2014 boundary workshop; long title wraps clean, no step overlap\n13. OK \u2014 day separator 6, chip unclipped\n14. OK \u2014 check-in\n15. OK with source-side nit \u2014 adversarial agents; two-prompt box text touches the right edge (\"find real\" clips); present in DLP original\n16. OK \u2014 P/H/M lecture\n17. OK \u2014 eval vs adversarial compare\n18. OK \u2014 adversarial lab\n19. OK \u2014 closing-the-loop lab\n20. OK \u2014 day separator 7\n21. OK \u2014 check-in\n22. OK \u2014 bounded agents\n23. OK \u2014 bounded agent lab\n24. OK \u2014 context window\n25. OK with source-side nits \u2014 custom harness lecture; stray glyph under the numbered list and gray box text at right edge; both in the DLP original\n26. OK \u2014 3-way compare, second showing\n27. OK \u2014 IIOS stage 3\n28. OK \u2014 stage 4\n29. OK \u2014 spectrum synthesis; long title handled\n30. OK \u2014 day separator 8\n31. OK \u2014 check-in\n32. OK \u2014 player-coach; single bullets, no doubles\n33. OK \u2014 real vs polite compare; all rows populated, right column bold\n34. OK \u2014 teaching talks; two-line title clears steps\n35. OK \u2014 scenario 1\n36. OK \u2014 scenario 2\n37. OK \u2014 tabletop 3-4\n38. OK \u2014 day separator 9\n39. OK \u2014 check-in\n40. OK \u2014 operating model\n41. OK \u2014 handoff; two-line title clears steps\n42. OK \u2014 rehearsal\n43. OK \u2014 two-stage gate\n44. OK \u2014 final assessment; commitment box text runs near the right edge but readable, source-native\n45. OK \u2014 day separator 10\n46. OK \u2014 closing 1of2\n47. OK \u2014 closing 2of2\n\nVerdict: ship-ready. 0 defects introduced by the build; 3 minor text-edge nits (slides 15, 25, 44) all exist verbatim in the DLP source decks.",
+  "model": "accounts/fireworks/models/kimi-k3",
+  "total_tokens_input": 0,
+  "total_tokens_output": 0,
+  "total_cost_usd": 0.045,
+  "cost_estimation_note": "estimated based on fork workflow type"
+}

@@ -2347,7 +2347,8 @@
           "workflows/shutdown-cleanup/guardrails/step-05-verify-cleanup.json",
           "workflows/shutdown-cleanup/verify/step-03-gitignore-check.py",
           "workflows/shutdown-cleanup/verify/step-04-commit.py",
-          "workflows/shutdown-cleanup/verify/step-05-verify-cleanup.py"
+          "workflows/shutdown-cleanup/verify/step-05-verify-cleanup.py",
+          "projects/stage5-compliance-audit-2026-10-08.md"
         ],
         "loops": [],
         "flag": true
