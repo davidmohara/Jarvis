@@ -66,3 +66,6 @@ systems/evals/work-*/description-tuning/
 
 # Amazing Race monitor working data (Graph tokens, posted media, state)
 data/amazing-race/
+
+# Microsoft Office live-document lock files (OneDrive-synced while a doc is open)
+.~lock.*#
