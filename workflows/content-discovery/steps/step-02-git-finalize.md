@@ -1,17 +1,8 @@
 ---
-status: complete
-started-at: "2026-10-07T18:43:00Z"
-completed-at: "2026-10-07T18:45:00Z"
-outputs:
-  files_changed: 4
-  files_committed:
-    - reference/blog-ideas.md
-    - workflows/content-approval/pending-drafts.json
-    - workflows/content-discovery/state.yaml
-    - workflows/content-discovery/steps/step-02-git-finalize.md
-  commit_hash: "bc8baf92"
-  push_status: success
-  outcome: "committed and pushed — 3 new Ghost drafts: DFW Is Now #4 and the Capital Layer Is the Real Story, The Leadership Gap Just Got a Number, The Agent Governance Stack Is Finally Here"
+status: in-progress
+started-at: "2026-10-08T12:05:00Z"
+completed-at: null
+outputs: {}
 model: sonnet
 ---
 
