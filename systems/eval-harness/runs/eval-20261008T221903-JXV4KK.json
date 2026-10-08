@@ -1,0 +1,63 @@
+{
+  "id": "eval-20261008T221903-JXV4KK",
+  "agent_id": "a2956ad3268897efd",
+  "type": "agent",
+  "name": "fork",
+  "workflow": null,
+  "agent": "fork",
+  "session_id": "c874d35e-054f-41ca-b976-108202739095",
+  "trigger": "unknown",
+  "started": "2026-10-08T22:19:03.575760Z",
+  "completed": "2026-10-08T22:22:59.267410Z",
+  "duration_seconds": 235.69,
+  "status": "failure",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": [
+        "err-20261008T222241-UHTK59"
+      ]
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": "negative",
+      "comment": "error-log-correlated: err-20261008T222241-UHTK59",
+      "timestamp": "2026-10-08T22:22:59.267410Z"
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/c874d35e-054f-41ca-b976-108202739095/subagents/agent-a2956ad3268897efd.jsonl",
+  "last_assistant_message": "Reviewed all 47 slides of /tmp/deckreview/w2 (Week 2 deck) against the copied DLP harness look. Verdicts below; copied slides are faithful throughout, every DEFECT is on a NEW (generator-rendered) slide.\n\n**Per-slide:**\n1. Intro (NEW) \u2014 nit: full-bleed blue background shows white rounded corners (rounded-rect used as backdrop; harness intros are square-bleed). Otherwise fine.\n2. Check-In (NEW) \u2014 DEFECT: chip text \"SLIDE TYPE \u2014 CHECK-IN\" clipped at chip's right edge.\n3. Compare (copied S6-9) \u2014 OK.\n4. Goals 1of2 (copied S5) \u2014 OK.\n5. Goals 2of2 (copied S5) \u2014 OK.\n6. Goals 1of2 (copied S6) \u2014 OK.\n7. Goals 2of2 (copied S6) \u2014 OK.\n8. Goals Coaching (NEW) \u2014 DEFECT: chip text clipped; goal boxes fixed-height with large dead space; goal title should be blue-accented like harness (\"Goal N:\" ink + title in blue), currently all ink.\n9. Lecture (copied S1-6) \u2014 OK.\n10. Lecture (copied S5-4) \u2014 OK.\n11. Exercise (copied S5-8) \u2014 OK.\n12. Exercise Boundary Workshop (NEW) \u2014 DEFECT: chip clipped; timing pill oversized and collides with title; large dead gap between steps and done-when box.\n13. Day Separator 6 (NEW) \u2014 OK, nits: airy vertical spacing; \"Tomorrow\" text starts lowercase.\n14. Check-In (NEW) \u2014 DEFECT: chip clipped.\n15. Lecture (copied S5-5) \u2014 OK.\n16. Lecture (copied S5-6) \u2014 OK.\n17. Compare (copied S5-7) \u2014 OK.\n18. Exercise (copied S5-9) \u2014 OK.\n19. Exercise (copied S5-10) \u2014 OK.\n20. Day Separator 7 (NEW) \u2014 OK, same nits as 13.\n21. Check-In (NEW) \u2014 DEFECT: chip clipped.\n22. Lecture (copied S6-4) \u2014 OK.\n23. Exercise (copied S6-5) \u2014 OK.\n24. Lecture (copied S6-6) \u2014 OK.\n25. Lecture (copied S6-7) \u2014 OK; source-side nits only (stray \"F\" artifact under step 5, gray box text touches right edge) \u2014 present in the DLP original, not introduced here.\n26. Lecture IIOS (copied S6-10) \u2014 OK; source-side nit: blue callout text \"that's Stage\" clipped at box edge, present in original.\n27. Lecture Stage 4 (copied S6-11) \u2014 OK.\n28. Compare (copied S6-9, second) \u2014 OK.\n29. Exercise Spectrum Synthesis (NEW) \u2014 DEFECT: chip clipped; title runs under timing pill (\"...Manag[er]\"); dead gap before done-when box.\n30. Day Separator 8 (NEW) \u2014 OK, nits as before.\n31. Check-In (NEW) \u2014 DEFECT: chip clipped.\n32. Lecture Player-Coach (NEW) \u2014 DEFECT: chip text clipped; bullets are \"\u2022\" characters instead of the harness's blue dot list style with hanging indents.\n33. Exercise Teaching Talks (NEW) \u2014 DEFECT: chip clipped; timing pill oversized; dead gap.\n34. Compare Real vs Polite (NEW) \u2014 minor DEFECT: right-column (\"adopting\") text not bold (harness bolds it); row boxes fixed-height with dead space.\n35. Exercise Scenario 1 (NEW) \u2014 DEFECT: chip clipped; oversized timing pill; dead gap.\n36. Exercise Scenario 2 (NEW) \u2014 DEFECT: same.\n37. Exercise Tabletop 3-4 (NEW) \u2014 DEFECT: title clipped by timing pill (\"...Managem[ent]\"); chip clipped; dead gap.\n38. Day Separator 9 (NEW) \u2014 OK, nits.\n39. Check-In (NEW) \u2014 DEFECT: chip clipped.\n40. Lecture Operating Model (NEW) \u2014 DEFECT: chip text clipped. Content otherwise clean.\n41. Lecture Two-Stage Gate (NEW) \u2014 DEFECT: chip clipped.\n42. Exercise Handoff (NEW) \u2014 DEFECT: title clipped under timing pill; chip clipped; dead gap.\n43. Exercise Rehearsal (NEW) \u2014 DEFECT (worst): long title wraps to 2 lines and overlaps step 1 text; chip clipped.\n44. Lecture (copied S6-14) \u2014 OK.\n45. Day Separator 10 (NEW) \u2014 OK.\n46. Closing 1of2 (copied S6-15) \u2014 OK.\n47. Closing 2of2 (copied S6-16) \u2014 OK.\n\n**Systemic renderer problems (fix these and nearly all DEFECTs clear):**\n1. **Chip width underestimated** \u2014 generator sizes the chip from a naive `0.16 * len(label)` formula; at rendered font metrics the text clips (Check-In, Exercise, Lecture, Session Goals chips). Fix: measure or add generous padding (harness chips have ~2x the horizontal padding).\n2. **Timing pill oversized and colliding** \u2014 NEW exercise slides render a fixed 3.2in-wide blue pill that long titles run beneath (slides 12, 29, 37, 42) or that forces 2-line titles into the steps (43). Harness pills are compact, right-aligned, and titles are width-constrained to avoid them.\n3. **Fixed-position boxes create dead space** \u2014 done-when box anchored near the bottom regardless of content height (big empty band on every NEW exercise slide), goal boxes and compare rows fixed-height and half-empty.\n4. **Missing harness text styling on NEW slides** \u2014 compare right column not bold; session-goal titles lack the blue accent run; lecture bullets use literal \"\u2022\" instead of the harness's blue dot/hanging-indent list style.\n5. **Intro background shows white rounded corners** \u2014 full-bleed shape rendered as rounded rectangle instead of square.\n\nCopied-slide fidelity is 100%; nothing copied needs rework. Two tiny source-side artifacts (slides 25, 26 nits) exist in the DLP originals and are out of scope here.",
+  "model": "accounts/fireworks/models/kimi-k3",
+  "total_tokens_input": 0,
+  "total_tokens_output": 0,
+  "total_cost_usd": 0.045,
+  "cost_estimation_note": "estimated based on fork workflow type"
+}

@@ -1,0 +1,63 @@
+{
+  "id": "eval-20261008T221903-JO1T8H",
+  "agent_id": "ae9862249a5bb88af",
+  "type": "agent",
+  "name": "fork",
+  "workflow": null,
+  "agent": "fork",
+  "session_id": "c874d35e-054f-41ca-b976-108202739095",
+  "trigger": "unknown",
+  "started": "2026-10-08T22:19:03.575788Z",
+  "completed": "2026-10-08T22:24:13.023423Z",
+  "duration_seconds": 309.45,
+  "status": "failure",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 2,
+      "error_ids": [
+        "err-20261008T222241-UHTK59"
+      ]
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": "negative",
+      "comment": "error-log-correlated: err-20261008T222241-UHTK59",
+      "timestamp": "2026-10-08T22:24:13.023423Z"
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/c874d35e-054f-41ca-b976-108202739095/subagents/agent-ae9862249a5bb88af.jsonl",
+  "last_assistant_message": "Review complete, all 51 slides. Report:\n\n**Verdict key:** OK = matches deck design language. DEFECT = breaks it.\n\n**Copied DLP slides (verbatim copies):** 1 (David's ACG intro, correctly different), 2, 3, 4, 6, 7, 8, 9, 10, 11, 12, 14, 15, 17, 18, 19, 20, 24, 25, 28, 36, 37, 39, 40, 44, 47, 48, 50, 51 \u2014 all OK. The copy is faithful: chips, pill shapes, card containers, colors, and fonts all render identically to the session decks.\n\n**DEFECT \u2014 all 20 NEW slides (5, 13, 16, 21, 22, 23, 26, 27, 29, 30, 31, 33, 34, 35, 38, 41, 42, 43, 45, 49).** Systemic renderer problems:\n\n1. **Chip text clipped**: \"SLIDE TYPE \u2014 LECTURE\" / \"CHECK-IN\" / \"EXERCISE\" text overflows the chip's right edge on every NEW slide; chip corners are wrong radius vs the reference pill (visible on copied slides like s-06).\n2. **Title/timing-chip collision**: long lab titles run underneath the blue \"\u23f1 NN MINUTES\" box \u2014 slides 16, 21, 29, 35, 38, 43 (\"Lab: Rebuild the Bare Prompt as a Full RTCC S\u2026\" is overlapped).\n3. **Wrong fonts**: NEW titles and body render in a generic Arial-like sans; reference slides are Poppins headings / Khula body.\n4. **No card containers / broken rhythm**: NEW lectures and exercises are bare text top-clustered with a dead lower half; the reference look uses light-blue content cards with breathing room (see s-06, s-15).\n5. **Check-In hierarchy wrong** (23, 27, 33, 49): reference check-ins render the question large in blue under a small-caps eyebrow; NEW ones show a \"Check-In\" title plus small ink question.\n6. **Demo accent bar** (13): square-cornered teal bar against a rounded box.\n7. **Day Separators** (22, 30, 34, 42, 45): internally consistent but plain, and the ink-navy chip is off the type-color system (no DLP donor exists for this type; needs a designed treatment).\n\n**DEFECT \u2014 source-inherited:** slides 32 and 46 come from Session-2.pptx, which was generated in a different design pass: black (not blue) titles, \"DLP V2 \u00b7 WEEK 3 \u00b7 LOOP 1\" eyebrow, top-right chip, and a footer reading \"It's what we do.\" with stale page numbers (\"05 / 14\", \"06 / 14\"). Content is correct; look clashes with the rest of the deck. Fix requires either restyling those two slides to the Session-1 look or accepting the source inconsistency.\n\n**Minor, source-native (not copy damage):** slide 12's numbered list has cramped/overlapping numbers \u2014 present in the original Session-4 deck.\n\n**Out-of-scope observation:** Bootcamp-Week-2.deck.md changed on disk during this review (the coaching \"Session Goals\" section became a \"Lecture Slide \u2014 This Week Also: Coaching and the Gate\"). Section count appears unchanged, but verify manifest alignment before rebuilding Week 2.",
+  "model": "accounts/fireworks/models/kimi-k3",
+  "total_tokens_input": 0,
+  "total_tokens_output": 0,
+  "total_cost_usd": 0.045,
+  "cost_estimation_note": "estimated based on fork workflow type"
+}

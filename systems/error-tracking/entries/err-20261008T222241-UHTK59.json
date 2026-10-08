@@ -1,0 +1,15 @@
+{
+  "id": "err-20261008T222241-UHTK59",
+  "timestamp": "2026-10-08T22:22:41Z",
+  "session": "stage5-remediation-2026-10-08",
+  "source": "self-detected",
+  "agent": "rigby",
+  "category": "process-skip",
+  "description": "Post-commit push required integrating 3 remote commits (scheduled harper content-discovery runs). `git pull --rebase --autostash` stalled twice on the OneDrive-synced repo: first, working-tree writes landing mid-rebase (live harness hooks and/or cross-machine OneDrive sync of the working tree) dirtied the exact files the pick needed to update; second, after resolving the single real conflict (skill-runs/git-latest.json, resolved to ours per David) and staging it cleanly (stage 0, no unmerged entries, no locks), `git rebase --continue` repeatedly refused with 'You must edit all merge conflicts', consistent with .git state being synced under git. Mid-rebase recovery also required raw git (the ies-git wrapper was absent from the mid-rebase tree because it was created in the unapplied commit, and an untracked live-written git-ops.jsonl blocked the first abort until moved aside). Rebase aborted cleanly; f3991afb intact; David chose to pull and push from his own terminal.",
+  "correction": "Multi-commit integration (pull --rebase, merges, pushes after divergence) on this OneDrive-synced repo belongs in David's terminal, where no harness hooks or cross-machine sync races interfere. Single-operation wrapper commits remain fine from agent sessions.",
+  "failure_mode": "context-blindness",
+  "systemic_fix": "Proposed: add a rule to skills/git/SKILL.md that on divergence (remote ahead), the agent commits locally and hands pull/push to David's terminal instead of rebasing from the session; optionally extend the ies-git wrapper to recognize a blocked rebase state and abort with that guidance instead of leaving a mid-rebase tree.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": ["err-20261008T210353-9XIRVF", "err-202601008T203600-9T2IVR"]
+}
