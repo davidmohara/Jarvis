@@ -60,7 +60,7 @@ outputs:
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Knox
+**Agent:** Knox, spawned by the coordinator, never executed inline in the coordinator's session.
 **Tool:** `skills/plaud-transcripts/scripts/fetch_plaud.py` via osascript on host Mac
 **Input:** `accumulated-context.target-date`, `accumulated-context.ready-for-fetch`, `accumulated-context.speaker-mappings`
 **Output:** `accumulated-context.staged-files` — list of markdown files written to staging

@@ -149,6 +149,9 @@ Example: `eval-20260523T133045-a1b2c3.json`
 | `tokens_input` | number\|null | **Required audit-trail field.** Input tokens consumed by this step. |
 | `tokens_output` | number\|null | **Required audit-trail field.** Output tokens produced by this step. |
 | `cost_usd` | number\|null | **Required audit-trail field.** Dollar cost for this step, computed from real token counts × the pricing table in `model-pricing.json`. |
+| `step_id` | string | Stable step identifier (defaults to `name`). |
+| `owning_agent` | string\|null | The IES agent that owns the workflow this step belongs to, resolved from `workflows/<name>/workflow.md`'s `agent:` frontmatter (e.g. `plaud-ingest` → `knox`, `boot-verification` → `ralph`). **This is the field attribution should read.** The sibling `agent` field preserves whatever the harness recorded on the run and is frequently a Claude Code subagent type label (`general-purpose`, `fork`, `Explore`) rather than an IES agent, so it is not reliable for attribution. |
+| `token_source` | string\|null | Provenance of the token numbers: `windowed` means they were sliced to this step's real `started-at`→`completed-at` window; `lenient_fallback` means no turns fell in that window and the whole transcript was used (inflated/duplicated across steps). A grader can use this to separate true per-step attribution from fallback. |
 
 **Tokens in/out and dollar cost are both required audit-trail evidence.** Stage 4's audit-trail requirement asks "which prompt produced which output, how many input/output tokens, what did it cost" — all three parts are graded. A null `cost_usd` is a gap, exactly like a null `tokens_input`/`tokens_output`. `cost_usd` is derived (tokens × the rate table in `model-pricing.json`, with real cache-read/cache-write multipliers, not a flat rate), and the rate table needs to be kept current as pricing changes — but "derived" does not mean "optional." Every step/record with real token counts must carry a computed `cost_usd` figure.
 
@@ -160,6 +163,23 @@ Token fields are populated automatically, not by manual estimation. `systems/eva
 `cost_usd` is computed with the documented cache multipliers (cache read ≈0.1× input rate, cache write 1.25×/2× for 5m/1h TTL), not a flat per-token rate. It is not billing-exact (Anthropic's actual invoice is the source of truth for real spend), but it is a required field — every record that has real token counts must have a computed cost alongside them.
 
 `record-step.py`'s `--tokens-in`/`--tokens-out`/`--model` flags remain as a manual fallback for paths where neither hook fires (e.g. a Cowork-only run with no transcript file) — pass them explicitly there; otherwise leave them off and let the hooks populate the fields.
+
+### Per-Step Audit Trail Capture and Export (Stage 5 Phase 2)
+
+An **instrumented execution** is a real workflow run whose eval record carries, for every step, the audit fields above: `model`, `tokens_input`, `tokens_output`, `cost_usd`, plus `owning_agent` for attribution. Two pieces make this work end to end:
+
+- **Capture.** `systems/eval-harness/step_audit.py` is the shared write-side module. It defines the canonical step shape and the helpers every writer uses: `normalize_step()` (coerces the three historical step shapes, namely empty list, legacy bare-string list, and canonical dict, into dicts), `upsert_step()` (name-keyed insert/replace that tolerates legacy string entries), `compute_cost()`, `step_totals()`, and `workflow_owner_agent()` (resolves `owning_agent` from the workflow definition). The writers that populate steps all route through it: `.claude/hooks/post-tool-use.py` (skeleton from step frontmatter), `.claude/hooks/step-complete.py` (token extraction, invoked by `.claude/hooks/eval-agent-stop.py` and passed the exact `eval_record_id`), `record-step.py` (manual fallback, now with `--agent`/`--step-id`/`--runs-dir`), and `close-eval-record.py` (which now *merges* step entries on close instead of replacing them, so captured per-step data survives finalization; `--steps-json` accepts explicit per-step detail). Because every reader tolerates the legacy string shape, old records still load.
+- **Export.** `export-step-audit.py` emits the artifact as CSV and JSON:
+
+  ```bash
+  # all records
+  python3 systems/eval-harness/export-step-audit.py --out <dir>
+  # specific run ids / filenames / globs
+  python3 systems/eval-harness/export-step-audit.py --runs eval-20261008T183732-HSDQ6F --out <dir>
+  python3 systems/eval-harness/export-step-audit.py --runs 'eval-2026100*' --workflow boot --out <dir>
+  ```
+
+  Writes `<dir>/step-audit.csv` (one row per step) and `<dir>/step-audit.json` (per-run, with steps and totals). `validate-token-audit-trail.py` remains the compliance check over the same schema.
 
 ### Version-Over-Version Improvement Tracking
 

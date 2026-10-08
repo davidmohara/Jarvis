@@ -29,7 +29,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Chief
+**Agent:** Chief, spawned by the coordinator, never executed inline in the coordinator's session.
 **Input:** Consolidated task data from `data/omnifocus-unified.json` (pulled by boot step-01.2), delegation tracker (markdown), quarterly objectives (markdown)
 **Output:** Task and delegation data stored in working memory for step 04
 

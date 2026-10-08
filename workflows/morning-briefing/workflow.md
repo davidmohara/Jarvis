@@ -12,7 +12,9 @@ model: sonnet
 
 **Agent:** Chief — Daily Operations & Execution
 
-**Architecture:** Sequential 4-step workflow. Each step gathers data from a different source, then the final step synthesizes into a single briefing. No user interaction required until the briefing is delivered.
+**Architecture:** Sequential 5-step workflow. Steps 01-03 gather data from different sources, step-04 synthesizes it into a single briefing, and step-05 runs an adversarial verification pass (Ralph) that cross-checks the delivered briefing against source data. No user interaction required until the briefing is delivered.
+
+**Dispatch model:** This workflow runs as a **Chief** subagent spawned by the coordinator, never inline in the coordinator's session. Chief executes the steps below and spawns Knox for the Watchtower hand-off; the post-run commit routes to Rigby via `skills/git/SKILL.md`.
 <!-- system:end -->
 
 <!-- personal:start -->
@@ -98,6 +100,10 @@ This workflow and any sub-workflow/agent it invokes (Chase's lead-review, Knox's
 Read fully and follow: `steps/step-01-gather-calendar.md` to begin the workflow.
 
 **Guardrail checkpoint:** After step-03 (gather context) and before step-04 (synthesize), `steps/step-03b-guardrail-checkpoint.md` runs an automated review of the gathered data. `pass`/`flag` continue normally; `escalate` requires step-04 to open the delivered briefing with an explicit data-quality warning rather than silently presenting bad data as clean.
+
+**Adversarial verification:** After step-04 synthesizes the briefing, `steps/step-05-verify-briefing.md` spawns **Ralph** with `workflows/morning-briefing-verification/workflow.md` (the calendar/email/OmniFocus cross-check lens). Ralph re-derives every briefing claim from source data and returns a verdict table; the result is recorded as an `adversarial-verification` guardrail checkpoint. Findings are surfaced, never silently absorbed.
+
+**Deterministic step guardrails:** Every step transition is machine-checked. The verifiers in `workflows/morning-briefing/verify/` run at each step's completion (dispatched by `.claude/hooks/step-complete.py`) and record a pass/retry/fail verdict with derived fields on the run's eval record. Manual review is not the gate.
 
 <!-- system:end -->
 

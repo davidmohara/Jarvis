@@ -1,0 +1,15 @@
+{
+  "id": "err-20261008T202241-D5ZP2O",
+  "timestamp": "2026-10-08T20:22:41Z",
+  "session": "stage5-remediation-2026-10-08",
+  "source": "self-detected",
+  "agent": "rigby",
+  "category": "tool-misuse",
+  "description": "Bypass test BT-02 (Phase 4B punch-out bypass testing) found that systems/eval-harness/guardrail-checkpoint.py accepts a case-variant or whitespace-padded result string (e.g. 'Escalate', 'escalate '): it only warns on non-membership and records anyway, while escalated_to_human uses exact match (result == 'escalate'), so a genuine escalation can be recorded as a non-escalation with escalated_to_human=False.",
+  "correction": "Normalize result with strip().lower() before validation and reject non-members with a non-zero exit instead of recording them; only exact canonical values (pass, flag, escalate) may be recorded.",
+  "failure_mode": "sloppy-read",
+  "systemic_fix": "Fix applied in guardrail-checkpoint.py: result normalized (strip + lower) before membership check; invalid result exits 1 with an error instead of warn-and-record. Bypass re-test to be captured in projects/stage-4-evidence/bypass-tests/ during the data window.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": []
+}

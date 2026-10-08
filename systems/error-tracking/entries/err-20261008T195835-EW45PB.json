@@ -1,0 +1,15 @@
+{
+  "id": "err-20261008T195835-EW45PB",
+  "timestamp": "2026-10-08T19:58:35Z",
+  "session": "2026-10-08-stage5-phase1",
+  "source": "self-detected",
+  "agent": "master",
+  "category": "tool-misuse",
+  "description": "Coordinator purity violation (Stage 5 report, Tim Rayburn 2026-10-07): systems/ies-channel/ies-channel.py line 145 ran subprocess.run([\"which\", \"claude\"], ...), CLI shell execution inside the daemon that boots the IES agent. Resolving the interpreter path does not require spawning a shell; the subprocess call put shell execution on the coordinator's path.",
+  "correction": "Replaced the subprocess.run([\"which\", \"claude\"]) call with shutil.which(\"claude\"): pure-Python PATH resolution, no shell execution. Added an import shutil and a comment marking find_claude() as harness bootstrap (daemon startup infrastructure), explicitly outside coordinator task execution.",
+  "failure_mode": "tool-ignorance",
+  "systemic_fix": "ies-channel.py find_claude() now resolves the claude binary via shutil.which with the Homebrew path as fallback, and is documented as harness bootstrap rather than a coordinator-executed task. No shell subprocess remains in the capability-check path.",
+  "fix_status": "applied",
+  "severity": "minor",
+  "related_entries": []
+}

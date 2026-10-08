@@ -1,7 +1,7 @@
 ---
 name: shutdown-cleanup
 description: Session exit cleanup — purge temp artifacts, organize deliverables, verify naming, commit clean
-agent: master
+agent: rigby
 model: sonnet
 ---
 

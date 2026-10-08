@@ -21,7 +21,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Chief
+**Agent:** Chief, spawned by the coordinator, never executed inline in the coordinator's session.
 **Input:** `accumulated-context` from steps 01–03, including `watchtower_output`
 **Output:** Guardrail checkpoint result recorded; workflow proceeds (pass/flag) or halts (escalate)
 

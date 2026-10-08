@@ -25,7 +25,7 @@ outputs:
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Master
+**Agent:** boot subagent (Master persona), spawned by the coordinator at boot start, never executed inline in the coordinator's session (see `workflow.md`).
 **Input:** M365 MCP access, today's date + next 3 days
 **Output:** Raw calendar response written to `data/calendar-unified.json`
 

@@ -29,6 +29,13 @@
       "path": "memory/working/plaud-ingest-*.md",
       "pattern": "(?i)(ingest|transcript|vault)",
       "description": "Plaud ingest working memory contains expected content"
+    },
+    {
+      "id": "plaud-002-adversarial-verification-ran",
+      "check": "guardrail_checkpoint_ran",
+      "checkpoint_name": "adversarial-verification",
+      "category": "quality",
+      "description": "Stage 5 Phase 4A: step-06 spawns Ralph (plaud-ingest-verification workflow) and records an 'adversarial-verification' guardrail result on this run. Read from the eval record's own guardrails array. This is the distinct-lens check Tim's Stage 5 finding requires: a separate agent performing ingestion accounting (zero silent drops)."
     }
   ]
 }

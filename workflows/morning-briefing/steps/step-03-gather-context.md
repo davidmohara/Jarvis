@@ -36,7 +36,7 @@ outputs:
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Chief
+**Agent:** Chief, spawned by the coordinator, never executed inline in the coordinator's session.
 **Input:** Calendar data from step 01, knowledge base API, identity files
 **Output:** Meeting context and system status stored in working memory for step 04
 

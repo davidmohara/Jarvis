@@ -1,0 +1,15 @@
+{
+  "id": "err-20261008T194550-F23FC1",
+  "timestamp": "2026-10-08T19:45:50Z",
+  "session": "stage5-certification-planning-2026-10-08",
+  "source": "explicit",
+  "agent": "jarvis",
+  "category": "assumption-error",
+  "description": "While drafting the Stage 5 certification remediation plan, adopted Tim Rayburn's examination report characterization of 'Ralph' and 'David' as agents without verifying with David, and initially scoped Stage 3 artifacts to only 4 agents (Chief, Knox, Rigby, coordinator), omitting Harper, Quinn, Galen, Sterling, Chase, Shep, and Ralph.",
+  "correction": "Ralph IS an agent (boot verification); David is not an agent, he is the human operator/controller; Jarvis is the Master agent itself, not a separate agent from Master; and Stage 3 scope covers all 11 named agents (Jarvis, Chief, Chase, Knox, Shep, Quinn, Harper, Rigby, Sterling, Galen, Ralph), prioritizing candidate-workflow step owners.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "When transcribing external reviewers' terminology (agent names, roles) into IES plans, verify identity claims against agents/master.md and agents/routing.md naming before writing them into plan documents; flag reviewer misreads explicitly in submission cover notes.",
+  "fix_status": "proposed",
+  "severity": "minor",
+  "related_entries": []
+}

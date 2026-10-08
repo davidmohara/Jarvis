@@ -23,7 +23,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Chief
+**Agent:** Chief, spawned by the coordinator, never executed inline in the coordinator's session.
 **Mode:** Automated — no controller interaction required
 **Input:** Capture data from step 01, tomorrow data from step 02
 **Output:** Daily review file written, delegation tracker updated, closing summary delivered

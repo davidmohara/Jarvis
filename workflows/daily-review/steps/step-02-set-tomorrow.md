@@ -22,7 +22,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Chief
+**Agent:** Chief, spawned by the coordinator, never executed inline in the coordinator's session.
 **Mode:** Interactive — ask, challenge, confirm
 **Input:** Capture data from step 01, delegation tracker, quarterly objectives, tomorrow's calendar
 **Output:** Confirmed top 3 priorities and prep flags stored in working memory for step 03

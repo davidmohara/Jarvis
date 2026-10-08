@@ -11,6 +11,8 @@ These domains route to specialists immediately. Master does not execute these ta
 | Domain | Agent | Trigger Keywords | What Master Passes |
 |--------|-------|-----------------|-------------------|
 | **Infrastructure** | **Rigby** | "new workflow," "new skill," "new agent," "new script," "create capability," "build system," "system change," "evolution," "deployment," "connector," "grade evals," "eval analysis," "eval dashboard," "eval trends" | Original request + requirements spec |
+| **Git Operations** | **Rigby** | "commit," "push," "pull," "branch," "merge," "rebase," "stage," "stash," "tag," "changelog," "PR," "pull request," "git" | Original request + `skills/git/SKILL.md` as the execution path; Rigby runs every git command through that skill, never Master directly |
+| **Domain-Data Inspection** | *owning agent* | "check the vault," "read the inbox," "inspect staging," "list tasks," "look at the pipeline," "any new recordings," or any read/modify of a specialist's domain data | Original request + which source to check; the owning agent (Knox, Chase, Chief, etc.) performs the read, not Master |
 | **Content & Communication** | **Harper** | "draft email," "build deck," "presentation," "slides," "content," "writing," "blog post," "talking points," "podcast prep," "message" | Original request + context (audience, purpose, tone, deadline) |
 | **Pipeline & Revenue** | **Chase** | "pipeline," "deal," "account," "opportunity," "forecast," "post-mortem," "loss," "client meeting," "CRM," "lead," "revenue," "card," "credit," "APR," "benefits," "rewards," "optimize," "spend" | Original request + account/deal context from vault |
 | **Strategy & Planning** | **Quinn** | "rocks," "strategy," "goals," "OKRs," "quarterly," "initiative," "alignment," "planning," "roadmap" | Original request + current quarterly objectives |
@@ -19,6 +21,12 @@ These domains route to specialists immediately. Master does not execute these ta
 | **Health & Wellness** | **Galen** | "WHOOP," "labs," "bloodwork," "recovery," "health," "protocol," "peptide," "supplement," "doctor visit," "body comp" | Original request + health data/biometrics |
 | **Personal Operations** | **Sterling** | "travel," "flights," "hotel," "dinner," "reservation," "wine," "gift," "personal," "errand," "/Jarvis," "subscription," "purchase" | Original request + preferences/history |
 | **Daily Operations** | **Chief** | "briefing," "morning," "schedule," "calendar prep," "inbox," "review," "shutdown," "what's my day," "meetings" | Original request + calendar/inbox context |
+
+**The spawn-first rule.** Master is the coordinator, never an executor. For anything beyond the short list under "When Master Acts Directly," Master's only move is to spawn the named owning agent and let it do the work. Three prohibitions follow directly, and none has an exception:
+
+1. **No direct git.** Master never runs a git command: no `git add`, `commit`, `push`, `pull`, `status`, `diff`, `reset`, or branch work. All git routes to **Rigby** via `skills/git/SKILL.md`. This covers session exit and every workflow's commit step (see `err-20260716T220729-FNAAP8`).
+2. **No direct domain-data checks.** Master never inspects or modifies another agent's domain data to answer a request or to satisfy a workflow step: not the Plaud staging folder, not the vault, not the inbox, not the task system, not email. Master spawns the owning agent to read it (see `err-20260611T113806-g0pfoq`).
+3. **No direct task execution.** Master never executes a workflow step, a skill, or a script inline. Every step is dispatched to the agent that owns it via an explicit spawn. The single documented exception is the boot context-load step that must land in Master's own live context (see `workflows/boot/workflow.md`); it is the only one.
 
 ---
 
@@ -34,7 +42,7 @@ These are the few things Master legitimately handles without routing:
 | **Decision framework** | **RAPID file** | "Help me decide [topic]" — walk through decision structure |
 | **Routing only** | **Route to specialist** | Detecting that a request belongs to an agent's domain and spawning that agent |
 | **Cross-domain synthesis** | **Synthesize** | Requests spanning 2+ agent domains where no single agent owns the answer |
-| **Watchtower draft posting** | **Execute step-06 directly** | Any request to post, send, or share a Watchtower draft/content candidate to Slack — always routes to `workflows/watchtower/steps/weekly-step-06-publish-drafts.md`. Never ask for clarification about where to send it; #content (`C0B160MA3EK`) is the only authorized destination. |
+| **Watchtower draft posting** | **Spawn Knox to run step-06** | Any request to post, send, or share a Watchtower draft/content candidate to Slack — Master spawns **Knox** (Watchtower's owning agent) with `workflows/watchtower/steps/weekly-step-06-publish-drafts.md` as the payload; Master does not run the step itself. Never ask for clarification about where to send it; #content (`C0B160MA3EK`) is the only authorized destination. |
 
 ---
 

@@ -12,8 +12,8 @@ model: haiku
 ## MANDATORY EXECUTION RULES
 
 1. You MUST close the active session record in `memory/sessions/index.json` before committing.
-2. You MUST follow the git skill protocol — atomic commands, no chaining, no `git status`.
-3. You MUST use Desktop Commander (`mcp__Desktop_Commander__*`) for all git operations, never sandbox bash.
+2. Git runs only through `skills/git/SKILL.md`, executed by **Rigby**: atomic commands, no chaining, no `git status`. Chief and the coordinator never run git directly.
+3. Rigby MUST use Desktop Commander (`mcp__Desktop_Commander__*`) for all git operations, never sandbox bash.
 4. You MUST verify each git operation before proceeding to the next.
 5. This step runs after all other daily-review steps are complete. It is the final operation.
 
@@ -21,7 +21,7 @@ model: haiku
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Chief (via Rigby for git operations)
+**Agent:** Rigby (session close + git), spawned by the coordinator; every git operation runs through `skills/git/SKILL.md`. Chief and the coordinator never run git directly.
 **Mode:** Automated — no controller interaction required
 **Input:** Session metadata from state.yaml, file changes from this session
 **Output:** Session record closed, all changes committed and pushed to remote
@@ -65,7 +65,9 @@ model: haiku
    - Write back to `memory/sessions/index.json`
    - Verify the write succeeded (file size > 100 bytes, valid JSON on re-read)
 
-#### Phase 2: Git Commit (Following Git Skill Protocol)
+#### Phase 2: Git Commit (Spawn Rigby; Rigby runs the git skill)
+
+**Executed by Rigby, spawned by the coordinator, never by Chief or the coordinator directly. Rigby runs every command below through `skills/git/SKILL.md`, its owning skill.**
 
 **CRITICAL: Each command below is a separate, atomic call. Do not chain with `&&`, `||`, `;`, or pipes.**
 **CRITICAL: Use Desktop Commander for ALL git operations — never sandbox bash.**
@@ -128,7 +130,7 @@ python3 systems/eval-harness/close-eval-record.py \
   --status {success|partial|failure} \
   --trigger manual \
   --started "{session_started from state.yaml}" \
-  --steps "step-01-capture,step-02-set-tomorrow,step-03-update-system,step-04-root-audit,step-05-session-close"
+  --steps "step-01-capture,step-02-set-tomorrow,step-03-update-system,step-03c-adversarial-verify,step-04-root-audit,step-05-session-close"
 ```
 
 Determine status:

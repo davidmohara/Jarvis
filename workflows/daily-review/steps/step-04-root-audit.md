@@ -20,7 +20,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Chief (via Rigby's Root Audit skill)
+**Agent:** Rigby, spawned by the coordinator for the Root Audit skill; Chief hands off and does not run the audit directly.
 **Mode:** Interactive — present findings, wait for confirmation, then execute
 **Input:** IES root directory file listing
 **Output:** Root directory clean; any moved/deleted files noted
@@ -113,7 +113,7 @@ The eval record for the complete daily review workflow will be written in step-0
 
 ## NEXT STEP
 
-Load and execute `steps/step-05-session-close.md` to close the session index and commit all changes to git.
+Load and execute `steps/step-05-session-close.md` to close the session index; Rigby handles the git commit through the git skill.
 
 This is the final step of the daily review workflow.
 <!-- system:end -->

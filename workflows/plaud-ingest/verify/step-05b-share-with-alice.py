@@ -61,7 +61,10 @@ def main():
         "personal_recordings_count": sum(1 for v in classification.values() if v == "personal") if isinstance(classification, dict) else 0,
     }
 
-    if status != "complete" or current_step != "step-05b":
+    # The workflow gained a terminal adversarial-verification step (step-06) after
+    # this step, so current-step legitimately advances to step-06 once verification
+    # runs. Accept either value so the guardrail does not false-fail on the tail step.
+    if status != "complete" or current_step not in ("step-05b", "step-06"):
         print(json.dumps({
             "result": "retry",
             "reason": f"state.yaml shows status='{status}', current-step='{current_step}' — step-05b requires status: complete, current-step: step-05b as its terminal state",

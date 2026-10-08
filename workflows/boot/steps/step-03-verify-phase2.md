@@ -20,7 +20,7 @@ outputs:
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Master
+**Agent:** boot subagent (Master persona), spawned by the coordinator at boot start, never executed inline in the coordinator's session (see `workflow.md`).
 **Input:** Phase 2 task outcomes from `accumulated-context` in state.yaml
 **Output:** Ralph's verification verdict; any re-runs completed
 
@@ -36,13 +36,13 @@ outputs:
 
 ## YOUR TASK
 
-1. **Pass the Phase 2 task manifest to boot-verification.** Run `workflows/boot-verification/workflow.md`. Provide Ralph with the accumulated-context from state.yaml as the task manifest. The manifest covers:
+1. **Pass the Phase 2 task manifest to boot-verification.** Spawn **Ralph** with `workflows/boot-verification/workflow.md`. Provide Ralph with the accumulated-context from state.yaml as the task manifest. The manifest covers:
    - Morning briefing steps 01-02
    - Task E: Plaud ingest (Knox spawn)
-   - Task F: Lead review
    - Task G: 72-hour look-ahead
    - Task H: Email triage
    - Task I: Jarvis inbox
+   - Task J: Boot reminders
 
 2. **Wait for Ralph's verdict table.** Ralph will return a table in the format:
 
@@ -50,10 +50,10 @@ outputs:
    |------|--------|-------|
    | Morning briefing 01-02 | ✅ Verified | ... |
    | Task E: Plaud ingest | ➖ Fire-and-forget | Knox spawned |
-   | Task F: Lead review | ✅ Verified | ... |
    | Task G: 72hr look-ahead | ✅ Verified | ... |
    | Task H: Email triage | ⚠️ Unverified | No email data found in context |
    | Task I: Jarvis inbox | ✅ Verified | ... |
+   | Task J: Boot reminders | ✅ Verified | 2 due, or "nothing-to-surface" with the file state named |
 
 3. **Handle any flagged tasks:**
    - For each task marked ⚠️ Unverified: re-run that task now. Update accumulated-context with the new result.

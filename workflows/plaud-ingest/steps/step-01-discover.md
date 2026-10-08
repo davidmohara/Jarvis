@@ -125,7 +125,7 @@ Auth failure is only a valid abort reason if the skill's own Chrome login flow h
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Knox
+**Agent:** Knox, spawned by the coordinator, never executed inline in the coordinator's session.
 **Skill:** `skills/plaud-discover/SKILL.md` — read it in full before executing this step.
 **Input:** None required by default (full enumeration mode). Optional: `target-date` in `state.yaml accumulated-context` if reprocessing a specific date.
 **Output:** `accumulated-context.new-recordings` — list of recording objects not yet in vault

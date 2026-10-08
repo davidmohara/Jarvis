@@ -173,6 +173,20 @@ def finalize(eval_path: Path, eval_record: dict, state_data: dict, force_status:
         status = "success"
 
     eval_record["status"] = status
+
+    # Every abort carries a reason. This path used to leave abort_reason null
+    # on in-run aborts, which made aborted runs indistinguishable from
+    # unverifiable no-ops in the Stage 4 success-rate baseline. Derive a
+    # machine-readable code when the caller/state didn't supply one.
+    if status == "aborted" and not eval_record["assessment"]["mechanical"].get("abort_reason"):
+        if error_ids:
+            abort_code = "error-logged"
+        elif state_status in ("aborted", "blocked"):
+            abort_code = f"state-{state_status}"
+        else:
+            abort_code = "unspecified"
+        eval_record["assessment"]["mechanical"]["abort_reason"] = abort_code
+
     eval_record["assessment"]["mechanical"]["completed"] = completed_ok
     eval_record["assessment"]["mechanical"]["all_steps_finished"] = all_steps_finished
     eval_record["assessment"]["structural"] = run_assertions(eval_record["name"], eval_record)

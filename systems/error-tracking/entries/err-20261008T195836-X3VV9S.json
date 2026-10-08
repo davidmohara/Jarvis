@@ -1,0 +1,15 @@
+{
+  "id": "err-20261008T195836-X3VV9S",
+  "timestamp": "2026-10-08T19:58:36Z",
+  "session": "2026-10-08-stage5-phase1",
+  "source": "self-detected",
+  "agent": "master",
+  "category": "process-skip",
+  "description": "Coordinator purity violation (Stage 5 report, Tim Rayburn 2026-10-07): workflow step files suggested direct/manual step execution by the coordinator. Across the four candidate workflows (boot, morning-briefing, daily-review, plaud-ingest) the step files' EXECUTION PROTOCOL lines named only a bare 'Agent: Master' or 'Agent: Chief'/'Knox' and did not state that the step runs in a spawned subagent, and several steps described the executor running skills, workflows, and scripts directly (e.g. boot step-02 running the morning-briefing workflow and the jarvis-inbox skill inline, boot step-03 running boot-verification inline).",
+  "correction": "Every step file in the four candidate workflows now names the agent that owns it and states the execution path: boot steps 01.2-08 run in the boot subagent spawned by the coordinator (never inline; step-01 is the sole documented inline exception); morning-briefing and daily-review steps run in the Chief subagent; plaud-ingest steps run in the Knox subagent. Cross-agent invocations were made explicit spawns: boot step-02 spawns Chief for morning-briefing and jarvis-inbox, step-03 spawns Ralph for boot-verification, steps 04/05 spawn Chief for morning-briefing steps 03/04; daily-review step-04 spawns Rigby for the root audit. Each workflow.md gained a dispatch-model note, and agents/master.md plus agents/routing.md gained the spawn-first Hard Stops.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "Spawn-first rule codified: agents/master.md and agents/routing.md now state the coordinator never executes a workflow step, skill, or script inline; every step is dispatched to its owning agent via explicit spawn, with boot's context-load step as the single documented exception. All four candidate workflows' step files carry explicit owning-agent and spawn language.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": ["err-20260611T113806-g0pfoq", "err-20260716T220729-FNAAP8"]
+}

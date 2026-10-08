@@ -120,7 +120,7 @@ This is a hierarchy, not alternatives. Controller escalation only after 1 AND 2 
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Knox
+**Agent:** Knox, spawned by the coordinator, never executed inline in the coordinator's session.
 **Skill:** `skills/plaud-speaker-id/SKILL.md` — read it in full before executing this step.
 **Input:** `accumulated-context.ready-for-fetch`, staging folder `_speakers.json` files, M365 calendar
 **Output:** `accumulated-context.speaker-mappings` — complete mapping for all recordings

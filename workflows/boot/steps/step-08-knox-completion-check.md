@@ -21,7 +21,7 @@ outputs:
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Master
+**Agent:** boot subagent (Master persona), spawned by the coordinator at boot start, never executed inline in the coordinator's session (see `workflow.md`).
 **Input:** Knox eval record (if it exists in runs directory)
 **Output:** Knox completion status recorded in frontmatter
 

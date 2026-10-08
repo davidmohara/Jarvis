@@ -24,7 +24,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Chief
+**Agent:** Chief, spawned by the coordinator, never executed inline in the coordinator's session.
 **Input:** Unified calendar data from `data/calendar-unified.json` (pulled by boot step-01.5)
 **Output:** Structured calendar data for today, stored in working memory for step 04
 

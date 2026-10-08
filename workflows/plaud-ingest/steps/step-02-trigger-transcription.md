@@ -40,7 +40,7 @@ outputs:
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Knox
+**Agent:** Knox, spawned by the coordinator, never executed inline in the coordinator's session.
 **Skill:** `skills/plaud-trigger/SKILL.md` — read it in full before executing this step.
 **Input:** `accumulated-context.new-recordings`
 **Output:** `accumulated-context.transcription-triggered`, `accumulated-context.pending-recordings`, `accumulated-context.ready-for-fetch` (partial — will be finalized in step-03)

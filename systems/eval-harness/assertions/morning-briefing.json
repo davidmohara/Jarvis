@@ -49,6 +49,13 @@
       "path": "memory/working/morning-briefing-*.md",
       "pattern": "(?i)omnifocus",
       "description": "Briefing addresses OmniFocus either way round: task data when the pull succeeded, or an explicit disclosure when it was degraded. Silence is the failure this catches, since a briefing that quietly omits task data reads as a clean day."
+    },
+    {
+      "id": "morning-008-adversarial-verification-ran",
+      "check": "guardrail_checkpoint_ran",
+      "checkpoint_name": "adversarial-verification",
+      "category": "quality",
+      "description": "Stage 5 Phase 4A: step-05 spawns Ralph (morning-briefing-verification workflow) and records an 'adversarial-verification' guardrail result on this run. Read from the eval record's own guardrails array, not self-reported by the workflow. This is the distinct-lens check Tim's Stage 5 finding requires: a separate agent cross-checking the briefing against source data."
     }
   ]
 }

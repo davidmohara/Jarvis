@@ -27,7 +27,7 @@ prior-run-2026-09-18:
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Master
+**Agent:** boot subagent (Master persona), spawned by the coordinator at boot start, never executed inline in the coordinator's session (see `workflow.md`).
 **Input:** All accumulated-context from steps 01-04
 **Output:** Completed morning briefing delivered to the controller
 
@@ -43,8 +43,8 @@ prior-run-2026-09-18:
 
 ## YOUR TASK
 
-1. **Run morning briefing step-04.**
-   Read and follow `workflows/morning-briefing/steps/step-04-*.md` in full. Provide it with the full accumulated-context as input so all gathered data is incorporated into the briefing.
+1. **Spawn Chief for morning briefing step-04.**
+   Spawn **Chief** with `workflows/morning-briefing/steps/step-04-*.md`, the owning agent runs it in full. Provide it with the full accumulated-context as input so all gathered data is incorporated into the briefing.
 
 2. **Ensure Phase 2 findings are incorporated:**
    - Lead review findings (Task F) — surface any unassigned or actionable leads

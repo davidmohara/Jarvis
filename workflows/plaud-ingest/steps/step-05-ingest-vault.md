@@ -75,7 +75,7 @@ outputs:
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Knox
+**Agent:** Knox, spawned by the coordinator, never executed inline in the coordinator's session.
 **Skill:** `skills/plaud-transcripts/SKILL.md` — read it in full before executing this step.
 **Input:** `accumulated-context.staged-files`, vault access via Obsidian MCP
 **Output:** `accumulated-context.ingested-notes` — vault paths of all written notes

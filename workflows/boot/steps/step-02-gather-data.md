@@ -26,7 +26,7 @@ outputs:
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Master
+**Agent:** boot subagent (Master persona), spawned by the coordinator at boot start, never executed inline in the coordinator's session (see `workflow.md`).
 **Input:** Session context loaded in step-01, live data sources
 **Output:** Gathered data from all Phase 2 tasks, recorded in accumulated-context
 
@@ -46,7 +46,7 @@ Fire all of the following simultaneously:
 
 ### Morning Briefing Steps 01-02
 
-Run `workflows/morning-briefing/workflow.md` through step-02 (calendar gather + task gather). These two steps provide today's calendar data and task inbox status for the briefing synthesized in step-05.
+Spawn **Chief** with `workflows/morning-briefing/workflow.md` (through step-02: calendar gather + task gather). These two steps provide today's calendar data and task inbox status for the briefing synthesized in step-05.
 
 ### Task G: 72-Hour Look-Ahead
 
@@ -68,7 +68,7 @@ Do NOT call M365 directly. The unified pull in step-01.2 provides all flagged/ti
 
 ### Task I: Jarvis Inbox
 
-Run `skills/jarvis-inbox/SKILL.md` — read the skill file and execute as written. Surface any items requiring David's attention.
+Spawn **Chief** with `skills/jarvis-inbox/SKILL.md`; the /Jarvis inbox is Chief's domain. Surface any items requiring David's attention.
 
 ### Task J: Boot Reminders
 

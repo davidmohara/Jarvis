@@ -53,14 +53,14 @@ outputs:
 1. You MUST attempt a share for every file_id in `accumulated-context.staged-files` (or derived from `accumulated-context.ingested-notes` cross-referenced with `accumulated-context.speaker-mappings`).
 2. A share failure for one recording MUST NOT block the others — log it and continue.
 3. You MUST create one Monday task per recording — do not batch multiple recordings into one task.
-4. You MUST set `state.yaml status: complete` when this step finishes — this is the final step.
+4. You MUST set `state.yaml status: complete` when this step finishes. Step-06 (adversarial verification) then runs; it re-asserts the terminal state and records the ingest-accounting verdict.
 5. Do NOT re-run the share script for a recording that already has a `SHARE_URL=` in its output this session.
 
 ---
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Knox
+**Agent:** Knox, spawned by the coordinator, never executed inline in the coordinator's session.
 **Tool:** `skills/plaud-transcripts/scripts/fetch_plaud.py --share` via Desktop Commander bash, then Monday MCP
 **Input:** `accumulated-context.staged-files`, `accumulated-context.ingested-notes`, `accumulated-context.speaker-mappings`, `accumulated-context.recording-classification`
 **Output:** Share URLs and Monday task creation status logged in step outputs
@@ -234,7 +234,7 @@ has an unresolved Gate 6 HARD FAIL still pending retry.
 
 ## NEXT STEP
 
-This is the final step. When complete, set `state.yaml status: complete`.
+Read fully and follow: `step-06-verify-ingest.md`, the adversarial verification pass. It accounts for every discovered recording against the outcome lists and records the verdict before the workflow closes.
 <!-- system:end -->
 
 <!-- personal:start -->

@@ -1,0 +1,15 @@
+{
+  "id": "err-20261008T203600-9T2IVR",
+  "timestamp": "2026-10-08T20:36:00Z",
+  "session": "stage5-remediation-2026-10-08",
+  "source": "self-detected",
+  "agent": "rigby",
+  "category": "process-skip",
+  "description": "During Phase 4A (guardrail wiring), a Rigby sub-agent ran a read-only `git status` while listing new files, despite the explicit constraint to run no git commands and the git skill's standing rule that `git status` is forbidden (it writes .git/index.lock as part of its index refresh; on FUSE mounts that lock orphans and blocks all git operations). No other git command was run; no lock file remained after the session (verified: no .git/index.lock or .git/HEAD.lock present).",
+  "correction": "Never run `git status` in any agent context; use the lock-free alternatives (`git diff --name-only HEAD`, `git ls-files --modified --others --exclude-standard`) or plain filesystem listing (`ls`, `find`). Sub-agent briefs must state the lock-free alternatives, not just the prohibition, so the fallback is not improvised.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "Add the lock-free alternatives to the standing sub-agent constraint template used in Phase dispatch prompts (prohibition + named alternative commands), so the next dispatch does not rely on the sub-agent remembering the skill text.",
+  "fix_status": "proposed",
+  "severity": "minor",
+  "related_entries": []
+}

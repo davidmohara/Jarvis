@@ -27,7 +27,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Chief
+**Agent:** Chief, spawned by the coordinator, never executed inline in the coordinator's session.
 **Mode:** Fully autonomous — no controller interaction
 **Input:** OmniFocus (via the `omnifocus-data` skill), M365 MCP calendar, delegation tracker, quarterly objectives, yesterday's daily review (if exists)
 **Output:** Narrative journal entry written to the knowledge system
@@ -117,6 +117,27 @@ model: sonnet
    Auto review written: "{title}"
    [X] completed, [Y] still open, [Z] overdue. Interactive review available tonight.
    ```
+
+7. **Adversarial verification (Stage 5 Phase 4A).** After the narrative is written, spawn **Ralph** with `workflows/daily-review-verification/workflow.md` to cross-check the narrative's completion claims against recorded state (OmniFocus counts, calendar events, delegation tracker). This is a separate spawn with a distinct lens; do not self-verify.
+
+   Pass Ralph:
+   ```
+   Agent: ralph
+   Workflow: workflows/daily-review-verification/workflow.md
+   Manifest:
+     review-file: "{narrative-path}"
+     omnifocus-data: data/omnifocus-unified.json
+     delegation-tracker: delegations/tracker.md
+     run-date: <YYYY-MM-DD>
+   Task: Cross-check the auto narrative's claims against recorded state and return your verdict table.
+   ```
+
+   Record the verdict via `guardrail-checkpoint.py` (checkpoint name `adversarial-verification`), mapping an all-clear verdict to `pass` and any unsupported claim to `flag`:
+   ```bash
+   python3 systems/eval-harness/guardrail-checkpoint.py daily-review adversarial-verification step-auto <pass|flag> "<one-line reason>"
+   ```
+
+   Write the verdict summary to `state.yaml` under `accumulated-context.adversarial-verification` (`verdict`, `result`, `findings`). If Ralph cannot be spawned, record `result: flag` with reason "adversarial verification unavailable, Ralph not spawnable" rather than skipping silently.
 
 ---
 

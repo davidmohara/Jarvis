@@ -12,9 +12,11 @@ model: haiku
 
 **Agent:** Knox — Knowledge Manager
 
-**Architecture:** Sequential 6-step pipeline with one interactive pause point at step-03 (speaker identification). Steps 01-02, 04-05, and 05b are fully autonomous. Step-03 may surface questions to the controller before proceeding.
+**Architecture:** Sequential 7-step pipeline with one interactive pause point at step-03 (speaker identification). Steps 01-02, 04-05, 05b, and 06 are fully autonomous. Step-03 may surface questions to the controller before proceeding. Step-06 is the adversarial verification pass (Ralph) that accounts for every discovered recording.
 
 **Parallelism:** This workflow is designed to run as a background Agent launched during boot. It completes autonomously except for the speaker identification step, where it will surface questions to the controller and then continue after receiving answers. Boot does not wait for this workflow to finish.
+
+**Dispatch model:** This workflow runs as a **Knox** subagent spawned by the coordinator (background during boot), never inline in the coordinator's session. The coordinator never touches Plaud staging, the vault, or Monday directly; Knox owns every step below.
 <!-- system:end -->
 
 ---
@@ -77,6 +79,11 @@ Run STATE CHECK above, then begin at step-01.
 | 04 | `steps/step-04-fetch-staging.md` | `skills/plaud-transcripts/scripts/fetch_plaud.py` | Run fetch script to pull all ready transcripts to staging |
 | 05 | `steps/step-05-ingest-vault.md` | `skills/plaud-transcripts/SKILL.md` | Transform staged files into Obsidian notes, route Monday, clean up |
 | 05b | `steps/step-05b-share-with-alice.md` | `skills/plaud-transcripts/scripts/fetch_plaud.py --share` | Share each ingested recording publicly (transcript + summary) and email link to Alice Mburu |
+| 06 | `steps/step-06-verify-ingest.md` | `workflows/plaud-ingest-verification/workflow.md` | Adversarial verification (Ralph): account for every discovered recording as a note or a logged skip, zero silent drops |
+
+## Deterministic Step Guardrails
+
+Every step transition is machine-checked. The verifiers in `workflows/plaud-ingest/verify/` run at each step's completion (dispatched by `.claude/hooks/step-complete.py`) and record a pass/retry/fail verdict with derived fields on the run's eval record. Manual review is not the gate. Step-06 adds the adversarial layer: Ralph's ingestion-accounting verdict is recorded as an `adversarial-verification` guardrail checkpoint.
 
 ---
 

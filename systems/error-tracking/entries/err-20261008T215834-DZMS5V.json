@@ -1,0 +1,15 @@
+{
+  "id": "err-20261008T215834-DZMS5V",
+  "timestamp": "2026-10-08T21:58:34Z",
+  "session": "2026-10-08",
+  "source": "explicit",
+  "agent": "jarvis",
+  "category": "assumption-error",
+  "description": "David asked for bootcamp decks that reuse the DLP session deck slides ('reuse as much of the DLP deck slides as possible', 'copy it directly, do not recreate'). I copied the slide CONTENT verbatim into new .deck.md files but generated the .pptx files with a from-scratch python-pptx renderer (my own textboxes approximating the brand) instead of copying the actual slides out of the existing design-harness-generated Session-1..6.pptx files.",
+  "correction": "Copy the actual slide parts (XML, images, formatting) from the committed DLP Session-N.pptx files into the bootcamp decks, rearranged per the deck plan, with bootcamp framing added only in speaker notes. Build new slides only for content that exists nowhere in the DLP decks (day separators, coaching day, gate slides).",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "When a request says 'reuse' or 'copy' existing slide decks, the default is copying slide parts from the existing .pptx files, not re-rendering their content with new code. Authoring a new renderer is only correct when no source deck exists. Check for existing generated artifacts before building a generator.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": []
+}

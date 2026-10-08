@@ -21,7 +21,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Chief
+**Agent:** Chief, spawned by the coordinator, never executed inline in the coordinator's session.
 **Mode:** Interactive — gather data, then ask questions
 **Input:** Task management data, today's calendar, morning briefing (if exists)
 **Output:** Raw capture data stored in working memory for step 03

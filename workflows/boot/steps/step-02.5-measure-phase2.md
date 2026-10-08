@@ -21,7 +21,7 @@ outputs:
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Master (read-only instrumentation)
+**Agent:** boot subagent (Master persona), spawned by the coordinator at boot start, never executed inline in the coordinator's session (see `workflow.md`). Read-only instrumentation.
 **Input:** Current state.yaml with accumulated-context from step-02
 **Output:** Measurement snapshot written to `systems/boot-instrumentation/measurements/`
 

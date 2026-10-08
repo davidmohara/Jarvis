@@ -36,6 +36,7 @@ from __future__ import annotations
 
 import json
 import os
+import shutil
 import subprocess
 import sys
 import time
@@ -139,12 +140,15 @@ def kill_existing_instances():
         log(f"Process cleanup warning: {e}")
 
 # ── Claude CLI ────────────────────────────────────────────────────────────────
+# Harness bootstrap, not task execution. This locates the interpreter that runs
+# the agent; it is daemon startup infrastructure and never runs inside the agent's
+# own work. Resolve the path in pure Python, no shelling out to `which`.
 def find_claude() -> str:
-    """Locate the claude binary."""
+    """Locate the claude binary (harness bootstrap, no shell execution)."""
     # Try PATH first
-    result = subprocess.run(["which", "claude"], capture_output=True, text=True)
-    if result.returncode == 0 and result.stdout.strip():
-        return result.stdout.strip()
+    found = shutil.which("claude")
+    if found:
+        return found
     # Fallback to known Homebrew location
     if Path(CLAUDE_BIN).exists():
         return CLAUDE_BIN

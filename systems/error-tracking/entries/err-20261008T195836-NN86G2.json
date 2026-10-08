@@ -1,0 +1,15 @@
+{
+  "id": "err-20261008T195836-NN86G2",
+  "timestamp": "2026-10-08T19:58:36Z",
+  "session": "2026-10-08-stage5-phase1",
+  "source": "self-detected",
+  "agent": "master",
+  "category": "routing-error",
+  "description": "Coordinator purity violation (Stage 5 report, Tim Rayburn 2026-10-07): the coordinator executed git operations directly instead of routing through skills/git/SKILL.md, Rigby's domain. Same failure as err-20260716T220729-FNAAP8. Two live paths remained: agents/master.md Exit ran the shutdown-cleanup workflow itself (including git), and workflow step files carried raw git commands: daily-review step-05-session-close.md ran git diff/add/commit/push directly, and morning-briefing step-04-synthesize-briefing.md listed a bare 'Git commit' in POST-COMPLETION.",
+  "correction": "agents/master.md Exit now spawns Rigby with workflows/shutdown-cleanup/workflow.md. daily-review step-05 now names Rigby as the executor, runs every command through skills/git/SKILL.md, and its Phase 2 header states git is executed by Rigby spawned by the coordinator. morning-briefing step-04's commit now routes to Rigby via the git skill. agents/routing.md Hard Stops gained a Git Operations row routing to Rigby, and agents/master.md gained a no-direct-git Hard Stop.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "All git is now routed to Rigby through skills/git/SKILL.md: master.md Exit spawns Rigby for shutdown-cleanup; daily-review and morning-briefing commit steps name Rigby and the git skill; routing.md and master.md Hard Stops forbid the coordinator running any git command.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": ["err-20260716T220729-FNAAP8"]
+}

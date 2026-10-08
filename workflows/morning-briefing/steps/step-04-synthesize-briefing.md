@@ -23,7 +23,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Chief
+**Agent:** Chief, spawned by the coordinator, never executed inline in the coordinator's session.
 **Input:** All working memory from steps 01-03, consolidated data from boot pulls (`data/clay-reminders-unified.json` for reminders, already in working memory)
 **Output:** Structured morning briefing delivered to the controller
 
@@ -171,13 +171,19 @@ Apply the standard post-step protocol from `reference/post-step-protocol.md`:
 
 1. **Working memory write** — filename `morning-briefing-YYYY-MM-DD-HHmmss.md`. The body must include full data source statuses, any conflicts or overdue items surfaced, and the complete briefing text as delivered. The filename timestamp pattern is mandatory — a date-only filename will fail eval assertions.
 
-2. **Eval record close** — use `--name morning-briefing --agent chief --trigger boot` and `--steps "watchtower-daily,step-01-gather-calendar,step-02-gather-tasks,step-03-meeting-context,step-04-synthesize-briefing"`. Status: `success` if all 3 paragraphs + calendar table delivered; `partial` if any data source failed; `failure` if briefing not delivered.
+2. **Eval record close** — use `--name morning-briefing --agent chief --trigger boot` and `--steps "watchtower-daily,step-01-gather-calendar,step-02-gather-tasks,step-03-meeting-context,step-04-synthesize-briefing,step-05-verify-briefing"`. Status: `success` if all 3 paragraphs + calendar table delivered; `partial` if any data source failed; `failure` if briefing not delivered.
 
-3. **State write** — `status: complete`, `current-step: step-04`.
+3. **State write** — `status: complete`, `current-step: step-05-verify-briefing`.
 
-4. **Git commit** — `"chore(chief): morning briefing run — working memory capture and state update"`
+4. **Commit**: route to **Rigby** via `skills/git/SKILL.md` with the message `"chore(chief): morning briefing run: working memory capture and state update"`. Chief never runs git directly; every git operation goes through the git skill.
 
 The morning briefing has been delivered. The controller drives from here.
+
+---
+
+## NEXT STEP
+
+Read fully and follow: `step-05-verify-briefing.md`, the adversarial verification pass. The briefing is already delivered; verification cross-checks its claims against source data and records the result. Do not close the workflow before it runs.
 <!-- system:end -->
 
 <!-- personal:start -->

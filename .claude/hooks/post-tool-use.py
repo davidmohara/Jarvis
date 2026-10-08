@@ -44,6 +44,11 @@ try:
 except Exception:
     _shared_infer_session_id = None
 try:
+    from step_audit import normalize_step, workflow_owner_agent
+except Exception:
+    normalize_step = None
+    workflow_owner_agent = None
+try:
     from hook_utils import open_turn_level_record_exists
 except Exception:
     open_turn_level_record_exists = None
@@ -791,8 +796,16 @@ def update_eval_record_step_frontmatter(eval_path: Path, file_path: str, content
         step_name = Path(file_path).name
 
         # Create or update step entry (tokens left null for step-complete.py to populate)
+        # Owning agent is resolved from the workflow definition in the file
+        # path (workflows/<name>/steps/<step>.md), not from the record's agent
+        # field, which is often a Claude Code subagent type label.
+        wf_match = re.search(r"workflows/([^/]+)/steps/", str(file_path))
+        owning = workflow_owner_agent(wf_match.group(1)) if (workflow_owner_agent and wf_match) else None
         step_entry = {
             "name": step_name,
+            "step_id": step_name,
+            "agent": eval_record.get("agent"),
+            "owning_agent": owning or frontmatter.get("agent") or eval_record.get("agent"),
             "started": frontmatter.get("started-at"),
             "completed": frontmatter.get("completed-at"),
             "duration_seconds": None,
@@ -814,8 +827,26 @@ def update_eval_record_step_frontmatter(eval_path: Path, file_path: str, content
             except Exception:
                 pass
 
-        # Add or update step in eval record (no token extraction here)
-        eval_record["steps"] = [s for s in eval_record.get("steps", []) if s["name"] != step_name]
+        # Add or update step in eval record (no token extraction here).
+        # Preserve any already-populated audit fields (model/tokens/cost) from
+        # a prior step-complete.py pass and normalize legacy string entries so
+        # the name comparison never crashes on an old record.
+        prior = None
+        for s in (eval_record.get("steps") or []):
+            n = normalize_step(s) if normalize_step else s
+            if isinstance(n, dict) and n.get("name") == step_name:
+                prior = n
+                break
+        if prior:
+            for k in ("model", "tokens_input", "tokens_output", "cost_usd", "agent", "owning_agent"):
+                if prior.get(k) is not None:
+                    step_entry[k] = prior[k]
+        eval_record["steps"] = [
+            normalize_step(s) if normalize_step else s
+            for s in (eval_record.get("steps") or [])
+            if not (isinstance(normalize_step(s) if normalize_step else s, dict)
+                    and (normalize_step(s) if normalize_step else s).get("name") == step_name)
+        ]
         eval_record["steps"].append(step_entry)
 
         # Update mechanical assessment for step completion

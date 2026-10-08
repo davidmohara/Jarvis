@@ -102,11 +102,16 @@ def main():
     workflow_name = sys.argv[1]
     checkpoint_name = sys.argv[2]
     after_step = sys.argv[3]
-    result = sys.argv[4]
+    # Normalize before membership: a case-variant or padded value ("Escalate",
+    # "escalate ") used to be recorded anyway while escalated_to_human stayed
+    # False — a genuine escalation misrecorded as a non-escalation (BT-02,
+    # err-20261008T202241-D5ZP2O). Invalid values are now rejected, not recorded.
+    result = sys.argv[4].strip().lower()
     reason = " ".join(sys.argv[5:])
 
     if result not in VALID_RESULTS:
-        print(f"Warning: result '{result}' not in {VALID_RESULTS} — recording anyway", file=sys.stderr)
+        print(f"Error: result '{sys.argv[4]}' not in {VALID_RESULTS} — refusing to record (normalize to pass/flag/escalate and retry)", file=sys.stderr)
+        sys.exit(1)
 
     eval_path = find_eval_record_with_retry(workflow_name)
     if not eval_path:
@@ -119,6 +124,17 @@ def main():
             f"after {RETRY_MAX_ATTEMPTS} retries over {total_wait}s — checkpoint result NOT recorded",
             file=sys.stderr,
         )
+        # An escalate that cannot be recorded durably must fail loudly: exiting
+        # 0 here used to drop a genuine punch-out with no trace anywhere (BT-02,
+        # err-20261008T202241-Q87WYK). The calling step sees the failure and the
+        # operator (David) is the fallback sink for the decision.
+        if result == "escalate":
+            print(
+                "GUARDRAIL_ESCALATE_UNRECORDED: escalation could not be durably recorded — "
+                "surface this decision to the human operator (David) directly",
+                file=sys.stderr,
+            )
+            sys.exit(2)
         sys.exit(0)
 
     try:

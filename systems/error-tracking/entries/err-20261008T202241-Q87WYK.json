@@ -1,0 +1,15 @@
+{
+  "id": "err-20261008T202241-Q87WYK",
+  "timestamp": "2026-10-08T20:22:41Z",
+  "session": "stage5-remediation-2026-10-08",
+  "source": "self-detected",
+  "agent": "rigby",
+  "category": "under-delivery",
+  "description": "Bypass test BT-02 (Phase 4B punch-out bypass testing) found that when systems/eval-harness/guardrail-checkpoint.py is called with result=escalate but no in-progress eval record exists for the workflow, it prints a warning, records nothing, and exits 0. A genuine punch-out in that window is silently dropped: the workflow halts but no durable record of the escalation exists anywhere.",
+  "correction": "An unrecordable escalate must fail loudly: exit non-zero so the calling step sees the failure, and warn that the escalation was not durably recorded so the operator (David) is surfaced as the fallback sink.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "Fix applied in guardrail-checkpoint.py: when result is escalate and no in-progress record is found after retries, the script exits 2 (distinct from the generic validation exit 1) with a loud warning naming the human operator as the fallback punch-out. Re-test to be captured in projects/stage-4-evidence/bypass-tests/ during the data window.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": ["err-20261008T202241-D5ZP2O"]
+}

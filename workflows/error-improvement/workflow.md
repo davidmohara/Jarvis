@@ -84,7 +84,7 @@ Before starting any step, read `state.yaml` and apply the correct case:
 
 ## EXECUTION
 
-Run steps in order. Read each step file fully before executing it. The `model` column is the Claude model to use for that step — spawn accordingly.
+Run steps in order. Read each step file fully before executing it. Each step runs as a spawned sub-agent owned by Rigby, never inline in the coordinator's session; the `model` column records that sub-agent's own model, not a manual model choice by the coordinator.
 
 | Step | File | Model | Description |
 |------|------|-------|-------------|

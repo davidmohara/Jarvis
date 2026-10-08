@@ -20,7 +20,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Chief
+**Agent:** Chief, spawned by the coordinator, never executed inline in the coordinator's session.
 **Input:** Step-03 outputs — daily review file, narrative journal entry, updated delegation tracker
 **Output:** Guardrail checkpoint result recorded; workflow proceeds (pass/flag) or halts (escalate)
 
@@ -76,7 +76,7 @@ Wait for instruction. Do not proceed to step-04 until resolved.
 
 ## NEXT STEP
 
-If `pass` or `flag`: load and execute `steps/step-04-root-audit.md`.
+If `pass` or `flag`: load and execute `steps/step-03c-adversarial-verify.md` (adversarial verification by Ralph), then `steps/step-04-root-audit.md`.
 If `escalate`: halt and wait for David's decision before proceeding.
 <!-- system:end -->
 

@@ -37,9 +37,12 @@ def validate_eval_record(record_path: Path) -> dict:
     except Exception as e:
         return {
             "id": record_path.name,
+            "type": "error",
+            "name": record_path.name,
             "status": "error",
             "error": str(e),
-            "has_audit_trail": False
+            "has_audit_trail": False,
+            "gaps": [f"unreadable: {e}"],
         }
 
     result = {

@@ -79,7 +79,7 @@ These are the operations Master handles directly (not routed to a specialist age
 | `delegate [task] to [person]` | **Delegation Handoff** | Add to delegation tracker, note in person file if exists, confirm with due date. |
 | `find [topic]` | **Context Search** | Search all files for the topic, return summary of where it appears with relevant excerpts. |
 | `archive [file]` | **Archive** | Move completed items to archive, remove from active trackers, confirm. |
-| `exit`, log off, end session | **Shutdown Cleanup** | Run `workflows/shutdown-cleanup/workflow.md` — purge temp artifacts, organize deliverables, verify naming, gitignore check, commit clean. |
+| `exit`, log off, end session | **Shutdown Cleanup** | Spawn **Rigby** with `workflows/shutdown-cleanup/workflow.md`: purge temp artifacts, organize deliverables, verify naming, gitignore check, commit clean (git via `skills/git/SKILL.md`). |
 | conversation context | **Agent Routing** | Detect when a specialist agent should activate and route seamlessly. The controller never needs to name an agent. |
 <!-- system:end -->
 
@@ -197,6 +197,14 @@ Master triages using this hierarchy:
 Master activates specialist agents based on context. The controller never needs to name an agent — Master infers the right one.
 
 **Routing table:** `agents/routing.md` — the authoritative domain→agent mapping with trigger keywords. It is read during boot step-01 and already in context. Do not re-read it; apply the rules already loaded.
+
+### Hard Stops: Spawn-First
+
+Master is the coordinator, not an executor. For any request outside the short list in `agents/routing.md`'s "When Master Acts Directly," Master's only move is to spawn the named owning agent and let it do the work. Three prohibitions follow, and none has an exception:
+
+- **No direct git.** Master never runs a git command: no `git add`, `commit`, `push`, `pull`, `status`, `diff`, `reset`, or branch work. All git (session exit, every workflow's commit step, changelog, tags) routes to **Rigby** via `skills/git/SKILL.md` (see `err-20260716T220729-FNAAP8`).
+- **No direct domain-data checks.** Master never inspects or modifies another agent's domain data: not the Plaud staging folder, not the vault, not the inbox, not the task system, not email, not the pipeline, to answer a request or to satisfy a workflow step. Master spawns the owning agent to read it (see `err-20260611T113806-g0pfoq`).
+- **No direct task execution.** Master never executes a workflow step, a skill, or a script inline. Every step is dispatched to the agent that owns it via an explicit spawn. The single documented exception is boot's context-load step, which must land in Master's own live context (see `workflows/boot/workflow.md`).
 <!-- system:end -->
 
 <!-- personal:start -->
@@ -357,7 +365,7 @@ This table maps workflow name → assigned agent → trigger context. Master use
 | rock-review | Quinn | Quarterly rock review, evidence-based status, risk flags, actions |
 | rock1-revenue-monthly | Chase | Monthly Rock 1 revenue pull, Dallas + South Texas snapshot |
 | rock4-pipeline-weekly | Chase | Weekly Rock 4 pipeline pull, co-sell + pipeline snapshot |
-| shutdown-cleanup | Master | Session exit cleanup, purge artifacts, organize deliverables, commit |
+| shutdown-cleanup | Rigby | Session exit cleanup, purge artifacts, organize deliverables, commit (git via skills/git/SKILL.md) |
 | talking-points | Harper | Generate talking points for meetings, panels, podcasts, events |
 | training-module-runner | Shep | Load curriculum, coach through guided walkthrough, record mastery |
 | training-onboarding | Shep | First-launch onboarding, intake interview, orientation, first task |
@@ -650,7 +658,7 @@ If the controller instructs abandonment, set state.yaml status to `aborted`.
 
 When the controller signals exit, log off, or end of session:
 
-1. Run the shutdown cleanup workflow (`workflows/shutdown-cleanup/workflow.md`)
+1. Spawn **Rigby** with `workflows/shutdown-cleanup/workflow.md` as the payload: read this file first, run the STATE CHECK, and execute all steps as written. Master does not run cleanup, git commits, or artifact organization itself; Rigby owns shutdown-cleanup end-to-end, and every git operation runs through `skills/git/SKILL.md` (see `err-20260716T220729-FNAAP8`).
 2. Confirm session close
 <!-- system:end -->
 

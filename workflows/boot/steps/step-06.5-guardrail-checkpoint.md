@@ -16,14 +16,25 @@ prior-run-2026-09-18:
 ## MANDATORY EXECUTION RULES
 
 1. This step reviews everything boot gathered and synthesized (steps 01–06: identity context, unified data pull, calendar, meeting context, the synthesized briefing, and the in-flight workflow scan) before step-07's hard completion gate. It is a review of content quality and safety, not a mechanical completeness check — step-07 already does that.
-2. You MUST record the checkpoint result via `guardrail-checkpoint.py` before proceeding.
+2. You MUST record the checkpoint result via `guardrail-checkpoint.py` before proceeding. Recording is not optional: the transition out of this step is machine-enforced (see MACHINE CHECKS below), and a missing checkpoint record fails the transition.
 3. `escalate` HALTS boot before it is marked complete and surfaces the finding to David — distinct from step-07's mechanical gate, which checks that steps ran, not that their content is sound.
+
+## MACHINE CHECKS (Stage 5 Phase 4A)
+
+This checkpoint is no longer a manual review whose outcome is only self-reported. The transition after this step is guarded by the deterministic verifier `workflows/boot/verify/step-06.5-guardrail-checkpoint.py`, which re-derives the outcome from disk before boot may proceed:
+
+- **Freshness**: every `data/*.json` file's age is computed against the step's own completion time; anything older than 24h is reported as a stale source.
+- **Briefing currency**: `workflows/morning-briefing/state.yaml` must carry the run date; a briefing state from a different day is surfaced as a finding.
+- **Checkpoint recorded**: this run's boot eval record must contain a `pre-completion-review` entry in its `guardrails` array. If the record exists but the entry does not, the transition fails and this step must run `guardrail-checkpoint.py`.
+- **Leakage scan**: the session index and the briefing working-memory file are scanned for credential-shaped strings.
+
+The manual checklist below remains as reviewer guidance, but it no longer carries the checkpoint on its own. The verifier's derived fields are written into the eval record's `guardrails[].computed_fields`, which is what the Stage 4 evidence bundle reads.
 
 ---
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Master
+**Agent:** boot subagent (Master persona), spawned by the coordinator at boot start, never executed inline in the coordinator's session (see `workflow.md`).
 **Input:** `accumulated-context` from steps 01–06
 **Output:** Guardrail checkpoint result recorded; workflow proceeds to step-07 (pass/flag) or halts (escalate)
 

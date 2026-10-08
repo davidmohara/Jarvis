@@ -59,6 +59,10 @@ try:
     from hook_utils import current_harness_session_id
 except Exception:
     current_harness_session_id = None
+try:
+    from step_audit import workflow_owner_agent
+except Exception:
+    workflow_owner_agent = None
 
 
 def new_id() -> str:
@@ -151,13 +155,18 @@ def find_stub(name: str, session_id: str) -> tuple:
     return candidates[0]
 
 
-def build_steps(step_list: list[str], started_dt: datetime, completed_dt: datetime) -> list[dict]:
+def build_steps(step_list: list[str], started_dt: datetime, completed_dt: datetime,
+                agent: str = None, owning_agent: str = None) -> list[dict]:
     """Build minimal step records from a name list.
 
     Since individual per-step timestamps are not tracked at the call site, we
     distribute the total elapsed time evenly across steps so that duration_seconds
     is a real number rather than null, and timestamps are monotonically ordered.
     Each step gets an equal slice of the total wall-clock window.
+
+    These are deliberately skeleton entries (model/tokens/cost left null).
+    merge_steps() below is what keeps a richer, already-captured step entry
+    from being clobbered by one of these.
     """
     n = len(step_list)
     if n == 0:
@@ -170,6 +179,9 @@ def build_steps(step_list: list[str], started_dt: datetime, completed_dt: dateti
         step_end = started_dt + timedelta(seconds=slice_seconds * (i + 1))
         steps.append({
             "name": name,
+            "step_id": name,
+            "agent": agent,
+            "owning_agent": owning_agent or agent,
             "started": step_start.isoformat().replace("+00:00", "Z"),
             "completed": step_end.isoformat().replace("+00:00", "Z"),
             "duration_seconds": round(slice_seconds, 1),
@@ -178,6 +190,36 @@ def build_steps(step_list: list[str], started_dt: datetime, completed_dt: dateti
             "data_source_failures": []
         })
     return steps
+
+
+def merge_steps(existing: list, skeleton: list) -> list:
+    """Merge skeleton step entries into an existing steps[] list without
+    destroying captured per-step audit data.
+
+    Root problem this closes: a run that recorded real per-step
+    model/tokens/cost via step-complete.py would have that data silently
+    overwritten the moment its workflow final step called close-eval-record.py
+    with --steps, because the old code did `stub["steps"] = steps` (replace).
+    That is exactly the artifact Tim's Stage 5 report asks for, so closing a
+    record must never downgrade it.
+
+    Behavior: for each name in the skeleton list, keep the existing entry if
+    one is already present (in any historical shape); only append a skeleton
+    entry for names that have no existing entry. Existing entries not named in
+    the skeleton list are preserved as-is.
+    """
+    def name_of(s):
+        if isinstance(s, dict):
+            return s.get("name", "")
+        return s
+
+    existing = list(existing or [])
+    have = {name_of(s) for s in existing}
+    for entry in skeleton:
+        if name_of(entry) not in have:
+            existing.append(entry)
+            have.add(name_of(entry))
+    return existing
 
 
 def main():
@@ -194,11 +236,22 @@ def main():
                     help="ISO8601 start time (optional)")
     ap.add_argument("--steps", default="",
                     help="Comma-separated step names that completed")
+    ap.add_argument("--steps-json", default=None,
+                    help="Path to a JSON file (or inline JSON array) of canonical step dicts "
+                         "carrying per-step model/tokens/cost. Merged by name into --steps.")
     ap.add_argument("--abort-reason", default=None,
                     help="Machine-readable abort cause (e.g. api-error, session-ended, tool-failure, "
                          "outage-suspected). Written to assessment.mechanical.abort_reason. "
                          "Only meaningful when --status aborted.")
     args = ap.parse_args()
+
+    # Every abort carries a reason. close-open-evals.py already stamps
+    # session-ended; an in-run abort closed through this path used to leave
+    # abort_reason null, which made aborted runs indistinguishable from
+    # unverifiable no-ops. Default to "unspecified" so the field is never
+    # absent on an aborted record.
+    if args.status == "aborted" and not args.abort_reason:
+        args.abort_reason = "unspecified"
 
     EVAL_RUNS_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -237,7 +290,27 @@ def main():
     duration = max(0.0, (now - started_dt).total_seconds())
 
     step_names = [s.strip() for s in args.steps.split(",") if s.strip()]
-    steps = build_steps(step_names, started_dt, now)
+    owner = workflow_owner_agent(args.name) if workflow_owner_agent else None
+    steps = build_steps(step_names, started_dt, now, agent=args.agent, owning_agent=owner)
+
+    # Optional explicit per-step audit detail: a JSON file (or inline JSON
+    # array) of canonical step dicts. This is how a caller supplies real
+    # model/tokens/cost per step at close time instead of the evenly-sliced
+    # skeleton. Entries are merged by name so a richer existing entry wins.
+    if args.steps_json:
+        try:
+            raw = args.steps_json
+            if os.path.exists(raw):
+                detail = json.loads(Path(raw).read_text())
+            else:
+                detail = json.loads(raw)
+            if isinstance(detail, list):
+                # Detail entries win over the skeleton: merge_steps keeps the
+                # first occurrence, so put the richer detail list first.
+                steps = merge_steps(detail, steps)
+        except Exception as e:
+            print(f"[close-eval] WARNING: could not parse --steps-json: {e}", file=sys.stderr)
+
     completed_flag = args.status in ("success", "partial")
     all_steps = bool(step_names) and args.status in ("success", "partial")
 
@@ -250,8 +323,10 @@ def main():
         stub["completed"] = completed_iso
         stub["duration_seconds"] = round(duration, 1)
         stub["status"] = args.status
-        if step_names:
-            stub["steps"] = steps
+        if steps:
+            # Merge, never replace: a step entry already carrying captured
+            # model/tokens/cost must survive the close.
+            stub["steps"] = merge_steps(stub.get("steps"), steps)
         stub["assessment"]["mechanical"]["completed"] = completed_flag
         stub["assessment"]["mechanical"]["all_steps_finished"] = all_steps
         if args.abort_reason is not None:

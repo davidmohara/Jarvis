@@ -50,4 +50,22 @@ for pattern in "${BLOCKED_PATTERNS[@]}"; do
     fi
 done
 
+# Git gate — coordinator purity enforcement (see skills/git/SKILL.md and
+# agents/routing.md). Raw `git <write-verb>` Bash commands are transparently
+# redirected onto the authorized wrapper via PreToolUse updatedInput (clean
+# single commands) or blocked with an instructive message (compound commands,
+# `git status`, unclassified verbs). Reads pass through untouched. git-gate.py
+# owns the classification; this script just delegates and relays: its stdout
+# JSON (the rewrite) is echoed so Claude Code applies it, and its exit code
+# becomes this hook's exit code. stderr flows through untouched, so block
+# messages reach the model as feedback.
+if echo "$PRIMARY" | grep -qE "^(git[[:space:]]|(\./)?skills/git/scripts/ies-git|python3[[:space:]]+skills/git/scripts/ies-git)"; then
+    GATE_OUT=$(printf '%s' "$INPUT" | python3 "$(dirname "$0")/git-gate.py")
+    GATE_RC=$?
+    if [ -n "$GATE_OUT" ]; then
+        printf '%s\n' "$GATE_OUT"
+    fi
+    exit $GATE_RC
+fi
+
 exit 0

@@ -1,0 +1,15 @@
+{
+  "id": "err-20261008T195836-0BTS1J",
+  "timestamp": "2026-10-08T19:58:36Z",
+  "session": "2026-10-08-stage5-phase1",
+  "source": "self-detected",
+  "agent": "master",
+  "category": "process-skip",
+  "description": "Coordinator purity violation (Stage 5 report, Tim Rayburn 2026-10-07): the coordinator directly inspected the plaud-ingest staging folder instead of spawning Knox to run the workflow. This is the same failure originally logged in err-20260611T113806-g0pfoq. The plaud-ingest step files named 'Agent: Knox' but did not state that the workflow is spawned by the coordinator and never executed inline, so a staging read by the coordinator still read as compliant.",
+  "correction": "Every plaud-ingest step file (steps 01-05b) now names Knox as the owning agent and states the step is spawned by the coordinator, never executed inline. workflows/plaud-ingest/workflow.md gained an explicit dispatch-model note that the coordinator never touches Plaud staging, the vault, or Monday directly. agents/master.md and agents/routing.md Hard Stops now forbid direct domain-data checks outright.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "Spawn-first rule added to agents/master.md (Hard Stops) and agents/routing.md (Hard Stops table + spawn-first paragraph): the coordinator never inspects or modifies another agent's domain data (Plaud staging, vault, inbox, task system, email, pipeline); it spawns the owning agent. plaud-ingest step files and workflow.md carry the explicit dispatch model.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": ["err-20260611T113806-g0pfoq"]
+}

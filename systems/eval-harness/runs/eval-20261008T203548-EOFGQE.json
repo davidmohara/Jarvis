@@ -1,0 +1,62 @@
+{
+  "id": "eval-20261008T203548-EOFGQE",
+  "agent_id": "ade9890434e82ec85",
+  "type": "agent",
+  "name": "claude-code-guide",
+  "workflow": null,
+  "agent": "claude-code-guide",
+  "session_id": "dad4630a-b85f-4b2b-826a-80b2b77632b5",
+  "trigger": "unknown",
+  "started": "2026-10-08T20:35:48.478747Z",
+  "completed": "2026-10-08T20:39:49.239870Z",
+  "duration_seconds": 240.76,
+  "status": "failure",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": false,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": [
+        "err-20261008T203600-9T2IVR"
+      ]
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": "negative",
+      "comment": "error-log-correlated: err-20261008T203600-9T2IVR",
+      "timestamp": "2026-10-08T20:39:49.239870Z"
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/dad4630a-b85f-4b2b-826a-80b2b77632b5/subagents/agent-ade9890434e82ec85.jsonl",
+  "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+  "total_tokens_input": 0,
+  "total_tokens_output": 0,
+  "total_cost_usd": 0.045,
+  "cost_estimation_note": "estimated based on claude-code-guide workflow type"
+}

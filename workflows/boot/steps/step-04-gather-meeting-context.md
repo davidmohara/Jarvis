@@ -27,7 +27,7 @@ prior-run-2026-09-18:
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Master
+**Agent:** boot subagent (Master persona), spawned by the coordinator at boot start, never executed inline in the coordinator's session (see `workflow.md`).
 **Input:** Calendar data from step-02 (morning briefing steps 01-02), Clay MCP
 **Output:** Meeting prep context and Clay reminders/birthdays added to accumulated-context
 
@@ -43,8 +43,8 @@ prior-run-2026-09-18:
 
 ## YOUR TASK
 
-1. **Run morning briefing step-03.**
-   Read and follow `workflows/morning-briefing/steps/step-03-*.md` in full. This step gathers meeting prep context for flagged meetings identified in steps 01-02.
+1. **Spawn Chief for morning briefing step-03.**
+   Spawn **Chief** with `workflows/morning-briefing/steps/step-03-*.md`, the owning agent runs it in full. This step gathers meeting prep context for flagged meetings identified in steps 01-02.
 
 2. **Check Clay for the next 7 days:**
    - Pull upcoming reminders via Clay MCP

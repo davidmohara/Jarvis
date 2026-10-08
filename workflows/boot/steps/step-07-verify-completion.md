@@ -28,7 +28,7 @@ prior-run-2026-09-18:
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Master
+**Agent:** boot subagent (Master persona), spawned by the coordinator at boot start, never executed inline in the coordinator's session (see `workflow.md`).
 **Input:** Frontmatter status of steps 01–06
 **Output:** Verification report surfaced to controller; boot marked complete only if all steps pass
 

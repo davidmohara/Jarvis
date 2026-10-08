@@ -6,49 +6,48 @@ Lightweight script (~10-20ms overhead) that updates eval records directly.
 """
 
 import json
+import os
 import sys
-import hashlib
 from pathlib import Path
 from datetime import datetime, timezone
 
 # Derive IES_ROOT from this script's location
 IES_ROOT = Path(__file__).resolve().parents[2]
-EVAL_RUNS_DIR = IES_ROOT / "systems" / "eval-harness" / "runs"
-PRICING_PATH = IES_ROOT / "systems" / "eval-harness" / "model-pricing.json"
 
+# Runs dir is overridable so a dry test can point at a temp dir instead of
+# polluting the live runs/ directory (see --runs-dir below).
+EVAL_RUNS_DIR = Path(os.environ.get("IES_EVAL_RUNS_DIR",
+                                   IES_ROOT / "systems" / "eval-harness" / "runs"))
 
-def load_pricing() -> dict:
-    try:
-        with open(PRICING_PATH, "r") as f:
-            return json.load(f).get("models", {})
-    except Exception:
-        return {}
+sys.path.insert(0, str(IES_ROOT / "systems" / "eval-harness"))
+from step_audit import compute_cost, upsert_step, workflow_owner_agent  # noqa: E402
 
-
-def compute_cost(model: str | None, tokens_in: int | None, tokens_out: int | None) -> float | None:
-    """Compute cost in USD from token counts. Returns None if inputs are incomplete or model unknown."""
-    if not model or tokens_in is None or tokens_out is None:
-        return None
-    rates = load_pricing().get(model.lower())
-    if not rates:
-        return None
-    cost = (tokens_in / 1_000_000) * rates["input_per_mtok"] + (tokens_out / 1_000_000) * rates["output_per_mtok"]
-    return round(cost, 6)
+# Flags this script understands; their values must never be read as the
+# positional started_at/completed_at args.
+_VALUE_FLAGS = ("--tokens-in", "--tokens-out", "--model", "--agent", "--step-id", "--runs-dir")
 
 
 def parse_flag_args(argv: list[str]) -> dict:
-    """Pull --tokens-in, --tokens-out, --model out of the tail of argv."""
-    flags = {"tokens_in": None, "tokens_out": None, "model": None}
+    """Pull the optional --flags out of the tail of argv."""
+    flags = {"tokens_in": None, "tokens_out": None, "model": None,
+             "agent": None, "step_id": None, "runs_dir": None}
     i = 0
     while i < len(argv):
-        if argv[i] == "--tokens-in" and i + 1 < len(argv):
-            flags["tokens_in"] = int(argv[i + 1])
-            i += 2
-        elif argv[i] == "--tokens-out" and i + 1 < len(argv):
-            flags["tokens_out"] = int(argv[i + 1])
-            i += 2
-        elif argv[i] == "--model" and i + 1 < len(argv):
-            flags["model"] = argv[i + 1]
+        arg = argv[i]
+        if arg in _VALUE_FLAGS and i + 1 < len(argv):
+            value = argv[i + 1]
+            if arg == "--tokens-in":
+                flags["tokens_in"] = int(value)
+            elif arg == "--tokens-out":
+                flags["tokens_out"] = int(value)
+            elif arg == "--model":
+                flags["model"] = value
+            elif arg == "--agent":
+                flags["agent"] = value
+            elif arg == "--step-id":
+                flags["step_id"] = value
+            elif arg == "--runs-dir":
+                flags["runs_dir"] = value
             i += 2
         else:
             i += 1
@@ -65,7 +64,7 @@ def parse_started(ts) -> "datetime | None":
     except Exception:
         return None
 
-def find_most_recent_eval_record(workflow_name: str) -> Path | None:
+def find_most_recent_eval_record(workflow_name: str, runs_dir=None) -> Path | None:
     """Find the most recent IN-PROGRESS eval record for this workflow.
 
     Only records with status == "in-progress" are eligible — a closed/success
@@ -79,11 +78,12 @@ def find_most_recent_eval_record(workflow_name: str) -> Path | None:
     EARLIER than '...06Z' even within the same second) — see
     err-20260912T080901-GNRQ9D.
     """
-    if not EVAL_RUNS_DIR.exists():
+    base_dir = Path(runs_dir) if runs_dir else EVAL_RUNS_DIR
+    if not base_dir.exists():
         return None
 
     records = []
-    for f in EVAL_RUNS_DIR.glob("eval-*.json"):
+    for f in base_dir.glob("eval-*.json"):
         try:
             with open(f, "r") as file:
                 data = json.load(file)
@@ -104,7 +104,8 @@ def find_most_recent_eval_record(workflow_name: str) -> Path | None:
 def main():
     if len(sys.argv) < 4:
         print("Usage: record-step.py <workflow_name> <step_name> <status> [started_at] [completed_at] "
-              "[--tokens-in N] [--tokens-out N] [--model sonnet|haiku]")
+              "[--tokens-in N] [--tokens-out N] [--model sonnet|haiku] "
+              "[--agent <agent>] [--step-id <id>] [--runs-dir <dir>]")
         sys.exit(1)
 
     workflow_name = sys.argv[1]
@@ -119,7 +120,7 @@ def main():
     positional = []
     i = 0
     while i < len(rest):
-        if rest[i] in ("--tokens-in", "--tokens-out", "--model"):
+        if rest[i] in _VALUE_FLAGS:
             i += 2
             continue
         positional.append(rest[i])
@@ -129,13 +130,15 @@ def main():
     tokens_in = flags["tokens_in"]
     tokens_out = flags["tokens_out"]
     model = flags["model"]
+    agent = flags["agent"]
+    step_id = flags["step_id"]
     cost_usd = compute_cost(model, tokens_in, tokens_out)
 
     # Find the most recent in-progress eval record for this workflow.
     # If there is no exact in-progress match, FAIL LOUDLY rather than silently
     # picking (and overwriting) a fallback record — the silent fallback is the
     # failure mode behind err-20260911T080849-3TCTQW and err-20260912T080901-GNRQ9D.
-    eval_path = find_most_recent_eval_record(workflow_name)
+    eval_path = find_most_recent_eval_record(workflow_name, runs_dir=flags["runs_dir"])
     if not eval_path:
         print(f"Error: no in-progress eval record found for workflow '{workflow_name}' — "
               f"step '{step_name}' NOT recorded. Create one first with "
@@ -159,9 +162,15 @@ def main():
             except Exception:
                 pass
 
-        # Create or update step entry
+        # Create or update step entry. `agent` preserves whatever the harness
+        # recorded on the run; `owning_agent` is the authoritative IES agent
+        # that owns the workflow (resolved from workflows/<name>/workflow.md),
+        # which is what attribution should read.
         step_entry = {
             "name": step_name,
+            "step_id": step_id or step_name,
+            "agent": agent or eval_record.get("agent"),
+            "owning_agent": workflow_owner_agent(workflow_name) or agent or eval_record.get("agent"),
             "started": started_at,
             "completed": completed_at,
             "duration_seconds": duration_seconds,
@@ -174,9 +183,9 @@ def main():
             "cost_usd": cost_usd
         }
 
-        # Add or update step in eval record
-        eval_record["steps"] = [s for s in eval_record.get("steps", []) if s["name"] != step_name]
-        eval_record["steps"].append(step_entry)
+        # Add or update step in eval record (backward-compatible dedup that
+        # tolerates legacy string entries in an existing steps[] list).
+        upsert_step(eval_record, step_entry)
 
         # Update mechanical assessment for step completion
         if status == "complete":

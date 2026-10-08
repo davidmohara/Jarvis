@@ -15,6 +15,8 @@ cost_tracking_note: "Eval harness must capture total_cost_usd via eval-agent-sto
 **Agent:** Chief — Daily Operations & Execution
 
 **Architecture:** Two modes. Interactive (default): Chief guides the controller through a structured shutdown, then updates system files. Auto (pass `auto` as argument): fully autonomous, no user interaction — synthesizes from data sources and writes narrative to the knowledge system only.
+
+**Dispatch model:** This workflow runs as a **Chief** subagent spawned by the coordinator, never inline in the coordinator's session. Chief executes the steps below; the root audit hands off to Rigby and the git commit routes to Rigby via `skills/git/SKILL.md`.
 <!-- system:end -->
 
 <!-- personal:start -->
@@ -84,7 +86,10 @@ Check `$ARGUMENTS` for the word `auto` (case-insensitive).
 - If `auto` is present: read fully and follow `steps/step-auto.md`. Do not load any other step files.
 - Otherwise: read fully and follow `steps/step-01-capture.md` to begin the interactive workflow.
 - After step-03, run `steps/step-03b-guardrail-checkpoint.md` — an automated review gate before anything is committed. `escalate` halts the workflow for a controller decision; `pass`/`flag` continue.
+- Then run `steps/step-03c-adversarial-verify.md`, which spawns **Ralph** with `workflows/daily-review-verification/workflow.md` (the output-vs-source-data and completion-vs-state lens). Ralph re-derives every completion claim from recorded state and returns a verdict table; the result is recorded as an `adversarial-verification` guardrail checkpoint. This runs before the commit, so a finding can still be acted on.
 - After step-04, proceed to `steps/step-05-session-close.md` to finalize the session and commit all changes.
+
+**Deterministic step guardrails:** Every step transition is machine-checked. The verifiers in `workflows/daily-review/verify/` run at each step's completion (dispatched by `.claude/hooks/step-complete.py`) and record a pass/retry/fail verdict with derived fields on the run's eval record. Manual review is not the gate.
 
 <!-- system:end -->
 

@@ -1,0 +1,80 @@
+{
+  "id": "eval-20261008T202433-L9OBCM",
+  "agent_id": "ac869446a7218e0ca",
+  "type": "agent",
+  "name": "fork",
+  "workflow": null,
+  "agent": "fork",
+  "session_id": "c874d35e-054f-41ca-b976-108202739095",
+  "trigger": "unknown",
+  "started": "2026-10-08T20:24:33.065771Z",
+  "completed": null,
+  "duration_seconds": null,
+  "status": "in-progress",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": null,
+      "all_steps_finished": null,
+      "tool_failures": 4,
+      "error_ids": [],
+      "tool_failure_log": [
+        {
+          "tool": "Bash",
+          "error": "Exit code 5\nrefused: credential-shaped content in staged diff: AKIAIOSFODNN7EXAMPLE..., token = 'abcdef12345...\nSTOP. Surface to David immediately.",
+          "duration_ms": 283,
+          "timestamp": "2026-10-08T17:02:56.384858"
+        },
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\nTraceback (most recent call last):\n  File \"/Users/davidohara/develop/improving/AI-Course-Development/AI-Bootcamp/Trainer/Training-Weeks/build_decks.py\", line 761, in <module>\n    sys.exit(main())\n             ~~~~^^\n  File \"/Users/davidohara/develop/improving/AI-Course-Development/AI-Bootcamp/Trainer/Training-Weeks/build_decks.py\", line 752, in main\n    w1 = build_deck(HERE / \"Bootcamp-Week-1.deck.md\",\n                    HERE / \"Bootcamp-Week-1.pptx\", WEEK1_MANIFEST)\n  File \"/Users/davidohara/develop/improving/AI-Course-Development/AI-Bootcamp/Trainer/Training-Weeks/build_decks.py\", line 726, in build_deck\n    set_notes(ns, notes)\n    ~~~~~~~~~^^^^^^^^^^^\n  File \"/Users/davidohara/develop/improving/AI-Course-Development/AI-Bootcamp/Trainer/Training-Weeks/build_decks.py\", line 242, in set_notes\n    slide.notes_slide.notes_text_frame.text = notes\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAttributeError: 'NoneType' object has no attribute 'text' and no __dict__ for setting new attributes",
+          "duration_ms": 758,
+          "timestamp": "2026-10-08T17:05:15.130271"
+        },
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\nTraceback (most recent call last):\n  File \"<stdin>\", line 2, in <module>\n  File \"/opt/homebrew/lib/python3.14/site-packages/pptx/api.py\", line 31, in Presentation\n    presentation_part = Package.open(pptx).main_document_part\n                        ~~~~~~~~~~~~^^^^^^\n  File \"/opt/homebrew/lib/python3.14/site-packages/pptx/opc/package.py\", line 82, in open\n    return cls(pkg_file)._load()\n           ~~~~~~~~~~~~~~~~~~~^^\n  File \"/opt/homebrew/lib/python3.14/site-packages/pptx/opc/package.py\", line 160, in _load\n    pkg_xml_rels, parts = _PackageLoader.load(self._pkg_file, cast(\"Package\", self))\n                          ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/lib/python3.14/site-packages/pptx/opc/package.py\", line 190, in load\n    return cls(pkg_file, package)._load()\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^\n  File \"/opt/homebrew/lib/python3.14/site-packages/pptx/opc/package.py\", line 194, in _load\n    parts, xml_rels = self._parts, self._xml_rels\n                      ^^^^^^^^^^^\n  File \"/opt/homebrew/lib/python3.14/site-packages/pptx/util.py\", line 191, in __get__\n    value = self._fget(obj)\n  File \"/opt/homebrew/lib/python3.14/site-packages/pptx/opc/package.py\", line 222, in _parts\n    content_types = self._content_types\n                    ^^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/lib/python3.14/site-packages/pptx/util.py\", line 191, in __get__\n    value = self._fget(obj)\n  File \"/opt/homebrew/lib/python3.14/site-packages/pptx/opc/package.py\", line 207, in _content_types\n    return _ContentTypeMap.from_xml(self._package_reader[CONTENT_TYPES_URI])\n                                    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/lib/python3.14/site-packages/pptx/opc/serialized.py\", line 38, in __getitem__\n    return self._blob_reader[pack_uri]\n           ^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/lib/python3.14/site-packages/pptx/util.py\", line 191, in __get__\n    value = self._fget(obj)\n  File \"/opt/homebrew/lib/python3.14/site-packages/pptx/opc/serialized.py\", line 52, in _blob_reader\n    return _PhysPkgReader.factory(self._pkg_file)\n           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/lib/python3.14/site-packages/pptx/opc/serialized.py\", line 144, in factory\n    raise PackageNotFoundError(\"Package not found at '%s'\" % pkg_file)\npptx.exc.PackageNotFoundError: Package not found at '../../AI-Deep-Learning-Program/Trainer/Training-Sessions/Session-5.pptx'",
+          "duration_ms": 221,
+          "timestamp": "2026-10-08T17:06:17.333298"
+        },
+        {
+          "tool": "Bash",
+          "error": "Exit code 5\nrefused: credential-shaped content in staged diff: AKIAIOSFODNN7EXAMPLX...\nSTOP. Surface to David immediately.",
+          "duration_ms": 352,
+          "timestamp": "2026-10-08T17:06:45.138094"
+        }
+      ]
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": []
+}

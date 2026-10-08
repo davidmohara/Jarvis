@@ -13,6 +13,8 @@ model: sonnet
 **Agent:** Ralph — Verification Agent
 
 **Architecture:** Sequential 2-step workflow. Step 01 builds the manifest from the Phase 2 completion report. Step 02 spawns Ralph, receives his verdict, and surfaces any re-run requirements to Master.
+
+**Adversarial lens (boot):** Ralph verifies boot completion claims against ground truth: `workflows/*/state.yaml`, the `data/*.json` unified pulls, and `systems/eval-harness/` records, rather than against the producing agent's summary. He re-derives "was this pulled" from the file's own timestamps and contents, and treats a claimed-but-unevidenced task as ⚠️ Unverified. This is the boot lens in `agents/adversarial-isolation.md`.
 <!-- system:end -->
 
 <!-- personal:start -->
@@ -29,6 +31,7 @@ model: sonnet
 |--------|-------------|---------------|
 | Phase 2 completion report | Claimed status of each Phase 2 task | Passed from Master as accumulated-context |
 | Workflow state files | `state.yaml` for each Phase 2 workflow | File system read |
+| Unified data files | `data/*.json` written by boot steps 01.2 and 01.5 (email, omnifocus, calendar, clay, jarvis-inbox, reminders) | File system read |
 | Eval harness skill runs | `systems/eval-harness/skill-runs/` per-skill records | File system read |
 | Working memory | `memory/working/` entries from today | File system read |
 
@@ -36,8 +39,11 @@ model: sonnet
 
 - `morning_briefing_state` = `workflows/morning-briefing/state.yaml`
 - `plaud_ingest_state` = `workflows/plaud-ingest/state.yaml`
-- `lead_review_state` = `workflows/lead-review/state.yaml`
 - `jarvis_inbox_run` = `systems/eval-harness/skill-runs/jarvis-inbox-latest.json`
+- `calendar_data` = `data/calendar-unified.json`
+- `email_data` = `data/email-unified.json`
+- `jarvis_inbox_data` = `data/jarvis-inbox-unified.json`
+- `reminders_data` = `data/reminders.json`
 - `working_memory_dir` = `memory/working/`
 <!-- system:end -->
 

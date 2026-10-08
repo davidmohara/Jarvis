@@ -61,7 +61,13 @@ def main():
 
     notes = state.get("last-run-notes") or ""
     briefing_delivered = bool(notes) and len(notes) >= MIN_CONTENT_LENGTH
-    status_ok = state.get("status") == "complete" and state.get("current-step") == "step-04"
+    # The workflow gained a terminal adversarial-verification step (step-05) after
+    # this step, so current-step legitimately advances to step-05 once verification
+    # runs. Accept either the step-04 value (pre-verification) or the step-05 value
+    # (post-verification) so the guardrail does not false-fail on the new tail step.
+    status_ok = state.get("status") == "complete" and state.get("current-step") in (
+        "step-04", "step-05", "step-05-verify-briefing",
+    )
 
     working_dir = ies_root / "memory" / "working"
     matches = []

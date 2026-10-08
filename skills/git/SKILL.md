@@ -33,6 +33,19 @@ trigger_keywords:
 **This skill is the only authorized path for all git operations in Jarvis.** Read it before executing any git command — commit, push, branch, merge, or PR creation. No exceptions.
 <!-- system:end -->
 
+<!-- system:start -->
+## Mechanical Enforcement (git-gate + ies-git wrapper)
+
+The rules below are enforced by code, not just prose, as of 2026-10-08 (coordinator purity, Stage 5 remediation):
+
+- **`.claude/hooks/git-gate.py`** (called by `.claude/hooks/pre-tool-use.sh` at PreToolUse) classifies every Bash `git ...` command. Read verbs pass through. A clean single git **write** verb (add, commit, push, ...) is transparently **rewritten** via PreToolUse `updatedInput` to run through the wrapper instead — the model's raw `git commit ...` executes as `python3 skills/git/scripts/ies-git commit ...`. Compound git writes (chained with `&&`, `|`, `;`, newlines), `git status`, and unclassified verbs are **blocked** with an instructive message. This mechanically enforces the Atomic Command Rule and the `git status` prohibition for the common paths.
+- **`skills/git/scripts/ies-git`** (the authorized execution path) runs one git operation per call via an argv list, never a shell. It refuses `git status` (with lock-free alternatives), refuses destructive operations (`reset --hard`, `clean -f`, force push) unless `--allow-destructive` is passed (force push to **main** is refused unconditionally), lints Conventional Commits on every commit, refuses commits when gated directories changed unless `--ack-gated` is passed (the Pre-Flight Gate, mechanized), scans staged content for credential-shaped patterns before add/commit, and appends every operation **and every policy refusal** to `systems/eval-harness/git-ops.jsonl` (which doubles as continuously-accumulating bypass-attempt evidence).
+- Wrapper flags consumed by the wrapper itself: `--ack-gated`, `--allow-destructive`.
+- `updatedInput` empirical note (2026-10-08, verified live both ways): the field must carry **only** the changed fields (`{"command": ...}`). A full tool_input copy is silently ignored by the current Claude Code build and the original command runs.
+- Hook edits on this OneDrive/FUSE mount can take a turn (sometimes several calls) to propagate to the hook process; probe with a harmless classified command after editing before relying on new gate behavior.
+- David's own terminal is unaffected: hooks bind Claude sessions only (`CLAUDECODE=1`).
+<!-- system:end -->
+
 <!-- personal:start -->
 ## Jurisdiction
 

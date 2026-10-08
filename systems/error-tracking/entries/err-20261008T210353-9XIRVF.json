@@ -1,0 +1,15 @@
+{
+  "id": "err-20261008T210353-9XIRVF",
+  "timestamp": "2026-10-08T21:03:53Z",
+  "session": "stage5-remediation-2026-10-08",
+  "source": "self-detected",
+  "agent": "rigby",
+  "category": "tool-misuse",
+  "description": "While building the git-gate PreToolUse redirect, the first implementation passed the full tool_input object (including description and other fields) as updatedInput. This build silently ignored it and ran the original command instead, so a raw git write executed with no rewrite and no audit entry, with no error surfaced anywhere. Verified empirically both ways via a live git-version probe: stdout JSON decisions (deny) are honored, and updatedInput with ONLY the changed field ({\"command\": ...}) is applied; the full-object shape is not.",
+  "correction": "updatedInput must carry only the changed fields, exactly matching the documented example shape ({\"command\": ...}). Fixed in .claude/hooks/git-gate.py with the empirical note inline; regression-cased in .claude/hooks/tests/test_git_gate.py.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "git-gate.py emits minimal-shape updatedInput with the empirical finding documented inline and a test asserting the exact shape. Secondary finding recorded in skills/git/SKILL.md: hook script edits on this OneDrive/FUSE mount can take a turn (sometimes several calls) to propagate to the hook process, so gate changes must be probed with a harmless classified command before relying on them.",
+  "fix_status": "applied",
+  "severity": "minor",
+  "related_entries": ["err-202601008T203600-9T2IVR"]
+}

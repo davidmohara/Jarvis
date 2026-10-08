@@ -112,7 +112,11 @@ def invoke_step_complete_hooks(eval_record: dict, transcript_path: str, ies_root
                 "step_content": content,
                 "transcript_path": effective_transcript_path,
                 "session_id": eval_record.get("session_id", ""),
-                "workflow_name": workflow_to_process
+                "workflow_name": workflow_to_process,
+                # Target this exact record rather than letting step-complete.py
+                # re-derive "the most recent record for this session", which
+                # can pick a different, unrelated open record.
+                "eval_record_id": eval_record.get("id")
             }
             subprocess.run(
                 ["python3", str(ies_root / ".claude" / "hooks" / "step-complete.py")],

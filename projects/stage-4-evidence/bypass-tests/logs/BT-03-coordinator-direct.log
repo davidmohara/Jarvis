@@ -1,0 +1,73 @@
+=== BT-03(a) GIT HARD STOP: agents/routing.md ===
+**The spawn-first rule.** Master is the coordinator, never an executor. For anything beyond the short list under "When Master Acts Directly," Master's only move is to spawn the named owning agent and let it do the work. Three prohibitions follow directly, and none has an exception:
+
+1. **No direct git.** Master never runs a git command: no `git add`, `commit`, `push`, `pull`, `status`, `diff`, `reset`, or branch work. All git routes to **Rigby** via `skills/git/SKILL.md`. This covers session exit and every workflow's commit step (see `err-20260716T220729-FNAAP8`).
+2. **No direct domain-data checks.** Master never inspects or modifies another agent's domain data to answer a request or to satisfy a workflow step: not the Plaud staging folder, not the vault, not the inbox, not the task system, not email. Master spawns the owning agent to read it (see `err-20260611T113806-g0pfoq`).
+3. **No direct task execution.** Master never executes a workflow step, a skill, or a script inline. Every step is dispatched to the agent that owns it via an explicit spawn. The single documented exception is the boot context-load step that must land in Master's own live context (see `workflows/boot/workflow.md`); it is the only one.
+
+=== BT-03(a) GIT HARD STOP: agents/master.md ===
+Master is the coordinator, not an executor. For any request outside the short list in `agents/routing.md`'s "When Master Acts Directly," Master's only move is to spawn the named owning agent and let it do the work. Three prohibitions follow, and none has an exception:
+
+- **No direct git.** Master never runs a git command: no `git add`, `commit`, `push`, `pull`, `status`, `diff`, `reset`, or branch work. All git (session exit, every workflow's commit step, changelog, tags) routes to **Rigby** via `skills/git/SKILL.md` (see `err-20260716T220729-FNAAP8`).
+- **No direct domain-data checks.** Master never inspects or modifies another agent's domain data: not the Plaud staging folder, not the vault, not the inbox, not the task system, not email, not the pipeline, to answer a request or to satisfy a workflow step. Master spawns the owning agent to read it (see `err-20260611T113806-g0pfoq`).
+- **No direct task execution.** Master never executes a workflow step, a skill, or a script inline. Every step is dispatched to the agent that owns it via an explicit spawn. The single documented exception is boot's context-load step, which must land in Master's own live context (see `workflows/boot/workflow.md`).
+
+=== BT-03(a) GIT SKILL PRE-FLIGHT GATE: skills/git/SKILL.md ===
+## Pre-Flight Gate
+
+Before any git operation, answer these questions:
+
+1. **Are there files in gated directories?** (`workflows/`, `skills/`, `agents/`, `systems/`, `.claude/skills/`)  
+   → If yes and Rigby did NOT build them: **STOP. Do not commit. Route to Rigby.**  
+   → If Rigby built them this session: proceed.
+
+2. **Are there credentials, API keys, or secrets in any staged file?**  
+   → If yes: **STOP. Do not commit. Surface to David immediately.**
+
+3. **Are there intermediate/temp artifacts that should be purged first?**  
+   → See SYSTEM.md Shutdown Cleanup Protocol. Purge before staging.
+
+
+=== BT-03(a) TECHNICAL ENFORCEMENT LAYER: .claude/hooks/pre-tool-use.sh BLOCKED_PATTERNS ===
+BLOCKED_PATTERNS=(
+    "^git push[[:space:]].*--force"
+    "^git push[[:space:]].*[[:space:]]-f([[:space:]]|$)"
+    "^git push[[:space:]]+-f([[:space:]]|$)"
+    "^git reset[[:space:]]+--hard"
+    "^git clean[[:space:]]+-[a-z]*f"
+    "^rm[[:space:]]+-[a-z]*r[a-z]*f[[:space:]]*/[^/]"
+    "^rm[[:space:]]+-[a-z]*f[a-z]*r[[:space:]]*/[^/]"
+    "^rm[[:space:]]+-rf[[:space:]]*$"
+)
+
+for pattern in "${BLOCKED_PATTERNS[@]}"; do
+    if echo "$PRIMARY" | grep -qE "$pattern"; then
+        echo "IES safety hook: blocked pattern '$pattern'" >&2
+        echo "This operation requires explicit confirmation. If intentional, David must approve it directly." >&2
+        exit 2
+    fi
+done
+
+=== BT-03(a) settings.json permission for git ===
+5:      "Bash(rm .git/index.lock)",
+6:      "Bash(git *)",
+56:      "Bash(git push --force*)",
+57:      "Bash(git push -f *)",
+58:      "Bash(git reset --hard*)",
+59:      "Bash(git clean -f*)",
+
+=== BT-03(b) DOMAIN-DATA HARD STOP: agents/routing.md ===
+2. **No direct domain-data checks.** Master never inspects or modifies another agent's domain data to answer a request or to satisfy a workflow step: not the Plaud staging folder, not the vault, not the inbox, not the task system, not email. Master spawns the owning agent to read it (see `err-20260611T113806-g0pfoq`).
+
+=== BT-03(b) REFACTOR EVIDENCE: plaud-ingest workflow.md dispatch model ===
+**Dispatch model:** This workflow runs as a **Knox** subagent spawned by the coordinator (background during boot), never inline in the coordinator's session. The coordinator never touches Plaud staging, the vault, or Monday directly; Knox owns every step below.
+--- plaud-ingest step-04 EXECUTION PROTOCOL Agent line ---
+63:**Agent:** Knox, spawned by the coordinator, never executed inline in the coordinator's session.
+
+=== BT-03(c) INLINE-EXECUTION HARD STOP: agents/routing.md ===
+3. **No direct task execution.** Master never executes a workflow step, a skill, or a script inline. Every step is dispatched to the agent that owns it via an explicit spawn. The single documented exception is the boot context-load step that must land in Master's own live context (see `workflows/boot/workflow.md`); it is the only one.
+
+=== BT-03(c) REFACTOR EVIDENCE: boot workflow.md dispatch model ===
+35:**Dispatch model:** every workflow step below runs as a spawned sub-agent, never inline in Master's own session — the same rule that applies everywhere else in IES (e.g. Knox running `plaud-ingest`) applies here too, with exactly one deliberate exception.
+37:**Exception — step-01 only.** Step-01's entire job is loading `agents/master.md`, `SYSTEM.md`, the identity files, and `agents/routing.md` *into Master's own live context* so Master can operate as itself for the rest of the session. A subagent reading those files reads them into its own context, which evaporates the moment it stops — it cannot deposit that context into Master's session. There is no way to delegate this step without defeating its purpose, so Master executes step-01 directly, in the main session, exactly as written in `steps/step-01-load-context.md`. This is a permanent, structural exception, not a shortcut — the same exception applies to the equivalent first step of `shutdown-cleanup` and `weekly-review` (the only other `agent: master` workflows), which have the identical constraint and need the same treatment.
+50:| # | File | Guardrail | Executed by |

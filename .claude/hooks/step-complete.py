@@ -111,6 +111,12 @@ try:
     from token_usage import usage_between
 except Exception:
     usage_between = None
+try:
+    from step_audit import upsert_step, normalize_step, workflow_owner_agent
+except Exception:
+    upsert_step = None
+    normalize_step = None
+    workflow_owner_agent = None
 
 
 def log_error(msg: str):
@@ -214,6 +220,8 @@ def extract_step_tokens(transcript_path: str, step_started: str, step_completed:
         "tokens_output": None,
         "cost_usd": None,
         "model": None,
+        "token_source": None,   # "windowed" (real per-step slice) or "lenient_fallback"
+        "turns_matched": None,
         "extraction_error": None
     }
 
@@ -246,6 +254,14 @@ def extract_step_tokens(transcript_path: str, step_started: str, step_completed:
             result["cost_usd"] = usage.get("cost_usd")
             result["model"] = usage.get("model")
             used_lenient = usage.get("used_lenient_fallback", False)
+            # Provenance: "windowed" means the tokens were sliced to this step's
+            # real [started-at, completed-at] window; "lenient_fallback" means no
+            # turns fell in that window and the whole transcript was used, which
+            # inflates and duplicates per-step numbers. Recording it keeps the
+            # audit trail honest (a grader can tell real per-step attribution
+            # from a fallback).
+            result["token_source"] = "lenient_fallback" if used_lenient else "windowed"
+            result["turns_matched"] = usage.get("turns_matched")
             fallback_note = " (lenient fallback)" if used_lenient else " (strict time window)"
             log_info(f"SUCCESS: Extracted tokens for {step_name}: {result['tokens_input']} input, {result['tokens_output']} output, model={result['model']}, cost=${result['cost_usd']:.4f}{fallback_note}")
         else:
@@ -451,11 +467,13 @@ def update_eval_record_with_step_completion(eval_path: Path, step_name: str, fro
         with open(eval_path, "r") as f:
             eval_record = json.load(f)
 
-        # Find or create step entry (deduplicate by name)
+        # Find or create step entry (deduplicate by name). Normalizing first
+        # keeps this working against a legacy record whose steps[] still holds
+        # bare name strings, which would otherwise crash on step.get().
         step_entry = None
-        steps = eval_record.get("steps", [])
+        steps = [normalize_step(s) for s in (eval_record.get("steps") or [])] if normalize_step else (eval_record.get("steps") or [])
         for i, step in enumerate(steps):
-            if step.get("name") == step_name:
+            if isinstance(step, dict) and step.get("name") == step_name:
                 step_entry = step
                 # Ensure this is the last occurrence (remove earlier duplicates)
                 if i < len(steps) - 1:
@@ -466,9 +484,20 @@ def update_eval_record_with_step_completion(eval_path: Path, step_name: str, fro
 
         if not step_entry:
             step_entry = {"name": step_name}
-            if "steps" not in eval_record:
-                eval_record["steps"] = []
-            eval_record["steps"].append(step_entry)
+            steps.append(step_entry)
+        eval_record["steps"] = steps
+
+        # Owning agent for this step: the eval record's agent (the agent that
+        # owns the workflow run), falling back to whatever the step's own
+        # frontmatter declares.
+        if not step_entry.get("agent"):
+            step_entry["agent"] = eval_record.get("agent") or frontmatter.get("agent")
+        step_entry.setdefault("step_id", step_name)
+        # Authoritative owner, resolved from the workflow definition rather
+        # than the record's (often subagent-labelled) agent field.
+        if not step_entry.get("owning_agent"):
+            owner = workflow_owner_agent(eval_record.get("name")) if workflow_owner_agent else None
+            step_entry["owning_agent"] = owner or frontmatter.get("agent") or eval_record.get("agent")
 
         # Update step with timing and frontmatter
         step_entry["started"] = frontmatter.get("started-at")
@@ -484,6 +513,10 @@ def update_eval_record_with_step_completion(eval_path: Path, step_name: str, fro
             step_entry["cost_usd"] = token_data["cost_usd"]
         if token_data.get("model"):
             step_entry["model"] = token_data["model"]
+        if token_data.get("token_source"):
+            step_entry["token_source"] = token_data["token_source"]
+        if token_data.get("turns_matched") is not None:
+            step_entry["turns_matched"] = token_data["turns_matched"]
 
         # Calculate duration
         if step_entry.get("started") and step_entry.get("completed"):
@@ -568,6 +601,7 @@ def main():
     transcript_path = payload.get("transcript_path")
     session_id = payload.get("session_id")
     workflow_name = payload.get("workflow_name")  # Optional: for guardrails lookup
+    eval_record_id = payload.get("eval_record_id")  # Optional: exact target record
 
     if not step_file_path or not step_content:
         log_error("Missing step_file_path or step_content in payload")
@@ -582,8 +616,21 @@ def main():
         log_info(f"Step {step_name} not yet complete, skipping")
         return
 
-    # Find active eval record
-    eval_path = find_active_eval_record(session_id)
+    # Resolve the target eval record. Prefer an explicit eval_record_id passed
+    # by the caller (eval-agent-stop.py knows exactly which record it is
+    # finalizing); fall back to the session-scoped lookup for callers that
+    # only have a session_id. Targeting the exact record avoids the
+    # "most recent by session_id" guess that misattributes steps when more
+    # than one record is open under the same session.
+    eval_path = None
+    if eval_record_id:
+        candidate = EVAL_RUNS_DIR / f"{eval_record_id}.json"
+        if candidate.exists():
+            eval_path = candidate
+        else:
+            log_info(f"eval_record_id '{eval_record_id}' not found on disk, falling back to session lookup")
+    if eval_path is None:
+        eval_path = find_active_eval_record(session_id)
     if not eval_path:
         log_error(f"No active eval record found for session {session_id}")
         return
