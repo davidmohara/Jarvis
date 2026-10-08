@@ -47,7 +47,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Master
+**Agent:** Rigby, spawned by the coordinator, never executed inline
 **Mode:** Automated — no controller interaction needed
 **Input:** Workspace file listing
 **Output:** List of deleted files

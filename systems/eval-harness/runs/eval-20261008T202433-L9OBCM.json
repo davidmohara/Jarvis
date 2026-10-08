@@ -16,7 +16,7 @@
     "mechanical": {
       "completed": null,
       "all_steps_finished": null,
-      "tool_failures": 6,
+      "tool_failures": 7,
       "error_ids": [],
       "tool_failure_log": [
         {
@@ -54,6 +54,12 @@
           "error": "Exit code 128\nerror: cannot pull with rebase: You have unstaged changes.\nerror: Please commit or stash them.",
           "duration_ms": 166,
           "timestamp": "2026-10-08T17:07:51.180350"
+        },
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\nTraceback (most recent call last):\n  File \"<stdin>\", line 4, in <module>\n  File \"/Users/davidohara/develop/improving/AI-Course-Development/AI-Bootcamp/Trainer/Training-Weeks/build_decks.py\", line 66, in parse_deck\n    text = md_path.read_text(encoding=\"utf-8\")\n           ^^^^^^^^^^^^^^^^^\nAttributeError: 'str' object has no attribute 'read_text'",
+          "duration_ms": 225,
+          "timestamp": "2026-10-08T17:27:46.754860"
         }
       ]
     },

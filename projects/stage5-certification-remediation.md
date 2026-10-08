@@ -16,6 +16,8 @@
 | 5 | Stage 5 formalization (manifest, isolation doc, CHANGELOG/tags) | complete 2026-10-08: 5A `agents/manifest.md` (11 agents + David as human operator + shutdown-cleanup ownership reconciled to Rigby); 5B `agents/adversarial-isolation.md` (isolation mechanics, Ralph coverage, per-workflow adversarial wiring now live per Phase 4A); 5C CHANGELOG.md + tags v0.1.0/v0.5.0/v1.0.0/v1.5.0 (v2.0.0 planned at resubmission) | 2026-10-28 |
 | 6 | Assemble bundle + resubmit to Tim | not started | 2026-10-30 |
 
+**Compliance addendum (2026-10-08, David-directed):** shutdown-cleanup (the session-exit workflow, not a Stage 4 candidate) was brought to the full candidate instrumentation standard: all step Agent lines corrected to Rigby-spawned, both `git status` instructions replaced with lock-free lists, step-04 commit routed through the ies-git wrapper with a push-handoff rule for divergence (`err-20261008T222241-UHTK59`), new step-05 adversarial verification spawning Ralph (`workflows/shutdown-cleanup-verification/`, cleanup-claims-vs-commit-and-audit-trail lens), verifiers for all 5 steps (step-04's window-checked against `git-ops.jsonl`, both directions tested), guardrail checkpoint definition, and assertion `shutdown-005`. Covered in `agents/adversarial-isolation.md` and the submission index.
+
 ## Locked decisions
 
 - **Candidate set rationalized to the 4 actually-used workflows**: boot, morning-briefing, daily-review, plaud-ingest. weekly-review dropped (0 eval records ever, never-started state.yaml). Cover note to Tim explains this.

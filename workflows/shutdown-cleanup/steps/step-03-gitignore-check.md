@@ -23,7 +23,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Master
+**Agent:** Rigby, spawned by the coordinator, never executed inline
 **Mode:** Automated — no controller interaction needed
 **Input:** Current `.gitignore`, purge results from step 01
 **Output:** Updated `.gitignore` (if needed), list of patterns added

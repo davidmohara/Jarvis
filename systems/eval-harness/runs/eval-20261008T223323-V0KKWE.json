@@ -1,0 +1,62 @@
+{
+  "id": "eval-20261008T223323-V0KKWE",
+  "agent_id": "a1747241d5bb2c991",
+  "type": "agent",
+  "name": "fork",
+  "workflow": null,
+  "agent": "fork",
+  "session_id": "c874d35e-054f-41ca-b976-108202739095",
+  "trigger": "unknown",
+  "started": "2026-10-08T22:33:23.579135Z",
+  "completed": null,
+  "duration_seconds": null,
+  "status": "in-progress",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": null,
+      "all_steps_finished": null,
+      "tool_failures": 1,
+      "error_ids": [],
+      "tool_failure_log": [
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\ncompile OK\n===step-03 (expect pass: gitignore covered)===\n{\"result\": \"pass\", \"reason\": \"All 6 expected temp-artifact patterns covered by .gitignore\", \"fields\": {\"expected_patterns\": 6, \"missing_patterns\": []}, \"validation_errors\": []}\n===step-04 (expect retry: stale 09-17 sha, audit gaps)===\n{\"result\": \"pass\", \"reason\": \"commit 0a8209f verified: 34 file(s), no temp artifacts, executed through the wrapper per git-ops.jsonl\", \"fields\": {\"claimed_commit_sha\": \"0a8209f1\", \"files_in_commit\": 34, \"temp_artifacts_in_commit\": [], \"commit_audited_via_wrapper\": true}, \"validation_errors\": []}\n===step-05 (expect retry: not yet run)===\nTraceback (most recent call last):\n  File \"/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/workflows/shutdown-cleanup/verify/step-05-verify-cleanup.py\", line 105, in <module>\n    main()\n    ~~~~^^\n  File \"/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/workflows/shutdown-cleanup/verify/step-05-verify-cleanup.py\", line 49, in main\n    state = load_state(STATE)\n  File \"/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/workflows/shutdown-cleanup/verify/step-05-verify-cleanup.py\", line 36, in load_state\n    return yaml.safe_load(path.read_text()) or {}\n           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^\n  File \"/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/systems/eval-harness/vendor/yaml/__init__.py\", line 125, in safe_load\n    return load(stream, SafeLoader)\n  File \"/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/systems/eval-harness/vendor/yaml/__init__.py\", line 81, in load\n    return loader.get_single_data()\n           ~~~~~~~~~~~~~~~~~~~~~~^^\n  File \"/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/systems/eval-harness/vendor/yaml/constructor.py\", line 49, in get_single_data\n    node = self.get_single_node()\n  File \"/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/systems/eval-harness/vendor/yaml/composer.py\", line 41, in get_single_node\n    raise ComposerError(\"expected a single document in the stream\",\n            document.start_mark, \"but found another document\",\n            event.start_mark)\nyaml.composer.ComposerError: expected a single document in the stream\n  in \"<unicode string>\", line 2, column 1:\n    workflow: shutdown-cleanup\n    ^\nbut found another document\n  in \"<unicode string>\", line 56, column 1:\n    ---\n    ^",
+          "duration_ms": 348,
+          "timestamp": "2026-10-08T17:34:03.741876"
+        }
+      ]
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": []
+}

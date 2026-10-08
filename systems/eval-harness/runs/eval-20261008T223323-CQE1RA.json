@@ -1,0 +1,61 @@
+{
+  "id": "eval-20261008T223323-CQE1RA",
+  "agent_id": "aadb06823a97c175d",
+  "type": "agent",
+  "name": "fork",
+  "workflow": null,
+  "agent": "fork",
+  "session_id": "c874d35e-054f-41ca-b976-108202739095",
+  "trigger": "unknown",
+  "started": "2026-10-08T22:33:23.579113Z",
+  "completed": "2026-10-08T22:35:41.377814Z",
+  "duration_seconds": 137.8,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/c874d35e-054f-41ca-b976-108202739095/subagents/agent-aadb06823a97c175d.jsonl",
+  "last_assistant_message": "All 51 slides of /tmp/deckreview/w1v5 reviewed.\n\n**DEFECTS (3):**\n1. Slide 1 (ACG intro): the \"Who am I?\" title is missing \u2014 only the four descriptor items and the photo render. The title placeholder's text didn't carry through the splice.\n2. Slide 26 (Lecture, Context Before Constraints): the takeaway box's text overruns its right edge (\"will not be enforced\" clips).\n3. Slide 41 (Exercise, Write EC for create-prd): two-line title (\"\u2026Baseline It\") overlaps step 1's text. (Title is exactly 45 chars, slipping past the renderer's long-title threshold.)\n\n**Nit:** slide 32 (Development Loop) \u2014 \"Why this matters:\" renders as a trailing bullet with its content above it; reads slightly out of order.\n\n**Previously flagged, now confirmed fixed:** chip text clipping (all NEW slides); title/timing-pill collisions (16, 21, 29, 35, 38, 43); double-numbered exercise steps; double bullet glyphs on lectures (5, 32, 46); check-in hierarchy (23, 27, 33, 49); day-separator chip legibility (22, 30, 34, 42, 45); demo accent bar (13); slides 32 and 46 now match the deck's blue-title design language.\n\n**Everything else (copied DLP slides):** OK \u2014 chips, cards, colors, fonts render identically to the session decks.\n\n**Verdict:** 3 minor defects away from ship. Fix the slide-1 title, the slide-26 box overflow, and the slide-41 title overlap; the deck is then visually consistent throughout.",
+  "model": "accounts/fireworks/models/kimi-k3",
+  "total_tokens_input": 0,
+  "total_tokens_output": 0,
+  "total_cost_usd": 0.045,
+  "cost_estimation_note": "estimated based on fork workflow type"
+}

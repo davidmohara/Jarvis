@@ -35,9 +35,9 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Master
+**Agent:** Rigby, spawned by the coordinator, never executed inline in the coordinator's session. All git operations run through `skills/git/SKILL.md` and the `ies-git` wrapper.
 **Mode:** Automated — no controller interaction needed
-**Input:** Git status, cleanup results from steps 01-03
+**Input:** Lock-free change lists, cleanup results from steps 01-03
 **Output:** Clean commit, summary report to controller
 
 ---
@@ -46,23 +46,30 @@ model: sonnet
 
 ### Sequence
 
-1. **Run git status** to see all staged, unstaged, and untracked files
+1. **List changes with lock-free commands only** (`git status` is forbidden — it writes `.git/index.lock`):
+   - `git diff --name-only HEAD` — all changes vs HEAD
+   - `git ls-files --modified --others --exclude-standard` — modified + untracked files
 
 2. **Verify no temp artifacts** are in the staging area:
    - Cross-reference staged files against the purge patterns from step 01
    - If any temp files are staged, unstage them
 
-3. **Stage all legitimate files:**
-   - Modified files
-   - New files created during the session
-   - Deleted files (from purge step)
-   - Renamed/moved files (from organize step)
+3. **Stage all legitimate files** through the wrapper (transparent redirect or direct):
+   ```bash
+   python3 skills/git/scripts/ies-git add -A
+   ```
 
 4. **Write commit message:**
+   - Conventional Commits format (`<type>(<scope>): lowercase imperative description`) — the wrapper lints this and refuses otherwise
    - Summarize the session's substantive work (not the cleanup)
    - If cleanup was the only action, describe what was cleaned and why
 
-5. **Commit**
+5. **Commit through the wrapper** (gated dirs were Rigby-built this session, so `--ack-gated` is the conscious, correct flag; the wrapper also scans for credentials and audits the operation to `systems/eval-harness/git-ops.jsonl`):
+   ```bash
+   python3 skills/git/scripts/ies-git --ack-gated commit -m "<message>"
+   ```
+
+6. **Push, or hand off if rejected:** if the push is rejected because the remote has diverged, do NOT rebase from this session (the OneDrive-synced `.git` races multi-step git; see `err-20261008T222241-UHTK59`). Commit stays local; hand the pull-rebase and push to David's terminal.
 
 6. **Report summary to controller:**
    ```

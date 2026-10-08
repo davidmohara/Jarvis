@@ -26,7 +26,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Master
+**Agent:** Rigby, spawned by the coordinator, never executed inline
 **Mode:** Automated — no controller interaction needed
 **Input:** Git status (new and modified files), output naming conventions from system config
 **Output:** List of verified, renamed, or moved files
@@ -50,7 +50,7 @@ Deliverables follow two tracks:
 
 ### Sequence
 
-1. **List all new/modified non-markdown files** from git status:
+1. **List all new/modified non-markdown files** with the lock-free commands (`git status` is forbidden — it writes `.git/index.lock`): `git diff --name-only HEAD` plus `git ls-files --modified --others --exclude-standard`:
    - Filter for: `.pdf`, `.docx`, `.pptx`, `.epub`
    - These are the deliverables to check
 
