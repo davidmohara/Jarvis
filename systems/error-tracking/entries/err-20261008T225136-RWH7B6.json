@@ -1,0 +1,15 @@
+{
+  "id": "err-20261008T225136-RWH7B6",
+  "timestamp": "2026-10-08T22:51:36Z",
+  "session": "stage5-remediation-2026-10-08",
+  "source": "self-detected",
+  "agent": "rigby",
+  "category": "process-skip",
+  "description": "The audit-deliverable commit used blanket `ies-git add -A` and staged two files outside the session's work that appeared in the working tree mid-session via OneDrive sync: a live Microsoft Office lock file (`.~lock.Improving_AI_Speaking_Conference_Tracker.xlsx#`, synced while the workbook was open) and the root-level workbook itself. The lock file is a temp artifact that should never be committed; the workbook is controller content that landed at the non-canonical repo root without a placement decision. Committed and pushed in 388be768 before being caught.",
+  "correction": "Untracked the lock file (git rm --cached), added the `.~lock.*#` pattern to .gitignore, committed the fix (f039a9f8) and pushed. Workbook placement left for David (still tracked; flagged in the audit's root-hygiene class).",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "Proposed: the ies-git wrapper's commit path should refuse or loudly warn on Office lock files (`.~lock.*#`) and on non-canonical root-level entries, mirroring shutdown-cleanup's canonical-root check — blanket add -A should not be able to commit a lock file silently. Also: stage specific paths for deliverable commits instead of -A when the session did not run step-01's purge.",
+  "fix_status": "proposed",
+  "severity": "minor",
+  "related_entries": []
+}
