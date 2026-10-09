@@ -181,3 +181,28 @@ python3 systems/eval-harness/record-step.py podcast-prep step-03-build-prep-shee
 
 Read fully and follow: `step-04-build-pdf-sheet.md`
 <!-- personal:end -->
+
+<!-- system:start -->
+## Output Persistence (MANDATORY)
+
+The verifier for this step finds the detailed prep sheet on disk under `meetings/podcast-prep/` (it does not read a nested block), so the save path and content are the contract. Save the file to `meetings/podcast-prep/YYYY-MM-DD-guest-name.md` (filming date plus the guest's name slug, so the verifier's guest-name match succeeds; do NOT name it `Episode {N}.md`, which is step-04's file). Record its path in `state.yaml` `accumulated-context.detailed_sheet` and in this step file's frontmatter `outputs`.
+
+The saved file MUST contain these section headers (verbatim strings the verifier greps for) and be at least 300 words:
+
+- `## Logistics`
+- `## Guest Background`
+- `## Episode Topic`
+- a `Talking Points` heading
+- `## Pre-Filming Checklist`
+
+```yaml
+# state.yaml -> accumulated-context
+detailed_sheet: "meetings/podcast-prep/YYYY-MM-DD-guest-name.md"
+
+# step-03-build-prep-sheet.md -> frontmatter
+outputs:
+  detailed_sheet: "meetings/podcast-prep/YYYY-MM-DD-guest-name.md"
+  sections: ["## Logistics", "## Guest Background", "## Episode Topic", "Talking Points", "## Pre-Filming Checklist"]
+  word_count: 300
+```
+<!-- system:end -->

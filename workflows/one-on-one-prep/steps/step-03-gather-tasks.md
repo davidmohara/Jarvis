@@ -16,6 +16,7 @@ model: sonnet
 3. You MUST cross-reference with the previous brief's action items from step 02. Stale items need to be surfaced.
 4. Do NOT create, modify, or triage any tasks. This is a read-only data gathering step.
 5. Do NOT proceed to step 04 until task and delegation data is captured.
+6. You MUST persist the `task_data` block to `state.yaml` under `accumulated-context.task_data` and mirror the identical structure in this step file's frontmatter `outputs` field before marking the step complete. The verifier reads `accumulated-context.task_data` and requires the keys `person_tasks`, `delegations` (with `to_person` and `from_person`), and `previous_action_items` to be present; empty lists are valid, a missing key is not.
 
 ---
 
@@ -89,6 +90,36 @@ model: sonnet
          current_status: resolved | in_progress | stale | unknown
          evidence: {what confirmed this status}
    ```
+
+### Output Persistence (MANDATORY)
+
+Before recording step completion, persist the `task_data` block to `state.yaml` under `accumulated-context.task_data`, and mirror the identical structure in this step file's frontmatter `outputs` field. The verifier reads `accumulated-context.task_data` and requires the keys `person_tasks`, `delegations`, and `previous_action_items` to be present. It independently recomputes overdue delegations from each delegation's `due_date` and `status`, so those two fields must be recorded per delegation. Empty lists are valid; a missing key fails verification.
+
+```yaml
+# state.yaml -> accumulated-context
+task_data:
+  person_tasks: []               # REQUIRED key (list; may be empty)
+  delegations:                   # REQUIRED key (map)
+    to_person: []
+    from_person: []
+  previous_action_items: []      # REQUIRED key (list; may be empty)
+
+# Each delegation entry MUST carry due_date and status so the verifier can recompute overdue:
+#   - task: "..."
+#     date_assigned: "YYYY-MM-DD"
+#     due_date: "YYYY-MM-DD"
+#     status: "..."              # any value; "complete" is treated as not overdue
+#     overdue: true/false
+
+# step-03-gather-tasks.md -> frontmatter
+outputs:
+  task_data:
+    person_tasks: []
+    delegations:
+      to_person: []
+      from_person: []
+    previous_action_items: []
+```
 
 ---
 

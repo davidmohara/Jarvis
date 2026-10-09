@@ -17,6 +17,7 @@ model: sonnet
 4. You MUST account for every action item from the previous brief. Nothing disappears silently.
 5. Do NOT pad the brief with generic content. If you don't have data for a section, say so — don't fill it with fluff.
 6. Do NOT proceed to step 05 until the full brief is assembled.
+7. You MUST leave the upstream `accumulated-context` blocks intact. The verifier for this step re-checks that `meeting_details`, `communication_data`, and `task_data` are all still present in `accumulated-context` at this point. Do NOT overwrite, flatten, or delete them while assembling the brief; record this step's own result alongside them.
 
 ---
 
@@ -146,6 +147,22 @@ next 2 weeks."}
    - Client/deal context needed → "(Chase may have deeper account context)"
    - Content deadline involved → "(Harper tracking a deliverable here)"
    - Strategic initiative drift → "(Quinn should assess alignment)"
+
+### Output Persistence (MANDATORY)
+
+This step produces no new nested data block of its own, but the verifier re-checks that all three upstream blocks are still present in `state.yaml` `accumulated-context` at this point: `meeting_details`, `communication_data`, and `task_data`. Persisting this step's result MUST NOT remove or flatten them. Record only an additive marker for this step, leaving the upstream blocks untouched.
+
+```yaml
+# state.yaml -> accumulated-context (additive only; the three upstream blocks stay as-is)
+meeting_details: { ... }          # REQUIRED still present (written by step-01)
+communication_data: { ... }       # REQUIRED still present (written by step-02)
+task_data: { ... }                # REQUIRED still present (written by step-03)
+brief_assembled: true             # this step's marker
+
+# step-04-assemble-brief.md -> frontmatter
+outputs:
+  brief_assembled: true
+```
 
 ---
 

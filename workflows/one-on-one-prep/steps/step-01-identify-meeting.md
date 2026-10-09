@@ -16,6 +16,7 @@ model: sonnet
 3. You MUST check auto-memory for known cadences before searching calendar.
 4. Do NOT guess meeting details. If calendar search fails and the controller didn't provide the info, ask.
 5. Do NOT proceed to step 02 until you have: person name, date, time, location/format.
+6. You MUST persist the `meeting_details` block to `state.yaml` under `accumulated-context.meeting_details` and mirror the identical structure in this step file's frontmatter `outputs` field before marking the step complete. The verifier re-derives these fields directly from `accumulated-context.meeting_details`; a flat summary (person/date stored at the top level of accumulated-context) fails verification.
 
 ---
 
@@ -73,6 +74,35 @@ model: sonnet
    - Search for the most recent file matching `{Person Name} - *.md`
    - If found, note the date and file path. This will be critical input for steps 02-04.
    - If none exists, note this is the first prep brief for this person.
+
+### Output Persistence (MANDATORY)
+
+Before recording step completion, persist the `meeting_details` block to `state.yaml` under `accumulated-context.meeting_details`, and mirror the identical structure in this step file's frontmatter `outputs` field. The verifier reads `accumulated-context.meeting_details` and re-derives `person`, `date`, `location`, and `known_cadence` from it. Every key below MUST be present (write `null` when a value is genuinely unknown); omitting the block, or flattening the fields to top-level accumulated-context, fails verification.
+
+```yaml
+# state.yaml -> accumulated-context
+meeting_details:
+  person: "{Full Name}"          # REQUIRED - hard-fails verification when empty
+  date: "YYYY-MM-DD"             # or null when no meeting found (person-only result still passes)
+  day_of_week: "{Monday-Friday}"
+  time: "HH:MM"
+  duration: {minutes}
+  location: "{Teams / in-person / phone}"
+  meeting_name: "{calendar event subject}"
+  known_cadence: true            # true/false
+
+# step-01-identify-meeting.md -> frontmatter
+outputs:
+  meeting_details:
+    person: "{Full Name}"
+    date: "YYYY-MM-DD"
+    day_of_week: "{Monday-Friday}"
+    time: "HH:MM"
+    duration: {minutes}
+    location: "{Teams / in-person / phone}"
+    meeting_name: "{calendar event subject}"
+    known_cadence: true
+```
 
 ---
 

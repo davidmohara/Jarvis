@@ -17,6 +17,7 @@ model: sonnet
 4. You MUST record whether location/format (Teams link, phone, in-person, address) is present on the invite. If missing, this is an open question to carry into the final prep sheet — not something to guess.
 5. You MUST record whether this is a first-time meeting with this person or there is prior 1:1 history (check knowledge layer / prior prep docs).
 6. Do NOT proceed to step 02 until you have: attendee name(s), company (if known), date, time (verified), duration, and a location/format status (confirmed or flagged as missing).
+7. You MUST persist the `meeting_details` block to `state.yaml` under `accumulated-context.meeting_details` and mirror the identical structure in this step file's frontmatter `outputs` field before marking the step complete. The verifier reads `accumulated-context.meeting_details.attendees_external` (plus the step's frontmatter outputs and the saved prep-sheet filename as fallbacks) and requires at least one external attendee identity; a flat summary with no attendee list fails verification.
 
 ---
 
@@ -72,6 +73,35 @@ model: sonnet
      organizer: {email}
      prior_relationship: "new contact — no prior 1:1 history" | "ongoing — last met {date}, see {prior prep doc path}"
    ```
+
+### Output Persistence (MANDATORY)
+
+Before recording step completion, persist the `meeting_details` block to `state.yaml` under `accumulated-context.meeting_details`, and mirror the identical structure in this step file's frontmatter `outputs` field. The verifier reads `accumulated-context.meeting_details.attendees_external` and requires at least one external attendee with a `name` (a hard failure without it). It also reads `meeting_date`, `meeting_time_verified`, and `format_confirmed` for the pass detail. A missing calendar meeting is valid, but the attendee identity is not optional.
+
+```yaml
+# state.yaml -> accumulated-context
+meeting_details:
+  attendees_external:            # REQUIRED - at least one entry with a non-empty name
+    - name: "{Full Name}"
+      company: "{Company or unknown - confirm in step 02/03}"
+  meeting_date: "YYYY-MM-DD"
+  meeting_time_verified: "HH:MM-HH:MM {TZ} - verified against Mac local time"
+  duration_minutes: {N}
+  format_confirmed: true         # true/false
+  format_notes: "{Teams link present / phone number present / not on invite - confirm before the call}"
+  organizer: "{email}"
+  prior_relationship: "new contact - no prior 1:1 history"
+
+# step-01-identify-meeting.md -> frontmatter
+outputs:
+  meeting_details:
+    attendees_external:
+      - name: "{Full Name}"
+        company: "{Company}"
+    meeting_date: "YYYY-MM-DD"
+    meeting_time_verified: "HH:MM-HH:MM {TZ}"
+    format_confirmed: true
+```
 
 ---
 

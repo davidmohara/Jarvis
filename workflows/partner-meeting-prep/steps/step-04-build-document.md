@@ -18,6 +18,7 @@ model: sonnet
 5. You MUST include discussion topics with open-ended questions for the partner.
 6. You MUST save to the knowledge base at `working directory/{Partner} - {YYYY-MM-DD}.md`.
 7. Do NOT fill in partner-side columns with guesses. If you don't know, leave it blank and mark it for the partner.
+8. You MUST save the document under one of the verifier's search locations (`outputs/`, `meetings/`, `accounts/`, or the repo root) with the partner's name slug in the filename, and record its path in `state.yaml` `accumulated-context.output_file`. The verifier locates the file on disk (it does not trust a self-reported path) and validates the required section headers directly from content.
 
 ---
 
@@ -208,6 +209,28 @@ Before saving, verify:
    {One sharp insight: the single most important thing to know going in.}
    ```
 4. **If shareable version needed:** Generate PDF via `npx md-to-pdf`
+
+### Output Persistence (MANDATORY)
+
+The verifier for this step finds the saved document on disk (searching `outputs/`, `meetings/`, `accounts/`, and the repo root for a filename containing the partner's name slug), then validates its content. Record the save path in `state.yaml` `accumulated-context.output_file` and in this step file's frontmatter `outputs`. The saved document MUST contain these three exact section headers and use the intentional-blank marker `TBD - partner to fill` where partner-side data is left for them:
+
+```yaml
+# state.yaml -> accumulated-context
+output_file: "meetings/{Partner} - {YYYY-MM-DD}.md"
+
+# step-04-build-document.md -> frontmatter
+outputs:
+  output_file: "meetings/{Partner} - {YYYY-MM-DD}.md"
+  sections: ["## Meeting Details", "## Priority Accounts", "## Discussion Topics"]
+```
+
+Required section headers in the saved document:
+
+- `## Meeting Details`
+- `## Priority Accounts`
+- `## Discussion Topics`
+
+If the knowledge base save genuinely fails, deliver the document inline and record `delivery_note: "presented inline because knowledge base save failed"` in accumulated-context (the verifier accepts a documented inline fallback, but not a claimed save with no file).
 
 ---
 

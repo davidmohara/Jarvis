@@ -17,6 +17,7 @@ model: sonnet
 4. You MUST search the knowledge layer for previous partner meeting notes and prep docs.
 5. Do NOT guess partner contacts or meeting details. If calendar search fails, ask the controller.
 6. Do NOT proceed to step 02 until you have: partner name, meeting date, attendees, and format.
+7. You MUST persist the `partner_details` block to `state.yaml` under `accumulated-context.partner_details` and mirror the identical structure in this step file's frontmatter `outputs` field before marking the step complete. The verifier reads `accumulated-context.partner_details` and requires a non-empty `company`; a flat summary (partner name stored at the top level of accumulated-context) fails verification.
 
 ---
 
@@ -96,6 +97,41 @@ model: sonnet
        key_threads: [...]
        pending_follow_ups: [...]
    ```
+
+### Output Persistence (MANDATORY)
+
+Before recording step completion, persist the `partner_details` block to `state.yaml` under `accumulated-context.partner_details`, and mirror the identical structure in this step file's frontmatter `outputs` field. The verifier reads `accumulated-context.partner_details` and requires a non-empty `company` (hard failure without it); `meeting_date`, `partner_attendees`, and `previous_prep.exists` are read for the pass detail. Write every key below even when a value is unknown.
+
+```yaml
+# state.yaml -> accumulated-context
+partner_details:
+  company: "{Partner Name}"        # REQUIRED - hard-fails verification when empty
+  meeting_date: "YYYY-MM-DD"       # or null when no calendar meeting found (valid per workflow)
+  meeting_time: "HH:MM"
+  duration: {minutes}
+  location: "{Teams / in-person / phone / hybrid}"
+  format: "{QBR, co-sell planning, intro presentation, joint planning, etc.}"
+  partner_attendees: []            # list of {name, title, email, role_in_meeting}
+  controller_attendees: []         # list of {name, title, role_in_meeting}
+  previous_prep:
+    exists: true                   # true/false
+    date: "YYYY-MM-DD"             # when exists
+    file: "..."                    # when exists
+    key_outcomes: []               # when exists
+  recent_emails:
+    count: 0
+    key_threads: []
+    pending_follow_ups: []
+
+# step-01-identify-partner.md -> frontmatter
+outputs:
+  partner_details:
+    company: "{Partner Name}"
+    meeting_date: "YYYY-MM-DD"
+    partner_attendees: []
+    previous_prep:
+      exists: true
+```
 
 ---
 

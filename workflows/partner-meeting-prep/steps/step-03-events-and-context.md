@@ -17,6 +17,7 @@ model: sonnet
 4. You MUST search for recent partner news and program updates.
 5. Do NOT fabricate events or news. If web search yields nothing, say so and move on.
 6. Do NOT proceed to step 04 until events, news, and context sections are populated (or confirmed empty).
+7. You MUST persist the `events_and_context` block to `state.yaml` under `accumulated-context.events_and_context` and mirror the identical structure in this step file's frontmatter `outputs` field before marking the step complete. The verifier reads `accumulated-context.events_and_context` and requires the keys `controller_events`, `partner_events`, `industry_events`, `partner_news`, and `office_offerings`; empty lists are valid, a missing key is not.
 
 ---
 
@@ -122,6 +123,31 @@ model: sonnet
        certifications: [...]
        upcoming_training: [...]
    ```
+
+### Output Persistence (MANDATORY)
+
+Before recording step completion, persist the `events_and_context` block to `state.yaml` under `accumulated-context.events_and_context`, and mirror the identical structure in this step file's frontmatter `outputs` field. The verifier reads `accumulated-context.events_and_context` and requires the keys `controller_events`, `partner_events`, `industry_events`, `partner_news`, and `office_offerings`. Empty lists are valid ("nothing found" is a recorded result); a missing key fails verification.
+
+```yaml
+# state.yaml -> accumulated-context
+events_and_context:
+  controller_events: []          # REQUIRED key (list; may be empty)
+  partner_events: []             # REQUIRED key (list; may be empty)
+  industry_events: []            # REQUIRED key (list; may be empty)
+  partner_news: []               # REQUIRED key (list; may be empty)
+  office_offerings: []           # REQUIRED key (list; may be empty)
+  co_sell_program: {}            # optional supporting detail
+  enablement: {}                 # optional supporting detail
+
+# step-03-events-and-context.md -> frontmatter
+outputs:
+  events_and_context:
+    controller_events: []
+    partner_events: []
+    industry_events: []
+    partner_news: []
+    office_offerings: []
+```
 
 ---
 

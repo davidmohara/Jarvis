@@ -17,6 +17,7 @@ model: sonnet
 4. You MUST explicitly classify the meeting type (see Classification below) using email evidence as the primary signal, calendar/invite metadata as secondary.
 5. You MUST state plainly what NOT to assume — this is not optional filler, it is a required output field for the next two steps.
 6. Do NOT proceed to step 03 until reason_for_call and meeting_classification are both populated from evidence, not guesswork.
+7. You MUST persist `meeting_classification`, `reason_for_call`, `evidence_cited`, `do_not_assume`, and `contact_depth` to `state.yaml` `accumulated-context` and mirror them in this step file's frontmatter `outputs` field before marking the step complete. The verifier reads these directly from `accumulated-context` (they are top-level keys, not nested under a wrapper) and requires `meeting_classification` to be one of the recognized values.
 
 This step exists because of `err-20260720T144623-LSBA9A`: a prep sheet was built from web research and calendar data alone, producing a wrong title, an invented sales narrative, and a wrong reason for the call — when the actual introduction email (findable with one search) told the true story. Web research supplements identity and company context. It never substitutes for available first-party email context on **why the meeting exists**.
 
@@ -84,6 +85,34 @@ This step exists because of `err-20260720T144623-LSBA9A`: a prep sheet was built
    - If evidence conflicts (e.g., step 01 found no prior doc but the email thread clearly references earlier meetings), trust the email thread — it's closer to ground truth than the knowledge-layer search.
 
 5. **If no evidence is found after 3 search strategies** (name, company/domain, organizer — per SYSTEM.md's search exhaustion rule), set `meeting_classification: "unclear-insufficient-evidence"` and write `reason_for_call` as: "No introduction or prior thread found via [strategies tried]. Reason for call is based solely on [controller-provided context / calendar subject line], which should be treated as provisional."
+
+### Output Persistence (MANDATORY)
+
+Before recording step completion, persist these keys to `state.yaml` `accumulated-context` (top-level, NOT nested under a wrapper block), and mirror them in this step file's frontmatter `outputs` field. The verifier reads `accumulated-context.meeting_classification`, `reason_for_call`, `evidence_cited`, `do_not_assume`, and `contact_depth`. `meeting_classification` MUST be one of the recognized values or verification fails: `sales-sourced`, `peer-relationship-referral`, `internal-review`, or `unclear-insufficient-evidence` (the run log's `sales/prospect-sourced` and `peer/relationship/referral` variants are also accepted, but prefer the canonical short forms).
+
+```yaml
+# state.yaml -> accumulated-context (top-level keys)
+meeting_classification: "peer-relationship-referral"   # REQUIRED - must be a recognized value
+reason_for_call: "{One or two sentences citing the specific thread: sender, subject, date}"
+evidence_cited:
+  - source: "email"
+    sender: "{name}"
+    subject: "{subject line}"
+    date: "{date}"
+    key_quote_or_paraphrase: "{what it says}"
+do_not_assume:
+  - "{Explicit thing not to assume}"
+contact_depth: "first-touch"                           # first-touch | repeat-meeting
+contact_depth_basis: "{One line citing what set this}"
+
+# step-02-source-of-truth-email.md -> frontmatter
+outputs:
+  meeting_classification: "peer-relationship-referral"
+  reason_for_call: "{...}"
+  evidence_cited: []
+  do_not_assume: []
+  contact_depth: "first-touch"
+```
 
 ---
 

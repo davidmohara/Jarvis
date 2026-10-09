@@ -16,6 +16,7 @@ model: sonnet
 3. You MUST save the brief to the correct knowledge base path. No other location is acceptable.
 4. You MUST open the brief in the knowledge base after saving.
 5. You MUST report the result to the controller with a one-line summary of the hottest topic.
+6. You MUST save the brief to `meetings/{Person Name} - {YYYY-MM-DD}.md` and record its path in `state.yaml` `accumulated-context.saved_brief`. The verifier locates the file on disk by matching the person's name slug under `meetings/` (or the repo root) and validates the exact section headers and the numbered talking points directly from file content; a self-reported path is not accepted.
 
 ---
 
@@ -96,6 +97,30 @@ If during brief assembly any of these conditions were detected, flag them in you
 - **Client/deal context needed** — A talking point involves a specific client or deal that Chase would have deeper context on. Flag: "Chase may have additional context on {account}."
 - **Content deadline involved** — A talking point involves a content deliverable (presentation, blog post, document) with a deadline. Flag: "Harper is tracking a deliverable related to {topic}."
 - **Goal drift detected** — A pattern in the communications suggests the controller or the person is drifting from quarterly rocks. Flag: "Quinn should assess — {observation} may indicate misalignment with {rock name}."
+
+### Output Persistence (MANDATORY)
+
+The verifier for this step does not read a nested block; it finds the saved brief on disk and validates its content directly. Save the brief to `meetings/{Person Name} - {YYYY-MM-DD}.md` and record its path in `state.yaml` `accumulated-context.saved_brief`, plus this step's frontmatter `outputs`. The saved file MUST contain these four exact section headers (verbatim strings the verifier greps for) and at least five talking points formatted as a numbered list with a bold lead, matching the pattern `^\d+\.\s+\*\*`:
+
+```yaml
+# state.yaml -> accumulated-context
+saved_brief: "meetings/{Person Name} - {YYYY-MM-DD}.md"
+
+# step-05-quality-check-and-save.md -> frontmatter
+outputs:
+  saved_brief: "meetings/{Person Name} - {YYYY-MM-DD}.md"
+  sections: ["Summary of Interactions", "Open Action Items", "Key Calendar Events", "Suggested Talking Points"]
+  talking_point_count: 5
+```
+
+Required section headers in the saved file:
+
+- `## Summary of Interactions`
+- `## Open Action Items`
+- `## Key Calendar Events`
+- `## Suggested Talking Points`
+
+Talking points MUST be written as `1. **{Topic}**: {specific point}` so the numbered-bold pattern matches; fewer than five fails verification.
 
 ---
 

@@ -17,6 +17,7 @@ outputs: {}
 4. You MUST identify the audience and key topics for the event.
 5. If event type cannot be determined, ask one clarifying question before proceeding.
 6. Do NOT generate talking points in this step. Context loading only.
+7. You MUST persist the `event_context` block to `state.yaml` under `accumulated-context.event_context` and mirror the identical structure in this step file's frontmatter `outputs` field before marking the step complete. The verifier reads `accumulated-context.event_context.event_type` (it also accepts a flat top-level `event_type`) and requires a valid enum value; it reads `event_name`/`audience` and `key_topics` from the same block. A run that records only a flat `event_type` with no block still passes, but the full block is the contract.
 
 ---
 
@@ -90,6 +91,37 @@ outputs: {}
        shep: ... | not-needed
        chief: ... | not-needed
    ```
+
+### Output Persistence (MANDATORY)
+
+Before recording step completion, persist the `event_context` block to `state.yaml` under `accumulated-context.event_context`, and mirror the identical structure in this step file's frontmatter `outputs` field. The verifier reads `accumulated-context.event_context.event_type` and requires one of the valid enum values; a missing or unrecognized `event_type` fails verification (it gates the output format for every later step). It also reads `event_name`/`audience` and `key_topics` from the same block.
+
+```yaml
+# state.yaml -> accumulated-context
+event_context:
+  event_type: meeting             # REQUIRED - meeting | panel | media | podcast | internal-comms
+  event_name: "{Event name}"
+  event_date: "YYYY-MM-DD"        # or unknown
+  audience: "{Audience}"
+  key_topics:
+    - topic: "{Topic}"
+      executive_position: "{Position}"
+      available_data: []
+      knowledge_layer_refs: []
+  domain_context:
+    chase: not-needed
+    quinn: not-needed
+    shep: not-needed
+    chief: not-needed
+
+# step-01-context-analysis.md -> frontmatter
+outputs:
+  event_context:
+    event_type: meeting
+    event_name: "{Event name}"
+    audience: "{Audience}"
+    key_topics: []
+```
 
 ---
 

@@ -16,6 +16,7 @@ model: sonnet
 3. You MUST check the previous prep brief for carryover items. If a previous brief exists, read it fully.
 4. You MUST capture specific dates, names, and content from each communication. Vague summaries are a failure.
 5. Do NOT proceed to step 03 until all communication data is gathered and structured.
+6. You MUST persist the `communication_data` block to `state.yaml` under `accumulated-context.communication_data` and mirror the identical structure in this step file's frontmatter `outputs` field before marking the step complete. The verifier reads `accumulated-context.communication_data` and requires the keys `email_threads`, `teams_messages`, and `shared_calendar_events` to be present; empty lists are valid, a missing key is not.
 
 ---
 
@@ -105,6 +106,41 @@ model: sonnet
        unresolved_talking_points: [...]
        coaching_themes: [...]
    ```
+
+### Output Persistence (MANDATORY)
+
+Before recording step completion, persist the `communication_data` block to `state.yaml` under `accumulated-context.communication_data`, and mirror the identical structure in this step file's frontmatter `outputs` field. The verifier reads `accumulated-context.communication_data` and requires the three keys `email_threads`, `teams_messages`, and `shared_calendar_events` to be present. Empty lists are a legitimate result ("no communications found"); a missing key fails verification.
+
+```yaml
+# state.yaml -> accumulated-context
+communication_data:
+  lookback_start: "YYYY-MM-DD"
+  lookback_end: "YYYY-MM-DD"
+  email_threads: []              # REQUIRED key (list; may be empty)
+  teams_messages: []             # REQUIRED key (list; may be empty)
+  shared_calendar_events:        # REQUIRED key (map with past + upcoming lists)
+    past: []
+    upcoming: []
+  previous_brief:                # optional, but write it whenever a prior brief exists
+    date: "YYYY-MM-DD"
+    carryover_items: []
+    unresolved_talking_points: []
+    coaching_themes: []
+
+# step-02-gather-communications.md -> frontmatter
+outputs:
+  communication_data:
+    email_threads: []
+    teams_messages: []
+    shared_calendar_events:
+      past: []
+      upcoming: []
+    previous_brief:
+      date: "YYYY-MM-DD"
+      carryover_items: []
+      unresolved_talking_points: []
+      coaching_themes: []
+```
 
 ---
 

@@ -16,6 +16,7 @@ outputs: {}
 3. You MUST include the anticipated Q&A in all output formats.
 4. You MUST apply voice profile to the final delivery — all output sounds like the executive.
 5. Do NOT mix formats. If the event type is panel, use panel format. Do not add meeting bullets.
+6. You MUST save the delivered document to `meetings/` with `talking-point` in the filename and record its path in `state.yaml` `accumulated-context.output` plus this step file's frontmatter `outputs` field. The verifier locates the file on disk (it does not trust a self-reported path) and validates the point count and the anticipated Q&A directly from content.
 
 ---
 
@@ -117,6 +118,21 @@ outputs: {}
    - Present the formatted talking points in full.
    - Add a brief note on any gaps or areas needing executive input before the event.
    - Confirm: "Talking points for [event name] ready. [N] points + [N] anticipated questions. Let me know if you want any angles adjusted."
+
+### Output Persistence (MANDATORY)
+
+The verifier for this step finds the delivered document on disk (from `accumulated-context.output`, then a glob of `meetings/*talking-point*.md`) and validates its content. Save the file to `meetings/` with `talking-point` in the filename, then record its path in `state.yaml` `accumulated-context.output` and in this step file's frontmatter `outputs`. The saved file MUST contain at least 3 talking-point markers, an anticipated Q&A section, and be at least 500 bytes. Point markers match headings like `## 1. ...`, `**1. ...**`, or a `**Talking Point N**` / `**Key Message N**` / `**Theme N**` lead. The Q&A section must carry a recognizable label such as "Anticipated Q&A", "If asked", "Likely questions", or "Questions to ask".
+
+```yaml
+# state.yaml -> accumulated-context
+output: "meetings/{YYYY-MM-DD}-{event-slug}-talking-points.md"
+
+# step-03-format-and-deliver.md -> frontmatter
+outputs:
+  output: "meetings/{YYYY-MM-DD}-{event-slug}-talking-points.md"
+  point_count: 3
+  has_anticipated_qa: true
+```
 
 ---
 

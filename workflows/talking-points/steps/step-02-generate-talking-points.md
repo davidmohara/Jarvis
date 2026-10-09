@@ -17,6 +17,7 @@ outputs: {}
 4. You MUST generate 3-5 anticipated questions based on topic, audience, and knowledge layer context.
 5. All points MUST match the executive's voice profile — phrasing must sound like the executive.
 6. Do NOT format for context in this step. Generation only.
+7. You MUST persist the `talking_points` block to `state.yaml` under `accumulated-context.talking_points` and mirror the identical structure in this step file's frontmatter `outputs` field before marking the step complete. The verifier reads `accumulated-context.talking_points.points` and requires at least 3 entries; it reads `anticipated_questions` alongside. It also accepts this step's frontmatter `outputs` or the delivered document as fallbacks, but the structured block is the primary contract and must be written.
 
 ---
 
@@ -86,6 +87,52 @@ outputs: {}
          prepared_response: ...
          bridge: ... | null
    ```
+
+### Output Persistence (MANDATORY)
+
+Before recording step completion, persist the `talking_points` block to `state.yaml` under `accumulated-context.talking_points`, and mirror the identical structure in this step file's frontmatter `outputs` field. The verifier reads `accumulated-context.talking_points.points` and requires at least 3 entries (the step generates 3-5); fewer than 3 fails verification. It reads `anticipated_questions` from the same block. If the structured block is absent, the verifier falls back to this step's frontmatter outputs and then the delivered document, but writing the block is the contract and the block must always be written.
+
+```yaml
+# state.yaml -> accumulated-context
+talking_points:
+  event_type: "{from event_context}"
+  voice_profile_applied: true
+  points:                        # REQUIRED - at least 3 entries
+    - number: 1
+      main_message: "{...}"
+      supporting_evidence: "{...}"
+      suggested_phrasing: "{...}"
+      source_reference: knowledge-layer   # knowledge-layer | chase | quinn | shep | chief | provided-context
+    - number: 2
+      main_message: "{...}"
+      supporting_evidence: "{...}"
+      suggested_phrasing: "{...}"
+      source_reference: "{...}"
+    - number: 3
+      main_message: "{...}"
+      supporting_evidence: "{...}"
+      suggested_phrasing: "{...}"
+      source_reference: "{...}"
+  anticipated_questions:
+    - number: 1
+      question: "{...}"
+      prepared_response: "{...}"
+      bridge: null
+
+# step-02-generate-talking-points.md -> frontmatter
+outputs:
+  talking_points:
+    points:
+      - number: 1
+        main_message: "{...}"
+      - number: 2
+        main_message: "{...}"
+      - number: 3
+        main_message: "{...}"
+    anticipated_questions:
+      - number: 1
+        question: "{...}"
+```
 
 ---
 

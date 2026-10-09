@@ -21,6 +21,7 @@ model: sonnet
 8. If any `rmapi` call fails with a corrupted-config error (`failed to parse /Users/davidohara/.rmapi` or similar), Knox deletes `~/.rmapi` and retries automatically. Do not ask David to manually re-auth first. Only if the retry itself fails with an unauthenticated-state error does Knox stop and ask David to run `rmapi` once from a terminal to re-register.
 9. Knox confirms success or failure of the upload back to Chase. Chase surfaces that result in the final summary to David — Knox does not report directly to David.
 10. You MUST record a `pre-delivery-review` guardrail checkpoint via `guardrail-checkpoint.py` before the PDF is handed to Knox. This is a real-world side effect (a file lands on David's tablet), so the checkpoint gates the upload. An `escalate` result HALTS the handoff and surfaces to David; `pass`/`flag` continue.
+11. You MUST persist the `deliverables` block to `state.yaml` under `accumulated-context.deliverables` and mirror the identical structure in this step file's frontmatter `outputs` field before marking the step complete. The verifier reads `accumulated-context.deliverables.pdf_file`, `remarkable_display_name`, `remarkable_destination`, and `remarkable_upload`; a missing `remarkable_upload` value fails verification (a recorded failure string is valid, silence is not).
 
 ---
 
@@ -54,12 +55,12 @@ model: sonnet
   - Render headings, tables, and lists with standard legible styling (system font stack, black body text, bold headings, bordered tables). No banner graphics, no color-coded rows, no branding treatment — this is an internal working document, not a client-facing deliverable.
   - Multi-page is fine; do not force single-page compression for this document (unlike the podcast PDF).
 - Output path: same directory as the step 04 markdown, filename `{Attendee Name} - {Company}.pdf` (matches naming rule 5 above — no date, no underscores).
-- Store the full absolute OneDrive path to this PDF as `remarkable_pdf_path` in accumulated-context.
+- Store the full absolute OneDrive path to this PDF as `deliverables.pdf_file` in accumulated-context.
 
 ### 2. Determine the display name (Chase)
 
 - Build the display name using the pattern `{Attendee Name} - {Company}` (drop meeting-type suffixes, drop dates).
-- Store as `remarkable_display_name` in accumulated-context.
+- Store as `deliverables.remarkable_display_name` in accumulated-context.
 
 ### 2b. Pre-delivery guardrail checkpoint (Chase, gate before the upload)
 
@@ -81,7 +82,7 @@ python3 systems/eval-harness/guardrail-checkpoint.py client-meeting-prep pre-del
 
 ### 3. Hand off to Knox
 
-- Pass Knox exactly: `remarkable_pdf_path` and `remarkable_display_name`. Do not pass the destination folder — it is hardcoded to `/Meetings` inside the protocol Knox follows.
+- Pass Knox exactly: `deliverables.pdf_file` and `deliverables.remarkable_display_name`. Do not pass the destination folder — it is hardcoded to `/Meetings` inside the protocol Knox follows.
 - Knox follows the reMarkable Delivery rules above (mandatory execution rules 3-8) and `.claude/skills/remarkable-upload/SKILL.md` for execution mechanics:
   - Verify `/Meetings` exists on the tablet. If missing, stop and flag — do not create it.
   - Bridge the file from OneDrive/CloudStorage to `/tmp` via Finder (TCC restriction workaround), then `rmapi put` into `/Meetings`.
@@ -100,6 +101,28 @@ Status: {Uploaded successfully | Upload failed — [reason]}
 ```
 
 If upload failed, state the PDF is still saved locally in OneDrive and give the path, so David isn't blocked from reading it before the call.
+
+### Output Persistence (MANDATORY)
+
+Before recording step completion, persist the `deliverables` block to `state.yaml` under `accumulated-context.deliverables`, and mirror the identical structure in this step file's frontmatter `outputs` field. The verifier reads `accumulated-context.deliverables.pdf_file`, `remarkable_display_name`, `remarkable_destination`, and `remarkable_upload`. It locates the PDF from `deliverables.pdf_file` (or a glob of `meetings/*.pdf` matching the attendee slug), checks the `%PDF-` header and a 5000-byte minimum, and requires a non-empty `remarkable_upload` value. One source of truth: the `deliverables` block only (the earlier top-level `remarkable_pdf_path` key was consolidated into it).
+
+```yaml
+# state.yaml -> accumulated-context
+deliverables:
+  markdown_file: "meetings/{Attendee Name} - {Company} - {YYYY-MM-DD}.md"   # from step-04
+  pdf_file: "meetings/{Attendee Name} - {Company}.pdf"                      # REQUIRED for the verifier
+  remarkable_display_name: "{Attendee Name} - {Company}"
+  remarkable_destination: "/Meetings"
+  remarkable_upload: "success"          # or an explicit failure string; REQUIRED non-empty
+
+# step-05-remarkable-delivery.md -> frontmatter
+outputs:
+  deliverables:
+    pdf_file: "meetings/{Attendee Name} - {Company}.pdf"
+    remarkable_display_name: "{Attendee Name} - {Company}"
+    remarkable_destination: "/Meetings"
+    remarkable_upload: "success"
+```
 
 ---
 

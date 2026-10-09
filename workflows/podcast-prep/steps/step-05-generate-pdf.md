@@ -168,3 +168,19 @@ Do NOT set `state.yaml` `status: complete` at the end of this step. Instead, upd
 
 It spawns **Ralph** with `workflows/podcast-prep-verification/workflow.md` (the prep-sheet-completeness-vs-episode-inputs lens: the detailed reference sheet and the rendered studio PDF both exist and are substantive, and the questions reflect the recorded `sources_used`). The result is recorded as an `adversarial-verification` guardrail checkpoint. The workflow is marked complete only at the end of step-06.
 <!-- system:end -->
+
+<!-- system:start -->
+## Output Persistence (MANDATORY)
+
+The verifier for this step finds the rendered PDF on disk (it does not read a nested block), so the save path and file validity are the contract. Save the PDF to `meetings/podcast-prep/Episode {N}.pdf` and record its path in `state.yaml` `accumulated-context.pdf_rendered` plus this step file's frontmatter `outputs`. The verifier checks the file exists, begins with the `%PDF-` magic bytes, and is at least 5000 bytes; a missing or truncated file fails verification.
+
+```yaml
+# state.yaml -> accumulated-context
+pdf_rendered: "meetings/podcast-prep/Episode {N}.pdf"
+
+# step-05-generate-pdf.md -> frontmatter
+outputs:
+  pdf_rendered: "meetings/podcast-prep/Episode {N}.pdf"
+  valid_pdf_header: true
+```
+<!-- system:end -->

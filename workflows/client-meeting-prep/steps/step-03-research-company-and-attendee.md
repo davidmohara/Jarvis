@@ -16,6 +16,7 @@ model: sonnet
 3. You MUST calibrate the depth and framing of this research to the meeting_classification set in step 02 — do not build a generic discovery-call research packet for a peer/relationship call, and do not undersell research for a real sales-sourced opportunity.
 4. You MUST NOT let web research override or contradict the reason_for_call or meeting_classification established in step 02 from email evidence. Web research fills in identity and background — it does not re-litigate why the meeting exists.
 5. Do NOT proceed to step 04 until company identity is confirmed (or the ambiguity is explicitly flagged as unresolved) and attendee bio research is complete.
+6. You MUST persist `company_disambiguation`, `company_profile`, `company_overview`, `attendee_bio`, and `common_connections` to `state.yaml` `accumulated-context` and mirror them in this step file's frontmatter `outputs` field before marking the step complete. The verifier reads these directly from `accumulated-context` (top-level keys, not nested) and requires at least one of `company_profile`, `company_overview`, or `attendee_bio` to be populated; if `company_disambiguation.ambiguous` is true, a `note` or `resolution_method: "unresolved"` MUST be present.
 
 ---
 
@@ -137,6 +138,59 @@ attendee_bio:
     note: "{One line if capped, e.g., 'Showing top 6 of 14 mutual connections.' Or if unavailable: 'LinkedIn profile not accessible — could not load mutual connections module.' Or if zero: 'No mutual connections shown on LinkedIn.'}"
   ```
 - If the attendee's LinkedIn URL was not found, or navigation/read fails for any reason, or the profile shows zero mutual connections, still populate `common_connections` with the appropriate `status` and a plain-language `note` — do not skip this field. It must always carry a state into step 04 so the prep sheet section is never silently omitted.
+
+### Output Persistence (MANDATORY)
+
+Before recording step completion, persist these keys to `state.yaml` `accumulated-context` (top-level, NOT nested under a wrapper block), and mirror them in this step file's frontmatter `outputs` field. The verifier reads `accumulated-context.company_profile`, `company_overview`, `attendee_bio`, and `company_disambiguation`, and requires at least one of the first three to be non-empty. If `company_disambiguation.ambiguous` is true, you MUST also write a `note` (or set `resolution_method: "unresolved"`), or verification fails for a silently unresolved ambiguity.
+
+```yaml
+# state.yaml -> accumulated-context (top-level keys)
+company_disambiguation:
+  ambiguous: false
+  resolution_method: "email domain match"   # or "signature block reference" or "unresolved"
+  note: "{One line if ambiguity existed}"
+company_profile:
+  company: "{Confirmed name}"
+  industry: "{Industry}"
+  hq: "{City, State/Country}"
+  founded: "{Year, if findable}"
+  size: "{Employee count / revenue band, if findable}"
+  known_tech_stack: "{If relevant}"
+  email_domain: "{domain from step 02 evidence}"
+company_overview:
+  depth: "full"                 # full | brief-refresh
+  narrative: "{2-4 sentences (full) or 1-2 sentences (brief refresh)}"
+  recent_news: []
+  strategic_initiatives: []
+  competitive_or_market_pressures: []
+  sources_used: "{...}"
+  crm_history: "{...}"
+attendee_bio:
+  name: "{Full name}"
+  title: "{Title - prefer the email thread's title on conflict}"
+  education: "{If findable}"
+  location: "{If findable}"
+  affiliations: "{...}"
+  public_facing_work: "{...}"
+  linkedin: "{URL if found}"
+  read_on_them: "{One line interpretation}"
+common_connections:
+  status: "found"               # found | zero | unavailable
+  total_count: null
+  displayed: []
+  note: "{One line}"
+
+# step-03-research-company-and-attendee.md -> frontmatter
+outputs:
+  company_profile: {}
+  company_overview: {}
+  attendee_bio: {}
+  company_disambiguation:
+    ambiguous: false
+    resolution_method: "email domain match"
+  common_connections:
+    status: "found"
+```
 
 ---
 

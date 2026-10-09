@@ -134,3 +134,58 @@ python3 systems/eval-harness/record-step.py podcast-prep step-02-gather-data com
 
 Read fully and follow: `step-03-build-prep-sheet.md`
 <!-- personal:end -->
+
+<!-- system:start -->
+## Output Persistence (MANDATORY)
+
+Before recording step completion, persist the `gathered_data` block to `state.yaml` under `accumulated-context.gathered_data`, and mirror the identical structure in this step file's frontmatter `outputs` field. The verifier reads `accumulated-context.gathered_data` and requires the keys `sharepoint_questions`, `podcast_guide`, `guest_clay`, and `email_context` to be present, each as a map carrying an honest `found` boolean (`false` plus a flag entry is a valid result; a missing key is not). The `sources_used` list also lives inside this block.
+
+```yaml
+# state.yaml -> accumulated-context
+gathered_data:
+  sources_used: []               # list: episode-prep and/or sharepoint, or empty
+  episode_prep_source:
+    found: false
+    source_path: null
+    questions_block: null
+    suggested_flow: null
+    guest_research_brief: null
+    notes_section: null
+  sharepoint_questions:          # REQUIRED key (map with found)
+    found: false
+    questions: null
+    source_file: null
+  podcast_guide:                 # REQUIRED key (map with found)
+    found: false
+    key_reminders: []
+  guest_clay:                    # REQUIRED key (map with found)
+    found: false
+    full_name: null
+    title: null
+    company: null
+    background: null
+    relationship_notes: null
+    last_interaction: null
+  email_context:                 # REQUIRED key (map with found)
+    found: false
+    key_threads: null
+  existing_prep:
+    detailed_sheet: null
+    pdf_sheet: null
+  flags: []
+
+# step-02-gather-data.md -> frontmatter
+outputs:
+  gathered_data:
+    sources_used: []
+    sharepoint_questions:
+      found: false
+    podcast_guide:
+      found: false
+    guest_clay:
+      found: false
+    email_context:
+      found: false
+    flags: []
+```
+<!-- system:end -->

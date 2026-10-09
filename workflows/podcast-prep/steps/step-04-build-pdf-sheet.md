@@ -174,3 +174,27 @@ python3 systems/eval-harness/guardrail-checkpoint.py podcast-prep pre-publish-re
 - **pass** / **flag**: proceed to step-05.
 - **escalate**: HALT. Do not generate or deliver the PDF. Surface the issue to David before continuing.
 <!-- system:end -->
+
+<!-- system:start -->
+## Output Persistence (MANDATORY)
+
+The verifier for this step finds the PDF-format markdown on disk (it does not read a nested block), so the save path and content are the contract. Save the file to `meetings/podcast-prep/Episode {N}.md` (plain episode number, no zero-padding, no guest name) and record its path in `state.yaml` `accumulated-context.pdf_markdown` plus this step file's frontmatter `outputs`.
+
+The saved file MUST contain the three exact HTML markers the stylesheet depends on and exactly six numbered questions (five prompts plus the wrap-up), matching the pattern `^\*\*\d+\.\s`:
+
+- `class="banner"`
+- `<h4>INTRO SCRIPT</h4>`
+- `class="remember"`
+- exactly 6 `**N. ...**` question markers
+
+```yaml
+# state.yaml -> accumulated-context
+pdf_markdown: "meetings/podcast-prep/Episode {N}.md"
+
+# step-04-build-pdf-sheet.md -> frontmatter
+outputs:
+  pdf_markdown: "meetings/podcast-prep/Episode {N}.md"
+  question_count: 6
+  html_markers: ["class=\"banner\"", "<h4>INTRO SCRIPT</h4>", "class=\"remember\""]
+```
+<!-- system:end -->

@@ -107,3 +107,40 @@ python3 systems/eval-harness/record-step.py podcast-prep step-01-identify-episod
 
 Read fully and follow: `step-02-gather-data.md`
 <!-- personal:end -->
+
+<!-- system:start -->
+## Output Persistence (MANDATORY)
+
+Before recording step completion, persist the `episode` block to `state.yaml` under `accumulated-context.episode`, and mirror the identical structure in this step file's frontmatter `outputs` field. The verifier reads `accumulated-context.episode` and requires a non-empty `number`, a non-empty `title`, and a non-empty `primary_guest.name`. Storing these as flat top-level keys (`episode_number`, `guest`, `filming_date`) fails verification.
+
+```yaml
+# state.yaml -> accumulated-context
+episode:
+  number: "{N}"                  # REQUIRED - hard-fails verification when empty
+  title: "{Episode Title}"       # REQUIRED - hard-fails verification when empty
+  season: 1
+  primary_guest:
+    name: "{Full Name}"          # REQUIRED - hard-fails verification when empty
+    title: "{Title/Role}"
+  secondary_guest: "{Name}"      # or null
+  filming:
+    date: "YYYY-MM-DD"
+    time: "{Time range}"
+    location: "{Location}"
+  attendees:
+    host: "David O'Hara"
+    producer: "{Name}"
+    video: "{Name}"
+  status: "{from episode map}"
+
+# step-01-identify-episode.md -> frontmatter
+outputs:
+  episode:
+    number: "{N}"
+    title: "{Episode Title}"
+    primary_guest:
+      name: "{Full Name}"
+    filming:
+      date: "YYYY-MM-DD"
+```
+<!-- system:end -->
