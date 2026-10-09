@@ -39,9 +39,21 @@ TAG = "TURN-START"
 SEEN_MARKER_DIR = Path("/tmp/ies-eval-session-seen")
 
 
+# Workflows whose trigger phrase lands in Master's main session on
+# UserPromptSubmit even though their execution was reconciled to a different
+# owner (shutdown-cleanup became Rigby-owned 2026-10-09 per agents/manifest.md,
+# but "exit" / "log off" still arrives as a main-session prompt, so turn-level
+# detection must keep firing for it). Without this set, an ownership
+# reconciliation silently deletes the workflow's exit-trigger detection
+# (the exact regression test_detect_workflow.py's shutdown-cleanup cases
+# were preserved to catch).
+MAIN_SESSION_TRIGGER_WORKFLOWS = {"shutdown-cleanup"}
+
+
 def load_master_workflows() -> dict:
-    """workflows/*/workflow.md with `agent: master` in frontmatter — the only
-    workflows with no subagent lifecycle of their own to hang an eval on."""
+    """workflows/*/workflow.md with `agent: master` in frontmatter (the only
+    workflows with no subagent lifecycle of their own to hang an eval on),
+    plus MAIN_SESSION_TRIGGER_WORKFLOWS above."""
     out = {}
     if not WORKFLOWS_DIR.exists():
         return out
@@ -55,7 +67,7 @@ def load_master_workflows() -> dict:
                 continue
             end_idx = content.index("---", 3)
             fm = yaml.safe_load(content[3:end_idx]) or {}
-            if fm.get("agent") == "master":
+            if fm.get("agent") == "master" or wf_dir.name in MAIN_SESSION_TRIGGER_WORKFLOWS:
                 out[wf_dir.name] = fm
         except Exception as e:
             log_error(f"Failed to read {wf_file}: {e}", TAG)

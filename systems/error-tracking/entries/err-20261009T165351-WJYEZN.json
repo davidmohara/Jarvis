@@ -1,0 +1,15 @@
+{
+  "id": "err-20261009T165351-WJYEZN",
+  "timestamp": "2026-10-09T16:53:51Z",
+  "session": "stage5-remediation-2026-10-08",
+  "source": "self-detected",
+  "agent": "rigby",
+  "category": "process-skip",
+  "description": "The Tier 1 ownership reconciliation (shutdown-cleanup frontmatter agent: master -> rigby, 2026-10-08) silently broke the exit-trigger detection in .claude/hooks/eval-turn-start.py: load_master_workflows() filters to frontmatter agent: master, so after the reconciliation no prompt could open a shutdown-cleanup eval record on 'exit' / 'log off' / 'end session'. Caught by test_detect_workflow.py's preserved shutdown-cleanup regression cases (all four failing), initially misattributed as pre-existing by the capture-fix sub-agent. Additionally, the per-step token/cost capture chain had five independent breaks (step-name .md/.stem key mismatch between post-tool-use.py and step-complete.py; eval-agent-stop.py resolving the workflow from the subagent-type name field instead of the workflow field; no capture path at all for main-session steps; status vocabulary complete vs completed skipping plaud-ingest; token_usage.py mislabeling full-window matches as lenient_fallback), leaving 0 of 33 instrumented-window runs with per-step token data.",
+  "correction": "MAIN_SESSION_TRIGGER_WORKFLOWS set added to eval-turn-start.py so main-session trigger detection survives ownership reconciliations (shutdown-cleanup exit triggers still fire though Rigby now owns execution); all five capture-chain breaks fixed with backward-compatible changes; retired weekly-review case removed from the detection test (25/25 passing); new regression suite test_step_token_capture.py exercising the fixed chain end-to-end.",
+  "failure_mode": "context-blindness",
+  "systemic_fix": "Applied. Process lesson: ownership reconciliations must run an impact pass over .claude/hooks/ consumers of the agent field, not just workflows/, agents/, and skills/ (the rigby-impact scan's reference set does not currently include .claude/hooks/). Proposed: extend the impact-scan reference set to include .claude/hooks/.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": ["err-20261008T195836-NN86G2"]
+}

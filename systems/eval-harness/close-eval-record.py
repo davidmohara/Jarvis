@@ -207,18 +207,30 @@ def merge_steps(existing: list, skeleton: list) -> list:
     one is already present (in any historical shape); only append a skeleton
     entry for names that have no existing entry. Existing entries not named in
     the skeleton list are preserved as-is.
+
+    Matching ignores a trailing '.md' (step_audit.step_key): post-tool-use.py
+    writes skeletons as 'step-01-x.md' while --steps lists 'step-01-x', so a
+    captured, token-bearing entry must not be shadowed by a null skeleton
+    appended under the other spelling.
     """
+    try:
+        from step_audit import step_key
+    except Exception:
+        def step_key(name):
+            name = "" if name is None else str(name)
+            return name[:-3] if name.endswith(".md") else name
+
     def name_of(s):
         if isinstance(s, dict):
             return s.get("name", "")
         return s
 
     existing = list(existing or [])
-    have = {name_of(s) for s in existing}
+    have = {step_key(name_of(s)) for s in existing}
     for entry in skeleton:
-        if name_of(entry) not in have:
+        if step_key(name_of(entry)) not in have:
             existing.append(entry)
-            have.add(name_of(entry))
+            have.add(step_key(name_of(entry)))
     return existing
 
 

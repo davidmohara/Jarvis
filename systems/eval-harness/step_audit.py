@@ -182,17 +182,34 @@ def step_name(step) -> str:
     return str(step)
 
 
+def step_key(name) -> str:
+    """Canonical identity for a step name: a trailing '.md' is ignored.
+
+    Two writers name the same step differently: post-tool-use.py keys
+    skeletons as Path(file).name ('step-01-x.md') while record-step.py and
+    close-eval-record.py name steps without the suffix ('step-01-x'). Without
+    a shared identity, a writer using one spelling appends a duplicate entry
+    alongside the other's, and a captured (token-bearing) entry can be
+    shadowed by a null skeleton. This is comparison only -- stored names are
+    never rewritten.
+    """
+    if not isinstance(name, str):
+        name = "" if name is None else str(name)
+    return name[:-3] if name.endswith(".md") else name
+
+
 def upsert_step(record: dict, step_entry: dict) -> dict:
     """Insert or replace a step entry in record["steps"] by name, tolerating
     legacy string entries in the existing list.
 
-    Replaces ALL existing entries with the same name (dedup) and appends the
-    new entry last, so ordering reflects completion. Returns the record.
+    Replaces ALL existing entries with the same canonical name (dedup,
+    ignoring a trailing '.md') and appends the new entry last, so ordering
+    reflects completion. Returns the record.
     """
     entry = normalize_step(step_entry)
-    name = entry.get("name")
+    name = step_key(entry.get("name"))
     existing = record.get("steps") or []
-    kept = [s for s in existing if step_name(s) != name]
+    kept = [s for s in existing if step_key(step_name(s)) != name]
     kept.append(entry)
     record["steps"] = kept
     return record

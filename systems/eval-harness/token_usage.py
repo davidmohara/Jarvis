@@ -144,9 +144,14 @@ def usage_between(transcript_path: str, start_iso: str | None, end_iso: str | No
             continue
         matched.append(t)
 
-    # Lenient fallback: if strict time matching found nothing, use all turns
+    # Lenient fallback: if strict time matching found nothing, use all turns.
+    # Track it explicitly -- the old "len(matched) == len(turns)" test also
+    # fired when a strict window happened to contain every turn, mislabeling
+    # a real per-step slice as a fallback and corrupting token_source.
+    used_lenient_fallback = False
     if not matched and lenient_fallback:
         matched = turns
+        used_lenient_fallback = True
 
     tokens_input = sum(t["input_tokens"] + t["cache_read_input_tokens"] + t["cache_creation_5m"] + t["cache_creation_1h"] for t in matched)
     tokens_output = sum(t["output_tokens"] for t in matched)
@@ -161,7 +166,6 @@ def usage_between(transcript_path: str, start_iso: str | None, end_iso: str | No
     model_short = MODEL_ALIASES.get(model_raw, model_raw)
 
     cost_usd = _compute_accurate_cost(model_short, matched)
-    used_lenient_fallback = len(matched) == len(turns)
 
     return {
         "model": model_short,

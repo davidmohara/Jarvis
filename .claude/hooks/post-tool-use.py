@@ -763,10 +763,12 @@ def update_eval_record_state_yaml(eval_path: Path, file_path: str, content: str)
 def update_eval_record_step_frontmatter(eval_path: Path, file_path: str, content: str, transcript_path: str = None):
     """Update eval record with step timing from step frontmatter.
 
-    NOTE: Token extraction happens in .claude/hooks/step-complete.py, NOT here.
-    This hook runs during step execution when transcripts may not be complete.
-    We only create the step skeleton with timing/status; step-complete.py
-    populates tokens after the step fully completes.
+    Writes the step skeleton (timing/status/owning_agent) AND, for a step that
+    ran inline in the main session, the per-step token slice for its
+    started-at→completed-at window from this hook's own PostToolUse
+    transcript_path. Steps that ran inside a subagent are not in the main
+    transcript; those are filled by .claude/hooks/step-complete.py at
+    SubagentStop, which runs against the subagent's own transcript.
     """
     try:
         with open(eval_path, "r") as f:
@@ -801,6 +803,13 @@ def update_eval_record_step_frontmatter(eval_path: Path, file_path: str, content
         # field, which is often a Claude Code subagent type label.
         wf_match = re.search(r"workflows/([^/]+)/steps/", str(file_path))
         owning = workflow_owner_agent(wf_match.group(1)) if (workflow_owner_agent and wf_match) else None
+        # Stamp the owning workflow onto the record (additive field). A
+        # subagent-run workflow's steps land in a record whose `name` is the
+        # Claude Code subagent type ("general-purpose"), so a downstream
+        # closer (eval-agent-stop.py) cannot recover the workflow from `name`
+        # -- the step file's path is the only place that knows it.
+        if wf_match and not eval_record.get("workflow"):
+            eval_record["workflow"] = wf_match.group(1)
         step_entry = {
             "name": step_name,
             "step_id": step_name,
@@ -815,7 +824,8 @@ def update_eval_record_step_frontmatter(eval_path: Path, file_path: str, content
             "model": frontmatter.get("model"),
             "tokens_input": None,
             "tokens_output": None,
-            "cost_usd": None
+            "cost_usd": None,
+            "token_source": None,
         }
 
         # Calculate duration if both timestamps exist
@@ -827,7 +837,39 @@ def update_eval_record_step_frontmatter(eval_path: Path, file_path: str, content
             except Exception:
                 pass
 
-        # Add or update step in eval record (no token extraction here).
+        # Inline per-step token extraction. This hook fires on every Write/Edit
+        # to a */steps/*.md file and its own PostToolUse payload carries the
+        # MAIN session's transcript_path, so this is where a step that ran
+        # inline in the main session (boot, shutdown-cleanup, any master-owned
+        # workflow) gets its real per-step slice. Steps that ran inside a
+        # subagent are not in the main transcript, so the window matches zero
+        # turns there: lenient_fallback is deliberately OFF so nothing is
+        # written rather than a fabricated whole-transcript number -- those
+        # steps are filled by step-complete.py at SubagentStop instead.
+        if (usage_between
+                and transcript_path
+                and frontmatter.get("status") in ("complete", "completed")
+                and step_entry.get("started") and step_entry.get("completed")):
+            try:
+                usage = usage_between(
+                    transcript_path,
+                    step_entry["started"],
+                    step_entry["completed"],
+                    exclude_sidechain=True,
+                    lenient_fallback=False,
+                )
+                if usage and usage.get("turns_matched"):
+                    step_entry["tokens_input"] = usage.get("tokens_input")
+                    step_entry["tokens_output"] = usage.get("tokens_output")
+                    step_entry["cost_usd"] = usage.get("cost_usd")
+                    if usage.get("model"):
+                        step_entry["model"] = usage["model"]
+                    step_entry["token_source"] = "windowed"
+                    step_entry["turns_matched"] = usage.get("turns_matched")
+            except Exception as e:
+                log_error(f"Failed to extract inline step tokens for {step_name}: {e}")
+
+        # Add or update step in eval record.
         # Preserve any already-populated audit fields (model/tokens/cost) from
         # a prior step-complete.py pass and normalize legacy string entries so
         # the name comparison never crashes on an old record.
@@ -838,8 +880,9 @@ def update_eval_record_step_frontmatter(eval_path: Path, file_path: str, content
                 prior = n
                 break
         if prior:
-            for k in ("model", "tokens_input", "tokens_output", "cost_usd", "agent", "owning_agent"):
-                if prior.get(k) is not None:
+            for k in ("model", "tokens_input", "tokens_output", "cost_usd",
+                      "token_source", "turns_matched", "agent", "owning_agent"):
+                if step_entry.get(k) is None and prior.get(k) is not None:
                     step_entry[k] = prior[k]
         eval_record["steps"] = [
             normalize_step(s) if normalize_step else s
@@ -849,8 +892,11 @@ def update_eval_record_step_frontmatter(eval_path: Path, file_path: str, content
         ]
         eval_record["steps"].append(step_entry)
 
-        # Update mechanical assessment for step completion
-        if frontmatter.get("status") == "complete":
+        # Update mechanical assessment for step completion. Both spellings
+        # are live in the workflow library (boot uses "complete", plaud-ingest
+        # uses "completed"), so accept either rather than silently skipping
+        # half the candidates.
+        if frontmatter.get("status") in ("complete", "completed"):
             # Count completed steps vs total steps (simplified)
             eval_record["assessment"]["mechanical"]["all_steps_finished"] = True
 

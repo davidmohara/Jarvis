@@ -42,7 +42,8 @@ CASES = [
     ("boot, go ahead and run it", None, "name first, verb refers to pronoun not name"),
     ("we discussed boot instrumentation earlier tonight, the eval record for boot never fired", None, "bare mention, no run-verb adjacency"),
     ("kick off shutdown cleanup", "shutdown-cleanup", "run-verb + phrase form of name"),
-    ("please run the weekly review workflow now", "weekly-review", "run-verb + phrase form of name"),
+    # weekly-review case removed 2026-10-09: the workflow was retired (David-approved);
+    # the live flow is the quinn-weekly-review skill, and the workflow dir no longer exists.
     ("what does boot even do", None, "'do' is not a run-verb (regression case: 'do' was mistakenly included once)"),
     ("fix boot's eval blind spot", None, "bare mention in a work request about boot itself"),
     ("good morning", None, "no workflow mentioned at all"),
@@ -95,7 +96,7 @@ def main():
     if not workflows:
         print("FATAL: load_master_workflows() found no agent: master workflows — "
               "cannot run test suite (are you running this from a checkout with "
-              "workflows/boot, workflows/shutdown-cleanup, workflows/weekly-review present?)")
+              "workflows/boot, workflows/shutdown-cleanup present?)")
         sys.exit(2)
 
     failures = []

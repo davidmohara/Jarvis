@@ -12,13 +12,20 @@ Responsibilities:
 """
 
 import json
+import os
 import sys
 import re
 import subprocess
 from pathlib import Path
 from datetime import datetime, timezone
 
-IES_ROOT = Path(__file__).resolve().parents[2]
+# REPO_ROOT locates this build's own modules (sys.path below). IES_ROOT is the
+# DATA root (workflows, runs, guardrails) and honors the IES_ROOT env var so
+# the capture chain can be exercised against a temp runs dir without touching
+# the live harness. With the env var unset this is identical to REPO_ROOT, so
+# production behavior is unchanged.
+REPO_ROOT = Path(__file__).resolve().parents[2]
+IES_ROOT = Path(os.environ.get("IES_ROOT", REPO_ROOT))
 EVAL_RUNS_DIR = IES_ROOT / "systems" / "eval-harness" / "runs"
 ERROR_LOG = Path("/tmp/ies-hook-errors.log")
 
@@ -104,8 +111,8 @@ def get_guardrails_dir_for_workflow(workflow_name: str) -> Path:
     # Fallback to boot guardrails if workflow doesn't have its own
     return IES_ROOT / "workflows" / "boot" / "guardrails"
 
-sys.path.insert(0, str(IES_ROOT / "systems" / "eval-harness" / "vendor"))
-sys.path.insert(0, str(IES_ROOT / "systems" / "eval-harness"))
+sys.path.insert(0, str(REPO_ROOT / "systems" / "eval-harness" / "vendor"))
+sys.path.insert(0, str(REPO_ROOT / "systems" / "eval-harness"))
 import yaml
 try:
     from token_usage import usage_between
@@ -607,12 +614,20 @@ def main():
         log_error("Missing step_file_path or step_content in payload")
         return
 
-    # Extract step name from path
+    # Two names for the same step:
+    #   step_name        -- logical (stem, no ".md"); keys guardrail/verifier files
+    #   record_step_name -- the record key; must equal what post-tool-use.py
+    #                       wrote as the skeleton (Path(file_path).name, ".md"
+    #                       included) or the token update lands on a NEW
+    #                       duplicate entry while the skeleton the audit trail
+    #                       reads stays null.
     step_name = Path(step_file_path).stem
+    record_step_name = Path(step_file_path).name
 
-    # Parse step frontmatter
+    # Parse step frontmatter. Both "complete" and "completed" are live in the
+    # workflow library (boot vs plaud-ingest), so accept either.
     frontmatter = extract_frontmatter(step_content)
-    if not frontmatter or frontmatter.get("status") != "complete":
+    if not frontmatter or frontmatter.get("status") not in ("complete", "completed"):
         log_info(f"Step {step_name} not yet complete, skipping")
         return
 
@@ -669,8 +684,8 @@ def main():
     # Run guardrail checkpoint
     guardrail_result = run_step_guardrail_checkpoint(step_name, frontmatter, {}, workflow_name)
 
-    # Update eval record
-    update_eval_record_with_step_completion(eval_path, step_name, frontmatter, token_data, guardrail_result)
+    # Update eval record (keyed by the skeleton's name, ".md" included)
+    update_eval_record_with_step_completion(eval_path, record_step_name, frontmatter, token_data, guardrail_result)
 
     # Output result for workflow coordination
     output = {

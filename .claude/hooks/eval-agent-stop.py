@@ -7,6 +7,7 @@ and error-log correlation.
 """
 
 import json
+import os
 import sys
 import re
 import hashlib
@@ -86,6 +87,11 @@ def invoke_step_complete_hooks(eval_record: dict, transcript_path: str, ies_root
 
     log_info(f"invoke_step_complete_hooks: processing steps for workflow '{workflow_to_process}' from {steps_dir}")
 
+    # Locate step-complete.py next to THIS hook (its own build), not under
+    # ies_root -- ies_root is a DATA root and may be redirected (IES_ROOT env)
+    # without moving the hook scripts.
+    step_complete_script = Path(__file__).resolve().parent / "step-complete.py"
+
     # Validate and resolve transcript path
     # The agent_transcript_path from SubagentStop hook might point to a non-existent subagent transcript.
     # Instead, we use the agent's full transcript which was passed to us.
@@ -104,7 +110,7 @@ def invoke_step_complete_hooks(eval_record: dict, transcript_path: str, ies_root
                 content = f.read()
             frontmatter = extract_frontmatter_block(content)
             step_data = yaml.safe_load(frontmatter) or {}
-            if step_data.get("status") != "complete":
+            if step_data.get("status") not in ("complete", "completed"):
                 continue
 
             payload = {
@@ -119,11 +125,14 @@ def invoke_step_complete_hooks(eval_record: dict, transcript_path: str, ies_root
                 "eval_record_id": eval_record.get("id")
             }
             subprocess.run(
-                ["python3", str(ies_root / ".claude" / "hooks" / "step-complete.py")],
+                ["python3", str(step_complete_script)],
                 input=json.dumps(payload),
                 capture_output=True,
                 text=True,
-                timeout=10
+                timeout=10,
+                # step-complete.py resolves its data root from IES_ROOT; pass
+                # ours through so a redirected root (tests) stays redirected.
+                env={**os.environ, "IES_ROOT": str(ies_root)},
             )
         except Exception as e:
             log_error(f"step-complete failed for {step_file.name}: {e}")
@@ -318,8 +327,13 @@ def main():
     agent_transcript_path = payload.get("agent_transcript_path")
     last_assistant_message = payload.get("last_assistant_message")
 
-    if not agent_id or not agent_type:
-        log_error("SubagentStop hook missing agent_id or agent_type")
+    # agent_id is the reliable correlation key (find_eval_record matches on it
+    # first). agent_type is optional metadata used only for the fallback
+    # lookup and logging, so a payload carrying agent_id but no agent_type
+    # must not abort the whole stop path -- that silently dropped per-step
+    # token capture for every such subagent.
+    if not agent_id:
+        log_error("SubagentStop hook missing agent_id")
         return
 
     # Find the corresponding eval record stub
@@ -371,16 +385,26 @@ def main():
     # Invoke step-complete hooks for all workflows/agents that have steps
     # This populates per-step token data from the agent transcript
     try:
-        workflow_name = eval_record.get("name")
+        # Resolve the workflow this subagent ran. `name` is the Claude Code
+        # subagent type ("general-purpose") for a dispatched workflow, so it
+        # is NOT the workflow; `workflow` is authoritative -- set by
+        # eval-agent-start.py from the spawn prompt, or stamped by
+        # post-tool-use.py from the step file's path (the reliable source,
+        # since most spawn prompts don't name workflows/<x>/workflow.md).
+        # Fall back to `name` for records where name already IS the workflow.
+        workflow_name = eval_record.get("workflow") or eval_record.get("name")
         if workflow_name:
-            # Check if this workflow has a steps directory
             workflow_steps_dir = IES_ROOT / "workflows" / workflow_name / "steps"
             if workflow_steps_dir.exists():
                 log_info(f"Found step directory for workflow '{workflow_name}', invoking step-complete hooks")
-                invoke_step_complete_hooks(eval_record, agent_transcript_path, IES_ROOT)
+                invoke_step_complete_hooks(eval_record, agent_transcript_path, IES_ROOT, workflow_name=workflow_name)
                 # Re-read eval record to get step data updated by hooks
                 with open(eval_record_path, "r") as f:
                     eval_record = json.load(f)
+            else:
+                log_info(f"No steps directory for workflow '{workflow_name}' "
+                         f"(name={eval_record.get('name')!r}, workflow={eval_record.get('workflow')!r}), "
+                         f"skipping step-complete hooks")
     except Exception as e:
         log_error(f"step-complete hooks failed: {e}")
 
