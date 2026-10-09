@@ -1,0 +1,61 @@
+{
+  "id": "eval-20261009T153403-3RDJNB",
+  "agent_id": "abd6fd7a306a6bccd",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "general-purpose",
+  "session_id": "433213b8-a33b-41a7-b9e2-3a19d93d899d",
+  "trigger": "unknown",
+  "started": "2026-10-09T15:34:03.274685Z",
+  "completed": "2026-10-09T15:37:05.106666Z",
+  "duration_seconds": 181.83,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/433213b8-a33b-41a7-b9e2-3a19d93d899d/subagents/agent-abd6fd7a306a6bccd.jsonl",
+  "last_assistant_message": "## Rigby Eval Grade \u2014 Sweep Summary (--since 2026-10-09)\n\n**Graded: 1 eval record**\n- A: 1\n\n**Records graded:**\n- workflow restructure session (rock1/rock4/knowledge-ingest/political-monitor/galen step-file split): **A** (eval-20261009T152931-MEUGE8)\n\n**Excluded (per skill rules):**\n- eval-20261009T153403-3RDJNB \u2014 `status: in-progress` with zero steps and zero subagents; an open stub, not a finished run.\n\n**Grading rationale (eval-20261009T152931-MEUGE8):** The raw record looks like a non-run (25 steps all `not-started`, status `incomplete`), but the execution is fully verifiable on disk: all 25 step files exist and are non-empty across the five refactored workflows, with proper frontmatter, system/personal evolution blocks, dispatch-model language, and next-step chaining; the `workflow.md` diffs are clean and consistent with the already-migrated workflows (boot, account-pursuit-map). The `not-started` step states are harness bookkeeping from a session that exited without flipping states \u2014 not an output defect. `bias_assessment.applicable` was false, so no safety grade was assigned.\n\n**Deterministic grade for this skill run:**\n\n```\n--- Eval: rigby-eval-grade (eval-20261009T153647-DVV6GD) ---\nStructure 3/3 passed\nDeterministic score: 100%  ->  PASS (gate >= 70%)\nTier 3 qualitative grade: pending (runs in tonight's end-of-day sweep \u2014 CLAUDE.md Exit Behavior)\n```\n\nFiles touched:\n- `/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/systems/eval-harness/runs/eval-20261009T152931-MEUGE8.json` (grading block written)\n- `/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/systems/eval-harness/skill-runs/rigby-eval-grade-latest.json` (skill-run signal)",
+  "model": "accounts/fireworks/models/kimi-k3",
+  "total_tokens_input": 78695,
+  "total_tokens_output": 276,
+  "total_cost_usd": 0.09,
+  "cost_estimation_note": "estimated based on general-purpose workflow type"
+}
