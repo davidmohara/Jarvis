@@ -45,56 +45,16 @@ tracking file. No user interaction required. This feeds the One Texas Scorecard 
 
 ## EXECUTION
 
-### Step 1 — Pull Revenue Data
+**Dispatch model:** This workflow runs as a **Chase** subagent spawned by the coordinator, never inline in the coordinator's session. Chase executes the steps below in order.
 
-Read and follow `skills/revenue-tracker/SKILL.md` in full.
+### Steps
 
-Collect for Dallas and South Texas separately:
-- Revenue vs. Target (CQ %, LQ %, YTD %)
-- Revenue vs. Prior Year (CQ %, LQ %, YTD %)
-- Sequential Quarterly Revenue (CQ %, PQ %, 90-Day Forecast %)
-- Monthly Revenue (most recent closed month, dollar figure)
+| # | File | Executed by |
+|---|------|-------------|
+| 1 | `steps/step-01-pull-revenue.md` | spawned subagent (Chase) |
+| 2 | `steps/step-02-save.md` | spawned subagent (Chase) |
 
-Compile the formatted output per the skill's output format.
-
-Store in `state.yaml` under `accumulated-context.revenue`.
-
-Update `state.yaml`: `current-step: step-02-save`
-
-### Step 2 — Recency Gate + Append to Obsidian
-
-1. **Read the tracking file** via Obsidian MCP:
-   ```
-   mcp__obsidian-local__get_vault_file
-   filepath: Mind/One Texas/Rock 1 - Revenue Snapshots.md
-   ```
-
-2. **Recency check**: scan the file for a heading matching the current month and year
-   (e.g., `## April 2026`). If found, do NOT append — output:
-   ```
-   [Chase]: Rock 1 revenue snapshot for [Month YYYY] already recorded. Skipping write.
-   ```
-   Set `state.yaml` status: complete and stop.
-
-3. **If no entry for this month**, append the following block to the file:
-
-   ```markdown
-   ## [Month YYYY] — Revenue Snapshot
-   *Pulled: [YYYY-MM-DD] | Source: Enterprise Scorecard v4*
-
-   [full formatted output from revenue-tracker skill]
-
-   ---
-   ```
-
-   Use `mcp__obsidian-local__append_to_vault_file` with the above content.
-
-4. **Confirm write** and output:
-   ```
-   [Chase]: Rock 1 revenue snapshot for [Month YYYY] written to Mind/One Texas/Rock 1 - Revenue Snapshots.md.
-   ```
-
-5. Update `state.yaml`: `status: complete`, `current-step: step-02-save`.
+Begin: `steps/step-01-pull-revenue.md`
 
 ---
 

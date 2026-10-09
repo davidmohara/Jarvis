@@ -25,14 +25,15 @@ model: sonnet
 workflows/skill-optimize/
 ├── workflow.md          ← this file
 ├── state.yaml           ← execution state
-├── step-01-setup.md     ← configure target and eval batch
-├── step-02-score-baseline.md   ← compute baseline score
-├── step-03-reflect.md   ← invoke rigby-skill-reflect
-├── step-04-apply-candidate.md  ← write candidate skill version
-├── step-05-score-candidate.md  ← score candidate vs baseline
-├── step-06-gate.md      ← accept or reject candidate edits
-├── step-07-slow-update.md      ← epoch-wise durable consolidation
-└── step-08-report.md    ← surface results and next actions
+└── steps/
+    ├── step-01-setup.md     ← configure target and eval batch
+    ├── step-02-score-baseline.md   ← compute baseline score
+    ├── step-03-reflect.md   ← invoke rigby-skill-reflect
+    ├── step-04-apply-candidate.md  ← write candidate skill version
+    ├── step-05-score-candidate.md  ← score candidate vs baseline
+    ├── step-06-gate.md      ← accept or reject candidate edits
+    ├── step-07-slow-update.md      ← epoch-wise durable consolidation
+    └── step-08-report.md    ← surface results and next actions
 ```
 
 ### Key Metrics
@@ -59,16 +60,24 @@ Before starting any step, read `state.yaml` and apply the correct case:
 
 ## EXECUTION
 
+**Dispatch model:** This workflow runs as a **Rigby** subagent spawned by the coordinator, never inline in the coordinator's session. Rigby executes the steps below in order.
+
 Run steps in order. Read each step file fully before executing it.
 
-1. [Step 01 — Setup](step-01-setup.md): Identify target skill, configure edit budget and epoch, gather eval record IDs
-2. [Step 02 — Score Baseline](step-02-score-baseline.md): Score current skill across the eval batch; establish baseline
-3. [Step 03 — Reflect](step-03-reflect.md): Invoke `rigby-skill-reflect` to produce bounded edit proposals
-4. [Step 04 — Apply Candidate](step-04-apply-candidate.md): Write candidate skill version from accepted proposals
-5. [Step 05 — Score Candidate](step-05-score-candidate.md): Score candidate skill across the held-out selection split
-6. [Step 06 — Gate](step-06-gate.md): Accept or reject candidate; update rejected-edits buffer
-7. [Step 07 — Slow Update](step-07-slow-update.md): Epoch-boundary consolidation (runs after epoch_size rounds)
-8. [Step 08 — Report](step-08-report.md): Surface results, next actions, promote to pending-changes
+### Steps
+
+| # | File | Executed by |
+|---|------|-------------|
+| 1 | `steps/step-01-setup.md` | spawned subagent (Rigby) |
+| 2 | `steps/step-02-score-baseline.md` | spawned subagent (Rigby) |
+| 3 | `steps/step-03-reflect.md` | spawned subagent (Rigby) |
+| 4 | `steps/step-04-apply-candidate.md` | spawned subagent (Rigby) |
+| 5 | `steps/step-05-score-candidate.md` | spawned subagent (Rigby) |
+| 6 | `steps/step-06-gate.md` | spawned subagent (Rigby) |
+| 7 | `steps/step-07-slow-update.md` | spawned subagent (Rigby) |
+| 8 | `steps/step-08-report.md` | spawned subagent (Rigby) |
+
+Begin: `steps/step-01-setup.md`
 
 ---
 

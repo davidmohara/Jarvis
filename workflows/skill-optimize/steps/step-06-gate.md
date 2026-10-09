@@ -10,6 +10,8 @@ outputs:
   rejected_edits_logged: 0
 ---
 
+**Agent:** Rigby, spawned by the coordinator, never executed inline
+
 <!-- system:start -->
 ## MANDATORY EXECUTION RULES
 

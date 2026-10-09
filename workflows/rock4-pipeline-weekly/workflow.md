@@ -48,82 +48,17 @@ assembly step and provides the week-over-week pipeline trend for Rock 4 grading.
 
 ## EXECUTION
 
-### Step 1 — Pull Co-Sell Pipeline Data
+**Dispatch model:** This workflow runs as a **Chase** subagent spawned by the coordinator, never inline in the coordinator's session. Chase executes the steps below in order.
 
-Read and follow `skills/co-sell-pipeline/SKILL.md` in full.
+### Steps
 
-Collect:
-- Pipeline Revenue w/ Co-Selling Partner (total + by partner)
-- Won Revenue w/ Co-Selling Partner (total + by partner)
-- Rock 4 gap calculation: `$15M - Pipeline Revenue - Won Revenue`
+| # | File | Executed by |
+|---|------|-------------|
+| 1 | `steps/step-01-cosell.md` | spawned subagent (Chase) |
+| 2 | `steps/step-02-pipeline.md` | spawned subagent (Chase) |
+| 3 | `steps/step-03-save.md` | spawned subagent (Chase) |
 
-Store formatted output in `state.yaml` under `accumulated-context.cosell`.
-
-Update `state.yaml`: `current-step: step-02-pipeline`
-
-### Step 2 — Pull Pipeline Snapshot
-
-Read and follow `skills/pipeline-snapshot/SKILL.md` in full.
-
-Collect for Dallas and South Texas separately:
-- 90-Day Weighted Pipeline (primary Rock 1 metric)
-- Total Pipeline Revenue + Opp Count
-- Pipeline by Probability Stage
-- Pipeline by Opportunity Type
-
-Store formatted output in `state.yaml` under `accumulated-context.pipeline`.
-
-Update `state.yaml`: `current-step: step-03-save`
-
-### Step 3 — Append to Obsidian
-
-1. **Read the tracking file** via Obsidian MCP:
-   ```
-   mcp__obsidian-local__get_vault_file
-   filepath: Mind/One Texas/Rock 4 - Pipeline Snapshots.md
-   ```
-
-2. **Recency check**: look for an entry from the current week (within last 5 days).
-   If found, do NOT append — output:
-   ```
-   [Chase]: Rock 4 pipeline snapshot already recorded this week ([date]). Skipping write.
-   ```
-   Update `state.yaml` with `status: complete` and `last-completed: [today's date YYYY-MM-DD]`, then stop.
-
-3. **If no entry this week**, append the following block:
-
-   ```markdown
-   ## Week of [YYYY-MM-DD] — Pipeline Snapshot
-   *Pulled: [YYYY-MM-DD] | Source: Sales Analytics*
-
-   ### Co-Sell Pipeline (Rock 4)
-   [full formatted output from co-sell-pipeline skill]
-
-   ### Pipeline Health (Rock 1 — 90-Day Weighted)
-   [full formatted output from pipeline-snapshot skill]
-
-   ---
-   ```
-
-   Use `mcp__obsidian-local__append_to_vault_file`.
-
-4. **Confirm write** and output:
-   ```
-   [Chase]: Rock 4 pipeline snapshot for week of [date] written to Mind/One Texas/Rock 4 - Pipeline Snapshots.md.
-   Rock 4 gap: $[X]M remaining to $15M target.
-   90-Day weighted pipeline: $[X]M One Texas.
-   ```
-
-5. Update `state.yaml`:
-
-   ```yaml
-   workflow: rock4-pipeline-weekly
-   agent: chase
-   status: complete
-   current-step: step-03
-   last-completed: "[today's date YYYY-MM-DD]"
-   last-written-obsidian: "[today's date YYYY-MM-DD]"
-   ```
+Begin: `steps/step-01-cosell.md`
 
 ---
 

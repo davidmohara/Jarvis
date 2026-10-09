@@ -125,7 +125,7 @@ The 4 candidates, shutdown-cleanup, their verification sub-workflows, and the tw
 11. content-calendar step-05: route git through skills/git + ies-git wrapper (mirror content-approval's mandated-path language).
 12. Balance evolution-deployment step-06's comment blocks; content-pipeline state.yaml agent field.
 
-### Tier 3 — Structural repair (~2 sessions, Rigby, gated on David's decisions)
+### Tier 3 — Structural repair (~2 sessions, Rigby, gated on David's decisions) — **COMPLETE 2026-10-09** (all items per David's decisions: weekly-knowledge-review retired; weekly-review retired with the quinn-weekly-review skill carrying the live flow; the 5 inline-spec workflows extracted to steps/ (galen 6, knowledge-ingest 7, political-monitor 9, rock1 2, rock4 3 — step names chosen to match existing verifiers); skill-optimize's 8 loose files moved into steps/ with references fixed and Agent lines added; 0 broken references validated; content-pipeline step-03-git-finalize remains deferred as an execution record pending its own usage)
 13. weekly-knowledge-review: restore or formally retire the 6 missing step files (workflow is currently unrunnable).
 14. skill-optimize: move 8 loose step files into steps/.
 15. Inline-spec workflows (galen-monthly-health-review, knowledge-ingest, political-monitor, rock1, rock4): either extract steps into steps/ dirs or accept and document the single-file form as a sanctioned variant of the standard.

@@ -8,6 +8,8 @@ outputs:
   insufficient_data: false
 ---
 
+**Agent:** Rigby, spawned by the coordinator, never executed inline
+
 <!-- system:start -->
 ## MANDATORY EXECUTION RULES
 

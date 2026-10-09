@@ -7,6 +7,8 @@ outputs:
   edits_applied: 0
 ---
 
+**Agent:** Rigby, spawned by the coordinator, never executed inline
+
 <!-- system:start -->
 ## MANDATORY EXECUTION RULES
 

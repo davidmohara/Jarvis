@@ -46,21 +46,25 @@ Triggered when:
 
 ## EXECUTION
 
-Run STATE CHECK above, then begin at step-01.
+**Dispatch model:** This workflow runs as a **Knox** subagent spawned by the coordinator, never inline in the coordinator's session. Knox executes the steps below in order.
+
+Run STATE CHECK above, then begin at `steps/step-01-discover.md`.
 
 ---
 
-## Steps
+## STEPS
 
-| Step | File | Description |
-|------|------|-------------|
-| 01 | `steps/step-01-discover.md` | Check all capture surfaces for new/updated content |
-| 02 | `steps/step-02-ingest.md` | Pull content from each source using source-specific skills |
-| 03 | `steps/step-03-normalize.md` | Convert all content to markdown with standard frontmatter |
-| 04 | `steps/step-04-link.md` | Cross-reference against people (Clay), projects (OmniFocus), and existing vault notes |
-| 05 | `steps/step-05-file.md` | Save to correct vault location, create directories as needed |
-| 06 | `steps/step-06-route.md` | Route action items to OmniFocus, flag content for other agents |
-| 07 | `steps/step-07-report.md` | Summarize what was ingested, linked, and routed |
+| # | File | Executed by |
+|---|------|-------------|
+| 1 | `steps/step-01-discover.md` | spawned subagent (Knox) |
+| 2 | `steps/step-02-ingest.md` | spawned subagent (Knox) |
+| 3 | `steps/step-03-normalize.md` | spawned subagent (Knox) |
+| 4 | `steps/step-04-link.md` | spawned subagent (Knox) |
+| 5 | `steps/step-05-file.md` | spawned subagent (Knox) |
+| 6 | `steps/step-06-route.md` | spawned subagent (Knox) |
+| 7 | `steps/step-07-report.md` | spawned subagent (Knox) |
+
+Begin: `steps/step-01-discover.md`
 
 ## Source Registry
 
