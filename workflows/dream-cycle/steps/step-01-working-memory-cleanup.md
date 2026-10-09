@@ -1,25 +1,27 @@
 ---
 status: completed
-started-at: 2026-09-23T08:02:00Z
-completed-at: 2026-09-23T08:06:00Z
+started-at: 2026-10-09T11:32:47Z
+completed-at: 2026-10-09T11:42:00Z
 outputs:
-  working_archived: 1
+  working_archived: 7
   working_deleted: 0
-  working_skipped: 53
+  working_skipped: 58
   working_stranded: 0
-  enrichment_method: "manual enrichment by the executing session via systems/dream-cycle/backfill-episodic-tags.py heuristic functions imported directly (no nested claude -p subprocess call, no Desktop Commander -- consistent with every prior cloud-sandbox cycle since 09-08)"
+  enrichment_method: "heuristic enrichment via backfill-episodic-tags.py functions imported via importlib.util (hyphenated filename, no subprocess, no Desktop Commander -- consistent with prior cloud-sandbox cycles)"
   archived_files:
-    - dream-summary-2026-09-21.md
-  deleted_trivial_files: []
-  skipped_not_expired:
+    - 2026-09-28-chief-daily-review.md
+    - 2026-09-28-harper-lone-star-gold-board-update.md
     - co-sell-pipeline-2026-09-22-000000.md
+    - co-sell-pipeline-2026-10-05-001533.md
     - dream-summary-2026-09-22.md
-    - revenue-tracker-2026-09-22-143000.md
-  skipped_unparseable_count: 48
+    - dream-summary-2026-09-23.md
+    - plaud-ingest-2026-10-06-175500.md
+  deleted_trivial_files: []
+  skipped_unparseable_count: 57
   unparseable_left_untouched_missing_status:
     - knox-plaud-ingest-2026-08-31.md
   new_unparseable_this_cycle: []
-  self_caught_bug_note: "none this cycle -- the single candidate (dream-summary-2026-09-21.md, 4 body lines, non-trivial) was enriched, read back yaml-parsed clean, then moved via mv. It carried the same expires-equals-today hold-back rule on 09-22 and landed this cycle as expected."
+  self_caught_bug_note: "none this cycle -- all 7 candidates non-trivial, enriched via heuristic, read back verified clean, moved via shutil.move. 16-day gap since last cycle (09-23 to 10-09) accounts for the larger-than-usual 7-file batch."
 ---
 
 <!-- system:start -->

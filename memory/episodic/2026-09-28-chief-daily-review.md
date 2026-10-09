@@ -1,12 +1,32 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "chief-2026-09-28-daily-review"
 agent-source: chief
 created: 2026-09-28T21:50:00
 expires: 2026-09-30T21:50:00
-status: active
+status: archived
 context: "Daily review for Monday 2026-09-28 — the marathon before Vegas wheels-up"
+date: 2026-09-28
+source_file: memory/working/2026-09-28-chief-daily-review.md
+tags:
+  - daily-review
+  - chief
+  - briefing
+  - calendar
+  - omnifocus
+  - travel
+  - flight
+  - flight-conflict
+  - rock3
+  - quarterly-rocks
+related_people:
+  - steve-hall
+  - derek-nwamadi
+salience:
+  score: 10
+  last-promoted-check: 2026-10-09
+  promoted: true
 ---
 
 # Chief: Daily Review 2026-09-28

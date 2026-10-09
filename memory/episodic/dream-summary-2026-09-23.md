@@ -1,12 +1,31 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "dream-cycle-2026-09-23-080200"
 agent-source: jarvis
 created: 2026-09-23T03:19:11-05:00
 expires: 2026-09-24
-status: active
+status: archived
 context: "Dream cycle summary — 2026-09-23"
+date: 2026-09-23
+source_file: memory/working/dream-summary-2026-09-23.md
+tags:
+  - dream-summary
+  - jarvis
+  - calendar
+  - omnifocus
+  - revenue
+  - plaud
+  - dream-cycle
+  - git-issues
+  - knox
+related_people:
+  - steve-hall
+  - derek-nwamadi
+salience:
+  score: 10
+  last-promoted-check: 2026-10-09
+  promoted: true
 ---
 
 One working-memory item aged out overnight — last night's own dream summary (09-21), held back one extra cycle by the same-calendar-day expiry rule. All clean: enriched, read back clean, and moved into episodic memory.

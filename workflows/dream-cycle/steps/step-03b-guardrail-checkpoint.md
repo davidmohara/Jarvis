@@ -1,11 +1,11 @@
 ---
 status: completed
-started-at: 2026-09-23T08:14:00Z
-completed-at: 2026-09-23T08:15:00Z
+started-at: 2026-10-09T11:58:00Z
+completed-at: 2026-10-09T12:00:00Z
 outputs:
   result: pass
-  reason: "2 promoted entries this cycle (dream-summary-2026-09-21.md score 10, plaud-ingest-2026-09-17-113544.md score 3), both correctly excluded from any future compression candidate set via promoted:true and score>=2; volume (2) normal; both semantic writes were substantive dated narrative appends with real figures, not stubs."
-  eval_record_note: "Created eval-20260923T081811-81HA66 via new-eval.py, set name/agent/session_id on it before any record-step.py calls, backfilled steps 01-03 cleanly, checkpoint attached correctly on first attempt."
+  reason: "7 promoted entries this cycle, all correctly set promoted:true and none appearing in compression candidate set; 4 compression candidates (date<2026-07-11, score<2, promoted==false) -- increase from 2 to 4 explained by 16-day gap advancing the 90-day window to pick up 2 new entries (system-eval-2026-06-27-040621.md and dream-summary-2026-07-06.md); still below the 5-entry safety threshold; all 5 semantic writes were substantive dated narrative appends with real content, not stubs."
+  eval_record: "eval-20261009T164112-TNNB3K"
 model: sonnet
 ---
 

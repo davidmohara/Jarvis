@@ -15,8 +15,8 @@ tags:
   - pipeline
 related_people:
 salience:
-  score: 7
-  last-promoted-check: 2026-09-23
+  score: 3
+  last-promoted-check: 2026-10-09
   promoted: true
 ---
 - Live pull (data updated 9/16/26). Total pipeline: Dallas $43.15M/90 opps; South Texas $24.11M/74 (Austin $13.75M/40, Houston $10.36M/34).

@@ -1,0 +1,62 @@
+{
+  "id": "eval-20261009T164112-TNNB3K",
+  "type": "agent",
+  "name": "dream-cycle",
+  "agent": "jarvis",
+  "session_id": "dream-cycle-2026-10-09-113247",
+  "trigger": "manual",
+  "started": "2026-10-09T16:41:12.242312Z",
+  "completed": null,
+  "duration_seconds": null,
+  "status": "in-progress",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": null,
+      "all_steps_finished": null,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "guardrails": [
+    {
+      "name": "pre-deletion-review",
+      "after_step": "step-03-semantic-promotion",
+      "result": "pass",
+      "reason": "7 promoted entries all correctly set promoted:true; 4 compression candidates all below 2026-07-11 cutoff, none overlapping with promoted set; volume increase 2->4 explained by 16-day cycle gap advancing the 90-day window; all 5 semantic writes were substantive dated narrative appends, not stubs",
+      "escalated_to_human": false,
+      "timestamp": "2026-10-09T16:41:17.341300+00:00"
+    }
+  ]
+}

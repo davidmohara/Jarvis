@@ -1,13 +1,13 @@
 ---
 status: completed
-started-at: 2026-09-23T08:15:00Z
-completed-at: 2026-09-23T08:16:00Z
+started-at: 2026-10-09T12:00:00Z
+completed-at: 2026-10-09T12:01:00Z
 outputs:
-  candidates_count: 2
+  candidates_count: 4
   entries_compressed: 0
   digests_updated: 0
   compression_skipped: true
-  compression_skip_reason: "2 compression candidates this cycle (2026-06-19-session.md: date 2026-06-19 < cutoff 2026-06-25, score 0, promoted not-true; daily-review-2026-06-23-170000.md: date 2026-06-23 < cutoff 2026-06-25, score 0, promoted not-true), same set as 09-22, well below the 5-entry safety threshold -- skipped, nothing modified. GUARDRAIL 7 approval gate not reached."
+  compression_skip_reason: "4 compression candidates this cycle (2026-06-19-session.md, daily-review-2026-06-23-170000.md, system-eval-2026-06-27-040621.md, dream-summary-2026-07-06.md -- all date<2026-07-11, score 0, promoted false; 2 new candidates vs 09-23 explained by 16-day gap advancing the 90-day cutoff from 2026-06-25 to 2026-07-11), still below the 5-entry safety threshold -- skipped, nothing modified. GUARDRAIL 7 approval gate not reached."
 approved-followup-2026-09-15:
   approved-at: 2026-09-15T08:25:00Z
   approved-by: david

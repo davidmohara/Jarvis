@@ -18,8 +18,8 @@ tags:
   - no-new-recordings
 related_people: []
 salience:
-  score: 5
-  last-promoted-check: 2026-09-23
+  score: 4
+  last-promoted-check: 2026-10-09
   promoted: true
 ---
 

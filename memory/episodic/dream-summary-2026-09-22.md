@@ -1,7 +1,25 @@
 ---
-type: working
+type: working-archive
 expires: 2026-09-23
-status: active
+status: archived
+date: 2026-09-22
+source_file: memory/working/dream-summary-2026-09-22.md
+tags:
+  - dream-summary
+  - omnifocus
+  - rock4
+  - co-sell
+  - semantic-promotion
+  - dream-cycle
+  - error-patterns
+  - lessons
+related_people:
+  - steve-hall
+  - derek-nwamadi
+salience:
+  score: 10
+  last-promoted-check: 2026-10-09
+  promoted: true
 ---
 
 # Dream Cycle Summary — 2026-09-22

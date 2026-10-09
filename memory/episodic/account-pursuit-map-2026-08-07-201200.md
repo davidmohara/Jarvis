@@ -24,8 +24,8 @@ related_people:
   - brian-schmidt
   - ellery-fisher
 salience:
-  score: 6
-  last-promoted-check: 2026-09-23
+  score: 3
+  last-promoted-check: 2026-10-09
   promoted: true
 ---
 

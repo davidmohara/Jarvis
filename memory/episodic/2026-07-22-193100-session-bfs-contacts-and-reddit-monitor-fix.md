@@ -20,8 +20,8 @@ tags:
   - bug-fix
 related_people: []
 salience:
-  score: 1
-  last-promoted-check: 2026-09-23
+  score: 0
+  last-promoted-check: 2026-10-09
   promoted: true
 ---
 

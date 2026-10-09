@@ -1,22 +1,25 @@
 ---
 status: completed
-started-at: 2026-09-23T08:09:00Z
-completed-at: 2026-09-23T08:14:00Z
+started-at: 2026-10-09T11:45:00Z
+completed-at: 2026-10-09T11:58:00Z
 outputs:
-  candidates_count: 2
-  clusters_found: 2
+  candidates_count: 7
+  clusters_found: 5
   semantic_created: 0
-  semantic_updated: 2
-  promoted_entries: 2
-  promotion_note: "2 candidates this cycle: dream-summary-2026-09-21.md (score 10, today's own step-01 archive) appended to dream-summary-pattern.md (operational/2026-06-12); plaud-ingest-2026-09-17-113544.md (score 3, crossed the promotion threshold today after the dream-summary archive gave it a third shared tag) appended to plaud-pattern.md (operational/2026-06-12). Independently re-confirmed delegations/tracker.md still shows one active delegation (Steve Hall/Derek Nwamadi, due 2026-09-25) -- unchanged since 09-18. Q3 rocks re-check: quarterly-objectives.md still 'Q3 draft -- pending David's review, not yet finalized', unchanged since 07-30."
+  semantic_updated: 5
+  promoted_entries: 7
+  promotion_note: "7 candidates this cycle (all today's own step-01 archives, 16-day batch): dream-summary-2026-09-22.md + dream-summary-2026-09-23.md (scores 10+10) appended to dream-summary-pattern.md (operational/2026-06-12); co-sell-pipeline-2026-09-22-000000.md + co-sell-pipeline-2026-10-05-001533.md (scores 8+6) appended to pipeline-review-pattern.md (operational/2026-06-18) -- notable: gap narrowed $8.87M -> $5.14M in 13 days; 2026-09-28-chief-daily-review.md (score 10) appended to daily-review-pattern.md (operational/2026-06-12) -- Q3 rocks sign-off flagged as imminent miss; 2026-09-28-harper-lone-star-gold-board-update.md (score 6) appended to ypo-pattern.md (operational/2026-06-25) -- LSG board meeting, Western US RBM Oct 5-6 New Orleans; plaud-ingest-2026-10-06-175500.md (score 4) appended to plaud-pattern.md (operational/2026-07-04) -- fourth distinct Monday task creation failure mode. Delegation tracker: Steve Hall/Derek Nwamadi delegation now overdue (was due 09-25). Q3 rocks: unsigned, quarter closed 09-30 -- a miss."
   cluster_actions:
-    - {tag: dream-summary, domain: operational, size: 1, action: update, target: memory/semantic/operational/2026-06-12-dream-summary-pattern.md, confidence: "high (unchanged, at ceiling)"}
-    - {tag: plaud, domain: operational, size: 1, action: update, target: memory/semantic/operational/2026-06-12-plaud-pattern.md, confidence: "medium (unchanged)"}
-  error_categories_30d: "assumption-error/wrong-assumption:10, process-skip/protocol-skip:7, tool-misuse/protocol-skip:6, tool-misuse/pattern-mismatch:5"
-  error_total_30d: 432
-  error_malformed_30d: 3
+    - {tag: dream-summary, domain: operational, size: 2, action: update, target: memory/semantic/operational/2026-06-12-dream-summary-pattern.md, confidence: "high (unchanged, at ceiling)"}
+    - {tag: pipeline-review, domain: operational, size: 2, action: update, target: memory/semantic/operational/2026-06-18-pipeline-review-pattern.md, confidence: "medium (unchanged)"}
+    - {tag: daily-review, domain: operational, size: 1, action: update, target: memory/semantic/operational/2026-06-12-daily-review-pattern.md, confidence: "medium (unchanged)"}
+    - {tag: ypo, domain: operational, size: 1, action: update, target: memory/semantic/operational/2026-06-25-ypo-pattern.md, confidence: "low (unchanged)"}
+    - {tag: plaud, domain: operational, size: 1, action: update, target: memory/semantic/operational/2026-07-04-plaud-pattern.md, confidence: "high (unchanged)"}
+  error_categories_30d: "assumption-error/wrong-assumption:7, process-skip/protocol-skip:5, tool-misuse/tool-ignorance:5, data-accuracy/wrong-assumption:3"
+  error_total_30d: 466
+  error_malformed_30d: 0
   lessons_appended: 0
-  lessons_note: "Same 4 qualifying categories as 09-22, all re-verified present and active in LESSONS.md at the documented line numbers (assumption-error/wrong-assumption L249-250; process-skip/protocol-skip L153-154; tool-misuse/protocol-skip L444-445; tool-misuse/pattern-mismatch L452-453). No new entry appended. No self-detected errors this cycle."
+  lessons_note: "4 qualifying categories this cycle, 2 changed vs 09-23: tool-misuse/protocol-skip and tool-misuse/pattern-mismatch aged out of the 30-day window; tool-misuse/tool-ignorance (L357-358) and data-accuracy/wrong-assumption (L231-235, L295-296) re-entered at threshold. All 4 re-verified present and active in LESSONS.md. No new entry appended. No self-detected errors this cycle."
 ---
 
 <!-- system:start -->

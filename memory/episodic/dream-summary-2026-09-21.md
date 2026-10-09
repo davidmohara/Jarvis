@@ -24,9 +24,9 @@ related_people:
   - steve-hall
   - derek-nwamadi
 salience:
-  promoted: true
   score: 10
-  last-promoted-check: 2026-09-23
+  last-promoted-check: 2026-10-09
+  promoted: true
 ---
 
 Six working-memory items aged out overnight, all held back one extra cycle by the same-calendar-day expiry rule: a Knox plaud-ingest report, a Chief daily review, a Rigby eval-phantom-fix build note, two dream summaries (09-18 and 09-19), and a Chief plaud-ingest summary. All non-trivial, all enriched and moved cleanly into episodic memory.

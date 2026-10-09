@@ -1,12 +1,32 @@
 workflow: dream-cycle
 agent: jarvis
-status: complete
-session-started: 2026-09-23T08:02:00Z
-session-id: dream-cycle-2026-09-23-080200
-current-step: null
+status: in-progress
+session-started: 2026-10-09T11:32:47Z
+session-id: dream-cycle-2026-10-09-113247
+current-step: step-06-adversarial-verify
 original-request: "Execute dream-cycle workflow for today (scheduled task)"
 last-successful-run: 2026-09-23T08:20:00Z
 accumulated-context:
+  step-01-2026-10-09:
+    working_archived: 7
+    working_deleted: 0
+    working_skipped: 58
+    working_stranded: 0
+    skipped_unparseable_count: 57
+    unparseable_left_untouched_missing_status:
+      - knox-plaud-ingest-2026-08-31.md
+    archived_files:
+      - 2026-09-28-chief-daily-review.md
+      - 2026-09-28-harper-lone-star-gold-board-update.md
+      - co-sell-pipeline-2026-09-22-000000.md
+      - co-sell-pipeline-2026-10-05-001533.md
+      - dream-summary-2026-09-22.md
+      - dream-summary-2026-09-23.md
+      - plaud-ingest-2026-10-06-175500.md
+    deleted_trivial_files: []
+    enrichment_method: "heuristic via backfill-episodic-tags.py importlib.util import (no subprocess, no Desktop Commander)"
+    stranded: []
+    self_caught_bug_note: "none this cycle -- all 7 non-trivial, enriched, verified, moved. 16-day gap from 09-23 to 10-09 explains larger batch."
   step-04-2026-09-23:
     candidates_count: 2
     entries_compressed: 0

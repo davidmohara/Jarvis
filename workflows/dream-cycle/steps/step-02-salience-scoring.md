@@ -1,15 +1,17 @@
 ---
 status: completed
-started-at: 2026-09-23T08:06:00Z
-completed-at: 2026-09-23T08:09:00Z
+started-at: 2026-10-09T11:42:00Z
+completed-at: 2026-10-09T11:45:00Z
 outputs:
-  episodic_scanned: 339
-  score_updates: 339
+  episodic_scanned: 346
+  score_updates: 346
   no_tags: 197
   no_date: 37
-  score_distribution: "0:205,1:5,2:7,3:9,4:2,5:4,6:10,7:6,8:6,9:3,10:82"
-  window_entries: 59
-  note: "Ran systems/dream-cycle/salience-score.py --date 2026-09-23. read_errors:0, write_errors:0. episodic_scanned rose 338->339, fully explained by today's 1 step-01 archive, no other change. pct_score_0=60.47% (205/339) stays BELOW the 70% escalation threshold. pct_score_10=24.19% (82/339), well above 0, no anomaly. pct_no_date=10.91% (37/339) still crosses the >10% threshold, same legacy undated population as every prior cycle, no new undated entries. pct_no_tags=58.11% (197/339) stays in the 30-70% 'unusual tag coverage' band, same underlying population as prior cycles, not a new problem. Corpus-wide scan for the frontmatter-stranding corruption signature (duplicate salience: blocks, multiple promoted: keys), scanned within the frontmatter block only, found 0 instances across all 340 scanned episodic files, consistent with every cycle since the 09-01 fix (commit bb2de90)."
+  score_distribution: "0:206,1:11,2:15,3:12,4:5,5:5,6:9,7:6,8:6,9:6,10:65"
+  window_entries: 37
+  read_errors: 0
+  write_errors: 0
+  note: "Ran systems/dream-cycle/salience-score.py --date 2026-10-09. read_errors:0, write_errors:0. episodic_scanned rose 339->346, fully explained by today's 7 step-01 archives. pct_score_0=59.54% (206/346) BELOW the 70% escalation threshold: PASS. pct_score_10=18.79% (65/346) above 0: PASS. pct_no_date=10.69% (37/346) crosses >10% threshold -- same legacy undated population as every prior cycle, no new undated entries this cycle. pct_no_tags=56.94% (197/346) stays in the 30-70% warning band, same underlying legacy population. Note: window_entries dropped 59->37 because 16 days of entries aged out of the 30-day window during the gap (last cycle was 09-23). Guardrail 3: pass. Guardrail 4: pct_no_date escalated (same legacy), pct_no_tags warning band (same underlying population, not new)."
 ---
 
 <!-- system:start -->

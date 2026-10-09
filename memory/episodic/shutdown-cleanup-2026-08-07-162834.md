@@ -18,8 +18,8 @@ tags:
   - purge
 related_people: []
 salience:
-  score: 7
-  last-promoted-check: 2026-09-23
+  score: 2
+  last-promoted-check: 2026-10-09
   promoted: true
 ---
 

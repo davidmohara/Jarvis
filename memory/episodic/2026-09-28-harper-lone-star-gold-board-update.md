@@ -1,12 +1,26 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "harper-2026-09-28-lsg-board"
 agent-source: harper
 created: 2026-09-28T00:00:00
 expires: 2026-09-30T00:00:00
-status: active
+status: archived
 context: "Lone Star Gold Sept board meeting update built from Shelby Meyer emails — 2026-09-28"
+date: 2026-09-28
+source_file: memory/working/2026-09-28-harper-lone-star-gold-board-update.md
+tags:
+  - harper
+  - calendar
+  - omnifocus
+  - leads
+  - ypo
+  - email
+related_people:
+salience:
+  score: 6
+  last-promoted-check: 2026-10-09
+  promoted: true
 ---
 
 # Harper: Lone Star Gold Board Update (2026-09-28)
