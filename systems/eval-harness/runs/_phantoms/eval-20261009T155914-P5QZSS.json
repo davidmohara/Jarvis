@@ -1,0 +1,44 @@
+{
+  "id": "eval-20261009T155914-P5QZSS",
+  "type": "workflow",
+  "name": "boot-verification",
+  "agent": "ralph",
+  "session_id": "9d1f1c4e-bdea-4ce3-a1c2-304f9bd8cfe9",
+  "trigger": "boot",
+  "started": "2026-10-09T15:55:00Z",
+  "completed": "2026-10-09T15:59:14.390161Z",
+  "duration_seconds": 254.4,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    }
+  },
+  "version_hash": "c25732445bff310d",
+  "prior_baseline_id": null,
+  "tags": [
+    "phantom-candidate",
+    "cowork-hook"
+  ]
+}

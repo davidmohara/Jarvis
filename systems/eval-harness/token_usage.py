@@ -50,9 +50,14 @@ def _parse_ts(ts: str) -> datetime | None:
     if not ts:
         return None
     try:
-        return datetime.fromisoformat(str(ts).replace("Z", "+00:00"))
+        dt = datetime.fromisoformat(str(ts).replace("Z", "+00:00"))
     except Exception:
         return None
+    # Assume UTC for naive stamps (historical step frontmatter carries both
+    # forms); mixed naive/aware stamps otherwise crash on comparison.
+    if dt.tzinfo is None:
+        dt = dt.replace(tzinfo=timezone.utc)
+    return dt
 
 
 def extract_assistant_turns(transcript_path: str, exclude_sidechain: bool = True) -> list[dict]:
@@ -152,6 +157,14 @@ def usage_between(transcript_path: str, start_iso: str | None, end_iso: str | No
     if not matched and lenient_fallback:
         matched = turns
         used_lenient_fallback = True
+
+    # Honor the documented contract: no matched turns (strict path, or an
+    # empty transcript) returns None rather than a zero-sum dict. A zero dict
+    # is indistinguishable from a genuine zero-usage match and let the
+    # backfill write fabricated zeros into records (caught by the coverage
+    # scan, 2026-10-09).
+    if not matched:
+        return None
 
     tokens_input = sum(t["input_tokens"] + t["cache_read_input_tokens"] + t["cache_creation_5m"] + t["cache_creation_1h"] for t in matched)
     tokens_output = sum(t["output_tokens"] for t in matched)

@@ -20,10 +20,12 @@
       "status": "completed",
       "data_sources_used": [],
       "data_source_failures": [],
-      "model": "haiku",
-      "tokens_input": null,
-      "tokens_output": null,
-      "cost_usd": null
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 73351,
+      "tokens_output": 602,
+      "cost_usd": null,
+      "turns_matched": 1,
+      "token_source": "backfilled-windowed"
     },
     {
       "name": "step-05b-share-with-alice.md",
@@ -32,11 +34,7 @@
       "duration_seconds": 240.0,
       "status": "completed",
       "data_sources_used": [],
-      "data_source_failures": [],
-      "model": "sonnet",
-      "tokens_input": null,
-      "tokens_output": null,
-      "cost_usd": null
+      "data_source_failures": []
     },
     {
       "name": "step-05-ingest-vault.md",
@@ -45,11 +43,7 @@
       "duration_seconds": 1080.0,
       "status": "completed",
       "data_sources_used": [],
-      "data_source_failures": [],
-      "model": "sonnet",
-      "tokens_input": null,
-      "tokens_output": null,
-      "cost_usd": null
+      "data_source_failures": []
     }
   ],
   "assessment": {

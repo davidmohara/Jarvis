@@ -1,0 +1,15 @@
+{
+  "id": "err-20261009T174523-K8882F",
+  "timestamp": "2026-10-09T17:45:23Z",
+  "session": "stage5-remediation-2026-10-08",
+  "source": "self-detected",
+  "agent": "rigby",
+  "category": "data-accuracy",
+  "description": "The first backfill-step-tokens pass wrote fabricated zeros into 183 step entries across 48 eval records: usage_between() violates its own documented contract ('returns None if no turns fall in the window') by returning a zero-sum dict when strict window matching matches zero turns, so the backfill treated a zero-dict as a successful fill (tokens_input: 0, turns_matched: 0, token_source: backfilled-windowed) and also never tried the next transcript candidate. Caught by the coverage scan refusing to count zero-token entries as full executions. Compounding factor: the boot Oct 9 record's session_id (9d1f1c4e) points at a transcript last modified before the run started (misattributed session id; its true transcript is not locally reachable).",
+  "correction": "usage_between() now returns None when no turns match (contract honored); the backfill skips any result with zero turns_matched and tries the next transcript candidate; a repair pass restored all 183 zero-fill entries to null state (only entries with token_source backfilled-windowed, falsy turns_matched, and zero tokens were touched); re-run filled only 2 further entries, all genuine.",
+  "failure_mode": "sloppy-read",
+  "systemic_fix": "Applied. Rule: any fill/merge writing numeric data must distinguish no-match (None) from a genuine zero match; callers must verify turns_matched > 0 before treating an aggregation as data.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": ["err-20261009T165351-WJYEZN"]
+}

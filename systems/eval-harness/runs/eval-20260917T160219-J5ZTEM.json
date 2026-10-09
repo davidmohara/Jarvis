@@ -20,10 +20,12 @@
       "status": "completed",
       "data_sources_used": [],
       "data_source_failures": [],
-      "model": "haiku",
-      "tokens_input": null,
-      "tokens_output": null,
-      "cost_usd": null
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 496280,
+      "tokens_output": 4362,
+      "cost_usd": null,
+      "turns_matched": 10,
+      "token_source": "backfilled-windowed"
     },
     {
       "name": "step-01.2-unified-data-pull.md",
@@ -32,11 +34,7 @@
       "duration_seconds": 180.0,
       "status": "complete",
       "data_sources_used": [],
-      "data_source_failures": [],
-      "model": null,
-      "tokens_input": null,
-      "tokens_output": null,
-      "cost_usd": null
+      "data_source_failures": []
     },
     {
       "name": "step-01.5-unified-calendar-pull.md",
@@ -45,11 +43,7 @@
       "duration_seconds": 150.0,
       "status": "complete",
       "data_sources_used": [],
-      "data_source_failures": [],
-      "model": null,
-      "tokens_input": null,
-      "tokens_output": null,
-      "cost_usd": null
+      "data_source_failures": []
     },
     {
       "name": "step-02-trigger-transcription.md",
@@ -58,11 +52,7 @@
       "duration_seconds": 180.0,
       "status": "completed",
       "data_sources_used": [],
-      "data_source_failures": [],
-      "model": "haiku",
-      "tokens_input": null,
-      "tokens_output": null,
-      "cost_usd": null
+      "data_source_failures": []
     },
     {
       "name": "step-02-gather-data.md",
@@ -71,11 +61,7 @@
       "duration_seconds": 120.0,
       "status": "complete",
       "data_sources_used": [],
-      "data_source_failures": [],
-      "model": null,
-      "tokens_input": null,
-      "tokens_output": null,
-      "cost_usd": null
+      "data_source_failures": []
     },
     {
       "name": "step-02.5-measure-phase2.md",
@@ -84,11 +70,7 @@
       "duration_seconds": 120.0,
       "status": "complete",
       "data_sources_used": [],
-      "data_source_failures": [],
-      "model": null,
-      "tokens_input": null,
-      "tokens_output": null,
-      "cost_usd": null
+      "data_source_failures": []
     },
     {
       "name": "step-03-verify-phase2.md",
@@ -97,11 +79,7 @@
       "duration_seconds": 60.0,
       "status": "complete",
       "data_sources_used": [],
-      "data_source_failures": [],
-      "model": null,
-      "tokens_input": null,
-      "tokens_output": null,
-      "cost_usd": null
+      "data_source_failures": []
     },
     {
       "name": "step-04-gather-meeting-context.md",
@@ -110,11 +88,7 @@
       "duration_seconds": 120.0,
       "status": "complete",
       "data_sources_used": [],
-      "data_source_failures": [],
-      "model": null,
-      "tokens_input": null,
-      "tokens_output": null,
-      "cost_usd": null
+      "data_source_failures": []
     },
     {
       "name": "step-05-synthesize-briefing.md",
@@ -123,11 +97,7 @@
       "duration_seconds": 120.0,
       "status": "complete",
       "data_sources_used": [],
-      "data_source_failures": [],
-      "model": null,
-      "tokens_input": null,
-      "tokens_output": null,
-      "cost_usd": null
+      "data_source_failures": []
     },
     {
       "name": "step-06-scan-workflows.md",
@@ -136,11 +106,7 @@
       "duration_seconds": 60.0,
       "status": "complete",
       "data_sources_used": [],
-      "data_source_failures": [],
-      "model": null,
-      "tokens_input": null,
-      "tokens_output": null,
-      "cost_usd": null
+      "data_source_failures": []
     },
     {
       "name": "step-06.5-guardrail-checkpoint.md",
@@ -149,11 +115,7 @@
       "duration_seconds": 60.0,
       "status": "complete",
       "data_sources_used": [],
-      "data_source_failures": [],
-      "model": "sonnet",
-      "tokens_input": null,
-      "tokens_output": null,
-      "cost_usd": null
+      "data_source_failures": []
     },
     {
       "name": "step-01-load-context.md",
@@ -163,10 +125,12 @@
       "status": "complete",
       "data_sources_used": [],
       "data_source_failures": [],
-      "model": null,
-      "tokens_input": null,
-      "tokens_output": null,
-      "cost_usd": null
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 496280,
+      "tokens_output": 4362,
+      "cost_usd": null,
+      "turns_matched": 10,
+      "token_source": "backfilled-windowed"
     },
     {
       "name": "step-03-identify-speakers.md",
@@ -176,10 +140,12 @@
       "status": "completed",
       "data_sources_used": [],
       "data_source_failures": [],
-      "model": "haiku",
-      "tokens_input": null,
-      "tokens_output": null,
-      "cost_usd": null
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 70374,
+      "tokens_output": 1633,
+      "cost_usd": null,
+      "turns_matched": 1,
+      "token_source": "backfilled-windowed"
     },
     {
       "name": "step-07-verify-completion.md",
@@ -188,11 +154,7 @@
       "duration_seconds": 60.0,
       "status": "complete",
       "data_sources_used": [],
-      "data_source_failures": [],
-      "model": null,
-      "tokens_input": null,
-      "tokens_output": null,
-      "cost_usd": null
+      "data_source_failures": []
     },
     {
       "name": "step-08-knox-completion-check.md",
@@ -202,10 +164,12 @@
       "status": "complete",
       "data_sources_used": [],
       "data_source_failures": [],
-      "model": null,
-      "tokens_input": null,
-      "tokens_output": null,
-      "cost_usd": null
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 70374,
+      "tokens_output": 1633,
+      "cost_usd": null,
+      "turns_matched": 1,
+      "token_source": "backfilled-windowed"
     }
   ],
   "assessment": {

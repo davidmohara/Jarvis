@@ -17,11 +17,7 @@
       "duration_seconds": 240.0,
       "status": "complete",
       "data_sources_used": [],
-      "data_source_failures": [],
-      "model": null,
-      "tokens_input": null,
-      "tokens_output": null,
-      "cost_usd": null
+      "data_source_failures": []
     },
     {
       "name": "step-02-salience-scoring",
@@ -30,11 +26,7 @@
       "duration_seconds": 180.0,
       "status": "complete",
       "data_sources_used": [],
-      "data_source_failures": [],
-      "model": null,
-      "tokens_input": null,
-      "tokens_output": null,
-      "cost_usd": null
+      "data_source_failures": []
     },
     {
       "name": "step-03-semantic-promotion",
@@ -43,11 +35,7 @@
       "duration_seconds": 300.0,
       "status": "complete",
       "data_sources_used": [],
-      "data_source_failures": [],
-      "model": null,
-      "tokens_input": null,
-      "tokens_output": null,
-      "cost_usd": null
+      "data_source_failures": []
     },
     {
       "name": "step-04-episodic-compression",
@@ -56,11 +44,7 @@
       "duration_seconds": 60.0,
       "status": "complete",
       "data_sources_used": [],
-      "data_source_failures": [],
-      "model": null,
-      "tokens_input": null,
-      "tokens_output": null,
-      "cost_usd": null
+      "data_source_failures": []
     }
   ],
   "assessment": {

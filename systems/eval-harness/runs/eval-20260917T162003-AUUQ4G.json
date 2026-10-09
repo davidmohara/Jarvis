@@ -64,7 +64,7 @@
           "description": "The pull wrote a numeric task_count, so downstream consumers can distinguish an empty pull from a missing one",
           "category": "structure",
           "passed": true,
-          "value": 42.0
+          "value": 39.0
         },
         {
           "assertion": "omnifocus-data-008-script-present",
@@ -97,6 +97,11 @@
       "rating": null,
       "comment": null,
       "timestamp": null
+    },
+    "deterministic_gate": {
+      "score": 1.0,
+      "gate_status": "pass",
+      "computed_at": "2026-10-09T15:53:36.765570Z"
     }
   },
   "version_hash": "e42d2f9b1e2f0f14",

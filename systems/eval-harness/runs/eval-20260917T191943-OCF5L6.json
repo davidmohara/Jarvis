@@ -19,11 +19,7 @@
       "duration_seconds": 1080.0,
       "status": "completed",
       "data_sources_used": [],
-      "data_source_failures": [],
-      "model": "sonnet",
-      "tokens_input": null,
-      "tokens_output": null,
-      "cost_usd": null
+      "data_source_failures": []
     },
     {
       "name": "step-05b-share-with-alice.md",
@@ -32,11 +28,7 @@
       "duration_seconds": 240.0,
       "status": "completed",
       "data_sources_used": [],
-      "data_source_failures": [],
-      "model": "sonnet",
-      "tokens_input": null,
-      "tokens_output": null,
-      "cost_usd": null
+      "data_source_failures": []
     }
   ],
   "assessment": {

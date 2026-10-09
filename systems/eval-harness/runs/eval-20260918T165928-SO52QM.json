@@ -20,10 +20,12 @@
       "status": "complete",
       "data_sources_used": [],
       "data_source_failures": [],
-      "model": null,
-      "tokens_input": null,
-      "tokens_output": null,
-      "cost_usd": null
+      "model": "accounts/fireworks/models/kimi-k3",
+      "tokens_input": 281727,
+      "tokens_output": 2318,
+      "cost_usd": null,
+      "turns_matched": 4,
+      "token_source": "backfilled-windowed"
     }
   ],
   "assessment": {

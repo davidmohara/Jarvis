@@ -20,10 +20,12 @@
       "status": "complete",
       "data_sources_used": [],
       "data_source_failures": [],
-      "model": "sonnet",
-      "tokens_input": null,
-      "tokens_output": null,
-      "cost_usd": null
+      "model": "haiku",
+      "tokens_input": 283172,
+      "tokens_output": 621,
+      "cost_usd": 0.213482,
+      "turns_matched": 3,
+      "token_source": "backfilled-windowed"
     }
   ],
   "assessment": {
