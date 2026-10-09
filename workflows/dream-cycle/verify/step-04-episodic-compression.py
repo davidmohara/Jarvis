@@ -69,7 +69,7 @@ def main():
     if not isinstance(outputs, dict) or not outputs:
         print(json.dumps({
             "result": "retry",
-            "reason": "step-04 outputs block is empty — no compression counts recorded",
+            "reason": "step-04 outputs block is empty - no compression counts recorded",
             "fields": {"compression_verified": False},
             "validation_errors": ["no_outputs"],
             "retry_instruction": "Re-execute step-04 and record entries_compressed/digests_updated/compression_skipped in the step frontmatter outputs.",
@@ -102,7 +102,7 @@ def main():
         if not digest_files:
             print(json.dumps({
                 "result": "retry",
-                "reason": f"entries_compressed={compressed} but no digest files exist — sources were deleted with no digest written",
+                "reason": f"entries_compressed={compressed} but no digest files exist - sources were deleted with no digest written",
                 "fields": fields,
                 "validation_errors": ["digest_missing_after_delete"],
                 "retry_instruction": "Compression must write the digest entry before deleting the source. Re-run step-04 and restore any deleted-without-digest files from git history.",
@@ -120,7 +120,7 @@ def main():
         if digest_entry_count < compressed:
             print(json.dumps({
                 "result": "retry",
-                "reason": f"entries_compressed={compressed} but only {digest_entry_count} digest entry block(s) found — deleted entries are not all accounted for in the digests",
+                "reason": f"entries_compressed={compressed} but only {digest_entry_count} digest entry block(s) found - deleted entries are not all accounted for in the digests",
                 "fields": fields,
                 "validation_errors": ["digest_entries_short"],
                 "retry_instruction": "Ensure each compressed source has a matching ### digest entry before deletion.",
@@ -130,7 +130,7 @@ def main():
     if skipped is True and isinstance(compressed, int) and compressed > 0:
         print(json.dumps({
             "result": "retry",
-            "reason": "compression_skipped is true but entries_compressed > 0 — contradictory outcome",
+            "reason": "compression_skipped is true but entries_compressed > 0 - contradictory outcome",
             "fields": fields,
             "validation_errors": ["skip_but_compressed"],
             "retry_instruction": "Reconcile compression_skipped with entries_compressed in step-04 outputs.",

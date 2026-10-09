@@ -1,11 +1,11 @@
 ---
 status: complete
-started-at: "2026-09-28T16:32:30Z"
-completed-at: "2026-09-28T16:34:00Z"
+started-at: "2026-10-09T15:52:00Z"
+completed-at: "2026-10-09T15:54:00Z"
 outputs:
-  date: "2026-09-28"
-  meeting_count: 17
-  summary: "Monday pre-retreat day. Busy chain: Dr Nathan Walters 8:45-9:45am (overlaps tentative Sales & Recruiting 9:15 + Sales Scrum 9:30), 1:1 Scott McMichael 10:30-11am, Lone Star Gold September Board Meeting 1:30-3pm (Dart Interests), zero-buffer handoff into GEHC internal check-in 3-3:30pm, then CRM-Contacts w/ Jeff Dodds 3:40-3:55pm, Sync w/ Shelly Kaiser (YPO) 4-4:45pm, SMU Cox MSAIB Panel 5-6:30pm (print parking pass). Boot ran 11:21am CT so morning events already elapsed."
+  date: "2026-10-09"
+  meeting_count: 6
+  summary: "Friday. Libby's Birthday (all-day, protected). IGP Bible Study 6:30-7:30am (personal, busy, elapsed). Sales & Recruiting 9:15-9:30am (team, tentative). 2nd Friday Executive Meeting 9:30-10:00am (team, tentative, Month 1 quarterly agenda: Sales/Corporate Special Topics/GoTogether). YPO Industry Insights: Share Your AI 10:00-11:00am (external, tentative, Zoom, in progress at boot). Friday Week Wrap-Up 2:30-3:00pm with Alice Mburu (1:1 EA, busy). Boot ran 10:49am CT; open block 11:00am-2:30pm. No client meetings today. No back-to-back zero-buffer chains."
 model: sonnet
 ---
 

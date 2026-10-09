@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Ground-truth verifier for golf-preview/step-05 (Gate 5 — Slack Delivery).
+"""Ground-truth verifier for golf-preview/step-05 (Gate 5: Slack Delivery).
 
 The golf-preview skill's history includes a mandatory non-interactive
 fallback rule (write to memory/working/ + log an error entry) for exactly
@@ -29,7 +29,7 @@ def main():
     if isinstance(slack_result, dict) and slack_result.get("ok") is True and slack_result.get("ts"):
         print(json.dumps({
             "result": "pass",
-            "reason": f"Slack delivered — ts={slack_result.get('ts')}",
+            "reason": f"Slack delivered, ts={slack_result.get('ts')}",
             "fields": {"delivery_path": "slack", "ts": slack_result.get("ts")},
             "validation_errors": [],
         }))

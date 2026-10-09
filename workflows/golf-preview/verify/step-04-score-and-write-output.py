@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Ground-truth verifier for golf-preview/step-04 (Gate 4 — Output Schema).
+"""Ground-truth verifier for golf-preview/step-04 (Gate 4: Output Schema).
 
 Confirms preview-output.json exists, is valid JSON, and has substantive
 content: a non-empty top_options list (or a documented no_viable_reason),
@@ -8,7 +8,7 @@ Derives candidate_windows_found and go_no_go_summary from the actual file
 rather than trusting self-report.
 
 Note: preview-output.json physically lives under workflows/golf-booking/
-(not workflows/golf-preview/) — it is the shared handoff artifact between
+(not workflows/golf-preview/), it is the shared handoff artifact between
 the golf-preview and golf-booking workflows, and golf-booking's scheduled
 task already reads it from that path. Moving it would require updating
 config/scheduled-tasks.json; this verifier reads it in place instead.
@@ -19,8 +19,8 @@ import sys
 from pathlib import Path
 from datetime import datetime, timezone
 
-STALE_DAYS = 10  # weekly cadence — flag if generated_at is way older than one cycle
-MIN_NO_VIABLE_REASON_LENGTH = 20  # chars — enough to be a real explanation, not a stub
+STALE_DAYS = 10  # weekly cadence, flag if generated_at is way older than one cycle
+MIN_NO_VIABLE_REASON_LENGTH = 20  # chars, enough to be a real explanation, not a stub
 
 
 def main():
@@ -48,7 +48,7 @@ def main():
             "reason": f"preview-output.json is not valid JSON: {e}",
             "fields": {"candidate_windows_found": 0, "go_no_go_summary": None},
             "validation_errors": ["invalid_json"],
-            "retry_instruction": "Re-execute step-04 — preview-output.json is corrupted or malformed.",
+            "retry_instruction": "Re-execute step-04, preview-output.json is corrupted or malformed.",
         }))
         return
 

@@ -54,7 +54,8 @@ workflows/error-improvement/
 │   ├── step-04-apply.md        ← execute approved fixes across system files
 │   ├── step-05-verify.md       ← confirm fixes are actually present in target files
 │   ├── step-06-compact.md      ← invoke rigby-error-compact, log to pending-changes, write episodic memory
-│   └── step-07-summary.md      ← close state, write skill-run signal, deliver final report
+│   ├── step-07-summary.md      ← close state, write skill-run signal, deliver final report
+│   └── step-08-adversarial-verify.md ← spawn Ralph, cross-check fixes against the error log
 ```
 
 ### Key Metrics
@@ -95,8 +96,11 @@ Run steps in order. Read each step file fully before executing it. Each step run
 | 5 | [step-05-verify.md](steps/step-05-verify.md) | **haiku** | Assert each fix is present in target file; confirm fix_status updated; compact eligibility check |
 | 6 | [step-06-compact.md](steps/step-06-compact.md) | **haiku** | Compact eligible months; log files to pending-changes; write episodic memory |
 | 7 | [step-07-summary.md](steps/step-07-summary.md) | **sonnet** | Deliver final cycle report; close state.yaml; write eval record via `close-eval-record.py` |
+| 8 | [step-08-adversarial-verify.md](steps/step-08-adversarial-verify.md) | **sonnet** | Spawn **Ralph** (`workflows/error-improvement-verification/workflow.md`) to cross-check every applied fix against the error log entries; record an `adversarial-verification` guardrail result |
 
-**Instrumentation:** Step 1 opens an eval record (`new-eval.py`). Each step appends its result to the record's `steps` array in state.yaml. Step 7 closes the record (`close-eval-record.py`) with the full step list and outcome.
+Step 04 records a `systemic-fix-apply` guardrail checkpoint after applying the approved fixes (applying fixes edits live system files, the workflow's highest-stakes transition).
+
+**Instrumentation:** Step 1 opens an eval record (`new-eval.py`). Each step appends its result to the record's `steps` array in state.yaml. Step 7 closes the record (`close-eval-record.py`) with the full step list and outcome. Step 8 is the adversarial verification pass, run after the cycle is closed.
 
 ---
 

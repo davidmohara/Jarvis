@@ -29,6 +29,13 @@
       "path": "memory/working/talking-points-*.md",
       "pattern": "(?i)(complete|done|finished|output|result)",
       "description": "talking-points output contains expected content"
+    },
+    {
+      "id": "tp-002-adversarial-verification-ran",
+      "check": "guardrail_checkpoint_ran",
+      "checkpoint_name": "adversarial-verification",
+      "category": "quality",
+      "description": "Stage 5 Phase 4A: step-04 spawns Ralph (talking-points-verification workflow) and records an 'adversarial-verification' guardrail result on this run. Read from the eval record's own guardrails array. A separate agent traces each delivered point back to a real source so no point is unsourced."
     }
   ]
 }

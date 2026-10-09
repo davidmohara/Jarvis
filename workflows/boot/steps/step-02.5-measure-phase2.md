@@ -1,10 +1,12 @@
 ---
 status: complete
-started-at: '2026-10-08T15:24:04Z'
-completed-at: '2026-10-08T15:44:04Z'
+started-at: '2026-10-09T15:56:00Z'
+completed-at: '2026-10-09T15:57:30Z'
 outputs:
-  phase2_measurement_file: systems/boot-instrumentation/measurements/measurement-state-20261008T154301.json
+  phase2_measurement_file: systems/boot-instrumentation/measurements/measurement-state-20261009T155640.json
   measurement_method: measure.py measure-state run against state.yaml
+  total_kb: 1.54
+  total_tokens: 393
 ---
 
 <!-- system:start -->

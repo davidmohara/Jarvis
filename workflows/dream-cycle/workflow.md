@@ -100,8 +100,13 @@ model: sonnet
 | 03b | `steps/step-03b-guardrail-checkpoint.md` | Automated guardrail checkpoint reviewing the compression candidate set before step-04's irreversible deletion |
 | 04 | `steps/step-04-episodic-compression.md` | Compress old low-salience episodic entries into quarterly digests |
 | 05 | `steps/step-05-logging.md` | Write dream.log entry, conditionally surface summary, commit and push |
+| 06 | `steps/step-06-adversarial-verify.md` | Terminal adversarial verification - Ralph cross-checks the cycle's memory-conservation claims (archived/promoted/compressed) against the actual memory files and dream.log |
 
 Read fully and follow: `steps/step-01-working-memory-cleanup.md` to begin.
+
+**Deterministic step guardrails:** Every step transition is machine-checked. The verifiers in `workflows/dream-cycle/verify/` run at each step's completion (dispatched by `.claude/hooks/step-complete.py`) and record a pass/retry/fail verdict with derived fields on the run's eval record. Manual review is not the gate.
+
+**Adversarial verification:** step-06 spawns **Ralph** with `workflows/dream-cycle-verification/workflow.md` (the memory-conservation accounting lens: archived/promoted/compressed claims vs the actual memory files and dream.log, zero silent drops of working-memory entries) and records the result as an `adversarial-verification` guardrail checkpoint. It is the terminal step and finalizes `state.yaml`.
 <!-- system:end -->
 
 <!-- personal:start -->

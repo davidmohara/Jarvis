@@ -138,16 +138,11 @@ python3 systems/eval-harness/close-eval-record.py \
   --steps "step-01-identify-meeting,step-02-gather-communications,step-03-gather-tasks,step-04-assemble-brief,step-05-quality-check-and-save"
 ```
 
-## WORKFLOW COMPLETE
+## NEXT STEP
 
-**After writing the eval record**, write `state.yaml` in the workflow directory with `status: complete` and `current-step: step-05`.
+**After writing the eval record**, update `state.yaml`: set `current-step: step-06` (do NOT set `status: complete` yet).
 
-```yaml
-workflow: one-on-one-prep
-agent: shep
-status: complete
-current-step: step-05
-```
+Then read fully and follow `step-06-adversarial-verify.md`, the terminal adversarial verification step. Ralph cross-checks the brief's open action items and talking points against the delegation tracker and OmniFocus records and records the `adversarial-verification` checkpoint. The workflow is marked complete only at the end of step-06.
 <!-- system:end -->
 
 <!-- personal:start -->

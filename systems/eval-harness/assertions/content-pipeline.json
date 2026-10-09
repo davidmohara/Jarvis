@@ -65,6 +65,13 @@
       "path": "memory/working/content-pipeline-*.md",
       "pattern": "(?i)(complete|done|finished|output|result)",
       "description": "content-pipeline output contains expected content"
+    },
+    {
+      "id": "content-pipeline-adversarial-verification-ran",
+      "check": "guardrail_checkpoint_ran",
+      "checkpoint_name": "adversarial-verification",
+      "category": "quality",
+      "description": "Stage 5 Phase 4A: step-04 spawns Ralph (content-pipeline-verification workflow) and records an 'adversarial-verification' guardrail result on this run. Read from the eval record's own guardrails array. Distinct-lens check: a separate agent accounting for every item end to end, discovered through approved to published, flagging any silent drop."
     }
   ]
 }

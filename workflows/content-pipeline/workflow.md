@@ -298,11 +298,28 @@ Format:
 
 ## EXECUTION
 
-For Agent 1 (discovery): 
+> **RETIRED WORKFLOW.** The live flow lives in `workflows/content-discovery/` and
+> `workflows/content-approval/`. The steps below document the historical pipeline and are kept so
+> the retired directory stays coherent; each step also carries its own deterministic verifier.
+> `steps/step-03-git-finalize.md` is a filled-in execution record, not a step definition, and is
+> intentionally left in place.
+
+| # | File | Executed by | Produces |
+|---|------|-------------|----------|
+| 1 | `steps/step-01-discover.md` | spawned subagent (Harper) | Ghost draft posts + Slack notifications |
+| 2 | `steps/step-02-approve.md` | spawned subagent (Harper) | Published/rejected/edited Ghost posts |
+| 3 | `steps/step-03-git-finalize.md` (execution record) | spawned subagent (Rigby, git via `skills/git/SKILL.md`) | Committed pipeline state |
+| 4 | `steps/step-04-adversarial-verify.md` | spawned subagent (Harper) spawning **Ralph** | `adversarial-verification` guardrail result + verdict |
+
+For Agent 1 (discovery):
 1. Read and follow `steps/step-01-discover.md`
 2. After completion, run `steps/step-03-git-finalize.md` to commit all changes
 
 For Agent 2 (approval):
 1. Read and follow `steps/step-02-approve.md`
 2. After completion, run `steps/step-03-git-finalize.md` to commit all changes
+
+3. Then run `steps/step-04-adversarial-verify.md`, which spawns **Ralph** with `workflows/content-pipeline-verification/workflow.md` (the end-to-end accounting lens). Ralph accounts for every item from discovered through approved to published and returns a verdict table; the result is recorded as an `adversarial-verification` guardrail checkpoint.
+
+**Deterministic step guardrails:** The verifiers in `workflows/content-pipeline/verify/` run at each step's completion (dispatched by `.claude/hooks/step-complete.py`) and record a pass/retry/fail verdict with derived fields on the run's eval record.
 <!-- personal:end -->

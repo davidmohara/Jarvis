@@ -157,3 +157,20 @@ python3 systems/eval-harness/record-step.py podcast-prep step-04-build-pdf-sheet
 
 Read fully and follow: `step-05-generate-pdf.md`
 <!-- personal:end -->
+
+<!-- system:start -->
+## Pre-Publish Guardrail Checkpoint (Stage 5 Phase 4A)
+
+Before handing off to step-05 (which renders and delivers the studio PDF), record a `pre-publish-review` guardrail checkpoint over the assembled sheet:
+
+- **Single-page discipline**: the assembled content fits one page at readable size (no forced font shrink, no second page).
+- **Identity check**: the guest name and episode number in the banner and season line match the episode inputs.
+- **Template conformance**: the required HTML elements (`class="banner"`, `<h4>INTRO SCRIPT</h4>`, `class="remember"`) are present per the locked format.
+
+```bash
+python3 systems/eval-harness/guardrail-checkpoint.py podcast-prep pre-publish-review step-04-build-pdf-sheet <pass|flag|escalate> "<one-line reason>"
+```
+
+- **pass** / **flag**: proceed to step-05.
+- **escalate**: HALT. Do not generate or deliver the PDF. Surface the issue to David before continuing.
+<!-- system:end -->

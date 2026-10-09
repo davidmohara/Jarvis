@@ -1,0 +1,5 @@
+{
+  "checkpoint_name": "adversarial-verification",
+  "description": "Terminal adversarial verification of the system-eval run (Ralph eval-record analysis claims vs the records themselves: grades, assertion counts, and analysis findings traced to files). Naming the checkpoint here makes the eval record carry an 'adversarial-verification' guardrail entry at this step's transition.",
+  "rules": []
+}

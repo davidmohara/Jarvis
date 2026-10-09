@@ -19,6 +19,7 @@ model: sonnet
 3. **Research the company and attendee** — disambiguate company identity first, then build out company and bio context, calibrated to the classification from step 2.
 4. **Build the prep sheet** — assemble the final deliverable in the canonical format. Pre-call only — no post-call action items.
 5. **Generate PDF and deliver to reMarkable** — render the prep sheet to PDF and push it to David's tablet via Knox, using the hardened reMarkable delivery protocol.
+6. **Adversarial verification**: Ralph cross-checks the prep sheet against source data (every attendee/company fact traced to calendar, email, or CRM; no invented attendees) and records the `adversarial-verification` checkpoint.
 
 No user interaction required until the prep sheet is delivered, except where a step's Failure Modes require surfacing an unresolved gap.
 
@@ -93,8 +94,11 @@ Read fully and follow, in order:
 3. `steps/step-03-research-company-and-attendee.md`
 4. `steps/step-04-build-prep-sheet.md`
 5. `steps/step-05-remarkable-delivery.md`
+6. `steps/step-06-adversarial-verify.md`: terminal adversarial verification. Spawns **Ralph** with `workflows/client-meeting-prep-verification/workflow.md` (the prep-sheet-claims-vs-source-data lens). Ralph traces every attendee and company fact in the sheet back to a calendar, email, or CRM record and returns a verdict table; the result is recorded as an `adversarial-verification` guardrail checkpoint. The workflow is marked complete only at the end of this step.
 
-Each step file names the next step at its end. Do not skip ahead — step 2's classification output gates the tone and content of steps 3 and 4.
+Each step file names the next step at its end. Do not skip ahead — step 2's classification output gates the tone and content of steps 3 and 4. Step-05 records a `pre-delivery-review` guardrail checkpoint before the tablet upload; step-06 records the `adversarial-verification` checkpoint.
+
+**Deterministic step guardrails:** Every step transition is machine-checked. The verifiers in `workflows/client-meeting-prep/verify/` run at each step's completion (dispatched by `.claude/hooks/step-complete.py`) and record a pass/retry/fail verdict with derived fields on the run's eval record.
 <!-- system:end -->
 
 <!-- personal:start -->

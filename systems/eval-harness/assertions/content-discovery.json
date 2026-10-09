@@ -29,6 +29,13 @@
       "path": "memory/working/content-discovery-*.md",
       "pattern": "(?i)(discover|draft|content)",
       "description": "content-discovery working memory contains expected content"
+    },
+    {
+      "id": "codi-005-adversarial-verification-ran",
+      "check": "guardrail_checkpoint_ran",
+      "checkpoint_name": "adversarial-verification",
+      "category": "quality",
+      "description": "Stage 5 Phase 4A: step-03 spawns Ralph (content-discovery-verification workflow) and records an 'adversarial-verification' guardrail result on this run. Read from the eval record's own guardrails array. Distinct-lens check: a separate agent cross-checking every draft/skip claim against the #content Slack pull and the digest source."
     }
   ]
 }

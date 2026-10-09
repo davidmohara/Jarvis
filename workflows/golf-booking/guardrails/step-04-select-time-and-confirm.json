@@ -1,0 +1,5 @@
+{
+  "checkpoint_name": "booking-confirmation",
+  "description": "Guardrail checkpoint for golf-booking step-04. Clicking Confirm Reservation makes a real, irreversible booking at Frisco Lakes. This checkpoint records a review result (pass/flag/escalate) on the run's eval record at the step transition, so a booking is never claimed without a recorded confirmation review. Naming the checkpoint here makes the eval record carry a 'booking-confirmation' guardrail entry.",
+  "rules": []
+}

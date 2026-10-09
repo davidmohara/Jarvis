@@ -29,6 +29,13 @@
       "path": "memory/working/golf-preview-*.md",
       "pattern": "(?i)(complete|done|finished|output|result)",
       "description": "golf-preview output contains expected content"
+    },
+    {
+      "id": "golf-preview-adversarial-verification-ran",
+      "check": "guardrail_checkpoint_ran",
+      "checkpoint_name": "adversarial-verification",
+      "category": "quality",
+      "description": "Stage 5 Phase 4A: step-06 spawns Ralph (golf-preview-verification workflow) and records an 'adversarial-verification' guardrail result on this run. Read from the eval record's own guardrails array. Distinct-lens check: a separate agent cross-checking the target dates, per-day calendar status, drought flag, and weather claims against the source data."
     }
   ]
 }

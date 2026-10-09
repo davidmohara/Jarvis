@@ -224,6 +224,31 @@ try the next ranked option (same date, different time or different ranked window
 
 ---
 
+## Guardrail Checkpoint: Booking Confirmation (HARD, BLOCKING)
+
+Confirming a reservation makes a real, irreversible booking at Frisco Lakes. Once Gate 3
+returns the literal `BOOKING-SUCCESS`, and before proceeding to step-05, record a guardrail
+checkpoint so the run's eval record carries the confirmation review:
+
+```bash
+python3 systems/eval-harness/guardrail-checkpoint.py golf-booking booking-confirmation step-04-select-time-and-confirm <pass|flag|escalate> "<one-line reason>"
+```
+
+- **Gate 3 returned `BOOKING-SUCCESS` and the booked time respects the hard limits (never
+  before 1:00 PM; never before 2:30 PM on a Sunday)** → `pass`.
+- **A minor issue you can point to that does not affect the booking itself** (e.g., the booked
+  time was a documented substitute within the preferred window) → `flag`, note it, and proceed.
+- **Gate 3 returned anything other than `BOOKING-SUCCESS`** (`STILL-ON-TIMER-SCREEN`,
+  `UNKNOWN-STATE`) or the booked time violates a hard limit → `escalate`. Halt. Do NOT send a
+  success notification anywhere. Surface to David:
+  `[Sterling]: Booking confirmation checkpoint flagged an issue, [description]. Do not assume the booking succeeded; holding until you confirm.` Wait for instruction.
+
+If `guardrail-checkpoint.py` cannot write (no in-progress eval record), note the gap in the
+Step 07 Slack message and proceed only if Gate 3 returned the exact `BOOKING-SUCCESS` string.
+This is distinct from a step failure; do not mark step-04 failed because of an escalation here.
+
+---
+
 ## SUCCESS METRICS
 
 - Gate 3 passes with the literal `BOOKING-SUCCESS` string, never inferred from "looks done"

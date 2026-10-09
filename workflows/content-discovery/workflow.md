@@ -289,6 +289,15 @@ See step-01-discover.md for full pass/fail criteria, logging format, and escalat
 
 ## EXECUTION
 
+| # | File | Executed by | Produces |
+|---|------|-------------|----------|
+| 1 | `steps/step-01-discover.md` (includes GATE 1 and GATE 2) | spawned subagent (Harper) | Ghost draft posts + Slack notifications |
+| 2 | `steps/step-02-git-finalize.md` | spawned subagent (Rigby, git via `skills/git/SKILL.md`) | Committed discovery state |
+| 3 | `steps/step-03-adversarial-verify.md` | spawned subagent (Harper) spawning **Ralph** | `adversarial-verification` guardrail result + verdict |
+
 1. Read and follow `steps/step-01-discover.md` (includes GATE 1 and GATE 2).
 2. After completion, run `steps/step-02-git-finalize.md` to commit all changes.
+3. Then run `steps/step-03-adversarial-verify.md`, which spawns **Ralph** with `workflows/content-discovery-verification/workflow.md` (the draft-claims-vs-Slack/digest-source lens). Ralph re-derives every draft and skip claim from the recorded source and returns a verdict table; the result is recorded as an `adversarial-verification` guardrail checkpoint.
+
+**Deterministic step guardrails:** Every step transition is machine-checked. The verifiers in `workflows/content-discovery/verify/` run at each step's completion (dispatched by `.claude/hooks/step-complete.py`) and record a pass/retry/fail verdict with derived fields on the run's eval record. Manual review is not the gate.
 <!-- personal:end -->

@@ -1,7 +1,7 @@
 {
   "name": "watchtower",
   "type": "workflow",
-  "_note": "Covers both entry modes (daily/weekly) with checks true regardless of mode. The pre-publish-review guardrail checkpoint only fires inside weekly-step-06, which is itself optional (David can skip it) — it is intentionally NOT a hard assertion here, since that would produce false failures on every daily run and on weekly runs where step-06 was skipped. Its result is still recorded in the eval record's guardrails array whenever it does run; verify it there directly rather than via this file when auditing a specific weekly-publish run.",
+  "_note": "Covers both entry modes (daily/weekly) with checks true regardless of mode. The pre-publish-review guardrail checkpoint only fires inside weekly-step-06, which is itself optional (David can skip it) — it is intentionally NOT a hard assertion here, since that would produce false failures on every daily run and on weekly runs where step-06 was skipped. Its result is still recorded in the eval record's guardrails array whenever it does run; verify it there directly rather than via this file when auditing a specific weekly-publish run. The adversarial-verification checkpoint (watch-005) is recorded by the weekly run's terminal step (weekly-step-07); it is expected to be absent on daily-only records, so on a daily record it reads as a legitimate 'weekly verification did not run' signal rather than a daily-run failure. Weekly-run records (name watchtower-weekly) carry the mode-correct copy in watchtower-weekly.json.",
   "assertions": [
     {
       "id": "watch-001-state-complete",
@@ -29,6 +29,13 @@
       "check": "file_exists",
       "path": "workflows/watchtower/sources.yaml",
       "description": "Active source registry exists"
+    },
+    {
+      "id": "watch-005-adversarial-verification-ran",
+      "check": "guardrail_checkpoint_ran",
+      "checkpoint_name": "adversarial-verification",
+      "category": "quality",
+      "description": "Stage 5 Phase 4A: the weekly run's terminal step (weekly-step-07) spawns Ralph (watchtower-verification workflow) and records an 'adversarial-verification' guardrail result. Read from the eval record's own guardrails array. Weekly-only: a daily-mode record legitimately lacks it (see the _note above)."
     }
   ]
 }

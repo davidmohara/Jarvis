@@ -23,6 +23,29 @@ Adversarial review agents verify producing agents' claims from a different lens 
 | plaud-ingest | **Ralph** (`agents/ralph.md`, `workflows/plaud-ingest-verification/`) | Ingestion accounting: every discovered recording accounted for as an ingested note or a logged skip, zero silent drops | Spawned at step-06 (`workflows/plaud-ingest/steps/step-06-verify-ingest.md`, separate spawn after ingest/share) | Wired/live (Phase 4A) |
 | shutdown-cleanup | **Ralph** (`agents/ralph.md`, `workflows/shutdown-cleanup-verification/`) | Cleanup claims vs commit and audit trail: nothing temp committed, nothing precious deleted, commit through the wrapper, counts true, clean claims real | Spawned at step-05 (`workflows/shutdown-cleanup/steps/step-05-verify-cleanup.md`, separate spawn after the commit) | Wired/live (compliance pass 2026-10-08) |
 
+## Used-surface instrumentation (Tier 4 Option A, 2026-10-09)
+
+Adversarial verification is additionally wired, with per-workflow lenses, for the used-surface workflows (David-approved Option A: certify the used surface; boundary document: projects/stage5-compliance-audit-2026-10-08.md):
+
+| Workflow | Lens |
+|----------|------|
+| dream-cycle | Memory-conservation accounting: archived/promoted/compressed claims vs actual memory files and dream.log, zero silent drops |
+| system-eval | Eval-record analysis claims vs the records themselves: counts, grades, findings traced to files |
+| watchtower (weekly) | Standing-intelligence accounting: drafts approved/posted vs source digests, no unpublished claims of publishing |
+| content-discovery | Draft claims vs the Slack/digest source: every draft traced to a real digest item, no invented angles |
+| content-approval | Approval state vs Ghost reality: approved drafts actually published, status claims vs Ghost post records |
+| content-pipeline | End-to-end accounting: discovered to approved to published, zero silent drops |
+| error-improvement | Fix claims vs the error log entries: every applied fix traces to a real entry, no fabricated corrections |
+| golf-booking | Booking claims vs confirmation evidence: window correct, no double-booking, confirmation recorded before any success claim |
+| golf-preview | Preview claims vs weather/course source data |
+| client-meeting-prep | Prep-sheet claims vs source data: every attendee/company fact traced to calendar, email, or CRM; no invented attendees |
+| one-on-one-prep | Agenda and action claims vs the delegation tracker and OmniFocus records: open threads real, no fabricated action items |
+| partner-meeting-prep | Account-overlap and event claims vs the actual CRM/calendar/email records |
+| podcast-prep | Prep-sheet completeness vs episode inputs: reference sheet and PDF both exist and are substantive |
+| talking-points | Points traced to source strategy/notes: no unsourced claims |
+
+Each row above has the full pattern: terminal adversarial step spawning Ralph, a `workflows/<wf>-verification/` sibling sub-workflow, a `guardrails/<adversarial-step>.json` checkpoint definition, and a `guardrail_checkpoint_ran` assertion in the workflow's assertions file.
+
 All four verification passes run Ralph with a workflow-specific lens checklist (the `workflows/*-verification/` dirs) and record their verdict via `guardrail-checkpoint.py` under the checkpoint name `adversarial-verification`. Each producing step transition is additionally guarded by a deterministic per-step verifier in `workflows/<workflow>/verify/` (dispatched by `.claude/hooks/step-complete.py`), so the adversarial layer is not the only machine check between steps.
 
 ## Evidence of catches

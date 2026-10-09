@@ -101,3 +101,18 @@ This avoids re-running the expensive multi-connector data-gather step for single
 
 Read fully and follow: `steps/step-01-identify-episode.md` to begin the workflow.
 <!-- personal:end -->
+
+<!-- system:start -->
+## Instrumentation (Stage 5 Phase 4A)
+
+This workflow's step files above are wrapped in personal blocks; the instrumentation below is layered as system content and does not alter the personal block. Read it as an additive execution note.
+
+- **Step-04 pre-publish checkpoint:** `steps/step-04-build-pdf-sheet.md` assembles the single-page PDF-format sheet. Before it hands off to step-05, record a `pre-publish-review` guardrail checkpoint (`workflows/podcast-prep/guardrails/step-04-build-pdf-sheet.json`):
+  ```bash
+  python3 systems/eval-harness/guardrail-checkpoint.py podcast-prep pre-publish-review step-04-build-pdf-sheet <pass|flag|escalate> "<one-line reason>"
+  ```
+  An `escalate` result halts before the PDF is generated.
+- **Terminal adversarial verification:** after step-05 generates and delivers the PDF, run `steps/step-06-adversarial-verify.md`. It spawns **Ralph** with `workflows/podcast-prep-verification/workflow.md` (the prep-sheet-completeness-vs-episode-inputs lens: reference sheet + PDF both exist and are substantive). The result is recorded as an `adversarial-verification` guardrail checkpoint. The workflow is marked complete only at the end of step-06.
+
+**Deterministic step guardrails:** The verifiers in `workflows/podcast-prep/verify/` run at each step's completion (dispatched by `.claude/hooks/step-complete.py`) and record a pass/retry/fail verdict with derived fields on the run's eval record.
+<!-- system:end -->

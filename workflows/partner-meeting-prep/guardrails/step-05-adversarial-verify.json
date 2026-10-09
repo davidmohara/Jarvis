@@ -1,0 +1,5 @@
+{
+  "checkpoint_name": "adversarial-verification",
+  "description": "Adversarial verification of the partner meeting prep document (Ralph account-overlap-and-event-claims-vs-actual-records cross-check). Naming the checkpoint here makes the eval record carry an 'adversarial-verification' guardrail entry at this step's transition.",
+  "rules": []
+}

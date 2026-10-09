@@ -1,0 +1,5 @@
+{
+  "checkpoint_name": "adversarial-verification",
+  "description": "Adversarial verification of the content-pipeline run (Ralph end-to-end accounting cross-check: discovered to approved to published, zero silent drops). Naming the checkpoint here makes the eval record carry an 'adversarial-verification' guardrail entry at this step's transition.",
+  "rules": []
+}

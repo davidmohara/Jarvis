@@ -29,6 +29,13 @@
       "path": "memory/working/partner-meeting-prep-*.md",
       "pattern": "(?i)(complete|done|finished|output|result)",
       "description": "partner-meeting-prep output contains expected content"
+    },
+    {
+      "id": "pmp-002-adversarial-verification-ran",
+      "check": "guardrail_checkpoint_ran",
+      "checkpoint_name": "adversarial-verification",
+      "category": "quality",
+      "description": "Stage 5 Phase 4A: step-05 spawns Ralph (partner-meeting-prep-verification workflow) and records an 'adversarial-verification' guardrail result on this run. Read from the eval record's own guardrails array. A separate agent cross-checks the account-overlap and event claims against the actual CRM, calendar, and email records."
     }
   ]
 }

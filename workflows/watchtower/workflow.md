@@ -104,8 +104,13 @@ Run STATE CHECK above, then begin at step-01 for the appropriate mode.
 | 04 | `steps/weekly-step-04-weekly-note.md` | haiku | Write Obsidian weekly note summarizing themes, candidates, proposals, and tweets |
 | 05 | `steps/weekly-step-05-report.md` | haiku | Surface content candidates ready + sources awaiting yes/no + tweets with Post to X links |
 | 06 *(optional)* | `steps/weekly-step-06-publish-drafts.md` | sonnet | Runs an automated guardrail checkpoint on each draft before presenting them (leakage/attribution/tone review — see step file §3b); then presents approved drafts and sends selected posts to Slack `#content` (`C0B160MA3EK`) via master-slack skill; David selects or skips |
+| 07 | `steps/weekly-step-07-adversarial-verify.md` | sonnet | Terminal adversarial verification - spawn Ralph with `workflows/watchtower-verification/workflow.md` (standing-intelligence accounting); record an `adversarial-verification` guardrail result |
 
-**Step-06 is optional.** Knox presents a numbered draft list after step-05 completes and waits for David to select, send all, or skip. If skipped, the step is marked `status: skipped` and the weekly run closes normally.
+**Step-06 is optional.** Knox presents a numbered draft list after step-05 completes and waits for David to select, send all, or skip. If skipped, the step is marked `status: skipped` and the weekly run closes normally. **Step-07 always runs** (whether step-06 was skipped or not) and is the run's terminal verification.
+
+**Deterministic step guardrails:** Every step transition is machine-checked. The verifiers in `workflows/watchtower/verify/` run at each step's completion (dispatched by `.claude/hooks/step-complete.py`) and record a pass/retry/fail verdict with derived fields on the run's eval record. Manual review is not the gate.
+
+**Adversarial verification:** weekly-step-07 spawns **Ralph** with `workflows/watchtower-verification/workflow.md` (the standing-intelligence accounting lens: drafts approved/posted vs source digests, no unpublished claims of publishing) and records the result as an `adversarial-verification` guardrail checkpoint.
 
 ---
 

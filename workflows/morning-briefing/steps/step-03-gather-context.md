@@ -1,25 +1,24 @@
 ---
 status: complete
-started-at: "2026-09-29T02:24:00Z"
-completed-at: "2026-09-29T02:27:00Z"
+started-at: "2026-10-09T16:05:00Z"
+completed-at: "2026-10-09T16:07:00Z"
 outputs:
   meeting_context:
-    - meeting: "Lone Star Gold 2026 September Board Meeting (1:30pm CDT)"
-      prep_status: "ready — YPO Gold chapter board; vault note Remarkable/YPO/Board/Lone Star Gold.md (officer training, GLC Chicago Apr 27-28, bylaw review)"
-    - meeting: "GEHC Twice Weekly Internal Check-In (3:00pm CDT)"
-      prep_status: "ready — 2 open client questions due today from 09-17/09-18 Plaud notes (self-tuning routing ask for Braunstein; DICOM destination fan-out count); tomorrow's 11am client deep dive conflicts with AA1550 flight, handoff to Vlad Avila/Lisa Barnes needed"
-    - meeting: "Re: CRM - Contacts w/ Jeff Dodds (3:40pm CDT)"
-      prep_status: "ready — pairs with helpdesk CRM ticket 69244 email (error text needed before Monday meeting)"
-    - meeting: "Sync with Shelly Kaiser (4:00pm CDT)"
-      prep_status: "low-context — no vault history; likely ties to LSYPO waiver ACTION item in email"
-    - meeting: "SMU Cox MSAIB Panel (5:00pm CDT)"
-      prep_status: "low-context — no vault history; David is panelist; fellow panelists Robinson/Woolley (Jabian), Sorensen (Bestow), Gregor (Dave & Buster's); parking pass on invite"
-    - meeting: "1:1 Scott McMichael (10:30am CDT)"
-      prep_status: "ready — standing 1:1, no open items on file"
+    - meeting: "IGP Bible Study (6:30am CDT, elapsed)"
+      prep_status: "ready — personal, recurring"
+    - meeting: "Sales & Recruiting Meeting (9:15am CDT, tentative)"
+      prep_status: "ready — standing team cadence, no prep needed"
+    - meeting: "2nd Friday Executive Meeting (9:30am CDT, tentative)"
+      prep_status: "ready — Month 1 quarterly agenda: Sales (Russell), Corporate Special Topics, GoTogether Update (McMichael/Liles)"
+    - meeting: "YPO Industry Insights: Share Your AI (10:00am CDT, tentative, in progress at boot)"
+      prep_status: "ready — external Zoom event, listen-only"
+    - meeting: "Friday Week Wrap-Up with Alice Mburu (2:30pm CDT)"
+      prep_status: "ready — standing weekly EA rhythm, no open items on file"
   system_status:
-    yesterday_review: "missing — no reviews/daily/2026-09-27.md (last on file 2026-09-18)"
+    yesterday_review: "missing — no reviews/daily/2026-10-08.md (last on file 2026-09-28, 11 days)"
     yesterday_top_3: null
-  note: "Late-evening boot (9:23pm CT) — context retrospective, not prep-grade. Working memory: memory/working/morning-briefing-2026-09-28-212900.md"
+  note: "No client meetings today, no Chase/Shep prep required. Clay checked live: 0 reminders, 0 upcoming birthdays in next 7 days. Knox plaud-ingest live this session (2 recordings from 10-08: Becoming AI Native panel prep, Talent Lab AI in HR)."
+model: sonnet
 ---
 
 <!-- system:start -->

@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-"""Ground-truth verifier for golf-booking/step-01 (Gate 1 — Booking Window Pre-Check).
+"""Ground-truth verifier for golf-booking/step-01 (Gate 1: Booking Window Pre-Check).
 
 Independently re-derives the target booking date from preview-output.json
 (honoring override_instructions if present) and confirms it is within the
 8-day ChronoGolf booking window as of `today`. This exists because the
 single worst failure mode in this whole pipeline is silently substituting
 a different date than the one specified (see
-systems/error-tracking/entries/err-20260813T122205-D64IQ7.json) — a script
+systems/error-tracking/entries/err-20260813T122205-D64IQ7.json), a script
 cross-check catches a miscalculation the agent's own inline arithmetic
 might not.
 """
@@ -14,7 +14,7 @@ might not.
 import json
 import sys
 from pathlib import Path
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, date as _date
 
 BOOKING_WINDOW_DAYS = 8
 
@@ -23,11 +23,20 @@ def main():
     payload = json.loads(sys.stdin.read() or "{}")
     ies_root = Path(payload.get("ies_root", "."))
     today_str = payload.get("today")
+    today_source = "payload"
+
+    # The step invokes this inline with an explicit `today`; the step-complete
+    # dispatcher passes only ies_root/step timestamps. Fall back to the real
+    # system date so the verifier still re-derives the window under dispatch,
+    # rather than retrying forever for a missing field the caller never sends.
+    if not today_str:
+        today_str = _date.today().isoformat()
+        today_source = "system-clock"
 
     if not today_str:
         print(json.dumps({
             "result": "retry",
-            "reason": "No 'today' date provided to the verifier",
+            "reason": "No 'today' date available to the verifier",
             "fields": {},
             "validation_errors": ["missing_today"],
             "retry_instruction": "Re-invoke this verifier with today's date in YYYY-MM-DD format.",
@@ -118,7 +127,7 @@ def main():
     if within_window:
         print(json.dumps({
             "result": "pass",
-            "reason": f"Target date {target_date_str} ({source}) is {days_out} day(s) out — within the {BOOKING_WINDOW_DAYS}-day window",
+            "reason": f"Target date {target_date_str} ({source}) is {days_out} day(s) out, within the {BOOKING_WINDOW_DAYS}-day window",
             "fields": fields,
             "validation_errors": [],
         }))
@@ -126,7 +135,7 @@ def main():
 
     print(json.dumps({
         "result": "retry",
-        "reason": f"Target date {target_date_str} ({source}) is {days_out} day(s) out — outside the {BOOKING_WINDOW_DAYS}-day window. Do NOT substitute a different date.",
+        "reason": f"Target date {target_date_str} ({source}) is {days_out} day(s) out, outside the {BOOKING_WINDOW_DAYS}-day window. Do NOT substitute a different date.",
         "fields": fields,
         "validation_errors": ["outside_booking_window"],
         "retry_instruction": "Set status: awaiting-window and abort this run. Do not open the date calendar or select a substitute date. Retry on the next scheduled run once the window opens for this exact date.",

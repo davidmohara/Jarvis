@@ -1,13 +1,14 @@
 ---
 status: complete
-started-at: '2026-10-08T15:24:04Z'
-completed-at: '2026-10-08T15:44:04Z'
+started-at: '2026-10-09T15:49:14Z'
+completed-at: '2026-10-09T15:52:00Z'
 outputs:
   calendar_file: data/calendar-unified.json
-  event_count: 14
-  date_range: 2026-10-08 to 2026-10-11
+  event_count: 18
+  date_range: 2026-10-09 to 2026-10-12
   status: written
   m365_calls: 1
+  highlights: Libby's Birthday all-day today; today 6 events incl 2nd Friday Executive Meeting 9:30am CT and Friday Week Wrap-Up 2:30pm CT; Sat Rimmer Wedding 6pm; Mon DLP Bootcamp (remote) all-day with Agent Strategy and GEHC check-in overlapping
 ---
 
 <!-- system:start -->

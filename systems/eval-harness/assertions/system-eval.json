@@ -65,6 +65,13 @@
       "check": "guardrail_checkpoint_ran",
       "checkpoint_name": "pre-score-review",
       "description": "step-03b's guardrail checkpoint recorded a result (pass/flag/escalate) before step-04's composite scoring — read from the eval record's own guardrails array, not self-reported by the workflow"
+    },
+    {
+      "id": "sysev-005-adversarial-verification-ran",
+      "check": "guardrail_checkpoint_ran",
+      "checkpoint_name": "adversarial-verification",
+      "category": "quality",
+      "description": "Stage 5 Phase 4A: step-07 spawns Ralph (system-eval-verification workflow) and records an 'adversarial-verification' guardrail result on this run. Read from the eval record's own guardrails array. This is the distinct-lens check: a separate agent cross-checking the run's grades, assertion counts, and analysis findings against the eval records themselves."
     }
   ]
 }

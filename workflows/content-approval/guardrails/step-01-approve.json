@@ -1,0 +1,5 @@
+{
+  "checkpoint_name": "publish-preflight",
+  "description": "Pre-publish guardrail checkpoint for content-approval step-01. Publishing a post to driventodevelop.com is the workflow's one irreversible external action; this checkpoint records a review result (pass/flag/escalate) on the run's eval record at the step transition. Naming the checkpoint here makes the eval record carry a 'publish-preflight' guardrail entry.",
+  "rules": []
+}

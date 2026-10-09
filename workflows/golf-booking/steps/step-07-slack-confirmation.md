@@ -134,7 +134,7 @@ This is the final step of `workflows/golf-booking`. Update `state.yaml`: `status
 `booking-id`, `booking-date`, `booking-time`. Then run the terminal audit gate:
 
 ```bash
-python3 workflows/golf-booking/verify/step-07-terminal-outcome.py <<< '{"ies_root": "."}'
+python3 workflows/golf-booking/verify/step-07-slack-confirmation.py <<< '{"ies_root": "."}'
 ```
 
 This is **QUALITY GATE 7 — Terminal Outcome Honesty**: it re-reads `state.yaml` after this

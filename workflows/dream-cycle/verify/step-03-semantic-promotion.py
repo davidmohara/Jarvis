@@ -9,7 +9,7 @@ self-report:
   * every `cluster_actions[].target` path must exist under memory/semantic/;
   * if `promoted_entries` > 0 then at least one cluster action must be listed
     (a promotion with no recorded target is an unaccounted write);
-  * semantic memory must be append-only in spirit — the targets must live
+  * semantic memory must be append-only in spirit - the targets must live
     under memory/semantic/.
 
 Verdict: retry if a claimed target is missing or promotions are unaccounted
@@ -68,7 +68,7 @@ def main():
     if not isinstance(outputs, dict) or not outputs:
         print(json.dumps({
             "result": "retry",
-            "reason": "step-03 outputs block is empty — no promotion counts recorded",
+            "reason": "step-03 outputs block is empty - no promotion counts recorded",
             "fields": {"promotion_verified": False},
             "validation_errors": ["no_outputs"],
             "retry_instruction": "Re-execute step-03 and record promoted_entries/semantic_updated/cluster_actions in the step frontmatter outputs.",
@@ -109,7 +109,7 @@ def main():
     if isinstance(promoted, int) and promoted > 0 and not cluster_actions:
         print(json.dumps({
             "result": "retry",
-            "reason": f"promoted_entries={promoted} but no cluster_actions were recorded — promotions are unaccounted for",
+            "reason": f"promoted_entries={promoted} but no cluster_actions were recorded - promotions are unaccounted for",
             "fields": fields,
             "validation_errors": ["unaccounted_promotions"],
             "retry_instruction": "Record one cluster_actions entry per promotion with its target semantic path.",

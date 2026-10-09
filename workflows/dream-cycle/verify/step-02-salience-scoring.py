@@ -70,7 +70,7 @@ def main():
     if not isinstance(outputs, dict) or not outputs:
         print(json.dumps({
             "result": "retry",
-            "reason": "step-02 outputs block is empty — no scoring counts recorded",
+            "reason": "step-02 outputs block is empty - no scoring counts recorded",
             "fields": {"scoring_verified": False},
             "validation_errors": ["no_outputs"],
             "retry_instruction": "Re-execute step-02 (salience-score.py) and record episodic_scanned/score_updates in the step frontmatter outputs.",
@@ -109,7 +109,7 @@ def main():
     if not episodic_dir.is_dir() or not episodic_files:
         print(json.dumps({
             "result": "retry",
-            "reason": "memory/episodic/ is missing or contains no entries — nothing could have been scored",
+            "reason": "memory/episodic/ is missing or contains no entries - nothing could have been scored",
             "fields": fields,
             "validation_errors": ["episodic_dir_empty"],
             "retry_instruction": "Confirm memory/episodic/ exists and is populated before re-running step-02.",
@@ -129,7 +129,7 @@ def main():
     if scanned != updates:
         print(json.dumps({
             "result": "retry",
-            "reason": f"score_updates ({updates}) != episodic_scanned ({scanned}) — every scanned file must receive a score",
+            "reason": f"score_updates ({updates}) != episodic_scanned ({scanned}) - every scanned file must receive a score",
             "fields": fields,
             "validation_errors": ["scanned_updates_mismatch"],
             "retry_instruction": "salience-score.py must write a score for every scanned file; re-run step-02 and reconcile the counts.",
@@ -139,7 +139,7 @@ def main():
     if not scored_observable:
         print(json.dumps({
             "result": "retry",
-            "reason": "no episodic entry carries a salience: frontmatter block — the scoring write is not observable",
+            "reason": "no episodic entry carries a salience: frontmatter block - the scoring write is not observable",
             "fields": fields,
             "validation_errors": ["no_scored_entry"],
             "retry_instruction": "Re-run step-02; confirm salience blocks are written to the episodic files.",

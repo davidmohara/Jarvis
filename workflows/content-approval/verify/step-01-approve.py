@@ -127,9 +127,46 @@ def main():
         }))
         return
 
+    # Publish-preflight guardrail checkpoint (step-01's irreversible external
+    # action). Checked leniently: an eval record with no entry is a real
+    # recording gap (retry); no eval record at all is unverifiable, not a fail.
+    checkpoint_name = "publish-preflight"
+    checkpoint_present = False
+    eval_record_exists = False
+    runs_dir = ies_root / "systems" / "eval-harness" / "runs"
+    if runs_dir.exists():
+        for f in runs_dir.glob("eval-*.json"):
+            try:
+                data = json.loads(f.read_text())
+            except Exception:
+                continue
+            if data.get("name") != "content-approval":
+                continue
+            eval_record_exists = True
+            for g in data.get("guardrails", []) or []:
+                if g.get("name") == checkpoint_name:
+                    checkpoint_present = True
+                    break
+            if checkpoint_present:
+                break
+
+    fields["publish_preflight_checkpoint_present"] = checkpoint_present
+    fields["eval_record_exists"] = eval_record_exists
+
+    if eval_record_exists and not checkpoint_present:
+        print(json.dumps({
+            "result": "retry",
+            "reason": "No 'publish-preflight' guardrail checkpoint recorded on the content-approval eval record",
+            "fields": fields,
+            "validation_errors": ["publish_preflight_checkpoint_not_recorded"],
+            "retry_instruction": "Run: python3 systems/eval-harness/guardrail-checkpoint.py content-approval publish-preflight step-01-approve <pass|flag|escalate> \"<reason>\" before publishing.",
+        }))
+        return
+
+    note = "" if checkpoint_present else " (note: no eval record found, publish-preflight checkpoint unverifiable)"
     print(json.dumps({
         "result": "pass",
-        "reason": f"Cleanup rules satisfied — {len(drafts)} entr(y/ies) total, {pending_count} pending, no stale published/scheduled/rejected entries",
+        "reason": f"Cleanup rules satisfied, {len(drafts)} entr(y/ies) total, {pending_count} pending, no stale published/scheduled/rejected entries{note}",
         "fields": fields,
         "validation_errors": [],
     }))

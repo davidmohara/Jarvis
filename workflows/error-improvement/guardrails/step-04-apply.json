@@ -1,0 +1,5 @@
+{
+  "checkpoint_name": "systemic-fix-apply",
+  "description": "Guardrail checkpoint for error-improvement step-04. Applying approved fixes edits live system files (SYSTEM.md, agents/*.md, skills/*, workflows/*), a high-stakes, hard-to-reverse transition. This checkpoint records a review result (pass/flag/escalate) on the run's eval record at the step transition. Naming the checkpoint here makes the eval record carry a 'systemic-fix-apply' guardrail entry.",
+  "rules": []
+}

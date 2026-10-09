@@ -51,7 +51,8 @@ workflows/system-eval/
 │   ├── step-03b-guardrail-checkpoint.md  ← adversarial review of grades before scoring
 │   ├── step-04-score.md         ← compute composite scores via score_eval.py
 │   ├── step-05-analyze.md       ← invoke rigby-eval-analyze across full corpus
-│   └── step-06-dashboard.md     ← regenerate dashboard, close eval record, deliver summary
+│   ├── step-06-dashboard.md     ← regenerate dashboard, close eval record, deliver summary
+│   └── step-07-adversarial-verify.md  ← terminal adversarial verification (Ralph) of the run's claims vs the records
 ```
 
 ### Key Metrics
@@ -92,8 +93,11 @@ Run steps in order. Read each step file fully before executing it.
 | 4 | [step-04-score.md](steps/step-04-score.md) | **haiku** | Compute composite scores via score_eval.py for all records |
 | 5 | [step-05-analyze.md](steps/step-05-analyze.md) | **sonnet** | Invoke rigby-eval-analyze across full corpus, write analysis report |
 | 6 | [step-06-dashboard.md](steps/step-06-dashboard.md) | **haiku** | Regenerate dashboard, close eval record, deliver summary |
+| 7 | [step-07-adversarial-verify.md](steps/step-07-adversarial-verify.md) | **sonnet** | Terminal adversarial verification - spawn Ralph with `workflows/system-eval-verification/workflow.md`; record an `adversarial-verification` guardrail result; finalize state |
 
-**Instrumentation:** Step 1 opens an eval record (`new-eval.py`). Each step appends its result to the record's `steps` array in state.yaml. Step 6 closes the record (`close-eval-record.py`) with the full step list and outcome.
+**Instrumentation:** Step 1 opens an eval record (`new-eval.py`). Each step appends its result to the record's `steps` array in state.yaml. Step 6 closes the record (`close-eval-record.py`) with the full step list and outcome. Step 7 spawns Ralph (separate agent, distinct lens) and records an `adversarial-verification` guardrail result on the run.
+
+**Deterministic step guardrails:** Every step transition is machine-checked. The verifiers in `workflows/system-eval/verify/` run at each step's completion (dispatched by `.claude/hooks/step-complete.py`) and record a pass/retry/fail verdict with derived fields on the run's eval record. Manual review is not the gate.
 
 **Fully autonomous:** No controller approval gate. All steps run to completion unless a failure occurs.
 
@@ -101,10 +105,10 @@ Run steps in order. Read each step file fully before executing it.
 
 ## TERMINATION CONDITIONS
 
-The workflow terminates after Step 6 when:
+The workflow terminates after Step 7 when:
 - Dashboard regenerated and path surfaced
-- state.yaml set to `complete`
 - Eval record closed
+- The terminal adversarial verification verdict recorded and state.yaml set to `complete`
 
 If any step encounters a blocking failure (e.g., score_eval.py not found, generate-dashboard.py fails), Rigby surfaces the specific error and sets state.yaml to `aborted`. She does not silently swallow failures.
 <!-- system:end -->

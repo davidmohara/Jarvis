@@ -96,7 +96,7 @@ could be read as license to pick "the closest available date." There is no such 
 
 Run the deterministic cross-check before moving on:
 ```bash
-python3 workflows/golf-booking/verify/step-01-window-precheck.py <<< '{"ies_root": ".", "today": "<YYYY-MM-DD>"}'
+python3 workflows/golf-booking/verify/step-01-read-preview-and-window-precheck.py <<< '{"ies_root": ".", "today": "<YYYY-MM-DD>"}'
 ```
 This script re-derives the target date from `preview-output.json` (honoring
 `override_instructions` if present) and independently confirms it is ≤ 8 days out. Treat a
@@ -118,7 +118,7 @@ Store `target_date`, `target_time`, and `days_out` in this file's outputs and in
 |---------|--------|
 | `preview-output.json` missing or empty with no explanation | Slack alert, abort. |
 | Target date outside window | `status: awaiting-window`. Retry on next scheduled run — do not re-evaluate or re-rank at that point, book exactly what was already validated. |
-| `verify/step-01-window-precheck.py` disagrees with the inline calculation | Trust the script. Investigate the discrepancy before proceeding — do not silently pick one answer. |
+| `verify/step-01-read-preview-and-window-precheck.py` disagrees with the inline calculation | Trust the script. Investigate the discrepancy before proceeding — do not silently pick one answer. |
 
 ## NEXT STEP
 

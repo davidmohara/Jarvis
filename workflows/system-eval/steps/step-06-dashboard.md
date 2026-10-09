@@ -13,7 +13,7 @@ model: haiku
 
 1. You MUST regenerate the dashboard before closing the eval record — the dashboard should reflect the grading and assertions completed in this run.
 2. You MUST close the eval record via `close-eval-record.py` — do not leave it `in-progress`.
-3. You MUST set `status: complete` in state.yaml — this is the terminal step.
+3. You MUST advance `state.yaml` to the terminal adversarial verification step (`current-step: step-07-adversarial-verify`) - do NOT set `status: complete` here; step-07 finalizes the state once its verdict is recorded.
 4. You MUST deliver a summary to the controller — silence is not an option.
 
 ---
@@ -155,17 +155,18 @@ Determine `--status`:
 - `partial` — one or more steps completed with non-blocking failures (e.g., score script errored but continued)
 - `failure` — a step had to be skipped due to a blocking error
 
-### 5. Set state.yaml to complete
+### 5. Advance state to the terminal verification step
 
 ```yaml
-status: complete
-current-step: null
+current-step: step-07-adversarial-verify
 accumulated-context:
   step_timings:
     - step: step-06-dashboard
       started: <ISO-8601>
       completed: <ISO-8601>
 ```
+
+Do NOT set `status: complete` here - step-07 (adversarial verification) finalizes the state.
 
 ### 6. Deliver summary
 
@@ -234,7 +235,7 @@ Write `feedback_prompt: complete` to state.yaml after collecting ratings. If the
 
 - Dashboard HTML regenerated
 - Eval record closed (status: success, partial, or failure — not in-progress)
-- state.yaml set to complete
+- state.yaml advanced to `step-07-adversarial-verify` (step-07 finalizes `status: complete`)
 - Summary delivered
 
 ## FAILURE MODES

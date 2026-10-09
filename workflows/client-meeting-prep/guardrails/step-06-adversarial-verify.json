@@ -1,0 +1,5 @@
+{
+  "checkpoint_name": "adversarial-verification",
+  "description": "Adversarial verification of the client prep sheet (Ralph prep-sheet-claims-vs-source-data cross-check). Naming the checkpoint here makes the eval record carry an 'adversarial-verification' guardrail entry at this step's transition.",
+  "rules": []
+}

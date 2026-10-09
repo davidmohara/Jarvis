@@ -241,9 +241,11 @@ After the document is delivered:
 
 ---
 
-## WORKFLOW COMPLETE
+## NEXT STEP
 
-The partner meeting prep document has been delivered. The controller reviews, adjusts, and optionally shares with the partner team before the meeting.
+The partner meeting prep document has been delivered. Update `state.yaml`: set `current-step: step-05` (do NOT set `status: complete` yet).
+
+Then read fully and follow `step-05-adversarial-verify.md`, the terminal adversarial verification step. Ralph cross-checks the account-overlap and event claims against the actual CRM, calendar, and email records and records the `adversarial-verification` checkpoint. The workflow is marked complete only at the end of step-05. The controller reviews, adjusts, and optionally shares with the partner team before the meeting.
 <!-- system:end -->
 
 <!-- personal:start -->

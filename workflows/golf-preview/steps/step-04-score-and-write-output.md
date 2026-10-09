@@ -135,7 +135,7 @@ Check `memory/working/` for any golf override notes from this week. If found, st
 Run the deterministic verifier before proceeding to step-05:
 
 ```bash
-python3 workflows/golf-preview/verify/step-04-output-schema.py <<< '{"ies_root": ".", "step_completed": "<ISO-8601 now>"}'
+python3 workflows/golf-preview/verify/step-04-score-and-write-output.py <<< '{"ies_root": ".", "step_completed": "<ISO-8601 now>"}'
 ```
 
 This script checks:

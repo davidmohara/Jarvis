@@ -20,6 +20,7 @@ model: sonnet
 7. Knox executes the actual upload using `.claude/skills/remarkable-upload/SKILL.md` for the Finder-bridge-to-rmapi mechanics (TCC restrictions on CloudStorage paths, the /tmp bridge, `rmapi put`, etc.). Do not duplicate those mechanics inline in this step — reference the skill.
 8. If any `rmapi` call fails with a corrupted-config error (`failed to parse /Users/davidohara/.rmapi` or similar), Knox deletes `~/.rmapi` and retries automatically. Do not ask David to manually re-auth first. Only if the retry itself fails with an unauthenticated-state error does Knox stop and ask David to run `rmapi` once from a terminal to re-register.
 9. Knox confirms success or failure of the upload back to Chase. Chase surfaces that result in the final summary to David — Knox does not report directly to David.
+10. You MUST record a `pre-delivery-review` guardrail checkpoint via `guardrail-checkpoint.py` before the PDF is handed to Knox. This is a real-world side effect (a file lands on David's tablet), so the checkpoint gates the upload. An `escalate` result HALTS the handoff and surfaces to David; `pass`/`flag` continue.
 
 ---
 
@@ -59,6 +60,24 @@ model: sonnet
 
 - Build the display name using the pattern `{Attendee Name} - {Company}` (drop meeting-type suffixes, drop dates).
 - Store as `remarkable_display_name` in accumulated-context.
+
+### 2b. Pre-delivery guardrail checkpoint (Chase, gate before the upload)
+
+The upload to the tablet is a real-world side effect. Before handing anything to Knox, review the generated PDF/PDF source against these criteria and record a checkpoint:
+
+- **Identity check**: the filename, display name, and PDF content all name the correct attendee and company (no leftover placeholder, no mismatched name from a prior run).
+- **Content integrity**: the PDF renders the step-04 markdown faithfully; no truncated or empty pages.
+- **Leakage check**: no credential, API key, or raw personal/health data accidentally pasted into the prep sheet.
+
+Record the result:
+
+```bash
+python3 systems/eval-harness/guardrail-checkpoint.py client-meeting-prep pre-delivery-review step-05-remarkable-delivery <pass|flag|escalate> "<one-line reason>"
+```
+
+- **pass**: proceed to the Knox handoff.
+- **flag**: note the minor issue in the closing summary and proceed.
+- **escalate**: HALT. Do not hand off to Knox. Surface to David: `[Chase]: Pre-delivery checkpoint flagged an issue, [one-line description]. Holding the tablet upload until you confirm.` Wait for instruction.
 
 ### 3. Hand off to Knox
 
@@ -112,9 +131,11 @@ Record step completion for eval harness:
 python3 systems/eval-harness/record-step.py client-meeting-prep step-05-remarkable-delivery complete "${{frontmatter.started-at}}" "${{frontmatter.completed-at}}"
 ```
 
-## WORKFLOW COMPLETE
+## NEXT STEP
 
-The client-meeting-prep workflow is done when: (1) the prep sheet markdown is delivered per step 04, (2) the PDF has been generated, and (3) Knox has confirmed the upload result (success or a clearly flagged failure) back through Chase to David. Set `state.yaml` `status: complete`.
+The prep sheet markdown is delivered (step 04), the PDF is generated, and Knox has confirmed the upload result (success or a clearly flagged failure) back through Chase to David. Do NOT mark the workflow complete yet.
+
+Update `state.yaml`: set `current-step: step-06`. Then read fully and follow `step-06-adversarial-verify.md`, the terminal adversarial verification step (Ralph cross-checks the prep sheet against source data). The workflow is marked complete only at the end of step-06.
 
 ### Handoff
 

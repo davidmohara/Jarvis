@@ -137,7 +137,7 @@ weekend's options and finds out only when golf-booking either books nothing or b
 wrong thing at midnight.
 
 ```bash
-python3 workflows/golf-preview/verify/step-05-slack-delivery.py <<< '{"ies_root": ".", "slack_send_result": <captured result of the master-slack call>}'
+python3 workflows/golf-preview/verify/step-05-notify-slack.py <<< '{"ies_root": ".", "slack_send_result": <captured result of the master-slack call>}'
 ```
 
 The script checks:

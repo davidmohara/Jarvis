@@ -1,0 +1,123 @@
+#!/usr/bin/env python3
+"""Ground-truth verifier for podcast-prep/step-06-adversarial-verify.
+
+Stage 5 Phase 4A: the adversarial verification step must have actually run
+and recorded its verdict. This verifier reads the real
+workflows/podcast-prep/state.yaml and confirms that
+accumulated-context.adversarial-verification exists with a valid result, and
+(cross-check) that an 'adversarial-verification' entry landed in a
+podcast-prep eval record's guardrails array.
+
+Verdict:
+  * retry - the verification block is absent or malformed.
+  * pass  - the verdict is recorded and valid. A 'flag' or 'escalate' verdict
+            is a legitimate recorded outcome (a finding, not a step failure).
+"""
+
+import json
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "systems" / "eval-harness" / "vendor"))
+try:
+    import yaml
+except Exception:
+    yaml = None
+
+VALID_RESULTS = ("pass", "flag", "escalate")
+
+
+def load_state(path: Path) -> dict:
+    if yaml is None or not path.is_file():
+        return {}
+    try:
+        merged = {}
+        for doc in yaml.safe_load_all(path.read_text()):
+            if isinstance(doc, dict):
+                for k, v in doc.items():
+                    if k not in merged or v:
+                        merged[k] = v
+        return merged
+    except Exception:
+        return {}
+
+
+def main():
+    payload = json.loads(sys.stdin.read() or "{}")
+    ies_root = Path(payload.get("ies_root", "."))
+
+    state_path = ies_root / "workflows" / "podcast-prep" / "state.yaml"
+    if not state_path.is_file() or yaml is None:
+        print(json.dumps({
+            "result": "retry",
+            "reason": "workflows/podcast-prep/state.yaml missing or YAML parser unavailable",
+            "fields": {"adversarial_verification_recorded": False},
+            "validation_errors": ["state_file_missing"],
+            "retry_instruction": "Re-execute step-06-adversarial-verify and write accumulated-context.adversarial-verification to state.yaml.",
+        }))
+        return
+
+    state = load_state(state_path)
+    ctx = state.get("accumulated-context") or {}
+    block = ctx.get("adversarial-verification") if isinstance(ctx, dict) else None
+
+    recorded = isinstance(block, dict) or isinstance(block, str)
+    result_value = None
+    findings = None
+    if isinstance(block, dict):
+        result_value = block.get("result")
+        findings = block.get("findings")
+    elif isinstance(block, str):
+        for v in VALID_RESULTS:
+            if v in block.lower():
+                result_value = v
+                break
+
+    guardrail_present = False
+    runs_dir = ies_root / "systems" / "eval-harness" / "runs"
+    if runs_dir.exists():
+        for f in runs_dir.glob("eval-*.json"):
+            try:
+                data = json.loads(f.read_text())
+            except Exception:
+                continue
+            if data.get("name") != "podcast-prep":
+                continue
+            for g in data.get("guardrails") or []:
+                if g.get("name") == "adversarial-verification":
+                    guardrail_present = True
+                    break
+            if guardrail_present:
+                break
+
+    fields = {
+        "adversarial_verification_recorded": recorded,
+        "verification_result": result_value,
+        "findings_count": len(findings) if isinstance(findings, list) else None,
+        "guardrail_entry_present": guardrail_present,
+    }
+
+    if not recorded or result_value not in VALID_RESULTS:
+        print(json.dumps({
+            "result": "retry",
+            "reason": "accumulated-context.adversarial-verification is missing or has no valid result "
+                      "(expected one of pass|flag|escalate): the adversarial verification step must run and record its verdict",
+            "fields": fields,
+            "validation_errors": ["adversarial_verification_not_recorded"],
+            "retry_instruction": "Spawn Ralph with workflows/podcast-prep-verification/workflow.md, "
+                                 "then write accumulated-context.adversarial-verification (verdict, result, findings) to state.yaml.",
+        }))
+        return
+
+    print(json.dumps({
+        "result": "pass",
+        "reason": f"Adversarial verification recorded with result '{result_value}'"
+        + (f" ({len(findings)} finding(s))" if isinstance(findings, list) and findings else "")
+        + ("" if guardrail_present else " (note: no guardrail entry found in eval record)"),
+        "fields": fields,
+        "validation_errors": [],
+    }))
+
+
+if __name__ == "__main__":
+    main()

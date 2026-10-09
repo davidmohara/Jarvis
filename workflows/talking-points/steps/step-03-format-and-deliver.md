@@ -137,18 +137,11 @@ outputs: {}
 
 ---
 
-## WORKFLOW COMPLETE
+## NEXT STEP
 
-Write `state.yaml` in the workflow directory with `status: complete` and `current-step: step-03`:
+Talking points formatted and delivered. Update `state.yaml`: set `current-step: step-04` (do NOT set `status: complete` yet).
 
-```yaml
-workflow: talking-points
-agent: harper
-status: complete
-current-step: step-03
-```
-
-Talking points formatted and delivered. Harper stands by for refinements or the next communication task.
+Then read fully and follow `step-04-adversarial-verify.md`, the terminal adversarial verification step. Ralph traces each delivered point back to a real source and records the `adversarial-verification` checkpoint. The workflow is marked complete only at the end of step-04. Harper stands by for refinements or the next communication task.
 <!-- system:end -->
 
 <!-- personal:start -->

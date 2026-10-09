@@ -1,8 +1,38 @@
 workflow: boot-verification
 agent: ralph
-status: not-started
-session-started: null
-session-id: null
-current-step: null
-original-request: null
-accumulated-context: {}
+status: complete
+session-started: '2026-10-09T15:55:00Z'
+session-id: bv-20261009-001
+current-step: step-02
+original-request: "Verify Phase 2 boot tasks for run boot-2026-10-09 (Friday 2026-10-09). Manifest: Morning Briefing 01-02, Task E (Plaud/Knox), Task G (72-Hour Look-Ahead), Task H (Email Triage), Task I (Jarvis Inbox), Task J (Boot Reminders)."
+completed-at: '2026-10-09T15:58:00Z'
+accumulated-context:
+  phase2-manifest:
+    - task: "Morning Briefing Steps 01-02"
+      claimed-status: completed
+      state-file: "workflows/morning-briefing/state.yaml"
+      expected-output: "data/calendar-unified.json"
+      data-files: ["data/calendar-unified.json", "data/omnifocus-unified.json"]
+    - task: "E: Plaud Ingest (Knox)"
+      claimed-status: fire-and-forget
+      state-file: "workflows/plaud-ingest/state.yaml"
+      verification-note: "Fire-and-forget. Mark ➖ when a Knox/plaud-ingest state exists."
+    - task: "G: 72-Hour Look-Ahead"
+      claimed-status: completed
+      expected-output: "data/calendar-unified.json"
+      data-files: ["data/calendar-unified.json"]
+    - task: "H: Email Triage"
+      claimed-status: completed
+      expected-output: "data/email-unified.json"
+      data-files: ["data/email-unified.json"]
+    - task: "I: Jarvis Inbox"
+      claimed-status: nothing-to-surface
+      expected-log: "systems/eval-harness/skill-runs/jarvis-inbox-latest.json"
+      expected-output: "data/jarvis-inbox-unified.json"
+      data-files: ["data/jarvis-inbox-unified.json"]
+    - task: "J: Boot Reminders"
+      claimed-status: nothing-to-surface
+      expected-output: "data/reminders.json"
+      data-files: ["data/reminders.json"]
+  verdict-summary: "all-verified"
+  rerun-required: []

@@ -108,7 +108,8 @@ there is no room for "proceed and fix it later."
 | 5 | `steps/step-05-visual-verification.md` | Booking visible on Bookings page | **Gate 4 — Visual Verification** (hard, blocking, critical escalation) |
 | 6 | `steps/step-06-calendar-block.md` | Calendar event on Family calendar | **Gate 5 — Calendar Event Verification** (soft, fallback notification) |
 | 7 | `steps/step-07-slack-confirmation.md` | Slack confirmation to #jarvis | **Gate 6 — Slack Delivery** (hard, blocking with fallback) |
-| — | `verify/step-07-terminal-outcome.py` | Post-hoc state.yaml audit | **Gate 7 — Terminal Outcome Honesty** (hard, blocking — booked or documented failure, never silent) |
+| — | `verify/step-07-slack-confirmation.py` | Post-hoc state.yaml audit | **Gate 7 — Terminal Outcome Honesty** (hard, blocking — booked or documented failure, never silent) |
+| 8 | `steps/step-08-adversarial-verify.md` | Adversarial verification of the booking claims | **Adversarial verification** (Ralph, booking-claims-vs-confirmation-evidence lens) |
 
 ---
 
@@ -117,13 +118,16 @@ there is no room for "proceed and fix it later."
 | Gate | Type | Enforced by | On failure |
 |------|------|-------------|------------|
 | 0. Prior-Booking Cancellation (Destructive Action) | Hard, idempotent | Inline DOM booking-ID match in step-00, per SYSTEM.md's "Destructive action gate" (screenshot + read the target's own booking ID from the DOM + exact-match before any cancel click) | **Stop — never click cancel on an ambiguous or mismatched ID.** Slack alert, `status: aborted`, surface to David for manual cancellation (see err-20260904T151500-CANCEL, err-20260904T151400-MANUAL). No-op when no prior booking exists; deferred (not failed) when the new target is outside the booking window. |
-| 1. Booking Window Pre-Check | Hard | Inline date-arithmetic check in step-01 + `verify/step-01-window-precheck.py` | Abort. `status: awaiting-window`. Never substitute a different date (see incident err-20260813T122205-D64IQ7). |
+| 1. Booking Window Pre-Check | Hard | Inline date-arithmetic check in step-01 + `verify/step-01-read-preview-and-window-precheck.py` | Abort. `status: awaiting-window`. Never substitute a different date (see incident err-20260813T122205-D64IQ7). |
 | 2. Login Verification | Hard | Inline DOM-text check in step-02 | Retry recovery once via 1Password. If still failed, Slack alert + abort. |
 | 3. Confirmation Success | Hard | Inline exact-string match (`BOOKING-SUCCESS`) in step-04 | Do not treat confirmation-page appearance as success. Move to next ranked option or abort. |
 | 4. Visual Verification | Hard | Inline Bookings-page DOM check in step-05 | **Critical.** Send Slack alert, abort, do not claim success even though ChronoGolf's confirmation screen appeared. |
 | 5. Calendar Event Verification | Soft | Inline AppleScript verification in step-06 | Fallback Slack notification with manual-add instructions. Continue — booking itself is still valid. |
 | 6. Slack Delivery | Hard (with fallback) | Inline check in step-07 | Fallback to `memory/working/`. Never skip silently. |
-| 7. Terminal Outcome Honesty | Hard | `verify/step-07-terminal-outcome.py` | Retry — either complete the booking or write a real `resolution-note` explaining the documented failure. A blank failure is the one unacceptable outcome. |
+| 7. Terminal Outcome Honesty | Hard | `verify/step-07-slack-confirmation.py` | Retry — either complete the booking or write a real `resolution-note` explaining the documented failure. A blank failure is the one unacceptable outcome. |
+| 8. Adversarial Verification | Hard | `steps/step-08-adversarial-verify.md` spawns Ralph (`workflows/golf-booking-verification/workflow.md`) | Record an `adversarial-verification` guardrail result. Escalate on any unsupported booking claim, silent date substitution, or double-booking. |
+
+**Deterministic step guardrails:** Every step transition is machine-checked. The verifiers in `workflows/golf-booking/verify/` run at each step's completion (dispatched by `.claude/hooks/step-complete.py`) and record a pass/retry/fail verdict with derived fields on the run's eval record. Step-04 additionally records a `booking-confirmation` guardrail checkpoint at the irreversible confirm click.
 
 ---
 

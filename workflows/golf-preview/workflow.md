@@ -77,6 +77,7 @@ gate is cheaper to fix now than after golf-booking has already acted on bad data
 | 3 | `steps/step-03-drought-and-weather.md` | Drought flag, weather scoring, heat-streak flag | **Gate 3 — Weather Data Availability** (soft, degrade-and-flag) |
 | 4 | `steps/step-04-score-and-write-output.md` | `preview-output.json` | **Gate 4 — Output Schema** (hard, blocking) |
 | 5 | `steps/step-05-notify-slack.md` | Slack message to #golf | **Gate 5 — Slack Delivery** (hard, blocking with fallback) |
+| 6 | `steps/step-06-adversarial-verify.md` | Adversarial verification of the preview claims | **Adversarial verification** (Ralph, preview-claims-vs-weather/course-source lens) |
 
 Update `state.yaml` `current-step` after each step completes. On any hard-gate failure, set
 `status: gate-failed`, record the gate's `retry_instruction` in `resolution-note`, and stop —
@@ -93,8 +94,11 @@ Each gate is documented in full inside its owning step file. Summary:
 | 1. Date Validation | Hard | Inline checklist in step-01 (mirrors skill's Step 1a table) | Halt, recalculate, do not proceed to step-02 |
 | 2. CT Timeline Integrity | Soft | Inline self-check in step-02 | Log and flag in Slack; do not silently compare raw UTC |
 | 3. Weather Data Availability | Soft | Inline fallback chain in step-03 | Degrade to calendar-only scoring, flag in Slack, never fail silently |
-| 4. Output Schema | Hard | `verify/step-04-output-schema.py` | Retry step-04, do not proceed to step-05 with malformed output |
-| 5. Slack Delivery | Hard (with fallback) | `verify/step-05-slack-delivery.py` + inline retry | Write `memory/working/golf-preview-YYYY-MM-DD.md` fallback and log error — never fail silently |
+| 4. Output Schema | Hard | `verify/step-04-score-and-write-output.py` | Retry step-04, do not proceed to step-05 with malformed output |
+| 5. Slack Delivery | Hard (with fallback) | `verify/step-05-notify-slack.py` + inline retry | Write `memory/working/golf-preview-YYYY-MM-DD.md` fallback and log error — never fail silently |
+| 6. Adversarial Verification | Hard | `steps/step-06-adversarial-verify.md` spawns Ralph (`workflows/golf-preview-verification/workflow.md`) | Record an `adversarial-verification` guardrail result. Escalate on a wrong target date, a day marked available against a hard block, or a weather claim that contradicts the source. |
+
+**Deterministic step guardrails:** Every step transition is machine-checked. The verifiers in `workflows/golf-preview/verify/` run at each step's completion (dispatched by `.claude/hooks/step-complete.py`) and record a pass/retry/fail verdict with derived fields on the run's eval record. Manual review is not the gate.
 
 ---
 

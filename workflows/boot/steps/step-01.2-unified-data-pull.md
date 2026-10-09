@@ -1,17 +1,23 @@
 ---
 status: complete
-started-at: '2026-10-08T15:24:04Z'
-completed-at: '2026-10-08T15:44:04Z'
+started-at: '2026-10-09T15:49:14Z'
+completed-at: '2026-10-09T15:52:00Z'
 outputs:
-  email_pull: completed - 29 messages 10-05 to 10-08, 7 actionable + Vermeer reschedule found by targeted search
-  omnifocus_pull: completed via MCP fallback - 21 tasks (osascript unavailable in sandbox, skill pull status failed), 18 inbox, 2 overdue, 1 due today, 0 flagged
-  clay_pull: nothing-to-surface - 0 reminders, no birthdays in feed window
-  jarvis_inbox_pull: nothing-to-surface - 0 messages
+  email_pull: completed - 18 messages 10-06 to 10-09, ~10 actionable (Solace AT&T/McKesson ask, YNG intro, Talent Labs Nov 4 agenda, DLP Bootcamp logistics, Becoming AI Native panel notes, YPO MicroForum invite, security training deadline)
+  omnifocus_pull: completed via skill script (AppleScript backend) - 39 tasks, 16 inbox, 0 due today, 2 overdue (Print out annual calendar 10-02, Schedule window cleaning 09-22), 0 flagged, 14 due Sat 10-10
+  clay_pull: completed - 0 reminders, 0 upcoming birthdays in next 7 days (only past birthdays in feed: Tom Opgenorth 10-05, Alex Holmes 10-02)
+  jarvis_inbox_pull: nothing-to-surface - 0 messages in /Jarvis folder
   files_created:
   - data/email-unified.json
   - data/omnifocus-unified.json
   - data/clay-reminders-unified.json
   - data/jarvis-inbox-unified.json
+  degraded: false
+prior-run-2026-10-08:
+  email_pull: completed - 29 messages 10-05 to 10-08, 7 actionable + Vermeer reschedule found by targeted search
+  omnifocus_pull: completed via MCP fallback - 21 tasks (osascript unavailable in sandbox, skill pull status failed), 18 inbox, 2 overdue, 1 due today, 0 flagged
+  clay_pull: nothing-to-surface - 0 reminders, no birthdays in feed window
+  jarvis_inbox_pull: nothing-to-surface - 0 messages
   degraded: true
   degraded_reason: omnifocus-data script failed (no osascript in sandbox); MCP fallback used, notes field absent
 ---

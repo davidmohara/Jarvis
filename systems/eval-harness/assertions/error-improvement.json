@@ -54,6 +54,13 @@
       "path": "memory/working/error-improvement-*.md",
       "min_bytes": 200,
       "description": "error-improvement output is substantive (>200 bytes)"
+    },
+    {
+      "id": "error-improvement-adversarial-verification-ran",
+      "check": "guardrail_checkpoint_ran",
+      "checkpoint_name": "adversarial-verification",
+      "category": "quality",
+      "description": "Stage 5 Phase 4A: step-08 spawns Ralph (error-improvement-verification workflow) and records an 'adversarial-verification' guardrail result on this run. Read from the eval record's own guardrails array. Distinct-lens check: a separate agent cross-checking every applied fix against the real error log entries, so no correction is fabricated."
     }
   ]
 }

@@ -4,7 +4,7 @@
 Confirms a real `pre-deletion-review` guardrail checkpoint entry was recorded
 in a dream-cycle eval record's `guardrails` list (via guardrail-checkpoint.py)
 rather than trusting a self-reported "checkpoint passed" claim. Reads the
-actual JSON records on disk and matches by checkpoint name only — dream-cycle
+actual JSON records on disk and matches by checkpoint name only - dream-cycle
 records this checkpoint from two call sites (the step markdown uses after_step
 `step-03-semantic-promotion`; orchestrate.py uses `step-04-episodic-compression`),
 so the match must not be pinned to a single after_step.
@@ -103,7 +103,7 @@ def main():
 
     print(json.dumps({
         "result": "pass",
-        "reason": f"Guardrail checkpoint recorded: {result_value} — {matching[-1].get('reason')}",
+        "reason": f"Guardrail checkpoint recorded: {result_value} - {matching[-1].get('reason')}",
         "fields": fields,
         "validation_errors": [],
     }))

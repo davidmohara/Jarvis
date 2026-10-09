@@ -19,7 +19,7 @@ outputs:
 
 1. Always write the dream log entry — even if all counts are zero. The log is the audit trail.
 2. Write the working memory summary only if `semantic_created > 0` OR `semantic_updated > 0` OR `errors > 0`. A clean run does not interrupt Chief.
-3. Set `status: complete` and `current-step: null` in `state.yaml` before committing.
+3. Set `current-step: step-06-adversarial-verify` in `state.yaml` before committing (do NOT set `status: complete` - the terminal adversarial verification step finalizes the state).
 4. Commit and push all changes — this is not optional. A dream cycle that does not push has not finished.
 5. If the git push fails, log the failure but do not set `status: not-started` — the run completed. Surface the push failure to the controller.
 
@@ -151,7 +151,7 @@ If all checks PASS:
 
 ### Phase C: Finalize
 
-6. Update `state.yaml`: set `status: complete`, `current-step: null`. Update this step's frontmatter `status: completed` and `completed-at: {timestamp}`.
+6. Update `state.yaml`: set `current-step: step-06-adversarial-verify`. Do NOT set `status: complete` here - the terminal adversarial verification step (step-06) finalizes the state once its verdict is recorded. Update this step's frontmatter `status: completed` and `completed-at: {timestamp}`.
 
 7. **MANDATORY: Read `skills/git/SKILL.md` in full before issuing any git command.** The skill is the only authorized path for git operations in Jarvis. It enforces the atomic-command rule (no `&&` chaining), forbids `git status` (which writes `.git/index.lock` and breaks the sandbox), requires Conventional Commits, and defines the session-end commit protocol. Do NOT use the inline snippets that existed in prior versions of this step — they predated the skill and chained commands with `&&`, which is now forbidden.
 
@@ -169,7 +169,7 @@ If all checks PASS:
 
 - `memory/dream.log` contains a new entry with today's date and all counts filled in.
 - If notable activity occurred: `memory/working/dream-summary-{YYYY-MM-DD}.md` exists and expires tomorrow.
-- `state.yaml` shows `status: complete` and `current-step: null`.
+- `state.yaml` shows `current-step: step-06-adversarial-verify` (the terminal step finalizes `status: complete`).
 - All changes are committed and pushed to origin.
 
 ## FAILURE MODES

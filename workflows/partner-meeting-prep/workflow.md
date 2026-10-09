@@ -91,6 +91,10 @@ Partner meetings are NOT client meetings. The key differences:
 ## EXECUTION
 
 Read fully and follow: `steps/step-01-identify-partner.md` to begin the workflow.
+
+After step-04 saves the document, run `steps/step-05-adversarial-verify.md`, the terminal adversarial verification step. It spawns **Ralph** with `workflows/partner-meeting-prep-verification/workflow.md` (the account-overlap-and-event-claims-vs-actual-records lens). Ralph re-derives every account and event claim from the CRM, calendar, and email records and returns a verdict table; the result is recorded as an `adversarial-verification` guardrail checkpoint. The workflow is marked complete only at the end of step-05.
+
+**Deterministic step guardrails:** Every step transition is machine-checked. The verifiers in `workflows/partner-meeting-prep/verify/` run at each step's completion (dispatched by `.claude/hooks/step-complete.py`) and record a pass/retry/fail verdict with derived fields on the run's eval record.
 <!-- system:end -->
 
 <!-- personal:start -->

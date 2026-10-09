@@ -7,7 +7,7 @@ files, and skipped the rest. This verifier re-derives the claim from the real
 filesystem instead of trusting the frontmatter self-report:
 
   * every file listed in `archived_files` must be GONE from memory/working/
-    (a listed-but-still-present file is a silent non-archival — the exact
+    (a listed-but-still-present file is a silent non-archival - the exact
     failure class dream-cycle's "preservation over aggression" rule exists to
     prevent);
   * `working_archived` must equal len(archived_files);
@@ -69,7 +69,7 @@ def main():
     if not isinstance(outputs, dict) or not outputs:
         print(json.dumps({
             "result": "retry",
-            "reason": "step-01 outputs block is empty — no working-memory counts recorded",
+            "reason": "step-01 outputs block is empty - no working-memory counts recorded",
             "fields": {"archived_verified": False},
             "validation_errors": ["no_outputs"],
             "retry_instruction": "Re-execute step-01 and record working_archived/archived_files/skipped counts in the step frontmatter outputs.",
@@ -100,7 +100,7 @@ def main():
     if not working_dir.is_dir():
         print(json.dumps({
             "result": "retry",
-            "reason": "memory/working/ does not exist — the step's scope directory is missing",
+            "reason": "memory/working/ does not exist - the step's scope directory is missing",
             "fields": fields,
             "validation_errors": ["working_dir_missing"],
             "retry_instruction": "Confirm the IES root resolves and memory/working/ exists before re-running step-01.",

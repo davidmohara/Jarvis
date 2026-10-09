@@ -1,0 +1,5 @@
+{
+  "checkpoint_name": "adversarial-verification",
+  "description": "Adversarial verification of the podcast prep deliverables (Ralph prep-sheet-completeness-vs-episode-inputs cross-check). Naming the checkpoint here makes the eval record carry an 'adversarial-verification' guardrail entry at this step's transition.",
+  "rules": []
+}

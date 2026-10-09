@@ -84,6 +84,28 @@ Flag these edits as higher-risk in `files_modified` with `risk: elevated` so Ste
 
 ---
 
+## Guardrail Checkpoint: Systemic Fix Apply (HARD, BLOCKING)
+
+Applying approved fixes edits live system files. After all approved fixes and the taxonomy
+normalization are applied (and before recording `files_modified` as final), record a guardrail
+checkpoint so the run's eval record carries the review result:
+
+```bash
+python3 systems/eval-harness/guardrail-checkpoint.py error-improvement systemic-fix-apply step-04-apply <pass|flag|escalate> "<one-line reason>"
+```
+
+- **Every edit matches its approved fix exactly, no scope creep** → `pass`.
+- **A minor deviation you can point to that does not corrupt a file** (e.g., whitespace
+  normalization around an inserted rule) → `flag`, note it, and proceed.
+- **A file was edited beyond the approved list, a fix was applied without approval, or an edit
+  corrupted a system file** → `escalate`. Halt. Surface to David:
+  `[Rigby]: Systemic-fix apply checkpoint flagged an issue, [description]. Holding before the verify step until you confirm.` Wait for instruction. Do not mark step-04 failed because of an escalation here.
+
+If `guardrail-checkpoint.py` cannot write (no in-progress eval record), note the gap in the
+Step 07 summary and proceed only if a manual read of the edits found nothing out of scope.
+
+---
+
 ## INSTRUMENTATION
 
 After recording `files_modified` in state.yaml, append this step's timing:

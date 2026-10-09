@@ -121,6 +121,15 @@ See step-01-approve.md for full pass/fail criteria, logging format, and escalati
 
 ## EXECUTION
 
-1. Read and follow `steps/step-01-approve.md` (includes GATE 3, GATE 4, GATE 5).
+| # | File | Executed by | Produces |
+|---|------|-------------|----------|
+| 1 | `steps/step-01-approve.md` (includes GATE 3, GATE 4, GATE 5, and the `publish-preflight` guardrail checkpoint) | spawned subagent (Harper) | Published/rejected/edited Ghost posts + updated pending-drafts.json |
+| 2 | `steps/step-02-git-finalize.md` | spawned subagent (Rigby, git via `skills/git/SKILL.md`) | Committed approval state |
+| 3 | `steps/step-03-adversarial-verify.md` | spawned subagent (Harper) spawning **Ralph** | `adversarial-verification` guardrail result + verdict |
+
+1. Read and follow `steps/step-01-approve.md` (includes GATE 3, GATE 4, GATE 5). After GATE 4 passes and before the publish call, step-01 records a `publish-preflight` guardrail checkpoint (the workflow's one irreversible external action).
 2. After completion, run `steps/step-02-git-finalize.md` to commit all changes.
+3. Then run `steps/step-03-adversarial-verify.md`, which spawns **Ralph** with `workflows/content-approval-verification/workflow.md` (the approval-state-vs-Ghost-reality lens). Ralph re-derives every publish/reject/edit claim from the live Ghost post state and the Slack approval replies and returns a verdict table; the result is recorded as an `adversarial-verification` guardrail checkpoint.
+
+**Deterministic step guardrails:** Every step transition is machine-checked. The verifiers in `workflows/content-approval/verify/` run at each step's completion (dispatched by `.claude/hooks/step-complete.py`) and record a pass/retry/fail verdict with derived fields on the run's eval record. Manual review is not the gate.
 <!-- personal:end -->

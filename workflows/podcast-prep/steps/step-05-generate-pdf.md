@@ -160,3 +160,11 @@ Record step completion for eval harness:
 python3 systems/eval-harness/record-step.py podcast-prep step-05-generate-pdf complete "${{frontmatter.started-at}}" "${{frontmatter.completed-at}}"
 ```
 <!-- personal:end -->
+
+<!-- system:start -->
+## Adversarial Verification (Stage 5 Phase 4A)
+
+Do NOT set `state.yaml` `status: complete` at the end of this step. Instead, update `state.yaml`: set `current-step: step-06`, then read fully and follow `step-06-adversarial-verify.md`, the terminal adversarial verification step.
+
+It spawns **Ralph** with `workflows/podcast-prep-verification/workflow.md` (the prep-sheet-completeness-vs-episode-inputs lens: the detailed reference sheet and the rendered studio PDF both exist and are substantive, and the questions reflect the recorded `sources_used`). The result is recorded as an `adversarial-verification` guardrail checkpoint. The workflow is marked complete only at the end of step-06.
+<!-- system:end -->

@@ -1,0 +1,5 @@
+{
+  "checkpoint_name": "pre-deletion-review",
+  "description": "Pre-deletion review checkpoint for dream-cycle step-03b. Reviews the compression candidate set and semantic-promotion quality before step-04's irreversible source-file deletion. Naming the checkpoint here makes the eval record carry a 'pre-deletion-review' guardrail entry at this step's transition.",
+  "rules": []
+}

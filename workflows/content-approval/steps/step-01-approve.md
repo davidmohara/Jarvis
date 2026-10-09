@@ -295,6 +295,31 @@ before calling the publish endpoint.
 
 ---
 
+**Step 2b: Publish Pre-Flight Guardrail Checkpoint (HARD, BLOCKING)**
+
+Publishing a post to driventodevelop.com is this workflow's one irreversible external action.
+After GATE 4 passes and before the publish call, record a guardrail checkpoint so the run's
+eval record carries the review result:
+
+```bash
+python3 systems/eval-harness/guardrail-checkpoint.py content-approval publish-preflight step-01-approve <pass|flag|escalate> "<one-line reason>"
+```
+
+- **No issue found** → `pass`. Proceed to publish.
+- **A minor issue you can point to that does not block the publish** (e.g., a warning carried
+  from the Obsidian sync) → `flag`, note it, and proceed. Surface the flag in the `[PUBLISHED]`
+  Slack message.
+- **A leaked secret in the post body, a wrong author, an off-list tag, a missing feature image,
+  or a publish that would bypass GATE 4** → `escalate`. Halt. Do NOT call the publish endpoint.
+  Surface to David: `[Harper]: Publishing pre-flight checkpoint flagged an issue for "{title}", [description]. Holding the publish until you confirm.` Wait for instruction.
+
+If `guardrail-checkpoint.py` cannot write (no in-progress eval record), note the gap in the
+`[PUBLISHED]` Slack message and proceed only if GATE 4 found nothing — otherwise escalate
+verbally. This is distinct from a step failure; do not mark step-01 failed because of an
+escalation here.
+
+---
+
 **Step 3: Publish to Ghost, then verify — via `skills/delivery-router/SKILL.md`**
 
 Gate 5 (delivery verification) and the publish call itself are now one skill call, because

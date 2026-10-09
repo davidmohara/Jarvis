@@ -80,6 +80,13 @@
       "path": "workflows/watchtower/steps/weekly-step-05-report.md",
       "pattern": "pending_batches:\\s*\\[\\s*[0-9].*[0-9].*[0-9]",
       "description": "Soft guard: flags if step-05 claims 3+ pending batches simultaneously — historically this has only occurred when Knox used stale context instead of reading proposed-sources.md. Not a hard failure (3 batches could legitimately be pending), but should be investigated."
+    },
+    {
+      "id": "ww-adversarial-verification-ran",
+      "check": "guardrail_checkpoint_ran",
+      "checkpoint_name": "adversarial-verification",
+      "category": "quality",
+      "description": "Stage 5 Phase 4A: the weekly run's terminal step (weekly-step-07) spawns Ralph (watchtower-verification workflow) and records an 'adversarial-verification' guardrail result on this run. Read from the eval record's own guardrails array. This is the distinct-lens check: a separate agent cross-checking the run's standing-intelligence claims (drafts approved/posted vs source digests, no unpublished claims of publishing)."
     }
   ]
 }

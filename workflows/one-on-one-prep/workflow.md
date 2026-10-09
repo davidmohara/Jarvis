@@ -85,6 +85,10 @@ These types of recurring meetings should always be filtered out of the calendar 
 
 Read fully and follow: `steps/step-01-identify-meeting.md` to begin the workflow.
 
+After step-05 saves the brief, run `steps/step-06-adversarial-verify.md`, the terminal adversarial verification step. It spawns **Ralph** with `workflows/one-on-one-prep-verification/workflow.md` (the brief-agenda-claims-vs-delegation-tracker-and-OmniFocus lens). Ralph re-derives every open action item and talking point from the delegation tracker and OmniFocus records and returns a verdict table; the result is recorded as an `adversarial-verification` guardrail checkpoint. The workflow is marked complete only at the end of step-06.
+
+**Deterministic step guardrails:** Every step transition is machine-checked. The verifiers in `workflows/one-on-one-prep/verify/` run at each step's completion (dispatched by `.claude/hooks/step-complete.py`) and record a pass/retry/fail verdict with derived fields on the run's eval record.
+
 <!-- system:end -->
 
 <!-- personal:start -->

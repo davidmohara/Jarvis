@@ -29,6 +29,13 @@
       "path": "memory/working/client-meeting-prep-*.md",
       "pattern": "(?i)(complete|done|finished|output|result)",
       "description": "client-meeting-prep output contains expected content"
+    },
+    {
+      "id": "cmp-002-adversarial-verification-ran",
+      "check": "guardrail_checkpoint_ran",
+      "checkpoint_name": "adversarial-verification",
+      "category": "quality",
+      "description": "Stage 5 Phase 4A: step-06 spawns Ralph (client-meeting-prep-verification workflow) and records an 'adversarial-verification' guardrail result on this run. Read from the eval record's own guardrails array. This is the distinct-lens check Tim's Stage 5 finding requires: a separate agent tracing every attendee/company fact in the prep sheet back to calendar, email, or CRM source data."
     }
   ]
 }

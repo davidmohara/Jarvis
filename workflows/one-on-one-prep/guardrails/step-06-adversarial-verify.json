@@ -1,0 +1,5 @@
+{
+  "checkpoint_name": "adversarial-verification",
+  "description": "Adversarial verification of the 1:1 prep brief (Ralph brief-agenda-claims-vs-delegation-tracker-and-OmniFocus cross-check). Naming the checkpoint here makes the eval record carry an 'adversarial-verification' guardrail entry at this step's transition.",
+  "rules": []
+}
