@@ -1,56 +1,52 @@
 {
-  "generated_at": "2026-10-05T22:38:30",
+  "generated_at": "2026-10-09T10:20:00",
   "target_weekend": {
-    "friday": "2026-10-16",
-    "saturday": "2026-10-17",
-    "sunday": "2026-10-18"
+    "friday": "2026-10-23",
+    "saturday": "2026-10-24",
+    "sunday": "2026-10-25"
   },
   "day_status": {
     "friday": {
       "status": "unavailable",
-      "reason": "All-day event: Houston Bootcamp (remote) — hard block"
+      "reason": "No continuous 3-hour gap between 1 and 6 PM CT. Q4 Cyber Training 1:00-1:30 PM, Friday Week Wrap-Up 3:00-3:30 PM. Free gaps are 1:30-3:00 PM and 3:30-6:00 PM."
     },
     "saturday": {
       "status": "available",
-      "reason": "No conflicts; available 1:00 PM – 6:30 PM CT"
+      "reason": "Surprise party for Erin 6:00-9:00 PM CT caps latest start at 1:30 PM. No other conflicts."
     },
     "sunday": {
       "status": "available",
-      "reason": "No conflicts after church (ends 1:30 PM CT); available 2:30 PM – 6:30 PM CT"
+      "reason": "Church until 1:30 PM CT. No conflicts after 2:30 PM. Weather not yet in Open-Meteo horizon (ends Oct 24)."
     }
   },
   "drought": false,
-  "drought_last_round": "2026-09-26",
   "weather_data_missing": true,
-  "weather_data_warning": "Open-Meteo fetch failed (URL too long); NWS returned outdated data. Proceeding with calendar-only scoring.",
   "ct_conversion_flag": false,
-  "heat_streak": false,
-  "heat_streak_reason": "Weather data unavailable; defaulting to false (safer $21/1PM default)",
   "top_options": [
     {
       "rank": 1,
       "day": "saturday",
-      "date": "2026-10-17",
+      "date": "2026-10-24",
       "preferred_start": "13:00",
       "preferred_end": "17:30",
       "holes": 18,
       "cost_per_player": 21,
       "total_cost": 42,
       "weather": {
-        "rain_pct": null,
-        "temp_f": null,
-        "wind_mph": null,
-        "condition": "unavailable"
+        "rain_pct": 6,
+        "temp_f": 66,
+        "wind_mph": 5,
+        "condition": "clear"
       },
       "score": 0,
-      "rationale": "Saturday 1 PM — best day with no constraints; ideal timing, no weather data available"
+      "rationale": "Saturday 1 PM. Ideal cost (heat_streak false), clear weather from Open-Meteo (13-16h: 64-68F, rain max 6%, wind max 5 mph). Party starts 6 PM."
     },
     {
       "rank": 2,
       "day": "sunday",
-      "date": "2026-10-18",
+      "date": "2026-10-25",
       "preferred_start": "14:30",
-      "preferred_end": "18:30",
+      "preferred_end": "19:00",
       "holes": 18,
       "cost_per_player": 21,
       "total_cost": 42,
@@ -61,10 +57,9 @@
         "condition": "unavailable"
       },
       "score": 5,
-      "rationale": "Sunday 2:30 PM (post-church) — viable with buffer time; +5 penalty for tighter window and church scheduling"
+      "rationale": "Sunday 2:30 PM. Church buffer penalty (+5). Weather unavailable: Open-Meteo horizon ends Oct 24."
     }
   ],
   "override_instructions": null,
-  "no_viable_reason": null,
-  "notes": "Friday blocked by all-day bootcamp. Two viable options on Saturday (best) and Sunday (acceptable). Weather forecast unavailable; recommend checking weather manually before booking. Last round: 2026-09-26 (not a drought)."
+  "no_viable_reason": null
 }

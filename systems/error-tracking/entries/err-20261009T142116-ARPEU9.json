@@ -1,0 +1,15 @@
+{
+  "id": "err-20261009T142116-ARPEU9",
+  "timestamp": "2026-10-09T09:25:00-05:00",
+  "session": "scheduled-golf-preview-2026-10-09",
+  "source": "self-detected",
+  "agent": "sterling",
+  "category": "under-delivery",
+  "description": "golf-preview scheduled run could not deliver the Slack notification to #golf. Slack MCP server (plugin:marketing:slack / master-slack) failed to connect with 'Incompatible auth server'. Fallback written to memory/working/golf-preview-2026-10-09.md.",
+  "correction": "Re-authorize or fix the Slack connection so the golf-preview notification reaches #golf before the midnight booking run. Until then, David reads the fallback file.",
+  "failure_mode": "",
+  "systemic_fix": "Surface Slack connector auth failures in the morning briefing and retry delivery on the next run.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": []
+}

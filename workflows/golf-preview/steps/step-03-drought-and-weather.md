@@ -59,13 +59,27 @@ When `drought: true`:
 
 ### Weather Evaluation
 
-Fetch the 16-day hourly forecast for Frisco TX via Open-Meteo (free, no API key, covers up to
-16 days out):
+Fetch the hourly forecast for Frisco TX from Open-Meteo (free, no API key). Open-Meteo's
+forecast horizon is 16 days, so it covers Saturday and Friday of the target weekend but not
+Sunday when the target is 16 or more days out. Keep the URL short. The `web_fetch` tool rejects
+long URLs and sometimes returns an empty body for this endpoint.
+
+Use the first method that returns JSON:
+
+1. `mcp__workspace__web_fetch` with the short URL below.
+2. If that returns empty or an error, load Claude in Chrome (`ToolSearch` with
+   `select:mcp__claude-in-chrome__tabs_context_mcp,mcp__claude-in-chrome__navigate,mcp__claude-in-chrome__get_page_text`),
+   call `tabs_context_mcp` with `createIfEmpty: true`, navigate a tab to the same URL, then call
+   `get_page_text`. The page text is the raw JSON. Close the tab when done.
 
 ```
-mcp__workspace__web_fetch
-url: https://api.open-meteo.com/v1/forecast?latitude=33.1507&longitude=-96.8236&hourly=temperature_2m,precipitation_probability,precipitation,windspeed_10m,cloudcover&temperature_unit=fahrenheit&windspeed_unit=mph&precipitation_unit=inch&timezone=America%2FChicago&forecast_days=14
+https://api.open-meteo.com/v1/forecast?latitude=33.15&longitude=-96.82&hourly=temperature_2m,precipitation_probability,windspeed_10m&temperature_unit=fahrenheit&windspeed_unit=mph&timezone=America%2FChicago&start_date={{target_friday}}&end_date={{target_sunday}}
 ```
+
+If `end_date` is beyond the forecast horizon, Open-Meteo returns an error naming the allowed
+range. Re-request with `end_date` set to the last allowed date, then mark any uncovered target
+day as weather-unavailable. Do not use the NWS `MapClick.php` page: it returns stale cached
+data (for example, dated August) and must not be used for scoring.
 
 The response contains an `hourly` object with parallel arrays indexed by hour, each index
 corresponding to one entry in `hourly.time` (ISO8601, local CT).
@@ -85,13 +99,9 @@ corresponding to one entry in `hourly.time` (ISO8601, local CT).
 - Temperature < 45°F → flag as cold, note in Slack
 - Wind > 25 mph → flag, note in Slack
 
-**If Open-Meteo fetch fails**, fall back to:
-```
-mcp__workspace__web_fetch
-url: https://forecast.weather.gov/MapClick.php?CityName=Frisco&state=TX&site=FWD&textField1=33.1507&textField2=-96.8236&FcstType=json
-```
-NWS provides 7-day hourly JSON — sufficient if the target weekend is within 7 days. If still
-insufficient range, proceed with calendar-only scoring — this is where Gate 3 applies.
+****If both Open-Meteo methods fail**, proceed with calendar-only scoring and set
+`weather_data_missing: true`. Gate 3 applies. The NWS fallback is retired. The `MapClick.php`
+endpoint returns stale cached data, and the `api.weather.gov` API covers only about 7 days.
 
 **Determining time preference — heat streak rule:**
 
@@ -99,7 +109,11 @@ Do NOT use calendar month as a proxy for heat. Use the actual forecast data.
 
 1. Pull the daily high temperature for each of the 5 days immediately preceding the target
    Friday (i.e., ending on Thursday before the weekend). For each day, find the max
-   `temperature_2m` value across all hours in `hourly.time` for that date.
+   `temperature_2m` value across all hours in `hourly.time` for that date. Request those
+   days separately with the same short Open-Meteo URL (Method 1, then Method 2 if needed),
+   using `start_date={{target_friday minus 5 days}}` and `end_date={{target_friday minus 1 day}}`
+   and `hourly=temperature_2m`. The target-weekend request does not include them. Do not use
+   calendar month.
 2. Count how many of those 5 days had a daily high ≥ 99°F.
 3. If all 5 days were ≥ 99°F → `heat_streak: true` → default preferred start is **4:00 PM**
    ($15/player)

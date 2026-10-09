@@ -1,31 +1,26 @@
 workflow: golf-booking
 agent: sterling
-status: blocked-authentication
-session-started: 2026-09-18T05:00:00Z
-session-id: scheduled-golf-tee-time-booking
-current-step: step-03-chronogolf-authentication
-execution-run: 2026-10-07
-latest-check: 2026-10-07T11:32:00Z
-latest-check-result: "Golf booking workflow executed 2026-10-07. Window gate cleared (Oct 17 now within 8-day window). Navigated to ChronoGolf, found no availability for target date (Oct 17 marked unavailable). Fallback to Oct 10 (Saturday) successful — selected 5:25 PM tee time, 18 holes, 2 players. Advanced to authentication gate. ChronoGolf login page requires credentials. Browser persistent profile did not auto-authenticate. Workflow blocked at ChronoGolf login — requires manual credential entry or credential injection. Cannot proceed unattended."
+status: awaiting-window
+session-started: 2026-10-09T04:00:00Z
+session-id: scheduled-golf-tee-time-booking-2026-10-09
+current-step: step-01-read-preview-and-window-precheck
+execution-run: 2026-10-09
+latest-check: 2026-10-09T00:00:00-04:00
+latest-check-result: "Gate 0: no prior booking (booking-id null), cancellation not required. Gate 1: target Saturday 2026-10-24 at 13:00 CT is 15 days out, outside the 8-day window. Verify script returned retry (outside_booking_window). No substitution made. Booking deferred to the run when the window opens for 2026-10-24 (on or after 2026-10-16)."
 gate-failures:
-  - reason: "ChronoGolf authentication required"
-    gate: "authentication"
-    page: "https://www.chronogolf.com/login"
-    triggered_at: "2026-10-07T11:32:00Z"
-    fallback_date: "2026-10-10"
-    fallback_time: "17:25"
-    holes: 18
-    players: 2
+  - reason: "Target date 2026-10-24 is 15 days out, outside 8-day booking window"
+    gate: "gate-1-window-precheck"
+    triggered_at: "2026-10-09T00:00:00-04:00"
 booking-id: null
-booking-date: "2026-10-10"
-booking-time: "17:25"
-booking-status: "pending-authentication"
+booking-date: null
+booking-time: null
+booking-status: "not-booked"
 grade: null
-resolution-note: "Preview target (Oct 17, 1:00 PM) unavailable on ChronoGolf. Fallback implemented: Oct 10 5:25 PM selected (available Saturday, within group size 1-2). 2 x 48-Day Guest players added. Booking ready to confirm but authentication required. Action: Manual login needed or pass credentials to automation system."
+resolution-note: "AWAITING WINDOW. Top-ranked option Saturday 2026-10-24 at 1:00 PM CT (18 holes, 2 players, $21/player) from preview-output.json generated 2026-10-09T09:30:00. Window opens 2026-10-16. Booking will be attempted on the scheduled run that falls within 8 days of the target. Preview weather data was unavailable for this date. Slack delivery was unavailable this run (Slack connector failed to authenticate), so this status is recorded here and in memory/working."
 
 original-request: ~
 accumulated-context:
-  target_date: "2026-10-17"
+  target_date: "2026-10-24"
   target_time: "13:00:00"
   target_day: "saturday"
   holes: 18
@@ -33,3 +28,6 @@ accumulated-context:
   total_cost: 42
   rank: 1
   score: 0
+  days_out: 15
+  cancellation: not-required
+  slack_notification_failed: true

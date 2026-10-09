@@ -1,0 +1,17 @@
+{
+  "id": "err-20261009T142822-51QNCS",
+  "timestamp": "2026-10-09T14:28:22Z",
+  "session": "scheduled-task-golf-tee-time-preview",
+  "source": "self-detected",
+  "agent": "sterling",
+  "category": "integration",
+  "description": "golf-preview Step 05 initially skipped master-slack and ran post.py directly from the sandbox, which failed (no Mac path). Re-run through Desktop Commander per master-slack Option 2 also failed on the OneDrive IES path, which does not exist on this machine.",
+  "correction": "Use master-slack via Desktop Commander, pointing at the local jarvis folder (/Users/davidohara/develop/jarvis/systems/slack-bot/post.py). Delivered to #golf (ts 1791556267.727219). Agents must read the workflow's Slack step and follow master-slack exactly.",
+  "failure_mode": "external-service-unreachable",
+  "systemic_fix": "Verify the master-slack IES path resolves on this machine before posting. Fall back to the jarvis path when the OneDrive path is missing.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": [
+    "err-20261009T142116-ARPEU9"
+  ]
+}

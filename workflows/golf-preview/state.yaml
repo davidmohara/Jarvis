@@ -1,28 +1,28 @@
 workflow: golf-preview
 agent: sterling
 status: complete
-session-started: "2026-10-05T22:35:00-05:00"
-session-id: scheduled-task-golf-tee-time-preview
+session-started: "2026-10-09T09:27:00-05:00"
+session-id: scheduled-task-golf-tee-time-preview-rerun
 current-step: step-05
-execution-run: "2026-10-05T22:35:00-05:00"
-completion-time: "2026-10-05T22:40:00-05:00"
+execution-run: "2026-10-09T09:19:00-05:00"
+completion-time: "2026-10-09T10:21:00-05:00"
 gate-failures: []
 grade: null
-resolution-note: "Workflow completed successfully. All gates passed. Friday unavailable (bootcamp); Saturday + Sunday viable. Weather data unavailable (soft gate degradation). Preview output written; fallback notification delivered."
+resolution-note: "Target weekend Oct 23-25 (Oct 16-18 is inside the 8-day booking window). Friday unavailable. Saturday and Sunday viable. Weather unavailable for target dates (Open-Meteo error, NWS coverage ends Oct 11). Slack post.py returned 403 tunnel error; fallback written to memory/working/golf-preview-2026-10-09.md; error logged err-20261009T142822-51QNCS. Re-run at 09:27 CT confirmed same result. Weather still unavailable (Open-Meteo empty, NWS stale)."
 
 original-request: "Weekly golf tee time preview — automated scheduled task"
 accumulated-context:
-  target_friday: "2026-10-16"
-  target_saturday: "2026-10-17"
-  target_sunday: "2026-10-18"
+  target_friday: "2026-10-23"
+  target_saturday: "2026-10-24"
+  target_sunday: "2026-10-25"
   calendar_unavailable: false
   weather_data_missing: true
   day_status:
-    friday: { status: "unavailable", reason: "All-day event: Houston Bootcamp (remote)" }
-    saturday: { status: "available", reason: "No conflicts; 1:00 PM – 6:30 PM CT" }
-    sunday: { status: "available", reason: "No conflicts after church; 2:30 PM – 6:30 PM CT" }
+    friday: { status: "unavailable", reason: "No continuous 3-hour gap 1-6 PM CT" }
+    saturday: { status: "available", reason: "Party 6-9 PM CT; latest start 1:30 PM" }
+    sunday: { status: "available", reason: "Church until 1:30 PM; no conflicts" }
   drought: false
-  drought_last_round: "2026-09-26"
+  drought_last_round: "2026-09-25"
   heat_streak: false
   heat_streak_calc_failed: true
   candidate_windows_found: 2
@@ -31,6 +31,10 @@ accumulated-context:
   gate_3_result: "pass-degraded"
   gate_4_result: "pass"
   gate_5_result: "pass"
-  top_option_1: "Saturday Oct 17, 1:00 PM, 18 holes, $21/player, score 0"
-  top_option_2: "Sunday Oct 18, 2:30 PM, 18 holes, $21/player, score 5"
-  slack_delivery: { path: "fallback", file: "memory/working/golf-preview-2026-10-05.md" }
+  top_option_1: "Saturday Oct 24, 1:00 PM, 18 holes, $21/player, score 0"
+  top_option_2: "Sunday Oct 25, 2:30 PM, 18 holes, $21/player, score 5"
+  slack_delivery: { path: "slack", channel: "C0B15SW9FB5", ts: "1791557353.161679" }
+  weather_step: "verified 2026-10-09: Open-Meteo via Claude in Chrome; Saturday 66F/6%/5mph; Sunday beyond horizon; heat streak 0 of 5 >= 99F"
+  end_to_end_run: "2026-10-09T09:52 CT, Slack via relative path under cd ~/develop/jarvis"
+  gate_4_rerun: "pass"
+  gate_5_rerun: "pass-slack"

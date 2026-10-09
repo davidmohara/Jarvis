@@ -2,13 +2,9 @@
   "skill": "golf-booking",
   "agent": "sterling",
   "trigger": "scheduled",
-  "started": "2026-09-11T04:30:00Z",
-  "completed": "2026-09-11T04:31:00Z",
-  "status": "success",
-  "outcome": "no_viable_window",
-  "tool_failures": 0,
-  "error_ids": [],
-  "resolution_note": "No viable 18-hole tee time available for target weekend 9/19-9/21. All days hard-blocked: Friday has multi-day personal retreat (Fri-Mon), Saturday is blocked by Houston Texans Game all-day event, Sunday has Eagles Challenge golf tournament already booked (10:30 AM-4:00 PM CT).",
-  "workflow_state": "complete",
-  "notes": "Golf preview identified zero viable tee times for target weekend. Per protocol, workflow exited cleanly without attempting booking."
+  "started": "2026-10-09T04:00:00Z",
+  "completed": "2026-10-09T04:50:00Z",
+  "status": "failure",
+  "tool_failures": 1,
+  "error_ids": []
 }

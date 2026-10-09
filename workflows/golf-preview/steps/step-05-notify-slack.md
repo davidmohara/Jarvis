@@ -8,8 +8,6 @@ outputs:
   fallback_file: "memory/working/golf-preview-2026-10-05.md"
   rank_1_summary: "Saturday Oct 17, 1:00 PM — 18 holes, $21/player (BEST OPTION)"
   rank_2_summary: "Sunday Oct 18, 2:30 PM — 18 holes, $21/player (backup)"
-  weather_flag: "⚠️ Weather data unavailable — recommend manual verification"
-  reason: "Slack skill unavailable in automated context; fallback written with full preview"
 model: haiku
 ---
 
@@ -20,9 +18,11 @@ model: haiku
 
 1. Always send the Slack notification even if only one viable window is found.
 2. If no viable windows exist, still send Slack explaining why — do not silently skip.
-3. **Non-interactive execution (scheduled tasks):** If plugin:productivity:slack /
-   master-slack is unavailable, write fallback summary to
-   `memory/working/golf-preview-YYYY-MM-DD.md` and log error to
+3. **Slack goes through `master-slack` only.** Follow the "Sending the Slack Message" section
+   below exactly. Do not use the workspace shell, any Slack MCP connector, or a Slack API call
+   written by hand. Do not read the workflow once and skip its sending steps.
+4. **Non-interactive execution (scheduled tasks):** If the master-slack send fails after the
+   steps below, write fallback summary to `memory/working/golf-preview-YYYY-MM-DD.md` and log error to
    `systems/error-tracking/entries/`. Do NOT fail silently — **QUALITY GATE 5** exists
    specifically to catch this.
 
@@ -60,9 +60,46 @@ $[cost]/player · [temp]°F · [rain]% rain · [wind] mph wind · [condition] ·
 [Rank 3 if applicable]
 ```
 
-Then read and follow `.claude/skills/master-slack/SKILL.md`.
+### Sending the Slack Message (master-slack, mandatory path)
 
-Send to **#golf** (C0B15SW9FB5). The Slack message should mirror the inline summary in
+Slack delivery for this workflow goes ONLY through the `master-slack` skill
+(`.claude/skills/master-slack/SKILL.md`). Do not call `post.py` from the workspace shell
+(`mcp__workspace__bash`), do not use any Slack MCP connector, and do not hand-write a
+Slack API request. The workspace shell runs in a Linux sandbox and cannot reach the Mac
+paths used by the bot script.
+
+1. **Load Desktop Commander** if its tools are deferred:
+   `ToolSearch` with `select:mcp__Desktop_Commander__start_process,mcp__Desktop_Commander__read_process_output`.
+2. **Use paths relative to the jarvis repo.** Desktop Commander does not start in the repo: its
+   working directory is `/`. Every command must therefore begin with `cd ~/develop/jarvis &&`.
+   After that, use only relative paths such as `systems/slack-bot/post.py`. Do not use the
+   OneDrive IES path from `master-slack` Option 2. Before sending, confirm the script is present:
+   `cd ~/develop/jarvis && test -f systems/slack-bot/post.py && echo ok`. If that check fails,
+   go to the fallback in step 6. Do not guess another path.
+3. **Send through Desktop Commander** (`mcp__Desktop_Commander__start_process`, `timeout_ms: 15000`),
+   using the heredoc pattern from `master-slack` Option 2 with a relative path:
+   ```bash
+   cd ~/develop/jarvis && python3 - <<'PYEOF'
+   import subprocess
+   msg = """<message body with real newlines, no literal \n>"""
+   r = subprocess.run(["python3", "systems/slack-bot/post.py", "C0B15SW9FB5", msg], capture_output=True, text=True)
+   print(r.stdout.strip() or r.stderr.strip())
+   PYEOF
+   ```
+   The channel for `#golf` is `C0B15SW9FB5`. Use real multi-line strings. Never write a literal `\n`.
+4. **Read the result.** A response of `{"ok": true, "channel": ..., "ts": ...}` is delivery
+   confirmed. Pass that object as `slack_send_result` to Gate 5. Do not resend.
+5. **No-duplicate rule (from master-slack).** Do not send a second time unless the first
+   returned an explicit error. An empty output does not mean failure. If unsure, read
+   `#golf` with `python3 systems/slack-bot/read.py channel C0B15SW9FB5 0.1` through
+   Desktop Commander before any retry. One retry maximum.
+6. **If the send fails** (explicit error, script missing, or Desktop Commander unavailable),
+   use the fallback in Quality Gate 5. Include the exact error text in the fallback file
+   and in the error entry.
+
+Record the delivery path and the Slack `ts` in `state.yaml` under `slack_delivery`.
+
+Send to **#golf** (C0B15SW9FB5) using the master-slack skill. The Slack message should mirror the inline summary in
 condensed form:
 
 ```

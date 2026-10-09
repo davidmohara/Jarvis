@@ -24,18 +24,6 @@ output (`preview-output.json`) and performs the actual reservation.
 
 ---
 
-## WHY THIS EXISTS AS A WORKFLOW, NOT A SKILL
-
-The original `skills/golf-preview/SKILL.md` did all of this in one undifferentiated pass —
-correct logic, but no checkpoint where a bad date calculation, a missed calendar conflict, or
-a silently-failed Slack send could be caught before it propagated to the next phase. This
-workflow keeps every rule from the skill but adds **four deterministic quality gates** — one
-per handoff point — so a failure surfaces immediately with a specific retry instruction
-instead of silently producing a bad `preview-output.json` that golf-booking then acts on at
-midnight with no human in the loop.
-
----
-
 ## INITIALIZATION
 
 ### Data Sources
@@ -45,7 +33,7 @@ midnight with no human in the loop.
 | Outlook Calendar | David + Susie conflicts for target weekend, last golf round (drought check) | MS365 MCP |
 | Weather API | 14-16 day hourly forecast for Frisco TX | WebFetch (Open-Meteo, NWS fallback) |
 | Working memory | Any override instructions David left on a prior preview | `memory/working/` |
-| Slack | Notification delivery | master-slack skill |
+| Slack | Notification delivery | master-slack skill, DO NOT USE THE MCP |
 
 ### Paths
 
