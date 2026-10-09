@@ -1,8 +1,8 @@
 ---
-status: in-progress
+status: completed
 model: kimi-k3
-started-at: "2026-09-28T16:32:00Z"
-completed-at: null
+started-at: "2026-10-09T15:48:03Z"
+completed-at: "2026-10-09T16:15:00Z"
 outputs:
   gate_4_result: "pass-with-unresolved"
   gate_4_unresolved_speakers:

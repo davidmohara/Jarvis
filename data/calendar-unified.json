@@ -1,122 +1,27 @@
 {
- "pulled_at": "2026-10-08T15:42:14.607030Z",
- "date_range": {
-  "start": "2026-10-08",
-  "end": "2026-10-11"
- },
- "event_count": 14,
- "events": [
-  {
-   "subject": "Dallas Cowboys",
-   "start": "2026-10-08T00:00",
-   "end": "2026-10-09T00:00",
-   "timeZone": "UTC",
-   "isAllDay": true,
-   "showAs": "free"
-  },
-  {
-   "subject": "AI Router POC - mid-point demo and status update (GEHC)",
-   "start": "2026-10-08T14:30",
-   "end": "2026-10-08T15:00",
-   "timeZone": "UTC",
-   "isAllDay": false,
-   "showAs": "busy"
-  },
-  {
-   "subject": "Lunch Break",
-   "start": "2026-10-08T16:00",
-   "end": "2026-10-08T17:00",
-   "timeZone": "UTC",
-   "isAllDay": false,
-   "showAs": "busy"
-  },
-  {
-   "subject": "David & Bethany and Jarrad Toussant (Dallas Chamber)",
-   "start": "2026-10-08T17:00",
-   "end": "2026-10-08T17:30",
-   "timeZone": "UTC",
-   "isAllDay": false,
-   "showAs": "busy"
-  },
-  {
-   "subject": "Prep Call: Becoming AI Native #Principled Business Summit",
-   "start": "2026-10-08T17:30",
-   "end": "2026-10-08T18:00",
-   "timeZone": "UTC",
-   "isAllDay": false,
-   "showAs": "busy"
-  },
-  {
-   "subject": "YPO Tech Network Follow-up: ERP Discussion (Kyle Vermeer)",
-   "start": "2026-10-08T18:30",
-   "end": "2026-10-08T19:00",
-   "timeZone": "UTC",
-   "isAllDay": false,
-   "showAs": "busy"
-  },
-  {
-   "subject": "one-on-one Scott McMichael",
-   "start": "2026-10-08T19:00",
-   "end": "2026-10-08T19:30",
-   "timeZone": "UTC",
-   "isAllDay": false,
-   "showAs": "busy"
-  },
-  {
-   "subject": "Libby's Birthday",
-   "start": "2026-10-09T00:00",
-   "end": "2026-10-10T00:00",
-   "timeZone": "UTC",
-   "isAllDay": true,
-   "showAs": "free"
-  },
-  {
-   "subject": "IGP Bible Study (Frisco)",
-   "start": "2026-10-09T11:30",
-   "end": "2026-10-09T12:30",
-   "timeZone": "UTC",
-   "isAllDay": false,
-   "showAs": "busy"
-  },
-  {
-   "subject": "Sales & Recruiting Meeting",
-   "start": "2026-10-09T14:15",
-   "end": "2026-10-09T14:30",
-   "timeZone": "UTC",
-   "isAllDay": false,
-   "showAs": "tentative"
-  },
-  {
-   "subject": "2nd Friday Executive Meeting",
-   "start": "2026-10-09T14:30",
-   "end": "2026-10-09T15:00",
-   "timeZone": "UTC",
-   "isAllDay": false,
-   "showAs": "tentative"
-  },
-  {
-   "subject": "Industry Insights: Share Your AI (YPO Zoom)",
-   "start": "2026-10-09T15:00",
-   "end": "2026-10-09T16:00",
-   "timeZone": "UTC",
-   "isAllDay": false,
-   "showAs": "tentative"
-  },
-  {
-   "subject": "Friday Week Wrap-Up (Alice Mburu)",
-   "start": "2026-10-09T19:30",
-   "end": "2026-10-09T20:00",
-   "timeZone": "UTC",
-   "isAllDay": false,
-   "showAs": "busy"
-  },
-  {
-   "subject": "Rimmer Wedding (5285 Dallas Pkwy)",
-   "start": "2026-10-10T00:00",
-   "end": "2026-10-11T00:00",
-   "timeZone": "UTC",
-   "isAllDay": true,
-   "showAs": "busy"
-  }
- ]
+  "pulled_at": "2026-10-09T15:50:00Z",
+  "source": "m365 outlook_calendar_search (single call, query *)",
+  "note": "All dateTime values are UTC as returned by Outlook. America/Chicago is UTC-5 (CDT).",
+  "date_range": {"start": "2026-10-09", "end": "2026-10-12"},
+  "event_count": 18,
+  "events": [
+    {"subject": "Dallas Cowboys", "start_utc": "2026-10-08T00:00:00Z", "end_utc": "2026-10-09T00:00:00Z", "all_day": true, "show_as": "free", "organizer": "David.OHara@improving.com", "location": null, "cancelled": false},
+    {"subject": "Libby's Birthday", "start_utc": "2026-10-09T00:00:00Z", "end_utc": "2026-10-10T00:00:00Z", "all_day": true, "show_as": "free", "organizer": "David.OHara@improving.com", "location": null, "cancelled": false},
+    {"subject": "IGP Bible Study", "start_utc": "2026-10-09T11:30:00Z", "end_utc": "2026-10-09T12:30:00Z", "ct": "6:30-7:30am", "show_as": "busy", "organizer": "David.OHara@improving.com", "location": "Integrity Golf Performance, 6363 Dallas Pkwy, Unit 115, Frisco, TX 75034", "cancelled": false},
+    {"subject": "Sales & Recruiting Meeting", "start_utc": "2026-10-09T14:15:00Z", "end_utc": "2026-10-09T14:30:00Z", "ct": "9:15-9:30am", "show_as": "tentative", "organizer": "DallasSales@improving.com", "location": "Microsoft Teams Meeting; Dallas - Longhorn Cavern", "attendee_count": 17, "summary": "Agenda: 1. Celebrate a WIN. 2. Each seller talks board changes: New, Won, Moved, Lost, Changed + help needed. 3. GR...", "cancelled": false},
+    {"subject": "2nd Friday Executive Meeting", "start_utc": "2026-10-09T14:30:00Z", "end_utc": "2026-10-09T15:00:00Z", "ct": "9:30-10:00am", "show_as": "tentative", "organizer": "Mark.Kovacevich@Improving.com", "location": "Microsoft Teams Meeting", "attendee_count": 150, "summary": "Quarterly Agenda - Month 1 (Jan, Apr, Jul, Oct): 1st Sales (Russell), Corporate Special Topics, GoTogether Update (McMichael/Liles); 2nd Balanced Scorecard (Roberts/Keipert), Business Agility & Training (McMillan), CIO (Keipert).", "cancelled": false},
+    {"subject": "Industry Insights: Share Your AI - Where YPO Builders Show What's Working", "start_utc": "2026-10-09T15:00:00Z", "end_utc": "2026-10-09T16:00:00Z", "ct": "10:00-11:00am", "show_as": "tentative", "organizer": "noreply-zoomevents@zoom.us", "location": "Zoom Events", "summary": "Oct 9, 2026 10:00-11:00 AM CDT. Organized by Security & Compliance Subnetwork, AI/ML Subnetwork, Technology Network.", "cancelled": false},
+    {"subject": "Friday Week Wrap-Up", "start_utc": "2026-10-09T19:30:00Z", "end_utc": "2026-10-09T20:00:00Z", "ct": "2:30-3:00pm", "show_as": "busy", "organizer": "alice.mburu@improving.com", "location": "Microsoft Teams Meeting", "attendees": ["alice.mburu@improving.com", "David.OHara@improving.com"], "cancelled": false},
+    {"subject": "Hot 26", "start_utc": "2026-10-10T13:30:00Z", "end_utc": "2026-10-10T14:30:00Z", "ct": "Sat 8:30-9:30am", "show_as": "busy", "organizer": "David.OHara@improving.com", "location": "7151 Preston Road Suite 221 B, Frisco, TX 75034", "cancelled": false},
+    {"subject": "Rimmer Wedding", "start_utc": "2026-10-10T23:00:00Z", "end_utc": "2026-10-11T02:00:00Z", "ct": "Sat 6:00-9:00pm", "show_as": "busy", "organizer": "David.OHara@improving.com", "location": "5285 Dallas Pkwy", "cancelled": false},
+    {"subject": "Houston Bootcamp (remote)", "start_utc": "2026-10-12T00:00:00Z", "end_utc": "2026-10-13T00:00:00Z", "all_day": true, "show_as": "busy", "organizer": "David.OHara@improving.com", "location": "Dallas - Conference Room Lockhart", "cancelled": false},
+    {"subject": "Improving Prayer Call", "start_utc": "2026-10-12T13:00:00Z", "end_utc": "2026-10-12T13:15:00Z", "ct": "Mon 8:00-8:15am", "show_as": "busy", "organizer": "Richard.Kang@Improving.com", "location": "Microsoft Teams Meeting", "attendees": ["Richard.Kang@Improving.com", "Curtis.Hite@Improving.com", "Ric.DeAnda@Improving.com", "David.OHara@improving.com", "Devlin.Liles@Improving.com"], "cancelled": false},
+    {"subject": "Timesheet", "start_utc": "2026-10-12T13:30:00Z", "end_utc": "2026-10-12T13:35:00Z", "ct": "Mon 8:30am", "show_as": "busy", "organizer": "David.Ohara@improving.com", "cancelled": false},
+    {"subject": "Sales & Recruiting Meeting", "start_utc": "2026-10-12T14:15:00Z", "end_utc": "2026-10-12T14:30:00Z", "ct": "Mon 9:15-9:30am", "show_as": "tentative", "organizer": "DallasSales@improving.com", "location": "Microsoft Teams Meeting; Dallas - Longhorn Cavern", "attendee_count": 17, "cancelled": false},
+    {"subject": "Sales Scrum", "start_utc": "2026-10-12T14:30:00Z", "end_utc": "2026-10-12T15:00:00Z", "ct": "Mon 9:30-10:00am", "show_as": "tentative", "organizer": "stephen.johnson@improving.com", "location": "Microsoft Teams Meeting; Houston - Conference Room Trust", "attendee_count": 13, "cancelled": false},
+    {"subject": "Bootcamp", "start_utc": "2026-10-12T15:00:00Z", "end_utc": "2026-10-12T21:50:00Z", "ct": "Mon 10:00am-4:50pm", "show_as": "busy", "organizer": "David.OHara@improving.com", "location": "Microsoft Teams Meeting", "cancelled": false},
+    {"subject": "Agent Strategy", "start_utc": "2026-10-12T16:30:00Z", "end_utc": "2026-10-12T18:30:00Z", "ct": "Mon 11:30am-1:30pm", "show_as": "busy", "organizer": "David.OHara@improving.com", "location": "Microsoft Teams Meeting", "attendees": ["rstone@saxum.com"], "categories": ["Work", "Tracked To Dynamics 365"], "cancelled": false, "conflict": "overlaps Bootcamp 10:00am-4:50pm"},
+    {"subject": "GEHC Twice Weekly Internal Check-In", "start_utc": "2026-10-12T19:00:00Z", "end_utc": "2026-10-12T19:30:00Z", "ct": "Mon 2:00-2:30pm", "show_as": "tentative", "organizer": "lisa.barnes@improving.com", "location": "Microsoft Teams Meeting", "attendees": ["lisa.barnes@improving.com", "vladimir.avila@improving.com", "Tim.Rayburn@Improving.com", "Lisa.Kimbrel@improving.com", "David.OHara@improving.com"], "summary": "Need to adjust the time of our Monday meeting going forward. Internal alignment on plans, progress, internal issues.", "cancelled": false, "conflict": "overlaps Bootcamp 10:00am-4:50pm"},
+    {"subject": "All Access Members Gathering", "start_utc": "2026-10-12T23:00:00Z", "end_utc": "2026-10-13T02:00:00Z", "ct": "Mon 6:00-9:00pm", "show_as": "busy", "organizer": "calendar-invite@lu.ma", "location": "Hotel Vin, Grapevine, Autograph Collection, 215 E Dallas Rd, Grapevine, TX 76051", "summary": "Registered via Lindsay Fulton. 2x Standard, $50.", "categories": ["Tracked To Dynamics 365"], "cancelled": false}
+  ]
 }

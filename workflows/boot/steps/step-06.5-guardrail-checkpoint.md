@@ -1,9 +1,10 @@
 ---
 status: complete
-started-at: '2026-10-08T15:42:24Z'
-completed-at: '2026-10-08T15:44:24Z'
+started-at: '2026-10-09T16:05:00Z'
+completed-at: '2026-10-09T16:06:30Z'
 outputs:
-  data_freshness_report: flag - calendar/email live, briefing reflects current data; OmniFocus served via MCP fallback (script pull failed, no osascript); no stale context, no credential leakage, session index record appended once
+  data_freshness_report: pass - all 5 data sources live and fresh this run (0 degraded, OmniFocus via skill script, no fallback); briefing reflects gathered data with correct date; session index has exactly 1 record for today, no duplication; no credential-shaped strings in session index or briefing working memory; workflow scan distinguishes live plaud-ingest from stale entries; checkpoint recorded on boot eval eval-20261009T154606-R6ZFEC
+  checkpoint_result: pass
 model: kimi-k3
 prior-run-2026-09-18:
   data_freshness_report: 'flag — calendar (24 events, pulled 2026-09-18T17:04Z), email (17 msgs), omnifocus (status available, 42 tasks), clay (0 reminders / 2 birthdays), jarvis-inbox (0) all live and fresh this run; briefing reflects gathered data accurately, correct day, no stale context presented as fresh. Flag: a colleague DOB was spotted in one email-unified.json snippet (Legacy Club intake reply) and scrubbed before completion; briefing and session index were always clean.'

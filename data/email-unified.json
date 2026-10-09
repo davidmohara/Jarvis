@@ -1,70 +1,25 @@
 {
- "pulled_at": "2026-10-08T15:42:07.539217Z",
- "message_count": 7,
- "total_in_window": 28,
- "messages": [
-  {
-   "id": null,
-   "subject": "RE: Joining our Forum",
-   "from": "Luisa.McDaniel@hazels.com",
-   "received_at": "2026-10-08T15:29:56Z",
-   "is_flagged": false,
-   "importance": "normal",
-   "snippet": "Dinner date options from John's assistant: Oct 19, 20, 22; Nov 16, 30. Review with group and reply."
-  },
-  {
-   "id": null,
-   "subject": "FW: Action: Dallas Chapter Chairs Meeting 2026",
-   "from": "smeyer@ypo.org",
-   "received_at": "2026-10-08T15:15:57Z",
-   "is_flagged": false,
-   "importance": "normal",
-   "snippet": "Invite received; RSVP if able to join."
-  },
-  {
-   "id": null,
-   "subject": "INFO & ACTION: YPO GOLD REX executive summary",
-   "from": "smeyer@ypo.org",
-   "received_at": "2026-10-08T15:00:24Z",
-   "is_flagged": false,
-   "importance": "normal",
-   "snippet": "Next call Nov 12 2:00pm CT. Action items and executive summary attached."
-  },
-  {
-   "id": null,
-   "subject": "RE: Bootcamp",
-   "from": "David.OHara@improving.com",
-   "received_at": "2026-10-08T13:00:12Z",
-   "is_flagged": false,
-   "importance": "normal",
-   "snippet": "Teams channel created for bootcamp comms; attendee list to send pre-work; 2 spots still open."
-  },
-  {
-   "id": null,
-   "subject": "Paid Consulting Opportunity - IT Infrastructure",
-   "from": "jennifer.salemy@alphasights.com",
-   "received_at": "2026-10-08T12:30:14Z",
-   "is_flagged": false,
-   "importance": "normal",
-   "snippet": "AlphaSights follow-up, $350/h, awaiting yes/no."
-  },
-  {
-   "id": null,
-   "subject": "Start your security awareness training",
-   "from": "notifications@infosecIQ.improving.com",
-   "received_at": "2026-10-08T08:28:09Z",
-   "is_flagged": false,
-   "importance": "normal",
-   "snippet": "Q4 2026 Cyber Security Awareness Training due within 22 days."
-  },
-  {
-   "id": null,
-   "subject": "Enforcement Compliance Committee Meeting Rescheduled",
-   "from": "alerts@boardvantage.com",
-   "received_at": "2026-10-08T00:53:29Z",
-   "is_flagged": false,
-   "importance": "normal",
-   "snippet": "United Texas Bank ECC meeting moved up to Friday (read; confirm date/time in BoardVantage)."
-  }
- ]
+  "pulled_at": "2026-10-09T15:50:00Z",
+  "source": "m365 outlook_email_search (inbox, newest, after 2026-10-06)",
+  "message_count": 18,
+  "messages": [
+    {"id": "AAMkADAy...8eKwAAA=", "subject": "Quick Sync on AT&T and McKesson", "from": "austin.ledesma@solace.com", "received_at": "2026-10-09T15:29:38Z", "is_read": false, "importance": "normal", "snippet": "Wanted to reach out after our chat and see if we could get some time on the calendar to connect with Diana and the Dallas team next week. Strong accounts where a joint approach could make sense, particularly AT&T and McKesson.", "actionable": true},
+    {"id": "AAMkADAy...8eKvAAA=", "subject": "RE: Connecting for YNG", "from": "smeyer@ypo.org", "received_at": "2026-10-09T15:15:30Z", "is_read": false, "importance": "normal", "snippet": "Thank you for the reminder and it was great to see you this week. I would like to introduce you to Kelsey Viera (formerly McFarland), senior manager with YNG. Kelsey looks like she is OOO until the 13th so please anticipate a delay in response.", "actionable": true},
+    {"id": "AAMkADAy...8eKuAAA=", "subject": "Ticket Received - Service Request For David O'Hara : Docker Business - SR-70152", "from": "helpdesk@improving.com", "received_at": "2026-10-09T15:10:50Z", "is_read": false, "importance": "normal", "snippet": "Support ticket created. View status at helpdesk.improving.com/helpdesk/tickets/70152", "actionable": false},
+    {"id": "AAMkADAy...8eKtAAA=", "subject": "What happens when your homegrown flag system meets AI coding agents", "from": "cloudbees@cloudbees.com", "received_at": "2026-10-09T15:04:28Z", "is_read": false, "importance": "normal", "snippet": "Marketing: on-demand recording, build-vs-buy math for feature flags.", "actionable": false},
+    {"id": "AAMkADAy...8eKsAAA=", "subject": "Talent Labs Session 4 – Follow-Up & Materials", "from": "jtoussant@dallaschamber.org", "received_at": "2026-10-09T14:50:55Z", "is_read": false, "importance": "normal", "has_attachments": true, "snippet": "Following up as we continue planning for Talent Labs Session 4 on November 4. Attached the current draft agenda and a cohort overview. The agenda currently has David's session scheduled from 8:35-9:3x.", "actionable": true},
+    {"id": "AAMkADAy...8eKrAAA=", "subject": "Bucky Breaks 2,000 Career Yards! Own His Jersey.", "from": "emails@go.buccaneers.com", "received_at": "2026-10-09T14:40:55Z", "is_read": false, "importance": "normal", "snippet": "Promotional email.", "actionable": false},
+    {"id": "AAMkADAy...8eKnAAA=", "subject": "Re: DLP Bootcamp - October 12, 2026", "from": "Robyn.Fuentes@Improving.com", "received_at": "2026-10-09T13:59:01Z", "is_read": true, "importance": "normal", "snippet": "Clarifying questions for Monday: Travel - no travel expected for those not in Houston. More info to be pushed out for Monday.", "actionable": true},
+    {"id": "AAMkADAy...8eKgAAA=", "subject": "RE: (AI Mastermind) two things to share if you're interested", "from": "David.OHara@improving.com", "received_at": "2026-10-09T13:00:00Z", "is_read": false, "importance": "normal", "snippet": "David's own follow-up to AI Mastermind group: sharing the paper he wrote for the International Jacque Ellul Society Conference at Notre Dame plus one other item.", "actionable": false},
+    {"id": "AAMkADAy...8eKRAAA=", "subject": "Re: DLP Bootcamp - October 12, 2026", "from": "David.Schwartz@improving.com", "received_at": "2026-10-09T01:30:41Z", "is_read": true, "importance": "normal", "snippet": "Questions others might share (and a few answers): itinerary/agenda, where to be Monday morning, what time to arrive, who to ask for.", "actionable": true},
+    {"id": "AAMkADAy...8eKPAAA=", "subject": "Prep notes: Becoming AI Native", "from": "michelle@libertyventures.xyz", "received_at": "2026-10-09T00:26:09Z", "is_read": false, "importance": "normal", "snippet": "Notes from today's prep call. Session (tentative) Thursday, October 29, 4:20-4:50 PM CT. Panel: Becoming AI Native, Room Salon FG (Main Stage). Speakers: Brett Hurt (Love Conquers Fear), David O'Hara (Improving), others.", "actionable": true},
+    {"id": "AAMkADAy...8eKOAAA=", "subject": "Re: DLP Bootcamp - October 12, 2026", "from": "charles.kiser@improving.com", "received_at": "2026-10-08T23:39:15Z", "is_read": true, "importance": "normal", "snippet": "Out of the Atlanta office, checking if he needs to be there in person. CCing Emily Rosselle for logistics.", "actionable": false},
+    {"id": "AAMkADAy...8eKNAAA=", "subject": "ACTION: Join Deal Network Exco MicroForum", "from": "microforum@ypo.org", "received_at": "2026-10-08T23:16:23Z", "is_read": false, "importance": "normal", "snippet": "Invited to take part in the Deal Network ExCo MicroForum, a confidential, peer-led initiative for current Deal Network Officers serving on the leadership board.", "actionable": true},
+    {"id": "AAMkADAy...8eKMAAA=", "subject": "Rural Prosperity: A Texas Tribune symposium — Nov 18-19", "from": "events@mail.texastribune.org", "received_at": "2026-10-08T22:23:11Z", "is_read": false, "importance": "normal", "snippet": "Two-day event for rural leaders, policymakers and innovators.", "actionable": false},
+    {"id": "AAMkADAy...8eKHAAA=", "subject": "RE: Talent Lab Cohort Class Names", "from": "Gabriela.Garza-Ramos@Improving.com", "received_at": "2026-10-08T21:17:35Z", "is_read": true, "importance": "normal", "snippet": "List of cohort names and companies (most in CRM, will double check): Ali Stillman - McCarthy Building; Asia Wellington - AMN Healthcare; Charla Callier - Workforce Solutions Greater Dallas; Colton...", "actionable": true},
+    {"id": "AAMkADAy...8eKBAAA=", "subject": "Talent Lab Cohort Class Names", "from": "Bethany.Hilton@Improving.com", "received_at": "2026-10-08T19:46:48Z", "is_read": true, "importance": "normal", "snippet": "Asking Gabi for talent lab cohort class names and companies. David presenting to them in a few weeks. Important to upload in CRM.", "actionable": true},
+    {"id": "AAMkADAy...8eJhAAA=", "subject": "FW: Action: Dallas Chapter Chairs Meeting 2026", "from": "smeyer@ypo.org", "received_at": "2026-10-08T15:15:57Z", "is_read": true, "importance": "normal", "snippet": "You just received an invite to this meeting. If you can join us please let us know.", "actionable": true},
+    {"id": "AAMkADAy...8eJaAAA=", "subject": "We Hit Another Major Milestone: Help Paradromics Spread the Word", "from": "mike@westcott.com", "received_at": "2026-10-08T14:09:48Z", "is_read": false, "importance": "normal", "snippet": "On behalf of Court Westcott: TLSF Partners and Friends, please post on social media. Matt Angle (Paradromics) announcement.", "actionable": false},
+    {"id": "AAMkADAy...8eJGAAA=", "subject": "Start your security awareness training", "from": "notifications@infosecIQ.improving.com", "received_at": "2026-10-08T08:28:09Z", "is_read": false, "importance": "normal", "snippet": "Reminder to begin Q4 2026 Cyber Security Awareness Training. Complete within the next 22 days (deadline ~Oct 30).", "actionable": true}
+  ]
 }

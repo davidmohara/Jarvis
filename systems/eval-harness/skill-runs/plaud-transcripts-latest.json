@@ -1,10 +1,10 @@
 {
+  "skill": "plaud-transcripts",
   "agent": "knox",
-  "trigger": "scheduled",
+  "trigger": "boot",
+  "started": "2026-10-09T15:52:00Z",
+  "completed": "2026-10-09T16:08:02Z",
   "status": "success",
   "tool_failures": 0,
-  "error_ids": [],
-  "skill": "plaud-transcripts",
-  "started": "2026-09-18T17:07:00Z",
-  "completed": "2026-09-18T17:22:00Z"
+  "error_ids": []
 }

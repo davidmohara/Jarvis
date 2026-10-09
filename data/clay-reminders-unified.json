@@ -1,8 +1,9 @@
 {
- "pulled_at": "2026-10-08T15:42:07.539217Z",
- "status": "available",
- "reminders": [],
- "reminder_count": 0,
- "birthday_count": 0,
- "note": "getUpcomingReminders returned 0; home-activity birthday feed not checked"
+  "pulled_at": "2026-10-09T15:50:00Z",
+  "status": "available",
+  "reminders": [],
+  "reminder_count": 0,
+  "birthdays": [],
+  "birthday_count": 0,
+  "notes": "Clay getUpcomingReminders returned 0. Home activity feed (654 items) contained only past birthdays in window (Tom Opgenorth 2026-10-05, Alex Holmes 2026-10-02); no upcoming birthdays in next 7 days. Libby O'Hara's birthday (today, 2026-10-09) comes from the M365 calendar, not Clay."
 }

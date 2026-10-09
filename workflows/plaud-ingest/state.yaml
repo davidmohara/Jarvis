@@ -1,11 +1,11 @@
 workflow: plaud-ingest
 agent: knox
-status: in-progress
-outcome: null
+status: complete
+outcome: ingested-2-shared-2
 session-id: pi-20261009-001
 session-started: '2026-10-09T15:48:03Z'
-completed-at: null
-current-step: step-04
+completed-at: '2026-10-09T16:15:00Z'
+current-step: step-06
 original-request: "Knox — run workflows/plaud-ingest/workflow.md in full. Background task. Today's date is 2026-10-09."
 blocker: null
 accumulated-context:
@@ -26,17 +26,31 @@ accumulated-context:
   transcription-triggered: []
   pending-recordings: []
   speaker-mappings:
-    6640d7dce6b89cf68439a08d965ba5a2: {"Speaker 1": "Alexka Medina", "Speaker 4": "Meg Charles", "Speaker 6": "William Steele"}
+    6640d7dce6b89cf68439a08d965ba5a2: {"Speaker 1": "Alexka Medina", "Speaker 4": "Meg Charles", "Speaker 5": "Michelle Bernier", "Speaker 6": "William Steele"}
     35073a0ad4ca9d6e9a182ae2254402c5: {"Speaker 3": "Jarrad Toussant"}
   pending-speaker-mappings: []
   recording-classification:
     6640d7dce6b89cf68439a08d965ba5a2: work
     35073a0ad4ca9d6e9a182ae2254402c5: work
   ready-for-fetch: [6640d7dce6b89cf68439a08d965ba5a2, 35073a0ad4ca9d6e9a182ae2254402c5]
-  staged-files: []
-  ingested-notes: []
+  staged-files:
+    - "plaud_10-08 Interview Panel Prep_ Becoming AI Native_ Human Equity_ Services vs_ SaaS Valuations_ Actionable AI Adoption_ Capitalism Tie-In.md"
+    - "plaud_10-08 Meeting_ Talent Lab Session on AI in HR.md"
+  ingested-notes:
+    - "zzPlaud/Other/2026-10-08 Prep Call - Becoming AI Native (Principled Business Summit).md"
+    - "zzPlaud/Other/2026-10-08 Dallas Chamber Talent Lab - AI in HR Session Prep.md"
   unresolved_speakers:
-    - {file_id: 6640d7dce6b89cf68439a08d965ba5a2, unresolved: ["Speaker 5 (12 segs) — single comment referencing prior Principled Business Summit panels; one of Colin Bowman / Eric Taussig / Michelle Bernier / Dustin, not determinable from transcript"], flagged: ["Robyn Fuentes (2 segs, off-invite, likely voice mis-tag — no Robyn Fuentes on the invite)"]}
+    - {file_id: 6640d7dce6b89cf68439a08d965ba5a2, unresolved: [], resolved: [{speaker: "Speaker 5", name: "Michelle Bernier", method: "controller-provided", date: "2026-10-09"}], flagged: ["Robyn Fuentes (2 segs, off-invite, likely voice mis-tag — no Robyn Fuentes on the invite; David did not rule on it)"]}
+  adversarial-verification:
+    verdict: "all-accounted"
+    result: "flag"
+    discovered_count: 2
+    findings: []
+    lens: "ingestion accounting, zero silent drops"
+    bookkeeping-notes: "F1 stale step frontmatter and F2 open eval record both remediated after Ralph's pass; F3 (REC1 unresolved Speaker 5 + Robyn Fuentes flag) and F4 (stale plaud_pending orphan) logged; F5 share/Monday outcomes accepted as recorded."
   notes:
-    - "pi-20261009-001: FULL ENUMERATION (catch-up, no target-date). API total 149 (was 147). Vault zzPlaud/ 206 .md notes, 147 unique file_ids. Tier1/2/3 dedup: 2 new. Both transcripts ready. Gate 1 pass (cached token, 73 days). Gate 2 pass (0 flagged, 0 excluded). Circuit breaker clear. Staging: 146 top-level plaud_*.md, all resolve to vault file_ids; 0 orphans/stale. Ledger written: 149 entries (147 skip, 2 new)."
-    - "step-03: REC1 (6640d7dc) = 'Prep Call: Becoming AI Native #Principled Business Summit' (2026-10-08 12:30 CDT). Embedding match: orig Speaker 2 = O'Hara (0.914), orig Speaker 3 = Robyn Fuentes (0.921). Self-ID + calendar: Speaker 1 = Alexka Medina (organizer, greeted Michelle/Eric, sent invite), Speaker 4 = Meg Charles (moderator, Basswood Counsel/frameadvisory.com), Speaker 6 = William Steele (self-ID, curiousbuilder.ai). Speaker 5 unresolved (single comment, 12 segs). Robyn Fuentes off-invite flagged. REC2 (35073a0a) = 'David & Bethany and Jarrad Toussant' (2026-10-08 12:00 CDT). Embedding: orig Speaker 2 = O'Hara (0.930), orig Speaker 1 = Bethany (0.829). Speaker 3 = Jarrad Toussant (dallaschamber.org, event organizer + content match re Dallas Chamber talent lab cohort). Both classified work. Guardrail checkpoint run (result=pass); no in-progress eval record to attach it to."
+    - "pi-20261009-001: FULL ENUMERATION (catch-up, no target-date). API total 149 (was 147). Vault zzPlaud/ 206 .md notes, 147 unique file_ids. Tier1/2/3 dedup: 2 new. Both transcripts ready. Gate 1 pass (cached token, 73 days). Gate 2 pass. Circuit breaker clear. Staging: 146 top-level plaud_*.md, all resolve to vault file_ids; 0 orphans/stale. Ledger: 149 entries (147 skip, 2 new)."
+    - "step-04: fetch_plaud.py 2026-10-08 staged 2 files; --rename applied (REC1 Speaker 1/4/6 -> Alexka Medina/Meg Charles/William Steele, registered 3 new voice profiles; REC2 Speaker 3 -> Jarrad Toussant, DB renamed, transaction_polish lagged so label substituted manually in the staged transcript). Known --rename _ogg filename bug hit for both; reconciled manually."
+    - "step-05: 2 notes written to zzPlaud/Other/ (both classified work; both external speaking engagements). Gate 5 PASS via filesystem read-back (files exist, frontmatter complete, no em-dashes, details/summary well-formed). Daily note Calendar/2026/10-October/2026-10-08.md created with both wikilinks. 3 David-owned Monday tasks created (13249050308, 13249067036, 13249067582). Staging cleaned (6 files removed)."
+    - "step-05b: both recordings shared via fetch_plaud.py --share (real SHARE_URLs). 2 Monday review tasks created unassigned (13249044343 REC1, 13249044362 REC2). Gate 6 PASS."
+    - "Orphan flag: plaud_pending.json still holds a93aa078b699d69c62c4a2cef8dcf5b2 (2026-09-25 60s snippet) which no longer exists in the Plaud API and is not in the vault; stale entry, left in place (flagged, not removed)."

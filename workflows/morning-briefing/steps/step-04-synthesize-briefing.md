@@ -1,10 +1,10 @@
 ---
 status: complete
-started-at: "2026-09-29T02:28:00Z"
-completed-at: "2026-09-29T02:31:00Z"
+started-at: "2026-10-09T16:02:00Z"
+completed-at: "2026-10-09T16:04:00Z"
 outputs:
-  briefing_delivered: "yes — full narrative briefing synthesized (late-evening run, framed as Monday close-out + Tuesday launch), carried forward through boot steps 06-08 for verbatim delivery; working memory memory/working/morning-briefing-2026-09-28-212900.md; eval eval-20260929T022743-NJ95H5 closed success"
-  format: "3-paragraph narrative + calendar table (11 events), no em-dashes, no Watchtower section (no daily run), no Reminders section (0 due); OmniFocus partial-pull discrepancy flagged in paragraph 2"
+  briefing_delivered: "yes — full narrative briefing synthesized (Libby's 27th birthday protected; Solace AT&T/McKesson ask; Monday Bootcamp double-books; Steve Hall delegation 14 days overdue; Q4 rocks absent), carried forward through boot steps 06-08 for verbatim delivery; working memory memory/working/morning-briefing-2026-10-09-110140.md; eval eval-20261009T160313-SN12N3 closed success"
+  format: "3-paragraph narrative + calendar table (6 events incl all-day birthday), no em-dashes, no Watchtower section (no daily run), no Reminders section (0 due), 0 degraded sources"
 model: sonnet
 ---
 

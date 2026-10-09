@@ -1,9 +1,9 @@
 ---
 status: complete
-started-at: '2026-10-08T15:24:04Z'
-completed-at: '2026-10-08T15:44:04Z'
+started-at: '2026-10-09T16:02:00Z'
+completed-at: '2026-10-09T16:04:00Z'
 outputs:
-  briefing_delivered: yes - synthesized, carried to caller in final message
+  briefing_delivered: yes - synthesized per morning-briefing step-04 format (3 paragraphs + calendar table, no em-dashes, Watchtower/Reminders sections omitted as empty), carried to caller in final message; working memory memory/working/morning-briefing-2026-10-09-110140.md; morning-briefing eval closed success; 0 degraded sources
 prior-run-2026-09-18:
   briefing_delivered: yes — full morning briefing synthesized (0 degraded sources) and carried forward through steps 06-08 for verbatim delivery to controller; working memory written to memory/working/morning-briefing-2026-09-18-121500.md
   briefing_sections: narrative (3 paragraphs), Today's Calendar table, closing prompt

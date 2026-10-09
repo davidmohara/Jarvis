@@ -1,8 +1,39 @@
 workflow: plaud-ingest-verification
 agent: ralph
-status: not-started
-session-started: null
-session-id: null
-current-step: null
-original-request: null
-accumulated-context: {}
+status: complete
+session-started: 2026-10-09T16:10:00-05:00
+completed-at: 2026-10-09T16:20:00-05:00
+session-id: pi-20261009-001
+current-step: step-01
+original-request: "Adversarial verification of plaud-ingest run pi-20261009-001: ingestion accounting for 2 discovered recordings (6640d7dce6b89cf68439a08d965ba5a2, 35073a0ad4ca9d6e9a182ae2254402c5)."
+accumulated-context:
+  discovered_count: 2
+  verdict-summary: all-accounted
+  findings:
+    - "F1 (evidence-integrity, non-blocking): workflows/plaud-ingest/steps/step-*.md frontmatter is STALE — step-01/02/03 show 2026-09-28, step-04/05/05b show 2026-09-18. None reflect this run (2026-10-09). Per-run evidence lives only in state.yaml accumulated-context + eval record; step frontmatter was not updated. Not a recording drop."
+    - "F2 (non-blocking): eval record eval-20261009T160824-LCEFD5.json still status: in-progress / completed: null, though workflow state.yaml is status: complete. Eval record not closed."
+    - "F3 (logged, not silent): REC1 6640d7dce6b89cf68439a08d965ba5a2 carries unresolved Speaker 5 (12 segs) plus a flagged Robyn Fuentes mis-tag; logged under Gate 4 unresolved_speakers. plaud-speaker-id skill-run status: partial — consistent."
+    - "F4 (logged, out of scope): orphan plaud_pending.json entry a93aa078b699d69c62c4a2cef8dcf5b2 (2026-09-25 60s snippet) no longer in Plaud API and not in vault; flagged, left in place. Not part of discovered set."
+    - "F5 (unverifiable offline): share + Monday outcomes (2 share URLs, Monday tasks 13249044343/13249044362/13249050308/13249067036/13249067582) are recorded in step-05/05b notes but external systems are not independently reachable; accepted as recorded."
+  recordings:
+    - file_id: 6640d7dce6b89cf68439a08d965ba5a2
+      title: "10-08 Interview Panel Prep: Becoming AI Native (Principled Business Summit)"
+      outcome: "ingested-note + shared + monday-review-task"
+      note-path: "zzPlaud/Other/2026-10-08 Prep Call - Becoming AI Native (Principled Business Summit).md"
+      note-verified: true
+      frontmatter-file-id-match: true
+      verdict: verified
+    - file_id: 35073a0ad4ca9d6e9a182ae2254402c5
+      title: "10-08 Meeting: Talent Lab Session on AI in HR"
+      outcome: "ingested-note + shared + monday-review-task"
+      note-path: "zzPlaud/Other/2026-10-08 Dallas Chamber Talent Lab - AI in HR Session Prep.md"
+      note-verified: true
+      frontmatter-file-id-match: true
+      verdict: verified
+  checklist:
+    - {item: "1 every discovered recording accounted for", verdict: pass}
+    - {item: "2 every ingested note recorded", verdict: pass}
+    - {item: "3 every skip logged", verdict: pass}
+    - {item: "4 staging cleaned up", verdict: pass}
+    - {item: "5 deferred recordings explained", verdict: pass}
+    - {item: "6 terminal state reached", verdict: pass}

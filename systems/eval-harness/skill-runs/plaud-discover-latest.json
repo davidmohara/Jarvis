@@ -1,17 +1,10 @@
 {
   "skill": "plaud-discover",
   "agent": "knox",
-  "trigger": "scheduled",
-  "started": "2026-10-07T00:01:00Z",
-  "completed": "2026-10-07T14:19:45Z",
+  "trigger": "boot",
+  "started": "2026-10-09T15:48:03Z",
+  "completed": "2026-10-09T15:49:48Z",
   "status": "success",
   "tool_failures": 0,
-  "error_ids": [],
-  "new_recordings_count": 0,
-  "api_total": 146,
-  "vault_total": 205,
-  "gate_1": "pass",
-  "gate_1_auth_method": "cached-token",
-  "gate_2": "pass",
-  "gate_2_flagged_recordings": []
+  "error_ids": []
 }
