@@ -87,7 +87,7 @@ def main():
     assert log.strip() == "", "refused commit must not have created a commit"
 
     # gated dirs with --ack-gated and a clean message -> commit proceeds
-    code = run_wrapper(mod, ["--ack-gated", "commit", "-m", "feat(rigby): test gated ack"])
+    code = run_wrapper(mod, ["--ack-gated", "--ack-root-files", "commit", "-m", "feat(rigby): test gated ack"])
     assert code == 0, code
     log = subprocess.run(["git", "log", "--oneline"], capture_output=True, text=True).stdout
     assert "test gated ack" in log, log
@@ -110,11 +110,26 @@ def main():
     (repo / "fixture.txt").write_text('aws_key = "AKIAIOSFODNN7EXAMPLE"')
     code = run_wrapper(mod, ["add", "fixture.txt"])
     assert code == 0, f"allowlisted fixture must pass the add scan, got {code}"
-    code = run_wrapper(mod, ["--ack-gated", "commit", "-m", "feat(rigby): test allowlisted fixture passes"])
+    code = run_wrapper(mod, ["--ack-gated", "--ack-root-files", "commit", "-m", "feat(rigby): test allowlisted fixture passes"])
     assert code == 0, f"allowlisted fixture must pass the commit scan, got {code}"
     (repo / "realsecret.txt").write_text('aws_key = "AKIAIOSFODNN7EXAMPLX"')  # NOT allowlisted
     code = run_wrapper(mod, ["add", "realsecret.txt"])
     assert code == 5, f"non-allowlisted secret must still refuse, got {code}"
+
+    # Office lock file staged -> refused outright (err-20261008T225136-RWH7B6 hardening)
+    (repo / ".~lock.Test.xlsx#").write_text("office lock artifact")
+    subprocess.run(["git", "add", ".~lock.Test.xlsx#"], check=True)
+    code = run_wrapper(mod, ["--ack-gated", "--ack-root-files", "commit", "-m", "feat(rigby): lock refusal test"])
+    assert code == 6, f"Office lock file must be refused even with all ack flags, got {code}"
+    subprocess.run(["git", "reset", "-q", "HEAD", ".~lock.Test.xlsx#"], check=False)
+
+    # Non-canonical root-level file staged -> needs --ack-root-files
+    (repo / "loose-deliverable.xlsx").write_text("misplaced deliverable")
+    subprocess.run(["git", "add", "loose-deliverable.xlsx"], check=True)
+    code = run_wrapper(mod, ["--ack-gated", "commit", "-m", "feat(rigby): root entry refusal test"])
+    assert code == 7, f"non-canonical root file must be refused without --ack-root-files, got {code}"
+    code = run_wrapper(mod, ["--ack-gated", "--ack-root-files", "commit", "-m", "feat(rigby): root entry ack test"])
+    assert code == 0, f"--ack-root-files must let a conscious root-file commit proceed, got {code}"
 
     # force push to main refused unconditionally (even with --allow-destructive)
     for argv in [["push", "--force", "origin", "main"], ["--allow-destructive", "push", "--force", "origin", "main"]]:

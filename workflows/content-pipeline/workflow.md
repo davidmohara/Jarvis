@@ -1,14 +1,14 @@
 ---
 name: content-pipeline
-description: "RETIRED — split into workflows/content-discovery and workflows/content-approval. Do not build new triggers against this file."
+description: "Active end-to-end content pipeline (discover, approve, publish), used daily by automated systems. The content-discovery and content-approval workflows also run on their own schedules as focused sub-flows."
 agent: harper
 model: sonnet
 ---
 
 <!-- personal:start -->
-# Content Pipeline Workflow (RETIRED)
+# Content Pipeline Workflow
 
-**Status:** Retired 2026-09-02 — do not use, do not trigger, do not schedule against this file.
+**Status:** Active — used daily by automated systems (David, 2026-10-09). Previously marked retired 2026-09-02 in favor of content-discovery/content-approval; that marking was wrong: automation still runs this pipeline daily.
 
 ## This workflow has been split
 
@@ -298,9 +298,10 @@ Format:
 
 ## EXECUTION
 
-> **RETIRED WORKFLOW.** The live flow lives in `workflows/content-discovery/` and
-> `workflows/content-approval/`. The steps below document the historical pipeline and are kept so
-> the retired directory stays coherent; each step also carries its own deterministic verifier.
+> **ACTIVE WORKFLOW, in daily automated use.** The focused sub-flows
+> `workflows/content-discovery/` and `workflows/content-approval/` also run on their own
+> schedules. Each step carries its own deterministic verifier, and the pipeline carries a terminal
+> Ralph adversarial verification step (step-04) with the end-to-end accounting lens.
 > `steps/step-03-git-finalize.md` is a filled-in execution record, not a step definition, and is
 > intentionally left in place.
 

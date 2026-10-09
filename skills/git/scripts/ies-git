@@ -19,6 +19,7 @@ agents keep reaching for raw git).
 
 Flags consumed by the wrapper itself (not passed to git):
   --ack-gated          acknowledge the gated-directory change list (commit)
+  --ack-root-files     acknowledge non-canonical root-level staged files (commit)
   --allow-destructive  acknowledge a destructive-op refusal (never for
                        force push to main, which is refused unconditionally)
 """
@@ -36,6 +37,23 @@ AUDIT_LOG = IES_ROOT / "systems" / "eval-harness" / "git-ops.jsonl"
 ALLOWLIST_PATH = IES_ROOT / "skills" / "git" / "scripts" / "secret-allowlist.txt"
 
 GATED_DIRS = ("workflows/", "skills/", "agents/", "systems/", ".claude/skills/")
+
+# Canonical root-level entries (mirrors shutdown-cleanup's root check). A staged
+# root-level file outside this set is a placement question and requires the
+# conscious --ack-root-files flag; Office lock files (.~lock.*#) are refused
+# outright (err-20261008T225136-RWH7B6: a live OneDrive-synced lock file was
+# blanket-added and committed).
+CANONICAL_ROOT = {
+    "CLAUDE.md", "SETUP.md", "SYSTEM.md", "CHANGELOG.md", ".gitignore",
+    "evolution.manifest.json", "improving.manifest.json",
+    "accounts", "agents", "archive", "briefs", "config", "contacts",
+    "context", "contributions", "data", "decisions", "delegations",
+    "evolutions", "hooks", "identity", "logs", "meetings", "memory",
+    "people", "podcast", "presentations", "projects", "proposals",
+    "reference", "reports", "reviews", "scripts", "skills", "specs",
+    "systems", "tasks", "Talks", "training", "workflows", "Remarkable",
+    "YPO", "content",
+}
 
 # Same policy as the destructive blocklist in .claude/hooks/pre-tool-use.sh,
 # enforced here because wrapper invocations do not match that script's
@@ -150,8 +168,9 @@ def scan_secrets(diff_text):
 def main():
     argv = list(sys.argv[1:])
     ack_gated = "--ack-gated" in argv
+    ack_root_files = "--ack-root-files" in argv
     allow_destructive = "--allow-destructive" in argv
-    argv = [a for a in argv if a not in ("--ack-gated", "--allow-destructive")]
+    argv = [a for a in argv if a not in ("--ack-gated", "--ack-root-files", "--allow-destructive")]
 
     if not argv:
         die(USAGE)
@@ -193,10 +212,26 @@ def main():
                 ("\n  ..." if len(gated) > 20 else "") +
                 "\nRe-run with --ack-gated to proceed consciously.",
                 reason="gated-dirs-unacked")
+        lock_staged = [f for f in staged_files if f.split("/")[-1].startswith(".~lock") and f.endswith("#")]
+        if lock_staged:
+            refuse(verb, argv, 6,
+                "refused: Office lock file(s) staged: " + ", ".join(lock_staged[:10]) +
+                "\nThese are live-document lock artifacts (OneDrive-synced while a workbook is open),"
+                " never commit content. Unstage them (git rm --cached via this wrapper) and add the"
+                " .~lock.*# pattern to .gitignore if missing (see err-20261008T225136-RWH7B6).",
+                ack_gated=ack_gated, reason="office-lock-file-staged")
         staged_diff = git(["diff", "--staged"], capture=True)
         hits = scan_secrets((staged_diff.stdout or "")[:200_000])
         if hits:
             refuse(verb, argv, 5, "refused: credential-shaped content in staged diff: " + ", ".join(hits) + "\nSTOP. Surface to David immediately.", ack_gated=ack_gated, reason="secrets-staged")
+        root_staged = [f for f in staged_files if "/" not in f and f not in CANONICAL_ROOT]
+        if root_staged and not ack_root_files:
+            refuse(verb, argv, 7,
+                "refused: non-canonical root-level file(s) staged: " + ", ".join(root_staged[:10]) +
+                "\nThe repo root has a canonical entry set (see CANONICAL_ROOT in this wrapper)."
+                " Root-level files are usually misplaced deliverables: decide their proper folder,"
+                " move them, then commit; or re-run with --ack-root-files to proceed consciously.",
+                ack_gated=ack_gated, reason="non-canonical-root-entry")
 
     if verb == "add":
         paths = [a for a in argv[1:] if not a.startswith("-")]

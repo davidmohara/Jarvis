@@ -682,7 +682,7 @@ When the controller signals exit, log off, or end of session:
 
 ### Exit Additions
 
-- Stage and commit all untracked and modified files before ending the session
+- Spawn **Rigby** with `workflows/shutdown-cleanup/workflow.md` to stage and commit all untracked and modified files before ending the session. Master does not run cleanup, staging, or commits itself; every git operation runs through `skills/git/SKILL.md` and the `ies-git` wrapper under Rigby (David's direction, 2026-10-09).
 
 ### Output Conventions
 
