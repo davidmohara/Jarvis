@@ -2384,7 +2384,12 @@
           "workflows/galen-monthly-health-review/workflow.md",
           "workflows/skill-optimize/workflow.md",
           "systems/eval-harness/runs/eval-20261009T152931-MEUGE8.json",
-          "systems/eval-harness/skill-runs/rigby-eval-grade-latest.json"
+          "systems/eval-harness/skill-runs/rigby-eval-grade-latest.json",
+          "workflows/dream-cycle/verify/step-01-working-memory-cleanup.py",
+          "workflows/dream-cycle/verify/step-02-salience-scoring.py",
+          "workflows/dream-cycle/verify/step-03-semantic-promotion.py",
+          "workflows/dream-cycle/verify/step-03b-guardrail-checkpoint.py",
+          "workflows/dream-cycle/verify/step-04-episodic-compression.py"
         ],
         "loops": [],
         "flag": true
