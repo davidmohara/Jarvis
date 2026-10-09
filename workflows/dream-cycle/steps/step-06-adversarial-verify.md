@@ -1,8 +1,13 @@
 ---
-status: not-started
-started-at: ~
-completed-at: ~
-outputs: {}
+status: complete
+started-at: 2026-10-09T12:15:00Z
+completed-at: 2026-10-09T12:20:00Z
+outputs:
+  verification_result: pass
+  ralph_verdict: "19 of 19 verified, 0 unverified"
+  guardrail_checkpoint_recorded: false
+  guardrail_checkpoint_error: "guardrail-checkpoint.py TypeError: unsupported operand type(s) for |: 'type' and 'NoneType' (Python version does not support X|Y union type syntax)"
+  adversarial_summary: "All conservation claims verified: 7 archived files confirmed gone from working/ and present in episodic/, 4 compression candidates intact with score=0 and no promoted flag, all 5 semantic target files exist on disk, dream.log counts match all step outputs exactly, git commit d49070df and push confirmed."
 model: sonnet
 ---
 
