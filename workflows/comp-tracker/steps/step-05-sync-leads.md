@@ -20,6 +20,8 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
+**Agent:** Chase, spawned by the coordinator, never executed inline
+
 | Role | Input | Output |
 |------|-------|--------|
 | **Chase** | Read My Leads.xlsx from canonical OneDrive URI; open comp tracker Leads sheet | Updated Leads sheet with new entries synced; commission-eligible list (passed_lead + am_account); expired commission list |

@@ -20,7 +20,7 @@ model: haiku
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Harper (via Rigby for git operations)
+**Agent:** Rigby, spawned by the coordinator, never executed inline. All git operations run through `skills/git/SKILL.md` and the `ies-git` wrapper
 **Mode:** Automated — no controller interaction required
 **Input:** workflow state.yaml updates, reference/blog-ideas.md changes
 **Output:** All calendar state committed and pushed to remote
@@ -45,21 +45,21 @@ model: haiku
    - Possibly: `reference/blog-ideas.md` (if new items added)
    - Possibly: `systems/error-tracking/entries/*.json` (if errors occurred)
 
-2. **Stage all changes** (separate call):
+2. **Stage all changes** through the wrapper (skills/git/SKILL.md is the only authorized git path; the wrapper lints, scans for credentials, and audits every operation):
    ```bash
-   git add workflows/content-calendar/ reference/blog-ideas.md
+   python3 skills/git/scripts/ies-git add workflows/content-calendar/ reference/blog-ideas.md
    ```
    Wait for completion.
 
-3. **Review staged changes** (separate call):
+3. **Review staged changes** (lock-free, separate call):
    ```bash
    git diff --staged --name-only
    ```
    Verify the output shows only workflow and reference files. If anything unexpected appears, stop here and surface to controller.
 
-4. **Commit** (separate call):
+4. **Commit** through the wrapper, with `--ack-gated` when gated directories (workflows/, skills/, agents/, systems/) changed because this run built them (separate call):
    ```bash
-   git commit -m "chore(harper): content-calendar state update
+   python3 skills/git/scripts/ies-git --ack-gated commit -m "chore(harper): content-calendar state update
 
 Calendar workflow state and recommendations committed:
 - Calendar delivered with deadline flags
@@ -67,15 +67,13 @@ Calendar workflow state and recommendations committed:
 - {N} recommendations generated
 - Task sync completed"
    ```
-   Wait for completion.
+   Wait for completion. (The wrapper lints Conventional Commits and refuses non-conforming messages.)
 
-5. **Push to remote** (separate call):
+5. **Push to remote** through the wrapper (separate call):
    ```bash
-   git push origin main
+   python3 skills/git/scripts/ies-git push origin main
    ```
-   If rejected (non-fast-forward):
-   - Run `git pull --rebase origin main` (separate call)
-   - Run `git push origin main` again (separate call)
+   If rejected (non-fast-forward): do NOT rebase from this session. The commit stays local; hand the pull-rebase and push to David's terminal (the OneDrive-synced .git races multi-step git; see `err-20261008T222241-UHTK59`).
 
 ---
 

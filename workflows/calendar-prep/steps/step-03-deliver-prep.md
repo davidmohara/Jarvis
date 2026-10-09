@@ -20,7 +20,7 @@ outputs: {}
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Chief
+**Agent:** Chief, spawned by the coordinator, never executed inline
 **Input:** Assembled briefs from step 02
 **Output:** Delivered briefs to the controller; Chase handoffs initiated for client/prospect meetings
 

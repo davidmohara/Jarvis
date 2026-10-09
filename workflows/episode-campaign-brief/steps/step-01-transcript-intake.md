@@ -23,7 +23,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Harper
+**Agent:** Harper, spawned by the coordinator, never executed inline
 **Input:** Controller's episode reference (URL or internal pointer)
 **Output:** Transcript + episode metadata, stored in `state.yaml`'s
 `accumulated-context`

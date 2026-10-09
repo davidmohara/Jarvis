@@ -21,6 +21,8 @@ model: haiku
 
 ## EXECUTION PROTOCOL
 
+**Agent:** Chase, spawned by the coordinator, never executed inline
+
 | Role | Input | Output |
 |------|-------|--------|
 | **Chase** | POWERBI_TAB_ID → JS-click to Project Consultant Profitability Dataset page → verify slicer still shows 2026 → read GM% | revenue_map updated with gm_pct, cost, gp per account |

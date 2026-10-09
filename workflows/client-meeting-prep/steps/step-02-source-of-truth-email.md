@@ -24,7 +24,7 @@ This step exists because of `err-20260720T144623-LSBA9A`: a prep sheet was built
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Chase
+**Agent:** Chase, spawned by the coordinator, never executed inline
 **Input:** Attendee name(s)/company from step 01, connected email/calendar tool
 **Output:** Reason for the call (evidence-cited), meeting classification, contact depth (first-touch vs. repeat-meeting), explicit "do not assume" list — stored in accumulated-context
 

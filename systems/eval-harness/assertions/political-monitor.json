@@ -1,0 +1,34 @@
+{
+  "name": "political-monitor",
+  "type": "workflow",
+  "assertions": [
+    {
+      "id": "pomo-001-state-complete",
+      "check": "yaml_field_equals",
+      "path": "workflows/political-monitor/state.yaml",
+      "field": "status",
+      "value": "complete",
+      "description": "political-monitor workflow state.yaml shows status: complete"
+    },
+    {
+      "id": "pomo-002-wm-written",
+      "check": "file_exists",
+      "path": "memory/working/political-monitor-*.md",
+      "description": "political-monitor working memory file was written to memory/working/"
+    },
+    {
+      "id": "pomo-003-wm-size",
+      "check": "file_min_bytes",
+      "path": "memory/working/political-monitor-*.md",
+      "min_bytes": 200,
+      "description": "political-monitor working memory file is substantive (>200 bytes)"
+    },
+    {
+      "id": "pomo-004-wm-content",
+      "check": "file_contains",
+      "path": "memory/working/political-monitor-*.md",
+      "pattern": "(?i)(political|monitor|scan)",
+      "description": "political-monitor working memory contains expected content"
+    }
+  ]
+}

@@ -22,7 +22,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Chase
+**Agent:** Chase, spawned by the coordinator, never executed inline
 **Input:** Target company name (from controller), CRM, web search
 **Output:** Confirmed entity identity, engagement shape determination, timing trigger — stored in accumulated-context for all downstream steps
 

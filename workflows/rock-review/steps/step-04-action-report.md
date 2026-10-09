@@ -21,7 +21,7 @@ outputs: {}
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Quinn
+**Agent:** Quinn, spawned by the coordinator, never executed inline
 **Input:** `rock_assessments` from step 03
 **Output:** Delivered rock scorecard + knowledge layer update written
 

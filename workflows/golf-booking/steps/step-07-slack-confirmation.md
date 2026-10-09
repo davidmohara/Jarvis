@@ -22,7 +22,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Sterling
+**Agent:** Sterling, spawned by the coordinator, never executed inline
 **Input:** Verified booking (step-05) + calendar outcome (step-06)
 **Output:** Slack confirmation to #jarvis, or documented fallback — **QUALITY GATE 6**
 

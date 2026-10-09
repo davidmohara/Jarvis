@@ -21,7 +21,7 @@ outputs: {}
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Quinn
+**Agent:** Quinn, spawned by the coordinator, never executed inline
 **Input:** `event_context` from step 01, `aggregated_context` from step 02
 **Output:** `leadership_materials` — complete prep document sections ready for delivery
 

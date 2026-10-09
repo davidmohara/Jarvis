@@ -21,7 +21,7 @@ outputs: {}
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Shep
+**Agent:** Shep, spawned by the coordinator, never executed inline
 **Input:** Raw delegation data from step 01
 **Output:** Annotated delegation data with overdue flags and days-overdue counts
 

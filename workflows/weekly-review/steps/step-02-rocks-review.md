@@ -21,7 +21,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Quinn (Strategy)
+**Agent:** Quinn, spawned by the coordinator, never executed inline
 **Input:** Quarterly objectives file, daily reviews from step 01, calendar data if available
 **Output:** Updated rock status for each quarterly objective, flags for at-risk items, stored in working memory
 

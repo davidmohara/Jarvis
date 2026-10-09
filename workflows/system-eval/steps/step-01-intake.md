@@ -21,7 +21,7 @@ model: haiku
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Rigby
+**Agent:** Rigby, spawned by the coordinator, never executed inline
 **Input:** `systems/eval-harness/runs/*.json`
 **Output:** Classification of all closed eval records by what coverage is missing
 

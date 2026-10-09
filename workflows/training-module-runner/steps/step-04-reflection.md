@@ -15,6 +15,11 @@ next: step-05-record-and-suggest.md
 <!-- system:start -->
 # Step 4: Reflection
 
+## EXECUTION PROTOCOL
+
+**Agent:** Shep, spawned by the coordinator, never executed inline
+
+
 **Goal:** Brief reflection to lock in learning and capture user insights.
 
 ## Process

@@ -21,7 +21,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Chief
+**Agent:** Chief, spawned by the coordinator, never executed inline
 **Input:** Task inbox, quarterly objectives, delegation tracker
 **Output:** Complete inbox inventory with item count, stored in working memory for step 02
 

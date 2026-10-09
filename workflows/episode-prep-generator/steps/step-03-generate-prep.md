@@ -37,7 +37,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Harper
+**Agent:** Harper, spawned by the coordinator, never executed inline
 **Input:** `topic`, `guest_name`, `guest_title`, `guest_company`,
 `industry_domain`, `specific_angle`, `internal_context` (optional);
 `accumulated-context.prior_transcript` from step 1;

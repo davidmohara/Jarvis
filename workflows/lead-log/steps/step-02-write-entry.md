@@ -14,6 +14,11 @@ previous: step-01-identify-lead.md
 
 # Step 2: Write Entry to My Leads.xlsx
 
+## EXECUTION PROTOCOL
+
+**Agent:** Chase, spawned by the coordinator, never executed inline
+
+
 ## Objective
 
 Append the new lead entry to the Excel file in OneDrive.

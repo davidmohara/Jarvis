@@ -8,6 +8,11 @@ model: sonnet
 
 # Step 01: Validate Manifest
 
+## EXECUTION PROTOCOL
+
+**Agent:** Rigby, spawned by the coordinator, never executed inline
+
+
 <!-- system:start -->
 ## Purpose
 

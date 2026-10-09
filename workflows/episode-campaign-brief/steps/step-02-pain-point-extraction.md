@@ -22,7 +22,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Harper
+**Agent:** Harper, spawned by the coordinator, never executed inline
 **Input:** Transcript from `state.yaml`'s `accumulated-context`
 **Output:** Structured pain point list, stored in `accumulated-context`
 

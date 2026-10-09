@@ -2,6 +2,7 @@
 name: comp-tracker
 description: Monthly update of the Regional Director Compensation Tracker from PowerBI reports and My Leads.xlsx
 agent: chase
+model: sonnet
 ---
 
 <!-- system:start -->

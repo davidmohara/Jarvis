@@ -22,7 +22,7 @@ outputs: {}
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Harper
+**Agent:** Harper, spawned by the coordinator, never executed inline
 **Input:** `source_material` from step 01, `voice_profile` from step 02
 **Output:** `presentation_structure` — complete slide-by-slide text structure ready for delivery
 

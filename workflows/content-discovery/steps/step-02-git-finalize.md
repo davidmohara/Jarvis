@@ -17,6 +17,11 @@ model: sonnet
 <!-- personal:start -->
 # Step 02: Git Finalize — Commit Discovery State
 
+## EXECUTION PROTOCOL
+
+**Agent:** Rigby, spawned by the coordinator, never executed inline. All git operations run through `skills/git/SKILL.md` and the `ies-git` wrapper
+
+
 Adapted from the retired `workflows/content-pipeline/steps/step-03-git-finalize.md`, which
 served both the discovery and approval halves of the old single workflow. Each split workflow
 now runs its own copy of this step because both write to files that need committing

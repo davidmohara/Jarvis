@@ -21,7 +21,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Master
+**Agent:** Master, spawned by the coordinator, never executed inline
 **Input:** Daily review files from this week, controller's verbal input
 **Output:** Wins list, misses list, and themes summary stored in working memory for step 06
 

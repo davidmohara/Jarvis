@@ -8,6 +8,11 @@ model: sonnet
 
 # Step 04: Scan Personal Blocks
 
+## EXECUTION PROTOCOL
+
+**Agent:** Rigby, spawned by the coordinator, never executed inline
+
+
 <!-- system:start -->
 ## Purpose
 

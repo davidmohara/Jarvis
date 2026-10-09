@@ -15,6 +15,11 @@ model: sonnet
 <!-- system:start -->
 # Step 05: Save to Obsidian
 
+## EXECUTION PROTOCOL
+
+**Agent:** Chase, spawned by the coordinator, never executed inline
+
+
 ## MANDATORY EXECUTION RULES
 
 1. You MUST check the tracking file for a last entry date before appending. No blind appends.

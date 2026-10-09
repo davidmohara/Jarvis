@@ -98,6 +98,8 @@ Set `show_visuals_as_tables_enabled: true` in state.yaml.
 
 ## EXECUTION PROTOCOL
 
+**Agent:** Chase, spawned by the coordinator, never executed inline
+
 | Role | Input | Output |
 |------|-------|--------|
 | **Chase** | POWERBI_TAB_ID from state.yaml → switch to Customer Distribution page → click slicer to current year → read data | revenue_map keyed by canonical account name; year-filter flags |

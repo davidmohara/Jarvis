@@ -21,7 +21,7 @@ outputs: {}
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Shep
+**Agent:** Shep, spawned by the coordinator, never executed inline
 **Input:** Annotated delegation data with overdue flags from step 02
 **Output:** Formatted tracker presented to the controller; ready for sort-order changes if requested
 

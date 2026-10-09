@@ -15,6 +15,11 @@ next: step-04-reflection.md
 <!-- system:start -->
 # Step 3: Guided Execution
 
+## EXECUTION PROTOCOL
+
+**Agent:** Shep, spawned by the coordinator, never executed inline
+
+
 **Goal:** Walk the user through the module's walkthrough steps using their REAL data. Coach, don't lecture.
 
 ## Process

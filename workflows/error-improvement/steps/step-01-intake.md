@@ -20,7 +20,7 @@ model: haiku
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Rigby
+**Agent:** Rigby, spawned by the coordinator, never executed inline
 **Input:** Error tracking entries, compaction state
 **Output:** Entry count, open vs. closed breakdown, eligible months, go/no-go decision
 

@@ -22,7 +22,7 @@ outputs: {}
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Harper
+**Agent:** Harper, spawned by the coordinator, never executed inline
 **Input:** Source material (any format), controller's request
 **Output:** `source_material` — parsed content inventory with key messages, evidence, and narrative arc stored in working memory for step 02
 

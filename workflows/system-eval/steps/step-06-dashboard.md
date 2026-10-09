@@ -20,7 +20,7 @@ model: haiku
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Rigby
+**Agent:** Rigby, spawned by the coordinator, never executed inline
 **Input:** All updated eval records + state.yaml accumulated context
 **Output:** Updated dashboard HTML, closed eval record, final summary
 

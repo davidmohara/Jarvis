@@ -14,6 +14,11 @@ next: step-02-write-entry.md
 
 # Step 1: Identify Lead Details
 
+## EXECUTION PROTOCOL
+
+**Agent:** Chase, spawned by the coordinator, never executed inline
+
+
 ## Objective
 
 Extract the lead details from conversation context. Confirm with David before writing.

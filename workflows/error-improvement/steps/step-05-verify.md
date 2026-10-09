@@ -21,7 +21,7 @@ model: haiku
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Rigby
+**Agent:** Rigby, spawned by the coordinator, never executed inline
 **Input:** `files_modified` from state.yaml, `approved_fixes` list
 **Output:** Assertion results, pass/fail counts, go/no-go for Step 6
 

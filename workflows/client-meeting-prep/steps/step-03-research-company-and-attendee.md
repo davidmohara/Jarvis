@@ -21,7 +21,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Chase
+**Agent:** Chase, spawned by the coordinator, never executed inline
 **Input:** Attendee/company from step 01, reason_for_call + meeting_classification + evidence from step 02
 **Output:** Confirmed company profile, attendee bio, "read on them" interpretation — stored in accumulated-context
 

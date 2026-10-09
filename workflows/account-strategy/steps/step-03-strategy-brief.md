@@ -23,7 +23,7 @@ outputs: {}
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Chase
+**Agent:** Chase, spawned by the coordinator, never executed inline
 **Input:** Account data from step 01, competitive intelligence from step 02
 **Output:** Complete account strategy brief delivered to the executive
 

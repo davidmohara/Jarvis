@@ -21,7 +21,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Shep
+**Agent:** Shep, spawned by the coordinator, never executed inline
 **Input:** Person name from step 01, previous brief carryover from step 02, task management API, delegation tracker (markdown)
 **Output:** Task and delegation data stored in working memory for step 04
 

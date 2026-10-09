@@ -32,7 +32,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Chase
+**Agent:** Chase, spawned by the coordinator, never executed inline
 **Input:** Enterprise Scorecard v4 Sales Momentum page (via Playwright MCP)
 **Output:** Formatted new clients report stored in `accumulated-context.new_clients` in `state.yaml`
 

@@ -22,7 +22,7 @@ outputs: {}
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Harper
+**Agent:** Harper, spawned by the coordinator, never executed inline
 **Input:** `presentation_structure` from step 03, handoff context (if applicable) from Chase or Quinn
 **Output:** Delivered presentation structure with domain context integrated
 

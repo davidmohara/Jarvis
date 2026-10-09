@@ -21,7 +21,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Harper
+**Agent:** Harper, spawned by the coordinator, never executed inline
 **Input:** PDF-format markdown from step 04
 **Output:** Styled single-page PDF presented for approval, then reMarkable upload on David's go-ahead
 

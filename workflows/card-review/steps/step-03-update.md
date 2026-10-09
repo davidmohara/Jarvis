@@ -14,6 +14,11 @@ description: Update tracker files with any new information from the review
 
 # Step 3: Update Tracker Files
 
+## EXECUTION PROTOCOL
+
+**Agent:** Chase, spawned by the coordinator, never executed inline
+
+
 ## Process
 
 ### 1. Update Benefits Tracker

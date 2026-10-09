@@ -21,7 +21,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Shep
+**Agent:** Shep, spawned by the coordinator, never executed inline
 **Input:** Meeting details from step 01 (person name, meeting date), M365 access, knowledge base access
 **Output:** Structured communication data stored in working memory for step 04
 

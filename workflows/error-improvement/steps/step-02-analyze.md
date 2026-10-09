@@ -20,7 +20,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Rigby
+**Agent:** Rigby, spawned by the coordinator, never executed inline
 **Input:** Active error entries, digest history from Step 1
 **Output:** Statistics, patterns, tiered fix proposals written to state.yaml
 

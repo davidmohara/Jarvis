@@ -22,7 +22,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Chief
+**Agent:** Chief, spawned by the coordinator, never executed inline
 **Input:** Inbox items from step 01, quarterly objectives, delegation tracker
 **Output:** Each item triaged and executed. Running tally of dispositions.
 

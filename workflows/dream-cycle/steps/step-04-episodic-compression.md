@@ -79,6 +79,8 @@ Before compressing any entries, monitor thresholds and get controller approval:
 
 ## EXECUTION PROTOCOL
 
+**Agent:** Jarvis, spawned by the coordinator, never executed inline
+
 | Field | Value |
 |-------|-------|
 | Agent | Jarvis |

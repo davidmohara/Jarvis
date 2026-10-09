@@ -20,6 +20,8 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
+**Agent:** Chase, spawned by the coordinator, never executed inline
+
 | Role | Input | Output |
 |------|-------|--------|
 | **Chase** | All accumulated-context from Steps 1-7 | One-screen comp summary; processed WorkDay emails archived; state.yaml updated; staging files deleted |

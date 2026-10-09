@@ -20,7 +20,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Master (orchestrates Rigby for eval analysis)
+**Agent:** Master, spawned by the coordinator, never executed inline
 **Input:** Eval harness data from the past week
 **Output:** Eval summary with trends, degraded areas, and action items
 

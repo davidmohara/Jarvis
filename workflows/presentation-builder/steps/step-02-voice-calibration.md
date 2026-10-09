@@ -22,7 +22,7 @@ outputs: {}
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Harper
+**Agent:** Harper, spawned by the coordinator, never executed inline
 **Input:** `source_material` from step 01, `identity/VOICE.md`
 **Output:** `voice_profile` — executive voice calibration rules stored in working memory for step 03
 

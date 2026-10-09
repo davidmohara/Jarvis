@@ -15,6 +15,11 @@ next: null
 <!-- system:start -->
 # Step 4: Progression Introduction
 
+## EXECUTION PROTOCOL
+
+**Agent:** Shep, spawned by the coordinator, never executed inline
+
+
 **Goal:** Show the user the training path ahead. Make it feel exciting, not overwhelming. Close the onboarding session.
 
 ## Process

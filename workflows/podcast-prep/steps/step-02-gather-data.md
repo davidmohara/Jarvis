@@ -22,7 +22,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Harper
+**Agent:** Harper, spawned by the coordinator, never executed inline
 **Input:** Episode details from step 01
 **Output:** All gathered data stored in working memory for steps 03 and 04; `sources_used` written to `state.yaml`
 

@@ -15,6 +15,11 @@ next: null
 <!-- system:start -->
 # Step 2: Render Dashboard
 
+## EXECUTION PROTOCOL
+
+**Agent:** Shep, spawned by the coordinator, never executed inline
+
+
 **Goal:** Display the full training progress report.
 
 ## Process

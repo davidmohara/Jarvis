@@ -14,6 +14,11 @@ next: step-02-surface-and-assign.md
 
 # Step 1: Scan Leads for Unassigned Entries
 
+## EXECUTION PROTOCOL
+
+**Agent:** Chase, spawned by the coordinator, never executed inline
+
+
 ## Objective
 
 Read `My Leads.xlsx` and identify all entries where "Passed To" is blank, empty, or `---`.

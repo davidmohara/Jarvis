@@ -22,7 +22,7 @@ outputs: {}
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Chase
+**Agent:** Chase, spawned by the coordinator, never executed inline
 **Input:** Account data from step 01, Web Search MCP
 **Output:** Competitive intelligence and market research stored in working memory for step 03
 

@@ -1,0 +1,34 @@
+{
+  "name": "account-pursuit-map",
+  "type": "workflow",
+  "assertions": [
+    {
+      "id": "acpm-001-state-complete",
+      "check": "yaml_field_equals",
+      "path": "workflows/account-pursuit-map/state.yaml",
+      "field": "status",
+      "value": "complete",
+      "description": "account-pursuit-map workflow state.yaml shows status: complete"
+    },
+    {
+      "id": "acpm-002-wm-written",
+      "check": "file_exists",
+      "path": "memory/working/account-pursuit-map-*.md",
+      "description": "account-pursuit-map working memory file was written to memory/working/"
+    },
+    {
+      "id": "acpm-003-wm-size",
+      "check": "file_min_bytes",
+      "path": "memory/working/account-pursuit-map-*.md",
+      "min_bytes": 200,
+      "description": "account-pursuit-map working memory file is substantive (>200 bytes)"
+    },
+    {
+      "id": "acpm-004-wm-content",
+      "check": "file_contains",
+      "path": "memory/working/account-pursuit-map-*.md",
+      "pattern": "(?i)(pursuit|account|land)",
+      "description": "account-pursuit-map working memory contains expected content"
+    }
+  ]
+}

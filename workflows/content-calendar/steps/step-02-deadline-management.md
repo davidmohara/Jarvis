@@ -21,7 +21,7 @@ outputs: {}
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Harper
+**Agent:** Harper, spawned by the coordinator, never executed inline
 **Input:** `content_inventory` from step 01
 **Output:** `deadline_flags` — each content item classified with deadline status stored in working memory for step 03
 

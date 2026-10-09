@@ -22,7 +22,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Harper
+**Agent:** Harper, spawned by the coordinator, never executed inline
 **Input:** `accumulated-context.prep_sheet_body`,
 `accumulated-context.prior_transcript`, `accumulated-context.guest_research`
 **Output:** One saved markdown file, path recorded in

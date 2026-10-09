@@ -25,7 +25,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Chase
+**Agent:** Chase, spawned by the coordinator, never executed inline
 **Input:** Enterprise Scorecard v4 Financial Outlook page (via Playwright MCP)
 **Output:** Formatted revenue report stored in `accumulated-context.revenue` in `state.yaml`
 

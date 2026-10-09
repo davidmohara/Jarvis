@@ -23,7 +23,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Chase
+**Agent:** Chase, spawned by the coordinator, never executed inline
 **Input:** Leadership profiles from step 03, David's known personal/professional network (YPO, alumni, prior colleagues), Clay (if connected), Improving's fixed partner list, public tech-stack signals for the target, Improving's CRM partner records
 **Output:** A referral network map and a partner network map, each separate from step 03's leadership map and from each other, with every contact/path/tech-stack claim tagged confirmed or needs-verification — stored in accumulated-context for step 06
 

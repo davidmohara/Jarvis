@@ -22,7 +22,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Shep (People & Delegation)
+**Agent:** Shep, spawned by the coordinator, never executed inline
 **Input:** Calendar data (1:1s this week and next), daily reviews, delegation data from step 03, knowledge layer (meeting notes, coaching observations)
 **Output:** People health summary, 1:1 prep flags, coaching items to track, stored in working memory
 

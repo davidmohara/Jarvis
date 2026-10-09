@@ -21,7 +21,7 @@ outputs: {}
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Shep
+**Agent:** Shep, spawned by the coordinator, never executed inline
 **Input:** Draft messages from step 02 (2-3 tone variants per item)
 **Output:** Confirmed messages sent (or handed to Harper for polish); executive acknowledgment of all reviewed items
 

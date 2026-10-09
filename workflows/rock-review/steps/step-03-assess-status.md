@@ -21,7 +21,7 @@ outputs: {}
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Quinn
+**Agent:** Quinn, spawned by the coordinator, never executed inline
 **Input:** `rock_inventory` from step 01, `rock_evidence` from step 02
 **Output:** `rock_assessments` — full classification with rationale, corrective actions, and dependency flags
 

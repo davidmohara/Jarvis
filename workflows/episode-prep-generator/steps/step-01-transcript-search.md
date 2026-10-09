@@ -28,7 +28,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Harper
+**Agent:** Harper, spawned by the coordinator, never executed inline
 **Input:** `guest_name` (also try `guest_company` and known nicknames/short
 forms as secondary search terms)
 **Output:** A transcript object (or an explicit not-found flag), stored in

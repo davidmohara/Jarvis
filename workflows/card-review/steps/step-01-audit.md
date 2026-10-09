@@ -15,6 +15,11 @@ next: step-02-actions.md
 
 # Step 1: Benefits Audit
 
+## EXECUTION PROTOCOL
+
+**Agent:** Chase, spawned by the coordinator, never executed inline
+
+
 ## Process
 
 ### 1. Read All Data Files

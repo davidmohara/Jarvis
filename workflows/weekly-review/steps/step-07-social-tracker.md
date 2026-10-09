@@ -21,7 +21,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Sterling (Personal)
+**Agent:** Sterling, spawned by the coordinator, never executed inline
 **Input:** Today's date (for lookahead window calculation), current weekly review file path from step-06
 **Output:** Social tracker table appended to `reviews/weekly/YYYY-Wxx.md`
 

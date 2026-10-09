@@ -21,7 +21,7 @@ outputs: {}
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Quinn
+**Agent:** Quinn, spawned by the coordinator, never executed inline
 **Input:** `identity/GOALS_AND_DREAMS.md`, task management, knowledge layer
 **Output:** `goal_registry` and `activity_log` stored in working memory for step 02
 

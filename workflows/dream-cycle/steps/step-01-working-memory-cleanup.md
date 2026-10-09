@@ -61,6 +61,8 @@ After archival completes, monitor rate trends:
 
 ## EXECUTION PROTOCOL
 
+**Agent:** Jarvis, spawned by the coordinator, never executed inline
+
 | Field | Value |
 |-------|-------|
 | Agent | Jarvis |

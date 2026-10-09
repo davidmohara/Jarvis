@@ -15,6 +15,11 @@ next: step-03-guided-execution.md
 <!-- system:start -->
 # Step 2: Context Setting
 
+## EXECUTION PROTOCOL
+
+**Agent:** Shep, spawned by the coordinator, never executed inline
+
+
 **Goal:** Tell the user what they're about to learn, in capability terms. Set expectations.
 
 ## Process

@@ -58,6 +58,8 @@ During scoring, audit entry metadata:
 
 ## EXECUTION PROTOCOL
 
+**Agent:** Jarvis, spawned by the coordinator, never executed inline
+
 | Field | Value |
 |-------|-------|
 | Agent | Jarvis |

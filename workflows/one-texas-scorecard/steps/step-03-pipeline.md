@@ -30,7 +30,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Chase
+**Agent:** Chase, spawned by the coordinator, never executed inline
 **Input:** Sales Analytics PowerBI — Pipeline Analytics and 90 Day Weighted Pipeline pages (via Playwright MCP)
 **Output:** Formatted pipeline report stored in `accumulated-context.pipeline` in `state.yaml`
 

@@ -15,6 +15,11 @@ next: step-02-render-dashboard.md
 <!-- system:start -->
 # Step 1: Load Progress
 
+## EXECUTION PROTOCOL
+
+**Agent:** Shep, spawned by the coordinator, never executed inline
+
+
 **Goal:** Load all training state data needed for the dashboard.
 
 ## Process

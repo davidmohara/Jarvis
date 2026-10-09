@@ -35,7 +35,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Harper
+**Agent:** Harper, spawned by the coordinator, never executed inline
 **Input:** One approved message + its Contact + the episode's Journey, one at a time
 **Output:** Send confirmations and results, stored in `accumulated-context`
 

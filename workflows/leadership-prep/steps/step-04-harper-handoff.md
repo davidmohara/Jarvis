@@ -21,7 +21,7 @@ outputs: {}
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Quinn
+**Agent:** Quinn, spawned by the coordinator, never executed inline
 **Input:** `event_context` from step 01, `leadership_materials` from step 03
 **Output:** Delivered prep document + Harper handoff (if applicable)
 

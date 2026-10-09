@@ -1,0 +1,34 @@
+{
+  "name": "content-discovery",
+  "type": "workflow",
+  "assertions": [
+    {
+      "id": "codi-001-state-complete",
+      "check": "yaml_field_equals",
+      "path": "workflows/content-discovery/state.yaml",
+      "field": "status",
+      "value": "complete",
+      "description": "content-discovery workflow state.yaml shows status: complete"
+    },
+    {
+      "id": "codi-002-wm-written",
+      "check": "file_exists",
+      "path": "memory/working/content-discovery-*.md",
+      "description": "content-discovery working memory file was written to memory/working/"
+    },
+    {
+      "id": "codi-003-wm-size",
+      "check": "file_min_bytes",
+      "path": "memory/working/content-discovery-*.md",
+      "min_bytes": 200,
+      "description": "content-discovery working memory file is substantive (>200 bytes)"
+    },
+    {
+      "id": "codi-004-wm-content",
+      "check": "file_contains",
+      "path": "memory/working/content-discovery-*.md",
+      "pattern": "(?i)(discover|draft|content)",
+      "description": "content-discovery working memory contains expected content"
+    }
+  ]
+}

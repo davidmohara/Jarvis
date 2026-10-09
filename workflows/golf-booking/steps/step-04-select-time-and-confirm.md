@@ -23,7 +23,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Sterling
+**Agent:** Sterling, spawned by the coordinator, never executed inline
 **Input:** Tee-time selection screen from step-03
 **Output:** Confirmed reservation, verified by exact-string match — this is **QUALITY GATE 3**
 

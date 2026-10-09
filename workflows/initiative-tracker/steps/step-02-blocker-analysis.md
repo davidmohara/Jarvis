@@ -21,7 +21,7 @@ outputs: {}
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Quinn
+**Agent:** Quinn, spawned by the coordinator, never executed inline
 **Input:** `initiative_registry` from step 01
 **Output:** `blocker_analysis` and `dependency_map` stored in working memory for step 03
 

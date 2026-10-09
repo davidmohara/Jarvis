@@ -21,7 +21,7 @@ model: haiku
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Rigby
+**Agent:** Rigby, spawned by the coordinator, never executed inline
 **Input:** Verified fix list from Step 5, compact eligibility from Step 5
 **Output:** Compacted digests, pending-changes log updated, episodic memory entry written
 

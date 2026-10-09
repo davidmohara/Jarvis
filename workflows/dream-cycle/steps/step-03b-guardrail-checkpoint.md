@@ -22,7 +22,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Jarvis
+**Agent:** Jarvis, spawned by the coordinator, never executed inline
 **Input:** Salience scores from step-02, promotion decisions from step-03
 **Output:** Guardrail checkpoint result recorded; workflow proceeds to step-04 (pass/flag) or halts (escalate)
 

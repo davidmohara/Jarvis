@@ -26,7 +26,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Sterling
+**Agent:** Sterling, spawned by the coordinator, never executed inline
 **Input:** `workflows/golf-booking/preview-output.json`
 **Output:** Validated target date/time confirmed to be inside the 8-day booking window
 

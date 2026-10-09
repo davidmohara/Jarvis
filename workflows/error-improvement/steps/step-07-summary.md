@@ -20,7 +20,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Rigby
+**Agent:** Rigby, spawned by the coordinator, never executed inline
 **Input:** `accumulated-context` from state.yaml (all steps)
 **Output:** Summary report delivered to controller; state closed; skill-run signal written
 

@@ -1,7 +1,7 @@
 ---
 name: evolution-training-sync
 description: Detects new and deprecated components from applied evolutions and integrates them into the training curriculum
-agent: shep-training
+agent: shep
 version: 2.0
 model: sonnet
 ---

@@ -21,7 +21,7 @@ outputs: {}
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Quinn
+**Agent:** Quinn, spawned by the coordinator, never executed inline
 **Input:** `initiative_registry` and `revenue_impacting_initiatives` from step 01, `blocker_analysis` from step 02
 **Output:** `chase_context` per revenue-impacting initiative (if any), stored in working memory for step 04
 

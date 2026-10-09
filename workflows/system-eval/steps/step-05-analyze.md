@@ -20,7 +20,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Rigby
+**Agent:** Rigby, spawned by the coordinator, never executed inline
 **Input:** All closed eval records + scoring results from state.yaml
 **Output:** Analysis report written to `systems/eval-harness/grading/analysis-{timestamp}.md`
 

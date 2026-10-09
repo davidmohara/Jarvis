@@ -21,7 +21,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Harper
+**Agent:** Harper, spawned by the coordinator, never executed inline
 **Input:** Pain points from `state.yaml`'s `accumulated-context`
 **Output:** Audience profile (ICP), stored in `accumulated-context`
 

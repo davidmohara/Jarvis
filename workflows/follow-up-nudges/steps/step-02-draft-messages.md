@@ -21,7 +21,7 @@ outputs: {}
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Shep
+**Agent:** Shep, spawned by the coordinator, never executed inline
 **Input:** Ranked nudge candidates from step 01 (with days overdue, relationship context, past patterns)
 **Output:** Draft messages for each item (2-3 tone variants each), stored in working memory
 

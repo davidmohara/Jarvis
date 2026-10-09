@@ -15,6 +15,11 @@ next: step-03-first-task.md
 <!-- system:start -->
 # Step 2: System Orientation
 
+## EXECUTION PROTOCOL
+
+**Agent:** Shep, spawned by the coordinator, never executed inline
+
+
 **Goal:** Give the user a mental model of what the system can do — framed as capabilities, not components.
 
 ## Process

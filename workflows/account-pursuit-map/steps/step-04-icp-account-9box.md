@@ -25,7 +25,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Chase
+**Agent:** Chase, spawned by the coordinator, never executed inline
 **Input:** entity_anchor (step 01), strategic_priorities (step 02), company size/revenue signals (from step 01/02 research), CRM (for TTM actuals if engagement history exists)
 **Output:** Potential score, Realized score, 9-box zone classification, and a list of every inference made — stored in accumulated-context for step 06, placed in the final document immediately after the Leadership/Org Chart section
 

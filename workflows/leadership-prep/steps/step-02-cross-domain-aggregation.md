@@ -21,7 +21,7 @@ outputs: {}
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Quinn
+**Agent:** Quinn, spawned by the coordinator, never executed inline
 **Input:** `event_context` from step 01
 **Output:** `aggregated_context` — consolidated cross-domain data for material generation
 

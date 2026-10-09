@@ -22,7 +22,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Shep (People & Delegation)
+**Agent:** Shep, spawned by the coordinator, never executed inline
 **Input:** Delegation tracker, calendar data for recent 1:1s, task management system for related tasks
 **Output:** Updated delegation tracker, list of follow-up actions, stored in working memory
 

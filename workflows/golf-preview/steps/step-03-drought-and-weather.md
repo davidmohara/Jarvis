@@ -32,7 +32,7 @@ model: haiku
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Sterling
+**Agent:** Sterling, spawned by the coordinator, never executed inline
 **Input:** Day-status and CT windows from step-02
 **Output:** `drought` flag, weather scores per candidate window, `heat_streak` flag
 

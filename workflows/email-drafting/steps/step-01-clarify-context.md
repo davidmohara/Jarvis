@@ -22,7 +22,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Harper
+**Agent:** Harper, spawned by the coordinator, never executed inline
 **Input:** Controller's request, identity layer, CRM, calendar, M365 email
 **Output:** Complete context profile stored in working memory for step 02
 

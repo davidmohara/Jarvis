@@ -22,7 +22,7 @@ outputs: {}
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Harper
+**Agent:** Harper, spawned by the coordinator, never executed inline
 **Input:** `event_context` from step 01, `identity/VOICE.md`
 **Output:** `talking_points` — complete set of calibrated talking points with evidence, phrasing, and Q&A stored in working memory for step 03
 

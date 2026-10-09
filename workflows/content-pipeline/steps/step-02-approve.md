@@ -36,7 +36,7 @@ model: haiku
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Harper
+**Agent:** Harper, spawned by the coordinator, never executed inline
 **Trigger:** Runs hourly via scheduled task
 **Input:** pending-drafts.json + Slack thread replies on draft notifications
 **Output:** Published Ghost posts, updated pending-drafts.json, Slack confirmations

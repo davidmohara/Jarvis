@@ -25,7 +25,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Chase
+**Agent:** Chase, spawned by the coordinator, never executed inline
 **Input:** Strategic priorities from step 02, entity anchor from step 01
 **Output:** Capability-to-priority mapping, win-wire story, competitive note, a complete C-suite + one-level-down org chart with CRM cross-reference, and full narrative profiles for the 3-5 most strategically relevant contacts — stored in accumulated-context for step 05
 

@@ -23,7 +23,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Chase
+**Agent:** Chase, spawned by the coordinator, never executed inline
 **Input:** Partner details from step 01, CRM data, email threads, knowledge layer
 **Output:** Categorized account overlap table stored in working memory for step 04
 

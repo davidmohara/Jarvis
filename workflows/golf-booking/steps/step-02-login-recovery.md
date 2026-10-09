@@ -22,7 +22,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Sterling
+**Agent:** Sterling, spawned by the coordinator, never executed inline
 **Input:** Validated target date/time from step-01 (Gate 1 passed)
 **Output:** Authenticated ChronoGolf session
 

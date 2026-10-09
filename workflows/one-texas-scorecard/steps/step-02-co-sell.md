@@ -24,7 +24,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Chase
+**Agent:** Chase, spawned by the coordinator, never executed inline
 **Input:** Sales Analytics PowerBI — Coselling Partner Pipeline and Won pages (via Playwright MCP)
 **Output:** Formatted co-sell report stored in `accumulated-context.co_sell` in `state.yaml`
 

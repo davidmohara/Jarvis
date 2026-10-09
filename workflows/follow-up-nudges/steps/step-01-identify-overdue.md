@@ -21,7 +21,7 @@ outputs: {}
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Shep
+**Agent:** Shep, spawned by the coordinator, never executed inline
 **Input:** Task management layer (delegation tracker), knowledge layer (relationship context)
 **Output:** Ranked list of overdue delegations and stale commitments stored in working memory
 

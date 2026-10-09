@@ -21,7 +21,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Chase
+**Agent:** Chase, spawned by the coordinator, never executed inline
 **Input:** CRM (CRM), quarterly objectives, calendar
 **Output:** Complete pipeline inventory stored in working memory for step 02
 

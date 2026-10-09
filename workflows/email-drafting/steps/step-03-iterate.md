@@ -22,7 +22,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Harper
+**Agent:** Harper, spawned by the coordinator, never executed inline
 **Input:** Draft from step 02, controller feedback
 **Output:** Final approved email routed to delivery method, plus any downstream handoffs
 

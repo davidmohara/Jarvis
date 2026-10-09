@@ -24,7 +24,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Chase
+**Agent:** Chase, spawned by the coordinator, never executed inline
 **Input:** The complete, finalized `accounts/{Company}/account-plan.md` from step 06, plus the accumulated context from steps 01-06 (engagement_shape, icp_9box scores, leadership_profiles, referral_network, partner_network, entry plays, contact sequencing, phased path, next actions, open items, sources)
 **Output:** A published Artifact (HTML dashboard) plus `accounts/{Company}/pursuit-dashboard.html`, delivered to the controller alongside the markdown document
 

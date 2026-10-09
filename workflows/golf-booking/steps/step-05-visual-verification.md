@@ -23,7 +23,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Sterling
+**Agent:** Sterling, spawned by the coordinator, never executed inline
 **Input:** `BOOKING-SUCCESS` result from step-04 (Gate 3)
 **Output:** Independently confirmed booking on the Bookings page — this is **QUALITY GATE 4**
 

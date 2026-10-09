@@ -21,7 +21,7 @@ model: haiku
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Rigby
+**Agent:** Rigby, spawned by the coordinator, never executed inline
 **Input:** `patterns_found` from state.yaml (Step 2 output)
 **Output:** Three buckets, controller approval, `approved_fixes` written to state.yaml
 

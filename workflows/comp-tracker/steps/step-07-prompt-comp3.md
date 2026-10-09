@@ -34,6 +34,8 @@ David must confirm which activities qualify before any values are written.
 
 ## EXECUTION PROTOCOL
 
+**Agent:** Chase, spawned by the coordinator, never executed inline
+
 | Role | Input | Output |
 |------|-------|--------|
 | **Chase** | Calendar events + Plaud transcripts from current month → present qualifying candidates to David → write confirmed amounts to Comp 3 sheet |

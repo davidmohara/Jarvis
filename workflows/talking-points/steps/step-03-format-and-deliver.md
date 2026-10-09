@@ -21,7 +21,7 @@ outputs: {}
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Harper
+**Agent:** Harper, spawned by the coordinator, never executed inline
 **Input:** `talking_points` from step 02, `event_context` from step 01
 **Output:** Formatted talking points delivered to the executive
 

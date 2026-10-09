@@ -25,7 +25,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Sterling
+**Agent:** Sterling, spawned by the coordinator, never executed inline
 **Input:** Authenticated session from step-02, validated date/time from step-01
 **Output:** Booking widget open on the tee-time selection screen with players selected
 

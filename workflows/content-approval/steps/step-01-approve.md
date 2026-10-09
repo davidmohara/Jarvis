@@ -29,7 +29,7 @@ Before executing, write `status: in-progress` and `started-at` to this file's ow
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Harper
+**Agent:** Harper, spawned by the coordinator, never executed inline
 **Trigger:** Runs multiple times daily via scheduled task
 **Input:** pending-drafts.json (`workflows/content-approval/pending-drafts.json`) + Slack thread replies on draft notifications
 **Output:** Published Ghost posts, updated pending-drafts.json, Slack confirmations

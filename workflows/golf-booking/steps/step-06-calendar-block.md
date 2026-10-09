@@ -30,7 +30,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Sterling
+**Agent:** Sterling, spawned by the coordinator, never executed inline
 **Input:** Confirmed, visually-verified booking from step-05
 **Output:** Calendar event on the Family calendar (or a documented fallback) —
 **QUALITY GATE 5**

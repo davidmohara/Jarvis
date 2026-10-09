@@ -23,7 +23,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Chase
+**Agent:** Chase, spawned by the coordinator, never executed inline
 **Input:** All working memory from steps 01-03
 **Output:** Complete partner meeting prep document saved to knowledge layer
 

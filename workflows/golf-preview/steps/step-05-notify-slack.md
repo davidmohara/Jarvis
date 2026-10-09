@@ -30,7 +30,7 @@ model: haiku
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Sterling
+**Agent:** Sterling, spawned by the coordinator, never executed inline
 **Input:** `preview-output.json` (validated by Gate 4)
 **Output:** Slack message to #golf, or documented fallback
 

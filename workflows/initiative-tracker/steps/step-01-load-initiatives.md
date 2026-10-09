@@ -21,7 +21,7 @@ outputs: {}
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Quinn
+**Agent:** Quinn, spawned by the coordinator, never executed inline
 **Input:** `tasks/initiatives/` directory, `memory/episodic/projects/` knowledge layer
 **Output:** `initiative_registry` — full initiative list with metadata, stored in working memory for step 02
 

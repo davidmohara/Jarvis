@@ -21,7 +21,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Shep
+**Agent:** Shep, spawned by the coordinator, never executed inline
 **Input:** Assembled brief from step 04
 **Output:** Saved, validated prep brief in knowledge base; confirmation message to controller
 

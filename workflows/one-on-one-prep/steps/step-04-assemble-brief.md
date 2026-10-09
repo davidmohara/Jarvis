@@ -22,7 +22,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Shep
+**Agent:** Shep, spawned by the coordinator, never executed inline
 **Input:** All working memory from steps 01-03 (meeting details, communication data, task data)
 **Output:** Complete prep brief in markdown, ready for quality check and save
 

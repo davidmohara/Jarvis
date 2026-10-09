@@ -368,3 +368,7 @@ accumulated-context:
 → `step-05-sync-leads.md`
 
 <!-- system:end -->
+
+## EXECUTION PROTOCOL
+
+**Agent:** Chase, spawned by the coordinator, never executed inline

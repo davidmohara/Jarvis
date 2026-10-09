@@ -21,7 +21,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Chase
+**Agent:** Chase, spawned by the coordinator, never executed inline
 **Input:** Pipeline data from step 01, health analysis from step 02, risk flags from step 03
 **Output:** Complete pipeline review report delivered to the controller
 

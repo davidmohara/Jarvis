@@ -21,7 +21,7 @@ outputs: {}
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Quinn
+**Agent:** Quinn, spawned by the coordinator, never executed inline
 **Input:** `goal_registry` and `activity_log` from step 01
 **Output:** `alignment_map` — per-goal alignment counts, drift list, and overall drift percentage
 

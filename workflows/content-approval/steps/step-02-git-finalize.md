@@ -9,6 +9,11 @@ model: haiku
 <!-- personal:start -->
 # Step 02: Git Finalize — Commit Approval/Publish State
 
+## EXECUTION PROTOCOL
+
+**Agent:** Rigby, spawned by the coordinator, never executed inline. All git operations run through `skills/git/SKILL.md` and the `ies-git` wrapper
+
+
 Carries forward the retired `workflows/content-pipeline/steps/step-03-git-finalize.md`'s logic.
 Publishing and its git-related finalize step belong together: this workflow owns
 `pending-drafts.json`'s lifecycle (cleanup, status transitions, publish records), so its

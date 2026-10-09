@@ -21,7 +21,7 @@ model: haiku
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Rigby
+**Agent:** Rigby, spawned by the coordinator, never executed inline
 **Input:** `needs_assertions` list from state.yaml + assertion definition files in `systems/eval-harness/assertions/`
 **Output:** Updated `assessment.structural` blocks in eval records
 

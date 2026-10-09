@@ -30,7 +30,7 @@ model: haiku
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Sterling
+**Agent:** Sterling, spawned by the coordinator, never executed inline
 **Input:** Day-status, CT windows, drought flag, weather scores from steps 01-03
 **Output:** `workflows/golf-booking/preview-output.json`
 

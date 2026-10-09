@@ -21,7 +21,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Chief
+**Agent:** Chief, spawned by the coordinator, never executed inline
 **Input:** Disposition tally from step 02, live task inbox state
 **Output:** Final confirmation report. Inbox zero or loop back.
 

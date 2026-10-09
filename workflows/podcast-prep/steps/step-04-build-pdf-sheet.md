@@ -21,7 +21,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Harper
+**Agent:** Harper, spawned by the coordinator, never executed inline
 **Input:** Detailed prep sheet from step 03, PDF template from reference
 **Output:** PDF-format markdown at `meetings/podcast-prep/Episode {N}.md`
 

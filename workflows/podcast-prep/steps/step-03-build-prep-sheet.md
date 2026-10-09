@@ -21,7 +21,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Harper
+**Agent:** Harper, spawned by the coordinator, never executed inline
 **Input:** Episode details (step 01) + gathered data (step 02)
 **Output:** Detailed prep sheet saved to `meetings/podcast-prep/YYYY-MM-DD-guest-name.md`
 

@@ -25,7 +25,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Chase
+**Agent:** Chase, spawned by the coordinator, never executed inline
 **Input:** entity_anchor + engagement_shape + timing_trigger (step 01), strategic_priorities (step 02), capability_mapping + win_wire_story + competitive_note + leadership_profiles (step 03), icp_9box (step 04), referral_network + partner_network (step 05)
 **Output:** Complete account pursuit map written to `accounts/{Company}/account-plan.md`, handed off to step 07 for HTML dashboard generation before final delivery to the controller
 

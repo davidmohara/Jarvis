@@ -29,7 +29,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Harper
+**Agent:** Harper, spawned by the coordinator, never executed inline
 **Input:** One contact at a time from `accumulated-context.target_contacts`,
 plus the relevant pain point/offering pairing for that contact
 **Output:** Approved message content per contact, stored in `accumulated-context`

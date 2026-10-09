@@ -22,7 +22,7 @@ outputs: {}
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Harper
+**Agent:** Harper, spawned by the coordinator, never executed inline
 **Input:** Task management layer, Calendar MCP
 **Output:** `content_inventory` — complete list of content items with type, deadline, and status stored in working memory for step 02
 

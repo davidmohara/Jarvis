@@ -23,7 +23,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Harper
+**Agent:** Harper, spawned by the coordinator, never executed inline
 **Input:** `accumulated-context.target_accounts`, `accumulated-context.audience_profile`
 **Output:** Target contact list, stored in `accumulated-context`
 

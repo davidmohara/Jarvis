@@ -22,7 +22,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Chase
+**Agent:** Chase, spawned by the coordinator, never executed inline
 **Input:** Partner details from step 01, account overlap from step 02, calendar, web, knowledge layer
 **Output:** Events calendar, partner news, office offerings, and co-sell program context stored in working memory for step 04
 

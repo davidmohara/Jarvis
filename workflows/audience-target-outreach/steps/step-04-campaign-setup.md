@@ -27,7 +27,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Harper
+**Agent:** Harper, spawned by the coordinator, never executed inline
 **Input:** Episode metadata, target contact list
 **Output:** Segment/Journey identifiers, stored in `accumulated-context`
 

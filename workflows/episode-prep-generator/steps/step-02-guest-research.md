@@ -28,7 +28,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Harper
+**Agent:** Harper, spawned by the coordinator, never executed inline
 **Input:** `guest_name`, `guest_title`, `guest_company`, `industry_domain`
 **Output:** A "guest context brief" object, stored in `state.yaml`'s
 `accumulated-context.guest_research`

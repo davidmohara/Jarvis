@@ -22,7 +22,7 @@ outputs: {}
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Harper
+**Agent:** Harper, spawned by the coordinator, never executed inline
 **Input:** Executive's request, event details
 **Output:** `event_context` — event type, audience, key topics, and domain context stored in working memory for step 02
 

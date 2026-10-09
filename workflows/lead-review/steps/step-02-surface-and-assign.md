@@ -14,6 +14,11 @@ previous: step-01-scan-leads.md
 
 # Step 2: Surface Unassigned Leads and Capture Assignment
 
+## EXECUTION PROTOCOL
+
+**Agent:** Chase, spawned by the coordinator, never executed inline
+
+
 ## Objective
 
 Present unassigned leads to David with urgency-appropriate language. Capture his AM assignments and write them back to the file.

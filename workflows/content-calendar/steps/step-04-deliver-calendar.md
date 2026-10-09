@@ -21,7 +21,7 @@ outputs: {}
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Harper
+**Agent:** Harper, spawned by the coordinator, never executed inline
 **Input:** `content_inventory` from step 01, `deadline_flags` from step 02, `recommendations` from step 03
 **Output:** Delivered calendar with task sync confirmation
 

@@ -22,7 +22,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Chief (Daily Operations)
+**Agent:** Chief, spawned by the coordinator, never executed inline
 **Input:** Task management inbox, M365 calendar (this week + next week), controller preferences
 **Output:** Inbox health report, calendar audit with prep needs and recommendations, stored in working memory
 

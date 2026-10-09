@@ -15,6 +15,11 @@ next: step-02-context-setting.md
 <!-- system:start -->
 # Step 1: Load Module
 
+## EXECUTION PROTOCOL
+
+**Agent:** Shep, spawned by the coordinator, never executed inline
+
+
 **Goal:** Find the module in the curriculum and load all required data.
 
 ## Process

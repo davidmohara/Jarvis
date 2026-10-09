@@ -21,7 +21,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Rigby
+**Agent:** Rigby, spawned by the coordinator, never executed inline
 **Input:** `approved_fixes` list from state.yaml
 **Output:** Modified system files, updated entry fix_status, files_modified list in state.yaml
 

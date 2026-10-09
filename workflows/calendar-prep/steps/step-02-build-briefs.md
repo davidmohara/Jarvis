@@ -22,7 +22,7 @@ outputs: {}
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Chief
+**Agent:** Chief, spawned by the coordinator, never executed inline
 **Input:** Meeting list with attendee context from step 01
 **Output:** Complete brief per meeting stored in working memory for step 03
 

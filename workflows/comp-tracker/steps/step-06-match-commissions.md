@@ -20,6 +20,8 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
+**Agent:** Chase, spawned by the coordinator, never executed inline
+
 | Role | Input | Output |
 |------|-------|--------|
 | **Chase** | Retrieved from Step 5: commission_eligible list, am_accounts; from Steps 1-2: revenue_map, profitability_map; current comp tracker Commissions sheet | Updated Commissions sheet with new commission records, ongoing commission updates, and flagged events (new, expiring, not-yet-matched) |

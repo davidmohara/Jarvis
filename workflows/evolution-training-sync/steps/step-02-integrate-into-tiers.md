@@ -12,6 +12,11 @@ outputs: {}
 <!-- system:start -->
 # Step 2 — Integrate into Curriculum
 
+## EXECUTION PROTOCOL
+
+**Agent:** Shep, spawned by the coordinator, never executed inline
+
+
 ## Purpose
 
 Add new modules to `training/curriculum.json`, handle deprecated modules, recalculate the completeness denominator, and preserve all existing progress in `training/state/progress.json`.

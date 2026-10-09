@@ -24,7 +24,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Harper
+**Agent:** Harper, spawned by the coordinator, never executed inline
 **Input:** Complete context from step 01, voice conventions
 **Output:** Draft email presented to the controller for review
 

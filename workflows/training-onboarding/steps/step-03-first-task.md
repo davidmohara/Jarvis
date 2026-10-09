@@ -15,6 +15,11 @@ next: step-04-progression-intro.md
 <!-- system:start -->
 # Step 3: First Real Task
 
+## EXECUTION PROTOCOL
+
+**Agent:** Shep, spawned by the coordinator, never executed inline
+
+
 **Goal:** Have the user run one real capability with their actual data. This isn't a demo — it's the first training module.
 
 ## Process

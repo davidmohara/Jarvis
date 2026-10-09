@@ -21,7 +21,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Chase
+**Agent:** Chase, spawned by the coordinator, never executed inline
 **Input:** Confirmed entity from step 01
 **Output:** 3-5 named, cited strategic priority themes — stored in accumulated-context for step 03 and step 05
 

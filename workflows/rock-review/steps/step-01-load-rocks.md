@@ -21,7 +21,7 @@ outputs: {}
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Quinn
+**Agent:** Quinn, spawned by the coordinator, never executed inline
 **Input:** `identity/GOALS_AND_DREAMS.md`
 **Output:** Rock inventory and quarter timeline stored in working memory for step 02
 

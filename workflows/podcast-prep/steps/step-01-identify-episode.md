@@ -22,7 +22,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Harper
+**Agent:** Harper, spawned by the coordinator, never executed inline
 **Input:** User's request — episode number (e.g., "Episode 5") or guest name (e.g., "Robyn Fuentes")
 **Output:** Episode details stored in working memory for subsequent steps
 

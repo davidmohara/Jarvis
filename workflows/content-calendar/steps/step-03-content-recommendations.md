@@ -21,7 +21,7 @@ outputs: {}
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Harper
+**Agent:** Harper, spawned by the coordinator, never executed inline
 **Input:** `deadline_flags` from step 02, knowledge layer, Quinn domain context
 **Output:** `recommendations` — topic suggestions with rationale stored in working memory for step 04
 

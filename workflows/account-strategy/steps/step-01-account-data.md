@@ -22,7 +22,7 @@ outputs: {}
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Chase
+**Agent:** Chase, spawned by the coordinator, never executed inline
 **Input:** Account name (from controller or upstream workflow), CRM, knowledge layer
 **Output:** Complete account data stored in working memory for step 03
 

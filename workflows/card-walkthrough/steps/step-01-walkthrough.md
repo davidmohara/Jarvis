@@ -14,6 +14,11 @@ description: Walk through each card portal with David, extract data, update file
 
 # Step 1: Portal Walkthrough
 
+## EXECUTION PROTOCOL
+
+**Agent:** Chase, spawned by the coordinator, never executed inline
+
+
 ## Process
 
 Walk through each card portal in sequence. For each card:

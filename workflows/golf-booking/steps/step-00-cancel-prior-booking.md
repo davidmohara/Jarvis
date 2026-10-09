@@ -33,7 +33,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Sterling
+**Agent:** Sterling, spawned by the coordinator, never executed inline
 **Input:** `workflows/golf-booking/state.yaml` (`booking-id`, `booking-date`,
 `booking-time` from the prior successful run) + `workflows/golf-booking/preview-output.json`
 (`override_instructions`, `top_options`)

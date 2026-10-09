@@ -21,7 +21,7 @@ outputs: {}
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Quinn
+**Agent:** Quinn, spawned by the coordinator, never executed inline
 **Input:** `rock_inventory` from step 01
 **Output:** `rock_evidence` map — evidence records per rock, stored in working memory for step 03
 

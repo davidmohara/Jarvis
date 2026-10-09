@@ -12,6 +12,11 @@ outputs: {}
 <!-- system:start -->
 # Step 1 — Detect New Components
 
+## EXECUTION PROTOCOL
+
+**Agent:** Shep, spawned by the coordinator, never executed inline
+
+
 ## Purpose
 
 Scan `evolution.manifest.json` for new agents and tasks introduced by applied evolutions. Compare against the current contents of `training/curriculum.json` to identify what has not yet been integrated.

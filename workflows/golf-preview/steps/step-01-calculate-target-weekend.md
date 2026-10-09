@@ -28,7 +28,7 @@ model: haiku
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Sterling
+**Agent:** Sterling, spawned by the coordinator, never executed inline
 **Input:** Current date (`currentDate` from system context)
 **Output:** Validated `target_friday`, `target_saturday`, `target_sunday`, stored in `state.yaml`'s `accumulated-context`
 

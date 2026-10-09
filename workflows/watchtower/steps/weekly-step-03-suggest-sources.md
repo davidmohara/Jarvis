@@ -23,6 +23,8 @@ outputs:
 
 ## EXECUTION PROTOCOL
 
+**Agent:** Knox, spawned by the coordinator, never executed inline
+
 | Field | Value |
 |-------|-------|
 | Agent | Knox |

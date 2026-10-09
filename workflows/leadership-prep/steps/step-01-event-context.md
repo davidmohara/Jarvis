@@ -21,7 +21,7 @@ outputs: {}
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Quinn
+**Agent:** Quinn, spawned by the coordinator, never executed inline
 **Input:** $ARGUMENTS (executive's request, event name/date), calendar (optional)
 **Output:** `event_context` — event type, audience, key expectations, content requirements
 

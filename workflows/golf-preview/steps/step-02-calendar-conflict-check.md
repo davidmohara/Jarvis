@@ -32,7 +32,7 @@ model: haiku
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Sterling
+**Agent:** Sterling, spawned by the coordinator, never executed inline
 **Input:** `target_friday`, `target_saturday`, `target_sunday` from step-01's output
 **Output:** Per-day availability status + CT time windows, stored in `accumulated-context`
 

@@ -21,7 +21,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Shep
+**Agent:** Shep, spawned by the coordinator, never executed inline
 **Input:** Controller request (person name, optionally date/time), calendar access, auto-memory
 **Output:** Confirmed meeting details stored in working memory for all subsequent steps
 

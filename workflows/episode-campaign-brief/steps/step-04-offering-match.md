@@ -24,7 +24,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Harper
+**Agent:** Harper, spawned by the coordinator, never executed inline
 **Input:** Pain points from `accumulated-context`
 **Output:** Offering matches + the assembled Episode Campaign Brief markdown
 document

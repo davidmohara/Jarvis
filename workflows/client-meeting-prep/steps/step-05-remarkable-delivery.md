@@ -25,6 +25,8 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
+**Agent:** Chase, spawned by the coordinator, never executed inline
+
 | Agent | Input | Output |
 |-------|-------|--------|
 | **Chase** | Markdown prep sheet from step 04 (`{Person Name} — {Company} — {YYYY-MM-DD}.md`) | Generates PDF via Python/weasyprint, determines display name, hands off exactly two values to Knox |

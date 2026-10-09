@@ -8,6 +8,11 @@ outputs: {}
 
 # Step 04: Benchmark Snapshot (DEPRECATED — moved to Step 07)
 
+## EXECUTION PROTOCOL
+
+**Agent:** Rigby, spawned by the coordinator, never executed inline
+
+
 ## YOUR TASK
 
 This step is deprecated. Benchmark snapshot has been moved to Step 07 (Verify & Log) to capture the baseline AFTER the evolution is applied, not before.

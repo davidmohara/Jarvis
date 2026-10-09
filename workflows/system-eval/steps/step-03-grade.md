@@ -22,7 +22,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Rigby
+**Agent:** Rigby, spawned by the coordinator, never executed inline
 **Input:** `needs_grade` list from state.yaml + eval records + workflow/skill output files
 **Output:** Graded eval records with letter grades and grader notes
 

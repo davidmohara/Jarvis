@@ -22,7 +22,7 @@ outputs: {}
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Chase
+**Agent:** Chase, spawned by the coordinator, never executed inline
 **Input:** Deal identifier (from controller), CRM, knowledge layer
 **Output:** Complete deal data stored in working memory for step 02
 

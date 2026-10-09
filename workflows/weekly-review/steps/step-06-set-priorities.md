@@ -22,7 +22,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Quinn (Strategy)
+**Agent:** Quinn, spawned by the coordinator, never executed inline
 **Input:** All data from steps 01-05 (wins/misses/themes, rock status, delegation state, inbox/calendar audit, people health)
 **Output:** Weekly review file written to `reviews/weekly/YYYY-Wxx.md`, priority list for next week
 

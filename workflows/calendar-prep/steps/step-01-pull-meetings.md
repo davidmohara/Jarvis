@@ -21,7 +21,7 @@ outputs: {}
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Chief
+**Agent:** Chief, spawned by the coordinator, never executed inline
 **Input:** Calendar (via MCP), knowledge layer
 **Output:** Meeting list with full attendee context stored in working memory for step 02
 

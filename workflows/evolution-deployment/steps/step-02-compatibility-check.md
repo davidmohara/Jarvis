@@ -8,6 +8,11 @@ model: sonnet
 
 # Step 02: Compatibility Check
 
+## EXECUTION PROTOCOL
+
+**Agent:** Rigby, spawned by the coordinator, never executed inline
+
+
 <!-- system:start -->
 ## Purpose
 

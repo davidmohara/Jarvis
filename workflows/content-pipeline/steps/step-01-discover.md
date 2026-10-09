@@ -23,7 +23,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Harper
+**Agent:** Harper, spawned by the coordinator, never executed inline
 **Trigger:** Runs daily at 6am via scheduled task
 **Input:** #content Slack channel (last 24 hours)
 **Output:** Ghost draft post + Slack notification with review instructions

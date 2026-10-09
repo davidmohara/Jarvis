@@ -21,7 +21,7 @@ outputs: {}
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Shep
+**Agent:** Shep, spawned by the coordinator, never executed inline
 **Input:** Task management layer (delegation entries), controller request (optional sort preference)
 **Output:** Raw delegation data structured in working memory, ready for step 02
 

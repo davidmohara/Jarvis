@@ -15,6 +15,11 @@ next: null
 <!-- system:start -->
 # Step 5: Record & Suggest Next
 
+## EXECUTION PROTOCOL
+
+**Agent:** Shep, spawned by the coordinator, never executed inline
+
+
 **Goal:** Update all training state files and recommend what to learn next.
 
 ## Process

@@ -14,6 +14,11 @@ description: Analyze the purchase and return the optimal card with full reasonin
 
 # Step 1: Recommend Best Card
 
+## EXECUTION PROTOCOL
+
+**Agent:** Chase, spawned by the coordinator, never executed inline
+
+
 ## Process
 
 ### 1. Identify the Purchase Category

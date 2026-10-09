@@ -12,6 +12,11 @@ outputs: {}
 <!-- system:start -->
 # Step 3 — Surface Discoveries
 
+## EXECUTION PROTOCOL
+
+**Agent:** Shep, spawned by the coordinator, never executed inline
+
+
 ## Purpose
 
 Generate "New capability available" discovery prompts for newly integrated components. Surface them at boot using capability framing (display names, not agent names or module IDs).

@@ -15,6 +15,11 @@ next: step-02-system-orientation.md
 <!-- system:start -->
 # Step 1: User Intake
 
+## EXECUTION PROTOCOL
+
+**Agent:** Shep, spawned by the coordinator, never executed inline
+
+
 **Goal:** Learn who the user is, what they do, and how they want to use the system.
 
 ## Process

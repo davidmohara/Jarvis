@@ -22,7 +22,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Chase
+**Agent:** Chase, spawned by the coordinator, never executed inline
 **Input:** Controller request (name/company, optionally date/time), calendar access, knowledge layer
 **Output:** Confirmed meeting logistics stored in accumulated-context for all subsequent steps
 

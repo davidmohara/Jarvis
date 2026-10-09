@@ -22,7 +22,7 @@ outputs: {}
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Chase
+**Agent:** Chase, spawned by the coordinator, never executed inline
 **Input:** Deal data from step 01, pattern analysis from step 02
 **Output:** Lessons written to knowledge layer, active deal recommendations delivered to the controller
 

@@ -15,6 +15,11 @@ next: step-03-update.md
 
 # Step 2: Action Items & Decisions
 
+## EXECUTION PROTOCOL
+
+**Agent:** Chase, spawned by the coordinator, never executed inline
+
+
 ## Process
 
 ### 1. Present Action Items

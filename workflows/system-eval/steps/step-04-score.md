@@ -20,7 +20,7 @@ model: haiku
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Rigby
+**Agent:** Rigby, spawned by the coordinator, never executed inline
 **Input:** All closed eval records in `systems/eval-harness/runs/`
 **Output:** Composite scores logged to state.yaml; script output surfaced in Step 6 summary
 

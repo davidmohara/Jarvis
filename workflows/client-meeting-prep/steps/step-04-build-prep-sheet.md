@@ -26,7 +26,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Chase
+**Agent:** Chase, spawned by the coordinator, never executed inline
 **Input:** All accumulated-context from steps 01-03
 **Output:** Complete prep sheet saved to the knowledge layer / working directory
 
