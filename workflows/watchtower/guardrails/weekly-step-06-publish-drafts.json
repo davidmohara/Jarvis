@@ -1,0 +1,5 @@
+{
+  "checkpoint_name": "pre-publish-review",
+  "description": "Pre-publish review checkpoint for watchtower weekly-step-06 (drafts posted to #content). Naming the checkpoint here makes the eval record carry a 'pre-publish-review' guardrail entry at this step's transition.",
+  "rules": []
+}

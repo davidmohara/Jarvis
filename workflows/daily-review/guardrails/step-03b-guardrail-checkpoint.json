@@ -1,0 +1,5 @@
+{
+  "checkpoint_name": "pre-commit-review",
+  "description": "Pre-commit review checkpoint for daily-review step-03b. Naming the checkpoint here makes the eval record carry a 'pre-commit-review' guardrail entry at this step's transition (assertion daily-006).",
+  "rules": []
+}

@@ -65,7 +65,7 @@ If all checks PASS:
 6. **Verify consistency:**
    - Check that dream.log last entry matches state.yaml.session-id (within 5 minutes)
    - If mismatch: LOG ERROR "dream.log and state.yaml out of sync!"
-   - Confirm no uncommitted changes remain (`git status` shows clean)
+   - Confirm no uncommitted changes remain with lock-free commands only (`git status` is forbidden — it writes `.git/index.lock`): `git diff --name-only HEAD` returning nothing
    - If uncommitted files exist: LOG WARNING "Uncommitted changes remain: {list}"
 
 7. **Record atomicity status:**

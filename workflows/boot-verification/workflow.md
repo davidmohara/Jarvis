@@ -12,7 +12,7 @@ model: sonnet
 
 **Agent:** Ralph — Verification Agent
 
-**Architecture:** Sequential 2-step workflow. Step 01 builds the manifest from the Phase 2 completion report. Step 02 spawns Ralph, receives his verdict, and surfaces any re-run requirements to Master.
+**Architecture:** Sequential 2-step (a deliberate deviation from the single-step verification-sub-workflow standard: boot's verification manifest is built separately from the verdict step, because the manifest construction and the adversarial verdict have different inputs and lenses) workflow. Step 01 builds the manifest from the Phase 2 completion report. Step 02 spawns Ralph, receives his verdict, and surfaces any re-run requirements to Master.
 
 **Adversarial lens (boot):** Ralph verifies boot completion claims against ground truth: `workflows/*/state.yaml`, the `data/*.json` unified pulls, and `systems/eval-harness/` records, rather than against the producing agent's summary. He re-derives "was this pulled" from the file's own timestamps and contents, and treats a claimed-but-unevidenced task as ⚠️ Unverified. This is the boot lens in `agents/adversarial-isolation.md`.
 <!-- system:end -->

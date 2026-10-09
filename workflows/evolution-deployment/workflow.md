@@ -51,7 +51,7 @@ Before starting workflow:
 1. Verify evolution_path exists and contains evolution.manifest.json
 2. Confirm current working directory is project root
 3. Check write permissions to all target directories
-4. Verify git status is clean (recommended but not required)
+4. Verify the tree is clean with lock-free commands (`git status` is forbidden — it writes `.git/index.lock`): `git diff --name-only HEAD` (recommended but not required)
 <!-- system:end -->
 
 <!-- personal:start -->

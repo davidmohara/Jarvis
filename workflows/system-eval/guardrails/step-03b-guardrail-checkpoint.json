@@ -1,0 +1,5 @@
+{
+  "checkpoint_name": "pre-score-review",
+  "description": "Pre-score review checkpoint for system-eval step-03b. Naming the checkpoint here makes the eval record carry a 'pre-score-review' guardrail entry at this step's transition.",
+  "rules": []
+}

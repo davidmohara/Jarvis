@@ -61,3 +61,4 @@ outputs: {}
 | Commit sha absent from manifest | Mark commit-dependent rows ⚠️ Unverified with note; do not guess the sha |
 | Audit log missing entirely | Mark wrapper-bypass ⚠️ and note "no audit log" — this is itself a finding |
 | Purge deleted a deliverable | ⚠️ escalate-class finding; report it plainly, do not soften |
+<!-- system:end -->

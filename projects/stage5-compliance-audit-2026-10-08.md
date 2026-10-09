@@ -108,7 +108,7 @@ Owner = workflow.md frontmatter agent. V = verifier coverage. G = guardrail json
 
 ## Correction plan (tiered, plan only)
 
-### Tier 1 — Fix now (certification surface, ~1 session, Rigby)
+### Tier 1 — Fix now (certification surface, ~1 session, Rigby) — **COMPLETE 2026-10-09** (all items: both unbalanced blocks balanced, shutdown-cleanup state.yaml agent, 3 missing guardrail checkpoint jsons, boot-verification spawn language + 2-step deviation documented, routing.md shutdown keyword removed, both git status instructions replaced with lock-free lists)
 The 4 candidates, shutdown-cleanup, their verification sub-workflows, and the two exemplar gaps:
 1. Balance the 2 unbalanced blocks in shutdown-cleanup step-05 and shutdown-cleanup-verification step-01 (author's own files).
 2. shutdown-cleanup state.yaml agent field → rigby.

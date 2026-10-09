@@ -20,7 +20,7 @@ These domains route to specialists immediately. Master does not execute these ta
 | **Knowledge & Vault** | **Knox** | "vault," "transcript," "Plaud," "remarkable," "notes," "search my notes," "what do I know about," "knowledge," "ingest" | Original request + capture source/content |
 | **Health & Wellness** | **Galen** | "WHOOP," "labs," "bloodwork," "recovery," "health," "protocol," "peptide," "supplement," "doctor visit," "body comp" | Original request + health data/biometrics |
 | **Personal Operations** | **Sterling** | "travel," "flights," "hotel," "dinner," "reservation," "wine," "gift," "personal," "errand," "/Jarvis," "subscription," "purchase" | Original request + preferences/history |
-| **Daily Operations** | **Chief** | "briefing," "morning," "schedule," "calendar prep," "inbox," "review," "shutdown," "what's my day," "meetings" | Original request + calendar/inbox context |
+| **Daily Operations** | **Chief** | "briefing," "morning," "schedule," "calendar prep," "inbox," "review," "what's my day," "meetings" | Original request + calendar/inbox context |
 
 **The spawn-first rule.** Master is the coordinator, never an executor. For anything beyond the short list under "When Master Acts Directly," Master's only move is to spawn the named owning agent and let it do the work. Three prohibitions follow directly, and none has an exception:
 

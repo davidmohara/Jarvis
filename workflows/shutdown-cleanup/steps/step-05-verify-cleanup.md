@@ -81,3 +81,4 @@ model: sonnet
 | Ralph cannot spawn | Record `flag` with reason "ralph-unavailable", note it in the summary; do not block the session exit |
 | No commit was needed (workspace clean) | Verify the nothing-to-commit claim against the lock-free diff lists; record Ralph's verdict on that claim |
 | guardrail-checkpoint refuses (validation or no record) | Fix the arguments and retry; an unrecordable escalate is a loud failure, surface it to the controller directly |
+<!-- system:end -->

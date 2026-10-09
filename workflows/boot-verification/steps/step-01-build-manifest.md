@@ -20,7 +20,7 @@ outputs: {}
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Master (running this step as part of boot orchestration)
+**Agent:** Ralph (boot-verification workflow, spawned by the boot subagent at step-03, never executed inline in the coordinator's session)
 **Input:** Phase 2 completion report from accumulated-context
 **Output:** Structured task manifest stored in accumulated-context for step 02
 
