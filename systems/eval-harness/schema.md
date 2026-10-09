@@ -285,7 +285,7 @@ Tier definitions:
 
 ### Turn-Level Lifecycle Fields (`monitoring`, `subagents`, `total_tokens_*`, `total_cost_usd`)
 
-Present only on records opened by `.claude/hooks/eval-turn-start.py` on `UserPromptSubmit` — this is the path for workflows whose frontmatter names `agent: master` (boot, shutdown-cleanup, weekly-review), which execute inline in the main session and therefore never get a `SubagentStart`/`SubagentStop` pair of their own to hang a record on. Records opened by `eval-agent-start.py` (a real spawned subagent, e.g. Knox running plaud-ingest) do not carry these fields.
+Present only on records opened by `.claude/hooks/eval-turn-start.py` on `UserPromptSubmit` — this is the path for workflows whose frontmatter names `agent: master` (boot, shutdown-cleanup), which execute inline in the main session and therefore never get a `SubagentStart`/`SubagentStop` pair of their own to hang a record on. Records opened by `eval-agent-start.py` (a real spawned subagent, e.g. Knox running plaud-ingest) do not carry these fields.
 
 | Field | Type | Description |
 |-------|------|-------------|

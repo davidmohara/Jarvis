@@ -379,8 +379,6 @@ This table maps workflow name → assigned agent → trigger context. Master use
 | training-module-runner | Shep | Load curriculum, coach through guided walkthrough, record mastery |
 | training-onboarding | Shep | First-launch onboarding, intake interview, orientation, first task |
 | training-status | Shep | Training dashboard, progress bar, mastery counts, next recommendation |
-| weekly-knowledge-review | Knox | Weekly review of knowledge capture, ingestion, action items, connections |
-| weekly-review | Master | Weekly review, rocks, delegations, inbox, calendar, people, priorities |
 | win-loss-analysis | Chase | Post-decision debrief, pattern recognition, lessons applied |
 | watchtower | Knox | Standing intelligence: daily gather/dedupe/score/summarize, weekly synthesis and draft publishing to #content |
 

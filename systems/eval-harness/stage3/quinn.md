@@ -49,7 +49,7 @@ python3 -c "import json,glob;r=[json.load(open(f)) for f in glob.glob('systems/e
 
 **Honesty note:** A single record cannot support a pass-rate claim. The 4/4
 assertion result is one run of the generic structural set, not Q1-Q3. Quinn's
-weekly-review workflow is explicitly dropped from the candidate set (0 eval
+weekly-review workflow is explicitly dropped from the candidate set (and retired 2026-10-09: the live flow is the quinn-weekly-review skill; the workflow dir was removed after a reference check) (0 eval
 records ever, never-started `state.yaml`). What is required: a fresh instrumented
 window of at least 10 strategy and rock-review runs scored against Q1-Q3, and a
 review of the strategy output against the quarterly objectives file to test Q3.

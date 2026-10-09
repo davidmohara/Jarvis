@@ -140,7 +140,9 @@ Verifier coverage is the expensive class (~170 uncovered steps across 42 workflo
 ### Sequencing
 Tier 1 immediately (it includes the author's own defects). Tier 2 next (mechanical, scriptable, unblocks honest registry). Tier 3 needs your call on items 13-15 (restore vs retire vs document-as-variant). Tier 4 needs your A/B/C decision — recommendation: A now, revisit C's pruning after the Stage 5 resubmission lands, so the pruning decision is not rushed before certification.
 
-## Decisions needed from David
-1. Tier 3 items: weekly-knowledge-review restore or retire? skill-optimize restructure? inline-spec workflows: extract or sanction the single-file form?
-2. Tier 4: certify-the-used-surface (A), instrument everything (B), or prune the dead surface (C)?
-3. weekly-review's fate: 8/8 verifiers exist and its structure is sound, but 0 eval records ever and it is already dropped from the candidate set. Keep as dormant-but-compliant, or fold into the quinn-weekly-review skill per the Phase 0 memo?
+## Decisions needed from David — **ALL DECIDED 2026-10-09**
+
+1. **weekly-knowledge-review: RETIRED.** Unrunnable (6 broken step references), 0 eval records ever, duties overlap dream-cycle and weekly flows. Reference-checked, registry row and assertions file removed, dir deleted.
+2. **Inline-spec workflows: EXTRACT ALL to steps/ dirs** (galen-monthly-health-review, knowledge-ingest, political-monitor, rock1-revenue-monthly, rock4-pipeline-weekly) plus skill-optimize's loose files moved into steps/. Extraction executed 2026-10-09.
+3. **Tier 4: Option A — certify the used surface.** Full instrumentation for the ~15 workflows with real usage (the 4 candidates, shutdown-cleanup, dream-cycle, system-eval, content-discovery/pipeline/approval, client-meeting-prep, one-on-one-prep, partner-meeting-prep, podcast-prep, talking-points, watchtower); hygiene-only for the rest, with this audit as the honest certified-vs-legacy boundary document for Tim. Pruning (option C) deferred until after resubmission.
+4. **weekly-review: RETIRED, skill kept.** 0 eval records ever, already dropped from candidates, the quinn-weekly-review skill carries the live flow. Reference-checked, registry row and assertions file removed, dir deleted; schema.md example list and the quinn stage3 artifact updated.
