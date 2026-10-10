@@ -94,14 +94,6 @@ model: sonnet
 ---
 
 
-## STEP COMPLETION TRACKING
-
-Record step completion for eval harness:
-
-```bash
-python3 systems/eval-harness/record-step.py one-texas-scorecard step-02-co-sell complete "${{frontmatter.started-at}}" "${{frontmatter.completed-at}}"
-```
-
 ## NEXT STEP
 
 Read fully and follow: `steps/step-03-pipeline.md`

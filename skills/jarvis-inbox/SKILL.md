@@ -116,39 +116,3 @@ has been sitting for more than 2 sessions without resolution, re-surface it with
 | Classification unclear | Surface the item to David with your best guess and let him decide |
 | Email has attachments | Note the attachment names but don't attempt to download — flag for David if action-dependent |
 
-## SKILL COMPLETE
-
-After the report is delivered, write the skill-run signal file so the eval harness captures this execution:
-
-```
-systems/eval-harness/skill-runs/jarvis-inbox-latest.json
-```
-
-Content:
-```json
-{
-  "skill": "jarvis-inbox",
-  "agent": "chief",
-  "trigger": "boot",
-  "started": "<ISO-8601 timestamp when this skill began>",
-  "status": "success",
-  "tool_failures": 0,
-  "error_ids": []
-}
-```
-
-Set `trigger` to `"boot"` when called from morning briefing or daily review, `"manual"` when called on demand. Set `status` to `"partial"` if M365 was unavailable or some items could not be processed, `"failure"` if the skill could not run. An empty inbox is still `"success"`. Use the actual start time of this skill execution for `started`. This write is always the final action.
-
-<!-- system:start -->
-## GRADE THIS RUN
-
-Immediately after writing the skill-run signal file above, run the deterministic grader as your actual final action:
-
-```bash
-python3 systems/eval-harness/grade_skill_run.py --skill jarvis-inbox
-```
-
-This prints a compact block: a structure/content/quality assertion breakdown, a deterministic % score, and a pass/fail gate status, computed from `systems/eval-harness/assertions/jarvis-inbox.json` (Tier 2 — 100% deterministic, no model judgment). It always exits 0, even when no assertion file exists yet (it will say so) or when checks fail.
-
-Include that printed block verbatim (or lightly reformatted to match your closing summary's style) in your final response to the operator — the deterministic grade must always reach the person reading the output, not just the eval record on disk. A qualitative (Tier 3) grade is added separately later via the end-of-day `rigby-eval-grade` sweep; do not attempt to compute or claim a qualitative grade yourself here.
-<!-- system:end -->

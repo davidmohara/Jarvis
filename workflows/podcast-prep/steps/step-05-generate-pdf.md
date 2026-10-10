@@ -152,13 +152,6 @@ The podcast prep workflow is done when: (1) the PDF passes all 15 visual checks,
 
 ---
 
-## STEP COMPLETION TRACKING
-
-Record step completion for eval harness:
-
-```bash
-python3 systems/eval-harness/record-step.py podcast-prep step-05-generate-pdf complete "${{frontmatter.started-at}}" "${{frontmatter.completed-at}}"
-```
 <!-- personal:end -->
 
 <!-- system:start -->

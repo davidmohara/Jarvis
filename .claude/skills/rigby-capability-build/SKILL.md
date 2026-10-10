@@ -83,45 +83,6 @@ $ARGUMENTS
 <!-- personal:start -->
 <!-- personal:end -->
 
-<!-- system:start -->
-## SKILL COMPLETE
-
-After the skill's final output is delivered, write the skill-run signal file so the eval harness captures this execution:
-
-```
-systems/eval-harness/skill-runs/{skill-name}-latest.json
-```
-
-Content:
-```json
-{
-  "skill": "{skill-name}",
-  "agent": "{agent}",
-  "trigger": "manual",
-  "started": "<ISO-8601 timestamp when this skill began>",
-  "completed": "<ISO-8601 timestamp when this skill finished>",
-  "status": "success",
-  "tool_failures": 0,
-  "error_ids": []
-}
-```
-
-Set `trigger` to `"boot"` if called from a boot workflow, `"scheduled"` if called from a scheduled task, `"manual"` otherwise. Set `status` to `"partial"` if the skill completed with degraded output, `"failure"` if it could not run at all. Use the actual start time of this skill execution for `started`. This write is always the final action.
-<!-- system:end -->
-
-<!-- system:start -->
-## GRADE THIS RUN
-
-Immediately after writing the skill-run signal file above, run the deterministic grader as your actual final action:
-
-```bash
-python3 systems/eval-harness/grade_skill_run.py --skill rigby-capability-build
-```
-
-This prints a compact block: a structure/content/quality assertion breakdown, a deterministic % score, and a pass/fail gate status, computed from `systems/eval-harness/assertions/rigby-capability-build.json` (Tier 2 — 100% deterministic, no model judgment). It always exits 0, even when no assertion file exists yet (it will say so) or when checks fail.
-
-Include that printed block verbatim (or lightly reformatted to match your closing summary's style) in your final response to the operator — the deterministic grade must always reach the person reading the output, not just the eval record on disk. A qualitative (Tier 3) grade is added separately later via the end-of-day `rigby-eval-grade` sweep; do not attempt to compute or claim a qualitative grade yourself here.
-<!-- system:end -->
 
 <!-- personal:start -->
 <!-- personal:end -->
@@ -283,110 +244,12 @@ Skills fall into two categories:
    <!-- system:end -->
 
    <!-- system:start -->
-   ## SKILL COMPLETE
-
-   After the skill's final output is delivered, write the skill-run signal file so the eval harness captures this execution:
-
-   \`\`\`
-   systems/eval-harness/skill-runs/{name}-latest.json
-   \`\`\`
-
-   Content:
-   \`\`\`json
-   {
-     "skill": "{name}",
-     "agent": "{agent}",
-     "trigger": "manual",
-     "started": "<ISO-8601 timestamp when this skill began>",
-     "completed": "<ISO-8601 timestamp when this skill finished>",
-     "status": "success",
-     "tool_failures": 0,
-     "error_ids": []
-   }
-   \`\`\`
-
-   Set `trigger` to `"boot"` if called from a boot workflow, `"scheduled"` if called from a scheduled task, `"manual"` otherwise. Set `status` to `"partial"` if the skill completed with degraded output, `"failure"` if it could not run at all. Use the actual start time of this skill execution for `started`. This write is always the final action.
-   <!-- system:end -->
+      <!-- system:end -->
    ```
 
 **The SKILL COMPLETE block belongs in the stub (`.claude/skills/`), not the content file (`skills/`).** The eval harness signal write is triggered by Claude Code after execution — it must live in the file Claude Code loaded, which is the stub. The content file in `skills/` handles the actual work; the stub handles the harness handshake.
 
-**Every skill must include a `## SKILL COMPLETE` section.** This is mandatory — it is what connects the skill to the eval harness. Add it as the last section before `<!-- system:end -->` in the primary system block (the block containing the Process section, not the Tool Bindings or Input blocks). It must instruct the executing agent to write the skill-run signal file after the skill's final output is delivered:
-
-```markdown
-## SKILL COMPLETE
-
-After [the skill's final output step], write the skill-run signal file so the eval harness captures this execution:
-
-```
-systems/eval-harness/skill-runs/{skill-name}-latest.json
-```
-
-Content:
-```json
-{
-  "skill": "{skill-name}",
-  "agent": "{owning-agent}",
-  "trigger": "manual",
-  "started": "<ISO-8601 timestamp when this skill began>",
-  "status": "success",
-  "tool_failures": 0,
-  "error_ids": []
-}
-```
-
-Set `trigger` to `"boot"` if called from the morning briefing or a workflow, `"scheduled"` if called from a scheduled task, `"manual"` otherwise. Set `status` to `"partial"` if the skill completed with degraded output, `"failure"` if it could not run at all. Use the actual start time of this skill execution for `started`. This write is always the final action — it is what creates the eval record in the harness.
-```
-
-The hook (`post-tool-use.py`) watches for writes matching `systems/eval-harness/skill-runs/*.json` and automatically creates the eval record in `systems/eval-harness/runs/` from the signal file content. No other instrumentation code is needed — the write itself is the trigger.
-
-**Execution-side-effect skills must declare a plan-only mode.** If the skill writes to external systems (rmapi, MCP write tools, Slack, Outlook, file uploads, anything irreversible), include a top-level section titled `## Plan-Only Mode` that says:
-
-> If the prompt contains the phrase "do not execute" or `eval-mode: plan-only`, do not run any side-effect tools. Instead, produce a markdown plan describing the commands you would issue, in order, with rationale and the inputs you would pass to each. Save the plan to the requested output path and stop. Do not call rmapi/Slack/MCP-write/etc. under any circumstances.
-
-This is required because evals against execution skills run executor subagents that cannot safely produce real side effects. Without an explicit plan-only branch, the executor has to infer the override, which produces inconsistent behavior and false grader failures. Skills with no side effects (drafting, analysis, persona work) do not need this section.
-
-**Workflows:**
-- `workflow.md` lists all steps with one-line descriptions and step file references
-- Each `steps/step-{N:02}-{name}.md` is self-contained with entry conditions, process, and outputs
-- Workflow has a ROLLBACK PROTOCOL section if the workflow makes changes to system files
-
-**Workflow state tracking is mandatory — every new workflow must include all three of the following:**
-
-**A. `state.yaml`** — create at `workflows/{name}/state.yaml` with this initial content:
-
-```yaml
----
-workflow: {workflow-name}
-agent: {agent-name}
-status: not-started
-session-started: ~
-session-id: ~
-current-step: ~
-original-request: ~
-accumulated-context: {}
----
-```
-
-At runtime, the agent writes `status: in-progress`, `session-id`, `session-started`, `original-request`, and `current-step: step-01` when the workflow starts. After each step, it updates `current-step` to the next step and writes that step's outputs into `accumulated-context`. On completion: `status: complete`. Never delete accumulated-context keys mid-run — later steps depend on them.
-
-**B. Step file frontmatter** — every `steps/step-{N:02}-{name}.md` must begin with this YAML block (before `<!-- system:start -->`):
-
-```yaml
----
-status: not-started
-started-at: ~
-completed-at: ~
-outputs: {}
----
-```
-
-The agent writes `status: in-progress` + `started-at` before executing the step, and `status: complete` + `completed-at` + populated `outputs` keys after. The `outputs` keys for each step must be documented in that step's YOUR TASK section. These same keys are written into `state.yaml`'s `accumulated-context` when the step completes.
-
-**C. STATE CHECK block** — add this to `workflow.md` in the INITIALIZATION section, before the EXECUTION instruction:
-
-```markdown
-## STATE CHECK — Run Before Any Execution
+**Every skill must include a `## STATE CHECK — Run Before Any Execution
 
 1. Read `state.yaml` in this workflow directory.
 

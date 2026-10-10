@@ -379,6 +379,16 @@ def main():
 
     sweep_orphaned_records(exclude=eval_path)
 
+    # Phase F2 (2026-10-10): finalize pending skill runs captured by the
+    # PostToolUse(Skill) hook (eval-skill-invoke.py). Hook-based capture
+    # replaces the retired in-file SKILL COMPLETE sections.
+    try:
+        import skill_capture
+        skill_capture.finalize(session_id)
+        skill_capture.sweep_stale()
+    except Exception as e:
+        log_error(f"skill-capture finalize failed: {e}", TAG)
+
     if not eval_path:
         return  # no eval was opened under this Stop's session_id — no-op
                 # for THIS session, per spec. The sweep above still ran, so

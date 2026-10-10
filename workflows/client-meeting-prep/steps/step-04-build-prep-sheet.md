@@ -197,14 +197,6 @@ outputs:
 
 ---
 
-## STEP COMPLETION TRACKING
-
-Record step completion for eval harness:
-
-```bash
-python3 systems/eval-harness/record-step.py client-meeting-prep step-04-build-prep-sheet complete "${{frontmatter.started-at}}" "${{frontmatter.completed-at}}"
-```
-
 ## NEXT STEP
 
 The prep sheet markdown has been delivered and saved. Update `state.yaml`: set `current-step: step-05`. Proceed to `steps/step-05-remarkable-delivery.md` to render the PDF and push it to David's reMarkable tablet. Do not mark the workflow complete yet — that happens at the end of step 05.

@@ -126,35 +126,6 @@ Each gate is documented in full inside its owning step file. Summary:
 Hands off to `workflows/golf-booking/workflow.md`, which reads `preview-output.json` at
 midnight (8 days before the target date) and performs the live booking.
 
-## SKILL COMPLETE
-
-After the workflow's final output is delivered, write the skill-run signal file so the eval
-harness captures this execution:
-
-```
-systems/eval-harness/skill-runs/golf-preview-latest.json
-```
-
-Content:
-```json
-{
-  "skill": "golf-preview",
-  "agent": "sterling",
-  "trigger": "manual",
-  "started": "<ISO-8601 timestamp when this workflow began>",
-  "completed": "<ISO-8601 timestamp when this workflow finished>",
-  "status": "success",
-  "tool_failures": 0,
-  "error_ids": []
-}
-```
-
-Set `trigger` to `"boot"` if called from the morning briefing or a boot workflow, `"scheduled"`
-if called from a scheduled task, `"manual"` otherwise. Set `status` to `"partial"` if any soft
-gate degraded (Gate 2 or Gate 3 flagged), `"failure"` if a hard gate (1, 4, or 5) blocked
-completion and no fallback recovered it. Use the actual start time of this workflow's
-execution for `started`. This write is always the final action.
-
 <!-- system:end -->
 
 <!-- personal:start -->

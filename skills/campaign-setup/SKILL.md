@@ -100,50 +100,5 @@ mode.
 | CRM login wall / expired SSO | Flag to controller, retry once confirmed. |
 | A target contact has no existing CRM Contact record | Create one (this is the one exception to "read-only" in the targeting skills), and clearly flag which contacts were newly created vs. pre-existing. |
 
-## SKILL COMPLETE
-
-After the Segment/Journey are created (or confirmed reused) and contacts are
-added, write the skill-run signal file so the eval harness captures this
-execution:
-
-```
-systems/eval-harness/skill-runs/campaign-setup-latest.json
-```
-
-Content:
-```json
-{
-  "skill": "campaign-setup",
-  "agent": "harper",
-  "trigger": "manual",
-  "started": "<ISO-8601 timestamp when this skill began>",
-  "completed": "<ISO-8601 timestamp when this skill finished>",
-  "status": "success",
-  "tool_failures": 0,
-  "error_ids": []
-}
-```
-
-**Eval-harness exception:** if this invocation is an eval-harness executor run (simulating this skill for grading, benchmarking, or testing rather than a genuine Harper-invoked production run), do NOT write this signal file. Writing it from a simulation would falsely register a live skill run in the production eval-harness tracking system. Only write it when this is an actual production invocation.
-
-Set `trigger` to `"boot"` if called from a boot workflow, `"scheduled"` if
-called from a scheduled task, `"manual"` otherwise. Set `status` to
-`"partial"` if the Segment/Journey were created but the config sanity check
-flagged a send-readiness gap, `"failure"` if the write itself could not
-complete (auth failure, name collision unresolved). Use the actual start time
-for `started`. This write is always the final action.
 <!-- system:end -->
 
-<!-- system:start -->
-## GRADE THIS RUN
-
-Immediately after writing the skill-run signal file above, run the deterministic grader as your actual final action:
-
-```bash
-python3 systems/eval-harness/grade_skill_run.py --skill campaign-setup
-```
-
-This prints a compact block: a structure/content/quality assertion breakdown, a deterministic % score, and a pass/fail gate status, computed from `systems/eval-harness/assertions/campaign-setup.json` (Tier 2 — 100% deterministic, no model judgment). It always exits 0, even when no assertion file exists yet (it will say so) or when checks fail.
-
-Include that printed block verbatim (or lightly reformatted to match your closing summary's style) in your final response to the operator — the deterministic grade must always reach the person reading the output, not just the eval record on disk. A qualitative (Tier 3) grade is added separately later via the end-of-day `rigby-eval-grade` sweep; do not attempt to compute or claim a qualitative grade yourself here.
-<!-- system:end -->

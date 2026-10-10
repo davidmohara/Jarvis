@@ -145,14 +145,6 @@ Before compressing any entries, monitor thresholds and get controller approval:
 | `memory/episodic/digests/` directory not found | Create it. Then proceed. |
 
 
-## STEP COMPLETION TRACKING
-
-Record step completion for eval harness:
-
-```bash
-python3 systems/eval-harness/record-step.py dream-cycle step-04-episodic-compression complete "${{frontmatter.started-at}}" "${{frontmatter.completed-at}}"
-```
-
 ## NEXT STEP
 
 Read fully and follow: `steps/step-05-logging.md`

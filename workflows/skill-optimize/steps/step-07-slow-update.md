@@ -100,13 +100,7 @@ The slow-update content must pass the same gate as regular edits.
 **Apply to SKILL.md:**
 
 If the SKILL.md already has a `<!-- SLOW_UPDATE_START/END -->` block: replace its content.
-If not: append the block at the end of the main body (before `## SKILL COMPLETE` if present).
-
-Write the updated SKILL.md to `skills/{skill_id}/candidates/epoch-{epoch_number}-slow-update.md` first (do not overwrite SKILL.md directly yet).
-
-Score the epoch candidate against selection records (same formula as step-05). If score ≥ current `best_score`: commit to SKILL.md and update `best_score`. If score < `best_score`: discard the slow-update content and log the failure to `slow_update_history_path`.
-
-### 6. Update Slow-Update History
+If not: append the block at the end of the main body (before `### 6. Update Slow-Update History
 
 Write or append to `slow_update_history_path`:
 

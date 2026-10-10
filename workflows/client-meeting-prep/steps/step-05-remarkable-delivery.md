@@ -146,14 +146,6 @@ outputs:
 
 ---
 
-## STEP COMPLETION TRACKING
-
-Record step completion for eval harness:
-
-```bash
-python3 systems/eval-harness/record-step.py client-meeting-prep step-05-remarkable-delivery complete "${{frontmatter.started-at}}" "${{frontmatter.completed-at}}"
-```
-
 ## NEXT STEP
 
 The prep sheet markdown is delivered (step 04), the PDF is generated, and Knox has confirmed the upload result (success or a clearly flagged failure) back through Chase to David. Do NOT mark the workflow complete yet.

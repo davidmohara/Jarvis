@@ -164,14 +164,6 @@ Before promoting any entry to semantic memory, check for duplicates:
 | No promotion candidates found | Log `clusters_found: 0`. Proceed directly to error pattern check. |
 
 
-## STEP COMPLETION TRACKING
-
-Record step completion for eval harness:
-
-```bash
-python3 systems/eval-harness/record-step.py dream-cycle step-03-semantic-promotion complete "${{frontmatter.started-at}}" "${{frontmatter.completed-at}}"
-```
-
 ## NEXT STEP
 
 Read fully and follow: `steps/step-03b-guardrail-checkpoint.md`

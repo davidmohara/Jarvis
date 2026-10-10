@@ -51,17 +51,7 @@ Set `candidate_path = skills/{skill_id}/candidates/round-{round_number}-candidat
 
 Process each edit in `priority_rank` order (lowest rank number first):
 
-**`append`**: Add `content` at the end of the main skill body, before the `## SKILL COMPLETE` section if one exists. Do not append inside the slow-update protected region.
-
-**`insert_after`**: Find the first occurrence of `target` text in the main body (outside protected regions). Insert `content` immediately after it (new line). If `target` not found: skip, log to `skipped_edits[]`.
-
-**`replace`**: Find the first occurrence of `target` text (outside protected regions). Replace it with `content`. If `target` not found: skip, log to `skipped_edits[]`.
-
-**`delete`**: Find the first occurrence of `target` text (outside protected regions). Remove it. If `target` not found: skip, log to `skipped_edits[]`.
-
-After each operation, verify the resulting text is valid markdown (no unclosed tags, no broken section structure).
-
-### 4. Validate Candidate
+**`append`**: Add `content` at the end of the main skill body, before the `### 4. Validate Candidate
 
 After applying all edits:
 

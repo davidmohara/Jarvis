@@ -155,35 +155,6 @@ This is the final phase of the weekly golf booking pipeline. Next run of `workfl
 triggers automatically the following week; this workflow is triggered by the scheduled task
 `golf-tee-time-booking` (`config/scheduled-tasks.json`).
 
-## SKILL COMPLETE
-
-After the workflow's final output is delivered, write the skill-run signal file so the eval
-harness captures this execution:
-
-```
-systems/eval-harness/skill-runs/golf-booking-latest.json
-```
-
-Content:
-```json
-{
-  "skill": "golf-booking",
-  "agent": "sterling",
-  "trigger": "manual",
-  "started": "<ISO-8601 timestamp when this workflow began>",
-  "completed": "<ISO-8601 timestamp when this workflow finished>",
-  "status": "success",
-  "tool_failures": 0,
-  "error_ids": []
-}
-```
-
-Set `trigger` to `"scheduled"` when fired by the scheduled task, `"manual"` otherwise. Set
-`status` to `"partial"` if a soft gate degraded (Gate 5) but the booking itself succeeded,
-`"failure"` if a hard gate (1-4, 6, or 7) blocked completion with no successful booking. Use
-the actual start time of this workflow's execution for `started`. This write is always the
-final action.
-
 <!-- system:end -->
 
 <!-- personal:start -->
