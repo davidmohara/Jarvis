@@ -10,7 +10,9 @@ Mechanically enforces the rules that skills/git/SKILL.md states as prose:
   - `commit` lints Conventional Commits before running
   - `commit` refuses when gated directories changed unless --ack-gated is set
   - `add`/`commit` scan diffs for credential-shaped content before running
-  - every invocation is appended to systems/eval-harness/git-ops.jsonl
+  - every invocation is appended to an untracked audit spool (.git/ies/git-ops.jsonl),
+    which the next `add` folds into the tracked systems/eval-harness/git-ops.jsonl
+    (so the tracked log is never dirty by construction and never blocks rebase/autostash)
 
 Invoked directly (python3 skills/git/scripts/ies-git <git args>) or
 transparently, by .claude/hooks/git-gate.py rewriting raw `git <write-verb>`
@@ -34,6 +36,12 @@ from pathlib import Path
 
 IES_ROOT = Path(__file__).resolve().parents[3]
 AUDIT_LOG = IES_ROOT / "systems" / "eval-harness" / "git-ops.jsonl"
+# Live audit lines append to an untracked spool inside .git/ (invisible to
+# git, immune to rebase/autostash, never dirty) and are folded into the
+# tracked AUDIT_LOG only when an `add` is already staging, so the tracked
+# file is never dirty by construction (2026-10-10: the always-dirty tracked
+# log broke `git pull --rebase --autostash`).
+AUDIT_SPOOL = IES_ROOT / ".git" / "ies" / "git-ops.jsonl"
 ALLOWLIST_PATH = IES_ROOT / "skills" / "git" / "scripts" / "secret-allowlist.txt"
 
 GATED_DIRS = ("workflows/", "skills/", "agents/", "systems/", ".claude/skills/")
@@ -106,9 +114,10 @@ def git(args, capture=False):
 
 
 def audit(verb, argv, exit_code, ack_gated, allow_destructive, refused=False, reason=None):
-    """Append one JSON line per operation or policy refusal. Truncate long -m
-    payloads. Refusals are audited with refused=true so the log doubles as
-    continuously-accumulating bypass-attempt evidence."""
+    """Append one JSON line per operation or policy refusal to the untracked
+    spool (folded into the tracked AUDIT_LOG at the next `add` harvest).
+    Truncate long -m payloads. Refusals are audited with refused=true so the
+    log doubles as continuously-accumulating bypass-attempt evidence."""
     safe_argv = []
     for a in argv:
         if len(a) > 120:
@@ -129,11 +138,33 @@ def audit(verb, argv, exit_code, ack_gated, allow_destructive, refused=False, re
     if reason:
         entry["reason"] = reason[:200]
     try:
-        AUDIT_LOG.parent.mkdir(parents=True, exist_ok=True)
-        with open(AUDIT_LOG, "a") as f:
+        AUDIT_SPOOL.parent.mkdir(parents=True, exist_ok=True)
+        with open(AUDIT_SPOOL, "a") as f:
             f.write(json.dumps(entry) + "\n")
     except OSError as e:  # the audit log must never block a git operation
-        print(f"Warning: could not append git-ops audit log: {e}", file=sys.stderr)
+        print(f"Warning: could not append git-ops audit spool: {e}", file=sys.stderr)
+
+
+def harvest_audit():
+    """Fold the untracked spool into the tracked AUDIT_LOG.
+
+    Called at the start of `add` operations only: the harvested lines land in
+    the working tree right before staging, so they are staged (and committed)
+    by that same add instead of leaving the tracked log dirty. Never blocks a
+    git operation."""
+    try:
+        if not AUDIT_SPOOL.is_file():
+            return
+        data = AUDIT_SPOOL.read_text()
+        if not data.strip():
+            AUDIT_SPOOL.unlink()
+            return
+        AUDIT_LOG.parent.mkdir(parents=True, exist_ok=True)
+        with open(AUDIT_LOG, "a") as f:
+            f.write(data if data.endswith("\n") else data + "\n")
+        AUDIT_SPOOL.unlink()
+    except OSError as e:
+        print(f"Warning: could not harvest git-ops audit spool: {e}", file=sys.stderr)
 
 
 def refuse(verb, argv, code, msg, ack_gated=False, allow_destructive=False, reason=None):
@@ -234,6 +265,10 @@ def main():
                 ack_gated=ack_gated, reason="non-canonical-root-entry")
 
     if verb == "add":
+        # Fold the audit spool into the tracked log BEFORE staging, so the
+        # harvested lines are staged (and committed) by this same add and the
+        # tracked log is never dirty by construction.
+        harvest_audit()
         paths = [a for a in argv[1:] if not a.startswith("-")]
         diff = git(["diff", "--"] + (paths if paths else []), capture=True)
         # `git diff` shows nothing for untracked files, so read untracked

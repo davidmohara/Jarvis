@@ -35,6 +35,7 @@ def load_module(tmp_root):
     mod = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(mod)
     mod.AUDIT_LOG = tmp_root / "git-ops-test.jsonl"  # keep test writes out of the real log
+    mod.AUDIT_SPOOL = tmp_root / "git-ops-spool-test.jsonl"  # and out of the real .git/ spool
     return mod
 
 
@@ -144,7 +145,12 @@ def main():
     code = run_wrapper(mod, ["reset", "--hard"])
     assert code == 3, code
 
-    # audit log: every execution AND every policy refusal recorded
+    # audit log: every execution AND every policy refusal recorded.
+    # The reset refusal above ran last, so its line is still in the spool;
+    # real runs harvest at the next `add` — fold it here deterministically.
+    mod.harvest_audit()
+    assert not mod.AUDIT_SPOOL.exists() or not mod.AUDIT_SPOOL.read_text().strip(), \
+        "harvest must empty the spool"
     entries = [json.loads(l) for l in (tmp / "git-ops-test.jsonl").read_text().splitlines() if l.strip()]
     verbs = {e["verb"] for e in entries}
     assert "commit" in verbs and "add" in verbs, verbs
@@ -155,6 +161,15 @@ def main():
         assert expected in reasons, f"refusal reason {expected!r} missing from audit log: {sorted(reasons)}"
     refused_all = [e for e in entries if e["refused"] is True]
     assert refused_all and all(e["exit_code"] != 0 for e in refused_all), "every audited refusal must carry its exit code"
+
+    # spool behavior: a new op appends ONLY to the spool, never the tracked
+    # log, so the tracked log is never dirty by construction
+    before = mod.AUDIT_LOG.read_text() if mod.AUDIT_LOG.exists() else ""
+    run_wrapper(mod, ["status"])  # refused op, audited
+    assert mod.AUDIT_SPOOL.exists() and mod.AUDIT_SPOOL.read_text().strip(), \
+        "a new op must append to the spool"
+    assert (mod.AUDIT_LOG.read_text() if mod.AUDIT_LOG.exists() else "") == before, \
+        "a new op must not touch the tracked log"
 
     print("test_ies_git: all cases passed")
 
