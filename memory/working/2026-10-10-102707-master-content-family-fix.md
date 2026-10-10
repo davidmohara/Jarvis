@@ -24,11 +24,11 @@ David confirmed content-pipeline, content-discovery, and content-approval ALL ru
 - False "retired"/lineage claims and build meta-commentary removed from content-discovery, content-approval, their steps, verifier docstrings, and both descriptions in `config/scheduled-tasks.json`.
 - All verifiers compile; no stale path references remain; personal block structure preserved throughout.
 
-## Open items surfaced (need David)
+## Open items surfaced (need David), resolved 2026-10-10
 
-1. GATE 3 design question (removed from files, parked here): is "request revisions" the right single outcome, vs. editorial-edit and regenerate as two separately-gated outcomes?
-2. `workflows/content-approval/ghost_update_v2.py` is FLAGGED FOR HUMAN REVIEW: redacted-credential reference copy. Keep, or delete entirely since the JWT pattern is documented in step-01-approve.md?
-3. Content-family step frontmatter `outputs:` mirrors still serve as content-pipeline-verification's data source; their purge is gated on Phase F4 reader migration.
+1. GATE 3 design: David confirmed "request revisions" as one outcome is fine. No change.
+2. `workflows/content-approval/ghost_update_v2.py`: David directed deletion. Deleted; its documentation reference removed from workflow.md (JWT pattern remains documented in step-01-approve.md).
+3. Content-family step frontmatter `outputs:` mirrors still serve as content-pipeline-verification's data source; David confirmed deferring their purge to Phase F4 reader migration.
 
 ## Follow-ups
 
