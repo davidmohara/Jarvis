@@ -219,17 +219,8 @@ blackout-date or holiday-calendar awareness to `date-calculate`, that lookup wou
    than silently skipping notification. Return `confirmation: "created-unverified"` or
    `"failed"`, `fallback_notified: true`, `backend_used` set to whichever backend was attempted.
 
-## Plan-Only Mode
-
-If the prompt contains the phrase "do not execute" or `eval-mode: plan-only`, do not run any
-side-effect tools for the `event-create` operation (no `outlook_create_event` call on the M365
-backend, no AppleScript execution against Calendar.app on that backend). Instead, produce a
-markdown plan describing the create call(s) you would issue for the resolved `calendar_backend`,
-in order, with rationale and the inputs you would pass to each. Save the plan to the requested
-output path and stop. Do not call either backend's create mechanism under any circumstances in
-this mode. `conflict-check` and `date-calculate` are read-only and are not gated by this mode —
-they may still execute normally, against whichever `calendar_backend` was specified, to support
-planning.
+Plan-Only Mode: follow `reference/plan-only-mode-protocol.md`.
+This skill's gated action is the `event-create` side effect on either backend; `conflict-check` and `date-calculate` are read-only and are not gated.
 
 ## Error Handling
 

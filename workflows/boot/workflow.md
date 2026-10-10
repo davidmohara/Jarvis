@@ -12,12 +12,9 @@ model: sonnet
 
 ## STATE CHECK
 
-1. Read `state.yaml`
-2. If `status: in-progress`:
-   - If `session-started` > 4 hours old: treat as stale, fresh run
-   - Else: resume from `current-step`
-3. If `status: complete` or `not-started`: fresh run
-4. If `status: aborted`: ask controller
+Read and follow `reference/state-check-protocol.md` before any execution. Workflow: `boot`; agent: `master`.
+
+**Variant:** if `status: in-progress` but `session-started` is more than 4 hours old, treat the run as stale and start fresh.
 
 ## DATA SOURCES
 

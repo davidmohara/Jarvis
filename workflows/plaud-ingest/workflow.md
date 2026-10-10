@@ -22,34 +22,11 @@ model: haiku
 ---
 
 <!-- system:start -->
-## STATE CHECK — Run Before Any Execution
+## STATE CHECK
 
-1. Read `state.yaml` in this workflow directory.
+Read and follow `reference/state-check-protocol.md` before any execution. Workflow: `plaud-ingest`; agent: `knox`.
 
-2. If `status: in-progress`:
-   - You are resuming a previous run. Do NOT start over.
-   - Read `current-step` to find where to continue.
-   - Load `accumulated-context` — this is data already gathered. Do not re-gather it.
-   - Check that step's frontmatter:
-     - If `status: in-progress`: the step was interrupted mid-execution — re-execute it.
-     - If `status: not-started`: begin it fresh.
-   - Notify the controller: "[Knox]: Resuming plaud-ingest from [current-step]."
-
-3. If `status: awaiting-input`:
-   - The workflow is paused waiting for speaker identification input from the controller.
-   - Read `accumulated-context.pending-speaker-mappings` to see what questions were asked.
-   - Do NOT re-ask. If the controller is providing answers now, apply them and proceed to step-04.
-   - If no answers are present in this session yet, re-surface the speaker questions.
-
-4. If `status: not-started` or `status: complete`:
-   - Fresh run. Initialize `state.yaml`: set `status: in-progress`, generate `session-id` as
-     `pi-YYYYMMDD-NNN`, write `session-started` and `original-request`, set `current-step: step-01`.
-   - Begin at step-01.
-
-5. If `status: aborted` or `status: blocked`:
-   - Reset to fresh run. Set `status: not-started`. Clear `blocker` field if present.
-   - Notify the controller: "[Knox]: plaud-ingest was previously aborted/blocked — resetting to fresh run."
-   - Proceed to step-01 immediately. Do NOT wait for instruction.
+**Variant:** extra case `status: awaiting-input`: the run is paused for speaker identification. Read `accumulated-context.pending-speaker-mappings`, do not re-ask, apply any answers and proceed to step-04, or re-surface the speaker questions if none are present. `status: blocked` is treated with aborted: reset to `status: not-started`, clear the `blocker` field, notify the controller, and proceed to step-01 without waiting.
 
 ---
 

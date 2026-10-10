@@ -52,20 +52,17 @@ When the user asks about Obsidian, use the Obsidian MCP server to access their v
 
 ## Error Logging
 
-When David corrects you — any correction, any agent — **log it immediately in the same response by writing a new file to `systems/error-tracking/entries/<id>.json`.** Do not acknowledge verbally and move on. The log write is non-negotiable and happens before anything else. Generate the id with `python3 systems/error-tracking/new-entry.py --id-only` and follow the schema in `systems/error-tracking/schema.md`. This is fully autonomous — no approval needed.
+When David corrects you — any correction, any agent — **log it immediately in the same response. Do not acknowledge verbally and move on.** The log write is non-negotiable and happens before anything else. The full protocol (write path, id generation, schema, threshold alerting) lives in `agents/conventions.md` → "Error Reporting Protocol".
 
 ## Exit Behavior
 
 When the user says they want to exit, log off, or end the session:
 
-1. **Close open eval records.** Run `python3 systems/eval-harness/close-open-evals.py systems/eval-harness/runs/` to mark any in-progress evals with status `incomplete` and abort_reason `session-exit-normal`. This prevents incomplete interactive work from being counted as system failures in the success-rate metric.
-2. **Working memory sweep.** Check `memory/working/` for entries written this session (match today's date in filename). If none exist and significant work was done this session, write one now. This is the safety net — Master's Agent Output Handling should have already written entries during the session, but if anything was missed, catch it here.
-3. **Eval feedback sweep.** Scan `systems/eval-harness/runs/` for eval records where `started` matches today's date AND `assessment.controller_feedback.rating == null` AND `steps` array is non-empty (not orphaned stubs). If any exist (cap at 3), surface them for a quick rating before exit:
-   ```
-   Before we close — {N} workflow(s) ran today. Quick ratings ("positive", "negative", or "skip"):
-   1. {name} ({eval_id}) — score {score}, grade {grade}
-   ```
-   Write any ratings received back to the eval record's `controller_feedback.rating` and `timestamp` fields immediately. If the controller skips or there are no records to rate, proceed without delay.
-4. **Tier 3 grading sweep.** Invoke `rigby-eval-grade --since {today}` to assign qualitative (model-judged) grades to every eval record created today that doesn't have one yet. This is the batched alternative to grading every skill invocation live — each skill invocation already prints a deterministic Tier 1+2 score (structure/content/quality assertions, `systems/eval-harness/assertion_checks.py`) in its own closing output; this step adds the Tier 3 qualitative layer once per day instead of spawning a model-graded pass on every single call. Skip silently if there are no ungraded records for today.
-5. **Daily cost check.** Run `python3 systems/eval-harness/daily-cost-check.py systems/eval-harness/runs/` to flag any cost spikes that exceed the daily threshold (configured in `systems/eval-harness/budget.json`, default $15). This surfaces wasted spend (aborted/failed runs) while it's fresh. Silent no-op if under threshold. Use `--verbose` flag to see per-turn token breakdown (e.g., "10M input tokens = 68 turns × 152K tokens/turn"), which clarifies whether spend is from context bloat or from many short tool-calling runs.
+1. **Close open eval records.** Run `python3 systems/eval-harness/close-open-evals.py systems/eval-harness/runs/` to mark in-progress evals `incomplete` with abort_reason `session-exit-normal`, so interactive work isn't counted as a system failure.
+2. **Working memory sweep.** Check `memory/working/` for an entry written this session (today's date in filename). If none exists and significant work was done, write one now (safety net for Master's Agent Output Handling).
+3. **Eval feedback sweep.** Scan `systems/eval-harness/runs/` for today's records where `assessment.controller_feedback.rating == null` and `steps` is non-empty. Surface up to 3 for a quick rating ("positive", "negative", or "skip") and write any rating back to the record immediately. Skip if none.
+4. **Tier 3 grading sweep.** Invoke `rigby-eval-grade --since {today}` to grade any eval record created today that lacks one. Skip silently if none.
+5. **Daily cost check.** Run `python3 systems/eval-harness/daily-cost-check.py systems/eval-harness/runs/` to flag cost spikes over the daily threshold. Silent no-op if under threshold.
 6. **Commit all files.** Stage and commit all untracked and modified files before ending the session.
+
+Cleanup mechanics (session-index close, temp-artifact purge, deliverable organization, gitignore check, commit) are owned by `SYSTEM.md` → "Shutdown Cleanup Protocol".

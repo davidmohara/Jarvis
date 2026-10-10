@@ -97,27 +97,11 @@ Do NOT save to `meetings/` in the IES repo. The IES `meetings/` directory is for
 ---
 
 <!-- system:start -->
-## STATE CHECK — Run Before Any Execution
+## STATE CHECK
 
-1. Read `state.yaml` in this workflow directory.
+Read and follow `reference/state-check-protocol.md` before any execution. Workflow: `one-texas-scorecard`; agent: `chase`.
 
-2. If `status: in-progress`:
-   - You are resuming a previous run. Do NOT start over.
-   - Read `current-step` to find where to continue.
-   - Load `accumulated-context` — data already gathered. Do not re-pull it.
-   - Check that step's frontmatter: if `status: in-progress`, re-execute it; if `status:
-     not-started`, begin it fresh.
-   - Notify the controller: "[Chase]: Resuming one-texas-scorecard from [current-step]."
-
-3. If `status: not-started` or `status: complete`:
-   - Fresh run. Initialize `state.yaml`: set `status: in-progress`, generate `session-id`,
-     write `session-started` and `original-request`, set `current-step: step-01-revenue`.
-   - Begin at step-01.
-
-4. If `status: aborted`:
-   - Surface to controller: "[Chase]: one-texas-scorecard was previously aborted at
-     [current-step]. Resume or start fresh?"
-   - Wait for instruction.
+**Variant:** a fresh run sets `current-step: step-01-revenue`.
 
 ## EXECUTION
 

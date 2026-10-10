@@ -53,15 +53,11 @@ output (`preview-output.json`) and performs the actual reservation.
 
 ---
 
-## STATE CHECK — Run Before Any Execution
+## STATE CHECK
 
-1. Read `state.yaml` in this workflow directory.
-2. If `status: in-progress`: resume from `current-step`. Load `accumulated-context`.
-3. If `status: not-started` or `status: complete`: fresh run. Clear `accumulated-context`.
-4. If `status: aborted` or `status: gate-failed`: surface to controller and wait for instruction
-   — do not silently retry a workflow that halted on a quality gate without a human decision,
-   unless this is an automatic scheduled retry within the same booking window (see FAILURE
-   MODES).
+Read and follow `reference/state-check-protocol.md` before any execution. Workflow: `golf-preview`; agent: `sterling`.
+
+**Variant:** `status: gate-failed` is treated with aborted. Do not silently retry a workflow that halted on a quality gate without a human decision, unless this is an automatic scheduled retry within the same booking window.
 
 ---
 

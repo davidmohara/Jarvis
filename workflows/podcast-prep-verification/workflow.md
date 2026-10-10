@@ -16,14 +16,9 @@ model: sonnet
 
 **Adversarial lens (podcast-prep):** Prep-sheet completeness vs episode inputs. The producing agent (Harper) asserts that both deliverables were built and that the questions came from the episode sources; Ralph re-derives each claim from the actual files and the recorded `sources_used`. This is the podcast-prep lens in `agents/adversarial-isolation.md`.
 
-## Lens checklist (what Ralph checks that the producer structurally cannot)
+## Lens checklist
 
-1. **Both deliverables exist:** the detailed reference sheet (`YYYY-MM-DD-guest-name.md`) AND the rendered studio PDF (`Episode {N}.pdf`) exist on disk.
-2. **The PDF is real and substantive:** valid `%PDF-` header, non-trivial size, single page (not a truncated or empty render).
-3. **Identity matches the inputs:** the guest name and episode number in the deliverables match step-01's recorded episode/guest.
-4. **Questions reflect real sources:** when `sources_used` names a source (episode-prep and/or sharepoint), the questions trace to it; questions are not invented wholesale where a source existed.
-5. **Required sections present:** the detailed sheet carries logistics, guest background, episode topic, questions, talking points, and the pre-filming checklist.
-6. **No silent gaps:** missing sources are flagged in the deliverables, not silently dropped.
+Ralph's lens checklist (what he checks that the producer structurally cannot) is owned by `steps/step-01-verify.md`. Do not duplicate it here.
 
 <!-- system:end -->
 

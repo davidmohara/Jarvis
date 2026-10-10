@@ -96,18 +96,8 @@ target_accounts:
    on thin public-research evidence — flag lower-confidence fits explicitly
    rather than presenting them with the same confidence as a CRM-sourced hit.
 
-## Plan-Only Mode
-
-If the prompt contains the phrase "do not execute" or `eval-mode: plan-only`,
-do not run any live CRM (Chrome/Playwright) or public-research
-browser automation. Instead, produce a markdown plan describing the searches
-you would run, in order, with the exact query terms and rationale for each,
-and the accounts/sources you expect to check. Save the plan to the requested
-output path and stop. Do not call any browser-automation or MCP-write tool
-under any circumstances in plan-only mode. (This skill has no CRM-write
-step of its own, but the CRM browser session it opens is shared with
-write-capable skills in this pipeline, so plan-only discipline still applies
-to avoid any accidental navigation-triggered side effect.)
+Plan-Only Mode: follow `reference/plan-only-mode-protocol.md`.
+This skill's live actions are read-only CRM and public-research browser lookups; the gate still applies because the CRM browser session it opens is shared with write-capable skills in this pipeline.
 
 ## Failure Modes
 

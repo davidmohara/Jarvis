@@ -86,24 +86,8 @@ applies even when a controller has pre-approved a whole batch's content).
    the next contact. If verification fails or is ambiguous, flag it rather
    than assuming success.
 
-## Plan-Only Mode
-
-If the prompt contains the phrase "do not execute" or `eval-mode: plan-only`,
-do not run any live CRM write or send-trigger action via Chrome/Playwright.
-Instead, produce a markdown plan describing, in order, each contact's
-intended send: the Email asset content, the Journey it attaches to, and the
-exact UI actions you would take to trigger it. Save the plan to the requested
-output path and stop. Do not call any browser-automation write action under
-any circumstances in plan-only mode.
-
-**Plan-Only Mode does not replace the per-contact live confirmation
-requirement above when NOT in plan-only mode.** These are independent
-controls: Plan-Only Mode governs whether real sends can happen at all in this
-invocation; the live confirmation governs whether, in a real-send
-invocation, any individual contact is actually sent to without a human
-saying yes to that specific person. A live (non-plan-only) run must never
-fire a send based solely on earlier content approval or a batch-level
-"go ahead."
+Plan-Only Mode: follow `reference/plan-only-mode-protocol.md`.
+This skill's gated actions are the Email-asset write and the send trigger via Chrome/Playwright; on any non-plan-only run, the per-contact live confirmation still applies in addition, and Plan-Only Mode never substitutes for it.
 
 ## Failure Modes
 

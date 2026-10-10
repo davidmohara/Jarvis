@@ -155,19 +155,9 @@ The canonical coordinate formula and click workflow live in `steps/step-01-extra
 
 ## STATE CHECK
 
-Before starting, read `state.yaml` and apply the following 4-case handler:
+Read and follow `reference/state-check-protocol.md` before any execution. Workflow: `comp-tracker`; agent: `chase`.
 
-**Case 1: status = in-progress**
-→ Resume from `current-step`. Read the step file, check outputs so far, and continue where you left off. Do not restart.
-
-**Case 2: status = not-started**
-→ Proceed to EXECUTION. Begin at step 1.
-
-**Case 3: status = complete**
-→ Confirm with Master: "This workflow completed on [completion date]. Should I run it again?" Wait for confirmation before re-running. If re-running, reset status to not-started, clear accumulated context, and proceed.
-
-**Case 4: status = aborted**
-→ Surface immediately to Master: "This workflow was aborted at [current-step] on [date]. Original error: [notes]. Should I resume, restart, or discard?"
+**Variant:** on `status: complete`, confirm with Master before re-running ("This workflow completed on [completion date]. Run again?"), and on a re-run reset status and clear accumulated context. On `status: aborted`, surface the abort step, date, and original error notes and ask whether to resume, restart, or discard.
 
 ---
 

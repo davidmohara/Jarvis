@@ -102,33 +102,11 @@ delivery cannot be undone. If a run needs to be aborted mid-flight:
 ---
 
 <!-- system:start -->
-## STATE CHECK — Run Before Any Execution
+## STATE CHECK
 
-1. Read `state.yaml` in this workflow directory.
+Read and follow `reference/state-check-protocol.md` before any execution. Workflow: `audience-target-outreach`; agent: `harper`.
 
-2. If `status: in-progress`:
-   - You are resuming a previous run. Do NOT start over.
-   - Read `current-step` to find where to continue.
-   - Load `accumulated-context` — data already gathered. Do not re-pull it.
-   - If resuming into step 05, load `accumulated-context.contacts_sent` and
-     skip confirmation for any contact already marked sent — never re-send.
-   - Check that step's frontmatter: if `status: in-progress`, re-execute it; if
-     `status: not-started`, begin it fresh.
-   - Notify the controller: "[Harper]: Resuming audience-target-outreach from [current-step]."
-
-3. If `status: not-started` or `status: complete`:
-   - Fresh run. Initialize `state.yaml`: set `status: in-progress`, generate `session-id`,
-     write `session-started` and `original-request`, set `current-step: step-01`.
-   - If the input audience profile comes from a prior `episode-campaign-brief` run,
-     load it into `accumulated-context.audience_profile` and
-     `accumulated-context.episode_metadata` now.
-   - Begin at step-01.
-
-4. If `status: aborted`:
-   - Surface to controller: "[Harper]: audience-target-outreach was previously aborted at
-     [current-step]. Resume or start fresh?" If aborted mid-send (step-05),
-     explicitly state how many contacts were already sent to and how many remain.
-   - Wait for instruction.
+**Variant:** on resume into step-05, load `accumulated-context.contacts_sent` and skip confirmation for any contact already marked sent (never re-send). On a fresh run whose audience profile comes from a prior `episode-campaign-brief` run, load it into `accumulated-context.audience_profile` and `accumulated-context.episode_metadata`. On abort mid-send (step-05), state how many contacts were already sent to and how many remain.
 
 ## EXECUTION
 

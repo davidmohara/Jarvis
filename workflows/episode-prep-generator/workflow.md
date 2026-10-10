@@ -110,32 +110,11 @@ conversation, and a short Notes section.
 ---
 
 <!-- system:start -->
-## STATE CHECK — Run Before Any Execution
+## STATE CHECK
 
-1. Read `state.yaml` in this workflow directory.
+Read and follow `reference/state-check-protocol.md` before any execution. Workflow: `episode-prep-generator`; agent: `harper`.
 
-2. If `status: in-progress`:
-   - You are resuming a previous run. Do NOT start over.
-   - Read `current-step` to find where to continue.
-   - Load `accumulated-context` — data already gathered (including any
-     `prior_transcript` or `guest_research` already captured). Do not re-pull
-     it.
-   - Check that step's frontmatter: if `status: in-progress`, re-execute it;
-     if `status: not-started`, begin it fresh.
-   - Notify the controller: "[Harper]: Resuming episode-prep-generator from
-     [current-step]."
-
-3. If `status: not-started` or `status: complete`:
-   - Fresh run. Initialize `state.yaml`: set `status: in-progress`, generate
-     `session-id`, write `session-started` and `original-request` (all
-     inputs including `internal_context` if given), set
-     `current-step: step-01`.
-   - Begin steps 01 and 02 together per the EXECUTION note below.
-
-4. If `status: aborted`:
-   - Surface to controller: "[Harper]: episode-prep-generator was previously
-     aborted at [current-step]. Resume or start fresh?"
-   - Wait for instruction.
+**Variant:** `accumulated-context` may already include `prior_transcript` or `guest_research`; do not re-pull them. On a fresh run, begin steps 01 and 02 together per the EXECUTION note.
 
 ## EXECUTION
 

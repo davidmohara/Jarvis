@@ -289,40 +289,7 @@ See `reference/model-routing.md` for agent model defaults and step-level guidanc
 
 ## Output Naming Conventions
 
-Generated files follow different naming rules depending on their purpose:
-
-### Source files (git-tracked, for the system)
-
-Date-based, slug format — optimized for sorting and searching in the repo.
-
-| Type | Pattern | Example |
-|------|---------|---------|
-| Meeting prep (markdown) | `meetings/YYYY-MM-DD-slug.md` | `meetings/2026-02-20-cbre-confluent.md` |
-| Decision | `decisions/YYYY-MM-DD-slug.md` | `decisions/2026-02-05-pricing-change.md` |
-| Review | `reviews/daily/YYYY-MM-DD.md` | `reviews/daily/2026-02-20.md` |
-| Workflow output (grouped) | `meetings/subfolder/Name.md` | `meetings/podcast-prep/Episode 7.md` |
-
-### Deliverable files (PDFs, Word, PPTX — for reading/reMarkable)
-
-Human-readable names — optimized for consumption on reMarkable, in email, or on screen. **No dates in filenames** unless the date is part of the document's identity.
-
-| Type | Pattern | Example |
-|------|---------|---------|
-| Meeting 1-pager | `Topic Name.pdf` | `CBRE Confluent 1-Pager.pdf` |
-| Podcast prep | `Episode N.pdf` | `Episode 7.pdf` |
-| Client brief | `Account Name Brief.pdf` | `Contoso Strategy Brief.pdf` |
-| Presentation | `Deck Title.pptx` | `Board Update Q1.pptx` |
-| Person-targeted doc | `Person Name.pdf` | `Sean Brown.pdf` |
-
-**Rule of thumb:** If it's going to be read by a human (especially on reMarkable), name it the way you'd label a folder on your desk — short, clear, no ISO dates.
-
-### Intermediate files (never committed)
-
-Build artifacts that produce deliverables. Deleted at shutdown.
-
-- `.html` files generated during PDF conversion
-- Temporary `.js`, `.py`, or `.sh` scripts used for one-off processing
-- `.fuse_hidden*` artifacts from mount operations
+Source-file and deliverable-file naming conventions (patterns, examples, and the "no dates in deliverable filenames" rule) are owned by `agents/conventions.md` → "Output Naming Conventions". Intermediate build artifacts are deleted at shutdown (see "Shutdown Cleanup Protocol" below).
 
 ---
 

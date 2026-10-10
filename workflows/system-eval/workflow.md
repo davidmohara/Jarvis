@@ -70,13 +70,7 @@ workflows/system-eval/
 
 ## STATE CHECK
 
-Before starting any step, read `state.yaml` and apply the correct case:
-
-| State | Action |
-|-------|--------|
-| `status: in-progress` | Resume from `current-step`. Read that step file. Do not restart. Surface: "[Rigby]: Resuming system-eval from step [N]." |
-| `status: not-started` or `status: complete` | Initialize fresh. Write initial state to state.yaml. Proceed to Step 1. |
-| `status: aborted` | Surface to controller: "Previous system-eval run was aborted at step [current-step]. Resume or start fresh?" Wait for decision. |
+Read and follow `reference/state-check-protocol.md` before any execution. Workflow: `system-eval`; agent: `rigby`.
 
 ---
 

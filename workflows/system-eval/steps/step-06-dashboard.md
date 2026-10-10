@@ -95,30 +95,7 @@ If the artifact update succeeded, write `dashboard_artifact_updated: true` to st
 
 ### 3. Write working memory
 
-Write a working memory file to `memory/working/` using this filename pattern:
-
-```
-system-eval-YYYY-MM-DD-HHmmss.md
-```
-
-Use the session start time from `state.yaml` if available; otherwise use current time.
-
-The file must begin with this YAML frontmatter (all fields required):
-
-```yaml
----
-type: working
-task_id: "session"
-session_id: "rigby-{YYYY-MM-DD}-{HHmmss}"
-agent-source: rigby
-created: {YYYY-MM-DD}T{HH:MM:SS}
-expires: {YYYY-MM-DD+2}T{HH:MM:SS}
-status: active
-context: "System eval — {YYYY-MM-DD}"
----
-```
-
-Body: 3-5 bullet points summarizing records assessed, grades assigned, avg score, top pattern found, and any blocking failures. Keep it under 200 words.
+Follow `reference/post-step-protocol.md` (Working Memory Write). Filename: `system-eval-YYYY-MM-DD-HHmmss.md`; agent-source: rigby. Compose the body from this step's output: records assessed, grades assigned, avg score, top pattern found, and any blocking failures.
 
 After writing, verify the file exists and is >200 bytes via Bash (`wc -c {path}`). If verification fails, log `working-memory-status: failed` in state.yaml and continue — do not halt.
 

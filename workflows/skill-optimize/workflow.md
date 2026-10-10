@@ -48,13 +48,7 @@ workflows/skill-optimize/
 
 ## STATE CHECK
 
-Before starting any step, read `state.yaml` and apply the correct case:
-
-| State | Action |
-|-------|--------|
-| `status: in-progress` | Resume from `current-step`. Do not restart. |
-| `status: not-started` or `status: complete` | Initialize fresh. Write initial state. Proceed to Step 1. |
-| `status: aborted` | Surface to controller: "Previous skill-optimize run was aborted. Resume or start fresh?" Wait for decision. |
+Read and follow `reference/state-check-protocol.md` before any execution. Workflow: `skill-optimize`; agent: `rigby`.
 
 ---
 

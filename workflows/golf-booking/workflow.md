@@ -64,24 +64,11 @@ This workflow wraps the accumulated golf-booking rules in seven checkable gates,
 
 ---
 
-## STATE CHECK — Run Before Any Execution
+## STATE CHECK
 
-1. Read `state.yaml` in this workflow directory.
-2. If `status: in-progress`: resume from `current-step`. Load `accumulated-context`.
-3. If `status: not-started` or `status: complete`: fresh run. Clear `accumulated-context`.
-4. If `status: awaiting-window`: this is the expected state when the target date named by
-   `override_instructions` or the top-ranked option is not yet inside the 8-day booking
-   window (see Gate 1). Re-check on the next scheduled run — do not re-evaluate or re-rank,
-   book exactly what was already validated once the window opens.
-5. If `status: aborted` or `status: verification-failed`: surface to controller and wait for
-   instruction.
-6. **Check for already-booked round this weekend**: search calendar for a golf block on the
-   target Saturday/Sunday. Unless otherwise directed by David, if found, skip booking and
-   output: `[Sterling]: Golf already booked for this weekend ([date] [time]). No action needed.`
-7. **On every fresh run, step-00 runs first.** If a prior booking exists in `state.yaml`
-   and the new target (override or top-ranked) differs from it, Gate 0's cancellation
-   protocol must complete — or explicitly defer — before any re-booking begins. Never
-   reset state to book a new target while the prior booking is still live.
+Read and follow `reference/state-check-protocol.md` before any execution. Workflow: `golf-booking`; agent: `sterling`.
+
+**Variant:** extra case `status: awaiting-window`: the target date is not yet inside the 8-day booking window (Gate 1); re-check on the next scheduled run, do not re-evaluate or re-rank, and book exactly what was already validated once the window opens. `status: verification-failed` is treated with aborted (surface and wait). Also check the calendar for an already-booked round this weekend and skip booking if found, unless directed otherwise. On every fresh run step-00 runs first: if a prior booking exists and the new target differs, Gate 0's cancellation protocol must complete or explicitly defer before any re-booking.
 
 ---
 

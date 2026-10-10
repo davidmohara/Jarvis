@@ -126,13 +126,8 @@ Two-step, because a successful API call is not sufficient proof of delivery:
    partial success (some destinations succeeded, others didn't) must always be visible to the
    caller, never collapsed into a single boolean with no detail.
 
-## Plan-Only Mode
-
-If the prompt contains the phrase "do not execute" or `eval-mode: plan-only`, do not call any
-backend API for any destination. Instead, produce a markdown plan listing each destination in
-order, the exact call you would make (backend, config, content payload) and the verification
-step for `ghost`, with rationale. Save the plan to the requested output path and stop. Do not
-call Slack/email/Monday/Ghost APIs under any circumstances in this mode.
+Plan-Only Mode: follow `reference/plan-only-mode-protocol.md`.
+This skill's gated actions are the backend API calls (Slack, email, Monday, Ghost) for every destination.
 
 ## Error Handling
 

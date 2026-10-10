@@ -214,31 +214,9 @@ Step-05b handles sharing each ingested recording with Alice Mburu and sends the 
 
 ## WRITE WORKING MEMORY
 
-After the workflow output has been delivered, write a working memory file to the **IES local filesystem** — NOT the Obsidian vault. Use `mcp__Desktop_Commander__write_file` (Desktop Commander), never the Obsidian MCP server, for this write.
+Follow `reference/post-step-protocol.md` (Working Memory Write). Filename: `plaud-ingest-{YYYY-MM-DD}-{HHmmss}.md`; agent-source `chief`; compose the body from this step's output: key outputs, decisions, and any flags from the ingest (3-5 bullets, under 200 words).
 
-**Absolute path:**
-```
-/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/memory/working/plaud-ingest-YYYY-MM-DD-HHmmss.md
-```
-
-where `YYYY-MM-DD-HHmmss` is the local date and time at the moment of writing. Use the session start time from `state.yaml` if available; otherwise use current time.
-
-The file must begin with this YAML frontmatter (all fields required):
-
-```yaml
----
-type: working
-task_id: "session"
-session_id: "chief-{YYYY-MM-DD}-{HHmmss}"
-agent-source: chief
-created: {YYYY-MM-DD}T{HH:MM:SS}
-expires: {YYYY-MM-DD+2}T{HH:MM:SS}
-status: active
-context: "Plaud ingest summary — {YYYY-MM-DD}"
----
-```
-
-Body: 3-5 bullet points summarizing key outputs, decisions, and any flags from this run. Keep it under 200 words.
+**Destination delta:** Write to the IES local filesystem at `/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/memory/working/`, NOT the Obsidian vault. Use `mcp__Desktop_Commander__write_file` (Desktop Commander), never the Obsidian MCP server, for this write.
 
 ---
 <!-- personal:start -->

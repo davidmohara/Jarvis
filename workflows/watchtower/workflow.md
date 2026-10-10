@@ -47,28 +47,11 @@ Both modes share `state.yaml` and `config.yaml`. Sources live in `sources.yaml`.
 
 ---
 
-## STATE CHECK — Run Before Any Execution
+## STATE CHECK
 
-1. Read `state.yaml` in this workflow directory.
+Read and follow `reference/state-check-protocol.md` before any execution. Workflow: `watchtower`; agent: `knox`.
 
-2. If `status: in-progress`:
-   - You are resuming a previous run. Do NOT start over.
-   - Read `current-step` to determine where to continue.
-   - Load `accumulated-context` — do not re-gather data already collected.
-   - Check that step's frontmatter:
-     - `status: in-progress` → step was interrupted; re-execute it from the beginning.
-     - `status: not-started` → begin it fresh.
-   - Notify: "[Knox]: Resuming watchtower from [current-step]."
-
-3. If `status: not-started` or `status: complete`:
-   - Fresh run. Initialize `state.yaml`: set `status: in-progress`, generate `session-id`,
-     write `session-started` and `original-request`, set `current-step: step-01`.
-   - Determine entry mode from trigger (daily vs. weekly). Begin at step-01 for that mode.
-
-4. If `status: aborted`:
-   - Do not resume automatically. Surface to David:
-     "[Knox]: Watchtower was previously aborted at [current-step]. Resume or start fresh?"
-   - Wait for instruction.
+**Variant:** on a fresh run, determine the entry mode from the trigger (daily vs weekly) and begin at step-01 for that mode. On abort, surface to David.
 
 ---
 

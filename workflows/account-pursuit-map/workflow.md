@@ -82,15 +82,9 @@ This workflow requires a target company name to begin. One of:
 <!-- system:start -->
 ## STATE CHECK
 
-Before starting, read `workflows/account-pursuit-map/state.yaml`.
+Read and follow `reference/state-check-protocol.md` before any execution. Workflow: `account-pursuit-map`; agent: `chase`.
 
-**Case 1 — Not started (`status: idle` or file shows no `session-id`):** Begin fresh. Set `status: in-progress`, `session-id: chase-{YYYY-MM-DD}-{HHmmss}`, `session-started`, `original-request`, `current-step: step-01-entity-anchor-and-trigger`. Proceed to EXECUTION.
-
-**Case 2 — In progress (`status: in-progress`, `current-step` populated):** A prior run was interrupted. Check the frontmatter of the step file named in `current-step`. If that step's frontmatter shows `status: in-progress`, re-execute it from the beginning — do not attempt to reconstruct partial results. If it shows `status: complete`, resume at the next step in sequence. Carry forward everything in `accumulated-context`.
-
-**Case 3 — Complete (`status: complete`):** The last run finished. If the controller is asking about the same company as `original-request`, ask whether this is a refresh (re-run) or a genuinely new request before starting over — the pursuit map is a living document, not a one-time artifact, so most re-invocations should update the existing `accounts/{Company}/account-plan.md` rather than starting a parallel workflow run. If the controller names a different company, treat as Case 1 for that company (state.yaml tracks one active run at a time; this is fine since the workflow's persistent output lives in `accounts/{Company}/`, not in state.yaml).
-
-**Case 4 — Aborted (`status: aborted`):** Surface what was completed before the abort (check `accumulated-context` for populated keys) and ask the controller whether to resume from the last completed step or start over.
+**Variant:** not-started is signaled by `status: idle` (or no `session-id`). On `status: complete`, if the controller is asking about the same company as `original-request`, ask whether this is a refresh or a genuinely new request before starting over: most re-invocations update the existing `accounts/{Company}/account-plan.md` rather than starting a parallel run. On `status: aborted`, surface what was completed (populated `accumulated-context` keys) and ask whether to resume from the last completed step or start over.
 <!-- system:end -->
 
 <!-- personal:start -->

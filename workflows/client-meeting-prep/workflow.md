@@ -60,28 +60,9 @@ No user interaction required until the prep sheet is delivered, except where a s
 ---
 
 <!-- system:start -->
-## STATE CHECK — Run Before Any Execution
+## STATE CHECK
 
-1. Read `state.yaml` in this workflow directory.
-
-2. If `status: in-progress`:
-   - You are resuming a previous run. Do NOT start over.
-   - Read `current-step` to find where to continue.
-   - Load `accumulated-context` — this is the data already gathered. Do not re-gather it.
-   - Check that step's frontmatter:
-     - If `status: in-progress`: the step was interrupted mid-execution — re-execute it.
-     - If `status: not-started`: begin it fresh.
-   - Notify the controller: "[Chase]: Resuming client-meeting-prep from [current-step]."
-
-3. If `status: not-started` or `status: complete`:
-   - Fresh run. Initialize `state.yaml`: set `status: in-progress`, generate `session-id`,
-     write `session-started` and `original-request`, set `current-step: step-01`.
-   - Begin at step-01.
-
-4. If `status: aborted`:
-   - Do not resume automatically. Surface to controller:
-     "[Chase]: client-meeting-prep was previously aborted at [current-step]. Resume or start fresh?"
-   - Wait for instruction.
+Read and follow `reference/state-check-protocol.md` before any execution. Workflow: `client-meeting-prep`; agent: `chase`.
 
 ## EXECUTION
 

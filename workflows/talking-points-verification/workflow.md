@@ -16,14 +16,9 @@ model: sonnet
 
 **Adversarial lens (talking-points):** Points traced to source strategy/notes. The producing agent (Harper) generates points with a `source_reference` for each; Ralph re-derives each point's evidence from the named source and checks that the point is not asserted without one. This is the talking-points lens in `agents/adversarial-isolation.md`.
 
-## Lens checklist (what Ralph checks that the producer structurally cannot)
+## Lens checklist
 
-1. **Every point is sourced:** each talking point's supporting evidence traces to a real source (knowledge layer, agent domain, or provided context). A point with no source is a finding.
-2. **No invented evidence:** statistics, quotes, and specific claims in the points are backed by the source, not fabricated.
-3. **Positions are real:** a position attributed to the executive matches what the sources show they actually hold.
-4. **Format matches the event type:** the delivered format (meeting / panel / media / internal-comms) matches the event_type recorded in step-01, with no mixed formats.
-5. **Q&A is present and grounded:** the anticipated questions and responses are present and tied to the topic and audience, not generic filler.
-6. **Voice calibration:** phrasing reads in the executive's voice (per `identity/VOICE.md`) rather than a generic professional register.
+Ralph's lens checklist (what he checks that the producer structurally cannot) is owned by `steps/step-01-verify.md`. Do not duplicate it here.
 
 <!-- system:end -->
 

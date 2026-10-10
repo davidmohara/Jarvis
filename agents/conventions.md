@@ -5,6 +5,29 @@ Shared protocols that apply to every IES agent. Read this file at the start of e
 
 ---
 
+## Activation Protocol
+
+MANDATORY for every specialist agent: complete all steps before any output or action. Substitute your own name for `{agent}` (lowercase in skill globs), your skill glob for `skills/{agent}-*.md`, and your domain for `{domain}`.
+
+1. **Verify spawn context.** Confirm you received a spawn payload from Master containing: agent name, standing permissions, active connectors, and original request text. If the payload is absent or incomplete:
+   > "[{agent}]: No spawn context received. I require Master to route this request."
+   Halt. Do not proceed.
+
+2. **Load standing permissions** from the spawn payload. Do not assume defaults. If permissions are missing from the payload, output an elevation request before acting on any permissioned operation.
+
+3. **Note active connectors** from the spawn context. Before accessing any data source, confirm an active connector exists for that capability. Do not attempt CRM access if no `crm` connector is listed as active. Fall back to the defaults documented in SYSTEM.md if no connector is available.
+
+4. **Identify the relevant skill.** Based on the original request, identify which file in `skills/{agent}-*.md` applies. Load and follow that skill's workflow. If no skill clearly matches, surface this to Master rather than improvising:
+   > "[{agent}]: The request doesn't clearly map to any of my skills. Returning to Master for routing."
+
+5. **Domain check.** If the request falls outside your domain ({domain}), do not attempt it. State what you can confirm and surface a handoff request:
+   > "[{agent}]: This crosses into [other domain]. Here's what I've gathered: [summary]. Recommend routing to [Agent] for [specific action]."
+   Master handles the spawn. You do not spawn other agents directly.
+
+6. **Check for in-progress workflow.** Before starting any workflow, run the STATE CHECK protocol in the relevant `workflows/{name}/workflow.md`. Resume if interrupted. Do not start over without checking.
+
+---
+
 ## Error Reporting Protocol
 
 All agents are responsible for surfacing self-detected errors back to Master so they can be logged as new entries under `systems/error-tracking/entries/`. Master owns the log write — agents report, Master records.
@@ -20,6 +43,23 @@ Report an error when you:
 ### Explicit Corrections from the Executive
 
 When David corrects any behavior — routing, data, process, tone, anything — **Master must log the correction immediately in that same response by writing a new entry file at `systems/error-tracking/entries/<id>.json`.** This is not optional and does not require a second prompt. Generate the id with `python3 systems/error-tracking/new-entry.py --id-only` and use `"source": "explicit"` in the entry. The correction is logged first, then the conversation continues. This rule applies regardless of which agent was active when the correction occurred.
+
+### Logging Mechanics (canonical)
+
+This is the single authoritative description of how corrections and self-detected errors are written. Every other file (CLAUDE.md, SYSTEM.md, agents/master.md, identity/AUTOMATION.md) points here.
+
+- **Write path:** one JSON file per entry at `systems/error-tracking/entries/<id>.json`.
+- **Generate the id:** `python3 systems/error-tracking/new-entry.py --id-only`; format `err-YYYYMMDDTHHMMSS-XXXXXX`.
+- **Schema:** `systems/error-tracking/schema.md`.
+- **Same response:** the entry is written in the same response as the correction, before anything else. No second prompt, no batching.
+- **Fully autonomous:** no approval is required. Applies to explicit corrections (`"source": "explicit"`) and self-detected errors (`"source": "self-detected"`).
+- **Silent:** do not mention the logging to the controller. The controller sees only the normal behavior: own it, fix it, move on.
+- **Threshold alerting:** when the same `category` + `failure_mode` combination reaches 3 or more entries, surface it once per session at the next natural break:
+
+  ```
+  I've noticed a recurring pattern: [category] due to [failure_mode]. [N] occurrences since [first_seen].
+  Rigby has a proposed fix. Want me to pull up the analysis?
+  ```
 
 Do **not** report minor self-corrections that are trivially part of normal reasoning (e.g., rewriting a sentence). Report errors that would matter if they had shipped uncorrected.
 
@@ -60,18 +100,7 @@ Working memory is the input funnel for the dream cycle. If nothing is written, n
 
 ### Schema (REQUIRED fields)
 
-```yaml
----
-type: working
-task_id: "todo-2026-04-17-001"         # OmniFocus or IES task ID (use "session" if no task)
-session_id: "chief-2026-04-17-091532"   # {agent}-{YYYY-MM-DD}-{HHmmss}
-agent-source: chief | chase | quinn | shep | harper | rigby | knox | galen | sterling
-created: 2026-04-17T09:15:32           # Local time, no Z suffix
-expires: 2026-04-19T09:15:32           # created + 2 days
-status: active | archived              # ONLY these two values
-context: "Brief description of what this captures"
----
-```
+The working-memory YAML schema and body template are owned by `agents/master.md` (see "Agent Output Handling" → "How Master writes the entry"). Use that schema. The rules below are the field conventions every writer must follow.
 
 ### Rules
 

@@ -37,12 +37,9 @@ assembly step and provides the week-over-week pipeline trend for Rock 4 grading.
 
 ---
 
-## STATE CHECK — Run Before Any Execution
+## STATE CHECK
 
-1. Read `state.yaml` in this workflow directory.
-2. If `status: in-progress`: resume from `current-step`. Load `accumulated-context`.
-3. If `status: not-started` or `status: complete`: fresh run. Initialize `state.yaml`.
-4. If `status: aborted`: surface to controller and wait for instruction.
+Read and follow `reference/state-check-protocol.md` before any execution. Workflow: `rock4-pipeline-weekly`; agent: `chase`.
 
 ---
 

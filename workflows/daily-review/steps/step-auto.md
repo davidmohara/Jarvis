@@ -193,35 +193,9 @@ The auto narrative is a data baseline. The interactive daily review (`/chief-rev
 
 ## WRITE WORKING MEMORY
 
-After the workflow output has been delivered, write a working memory file to `memory/working/` using this filename pattern:
+Follow `reference/post-step-protocol.md` (Working Memory Write). Filename: `daily-review-{YYYY-MM-DD}-{HHmmss}.md`; agent-source `chief`; compose the body from this step's output: the day's narrative and any flags (3-5 bullets, under 200 words).
 
-```
-daily-review-YYYY-MM-DD-HHmmss.md
-```
-
-where `YYYY-MM-DD-HHmmss` is the local date and time at the moment of writing. Use the session start time from `state.yaml` if available; otherwise use current time.
-
-The file must begin with this YAML frontmatter (all fields required):
-
-```yaml
----
-type: working
-task_id: "session"
-session_id: "chief-{YYYY-MM-DD}-{HHmmss}"
-agent-source: chief
-created: {YYYY-MM-DD}T{HH:MM:SS}
-expires: {YYYY-MM-DD+2}T{HH:MM:SS}
-status: active
-context: "Daily review — {YYYY-MM-DD}"
----
-```
-
-Body: 3-5 bullet points summarizing key outputs, decisions, and any flags from this run. Keep it under 200 words.
-
-**Working memory guard:** After writing, verify the file exists and is >200 bytes via Bash (`wc -c {path}`). If verification fails:
-- Retry the write once
-- If still failing, log `working-memory-status: failed` in `state.yaml` under `accumulated-context`
-- Do NOT silently skip — a failed working memory write must be visible in the state record
+**Working memory guard:** After writing, verify the file exists and is >200 bytes via Bash (`wc -c {path}`). If verification fails: retry the write once; if still failing, log `working-memory-status: failed` in `state.yaml` under `accumulated-context`. Do NOT silently skip. A failed working memory write must be visible in the state record.
 
 ## CLOSE STATE
 

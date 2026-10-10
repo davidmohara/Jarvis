@@ -16,14 +16,9 @@ model: sonnet
 
 **Adversarial lens (partner-meeting-prep):** Account-overlap and event claims vs actual records. The producing agent (Chase) builds an overlap table and an events section asserting specific accounts and events; Ralph re-derives each claim from the CRM account/pipeline records and the calendar/email records. This is the partner-meeting-prep lens in `agents/adversarial-isolation.md`.
 
-## Lens checklist (what Ralph checks that the producer structurally cannot)
+## Lens checklist
 
-1. **Accounts are real:** every account in the overlap table exists in the CRM (or is clearly marked for the partner to fill). An invented account is a finding.
-2. **Seller attribution is right:** the Internal Seller column names the actual account owner, not a guess.
-3. **Overlap is grounded:** Group 1 (active) and Group 2 (target) classifications match the CRM's actual engagement/pursuit status.
-4. **Partner-side columns are honest blanks:** partner-rep columns are left as `TBD - partner to fill`, not filled in with a guess.
-5. **Events are real:** every event in the events section traces to a real event (calendar, known industry event), with a specific date/location.
-6. **No stale data presented as current:** account statuses are not asserted as current when the CRM shows otherwise.
+Ralph's lens checklist (what he checks that the producer structurally cannot) is owned by `steps/step-01-verify.md`. Do not duplicate it here.
 
 <!-- system:end -->
 

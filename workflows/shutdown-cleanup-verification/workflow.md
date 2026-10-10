@@ -16,13 +16,10 @@ model: sonnet
 
 **Adversarial lens (shutdown-cleanup):** Cleanup claims vs commit and audit trail. The producing agent (Rigby) summarizes what it believes it cleaned and committed; Ralph re-derives each claim from recorded evidence: the commit itself (`git show --stat <sha>`, read-only), the wrapper's audit trail (`systems/eval-harness/git-ops.jsonl`), the step frontmatter outputs, and the purge patterns. This is the shutdown-cleanup lens in `agents/adversarial-isolation.md`.
 
-## Lens checklist (what Ralph checks that the producer structurally cannot)
+## Lens checklist
 
-1. **Nothing temp committed:** the commit's file list contains no purge-pattern files (`.DS_Store`, `.fuse_hidden*`, `__pycache__`, `*.tmp`, root one-off scripts, `meetings/**/*.html`).
-2. **Nothing precious deleted:** no image, media, PDF, or deliverable file removed by the purge step or absent from the commit when it should have been staged (standing rule: never remove screenshots/media from project folders).
-3. **Commit ran through the wrapper:** the commit sha's operation has a matching entry in `systems/eval-harness/git-ops.jsonl` (`verb: commit`, executed, not refused). A commit with no audit entry bypassed the authorized path.
-4. **Counts are true:** purged/organized/committed counts in the controller summary match the step outputs and the commit stat.
-5. **"Workspace clean" claims are real:** a nothing-to-commit claim is checked against the lock-free change lists, not taken on faith.
+Ralph's lens checklist (what he checks that the producer structurally cannot) is owned by `steps/step-01-verify.md`. Do not duplicate it here.
+
 <!-- system:end -->
 
 <!-- personal:start -->

@@ -72,14 +72,9 @@ workflows/error-improvement/
 
 ## STATE CHECK
 
-Before starting any step, read `state.yaml` and apply the correct case:
+Read and follow `reference/state-check-protocol.md` before any execution. Workflow: `error-improvement`; agent: `rigby`.
 
-| State | Action |
-|-------|--------|
-| `status: in-progress` | Resume from `current-step`. Read that step file. Do not restart. Surface: "[Rigby]: Resuming error-improvement from step [N]." |
-| `status: not-started` or `status: complete` | Initialize fresh. Write initial state to state.yaml. Proceed to Step 1. |
-| `status: aborted` | Surface to controller: "Previous error-improvement run was aborted at step [current-step]. Resume or start fresh?" Wait for decision. |
-| `status: awaiting-approval` | The Apply Now list is waiting for controller sign-off. Re-surface it. Wait. Do not advance to Step 4 without explicit approval. |
+**Variant:** extra case `status: awaiting-approval`: the Apply Now list is waiting for controller sign-off. Re-surface it and wait; do not advance to Step 4 without explicit approval.
 
 ---
 

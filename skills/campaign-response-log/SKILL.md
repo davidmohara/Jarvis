@@ -74,15 +74,8 @@ response_log:
    for v1 and belongs with Shep's nudge domain in a future pass — this skill
    only logs what has already happened.
 
-## Plan-Only Mode
-
-If the prompt contains the phrase "do not execute" or `eval-mode: plan-only`,
-do not run any live CRM write via Chrome/Playwright. Instead, produce a
-markdown plan describing the Contact/Journey match you would make, the
-Response Type you would assign and why, and the exact Note/Activity content
-you would write. Save the plan to the requested output path and stop. Do not
-call any browser-automation write action under any circumstances in
-plan-only mode.
+Plan-Only Mode: follow `reference/plan-only-mode-protocol.md`.
+This skill's gated write is the Note or Activity it would attach to a Contact record in Dynamics, linked to the originating Journey.
 
 ## Failure Modes
 

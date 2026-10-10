@@ -16,14 +16,9 @@ model: sonnet
 
 **Adversarial lens (one-on-one-prep):** Brief agenda/action claims vs delegation tracker and OmniFocus records. The producing agent (Shep) assembles a brief asserting open action items and talking points; Ralph re-derives each claim from the record: `delegations/tracker.md` and `data/omnifocus-unified.json`. This is the one-on-one-prep lens in `agents/adversarial-isolation.md`.
 
-## Lens checklist (what Ralph checks that the producer structurally cannot)
+## Lens checklist
 
-1. **Open action items are real:** every row in the brief's Open Action Items table traces to the delegation tracker, an OmniFocus task, or a cited email/Teams thread. An item with no source is a finding.
-2. **No fabricated delegations:** any delegation named in the brief exists in `delegations/tracker.md` (or OmniFocus) with the stated direction and status.
-3. **Talking points are grounded:** each talking point references a real thread, task, or delegation from steps 02-03, not an invented one.
-4. **Statuses are honest:** a delegation marked "resolved"/"complete" in the brief matches the tracker; an overdue item is not shown as on-track.
-5. **Previous-brief continuity:** if a prior brief exists, its open items are accounted for (resolved, carried forward, or flagged stale), nothing disappears silently.
-6. **Calendar hygiene:** excluded recurring meetings (all-hands, standups, townhalls) do not appear in the brief's calendar section.
+Ralph's lens checklist (what he checks that the producer structurally cannot) is owned by `steps/step-01-verify.md`. Do not duplicate it here.
 
 <!-- system:end -->
 

@@ -70,16 +70,8 @@ target_contacts:
    multiple genuinely distinct buyer-role contacts (e.g. both a VP Eng and a
    VP Ops), list both with separate rationale.
 
-## Plan-Only Mode
-
-If the prompt contains the phrase "do not execute" or `eval-mode: plan-only`,
-do not run any live CRM, Clay-write, or LinkedIn browser automation. Instead,
-produce a markdown plan describing the lookups you would perform, in order,
-with the accounts/contacts you'd search for and why. Save the plan to the
-requested output path and stop. Do not call any browser-automation or
-MCP-write tool under any circumstances in plan-only mode. (Clay lookups here
-are read-only; the plan-only gate exists because this skill shares a live CRM
-browser session with write-capable skills downstream.)
+Plan-Only Mode: follow `reference/plan-only-mode-protocol.md`.
+This skill's gated actions are CRM, Clay, and LinkedIn browser lookups; the gate still applies because this skill shares a live CRM browser session with write-capable skills downstream.
 
 ## Failure Modes
 

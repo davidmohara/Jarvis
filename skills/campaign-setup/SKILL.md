@@ -78,17 +78,8 @@ date instead: "Improving Edge — 2026-08-07 — {Topic}."
 6. **Return the created/reused Segment and Journey identifiers** to the
    caller so `campaign-send` knows exactly which records to use.
 
-## Plan-Only Mode
-
-If the prompt contains the phrase "do not execute" or `eval-mode: plan-only`,
-do not run any live CRM write via Chrome/Playwright. Instead, produce a
-markdown plan describing, in order: the dedup search you would run and
-against which existing journeys; the exact Segment name, Journey name, and
-filter/membership criteria you would create; and the list of contacts you
-would add to the Segment, with a note on which (if any) require new Contact
-records. Save the plan to the requested output path and stop. Do not call
-any browser-automation write action under any circumstances in plan-only
-mode.
+Plan-Only Mode: follow `reference/plan-only-mode-protocol.md`.
+This skill's gated writes are the Segment and Journey creation (plus any new Contact record) in Customer Insights Journeys.
 
 ## Failure Modes
 
