@@ -223,5 +223,5 @@ After assembling the Summary of Interactions, Action Items table, and Calendar s
 <!-- personal:start -->
 ## Tool Binding: Structured Reasoning
 
-Use `sequential-thinking` MCP to execute the Deep Analysis Protocol reasoning chain above.
+Follow `reference/structured-reasoning-binding.md` to execute the Deep Analysis Protocol reasoning chain above.
 <!-- personal:end -->

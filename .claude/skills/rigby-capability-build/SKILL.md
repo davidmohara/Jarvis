@@ -202,12 +202,11 @@ Skills fall into two categories:
 
 **Agent-specific skills** require two files:
 
-1. **Content file** at `skills/{name}/SKILL.md` — the full workflow, steps, data sources, output templates, error handling, and SKILL COMPLETE block. This is where all logic lives.
+1. **Content file** at `skills/{name}/SKILL.md` — the full workflow, steps, data sources, output templates, and error handling. This is where all logic lives.
 
-2. **Stub file** at `.claude/skills/{name}/SKILL.md` — thin dispatcher that Claude Code auto-loads. Contains only the frontmatter (with `context: fork`, `agent: general-purpose`, the owning agent's `allowed-tools`, and `model`) plus three blocks:
+2. **Stub file** at `.claude/skills/{name}/SKILL.md` — thin dispatcher that Claude Code auto-loads. Contains only the frontmatter (with `context: fork`, `agent: general-purpose`, the owning agent's `allowed-tools`, and `model`) plus two blocks:
    - A `<!-- system:start -->` block with the agent persona line and a single `Read and execute \`skills/{name}/SKILL.md\`.` instruction
    - The `$ARGUMENTS` input block
-   - The `SKILL COMPLETE` signal-file block
 
    Stub template:
    ```markdown
@@ -243,33 +242,15 @@ Skills fall into two categories:
    $ARGUMENTS
    <!-- system:end -->
 
-   <!-- system:start -->
-      <!-- system:end -->
    ```
 
-**The SKILL COMPLETE block belongs in the stub (`.claude/skills/`), not the content file (`skills/`).** The eval harness signal write is triggered by Claude Code after execution — it must live in the file Claude Code loaded, which is the stub. The content file in `skills/` handles the actual work; the stub handles the harness handshake.
+**No eval-harness machinery in any skill file.** Skill-run capture is hook-based: the PostToolUse(Skill) hook (`.claude/hooks/eval-skill-invoke.py`) plus `systems/eval-harness/skill_capture.py` record every skill invocation and the Stop hook writes the signal and eval record. Never add a SKILL COMPLETE or GRADE THIS RUN section to a skill; the validators (`systems/eval-harness/add-skill-signals.py`, `add-step-tracking.py`) fail the build if one appears.
 
-**Every skill must include a `## STATE CHECK — Run Before Any Execution
+**Every skill with run state must include a STATE CHECK section pointing at the shared protocol:**
+```markdown
+## STATE CHECK
 
-1. Read `state.yaml` in this workflow directory.
-
-2. If `status: in-progress`:
-   - You are resuming a previous run. Do NOT start over.
-   - Read `current-step` to find where to continue.
-   - Load `accumulated-context` — data already gathered. Do not re-pull it.
-   - Check that step's frontmatter: if `status: in-progress`, re-execute it; if
-     `status: not-started`, begin it fresh.
-   - Notify the controller: "[{Agent}]: Resuming {workflow-name} from [current-step]."
-
-3. If `status: not-started` or `status: complete`:
-   - Fresh run. Initialize `state.yaml`: set `status: in-progress`, generate `session-id`,
-     write `session-started` and `original-request`, set `current-step: step-01`.
-   - Begin at step-01.
-
-4. If `status: aborted`:
-   - Surface to controller: "[{Agent}]: {workflow-name} was previously aborted at
-     [current-step]. Resume or start fresh?"
-   - Wait for instruction.
+Read and follow `reference/state-check-protocol.md` before any execution. Workflow: `{name}`; agent: `{agent}`.
 ```
 
 Each step file's YOUR TASK section must also include explicit instructions to: (1) write `status: in-progress` to its own frontmatter before executing, (2) write outputs to `state.yaml` accumulated-context after completing, and (3) update `workflow.md`'s `current-step` to the next step before moving on.

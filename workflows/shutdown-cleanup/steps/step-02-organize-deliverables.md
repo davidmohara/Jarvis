@@ -113,14 +113,5 @@ Read fully and follow: `step-03-gitignore-check.md`
 <!-- system:end -->
 
 <!-- personal:start -->
-### Known Deliverable Destinations
-
-Use this routing table when a deliverable is found in the wrong location. Match on file type and name pattern, then move to the correct destination.
-
-| Pattern | Type | Correct Destination |
-|---------|------|---------------------|
-| `One Texas * Monthly Update.pptx` | PPTX | `/Users/davidohara/Library/CloudStorage/OneDrive-Improving/Presentations/One Texas/Monthly Meetings/` |
-| `One Texas * Scorecard.pptx` | PPTX | `/Users/davidohara/Library/CloudStorage/OneDrive-Improving/Presentations/One Texas/Monthly Meetings/` |
-
-**Note:** If any One Texas PPTX is found in `meetings/` or anywhere in the IES repo, move it to the OneDrive Presentations path above. The IES `meetings/` directory is for markdown source files only.
+**One Texas deliverables:** `One Texas * Monthly Update.pptx` and `One Texas * Scorecard.pptx` belong at `/Users/davidohara/Library/CloudStorage/OneDrive-Improving/Presentations/One Texas/Monthly Meetings/`. If either is found in `meetings/` or anywhere in the IES repo, move it there. The IES `meetings/` directory is for markdown source files only.
 <!-- personal:end -->

@@ -185,5 +185,5 @@ After all individual risk flags are evaluated, before storing results and moving
 <!-- personal:start -->
 ## Tool Binding: Structured Reasoning
 
-Use `sequential-thinking` MCP to execute the Deep Analysis Protocol reasoning chain above.
+Follow `reference/structured-reasoning-binding.md` to execute the Deep Analysis Protocol reasoning chain above.
 <!-- personal:end -->

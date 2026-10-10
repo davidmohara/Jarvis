@@ -90,6 +90,34 @@ Master will pick up this block, log each entry to the error tracking system, and
 
 ---
 
+## Instructional File Hygiene
+
+Skills, workflows, agents, and identity files are strictly instructional. These rules keep them that way (the 2026-10-10 commentary cleanup removed ~12,000 lines of accumulated residue; these rules keep it out).
+
+### Rule, not story
+
+When a fix lands after an error, write only the RULE into the instructional file. The incident narrative, dated provenance ("added 2026-09-02 after..."), and err-ID citations stay in `systems/error-tracking/`; an err-ID may appear as a bare pointer only where the rule would be misunderstood without provenance.
+
+### Frontmatter is state, not history
+
+Step-file YAML frontmatter carries `status`, `started-at`, `completed-at`, `outputs`, and `model` only. No `note:`, `notes_prior_run`, `previous-run-results`, or any narrative field. Run notes go to `memory/working/` or `logs/`. Workflow run state lives in `state.yaml`.
+
+### Refactors delete what they supersede
+
+Any change that supersedes content (a split, a rename, a renumbering, a rewrite) deletes the superseded copy in the same change. Changelogs of the edit go to a build note in `memory/working/` or the evolution record, never into the instruction file.
+
+### Build from conventions, not clones
+
+New skills, workflows, and steps are built from this file and the shared `reference/` protocols (`state-check-protocol.md`, `post-step-protocol.md`, `adversarial-verify-protocol.md`, `plan-only-mode-protocol.md`), never cloned from an existing file. Cloning propagates boilerplate and copy-paste bugs.
+
+### No eval-harness machinery in instruction files
+
+Skill-run capture is hook-based (`.claude/hooks/eval-skill-invoke.py` + `systems/eval-harness/skill_capture.py`; the Stop hook writes the signal and eval record). No SKILL COMPLETE, GRADE THIS RUN, or STEP COMPLETION TRACKING section ever goes in a skill, workflow, or step file; the validators in `systems/eval-harness/add-skill-signals.py` and `add-step-tracking.py` fail if one appears. Step completion is captured by the SubagentStop hook chain, which dispatches `step-complete.py`.
+
+### Harness scripts never write instructional files
+
+No script under `systems/` writes to `skills/`, `workflows/`, `agents/`, or `identity/`. Harness state lives under `systems/`; instructional content changes go through the normal authoring path (Rigby capability build or the evolution system).
+
 ## Working Memory Write Protocol
 
 Working memory is the input funnel for the dream cycle. If nothing is written, nothing compounds between sessions.

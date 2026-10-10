@@ -160,17 +160,7 @@ This is the ONLY exception to the project requirement. Tag is still mandatory ev
 <!-- personal:start -->
 ## OmniFocus Read Patterns
 
-**Reads do not belong in this skill.** This skill is the gated write path. For any OmniFocus read, use the `omnifocus-data` skill (`skills/omnifocus-data/SKILL.md`), which owns the query logic, the mandatory completed filter, and the canonical data file.
-
-Quick pointers so you do not need to leave this skill for the common cases:
-
-| Need | Command |
-|------|---------|
-| Tags (for the Step 1 gate) | `python3 skills/omnifocus-data/scripts/omnifocus_data.py tags --json` |
-| Active projects (for the Step 1 gate) | `python3 skills/omnifocus-data/scripts/omnifocus_data.py projects --json` |
-| Whether a task already exists | `query_omnifocus` via the MCP, or `list --kind inbox` |
-
-Reads belong to the `omnifocus-data` skill, not here — it covers counts, tags, projects and task lists and needs neither the MCP nor Desktop Commander. When the MCP happens to be connected it is a useful extra for ad-hoc filtered lookups (`query_omnifocus` by folder or perspective, `list_perspectives`), but nothing in this skill should block on it.
+**Reads do not belong in this skill.** This skill is the gated write path. For any OmniFocus read, use the `omnifocus-data` skill (`skills/omnifocus-data/SKILL.md`): it owns the query logic, the mandatory completed filter, the canonical data file, and the `tags` / `projects` / `list` commands this skill's Step 1 gate uses. To check whether a task already exists before creating, use `list --kind inbox` (or `query_omnifocus` when the MCP is connected).
 
 **Failure handling:**
 If a read fails, report clearly what was unavailable and proceed with what you have. Never silently skip OmniFocus data — if it fails, say so and flag what was missed. Never proceed past the Step 3 gate because a lookup failed.

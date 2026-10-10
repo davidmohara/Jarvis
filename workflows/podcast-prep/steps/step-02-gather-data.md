@@ -11,7 +11,7 @@ model: sonnet
 
 ## MANDATORY EXECUTION RULES
 
-1. You MUST pull BOTH question sources unconditionally, every run: the `episode-prep-generator` output (if one exists for this guest) AND Janine's SharePoint question doc. Neither is a fallback for the other — both are always attempted, and step 03 merges whatever came back.
+1. You MUST pull BOTH question sources unconditionally, every run: the `episode-prep-generator` output (if one exists for this guest) AND Janine's SharePoint question doc. Step 03 merges whatever came back.
 2. You MUST look up the guest in Clay for background and relationship context.
 3. You MUST check for existing prep sheets in `meetings/podcast-prep/` to avoid duplicating work.
 4. You MUST flag any missing data sources clearly — do not silently skip.

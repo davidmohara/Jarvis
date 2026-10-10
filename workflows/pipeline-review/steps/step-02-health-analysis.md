@@ -168,5 +168,5 @@ After raw metrics are calculated, before the "Store results" step.
 <!-- personal:start -->
 ## Tool Binding: Structured Reasoning
 
-Use `sequential-thinking` MCP to execute the Deep Analysis Protocol reasoning chain above.
+Follow `reference/structured-reasoning-binding.md` to execute the Deep Analysis Protocol reasoning chain above.
 <!-- personal:end -->

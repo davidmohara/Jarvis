@@ -176,18 +176,8 @@ Follow this progression. Read the room — but this is the natural arc:
 <!-- personal:start -->
 <!-- personal:end -->
 
-<!-- system:start -->
-## Tool Bindings
-
-- **Calendar/Email/Teams**: Calendar and email API (M365 or Google)
-- **Knowledge base**: Knowledge base API
-- **Task management**: Task management API
-- **CRM**: CRM API
-- **Files**: Read, Write, Edit, Glob, Grep tools
-<!-- system:end -->
-
 <!-- personal:start -->
-## Tool Bindings (Concrete)
+## Tool Bindings
 
 - **Calendar/Email/Teams**: M365 MCP (outlook_calendar_search, outlook_email_search, chat_message_search)
 - **Knowledge base**: Obsidian MCP (search_vault_simple, get_vault_file, create_vault_file, etc.)

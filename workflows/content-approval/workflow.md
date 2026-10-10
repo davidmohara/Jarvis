@@ -97,25 +97,7 @@ See step-01-approve.md for full pass/fail criteria, logging format, and escalati
 
 ## STATE CHECK — Run Before Any Execution
 
-1. Read `state.yaml` in this workflow directory.
-
-2. If `status: in-progress`:
-   - You are resuming a previous run. Do NOT start over.
-   - Read `current-step` to find where to continue.
-   - Load `accumulated-context` — data already gathered. Do not re-pull it.
-   - Check that step's frontmatter: if `status: in-progress`, re-execute it; if
-     `status: not-started`, begin it fresh.
-   - Notify the controller: "[Harper]: Resuming content-approval from [current-step]."
-
-3. If `status: not-started` or `status: complete`:
-   - Fresh run. Initialize `state.yaml`: set `status: in-progress`, generate `session-id`,
-     write `session-started` and `original-request`, set `current-step: step-01`.
-   - Begin at step-01.
-
-4. If `status: aborted`:
-   - Surface to controller: "[Harper]: content-approval was previously aborted at
-     [current-step]. Resume or start fresh?"
-   - Wait for instruction.
+> Read and follow `reference/state-check-protocol.md` before any execution. Workflow name: `content-approval`; agent: Harper.
 
 ## EXECUTION
 

@@ -38,18 +38,7 @@ Before executing, write `status: in-progress` and `started-at` to this file's ow
 
 ## CRITICAL: DESKTOP COMMANDER INITIALIZATION
 
-**BEFORE running any step, load Desktop Commander tools via ToolSearch.** This is required for all Slack read/write operations in Cowork mode.
-
-```
-ToolSearch("select:mcp__Desktop_Commander__start_process,mcp__Desktop_Commander__read_file,mcp__Desktop_Commander__write_file")
-```
-
-**RETRY PROTOCOL:** If ToolSearch returns "No matching deferred tools found":
-1. Wait 2 seconds
-2. Retry ToolSearch once more
-3. If still unavailable: log error (err-YYYYMMDDTHHMMSS-XXXXXX) and abort with status message to #jarvis: "Content approval halted — Desktop Commander unavailable. Check tool initialization."
-
-**DO NOT use bash for Slack operations.** The sandbox lacks network access and macOS tools. Only Desktop Commander has full host network access. See err-20260715T200539-J9SK5Z for previous initialization failure.
+Desktop Commander MUST be loaded before any Slack read or write. See the SLACK INTEGRATION section of `workflows/content-discovery/workflow.md` for the full initialization and retry protocol; it applies identically here.
 
 ---
 

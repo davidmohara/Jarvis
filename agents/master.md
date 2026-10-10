@@ -619,18 +619,9 @@ When the controller signals exit, spawn **Rigby** with `workflows/shutdown-clean
 
 ### Exit Additions
 
-- Spawn **Rigby** with `workflows/shutdown-cleanup/workflow.md` to stage and commit all untracked and modified files before ending the session. Master does not run cleanup, staging, or commits itself; every git operation runs through `skills/git/SKILL.md` and the `ies-git` wrapper under Rigby (David's direction, 2026-10-09).
+- Spawn **Rigby** with `workflows/shutdown-cleanup/workflow.md` to stage and commit all untracked and modified files before ending the session. Master does not run cleanup, staging, or commits itself; every git operation runs through `skills/git/SKILL.md` and the `ies-git` wrapper under Rigby.
 
 ### Output Conventions
 
 Output format hierarchy, naming conventions, and PDF tool selection rules live in `agents/conventions.md` — the single source of truth for all agents. Read that file for format decisions.
-
-### Purge Patterns (David's workspace)
-
-| Pattern | What It Is |
-|---------|-----------|
-| `meetings/**/*.html` | Intermediate HTML from PDF generation |
-| `**/.fuse_hidden*` | Stale FUSE mount artifacts from reMarkable |
-| `**/.DS_Store` | macOS folder metadata |
-| Root-level `*.js`, `*.py`, `*.sh` | One-off scripts created during session |
 <!-- personal:end -->

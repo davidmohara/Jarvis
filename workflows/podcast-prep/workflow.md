@@ -20,17 +20,11 @@ model: sonnet
 
 ## INITIALIZATION
 
-### Why This Exists
-
-David films "The Improving Edge" at MarketScale in Dallas. Each episode requires cross-referencing the Obsidian episode map, pulling Janine's questions from SharePoint, checking for a prior `episode-prep-generator` deep prep, looking up the guest, merging and distilling questions from whatever sources exist, and formatting a studio-ready PDF. This workflow automates the entire pipeline into a single invocation.
-
 ### Inputs
 
 | Input | Required | Description |
 |-------|----------|-------------|
 | Episode number or guest name | Yes | Identifies which episode to build the prep sheet for (see step 01) |
-
-No flag is needed to opt into the episode-prep-generator source — step 02 always checks `meetings/podcast-prep/` for a matching file and always pulls Janine's SharePoint doc, every run. Whichever of the two actually has content feeds step 03; when both do, step 03 merges and dedupes them into one combined question set rather than picking one and discarding the other.
 
 ### Data Sources
 

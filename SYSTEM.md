@@ -58,7 +58,7 @@ Agents interact with the system by directly reading and writing markdown files. 
 <!-- personal:start -->
 ## Jarvis Operating Rules
 
-These rules exist because past sessions produced errors that wasted David's time. Read them. Follow them. No exceptions.
+Read these rules. Follow them. No exceptions.
 
 ### Search Discipline
 
@@ -85,7 +85,7 @@ If all 3 strategies return nothing, THEN report it as not found — and say what
 1. **Before saying something doesn't exist** — try harder. Minimum 3 search approaches.
 2. **Before stating a date, time, or conflict** — verify the conversion and check if it makes logical sense.
 3. **Before reporting a cost, count, or comparison** — double-check the math. State assumptions explicitly.
-4. **When corrected, document the fix** — add the rule here so it persists across sessions.
+4. **When corrected, document the fix** — add the rule here so it persists across sessions. Write the rule, not the incident story: no dated provenance or err-ID narrative (see `agents/conventions.md`, Instructional File Hygiene).
 
 ### Deliverable Branding
 
@@ -99,7 +99,7 @@ If all 3 strategies return nothing, THEN report it as not found — and say what
 
 **Desktop Commander (`mcp__Desktop_Commander__*`) is the only authorized tool for Mac filesystem operations** — reading, writing, moving, or deleting files on the host Mac. VM Bash (`Bash` tool) runs in an isolated sandbox and cannot see or touch Mac filesystem paths. Any file operation targeting `/Users/davidohara/`, `~/`, or an iCloud path must use Desktop Commander or osascript, not Bash.
 
-**Before declaring any file, folder, or path "not accessible" or "not on this mount"**: run `ToolSearch` for Desktop Commander / `mcp__Control_your_Mac__osascript` first. These tools may be deferred and not yet listed in the active tool set — their absence from the visible tool list is not evidence they're unavailable. A sandboxed bash mount only covers the folders explicitly mounted into that session; it is never the full picture of "no Mac filesystem access." Conflating "not in my current bash mount" with "not reachable at all" is the specific failure logged in `err-20260715T134820-X2GOL2` — don't repeat it. This applies to every data source that lives on the host Mac but outside the session's bash mount: `My Leads.xlsx` (`~/Downloads`), Plaud staging (`~/Downloads/transcript-staging`), and any other path referenced by a workflow that isn't already inside the mounted project folder.
+**Before declaring any file, folder, or path "not accessible" or "not on this mount"**: run `ToolSearch` for Desktop Commander / `mcp__Control_your_Mac__osascript` first. These tools may be deferred and not yet listed in the active tool set — their absence from the visible tool list is not evidence they're unavailable. A sandboxed bash mount only covers the folders explicitly mounted into that session; it is never the full picture of "no Mac filesystem access." Conflating "not in my current bash mount" with "not reachable at all" is the failure to avoid. This applies to every data source that lives on the host Mac but outside the session's bash mount: `My Leads.xlsx` (`~/Downloads`), Plaud staging (`~/Downloads/transcript-staging`), and any other path referenced by a workflow that isn't already inside the mounted project folder.
 
 ### Chrome Tab State
 
@@ -112,13 +112,6 @@ If all 3 strategies return nothing, THEN report it as not found — and say what
 ### OmniFocus Data Accuracy
 
 **OmniFocus reads go through the `omnifocus-data` skill** (`skills/omnifocus-data/SKILL.md`). It owns the query logic, the mandatory `completed is false` filter, and the canonical data file `data/omnifocus-unified.json`. Do not hand-write OmniFocus AppleScript, and do not call the MCP directly, to answer a task-data question.
-
-**Earlier guidance here blamed the MCP for unreliable completion status. The MCP was not the cause.** The two real causes, measured 2026-09-16, are structural, and the skill already corrects for both:
-
-- **`flattened tasks` includes each project's root row**, so projects surface as if they were tasks (49 of them here). This is why a task list can contain entries that look like phantom project names.
-- **Archiving a folder in OmniFocus does not complete its tasks.** The 21 projects inside the `Archive` folder hold 73 tasks that stay `completed: false` forever, while OmniFocus's own UI and the MCP both treat them as dropped.
-
-So `count of (flattened tasks whose completed is false)` returns **258** where the honest count of open work is **136**. Use the skill; it returns 136.
 
 **Never surface a completed task as active** unless David asks for completed items. The skill's pull enforces this in the query itself, so do not re-derive the filter by hand. If the count is ever disputed, re-run the skill rather than trusting cached state.
 
@@ -142,13 +135,13 @@ Do not attempt to DM privately as a bot until the bot app is created.
 
 ### Plaud Ingest — Standing Rule
 
-**Always spawn Knox to run plaud-ingest on every boot, unconditionally.** There is no prior token friction on Plaud pulls — that justification was fabricated/carried forward in error across multiple sessions (see err-20260730T143152-S0TRMO and err-20260803T143125-2W5XDO) and has been struck from all operational notes. Do not skip this step based on anticipated friction, lack of an explicit request, or any prior-session narrative. If Knox hits a real blocker during a given run, that is Knox's finding to report — not a reason for Master to pre-emptively skip the spawn.
+**Always spawn Knox to run plaud-ingest on every boot, unconditionally.** Do not skip this step based on anticipated friction, lack of an explicit request, or any prior-session narrative. If Knox hits a real blocker during a given run, that is Knox's finding to report, not a reason for Master to pre-emptively skip the spawn.
 
 **Knox spawn prompt — mandatory language (copy verbatim):**
 
 > "Knox — run `workflows/plaud-ingest/workflow.md` in full. Read the workflow file, run the STATE CHECK, and execute all steps as written. The plaud-discover skill (`skills/plaud-discover/SKILL.md`) handles token acquisition — if the token is missing or expired, the skill runs the Chrome login flow automatically. Do NOT abort due to a missing token. Run the skill; let the skill handle auth. This is a background task — do not wait for confirmation before starting."
 
-The critical addition is the explicit instruction that the skill handles token auth. Knox's failure mode (err-20260812T142902-E6Z7KS) was aborting before running the skill because it saw "no token cached" and treated that as a terminal blocker — it is not. The skill is the recovery path.
+The spawn prompt exists so Knox does not abort when it sees "no token cached": a missing or expired token is not a terminal blocker. The skill is the recovery path.
 
 ### Error Accountability
 
@@ -422,11 +415,7 @@ On boot, read the identity files to know who David is, what he's working on, and
 Jarvis is the default interface. Behind Jarvis are nine specialist agents. **Master never
 adopts another agent's persona or voice inline — for any work in an agent's domain, Master
 always spawns that real named agent as an actual sub-agent process**, per the Direct
-Sub-Agent Invocation protocol in `agents/master.md`. Master narrating as "Chase" or "Shep"
-inline, without a real spawn, is the exact anti-pattern this rule exists to prohibit —
-David flagged this directly after finding this section's old "you adopt the relevant
-agent's expertise and voice" language directly contradicted it — that language has been
-removed. The one legitimate exception is
+Sub-Agent Invocation protocol in `agents/master.md`. The one legitimate exception is
 Cross-Domain Synthesis (see `agents/master.md`), where Master answers in its own voice
 because the request spans multiple domains and no single agent owns it — that is Master
 being Master, not Master pretending to be a specialist.

@@ -100,6 +100,7 @@ Skip bot messages UNLESS they contain `# ` AND `## ` (digest signal) OR the Watc
 > - **In a Cowork session:** the sandboxed `mcp__workspace__bash` tool does NOT have general outbound network access (small allowlist only) and WILL fail read.py/post.py with a tunnel/connection error. Do not use it for this step. Use `mcp__Desktop_Commander__start_process` instead — it executes on the actual Mac and has full network access.
 > - **In native Jarvis (Claude Code) runtime:** `mcp__Desktop_Commander__start_process` is the only authorized path regardless — this was already the rule, restated here for emphasis.
 > - If read.py/post.py fails with a network/connection error, do NOT conclude "no network access" and abort. First confirm which execution tool was used. If it was the Cowork sandbox bash tool, retry the identical command via `mcp__Desktop_Commander__start_process` before reporting any failure.
+> - **Deferred-tool delay (Cowork):** Desktop Commander tools are deferred and may not appear in ToolSearch at the very start of a session. If ToolSearch returns no match for `mcp__Desktop_Commander__start_process`, do NOT abort the run or set `state.yaml` to `aborted`: wait a moment and retry ToolSearch, or attempt the tool call directly. A single failed ToolSearch is not evidence the tool is missing.
 
 **Reading:** Use `systems/slack-bot/read.py` via Desktop Commander (mcp__Desktop_Commander__start_process)
 
@@ -260,25 +261,7 @@ See step-01-discover.md for full pass/fail criteria, logging format, and escalat
 
 ## STATE CHECK — Run Before Any Execution
 
-1. Read `state.yaml` in this workflow directory.
-
-2. If `status: in-progress`:
-   - You are resuming a previous run. Do NOT start over.
-   - Read `current-step` to find where to continue.
-   - Load `accumulated-context` — data already gathered. Do not re-pull it.
-   - Check that step's frontmatter: if `status: in-progress`, re-execute it; if
-     `status: not-started`, begin it fresh.
-   - Notify the controller: "[Harper]: Resuming content-discovery from [current-step]."
-
-3. If `status: not-started` or `status: complete`:
-   - Fresh run. Initialize `state.yaml`: set `status: in-progress`, generate `session-id`,
-     write `session-started` and `original-request`, set `current-step: step-01`.
-   - Begin at step-01.
-
-4. If `status: aborted`:
-   - Surface to controller: "[Harper]: content-discovery was previously aborted at
-     [current-step]. Resume or start fresh?"
-   - Wait for instruction.
+> Read and follow `reference/state-check-protocol.md` before any execution. Workflow name: `content-discovery`; agent: Harper.
 
 ## EXECUTION
 

@@ -12,9 +12,8 @@ Upload PDF and EPUB files to the reMarkable tablet via the cloud API using `rmap
 
 ## Plan-Only Mode
 
-If the prompt contains the phrase "do not execute" or `eval-mode: plan-only`, do not run any rmapi, Finder, or osascript commands. Instead, produce a markdown plan describing the commands you would issue, in order, with the exact target folder, rationale, and the inputs you would pass to each. Save the plan to the requested output path and stop. Do not call rmapi or osascript under any circumstances when in plan-only mode.
-
-This branch exists so the skill can be exercised by the Rigby eval loop without producing real uploads to the tablet.
+Plan-Only Mode: follow `reference/plan-only-mode-protocol.md`.
+This skill's gated actions are the `rmapi` upload to the tablet and the Finder/osascript staging that feeds it; no rmapi, Finder, or osascript command runs when plan-only.
 
 ## Critical: Execution Environment
 
