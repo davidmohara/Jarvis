@@ -10,6 +10,8 @@ All notable changes to IES (Improving Executive System). Versions were establish
 - Phase 2 in flight: per-step audit trail in the eval harness (per-step model, input tokens, output tokens, cost) with CSV/JSON export.
 - Phase 3 in flight: Stage 3 evaluation artifacts for all 11 agents (`systems/eval-harness/stage3/`).
 - Phase 5C (this file): CHANGELOG established, retroactive version tags created.
+- Eval-harness exit reliability (2026-10-10): SessionEnd hook re-engineered to spawn the canonical closer (`close-open-evals.py`) detached, so a standard exit can no longer cancel the sweep mid-run and leave eval records open; regression suite `test_eval_session_end.py` (40bc6ef4). Protects the Phase 4C success-rate data window from open-record distortion.
+- YAML hygiene (2026-10-10): colon-bearing values quoted in `plaud-ingest-verification` frontmatter and boot `state.yaml` after both became unparseable (turn-start frontmatter errors, `boot_is_fresh` fallback); quoting rule added to agent conventions so agent-written YAML cannot reintroduce the defect.
 - Planned: v2.0.0 tagged at the Stage 5 resubmission.
 
 ## [v1.5.0] — 2026-09-16: access consolidation and deterministic grading

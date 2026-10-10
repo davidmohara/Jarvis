@@ -1,6 +1,6 @@
 ---
 name: plaud-ingest-verification
-description: Adversarial verification of a Plaud ingest run. Ralph performs ingestion accounting: every staged recording must be accounted for as an ingested note or a logged skip, with zero silent drops.
+description: 'Adversarial verification of a Plaud ingest run. Ralph performs ingestion accounting: every staged recording must be accounted for as an ingested note or a logged skip, with zero silent drops.'
 agent: ralph
 model: sonnet
 ---

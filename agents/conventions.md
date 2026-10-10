@@ -102,6 +102,10 @@ When a fix lands after an error, write only the RULE into the instructional file
 
 Step-file YAML frontmatter carries `status`, `started-at`, `completed-at`, `outputs`, and `model` only. No `note:`, `notes_prior_run`, `previous-run-results`, or any narrative field. Run notes go to `memory/working/` or `logs/`. Workflow run state lives in `state.yaml`.
 
+### Quote YAML values that contain colons
+
+Any YAML value containing a colon followed by a space (prose summaries often do: `completed, 18 msgs, actionable: Solace ...`) must be wrapped in quotes. A single unquoted `: ` inside a value makes the entire file unparseable, and every reader of that file degrades: hooks parsing `state.yaml` or workflow frontmatter log errors and fall back to defaults instead of failing loudly. Applies to workflow and step frontmatter, `state.yaml` status and accumulated-context values, and any other YAML an agent writes.
+
 ### Refactors delete what they supersede
 
 Any change that supersedes content (a split, a rename, a renumbering, a rewrite) deletes the superseded copy in the same change. Changelogs of the edit go to a build note in `memory/working/` or the evolution record, never into the instruction file.
