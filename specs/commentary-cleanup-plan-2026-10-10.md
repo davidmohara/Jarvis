@@ -1,6 +1,8 @@
 # Commentary Cleanup Plan, 2026-10-10
 
-Audit of all instructional files (skills, workflows, agents, identity, SYSTEM.md, CLAUDE.md) for non-instructional text. Seven read-only audit agents, full coverage. **Nothing has been changed.** This plan is the deliverable.
+**EXECUTION STATUS (2026-10-10, same day): ALL PHASES EXECUTED.** Content family (decision 2) fixed first; then Phase A (commit 800c6c2e), Phase F hook-based capture (cccbcddc), Phase B centralization (35b54c86), Phase C+D (f5058fb3), all pushed to origin/main. Verification clean throughout: marker balance 0 imbalances across all trees, both guard validators pass (176 skill files, 295 step files), capture-chain tests pass, no residual err-narratives in instructional files. Coverage correction: `.claude/skills/` is a separate live tree of ~97 agent skills (not a mirror) and was audited and cleaned in the execution passes. Remaining open items: the frontmatter state-field migration (step-complete.py reads step frontmatter; full migration belongs with the eval-harness instrumentation work), the three verifier-side step-01-verify scaffolds (the caller-side protocol does not cover them), departed-EA references in identity files (personnel data, David's call), and eval-signal-write skill retirement (superseded by hooks, kept pending David's decision).
+
+Audit of all instructional files (skills, workflows, agents, identity, SYSTEM.md, CLAUDE.md) for non-instructional text. Seven read-only audit agents, full coverage. This plan is the audit deliverable; the execution record lives in git history and memory/working/2026-10-10-102707-master-content-family-fix.md.
 
 ## Headline
 
