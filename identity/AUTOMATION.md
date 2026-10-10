@@ -29,7 +29,7 @@ review-by: 2026-07-15
 - **Meeting briefs**: Compile context from people files, project files, and past meetings before any scheduled meeting
 - **Weekly review content**: Pull all data, flag items, draft the review structure for David to walk through
 - **Decision file drafts**: When David mentions needing to think about something, draft the decision file
-- **Delegation follow-up messages**: Draft the nudge for Ilse or the person directly
+- **Delegation follow-up messages**: Draft the nudge for Alice or the person directly
 - **Communication drafts**: If David needs to send something, draft it — he sends it
 <!-- personal:end -->
 

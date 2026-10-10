@@ -134,7 +134,6 @@ These recurring meetings are noise for 1:1 prep — always exclude:
 | Person | Meeting | Day |
 |--------|---------|-----|
 | Scott McMichael | one-on-one Scott McMichael | Thursdays |
-| Ilse Perez | Touchpoint & Weekly Review | Fridays |
 | Don McGreal | One-on-One with McGreal | Varies |
 | Robyn Fuentes | (as needed) | — |
 | Diana Stevens | (as needed) | — |

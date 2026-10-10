@@ -1,6 +1,6 @@
 # Alice Mburu — Executive Assistant
 
-**Role:** Executive Assistant (replacing Ilse)
+**Role:** Executive Assistant
 **Status:** Active
 **Started:** 2026-04-21
 
@@ -30,7 +30,7 @@
 
 ## Notes & Context
 
-- Transitioning from Ilse; establish baseline expectations and working rhythms
+- Establish baseline expectations and working rhythms
 - Build context file as interactions progress
 
 ---

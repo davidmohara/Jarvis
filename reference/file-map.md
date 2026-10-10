@@ -21,7 +21,7 @@ IES/
 │   ├── GOALS_AND_DREAMS.md         → One Texas targets, Lifebook visions, side ventures
 │   ├── RESPONSIBILITIES.md         → Role definition, cadences, what David does/doesn't own
 │   ├── AUTOMATION.md               → What Jarvis handles autonomously vs. with approval
-│   ├── INTEGRATIONS.md             → Tools, data flow, Ilse, file locations
+│   ├── INTEGRATIONS.md             → Tools, data flow, Alice, file locations
 │   ├── SECURITY.md                 → Boundaries, sensitive areas, hard rules
 │   └── MISSION_CONTROL.md          → Execution system, project tracking, the execution gap
 ├── memory/

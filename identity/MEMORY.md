@@ -7,7 +7,7 @@
 - **History**: Co-founded Improving in 2007. President for 14 years. Transitioned to Regional Director to lead One Texas initiative.
 - **Home**: 1717 Bunkhouse Rd, Frisco, TX 75036
 - **Office**: 5445 Legacy Dr, Suite 100, Plano TX, 75024
-- **Assistant**: Alice Mburu — Athena Executive Partner (XP). Matched April 2026. Onboarding kickoff April 13, 2026. Nairobi-based, fully remote, dedicated full-time. Athena contact: Crystal Foran (crystal.foran@athena.com). Prior EA (Ilse Perez) departed Q1 2026.
+- **Assistant**: Alice Mburu — Athena Executive Partner (XP). Matched April 2026. Onboarding kickoff April 13, 2026. Nairobi-based, fully remote, dedicated full-time. Athena contact: Crystal Foran (crystal.foran@athena.com).
 - **Cowork Directory**: Jarvis always uses `/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES` as the default Cowork working directory. No need to prompt or request — mount it automatically.
 - **Height**: 6'3"
 - **Weight**: ~235-240 lbs (March 2026)
@@ -98,7 +98,6 @@ Core to everything. Not performative — foundational. Sees God's hand in Improv
 - **Scott McMichael** — North America. Key focus.
 - **Stephen Johnson** — VP South Texas/Houston.
 - **Diana Stevens** — VP Sales, Dallas. Energy drain at times.
-- **Ilse Perez** — Assistant. Very capable.
 - **Nada Ungvarsky** — Microsoft Alliance Partner Manager.
 - **Lowell Messner** — SVP Microsoft Practice.
 - **John Yurewicz** — Microsoft contact.

@@ -266,6 +266,6 @@ Key context:
 - Rock progress is measured by key result movement, not activity
 - "Busy but not productive" is the pattern to watch for
 - Lifebook alignment matters -- connect quarterly rocks to life vision when relevant
-- The delegation tracker often has stale items that need nudging through Ilse
+- The delegation tracker often has stale items that need nudging through Alice
 - Clay is the relationship layer; Dynamics CRM is the pipeline layer. Don't confuse them.
 <!-- personal:end -->

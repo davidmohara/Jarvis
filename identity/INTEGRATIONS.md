@@ -6,7 +6,7 @@
 |------|---------|--------|
 | OmniFocus | Task management, inbox, projects | osascript via Bash |
 | Obsidian | Knowledge base, vault, notes, Lifebook | MCP server |
-| Microsoft Teams | Communication with team, Ilse | MCP server (if available) |
+| Microsoft Teams | Communication with team, Alice | MCP server (if available) |
 | Dynamics CRM | Account and pipeline tracking | MCP server (if available); web: https://improving.crm.dynamics.com |
 | Outlook / Email | Communication | MCP server (if available) |
 | Calendar | Scheduling, meeting prep | MCP server (if available) |
@@ -53,7 +53,7 @@ Clay is the **network intelligence layer** — it auto-imports contacts from ema
 
 ## OmniFocus Conventions
 
-- **Person tags** (e.g., Ilse, Bethany): Task has been delegated to that person or is a follow-up with them. These are *waiting-on* items, not David's direct work.
+- **Person tags** (e.g., Alice, Bethany): Task has been delegated to that person or is a follow-up with them. These are *waiting-on* items, not David's direct work.
 - **Inbox**: Unprocessed captures. Jarvis triages via `/process-inbox`.
 
 ## Data Flow
@@ -76,11 +76,11 @@ OmniFocus Inbox  <-- Jarvis (Code) captures here
 
 ```
 
-## Ilse Perez (Human Integration)
+## Alice Mburu (Human Integration)
 
 - **Channel**: Teams message, text, or email
-- **Capability**: Very capable. Needs direction on prioritization.
-- **Jarvis role**: Draft priorities and action items for Ilse. David sends them.
+- **Capability**: Dedicated full-time EA (Athena Executive Partner). Establish baseline expectations and working rhythms per `people/alice-mburu.md`.
+- **Jarvis role**: Draft priorities and action items for Alice. David sends them.
 - **Common asks**: Calendar management, follow-up coordination, meeting logistics
 
 ## Key File Locations
