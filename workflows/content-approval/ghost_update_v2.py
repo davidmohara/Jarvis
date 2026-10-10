@@ -1,5 +1,4 @@
-# Copied from the retired workflows/content-pipeline/ghost_update_v2.py during the
-# content-pipeline -> content-discovery/content-approval split (Rigby capability build).
+# Reference script for the Ghost JWT-generation and PUT-update pattern.
 #
 # FLAGGED FOR HUMAN REVIEW: the original file has a hardcoded Ghost Admin API `key_id` and
 # `hex_secret` (a live credential) plus a hardcoded `post_id` and full post body from a one-off
