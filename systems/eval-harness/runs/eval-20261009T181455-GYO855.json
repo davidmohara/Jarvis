@@ -1,0 +1,172 @@
+{
+  "id": "eval-20261009T181455-GYO855",
+  "agent_id": "a45233605a84eb432",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": "one-on-one-prep",
+  "agent": "general-purpose",
+  "session_id": "9d1f1c4e-bdea-4ce3-a1c2-304f9bd8cfe9",
+  "trigger": "unknown",
+  "started": "2026-10-09T18:14:55.474409Z",
+  "completed": null,
+  "duration_seconds": null,
+  "status": "aborted",
+  "steps": [
+    {
+      "name": "step-01-identify-meeting.md",
+      "step_id": "step-01-identify-meeting.md",
+      "agent": "general-purpose",
+      "owning_agent": "shep",
+      "started": "2026-10-09T16:30:00Z",
+      "completed": "2026-10-09T16:33:00Z",
+      "duration_seconds": 180.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "accounts/fireworks/models/kimi-k3",
+      "tokens_input": 51892,
+      "tokens_output": 192,
+      "cost_usd": null,
+      "token_source": "lenient_fallback",
+      "turns_matched": 17
+    },
+    {
+      "name": "step-02-gather-communications.md",
+      "step_id": "step-02-gather-communications.md",
+      "agent": "general-purpose",
+      "owning_agent": "shep",
+      "started": "2026-10-09T16:33:00Z",
+      "completed": "2026-10-09T16:45:00Z",
+      "duration_seconds": 720.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "accounts/fireworks/models/kimi-k3",
+      "tokens_input": 51892,
+      "tokens_output": 192,
+      "cost_usd": null,
+      "token_source": "lenient_fallback",
+      "turns_matched": 17
+    },
+    {
+      "name": "step-03-gather-tasks.md",
+      "step_id": "step-03-gather-tasks.md",
+      "agent": "general-purpose",
+      "owning_agent": "shep",
+      "started": "2026-10-09T16:45:00Z",
+      "completed": "2026-10-09T16:48:00Z",
+      "duration_seconds": 180.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "accounts/fireworks/models/kimi-k3",
+      "tokens_input": 51892,
+      "tokens_output": 192,
+      "cost_usd": null,
+      "token_source": "lenient_fallback",
+      "turns_matched": 17
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": false,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "guardrails": [
+    {
+      "name": "step-01-identify-meeting-checkpoint",
+      "after_step": "step-01-identify-meeting.md",
+      "result": "pass",
+      "reason": "Meeting identified: Alice Mburu on 2026-10-09",
+      "escalated_to_human": false,
+      "timestamp": "2026-10-09T18:23:01.124928Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "person_confirmed": true,
+        "meeting_date": "2026-10-09",
+        "location": "Microsoft Teams",
+        "known_cadence": true
+      }
+    },
+    {
+      "name": "step-02-gather-communications-checkpoint",
+      "after_step": "step-02-gather-communications.md",
+      "result": "pass",
+      "reason": "communication_data structurally complete (19 total activity items across email/Teams/calendar)",
+      "escalated_to_human": false,
+      "timestamp": "2026-10-09T18:23:01.223749Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "keys_present": [
+          "email_threads",
+          "teams_messages",
+          "shared_calendar_events"
+        ],
+        "email_thread_count": 5,
+        "teams_message_count": 9,
+        "calendar_past_count": 1,
+        "calendar_upcoming_count": 4,
+        "previous_brief_section_present": true,
+        "total_activity_items": 19
+      }
+    },
+    {
+      "name": "step-03-gather-tasks-checkpoint",
+      "after_step": "step-03-gather-tasks.md",
+      "result": "pass",
+      "reason": "task_data structurally complete: 1 tagged task(s), 0 overdue delegation(s) computed from due dates",
+      "escalated_to_human": false,
+      "timestamp": "2026-10-09T18:23:01.339465Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "keys_present": [
+          "person_tasks",
+          "delegations",
+          "previous_action_items"
+        ],
+        "person_task_count": 1,
+        "delegations_to_count": 0,
+        "delegations_from_count": 0,
+        "computed_overdue_count": 0,
+        "previous_action_items_count": 4
+      }
+    }
+  ],
+  "total_cost_usd": 0.09,
+  "cost_estimation_note": "estimated based on general-purpose workflow type",
+  "model": "sonnet"
+}

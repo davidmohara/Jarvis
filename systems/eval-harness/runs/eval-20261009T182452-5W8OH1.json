@@ -1,0 +1,76 @@
+{
+  "id": "eval-20261009T182452-5W8OH1",
+  "type": "skill",
+  "name": "shep-1on1-prep",
+  "agent": "shep",
+  "session_id": "9d1f1c4e-bdea-4ce3-a1c2-304f9bd8cfe9",
+  "trigger": "Build a call prep sheet for my weekly review with Alice",
+  "started": "2026-10-09T11:30:00-05:00",
+  "completed": "2026-10-09T18:24:52.920777Z",
+  "duration_seconds": 6892.9,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": true,
+      "outputs_non_empty": null,
+      "assertions_checked": 2,
+      "assertions_passed": 2,
+      "assertion_results": [
+        {
+          "assertion": "shep-1on1-prep-signal-written",
+          "description": "shep-1on1-prep skill-run signal file was written",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "shep-1on1-prep-signal-status",
+          "description": "shep-1on1-prep skill-run did not end in failure",
+          "category": "structure",
+          "passed": true
+        }
+      ],
+      "category_breakdown": {
+        "structure": {
+          "passed": 2,
+          "checked": 2
+        },
+        "content": {
+          "passed": 0,
+          "checked": 0
+        },
+        "quality": {
+          "passed": 0,
+          "checked": 0
+        }
+      }
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "deterministic_gate": {
+      "score": 1.0,
+      "gate_status": "pass",
+      "computed_at": "2026-10-09T18:25:26.076105Z"
+    }
+  },
+  "version_hash": "10b799bd9e51da57",
+  "prior_baseline_id": null,
+  "tags": [
+    "cowork-hook",
+    "skill"
+  ]
+}

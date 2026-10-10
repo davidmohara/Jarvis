@@ -1,0 +1,76 @@
+{
+  "workflow": "boot",
+  "total_size_bytes": 1572,
+  "accumulated_context": {
+    "name": "accumulated-context",
+    "size_bytes": 1572,
+    "size_kb": 1.54,
+    "estimated_tokens": 393,
+    "type": "dict"
+  },
+  "field_breakdown": [
+    {
+      "name": "boot-2026-09-18.result",
+      "size_bytes": 329,
+      "size_kb": 0,
+      "estimated_tokens": 82,
+      "type": "str"
+    },
+    {
+      "name": "boot-2026-10-08.degraded",
+      "size_bytes": 218,
+      "size_kb": 0,
+      "estimated_tokens": 54,
+      "type": "str"
+    },
+    {
+      "name": "boot-2026-09-17.result",
+      "size_bytes": 191,
+      "size_kb": 0,
+      "estimated_tokens": 47,
+      "type": "str"
+    },
+    {
+      "name": "boot-2026-10-08.briefing",
+      "size_bytes": 187,
+      "size_kb": 0,
+      "estimated_tokens": 46,
+      "type": "str"
+    },
+    {
+      "name": "boot-2026-10-08.data-files",
+      "size_bytes": 158,
+      "size_kb": 0.15,
+      "estimated_tokens": 39,
+      "type": "list"
+    },
+    {
+      "name": "boot-2026-10-08.knox",
+      "size_bytes": 68,
+      "size_kb": 0,
+      "estimated_tokens": 17,
+      "type": "str"
+    },
+    {
+      "name": "boot-2026-09-18.session-note",
+      "size_bytes": 63,
+      "size_kb": 0,
+      "estimated_tokens": 15,
+      "type": "str"
+    },
+    {
+      "name": "boot-2026-09-17.session-note",
+      "size_bytes": 63,
+      "size_kb": 0,
+      "estimated_tokens": 15,
+      "type": "str"
+    },
+    {
+      "name": "boot-2026-10-05.session-note",
+      "size_bytes": 63,
+      "size_kb": 0,
+      "estimated_tokens": 15,
+      "type": "str"
+    }
+  ]
+}

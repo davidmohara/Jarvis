@@ -19,14 +19,7 @@ model: sonnet
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Rigby, spawned by the coordinator, never executed inline. All git operations run through `skills/git/SKILL.md` and the `ies-git` wrapper
-
-
-Adapted from the retired `workflows/content-pipeline/steps/step-03-git-finalize.md`, which
-served both the discovery and approval halves of the old single workflow. Each split workflow
-now runs its own copy of this step because both write to files that need committing
-independently on their own schedule (discovery runs daily at 6am; approval runs 4x/day) — see
-`workflows/content-approval/steps/step-02-git-finalize.md` for its counterpart.
+**Agent:** Rigby, spawned by the coordinator, never executed inline. All git operations run through `skills/git/SKILL.md` and the `ies-git` wrapper.
 
 Before executing, write `status: in-progress` and `started-at` to this file's own frontmatter.
 

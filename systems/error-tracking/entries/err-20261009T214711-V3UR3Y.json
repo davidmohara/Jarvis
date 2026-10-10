@@ -1,0 +1,15 @@
+{
+  "id": "err-20261009T214711-V3UR3Y",
+  "timestamp": "2026-10-09T21:47:11Z",
+  "session": "session-2026-10-09-104707",
+  "source": "explicit",
+  "agent": "sterling",
+  "category": "data-accuracy",
+  "description": "In the Houston dining shortlist, Sterling estimated Street to Kitchen (Second Ward) at ~25-28 min from the Hilton Houston Westchase and recommended it as the Wednesday pick partly on that basis. David corrected: the real drive is 45 minutes. All drive times in the shortlist were inferred from Michelin listing coordinates as off-peak straight-line estimates, not actual routing, and the estimate was off by ~70% on the recommended pick.",
+  "correction": "Street to Kitchen is a 45-minute drive from the Hilton Houston Westchase. Drive-time claims in travel/dining recommendations must come from actual routing (Google Maps or equivalent), not lat/lng distance guesses, especially in Houston where freeway routing dominates straight-line distance.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "Proposed for Sterling's dining/travel research: when proximity drives the recommendation, verify drive times via Google Maps directions (Playwright) for at least the final shortlist before presenting. Label any remaining estimates as estimates.",
+  "fix_status": "proposed",
+  "severity": "minor",
+  "related_entries": []
+}

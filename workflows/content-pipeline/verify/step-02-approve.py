@@ -29,7 +29,7 @@ def main():
     payload = json.loads(sys.stdin.read() or "{}")
     ies_root = Path(payload.get("ies_root", "."))
 
-    drafts_path = ies_root / "workflows" / "content-pipeline" / "pending-drafts.json"
+    drafts_path = ies_root / "workflows" / "content-approval" / "pending-drafts.json"
 
     if not drafts_path.is_file():
         print(json.dumps({

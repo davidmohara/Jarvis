@@ -1,0 +1,15 @@
+{
+  "id": "err-20261009T183543-0ZT6T7",
+  "timestamp": "2026-10-09T18:35:43Z",
+  "session": "session-2026-10-09-104707",
+  "source": "explicit",
+  "agent": "shep",
+  "category": "assumption-error",
+  "description": "In the Alice Mburu wrap-up brief (meetings/Alice Mburu - 2026-10-09.md), Shep flagged a travel-booking discrepancy: it read the Oct 9 Teams thread (hotel 'till Tuesday', Wednesday departure, Sunday arrival options around a social opening) as conflicting with the Houston Oct 13-15 booking and told David to VERIFY before ticketing. David corrected: the morning thread was about a Miami trip, not Houston. There was no discrepancy; two different trips were conflated.",
+  "correction": "The Sunday-arrival thread belongs to a Miami trip; the Houston booking stands exactly as the calendar shows. When a travel thread does not match a calendar entry, consider that it may belong to a different trip before declaring a discrepancy and asking the executive to reconcile it.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "Proposed for one-on-one-prep / travel-thread handling: before surfacing a travel discrepancy, enumerate known upcoming trips and attempt to match the thread to any of them; if ambiguous, present it as 'thread does not match Houston dates — possibly a different trip (Miami?)' rather than as a booking error to fix.",
+  "fix_status": "proposed",
+  "severity": "minor",
+  "related_entries": []
+}

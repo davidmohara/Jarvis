@@ -40,7 +40,7 @@ accumulated-context:
     - "zzPlaud/Other/2026-10-08 Prep Call - Becoming AI Native (Principled Business Summit).md"
     - "zzPlaud/Other/2026-10-08 Dallas Chamber Talent Lab - AI in HR Session Prep.md"
   unresolved_speakers:
-    - {file_id: 6640d7dce6b89cf68439a08d965ba5a2, unresolved: [], resolved: [{speaker: "Speaker 5", name: "Michelle Bernier", method: "controller-provided", date: "2026-10-09"}], flagged: ["Robyn Fuentes (2 segs, off-invite, likely voice mis-tag — no Robyn Fuentes on the invite; David did not rule on it)"]}
+    - {file_id: 6640d7dce6b89cf68439a08d965ba5a2, unresolved: [], resolved: [{speaker: "Speaker 5", name: "Michelle Bernier", method: "controller-provided", date: "2026-10-09"}, {speaker: "Robyn Fuentes (2-seg off-invite tag)", name: "Eric Taussig", method: "controller-ruled (David 2026-10-09: the voice was Eric, the panelist with the broken audio; Plaud embedding had mis-attributed it to Robyn Fuentes)", date: "2026-10-09"}], flagged: []}
   adversarial-verification:
     verdict: "all-accounted"
     result: "flag"

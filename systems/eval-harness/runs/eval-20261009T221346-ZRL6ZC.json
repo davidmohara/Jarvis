@@ -1,0 +1,61 @@
+{
+  "id": "eval-20261009T221346-ZRL6ZC",
+  "agent_id": "af1f683b4f44846fc",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "general-purpose",
+  "session_id": "9d1f1c4e-bdea-4ce3-a1c2-304f9bd8cfe9",
+  "trigger": "unknown",
+  "started": "2026-10-09T22:13:46.151735Z",
+  "completed": "2026-10-09T22:19:11.555049Z",
+  "duration_seconds": 325.4,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/9d1f1c4e-bdea-4ce3-a1c2-304f9bd8cfe9/subagents/agent-af1f683b4f44846fc.jsonl",
+  "last_assistant_message": "Verification complete. Here is my verdict.\n\n## Daily Review Verification \u2014 `reviews/daily/2026-10-09.md`\n\n**Structural finding (read first):** The daily review's capture chain is empty. `workflows/daily-review/steps/step-01-capture.md` frontmatter is `status: complete` but `outputs: {}` \u2014 same for step-02/03/04. `workflows/daily-review/state.yaml` is still `status: in-progress, current-step: step-01`. So none of the review's completion claims have step-level capture backing; every claim below was re-derived from the manifest's supplementary sources (working memory, tracker, `data/omnifocus-unified.json`, error entries, eval records).\n\n| Item | Review claim | Recorded state | Verdict |\n|------|--------------|----------------|---------|\n| Boot ran clean, all 11 steps, Ralph PASS, zero degraded | clean end-to-end boot | `workflows/boot/state.yaml`: status complete, `degraded: none`, \"Ralph verified all Phase 2 tasks (pass, 0 re-runs)\"; morning-briefing WM confirms PASS. **But** boot `workflow.md` header says \"9 sequential steps\" and its table enumerates 12 step files \u2014 \"11\" matches neither | \u2705 (count unsupported) |\n| Knox plaud-ingest: 2 recordings; Speaker 5 = Michelle Bernier | 2 ingested, voice profile registered | `2026-10-09-111643-knox-plaud-ingest.md` + post-run update: 2 recordings, Speaker 5 ruled Michelle Bernier, profile 9962b4e1f84c registered | \u2705 |\n| Knox: \"3 David-owned Monday tasks + 2 review tasks created **in OmniFocus**\" | created in OmniFocus | Source says \"**Monday board**\" with numeric item IDs (13249050308/13249067036/13249067582) \u2014 monday.com `create_item` (see `workflows/plaud-ingest/steps/step-05b`, episodic history). None of the 5 appear in the OmniFocus pull | \u26a0\ufe0f platform misattribution |\n| Alice brief built/delivered + live corrections | `meetings/Alice Mburu - 2026-10-09.md`; Miami not Houston; Remington/YPO owned by David; Steve Hall w/ Derek | File exists (14.6 KB, Oct 9 13:37); `2026-10-09-shep-alice-1on1-prep.md` records all three corrections; scorecard corroborates | \u2705 |\n| Alice scorecard rerun 18/18, up from 12/18, saved to vault | vault path | Vault file `Projects/Assistant/Alice Mburu Scorecard - 2026-10-09.md` exists: \"Total Score: 18 / 18\", \"+6 vs. prior period's 12/18\", Nairobi/remote correction applied | \u2705 |\n| Steve Hall delegation \u2192 In Progress | moved from Waiting | `delegations/tracker.md`: Status **In Progress**, note \"2026-10-09: David confirmed Derek is actively handling\" | \u2705 |\n| Bootcamp docs fixed: 14 PDFs + 2 PPTX (51/47) | Pre-Work \u00a75 rewritten; exit tickets removed | `2026-10-09-154553-master-assessment-hunt.md`: Pre-Work \u00a75 fixed, 14 PDFs regenerated, both decks rebuilt (51 and 47 slides) | \u2705 |\n| Houston dining shortlist verified, nothing booked | Maximo/Street to Kitchen/Blood Bros, times re-verified | `2026-10-09-163142-sterling-houston-dining.md`: re-verified via Google Maps (16-26 / 30-55 / 12-26), \"Nothing booked\" | \u2705 |\n| **Monday double-books settled: both stand per David (source: Master handoff)** | decided today | **No traceable source.** No Master-handoff artifact on disk (repo-wide search); morning briefing frames the double-books as an open \"decide today\" item; boot state.yaml records only the conflict, not a resolution | \u26a0\ufe0f Unverified |\n| 5 OmniFocus tasks completed today | omnifocus-data counts | `data/omnifocus-unified.json` excludes completed by design; no persisted `completed_today` value anywhere. Plausible but unbacked | \u26a0\ufe0f Unverified |\n| Two overdue tasks still overdue | window cleaning 17d, annual calendar 7d | File: \"Schedule window cleaning\" due 9/22 and \"Print out annual calendar\" due 10/2, both `completed: false` | \u2705 |\n| Q4 training / YPO MicroForum / Shelby Meyer / Q4-Q3 rocks | carry-forwards | boot `state.yaml` task-h lists all four; rocks (Q3 71d, Q4 absent) confirmed in state.yaml + briefing | \u2705 |\n| Austin Ledesma reply \u2014 **[confirm]**, no evidence of send | correctly self-flagged | No send trace; review appropriately marks unverified | \u2705 (self-flagged) |\n| Priority Scorecard: 1/3, \"settle double-books: hit\" | 1/3 confirmed | Attack order matches briefing; but the one \"hit\" rests on the unsupported double-books decision (above) | \u26a0\ufe0f |\n| Tomorrow's Top 3 (Hot 26, Saturday pile, Rimmer) | proposed | Briefing confirms Hot 26 8:30, Rimmer 6pm, 14-task Saturday pile; step-02 outputs empty but plan is supported | \u2705 |\n| Calendar Prep (DLP Mon, ACG Tue River Oaks, Houston Tue-Thu) | prep needed | Briefing + scorecard (ACG moved to River Oaks) + sterling WM confirm | \u2705 |\n| System State: Inbox 14 / OmniFocus 138 uncompleted / 0 flagged / 2 overdue / 24 due within 7 / 5 completed | omnifocus-data | File: **16 inbox** (not 14); file `task_count` **39** (no 138 anywhere); file shows **21** due Oct 10-16 (not 24). **0 flagged** \u2713, **2 overdue** \u2713. A live `counts` read ran 17:05-17:11 (`omnifocus-data-latest.json`) but its values were not persisted | \u26a0\ufe0f (inbox/total/due counts unverified; flagged/overdue \u2705) |\n| Overdue delegations 0; due tomorrow 0 | tracker | Tracker: 1 active (Steve Hall, In Progress); none due 10-10 | \u2705 |\n| Corrections: 9 entries \u2014 5 explicit + 4 other | err-20261009T*.json | Exactly 9 files: 5 `source: explicit` (0ZT6T7, SXRR02, J2YY3F, DLR9HZ, V3UR3Y) + 4 `self-detected` (ARPEU9, 51QNCS, WJYEZN, K8882F) | \u2705 |\n| Eval health: 26 records, 7 success, 15 aborted, 1 failure, rest partial/in-progress | eval-20261009*.json | 28 files on disk now; 7 success+complete, 15 aborted, 1 failure, 3 partial/incomplete, 2 in-progress. The 2 in-progress (BA32GV daily-review, ZRL6ZC) started 22:13Z, after the review's 22:11Z synthesis \u2014 so \"26\" is accurate as of synthesis | \u2705 |\n| Root: 1 stray file `thp-slide-preview.png` | flagged, not moved | File exists at root (167 KB); only stray media file | \u2705 |\n| Gap note: last review 2026-09-28, 11-day gap | not backfilled | `reviews/daily/2026-09-28.md` present; no 10-07/10-08 reviews | \u2705 |\n| Right-day check | review file = run date | `reviews/daily/2026-10-09.md` vs run-date 2026-10-09 | \u2705 |\n\n**Summary line:** Re-run required: Monday double-books decision (\"both stand per David\"), knox task platform attribution (\"OmniFocus\" vs monday.com board), OmniFocus System-State counts (inbox 14, \"138 uncompleted\", \"24 due within 7 days\", \"5 completed today\"), and the Priority Scorecard \"hit\" that depends on the double-books claim.\n\nVerdict written to `workflows/daily-review-verification/state.yaml` (`verdict-summary: findings`). No review or source files were modified; no git commands run.",
+  "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+  "total_tokens_input": 0,
+  "total_tokens_output": 0,
+  "total_cost_usd": 0.09,
+  "cost_estimation_note": "estimated based on general-purpose workflow type"
+}

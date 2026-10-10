@@ -1,54 +1,55 @@
 ---
-status: complete
-started-at: 2026-07-24T15:04:52Z
-completed-at: 2026-07-24T15:05:18Z
-outputs:
-  files_changed: 2
-  files_committed:
-    - workflows/content-pipeline/pending-drafts.json
-    - workflows/content-pipeline/steps/step-02-approve.md
-  commit_hash: 6c24adc
-  push_status: success
-  outcome: "SUCCESS: Content approval cycle state committed and pushed. Regeneration blockage documented. Pending drafts marked stalled."
-model: haiku
+status: not-started
+started-at: ~
+completed-at: ~
+outputs: {}
+model: sonnet
 ---
 
 <!-- personal:start -->
-# Step 03: Git Finalize — Commit Pipeline State (2026-07-24T15:00+)
+# Step 03: Git Finalize — Commit Pipeline State
 
-## Execution Summary
+## EXECUTION PROTOCOL
 
-Ran finalize step at 2026-07-24T15:04:52Z.
+**Agent:** Rigby, spawned by the coordinator, never executed inline. All git operations run through `skills/git/SKILL.md` and the `ies-git` wrapper.
 
-### Git Operations
+Before executing, write `status: in-progress` and `started-at` to this file's own frontmatter.
 
-1. **Diff check:** 2 files changed
-   - `workflows/content-pipeline/pending-drafts.json`
-   - `workflows/content-pipeline/steps/step-02-approve.md`
+---
 
-2. **Stage:** `git add workflows/content-pipeline/` — success
+## YOUR TASK
 
-3. **Verify staged:** Confirmed 2 files ready for commit
+**For ALL git operations, read `skills/git/SKILL.md` first.** This is the only authorized path for commits, pushes, branch management, merges, and PR creation. No raw git commands outside the skill.
 
-4. **Commit:** 
+1. **Diff check.** Identify changed files under:
+   - `workflows/content-pipeline/` (this workflow's state.yaml and step frontmatter)
+   - `workflows/content-approval/pending-drafts.json` (the shared state file both pipeline steps wrote)
+   - `workflows/content-discovery/` and `workflows/content-approval/` state files, if the delegated steps updated them this run
+
+2. **Stage** the changed files above via the git skill.
+
+3. **Commit** with a message following the pattern:
    ```
-   commit 6c24adc
-   chore(harper): content-pipeline approval cycle 2026-07-24T15:00Z
+   chore(harper): content-pipeline run {ISO timestamp}
    ```
-   Committed changes documenting regeneration blockage and stalled article states.
+   Summarize in the body what this run did (drafted, published, rejected, or edited, or "no changes" if the run was a clean no-op).
 
-5. **Push:** `git push origin main` → Success
-   ```
-   To https://github.com/davidmohara/Jarvis.git
-      b3d2c32..6c24adc  main -> main
-   ```
+4. **Push** per the git skill's standard flow.
 
-### State Persisted
+5. Write `status: complete`, `completed-at`, and `outputs` (files_changed, files_committed, commit_hash, push_status, outcome) to this file's own frontmatter.
 
-- `pending-drafts.json`: Updated 2 articles (Governance, SaaS Stack) to status="stalled" with issue notes
-- `step-02-approve.md`: Recorded 15:00 UTC approval cycle findings
-- Remote repository updated with commit 6c24adc
+6. Update `state.yaml`: set `status: complete`, `current-step: step-04`, and record the same outputs in `accumulated-context`.
 
-**Status:** SUCCESS. Pipeline state safely committed and pushed.
+---
 
+## FAILURE MODES
+
+| Failure | Action |
+|---------|--------|
+| Nothing to commit (clean no-op run) | This is a legitimate outcome. Log it, still write `status: complete` to state.yaml, skip the commit step, proceed to step-04. |
+| Git push fails (network/auth) | Retry once per the git skill's retry guidance. If it still fails, log the failure in `outputs.push_status` and notify #jarvis: "content-pipeline git-finalize could not push; commit exists locally, needs manual push." |
+
+## NEXT STEP
+
+Read fully and follow: `step-04-adversarial-verify.md`
 <!-- personal:end -->

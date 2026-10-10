@@ -1,8 +1,34 @@
 ---
-status: not-started
-started-at: ~
-completed-at: ~
-outputs: {}
+status: complete
+started-at: "2026-10-09T16:45:00Z"
+completed-at: "2026-10-09T16:48:00Z"
+outputs:
+  task_data:
+    person_tasks:
+      - name: "Alice: parking section in email for Texans"
+        project: null
+        due_date: null
+        flagged: false
+    delegations:
+      to_person: []
+      from_person: []
+    previous_action_items:
+      - item: "Josh Stevenson CRM duplicate resolution"
+        original_owner: "Alice Mburu"
+        current_status: unknown
+        evidence: "CRM-Contacts helpdesk ticket 69244 still active as of 2026-09-30"
+      - item: "EOD recap open-items section"
+        original_owner: "Alice Mburu"
+        current_status: unknown
+        evidence: "No direct evidence; proactive surfacing behavior observed Oct 8-9"
+      - item: "Weekly email draft routed for review"
+        original_owner: "Alice Mburu"
+        current_status: unknown
+        evidence: "No routed drafts visible in this window"
+      - item: "Steve Hall follow-up (Derek Nwamadi)"
+        original_owner: "Derek Nwamadi"
+        current_status: stale
+        evidence: "Tracker: due 2026-09-25, Waiting, 14 days overdue"
 model: sonnet
 ---
 

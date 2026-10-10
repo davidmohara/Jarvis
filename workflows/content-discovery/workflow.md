@@ -1,6 +1,6 @@
 ---
 name: content-discovery
-description: Scans #content Slack channel for new URLs and digests, drafts blog posts in David's voice, submits them to Ghost as drafts, and notifies David in Slack for review. Runs daily at 6am. First half of the split content-pipeline (successor to workflows/content-pipeline).
+description: Scans #content Slack channel for new URLs and digests, drafts blog posts in David's voice, submits them to Ghost as drafts, and notifies David in Slack for review. Runs daily at 6am. Drafting half of the content pipeline; workflows/content-pipeline orchestrates this workflow and content-approval end to end.
 agent: harper
 model: sonnet
 fairness:
@@ -17,7 +17,7 @@ fairness:
 
 **Trigger:** Scheduled daily at 6:00 AM (`config/scheduled-tasks.json`, task id `content-discovery`).
 
-**Lineage:** This workflow is half of the former `workflows/content-pipeline/workflow.md`, which described "two independent scheduled agents running on different cadences" inside a single workflow.md with no deterministic gates. It has been split into this workflow (discovery) and `workflows/content-approval/workflow.md` (approval + publish), each with its own gates, because the two run on different triggers/cadences and enforce different checks. `workflows/content-pipeline/workflow.md` is now RETIRED — see that file for the full redirect note.
+**Relationship:** This workflow is the drafting half of the content pipeline. `workflows/content-approval/workflow.md` is the approval/publish half and runs on its own cadence. `workflows/content-pipeline/workflow.md` orchestrates both halves end to end when a full cycle is needed; all three run on their own schedules and share one state file.
 
 **Companion workflow:** `workflows/content-approval/workflow.md` scans for approval replies and publishes. It runs independently on its own cadence. Both workflows read and write the same shared `pending-drafts.json` — see STATE TRACKING below for its location and the reasoning for keeping it shared.
 <!-- personal:end -->
@@ -69,7 +69,7 @@ A message (bot or user) is a **digest** if it contains BOTH:
 - `# ` (an H1 header — the post title)
 - At least one `## ` (an H2 section header)
 
-Watchtower bot messages sometimes use `*Bold*` section headers instead of `## ` markdown — those are ALSO digests and must never be skipped as noise (see step-01's MESSAGE ROUTER and err-20260727T201106-MOE539).
+Watchtower bot messages sometimes use `*Bold*` section headers instead of `## ` markdown — those are ALSO digests and must never be skipped as noise (see step-01's MESSAGE ROUTER).
 
 ### Section mapping
 
@@ -85,9 +85,7 @@ Match sections by keyword presence in the header, not exact string match.
 
 ### Missing sections
 
-If a digest is missing any of the four post-arc sections (Hook, Story, Insight, Challenge), Harper fills them using `identity/CONTENT-VOICE.md`. Sources are always optional.
-
-**This "four post-arc elements must all appear" rule is formalized as QUALITY GATE 2 (Content Schema Validation) in step-01-discover.md** — it is no longer just inline prose, it is a checked gate before Ghost draft creation.
+If a digest is missing any of the four post-arc sections (Hook, Story, Insight, Challenge), Harper fills them using `identity/CONTENT-VOICE.md`. Sources are always optional. QUALITY GATE 2 (Content Schema Validation) in step-01-discover.md checks the four-arc requirement before Ghost draft creation.
 
 ### Bot message skip rule
 
@@ -98,10 +96,10 @@ Skip bot messages UNLESS they contain `# ` AND `## ` (digest signal) OR the Watc
 ## SLACK INTEGRATION
 
 > **CRITICAL — Desktop Commander MUST be loaded before any Slack operations:**
-> - **ALWAYS load Desktop Commander tools at the start of any step that reads/writes Slack.** Use ToolSearch: `"select:mcp__Desktop_Commander__start_process,mcp__Desktop_Commander__read_file,mcp__Desktop_Commander__write_file"` (See err-20260715T182916-FSMOJK for why this matters.)
+> - **ALWAYS load Desktop Commander tools at the start of any step that reads/writes Slack.** Use ToolSearch: `"select:mcp__Desktop_Commander__start_process,mcp__Desktop_Commander__read_file,mcp__Desktop_Commander__write_file"`.
 > - **In a Cowork session:** the sandboxed `mcp__workspace__bash` tool does NOT have general outbound network access (small allowlist only) and WILL fail read.py/post.py with a tunnel/connection error. Do not use it for this step. Use `mcp__Desktop_Commander__start_process` instead — it executes on the actual Mac and has full network access.
 > - **In native Jarvis (Claude Code) runtime:** `mcp__Desktop_Commander__start_process` is the only authorized path regardless — this was already the rule, restated here for emphasis.
-> - If read.py/post.py fails with a network/connection error, do NOT conclude "no network access" and abort. First confirm which execution tool was used. If it was the Cowork sandbox bash tool, retry the identical command via `mcp__Desktop_Commander__start_process` before reporting any failure. (See err-20260715T134905-DAGK1T.)
+> - If read.py/post.py fails with a network/connection error, do NOT conclude "no network access" and abort. First confirm which execution tool was used. If it was the Cowork sandbox bash tool, retry the identical command via `mcp__Desktop_Commander__start_process` before reporting any failure.
 
 **Reading:** Use `systems/slack-bot/read.py` via Desktop Commander (mcp__Desktop_Commander__start_process)
 
@@ -224,12 +222,7 @@ If the source URL or its core topic already has a published post, skip it and no
 
 **Pending drafts are tracked in a single shared file: `workflows/content-approval/pending-drafts.json`.**
 
-**Decision:** `pending-drafts.json` stays a single shared file rather than being split or copied per workflow, and it lives under `content-approval/` (not `content-discovery/`), because:
-- Discovery appends new entries; approval owns the entry's full lifecycle after that (status transitions, cleanup, editorial edits, deletion). The heavier read/write logic — the 30-day cleanup rules, the "published"/"scheduled" pruning, the Ghost-status resync — all belongs to approval, so the file lives where most of its mutation logic runs.
-- A single file avoids needing sync logic between two copies, which would risk exactly the kind of drift and stale-data bugs step-02 (approval)'s "Ghost Status Verification" section already exists to guard against.
-- Both workflows already ran against the exact same file under the old single-workflow.md design (on different cadences: daily vs. 4x/day) with no observed race — the split does not change the concurrency profile, it only changes which directory holds the file.
-
-Discovery (this workflow) reads and appends to `workflows/content-approval/pending-drafts.json` directly — do not create a local copy in this directory.
+**Design rule:** `pending-drafts.json` is a single shared file, owned by `content-approval/` because most of its mutation logic (status transitions, 30-day cleanup, Ghost-status resync) runs there. Discovery (this workflow) reads and appends to `workflows/content-approval/pending-drafts.json` directly — do not create a local copy in this directory.
 
 Format:
 ```json

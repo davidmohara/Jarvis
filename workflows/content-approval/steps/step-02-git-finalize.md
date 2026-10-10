@@ -11,13 +11,9 @@ model: haiku
 
 ## EXECUTION PROTOCOL
 
-**Agent:** Rigby, spawned by the coordinator, never executed inline. All git operations run through `skills/git/SKILL.md` and the `ies-git` wrapper
+**Agent:** Rigby, spawned by the coordinator, never executed inline. All git operations run through `skills/git/SKILL.md` and the `ies-git` wrapper.
 
-
-Carries forward the retired `workflows/content-pipeline/steps/step-03-git-finalize.md`'s logic.
-Publishing and its git-related finalize step belong together: this workflow owns
-`pending-drafts.json`'s lifecycle (cleanup, status transitions, publish records), so its
-finalize step is the primary home for committing that file. See
+This workflow owns `pending-drafts.json`'s lifecycle (cleanup, status transitions, publish records), so this finalize step is the primary home for committing that file. See
 `workflows/content-discovery/steps/step-02-git-finalize.md` for discovery's counterpart, which
 also commits this same shared file when it appends new entries.
 

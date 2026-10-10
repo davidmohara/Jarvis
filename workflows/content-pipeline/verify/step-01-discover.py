@@ -36,7 +36,7 @@ def main():
     step_started = payload.get("step_started")
     step_completed = payload.get("step_completed")
 
-    drafts_path = ies_root / "workflows" / "content-pipeline" / "pending-drafts.json"
+    drafts_path = ies_root / "workflows" / "content-approval" / "pending-drafts.json"
 
     if not drafts_path.is_file():
         print(json.dumps({
@@ -44,7 +44,7 @@ def main():
             "reason": "pending-drafts.json does not exist",
             "fields": {"entries_total": 0},
             "validation_errors": ["file_missing"],
-            "retry_instruction": "Ensure workflows/content-pipeline/pending-drafts.json exists — reset to [] if it was deleted.",
+            "retry_instruction": "Ensure workflows/content-approval/pending-drafts.json exists — reset to [] if it was deleted.",
         }))
         return
 

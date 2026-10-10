@@ -1,9 +1,14 @@
 ---
 workflow: rock-review
 agent: quinn
-status: idle
-session-started: null
-session-id: null
-current-step: null
-original-request: null
-accumulated-context: {}
+status: complete
+session-started: 2026-10-09T17:20:00
+session-id: quinn-2026-10-09-174500
+current-step: step-04
+original-request: "Q4 rocks right now — run the flow, walk through them together, get commit done (Q3 post-mortem + Q4 proposal)"
+accumulated-context:
+  scope-adjustment: "Quarter rolled over: Q3 draft unsigned (elapsed), Q4 empty. Run = Q3 evidence post-mortem + Q4 proposal pending David's live sign-off."
+  rocks-file: memory/personal/quarterly-objectives.md
+  q3-verdicts: "0 of 4 achieved (Revenue Visibility partial-miss, Cadence never started, Thought Leadership stale-self-report miss, Co-Sell dead-target miss)"
+  q4-proposal: "3 rocks + sustain line, per projects/one-texas-strategy.md kernel; 8 sign-off decision points staged"
+---

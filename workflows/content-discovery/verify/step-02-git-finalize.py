@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 """Ground-truth verifier for content-discovery/step-02-git-finalize.
 
-Adapted from the retired workflows/content-pipeline/verify/step-03-git-finalize.py.
 Confirms content-discovery's own state files, plus the shared pending-drafts.json
 under content-approval/ (which discovery writes to in step-01), have no uncommitted
 changes left in git after finalize, and that a commit touching either tracked path

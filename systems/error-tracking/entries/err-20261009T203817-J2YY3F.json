@@ -1,0 +1,15 @@
+{
+  "id": "err-20261009T203817-J2YY3F",
+  "timestamp": "2026-10-09T20:38:17Z",
+  "session": "session-2026-10-09-104707",
+  "source": "explicit",
+  "agent": "unknown (prior session, bootcamp document creation ~2026-09-29)",
+  "category": "data-accuracy",
+  "description": "In the DLP bootcamp documents, a reference labeled as the AI Adoption Maturity Assessment pointed to ../AI-Deep-Learning-Program/Resources/Measures-and-Assessments/AI-Adoption-Maturity-Assessment.md. David corrected: that file is not the maturity assessment at all. The link was attached based on the filename without verifying the file's actual content.",
+  "correction": "The referenced file's content is something other than the AI Adoption Maturity Assessment. The actual assessment lives elsewhere (investigation in progress at time of logging). A link whose label asserts what a document IS must be verified against the document's content, not inferred from its filename.",
+  "failure_mode": "sloppy-read",
+  "systemic_fix": "Proposed: when a deliverable references an existing source document by name, the creating agent must open the target file and confirm its content matches the label before shipping the reference.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": []
+}

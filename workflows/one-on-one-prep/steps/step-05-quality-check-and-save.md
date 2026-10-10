@@ -1,8 +1,11 @@
 ---
-status: not-started
-started-at: ~
-completed-at: ~
-outputs: {}
+status: complete
+started-at: "2026-10-09T16:56:00Z"
+completed-at: "2026-10-09T16:58:00Z"
+outputs:
+  saved_brief: "meetings/Alice Mburu - 2026-10-09.md"
+  sections: ["Summary of Interactions", "Open Action Items", "Key Calendar Events", "Suggested Talking Points"]
+  talking_point_count: 7
 model: sonnet
 ---
 

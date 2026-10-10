@@ -2,21 +2,30 @@
 workflow: daily-review
 agent: chief
 status: complete
-session-started: "2026-09-28T22:45:00"
-session-id: "chief-2026-09-28-224500"
+session-started: "2026-10-09T17:11:00-05:00"
+session-id: "chief-2026-10-09-171100"
 current-step: step-05
 session-closed: true
-original-request: "Run the daily-review workflow for Monday 2026-09-28 (last day before Improving Retreat / travel to LAS)."
+original-request: "Wrap up the day. (Friday 2026-10-09; last daily review on disk 2026-09-28, 11-day gap noted, no backfill.)"
 accumulated-context:
-  review-date: "2026-09-28"
-  mode: "sub-agent run — no live controller; answers synthesized from morning briefing, calendar, OmniFocus unified pull (degraded), weekly review 2026-W40, LSG board update; controller-confirm items marked [confirm] in review"
-  review-file: "reviews/daily/2026-09-28.md"
-  narrative-path: "Daily Reviews/2026-09-28 The Marathon Before Wheels Up.md (Obsidian vault; no calendar daily note existed for 09-28, cross-link skipped per convention)"
-  delegation: "No changes — Steve Hall follow-up remains with Derek Nwamadi, due 2026-09-25, 3 days overdue; decision (close or kill) flagged for David"
+  review-date: "2026-10-09"
+  mode: "sub-agent run — no live controller; answers synthesized from working memory, session index, OmniFocus counts via omnifocus-data skill, delegation tracker, morning briefing working memory; unverified items marked [confirm]"
+  gap-note: "11 days since last review (2026-09-28). Noted, not backfilled."
+  review-file: "reviews/daily/2026-10-09.md"
+  narrative-path: "Daily Reviews/2026-10-09 The Day the Record Got Corrected.md (Obsidian vault; no calendar daily note for 10-09, cross-link skipped per convention)"
+  delegation: "No changes — Steve Hall already moved Waiting -> In Progress earlier today on David's confirmation; tracker left untouched"
   guardrail-checkpoint: "pass (no leakage, tracker untouched, unverified outcomes marked [confirm], quarterly objectives not modified)"
-  root-audit: "clean"
-  git-commit: "80fbd819 (rebased onto origin/main)"
-  git-push: "success (after stash of in-flight Knox eval record, rebase, stash pop)"
-  eval-record: "eval-20260929T031202-O3KXJB.json"
-  notes: "OmniFocus MCP down all session — unified JSON pull used; close-eval-record.py created a new record rather than closing the in-progress one (eval-20260929T030303-0W2JQU remains open) — flag for Rigby"
+  adversarial-verification:
+    verdict: "findings"
+    result: "flag"
+    findings:
+      - "Knox tasks platform misattributed (said OmniFocus; actually monday.com board) — corrected in review, logged"
+      - "OmniFocus System-State counts from live 17:05 pull, not the persisted morning file — provenance clarified in review"
+      - "Monday double-books decision traceable only to Master spawn handoff, no on-disk artifact — marked [confirm] in review"
+      - "Step frontmatter outputs left {} — capture data lives in state.yaml accumulated-context instead (structural gap, carried)"
+    lens: "output vs source data cross-check; completion claims vs state"
+  root-audit: "1 stray file flagged: thp-slide-preview.png (screenshot at root; held, not moved — media files never auto-removed during session wrap per standing feedback)"
+  git-commit: "deferred — constraint this run: no git commands; session-exit commit handled by the shutdown flow"
+  eval-record: "eval-20261009T221319-BA32GV.json"
+  notes: "First guardrail-checkpoint call failed (no in-progress eval record); created eval record via new-eval.py, then recorded. Session index: daily-review topic marked resolved; session left open for the shutdown flow to close."
 ---

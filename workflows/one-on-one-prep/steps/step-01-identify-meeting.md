@@ -1,8 +1,17 @@
 ---
-status: not-started
-started-at: ~
-completed-at: ~
-outputs: {}
+status: complete
+started-at: "2026-10-09T16:30:00Z"
+completed-at: "2026-10-09T16:33:00Z"
+outputs:
+  meeting_details:
+    person: "Alice Mburu"
+    date: "2026-10-09"
+    day_of_week: "Friday"
+    time: "14:30"
+    duration: 30
+    location: "Microsoft Teams"
+    meeting_name: "Friday Week Wrap-Up"
+    known_cadence: true
 model: sonnet
 ---
 

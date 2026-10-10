@@ -3717,6 +3717,19 @@
         "eval_artifacts_path": null,
         "notes": "Replay-verified: harness-note preference and index fallback in close-eval-record.py; daily-review phantom scenario deduped across flavors; window-only cross-flavor dedupe; legitimate same-day rerun produced a second record; naive --started no longer throws; boot replay regression clean; 26/26 hook tests pass"
       }
+    },
+    {
+      "id": "work-20261010-rock4-evidence-paths-mcp",
+      "description": "Rock 4 (Thought Leadership) evidence paths: configured LinkedIn analytics access via Playwright MCP persistent browser profile (read-only pulls of linkedin.com/analytics/creator/content/ with a never-fabricate-on-expired-login protocol), and registered ghost-blog and ga4-driven-to-develop MCP servers in Claude Code's ~/.claude.json mirroring the Claude Desktop config, repairing silent mcp__ghost-blog__* failures across 13 skill/workflow files. Machine config changes (~/.claude.json) are personal-instance only and not packaged; the reference doc is the packaged artifact.",
+      "started": "2026-10-10T15:20:00Z",
+      "files": [
+        {
+          "path": "reference/linkedin-analytics.md",
+          "action": "add",
+          "type": "system",
+          "description": "Canonical doc for the LinkedIn analytics access path: Playwright MCP persistent-profile mechanism, login-wall protocol corrected per David 2026-10-10 (err-20261010T153840-6FQ5XO) to autonomous 1Password re-auth via op CLI (op read op:// URIs, TOTP via op item get --otp, secrets never logged) with never-fabricate preserved for genuinely unautomatable failures; manual-export fallback to data/linkedin-analytics/; Metricool upgrade path. Instance specifics (profile path, vault item) in personal blocks."
+        }
+      ]
     }
   ]
 }

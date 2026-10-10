@@ -36,7 +36,7 @@ outputs: {}
 
 ### Sequence
 
-1. **Locate the artifacts.** Read `workflows/content-pipeline/steps/step-01-discover.md` and `steps/step-02-approve.md` frontmatter `outputs`. Read `workflows/content-pipeline/pending-drafts.json` and `workflows/content-pipeline/state.yaml`. Read the #content Slack pull for the run window.
+1. **Locate the artifacts.** Read `workflows/content-pipeline/steps/step-01-discover.md` and `steps/step-02-approve.md` frontmatter `outputs`. Read the shared state file `workflows/content-approval/pending-drafts.json` and `workflows/content-pipeline/state.yaml`. Read the #content Slack pull for the run window.
 
 2. **Apply the end-to-end accounting lens.** Build the full item list from each stage, then reconcile:
 

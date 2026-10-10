@@ -14,7 +14,7 @@ model: sonnet
 
 **Architecture:** Single-step adversarial pass. Ralph receives the pipeline manifest (step outputs, `pending-drafts.json`, state.yaml) and returns a verdict table. The caller acts on the results; Ralph never fixes anything.
 
-**Adversarial lens (content-pipeline):** End-to-end accounting. The producing agent (Harper) reports what it believes it discovered, approved, and published; Ralph re-derives each item's journey from the recorded state: the #content Slack pull, `workflows/content-pipeline/pending-drafts.json`, and the live Ghost post records. Any item that enters one stage and does not appear in the next, with no recorded explanation, is a silent drop. This is the content-pipeline lens in `agents/adversarial-isolation.md`.
+**Adversarial lens (content-pipeline):** End-to-end accounting. The producing agent (Harper) reports what it believes it discovered, approved, and published; Ralph re-derives each item's journey from the recorded state: the #content Slack pull, the shared `workflows/content-approval/pending-drafts.json`, and the live Ghost post records. Any item that enters one stage and does not appear in the next, with no recorded explanation, is a silent drop. This is the content-pipeline lens in `agents/adversarial-isolation.md`.
 <!-- personal:end -->
 
 ---
@@ -28,7 +28,7 @@ model: sonnet
 |--------|-------------|---------------|
 | Pipeline manifest | Step output paths + run-date | Passed from Harper as accumulated-context |
 | Step outputs | `workflows/content-pipeline/steps/step-0{1,2}-*.md` frontmatter `outputs` | File system read |
-| Pending drafts | `workflows/content-pipeline/pending-drafts.json` | File system read |
+| Pending drafts | `workflows/content-approval/pending-drafts.json` (shared state file) | File system read |
 | Workflow state | `workflows/content-pipeline/state.yaml` | File system read |
 | Ghost post state | `mcp__ghost-blog__get_post` per referenced post id | Ghost API read |
 | Slack source | The #content pull for this run | Passed in the manifest, or re-read via `systems/slack-bot/read.py` |
@@ -37,7 +37,7 @@ model: sonnet
 
 - `discover_step` = `workflows/content-pipeline/steps/step-01-discover.md`
 - `approve_step` = `workflows/content-pipeline/steps/step-02-approve.md`
-- `pending_drafts` = `workflows/content-pipeline/pending-drafts.json`
+- `pending_drafts` = `workflows/content-approval/pending-drafts.json`
 - `state` = `workflows/content-pipeline/state.yaml`
 <!-- personal:end -->
 

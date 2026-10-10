@@ -15,16 +15,14 @@ model: sonnet
 2. You MUST wait for Ralph's verdict table before closing the run.
 3. You MUST record the verdict via `guardrail-checkpoint.py` with checkpoint name `adversarial-verification`.
 4. You MUST NOT edit `pending-drafts.json` or any step output to make a finding disappear. Findings are surfaced and recorded as-is.
-5. Ralph verifies claims against recorded state (the Slack pull, `pending-drafts.json`, the Ghost post records). He does not fix, re-run, or re-write anything.
-
-**Note on this workflow's status:** `workflow.md` marks this workflow RETIRED (split into `content-discovery` and `content-approval`). This adversarial step exists so that any historical or manual run of the retired pipeline still gets the end-to-end accounting check; the two successor workflows each carry their own adversarial verification as well.
+5. Ralph verifies claims against recorded state (the Slack pull, the shared `pending-drafts.json`, the Ghost post records). He does not fix, re-run, or re-write anything.
 
 ---
 
 ## EXECUTION PROTOCOL
 
 **Agent:** Harper, spawned by the coordinator, never executed inline. Harper spawns Ralph.
-**Input:** The run's `outputs` (step-01/step-02 frontmatter), `workflows/content-pipeline/pending-drafts.json`, the #content Slack pull, the live Ghost post records
+**Input:** The run's `outputs` (step-01/step-02 frontmatter), `workflows/content-approval/pending-drafts.json` (shared state file), the #content Slack pull, the live Ghost post records
 **Output:** Ralph's verdict table; an `adversarial-verification` guardrail result recorded; verdict summary written to state.yaml
 
 ---
@@ -48,7 +46,7 @@ model: sonnet
    Manifest:
      discover-step: workflows/content-pipeline/steps/step-01-discover.md (frontmatter outputs)
      approve-step: workflows/content-pipeline/steps/step-02-approve.md (frontmatter outputs)
-     pending-drafts: workflows/content-pipeline/pending-drafts.json
+     pending-drafts: workflows/content-approval/pending-drafts.json
      state: workflows/content-pipeline/state.yaml
      run-date: <YYYY-MM-DD>
    Task: Account for every item from discovered through approved to published, flag any silent drop, and return your verdict table.

@@ -1,10 +1,8 @@
 #!/usr/bin/env python3
 """Ground-truth verifier for content-discovery/step-01-discover.
 
-Adapted from the retired workflows/content-pipeline/verify/step-01-discover.py.
-Confirms pending-drafts.json (now at workflows/content-approval/pending-drafts.json,
-the shared file both split workflows read/write — see content-discovery/workflow.md
-STATE TRACKING) is valid and internally consistent — every entry has the fields
+Confirms the shared pending-drafts.json (workflows/content-approval/pending-drafts.json)
+is valid and internally consistent — every entry has the fields
 step-01 is required to set (content_type is mandatory per MANDATORY EXECUTION RULE 8),
 no duplicate ghost_post_id or duplicate pending source_url entries exist (the dedup
 rule), and any entries created during this step's time window are well-formed. A run

@@ -147,7 +147,7 @@ Run this gate for every draft that has a reply from David (Step 4). This formali
 | **Reject** | Rejection keywords | `reject`, `rejected`, `no`, `delete`, `discard`, `trash`, `kill it`, `nope` | → Step 6b (Delete) |
 | **Request Revisions** | Everything else that isn't ambiguous noise | Two existing sub-paths, both pre-dating this gate: (a) **surgical edit** — keyword match on `put/add/insert/include the link`, `change/update/swap/replace/fix the image`, `update/edit/fix the post`, `change the title` → Step 6d (Editorial Edit Path, execute directly, do not regenerate); (b) **substantive rewrite** — everything else (tone, angle, structure, length, missing context) → Step 6c (Regenerate) | → GATE 4 applies only if the revision path re-publishes; regeneration produces a new pending draft, not an immediate publish |
 
-**On "Request Revisions":** this label is new as of this gate — see workflow.md's GATES OVERVIEW flag. The two sub-paths it groups (editorial edit vs. regenerate) are unchanged, pre-existing behavior from the retired step-02-approve.md. Do not treat "request revisions" as authorizing a new fourth behavior; it is a naming/grouping change over the existing two.
+**On "Request Revisions":** the label groups the two pre-existing sub-paths (editorial edit vs. regenerate). It does not authorize a new fourth behavior.
 
 **Ambiguous replies:** If a reply doesn't clearly match Approve or Reject and contains no revision-instruction content that a human would recognize as a change request, treat it as Request Revisions → Regenerate path, and say so explicitly in the Slack reply (see FAILURE MODES, "Reply is ambiguous").
 

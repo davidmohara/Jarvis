@@ -1,8 +1,47 @@
 ---
-status: not-started
-started-at: ~
-completed-at: ~
-outputs: {}
+status: complete
+started-at: "2026-10-09T16:33:00Z"
+completed-at: "2026-10-09T16:45:00Z"
+outputs:
+  communication_data:
+    email_threads:
+      - "AI Innovation Lab (Diana Stevens / Remington Hotels) - action_needed"
+      - "Talent Labs Speaker Coordination - waiting"
+      - "CRM - Contacts helpdesk ticket 69244 - action_needed"
+      - "October 13th ACG Luncheon venue change - resolved"
+      - "Lunch Hugh Breland pushed to Nov 6 - waiting"
+    teams_messages:
+      - "Thanksgiving/Christmas/year-end work plans - action_needed"
+      - "Bethany workshop Feb 5 - action_needed"
+      - "Expense report cost center 705 - action_needed"
+      - "Travel booking Sunday arrival vs later flight - action_needed"
+      - "Dr. Pauza spine clinic callback - waiting"
+      - "Keith reschedule with Luke McGrath - in_progress"
+      - "YPO monday-board tasks (4) - action_needed"
+      - "Principled Business Summit speaker form - action_needed"
+      - "Remington Innovation Lab Nov dates - action_needed"
+    shared_calendar_events:
+      past:
+        - "2026-10-09 Friday Week Wrap-Up"
+      upcoming:
+        - "2026-10-12 Houston Bootcamp remote + Saxum Agent Strategy 11:30 + GEHC 2:00"
+        - "2026-10-13 ACG Houston Luncheon River Oaks 11:30-1:00"
+        - "2026-10-16 Friday Weekly Wrap-Up 2:00"
+        - "2026-10-21 UTB Board of Directors virtual"
+    previous_brief:
+      date: "2026-07-13"
+      carryover_items:
+        - "Verification-before-acting coaching pattern"
+        - "EOD recap open-items section"
+        - "Josh Stevenson CRM duplicate (due 2026-07-18)"
+        - "One email draft per week routed for review"
+        - "Alice joining select meetings live"
+      unresolved_talking_points:
+        - "EOD open-items section adoption"
+        - "Weekly draft routing"
+        - "Live meeting participation progress"
+      coaching_themes:
+        - "Scorecard 12/18 flat; Reliability and Judgment at +1"
 model: sonnet
 ---
 

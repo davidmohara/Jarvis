@@ -1,0 +1,74 @@
+{
+  "id": "eval-20261010T155837-MX4UJK",
+  "agent_id": "afbc8674c6fcd8603",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "general-purpose",
+  "session_id": "9d1f1c4e-bdea-4ce3-a1c2-304f9bd8cfe9",
+  "trigger": "unknown",
+  "started": "2026-10-10T15:58:37.254612Z",
+  "completed": null,
+  "duration_seconds": null,
+  "status": "in-progress",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": null,
+      "all_steps_finished": null,
+      "tool_failures": 3,
+      "error_ids": [],
+      "tool_failure_log": [
+        {
+          "tool": "Bash",
+          "error": "Exit code 5\nrefused: credential-shaped content in the diff being staged: secret = '[REDACTED-GHOST-SECRET]...\nSTOP. Surface to David immediately.",
+          "duration_ms": 340,
+          "timestamp": "2026-10-10T11:02:36.204774"
+        },
+        {
+          "tool": "Bash",
+          "error": "Exit code 5\nrefused: credential-shaped content in the diff being staged: secret = '[REDACTED]...\nSTOP. Surface to David immediately.",
+          "duration_ms": 234,
+          "timestamp": "2026-10-10T11:04:01.693555"
+        },
+        {
+          "tool": "Bash",
+          "error": "Exit code 5\nrefused: credential-shaped content in the diff being staged: secret = '1e38cfe643...\nSTOP. Surface to David immediately.",
+          "duration_ms": 232,
+          "timestamp": "2026-10-10T11:05:41.880263"
+        }
+      ]
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": []
+}

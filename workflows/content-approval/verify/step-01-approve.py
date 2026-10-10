@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 """Ground-truth verifier for content-approval/step-01-approve.
 
-Adapted from the retired workflows/content-pipeline/verify/step-02-approve.py.
 Re-checks the cleanup rules step-01 is required to enforce on every run
 (MANDATORY EXECUTION RULES 7-8, and the CLEANUP section of step-01-approve.md):
 published entries must be removed, scheduled entries past their scheduled_at

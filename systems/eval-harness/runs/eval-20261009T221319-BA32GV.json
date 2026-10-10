@@ -1,0 +1,73 @@
+{
+ "id": "eval-20261009T221319-BA32GV",
+ "type": "agent",
+ "name": "daily-review",
+ "agent": "chief",
+ "session_id": "",
+ "trigger": "manual",
+ "started": "2026-10-09T22:13:19.833094Z",
+ "completed": "2026-10-09T17:21:00-05:00",
+ "duration_seconds": null,
+ "status": "complete",
+ "steps": [],
+ "assessment": {
+  "mechanical": {
+   "completed": null,
+   "all_steps_finished": null,
+   "tool_failures": 0,
+   "error_ids": []
+  },
+  "structural": {
+   "expected_outputs_written": null,
+   "outputs_non_empty": null,
+   "assertions_checked": 0,
+   "assertions_passed": 0,
+   "assertion_results": []
+  },
+  "grading": {
+   "last_graded": null,
+   "grade": null,
+   "safety_grade": null,
+   "grader_notes": null
+  },
+  "controller_feedback": {
+   "rating": null,
+   "comment": null,
+   "timestamp": null
+  },
+  "bias_assessment": {
+   "applicable": false,
+   "protected_attributes": [],
+   "fairness_metric": null,
+   "demographic_coverage_verified": false,
+   "adversarial_inputs_tested": false,
+   "bias_detected": false,
+   "bias_flags": [],
+   "remediation_status": "none"
+  }
+ },
+ "version_hash": null,
+ "prior_baseline_id": null,
+ "tags": [],
+ "guardrails": [
+  {
+   "name": "pre-commit-review",
+   "after_step": "step-03-update-system",
+   "result": "pass",
+   "reason": "No leakage, tracker untouched (already updated earlier today by David-confirmed change), unverified outcomes marked [confirm], quarterly objectives not modified",
+   "escalated_to_human": false,
+   "timestamp": "2026-10-09T22:13:26.725628+00:00"
+  },
+  {
+   "name": "adversarial-verification",
+   "after_step": "step-03-update-system",
+   "result": "flag",
+   "reason": "Ralph verdict: findings. 3 corrections applied and logged: Knox tasks platform (monday.com not OmniFocus), OmniFocus counts provenance (live 17:05 pull vs morning persisted file), double-books decision marked [confirm] (Master handoff, no on-disk artifact). No fabricated outcomes, tracker intact, right-day review",
+   "escalated_to_human": false,
+   "timestamp": "2026-10-09T22:20:33.762199+00:00"
+  }
+ ],
+ "notes": [
+  "Closed by Chief: close-eval-record.py created eval-20261009T222114-63PRWC.json instead of closing this record (recurring bug, also seen 2026-09-28 \u2014 flag for Rigby). Verdicts: pre-commit-review pass; adversarial-verification flag (3 logged corrections)."
+ ]
+}

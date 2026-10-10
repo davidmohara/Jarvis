@@ -439,7 +439,7 @@ Save the post-smell-test, post-guidance draft as a markdown file at:
 ```
 /Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/content/improving-blog/{YYYY-MM-DD}-{slug}.md
 ```
-(This is the canonical location for unpublished Improving-blog drafts. A prior version of this step had a fallback path under a top-level `drafts/` directory at a stale, incorrect repo root — that directory has been retired; do not recreate it.)
+(This is the canonical location for unpublished Improving-blog drafts. Do not use or recreate any other drafts/ path.)
 
 Use `mcp__Desktop_Commander__write_file`. Frontmatter:
 ```yaml

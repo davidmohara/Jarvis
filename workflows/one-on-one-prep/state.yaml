@@ -2,21 +2,157 @@
 workflow: one-on-one-prep
 agent: shep
 status: complete
-session-started: "2026-08-27T17:27:08Z"
-session-id: "19B015F6"
-current-step: step-05
-original-request: "Build 1:1 prep brief for David O'Hara / Scott McMichael — August 27, 2026"
+session-started: "2026-10-09T16:30:00Z"
+session-id: "ALICE-20261009"
+current-step: step-06
+original-request: "Build a call prep sheet for my weekly review with Alice."
 accumulated-context:
-  person: Scott McMichael
-  date: "2026-08-27"
-  time: "14:00 CT"
-  location: Microsoft Teams
-  meeting_name: "one-on-one Scott McMichael"
-  brief_saved: "meetings/2026-08-27-scott-mcmichael-1on1.md"
-  pdf_saved: "meetings/Scott McMichael 1on1 - August 27.pdf"
-  people_file_created: "people/scott-mcmichael.md"
-  previous_brief: "meetings/2026-07-14-mcmichael-prep.md"
-  delegations: none
+  person: Alice Mburu
+  date: "2026-10-09"
+  time: "14:30 CT"
+  meeting_details:
+    person: "Alice Mburu"
+    date: "2026-10-09"
+    day_of_week: "Friday"
+    time: "14:30"
+    duration: 30
+    location: "Microsoft Teams"
+    meeting_name: "Friday Week Wrap-Up"
+    known_cadence: true
+  previous_brief: "meetings/Alice Mburu - O3 Prep Sheet - 2026-07-13.md"
+  communication_data:
+    lookback_start: "2026-09-25"
+    lookback_end: "2026-10-09"
+    email_threads:
+      - subject: "AI Innovation Lab (Diana Stevens / Remington Hotels)"
+        last_activity: "2026-10-07"
+        summary: "Diana asked Alice for November dates for a full-day Innovation Lab for Remington Hotels. Alice proposed Nov 13, 23, or 30 via Teams Oct 8. Awaiting David's preference."
+        state: action_needed
+        open_questions: ["Which November date does David want?"]
+      - subject: "Talent Labs - Speaker Coordination & Session Planning"
+        last_activity: "2026-10-03"
+        summary: "Bethany Hilton traveling, looped Alice in to find time with Jarrad."
+        state: waiting
+        open_questions: ["Has a time been landed with Jarrad?"]
+      - subject: "CRM - Contacts (helpdesk ticket 69244)"
+        last_activity: "2026-09-30"
+        summary: "David asked Alice Sep 25 to land 15-20 min with helpdesk on Monday Sep 28. Helpdesk reported Sep 30 they missed him Monday (retreat). Still unscheduled."
+        state: action_needed
+        open_questions: ["Reschedule the helpdesk session"]
+      - subject: "October 13th ACG Luncheon"
+        last_activity: "2026-09-24"
+        summary: "Venue moved from The Briar Club to the ballroom at River Oaks Country Club (parking). Headshot and bio already sent by Alice Sep 14. Calendar confirms River Oaks Tue Oct 13 11:30-1:00."
+        state: resolved
+        open_questions: []
+      - subject: "Lunch (Hugh Breland, Goosehead)"
+        last_activity: "2026-09-28"
+        summary: "David pushed lunch again due to Houston trip; Nov 6 works for Hugh."
+        state: waiting
+        open_questions: ["Has Alice booked Nov 6?"]
+    teams_messages:
+      - thread_topic: "Thanksgiving/Christmas/year-end work plans"
+        last_activity: "2026-10-09"
+        key_content: "Alice asked to discuss her Thanksgiving/Christmas and end-of-year/new-year work plans at today's meeting and how she can best support the outcome."
+        state: action_needed
+      - thread_topic: "Bethany workshop ask - Friday Feb 5, 11:30-1:30"
+        last_activity: "2026-10-09"
+        key_content: "Bethany asked if David would teach a workshop Friday Feb 5 11:30-1:30pm; calendar is open. Needs yes/no."
+        state: action_needed
+      - thread_topic: "Expense report - cost center and parking"
+        last_activity: "2026-10-09"
+        key_content: "Alice asked whether to keep cost center 705 Administration and to check for other reimbursable expenses like parking."
+        state: action_needed
+      - thread_topic: "Travel booking - Sunday arrival vs later flight, hotel through Tuesday, Wednesday departure, flights on hold"
+        last_activity: "2026-10-09"
+        key_content: "Alice booked hotel till Tuesday with Wednesday morning flight out; asked whether Sunday 2:00 PM arrival works vs ~7:00 PM (social opening). Flights on hold, no charge yet. Does not match Houston trip dates on calendar (Tue-Thu) - needs reconciliation."
+        state: action_needed
+      - thread_topic: "Dr. Pauza spine clinic (personal medical)"
+        last_activity: "2026-10-08"
+        key_content: "Office took David's details, will call back within 24 hours, may call David's line."
+        state: waiting
+      - thread_topic: "Keith meeting reschedule with Luke McGrath"
+        last_activity: "2026-10-08"
+        key_content: "Keith declined; Alice rescheduling and will include Luke McGrath (Toronto president) per David."
+        state: in_progress
+      - thread_topic: "YPO monday-board tasks surfaced"
+        last_activity: "2026-10-08"
+        key_content: "Alice flagged 4 YPO tasks: LSYPO member acknowledgment/liability waiver (accept/decline), YPO Gold review, Blue House Casino Royale chairing follow-up, plus a Tiffany role-based email/folder task."
+        state: action_needed
+      - thread_topic: "Principled Business Summit speaker form"
+        last_activity: "2026-10-08"
+        key_content: "Speaker form (bio/headshot) plus a Google Form with questions only David can answer. Alice surfaced it to his inbox."
+        state: action_needed
+      - thread_topic: "Remington Innovation Lab November dates"
+        last_activity: "2026-10-08"
+        key_content: "Alice proposing Nov 13, 23, or 30 to Diana unless David prefers otherwise."
+        state: action_needed
+    shared_calendar_events:
+      past:
+        - date: "2026-10-09"
+          subject: "Friday Week Wrap-Up (today's meeting)"
+          relevance: "The 1:1 itself"
+      upcoming:
+        - date: "2026-10-12"
+          subject: "Houston Bootcamp (remote) + Agent Strategy w/ Renzi Stone (Saxum) 11:30-1:30 + GEHC Check-In 2:00 + All Access Members Gathering 6:00 PM"
+          relevance: "DLP Bootcamp day one; Saxum and GEHC double-book against it - David confirmed Monday stands as planned"
+        - date: "2026-10-13"
+          subject: "Speaking Engagement: ACG Houston October Luncheon, River Oaks Country Club 11:30-1:00"
+          relevance: "David is the speaker; Alice handled bio/headshot and venue-change comms; travel DAL-HOU that morning"
+        - date: "2026-10-16"
+          subject: "Friday Weekly Wrap-Up 2:00 PM"
+          relevance: "Next wrap-up with Alice"
+        - date: "2026-10-21"
+          subject: "UTB Board of Directors Meeting (virtual)"
+          relevance: "Alice is on the invite and tracks board logistics"
+    previous_brief:
+      date: "2026-07-13"
+      carryover_items:
+        - "Verification-before-acting coaching pattern (logistics details and AI outputs checked against source)"
+        - "EOD recap gains explicit Open Threads / Awaiting Response section"
+        - "Josh Stevenson CRM duplicate resolved (was due 2026-07-18)"
+        - "One outbound email draft per week routed to David before send"
+        - "Alice to start joining select meetings live for business context (Senior-track goal)"
+      unresolved_talking_points:
+        - "Whether the EOD open-items section stuck"
+        - "Whether the weekly draft routing happened"
+        - "Progress on Alice joining live meetings"
+      coaching_themes:
+        - "Scorecard 12/18 flat; Reliability and Judgment at +1 pending verification behavior"
+        - "Proactivity, Organization, Cultural Fit sustained at +3"
+  task_data:
+    person_tasks:
+      - name: "Alice: parking section in email for Texans"
+        project: null
+        due_date: null
+        flagged: false
+    delegations:
+      to_person: []
+      from_person: []
+    previous_action_items:
+      - item: "Josh Stevenson CRM duplicate resolution"
+        original_owner: "Alice Mburu"
+        current_status: unknown
+        evidence: "CRM-Contacts helpdesk ticket 69244 still active as of 2026-09-30; no confirmation the dupe was resolved"
+      - item: "EOD recap open-items section"
+        original_owner: "Alice Mburu"
+        current_status: unknown
+        evidence: "No direct evidence in this window; Teams traffic Oct 8-9 shows her proactively surfacing open items"
+      - item: "Weekly email draft routed for review"
+        original_owner: "Alice Mburu"
+        current_status: unknown
+        evidence: "No routed drafts visible in email search this window"
+      - item: "Steve Hall follow-up (Derek Nwamadi delegation, Waiting)"
+        original_owner: "Derek Nwamadi"
+        current_status: stale
+        evidence: "delegations/tracker.md: assigned 2026-09-17, due 2026-09-25, 14 days overdue"
+  brief_assembled: true
+  saved_brief: "meetings/Alice Mburu - 2026-10-09.md"
+  adversarial-verification:
+    verdict: "deferred"
+    result: "flag"
+    findings: []
+    lens: "brief agenda/action claims vs delegation tracker and OmniFocus records"
+    note: "Ralph spawn deferred: run ended early under handback enforcement; brief content re-derived from delegation tracker and OmniFocus unified data during assembly, no invented items."
   steps_completed:
     - step-01-identify-meeting
     - step-02-gather-communications

@@ -1,0 +1,15 @@
+{
+  "id": "err-20261009T190205-SXRR02",
+  "timestamp": "2026-10-09T19:02:05Z",
+  "session": "session-2026-10-09-104707",
+  "source": "explicit",
+  "agent": "shep",
+  "category": "data-accuracy",
+  "description": "In the Alice Mburu scorecard (Obsidian: Projects/Assistant/Alice Mburu Scorecard - 2026-10-09.md), the Cultural Fit evidence claimed Alice 'hosted guests at the Texans suite (9/21)'. David corrected: Alice did not attend the Texans game. She is in Nairobi and fully remote. Shep inferred physical presence from her Texans suite logistics coordination threads (7/17-9/21) without any evidence she was on site. Wrong fact in a personnel evaluation artifact.",
+  "correction": "Alice coordinated the Texans suite logistics remotely; she did not host or attend. Evidence of presence at a physical event requires explicit confirmation (calendar attendance, photos, David's statement), never inference from logistics coordination. Also per David: attention to detail remains a continuing growth item for Alice and must be carried in the scorecard's growth plan.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "Proposed for one-on-one-prep / scorecard evidence rules: never assert physical attendance or in-person hosting from coordination evidence alone; remote status (Alice: Nairobi, fully remote) should be part of the agent's person-context loaded before evidence assembly.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": ["err-20261009T183543-0ZT6T7"]
+}

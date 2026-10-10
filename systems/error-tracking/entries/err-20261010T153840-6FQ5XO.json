@@ -1,0 +1,15 @@
+{
+  "id": "err-20261010T153840-6FQ5XO",
+  "timestamp": "2026-10-10T15:38:40Z",
+  "session": "session-2026-10-09-104707",
+  "source": "explicit",
+  "agent": "rigby",
+  "category": "assumption-error",
+  "description": "The LinkedIn analytics login-wall protocol written into reference/linkedin-analytics.md (by Rigby, from Harper's recommendation, approved in the Rock 4 wiring run) specifies STOP at any login wall and surface to David for manual re-login. David corrected: the protocol should instead use the op skill / 1Password CLI to auto-fill the LinkedIn username and password and continue autonomously. Do not block and wait for him.",
+  "correction": "On a LinkedIn login wall, the path retrieves LinkedIn credentials from 1Password via the op CLI (installed, v2.34.1; op:// URI convention per projects/1password-integration.md), fills them via Playwright, handles 2FA from the vault's TOTP field if present, and continues. Blocking on David for a re-login the vault can handle is wasted executive attention. Never-fabricate still applies: if auth genuinely fails after autofill (wrong password, unanswerable 2FA, lockout), surface the failure — but never invent metrics and never block for a step that can be automated.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "Proposed: audit other IES protocols for the same stop-and-wait assumption where 1Password-retrievable credentials exist (Dynamics login, card portals already do autofill; LinkedIn was inconsistent with the established pattern). Default protocol: autofill via op, continue; block only on genuine unautomatable failure.",
+  "fix_status": "proposed",
+  "severity": "minor",
+  "related_entries": []
+}

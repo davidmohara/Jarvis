@@ -1,0 +1,15 @@
+{
+  "id": "err-20261009T233929-E4CJTE",
+  "timestamp": "2026-10-09T23:39:29Z",
+  "session": "session-2026-10-09-104707",
+  "source": "explicit",
+  "agent": "quinn",
+  "category": "missed-context",
+  "description": "During the Q4 rock walkthrough, David corrected two facts Quinn's Q3 post-mortem and Q4 proposal got wrong because they lived outside IES-visible sources: (1) The joint-play portfolio already exists: 10 named plays are in a dashboard in Artifacts, not 'zero joint plays all quarter / portfolio live by Oct 17'. Quinn's evidence sweep (memory/, reviews/, projects/, episodic/) had no path to the Artifacts dashboard. (2) The Forgiveness Letter has been written and is done, not 'still open, deferred a fourth consecutive quarter' — it was completed outside the system with no knowledge-layer record.",
+  "correction": "The play portfolio exists (10 plays, Artifacts dashboard) and the Forgiveness Letter is complete. Rock 1's portfolio-creation key result is obsolete; the letter comes off the carried-items list. Also per David: thought leadership continues with the podcast and a significant amount of speaking (stays an active workstream, not a sustain line).",
+  "failure_mode": "context-blindness",
+  "systemic_fix": "Proposed for rock-review workflow: add an explicit 'state outside the system' prompt step — before declaring a workstream dead or unstarted, ask David directly whether work exists outside IES-visible sources (Artifacts dashboards, external docs, out-of-band work). Absence of evidence inside the system is not evidence of absence, especially for executive work done in other tools.",
+  "fix_status": "proposed",
+  "severity": "minor",
+  "related_entries": []
+}

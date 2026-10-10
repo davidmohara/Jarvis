@@ -1,0 +1,15 @@
+{
+  "id": "err-20261010T123904-U0UROS",
+  "timestamp": "2026-10-10T12:39:04Z",
+  "session": "session-2026-10-09-104707",
+  "source": "explicit",
+  "agent": "quinn",
+  "category": "missed-context",
+  "description": "Second occurrence this session of out-of-band state driving a wrong Q4 rock draft. David corrected three things Quinn's draft had wrong: (1) CBRE/Confluent is NOT a Q4 play; the active co-sell motions with partner Solace are AT&T, McKesson, and SLB, with Austin Ledesma as the seller on Solace's side. (2) A major new Q4 effort existed nowhere in IES: David is working with Curtis (Hite, CEO) to build the plan for David to lead the AI Practice at Improving, to be defined for 2027. (3) Publishing is not stalled: Alice has been publishing to LinkedIn and the blog, and metrics show it is moving very well — the '15 drafts pending, unstuck by Oct 24' premise was wrong (the stall verdict was stale for the same reason as the plays verdict: the work happens outside IES-visible sources).",
+  "correction": "Rock 1's play set is the One Texas named accounts with Solace co-sell motions (AT&T, McKesson, SLB), not CBRE/Confluent. A new Q4 rock covers defining the AI Practice leadership plan for 2027 with Curtis. Rock 4's publishing premise is corrected: publishing runs via Alice and is performing well.",
+  "failure_mode": "context-blindness",
+  "systemic_fix": "Reinforces err-20261009T233929-E4CJTE's proposed fix (ask David directly about out-of-band state before declaring a workstream stalled or unstarted). Second occurrence of the same category + failure_mode this session — one more makes it threshold-alertable.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": ["err-20261009T233929-E4CJTE"]
+}

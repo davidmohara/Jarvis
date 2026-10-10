@@ -1,0 +1,15 @@
+{
+  "id": "err-20261009T205404-DLR9HZ",
+  "timestamp": "2026-10-09T20:54:04Z",
+  "session": "session-2026-10-09-104707",
+  "source": "explicit",
+  "agent": "master",
+  "category": "data-accuracy",
+  "description": "Asked to find the actual AI Adoption Maturity Assessment (after the bootcamp Pre-Work.md bad-link correction, err-20261009T203817-J2YY3F), Master located a 21-question instrument embedded in AI-Self-Directed-Learning/Module-4-Completion/Exercise-16 (Step 5, 'AI Adoption Stage Evaluation') and presented it as the actual assessment. David corrected: that is not it either. The real assessment is a separate document provided by the facilitator and is not a repository file.",
+  "correction": "The AI Adoption Maturity Assessment is facilitator-provided, not on disk. Do not declare a plausible-looking artifact 'the actual assessment' based on surface match (question count, dimension count). When the source of truth is a document a human hands out, say so and stop searching the filesystem.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "When hunting a referenced document, match on provenance (who issues it, how it is administered) as well as structure. A structural lookalike from a different program (SDL company-wide vocabulary vs DLP instrument) is a candidate to report, not an answer to declare.",
+  "fix_status": "proposed",
+  "severity": "minor",
+  "related_entries": ["err-20261009T203817-J2YY3F"]
+}

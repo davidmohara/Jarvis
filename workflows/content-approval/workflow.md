@@ -1,6 +1,6 @@
 ---
 name: content-approval
-description: Scans #content Slack thread replies for approve/reject/revision signals on pending Ghost drafts, publishes on approval, deletes on rejection, executes editorial edits and regenerations, and syncs Obsidian. Runs on-demand / multiple times daily. Second half of the split content-pipeline (successor to workflows/content-pipeline).
+description: Scans #content Slack thread replies for approve/reject/revision signals on pending Ghost drafts, publishes on approval, deletes on rejection, executes editorial edits and regenerations, and syncs Obsidian. Runs on-demand / multiple times daily. Approval half of the content pipeline; workflows/content-pipeline orchestrates content-discovery and this workflow end to end.
 agent: harper
 model: sonnet
 fairness:
@@ -17,7 +17,7 @@ fairness:
 
 **Trigger:** Scheduled multiple times daily (`config/scheduled-tasks.json`, task id `content-approval`, currently 9 AM / 11 AM / 1 PM / 3 PM).
 
-**Lineage:** This workflow is half of the former `workflows/content-pipeline/workflow.md`, split out because approval/publish runs on a different cadence and enforces different checks than discovery. See `workflows/content-discovery/workflow.md` for the discovery half and `workflows/content-pipeline/workflow.md` for the RETIRED original with a full redirect note.
+**Relationship:** This workflow is the approval/publish half of the content pipeline. `workflows/content-discovery/workflow.md` is the drafting half and runs on its own cadence. `workflows/content-pipeline/workflow.md` orchestrates both halves end to end when a full cycle is needed; all three run on their own schedules and share one state file.
 
 **Companion workflow:** `workflows/content-discovery/workflow.md` drafts new posts and appends to the same shared `pending-drafts.json` this workflow owns (see STATE TRACKING below).
 <!-- personal:end -->
@@ -89,7 +89,7 @@ Format:
 
 This workflow enforces three deterministic gates, all in `steps/step-01-approve.md`:
 
-3. **GATE 3 — Approval Decision (HARD)** — classifies David's Slack reply into exactly one of three outcomes: **approve**, **reject**, or **request revisions**. "Request revisions" is a formalization that groups the pre-existing "editorial edit" (surgical, keyword-detected) and "regenerate" (substantive rewrite) sub-paths under one decision label — both already existed in the retired step-02-approve.md; this gate does not add new capability, it names and gates the existing split explicitly. **Flag for human confirmation: whether "request revisions" as a single named outcome (vs. keeping editorial-edit and regenerate as two separately-gated outcomes) is the right formalization** — see the build report.
+3. **GATE 3 — Approval Decision (HARD)** — classifies David's Slack reply into exactly one of three outcomes: **approve**, **reject**, or **request revisions**. "Request revisions" covers both the "editorial edit" sub-path (surgical, keyword-detected edit) and the "regenerate" sub-path (substantive rewrite); step-01-approve.md routes each after the decision.
 4. **GATE 4 — Publishing Pre-flight (HARD)** — before calling Ghost's publish endpoint, re-verifies tags (locked list, object format), feature_image presence, non-empty lexical, and slug — the same checks discovery's GATE 2 ran at draft time, re-checked here because time may have passed and editorial edits may have touched the post since.
 5. **GATE 5 — Delivery Verification (HARD)** — after the publish call returns success, confirms via `mcp__ghost-blog__get_post` that `status == "published"` and a real, resolvable post URL is present — not just that the API call didn't error.
 

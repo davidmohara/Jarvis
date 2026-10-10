@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 """Ground-truth verifier for content-approval/step-02-git-finalize.
 
-Adapted from the retired workflows/content-pipeline/verify/step-03-git-finalize.py.
 Confirms the workflow's own state files (pending-drafts.json, state.yaml, step-*.md,
 now all under workflows/content-approval/) have no uncommitted changes left in git
 after finalize, and that a commit touching workflows/content-approval/ actually
