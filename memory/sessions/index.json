@@ -2774,7 +2774,9 @@
           "workflows/content-approval/steps/step-03-adversarial-verify.md",
           "skills/quinn-strategy/SKILL.md",
           "memory/working/2026-10-10-master-commentary-cleanup-execution.md",
-          "people/alice-mburu.md"
+          "people/alice-mburu.md",
+          "skills/git/scripts/ies-git",
+          ".claude/hooks/tests/test_ies_git.py"
         ]
       }
     ]
