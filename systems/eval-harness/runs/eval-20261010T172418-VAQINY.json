@@ -1,0 +1,295 @@
+{
+  "id": "eval-20261010T172418-VAQINY",
+  "agent_id": "ab54e5d2a421dccb7",
+  "type": "agent",
+  "name": "Explore",
+  "workflow": "morning-briefing",
+  "agent": "Explore",
+  "session_id": "859e50e2-9e9d-493f-8eac-e0bb1bbe13ce",
+  "trigger": "unknown",
+  "started": "2026-10-10T17:24:18.370974Z",
+  "completed": null,
+  "duration_seconds": null,
+  "status": "aborted",
+  "steps": [
+    {
+      "name": "step-03-gather-tasks.md",
+      "step_id": "step-03-gather-tasks.md",
+      "agent": "Explore",
+      "owning_agent": "shep",
+      "started": "2026-10-09T16:45:00Z",
+      "completed": "2026-10-09T16:48:00Z",
+      "duration_seconds": 180.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "sonnet",
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null,
+      "token_source": null
+    },
+    {
+      "name": "step-03-iterate.md",
+      "step_id": "step-03-iterate.md",
+      "agent": "Explore",
+      "owning_agent": "harper",
+      "started": null,
+      "completed": null,
+      "duration_seconds": null,
+      "status": "not-started",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "sonnet",
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null,
+      "token_source": null
+    },
+    {
+      "name": "step-01-pull-inbox.md",
+      "step_id": "step-01-pull-inbox.md",
+      "agent": "Explore",
+      "owning_agent": "chief",
+      "started": null,
+      "completed": null,
+      "duration_seconds": null,
+      "status": "not-started",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "sonnet",
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null,
+      "token_source": null
+    },
+    {
+      "name": "step-04-assemble-brief.md",
+      "step_id": "step-04-assemble-brief.md",
+      "agent": "Explore",
+      "owning_agent": "shep",
+      "started": "2026-10-09T16:48:00Z",
+      "completed": "2026-10-09T16:56:00Z",
+      "duration_seconds": 480.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "sonnet",
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null,
+      "token_source": null
+    },
+    {
+      "name": "step-02-health-analysis.md",
+      "step_id": "step-02-health-analysis.md",
+      "agent": "Explore",
+      "owning_agent": "chase",
+      "started": null,
+      "completed": null,
+      "duration_seconds": null,
+      "status": "not-started",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "sonnet",
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null,
+      "token_source": null
+    },
+    {
+      "name": "step-03-risk-flags.md",
+      "step_id": "step-03-risk-flags.md",
+      "agent": "Explore",
+      "owning_agent": "chase",
+      "started": null,
+      "completed": null,
+      "duration_seconds": null,
+      "status": "not-started",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "sonnet",
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null,
+      "token_source": null
+    },
+    {
+      "name": "step-01-gather-calendar.md",
+      "agent": "Explore",
+      "step_id": "step-01-gather-calendar.md",
+      "owning_agent": "Explore",
+      "started": "2026-10-09T15:52:00Z",
+      "completed": "2026-10-09T15:54:00Z",
+      "status": "complete",
+      "tokens_input": 0,
+      "tokens_output": 0,
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "token_source": "lenient_fallback",
+      "turns_matched": 10,
+      "duration_seconds": 120.0
+    },
+    {
+      "name": "step-03-gather-context.md",
+      "step_id": "step-03-gather-context.md",
+      "agent": "Explore",
+      "owning_agent": "chief",
+      "started": "2026-10-09T16:05:00Z",
+      "completed": "2026-10-09T16:07:00Z",
+      "duration_seconds": 120.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 0,
+      "tokens_output": 0,
+      "cost_usd": null,
+      "token_source": "lenient_fallback",
+      "turns_matched": 10
+    },
+    {
+      "name": "step-03b-guardrail-checkpoint.md",
+      "agent": "Explore",
+      "step_id": "step-03b-guardrail-checkpoint.md",
+      "owning_agent": "Explore",
+      "started": "2026-09-29T02:27:00Z",
+      "completed": "2026-09-29T02:28:00Z",
+      "status": "complete",
+      "tokens_input": 0,
+      "tokens_output": 0,
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "token_source": "lenient_fallback",
+      "turns_matched": 10,
+      "duration_seconds": 60.0
+    },
+    {
+      "name": "step-04-synthesize-briefing.md",
+      "agent": "Explore",
+      "step_id": "step-04-synthesize-briefing.md",
+      "owning_agent": "Explore",
+      "started": "2026-10-09T16:02:00Z",
+      "completed": "2026-10-09T16:04:00Z",
+      "status": "complete",
+      "tokens_input": 0,
+      "tokens_output": 0,
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "token_source": "lenient_fallback",
+      "turns_matched": 10,
+      "duration_seconds": 120.0
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": false,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "guardrails": [
+    {
+      "name": "step-01-gather-calendar-checkpoint",
+      "after_step": "step-01-gather-calendar.md",
+      "result": "pass",
+      "reason": "Calendar data present: 0 event(s) today, 18 total in range",
+      "escalated_to_human": false,
+      "timestamp": "2026-10-10T17:26:36.148571Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "events_today": 0,
+        "total_events": 18,
+        "date_range": {
+          "start": "2026-10-09",
+          "end": "2026-10-12"
+        },
+        "file_age_hours": -2.3
+      }
+    },
+    {
+      "name": "step-03-gather-context-checkpoint",
+      "after_step": "step-03-gather-context.md",
+      "result": "pass",
+      "reason": "Identity context loaded; yesterday's review is missing",
+      "escalated_to_human": false,
+      "timestamp": "2026-10-10T17:26:36.243860Z",
+      "validation_errors": [
+        "yesterday_review_missing"
+      ],
+      "computed_fields": {
+        "identity_files_present": 3,
+        "missing_identity_files": [],
+        "yesterday_review_status": "missing",
+        "yesterday_review_file": null,
+        "yesterday_date_checked": "2026-10-08"
+      }
+    },
+    {
+      "name": "step-03b-guardrail-checkpoint-checkpoint",
+      "after_step": "step-03b-guardrail-checkpoint.md",
+      "result": "pass",
+      "reason": "Guardrail checkpoint recorded with result 'flag': Calendar fresh (43 events, pulled 16:30Z, first event matches 09-28). Meeting context mapped to correct recurring series. Flag: boot OmniFocus unified pull partial (26 tasks, 1 overdue) vs same-day weekly review fuller pull (22 overdue, 1 due today) \u2014 briefing uses fuller numbers and notes the discrepancy. Late-evening boot (9:23pm CT): meeting context is retrospective, not prep. No watchtower output today. No sensitive data in gathered context.",
+      "escalated_to_human": false,
+      "timestamp": "2026-10-10T17:26:36.437147Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "checkpoint_found": true,
+        "checkpoint_result": "flag",
+        "checkpoint_reason": "Calendar fresh (43 events, pulled 16:30Z, first event matches 09-28). Meeting context mapped to correct recurring series. Flag: boot OmniFocus unified pull partial (26 tasks, 1 overdue) vs same-day weekly review fuller pull (22 overdue, 1 due today) \u2014 briefing uses fuller numbers and notes the discrepancy. Late-evening boot (9:23pm CT): meeting context is retrospective, not prep. No watchtower output today. No sensitive data in gathered context.",
+        "eval_record_started": "2026-09-29T02:27:43.768472Z",
+        "eval_records_scanned": 19
+      }
+    },
+    {
+      "name": "step-04-synthesize-briefing-checkpoint",
+      "after_step": "step-04-synthesize-briefing.md",
+      "result": "pass",
+      "reason": "Briefing delivered (1096 chars) and working memory file morning-briefing-2026-10-09-110140.md written",
+      "escalated_to_human": false,
+      "timestamp": "2026-10-10T17:26:36.534299Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "briefing_delivered": true,
+        "briefing_content_length": 1096,
+        "state_status": "complete",
+        "state_current_step": "step-05-verify-briefing",
+        "working_memory_written": true,
+        "working_memory_file": "morning-briefing-2026-10-09-110140.md",
+        "working_memory_age_hours": 0.0
+      }
+    }
+  ],
+  "total_cost_usd": 0.045,
+  "cost_estimation_note": "estimated based on Explore workflow type",
+  "model": "sonnet"
+}

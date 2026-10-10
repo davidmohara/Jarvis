@@ -1,0 +1,60 @@
+{
+  "id": "eval-20261010T164726-AEVVL0",
+  "agent_id": "a6a7a90d45cd24d14",
+  "type": "agent",
+  "name": "claude",
+  "workflow": null,
+  "agent": "claude",
+  "session_id": "859e50e2-9e9d-493f-8eac-e0bb1bbe13ce",
+  "trigger": "unknown",
+  "started": "2026-10-10T16:47:26.185054Z",
+  "completed": "2026-10-10T17:00:34.912072Z",
+  "duration_seconds": 788.73,
+  "status": "aborted",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": false,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/859e50e2-9e9d-493f-8eac-e0bb1bbe13ce/subagents/agent-a6a7a90d45cd24d14.jsonl",
+  "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+  "total_tokens_input": 0,
+  "total_tokens_output": 0,
+  "total_cost_usd": 0.045,
+  "cost_estimation_note": "estimated based on claude workflow type"
+}

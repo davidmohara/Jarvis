@@ -1,0 +1,306 @@
+{
+  "id": "eval-20261010T172336-JEON3V",
+  "agent_id": "a36423ac2ba07127b",
+  "type": "agent",
+  "name": "claude",
+  "workflow": "shutdown-cleanup",
+  "agent": "claude",
+  "session_id": "859e50e2-9e9d-493f-8eac-e0bb1bbe13ce",
+  "trigger": "unknown",
+  "started": "2026-10-10T17:23:36.298811Z",
+  "completed": null,
+  "duration_seconds": null,
+  "status": "aborted",
+  "steps": [
+    {
+      "name": "step-02-gather-data.md",
+      "step_id": "step-02-gather-data.md",
+      "agent": "claude",
+      "owning_agent": "harper",
+      "started": null,
+      "completed": null,
+      "duration_seconds": null,
+      "status": "not-started",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "sonnet",
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null,
+      "token_source": null
+    },
+    {
+      "name": "step-01-discover.md",
+      "step_id": "step-01-discover.md",
+      "agent": "claude",
+      "owning_agent": "harper",
+      "started": "2026-10-09T06:00:00Z",
+      "completed": "2026-10-09T06:05:00Z",
+      "duration_seconds": 300.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "sonnet",
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null,
+      "token_source": null
+    },
+    {
+      "name": "step-01-approve.md",
+      "step_id": "step-01-approve.md",
+      "agent": "claude",
+      "owning_agent": "harper",
+      "started": null,
+      "completed": null,
+      "duration_seconds": null,
+      "status": "not-started",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "haiku",
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null,
+      "token_source": null
+    },
+    {
+      "name": "step-03-adversarial-verify.md",
+      "step_id": "step-03-adversarial-verify.md",
+      "agent": "claude",
+      "owning_agent": "harper",
+      "started": null,
+      "completed": null,
+      "duration_seconds": null,
+      "status": "not-started",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "sonnet",
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null,
+      "token_source": null
+    },
+    {
+      "name": "step-04-adversarial-verify.md",
+      "step_id": "step-04-adversarial-verify.md",
+      "agent": "claude",
+      "owning_agent": "harper",
+      "started": null,
+      "completed": null,
+      "duration_seconds": null,
+      "status": "not-started",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "sonnet",
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null,
+      "token_source": null
+    },
+    {
+      "name": "step-01-purge-artifacts.md",
+      "agent": "claude",
+      "step_id": "step-01-purge-artifacts.md",
+      "owning_agent": "claude",
+      "started": "2026-09-17T03:47:19Z",
+      "completed": "2026-09-17T03:48:20Z",
+      "status": "complete",
+      "tokens_input": 0,
+      "tokens_output": 0,
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "token_source": "lenient_fallback",
+      "turns_matched": 48,
+      "duration_seconds": 61.0
+    },
+    {
+      "name": "step-02-organize-deliverables.md",
+      "step_id": "step-02-organize-deliverables.md",
+      "agent": "claude",
+      "owning_agent": "rigby",
+      "started": "2026-09-17T03:48:20Z",
+      "completed": "2026-09-17T03:48:50Z",
+      "duration_seconds": 30.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 0,
+      "tokens_output": 0,
+      "cost_usd": null,
+      "token_source": "lenient_fallback",
+      "turns_matched": 48
+    },
+    {
+      "name": "step-03-gitignore-check.md",
+      "agent": "claude",
+      "step_id": "step-03-gitignore-check.md",
+      "owning_agent": "claude",
+      "started": "2026-09-17T03:48:50Z",
+      "completed": "2026-09-17T03:49:10Z",
+      "status": "complete",
+      "tokens_input": 0,
+      "tokens_output": 0,
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "token_source": "lenient_fallback",
+      "turns_matched": 48,
+      "duration_seconds": 20.0
+    },
+    {
+      "name": "step-04-commit.md",
+      "agent": "claude",
+      "step_id": "step-04-commit.md",
+      "owning_agent": "claude",
+      "started": "2026-09-17T03:49:10Z",
+      "completed": "2026-09-17T03:50:30Z",
+      "status": "complete",
+      "tokens_input": 0,
+      "tokens_output": 0,
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "token_source": "lenient_fallback",
+      "turns_matched": 48,
+      "duration_seconds": 80.0
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": false,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "guardrails": [
+    {
+      "name": "step-01-purge-artifacts-checkpoint",
+      "after_step": "step-01-purge-artifacts.md",
+      "result": "retry",
+      "reason": "Purge incomplete: 26 temp artifact(s), 0 root script(s), 3 non-canonical root entr(y/ies) remain",
+      "escalated_to_human": false,
+      "timestamp": "2026-10-10T17:34:21.416170Z",
+      "validation_errors": [
+        "temp_artifacts_remaining: 26",
+        "noncanonical_root_entries: ['.mcp.json', '.~lock.Improving_AI_Speaking_Conference_Tracker.xlsx#', 'CHANGELOG.md']"
+      ],
+      "computed_fields": {
+        "temp_artifacts_remaining": [
+          "systems/eval-harness/__pycache__",
+          "systems/error-tracking/__pycache__",
+          "systems/eval-harness/scoring/__pycache__",
+          "systems/eval-harness/vendor/yaml/__pycache__",
+          "skills/plaud-transcripts/scripts/__pycache__",
+          "skills/git/scripts/__pycache__",
+          "skills/amazing-race-monitor/scripts/__pycache__",
+          "skills/omnifocus-data/scripts/__pycache__",
+          ".claude/hooks/__pycache__",
+          ".claude/hooks/tests/__pycache__",
+          "workflows/error-improvement/verify/__pycache__",
+          "workflows/golf-booking/verify/__pycache__",
+          "workflows/partner-meeting-prep/verify/__pycache__",
+          "workflows/podcast-prep/verify/__pycache__",
+          "workflows/daily-review/verify/__pycache__",
+          "workflows/plaud-ingest/verify/__pycache__",
+          "workflows/content-pipeline/verify/__pycache__",
+          "workflows/content-approval/verify/__pycache__",
+          "workflows/content-discovery/verify/__pycache__",
+          "workflows/golf-preview/verify/__pycache__"
+        ],
+        "temp_artifacts_count": 26,
+        "root_scripts_remaining": [],
+        "noncanonical_root_entries": [
+          ".mcp.json",
+          ".~lock.Improving_AI_Speaking_Conference_Tracker.xlsx#",
+          "CHANGELOG.md"
+        ]
+      }
+    },
+    {
+      "name": "step-02-organize-deliverables-checkpoint",
+      "after_step": "step-02-organize-deliverables.md",
+      "result": "pass",
+      "reason": "No deliverable files changed this session \u2014 nothing to organize",
+      "escalated_to_human": false,
+      "timestamp": "2026-10-10T17:34:22.003317Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "deliverables_changed": 0,
+        "pdfs_changed": 0,
+        "build_artifact_violations": []
+      }
+    },
+    {
+      "name": "step-03-gitignore-check-checkpoint",
+      "after_step": "step-03-gitignore-check.md",
+      "result": "pass",
+      "reason": "All 6 expected temp-artifact patterns covered by .gitignore",
+      "escalated_to_human": false,
+      "timestamp": "2026-10-10T17:34:22.088741Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "expected_patterns": 6,
+        "missing_patterns": []
+      }
+    },
+    {
+      "name": "step-04-commit-checkpoint",
+      "after_step": "step-04-commit.md",
+      "result": "retry",
+      "reason": "no executed commit entry in git-ops.jsonl (the commit bypassed the wrapper or the audit log is missing)",
+      "escalated_to_human": false,
+      "timestamp": "2026-10-10T17:34:22.231722Z",
+      "validation_errors": [
+        "commit_not_audited_via_wrapper"
+      ],
+      "computed_fields": {
+        "claimed_commit_sha": "0a8209f1",
+        "files_in_commit": 34,
+        "temp_artifacts_in_commit": [],
+        "commit_audited_via_wrapper": false,
+        "audit_window": "2026-09-17 03:49:10+00:00 .. 2026-09-17 04:00:30+00:00"
+      }
+    }
+  ],
+  "retry_signal": {
+    "step": "step-04-commit.md",
+    "checkpoint": "step-04-commit-checkpoint",
+    "reason": "no executed commit entry in git-ops.jsonl (the commit bypassed the wrapper or the audit log is missing)",
+    "feedback": "no executed commit entry in git-ops.jsonl (the commit bypassed the wrapper or the audit log is missing)",
+    "instruction": "Fix per the validation errors: unstage temp artifacts, commit through python3 skills/git/scripts/ies-git, and surface audit gaps to the controller.",
+    "attempt_number": 2,
+    "timestamp": "2026-10-10T17:34:22.231863Z",
+    "max_attempts": 2
+  },
+  "total_cost_usd": 0.045,
+  "cost_estimation_note": "estimated based on claude workflow type",
+  "model": "sonnet"
+}
