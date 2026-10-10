@@ -56,8 +56,6 @@ Full tag list and image conventions are documented in `workflows/content-discove
 
 Get Admin API key: read `~/Library/Application Support/Claude/claude_desktop_config.json`, find server `ghost-blog`, read `GHOST_ADMIN_API_KEY` (`{key_id}:{hex_secret}`). Generate JWT: header `{"alg": "HS256", "kid": "{key_id}", "typ": "JWT"}`, payload `{"exp": now+300, "iat": now, "aud": "/admin/"}`, signed with `bytes.fromhex(hex_secret)` via PyJWT. Full detail and worked examples are in `steps/step-01-approve.md`.
 
-`ghost_update_v2.py` in this directory is a reference script showing the JWT-generation and PUT-update pattern against a real post (kept for pattern reference — it has a hardcoded post_id and body from a one-off manual fix and is not meant to be re-run as-is).
-
 ---
 
 ## STATE TRACKING
