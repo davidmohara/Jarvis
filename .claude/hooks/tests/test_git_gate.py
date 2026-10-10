@@ -12,6 +12,9 @@ near-miss that must never misroute:
     permissionDecision allow
   - compound git writes block (Atomic Command Rule), but quoted -m
     content containing && or | must NOT trip the metachar block
+  - git at a command position beyond the start (`cd dir && git push`,
+    the 2026-10-10 incident shape that reached raw git untouched through
+    BOTH layers): writes block, reads pass, quoted prose never misfires
   - `git status` blocks with lock-free alternatives
   - unclassified verbs block rather than guess (safe default)
 
@@ -138,6 +141,72 @@ def main():
     # --- multiline: first line is a git write -> block, never partial rewrite ---
     code, out, err = run_hook(mod, "git add -A\nrm -rf /")
     assert code == 2 and out == "", "multiline git write must block, not rewrite the first line"
+
+    # --- the 2026-10-10 incident: git at a command position beyond the start ---
+    # Every git op that session ran as `cd "<repo>" && git <verb> ...`, which
+    # sailed through both pre-tool-use.sh's line-start-only delegation trigger
+    # and classify()'s startswith("git") check, reaching raw git untouched.
+    for command, expected in [
+        ('cd "/repo" && git commit -m "x"', "compound-block"),
+        ('cd "/repo" && git push origin main', "compound-block"),
+        ('cd "/repo" && git add CHANGELOG.md', "compound-block"),
+        ('cd /repo; git push origin main', "compound-block"),
+        ('cd /repo && git status', "compound-block"),
+        ('cd /repo && git frobnicate --all', "compound-block"),
+        ('cd /repo && git branch -d feat/old', "compound-block"),
+        ('cd "/repo" && git log --oneline -5', "compound-read"),
+        ('cd /repo && git diff --name-only HEAD', "compound-read"),
+        ('cd /repo && git branch --show-current', "compound-read"),
+        ('cd /repo && git remote -v', "compound-read"),
+        ('echo "run && git push later"', None),  # quoted prose, not a command
+        ("echo 'git commit would go here' && ls", None),
+    ]:
+        kind, verb = mod.classify(command)
+        assert kind == expected, f"classify({command!r}) = {kind!r}, expected {expected!r}"
+
+    # compound writes block end-to-end; compound status gets the alternatives message
+    code, out, err = run_hook(mod, 'cd "/repo" && git push origin main')
+    assert code == 2 and out == "", f"cd-chained git push must block, got {code}"
+    assert "Atomic Command Rule" in err or "cannot be safely redirected" in err, err
+    code, out, err = run_hook(mod, 'cd "/repo" && git commit -m "test"')
+    assert code == 2 and "cannot be safely redirected" in err, err
+    code, out, err = run_hook(mod, 'cd /repo && git status')
+    assert code == 2 and "git diff --name-only HEAD" in err, err
+    # compound reads and quoted prose stay silent allows
+    for command in ['cd "/repo" && git log --oneline -5', 'echo "see && git push notes"']:
+        code, out, err = run_hook(mod, command)
+        assert code == 0 and out == "" and err == "", f"{command!r} must be silent allow, got {code}: {err}"
+
+    # --- end-to-end through pre-tool-use.sh: layer 1 (the delegation trigger)
+    # is where the incident actually slipped through, so assert the shell hook
+    # too, not just git-gate.py.
+    import subprocess
+    sh_path = Path(__file__).resolve().parents[1] / "pre-tool-use.sh"
+    for command, want_block in [
+        ('cd "/repo" && git commit -m "test"', True),
+        ('cd "/repo" && git push origin main', True),
+        ('cd "/repo" && git log --oneline', False),
+        ('echo "notes on && git push"', False),
+        ('git commit -m "clean"', False),  # not blocked: rewritten to wrapper
+    ]:
+        payload = json.dumps({"tool_name": "Bash", "tool_input": {"command": command}})
+        result = subprocess.run(["bash", str(sh_path)], input=payload,
+                                capture_output=True, text=True, timeout=30)
+        if want_block:
+            assert result.returncode == 2 and result.stdout == "", (
+                f"pre-tool-use.sh must block {command!r}, got rc={result.returncode} "
+                f"stderr={result.stderr!r}"
+            )
+        else:
+            assert result.returncode == 0, (
+                f"pre-tool-use.sh must allow/rewrite {command!r}, got rc={result.returncode} "
+                f"stderr={result.stderr!r}"
+            )
+    # the clean case must actually be REWRITTEN through the shell layer too
+    payload = json.dumps({"tool_name": "Bash", "tool_input": {"command": 'git commit -m "clean"'}})
+    result = subprocess.run(["bash", str(sh_path)], input=payload,
+                            capture_output=True, text=True, timeout=30)
+    assert "ies-git" in result.stdout, f"clean write must be rewritten via wrapper, got {result.stdout!r}"
 
     print("test_git_gate: all cases passed")
 

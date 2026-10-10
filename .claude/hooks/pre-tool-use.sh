@@ -59,7 +59,13 @@ done
 # JSON (the rewrite) is echoed so Claude Code applies it, and its exit code
 # becomes this hook's exit code. stderr flows through untouched, so block
 # messages reach the model as feedback.
-if echo "$PRIMARY" | grep -qE "^(git[[:space:]]|(\./)?skills/git/scripts/ies-git|python3[[:space:]]+skills/git/scripts/ies-git)"; then
+#
+# The trigger matches git at ANY command position, not just line start: the
+# 2026-10-10 incident ran every git op as `cd "<repo>" && git <verb> ...`,
+# which starts with `cd`, never matched a line-start-only trigger, and
+# reached raw git untouched. The gate strips quoted segments before
+# classifying, so prose mentioning git still can't false-positive here.
+if echo "$PRIMARY" | grep -qE "^(git[[:space:]]|(\./)?skills/git/scripts/ies-git|python3[[:space:]]+skills/git/scripts/ies-git)|[&|;][[:space:]]*git[[:space:]]"; then
     GATE_OUT=$(printf '%s' "$INPUT" | python3 "$(dirname "$0")/git-gate.py")
     GATE_RC=$?
     if [ -n "$GATE_OUT" ]; then

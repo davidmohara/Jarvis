@@ -12,6 +12,7 @@ All notable changes to IES (Improving Executive System). Versions were establish
 - Phase 5C (this file): CHANGELOG established, retroactive version tags created.
 - Eval-harness exit reliability (2026-10-10): SessionEnd hook re-engineered to spawn the canonical closer (`close-open-evals.py`) detached, so a standard exit can no longer cancel the sweep mid-run and leave eval records open; regression suite `test_eval_session_end.py` (40bc6ef4). Protects the Phase 4C success-rate data window from open-record distortion.
 - YAML hygiene (2026-10-10): colon-bearing values quoted in `plaud-ingest-verification` frontmatter and boot `state.yaml` after both became unparseable (turn-start frontmatter errors, `boot_is_fresh` fallback); quoting rule added to agent conventions so agent-written YAML cannot reintroduce the defect.
+- Git gate command-position coverage (2026-10-10): both gate layers anchored git detection to position zero, so `cd "<repo>" && git <write-verb>` reached raw git unaudited (found in production via the git-ops spool, bypass evidence `projects/stage-4-evidence/bypass-tests/BT-06-git-cmdpos-bypass-2026-10-10.md`); detection now matches git at any command position with quotes stripped, compound writes block, compound reads pass, 13 new regression cases including end-to-end through `pre-tool-use.sh`.
 - Planned: v2.0.0 tagged at the Stage 5 resubmission.
 
 ## [v1.5.0] — 2026-09-16: access consolidation and deterministic grading
