@@ -68,12 +68,10 @@ From the option's `preferred_start` and `preferred_end` (e.g., "13:00" to "14:30
 1. Find all available times within the preferred window.
 2. If multiple exist, pick the one closest to `preferred_start`.
 3. If none exist in the preferred window, expand the search: look up to 2 hours outside the
-   preferred window (earlier or later). Accept any reasonable substitute. Still respect hard
-   limits: never before 1:00 PM, never before 2:30 PM on Sunday.
+   preferred window (earlier or later). Accept any reasonable substitute, still respecting the
+   hard time limits in MANDATORY EXECUTION RULES.
 4. If still nothing, mark this option as `unavailable` and move to the next ranked option
    (same date — see NEXT STEP for what "no options left" means).
-5. Never book a time before 2:30 PM on Sunday.
-6. Never book a time before 1:00 PM on any day.
 
 Record the selected time for the confirmation message.
 
@@ -234,8 +232,8 @@ checkpoint so the run's eval record carries the confirmation review:
 python3 systems/eval-harness/guardrail-checkpoint.py golf-booking booking-confirmation step-04-select-time-and-confirm <pass|flag|escalate> "<one-line reason>"
 ```
 
-- **Gate 3 returned `BOOKING-SUCCESS` and the booked time respects the hard limits (never
-  before 1:00 PM; never before 2:30 PM on a Sunday)** → `pass`.
+- **Gate 3 returned `BOOKING-SUCCESS` and the booked time respects the hard time limits in
+  MANDATORY EXECUTION RULES** → `pass`.
 - **A minor issue you can point to that does not affect the booking itself** (e.g., the booked
   time was a documented substitute within the preferred window) → `flag`, note it, and proceed.
 - **Gate 3 returned anything other than `BOOKING-SUCCESS`** (`STILL-ON-TIMER-SCREEN`,

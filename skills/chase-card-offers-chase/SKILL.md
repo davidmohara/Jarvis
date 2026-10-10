@@ -123,7 +123,7 @@ for (var i = 0; i < allEls.length; i++) {
 ```
 
 **CRITICAL — Verify Before Clicking:**
-Before clicking add, confirm the modal/tile shows the correct merchant name. A prior session accidentally added Starlink (err-20260404-002) because a featured offer button intercepted the click. Always read the offer context first:
+Before clicking add, confirm the modal/tile shows the correct merchant name. Always read the offer context first:
 
 ```javascript
 // Confirm merchant name before clicking +
@@ -176,7 +176,7 @@ body.substring(idx, idx + 150)
 
 ---
 
-## Known Issue — DOM Intercept (err-20260404-002)
+## Known Issue — DOM Intercept
 
 The Chase offers page renders a "Featured Offer" section at the top with large buttons. When clicking a tile lower on the page, the featured offer's button can intercept the click if it overlaps the viewport.
 

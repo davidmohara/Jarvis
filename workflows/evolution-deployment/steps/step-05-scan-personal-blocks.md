@@ -6,7 +6,7 @@ outputs: {}
 model: sonnet
 ---
 
-# Step 04: Scan Personal Blocks
+# Step 05: Scan Personal Blocks
 
 ## EXECUTION PROTOCOL
 
@@ -188,7 +188,7 @@ If user chooses "Abort", **HALT** workflow immediately.
 
 ## Next Step
 
-If no conflicts OR all conflicts resolved: proceed to `step-05-apply-evolution.md`
+If no conflicts OR all conflicts resolved: proceed to `step-06-apply-evolution.md`
 
 If user aborted: HALT workflow
 <!-- system:end -->

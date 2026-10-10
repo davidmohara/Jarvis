@@ -18,7 +18,7 @@ model: sonnet
 4. You MUST account for every action item from the previous brief. Nothing disappears silently.
 5. Do NOT pad the brief with generic content. If you don't have data for a section, say so — don't fill it with fluff.
 6. Do NOT proceed to step 05 until the full brief is assembled.
-7. You MUST leave the upstream `accumulated-context` blocks intact. The verifier for this step re-checks that `meeting_details`, `communication_data`, and `task_data` are all still present in `accumulated-context` at this point. Do NOT overwrite, flatten, or delete them while assembling the brief; record this step's own result alongside them.
+7. You MUST leave the upstream `accumulated-context` blocks (`meeting_details`, `communication_data`, `task_data`) intact. See Output Persistence (MANDATORY) below.
 
 ---
 

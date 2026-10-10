@@ -424,8 +424,6 @@ Known skills in `.claude/skills/`: `master-slack`, and others. When David says a
 find {IES_ROOT}/.claude/skills -name "SKILL.md"
 ```
 
-This failure has been logged 3+ times (err-20260327-004, err-20260404-001, err-20260511-001). No further occurrences are acceptable.
-
 ---
 
 <!-- personal:start -->
@@ -551,15 +549,13 @@ A capability that does not surface in `ToolSearch` is not a capability that is u
 2. If it still does not surface, check whether the capability is reachable another way (Bash, `osascript`, a CLI binary, a direct call) before concluding it is missing.
 3. **Never abort a scheduled or workflow run on a single negative lookup.** Set no failure state and report nothing to the controller until the alternate paths have been tried.
 
-Recurrences: err-20260908T222842-RH9398 (Harper aborted a scheduled run over a deferred tool), err-20260916T200418-CRJ2R2, err-20260715T134820-X2GOL2.
-
 ### Day-of-week gate
 
-Before running any workflow bound to a specific day (a "Monday 7am" weekly task, a "first of the month" review, any cadence-bound run), assert the actual day with `date +%A` at entry and compare it to the workflow's intended day. On a mismatch, do not run: log the mismatch, surface it to the controller, and stop. A day-of-week conflict is a misfire signal to stop on, not something to rationalize past. See err-20260911T154310-IY615I.
+Before running any workflow bound to a specific day (a "Monday 7am" weekly task, a "first of the month" review, any cadence-bound run), assert the actual day with `date +%A` at entry and compare it to the workflow's intended day. On a mismatch, do not run: log the mismatch, surface it to the controller, and stop. A day-of-week conflict is a misfire signal to stop on, not something to rationalize past.
 
 ### Shell working directory (zip and subdirectory operations)
 
-Never use a bare `cd` when the only reason to change directory is to build a zip or run a command inside a subdirectory. Always isolate the change of directory in a subshell: `(cd dir && zip ...)`. The Bash tool's working directory persists across calls, so a bare `cd` leaves every later call resolving paths against the wrong directory. This has recurred three times: err-20260829T161002-X7JBHO and prior.
+Never use a bare `cd` when the only reason to change directory is to build a zip or run a command inside a subdirectory. Always isolate the change of directory in a subshell: `(cd dir && zip ...)`. The Bash tool's working directory persists across calls, so a bare `cd` leaves every later call resolving paths against the wrong directory.
 
 ### Destructive action gate
 
@@ -569,20 +565,11 @@ Never use a bare `cd` when the only reason to change directory is to build a zip
 2. **Match the identifier to the intended target.** The identifier must equal the record the workflow means to act on. "The button next to the right date" is not a match. A specific ID is.
 3. **Do not automate anything the workflow did not create.** When the target's identity is ambiguous, or when acting on it would touch state the workflow itself did not set, stop and surface it to David to perform manually.
 4. **When in doubt, do not click.** Uncertainty is a stop condition. An irreversible action taken on doubt is the failure this rule exists to prevent.
-
-This rule was added after a booking was canceled by a wrong-element click: err-20260904T151500-CANCEL (critical, a ChronoGolf cancel button acted on the wrong reservation).
 <!-- system:end -->
 
 ---
 
 ## Appendix: File Conventions
-
-### Template Markers
-
-Agent files use section markers to distinguish system-managed vs. personal content:
-
-- `<!-- system:start -->` / `<!-- system:end -->` — System-managed content, updated by evolutions
-- `<!-- personal:start -->` / `<!-- personal:end -->` — Personal content, preserved during evolutions
 
 ### Identity Files
 

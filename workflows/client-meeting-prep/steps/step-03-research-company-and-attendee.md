@@ -16,7 +16,7 @@ model: sonnet
 3. You MUST calibrate the depth and framing of this research to the meeting_classification set in step 02 — do not build a generic discovery-call research packet for a peer/relationship call, and do not undersell research for a real sales-sourced opportunity.
 4. You MUST NOT let web research override or contradict the reason_for_call or meeting_classification established in step 02 from email evidence. Web research fills in identity and background — it does not re-litigate why the meeting exists.
 5. Do NOT proceed to step 04 until company identity is confirmed (or the ambiguity is explicitly flagged as unresolved) and attendee bio research is complete.
-6. You MUST persist `company_disambiguation`, `company_profile`, `company_overview`, `attendee_bio`, and `common_connections` to `state.yaml` `accumulated-context` and mirror them in this step file's frontmatter `outputs` field before marking the step complete. The verifier reads these directly from `accumulated-context` (top-level keys, not nested) and requires at least one of `company_profile`, `company_overview`, or `attendee_bio` to be populated; if `company_disambiguation.ambiguous` is true, a `note` or `resolution_method: "unresolved"` MUST be present.
+6. You MUST persist this step's outputs before marking the step complete. See **Output Persistence** below for the exact schema and the verifier contract.
 
 ---
 
@@ -31,7 +31,7 @@ model: sonnet
 ## CONTEXT BOUNDARIES
 
 - This step is identity and background research only. The "why are we meeting" question was already answered in step 02 from email evidence — do not re-derive it here from web sources.
-- If the company name is a common acronym or shared by multiple unrelated companies (e.g., "OFS" matching both a furniture manufacturer and an unrelated company), this is exactly the failure mode that produced `err-20260720T144623-LSBA9A`. Treat any acronym or short/generic company name as ambiguous by default until confirmed.
+- If the company name is a common acronym or shared by multiple unrelated companies (e.g., "OFS" matching both a furniture manufacturer and an unrelated company), treat any acronym or short/generic company name as ambiguous by default until confirmed.
 - Calibration matters: a peer/relationship call gets a lighter research touch focused on shared context and credibility; a sales-sourced lead gets fuller company/buyer-persona research; an internal review pulls from CRM/account history first.
 
 ---

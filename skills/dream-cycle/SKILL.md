@@ -13,36 +13,9 @@ You are running the IES nightly dream cycle. Execute all five phases in order.
 Log every action. Be conservative — when in doubt about whether to promote or
 compress an entry, leave it and note it in the log. Preservation over aggression.
 
-## Git Operations — MANDATORY METHOD
+## Git Operations
 
-**All git operations that touch the remote (pull, push) MUST use Desktop Commander** to run on the host Mac. The sandbox has no GitHub credentials. The repo on the host is at `/Users/davidohara/develop/jarvis`.
-
-Pull example:
-```
-mcp__Desktop_Commander__start_process("cd /Users/davidohara/develop/jarvis && git pull --rebase 2>&1", timeout_ms=30000)
-```
-
-Push example:
-```
-mcp__Desktop_Commander__start_process("cd /Users/davidohara/develop/jarvis && git push origin main 2>&1", timeout_ms=30000)
-```
-
-Local git operations (add, commit, status) can run in the sandbox via Bash since the workspace mount shares the same repo state.
-
-### Index Lock Prevention — CRITICAL
-
-In sandboxed environments, `.git/index.lock` can become irremovable once created. **Every** git command that touches the index (add, commit, diff, stash, pull, rebase, status --long) creates this lock. To prevent it from persisting:
-
-1. **ALWAYS** prefix git write commands with `rm -f .git/index.lock &&` in the same shell call.
-2. **NEVER** run `git diff --stat` or `git diff` — use `git status --short` instead to inspect changes.
-3. **Chain add+commit in a single Bash call** so the lock is held only briefly:
-   ```
-   rm -f .git/index.lock && git add -A && git commit -m "message"
-   ```
-4. **Do NOT run git status, git diff, or git log as separate pre-flight checks.** If you need to confirm repo state, use `git status --short` once, prefixed with the lock removal.
-5. **Never run multiple parallel Bash calls that touch git.** All git operations must be sequential within a single shell invocation.
-
-**Do NOT attempt:** raw `git push` in sandbox, GitHub MCP push_file, `gh` CLI, or SSH-based git. They will all fail. Desktop Commander is the only path.
+All git operations must follow `skills/git/SKILL.md`, the sole authority for git in this system. Do not run raw git commands outside that skill.
 
 ---
 
@@ -55,7 +28,7 @@ In sandboxed environments, `.git/index.lock` can become irremovable once created
   Parse the most recent `## YYYY-MM-DD` header from the output. If last run was today, abort with log entry: `aborted: already ran today`. **Never use the Read tool on dream.log without an offset — it will return the first entry, not the last.**
 - Get current local date/time via `osascript -e 'return (current date) as string'`.
 - Record `session_id: dream-cycle-{YYYY-MM-DD-HHmmss}`.
-- **Sync from origin** using Desktop Commander (see Git Operations above). Handle any merge conflicts. If sync fails (auth, SSH, uncommitted changes), log it and proceed — do not block the cycle on sync failures.
+- **Sync from origin** per `skills/git/SKILL.md`. Handle any merge conflicts. If sync fails (auth, SSH, uncommitted changes), log it and proceed — do not block the cycle on sync failures.
 - Remove any stale index lock: `rm -f .git/index.lock`
 
 ---
@@ -190,11 +163,7 @@ Write a file `memory/working/dream-summary-{YYYY-MM-DD}.md` with
 Content: the log entry above, formatted for Chief to read at boot.
 
 **Commit and push (EVERY run, not just notable ones):**
-1. Stage and commit in a single chained Bash call (see Index Lock Prevention):
-   ```
-   rm -f .git/index.lock && git add -A && git commit -m "Dream cycle YYYY-MM-DD: summary"
-   ```
-2. Push to origin via Desktop Commander (see Git Operations section above). This is non-negotiable. Do not skip, do not defer to the next session.
+Stage, commit, and push per `skills/git/SKILL.md`. This is non-negotiable. Do not skip, do not defer to the next session.
 
 ---
 
@@ -225,7 +194,7 @@ Content:
 ```json
 {
   "skill": "dream-cycle",
-  "agent": "chief",
+  "agent": "knox",
   "trigger": "manual",
   "started": "<ISO-8601 timestamp when this skill began>",
   "completed": "<ISO-8601 timestamp when this skill finished>",
@@ -250,27 +219,4 @@ This prints a compact block: a structure/content/quality assertion breakdown, a 
 
 Include that printed block verbatim (or lightly reformatted to match your closing summary's style) in your final response to the operator — the deterministic grade must always reach the person reading the output, not just the eval record on disk. A qualitative (Tier 3) grade is added separately later via the end-of-day `rigby-eval-grade` sweep; do not attempt to compute or claim a qualitative grade yourself here.
 <!-- system:end -->
-
-After writing the signal file, also write a working memory file to `memory/working/` using this filename pattern:
-
-```
-dream-summary-YYYY-MM-DD-HHmmss.md
-```
-
-The file must begin with this YAML frontmatter (all fields required):
-
-```yaml
----
-type: working
-task_id: "session"
-session_id: "chief-{YYYY-MM-DD}-{HHmmss}"
-agent-source: chief
-created: {YYYY-MM-DD}T{HH:MM:SS}
-expires: {YYYY-MM-DD+2}T{HH:MM:SS}
-status: active
-context: "Dream cycle summary — {YYYY-MM-DD}"
----
-```
-
-Body: 3-5 bullet points summarizing key outputs, decisions, and any flags from this run. Keep it under 200 words.
 

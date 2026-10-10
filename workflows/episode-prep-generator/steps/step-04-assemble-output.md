@@ -57,8 +57,7 @@ model: sonnet
      guest/episode.
 
 4. Sanity-check the saved file before reporting done:
-   - Total length reads as 2-3 pages, scannable in under 2 minutes (not the
-     old 8-10 page format)
+   - Total length reads as 2-3 pages, scannable in under 2 minutes
    - No em dashes
    - Notes section states the transcript source (or explicitly that none was
      found) so a future reader knows where the questions came from
@@ -88,8 +87,7 @@ model: sonnet
   under a suffixed name
 - Document reads 2-3 pages, matches the format of
   `meetings/podcast-prep/2026-07-14-kapil-dabi.md` (concrete questions,
-  Suggested Flow, Notes with source attribution) rather than the old
-  10-section abstract format
+  Suggested Flow, Notes with source attribution)
 - Transcript source (or its absence) stated plainly in Notes
 - Delivered promptly — no unnecessary re-derivation of step 3's content
 

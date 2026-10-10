@@ -1,5 +1,3 @@
-[Reading 242 lines from start (total: 242 lines, 0 remaining)]
-
 ---
 name: remarkable-upload
 description: Upload PDF or EPUB files to reMarkable tablet. Use when the user wants to send a document to their reMarkable, upload a PDF/EPUB, or put a file on their tablet.

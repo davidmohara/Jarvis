@@ -309,6 +309,8 @@ Content:
 
 Set `trigger` to `"boot"` if called from the morning briefing or a boot workflow, `"scheduled"` if called from a scheduled task, `"manual"` otherwise. Set `status` to `"partial"` if the skill completed with degraded output, `"failure"` if it could not run at all. Use the actual start time of this skill execution for `started`. This write is always the final action.
 
+<!-- system:end -->
+
 <!-- system:start -->
 ## GRADE THIS RUN
 

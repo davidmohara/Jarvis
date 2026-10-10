@@ -16,7 +16,6 @@ outputs: {}
 3. You MUST include the anticipated Q&A in all output formats.
 4. You MUST apply voice profile to the final delivery — all output sounds like the executive.
 5. Do NOT mix formats. If the event type is panel, use panel format. Do not add meeting bullets.
-6. You MUST save the delivered document to `meetings/` with `talking-point` in the filename and record its path in `state.yaml` `accumulated-context.output` plus this step file's frontmatter `outputs` field. The verifier locates the file on disk (it does not trust a self-reported path) and validates the point count and the anticipated Q&A directly from content.
 
 ---
 

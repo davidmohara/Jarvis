@@ -11,9 +11,7 @@ model: sonnet
 
 ## MANDATORY EXECUTION RULES
 
-1. Fetch ONLY via the `WebSearch` tool with `allowed_domains`. RSS-from-sandbox 403s; never use it. Never `curl`/`requests` a blocked outlet.
-2. Fetch only sources where `active` AND `accessible` are both true in `sources.json`.
-3. Every source (and every beat search) is scanned twice, consecutively, every run. This happens before clustering or scoring; it is not a retry-on-failure, it always runs.
+1. Global fetch rules are the Hard rules in `workflow.md` (WebSearch-only with `allowed_domains`, `active`+`accessible` sources only, two consecutive passes). This step adds no rules of its own.
 
 ---
 

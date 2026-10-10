@@ -31,8 +31,7 @@ in command of every ruling.
 3. **Judge only what is visible.** Vision review compares what is actually in the
    frame against the verified item lists in `references/quests.json`. Never assert
    venue or location facts that are not both (a) in the quest reference and (b)
-   visible in the image. See error entries err-20260930T145444-71UE48 and
-   err-20260930T150508-3FHQ8N — invented venue claims are a logged failure mode.
+   visible in the image.
 4. **Deterministic first.** The poll is a script, not a model. If nothing new was
    posted, the sweep does zero model work and sends nothing.
 5. **All Slack goes through the master-slack skill path** —
@@ -117,8 +116,7 @@ compact line.
 The review sub-agent is a **general-purpose sub-agent with `model: sonnet`**
 (a vision-capable model). **Do NOT use a fork for this step:** a fork
 inherits the controller's model, and the controller model may not accept image
-inputs (glm-latest rejects them — err entry err-20261003T002601-FMWBIC;
-discovered in rehearsal, a fork died on its first image Read). The sub-agent:
+inputs. The sub-agent:
 
 1. Selects posts to review: every post in `data/amazing-race/posts.jsonl` with
    media attached that has no flag for its `post_id` in `data/amazing-race/flags.json`

@@ -19,30 +19,6 @@ outputs:
     to rewrite and running --rename would have risked an unnecessary regeneration
     (the transaction_polish staleness / auto_sum_note wipe seen 09-14 and 09-17).
     Speaker names verified present in staged markdown. No gaps.
-  notes_prior_run: >
-    pi-20260917-001: 1 recording in ready-for-fetch
-    (e2d6f3c0cfe76328329cd273da8d55cb, "09-16 Weekly Meeting: P2 AI Project Plan,
-    Model Testing, and Scope Risks", 2026-09-16 15:00-15:45 UTC). Applied
-    `--rename e2d6f3c0cfe76328329cd273da8d55cb` with 7 generic-to-real mappings
-    (Speaker 1=Chris Miller, Speaker 2=Gilbert Velasquez, Speaker 4=Lyn Barrett,
-    Speaker 6=John Tsiros, Speaker 7=Ai, Speaker 8=Fernando, Speaker 9=Lauren
-    Clack). Script PATCHed renames to trans_result, registered 7 new voice-embedding
-    profiles via /speaker/sync, and triggered transaction_polish regeneration
-    (is_reload:1) when names were missing from the polished layer. Regeneration
-    had not completed within the script's 6x20s poll (content_list stayed at
-    ['outline']), so the script saved a stale URL-named file
-    `plaud_e2d6f3c0cfe76328329cd273da8d55cb_ogg.md` still holding Speaker N labels
-    (same --rename filename/transaction_polish staleness bug flagged in the
-    2026-09-14 run). Manually reconciled once regeneration finished: re-fetched
-    detail, confirmed transaction_polish present with all 9 real speaker labels
-    (0 occurrences of "Speaker N" remain), and rewrote the correctly-named staged
-    markdown `plaud_09-16 Weekly Meeting_ P2 AI Project Plan_ Model Testing_ and
-    Scope Risks.md` plus its _raw.json, then removed the stale _ogg file. The
-    auto_sum_note (AI summary) was cleared by regeneration and had not returned
-    at staging time; ingested note's summary written from transcript content.
-    Verified: content_list = transaction + outline + transaction_polish (all ready),
-    speaker labels = Chris Miller, Gilbert Velasquez, Lyn Barrett, John Tsiros, Ai,
-    Fernando, Lauren Clack, Devlin, O'Hara. No gaps.
 ---
 
 <!-- system:start -->

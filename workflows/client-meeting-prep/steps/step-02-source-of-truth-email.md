@@ -17,9 +17,9 @@ model: sonnet
 4. You MUST explicitly classify the meeting type (see Classification below) using email evidence as the primary signal, calendar/invite metadata as secondary.
 5. You MUST state plainly what NOT to assume — this is not optional filler, it is a required output field for the next two steps.
 6. Do NOT proceed to step 03 until reason_for_call and meeting_classification are both populated from evidence, not guesswork.
-7. You MUST persist `meeting_classification`, `reason_for_call`, `evidence_cited`, `do_not_assume`, and `contact_depth` to `state.yaml` `accumulated-context` and mirror them in this step file's frontmatter `outputs` field before marking the step complete. The verifier reads these directly from `accumulated-context` (they are top-level keys, not nested under a wrapper) and requires `meeting_classification` to be one of the recognized values.
+7. You MUST persist this step's outputs before marking the step complete. See **Output Persistence** below for the exact schema and the verifier contract.
 
-This step exists because of `err-20260720T144623-LSBA9A`: a prep sheet was built from web research and calendar data alone, producing a wrong title, an invented sales narrative, and a wrong reason for the call — when the actual introduction email (findable with one search) told the true story. Web research supplements identity and company context. It never substitutes for available first-party email context on **why the meeting exists**.
+**Email/calendar evidence is the source of truth for why a meeting exists; web research only fills in identity and company context.**
 
 ---
 

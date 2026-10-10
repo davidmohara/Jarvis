@@ -120,29 +120,6 @@ Read fully and follow: `step-02-gather-data.md`
 
 Note: All consolidated data files (calendar, email, tasks, reminders, inbox) are now available on disk for consuming steps to read from.
 
----
-
-## Implementation Notes for Consuming Steps
-
-**Morning Briefing Step-01** should change:
-```
-OLD: Call M365 outlook_calendar_search for today
-NEW: Read data/calendar-unified.json, filter for today's events
-```
-
-**Boot Step-02 Task G** should change:
-```
-OLD: Call M365 outlook_calendar_search for next 3 days
-NEW: Read data/calendar-unified.json, filter for days+1 to day+3
-```
-
-**Morning Briefing Step-03** should change:
-```
-OLD: Call M365 for meeting context
-NEW: Read data/calendar-unified.json, extract attendees, resolve via Clay/enrichment
-```
-
-This reduces 3 separate M365 calls to 1 shared file read.
 <!-- system:end -->
 
 <!-- personal:start -->

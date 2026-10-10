@@ -19,9 +19,7 @@ model: sonnet
    next to the right date."** Every cancel click is wrapped in the destructive-action
    gate from SYSTEM.md ("Destructive action gate"): screenshot the page, read the
    target booking's OWN booking ID from the DOM, and verify that ID equals the
-   booking intended for cancellation before clicking. This is the exact failure that
-   canceled the wrong reservation on 2026-09-04
-   (`err-20260904T151500-CANCEL`, critical).
+   booking intended for cancellation before clicking.
 3. **When the ID is ambiguous or does not match, STOP.** Surface to David and ask
    him to cancel manually. Uncertainty is a stop condition, not a best-effort
    condition. Do not automate anything this workflow did not create.

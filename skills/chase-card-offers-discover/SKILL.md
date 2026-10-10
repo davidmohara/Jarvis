@@ -179,7 +179,7 @@ for (var i = 0; i < btns.length; i++) {
 | Q3 (Jul–Sep) | TBD (check portal — Discover announces ~1 month before) | $1,500 |
 | Q4 (Oct–Dec) | TBD | $1,500 |
 
-**Current Q2 2026:** Restaurants + Home Improvement — ACTIVATED as of 2026-04-01.
+**Current quarter status:** tracked live in `systems/credit-cards/benefits-tracker.json` (check there rather than hardcoding dates here).
 
 **Strategy:** Use Discover for all dining under $1,500/quarter cap. Beats Atlas 2x. After cap, switch back to Atlas or Chase.
 

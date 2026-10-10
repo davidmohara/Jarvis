@@ -90,23 +90,23 @@ bloodwork_changes_since_last_visit:
   bloodwork_date: YYYY-MM-DD
   markers_of_concern:
     - name: "ApoB"
-      prior: 72
-      current: 80
-      change: "+11%"
-      status: "Act"
+      prior: [prior]
+      current: [current]
+      change: "[change]"
+      status: "[status]"
       question_for_dr: "Is this protocol-driven or dietary?"
 
   markers_improved:
     - name: "Fasting Glucose"
-      prior: 110
-      current: 105
-      change: "-4.5%"
-      status: "Watch → positive trend"
+      prior: [prior]
+      current: [current]
+      change: "[change]"
+      status: "[status]"
 
   new_out_of_range:
     - name: "E2"
-      current: 45
-      status: "High"
+      current: [current]
+      status: "[status]"
       question_for_dr: "Is this DHEA dosing or aromatization?"
 
   critical_questions:
@@ -129,10 +129,10 @@ protocol_changes_since_last_visit:
   supplements_continued: [list with dosages]
 
   peptide_cycles:
-    active_now: [CJC-1295, Ipamorelin (week 4 of 8)]
+    active_now: [CJC-1295, Ipamorelin (week [N] of [M])]
     active_at_last_visit: [list]
     paused_since_last_visit: [list]
-    upcoming: [Epithalon eligible August, DSIP seasonal]
+    upcoming: [Epithalon eligible [month], DSIP seasonal]
 
   changes_to_discuss:
     - [list specific changes that warrant Dr. discussion]
@@ -146,18 +146,15 @@ Pull DEXA data from Dropbox Excel (`~/Library/CloudStorage/Dropbox/Family/Health
 - **BMI:** Current (goal: <20)
 - **Muscle mass:** Current and trend (if DEXA captures)
 
-Compare to Lifebook health goals:
-- Goal weight: 210 lbs
-- Goal body fat: 17%
-- Goal BMI: <20
+Compare to Lifebook health goals (authoritative targets in `data/health/tracking.json` → `goals`).
 
 Output summary:
 ```
 body_comp_update:
   last_dexa_date: YYYY-MM-DD
-  weight: [current] lbs (goal: 210 lbs)
-  body_fat: [current]% (goal: 17%)
-  bmi: [current] (goal: <20)
+  weight: [current] lbs (goal: [target] lbs)
+  body_fat: [current]% (goal: [target]%)
+  bmi: [current] (goal: [target])
   trend: "improving" | "stable" | "drifting"
   progress_vs_goal: "on track" | "at risk" | "off track"
 ```
@@ -171,7 +168,7 @@ Read visit notes from last appointment (Obsidian `Mind/Health/Visit - [Last Date
 
 Examples:
 - "ApoB protocol — should we add CoQ10 or berberine?"
-- "Hormone panel from August — when should we retest?"
+- "Hormone panel from prior draw — when should we retest?"
 - "Peptide cycle questions — how long should GH cycle run?"
 
 Output:
@@ -188,8 +185,8 @@ outstanding_questions_from_last_visit:
 Synthesize findings and generate new questions for Dr. Randol:
 
 **URGENT (out-of-range bloodwork findings):**
-- "ApoB at 80 (up 11%) — is this protocol-driven? Should we adjust CoQ10/berberine dosing?"
-- "E2 at 45 (elevated) — is this DHEA dosing or GH protocol aromatization? How do you recommend managing?"
+- "ApoB at [current] ([change] vs prior) — is this protocol-driven? Should we adjust CoQ10/berberine dosing?"
+- "E2 at [current] (elevated) — is this DHEA dosing or GH protocol aromatization? How do you recommend managing?"
 - "MCH/MCV elevated — should we increase B12 supplementation or consider injections?"
 
 **IMPORTANT (trend concerns):**
@@ -197,8 +194,8 @@ Synthesize findings and generate new questions for Dr. Randol:
 - "HRV down [%] since last visit — is this overtraining concern or external stressor?"
 
 **DISCUSSION (protocol optimization):**
-- "CJC-1295/Ipamorelin in week 4 of cycle — should we recheck IGF-1 or adjust protocol?"
-- "Considering Epithalon cycle in August (4-month pause window opening) — any concerns or recommendations?"
+- "CJC-1295/Ipamorelin in week [N] of cycle — should we recheck IGF-1 or adjust protocol?"
+- "Considering Epithalon cycle (4-month pause window opening) — any concerns or recommendations?"
 - "Should we test Omega-3 index to verify fish oil adequacy?"
 
 **MONITORING:**
@@ -260,7 +257,7 @@ new_questions_for_dr:
 
 | Marker | Prior | Current | Change | Status | Goal |
 |--------|-------|---------|--------|--------|------|
-| ApoB | 72 | 80 | +11% ↑ | **Act** | <70 |
+| ApoB | [prior] | [current] | [change] | [status] | <70 |
 | LDL-P | [N] | [N] | [%] | [status] | <1100 |
 | Lp(a) | [N] | [N] | [%] | [status] | <50 |
 | HDL | [N] | [N] | [%] | [status] | >40 |
@@ -268,7 +265,7 @@ new_questions_for_dr:
 | hsCRP | [N] | [N] | [%] | [status] | <2.0 |
 
 **Key Findings:**
-- ApoB elevated (80) — up 11% from August
+- ApoB [elevated/improving] — [change] vs prior
 - Other lipids [stable/changing]
 - Inflammatory markers [good/concerning]
 
@@ -289,13 +286,13 @@ new_questions_for_dr:
 |--------|-------|---------|--------|--------|------|
 | Total T | [N] | [N] | [%] | [status] | 400-600 |
 | Free T | [N] | [N] | [%] | [status] | 8-12 |
-| E2 | [N] | 45 | +29% ↑ | **Act** | 30-40 |
+| E2 | [N] | [N] | [%] | [status] | 30-40 |
 | B12 | [N] | [N] | [%] | [status] | >400 |
 | Folate | [N] | [N] | [%] | [status] | >12 |
 | Vitamin D3 | [N] | [N] | [%] | [status] | 40-60 |
 
 **Key Findings:**
-- E2 elevated at 45 — up 29% from August (possible DHEA dosing or GH protocol aromatization)
+- E2 [elevated/stable] — [change] vs prior (possible DHEA dosing or GH protocol aromatization)
 - B12 trend [good/watch]
 - Vitamin D [adequate/low]
 
@@ -321,7 +318,7 @@ new_questions_for_dr:
 - **Quercetin** (500mg) — for CV support
 
 ### Active Peptide Cycles
-- **CJC-1295 w/DAC** (1mg/week) — Week 4 of 8-week cycle
+- **CJC-1295 w/DAC** (1mg/week) — Week [N] of [M]-week cycle
 - **Ipamorelin** (1400ug/week) — Concurrent with CJC
 - **BPC-157** (as needed) — injury recovery
 
@@ -334,9 +331,9 @@ new_questions_for_dr:
 
 | Metric | Prior | Current | Goal | Status |
 |--------|-------|---------|------|--------|
-| Weight | [lbs] | [lbs] | 210 lbs | [↑/→/↓] |
-| Body Fat | [%] | [%] | 17% | [↑/→/↓] |
-| BMI | [N] | [N] | <20 | [↑/→/↓] |
+| Weight | [lbs] | [lbs] | [target] lbs | [↑/→/↓] |
+| Body Fat | [%] | [%] | [target]% | [↑/→/↓] |
+| BMI | [N] | [N] | [target] | [↑/→/↓] |
 
 **Assessment:** [On track / at risk / off track]
 
@@ -352,16 +349,16 @@ new_questions_for_dr:
 ## New Questions for Dr. Randol
 
 ### URGENT
-1. **ApoB at 80 (up 11% from August)** — Is this protocol-driven or dietary? Should we adjust CoQ10/berberine dosing or try other interventions?
-2. **E2 at 45 (elevated)** — Is this from DHEA dosing (started 50mg daily in August) or aromatization from GH protocol? How should we manage?
+1. **ApoB at [current] ([change] vs prior)** — Is this protocol-driven or dietary? Should we adjust CoQ10/berberine dosing or try other interventions?
+2. **E2 at [current] (elevated)** — Is this from DHEA dosing (started [dose] daily in [month]) or aromatization from GH protocol? How should we manage?
 3. **MCH/MCV elevated** — Indicates possible B12 or folate deficiency. Should we increase B12 supplementation or consider injections?
 
 ### IMPORTANT
 4. **Recovery/HRV trend [direction]** — Any training load adjustments you'd recommend?
-5. **Should we order IGF-1 testing** — We're 4 weeks into GH protocol; would like to assess peptide response?
+5. **Should we order IGF-1 testing** — We're [N] weeks into GH protocol; would like to assess peptide response?
 
 ### DISCUSSION
-6. **Epithalon cycle eligible August** (4-month pause closing from December cycle) — Any concerns or recommendations?
+6. **Epithalon cycle eligible [month]** (4-month pause closing from prior cycle) — Any concerns or recommendations?
 7. **Berberine restart** — Should we resume given current metabolic markers?
 8. **Omega-3 Index testing** — Should we verify fish oil adequacy with bloodwork?
 
@@ -481,6 +478,7 @@ Content:
 ```
 
 Set `trigger` to `"boot"` if called from the morning briefing or a boot workflow, `"scheduled"` if called from a scheduled task, `"manual"` otherwise. Set `status` to `"partial"` if the skill completed with degraded output, `"failure"` if it could not run at all. Use the actual start time of this skill execution for `started`. This write is always the final action.
+<!-- system:end -->
 
 <!-- system:start -->
 ## GRADE THIS RUN

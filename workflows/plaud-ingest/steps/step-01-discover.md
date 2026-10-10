@@ -11,81 +11,6 @@ outputs:
   gate_1_auth_method: "cached-token"
   gate_2_result: "pass"
   gate_2_flagged_recordings: []
-  note: >
-    pi-20260928-001: FULL ENUMERATION (catch-up mode, no target-date). Plaud API returned
-    146 recordings (paginated /file/simple/web, all pages; cached token, 84 days remaining).
-    Live vault scan of zzPlaud/ found 199 .md notes, 140 unique file_ids. After Tier 1/2/3
-    dedup: 6 new. (1) d0200e83ccd8c442ba958c3587a0f3d7 "2026-09-25 09:29:53" (1225s, missing).
-    (2) a93aa078b699d69c62c4a2cef8dcf5b2 "2026-09-25 09:27:43" (60s, missing). (3)
-    5214979feed38c9bc43683493c70c961 "09-25 Weekly Meeting: AI Project Reset and Innovation
-    Lab Proposal" (2084s, pending). (4) bc6b122ea831c77ac527d4889f7bf4d3 "09-24 Weekly
-    Meeting: Podcast Strategy, Content Performance, and Scheduling" (1528s, pending). (5)
-    71aa19de30d2d2a67f7fc608dfa126bf "09-24 Meeting: Architecture Proposal for Event Routing
-    and AI-Driven Dispatch" (1378s, pending). (6) fa0e4f1fa0ed3f892a83cc6218f4c80d
-    "2026-09-18 12:01:01" (4016s, missing). Circuit breaker clear (6 new vs last confirmed
-    count 2 from 2026-09-17; 6 is >2x baseline but only 2.2% of 278 candidates, <10%).
-    Staging scan: 132 top-level plaud_*.md files, all 132 resolved by Tier 1 file_id exact
-    match via sibling _raw.json; already-ingested leftovers, zero stale-requeue. Ledger
-    written with 278 entries (272 skip + 6 new).
-  previous-run-results:
-    - date: "2026-09-18"
-      new-recordings-count: 1
-      api-total: 140
-      confirmed-in-vault: 139
-      note: "pi-20260918-001: 1 new recording (f96b2c110fc35162f390ac5288d6f7f4, ready)."
-  prior-note-archive: >
-    pi-20260917-001: FULL ENUMERATION (catch-up mode, no target-date). Plaud API returned
-    139 recordings (paginated /file/simple/web, all pages). Live vault scan of zzPlaud/
-    found 196 .md notes, 137 unique file_ids. api-minus-vault: 2 new; vault-minus-api: 0.
-    NEW COUNT: 2. (1) 468619c94a7b254df711c693d8e561a4 "2026-09-17 10:00:23" (2026-09-17;
-    transcript missing, empty content_list). (2) e2d6f3c0cfe76328329cd273da8d55cb
-    "09-16 Weekly Meeting: P2 AI Project Plan, Model Testing, and Scope Risks" (2026-09-16;
-    transcript ready, content_list transaction task_status=1). Circuit breaker clear
-    (2 new vs last confirmed count 0 from 2026-09-16; 2 is not >2x and not >10% of 271
-    candidates). Staging scan: 132 top-level plaud_*.md files, all 132 resolved by Tier 1
-    file_id exact match via sibling _raw.json; already-ingested leftovers, zero
-    stale-requeue. Ledger written with 271 entries (137 API skip + 132 staged skip + 2 new).
-    Pre-existing vault hygiene flag carried forward (30 file_ids map to two vault notes;
-    not acted on this run). Normal path: new-recordings populated with 2, advance to step-02.
-  previous-run-results:
-    - date: "2026-09-17"
-      new-recordings-count: 2
-      api-total: 139
-      confirmed-in-vault: 137
-      note: "pi-20260917-001: 2 new recordings (468619c94a7b254df711c693d8e561a4 missing, e2d6f3c0cfe76328329cd273da8d55cb ready)."
-    - date: "2026-09-15"
-      new-recordings-count: 5
-      api-total: 137
-      confirmed-in-vault: 132
-      note: "pi-20260915-002: 5 new recordings (dfb7cb98f01c514c5619dc81feb2af2f, 804dddd47f182021ee0ffd572846ea91, e0aa6343b58756669d5bb0eddc80c5a4, 5916294c66c59b109e4aa61d4621bba4, 15aceb2d6b9b2c1b89ca4bf0be9667ea) ingested; all now confirmed in vault."
-    - date: "2026-09-14"
-      new-recordings-count: 3
-      api-total: 3
-      confirmed-in-vault: 2
-      note: "Targeted reprocess for 2026-09-14; 3 recordings triggered/ready."
-    - date: "2026-09-08"
-      new-recordings-count: 1
-      api-total: 132
-      confirmed-in-vault: 131
-      note: "09-08 Working Session Plan: Elevating a Manual AI Workflow to a Trusted, Integrated Executive Assistant (e0aa6343b58756669d5bb0eddc80c5a4) — new, transcript+summary already ready, 1 untagged speaker (Speaker 2) unresolved against calendar."
-    - date: "2026-09-03"
-      new-recordings-count: 1
-      api-total: 129
-      confirmed-in-vault: 128
-      note: "09-02 Tosan interview (5916294c66c59b109e4aa61d4621bba4) ingested this run — now in vault."
-    - date: "2026-08-23"
-      new-recordings-count: 1
-      api-total: 120
-      confirmed-in-vault: 119
-    - date: "2026-08-22"
-      new-recordings-count: 1
-      api-total: 120
-      confirmed-in-vault: 119
-      note: "That recording (8b45065b02f3a852edadfb43c319a9ea) is now confirmed in vault as of this run — it dropped out of today's diff."
-    - date: "2026-08-10"
-      new-recordings-count: 88
-      api-total: 111
-      confirmed-in-vault: 23
 ---
 
 <!-- system:start -->
@@ -114,8 +39,7 @@ Auth failure is only a valid abort reason if the skill's own Chrome login flow h
    (`systems/eval-harness/skill-runs/plaud-discover-ledger-latest.json`) exists and every
    `new_recordings` entry traces to a ledger entry with a checked tier. This is the same
    HARD GATE defined in `skills/plaud-discover/SKILL.md`; it is restated here because this
-   is the step that has actually accepted an unverified fork result before
-   (`err-20260826T190948-QQMBTP`, `err-20260828T140747-814VN9`, `err-20260831T145746-29X2M7`).
+   step has accepted an unverified fork result before (see `err-20260826T190948-QQMBTP`).
    If the ledger is missing, or the new-recordings count is more than double the last
    confirmed baseline below AND more than 10% of total candidates, do not write it to state
    — re-run discovery once with explicit re-enumeration, and if the anomaly persists, mark
@@ -173,9 +97,8 @@ Auth failure is only a valid abort reason if the skill's own Chrome login flow h
 **Read this carefully before touching it.** This gate does NOT reintroduce the token
 pre-check that the PRE-EXECUTION: AUTH HANDLING section above forbids. It runs strictly
 *after* `skills/plaud-discover/SKILL.md` has already executed and attempted its own
-Chrome-login/token-acquisition flow. Checking for a token file *before* the skill runs — the
-thing this gate must never become — was the direct cause of three prior incidents
-(`err-20260730T143152-S0TRMO`, `err-20260803T143125-2W5XDO`, `err-20260812T142902-E6Z7KS`).
+Chrome-login/token-acquisition flow. Checking for a token file *before* the skill runs is
+the bug this gate must never become (see `err-20260730T143152-S0TRMO`).
 A future editor tightening this gate into a pre-flight check would resurrect that exact bug.
 
 **What this gate actually checks:** whether the discovery run that just happened came back

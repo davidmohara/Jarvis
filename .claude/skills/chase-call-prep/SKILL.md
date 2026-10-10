@@ -11,7 +11,7 @@ model: sonnet
 <!-- system:start -->
 # Chase — Call Prep (RETIRED)
 
-This command previously forked into `skills/chase-call-prep/SKILL.md`, which has been retired. David consolidated external call/meeting prep onto the **client-meeting-prep workflow**.
+This command is retired. External call/meeting prep runs through the **client-meeting-prep workflow**.
 
 ## Workflow
 

@@ -18,11 +18,7 @@ description: >
 ## Purpose
 
 Pair each extracted pain point with a real Improving service offering, pulled live
-from SharePoint at the time this skill runs. This skill's entire value proposition
-is that every pitch angle it produces is grounded in a real, currently-sold
-offering with a real duration and price - never a plausible-sounding invented
-service, and never a stale cached list from a prior run or a prior conversation's
-memory.
+from SharePoint at the time this skill runs.
 
 **Hard rule: query the live SharePoint sources every time this skill runs.** Do not
 rely on any previously-fetched offerings list, a summary from a prior session, or
@@ -44,11 +40,10 @@ The `pain_points` list from `pain-point-extraction`.
    (e.g. Pune capabilities). Use only to fill gaps not covered by the primary folder.
 3. **Persona sources** (used only for the buyer/anti-buyer persona step, Process
    step 5) — `https://improving.sharepoint.com/sites/OfficeoftheChiefConsultingOfficer/Shared Documents/General/Marketing/Personas/`,
-   specifically the `Buyer Personas/` and `Anti-Buyer Personas/` subfolders. Same
-   live-query, never-cached discipline applies. Buyer persona docs carry a
-   "Persona at a Glance" table with a Service line field and a "How Improving
-   Wins" section. Anti-buyer persona docs carry a "Buyer personas they counter"
-   cross-reference field and a "How Improving Disarms" section.
+   specifically the `Buyer Personas/` and `Anti-Buyer Personas/` subfolders. Buyer
+   persona docs carry a "Persona at a Glance" table with a Service line field and
+   a "How Improving Wins" section. Anti-buyer persona docs carry a "Buyer personas
+   they counter" cross-reference field and a "How Improving Disarms" section.
 
 Use `mcp__claude_ai_Microsoft_365__sharepoint_search` and
 `mcp__claude_ai_Microsoft_365__sharepoint_folder_search` to locate candidate
@@ -103,17 +98,14 @@ offering_matches:
 2. Search the primary SharePoint folder first. If a clear match with
    Duration/Price/Summary is found, use it and stop for that pain point.
 
-3. If no primary match, search the secondary Central Sales/SPARC site. Same
-   standard — must be a real, current offering with identifiable
-   duration/price/summary information (regional decks may have looser
-   formatting; extract what's genuinely there, don't force a Duration/Price
-   field that the doc doesn't actually state — note "not specified in source"
-   rather than guessing).
+3. If no primary match, search the secondary Central Sales/SPARC site. Regional
+   decks may have looser formatting; extract what is genuinely there and note
+   "not specified in source" for a field the doc does not state, rather than
+   guessing.
 
-4. If neither source yields a real match, mark `match_status: no_match` and
-   state the gap plainly. This is a valid and expected output — do not treat
-   an unmatched pain point as a task failure. It is more useful to sales than
-   a fabricated pitch.
+4. If neither source yields a match, mark `match_status: no_match` and state
+   the gap plainly. An unmatched pain point is a valid and expected output, not
+   a task failure.
 
 5. For each pain point that DID get a real offering match (skip this step
    entirely for `no_match` pain points — there's no offering to attach a
@@ -121,15 +113,13 @@ offering_matches:
 
    a. Query `Personas/Buyer Personas/` under
       `https://improving.sharepoint.com/sites/OfficeoftheChiefConsultingOfficer/Shared Documents/General/Marketing/Personas/`
-      live (via `sharepoint_search`/`read_resource`, never cached — same
-      no-cache discipline as the offerings sources above). Each doc has a
-      "Persona at a Glance" table with a **Service line** field. Select the
-      persona whose Service line most closely matches the matched offering's
-      category. If no persona's Service line is a reasonable match, set
+      via `sharepoint_search`/`read_resource`. Each doc has a "Persona at a
+      Glance" table with a **Service line** field. Select the persona whose
+      Service line most closely matches the matched offering's category. If no
+      persona's Service line is a reasonable match, set
       `persona_match_status: no_match` on that offering match and say so
-      plainly — do not force-fit an unrelated persona onto an offering just
-      to fill the field. This is the same no-fabrication discipline that
-      governs the offering match itself.
+      plainly — do not force-fit an unrelated persona onto an offering just to
+      fill the field.
 
    b. Query `Personas/Anti-Buyer Personas/` in the same folder. Each doc has
       a "Buyer personas they counter" cross-reference field. Prefer the
@@ -159,7 +149,7 @@ offering_matches:
 
 | Failure | Action |
 |---------|--------|
-| SharePoint search/read tools unreachable | Stop. Do not proceed using cached knowledge of "what Improving sells." Report: "SharePoint offerings sources unreachable — cannot ground pitch angles. Retry once connectivity is confirmed." This is a hard stop, not a degraded-output case. |
+| SharePoint search/read tools unreachable | Stop. Report: "SharePoint offerings sources unreachable — cannot ground pitch angles. Retry once connectivity is confirmed." This is a hard stop, not a degraded-output case. |
 | A document lacks a clear Duration or Price field | Use what is present; state "not specified in source" for the missing field rather than inventing a number. |
 | Multiple offerings plausibly match one pain point | List the strongest 1-2 matches, not every tangential hit. Note if it's a close call. |
 | Offering doc is clearly outdated (references a sunset product/team) | Flag it and search for a more current equivalent before citing it. |

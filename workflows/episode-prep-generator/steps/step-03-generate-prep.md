@@ -15,8 +15,7 @@ model: sonnet
    and set `accumulated-context.prep_status: prep-generating` in
    `state.yaml`.
 2. This step waits for **both** step 1 (transcript search) and step 2
-   (guest research) to reach `status: complete` before it starts — unlike
-   the old workflow, this is not something step 3 can partially begin early.
+   (guest research) to reach `status: complete` before it starts.
    The transcript, if one exists, drives the entire structure of the output,
    so there is nothing useful to produce before both inputs are in.
 3. **Do not build David's actual 2026-07-14-kapil-dabi.md prep sheet
@@ -24,9 +23,9 @@ model: sonnet
    reference for section structure, tone, and length before generating
    anything.** This is the format bar — match it, don't approximate it.
 4. Output is always **2-3 pages max, scannable in under 2 minutes**. This is
-   a hard constraint, not a suggestion. If you find yourself writing 10
-   formal sections or abstract discussion threads instead of concrete
-   questions pulled from a real conversation, stop and cut.
+   a hard constraint, not a suggestion. If you find yourself writing formal
+   sections or abstract discussion threads instead of concrete questions
+   pulled from a real conversation, stop and cut.
 5. No em dashes anywhere in the output.
 6. Never invent a quote or a line of dialogue and present it as something
    the guest actually said. If the transcript has it verbatim, quote it. If

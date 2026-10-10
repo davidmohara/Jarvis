@@ -35,9 +35,9 @@ Read eval records from `systems/eval-harness/runs/`. Apply the filter from `$ARG
 
 **Exclusions — never grade these, regardless of filter:**
 
-- Any record whose `tags` include `phantom-candidate`, and anything under `systems/eval-harness/runs/_phantoms/` (quarantined cowork-hook records). These are harness artifacts with no verifiable execution behind them — grading them fabricates F grades that distort the daily distribution (2026-09-18 incident: two phantoms graded F, dragging down an otherwise healthy day).
+- Any record whose `tags` include `phantom-candidate`, and anything under `systems/eval-harness/runs/_phantoms/` (quarantined cowork-hook records). These are harness artifacts with no verifiable execution behind them — grading them fabricates F grades that distort the daily distribution.
 - Any record named `unknown` — the harness could not identify the workflow; there is nothing to grade.
-- Any record with `status: in-progress` and zero steps AND zero subagents. An open stub is not a finished run; grading one mid-flight is how the sweep once graded its own subagent stub an F (eval-20260918T230528-J4EJWW). In-progress records with real activity are finalized by eval-turn-stop.py or close-open-evals.py — grade them on a later sweep.
+- Any record with `status: in-progress` and zero steps AND zero subagents. An open stub is not a finished run. In-progress records with real activity are finalized by eval-turn-stop.py or close-open-evals.py — grade them on a later sweep.
 
 For each selected record:
 - Check that `assessment.grading.last_graded` is null or older than 7 days

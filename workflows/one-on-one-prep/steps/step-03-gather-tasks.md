@@ -42,7 +42,7 @@ model: sonnet
 3. You MUST cross-reference with the previous brief's action items from step 02. Stale items need to be surfaced.
 4. Do NOT create, modify, or triage any tasks. This is a read-only data gathering step.
 5. Do NOT proceed to step 04 until task and delegation data is captured.
-6. You MUST persist the `task_data` block to `state.yaml` under `accumulated-context.task_data` and mirror the identical structure in this step file's frontmatter `outputs` field before marking the step complete. The verifier reads `accumulated-context.task_data` and requires the keys `person_tasks`, `delegations` (with `to_person` and `from_person`), and `previous_action_items` to be present; empty lists are valid, a missing key is not.
+6. You MUST persist the `task_data` block before marking the step complete. See Output Persistence (MANDATORY) below.
 
 ---
 

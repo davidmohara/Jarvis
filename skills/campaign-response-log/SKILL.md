@@ -19,15 +19,9 @@ description: >
 
 ## Purpose
 
-Dynamics' Customer Insights – Journeys app natively tracks opens, clicks, and
-bounces via Email insights — that is real, documented, out-of-box behavior
-and this skill does not duplicate it. What it does NOT do, and what
-Microsoft's own documentation confirms is not a built-in capability, is
-detect an inbound email reply and link it back to the journey that generated
-it. **This skill is that missing link, done explicitly and manually — it is
-not automating something Dynamics already does; it is filling a real gap.**
-Do not describe this skill's output as "automatic reply detection" in any
-future documentation — it isn't, by design and by platform limitation.
+Link an inbound reply back to the Customer Insights – Journeys Journey/Contact that generated it, as a Note or Activity with a Response Type. Dynamics does not do this natively.
+
+Do not describe this skill's output as "automatic reply detection" in any future documentation. It isn't.
 
 ## Input
 

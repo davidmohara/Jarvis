@@ -27,51 +27,6 @@ outputs:
     off-invite low-segment named tags. Guardrail checkpoint: pass. State set to
     awaiting-input; consolidated prompt surfaced. Classification: all 5 work.
     a93aa078 (60s snippet) still pending transcription; watcher running.
-  notes_prior_run: >
-    pi-20260918-001: 1 recording in ready-for-fetch (f96b2c110fc35162f390ac5288d6f7f4,
-    "09-18 Meeting: AI Project Architecture and Data Routing", 2026-09-18 15:36 UTC /
-    10:36 CDT, ~31.5 min). No _speakers.json in staging (pre-fetch); queried live API
-    per skill step -1. Recording's live trans_result already carries real names — Plaud
-    auto-resolved both speakers (registered voice profiles): Speaker 1 = O'Hara (David,
-    39 segments), Speaker 2 = Vladimir Avila (48 segments, Improving Mexico delivery,
-    known from 09-17 GEHC sync). Zero generic labels — no embedding computation, self-ID
-    scan, or controller escalation needed. Self-ID corroborated by transcript ("Hey Vlad.
-    Hey David."). Calendar cross-reference: no event matches the recording window — David
-    is on an all-day personal retreat (Houston hotel check-in 09-18); this was an impromptu
-    ad-hoc call, consistent with transcript small talk ("Are you in the hotel"). No
-    invite exists, so step-3 attendee validation is n/a; both names are registered Plaud
-    profiles (exempt). Informational only: "Mike" referenced as the author of a shared
-    document (likely Michael Braunstein, GEHC team) — mentioned, not a speaker; not
-    blocking. Classification: work (client AI POC architecture/routing discussion; no
-    personal keywords in title or content). Gate 4: pass.
-  notes_prior_run: >
-    pi-20260917-001: 1 recording in ready-for-fetch (e2d6f3c0cfe76328329cd273da8d55cb,
-    "09-16 Weekly Meeting: P2 AI Project Plan, Model Testing, and Scope Risks",
-    2026-09-16 15:00-15:45 UTC). 9 speakers detected: 2 already natively named
-    (O'Hara = David, Devlin) and 7 generic labels (Speaker 1,2,4,6,7,8,9). None of
-    the 7 generic voices matched a registered Plaud profile (checked list_speakers;
-    all 7 are first-time voices for this account). Full-transcript self-ID scan with
-    introductions resolved every label directly: Speaker 1 self-identified "I'm Chris
-    Miller... Dev Manager here at Simpson"; Speaker 2 "my name's Gilbert"; Speaker 4
-    addressed as "Lynn" throughout (Lyn Barrett, improving.com); Speaker 6 "John"
-    (Simpson side); Speaker 7 "my name AI... working with the team in Vietnam side";
-    Speaker 8 addressed as "Fernando" (Improving delivery, brought in by Lynn with
-    Jose); Speaker 9 addressed as "Lauren" (John: "Lauren's gonna own it"). Calendar
-    cross-reference matched event "AI Takeoff Weekly Touch - Improving & SST"
-    (organizer givelasquez@strongtie.com), 15:00-15:45 UTC, exact window match.
-    Attendee emails map Speaker 1 = Chris Miller (chmiller@strongtie.com), Speaker 2 =
-    Gilbert Velasquez (givelasquez@strongtie.com), Speaker 4 = Lyn Barrett
-    (lyn.barrett@improving.com), Speaker 6 = John Tsiros (jtsiros@strongtie.com),
-    Speaker 9 = Lauren Clack (lauren.clack@improving.com). Speaker 7 (Ai) and Speaker 8
-    (Fernando) are Improving Vietnam/Mexico delivery team members not on the top-line
-    invite; both self-identified or were directly named on-call, resolved without
-    controller escalation (off-invite note only). No unresolved speakers across the
-    recording -- Gate 4 result: pass. Classified work (Simpson Strong-Tie P2 AI
-    project weekly).
-  notes_prior_runs: >
-    pi-20260914-001: 3 recordings, all resolved via calendar/self-ID, Gate 4 pass.
-    pi-20260909-001: 1 recording (Speaker 2) escalated to controller, resolved
-    separately from that run.
 ---
 
 <!-- system:start -->
@@ -90,14 +45,14 @@ This is a hierarchy, not alternatives. Controller escalation only after 1 AND 2 
    - RULE: If calendar has attendee data for the time window, Speaker ID is RESOLVED. Calendar attendees are the authority.
    - If no event matches after ±15 min search: expand to ±45 min, check adjacent events, check recurring 1:1 patterns with names in transcript
    - Only after this full 3-strategy discipline fails: move to step 2 below
-   - **FAILURE MODE PREVENTED**: err-20260909T000829-0JTVV6 (spent 30+ minutes searching calendar via MCP, got null attendees, asked controller instead of reading calendar file directly)
+   - **FAILURE MODE PREVENTED**: `err-20260909T000829-0JTVV6`
 
 2. **Transcript self-identification (REQUIRED SECOND)** — For speakers calendar didn't resolve:
    - Read the FULL transcript (not just `sample_text`). Check END OF CALL FIRST (sign-offs), then beginning (introductions), then entire body.
    - Look for explicit self-introduction: "I'm [Name]", "[Name] here", "this is [Name]", or indirect: "my firm is called [Name]", "I work at [Company]"
    - A speaker who self-identifies in the transcript is resolved. No calendar confirmation needed. This step is mandatory.
    - Check for transcription errors that garble names ("even considering me having not known me" → likely "even considering you having not known [Name]")
-   - **FAILURE MODE PREVENTED**: err-20260909T010719-0BCW7C (skipped reading full transcript, asked controller for "Renzi Stone" when "Renzi" was mentioned in transcript)
+   - **FAILURE MODE PREVENTED**: `err-20260909T010719-0BCW7C`
 
 3. **Registered-speaker embedding match (OPTIONAL THIRD)** — Only for speakers still unresolved after steps 1 and 2:
    - Check whether Plaud itself already knows this voice via `get_speaker_embeddings()` vs registered profiles

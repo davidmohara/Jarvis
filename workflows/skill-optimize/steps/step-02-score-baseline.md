@@ -9,8 +9,6 @@ outputs:
   best_skill_path: null
 ---
 
-**Agent:** Rigby, spawned by the coordinator, never executed inline
-
 <!-- system:start -->
 ## MANDATORY EXECUTION RULES
 

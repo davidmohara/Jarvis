@@ -25,7 +25,7 @@ model: sonnet
 3. You MUST check auto-memory for known cadences before searching calendar.
 4. Do NOT guess meeting details. If calendar search fails and the controller didn't provide the info, ask.
 5. Do NOT proceed to step 02 until you have: person name, date, time, location/format.
-6. You MUST persist the `meeting_details` block to `state.yaml` under `accumulated-context.meeting_details` and mirror the identical structure in this step file's frontmatter `outputs` field before marking the step complete. The verifier re-derives these fields directly from `accumulated-context.meeting_details`; a flat summary (person/date stored at the top level of accumulated-context) fails verification.
+6. You MUST persist the `meeting_details` block before marking the step complete. See Output Persistence (MANDATORY) below.
 
 ---
 

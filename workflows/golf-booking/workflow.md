@@ -27,14 +27,7 @@ its own Gate 4 (Output Schema) before this workflow ever reads it.
 
 ## WHY THIS EXISTS AS A WORKFLOW, NOT A SKILL
 
-`skills/golf-booking/SKILL.md` accumulated a long list of incident-driven MANDATORY EXECUTION
-RULES over time (see `systems/error-tracking/entries/err-20260813T122205-D64IQ7.json`, the
-booking-window date-substitution incident that produced rule #15). Every one of those rules is
-preserved verbatim in this workflow's step files. What the skill format didn't give was a
-place to make each rule a **checkable gate** with an explicit escalation path, separate from
-the narrative instructions. This workflow adds seven gates — one per irreversible or
-easily-corrupted action — so a failure at any point produces a specific, logged reason instead
-of an ambiguous "something went wrong."
+This workflow wraps the accumulated golf-booking rules in seven checkable gates, one per irreversible or easily-corrupted action, so a failure produces a specific logged reason instead of an ambiguous "something went wrong."
 
 ---
 

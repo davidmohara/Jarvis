@@ -19,12 +19,8 @@ model: sonnet
    verification failed.
 2. Only execute this step after step-05 (Gate 4) confirms the booking is visible on the
    Bookings page.
-3. This step uses `calendar_backend: Calendar.app` (AppleScript against macOS Calendar.app),
-   not M365. As of 2026-09-02, live testing showed
-   `mcp__claude_ai_Microsoft_365__outlook_create_event` returns a `permission_error` ("This
-   tool is not available") in this environment, so the M365 write path in `calendar-handler` is
-   currently unverified here. Do not switch this step's `calendar_backend` to `M365` without
-   re-testing that the create tool is actually reachable first.
+3. This step uses `calendar_backend: Calendar.app`, not M365. M365 create is unverified in
+   this environment; stay on the Calendar.app backend.
 
 ---
 
@@ -45,12 +41,7 @@ Call `skills/calendar-handler/SKILL.md`:
 
 ```yaml
 operation: event-create
-calendar_backend: Calendar.app   # explicit — known-working AppleScript path against macOS
-                                 # Calendar.app. The M365 write path exists in calendar-handler
-                                 # for future use, but as of 2026-09-02 the M365 create tool
-                                 # (mcp__claude_ai_Microsoft_365__outlook_create_event) returned
-                                 # a permission_error ("This tool is not available") in testing,
-                                 # so this step stays on Calendar.app until that's resolved.
+calendar_backend: Calendar.app   # explicit; M365 create is unverified here, so stay on Calendar.app
 calendar_name: "Family"
 title: "⛳ Golf — Frisco Lakes"
 time:
@@ -130,7 +121,7 @@ failure does not undo that. But it must never be silently swallowed.
 | Failure | Action |
 |---------|--------|
 | `calendar-handler` returns `confirmation: "created-unverified"` or times out internally | Do NOT assume success. Treat as 6b failure and proceed to 6c fallback. |
-| `calendar-handler` returns `confirmation: "failed"` (e.g. Family calendar not available in Calendar.app) | Log error. Invoke 6c fallback. Do not silently retry with `calendar_backend: M365` mid-run without a human decision — M365 create is currently unverified in this environment (see MANDATORY EXECUTION RULES note above) and a backend switch changes where the event lands and whether invites go out, so treat it as a deliberate choice, not an automatic retry. |
+| `calendar-handler` returns `confirmation: "failed"` (e.g. Family calendar not available in Calendar.app) | Log error. Invoke 6c fallback. Do not silently retry with `calendar_backend: M365` mid-run without a human decision: a backend switch changes where the event lands and whether invites go out, so treat it as a deliberate choice, not an automatic retry. |
 
 ## NEXT STEP
 

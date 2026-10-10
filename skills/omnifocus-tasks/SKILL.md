@@ -11,9 +11,7 @@ trigger_agents: [chief, chase, shep, quinn, harper]
 <!-- system:start -->
 ## Purpose
 
-This skill exists because Jarvis repeatedly creates OmniFocus tasks without assigning a project or tag, violating SYSTEM.md Task Creation Rules. The rules were clear but lived in a document that gets skimmed under pressure. This skill makes the rules un-skippable by embedding them in the execution path itself.
-
-**Error history:** err-20260330-006 (and prior implicit violations). Pattern: `process-skip` / `protocol-skip`.
+Gate-enforced task creation: every task must have a project and a tag before it is created.
 
 ## When This Skill Fires
 
@@ -40,7 +38,7 @@ python3 skills/omnifocus-data/scripts/omnifocus_data.py projects --json
 python3 skills/omnifocus-data/scripts/omnifocus_data.py tags --json
 ```
 
-`projects` already excludes archived projects and `tags` includes inactive ones, so both match what the MCP reports. Do not add a `status` filter of your own, and do not hand-write OmniFocus AppleScript here. Read logic lives in one place, `skills/omnifocus-data/SKILL.md`; duplicating it is what let the query logic drift across five files before 2026-09-16.
+`projects` already excludes archived projects and `tags` includes inactive ones, so both match what the MCP reports. Do not add a `status` filter of your own, and do not hand-write OmniFocus AppleScript here. Read logic lives in one place, `skills/omnifocus-data/SKILL.md`.
 
 **Optional enhancement, when the OmniFocus MCP is connected:** `query_omnifocus` with `entity: "projects"` and `filters: { status: ["Active"] }`, and `list_tags`. Its advantage is that it returns IDs alongside names, which removes ambiguity in the next paragraph.
 
@@ -94,7 +92,7 @@ Confirm to David: `Created: [task name] | Project: [project] | Tag: [tag]`
 
 ## Task Creation (osascript fallback)
 
-Use only when the MCP is unavailable. Template verified end-to-end 2026-09-16: project assignment, tag assignment, and due date all confirmed against live OmniFocus.
+Use only when the MCP is unavailable.
 
 **Gotcha:** build the due date OUTSIDE the `tell application "OmniFocus"` block. Inside it, `set year of d` gets sent to OmniFocus instead of to the date object and fails with `Can't get year. Access not allowed. (-1723)`.
 
@@ -138,7 +136,7 @@ Confirm to David: `Created: [task name] | Project: [project] | Tag: [tag]`
 
 When David says "capture [text]" or "add to inbox", this is the ONE case where speed matters more than full classification. But even then:
 
-1. Create the task **without** a project: call `add_omnifocus_task` and omit `projectName`/`projectId`, which lands it in the inbox. (osascript fallback: use `make new inbox task with properties {...}` in place of the project-scoped `make new task` line and drop the project lookup. Verified 2026-09-16: it lands with `containingProject` as `missing value`.)
+1. Create the task **without** a project: call `add_omnifocus_task` and omit `projectName`/`projectId`, which lands it in the inbox. (osascript fallback: use `make new inbox task with properties {...}` in place of the project-scoped `make new task` line and drop the project lookup.)
 2. **Still add a tag** — best guess based on context
 3. **Note it needs project assignment:** set note to "Needs project assignment"
 4. Tell David: "Captured to inbox with [tag] tag. Needs project assignment during next inbox triage."

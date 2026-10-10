@@ -432,7 +432,9 @@ or:
 | Apple Podcasts no episode webpage link | Use show notes content only. Note in report that full transcript unavailable. |
 | Transcript ends significantly before stated duration | Re-extract: re-open transcript panel, re-read from the timestamp where extraction stopped, append to saved note. |
 | File already exists in vault | Append ` (2)` to filename. Do not overwrite without confirmation. |
+<!-- system:end -->
 
+<!-- system:start -->
 ## SKILL COMPLETE
 
 After the skill's final output is delivered, write the skill-run signal file so the eval harness captures this execution:

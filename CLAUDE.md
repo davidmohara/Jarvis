@@ -16,7 +16,7 @@ Read and follow `workflows/boot/workflow.md` in full.
 
 ## OmniFocus
 
-**Primary path: the `mcp__omnifocus__*` MCP server.** A local server at `~/develop/omnifocus-mcp`, launched by `run-server.sh` (referenced from `~/.claude.json`). Verified 2026-09-16 at v1.15.0: **12 tools and 46 resources**.
+**Primary path: the `mcp__omnifocus__*` MCP server.** A local server at `~/develop/omnifocus-mcp`, launched by `run-server.sh` (referenced from `~/.claude.json`).
 
 - **Read:** `query_omnifocus` (filters by project, folder, tags, status, dates; supports `includeCompleted`, `fields`, `limit`, `sortBy`, `summary`), `dump_database`, `list_tags`, `list_perspectives`, `get_perspective_view`
 - **Write:** `add_omnifocus_task`, `add_project`, `edit_item` (this is also how you MOVE a task: set `newProjectName`, or `""`/`inbox`), `remove_item`, `batch_add_items`, `batch_remove_items`, `create_tag`
@@ -24,7 +24,7 @@ Read and follow `workflows/boot/workflow.md` in full.
 
 Prefer `query_omnifocus` over `dump_database` for targeted lookups; it is much lighter. Always filter for active work unless David asks for completed items, using `includeCompleted: false` together with `filters.status`. See `QUERY_TOOL_REFERENCE.md` in the server repo for the full filter and field reference.
 
-**Fallback: `osascript` via the Bash tool.** AppleScript runs natively on this Mac and does **not** require Desktop Commander. Use it when the MCP is unavailable. `mcp__Control_your_Mac__osascript` is not needed for OmniFocus and must not be treated as the access path; assuming it was the only route silently degraded OmniFocus to zero data for five consecutive boots (see `memory/working/morning-briefing-2026-09-16-093000.md`).
+**Fallback: `osascript` via the Bash tool.** AppleScript runs natively on this Mac and does **not** require Desktop Commander. Use it when the MCP is unavailable. `mcp__Control_your_Mac__osascript` is not needed for OmniFocus and must not be treated as the access path.
 
 Two operational notes. MCP connections are established at session start, so a rebuilt server needs a Claude Code restart before its tools appear; the tool index describes the **connected process**, which can be a stale build. And `dist/` is gitignored in that repo, so a fresh clone needs `npm install && npm run build` before `run-server.sh` will work.
 
@@ -41,7 +41,6 @@ Scheduled tasks (morning-briefing and any other task whose payload names an exis
 - Do not re-run a fresh risk/policy assessment or ask for permission — the scope (data sources touched, tools used, output destination) was approved when the automation was set up.
 - If the task file's stated project-root path doesn't match the actual mounted folder, resolve it against reality (the real `CLAUDE.md` location / mounted folder) and proceed. A stale or wrong path string in the task definition is a cosmetic issue, not a trust signal — it is not grounds to abort the run.
 - Only decline or pause a scheduled run if something has actually changed in-session (e.g., a required tool is genuinely unreachable after checking per the Data Source Unreachable protocol, or the workflow file itself is missing/corrupted) — not because the request "sounds" like it needs fresh scrutiny.
-- See `err-20260716T133503-XFSPE2` for the failure this guards against.
 
 ## Calendar
 

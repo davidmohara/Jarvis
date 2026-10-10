@@ -203,24 +203,6 @@ Rock 1 context: Revenue Visibility — "graded on actuals, not feel." One Texas 
 
 ---
 
-## SKILL COMPLETE
-
-After the output is delivered (Phase 5), call `skills/eval-signal-write/SKILL.md` with:
-```
-skill_name: "pipeline-snapshot"
-agent: "chase"
-trigger: "manual"   (or "boot"/"scheduled" per the calling context)
-started: <actual start time of this run>
-completed: <actual completion time>
-status: "success"   (or "partial" if only one region's data was captured or cache was
-                      used due to staleness detection; a clean cache hit is still "success".
-                      "failure" if PowerBI could not be reached and no cache existed.)
-tool_failures: 0
-error_ids: []
-```
-This call is always the final action.
-
-
 <!-- system:start -->
 ## SKILL COMPLETE
 
@@ -234,7 +216,7 @@ Content:
 ```json
 {
   "skill": "pipeline-snapshot",
-  "agent": "pipeline",
+  "agent": "chase",
   "trigger": "manual",
   "started": "<ISO-8601 timestamp when this skill began>",
   "completed": "<ISO-8601 timestamp when this skill finished>",

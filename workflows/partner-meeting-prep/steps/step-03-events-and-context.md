@@ -17,7 +17,7 @@ model: sonnet
 4. You MUST search for recent partner news and program updates.
 5. Do NOT fabricate events or news. If web search yields nothing, say so and move on.
 6. Do NOT proceed to step 04 until events, news, and context sections are populated (or confirmed empty).
-7. You MUST persist the `events_and_context` block to `state.yaml` under `accumulated-context.events_and_context` and mirror the identical structure in this step file's frontmatter `outputs` field before marking the step complete. The verifier reads `accumulated-context.events_and_context` and requires the keys `controller_events`, `partner_events`, `industry_events`, `partner_news`, and `office_offerings`; empty lists are valid, a missing key is not.
+7. You MUST persist the `events_and_context` block before marking the step complete. See Output Persistence (MANDATORY) below.
 
 ---
 

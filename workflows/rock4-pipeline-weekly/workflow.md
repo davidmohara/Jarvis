@@ -77,6 +77,3 @@ Begin: `steps/step-01-cosell.md`
 Appended entry in `Mind/One Texas/Rock 4 - Pipeline Snapshots.md` — one dated block per week.
 This file is the data source for the One Texas Scorecard assembly step.
 
-Week-over-week trend: each entry shows Rock 4 gap progression and 90-day pipeline movement,
-enabling Chase to surface whether pipeline is building or eroding between scorecard runs.
-

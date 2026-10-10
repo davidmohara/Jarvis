@@ -36,13 +36,13 @@ trigger_keywords:
 <!-- system:start -->
 ## Mechanical Enforcement (git-gate + ies-git wrapper)
 
-The rules below are enforced by code, not just prose, as of 2026-10-08 (coordinator purity, Stage 5 remediation):
+The rules below are enforced by code, not just prose:
 
 - **`.claude/hooks/git-gate.py`** (called by `.claude/hooks/pre-tool-use.sh` at PreToolUse) classifies every Bash `git ...` command. Read verbs pass through. A clean single git **write** verb (add, commit, push, ...) is transparently **rewritten** via PreToolUse `updatedInput` to run through the wrapper instead — the model's raw `git commit ...` executes as `python3 skills/git/scripts/ies-git commit ...`. Compound git writes (chained with `&&`, `|`, `;`, newlines), `git status`, and unclassified verbs are **blocked** with an instructive message. This mechanically enforces the Atomic Command Rule and the `git status` prohibition for the common paths.
 - **`skills/git/scripts/ies-git`** (the authorized execution path) runs one git operation per call via an argv list, never a shell. It refuses `git status` (with lock-free alternatives), refuses destructive operations (`reset --hard`, `clean -f`, force push) unless `--allow-destructive` is passed (force push to **main** is refused unconditionally), lints Conventional Commits on every commit, refuses commits when gated directories changed unless `--ack-gated` is passed (the Pre-Flight Gate, mechanized), scans staged content for credential-shaped patterns before add/commit, and appends every operation **and every policy refusal** to `systems/eval-harness/git-ops.jsonl` (which doubles as continuously-accumulating bypass-attempt evidence).
 - Wrapper flags consumed by the wrapper itself: `--ack-gated`, `--ack-root-files`, `--allow-destructive`.
-- Commit-time artifact gates (err-20261008T225136-RWH7B6 hardening, 2026-10-09): Office lock files (`.~lock.*#`) staged for commit are refused outright (exit 6); non-canonical root-level staged files are refused (exit 7) unless `--ack-root-files` is passed, because root-level files are usually misplaced deliverables; credential scan (exit 5) fires before the root check. Every refusal is audited with its reason.
-- `updatedInput` empirical note (2026-10-08, verified live both ways): the field must carry **only** the changed fields (`{"command": ...}`). A full tool_input copy is silently ignored by the current Claude Code build and the original command runs.
+- Commit-time artifact gates: Office lock files (`.~lock.*#`) staged for commit are refused outright (exit 6); non-canonical root-level staged files are refused (exit 7) unless `--ack-root-files` is passed, because root-level files are usually misplaced deliverables; credential scan (exit 5) fires before the root check. Every refusal is audited with its reason.
+- `updatedInput` empirical note: the field must carry **only** the changed fields (`{"command": ...}`). A full tool_input copy is silently ignored by the current Claude Code build and the original command runs.
 - Hook edits on this OneDrive/FUSE mount can take a turn (sometimes several calls) to propagate to the hook process; probe with a harmless classified command after editing before relying on new gate behavior.
 - David's own terminal is unaffected: hooks bind Claude sessions only (`CLAUDECODE=1`).
 <!-- system:end -->
@@ -79,11 +79,11 @@ Never use `&&`, `||`, `;`, pipes, or multi-line bash scripts to chain git comman
 
 ### `git status` is FORBIDDEN
 
-**Do not run `git status` — ever.** Even as a standalone read-only check, `git status` writes `.git/index.lock` as part of its index refresh. In sandboxed environments (e.g., Cowork's sleepy-stoic-bohr VM), the lock file is created owned by the host user (`davidohara:staff`) but cannot be unlinked by the sandbox user. This orphaned lock blocks all subsequent `git add`, `git commit`, and `git push` calls until manually cleared on the host. This pattern has caused recurring blockers since 2026-06-16.
+**Do not run `git status` — ever.** Even as a standalone read-only check, `git status` writes `.git/index.lock` as part of its index refresh. In sandboxed environments (e.g., Cowork's sleepy-stoic-bohr VM), the lock file is created owned by the host user (`davidohara:staff`) but cannot be unlinked by the sandbox user. This orphaned lock blocks all subsequent `git add`, `git commit`, and `git push` calls until manually cleared on the host.
 
 ### Sandbox bash is FORBIDDEN for git
 
-**Never run any `git` command via `mcp__workspace__bash` (the Cowork sandbox).** Use `mcp__Desktop_Commander__start_process` (host process) for every git operation — pulls, diffs, adds, commits, pushes, branch ops, everything. The sandbox runs as a different user against a FUSE mount of the repo; even read-only `git pull` or `git diff` calls there create `.git/index.lock` files that neither the sandbox nor the host user can unlink (the sandbox lacks delete permission on its own mount writes; the host sees them as foreign-owned). Once that orphaned lock exists, every subsequent git operation in the sandbox fails with `fatal: Unable to create '...index.lock': File exists`, and the only fix is host-side cleanup. This caused the 2026-06-13 → 2026-06-22 recurring lock blocker pattern visible in `memory/dream.log`. The fix is mechanical: choose the right tool. Sandbox bash is fine for `tail`, `cat`, `python3`, `ls`, etc. — never for `git`.
+**Never run any `git` command via `mcp__workspace__bash` (the Cowork sandbox).** Use `mcp__Desktop_Commander__start_process` (host process) for every git operation — pulls, diffs, adds, commits, pushes, branch ops, everything. The sandbox runs as a different user against a FUSE mount of the repo; even read-only `git pull` or `git diff` calls there create `.git/index.lock` files that neither the sandbox nor the host user can unlink (the sandbox lacks delete permission on its own mount writes; the host sees them as foreign-owned). Once that orphaned lock exists, every subsequent git operation in the sandbox fails with `fatal: Unable to create '...index.lock': File exists`, and the only fix is host-side cleanup. The fix is mechanical: choose the right tool. Sandbox bash is fine for `tail`, `cat`, `python3`, `ls`, etc. — never for `git`.
 
 Safe read-only alternatives:
 - `git diff --name-only HEAD` — shows all changed files relative to HEAD (no lock)
@@ -117,7 +117,7 @@ Wait for each call to return a result before issuing the next.
 
 **Never use a bare `cd` to build a zip or run a command in a subdirectory. Always isolate the directory change in a subshell: `(cd dir && zip ...)`.**
 
-The Bash tool's working directory persists across calls, so a bare `cd` leaves every later call resolving paths against the wrong directory — hooks fail with `No such file or directory`, and subsequent commands silently target the wrong files. This exact pattern has recurred three times (err-20260829T161002-X7JBHO and prior).
+The Bash tool's working directory persists across calls, so a bare `cd` leaves every later call resolving paths against the wrong directory — hooks fail with `No such file or directory`, and subsequent commands silently target the wrong files.
 
 ✅ Correct — directory change contained in a subshell:
 ```bash

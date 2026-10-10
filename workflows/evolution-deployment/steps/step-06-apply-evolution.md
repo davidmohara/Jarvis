@@ -20,8 +20,8 @@ Execute the evolution deployment by processing each file according to its action
 
 ## Inputs
 
-- `updated_file_list` — From Step 04 (post-conflict-resolution)
-- `personal_block_registry` — From Step 04
+- `updated_file_list` — From Step 05 (post-conflict-resolution)
+- `personal_block_registry` — From Step 05
 - `evolution_path` — Evolution package directory
 - `snapshot_id` — From Step 03
 
@@ -82,7 +82,7 @@ Determine action type and route to appropriate handler:
 
 **Purpose:** Overwrite existing file completely
 
-**Pre-conditions (verified in Step 04):**
+**Pre-conditions (verified in Step 05):**
 - File type must be "system"
 - File must NOT contain personal blocks
 - If these conditions aren't met, this file shouldn't reach this handler
@@ -154,7 +154,7 @@ Determine action type and route to appropriate handler:
 
 **Purpose:** Remove file from system
 
-**Pre-conditions (verified in Step 04):**
+**Pre-conditions (verified in Step 05):**
 - File type must be "system"
 - File must NOT contain personal blocks
 
@@ -230,7 +230,7 @@ Present user with option to rollback if errors occurred.
 
 ## Next Step
 
-If application succeeds or partially succeeds: proceed to `step-06-verify-and-log.md`
+If application succeeds or partially succeeds: proceed to `step-07-verify-and-log.md`
 
 If critical failure: offer rollback, HALT workflow
 <!-- system:end -->

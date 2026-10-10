@@ -22,7 +22,7 @@ model: haiku
 
 ---
 
-## COMP 2 — REGION SHEET LAYOUT (verified 2026-04-22)
+## COMP 2 — REGION SHEET LAYOUT
 
 ```
 Row 1:  Header — "COMPONENT 2: ONE TEXAS REGIONAL GROWTH"
@@ -99,12 +99,7 @@ Where:
 
 **If Row 14 shows an incorrect formula** (e.g., compares YTD to full $72.2M annual baseline instead of pro-rated), fix it by writing the correct formula to C14 and dragging/filling across C14:N14.
 
-**Confirmed correct values with this formula (2026-04-22):**
-- C14 (Jan): -9.6%
-- D14 (Feb): -9.5%
-- E14 (Mar): -7.2%
-
-If the values shown are wildly off (e.g., -92.5% for a January entry), the formula is comparing to the full annual baseline — fix it.
+If the values shown are wildly off (e.g., a January entry near -90%), the formula is comparing to the full annual baseline — fix it.
 
 ---
 
@@ -194,19 +189,11 @@ For each current-year month present:
 **Gross Profit per month** = Austin GP + Dallas GP + Houston GP (from Gross Profit table)
 **Cost per month** = Revenue − Gross Profit
 
-Example (using the data visible on 2026-04-22):
+Example:
 ```
-2026, January:  Austin $1,456,127 + Dallas $2,748,530 + Houston $1,235,959 = $5,440,616 revenue
-                Austin GP $507,138 + Dallas GP $1,021,161 + Houston GP $557,515 = $2,085,814 GP
-                Cost = $5,440,616 − $2,085,814 = $3,354,802
-
-2026, February: Austin $1,366,394 + Dallas $2,911,328 + Houston $1,167,126 = $5,444,848 revenue
-                Austin GP $448,921 + Dallas GP $1,126,638 + Houston GP $490,743 = $2,066,302 GP
-                Cost = $5,444,848 − $2,066,302 = $3,378,546
-
-2026, March:    Austin $1,521,899 + Dallas $3,074,539 + Houston $1,268,871 = $5,865,309 revenue
-                Austin GP $425,116 + Dallas GP $964,262 + Houston GP $510,519 = $1,899,897 GP
-                Cost = $5,865,309 − $1,899,897 = $3,965,412
+<YYYY, Month>:  Austin $<a> + Dallas $<d> + Houston $<h> = $<revenue>
+                Austin GP $<agp> + Dallas GP $<dgp> + Houston GP $<hgp> = $<gp>
+                Cost = $<revenue> − $<gp> = $<cost>
 ```
 
 For April and beyond: read from page if present, otherwise leave blank.
@@ -316,10 +303,7 @@ accumulated-context:
   year_filter_verified: true
   year_filter_method: "manual_row_filter"
   monthly_data:
-    "2026-01": { revenue: 5440616, cost: 3354802, gp: 2085814 }
-    "2026-02": { revenue: 5444848, cost: 3378546, gp: 2066302 }
-    "2026-03": { revenue: 5865309, cost: 3965412, gp: 1899897 }
-    "2026-04": { revenue: 0, cost: 0, gp: 0 }   # populate if available
+    "YYYY-MM": { revenue: 0, cost: 0, gp: 0 }   # one entry per month with data
   ytd_revenue: 0.00
   ytd_gm_pct: 0.00
   ytd_growth_pct: 0.00
@@ -368,7 +352,3 @@ accumulated-context:
 → `step-05-sync-leads.md`
 
 <!-- system:end -->
-
-## EXECUTION PROTOCOL
-
-**Agent:** Chase, spawned by the coordinator, never executed inline

@@ -87,30 +87,22 @@ Before starting any step, read `state.yaml` and apply the correct case:
 
 Run steps in order. Read each step file fully before executing it. Each step runs as a spawned sub-agent owned by Rigby, never inline in the coordinator's session; the `model` column records that sub-agent's own model, not a manual model choice by the coordinator.
 
-| Step | File | Model | Description |
-|------|------|-------|-------------|
-| 1 | [step-01-intake.md](steps/step-01-intake.md) | **haiku** | Gate check, load error data, assess volume and eligibility |
-| 2 | [step-02-analyze.md](steps/step-02-analyze.md) | **sonnet** | Invoke `rigby-error-analysis` skill — statistics, patterns, tiered fix proposals |
-| 3 | [step-03-triage.md](steps/step-03-triage.md) | **haiku** | Bucket fixes; present Apply Now list; **workflow pauses here for controller sign-off** |
-| 4 | [step-04-apply.md](steps/step-04-apply.md) | **sonnet** | Execute approved fixes across system files; update fix_status on entries |
-| 5 | [step-05-verify.md](steps/step-05-verify.md) | **haiku** | Assert each fix is present in target file; confirm fix_status updated; compact eligibility check |
-| 6 | [step-06-compact.md](steps/step-06-compact.md) | **haiku** | Compact eligible months; log files to pending-changes; write episodic memory |
-| 7 | [step-07-summary.md](steps/step-07-summary.md) | **sonnet** | Deliver final cycle report; close state.yaml; write eval record via `close-eval-record.py` |
-| 8 | [step-08-adversarial-verify.md](steps/step-08-adversarial-verify.md) | **sonnet** | Spawn **Ralph** (`workflows/error-improvement-verification/workflow.md`) to cross-check every applied fix against the error log entries; record an `adversarial-verification` guardrail result |
+| Step | File | Model | Phase | Description |
+|------|------|-------|-------|-------------|
+| 1 | [step-01-intake.md](steps/step-01-intake.md) | **haiku** | A | Gate check, load error data, assess volume and eligibility |
+| 2 | [step-02-analyze.md](steps/step-02-analyze.md) | **sonnet** | A | Invoke `rigby-error-analysis` skill — statistics, patterns, tiered fix proposals |
+| 3 | [step-03-triage.md](steps/step-03-triage.md) | **haiku** | A | Bucket fixes; present Apply Now list; **workflow pauses here for controller sign-off** |
+| 4 | [step-04-apply.md](steps/step-04-apply.md) | **sonnet** | B | Execute approved fixes across system files; update fix_status on entries |
+| 5 | [step-05-verify.md](steps/step-05-verify.md) | **haiku** | B | Assert each fix is present in target file; confirm fix_status updated; compact eligibility check |
+| 6 | [step-06-compact.md](steps/step-06-compact.md) | **haiku** | B | Compact eligible months; log files to pending-changes; write episodic memory |
+| 7 | [step-07-summary.md](steps/step-07-summary.md) | **sonnet** | B | Deliver final cycle report; close state.yaml; write eval record via `close-eval-record.py` |
+| 8 | [step-08-adversarial-verify.md](steps/step-08-adversarial-verify.md) | **sonnet** | B | Spawn **Ralph** (`workflows/error-improvement-verification/workflow.md`) to cross-check every applied fix against the error log entries; record an `adversarial-verification` guardrail result |
+
+**Phase A (Steps 1-3)** is analysis and runs during the weekly review session or fully on-demand; it ends at the controller approval prompt. **Phase B (Steps 4-8)** is operations and runs as a follow-on task after the weekly review closes, or immediately on approval in an on-demand session; it is autonomous unless a step surfaces a failure.
 
 Step 04 records a `systemic-fix-apply` guardrail checkpoint after applying the approved fixes (applying fixes edits live system files, the workflow's highest-stakes transition).
 
 **Instrumentation:** Step 1 opens an eval record (`new-eval.py`). Each step appends its result to the record's `steps` array in state.yaml. Step 7 closes the record (`close-eval-record.py`) with the full step list and outcome. Step 8 is the adversarial verification pass, run after the cycle is closed.
-
----
-
-## EXECUTION PHASES
-
-**Phase A — Analysis (Steps 1-3):** Rigby runs these during the weekly review session (or fully on-demand). Ends with the approval prompt. The weekly review does not wait past this point — it closes after the controller responds to the triage list.
-
-**Phase B — Operations (Steps 4-7):** Rigby runs these as a follow-on task after the weekly review closes, or immediately on approval in an on-demand session. Steps 4-7 are autonomous — no further controller interaction required unless Step 5 surfaces a verification failure.
-
-This split means the weekly review never blocks on file edits, compaction, or report generation. The controller sees the analysis and approves the list; Rigby handles the rest.
 
 ---
 
@@ -133,8 +125,6 @@ If Step 05 surfaces a verification failure: workflow pauses, surfaces the specif
 | Entry threshold (>100) | As needed | Master (threshold alert) | Full cycle on-demand |
 | Post-triage (manual) | As needed | Rigby on demand | Full cycle on-demand |
 | Monthly close | First week of new month | Rigby | Phase B only (compaction-focused) |
-
-**Weekly review integration:** Quinn calls Rigby to run Phase A (Steps 1-3). The triage list surfaces as the final item of the review session. The controller approves (or defers) during the review. The review then closes. Rigby picks up Phase B (Steps 4-7) as a follow-on task — the summary report is delivered separately after Phase B completes, not during the review session itself.
 <!-- system:end -->
 
 <!-- personal:start -->

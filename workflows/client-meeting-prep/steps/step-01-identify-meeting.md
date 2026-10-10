@@ -17,7 +17,7 @@ model: sonnet
 4. You MUST record whether location/format (Teams link, phone, in-person, address) is present on the invite. If missing, this is an open question to carry into the final prep sheet — not something to guess.
 5. You MUST record whether this is a first-time meeting with this person or there is prior 1:1 history (check knowledge layer / prior prep docs).
 6. Do NOT proceed to step 02 until you have: attendee name(s), company (if known), date, time (verified), duration, and a location/format status (confirmed or flagged as missing).
-7. You MUST persist the `meeting_details` block to `state.yaml` under `accumulated-context.meeting_details` and mirror the identical structure in this step file's frontmatter `outputs` field before marking the step complete. The verifier reads `accumulated-context.meeting_details.attendees_external` (plus the step's frontmatter outputs and the saved prep-sheet filename as fallbacks) and requires at least one external attendee identity; a flat summary with no attendee list fails verification.
+7. You MUST persist this step's outputs before marking the step complete. See **Output Persistence** below for the exact schema and the verifier contract.
 
 ---
 

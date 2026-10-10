@@ -13,7 +13,7 @@ model: sonnet
 
 1. You MUST generate the PDF from the exact markdown produced in step 04 — no new content, no re-summarizing, no edits to substance. Rendering only.
 2. You MUST use Python/weasyprint to render the PDF, following the reusable pattern documented in `workflows/podcast-prep/steps/step-05-generate-pdf.md`. This prep sheet does NOT need the podcast episode's full visual-checklist styling (banner colors, orange pipes, alternating table rows, etc.) — keep it to clean, readable rendering of the existing markdown structure: headings, tables, and lists rendered legibly on Letter-size pages. Do not invent a heavier design system for this deliverable.
-3. You MUST NOT reinvent the reMarkable delivery mechanics. This step's rules below are the hardened protocol, built to fix three prior logged errors (err-20260609T133507-RI3XF1, err-20260609T133507-DNFNPK, err-20260609T133804-G2TEEM). It was originally developed in the now-retired `chase-call-prep` skill and is fully inlined here — do not deviate from any rule below.
+3. You MUST NOT reinvent the reMarkable delivery mechanics. This step's rules below are the hardened protocol; do not deviate from any rule below.
 4. Destination folder is **`/Meetings`** — always, hardcoded. Chase does not pass this to Knox as a variable and Knox does not derive an alternative. If `/Meetings` does not exist on the tablet when Knox verifies it, Knox stops and flags — it does NOT create a new folder.
 5. Filename and reMarkable display name MUST be a short, human-readable name only — no dates, no slugs, no underscores — per `agents/conventions.md` → Output Naming Conventions (Deliverable files). Use the pattern `{Attendee Name} - {Company}` (e.g., "Ryan Menke - OFS", not "2026-07-20-ryan-menke-ofs-intro").
 6. Chase MUST pass Knox exactly two things and nothing else for the upload: (a) the full absolute OneDrive path to the generated PDF, (b) the exact display name string to use on the tablet. Knox does not derive the display name independently and does not vary the destination folder.
@@ -21,7 +21,7 @@ model: sonnet
 8. If any `rmapi` call fails with a corrupted-config error (`failed to parse /Users/davidohara/.rmapi` or similar), Knox deletes `~/.rmapi` and retries automatically. Do not ask David to manually re-auth first. Only if the retry itself fails with an unauthenticated-state error does Knox stop and ask David to run `rmapi` once from a terminal to re-register.
 9. Knox confirms success or failure of the upload back to Chase. Chase surfaces that result in the final summary to David — Knox does not report directly to David.
 10. You MUST record a `pre-delivery-review` guardrail checkpoint via `guardrail-checkpoint.py` before the PDF is handed to Knox. This is a real-world side effect (a file lands on David's tablet), so the checkpoint gates the upload. An `escalate` result HALTS the handoff and surfaces to David; `pass`/`flag` continue.
-11. You MUST persist the `deliverables` block to `state.yaml` under `accumulated-context.deliverables` and mirror the identical structure in this step file's frontmatter `outputs` field before marking the step complete. The verifier reads `accumulated-context.deliverables.pdf_file`, `remarkable_display_name`, `remarkable_destination`, and `remarkable_upload`; a missing `remarkable_upload` value fails verification (a recorded failure string is valid, silence is not).
+11. You MUST persist this step's outputs before marking the step complete. See **Output Persistence** below for the exact schema and the verifier contract.
 
 ---
 

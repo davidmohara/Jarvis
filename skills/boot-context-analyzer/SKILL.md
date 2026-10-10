@@ -185,7 +185,6 @@ To: Store {subject, start_time, end_time, type, flags_only}
 
 Run: boot workflow again
 Compare: measurement results
-Result: calendar field now 60 KB (70% reduction) ✓
 ```
 
 ---
@@ -213,16 +212,6 @@ python3 systems/boot-instrumentation/measure.py measure-state /absolute/path/to/
 The accumulated-context may be empty. Check that the boot workflow completed step-02 before measuring.
 
 ---
-
-## Next Steps
-
-After collecting baseline measurements:
-1. Share the Phase 2 measurement output with the team
-2. Identify top 3 bloat sources
-3. Create optimization tasks for each source
-4. Run before/after comparisons on each change
-5. Target: reduce total context by 70-80% to eliminate first-run compaction
-
 
 <!-- system:start -->
 ## SKILL COMPLETE

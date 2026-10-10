@@ -45,29 +45,6 @@ This prints a compact block: a structure/content/quality assertion breakdown, a 
 
 Include that printed block verbatim (or lightly reformatted to match your closing summary's style) in your final response to the operator — the deterministic grade must always reach the person reading the output, not just the eval record on disk. A qualitative (Tier 3) grade is added separately later via the end-of-day `rigby-eval-grade` sweep; do not attempt to compute or claim a qualitative grade yourself here.
 <!-- system:end -->
-
-After writing the signal file, also write a working memory file to `memory/working/` using this filename pattern:
-
-```
-vault-health-YYYY-MM-DD-HHmmss.md
-```
-
-The file must begin with this YAML frontmatter (all fields required):
-
-```yaml
----
-type: working
-task_id: "session"
-session_id: "knox-{YYYY-MM-DD}-{HHmmss}"
-agent-source: knox
-created: {YYYY-MM-DD}T{HH:MM:SS}
-expires: {YYYY-MM-DD+2}T{HH:MM:SS}
-status: active
-context: "Vault health report — {YYYY-MM-DD}"
----
-```
-
-Body: 3-5 bullet points summarizing key outputs, decisions, and any flags from this run. Keep it under 200 words.
 <!-- personal:start -->
 # Knox — Vault Health Audit
 

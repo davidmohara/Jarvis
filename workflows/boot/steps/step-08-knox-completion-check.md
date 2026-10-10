@@ -75,20 +75,14 @@ outputs:
 
 ---
 
-## NEXT STEP
+## WORKFLOW END
 
-Read and follow: `step-07-verify-completion.md` (this runs BEFORE step-08, so verify completion happens first, then Knox check).
-
-Actually, step-08 runs AFTER step-07 (completion gate). After Knox status is recorded here, boot is fully complete.
+This is the final step. Boot is complete once Knox status is recorded here.
 
 ---
 
 ## Implementation Notes
 
-This step is added to close the loop on Knox background processing. Since Knox is fire-and-forget, its status doesn't block boot, but we want to record whether the background job finished successfully so:
-
-1. Eval harness has complete picture (Knox eval + Boot eval both present)
-2. David knows if plaud-ingest succeeded or needs manual intervention
-3. Next session can see that prior background work is complete (or still running)
+This step records whether the fire-and-forget Knox background job finished. It never blocks boot.
 
 <!-- system:end -->

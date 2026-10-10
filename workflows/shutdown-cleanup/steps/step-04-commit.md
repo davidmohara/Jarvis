@@ -17,7 +17,6 @@ outputs:
   bookkeeping_commit_sha: "recorded in the follow-up state commit"
   temp_artifacts_staged: false
   pushed: false
-  note: "Dirty set matched the expected scope exactly (eval-harness runs/skill-runs, the new working-memory entry, and this workflow's own state/step files). No out-of-scope changes present. Prior session work (36a4f137 OmniFocus consolidation) left untouched; step-04's own frontmatter is finalized in a small follow-up state commit."
 model: sonnet
 ---
 
@@ -64,12 +63,12 @@ model: sonnet
    - Summarize the session's substantive work (not the cleanup)
    - If cleanup was the only action, describe what was cleaned and why
 
-5. **Commit through the wrapper** (gated dirs were Rigby-built this session, so `--ack-gated` is the conscious, correct flag; the wrapper also scans for credentials and audits the operation to `systems/eval-harness/git-ops.jsonl`):
+5. **Commit through the wrapper** (the wrapper also scans for credentials and audits the operation to `systems/eval-harness/git-ops.jsonl`):
    ```bash
    python3 skills/git/scripts/ies-git --ack-gated commit -m "<message>"
    ```
 
-6. **Push, or hand off if rejected:** if the push is rejected because the remote has diverged, do NOT rebase from this session (the OneDrive-synced `.git` races multi-step git; see `err-20261008T222241-UHTK59`). Commit stays local; hand the pull-rebase and push to David's terminal.
+6. **Push, or hand off if rejected:** if the push is rejected because the remote has diverged, do NOT rebase from this session (the OneDrive-synced `.git` races multi-step git). Commit stays local; hand the pull-rebase and push to David's terminal.
 
 6. **Report summary to controller:**
    ```

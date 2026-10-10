@@ -8,7 +8,6 @@ outputs:
   moved: []
   verified_clean: true
   no_pdf_docx_pptx_epub_in_diff: true
-  note: "`git diff --name-only HEAD -- '*.pdf' '*.docx' '*.pptx' '*.epub'` returned nothing — the session's diff is markdown (working-memory entry) and JSON (eval-harness run/skill-run records) only. Nothing new to organize. The personal One Texas routing rule was spot-checked: two legacy One Texas PPTX files exist in meetings/ ('One Texas SKO Pre-Work.pptx', 'One Texas Q1 2026 Scorecard.pptx') but both are untouched this session (absent from the diff, last modified months ago). Left in place rather than retroactively relocating legacy files; flagging for controller awareness only."
 model: sonnet
 ---
 

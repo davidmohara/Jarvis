@@ -33,7 +33,6 @@ var buttons = document.querySelectorAll('button');
 for (var i = 0; i < buttons.length; i++) {
   if ((buttons[i].getAttribute('aria-label') || buttons[i].innerText || '').trim() === 'View') {
     var rect = buttons[i].getBoundingClientRect();
-    // Returns: top:48, left:1339, centerX:1365, centerY:68
   }
 }
 ```
@@ -46,7 +45,6 @@ var all = document.querySelectorAll('*');
 for (var i = 0; i < all.length; i++) {
   if (all[i].innerText && all[i].innerText.indexOf('Show visuals as tables') !== -1) {
     var rect = all[i].getBoundingClientRect();
-    // Returns approx: top:271, left:1178
   }
 }
 ```
@@ -96,31 +94,17 @@ accumulated-context:
 
 ### PowerBI Click Stack
 
-**browser_batch is unreliable.** The only confirmed working click approach:
-
-```
-screen_x = page_x                          (no x offset — window starts at x=0)
-screen_y = window_y + chrome_ui_height + page_y
-         = 33 + 121 + page_y
-         = 154 + page_y
-```
-
-Chrome UI height = `outerHeight(949) - innerHeight(828) = 121px`. Window y = 33. DevicePixelRatio = 2 (Retina) but cliclick uses logical pixels — no scaling needed.
-
-**Workflow:**
-1. `execute_javascript` → `getBoundingClientRect()` on target element → compute screen coords
-2. `osascript` → `cliclick c:[screen_x],[screen_y]`
-3. `get_page_content` → verify the click had the expected effect
+The canonical coordinate formula and click workflow live in `steps/step-01-extract-powerbi-revenue.md` under "CLICK PROTOCOL". Treat that as the single source of truth; do not duplicate it here.
 
 ### PowerBI Year Filter Protocol
 
 **This applies to Steps 1, 2, and 4 — all three PowerBI extractions.**
 
-#### Known behavior (confirmed 2026-04-22 with cliclick stack)
+#### Known behavior
 
 | Page | Table view available? | Year labels in rows? | Slicer clickable via cliclick? |
 |------|----------------------|---------------------|-------------------------------|
-| Customer Distribution | ✅ Yes (when "Show visuals as tables" enabled) — exact dollar values | ❌ No year per row | ✅ YES — confirmed working. Set once, persists across all pages. |
+| Customer Distribution | ✅ Yes (when "Show visuals as tables" enabled) — exact dollar values | ❌ No year per row | ✅ Yes — set once, persists across all pages. |
 | Project Consultant Profitability Dataset | ✅ Yes (when "Show visuals as tables" enabled) | ❌ No year per row | ✅ Slicer carries from step 1 — no need to re-set |
 | One Texas | ✅ Yes (tabular with year+month per row) | ✅ Yes — rows labeled "2026, January" etc | ✅ Slicer carries from step 1 — no need to re-set |
 | Project Revenue Dataset | ✅ Yes (tabular, exact dollars) | ❌ No year per row — shows all-time flat list | Fallback only — use if Customer Distribution fails |

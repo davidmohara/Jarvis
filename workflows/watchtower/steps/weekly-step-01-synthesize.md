@@ -12,7 +12,7 @@ outputs:
 <!-- system:start -->
 ## MANDATORY EXECUTION RULES
 
-1. **VERIFY ISO WEEK NUMBER FIRST.** Before writing any output, run `date +%V` to confirm the ISO week number for today's date. Store the confirmed week as `YYYY-Www` (e.g. `2026-W27`). Every file, note, and artifact this run writes uses this confirmed value. Do not derive or guess the week from the date manually — always use the system clock. This rule exists because a wrong week number propagated through an entire run (err-20260629T155429-PCC4BZ).
+1. **VERIFY ISO WEEK NUMBER FIRST.** Before writing any output, run `date +%V` to confirm the ISO week number for today's date. Store the confirmed week as `YYYY-Www` (e.g. `2026-W27`). Every file, note, and artifact this run writes uses this confirmed value. Do not derive or guess the week from the date manually — always use the system clock.
 2. Write `status: in-progress` and `started-at` to this file's frontmatter before doing anything else.
 3. Pull from `accumulated-context.content_queue` — this is the week's content-worthy items as flagged by daily runs.
 4. If content_queue is empty, check the past 7 days of `seen.jsonl` and re-score the top-scoring items as a fallback. Do not report "nothing to synthesize" without trying.

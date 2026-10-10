@@ -28,17 +28,7 @@ which launches this skill with `context: fork`, `model: haiku`) — fork executi
 **not** an exemption from steps 3-4 below, and a shorter/cheaper run is never an
 acceptable reason to skip them.
 
-This gate exists because the same failure has now recurred three times under forked
-execution specifically — `err-20260826T190948-QQMBTP`, `err-20260828T140747-814VN9`,
-and again on 2026-08-31 (`err-20260831T144849-LDEIJS`, `err-20260831T145746-29X2M7`) —
-each time reporting 120-129 already-ingested staging files as "unprocessed" when a
-manual re-check (calling `fetch_plaud.py` directly and cross-referencing live vault
-frontmatter) found only 1-2 genuinely new recordings. The 2026-08-28 fix (see
-`memory/working/rigby-plaud-discover-fix-2026-08-28.md`) corrected real bugs in the
-dedup *logic* (archive-folder exclusion, Tier 3's filename assumption, silent
-proceed-without-dedup) but did not stop the recurrence — the logic was fine, there was
-just nothing forcing a fork to actually execute it instead of guessing. The following
-is that enforcement:
+The following is the enforcement:
 
 1. **Build and persist a dedup ledger before writing any output.** For every candidate
    — every API recording AND every top-level staged file — write one entry to
@@ -148,7 +138,7 @@ For each `.md` file returned, read its frontmatter and extract the `file_id` fie
 Build two lookup structures:
 
 1. **file_id set** — a set of all `file_id` values found in vault note frontmatter. This is the
-   primary dedup mechanism. Notes written after this fix was applied (2026-08-10) will have this field.
+   primary dedup mechanism.
 2. **title set** — a set of normalized filenames (date stripped, `.md` stripped, lowercased,
    punctuation removed, whitespace collapsed). This is the fallback for older notes that predate
    file_id tracking.
@@ -294,9 +284,8 @@ detection automatically.
 - **Empty result set**: Either no recordings for the date, or wrong date/timezone. Try ±1 day.
 - **Vault enumeration fails** (Obsidian MCP `list_vault_files` errors, times out, or returns an
   empty/partial result): Do **not** proceed without dedup — a silent fallback here has already
-  caused two false-positive incidents (`err-20260826T190948-QQMBTP`, `err-20260828T140747-814VN9`)
-  where 100+ already-ingested recordings were reported as "new." Instead: retry the vault
-  enumeration once. If it still fails or returns a file_id count that is dramatically lower than
+  caused false-positive incidents where 100+ already-ingested recordings were reported as "new."
+  Instead: retry the vault enumeration once. If it still fails or returns a file_id count that is dramatically lower than
   the previous run's confirmed-in-vault count for an overlapping recording set, **abort this
   skill run** and report the vault-read failure explicitly (do not write a `new_recordings` list,
   do not let the caller treat a partial/empty vault read as "vault is actually empty"). Surfacing

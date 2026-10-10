@@ -11,9 +11,7 @@ model: sonnet
 
 ## MANDATORY EXECUTION RULES
 
-1. `harvest.json` and `clusters.json` are transient (gitignored) — do not commit them.
-2. `topic_history.json` is NOT transient. It is the cross-day memory that makes relevance decay work; always commit it.
-3. If any step failed (e.g., render.py exited with code 1), log the error to `systems/error-tracking/entries/` before halting, using `new-entry.py --id-only` to generate the error ID.
+1. The transient/committed file split and the error-logging rule for this step are stated in YOUR TASK below.
 
 ---
 

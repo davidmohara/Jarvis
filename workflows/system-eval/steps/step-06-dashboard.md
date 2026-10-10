@@ -65,15 +65,13 @@ Write to `systems/eval-harness/skill-runs/rigby-eval-dashboard-latest.json`.
 
 #### 2a. Patch the Chart.js script tag
 
-Run this sed replacement on the generated file before pushing to the artifact:
+Run this sed replacement on the generated file before pushing to the artifact (this sed step is a safety net if an older script version generated the file):
 
 ```bash
 sed -i '' \
   's|chart\.js@4\.4\.0/dist/chart\.umd\.min\.js|chart.js@4.5.0/dist/chart.umd.js" integrity="sha384-iU8HYtnGQ8Cy4zl7gbNMOhsDTTKX02BTXptVP/vqAWIaTfM7isw76iyZCsjL2eVi" crossorigin="anonymous|' \
   systems/eval-harness/dashboard.html
 ```
-
-> **Note (2026-07-08):** `generate-dashboard.py` was patched to emit the approved Chart.js 4.5.0 tag directly. This sed command is a no-op on freshly generated dashboards but is kept as a safety net in case an older version of the script is used.
 
 #### 2b. Push to the pinned Cowork artifact
 

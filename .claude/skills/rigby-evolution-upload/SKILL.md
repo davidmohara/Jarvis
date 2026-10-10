@@ -78,8 +78,6 @@ Authorization: Bearer `{ACCESS_TOKEN}`
 Content-Type: application/json
 
 **On success:** HTTP 201 with `{ id, version, status: "submitted" }`.
-
-**On success:**
 - Log: `[evolution-upload] Published "{name}" (ID: {uuid-v4}) — {file_count} files uploaded`
 - **Status is now `submitted`** — the evolution is NOT yet visible to IES instances polling for updates. An administrator must approve it before it appears in the poll endpoint.
 - Append to `evolutions/history.md` to record the publication with name, UUID, and submitted status

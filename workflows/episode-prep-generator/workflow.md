@@ -45,28 +45,15 @@ transcript exists, questions fall back to research-based inference.
    the same date updates that file in place rather than creating a second,
    differently-named file.
 
-Unlike the previous version of this workflow, step 3 does **not** start
-producing content before both step 1 and step 2 finish — the transcript, if
-one exists, determines the entire structure and content of the prep sheet,
-so there's nothing useful to generate ahead of that input landing.
+Step 3 does **not** start producing content before both step 1 and step 2 finish. The transcript, if one exists, determines the entire structure and content of the prep sheet, so there is nothing useful to generate ahead of that input landing.
 
 **Format bar:** The output must match David's actual prep format, exemplified
 by `meetings/podcast-prep/2026-07-14-kapil-dabi.md` — concrete numbered
 questions with lettered follow-ups grouped into a handful of named clusters,
 a Suggested Flow section grounded in a real (or clearly-labeled inferred)
-conversation, and a short Notes section. This is **not** the old 10-section,
-8-10 page format built from `reference/improving-edge-prep-sheet-generator-prompt.md`
-— that template is no longer used by this workflow.
+conversation, and a short Notes section.
 
-**Relationship to `podcast-prep`:** This workflow is the *deep research and
-thinking layer*, usable as soon as a guest is booked, before the studio floor
-sheet exists. `workflows/podcast-prep` is the *studio floor sheet* — it pulls
-the already-scheduled episode from the Obsidian episode map, Janine's
-SharePoint questions doc, Clay, and calendar, and produces the condensed
-single-page PDF for filming day. This workflow's output is meant to feed and
-sharpen that one-pager, not replace it. Do not merge the two workflows — they
-run at different points in an episode's lifecycle and pull from different
-sources.
+**Relationship to `podcast-prep`:** This workflow is the deep research layer, usable as soon as a guest is booked; `workflows/podcast-prep` produces the studio floor sheet one-pager. Do not merge them.
 <!-- system:end -->
 
 <!-- personal:start -->
@@ -76,17 +63,6 @@ sources.
 
 <!-- system:start -->
 ## INITIALIZATION
-
-### Why This Exists
-
-David's actual prep sheets are short, concrete, and built from real prior
-conversations with guests whenever one exists — a lunch, a call, a Plaud
-recording. The previous version of this workflow generated a formal
-10-section, 8-10 page document built purely from role/domain inference, which
-didn't match how David actually preps for an episode. This rebuild makes
-"check whether we've already talked to this guest" the first move, not an
-afterthought, and constrains the output to something scannable in the two
-minutes before David walks into a recording.
 
 ### Inputs
 
@@ -171,8 +147,7 @@ start early, because the transcript (if found) determines the structure of
 the entire output. Once step 3 reaches `status: complete`, continue to
 `steps/step-04-assemble-output.md`.
 
-Target total runtime: 15-25 minutes end to end (shorter than the previous
-version — the output is a fraction of the length).
+Target total runtime: 15-25 minutes end to end.
 <!-- system:end -->
 
 <!-- personal:start -->

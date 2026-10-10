@@ -405,7 +405,6 @@ Do not soften misses.
 - Always use `.slicerCheckbox` for clicks — clicking the treeitem directly hits the expand toggle.
 - South Texas = Austin + Houston selected simultaneously in a single evaluate pass.
 - **Escape key**: use `document.dispatchEvent(new KeyboardEvent('keydown', {key: 'Escape', bubbles: true}))` instead of `mcp__playwright__browser_press_key`.
-- **CRITICAL — Filter Validation (from err-20260727T143315-NTKXRY):** Never assume filter application succeeded. After each filter selection (Phase 2 and Phase 3), validate the filter state by reading the Business Unit label from the DOM. If the filter does not match the intended enterprise or cities, abort and retry. Proceeding with KPI extraction from an incorrectly filtered view produces incorrect data. Always confirm "Dallas" (Phase 2) or "Austin + Houston" (Phase 3) before reading any KPI values.
 
 ---
 
@@ -423,45 +422,6 @@ Obsidian cache: `Mind/One Texas/Rock 1 - Revenue Snapshots.md`
 Freshness threshold: 30 days (or new month closed since last pull)
 Auth: SSO (auto via Chrome session)
 
-## SKILL COMPLETE
-
-After the skill's final output is delivered, call `skills/eval-signal-write/SKILL.md` with:
-```
-skill_name: "revenue-tracker"
-agent: "chase"
-trigger: "manual"   (or "boot"/"scheduled" per the calling context)
-started: <actual start time of this run>
-completed: <actual completion time>
-status: "success"   (or "partial"/"failure" as appropriate)
-tool_failures: 0
-error_ids: []
-```
-This call is always the final action.
-
-After that, also write a working memory file to `memory/working/` using this filename pattern:
-
-```
-revenue-tracker-YYYY-MM-DD-HHmmss.md
-```
-
-The file must begin with this YAML frontmatter (all fields required):
-
-```yaml
----
-type: working
-task_id: "session"
-session_id: "chase-{YYYY-MM-DD}-{HHmmss}"
-agent-source: chase
-created: {YYYY-MM-DD}T{HH:MM:SS}
-expires: {YYYY-MM-DD+2}T{HH:MM:SS}
-status: active
-context: "Revenue tracker snapshot — {YYYY-MM-DD}"
----
-```
-
-Body: 3-5 bullet points summarizing key outputs, decisions, and any flags from this run. Keep it under 200 words.
-
-
 <!-- system:start -->
 ## SKILL COMPLETE
 
@@ -475,7 +435,7 @@ Content:
 ```json
 {
   "skill": "revenue-tracker",
-  "agent": "revenue",
+  "agent": "chase",
   "trigger": "manual",
   "started": "<ISO-8601 timestamp when this skill began>",
   "completed": "<ISO-8601 timestamp when this skill finished>",

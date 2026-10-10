@@ -21,7 +21,7 @@ model: sonnet
 8. You MUST include a "Common Connections" section, placed after "Who {He/She/They} Is" and before "Reason for the Call," reflecting step 03's `common_connections` data. It MUST stay compact — an inline list or tight 2-3 column table, names and companies only, no bios or speculation. Never omit this section silently — if LinkedIn access failed or returned zero mutual connections, say so plainly in the section itself.
 9. You MUST include a "Company Overview" section, placed after "Who They Are" and before "Who {He/She/They} Is," reflecting step 03's `company_overview` data. Depth must match `contact_depth` from step 02 — a full narrative for first-touch, a brief refresh (or an explicit "nothing material has changed" statement) for repeat-meeting. Never omit this section silently, and never pad it with generic filler if research came up thin — say so plainly instead.
 10. Do NOT make new data calls in this step. Assembly and quality-check only.
-11. You MUST record the saved prep sheet's path in `state.yaml` `accumulated-context.deliverables.markdown_file` and mirror it in this step file's frontmatter `outputs` field. The verifier locates the file on disk (it does not trust a self-reported path) and validates the required section headers, the absence of a YAML frontmatter block, and the absence of a Next Steps section directly from content.
+11. You MUST persist this step's outputs before marking the step complete. See **Output Persistence** below for the exact schema and the verifier contract.
 
 ---
 

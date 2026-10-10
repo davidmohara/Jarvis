@@ -8,10 +8,6 @@ model: sonnet
 
 # Harper Email Coaching Skill
 
-## Overview
-
-Harper's email coaching skill analyzes the executive's sent emails to provide personalized feedback on communication effectiveness, executive presence, and delegation clarity.
-
 Load agent persona from `agents/harper.md` before executing this skill.
 
 ## Capabilities
@@ -42,42 +38,6 @@ Each coaching session delivers:
 3. **Pattern Insights**: Key observations about communication patterns
 4. **Action Focus**: One concrete improvement for the coming week
 5. **Baseline Context**: Executive's intentions and self-assessment
-
-## Usage
-
-### Basic Coaching
-```typescript
-import { executeEmailCoaching } from "~/src/skills/harper-email-coaching";
-
-const result = await executeEmailCoaching();
-console.log(result.scorecard);
-console.log(result.actionable_focus);
-```
-
-### With Manual Email Paste
-```typescript
-const emails = [
-  "Subject: Project Update\n\nTeam, I wanted to follow up...",
-  "Subject: Meeting Notes\n\nHi everyone, here are my notes..."
-];
-
-const result = await executeEmailCoaching({
-  manualPaste: emails
-});
-```
-
-### With Baseline Assessment
-```typescript
-const result = await executeEmailCoaching({
-  askUser: async (question) => {
-    // Interactive prompt for executive
-    return {
-      intentions: "Be more direct in delegation",
-      self_assessment: "I over-explain context"
-    };
-  }
-});
-```
 
 ## Integration Points
 
@@ -179,22 +139,6 @@ const result = await executeEmailCoaching({
   "impact": "Reduces clarity, slows decision-making"
 }
 ```
-
-## Development Notes
-
-### Extension Points
-- Custom analysis dimensions for specific roles
-- Industry-specific communication patterns
-- Integration with email providers beyond local client
-
-### Testing
-- Mock email retrieval for consistent test data
-- Simulate VOICE.md variations
-- Test fallback scenarios (no mail client, missing VOICE.md)
-
----
-
-*This skill transforms email from a communication tool into a leadership development asset.*
 
 ## SKILL COMPLETE
 

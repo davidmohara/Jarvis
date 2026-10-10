@@ -31,7 +31,7 @@ The IES folder may live at different paths across David's machines. Use this pri
 python3 "$(mdfind -name 'post.py' | grep 'systems/slack-bot/post.py' | head -1)" <channel_id> "<message>"
 ```
 
-**Option 2: Direct path — USE THIS. Always. (err-20260908T000000-SLACK1, err-20260914T194742-2DFSK0)**
+**Option 2: Direct path — USE THIS. Always.**
 
 ```bash
 python3 - <<'PYEOF'
@@ -43,7 +43,7 @@ print(r.stdout.strip() or r.stderr.strip())
 PYEOF
 ```
 
-**WARNING — `find ~` HANGS on this machine.** The `find ~ -name 'SYSTEM.md'` path-discovery pattern causes Desktop Commander processes to block indefinitely on David's machine (logged twice: err-20260908T000000-SLACK1, err-20260914T194742-2DFSK0). Never use it. The hardcoded direct path is always correct and always faster.
+**WARNING — `find ~` HANGS on this machine.** The `find ~ -name 'SYSTEM.md'` path-discovery pattern causes Desktop Commander processes to block indefinitely on David's machine. Never use it. The hardcoded direct path is always correct and always faster.
 
 **Option 3: mdfind (macOS interactive shells only)**
 
@@ -75,7 +75,7 @@ Where `$IES_ROOT` is found via:
 IES_ROOT="$(find ~ -name 'SYSTEM.md' -path '*/jarvis/SYSTEM.md' 2>/dev/null | head -1 | sed 's|/SYSTEM.md||')"
 ```
 
-### ⚠️ No-Duplicate Rule — MANDATORY (err-20260706T230401-PJN64F)
+### ⚠️ No-Duplicate Rule — MANDATORY
 
 **Never retry a send without first confirming the original failed.**
 

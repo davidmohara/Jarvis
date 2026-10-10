@@ -19,14 +19,13 @@ trigger_agents: [galen]
 
 ### DATA INTEGRITY RULE
 
-Before proceeding: every value in this analysis must come from the actual source file. The output format templates below contain placeholder values (e.g., "ApoB: 80", "E2: 45") — these are FORMAT EXAMPLES ONLY. Never use them in real output. If a marker is not present in the source file, record it as `null` or omit it. Report unavailable data as unavailable.
+Before proceeding: every value in this analysis must come from the actual source file. The output format templates below contain placeholder values (e.g., "ApoB: [current]") — these are FORMAT EXAMPLES ONLY. Never use them in real output. If a marker is not present in the source file, record it as `null` or omit it. Report unavailable data as unavailable.
 
 ### Step 1: Locate & Load Bloodwork File
 
 Read latest bloodwork from Dropbox (PDF files on disk — not Obsidian):
 - **Base path:** `~/Library/CloudStorage/Dropbox/Family/Health/David - Bloodwork/`
 - **Structure:** Organized by year subdirectory — `2022/`, `2023/`, `2024/`, `2025/`
-- **Latest known:** `2025/2025-12-05.pdf`
 - List all PDFs across year folders, sort by date descending, read the most recent
 - Use `mcp__PDF_Tools__read_pdf_content` or Desktop Commander to extract text from PDF
 - Extract all biomarkers with values and reference ranges
@@ -104,7 +103,7 @@ Check if David's current stack addresses out-of-range markers:
 - (Berberine paused)
 - (Resveratrol paused)
 
-**Latest Function Health recommendations (from August 2025 visit):**
+**Latest Function Health recommendations (from last visit):**
 - Berberine (reactivate for metabolic support)
 - Biotin (B-vitamin support)
 - Quercetin (antioxidant, CV support)
@@ -145,16 +144,16 @@ Output trend line for each marker:
 ```
 trend_analysis:
   ApoB:
-    prior_value: 72 (2025-08-12)
-    current_value: 80 (2026-03-29)
-    change: "+11% (worsening)"
-    assessment: "ApoB climbing — suggests lipid protocol needs adjustment or dietary shift"
+    prior_value: [prior] ([prior date])
+    current_value: [current] ([current date])
+    change: "[change] ([improving/worsening])"
+    assessment: "ApoB [trend] — suggests lipid protocol needs adjustment or dietary shift"
 
   E2:
-    prior_value: 35 pg/ml (2025-08-12)
-    current_value: 45 pg/ml (2026-03-29)
-    change: "+29% (worsening)"
-    assessment: "E2 elevated — may be DHEA dosing or dietary factors; discuss with Dr. Randol"
+    prior_value: [prior] pg/ml ([prior date])
+    current_value: [current] pg/ml ([current date])
+    change: "[change] ([improving/worsening])"
+    assessment: "E2 [trend] — may be DHEA dosing or dietary factors; discuss with Dr. Randol"
 ```
 
 ### Step 5: Cross-Reference with Peptide Protocols
@@ -207,14 +206,14 @@ If the log has no prior bloodwork entries, proceed with PDF-only comparison and 
 Create a priority-ordered list of questions for the next physician visit:
 
 **Priority 1 (Urgent/Out-of-Range):**
-- "ApoB is 80 (up 11% since August) — is this protocol-driven or dietary? Should we adjust CoQ10 or add berberine?"
-- "E2 is 45 (high) — is this DHEA dosing, aromatization from GH protocol, or dietary? What's your recommendation?"
+- "ApoB is [current] ([change] since prior) — is this protocol-driven or dietary? Should we adjust CoQ10 or add berberine?"
+- "E2 is [current] (high) — is this DHEA dosing, aromatization from GH protocol, or dietary? What's your recommendation?"
 
 **Priority 2 (Trend Concern):**
 - "MCH and MCV are elevated (possible B12/folate deficiency) — should I increase B12 supplementation? Any folate status?"
 
 **Priority 3 (Protocol Optimization):**
-- "CJC-1295 and Ipamorelin are now 6+ months into cycle — should we reassess response? Any IGF-1 testing recommended?"
+- "CJC-1295 and Ipamorelin are now [N]+ months into cycle — should we reassess response? Any IGF-1 testing recommended?"
 - "Berberine is paused — should I restart given current metabolic markers?"
 
 **Priority 4 (Lifestyle/Context):**
@@ -246,9 +245,9 @@ If you cannot cite a source for a recommendation, state it as an observation for
 [1-2 paragraphs summarizing CV risk, metabolic health, neuro health, and hormone status]
 
 ### Cardiovascular Risk Profile
-**ApoB** (primary): 80 mg/dL (Goal: <70)
+**ApoB** (primary): [current] mg/dL (Goal: <70)
 - **Status:** Out of range (Act)
-- **Trend:** Up 11% since August (worsening)
+- **Trend:** [change] since prior ([improving/worsening])
 - **Context:** Primary driver of CV risk. ApoB particle count more predictive than LDL-C.
 - **Recommendation:** Discuss CoQ10 dosing increase (target 500-600mg/day) and berberine restart. Retest in 12 weeks.
 
@@ -265,10 +264,10 @@ If you cannot cite a source for a recommendation, state it as an observation for
 ### Hormonal & Micronutrient Profile
 **Total T**: [Value]
 **Free T**: [Value]
-**E2**: 45 pg/ml (Goal: 30-40)
+**E2**: [current] pg/ml (Goal: 30-40)
 - **Status:** Out of range (Act)
-- **Trend:** Up 29% since August
-- **Context:** Elevated — may be DHEA dosing (started 50mg daily in August) or GH protocol aromatization.
+- **Trend:** [change] since prior
+- **Context:** Elevated — may be DHEA dosing (started [dose] daily in [month]) or GH protocol aromatization.
 - **Recommendation:** Discuss E2 management; consider DIM or calcium d-glucarate; retest in 8 weeks.
 
 **B12 / MCH / MCV**: [Values]
@@ -291,7 +290,7 @@ If you cannot cite a source for a recommendation, state it as an observation for
 
 ### Peptide Protocol Assessment
 **Active:** CJC-1295 w/DAC (1mg/wk), Ipamorelin (1400ug/wk), BPC-157 (as needed)
-**Status:** 6+ months into current cycle
+**Status:** [N]+ months into current cycle
 
 **Observations:**
 - E2 elevation may be aromatization from GH protocol (expected, manageable)
@@ -302,13 +301,13 @@ If you cannot cite a source for a recommendation, state it as an observation for
 1. **[URGENT]** Add CoQ10 500mg daily + restart Berberine 500mg BID for ApoB management
 2. **[URGENT]** Address E2 elevation (discuss DIM or calcium d-glucarate with Dr. Randol)
 3. **[IMPORTANT]** Increase B12 supplementation; check folate status
-4. **[DISCUSSION]** Peptide cycle assessment — 6+ months in, consider IGF-1 testing
+4. **[DISCUSSION]** Peptide cycle assessment — [N]+ months in, consider IGF-1 testing
 5. **[MONITORING]** Retest ApoB, E2, lipid panel in 12 weeks
 
 ---
 
 ## Questions for Dr. Randol
-1. ApoB up 11% — protocol adjustment or dietary shift?
+1. ApoB [change] — protocol adjustment or dietary shift?
 2. E2 elevated — manage with DIM, or dosage adjustment?
 3. B12/MCH/MCV concern — folate status, recommend B12 injections?
 4. Should we order IGF-1 to assess GH protocol response?
@@ -390,6 +389,7 @@ Content:
 ```
 
 Set `trigger` to `"boot"` if called from the morning briefing or a boot workflow, `"scheduled"` if called from a scheduled task, `"manual"` otherwise. Set `status` to `"partial"` if the skill completed with degraded output, `"failure"` if it could not run at all. Use the actual start time of this skill execution for `started`. This write is always the final action.
+<!-- system:end -->
 
 <!-- system:start -->
 ## GRADE THIS RUN

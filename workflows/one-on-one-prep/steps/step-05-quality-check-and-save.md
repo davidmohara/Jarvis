@@ -19,7 +19,7 @@ model: sonnet
 3. You MUST save the brief to the correct knowledge base path. No other location is acceptable.
 4. You MUST open the brief in the knowledge base after saving.
 5. You MUST report the result to the controller with a one-line summary of the hottest topic.
-6. You MUST save the brief to `meetings/{Person Name} - {YYYY-MM-DD}.md` and record its path in `state.yaml` `accumulated-context.saved_brief`. The verifier locates the file on disk by matching the person's name slug under `meetings/` (or the repo root) and validates the exact section headers and the numbered talking points directly from file content; a self-reported path is not accepted.
+6. You MUST save the brief and record its path. See Output Persistence (MANDATORY) below.
 
 ---
 

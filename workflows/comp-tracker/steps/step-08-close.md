@@ -11,10 +11,9 @@ model: sonnet
 ## MANDATORY EXECUTION RULES
 
 1. **Deliver summary to Master.** Output the one-screen summary at the end. This is the only output David should see.
-2. **Mark WorkDay emails as processed.** Move to processed folder or flag so they don't re-trigger next month.
-3. **Update state.yaml before exiting.** Set status: complete, capture all pending items and uncertainties.
-4. **Delete staging files.** Remove `/tmp/workday-revenue-*.xlsx` and `/tmp/workday-profitability-*.xlsx` after confirmation.
-5. **Capture all uncertainties for next run.** List GM% pending, uncertain matches, and leads not yet in WorkDay.
+2. **Update state.yaml before exiting.** Set status: complete, capture all pending items and uncertainties.
+3. **Delete staging files.** Remove `/tmp/powerbi-revenue-extract-*.xlsx` and `/tmp/powerbi-profitability-extract-*.xlsx` after confirmation.
+4. **Capture all uncertainties for next run.** List GM% pending, uncertain matches, and leads not yet in WorkDay.
 
 ---
 
@@ -24,7 +23,7 @@ model: sonnet
 
 | Role | Input | Output |
 |------|-------|--------|
-| **Chase** | All accumulated-context from Steps 1-7 | One-screen comp summary; processed WorkDay emails archived; state.yaml updated; staging files deleted |
+| **Chase** | All accumulated-context from Steps 1-7 | One-screen comp summary; state.yaml updated; staging files deleted |
 
 ---
 
@@ -32,7 +31,6 @@ model: sonnet
 
 **In scope for this step:**
 - Synthesizing one-screen summary from all comp component data
-- Marking WorkDay emails as processed (moving or flagging)
 - Updating state.yaml with completion status and pending items
 - Deleting staging Excel files
 - Finalizing the workflow run
@@ -120,7 +118,6 @@ DATA STATUS & FLAGS
 
 WORKFLOW COMPLETION
   Comp Tracker Updated: [MONTH YEAR]
-  WorkDay Emails: Marked as processed
   Commissions: Open, ongoing, and expiring reviewed
   All components: Current through [MONTH YEAR]
   
@@ -180,28 +177,7 @@ Present the formatted summary to Master. This is the primary output of the entir
 
 ---
 
-### 5. Mark WorkDay emails as processed
-
-In Outlook, locate and process the WorkDay revenue and profitability emails that were used in this run:
-
-**Option A (preferred):** Move to a processed subfolder
-```
-Jarvis folder → Create/use subfolder: "WorkDay Processed"
-Move both emails to: Jarvis/WorkDay Processed
-```
-
-**Option B (alternative):** Flag as read or add a category
-```
-Right-click email → Mark as Read
-OR
-Right-click email → Add Category: "WorkDay - Processed [Month Year]"
-```
-
-Use the M365 MCP (`mcp__b8c41a14__outlook_email_search` or browser automation) to move/flag emails.
-
----
-
-### 6. Update state.yaml
+### 5. Update state.yaml
 
 Write the final state to `workflows/comp-tracker/state.yaml`:
 
@@ -233,20 +209,20 @@ pending_items:
 
 ---
 
-### 7. Delete staging files
+### 6. Delete staging files
 
-After confirming the comp tracker has been saved (steps 3-7 already saved it), delete the temporary WorkDay files:
+After confirming the comp tracker has been saved (steps 3-7 already saved it), delete the temporary PowerBI extract files:
 
 ```bash
-rm /tmp/workday-revenue-YYYY-MM.xlsx
-rm /tmp/workday-profitability-YYYY-MM.xlsx
+rm /tmp/powerbi-revenue-extract-YYYY-MM.xlsx
+rm /tmp/powerbi-profitability-extract-YYYY-MM.xlsx
 ```
 
 Use `Bash` to execute the delete commands. If files do not exist, that's fine — continue.
 
 ---
 
-### 8. Confirm completion to Master
+### 7. Confirm completion to Master
 
 Output a completion message:
 
@@ -268,11 +244,10 @@ Output a completion message:
 ✅ **Step 8 complete when:**
 1. One-screen summary generated with all placeholder values filled
 2. Summary output to Master
-3. WorkDay emails marked as processed (moved or flagged)
-4. state.yaml updated with status: complete, last_run, last_month_processed, and all pending items captured
-5. Staging files deleted (/tmp/workday-*.xlsx)
-6. Completion confirmation output
-7. Workflow exits cleanly
+3. state.yaml updated with status: complete, last_run, last_month_processed, and all pending items captured
+4. Staging files deleted (/tmp/powerbi-*-extract-*.xlsx)
+5. Completion confirmation output
+6. Workflow exits cleanly
 
 ---
 
@@ -281,7 +256,6 @@ Output a completion message:
 | Failure | Action |
 |---------|--------|
 | **Summary has missing values** | Fill with available data. Use "Pending" or "N/A" for unavailable values. Note in summary: "Some data unavailable — [reason]". |
-| **Cannot move WorkDay emails** | Flag in summary: "WorkDay emails not marked processed (manual step needed)." Proceed anyway. |
 | **state.yaml write fails** | Use Bash to write the YAML manually. Ensure file is created with correct schema. |
 | **Staging files not found** | Proceed. Files may have already been deleted or never created. Not a failure. |
 

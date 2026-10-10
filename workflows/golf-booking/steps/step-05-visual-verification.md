@@ -111,9 +111,6 @@ Do NOT assume the booking succeeded.
 ```
 
 Abort. Do not proceed to step-06 or step-07. Set `state.yaml` `status: verification-failed`.
-This is why Gate 3 and Gate 4 are separate gates rather than one: ChronoGolf's own UI can lie
-at the confirmation step, and only a second, independent check — now enforced as a HARD gate
-by the `visual-verification` skill rather than an inline DOM check alone — catches that.
 
 ---
 

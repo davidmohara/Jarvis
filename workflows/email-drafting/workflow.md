@@ -23,16 +23,6 @@ model: sonnet
 <!-- system:start -->
 ## INITIALIZATION
 
-### Why This Exists
-
-Email is the most frequent external communication the controller produces. Getting the voice wrong -- even slightly -- breaks trust, creates rework, and wastes time. This workflow exists to guarantee that every draft:
-
-1. Matches the controller's natural writing style (loaded from identity layer)
-2. Is calibrated for the specific recipient and relationship
-3. Follows the controller's exact formatting conventions
-4. Has a clear purpose and call to action
-5. Can be sent with zero or minimal edits
-
 ### Data Sources Required
 
 | Source | What to Pull | Access Method |
@@ -45,19 +35,7 @@ Email is the most frequent external communication the controller produces. Getti
 
 ### Controller's Email Style Conventions
 
-These are loaded from `identity/VOICE.md` at the start of every drafting session. The conventions below are the current known rules -- **always re-read the voice file in case they have been updated:**
-
-| Convention | Rule |
-|------------|------|
-| Em-dashes | Never. Use hyphens instead. |
-| Blank lines above greeting | None. Greeting starts immediately. |
-| Greeting to body | One blank line between greeting and body. |
-| Between body paragraphs | One blank line. |
-| Body to closing | Two blank lines between last body paragraph and closing. |
-| Closing style | "Thanks," / "Take care," / "Have a great weekend," -- always with a comma. |
-| Sign-off name | No name when email signature is pre-populated. |
-| Length | Clean and tight. No padding. No filler. |
-| Formality | Calibrate per recipient and context. Default to professional-warm. |
+Loaded from `identity/VOICE.md` at the start of every drafting session. Always re-read the voice file for the current conventions; do not rely on a cached copy here.
 
 ### Output
 

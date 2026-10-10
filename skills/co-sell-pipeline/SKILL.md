@@ -226,46 +226,6 @@ Freshness threshold: 7 days
 Auth: SSO (auto via Chrome session)
 Rock 4 Target: $15M co-sell pipeline by end of Q2 2026
 
-## SKILL COMPLETE
-
-After the skill's final output is delivered, call `skills/eval-signal-write/SKILL.md` with:
-```
-skill_name: "co-sell-pipeline"
-agent: "chase"
-trigger: "manual"   (or "boot"/"scheduled" per the calling context)
-started: <actual start time of this run>
-completed: <actual completion time>
-status: "success"   (or "partial" if the skill completed with degraded output, "failure"
-                      if it could not run at all)
-tool_failures: 0
-error_ids: []
-```
-This call is always the final action.
-
-After that, also write a working memory file to `memory/working/` using this filename pattern:
-
-```
-co-sell-pipeline-YYYY-MM-DD-HHmmss.md
-```
-
-The file must begin with this YAML frontmatter (all fields required):
-
-```yaml
----
-type: working
-task_id: "session"
-session_id: "chase-{YYYY-MM-DD}-{HHmmss}"
-agent-source: chase
-created: {YYYY-MM-DD}T{HH:MM:SS}
-expires: {YYYY-MM-DD+2}T{HH:MM:SS}
-status: active
-context: "Co-sell pipeline snapshot — {YYYY-MM-DD}"
----
-```
-
-Body: 3-5 bullet points summarizing key outputs, decisions, and any flags from this run. Keep it under 200 words.
-
-
 <!-- system:start -->
 ## SKILL COMPLETE
 
@@ -279,7 +239,7 @@ Content:
 ```json
 {
   "skill": "co-sell-pipeline",
-  "agent": "co",
+  "agent": "chase",
   "trigger": "manual",
   "started": "<ISO-8601 timestamp when this skill began>",
   "completed": "<ISO-8601 timestamp when this skill finished>",

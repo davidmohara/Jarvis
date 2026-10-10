@@ -18,7 +18,7 @@ model: sonnet
 5. You MUST include discussion topics with open-ended questions for the partner.
 6. You MUST save to the knowledge base at `working directory/{Partner} - {YYYY-MM-DD}.md`.
 7. Do NOT fill in partner-side columns with guesses. If you don't know, leave it blank and mark it for the partner.
-8. You MUST save the document under one of the verifier's search locations (`outputs/`, `meetings/`, `accounts/`, or the repo root) with the partner's name slug in the filename, and record its path in `state.yaml` `accumulated-context.output_file`. The verifier locates the file on disk (it does not trust a self-reported path) and validates the required section headers directly from content.
+8. You MUST save the document with the partner's name slug in the filename and record its path. See Output Persistence (MANDATORY) below.
 
 ---
 

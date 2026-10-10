@@ -60,80 +60,15 @@ Read both files fully before building the review. Check `last_updated` in benefi
 
 ## EXECUTION
 
-### Step 1 — Credits Dashboard (Per Card)
+Read and follow each step file in order. The step files own the detailed process.
 
-For each card with active credits, produce a table:
+| Step | File | What It Does |
+|------|------|-------------|
+| 1 | `steps/step-01-audit.md` | Read all card data files and build the monthly dashboard: per-card credit usage, zero-usage flags, Discover rotating category, Amex Plat $75K threshold, card-linked offer savings, upcoming deadlines, annual fee ROI |
+| 2 | `steps/step-02-actions.md` | Present action items grouped by urgency and get David's decisions; check data freshness |
+| 3 | `steps/step-03-update.md` | Write new information back to the tracker files; route time-sensitive alerts to Chief |
 
-| Benefit | Total | Used | Remaining | Resets | Status |
-|---------|-------|------|-----------|--------|--------|
-| Resy credit | $100/qtr | $X | $X | Quarterly | 🟢 / 🟡 / 🔴 |
-
-Status codes:
-- 🟢 On track / sufficient time remaining
-- 🟡 Expiring this month or next — action needed
-- 🔴 Expiring within 7 days or already expired with balance remaining
-
-Cards to cover: Amex Platinum, Citi AAdvantage Executive, Atlas Visa Infinite.
-
-### Step 2 — Zero-Usage Flag
-
-Flag any credit with $0 used year-to-date where the reset period means value has already been lost or is about to be lost. These are the leaks.
-
-### Step 3 — Discover Rotating Category Check
-
-From `card-registry.json → rotating_categories`:
-- What is the current quarter's category?
-- Is it activated? (requires manual activation each quarter)
-- What is the next quarter's category (if known)?
-- If unactivated: surface as urgent action item
-
-### Step 4 — Amex Plat $75K Spend Threshold
-
-From `benefits-tracker.json → spend_threshold_tracker.amex_plat_75k`:
-- Current spend vs. $75K target
-- Remaining needed
-- Deadline: December 31
-- Pace assessment: on track / at risk / not achievable without change
-- Unlocks: Centurion Lounge guest access + unlimited Delta Sky Club through Jan 2028
-
-### Step 5 — Card-Linked Offer Savings
-
-From `benefits-tracker.json → card_linked_offers`:
-- Total saved to date (all cards combined)
-- Any offers expiring this month — flag for immediate use or evaluation
-- Any recommended-to-add offers still sitting unacted on — surface with priority
-
-### Step 6 — Upcoming Deadlines
-
-From `benefits-tracker.json → upcoming_deadlines`:
-- List all deadlines within the next 60 days
-- Sort by urgency
-- Call out any that require action before end of month
-
-### Step 7 — Action Item Summary
-
-Produce a prioritized action list:
-
-**URGENT (this week):**
-- [Item]
-
-**THIS MONTH:**
-- [Item]
-
-**NEXT MONTH:**
-- [Item]
-
-**ONGOING:**
-- [Item]
-
-### Step 8 — Data Freshness Check
-
-Check `last_updated` in benefits-tracker.json. If more than 30 days old:
-> "⚠️ Benefits data is X days old. A site walkthrough is needed to refresh Amex Platinum and Atlas portal data. Trigger `card walkthrough` when you have 20 minutes."
-
-### Step 9 — Route to Chief
-
-After completing the review, pass any 🔴 or 🟡 flagged items to Chief for inclusion in the morning briefing cadence. Chief should surface expiring credits in the daily briefing until resolved.
+Read fully and follow: `steps/step-01-audit.md` to begin.
 <!-- system:end -->
 
 ---

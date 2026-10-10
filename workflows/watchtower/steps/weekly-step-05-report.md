@@ -55,16 +55,9 @@ outputs:
 
 ## ⛔ ARTIFACT UPDATE GATE — DO NOT PROCEED PAST THIS LINE UNTIL COMPLETE
 
-This step has repeatedly failed the dashboard artifact update (err-20260831T215941-S03HMB, err-20260716T133503-XFSPE2, err-20261005T131604-Z39OIP, err-20261005T163315-8JTC48). The prior mechanism called `mcp__cowork__list_artifacts` and `mcp__cowork__update_artifact` — tools that do not exist and have never existed in any session. That mechanism is permanently retired.
+The artifact update mechanism is defined in MANDATORY RULE 5 above.
 
-**The correct mechanism:**
-1. Read `config.yaml` → `outputs.weekly_dashboard_artifact_url` for the artifact URL.
-2. Call `Artifact` with `action: "read"` and that URL — get the current HTML.
-3. Update the HTML with this week's block (new week-view div, updated select option, updated runMeta JS).
-4. Write to temp file. Call `Artifact` with `action: "publish"`, `file_path: <temp>`, `url: <artifact_url>`.
-5. If publish is blocked by Cowork session constraint (error contains "approval card"): write the full HTML to `workflows/watchtower/artifact-update/watchtower-weekly.html` as mandatory fallback.
-
-**You may not write the terminal report. You may not update `state.yaml`. You may not write `status: complete` to this file. Until steps 1–4 above have been attempted (success or confirmed Cowork block with fallback file written at step 5).**
+**You may not write the terminal report. You may not update `state.yaml`. You may not write `status: complete` to this file. Until the artifact update has been attempted (success, or confirmed Cowork block with fallback file written).**
 
 ---
 

@@ -37,10 +37,7 @@ How:
 - Thought leadership (speaking, podcast, writing, workshops)
 - Align Texas GTMs
 - Executive AI Workshops
-- "The Improving Edge" Podcast — Season 1 (7 episodes) ✓ COMPLETE (Mar 11, 2026)
-
-### IES Productization
-- Status: Dropped/Completed — no longer active
+- "The Improving Edge" Podcast
 
 ### Active Pursuits
 | Account | Owner | Location |
@@ -55,12 +52,3 @@ How:
 | Expedia | DAARTHUR | Houston |
 | Masimo | — | Houston |
 | Constellation | — | Houston |
-
-### Upcoming Events
-- Small Business AI Workshop — Feb 6, 2026
-- Forbes AI Roundtable — Feb 12, 2026
-- ~~Executive AI Workshop (Dallas) — Feb 26, 2026~~ *(cancelled)*
-- Executive AI Workshop (DRC) — May 21, 2026 — Talk: "The Enterprise Shift" (file: AI for Presentations/Workshop folder)
-- ~~SXSW — Mar 12-18, 2026~~ *(cancelled)*
-- ~~FABCON Atlanta — Mar 18-20, 2026~~ *(cancelled)*
-- Convergence AI Roundtable — Mar 30-31, 2026

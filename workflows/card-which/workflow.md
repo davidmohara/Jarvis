@@ -64,53 +64,9 @@ Read all three files before answering. Never answer from memory alone — data c
 
 ## EXECUTION
 
-### Step 1 — Identify Category
+Read and follow the step file. It maps the purchase to a category, applies the base rate, checks constraints (caps, rotating categories, spend thresholds, card-linked offers, active credits, international FTX), and delivers one direct recommendation.
 
-Map the purchase to a spend category from `optimization-guide.json`: groceries, streaming, gas, transit/rideshare, dining, American Airlines, non-AA flights, hotels, rental cars, online shopping, wireless, Grubhub, or everything else. If the vendor spans multiple categories, use the most specific match.
-
-### Step 2 — Apply Base Rate
-
-Pull best card and earn rate for this category from `optimization-guide.json`.
-
-### Step 3 — Check Constraints and Modifiers
-
-From `card-registry.json` and `benefits-tracker.json`:
-
-- **Amex BCP grocery cap:** 6% up to $6K/year, then 1%. Check if cap is hit.
-- **Discover 5% cap:** Up to $1,500/quarter. Check if cap is hit and if current quarter is activated.
-- **Amex Plat $75K threshold:** Check `spend_threshold_tracker`. If pace note says "Will NOT hit $75K without major change," do not use as a tiebreaker.
-
-### Step 4 — Check Card-Linked Offers
-
-Scan `benefits_usage → card_linked_offers` for all enrolled offers matching this vendor across all cards. A stacking offer changes the answer — always call it out explicitly.
-
-### Step 5 — Check Available Credits
-
-Check `benefits_usage` for any credit that directly offsets this purchase:
-- Citi Grubhub $10/mo → always use Citi for Grubhub
-- Amex Plat Resy $100/quarter → use for eligible Resy restaurant purchases
-- Amex Plat lululemon $75/quarter → use for lululemon purchases
-- Amex Plat digital entertainment $25/mo → use for eligible streaming subscriptions
-- Atlas FUTURE fitness $300/year → use for FUTURE fitness app specifically
-- Citi Lyft $10/mo → use for Lyft (check if Lyft offer is also enrolled to stack)
-
-A credit that offsets the purchase always beats earn rate math.
-
-### Step 6 — Deliver Recommendation
-
-One direct answer:
-
-> **[Card Name].** [Earn rate or credit rationale.] [Stacking opportunity if present.]
-
-Examples:
-- "Amex BCP. 6% back on groceries — best in portfolio for U.S. supermarkets."
-- "Citi. Grubhub $10/mo credit applies — effectively free."
-- "Citi. No bonus category for yoga studios — base spend. Citi 1x AA miles at 1.5–1.7cpp beats 1% cashback."
-- "Amex Plat. lululemon $75/quarter credit — $75 remaining this quarter. Use it."
-
-If a card-linked offer stacks: add "Also: [Card] has a [X%] offer for [Vendor] — confirm it's enrolled."
-
-Never hedge. Never give multiple options without a clear winner. Pick the card and say why.
+Read fully and follow: `steps/step-01-recommend.md` to begin.
 <!-- system:end -->
 
 ---

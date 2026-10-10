@@ -24,7 +24,7 @@ Final verification that personal blocks were preserved, system integrity is inta
 - `files_processed` — From Step 06
 - `personal_blocks_preserved` — From Step 06
 - `personal_block_registry` — From Step 05
-- `benchmark_snapshot` — From Step 04 (eval harness baseline data)
+- `benchmark_snapshot` — Captured by this step (see Process section 3); eval harness baseline for comparative grading
 - `validated_manifest` — From Step 01
 - `snapshot_id` — From Step 03
 - `evolution_id` — From Step 01
@@ -39,7 +39,7 @@ Final verification that personal blocks were preserved, system integrity is inta
 For each file in `personal_block_registry`:
 
 1. Read the deployed file: `{project-root}/{file.path}`
-2. Parse file to extract personal blocks (same logic as Step 04)
+2. Parse file to extract personal blocks (same logic as Step 05)
 3. Compare extracted blocks to original registry:
    - Count must match
    - Content must match (exact string comparison)

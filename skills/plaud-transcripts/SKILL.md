@@ -155,134 +155,9 @@ Plaud recordings sometimes lack clear speaker identification. When speakers are 
 as "Speaker 1", "Speaker 2", etc., keep those labels — the user can rename them later.
 When no speaker labels exist at all, format as continuous text with paragraph breaks.
 
-### 4b. Speaker tagging
+### 4b. Speaker resolution
 
-After parsing transcripts, check for `plaud_*_speakers.json` files in the staging
-folder. These are created by the fetch script when a recording has generic speaker
-labels ("Speaker 1", "Speaker 2", etc.).
-
-**Speaker mapping file structure:**
-```json
-{
-  "file_id": "abc123",
-  "recording_name": "Meeting Title",
-  "all_speakers": [
-    {"name": "Speaker 1", "segments_count": 42, "sample_text": "I think we should..."},
-    {"name": "Speaker 2", "segments_count": 31, "sample_text": "The timeline for..."}
-  ],
-  "untagged_speakers": [...],
-  "known_speakers": [{"speaker_id": "...", "speaker_name": "David O'Hara", "speaker_type": 1, "sample_counts": {"auto": 4, "mark": 3, "me": 0}}, ...],
-  "status": "needs_mapping"
-}
-```
-
-**Workflow:**
-
-1. For each `_speakers.json` file, present the untagged speakers to David with:
-   - Their sample text (first line they spoke — helps identify who's who)
-   - Their segment count (more segments = more talkative)
-   - The list of known speakers in Plaud (for reference)
-   - Calendar attendees for that recording's time slot (if available)
-
-2. Ask David to map each generic label to a real name. Example prompt:
-   ```
-   "Meeting with Todd Wynne" has 2 untagged speakers:
-     Speaker 1 (42 segments): "I think we should look at the AI maturity..."
-     Speaker 2 (31 segments): "The timeline for the POC is..."
-   Calendar attendees: David O'Hara, Todd Wynne
-   Who's who?
-   ```
-
-3. Once David provides the mapping, push the renames to Plaud and re-fetch:
-   ```
-   do shell script "cd <skill-scripts-dir> && /usr/bin/python3 fetch_plaud.py --rename <file_id> '{\"Speaker 1\": \"David O\\x27Hara\", \"Speaker 2\": \"Todd Wynne\"}' 2>&1"
-   ```
-
-4. The `--rename` command (full pipeline):
-   - Extracts voice embeddings from `POST /ai/transsumm/{file_id}` → `data_others.embeddings`
-   - Maps original speaker labels to new names via `original_speaker` field in segments
-   - PATCHes the speaker names in Plaud's transcript via `/file/{file_id}`
-   - Registers each new speaker via `POST /speaker/sync` with their 256-float voice embedding
-     (skips speakers already in the system)
-   - Re-fetches the updated transcript from the API
-   - Overwrites the staged markdown with the updated transcript (now with real names)
-   - Cleans up the `_speakers.json` file
-
-5. Continue processing the updated markdown file as normal (step 5 onward).
-
-**Important — Speaker Voice Registration:** The `--rename` mode now does TWO things:
-1. Renames speaker labels in the transcript (PATCH /file/{file_id} with trans_result)
-2. Registers speakers for future auto-labeling (POST /speaker/sync with voice embeddings)
-
-Voice embeddings are extracted from `POST /ai/transsumm/{file_id}` → `data_others.embeddings`,
-keyed by original speaker label (e.g. "Speaker 2"). The script maps original labels to the
-new names via `original_speaker` field, then syncs each new speaker with their 256-float
-embedding. Once registered, Plaud will auto-recognize that voice in future recordings.
-
-Speakers already in the system are skipped (checked via `/speaker/list`).
-Without this sync step, renames only change text labels — Plaud won't learn the voice.
-
-### 4c. Speaker edge cases — read before presenting mappings to controller
-
-These failure modes have occurred in practice. Check for all of them before asking the
-controller to confirm speaker assignments:
-
-**1. David split across two labels ("O'Hara" + "Speaker N" are the same person)**
-
-Plaud's voice recognition sometimes assigns David to a named label ("O'Hara") for part
-of the recording and a generic label ("Speaker 2") for the rest. Signs:
-- A named label for David exists AND a generic speaker label also has a high segment count
-  with content that clearly sounds like David (first-person Improving context, "I" statements,
-  references to his own clients/meetings)
-- The sample_text for the generic label matches David's speaking style
-
-If this occurs, include the mis-label in the `--rename` call mapping it to "David O'Hara".
-The script will merge the voice embeddings under the correct identity.
-
-**2. Known speaker wrongly assigned to a different person (voice mis-tag)**
-
-Plaud's voice profile matching is imperfect. A registered speaker (e.g. "Robyn Fuentes")
-may appear in a recording they were not in. Signs:
-- The speaker's name does not appear in the calendar attendee list
-- The controller confirms that person was not on the call
-- The sample text doesn't match that person's known role or topics
-
-If this occurs, include the wrongly-tagged name in the `--rename` call, mapping it to the
-correct person. The `--rename` script handles renaming existing named labels, not just
-generic ones.
-
-**3. Recording timestamp does not align with any calendar event**
-
-Plaud timestamps are in UTC. The recording may start before or after a calendar event's
-scheduled time. When no event covers the timestamp exactly:
-- Expand the search window to ±45 minutes (not just ±15)
-- Check whether the recording duration would place it *ending* during a known event
-  (recording starts 30 min early = pre-call warmup)
-- Check the recording title — Plaud auto-generates titles from content, which can identify
-  the meeting even without a calendar match
-- If still no match, present the recording timestamp (converted to CDT) and duration to
-  the controller and ask which meeting it corresponds to
-
-**4. Caller set differs from calendar invite**
-
-The calendar attendee list is the invite, not the actual participants. People drop off,
-join late, or join without a calendar event. Always present `all_speakers` segment counts
-and sample text alongside the calendar attendees — the controller may know someone joined
-who wasn't on the invite, or may exclude someone who didn't actually speak.
-
-**5. Sample text from `_speakers.json` is too short to identify a speaker**
-
-The `sample_text` field is a brief excerpt. If it's ambiguous (e.g. "I understand," or
-"All right,"), pull additional lines from the `.md` transcript file directly before
-presenting to the controller. Use this pattern:
-
-```python
-# Search the .md for all lines attributed to that speaker
-grep -n "**SpeakerName**" transcript.md | head -10
-```
-
-Or read the `.md` file and extract the first 5 lines spoken by that label. More context
-almost always resolves ambiguity without needing to ask the controller.
+Speaker resolution: read and follow `skills/plaud-speaker-id/SKILL.md`.
 
 ### 5. Route and write
 
@@ -328,9 +203,7 @@ Compare the list of file IDs that were just processed against the full recording
 
 If reconciliation finds unprocessed transcripts: process them before cleanup. Do NOT clean staging until reconciliation confirms zero unprocessed transcripts.
 
-> **WHY THIS EXISTS:** A prior bug (err-20260522T191304-TO2VXV + related) caused staging cleanup to run after the first batch, discarding transcripts that hadn't been processed yet. Reconciliation is the gate that prevents this.
-
-### 7b. Clean up staging
+### 8. Clean up staging
 
 After reconciliation confirms a full run:
 1. Delete the processed `plaud_*.md` files from staging
@@ -340,7 +213,7 @@ After reconciliation confirms a full run:
 
 Report what was cleaned up.
 
-### 7. Report
+### 9. Report
 
 ```
 Processed X Plaud recordings:
@@ -501,10 +374,7 @@ no clear title), so lean more heavily on transcript content analysis for tagging
 - Filename collision with Teams note → ask user: merge, rename with (Plaud) suffix, or skip
 - Bearer token expired or missing → run the Chrome login flow (see above), then retry the fetch
 - **Transcription trigger returns `status=-1` or `status=-12` with `start trans task error`** →
-  This almost certainly means **the Plaud account is out of transcription minutes**. Do NOT
-  debug API parameters, inspect `ori_ready`, or write test scripts. Ask David first: "Are you
-  out of Plaud transcription minutes?" If yes, the recordings must wait until minutes are
-  replenished (new billing cycle or plan upgrade). Log the pending recordings and move on.
+  read and follow `skills/plaud-trigger/SKILL.md`.
 - Transcript generation pending → fetch script writes to `plaud_pending.json` instead of a
   markdown file. Next fetch run re-checks pending recordings automatically. If pending > 24h,
   flagged as potentially failed generation in the fetch report.

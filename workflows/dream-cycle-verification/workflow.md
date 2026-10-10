@@ -16,13 +16,9 @@ model: sonnet
 
 **Adversarial lens (dream-cycle):** Memory-conservation accounting. The producing agent (Jarvis) summarizes what it believes it archived, promoted, and compressed; Ralph re-derives each claim from the recorded evidence: the step frontmatter outputs, `workflows/dream-cycle/state.yaml`, `memory/dream.log`, and the real `memory/working/` and `memory/episodic/` trees. This is the dream-cycle lens in `agents/adversarial-isolation.md`.
 
-## Lens checklist (what Ralph checks that the producer structurally cannot)
+## Lens checklist
 
-1. **Zero silent drops:** every file the cycle reported archived is gone from `memory/working/` and present in `memory/episodic/` (or accounted for in a digest); no working-memory entry vanished without being named in a step output.
-2. **Promoted preserved:** no entry with `salience.promoted: true` or `salience.score >= 2` was deleted by compression - the exclusion rule held.
-3. **Compression ordering:** every compressed source has a matching `### ` digest entry written before the source file was removed.
-4. **Semantic targets exist:** every `cluster_actions[].target` in step-03 exists under `memory/semantic/`.
-5. **Log is true:** the dream.log entry for this run matches the step outputs (counts, session_id, run date) - no overstated summary.
+Ralph's lens checklist (what he checks that the producer structurally cannot) is owned by `steps/step-01-verify.md`. Do not duplicate it here.
 <!-- system:end -->
 
 <!-- personal:start -->

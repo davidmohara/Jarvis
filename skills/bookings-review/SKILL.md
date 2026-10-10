@@ -122,45 +122,6 @@ Mechanics: `skills/powerbi-navigate-slicer/SKILL.md` (`connector: "playwright"`)
 Connector: Playwright MCP (`mcp__playwright__*`)
 Auth: SSO (auto)
 
-## SKILL COMPLETE
-
-After the skill's final output is delivered, call `skills/eval-signal-write/SKILL.md` with:
-```
-skill_name: "bookings-review"
-agent: "chase"
-trigger: "manual"   (or "boot"/"scheduled" per the calling context)
-started: <actual start time of this run>
-completed: <actual completion time>
-status: "success"   (or "partial"/"failure" as appropriate)
-tool_failures: 0
-error_ids: []
-```
-This call is always the final action.
-
-After that, also write a working memory file to `memory/working/` using this filename pattern:
-
-```
-bookings-review-YYYY-MM-DD-HHmmss.md
-```
-
-The file must begin with this YAML frontmatter (all fields required):
-
-```yaml
----
-type: working
-task_id: "session"
-session_id: "chase-{YYYY-MM-DD}-{HHmmss}"
-agent-source: chase
-created: {YYYY-MM-DD}T{HH:MM:SS}
-expires: {YYYY-MM-DD+2}T{HH:MM:SS}
-status: active
-context: "Bookings review — {YYYY-MM-DD}"
----
-```
-
-Body: 3-5 bullet points summarizing key outputs, decisions, and any flags from this run. Keep it under 200 words.
-
-
 <!-- system:start -->
 ## SKILL COMPLETE
 
@@ -174,7 +135,7 @@ Content:
 ```json
 {
   "skill": "bookings-review",
-  "agent": "bookings",
+  "agent": "chase",
   "trigger": "manual",
   "started": "<ISO-8601 timestamp when this skill began>",
   "completed": "<ISO-8601 timestamp when this skill finished>",

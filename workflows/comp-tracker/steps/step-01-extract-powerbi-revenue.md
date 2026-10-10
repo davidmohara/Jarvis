@@ -169,10 +169,6 @@ Click "2026" with cliclick.
 **Step C — Verify:**
 Call `get_page_content`. The slicer line should read "Date\n2026" or "Date 2026". If it still reads "All" after 2 attempts, document `customer_distribution_slicer_set: false` and see fallback below.
 
-**Known confirmed coordinates (2026-04-23, may shift with window resize):**
-- Slicer click: page coords approx (1264, 112) → screen (1264, 266)
-- "2026" option: page coords approx (1286, 155) → screen (1286, 309)
-
 Document in state.yaml: `customer_distribution_slicer_set: true`
 
 ---
@@ -189,11 +185,10 @@ The page shows four sub-tables when "Show visuals as tables" is enabled:
 
 Read the **Combined** section for named account YTD revenue. Use per-city sections to confirm office assignment only.
 
-**Confirmed 2026 data format:**
+**Data format:**
 ```
-Customer Name    Dallas
-MasterCard       $1,864,184
-Wendy's International, LLC  $1,131,915
+Customer Name    <office>
+<Account Name>   $<amount>
 ...
 ```
 Values are exact dollars (not truncated) when "Show visuals as tables" is active.

@@ -55,7 +55,7 @@ model: sonnet
 3. You MUST check the previous prep brief for carryover items. If a previous brief exists, read it fully.
 4. You MUST capture specific dates, names, and content from each communication. Vague summaries are a failure.
 5. Do NOT proceed to step 03 until all communication data is gathered and structured.
-6. You MUST persist the `communication_data` block to `state.yaml` under `accumulated-context.communication_data` and mirror the identical structure in this step file's frontmatter `outputs` field before marking the step complete. The verifier reads `accumulated-context.communication_data` and requires the keys `email_threads`, `teams_messages`, and `shared_calendar_events` to be present; empty lists are valid, a missing key is not.
+6. You MUST persist the `communication_data` block before marking the step complete. See Output Persistence (MANDATORY) below.
 
 ---
 

@@ -17,7 +17,6 @@ outputs: {}
 4. You MUST generate 3-5 anticipated questions based on topic, audience, and knowledge layer context.
 5. All points MUST match the executive's voice profile — phrasing must sound like the executive.
 6. Do NOT format for context in this step. Generation only.
-7. You MUST persist the `talking_points` block to `state.yaml` under `accumulated-context.talking_points` and mirror the identical structure in this step file's frontmatter `outputs` field before marking the step complete. The verifier reads `accumulated-context.talking_points.points` and requires at least 3 entries; it reads `anticipated_questions` alongside. It also accepts this step's frontmatter `outputs` or the delivered document as fallbacks, but the structured block is the primary contract and must be written.
 
 ---
 

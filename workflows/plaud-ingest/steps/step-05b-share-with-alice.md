@@ -30,19 +30,6 @@ outputs:
     in text_mm50v09n, task ID confirmed). delivery-router skill not in this session's
     skill list; direct MCP call used with the step's documented config, matching the
     09-17 run's actual path.
-  notes_prior_run: >
-    pi-20260917-001: 2 work recordings processed (e2d6f3c0cfe76328329cd273da8d55cb
-    "09-16 Weekly Meeting: P2 AI Project Plan, Model Testing, and Scope Risks";
-    468619c94a7b254df711c693d8e561a4 "09-17 GEHC AI Routing weekly sync"). No personal
-    recordings (0 skipped). `fetch_plaud.py --share` returned real SHARE_URLs for both
-    on the first attempt. Monday task creation via mcp__claude_ai_monday_com__create_item
-    on board 18420619069 group new_group29179 succeeded for both: task 13071539496 (SST)
-    and 13071504312 (GEHC), both assigned Owner = Alice Mburu (107886956), Status Not
-    Started, Notes = share URL. Gate 6 result: PASS for both. Note: an earlier interim
-    conclusion in this run (Monday MCP unavailable, inferred from ~/.claude.json) was
-    wrong; the Monday MCP is connected and authenticated this session. The 9 step-05
-    action items remain logged for manual creation (step-05 routes those separately from
-    these two review tasks).
 ---
 
 <!-- system:start -->
@@ -156,19 +143,9 @@ outputs:
 
 ---
 
-## QUALITY GATE 6 — Delivery Routing Confirmation (HARD, PER-RECORDING, RENAMED FROM "SLACK ROUTING")
+## QUALITY GATE 6 — Delivery Routing Confirmation (HARD, PER-RECORDING)
 
-**Naming note for future editors:** this gate was originally specified as a "Slack routing
-decision" gate. That does not match this workflow — there is no Slack delivery anywhere in
-plaud-ingest today (confirmed by grep across `workflow.md` and every step file; the only
-Slack usage in this repo is `master-slack` and other workflows entirely). The actual terminal
-delivery in this step is a Plaud public share link plus an unassigned Monday review task that
-Alice Mburu triages and assigns in Monday — not an email send either, despite the workflow's own goal
-statement in `workflow.md` describing it as "share... via email." Rather than inventing new
-Slack (or email) behavior that doesn't exist, this gate confirms the delivery path that
-**actually runs**: the share-link generation and the Monday review-task creation. If David wants a
-real email notification or a Slack alert added on top of this, that is new functionality and
-a product decision for him, not something to add silently under a gate.
+This workflow has no Slack or email delivery: the gate confirms the delivery path that actually runs, the Plaud public share link plus the unassigned Monday review task Alice Mburu triages.
 
 Before marking a recording's delivery complete, confirm for each recording processed in step
 4 above, reading from `delivery-router`'s returned `delivery_status` entry rather than

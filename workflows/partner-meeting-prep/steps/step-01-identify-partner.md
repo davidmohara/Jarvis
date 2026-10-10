@@ -17,7 +17,7 @@ model: sonnet
 4. You MUST search the knowledge layer for previous partner meeting notes and prep docs.
 5. Do NOT guess partner contacts or meeting details. If calendar search fails, ask the controller.
 6. Do NOT proceed to step 02 until you have: partner name, meeting date, attendees, and format.
-7. You MUST persist the `partner_details` block to `state.yaml` under `accumulated-context.partner_details` and mirror the identical structure in this step file's frontmatter `outputs` field before marking the step complete. The verifier reads `accumulated-context.partner_details` and requires a non-empty `company`; a flat summary (partner name stored at the top level of accumulated-context) fails verification.
+7. You MUST persist the `partner_details` block before marking the step complete. See Output Persistence (MANDATORY) below.
 
 ---
 

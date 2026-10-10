@@ -19,7 +19,7 @@ model: sonnet
 
 ---
 
-## COMP 1 — BoB SHEET LAYOUT (verified 2026-04-22)
+## COMP 1 — BoB SHEET LAYOUT
 
 ### Section A: Named Account YTD Table (rows 4–25)
 
@@ -275,7 +275,3 @@ accumulated-context:
 → `step-04-extract-update-comp2.md`
 
 <!-- system:end -->
-
-## EXECUTION PROTOCOL
-
-**Agent:** Chase, spawned by the coordinator, never executed inline

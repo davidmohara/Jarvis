@@ -178,6 +178,8 @@ Content:
 
 Set `trigger` to `"boot"` when called from the morning briefing sequence, `"manual"` when called on demand. Set `status` to `"partial"` if WHOOP data was unavailable or incomplete, `"failure"` if the skill could not run. Use the actual start time of this skill execution for `started`. This write is always the final action.
 
+<!-- system:end -->
+
 <!-- system:start -->
 ## GRADE THIS RUN
 

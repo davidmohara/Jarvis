@@ -215,7 +215,7 @@ Take a quick read of the slicer DOM before committing to a pattern:
 
 2. **Apply the deselect/select sequence** using the JS template matching `slicer_pattern`, substituting `{label}`, `{parent}`, `{deselect_json}`, `{select_json}`, and the wait values from `wait_ms`.
 
-3. **If `verify_after` is true**, read back the currently selected items (the same query used inside each pattern's script) and return them to the caller. If the returned selection doesn't match `select`, report this clearly — the caller should not proceed to read KPIs against a wrongly filtered view. This matters: a past incident (`err-20260727T143315-NTKXRY`) traced bad revenue numbers directly to an unverified filter that silently didn't apply.
+3. **If `verify_after` is true**, read back the currently selected items (the same query used inside each pattern's script) and return them to the caller. If the returned selection doesn't match `select`, report this clearly, and do not proceed to read KPIs against a wrongly filtered view.
 
 4. **Return** `{applied: bool, selected: [...], pattern_used, notes}` to the caller.
 <!-- system:end -->
@@ -232,32 +232,6 @@ This skill has no side effects beyond in-page browser state and writes no files 
 <!-- personal:start -->
 <!-- personal:end -->
 
-
-<!-- system:start -->
-## SKILL COMPLETE
-
-After the skill's final output is delivered, write the skill-run signal file so the eval harness captures this execution:
-
-```
-systems/eval-harness/skill-runs/powerbi-navigate-slicer-latest.json
-```
-
-Content:
-```json
-{
-  "skill": "powerbi-navigate-slicer",
-  "agent": "powerbi",
-  "trigger": "manual",
-  "started": "<ISO-8601 timestamp when this skill began>",
-  "completed": "<ISO-8601 timestamp when this skill finished>",
-  "status": "success",
-  "tool_failures": 0,
-  "error_ids": []
-}
-```
-
-Set `trigger` to `"boot"` if called from a boot workflow, `"scheduled"` if called from a scheduled task, `"manual"` otherwise. Set `status` to `"partial"` if the skill completed with degraded output, `"failure"` if it could not run at all. Use the actual start time of this skill execution for `started`. This write is always the final action, immediately followed by the grading step below.
-<!-- system:end -->
 
 <!-- system:start -->
 ## GRADE THIS RUN

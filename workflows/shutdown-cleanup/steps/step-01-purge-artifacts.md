@@ -141,7 +141,7 @@ model: sonnet
    - Move or delete it before proceeding — do not commit with it present
    - If genuinely uncertain, surface it to the controller for a disposition decision before committing
 
-   **This check has failed silently twice** (Springline docx files June 2026, system-eval-workspace May–June 2026). A non-canonical root entry is always a mistake. There is no scenario where a new top-level directory is legitimately created and doesn't get moved within the same session.
+   A non-canonical root entry is always a mistake. There is no scenario where a new top-level directory is legitimately created and doesn't get moved within the same session.
 
 ---
 

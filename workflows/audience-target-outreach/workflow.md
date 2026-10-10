@@ -42,22 +42,9 @@ runs as step 4, between drafting and sending.
 <!-- system:start -->
 ## INITIALIZATION
 
-### Why This Exists
+### Send Path
 
-A grounded episode brief is only valuable if it turns into real outreach to
-real people — and that outreach has to be attributable, not a pile of personal
-emails David can't tie back to a campaign later. This workflow exists to
-guarantee: real accounts and contacts (never invented), content held to the
-same quality bar as `harper-email`, and a send path that is CRM-native by
-design so response tracking actually works.
-
-**Send path — read before touching this workflow:** Outbound send goes through
-a Dynamics **Customer Insights – Journeys** Segment/Journey, never through
-Outlook or Superhuman. This is deliberate, not a placeholder to be
-"reconciled" later — see `skills/campaign-setup/SKILL.md` and
-`skills/campaign-send/SKILL.md` for the full rationale. David's personal
-email drafting via `harper-email` is untouched and still used for everything
-else.
+Outbound send goes through a Dynamics **Customer Insights – Journeys** Segment/Journey, never through Outlook or Superhuman. Personal email drafting via `harper-email` is untouched. See `skills/campaign-setup/SKILL.md` and `skills/campaign-send/SKILL.md`.
 
 ### Data Sources Required
 

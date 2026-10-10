@@ -24,14 +24,7 @@ consumer should hold its own OmniFocus query.
 
 ## Why this skill exists
 
-OmniFocus is read by roughly thirty skills, six agents, and eight workflows.
-Before this skill, its extraction logic was re-derived from scratch by an agent
-on every boot, and four other files each carried their own copy of the query
-logic. That drift produced real failures on 2026-09-16: a query that returned
-247 completed tasks, and invented filter keys that shipped before being caught.
-
-The fix is that the invariants below live in code, not in prose that each
-consumer re-reads and re-interprets.
+Use this skill's script for every OmniFocus read: the invariants below live in code, not in prose each consumer re-implements.
 
 ## Two paths, and which to use
 
@@ -81,39 +74,7 @@ answer does not depend on which backend happened to answer.
 
 ## Counts mean open work, not rows
 
-`total_uncompleted` counts real open tasks: no project-root rows, and nothing
-inside an archived folder. This matters more than it sounds.
-
-`count of (flattened tasks whose completed is false)` — the obvious
-implementation, and the one this skill originally shipped — returns **258** on
-this database. The honest number is **136**, and the 122-row gap is two
-separate traps:
-
-- **`flattened tasks` includes each project's root row.** 49 of them here,
-  each carrying `completed: false`. The MCP's task query returns these too,
-  which is why project names show up in task listings; the script subtracts
-  them.
-- **Archiving a folder in OmniFocus does not complete its tasks.** The 21
-  projects inside the hidden `Archive` folder hold 73 tasks that stay
-  `completed: false` forever. OmniFocus's own UI treats them as dropped, and
-  so does the MCP.
-
-Measured 2026-09-16: `258 = 136 open + 73 archived + 49 project roots`.
-
-Two consequences worth knowing. A consumer that reads `total_uncompleted` as
-"how much work is on my plate" was previously reading a number ~90% too high.
-
-The second is `projects`. AppleScript's `status is active status` returns **30**
-active projects; the honest answer is **27**. The three extras — `Find new
-doctor`, `Build measuring board`, `Personal` — are marked active but sit inside
-the archive, so they are not real targets for new work. The AppleScript path
-now excludes them the same way the MCP does, because this command feeds the
-project-assignment gate in `omnifocus-tasks`: a gate that offers an archived
-project as a target is worse than no gate.
-
-`inbox_uncompleted`, `flagged_uncompleted`, `overdue_uncompleted`,
-`completed_today` and `due_within_7` are unaffected: no project root has a due
-date or a flag, so both backends already agreed on them.
+`total_uncompleted` counts real open tasks: no project-root rows, and nothing inside an archived folder. A raw `flattened tasks` count inflates this badly (measured 258 vs. the honest 136). `projects` likewise excludes projects that sit inside the archive even when flagged active.
 
 ## The pull
 

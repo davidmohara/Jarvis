@@ -111,7 +111,7 @@ That command writes `data/omnifocus-unified.json` and is the single writer for i
 
 For ad-hoc reads inside this step, use the same skill: `list --kind inbox`, `list --kind due`, `counts`. Prefer the script over the MCP for every read here, because it does not depend on MCP session state and boot runs unattended. If the MCP does happen to be connected, the two agree on counts, tags and projects — and note that its `query_omnifocus` returns a display rendering that omits notes, so it cannot stand in for the pull.
 
-Why this is delegated rather than inlined here: OmniFocus query logic previously lived in five separate places and drifted, producing a 247-completed-task query and invented filter keys on 2026-09-16. The filter and the `status` contract now live in code. See `skills/omnifocus-data/SKILL.md`.
+Why this is delegated rather than inlined here: the filter and the `status` contract live in code. See `skills/omnifocus-data/SKILL.md`.
 
 **Output file:** `data/omnifocus-unified.json`
 **What to pull:**
@@ -332,24 +332,6 @@ Read fully and follow: `step-01.5-unified-calendar-pull.md`
 
 All downstream steps (phase 2 through phase 5) will read from these consolidated files instead of calling APIs.
 
----
-
-## Implementation Notes for Consuming Steps
-
-**After this step completes, all other steps should be updated to read from files instead of calling APIs:**
-
-### Boot Step-02 (Phase 2)
-- Task H (Email triage): Read from `data/email-unified.json` (not M365)
-- OmniFocus data: Read from `data/omnifocus-unified.json` (not OmniFocus API)
-
-### Morning Briefing
-- Step-02 (Task gather): Read from `data/omnifocus-unified.json`
-- Step-04 (Synthesis): Include Clay data from `data/clay-reminders-unified.json`
-
-### Jarvis Inbox Skill
-- Instead of reading /Jarvis folder, read from `data/jarvis-inbox-unified.json`
-
-This pattern: **one pull per data source → all consumers read from shared file**
 <!-- system:end -->
 
 <!-- personal:start -->

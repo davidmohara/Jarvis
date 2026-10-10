@@ -33,31 +33,6 @@ outputs:
     this run staged exactly 1 recording, fully processed; staging cleanup removed the
     2 files staged this run; pre-existing 132-file backlog untouched per standing
     cleanup-backlog flag. Follow-up intelligence in final report.
-  notes_prior_run: >
-    pi-20260917-001: 1 recording ingested (e2d6f3c0cfe76328329cd273da8d55cb,
-    "09-16 Weekly Meeting: P2 AI Project Plan, Model Testing, and Scope Risks"),
-    classified work (Simpson Strong-Tie client weekly), filed to
-    zzPlaud/Client/2026-09-16 SST AI Takeoff Weekly - P2 AI Project Plan, Model
-    Testing, and Scope Risks.md. All 7 generic speaker labels resolved to real
-    names in step-03 and step-04; final transcript has 0 generic labels. Matched
-    to calendar event "AI Takeoff Weekly Touch - Improving & SST" (organizer
-    givelasquez@strongtie.com, 15:00-15:45 UTC) for real title/attendees/time.
-    duration_minutes computed as 2683s / 60 = 44.7. Gate 5 verified: read back
-    the note, confirmed file exists with file_id/date/duration_minutes/source/tags
-    frontmatter and full transcript under a details block. Daily note
-    Calendar/2026/09-September/2026-09-16.md already existed; appended wikilink.
-    Monday task creation NOT possible this run: the create_item tool for board
-    18420619069 is not reachable in this session (no authenticated Monday MCP; only
-    the unauthenticated claude_ai monday_com OAuth connector is present, same
-    failure as the 2026-09-14 run). Per the documented Monday failure mode, 5 action
-    items logged in the final report for manual creation rather than blocking the
-    vault write. Staging cleanup: removed the 2 files I staged this run (.md and
-    _raw.json); the stale _ogg file from --rename was already removed in step-04;
-    plaud_pending.json left intact (holds the pending 09-17 recording queue entry).
-    The pre-existing 132-file staging backlog was not touched (already-ingested
-    leftovers, separate cleanup backlog). Follow-up intelligence: Friday 2026-09-18
-    acceptance-testing deadline and Tuesday 2026-09-22 architecture/implied-beam
-    answer deadline surfaced as lead follow-ups.
 ---
 
 <!-- system:start -->

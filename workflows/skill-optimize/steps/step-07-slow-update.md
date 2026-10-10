@@ -8,8 +8,6 @@ outputs:
   slow_update_validated: false
 ---
 
-**Agent:** Rigby, spawned by the coordinator, never executed inline
-
 <!-- system:start -->
 ## MANDATORY EXECUTION RULES
 

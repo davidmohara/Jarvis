@@ -17,10 +17,7 @@ model: sonnet
    `override_instructions` or the ranked `top_options` specify a target date, and the
    ChronoGolf 8-day booking window does not yet include that date, this is NOT a signal to
    book the nearest available date instead. David's explicit instruction on the date and time
-   is authoritative and must be followed exactly, or not at all. See
-   `systems/error-tracking/entries/err-20260813T122205-D64IQ7.json` for the incident this
-   guards against. **This is Quality Gate 1 below — it is the single most important rule in
-   this entire workflow.**
+   is authoritative and must be followed exactly, or not at all.
 
 ---
 

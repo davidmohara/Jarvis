@@ -1,8 +1,8 @@
 # IES Agent Manifest
 
-**Established:** 2026-10-08 (Phase 5A, Stage 5 remediation) · **Maintained by:** Rigby · **Companion docs:** `agents/routing.md` (dispatch rules), `agents/adversarial-isolation.md` (adversarial layer), `agents/conventions.md` (shared protocols)
+**Maintained by:** Rigby · **Companion docs:** `agents/routing.md` (dispatch rules), `agents/adversarial-isolation.md` (adversarial layer), `agents/conventions.md` (shared protocols)
 
-## Dispatch model (post coordinator-purity refactor, 2026-10-08)
+## Dispatch model
 
 The coordinator is Jarvis, the Master agent (`agents/master.md`). Jarvis routes, synthesizes across domains, and spawns sub-agents: it does not execute specialist tasks itself. Every workflow step names the agent that owns it and runs as a spawned sub-agent, never inline in the coordinator's session (documented exceptions: `workflows/boot/steps/step-01-load-context.md`, where boot context must land in the coordinator's own session, and the Master-owned error-log write sanctioned by `agents/conventions.md`). Git operations run only through `skills/git/SKILL.md` under Rigby. OmniFocus task creation runs only through `skills/omnifocus-tasks/SKILL.md`.
 
@@ -26,10 +26,3 @@ The coordinator is Jarvis, the Master agent (`agents/master.md`). Jarvis routes,
 
 - **David O'Hara** — the human operator/controller. Not an agent. He is the punch-out target for escalations, the approver of gated actions (new OmniFocus projects/tags, evolutions, PRs), and the source of corrections logged to `systems/error-tracking/`.
 - **Verification loops** — the eval harness's guardrail/assertion machinery (`systems/eval-harness/`) is deterministic infrastructure, not an agent. Ralph is the agent that operates boot verification.
-
-## Ownership decisions recorded at manifest creation
-
-1. **shutdown-cleanup** belongs to Rigby end-to-end (frontmatter and registry aligned 2026-10-08; see `agents/master.md` Task Portfolio). Previously misregistered to Master.
-2. **boot step-01** (context load) is the one documented inline exception: context must land in the coordinator's session.
-3. **Master-owned error-log write** (`systems/error-tracking/entries/`) is a knowing exception sanctioned by `agents/conventions.md`.
-4. Residual purity risks awaiting David's decision are listed in `projects/stage5-certification-remediation.md` (personal-block exit instruction still describes direct staging by Master).

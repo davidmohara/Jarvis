@@ -21,7 +21,7 @@ outputs:
 2. Use the Obsidian MCP server for vault writes — do NOT write to filesystem vault paths directly.
 3. Filename format: `YYYY-Www.md` (ISO week number, zero-padded). Use the week of the run date.
 4. If the weekly note already exists (re-run), overwrite it.
-5. **Also update the Watchtower Weekly artifact** (`watchtower-weekly`) with the W40 week block — both the vault note AND the artifact are required outputs of this step.
+5. **Also update the Watchtower Weekly artifact** (`watchtower-weekly`) with the current week's block — both the vault note AND the artifact are required outputs of this step.
 6. Write `status: complete`, `completed-at`, and `outputs` when done.
 
 ---
@@ -120,7 +120,7 @@ outputs:
    - Update the header `run-meta` default text
    - Draft path links: use `obsidian://open?vault=IES&file=Mind%2FPosts%2F<filename>` format for confirmed vault drafts
 
-   Week-view structure (follow W38/W39 pattern):
+   Week-view structure (follow the most recent week-view pattern):
    - Action banner (themes count, batch status, one-line summary)
    - Dropped-themes banner (if any themes dropped)
    - Stats row (themes / content drafts / sources proposed)

@@ -56,7 +56,7 @@ applies even when a controller has pre-approved a whole batch's content).
 2. **Confirm the target contact and Journey.** Re-read the Contact record and
    Journey identifiers passed in — do not proceed from a cached assumption
    about which record is which if any ambiguity exists (e.g. duplicate
-   contact records, per the CBRE unmerged-account lesson).
+   contact records).
 
 3. **Create/update the Email asset** for this contact's journey step in
    Customer Insights – Journeys, using the approved subject and body from
@@ -110,7 +110,7 @@ fire a send based solely on earlier content approval or a batch-level
 | Failure | Action |
 |---------|--------|
 | Sending domain/email channel not configured or no longer verified at send time | Stop before any send. Report the gap. Do not send anyway. |
-| Contact record is ambiguous/duplicated (per CBRE unmerged-account pattern) | Stop, flag the duplicate, ask the controller which record is correct before sending. |
+| Contact record is ambiguous/duplicated | Stop, flag the duplicate, ask the controller which record is correct before sending. |
 | Controller says "no" or doesn't respond to a confirmation prompt | Do not send. Halt the loop and surface remaining unconfirmed contacts. |
 | Send appears to fail (UI error, timeout) | Do not retry silently — report the failure for that specific contact and move to the next only with controller direction. |
 | Email insights don't show the expected sent status after send | Flag as unverified — do not report success without confirmation. |

@@ -36,15 +36,6 @@ each doing one thing against one source:
 <!-- system:start -->
 ## INITIALIZATION
 
-### Why This Exists
-
-David wants a repeatable way to turn a podcast episode — starting with The
-Improving Edge, but usable for any episode/URL — into a grounded starting
-point for inbound-lead-generation outreach, without ever inventing a service
-Improving doesn't actually sell or a pain point the episode didn't actually
-raise. This workflow's entire output is the evidence trail: quotes, ICP
-reasoning, and cited offering documents.
-
 ### Data Sources Required
 
 | Source | What to Pull | Access Method |

@@ -18,7 +18,7 @@ model: sonnet
 5. You MUST include accounts where only ONE side is engaged -- these are expansion opportunities.
 6. Do NOT fabricate account data. If CRM is unavailable, work from email threads and the controller's knowledge.
 7. Do NOT proceed to step 03 until the overlap table structure is complete.
-8. You MUST persist the `account_overlap` block to `state.yaml` under `accumulated-context.account_overlap` and mirror the identical structure in this step file's frontmatter `outputs` field before marking the step complete. The verifier reads `accumulated-context.account_overlap` and requires the keys `group_1_active`, `group_2_target`, and `group_3_partner`; it also cross-checks `summary.total_accounts` against the actual combined length of the three groups, so the count must be computed from the lists, not asserted.
+8. You MUST persist the `account_overlap` block before marking the step complete. See Output Persistence (MANDATORY) below.
 
 ---
 

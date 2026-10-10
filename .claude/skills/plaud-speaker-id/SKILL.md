@@ -26,8 +26,7 @@ Read and execute `skills/plaud-speaker-id/SKILL.md` — in order: the step 0
 self-identification transcript scan runs BEFORE any calendar lookup, and a calendar
 subject-line mismatch alone is never sufficient grounds to escalate to David (check
 attendees and adjacent events first, per the Search Discipline rule). Escalating without
-completing both checks first is the exact recurring failure this skill exists to prevent
-(`err-20260831T145747-LDPD1Q`, `err-20260831T145748-3SVX4A`).
+completing both checks first is the exact recurring failure this skill exists to prevent.
 <!-- system:end -->
 
 <!-- personal:start -->

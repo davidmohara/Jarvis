@@ -67,8 +67,7 @@ target_accounts:
 2. **CRM first.** Search Dynamics (via Chrome/Playwright browser automation —
    there is no API/MCP connector today) for accounts matching the audience
    profile's industry and size band. This is a read-only query.
-   - If a login wall or expired SSO session is hit (the CBRE-session failure
-     mode), do not silently fail: flag it to the controller — "CRM session
+   - If a login wall or expired SSO session is hit, do not silently fail: flag it to the controller — "CRM session
      appears logged out — confirm you're signed into
      improving.crm.dynamics.com and I'll retry" — and retry once confirmed.
      Do not fabricate CRM data or proceed as if CRM returned nothing when the

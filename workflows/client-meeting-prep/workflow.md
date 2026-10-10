@@ -22,8 +22,6 @@ model: sonnet
 6. **Adversarial verification**: Ralph cross-checks the prep sheet against source data (every attendee/company fact traced to calendar, email, or CRM; no invented attendees) and records the `adversarial-verification` checkpoint.
 
 No user interaction required until the prep sheet is delivered, except where a step's Failure Modes require surfacing an unresolved gap.
-
-**Why this order matters:** This workflow was rebuilt on 2026-07-20 after a moderate-severity error (`err-20260720T144623-LSBA9A`) in which a prep sheet was built from web research and calendar data alone. The agent invented a sales-prospect narrative, misidentified the company (an acronym collision), and stated the wrong title for the attendee — all because the actual introduction email thread was never checked. The systemic fix: **email/calendar evidence is the source of truth for why a meeting exists; web research fills in identity and company context around that truth, never in place of it.**
 <!-- system:end -->
 
 <!-- personal:start -->

@@ -24,14 +24,6 @@ data as the primary signal and controller input as the fallback.
 scan the transcript for self-identification, then query the calendar, before asking the
 controller. No exceptions, and in that order.**
 
-This is a three-part gate. The embedding-match part was added 2026-09-02
-(`err-20260902T160425-E9B7YR`) after Knox escalated a 3-way speaker ambiguity to the
-controller without first checking whether Plaud itself already had the answer: every
-unresolved speaker in that recording matched an existing registered profile at ~1.0
-cosine similarity (exact match) via `get_speaker_embeddings()` compared against
-`list_speakers()` — Plaud had already identified them, and in fact the recording's
-`trans_result` already carried the real names. No controller input was needed at all.
-
 0. **Voice-embedding match against registered speakers, first, always.** Before scanning
    the transcript or touching the calendar, call `get_speaker_embeddings(token, file_id)`
    to get the 256-dim voice embedding for every generic-labeled speaker in the recording,
@@ -53,24 +45,12 @@ cosine similarity (exact match) via `get_speaker_embeddings()` compared against
    straight to calendar heuristics when the transcript itself already answers the
    question is a protocol violation.
 2. **Calendar before controller.** The calendar resolves most of what self-ID doesn't.
-   Asking the controller before checking the calendar is a protocol violation (logged
-   as err-20260522T191304-TO2VXV). A calendar subject-line not matching the transcript's
+   Asking the controller before checking the calendar is a protocol violation. A calendar
+   subject-line not matching the transcript's
    apparent topic is **not**, by itself, grounds to give up on the calendar — see the
    Search Discipline requirement in section 2a below (minimum 3 strategies: matched
    event, attendees on that event, adjacent/nearby events) before treating the calendar
    as unhelpful for a given recording.
-
-Do not surface any speaker question to the controller until:
-0. Plaud's own registered speaker profiles have been checked via voice-embedding
-   similarity for every recording with generic-labeled speakers (section 0)
-1. The full transcript has been scanned for self-identification for every recording
-   with speakers still unresolved after the embedding check (section 0)
-2. The M365 calendar has been searched for every recording with speakers still
-   unresolved after the self-ID scan — including attendees and adjacent events, not
-   just the single best-matching event by subject line (section 2a)
-3. All auto-resolution heuristics have been applied
-4. One or more speakers genuinely cannot be resolved from embeddings + self-ID +
-   calendar + heuristics
 
 If self-ID and/or the calendar resolve all speakers: proceed silently. No user interaction at all —
 **unless step 3's off-invite validation gate flags something.** A resolved name that
@@ -126,7 +106,7 @@ it's a validation gate on the *output* of resolution, run every time.
 Enumerate `~/Downloads/transcript-staging/plaud_*_speakers.json`. Load each.
 Group by recording (one JSON file per recording that has generic speakers).
 
-### 2. For each recording: match against Plaud's registered speakers, then scan for self-identification, then attempt calendar auto-resolution
+### 2. For each recording: resolve speakers
 
 **-1. Registered-speaker embedding match (MANDATORY, runs before self-ID or calendar)**
 
@@ -196,10 +176,7 @@ Find calendar events that overlap the recording's time window with the precision
 > subject/title not obviously fitting the transcript's apparent topic (e.g. a business
 > meeting title on a recording that sounds personal/casual) is common — meeting titles are
 > often stale, generic ("AI Leaders Weekly"), or set up for a different original purpose
-> than how the time slot actually got used. This happened concretely on 2026-08-31
-> (`err-20260831T145747-LDPD1Q`): a "AI Leaders Weekly" event was matched to a recording
-> that sounded like a personal catch-up, and that mismatch alone was treated as a dead end
-> instead of being investigated further. Per the Search Discipline rule in SYSTEM.md
+> than how the time slot actually got used. Per the Search Discipline rule in SYSTEM.md
 > (minimum 3 search strategies before reporting not-found), a subject-line mismatch
 > requires you to try, in order, before concluding the calendar can't help:
 > 1. **Check the matched event's attendee list anyway** — the topic discussed on a call
@@ -296,10 +273,6 @@ recurring 1:1 pattern check) have all been exhausted:
 
 A speaker is only escalated to the controller if self-ID (step 0), the full calendar
 search discipline (step 2a), and the heuristics above all failed to produce a resolution.
-Escalating because a plausible name existed but wasn't checked against the transcript's
-own self-identification or the calendar's attendees/adjacent events first is the exact
-failure pattern from `err-20260831T145747-LDPD1Q` and `err-20260831T145748-3SVX4A` — do
-not repeat it.
 
 ### 3. Validate every resolution against the attendee list
 
@@ -309,15 +282,7 @@ a validation gate on the *output* of resolution, not another resolution heuristi
 it applies equally to auto-resolved and controller-confirmed mappings (a controller can
 mis-hear or mis-type a name too).
 
-This exists because of a real, already-observed failure class: Plaud auto-tagged a
-segment as "Robyn Fuentes" in the Jack Claeys "Bifurcated Engagement Strategy" recording
-even though Robyn was never an attendee on that call — Knox caught it that time and
-flagged it as non-blocking, but the skill itself had no systematic check for this. In
-the same session, the "08-25 Meeting: AI Strategy..." recording has Speaker 5 (resolved
-to Keith Oltchick) saying "Randy, do we have anyone doing that now?" — addressing a
-"Randy" who never appears on the calendar invite at all. Nothing mis-happened with Randy
-this time, but a future name-drop heuristic (4) matching an off-invite name exactly the
-same way would produce exactly the Robyn Fuentes failure again, silently.
+This exists because resolved names not on the invite are the most common mis-tag class.
 
 **a. Check every resolved `{Speaker N: Name}` pair**
 

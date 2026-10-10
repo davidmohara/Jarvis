@@ -11,9 +11,7 @@ model: sonnet
 
 ## MANDATORY EXECUTION RULES
 
-1. Analysis stays neutral and descriptive. The correlation label explains divergence in framing; it never says which side is right.
-2. Every topic (shared and gap) gets a `relevance` score from `topic_history.json`: new topics score high; topics seen on 2+ consecutive days score progressively lower. Scoring happens before deciding what makes the final dashboard ordering.
-3. `counts` must use the exact keys below. The render script hard-validates them and will abort if any are missing or wrong type.
+1. `counts` must use the exact keys below. The render script hard-validates them and will abort if any are missing or wrong type.
 
 ---
 

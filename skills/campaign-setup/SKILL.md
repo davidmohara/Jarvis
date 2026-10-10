@@ -21,9 +21,7 @@ description: >
 
 Create (or correctly reuse) the CRM structures this whole system's attribution
 depends on: one **Segment** (the target audience) and one **Journey** (the send
-orchestration) per episode in **Customer Insights – Journeys** — the app
-verified live in Improving's tenant, alongside 5 existing dormant journeys from
-other employees' past experiments (2022–2025, all still Draft, none activated).
+orchestration) per episode in **Customer Insights – Journeys**.
 This build does **not** use native Sales "Quick Campaigns" or "Campaign
 Members" — that native module was explicitly ruled out in favor of Customer
 Insights – Journeys' Segment/Journey/Email/Email-insights structure. Do not
@@ -99,7 +97,7 @@ mode.
 | Sending domain/email channel not configured or not verified | Stop before any write. Report: "Customer Insights – Journeys is provisioned but the sending domain isn't verified — campaign-setup can create the Segment/Journey in Draft, but campaign-send cannot fire until this is fixed. Flag to whoever owns Dynamics admin." |
 | Consent center not in an expected state | Same as above — stop and flag, don't assume. |
 | Name collision with an existing (even dormant) Journey | Do not overwrite. Either append a disambiguator to the name or ask the controller how to proceed. |
-| CRM login wall / expired SSO | Flag to controller, retry once confirmed, per the CBRE-session pattern. |
+| CRM login wall / expired SSO | Flag to controller, retry once confirmed. |
 | A target contact has no existing CRM Contact record | Create one (this is the one exception to "read-only" in the targeting skills), and clearly flag which contacts were newly created vs. pre-existing. |
 
 ## SKILL COMPLETE

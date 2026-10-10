@@ -11,8 +11,7 @@ model: sonnet
 
 ## MANDATORY EXECUTION RULES
 
-1. The render script runs a hard schema validation before rendering. If it exits with code 1, read the error output, fix the run JSON, and re-run.
-2. Do not proceed to step 08 until render exits cleanly with `✓ Schema validation passed`.
+1. The render/validation rule for this step is stated in YOUR TASK below.
 
 ---
 

@@ -8,8 +8,6 @@ outputs:
   delta: null
 ---
 
-**Agent:** Rigby, spawned by the coordinator, never executed inline
-
 <!-- system:start -->
 ## MANDATORY EXECUTION RULES
 
@@ -29,8 +27,6 @@ outputs:
 ## CONTEXT BOUNDARIES
 
 This step scores the candidate skill against existing eval records. It does not run new skill executions — it uses the same existing records the baseline was scored against. The score here determines whether the candidate is accepted in step-06.
-
-Note: In a full SkillOpt implementation, you would re-run the skill with the candidate version and collect new trajectories. In IES, we use existing records as the held-out validation set because Jarvis runs in a real-work context where synthetic re-runs aren't practical. This is a pragmatic adaptation — the signal is weaker but the gate still prevents regression.
 
 ## YOUR TASK
 

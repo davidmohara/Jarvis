@@ -22,7 +22,6 @@ on host mechanics: control, listening, follow-through, presence.
 ## The Show
 
 **The Improving Edge** — Improving's thought leadership podcast. David O'Hara hosts.
-Season 1: 7 episodes (complete). Season 2: in progress.
 Prior hosting reviews: `memory/episodic/YYYY-MM-DD-podcast-hosting-review-ep*.md`
 
 ---

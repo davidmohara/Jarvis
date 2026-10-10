@@ -7,7 +7,7 @@
 - **History**: Co-founded Improving in 2007. President for 14 years. Transitioned to Regional Director to lead One Texas initiative.
 - **Home**: 1717 Bunkhouse Rd, Frisco, TX 75036
 - **Office**: 5445 Legacy Dr, Suite 100, Plano TX, 75024
-- **Assistant**: Alice Mburu — Athena Executive Partner (XP). Matched April 2026. Onboarding kickoff April 13, 2026. Nairobi-based, fully remote (corrected per David 2026-10-09; was previously listed as Philippines-based), dedicated full-time. Athena contact: Crystal Foran (crystal.foran@athena.com). Prior EA (Ilse Perez) departed Q1 2026.
+- **Assistant**: Alice Mburu — Athena Executive Partner (XP). Matched April 2026. Onboarding kickoff April 13, 2026. Nairobi-based, fully remote, dedicated full-time. Athena contact: Crystal Foran (crystal.foran@athena.com). Prior EA (Ilse Perez) departed Q1 2026.
 - **Cowork Directory**: Jarvis always uses `/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES` as the default Cowork working directory. No need to prompt or request — mount it automatically.
 - **Height**: 6'3"
 - **Weight**: ~235-240 lbs (March 2026)
@@ -143,16 +143,6 @@ These dates are **never** to be scheduled over. Jarvis must provide reminders **
 - **Dinner**: Ida Claire (Addison), Mexican Sugar (Plano), Haywire (Plano), Trick Rider (Omni PGA Frisco — anniversary-tier)
 - **Meeting spaces**: Stagen (3535 Travis St, Dallas), Roam (5752 Grandscape, The Colony), 25N Coworking (9355 John W. Elliott Dr, Frisco)
 
-## Concert Watchlist — David & Susie
-
-| Artist | Nearest DFW Date | Venue | Status |
-|--------|-----------------|-------|--------|
-| Post Malone (w/ Jelly Roll) | May 19, 2026 | McLane Stadium, Waco TX | No DFW date — Waco closest. Monitor for added dates. |
-| Kane Brown | Aug 8, 2026 | Choctaw Grand Theater, Durant OK | ~90 min from Dallas. No DFW date yet — monitor. |
-| Sphere (Las Vegas) | Ongoing 2026 | The Sphere, Las Vegas NV | Interested in a show. Current: Eagles (thru Mar), Phish (Apr-May), No Doubt & Kenny Chesney (TBA). Pick one + make it a trip. |
-
-**Notes**: Check [Ticketmaster](https://www.ticketmaster.com), [Live Nation](https://www.livenation.com), and [thesphere.com/shows](https://www.thesphere.com/shows) periodically for new DFW dates and Sphere lineup additions.
-
 **Card Registry**: Full card inventory, rewards structures, credits, and balances are in `systems/credit-cards/card-registry.json`. Always read this file before answering any card optimization question.
 
 **Card Optimization for Concerts**: When buying tickets, check Citi AAdvantage Executive for Live Nation 5% back offer (and any new ticket vendor offers). At the venue, use Amex Platinum for concessions — Venue Collection offer gives 10% back at stadiums/arenas through 12/31/26. Also check Amex Plat for Gametime offer ($30 back on $150+ resale tickets). Review all card-linked offers before purchasing tickets.
@@ -194,5 +184,4 @@ These dates are **never** to be scheduled over. Jarvis must provide reminders **
 - **Recovery**: Whoop (HRV, sleep, strain, recovery)
 - **Testosterone**: 70IU/week, managed by Julli Randol (FNP-C)
 - **Peptides**: Self-directed, cycled by phase and goal
-- **Current Phase (as of Feb 2026)**: Phase 1 — Power & Mitochondria (ends Mar 3)
 - **Diet**: Gluten-free. Super Shake morning protocol. Protein-forward.

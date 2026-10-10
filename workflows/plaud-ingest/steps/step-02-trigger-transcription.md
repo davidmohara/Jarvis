@@ -14,14 +14,6 @@ outputs:
     a93aa078b699d69c62c4a2cef8dcf5b2: 1
     fa0e4f1fa0ed3f892a83cc6218f4c80d: 1
   gate_3_aborted_recordings: []
-  note: >
-    pi-20260928-001: 6 new recordings. 3 previously-pending re-checked via detail endpoint
-    and all now ready (5214979feed38c9bc43683493c70c961, bc6b122ea831c77ac527d4889f7bf4d3,
-    71aa19de30d2d2a67f7fc608dfa126bf) — moved to ready-for-fetch. 3 missing triggered via
-    two-step protocol (PATCH tranConfig + POST transsumm), all PASS on attempt 1
-    (d0200e83ccd8c442ba958c3587a0f3d7, a93aa078b699d69c62c4a2cef8dcf5b2,
-    fa0e4f1fa0ed3f892a83cc6218f4c80d) — added to pending-recordings and plaud_pending.json,
-    watchers spawned. No -1/-12 minutes-exhausted responses. Gate 3: pass.
 ---
 
 <!-- system:start -->

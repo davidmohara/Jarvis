@@ -59,7 +59,7 @@ The script must implement two things:
 
 The app must:
 
-1. **Fetch posts via the local proxy** — call `/api/posts?subreddit={sub}&limit=100&after={lookback-date}` for each monitored subreddit (never call `reddit.com` or any Reddit API directly from the browser — that's what triggers the CSP failure when this ever gets treated as a hosted artifact instead of a locally-served page). Stagger requests with a short delay between subreddits to be polite to the upstream API.
+1. **Fetch posts via the local proxy** — call `/api/posts?subreddit={sub}&limit=100&after={lookback-date}` for each monitored subreddit (never call `reddit.com` or any Reddit API directly from the browser). Stagger requests with a short delay between subreddits to be polite to the upstream API.
 
 2. **Filter by recency** — only show posts where `created_utc` is within the lookback window (default: past 10 days). Convert epoch timestamps correctly.
 
@@ -179,7 +179,7 @@ These are starting defaults — the user can tune them in the settings panel.
 ## What not to do
 
 - Don't use Reddit's OAuth API or ask for credentials — the public search API is sufficient for read access
-- Don't publish this as a Claude Artifact (`mcp__cowork__create_artifact` / `update_artifact`) — published Artifacts run under a CSP that blocks every external fetch, so a Reddit-fetching artifact fails 100% of the time, for every subreddit. This is the exact bug this skill was rewritten to prevent. Always deliver via the local `proxy.js` server instead.
+- Don't publish this as a Claude Artifact (`mcp__cowork__create_artifact` / `update_artifact`) — published Artifacts run under a CSP that blocks every external fetch, so a Reddit-fetching artifact fails 100% of the time, for every subreddit. Always deliver via the local `proxy.js` server instead.
 - Don't have the browser-side JS call `reddit.com` or any external Reddit API directly — always go through the local server's own `/api/*` endpoints, even though this same-origin page isn't sandboxed and technically could reach external hosts. Keeping fetches server-side keeps the User-Agent/rate-limit handling in one place and matches the proxy contract.
 - Don't hardcode post data — it should fetch live on every load
 - Don't skip the settings panel — the ability to update subreddits, keywords, and usernames interactively is a core requirement

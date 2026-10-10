@@ -114,8 +114,6 @@ This step runs immediately after the em-dash scan and before word count is repor
 
 `mcp__grammarly__check` is a required MCP connector. If it is not available in the session, Harper raises an elevation request to Master: "Grammarly MCP connector is not active. Cannot proceed with LinkedIn post draft until it's enabled." The post does not return until Grammarly is available and passes.
 
-Grammarly is a required connector. If unavailable, request elevation to Master for connector activation.
-
 ```
 mcp__grammarly__check(
   text: <drafted post body, URL excluded>,
