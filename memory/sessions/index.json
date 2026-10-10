@@ -2776,7 +2776,22 @@
           "memory/working/2026-10-10-master-commentary-cleanup-execution.md",
           "people/alice-mburu.md",
           "skills/git/scripts/ies-git",
-          ".claude/hooks/tests/test_ies_git.py"
+          ".claude/hooks/tests/test_ies_git.py",
+          "workflows/plaud-ingest-verification/workflow.md",
+          "workflows/boot/state.yaml",
+          ".claude/hooks/eval-session-end.py",
+          ".claude/hooks/tests/test_eval_session_end.py",
+          "CHANGELOG.md",
+          ".claude/hooks/git-gate.py",
+          ".claude/hooks/pre-tool-use.sh",
+          ".claude/hooks/tests/test_git_gate.py",
+          "projects/stage-4-evidence/bypass-tests/logs/BT-06-cmdpos-bypass.log",
+          "projects/stage-4-evidence/bypass-tests/BT-06-git-cmdpos-bypass-2026-10-10.md",
+          "projects/stage-4-evidence/bypass-tests/README.md",
+          ".claude/hooks/session-end-commit.py",
+          ".claude/settings.json",
+          "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/memory/feedback_no_auto_commit_on_exit.md",
+          "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/memory/MEMORY.md"
         ]
       }
     ]
