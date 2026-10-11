@@ -36,7 +36,7 @@ python3 "$(mdfind -name 'post.py' | grep 'systems/slack-bot/post.py' | head -1)"
 ```bash
 python3 - <<'PYEOF'
 import subprocess
-IES = "/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES"
+IES = "/Users/davidohara/develop/jarvis"
 msg = """your message here"""
 r = subprocess.run(["python3", f"{IES}/systems/slack-bot/post.py", "<channel_id>", msg], capture_output=True, text=True)
 print(r.stdout.strip() or r.stderr.strip())
@@ -72,7 +72,7 @@ Timeout: 15000
 
 Where `$IES_ROOT` is found via:
 ```bash
-IES_ROOT="$(find ~ -name 'SYSTEM.md' -path '*/jarvis/SYSTEM.md' 2>/dev/null | head -1 | sed 's|/SYSTEM.md||')"
+IES_ROOT="/Users/davidohara/develop/jarvis"
 ```
 
 ### ⚠️ No-Duplicate Rule — MANDATORY
@@ -87,7 +87,7 @@ Desktop Commander network calls frequently return no initial output even when th
 2. Wait at least 10 seconds before checking output
 3. Read the channel via `read.py` to confirm delivery:
    ```bash
-   IES_ROOT="$(find ~ -name 'SYSTEM.md' -path '*/jarvis/SYSTEM.md' 2>/dev/null | head -1 | sed 's|/SYSTEM.md||')"
+   IES_ROOT="/Users/davidohara/develop/jarvis"
    python3 "$IES_ROOT/systems/slack-bot/read.py" channel <channel_id> 0.1
    ```
 4. If the message appears in the response — **done. Do not send again.**
@@ -101,7 +101,7 @@ Desktop Commander network calls frequently return no initial output even when th
 
 ```bash
 # Set IES_ROOT once, then reuse it
-IES_ROOT="$(find ~ -name 'SYSTEM.md' -path '*/jarvis/SYSTEM.md' 2>/dev/null | head -1 | sed 's|/SYSTEM.md||')"
+IES_ROOT="/Users/davidohara/develop/jarvis"
 
 # Post morning briefing summary to #jarvis (multi-line — newlines are real)
 python3 "$IES_ROOT/systems/slack-bot/post.py" C0AN2PQNXBR "*Morning Briefing — March 24, 2026*
@@ -160,7 +160,7 @@ For reading channel history or thread replies, use the companion `systems/slack-
 
 ```bash
 # Find IES_ROOT once
-IES_ROOT="$(find ~ -name 'SYSTEM.md' -path '*/jarvis/SYSTEM.md' 2>/dev/null | head -1 | sed 's|/SYSTEM.md||')"
+IES_ROOT="/Users/davidohara/develop/jarvis"
 
 # Read last 24 hours of a channel (returns top-level messages only)
 python3 "$IES_ROOT/systems/slack-bot/read.py" channel <channel_id> <hours_ago>
