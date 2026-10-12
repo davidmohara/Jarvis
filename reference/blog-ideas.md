@@ -10,6 +10,9 @@ Running list of potential blog topics. Jarvis captures these proactively from co
 
 | Idea | Source | Tags | Notes |
 |------|--------|------|-------|
+| "Your Next Browser May Come from Dallas" | Content pipeline (2026-10-12) | AI, technology, leadership | Ghost draft — pending approval. Island \$400M raise, enterprise browser as agent governance layer. Internal link: DFW Is Now #4 and the Capital Layer Is the Real Story. |
+| "The 5 Percent Problem" | Content pipeline (2026-10-12) | AI, business, leadership | Ghost draft — pending approval. Enterprise AI ROI gap: only 5-8% show measurable P&L impact. Internal link: The Amplifier Paradox. |
+| "The Day Your Agent Got Its Own Email Address" | Content pipeline (2026-10-12) | AI, technology, leadership | Ghost draft — pending approval. Google Workspace agent identity, enterprise directory governance. Internal link: Shadow AI Is Shadow IT at 10x. |
 | "DFW Is Now #4 and the Capital Layer Is the Real Story" | Content pipeline (2026-10-07) | business, growth, improving | Ghost draft — pending approval. Geo-specific: DFW. Internal link: DFW Is Building the Other Kind of AI Economy. |
 | "The Leadership Gap Just Got a Number" | Content pipeline (2026-10-07) | leadership, AI, thinking | Ghost draft — pending approval. McKinsey + Microsoft convergence. Internal link: Your Manager Is the AI Strategy. |
 | "The Agent Governance Stack Is Finally Here" | Content pipeline (2026-10-07) | AI, technology, business | Ghost draft — pending approval. 5 governance products in 12 days. Internal link: You Can't Govern an Inventory You Don't Know You Have. |

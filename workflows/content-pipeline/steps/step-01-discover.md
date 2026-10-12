@@ -1,8 +1,15 @@
 ---
-status: not-started
-started-at: ~
-completed-at: ~
-outputs: {}
+status: complete
+started-at: "2026-10-12T19:00:00Z"
+completed-at: "2026-10-12T19:30:00Z"
+outputs:
+  messages_scanned: 3
+  new_urls: 0
+  new_digests: 3
+  posts_drafted: 3
+  improving_blog_drafts: 0
+  pending_threads_checked: 0
+  outcome: "3 Ghost drafts created from Watchtower digests; 3 Slack notifications posted to #content"
 model: sonnet
 ---
 
