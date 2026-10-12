@@ -1,19 +1,19 @@
 ---
-status: complete
-started-at: "2026-10-12T19:00:00Z"
-completed-at: "2026-10-12T19:30:00Z"
+status: in-progress
+started-at: "2026-10-12T19:40:00Z"
+completed-at: ""
 outputs:
-  messages_scanned: 3
+  messages_scanned: 0
   new_urls: 0
-  new_digests: 3
-  posts_drafted: 3
+  new_digests: 0
+  posts_drafted: 0
   improving_blog_drafts: 0
   pending_threads_checked: 0
   editorial_feedback_found: 0
   editorial_edits_applied: 0
-  gate_1_result: "PASS"
-  gate_2_result: "PASS (word counts 325/355/332; all four arc elements present; no em-dashes; tags on locked list; landscape images confirmed)"
-  outcome: "3 Ghost drafts created from Watchtower digests (Dallas/Island, AI ROI gap, Google agent identity); 3 Slack notifications posted to #content; image CDN fallback used (external Unsplash URLs)"
+  gate_1_result: ""
+  gate_2_result: ""
+  outcome: ""
 model: sonnet
 ---
 

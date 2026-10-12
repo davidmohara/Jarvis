@@ -15,9 +15,9 @@ accumulated-context:
   posts_drafted: 3
   gate_1_result: "PASS — ok: true, 3 Watchtower digest messages in channel C0B160MA3EK"
   gate_2_result: "PASS — word counts 325/355/332; all four arc elements present; no em-dashes; tags on locked list; landscape images confirmed; image CDN fallback (external Unsplash URLs)"
-  pending_threads_checked: 0
-  editorial_feedback_found: 0
-  editorial_edits_applied: 0
+  pending_threads_checked: 3
+  editorial_feedback_found: 2
+  editorial_edits_applied: 2
   commit_hash: "4de0f63d"
   push_status: success
   notes: |
@@ -30,5 +30,9 @@ accumulated-context:
     mcp__ghost-blog__upload_image_from_url failed for all 3 — used direct Unsplash CDN URLs as fallback.
     3 Slack review notifications posted to C0B160MA3EK.
     Committed 4de0f63d and pushed to origin/main.
+    Second run (David trigger): 2 editorial feedback replies found and applied.
+    - Post 1: replaced duplicate Dallas skyline with Gabriel Tovar nighttime skyline (photo-1580536793208).
+    - Post 3: replaced ChatGPT screenshot with Stephen Phillips Gmail/Google desk photo (photo-1556597803).
+    Slack replies sent to both review threads confirming edits.
 model: sonnet
 ---
