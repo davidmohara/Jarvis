@@ -1,0 +1,15 @@
+{
+  "id": "err-20261012T203517-G1H1QL",
+  "timestamp": "2026-10-12T20:35:17Z",
+  "session": "2026-10-12 bootcamp Week 1 rewrite",
+  "source": "self-detected",
+  "agent": "rigby",
+  "category": "process-skip",
+  "description": "Surgically edited Bootcamp-Week-1.pptx (donor-cloned 4 new Day 2 slides) while PowerPoint held the file open (a ~$ lock file was present and flagged). At 15:21 David saved from the stale PowerPoint window: the save clobbered the surgical inserts, and the saved file itself came out corrupt (CRC failures on ppt/media/image3.jpg and image4.png), making it unopenable by python-pptx.",
+  "correction": "Restored from the pre-edit backup (taken before the first surgical edit), semantically diffed the corrupt file against the backup to recover David's two afternoon edits (compare-slide notes 'yesterday' removal, End-of-Day-1 separator Tomorrow line), transplanted them, and re-applied the full Day 2 surgery (5 slides + reorder + notes fix). Verified: 58 slides, zip integrity OK, only the intentional transplants differ from the backup.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "Never write to an Office file while its live app has it open: check for the ~$ lock file first, and if present, ask the controller to close the app before any write. Always take a fresh timestamped backup immediately before surgical edits so a clobber is a one-command restore.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": []
+}
