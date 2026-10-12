@@ -1,0 +1,16 @@
+{
+  "id": "err-20261012T161920-O2VL2A",
+  "timestamp": "2026-10-12T16:19:20Z",
+  "session": "wt-weekly-2026-W42",
+  "source": "explicit",
+  "agent": "knox",
+  "category": "assumption-error",
+  "description": "Declared Obsidian MCP unavailable after receiving a 404 error on Mind/Posts/ path writes, then wrote all three content drafts and the weekly note to fallback filesystem paths instead of retrying or diagnosing the path issue. The Obsidian MCP was functional.",
+  "correction": "Should have retried the Obsidian MCP with a different path format or verified connectivity before falling back. A 404 on a vault path does not confirm the MCP server is down — it may indicate a path format issue or missing folder that can be resolved.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "Before declaring an MCP unavailable on a 404, attempt at least one alternative path format and surface the specific error to the controller if uncertain. A 404 is a path error, not a connectivity error.",
+  "fix_status": "applied",
+  "fix_applied": "Updated weekly-step-02-draft-angles.md and weekly-step-04-weekly-note.md to use Desktop Commander (vault filesystem path) as primary write method for subdirectory vault paths. Updated workflow.md data sources table and integration contracts. Vault root documented as: /Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/",
+  "severity": "moderate",
+  "related_entries": []
+}

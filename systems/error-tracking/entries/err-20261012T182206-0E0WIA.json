@@ -1,0 +1,15 @@
+{
+  "id": "err-20261012T182206-0E0WIA",
+  "timestamp": "2026-10-12T18:22:06Z",
+  "session": "2026-10-12 bootcamp Week 1 demo build",
+  "source": "self-detected",
+  "agent": "rigby",
+  "category": "under-delivery",
+  "description": "The bootcamp Demo 2 evaluation script (AI-Course-Development/AI-Deep-Learning-Program/student-workspace/evaluations/evaluate_skill_output.py) advertised a --report-md flag in its README but had no Report.to_markdown() method, so any run with --report-md crashed with AttributeError after writing the JSON. It would have crashed live at the lectern during the Demo Slide (Python Evaluation with LLM Judge).",
+  "correction": "Added Report.to_markdown() producing a markdown findings table. Verified --report-md now writes evaluations/trend-identification-report.md; regression-checked the baseline JSON run (4/6, 66.7%) is unchanged.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "Verify every advertised CLI flag end-to-end before committing a demo script. A flag documented in the README is a shipped contract, not an aspiration.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": []
+}

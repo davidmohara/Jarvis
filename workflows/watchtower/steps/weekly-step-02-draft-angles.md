@@ -20,11 +20,11 @@ outputs:
 1. Write `status: in-progress` and `started-at` to this file's frontmatter before doing anything else.
 2. Read `identity/VOICE.md` and `reference/blog-ideas.md` BEFORE writing any draft. Voice alignment is non-negotiable.
 3. One draft file per content candidate, not per theme. Themes may yield multiple angles; that is expected.
-4. All draft files go to Obsidian `Mind/Posts/` with underscore-prefix. Use Obsidian MCP (`mcp__obsidian-local__create_vault_file`) — do NOT write to filesystem paths inside the vault. Do NOT claim a file was written without calling this tool.
-5. After writing each file, call `mcp__obsidian-local__get_vault_file` to verify it exists. Only log the path in outputs AFTER verification succeeds. If verification fails, retry once, then log failure.
+4. All draft files go to Obsidian `Mind/` with underscore-prefix (e.g. `Mind/_slug.md`). Vault write method: follow `obsidian_write_method` in `state.yaml` (`accumulated-context`).
+5. After writing each file, verify it exists before logging the path in outputs. A path that was written but not verified must be marked `unverified` in outputs.
 6. Append candidate rows to `reference/blog-ideas.md` with `[watchtower]` source marker. Do NOT rewrite existing rows.
 7. Drafts are starters — hook + outline only, not full posts. Keep them under 300 words total.
-8. VERIFICATION GATE: Before writing `status: complete`, confirm that `outputs.draft_paths` contains only paths that were verified via `mcp__obsidian-local__get_vault_file`. A path that was written but not verified must be marked `unverified` in outputs.
+8. VERIFICATION GATE: Before writing `status: complete`, confirm that `outputs.draft_paths` contains only verified paths. A path that was written but not verified must be marked `unverified` in outputs.
 9. Write `status: complete`, `completed-at`, and `outputs` when done.
 
 ---
@@ -115,13 +115,13 @@ outputs:
 
    **What NEVER appears in a draft body:** week numbers (W29, W30, etc.), phrases like "last week," "in a prior Watchtower run," "building on what I wrote," or any reference to the Watchtower system itself. Time references like "prior week" or "earlier this year" are fine when they read naturally. That context lives in the frontmatter and in Knox's notes only.
 
-   **b. Write the file to Obsidian `Mind/Posts/_<slug>.md`** via Obsidian MCP.
+   **b. Write the file to Obsidian `Mind/_<slug>.md`** using the write method from rule 4.
    - Slug: lowercase, hyphens, derived from the post title. Keep it short.
    - Prefix with underscore: this marks it as a draft.
 
    **c. Append a candidate row to `reference/blog-ideas.md`** under `## Candidates`:
    ```markdown
-   | "<Post Title>" | Watchtower ([DATE]) [watchtower] | <tags> | Draft at `Mind/Posts/_<slug>.md` |
+   | "<Post Title>" | Watchtower ([DATE]) [watchtower] | <tags> | Draft at `Mind/_<slug>.md` |
    ```
 
 4. Update `accumulated-context.weekly_themes` — add `content_angles` list to each theme entry (angle titles only).
@@ -155,7 +155,7 @@ outputs:
 | Failure | Action |
 |---------|--------|
 | `weekly_themes` empty | Write "No content candidates this week." to outputs; skip draft creation; continue to step-03 |
-| Obsidian MCP unavailable | Write drafts to `workflows/watchtower/fallback/drafts/` as fallback; log path in outputs |
+| Vault write fails | Retry once; if still failing, write to `workflows/watchtower/fallback/drafts/` and log the path |
 | Duplicate slug detected in Obsidian | Append `-2` to slug and retry once |
 | `reference/blog-ideas.md` not found | Log error; still create Obsidian drafts; surface to David: "blog-ideas.md not found — candidate rows not appended." |
 

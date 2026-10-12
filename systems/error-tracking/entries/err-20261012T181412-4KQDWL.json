@@ -1,0 +1,15 @@
+{
+  "id": "err-20261012T181412-4KQDWL",
+  "timestamp": "2026-10-12T18:14:12Z",
+  "session": "2026-10-12 watchtower W42 review",
+  "source": "explicit",
+  "agent": "knox",
+  "category": "over-engineering",
+  "description": "W42 watchtower run edits (workflows/watchtower/workflow.md, steps/weekly-step-02-draft-angles.md, steps/weekly-step-04-weekly-note.md) embedded a multi-sentence KNOWN BUG postmortem about the Obsidian MCP path-encoding bug, repeating it near-verbatim across all three files and hardcoding the absolute vault path 6 times. The bug record belongs in state.yaml (obsidian_write_method) and the error log only. The edits also left weekly-step-02 rule 8's verification gate still referencing mcp__obsidian-local__get_vault_file, contradicting the new rule 5 above it.",
+  "correction": "Strip the bug narrative, Desktop Commander write-order instructions, and hardcoded vault paths from all workflow files. The operational record stays in state.yaml (obsidian_write_method: desktop-commander-direct) and the error log. Workflow files carry at most a one-line pointer to the state field.",
+  "failure_mode": "scope-creep",
+  "systemic_fix": "Rule of thumb for workflow edits: incident detail goes to the error log, not workflow files. A workflow file records how to run, not what broke. If a workaround needs recording, it goes in state as a single field.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": []
+}

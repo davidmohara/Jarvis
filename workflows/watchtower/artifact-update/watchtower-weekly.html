@@ -90,12 +90,13 @@
 <div class="header">
   <div class="header-left">
     <h1>Watchtower</h1>
-    <div class="run-meta" id="run-meta">Week 2026-W41 &middot; Run 2026-10-05 &middot; Knox &middot; Delta check applied &middot; 1 theme dropped &middot; Batch 17 pending (5 proposals)</div>
+    <div class="run-meta" id="run-meta">Week 2026-W42 &middot; Run 2026-10-12 &middot; Knox &middot; Delta check applied &middot; 0 themes dropped &middot; Batch 18 pending (5 proposals)</div>
   </div>
   <div class="week-selector-wrap">
     <label for="week-select">Week</label>
     <select id="week-select" onchange="showWeek(this.value)">
-      <option value="w41" selected>2026-W41 (Oct 5)</option>
+      <option value="w42" selected>2026-W42 (Oct 12)</option>
+      <option value="w41">2026-W41 (Oct 5)</option>
       <option value="w40">2026-W40 (Sep 28)</option>
       <option value="w39">2026-W39 (Sep 22)</option>
       <option value="w38">2026-W38 (Sep 14)</option>
@@ -118,8 +119,134 @@
   </div>
 </div>
 
+<!-- ═══════════════════════════════════════════════════════ W42 ══ -->
+<div class="week-view active" id="view-w42">
+  <div class="action-banner info">
+    <strong>W42 (Oct 12) &mdash; 3 Themes &middot; Batch 18 Pending (5 Proposals)</strong>
+    Agent identity is the new governance battleground: Google gave agents their own Workspace accounts. Only 5% of enterprises see measurable P&amp;L from AI despite doubled investment. Island raised $400M at $6.4B in Dallas &mdash; DFW&rsquo;s best VC quarter on record.
+  </div>
+  <div class="stats-row">
+    <div class="stat-card"><div class="num">3</div><div class="label">Themes</div></div>
+    <div class="stat-card"><div class="num">3</div><div class="label">Content Drafts</div></div>
+    <div class="stat-card"><div class="num">5</div><div class="label">Sources Proposed</div></div>
+  </div>
+
+  <div class="section-title">Themes This Week</div>
+
+  <div class="theme-card" onclick="toggle(this)">
+    <div class="theme-header">
+      <div class="theme-num">1</div>
+      <div class="theme-title">The Agent Got Its Own Email Address</div>
+      <span class="badge badge-ai">AI</span>
+      <span class="badge badge-identity">Identity</span>
+      <span class="theme-chevron">&#9658;</span>
+    </div>
+    <div class="theme-body">
+      <div class="new-tag">New argument from W41 &mdash; agent becomes first-class org member, not a tool</div>
+      <div class="theme-synthesis">Google&rsquo;s Gemini universal agent (Oct 8, Gemini at Work 2026) gives enterprise agents their own Workspace identity: email, calendar, Drive, OAuth scope, audit trail. W41 was about governance as a product category; W42&rsquo;s argument is that agents are now first-class organizational members. The governance question shifts from &ldquo;how do we audit agent access?&rdquo; to &ldquo;how do we provision agents into our directory?&rdquo; For Microsoft-stack IT teams: agent identity in Entra ID is the decision happening this quarter.</div>
+      <div class="angles-label">Content angle</div>
+      <span class="angle-tag">The Day Your Agent Got Its Own Email Address</span>
+    </div>
+  </div>
+
+  <div class="theme-card" onclick="toggle(this)">
+    <div class="theme-header">
+      <div class="theme-num">2</div>
+      <div class="theme-title">The 5 Percent Problem</div>
+      <span class="badge badge-ai">AI</span>
+      <span class="badge badge-consulting">Consulting</span>
+      <span class="theme-chevron">&#9658;</span>
+    </div>
+    <div class="theme-body">
+      <div class="new-tag">New argument from W41 &mdash; identifies what the firms closing the gap actually do</div>
+      <div class="theme-synthesis">McKinsey 2026 State of AI: 37% of orgs report AI contributed to EBIT &mdash; unchanged YoY despite investment set to double. PwC CEO Survey: 56% saw neither revenue growth nor cost reduction. Only 5&ndash;8% show measurable P&amp;L impact at scale. What they do differently: embed AI in high-volume workflows with clean before/after metrics, redesign roles rather than layer AI on top, and measure rigorously. W41 measured the readiness gap; W42 identifies what the 5% who close it actually do.</div>
+      <div class="angles-label">Content angle</div>
+      <span class="angle-tag">The 5 Percent Problem</span>
+    </div>
+  </div>
+
+  <div class="theme-card" onclick="toggle(this)">
+    <div class="theme-header">
+      <div class="theme-num">3</div>
+      <div class="theme-title">Island Is Worth $6.4 Billion and It Launched in Dallas</div>
+      <span class="badge badge-texas">Texas</span>
+      <span class="badge badge-ai">AI</span>
+      <span class="theme-chevron">&#9658;</span>
+    </div>
+    <div class="theme-body">
+      <div class="new-tag">New argument from W41 &mdash; DFW producing enterprise software unicorns solving AI security problems</div>
+      <div class="theme-synthesis">DFW Q3 2026 was the region&rsquo;s best VC quarter on record: $962.5M across 52 deals. Island (Dallas enterprise browser) raised $400M Series F at $6.4B. Venture Dallas is October 22. The enterprise browser is an agent governance tool &mdash; it controls what agents and employees can see and do at the application layer. W41&rsquo;s capital layer story was about infrastructure maturity; this week&rsquo;s argument is DFW convergence: the region is now producing enterprise software unicorns solving the same AI security problems every IT organization is urgently trying to address.</div>
+      <div class="angles-label">Content angle</div>
+      <span class="angle-tag">Your Next Browser May Come from Dallas</span>
+    </div>
+  </div>
+
+  <div class="section-title">Content Drafts</div>
+  <div class="data-table">
+    <table>
+      <thead><tr><th>Post Title</th><th>Channels</th><th>Theme</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>
+            <div class="post-title">The Day Your Agent Got Its Own Email Address</div>
+            <div class="vault-path"><a href="obsidian://open?vault=Obsidian&file=Mind%2F_the-day-your-agent-got-its-own-email-address.md">Mind/_the-day-your-agent-got-its-own-email-address.md &#8599;</a></div>
+          </td>
+          <td><span class="channel-tag ch-blog">Blog</span><span class="channel-tag ch-linkedin">LinkedIn</span></td>
+          <td><span class="badge badge-ai">AI</span><span class="badge badge-identity">Identity</span></td>
+        </tr>
+        <tr>
+          <td>
+            <div class="post-title">The 5 Percent Problem</div>
+            <div class="vault-path"><a href="obsidian://open?vault=Obsidian&file=Mind%2F_the-five-percent-problem.md">Mind/_the-five-percent-problem.md &#8599;</a></div>
+          </td>
+          <td><span class="channel-tag ch-blog">Blog</span><span class="channel-tag ch-linkedin">LinkedIn</span><span class="channel-tag ch-forbes">Forbes</span></td>
+          <td><span class="badge badge-ai">AI</span><span class="badge badge-consulting">Consulting</span></td>
+        </tr>
+        <tr>
+          <td>
+            <div class="post-title">Your Next Browser May Come from Dallas</div>
+            <div class="vault-path"><a href="obsidian://open?vault=Obsidian&file=Mind%2F_your-next-browser-may-come-from-dallas.md">Mind/_your-next-browser-may-come-from-dallas.md &#8599;</a></div>
+          </td>
+          <td><span class="channel-tag ch-blog">Blog</span><span class="channel-tag ch-linkedin">LinkedIn</span></td>
+          <td><span class="badge badge-texas">Texas</span><span class="badge badge-ai">AI</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section-title">Source Proposals &mdash; Batch 18 (Awaiting Approval)</div>
+  <div class="data-table">
+    <table>
+      <thead><tr><th>Source</th><th>Topic</th><th>Trust</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td><div class="source-name">Forrester Blog (forrester.com/blogs)</div><div class="source-why">AI ROI and enterprise tech adoption research; primary sourcing for 5% problem theme</div></td><td><span class="badge badge-ai">AI</span></td><td class="trust-high">High</td><td class="status-pending">Pending</td></tr>
+        <tr><td><div class="source-name">PwC Insights (pwc.com/us/en/library)</div><div class="source-why">CEO survey and consulting AI ROI data; sourced the 56% no-impact stat</div></td><td><span class="badge badge-consulting">Consulting</span></td><td class="trust-high">High</td><td class="status-pending">Pending</td></tr>
+        <tr><td><div class="source-name">Saviynt Blog (saviynt.com/blog)</div><div class="source-why">Identity governance for AI agents; maps directly to agent identity provisioning theme</div></td><td><span class="badge badge-identity">Identity</span></td><td>Med</td><td class="status-pending">Pending</td></tr>
+        <tr><td><div class="source-name">Wharton at Work (executiveeducation.wharton.upenn.edu)</div><div class="source-why">Leadership and organizational design research; push-toward category</div></td><td><span class="badge badge-leadership">Leadership</span></td><td class="trust-high">High</td><td class="status-pending">Pending</td></tr>
+        <tr><td><div class="source-name">Dallas Venture Deals (dallasinnovates.com/venture-deals)</div><div class="source-why">Primary DFW VC deal sourcing; Q3 record was the Island context</div></td><td><span class="badge badge-texas">Texas</span></td><td class="trust-high">High</td><td class="status-pending">Pending</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section-title">Tweets This Week &mdash; 10 Ready to Post</div>
+  <div class="tweet-list">
+    <div class="tweet-item"><div class="tweet-num">1</div><div class="tweet-body"><div class="tweet-text">Google just gave enterprise AI agents their own corporate email addresses. Treat that as a UX update and you&rsquo;ll miss what it actually is: the governance model for agents just became an identity provisioning problem.</div><div class="tweet-meta"><span class="tweet-type tt-provocative">Provocative</span><a class="tweet-post-link" href="https://twitter.com/intent/tweet?text=Google%20just%20gave%20enterprise%20AI%20agents%20their%20own%20corporate%20email%20addresses.%20Treat%20that%20as%20a%20UX%20update%20and%20you%27ll%20miss%20what%20it%20actually%20is%3A%20the%20governance%20model%20for%20agents%20just%20became%20an%20identity%20provisioning%20problem." target="_blank">Post to X &#8594;</a><a class="tweet-source-link" href="https://futurumgroup.com/insights/google-collapses-enterprise-ai-into-a-single-gemini-agent-at-gemini-at-work-2026/" target="_blank">Source &#8594;</a></div></div></div>
+    <div class="tweet-item"><div class="tweet-num">2</div><div class="tweet-body"><div class="tweet-text">56% of CEOs say AI produced neither revenue growth nor cost reduction in the past year. That is not a skepticism problem. That is a workflow design problem dressed up as a technology budget.</div><div class="tweet-meta"><span class="tweet-type tt-data">Data</span><a class="tweet-post-link" href="https://twitter.com/intent/tweet?text=56%25%20of%20CEOs%20say%20AI%20produced%20neither%20revenue%20growth%20nor%20cost%20reduction%20in%20the%20past%20year.%20That%20is%20not%20a%20skepticism%20problem.%20That%20is%20a%20workflow%20design%20problem%20dressed%20up%20as%20a%20technology%20budget." target="_blank">Post to X &#8594;</a></div></div></div>
+    <div class="tweet-item"><div class="tweet-num">3</div><div class="tweet-body"><div class="tweet-text">The companies seeing real AI ROI are not smarter. They picked a workflow with clean before-and-after metrics and embedded AI there. That is the entire strategy. The rest is procurement.</div><div class="tweet-meta"><span class="tweet-type tt-practitioner">Practitioner</span><a class="tweet-post-link" href="https://twitter.com/intent/tweet?text=The%20companies%20seeing%20real%20AI%20ROI%20are%20not%20smarter.%20They%20picked%20a%20workflow%20with%20clean%20before-and-after%20metrics%20and%20embedded%20AI%20there.%20That%20is%20the%20entire%20strategy.%20The%20rest%20is%20procurement." target="_blank">Post to X &#8594;</a><a class="tweet-source-link" href="https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai" target="_blank">Source &#8594;</a></div></div></div>
+    <div class="tweet-item"><div class="tweet-num">4</div><div class="tweet-body"><div class="tweet-text">94% of companies plan to keep investing in AI even if it doesn&rsquo;t generate immediate returns. Which means the pressure to show P&amp;L impact in 2027 is about to become very uncomfortable for a lot of IT and consulting leaders.</div><div class="tweet-meta"><span class="tweet-type tt-data">Data</span><a class="tweet-post-link" href="https://twitter.com/intent/tweet?text=94%25%20of%20companies%20plan%20to%20keep%20investing%20in%20AI%20even%20if%20it%20doesn%27t%20generate%20immediate%20returns.%20Which%20means%20the%20pressure%20to%20show%20P%26L%20impact%20in%202027%20is%20about%20to%20become%20very%20uncomfortable%20for%20a%20lot%20of%20IT%20and%20consulting%20leaders." target="_blank">Post to X &#8594;</a></div></div></div>
+    <div class="tweet-item"><div class="tweet-num">5</div><div class="tweet-body"><div class="tweet-text">Island (enterprise browser, Dallas) just raised $400M at a $6.4B valuation. DFW is no longer just a market for IT services. It is producing enterprise software companies that the rest of the country&rsquo;s IT teams depend on.</div><div class="tweet-meta"><span class="tweet-type tt-data">Data</span><a class="tweet-post-link" href="https://twitter.com/intent/tweet?text=Island%20(enterprise%20browser%2C%20Dallas)%20just%20raised%20%24400M%20at%20a%20%246.4B%20valuation.%20DFW%20is%20no%20longer%20just%20a%20market%20for%20IT%20services.%20It%20is%20producing%20enterprise%20software%20companies%20that%20the%20rest%20of%20the%20country%27s%20IT%20teams%20depend%20on." target="_blank">Post to X &#8594;</a><a class="tweet-source-link" href="https://dallasinnovates.com/?p=293056" target="_blank">Source &#8594;</a></div></div></div>
+    <div class="tweet-item"><div class="tweet-num">6</div><div class="tweet-body"><div class="tweet-text">Venture Dallas is October 22. If you work with DFW clients on AI strategy and you are not paying attention to what is being funded here, you are going to be behind the conversation your clients are already having.</div><div class="tweet-meta"><span class="tweet-type tt-practitioner">Practitioner</span><a class="tweet-post-link" href="https://twitter.com/intent/tweet?text=Venture%20Dallas%20is%20October%2022.%20If%20you%20work%20with%20DFW%20clients%20on%20AI%20strategy%20and%20you%20are%20not%20paying%20attention%20to%20what%20is%20being%20funded%20here%2C%20you%20are%20going%20to%20be%20behind%20the%20conversation%20your%20clients%20are%20already%20having." target="_blank">Post to X &#8594;</a></div></div></div>
+    <div class="tweet-item"><div class="tweet-num">7</div><div class="tweet-body"><div class="tweet-text">Google agents get their own Workspace identity. Microsoft agents operate under Entra permissions and sensitivity labels. These are two different theories of control. Your clients are going to pick one. Know which one you&rsquo;re recommending.</div><div class="tweet-meta"><span class="tweet-type tt-provocative">Provocative</span><a class="tweet-post-link" href="https://twitter.com/intent/tweet?text=Google%20agents%20get%20their%20own%20Workspace%20identity.%20Microsoft%20agents%20operate%20under%20Entra%20permissions%20and%20sensitivity%20labels.%20These%20are%20two%20different%20theories%20of%20control.%20Your%20clients%20are%20going%20to%20pick%20one.%20Know%20which%20one%20you%27re%20recommending." target="_blank">Post to X &#8594;</a></div></div></div>
+    <div class="tweet-item"><div class="tweet-num">8</div><div class="tweet-body"><div class="tweet-text">If your AI governance plan does not include an answer to &ldquo;what identity does this agent run under,&rdquo; you do not have a governance plan. You have a policy doc.</div><div class="tweet-meta"><span class="tweet-type tt-practitioner">Practitioner</span><a class="tweet-post-link" href="https://twitter.com/intent/tweet?text=If%20your%20AI%20governance%20plan%20does%20not%20include%20an%20answer%20to%20%22what%20identity%20does%20this%20agent%20run%20under%2C%22%20you%20do%20not%20have%20a%20governance%20plan.%20You%20have%20a%20policy%20doc." target="_blank">Post to X &#8594;</a></div></div></div>
+    <div class="tweet-item"><div class="tweet-num">9</div><div class="tweet-body"><div class="tweet-text">Most organizations layered AI onto existing roles and called it transformation. The 5% seeing P&amp;L impact redesigned the roles first. One of those is a technology initiative. The other is an operating model change.</div><div class="tweet-meta"><span class="tweet-type tt-practitioner">Practitioner</span><a class="tweet-post-link" href="https://twitter.com/intent/tweet?text=Most%20organizations%20layered%20AI%20onto%20existing%20roles%20and%20called%20it%20transformation.%20The%205%25%20seeing%20P%26L%20impact%20redesigned%20the%20roles%20first.%20One%20of%20those%20is%20a%20technology%20initiative.%20The%20other%20is%20an%20operating%20model%20change." target="_blank">Post to X &#8594;</a></div></div></div>
+    <div class="tweet-item"><div class="tweet-num">10</div><div class="tweet-body"><div class="tweet-text">DFW&rsquo;s Q3 2026 was the best VC quarter the region has ever recorded. The capital formation story is no longer a prediction. It&rsquo;s a data set.</div><div class="tweet-meta"><span class="tweet-type tt-data">Data</span><a class="tweet-post-link" href="https://twitter.com/intent/tweet?text=DFW%27s%20Q3%202026%20was%20the%20best%20VC%20quarter%20the%20region%20has%20ever%20recorded.%20The%20capital%20formation%20story%20is%20no%20longer%20a%20prediction.%20It%27s%20a%20data%20set." target="_blank">Post to X &#8594;</a><a class="tweet-source-link" href="https://dallasinnovates.com/?p=293056" target="_blank">Source &#8594;</a></div></div></div>
+  </div>
+
+  <div class="note-box">W42 &middot; 2026-10-12 &middot; Delta check applied &middot; 0 themes dropped &middot; Batch 18 pending &middot; All 3 drafts in Obsidian vault (Mind/) &middot; Vault writes via Desktop Commander (MCP subfolder URL-encoding bug active)</div>
+</div><!-- /view-w42 -->
+
 <!-- ═══════════════════════════════════════════════════════ W41 ══ -->
-<div class="week-view active" id="view-w41">
+<div class="week-view" id="view-w41">
   <div class="action-banner info">
     <strong>W41 (Oct 5) &mdash; 3 Themes &middot; Batch 17 Pending (5 Proposals)</strong>
     Governance tooling burst is the defining story: five enterprise AI governance products shipped in 12 days. Leadership gap now quantified by McKinsey + Microsoft simultaneously. DFW capital layer structurally different from W40&rsquo;s ecosystem angle.
@@ -145,7 +272,7 @@
     </div>
     <div class="theme-body">
       <div class="new-tag">New argument from W40 &mdash; governance becomes a product category</div>
-      <div class="theme-synthesis">Five enterprise AI governance products shipped in 12&ndash;13 days: SAP Agent Hub, Collibra Guardian Agents, Dataiku Agent Management, Island agentic control plane, Broadcom AgentMinder. 96% of organizations use AI agents; only 12% have a centralized platform to manage them. The market has not been waiting for a governance philosophy &mdash; it&rsquo;s been waiting for tooling. What&rsquo;s new this week is that the tooling just arrived, shifting the practitioner question from &ldquo;should we govern?&rdquo; to &ldquo;which layer do we actually own?&rdquo; W40 established why governance fails structurally; W41 is the week governance became a product category.</div>
+      <div class="theme-synthesis">Five enterprise AI governance products shipped in 12&ndash;13 days: SAP Agent Hub, Collibra Guardian Agents, Dataiku Agent Management, Island agentic control plane, Broadcom AgentMinder. 96% of organizations use AI agents; only 12% have a centralized platform to manage them. The market has not been waiting for a governance philosophy &mdash; it&rsquo;s been waiting for tooling. What&rsquo;s new this week is that the tooling just arrived, shifting the practitioner question from &ldquo;should we govern?&rdquo; to &ldquo;which layer do we actually own?&rdquo;</div>
       <div class="angles-label">Content angle</div>
       <span class="angle-tag">The Agent Governance Stack Is Finally Here</span>
     </div>
@@ -161,7 +288,7 @@
     </div>
     <div class="theme-body">
       <div class="new-tag">New argument &mdash; paired quantitative benchmarks from two independent large-sample studies</div>
-      <div class="theme-synthesis">McKinsey State of Organizations 2026 and Microsoft Work Trend Index 2026 landed simultaneously &mdash; both pointing at the same finding. McKinsey: 86% of leaders say their org isn&rsquo;t ready for AI at scale, 81% see no bottom-line impact, only 14% have leaders consistently championing AI with a clear strategy. Microsoft: organizational factors account for 67% of AI impact vs 32% individual; only 19% of orgs are in the Frontier zone. What&rsquo;s new: paired quantitative benchmarks from large-sample research that any leader can now quote or be quoted against.</div>
+      <div class="theme-synthesis">McKinsey State of Organizations 2026 and Microsoft Work Trend Index 2026 landed simultaneously. McKinsey: 86% of leaders say their org isn&rsquo;t ready for AI at scale, 81% see no bottom-line impact, only 14% have leaders consistently championing AI with a clear strategy. Microsoft: organizational factors account for 67% of AI impact vs 32% individual; only 19% of orgs are in the Frontier zone.</div>
       <div class="angles-label">Content angle</div>
       <span class="angle-tag">The Leadership Gap Just Got a Number</span>
     </div>
@@ -176,8 +303,8 @@
       <span class="theme-chevron">&#9658;</span>
     </div>
     <div class="theme-body">
-      <div class="new-tag">New argument from W40 &mdash; investment infrastructure matured (structurally different from ecosystem formation)</div>
-      <div class="theme-synthesis">DFW crossed from #8 to #4 nationally in startup ecosystem rankings. Local VC firms now manage $4B AUM &mdash; 3x from 2020. Venture Dallas (Nov 4&ndash;8) brings 1,500+ attendees. W40 established DFW as more than data centers (ecosystem formation story). This week&rsquo;s angle is structurally different: the investment infrastructure itself has matured, changing the BD and partnership calculus for IT consulting firms in the region.</div>
+      <div class="new-tag">New argument from W40 &mdash; investment infrastructure matured</div>
+      <div class="theme-synthesis">DFW crossed from #8 to #4 nationally in startup ecosystem rankings. Local VC firms now manage $4B AUM &mdash; 3x from 2020. Venture Dallas (Nov 4&ndash;8) brings 1,500+ attendees. W40 established DFW as more than data centers; this week&rsquo;s angle is structurally different: the investment infrastructure itself has matured.</div>
       <div class="angles-label">Content angle</div>
       <span class="angle-tag">DFW Is Now #4 &mdash; and the Capital Layer Is the Real Story</span>
     </div>
@@ -188,30 +315,9 @@
     <table>
       <thead><tr><th>Post Title</th><th>Channels</th><th>Theme</th></tr></thead>
       <tbody>
-        <tr>
-          <td>
-            <div class="post-title">The Agent Governance Stack Is Finally Here</div>
-            <div class="vault-path"><a href="obsidian://open?vault=Obsidian&file=Mind%2FPosts%2F_the-agent-governance-stack-is-finally-here.md">Mind/Posts/_the-agent-governance-stack-is-finally-here.md &#8599;</a></div>
-          </td>
-          <td><span class="channel-tag ch-blog">Blog</span><span class="channel-tag ch-linkedin">LinkedIn</span></td>
-          <td><span class="badge badge-ai">AI</span><span class="badge badge-governance">Governance</span></td>
-        </tr>
-        <tr>
-          <td>
-            <div class="post-title">The Leadership Gap Just Got a Number</div>
-            <div class="vault-path"><a href="obsidian://open?vault=Obsidian&file=Mind%2FPosts%2F_the-leadership-gap-just-got-a-number.md">Mind/Posts/_the-leadership-gap-just-got-a-number.md &#8599;</a></div>
-          </td>
-          <td><span class="channel-tag ch-blog">Blog</span><span class="channel-tag ch-linkedin">LinkedIn</span><span class="channel-tag ch-forbes">Forbes</span></td>
-          <td><span class="badge badge-leadership">Leadership</span><span class="badge badge-ai">AI</span></td>
-        </tr>
-        <tr>
-          <td>
-            <div class="post-title">DFW Is Now #4 &mdash; and the Capital Layer Is the Real Story</div>
-            <div class="vault-path"><a href="obsidian://open?vault=Obsidian&file=Mind%2FPosts%2F_dfw-is-now-number-four.md">Mind/Posts/_dfw-is-now-number-four.md &#8599;</a></div>
-          </td>
-          <td><span class="channel-tag ch-blog">Blog</span><span class="channel-tag ch-linkedin">LinkedIn</span></td>
-          <td><span class="badge badge-texas">Texas</span></td>
-        </tr>
+        <tr><td><div class="post-title">The Agent Governance Stack Is Finally Here</div><div class="vault-path"><a href="obsidian://open?vault=Obsidian&file=Mind%2FPosts%2F_the-agent-governance-stack-is-finally-here.md">Mind/Posts/_the-agent-governance-stack-is-finally-here.md &#8599;</a></div></td><td><span class="channel-tag ch-blog">Blog</span><span class="channel-tag ch-linkedin">LinkedIn</span></td><td><span class="badge badge-ai">AI</span><span class="badge badge-governance">Governance</span></td></tr>
+        <tr><td><div class="post-title">The Leadership Gap Just Got a Number</div><div class="vault-path"><a href="obsidian://open?vault=Obsidian&file=Mind%2FPosts%2F_the-leadership-gap-just-got-a-number.md">Mind/Posts/_the-leadership-gap-just-got-a-number.md &#8599;</a></div></td><td><span class="channel-tag ch-blog">Blog</span><span class="channel-tag ch-linkedin">LinkedIn</span><span class="channel-tag ch-forbes">Forbes</span></td><td><span class="badge badge-leadership">Leadership</span><span class="badge badge-ai">AI</span></td></tr>
+        <tr><td><div class="post-title">DFW Is Now #4 &mdash; and the Capital Layer Is the Real Story</div><div class="vault-path"><a href="obsidian://open?vault=Obsidian&file=Mind%2FPosts%2F_dfw-is-now-number-four.md">Mind/Posts/_dfw-is-now-number-four.md &#8599;</a></div></td><td><span class="channel-tag ch-blog">Blog</span><span class="channel-tag ch-linkedin">LinkedIn</span></td><td><span class="badge badge-texas">Texas</span></td></tr>
       </tbody>
     </table>
   </div>
@@ -222,161 +328,65 @@
       <thead><tr><th>Source</th><th>Topic</th><th>Trust</th><th>Status</th></tr></thead>
       <tbody>
         <tr><td><div class="source-name">TechTarget AI</div><div class="source-why">Agent observability practitioner depth</div></td><td><span class="badge badge-ai">AI</span></td><td class="trust-high">High</td><td class="status-pending">Pending</td></tr>
-        <tr><td><div class="source-name">Monte Carlo Blog</div><div class="source-why">73% won&rsquo;t ship agents without monitoring &mdash; primary data for W41 Theme 1</div></td><td><span class="badge badge-ai">AI</span></td><td class="trust-high">High</td><td class="status-pending">Pending</td></tr>
+        <tr><td><div class="source-name">Monte Carlo Blog</div><div class="source-why">73% won&rsquo;t ship agents without monitoring</div></td><td><span class="badge badge-ai">AI</span></td><td class="trust-high">High</td><td class="status-pending">Pending</td></tr>
         <tr><td><div class="source-name">Venture Dallas</div><div class="source-why">DFW institutional capital intelligence</div></td><td><span class="badge badge-texas">Texas</span></td><td class="trust-high">High</td><td class="status-pending">Pending</td></tr>
         <tr><td><div class="source-name">DFW Startup Week</div><div class="source-why">DFW founder/ecosystem layer</div></td><td><span class="badge badge-texas">Texas</span></td><td>Med</td><td class="status-pending">Pending</td></tr>
-        <tr><td><div class="source-name">McKinsey People &amp; Org Practice</div><div class="source-why">State of Organizations annual report &mdash; primary data for W41 Theme 2</div></td><td><span class="badge badge-leadership">Leadership</span></td><td class="trust-high">High</td><td class="status-pending">Pending</td></tr>
+        <tr><td><div class="source-name">McKinsey People &amp; Org Practice</div><div class="source-why">State of Organizations annual report</div></td><td><span class="badge badge-leadership">Leadership</span></td><td class="trust-high">High</td><td class="status-pending">Pending</td></tr>
       </tbody>
     </table>
   </div>
 
   <div class="section-title">Tweets This Week &mdash; 10 Ready to Post</div>
   <div class="tweet-list">
-    <div class="tweet-item"><div class="tweet-num">1</div><div class="tweet-body"><div class="tweet-text">Only 13% of people using AI at work feel rewarded for redesigning how they work. You&rsquo;re asking employees to change everything and paying them for the same outputs. That&rsquo;s not an AI problem.</div><div class="tweet-meta"><span class="tweet-type tt-data">Data</span><a class="tweet-post-link" href="https://twitter.com/intent/tweet?text=Only%2013%25%20of%20people%20using%20AI%20at%20work%20feel%20rewarded%20for%20redesigning%20how%20they%20work.%20You%27re%20asking%20employees%20to%20change%20everything%20and%20paying%20them%20for%20the%20same%20outputs.%20That%27s%20not%20an%20AI%20problem.&url=https%3A%2F%2Fwww.microsoft.com%2Fen-us%2Fworklab%2Fwork-trend-index%2Fagents-human-agency-and-the-opportunity-for-every-organization" target="_blank">Post to X &#8594;</a><a class="tweet-source-link" href="https://www.microsoft.com/en-us/worklab/work-trend-index/agents-human-agency-and-the-opportunity-for-every-organization" target="_blank">Source &#8594;</a></div></div></div>
-    <div class="tweet-item"><div class="tweet-num">2</div><div class="tweet-body"><div class="tweet-text">Frontier Professionals &mdash; the 16% of AI users producing work no one else can &mdash; report that 65% of them fear falling behind if they slow down. That is not a confident cohort. That is a stressed one.</div><div class="tweet-meta"><span class="tweet-type tt-practitioner">Practitioner</span><a class="tweet-post-link" href="https://twitter.com/intent/tweet?text=Frontier%20Professionals%20%E2%80%94%20the%2016%25%20of%20AI%20users%20producing%20work%20no%20one%20else%20can%20%E2%80%94%20report%20that%2065%25%20of%20them%20fear%20falling%20behind%20if%20they%20slow%20down.%20That%20is%20not%20a%20confident%20cohort.%20That%20is%20a%20stressed%20one." target="_blank">Post to X &#8594;</a></div></div></div>
-    <div class="tweet-item"><div class="tweet-num">3</div><div class="tweet-body"><div class="tweet-text">Microsoft named four collaboration patterns for human-AI work: Author, Editor, Director, Orchestrator. Most organizations are defaulting everything to Author and calling it AI transformation.</div><div class="tweet-meta"><span class="tweet-type tt-practitioner">Practitioner</span><a class="tweet-post-link" href="https://twitter.com/intent/tweet?text=Microsoft%20named%20four%20collaboration%20patterns%20for%20human-AI%20work%3A%20Author%2C%20Editor%2C%20Director%2C%20Orchestrator.%20Most%20organizations%20are%20defaulting%20everything%20to%20Author%20and%20calling%20it%20AI%20transformation.&url=https%3A%2F%2Fwww.microsoft.com%2Fen-us%2Fworklab%2Fwork-trend-index%2Fagents-human-agency-and-the-opportunity-for-every-organization" target="_blank">Post to X &#8594;</a><a class="tweet-source-link" href="https://www.microsoft.com/en-us/worklab/work-trend-index/agents-human-agency-and-the-opportunity-for-every-organization" target="_blank">Source &#8594;</a></div></div></div>
-    <div class="tweet-item"><div class="tweet-num">4</div><div class="tweet-body"><div class="tweet-text">96% of organizations are running AI agents. 12% have a centralized platform to manage them. That 84-point gap is where your next security incident lives.</div><div class="tweet-meta"><span class="tweet-type tt-data">Data</span><a class="tweet-post-link" href="https://twitter.com/intent/tweet?text=96%25%20of%20organizations%20are%20running%20AI%20agents.%2012%25%20have%20a%20centralized%20platform%20to%20manage%20them.%20That%2084-point%20gap%20is%20where%20your%20next%20security%20incident%20lives.&url=https%3A%2F%2Fwww.innobu.com%2Fen%2Farticles%2Fai-agent-sprawl-governance-gap-2026.html" target="_blank">Post to X &#8594;</a><a class="tweet-source-link" href="https://www.innobu.com/en/articles/ai-agent-sprawl-governance-gap-2026.html" target="_blank">Source &#8594;</a></div></div></div>
-    <div class="tweet-item"><div class="tweet-num">5</div><div class="tweet-body"><div class="tweet-text">Every agent governance product that shipped this month has the same step one: build an inventory of what you have. Most enterprises skip it. Then they wonder why governance doesn&rsquo;t scale.</div><div class="tweet-meta"><span class="tweet-type tt-provocative">Provocative</span><a class="tweet-post-link" href="https://twitter.com/intent/tweet?text=Every%20agent%20governance%20product%20that%20shipped%20this%20month%20has%20the%20same%20step%20one%3A%20build%20an%20inventory%20of%20what%20you%20have.%20Most%20enterprises%20skip%20it.%20Then%20they%20wonder%20why%20governance%20doesn%27t%20scale." target="_blank">Post to X &#8594;</a></div></div></div>
-    <div class="tweet-item"><div class="tweet-num">6</div><div class="tweet-body"><div class="tweet-text">62% of consulting firms rank client trust as their top AI deployment priority &mdash; ahead of talent and compliance. When trust is the primary concern, it means clients are already asking hard questions your team needs answers to.</div><div class="tweet-meta"><span class="tweet-type tt-practitioner">Practitioner</span><a class="tweet-post-link" href="https://twitter.com/intent/tweet?text=62%25%20of%20consulting%20firms%20rank%20client%20trust%20as%20their%20top%20AI%20deployment%20priority%20%E2%80%94%20ahead%20of%20talent%20and%20compliance.%20When%20trust%20is%20the%20primary%20concern%2C%20it%20means%20clients%20are%20already%20asking%20hard%20questions%20your%20team%20needs%20answers%20to." target="_blank">Post to X &#8594;</a></div></div></div>
-    <div class="tweet-item"><div class="tweet-num">7</div><div class="tweet-body"><div class="tweet-text">One in six organizations has no C-level owner for AI adoption. The technology budget got approved. The accountability structure did not. Those two facts explain most of the ROI gap.</div><div class="tweet-meta"><span class="tweet-type tt-provocative">Provocative</span><a class="tweet-post-link" href="https://twitter.com/intent/tweet?text=One%20in%20six%20organizations%20has%20no%20C-level%20owner%20for%20AI%20adoption.%20The%20technology%20budget%20got%20approved.%20The%20accountability%20structure%20did%20not.%20Those%20two%20facts%20explain%20most%20of%20the%20ROI%20gap.&url=https%3A%2F%2Fwww.mckinsey.com%2Fcapabilities%2Fpeople-and-organizational-performance%2Four-insights%2Fthe-state-of-organizations-2026" target="_blank">Post to X &#8594;</a><a class="tweet-source-link" href="https://www.mckinsey.com/capabilities/people-and-organizational-performance/our-insights/the-state-of-organizations-2026" target="_blank">Source &#8594;</a></div></div></div>
+    <div class="tweet-item"><div class="tweet-num">1</div><div class="tweet-body"><div class="tweet-text">Only 13% of people using AI at work feel rewarded for redesigning how they work. You&rsquo;re asking employees to change everything and paying them for the same outputs. That&rsquo;s not an AI problem.</div><div class="tweet-meta"><span class="tweet-type tt-data">Data</span><a class="tweet-post-link" href="https://twitter.com/intent/tweet?text=Only%2013%25%20of%20people%20using%20AI%20at%20work%20feel%20rewarded%20for%20redesigning%20how%20they%20work.%20You%27re%20asking%20employees%20to%20change%20everything%20and%20paying%20them%20for%20the%20same%20outputs.%20That%27s%20not%20an%20AI%20problem." target="_blank">Post to X &#8594;</a></div></div></div>
+    <div class="tweet-item"><div class="tweet-num">2</div><div class="tweet-body"><div class="tweet-text">96% of organizations are running AI agents. 12% have a centralized platform to manage them. That 84-point gap is where your next security incident lives.</div><div class="tweet-meta"><span class="tweet-type tt-data">Data</span><a class="tweet-post-link" href="https://twitter.com/intent/tweet?text=96%25%20of%20organizations%20are%20running%20AI%20agents.%2012%25%20have%20a%20centralized%20platform%20to%20manage%20them.%20That%2084-point%20gap%20is%20where%20your%20next%20security%20incident%20lives." target="_blank">Post to X &#8594;</a></div></div></div>
+    <div class="tweet-item"><div class="tweet-num">3</div><div class="tweet-body"><div class="tweet-text">Every agent governance product that shipped this month has the same step one: build an inventory of what you have. Most enterprises skip it. Then they wonder why governance doesn&rsquo;t scale.</div><div class="tweet-meta"><span class="tweet-type tt-provocative">Provocative</span><a class="tweet-post-link" href="https://twitter.com/intent/tweet?text=Every%20agent%20governance%20product%20that%20shipped%20this%20month%20has%20the%20same%20step%20one%3A%20build%20an%20inventory%20of%20what%20you%20have.%20Most%20enterprises%20skip%20it.%20Then%20they%20wonder%20why%20governance%20doesn%27t%20scale." target="_blank">Post to X &#8594;</a></div></div></div>
+    <div class="tweet-item"><div class="tweet-num">4</div><div class="tweet-body"><div class="tweet-text">One in six organizations has no C-level owner for AI adoption. The technology budget got approved. The accountability structure did not. Those two facts explain most of the ROI gap.</div><div class="tweet-meta"><span class="tweet-type tt-provocative">Provocative</span><a class="tweet-post-link" href="https://twitter.com/intent/tweet?text=One%20in%20six%20organizations%20has%20no%20C-level%20owner%20for%20AI%20adoption.%20The%20technology%20budget%20got%20approved.%20The%20accountability%20structure%20did%20not.%20Those%20two%20facts%20explain%20most%20of%20the%20ROI%20gap." target="_blank">Post to X &#8594;</a></div></div></div>
+    <div class="tweet-item"><div class="tweet-num">5</div><div class="tweet-body"><div class="tweet-text">DFW&rsquo;s local VC firms now manage $4B in assets &mdash; three times what they held in 2020. Dallas is not becoming a tech market. It already is one. The capital just caught up to the narrative.</div><div class="tweet-meta"><span class="tweet-type tt-data">Data</span><a class="tweet-post-link" href="https://twitter.com/intent/tweet?text=DFW%27s%20local%20VC%20firms%20now%20manage%20%244B%20in%20assets%20%E2%80%94%20three%20times%20what%20they%20held%20in%202020.%20Dallas%20is%20not%20becoming%20a%20tech%20market.%20It%20already%20is%20one.%20The%20capital%20just%20caught%20up%20to%20the%20narrative." target="_blank">Post to X &#8594;</a></div></div></div>
+    <div class="tweet-item"><div class="tweet-num">6</div><div class="tweet-body"><div class="tweet-text">Microsoft named four collaboration patterns for human-AI work: Author, Editor, Director, Orchestrator. Most organizations are defaulting everything to Author and calling it AI transformation.</div><div class="tweet-meta"><span class="tweet-type tt-practitioner">Practitioner</span><a class="tweet-post-link" href="https://twitter.com/intent/tweet?text=Microsoft%20named%20four%20collaboration%20patterns%20for%20human-AI%20work%3A%20Author%2C%20Editor%2C%20Director%2C%20Orchestrator.%20Most%20organizations%20are%20defaulting%20everything%20to%20Author%20and%20calling%20it%20AI%20transformation." target="_blank">Post to X &#8594;</a></div></div></div>
+    <div class="tweet-item"><div class="tweet-num">7</div><div class="tweet-body"><div class="tweet-text">62% of consulting firms rank client trust as their top AI deployment priority &mdash; ahead of talent and compliance. When trust is the primary concern, your team needs answers to questions clients are already asking.</div><div class="tweet-meta"><span class="tweet-type tt-practitioner">Practitioner</span><a class="tweet-post-link" href="https://twitter.com/intent/tweet?text=62%25%20of%20consulting%20firms%20rank%20client%20trust%20as%20their%20top%20AI%20deployment%20priority%20%E2%80%94%20ahead%20of%20talent%20and%20compliance.%20When%20trust%20is%20the%20primary%20concern%2C%20your%20team%20needs%20answers%20to%20questions%20clients%20are%20already%20asking." target="_blank">Post to X &#8594;</a></div></div></div>
     <div class="tweet-item"><div class="tweet-num">8</div><div class="tweet-body"><div class="tweet-text">45% of the workers using AI most effectively still prefer their current goals over redesigning how they work. If the early adopters won&rsquo;t redesign, what does that tell you about the rest of the org?</div><div class="tweet-meta"><span class="tweet-type tt-question">Question</span><a class="tweet-post-link" href="https://twitter.com/intent/tweet?text=45%25%20of%20the%20workers%20using%20AI%20most%20effectively%20still%20prefer%20their%20current%20goals%20over%20redesigning%20how%20they%20work.%20If%20the%20early%20adopters%20won%27t%20redesign%2C%20what%20does%20that%20tell%20you%20about%20the%20rest%20of%20the%20org%3F" target="_blank">Post to X &#8594;</a></div></div></div>
-    <div class="tweet-item"><div class="tweet-num">9</div><div class="tweet-body"><div class="tweet-text">DFW&rsquo;s local VC firms now manage $4B in assets &mdash; three times what they held in 2020. Dallas is not becoming a tech market. It already is one. The capital just caught up to the narrative.</div><div class="tweet-meta"><span class="tweet-type tt-data">Data</span><a class="tweet-post-link" href="https://twitter.com/intent/tweet?text=DFW%27s%20local%20VC%20firms%20now%20manage%20%244B%20in%20assets%20%E2%80%94%20three%20times%20what%20they%20held%20in%202020.%20Dallas%20is%20not%20becoming%20a%20tech%20market.%20It%20already%20is%20one.%20The%20capital%20just%20caught%20up%20to%20the%20narrative.&url=https%3A%2F%2Fwww.ellty.com%2Fblog%2Fdallas-investors" target="_blank">Post to X &#8594;</a><a class="tweet-source-link" href="https://www.ellty.com/blog/dallas-investors" target="_blank">Source &#8594;</a></div></div></div>
-    <div class="tweet-item"><div class="tweet-num">10</div><div class="tweet-body"><div class="tweet-text">The enterprise AI governance question is not whether to govern your agents. It is whether you want five separate vendor tools or one coherent control layer. Most organizations will end up with both before they choose.</div><div class="tweet-meta"><span class="tweet-type tt-question">Question</span><a class="tweet-post-link" href="https://twitter.com/intent/tweet?text=The%20enterprise%20AI%20governance%20question%20is%20not%20whether%20to%20govern%20your%20agents.%20It%20is%20whether%20you%20want%20five%20separate%20vendor%20tools%20or%20one%20coherent%20control%20layer.%20Most%20organizations%20will%20end%20up%20with%20both%20before%20they%20choose." target="_blank">Post to X &#8594;</a></div></div></div>
+    <div class="tweet-item"><div class="tweet-num">9</div><div class="tweet-body"><div class="tweet-text">The enterprise AI governance question is not whether to govern your agents. It is whether you want five separate vendor tools or one coherent control layer. Most organizations will end up with both before they choose.</div><div class="tweet-meta"><span class="tweet-type tt-question">Question</span><a class="tweet-post-link" href="https://twitter.com/intent/tweet?text=The%20enterprise%20AI%20governance%20question%20is%20not%20whether%20to%20govern%20your%20agents.%20It%20is%20whether%20you%20want%20five%20separate%20vendor%20tools%20or%20one%20coherent%20control%20layer.%20Most%20organizations%20will%20end%20up%20with%20both%20before%20they%20choose." target="_blank">Post to X &#8594;</a></div></div></div>
+    <div class="tweet-item"><div class="tweet-num">10</div><div class="tweet-body"><div class="tweet-text">Frontier Professionals &mdash; the 16% of AI users producing work no one else can &mdash; report that 65% of them fear falling behind if they slow down. That is not a confident cohort. That is a stressed one.</div><div class="tweet-meta"><span class="tweet-type tt-practitioner">Practitioner</span><a class="tweet-post-link" href="https://twitter.com/intent/tweet?text=Frontier%20Professionals%20%E2%80%94%20the%2016%25%20of%20AI%20users%20producing%20work%20no%20one%20else%20can%20%E2%80%94%20report%20that%2065%25%20of%20them%20fear%20falling%20behind%20if%20they%20slow%20down.%20That%20is%20not%20a%20confident%20cohort.%20That%20is%20a%20stressed%20one." target="_blank">Post to X &#8594;</a></div></div></div>
   </div>
-
   <div class="note-box">W41 &middot; 2026-10-05 &middot; Delta check applied &middot; 1 theme dropped &middot; Batch 17 pending &middot; All 3 drafts confirmed in Obsidian vault (Mind/Posts/) &middot; Vault writes via osascript (MCP subfolder URL-encoding bug active)</div>
 </div><!-- /view-w41 -->
 
-<!-- ═══════════════════════════════════════════════════════ W40 ══ -->
+<!-- W40 and earlier weeks -->
 <div class="week-view" id="view-w40">
   <div class="action-banner resolved">
     <strong>W40 (Sep 28) &mdash; Batch 16 Resolved &middot; DEC Network Approved, 4 Rejected</strong>
-    4 new themes. Shadow AI is the new Shadow IT at 10x scale. Akamai names reversibility as the actual governance variable. Consulting restructuring moves from planning to live. DFW's ecosystem story is wider than the data center narrative.
+    4 new themes. Shadow AI is the new Shadow IT at 10x scale. Akamai names reversibility as the actual governance variable. Consulting restructuring moves from planning to live. DFW&rsquo;s ecosystem story is wider than the data center narrative.
   </div>
   <div class="stats-row">
     <div class="stat-card"><div class="num">4</div><div class="label">Themes</div></div>
     <div class="stat-card"><div class="num">4</div><div class="label">Content Drafts</div></div>
     <div class="stat-card"><div class="num">5</div><div class="label">Sources Proposed</div></div>
   </div>
-
-  <div class="section-title">Themes This Week</div>
-
-  <div class="theme-card" onclick="toggle(this)">
-    <div class="theme-header">
-      <div class="theme-num">1</div>
-      <div class="theme-title">Shadow AI Is Shadow IT at 10x</div>
-      <span class="badge badge-ai">AI</span>
-      <span class="badge badge-security">Security</span>
-      <span class="badge badge-governance">Governance</span>
-      <span class="theme-chevron">&#9658;</span>
-    </div>
-    <div class="theme-body">
-      <div class="new-tag">New argument from W39 &mdash; enforcement-first governance fails by design</div>
-      <div class="theme-synthesis">AWS Reimagine 2026 (154 executives, 128 orgs) and companion research: 78% of AI users using unapproved tools; unsanctioned AI inside 43% of security incidents, more than doubling year over year. Root cause: governance built for 6-month IT programs can't approve 2-week AI experiments. When the compliant path is slower than the useful path, teams stop asking permission. W39 covered governance architecture failure (risk classification); this week the argument shifts to why enforcement-first governance structurally fails and what the design fix is &mdash; make the compliant path competitive.</div>
-      <div class="angles-label">Content angle</div>
-      <span class="angle-tag">Shadow AI Is Shadow IT at 10x</span>
-    </div>
-  </div>
-
-  <div class="theme-card" onclick="toggle(this)">
-    <div class="theme-header">
-      <div class="theme-num">2</div>
-      <div class="theme-title">Reversibility Is the Governing Criterion</div>
-      <span class="badge badge-ai">AI</span>
-      <span class="badge badge-governance">Governance</span>
-      <span class="theme-chevron">&#9658;</span>
-    </div>
-    <div class="theme-body">
-      <div class="new-tag">New argument from W39 &mdash; names the specific variable that should drive differentiation</div>
-      <div class="theme-synthesis">Akamai's Sept 22 State of the Internet report: grant operational autonomy to AI agents based on how reversible a potential failure is &mdash; not task type or risk category. An agent in a reversible context (draft for review) needs less oversight than one in an irreversible context (direct financial system write), regardless of autonomy level. W39 said don't govern all agents the same; this week supplies the specific variable: reversibility.</div>
-      <div class="angles-label">Content angle</div>
-      <span class="angle-tag">Reversibility Is the Governing Criterion</span>
-    </div>
-  </div>
-
-  <div class="theme-card" onclick="toggle(this)">
-    <div class="theme-header">
-      <div class="theme-num">3</div>
-      <div class="theme-title">The Restructuring Is Not Coming. It&rsquo;s Here.</div>
-      <span class="badge badge-consulting">Consulting</span>
-      <span class="badge badge-identity">Talent</span>
-      <span class="theme-chevron">&#9658;</span>
-    </div>
-    <div class="theme-body">
-      <div class="new-tag">Promoted from continuing story &mdash; recommended action shifts from planning to responding</div>
-      <div class="theme-synthesis">Accenture: 11,000 layoffs, $865M restructuring. KPMG: 400 U.S. advisory cuts. Deloitte restructuring select practices. Thomson Reuters 2026 AI in Professional Services Report names junior talent crisis explicitly. The work being eliminated (high-volume, structured, document-heavy) is the exact profile of junior analyst roles. W39's Apprenticeship theme was forward-looking; this week the moves are live.</div>
-      <div class="angles-label">Content angle</div>
-      <span class="angle-tag">The Restructuring Is Not Coming. It&rsquo;s Here.</span>
-    </div>
-  </div>
-
-  <div class="theme-card" onclick="toggle(this)">
-    <div class="theme-header">
-      <div class="theme-num">4</div>
-      <div class="theme-title">DFW&rsquo;s Innovation Economy Is Wider Than the Data Center Story</div>
-      <span class="badge badge-texas">Texas</span>
-      <span class="badge badge-ai">AI</span>
-      <span class="theme-chevron">&#9658;</span>
-    </div>
-    <div class="theme-body">
-      <div class="new-tag">New territory &mdash; ecosystem formation story, not infrastructure/capex</div>
-      <div class="theme-synthesis">DFW Startup Week launched Sept 28 across 15+ Texas cities. TechFW + UNT Health Fort Worth debuted Innovation Forum (startups + Cowtown Angels + wet labs). Dallas ranked No. 27 globally in startup ecosystems &mdash; an 11-place jump. 45% YoY growth in AI-specific workers (29,840). DFW third nationally for economic development project volume. David's steering explicitly asks to move beyond Texas infrastructure/data center coverage; this week's signals are ecosystem-formation stories.</div>
-      <div class="angles-label">Content angle</div>
-      <span class="angle-tag">DFW&rsquo;s Innovation Economy Is Wider Than You Think</span>
-    </div>
-  </div>
-
   <div class="section-title">Content Drafts</div>
-  <div class="data-table">
-    <table>
-      <thead><tr><th>Post Title</th><th>Channels</th><th>Theme</th></tr></thead>
-      <tbody>
-        <tr><td><div class="post-title">Shadow AI Is Shadow IT at 10x</div><div class="vault-path"><a href="obsidian://open?vault=IES&file=Mind%2FPosts%2F_shadow-ai-is-shadow-it-at-10x.md">Mind/Posts/_shadow-ai-is-shadow-it-at-10x.md &#8599;</a></div></td><td><span class="channel-tag ch-blog">Blog</span><span class="channel-tag ch-linkedin">LinkedIn</span></td><td><span class="badge badge-ai">AI</span><span class="badge badge-security">Security</span></td></tr>
-        <tr><td><div class="post-title">Reversibility Is the Governing Criterion</div><div class="vault-path"><a href="obsidian://open?vault=IES&file=Mind%2FPosts%2F_reversibility-is-the-governing-criterion.md">Mind/Posts/_reversibility-is-the-governing-criterion.md &#8599;</a></div></td><td><span class="channel-tag ch-blog">Blog</span><span class="channel-tag ch-linkedin">LinkedIn</span></td><td><span class="badge badge-governance">Governance</span></td></tr>
-        <tr><td><div class="post-title">The Restructuring Is Not Coming. It&rsquo;s Here.</div><div class="vault-path"><a href="obsidian://open?vault=IES&file=Mind%2FPosts%2F_the-restructuring-is-not-coming-its-here.md">Mind/Posts/_the-restructuring-is-not-coming-its-here.md &#8599;</a></div></td><td><span class="channel-tag ch-blog">Blog</span><span class="channel-tag ch-linkedin">LinkedIn</span></td><td><span class="badge badge-consulting">Consulting</span></td></tr>
-        <tr><td><div class="post-title">DFW&rsquo;s Innovation Economy Is Wider Than You Think</div><div class="vault-path"><a href="obsidian://open?vault=IES&file=Mind%2FPosts%2F_dfws-innovation-economy-is-wider-than-you-think.md">Mind/Posts/_dfws-innovation-economy-is-wider-than-you-think.md &#8599;</a></div></td><td><span class="channel-tag ch-blog">Blog</span><span class="channel-tag ch-linkedin">LinkedIn</span></td><td><span class="badge badge-texas">Texas</span></td></tr>
-      </tbody>
-    </table>
-  </div>
-
+  <div class="data-table"><table><thead><tr><th>Post Title</th><th>Channels</th><th>Theme</th></tr></thead><tbody>
+    <tr><td><div class="post-title">Shadow AI Is Shadow IT at 10x</div><div class="vault-path"><a href="obsidian://open?vault=Obsidian&file=Mind%2FPosts%2F_shadow-ai-is-shadow-it-at-10x.md">Mind/Posts/_shadow-ai-is-shadow-it-at-10x.md &#8599;</a></div></td><td><span class="channel-tag ch-blog">Blog</span><span class="channel-tag ch-linkedin">LinkedIn</span></td><td><span class="badge badge-ai">AI</span><span class="badge badge-security">Security</span></td></tr>
+    <tr><td><div class="post-title">Reversibility Is the Governing Criterion</div><div class="vault-path"><a href="obsidian://open?vault=Obsidian&file=Mind%2FPosts%2F_reversibility-is-the-governing-criterion.md">Mind/Posts/_reversibility-is-the-governing-criterion.md &#8599;</a></div></td><td><span class="channel-tag ch-blog">Blog</span><span class="channel-tag ch-linkedin">LinkedIn</span></td><td><span class="badge badge-governance">Governance</span></td></tr>
+    <tr><td><div class="post-title">The Restructuring Is Not Coming. It&rsquo;s Here.</div><div class="vault-path"><a href="obsidian://open?vault=Obsidian&file=Mind%2FPosts%2F_the-restructuring-is-not-coming-its-here.md">Mind/Posts/_the-restructuring-is-not-coming-its-here.md &#8599;</a></div></td><td><span class="channel-tag ch-blog">Blog</span><span class="channel-tag ch-linkedin">LinkedIn</span></td><td><span class="badge badge-consulting">Consulting</span></td></tr>
+    <tr><td><div class="post-title">DFW&rsquo;s Innovation Economy Is Wider Than You Think</div><div class="vault-path"><a href="obsidian://open?vault=Obsidian&file=Mind%2FPosts%2F_dfws-innovation-economy-is-wider-than-you-think.md">Mind/Posts/_dfws-innovation-economy-is-wider-than-you-think.md &#8599;</a></div></td><td><span class="channel-tag ch-blog">Blog</span><span class="channel-tag ch-linkedin">LinkedIn</span></td><td><span class="badge badge-texas">Texas</span></td></tr>
+  </tbody></table></div>
   <div class="section-title">Source Proposals &mdash; Batch 16 (Resolved 2026-09-28)</div>
-  <div class="data-table">
-    <table>
-      <thead><tr><th>Source</th><th>Topic</th><th>Trust</th><th>Status</th></tr></thead>
-      <tbody>
-        <tr><td><div class="source-name"><a href="https://thedec.co" target="_blank">DEC Network</a></div><div class="source-why">Organizes DFW Startup Week; ecosystem-focused content on DFW founders, investors, and entrepreneurship infrastructure.</div></td><td><span class="badge badge-texas">Texas</span></td><td>Med</td><td class="status-approved">Approved</td></tr>
-        <tr><td><div class="source-name"><a href="https://www.thomsonreuters.com/en-us/posts/technology/" target="_blank">Thomson Reuters Institute</a></div><div class="source-why">2026 AI in Professional Services Report. Primary research for W40 Theme 3.</div></td><td><span class="badge badge-consulting">Consulting</span></td><td class="trust-high">High</td><td class="status-rejected">Rejected</td></tr>
-        <tr><td><div class="source-name"><a href="https://rsmus.com/insights" target="_blank">RSM US Insights</a></div><div class="source-why">Mid-market professional services talent and AI advisory.</div></td><td><span class="badge badge-consulting">Consulting</span></td><td class="trust-high">High</td><td class="status-rejected">Rejected</td></tr>
-        <tr><td><div class="source-name"><a href="https://www.helpnetsecurity.com" target="_blank">Help Net Security</a></div><div class="source-why">Primary source for AWS Reimagine 2026 governance report.</div></td><td><span class="badge badge-security">Security</span></td><td class="trust-high">High</td><td class="status-rejected">Rejected</td></tr>
-        <tr><td><div class="source-name"><a href="https://airia.com/blog" target="_blank">Airia Blog</a></div><div class="source-why">Shadow AI statistics source for W40 Theme 1.</div></td><td><span class="badge badge-ai">AI</span></td><td>Med</td><td class="status-rejected">Rejected</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="section-title">Tweets This Week &mdash; 10 Ready to Post</div>
-  <div class="tweet-list">
-    <div class="tweet-item"><div class="tweet-num">1</div><div class="tweet-body"><div class="tweet-text">78% of AI users at work are using tools IT never approved. IBM found unsanctioned AI in 43% of security incidents &mdash; double from last year. This is not a discipline problem. It is a design problem.</div><div class="tweet-meta"><span class="tweet-type tt-data">Data</span><a class="tweet-post-link" href="https://twitter.com/intent/tweet?text=78%25%20of%20AI%20users%20at%20work%20are%20using%20tools%20IT%20never%20approved.%20IBM%20found%20unsanctioned%20AI%20in%2043%25%20of%20security%20incidents%20%E2%80%94%20double%20from%20last%20year.%20This%20is%20not%20a%20discipline%20problem.%20It%20is%20a%20design%20problem.&url=https%3A%2F%2Fwww.helpnetsecurity.com%2F2026%2F09%2F28%2Fai-agent-security-governance-aws-report%2F" target="_blank">Post to X &#8594;</a><a class="tweet-source-link" href="https://www.helpnetsecurity.com/2026/09/28/ai-agent-security-governance-aws-report/" target="_blank">Source &#8594;</a></div></div></div>
-    <div class="tweet-item"><div class="tweet-num">2</div><div class="tweet-body"><div class="tweet-text">The governance question for AI agents is not &ldquo;how risky is this?&rdquo; It is &ldquo;if this gets it wrong, can we undo it?&rdquo; Reversibility is the actual governing variable. Akamai just named it.</div><div class="tweet-meta"><span class="tweet-type tt-practitioner">Practitioner</span><a class="tweet-post-link" href="https://twitter.com/intent/tweet?text=The%20governance%20question%20for%20AI%20agents%20is%20not%20%22how%20risky%20is%20this%3F%22%20It%20is%20%22if%20this%20gets%20it%20wrong%2C%20can%20we%20undo%20it%3F%22%20Reversibility%20is%20the%20actual%20governing%20variable.%20Akamai%20just%20named%20it.&url=https%3A%2F%2Fwww.globenewswire.com%2Fnews-release%2F2026%2F09%2F22%2F3366103%2F0%2Fen%2Fakamai-report-securing-agentic-ai-requires-shift-to-behavioral-governance.html" target="_blank">Post to X &#8594;</a><a class="tweet-source-link" href="https://www.globenewswire.com/news-release/2026/09/22/3366103/0/en/akamai-report-securing-agentic-ai-requires-shift-to-behavioral-governance.html" target="_blank">Source &#8594;</a></div></div></div>
-    <div class="tweet-item"><div class="tweet-num">3</div><div class="tweet-body"><div class="tweet-text">Accenture: 11,000 layoffs, $865 million restructuring. KPMG: 400 U.S. advisory cuts. The consulting talent model shift that everyone was planning for in 2027 is running on 2026 time.</div><div class="tweet-meta"><span class="tweet-type tt-data">Data</span><a class="tweet-post-link" href="https://twitter.com/intent/tweet?text=Accenture%3A%2011%2C000%20layoffs%2C%20%24865%20million%20restructuring.%20KPMG%3A%20400%20U.S.%20advisory%20cuts.%20The%20consulting%20talent%20model%20shift%20that%20everyone%20was%20planning%20for%20in%202027%20is%20running%20on%202026%20time.&url=https%3A%2F%2Ffounderreports.com%2Fai-layoffs-tracker%2F" target="_blank">Post to X &#8594;</a><a class="tweet-source-link" href="https://founderreports.com/ai-layoffs-tracker/" target="_blank">Source &#8594;</a></div></div></div>
-    <div class="tweet-item"><div class="tweet-num">4</div><div class="tweet-body"><div class="tweet-text">When the compliant AI tool is slower and less useful than the unapproved one, governance policy is just making the inventory harder to find. That is the real shadow AI problem.</div><div class="tweet-meta"><span class="tweet-type tt-provocative">Provocative</span><a class="tweet-post-link" href="https://twitter.com/intent/tweet?text=When%20the%20compliant%20AI%20tool%20is%20slower%20and%20less%20useful%20than%20the%20unapproved%20one%2C%20governance%20policy%20is%20just%20making%20the%20inventory%20harder%20to%20find.%20That%20is%20the%20real%20shadow%20AI%20problem." target="_blank">Post to X &#8594;</a></div></div></div>
-    <div class="tweet-item"><div class="tweet-num">5</div><div class="tweet-body"><div class="tweet-text">An AI agent that drafts an email for human review: reversible. An agent that submits a change order directly to a financial system: not reversible. Are you governing these the same way?</div><div class="tweet-meta"><span class="tweet-type tt-question">Question</span><a class="tweet-post-link" href="https://twitter.com/intent/tweet?text=An%20AI%20agent%20that%20drafts%20an%20email%20for%20human%20review%3A%20reversible.%20An%20agent%20that%20submits%20a%20change%20order%20directly%20to%20a%20financial%20system%3A%20not%20reversible.%20Are%20you%20governing%20these%20the%20same%20way%3F" target="_blank">Post to X &#8594;</a></div></div></div>
-    <div class="tweet-item"><div class="tweet-num">6</div><div class="tweet-body"><div class="tweet-text">Dallas jumped to No. 27 in the Global Startup Ecosystem Report &mdash; an 11-place climb. 29,840 AI-specific workers. 45% year-over-year growth. DFW is not just a data center market anymore.</div><div class="tweet-meta"><span class="tweet-type tt-data">Data</span><a class="tweet-post-link" href="https://twitter.com/intent/tweet?text=Dallas%20jumped%20to%20No.%2027%20in%20the%20Global%20Startup%20Ecosystem%20Report%20%E2%80%94%20an%2011-place%20climb.%2029%2C840%20AI-specific%20workers.%2045%25%20year-over-year%20growth.%20DFW%20is%20not%20just%20a%20data%20center%20market%20anymore.&url=https%3A%2F%2Fdallasinnovates.com%2Fdallas-jumps-to-no-27-among-the-worlds-startup-ecosystems%2F" target="_blank">Post to X &#8594;</a><a class="tweet-source-link" href="https://dallasinnovates.com/dallas-jumps-to-no-27-among-the-worlds-startup-ecosystems/" target="_blank">Source &#8594;</a></div></div></div>
-    <div class="tweet-item"><div class="tweet-num">7</div><div class="tweet-body"><div class="tweet-text">The work Accenture is cutting is high-volume, structured, and document-heavy. That is also the description of a first-year analyst role at most consulting firms. This is not a coincidence.</div><div class="tweet-meta"><span class="tweet-type tt-practitioner">Practitioner</span><a class="tweet-post-link" href="https://twitter.com/intent/tweet?text=The%20work%20Accenture%20is%20cutting%20is%20high-volume%2C%20structured%2C%20and%20document-heavy.%20That%20is%20also%20the%20description%20of%20a%20first-year%20analyst%20role%20at%20most%20consulting%20firms.%20This%20is%20not%20a%20coincidence." target="_blank">Post to X &#8594;</a></div></div></div>
-    <div class="tweet-item"><div class="tweet-num">8</div><div class="tweet-body"><div class="tweet-text">67% of executives believe their company already suffered a breach from an employee using an unapproved AI tool. The governance gap is not theoretical anymore. It is on the board agenda.</div><div class="tweet-meta"><span class="tweet-type tt-provocative">Provocative</span><a class="tweet-post-link" href="https://twitter.com/intent/tweet?text=67%25%20of%20executives%20believe%20their%20company%20already%20suffered%20a%20breach%20from%20an%20employee%20using%20an%20unapproved%20AI%20tool.%20The%20governance%20gap%20is%20not%20theoretical%20anymore.%20It%20is%20on%20the%20board%20agenda." target="_blank">Post to X &#8594;</a></div></div></div>
-    <div class="tweet-item"><div class="tweet-num">9</div><div class="tweet-body"><div class="tweet-text">If your junior consultants are no longer doing the structured, document-heavy work that used to develop them, what is year one actually preparing them for?</div><div class="tweet-meta"><span class="tweet-type tt-question">Question</span><a class="tweet-post-link" href="https://twitter.com/intent/tweet?text=If%20your%20junior%20consultants%20are%20no%20longer%20doing%20the%20structured%2C%20document-heavy%20work%20that%20used%20to%20develop%20them%2C%20what%20is%20year%20one%20actually%20preparing%20them%20for%3F" target="_blank">Post to X &#8594;</a></div></div></div>
-    <div class="tweet-item"><div class="tweet-num">10</div><div class="tweet-body"><div class="tweet-text">DFW Startup Week is running across 15+ Texas cities this week. The infrastructure story was the last chapter. The ecosystem story is the current one.</div><div class="tweet-meta"><span class="tweet-type tt-data">Data</span><a class="tweet-post-link" href="https://twitter.com/intent/tweet?text=DFW%20Startup%20Week%20is%20running%20across%2015%2B%20Texas%20cities%20this%20week.%20The%20infrastructure%20story%20was%20the%20last%20chapter.%20The%20ecosystem%20story%20is%20the%20current%20one." target="_blank">Post to X &#8594;</a></div></div></div>
-  </div>
-
+  <div class="data-table"><table><thead><tr><th>Source</th><th>Topic</th><th>Trust</th><th>Status</th></tr></thead><tbody>
+    <tr><td><div class="source-name"><a href="https://thedec.co" target="_blank">DEC Network</a></div><div class="source-why">Organizes DFW Startup Week</div></td><td><span class="badge badge-texas">Texas</span></td><td>Med</td><td class="status-approved">Approved</td></tr>
+    <tr><td><div class="source-name">Thomson Reuters Institute</div><div class="source-why">2026 AI in Professional Services Report</div></td><td><span class="badge badge-consulting">Consulting</span></td><td class="trust-high">High</td><td class="status-rejected">Rejected</td></tr>
+    <tr><td><div class="source-name">RSM US Insights</div><div class="source-why">Mid-market professional services</div></td><td><span class="badge badge-consulting">Consulting</span></td><td class="trust-high">High</td><td class="status-rejected">Rejected</td></tr>
+    <tr><td><div class="source-name">Help Net Security</div><div class="source-why">AWS Reimagine 2026 governance report</div></td><td><span class="badge badge-security">Security</span></td><td class="trust-high">High</td><td class="status-rejected">Rejected</td></tr>
+    <tr><td><div class="source-name">Airia Blog</div><div class="source-why">Shadow AI statistics</div></td><td><span class="badge badge-ai">AI</span></td><td>Med</td><td class="status-rejected">Rejected</td></tr>
+  </tbody></table></div>
   <div class="note-box">W40 &middot; 2026-09-28 &middot; Delta check applied &middot; 0 themes dropped &middot; Batch 16 resolved: DEC Network approved, 4 rejected &middot; All 4 drafts confirmed in Obsidian vault (Mind/Posts/)</div>
 </div><!-- /view-w40 -->
 
-<!-- W39 and earlier weeks preserved from existing artifact -->
 <div class="week-view" id="view-w39">
   <div class="action-banner">
     <strong>W39 (Sep 22) &mdash; Batch 15 Pending (5 proposals) &middot; Batch 14 Still Awaiting</strong>
-    4 new themes. The consulting pricing vocabulary just got a concrete artifact (Cognizant A0-A3). McKinsey says culture is twice as predictive as readiness. PwC names the pipeline problem. Gartner explains why agents die in production. 1 DFW continuing-story dropped.
+    4 new themes. The consulting pricing vocabulary just got a concrete artifact (Cognizant A0-A3). McKinsey says culture is twice as predictive as readiness. PwC names the pipeline problem. Gartner explains why agents die in production.
   </div>
-  <div class="dropped-banner"><strong>Delta check &mdash; 1 theme dropped as continuing story:</strong> DFW AI talent market growth (new stats, same argument as W38 Theme 3 &mdash; no new recommended action this week).</div>
+  <div class="dropped-banner"><strong>Delta check &mdash; 1 theme dropped:</strong> DFW AI talent market growth (new stats, same argument as W38 Theme 3).</div>
   <div class="stats-row">
     <div class="stat-card"><div class="num">4</div><div class="label">Themes</div></div>
     <div class="stat-card"><div class="num">4</div><div class="label">Content Drafts</div></div>
@@ -404,6 +414,7 @@
 
 <script>
   const runMetaMap = {
+    "w42": "Week 2026-W42 · Run 2026-10-12 · Knox · Delta check applied · 0 themes dropped · Batch 18 pending (5 proposals)",
     "w41": "Week 2026-W41 · Run 2026-10-05 · Knox · Delta check applied · 1 theme dropped · Batch 17 pending (5 proposals)",
     "w40": "Week 2026-W40 · Run 2026-09-28 · Knox · Delta check applied · 0 themes dropped · Batch 16 resolved (DEC approved, 4 rejected)",
     "w39": "Week 2026-W39 · Run 2026-09-22 · Knox · Delta check applied · 1 theme dropped · Batch 15 pending",

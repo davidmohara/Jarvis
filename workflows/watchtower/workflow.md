@@ -43,7 +43,7 @@ Both modes share `state.yaml` and `config.yaml`. Sources live in `sources.yaml`.
 | `dormant-sources.yaml` | Retired sources (not polled, not deleted) | `workflows/watchtower/dormant-sources.yaml` |
 | David's profile | Lenses for scoring | `identity/VOICE.md`, `identity/MEMORY.md` |
 | Content register | Append content candidates | `reference/blog-ideas.md` |
-| Obsidian vault | Daily notes + content drafts | Obsidian MCP (`Watchtower/Daily/`, `Mind/Posts/`) |
+| Obsidian vault | Daily notes + content drafts | Obsidian vault (`Watchtower/Daily/`, `Mind/`); write method per `state.yaml` `obsidian_write_method` |
 
 ---
 
@@ -115,7 +115,7 @@ Dormancy rule: a source that surfaces no item clearing `awareness_floor` for 21 
 | Downstream system | How Watchtower feeds it |
 |-------------------|------------------------|
 | `reference/blog-ideas.md` | Weekly step-02 appends candidate rows under `[watchtower]` marker |
-| `Mind/Posts/` (Obsidian) | Weekly step-02 writes `_<slug>.md` draft files |
+| `Mind/` (Obsidian) | Weekly step-02 writes `_<slug>.md` draft files |
 | `Watchtower/Daily/` (Obsidian) | Daily step-05 writes `YYYY-MM-DD.md` with `#watchtower` tag |
 | `Watchtower/Weekly/` (Obsidian) | Weekly step-04 writes `YYYY-Www.md` |
 | Morning briefing | Daily run is invoked by morning-briefing before its step-01; top 5 items by score rendered inline as a Watchtower section with link to full dashboard; content candidate count noted |

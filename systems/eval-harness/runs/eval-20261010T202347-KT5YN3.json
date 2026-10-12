@@ -1,0 +1,61 @@
+{
+  "id": "eval-20261010T202347-KT5YN3",
+  "agent_id": "a56d3498d1dfee7f3",
+  "type": "agent",
+  "name": "fork",
+  "workflow": null,
+  "agent": "fork",
+  "session_id": "16bd81c1-d0b3-4296-b079-9d4b6fedbd37",
+  "trigger": "unknown",
+  "started": "2026-10-10T20:23:47.628115Z",
+  "completed": "2026-10-10T20:28:52.273603Z",
+  "duration_seconds": 304.65,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/16bd81c1-d0b3-4296-b079-9d4b6fedbd37/subagents/agent-a56d3498d1dfee7f3.jsonl",
+  "last_assistant_message": "Task complete: swept all Teams and Outlook message traffic between David O'Hara and Alice Mburu, July 5 \u2013 October 10, 2026, to inventory her untracked work for the ROI case.\n\n**Method note:** counts come from paginated Teams/Graph searches with offset probing to exhaustion. All totals are well under the 1000-result search cap, so these are complete counts, not samples; month boundaries located by probing may be off by a handful of messages. October covers Oct 1-9 only (nothing yet on Oct 10).\n\n## Message counts (Jul 5 \u2013 Oct 9, 2026)\n\n| Channel | Jul | Aug | Sep | Oct (1-9) | Total |\n|---|---|---|---|---|---|\n| Teams FROM Alice (all chats) | ~279 | ~263 | ~263 | 69 | **~874** |\n| Teams FROM David to Alice | ~240 | ~260 | ~70-100 | 69 | **~642** |\n| Email FROM Alice (in David's mailbox) | incl. | incl. | incl. | incl. | **26** |\n| Email TO Alice, all senders (David's view) | \u2014 | \u2014 | \u2014 | \u2014 | **~177** (roughly half authored by David) |\n\nThat's ~1,500 Teams messages exchanged in ~14 weeks, roughly 25 per workday. The earliest messages (Jul 6) are literally David signing up for Monday.com (\"I signed up for Monday in hopes that we might use that as our shared task management\") \u2014 the message baseline and the Monday baseline start the same day. Alice's volume is steady at ~12-15 messages per workday across all three full months; David's dips in September (heavy travel: Vegas, retreat, RBM), while hers does not.\n\n## Work categories observed in messages\n\n**1. Daily reporting rhythm (~10% of traffic, but the backbone)**\nEvery workday, Alice posts a \"Daily Overview & Recap\" message: tomorrow's attire guide, travel confirmations, medical appointment status, and links to the Monday recap board. ~60-65 delivered since July. Examples: \"FYIs: Attire guide: Company Tees for the retreat. Today's recap...\" (Sep 28); \"Attire guide: Jacket, you have a podcast recording in the afternoon\" (Sep 2); \"Going once I send the daily report lol\" (Sep 1).\n\n**2. Calendar management & scheduling (~20%)**\nRescheduling declined meetings and adding the right people (\"Keith declined... when we reschedule, try to include Luke McGrath since he's the expert\", Oct 8); finding the only mutual slot (\"Would you be okay with the 1:1 with Scott McMichael at 9:00 AM Tuesday? It is the only slot\", Sep 1); scheduling with other execs' EAs; external scheduling via email (David Evans lunch Oct 27, Hugh Breland, Greg Pascuzzi breakfast, Ashok Iyengar workshop call, Jay Gilbert podcast taping Nov 20).\n\n**3. Inbox triage & action-item interception (~20%)**\nShe reads David's inbox and surfaces only what needs him, pre-summarized: UTB policy approvals (Oct 9), YPO waivers and forms (Oct 8), Principled Business Summit speaker form + Google Form (Oct 8), EIP quarterly deadline reminder from Nick (Oct 7), LinkedIn messages (Eric Palley reconnect, escalating an Andrew Tate harassment stream, Jul 6). Format: \"Quick 3-item inbox check... a few I have already handled for you\" (Oct 5).\n\n**4. Travel & logistics (~20%)**\nFlight comparison with judgment (\"The next one gets there at 6:30 PM which will be too tight if you want to attend the social opening\", Oct 9; JSX rigidity warning + holding flights to avoid cancellation fees, Oct 2); hotel selection for proximity (\"SpringHill Suites... 0.5 miles from the Stadium\", Sep 1) and noise suppression; itineraries visible in messages: Houston (multiple), Austin/Principled Business Summit, Colorado Springs retreat, Vegas, Panama, Financial Services Summit, Texans game weekend, RBM.\n\n**5. Expense & finance admin (~10%)**\nVegas expense report reconciliation (which charges go where, the $6,600 alcohol-memo question, Oct 9); parking reimbursement sweep (Oct 9); cost-center confirmation (Oct 9); the $900 MRI billing dispute drafted to Hylant for David's approval (Sep 4); vendor payment confirmations (Texans suite agreement, Legacy Club AP, bank-detail verification for Robin Graham's wire, Sep 1).\n\n**6. Event & relationship execution (~15%)**\nTexans suite gameday logistics with the Texans org (Aug-Sep); CC Breakfast roundtable (Aug 25) plus CodeLaunch invitation follow-ups to attendees; ACG Luncheon speaker coordination, headshot and bio (Oct 13 event); SMU panel confirmations with parking pass and panel questions (Sep 28); Innovation Lab scheduling for Diana at Remington Hotels (Oct 8); Vistage event space evaluation (Sep 4-8); AI Executive Workshop planning with Ashok (Sep 4); RBM follow-up contact list; C-level shortlist for Houston meetings (Jul 6); wine gifts researched for Ryan and Tosan (Sep 8).\n\n**7. Personal & medical admin (~10%)**\nUnreimbursable-in-Time work: chasing Dr Julli's office through Performance Medicine after her departure (Oct 7), Dr Denning slot juggling around a haircut (Oct 6), Dr Jeremy's MRI access coordination between Elite and Crown Imaging (Sep 28-29), Dr Pauza spine clinic intake (Oct 8), Addison Pain paperwork phone-tag (Jul 7). This category alone represents hours of hold-time David would personally have absorbed.\n\n**8. CRM & contact data (~5%)**\nLogging new executive contacts in Dynamics (Sean Woolley, Stephen Sorensen, Hank Gregor, Sep 29); RBM follow-up lists; bootcamp client tracking in Dynamics (Oct 7); a helpdesk ticket loop for CRM contact sync (Sep 25-30).\n\n## Recurring rhythms\n\n- Daily recap message (every workday, ~65 delivered)\n- Friday Week Wrap-Up meeting (recurring, both attend; David accepts weekly)\n- Weekly End-of-Week Review boards in Monday (visible from Jul 7)\n- Monthly expense/card cycles; quarterly EIP deadlines she fronts\n- Continuous travel pipeline: at least 10 distinct itineraries in flight over the period\n\n## Evidence of work David would otherwise do himself\n\n- **Judgment calls made on his behalf:** hotel choice weighing cost vs noise; flight arrival times protecting social commitments; which expenses need reimbursing; personal-vs-corporate card selection (\"I will book... with the company card and book the 7:00 PM return flight (personal card)\", Sep 1).\n- **Vendor chasing:** repeated calls to Performance Medicine, Dr Walter's office (\"I keep ending up on hold though I'm still trying them\", Sep 8), Jessica at Dr Jeremy's office by phone and email, Addison Pain, spine clinic intake, MRI scheduling.\n- **Drafting for his voice:** emails to Loreta, the Hylant MRI dispute, CC Breakfast follow-ups, all pre-drafted for approval.\n- **Acting as the external interface:** third parties now negotiate directly with Alice, David on CC (Texans org, ACG, Vistage, Systemic Compliance, Google, SMU, Saxum). Internal colleagues route through her too (Diana: \"Hi Alice, can you check David's calendar and let me know a few days in November\", Oct 7; Bethany: \"I'm including Alice to help find times\", Oct 3) \u2014 requests that would otherwise land on David.\n- **She proposed and runs the Monday tracking system itself** \u2014 the daily/weekly recap structure, the expense items on Monday (\"I had already included the ones you added to Monday\", Oct 9).\n\n**Quantifiables for the ROI case:** ~1,500 Teams messages + ~180 emails over 14 weeks; ~65 daily recaps; 10+ travel itineraries; 6+ events run end-to-end; 20+ external contacts scheduled; 3+ expense cycles reconciled; a $900 insurance billing dispute handled; one vendor harassment stream escalated.\n\nOne scope note: item 4 of the directive (email to Alice, David-sender only) turned out to be the least informative slice \u2014 the more valuable finding is that ~90 of the ~177 recipient-side emails are third parties (Diana Stevens, Bethany Hilton, external vendors and partners) addressing Alice directly, which is itself evidence that she functions as the operational entry point, removing David from scheduling loops entirely.",
+  "model": "accounts/fireworks/models/glm-5p3",
+  "total_tokens_input": 1393775,
+  "total_tokens_output": 734,
+  "total_cost_usd": 0.045,
+  "cost_estimation_note": "estimated based on fork workflow type"
+}
