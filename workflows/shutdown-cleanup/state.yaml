@@ -1,42 +1,34 @@
 ---
 workflow: shutdown-cleanup
 agent: rigby
-status: complete
-session-started: "2026-09-17T03:47:19Z"
-session-completed: "2026-09-17T03:50:30Z"
-session-id: session-2026-09-17-034719
+status: in-progress
+session-started: "2026-10-13T22:45:00Z"
+session-completed: null
+session-id: session-2026-10-13-224500
 current-step: step-04
-original-request: "Execute shutdown-cleanup workflow steps 01-04 in strict order"
+original-request: "Wrap up the day — conversational exit; run shutdown-cleanup and commit"
 paused-for-controller: false
 accumulated-context:
   purge_results:
     deleted:
       - path: "./.DS_Store"
         reason: "macOS folder metadata"
-      - path: "./systems/eval-harness/__pycache__"
-        reason: "Python bytecode cache"
-      - path: "./workflows/morning-briefing/verify/__pycache__"
-        reason: "Python bytecode cache"
-      - path: "./skills/plaud-transcripts/scripts/__pycache__"
-        reason: "Python bytecode cache"
-      - path: "./systems/eval-harness/scoring/__pycache__"
-        reason: "Python bytecode cache"
-      - path: "./workflows/weekly-review/verify/__pycache__"
-        reason: "Python bytecode cache"
-      - path: "./systems/eval-harness/vendor/yaml/__pycache__"
-        reason: "Python bytecode cache"
-    skipped:
-      - path: "./skills/omnifocus-data/scripts/__pycache__"
-        reason: "Python bytecode cache, but skills/omnifocus-data/ explicitly off-limits per session instruction — left and flagged"
-      - path: "./meetings/ar-ypo-dinner-talking-points.html"
-        reason: "Gitignored intermediate HTML build artifact — controller instructed to leave in place; not staged"
-    total_deleted: 7
+      - path: "./.~lock.Improving_AI_Speaking_Conference_Tracker.xlsx#"
+        reason: "Stale Office lock file at root; gitignored pattern (.gitignore line 71), xlsx not present at root"
+      - path: "**/__pycache__ (26 dirs)"
+        reason: "Python bytecode cache across .claude/hooks, skills, systems, workflows"
+    skipped: []
+    total_deleted: 28
   root_check:
     resolved:
       - name: ".DS_Store"
         disposition: "Deleted — macOS folder metadata."
+      - name: ".~lock.Improving_AI_Speaking_Conference_Tracker.xlsx#"
+        disposition: "Deleted — stale Office lock artifact, gitignored."
       - name: ".playwright-mcp/"
         disposition: "No action — gitignored, untracked tool cache (.gitignore line 36)."
+      - name: "CHANGELOG.md"
+        disposition: "No action — tracked in git (last touched c071b451), legitimate repo file."
   organize_results:
     deliverables_checked: 0
     renamed: []
@@ -47,10 +39,8 @@ accumulated-context:
     patterns_added: []
     already_covered: 6
     no_changes_needed: true
-  commit_results:
-    commit_sha: "0a8209f1"
-    files_committed: 34
-    temp_artifacts_staged: false
-    pushed: false
+    note: ".~lock.*# already covered at line 71"
+  session_index:
+    closed: "session-2026-10-13-064103 at 2026-10-13T17:47:09-05:00, current_topic set to null"
 model: sonnet
 ---

@@ -1,0 +1,15 @@
+{
+  "id": "err-20261013T224012-XCD0WA",
+  "timestamp": "2026-10-13T22:40:12Z",
+  "session": "2026-10-13 X-DLP executive offering planning",
+  "source": "explicit",
+  "agent": "master",
+  "category": "tool-misuse",
+  "description": "Recommended Claude Desktop/Cowork as the X-DLP harness, claiming guardrails could be handled via connector scopes and config alone. David corrected: hooks and Python-script guardrail enforcement do not work in Cowork, so it cannot carry the DLP-style enforcement layer.",
+  "correction": "Cowork is not a viable exec-side harness when runtime guardrail enforcement (hooks, scripts) is required. The harness design needs a different answer: enforcement-capable runtime for the exec interface, or an architecture that keeps enforcement on the FDE/Coach side.",
+  "failure_mode": "tool-ignorance",
+  "systemic_fix": "Before recommending a harness for any offering, verify the target platform supports the required enforcement mechanisms (hooks/scripts), not just the interface and connector layers.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": []
+}
