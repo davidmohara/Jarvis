@@ -1,8 +1,8 @@
 workflow: content-pipeline
 agent: harper
-status: in-progress
+status: aborted
 started-at: 2026-10-12T19:00:00Z
-completed-at: ""
+completed-at: '2026-10-13T21:30:00Z'
 outputs:
   messages_scanned: 3
   new_urls: 0
@@ -12,5 +12,6 @@ outputs:
   editorial_feedback: 2
   pending_threads_checked: 3
   outcome: "3 Ghost drafts created from Watchtower digests; 3 Slack review notifications posted to #content"
+  resolution: "Stalled at step-02 during 2026-10-12 travel internet outage; cleared 2026-10-13 per controller. Drafts posted to #content are handled by Alice Mburu - do not resume."
 model: sonnet
 current-step: step-02

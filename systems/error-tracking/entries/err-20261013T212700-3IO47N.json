@@ -1,0 +1,16 @@
+{
+  "id": "err-20261013T212700-3IO47N",
+  "timestamp": "2026-10-13T21:27:00.004297Z",
+  "session": "session-2026-10-13-064103",
+  "source": "explicit",
+  "agent": "harper",
+  "category": "process-skip",
+  "description": "content-pipeline run started 2026-10-12T19:00:00Z stalled at step-02 (approval leg) during the controller's travel internet outage and sat in-progress ~48h. Its discovery leg completed: 3 Ghost drafts created from Watchtower digests, 3 review notifications posted to #content. Controller confirmed the posted drafts are being handled by Alice Mburu, so the stalled approval leg is moot.",
+  "correction": "Controller instructed: log the issue and clear the workflow. Workflows/content-pipeline/state.yaml set to aborted with resolution note; drafts ownership transferred to Alice. Do not re-run or resume.",
+  "failure_mode": "connectivity-outage",
+  "systemic_fix": "Environmental stall (same outage root cause as the 2026-10-13 subagent abort cluster, see err-20261013T212504-L3TOFQ). Suggested pattern-level guard for Rigby: boot workflow-scan should flag in-progress runs older than 24h with a stale-run auto-annotation so they surface with context instead of as bare resume/abort decisions.",
+  "fix_status": "applied",
+  "fix_applied": "2026-10-13: state cleared per controller instruction; drafts confirmed in Alice's hands; boot step-06 already surfaced the stale run for decision rather than auto-resuming (correct behavior).",
+  "severity": "minor",
+  "related_entries": ["err-20261013T212504-L3TOFQ"]
+}
