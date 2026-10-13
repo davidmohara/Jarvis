@@ -2855,13 +2855,24 @@
         ]
       },
       {
-        "topic": "unattributed",
+        "topic": "shutdown-cleanup",
         "files": [
           "workflows/shutdown-cleanup/steps/step-02-organize-deliverables.md",
           "workflows/shutdown-cleanup/steps/step-03-gitignore-check.md",
           "workflows/shutdown-cleanup/steps/step-04-commit.md",
           "workflows/shutdown-cleanup/state.yaml",
-          "memory/working/shutdown-cleanup-2026-10-13-174800.md"
+          "memory/working/shutdown-cleanup-2026-10-13-174800.md",
+          "workflows/shutdown-cleanup/steps/step-05-verify-cleanup.md"
+        ],
+        "loops": [],
+        "flag": false
+      },
+      {
+        "topic": "unattributed",
+        "files": [
+          "systems/error-tracking/entries/err-20261013T231457-A7IQVJ.json",
+          "workflows/shutdown-cleanup/steps/step-05-verify-cleanup.md",
+          "workflows/shutdown-cleanup/state.yaml"
         ],
         "loops": [],
         "flag": true

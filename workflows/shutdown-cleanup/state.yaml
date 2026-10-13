@@ -1,11 +1,11 @@
 ---
 workflow: shutdown-cleanup
 agent: rigby
-status: in-progress
+status: complete
 session-started: "2026-10-13T22:45:00Z"
-session-completed: null
+session-completed: "2026-10-13T22:57:00Z"
 session-id: session-2026-10-13-224500
-current-step: step-04
+current-step: null
 original-request: "Wrap up the day — conversational exit; run shutdown-cleanup and commit"
 paused-for-controller: false
 accumulated-context:
@@ -42,5 +42,12 @@ accumulated-context:
     note: ".~lock.*# already covered at line 71"
   session_index:
     closed: "session-2026-10-13-064103 at 2026-10-13T17:47:09-05:00, current_topic set to null"
+    attributed: "flagged unattributed topic (all shutdown-cleanup files) assigned to shutdown-cleanup, flag cleared"
+  commit_results:
+    commit_sha: "1537cd47"
+    files_committed: 12
+    temp_artifacts_staged: false
+    pushed: false
+  adversarial-verification: "pass - Ralph verified 12/12 claims against commit 1537cd47 and wrapper spool; guardrail-checkpoint unrecordable (no in-progress shutdown-cleanup eval record after pre-run close sweep), noted in summary (2026-10-13)"
 model: sonnet
 ---

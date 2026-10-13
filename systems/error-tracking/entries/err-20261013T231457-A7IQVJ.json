@@ -1,0 +1,15 @@
+{
+  "id": "err-20261013T231457-A7IQVJ",
+  "timestamp": "2026-10-13T23:14:57.236258Z",
+  "session": "session-2026-10-13-064103",
+  "source": "explicit",
+  "agent": "rigby",
+  "category": "over-engineering",
+  "description": "Controller feedback: the git commit path has gotten overengineered and takes too long. Observed cost on 2026-10-13: a routine session-end commit required spawning a Rigby subagent (persona load + skills/git/SKILL.md read), the ies-git wrapper with --ack-gated flags, git-gate eval-wrapping hooks (which also break on multi-line commit messages), multiple sequential commits because eval/harness files churn during the pass, and a Ralph verification pass on top — minutes of wall-clock and tens of thousands of tokens for what is functionally 'stage everything and commit'.",
+  "correction": "Routine session commits should be fast. The full ceremony (gates, eval wrapping, verification) is justified only for high-stakes operations: evolutions, gated-directory capability changes, or pushes. A plain session-end commit of memory/data/eval churn does not need it.",
+  "failure_mode": "scope-creep",
+  "systemic_fix": "Proposed for Rigby design pass: (1) add a fast path to skills/git/SKILL.md for routine session commits — direct ies-git stage+commit with a standard message, no per-commit eval wrapping, no Ralph verification; (2) reserve the full gate path (--ack-gated, eval wrapping, verification) for gated-dir changes, evolutions, and pushes; (3) fix the git-gate hook's multi-line message quoting bug in the same pass; (4) consider one commit per pass instead of chasing churn with sequential commits — commit once, leave post-commit harness churn for the next session.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": []
+}

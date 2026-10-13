@@ -1,0 +1,15 @@
+{
+  "id": "err-20261013T231400-H73B96",
+  "timestamp": "2026-10-13T23:14:00Z",
+  "session": "2026-10-13 X-DLP executive offering planning",
+  "source": "explicit",
+  "agent": "master",
+  "category": "missed-context",
+  "description": "Misread 'meet you where you are' as meaning the program should appear in the exec's existing channels (Teams, Outlook, Slack) with Improving running an invisible runtime. David corrected: the surface is the org's existing AI assistant, Claude, Gemini, or ChatGPT, wherever their organization lives now.",
+  "correction": "The exec-facing surface is whatever AI platform the client organization already uses. The offering is provider-agnostic: skills, guardrail guidance, and the log-review discipline must operate on top of Claude, Gemini, or ChatGPT, not require an Improving-controlled runtime or a dedicated wrapper.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "When a phrase is ambiguous, confirm the intended meaning before building a structure on it; this is the second consecutive harness misread in the same thread.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": ["err-20261013T224012-XCD0WA"]
+}
