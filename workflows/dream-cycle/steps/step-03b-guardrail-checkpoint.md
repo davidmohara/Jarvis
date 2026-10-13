@@ -2,10 +2,6 @@
 status: completed
 started-at: 2026-10-09T11:58:00Z
 completed-at: 2026-10-09T12:00:00Z
-outputs:
-  result: pass
-  reason: "7 promoted entries this cycle, all correctly set promoted:true and none appearing in compression candidate set; 4 compression candidates (date<2026-07-11, score<2, promoted==false) -- increase from 2 to 4 explained by 16-day gap advancing the 90-day window to pick up 2 new entries (system-eval-2026-06-27-040621.md and dream-summary-2026-07-06.md); still below the 5-entry safety threshold; all 5 semantic writes were substantive dated narrative appends with real content, not stubs."
-  eval_record: "eval-20261009T164112-TNNB3K"
 model: sonnet
 ---
 

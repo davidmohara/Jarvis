@@ -23,6 +23,8 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "systems" / "eval-harness" / "vendor"))
+sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "systems" / "eval-harness"))
+from step_outputs import load_step_outputs
 try:
     import yaml
 except Exception:
@@ -66,14 +68,14 @@ def main():
         }))
         return
 
-    outputs = extract_frontmatter(step_path.read_text()).get("outputs") or {}
+    outputs = load_step_outputs(ies_root, "dream-cycle", ['episodic_scanned', 'score_updates'], yaml)
     if not isinstance(outputs, dict) or not outputs:
         print(json.dumps({
             "result": "retry",
             "reason": "step-02 outputs block is empty - no scoring counts recorded",
             "fields": {"scoring_verified": False},
             "validation_errors": ["no_outputs"],
-            "retry_instruction": "Re-execute step-02 (salience-score.py) and record episodic_scanned/score_updates in the step frontmatter outputs.",
+            "retry_instruction": "Re-execute step-02 (salience-score.py) and record episodic_scanned/score_updates in state.yaml's accumulated-context.",
         }))
         return
 
@@ -122,7 +124,7 @@ def main():
             "reason": "episodic_scanned/score_updates are absent or not positive integers",
             "fields": fields,
             "validation_errors": ["invalid_counts"],
-            "retry_instruction": "Record positive integer episodic_scanned and score_updates in step-02 outputs.",
+            "retry_instruction": "Record positive integer episodic_scanned and score_updates in state.yaml's accumulated-context.",
         }))
         return
 

@@ -2,14 +2,6 @@
 status: complete
 started-at: "2026-10-05T22:38:30-05:00"
 completed-at: "2026-10-05T22:39:00-05:00"
-outputs:
-  gate_4_result: "pass"
-  candidate_windows_found: 2
-  no_viable_reason: null
-  available_days: ["saturday", "unavailable"]
-  output_file: "workflows/golf-booking/preview-output.json"
-  rank_1_option: "Saturday Oct 17, 1:00 PM, 18 holes, $21/player (score: 0)"
-  rank_2_option: "Sunday Oct 18, 2:30 PM, 18 holes, $21/player (score: 5)"
 model: haiku
 ---
 

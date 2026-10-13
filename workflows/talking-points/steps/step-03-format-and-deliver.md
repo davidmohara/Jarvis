@@ -3,7 +3,6 @@ status: not-started
 model: sonnet
 started-at: ~
 completed-at: ~
-outputs: {}
 ---
 
 <!-- system:start -->
@@ -120,17 +119,11 @@ outputs: {}
 
 ### Output Persistence (MANDATORY)
 
-The verifier for this step finds the delivered document on disk (from `accumulated-context.output`, then a glob of `meetings/*talking-point*.md`) and validates its content. Save the file to `meetings/` with `talking-point` in the filename, then record its path in `state.yaml` `accumulated-context.output` and in this step file's frontmatter `outputs`. The saved file MUST contain at least 3 talking-point markers, an anticipated Q&A section, and be at least 500 bytes. Point markers match headings like `## 1. ...`, `**1. ...**`, or a `**Talking Point N**` / `**Key Message N**` / `**Theme N**` lead. The Q&A section must carry a recognizable label such as "Anticipated Q&A", "If asked", "Likely questions", or "Questions to ask".
+The verifier for this step finds the delivered document on disk (from `accumulated-context.output`, then a glob of `meetings/*talking-point*.md`) and validates its content. Save the file to `meetings/` with `talking-point` in the filename, then record its path in `state.yaml` `accumulated-context.output`. The saved file MUST contain at least 3 talking-point markers, an anticipated Q&A section, and be at least 500 bytes. Point markers match headings like `## 1. ...`, `**1. ...**`, or a `**Talking Point N**` / `**Key Message N**` / `**Theme N**` lead. The Q&A section must carry a recognizable label such as "Anticipated Q&A", "If asked", "Likely questions", or "Questions to ask".
 
 ```yaml
 # state.yaml -> accumulated-context
 output: "meetings/{YYYY-MM-DD}-{event-slug}-talking-points.md"
-
-# step-03-format-and-deliver.md -> frontmatter
-outputs:
-  output: "meetings/{YYYY-MM-DD}-{event-slug}-talking-points.md"
-  point_count: 3
-  has_anticipated_qa: true
 ```
 
 ---

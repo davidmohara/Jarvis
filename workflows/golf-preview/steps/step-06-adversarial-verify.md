@@ -2,7 +2,6 @@
 status: not-started
 started-at: ~
 completed-at: ~
-outputs: {}
 model: sonnet
 ---
 
@@ -12,7 +11,7 @@ model: sonnet
 ## EXECUTION PROTOCOL
 
 **Agent:** Sterling, spawned by the coordinator, never executed inline. Sterling spawns Ralph.
-**Input:** The step 01-05 frontmatter `outputs`, `workflows/golf-preview/state.yaml`, `workflows/golf-booking/preview-output.json`, the weather source data for the target weekend
+**Input:** Step 01-05 outputs from `workflows/golf-preview/state.yaml` `accumulated-context`, `workflows/golf-booking/preview-output.json`, the weather source data for the target weekend
 **Output:** Ralph's verdict table; an `adversarial-verification` guardrail result recorded; verdict summary written to state.yaml
 
 ## PARAMETERS
@@ -20,7 +19,7 @@ model: sonnet
 - Verification workflow: `workflows/golf-preview-verification/workflow.md`
 - Lens: preview claims vs weather/course source data; target dates correct, no day marked available against a hard block, weather claims match the source
 - Manifest:
-  - step-outputs: `workflows/golf-preview/steps/step-0{1..5}-*.md` frontmatter outputs
+  - step-outputs: `workflows/golf-preview/state.yaml` `accumulated-context`
   - state: `workflows/golf-preview/state.yaml`
   - preview-output: `workflows/golf-booking/preview-output.json`
   - run-date: `<YYYY-MM-DD>`

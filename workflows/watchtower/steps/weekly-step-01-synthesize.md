@@ -2,11 +2,6 @@
 status: complete
 started-at: "2026-08-31T07:05:00Z"
 completed-at: "2026-08-31T07:20:00Z"
-outputs:
-  items_in_queue: 0
-  themes_identified: 3
-  dropped_as_continuing: 2
-  used_fallback: true
 ---
 
 <!-- system:start -->
@@ -17,7 +12,7 @@ outputs:
 3. Pull from `accumulated-context.content_queue` — this is the week's content-worthy items as flagged by daily runs.
 4. If content_queue is empty, check the past 7 days of `seen.jsonl` and re-score the top-scoring items as a fallback. Do not report "nothing to synthesize" without trying.
 5. Synthesize into themes — do not simply re-list items. Look for patterns across items.
-6. Write `status: complete`, `completed-at`, and `outputs` when done.
+6. Write `status: complete` and `completed-at` to this file's frontmatter when done; record run outputs in `state.yaml` `accumulated-context`.
 
 ---
 
@@ -46,12 +41,12 @@ outputs:
 
 1. Read `accumulated-context.content_queue` from `state.yaml`. These are this week's content-worthy items (flagged `content_worthy: true` by daily step-03).
 
-2. If `content_queue` is empty or has fewer than 2 items: pull `workflows/watchtower/seen.jsonl`, filter to entries from the past 7 days, and re-score the top 5 by consulting David's lenses in `config.yaml`. Use these as the working set and note in outputs that you used the fallback.
+2. If `content_queue` is empty or has fewer than 2 items: pull `workflows/watchtower/seen.jsonl`, filter to entries from the past 7 days, and re-score the top 5 by consulting David's lenses in `config.yaml`. Use these as the working set and note in `state.yaml` `accumulated-context` that you used the fallback.
 
 3. **DELTA CHECK — run this before finalizing any theme.** Read the prior two weeks' notes from `Watchtower/Weekly/` in Obsidian (or `workflows/watchtower/fallback/weekly/` if Obsidian was unavailable). For each candidate theme, explicitly ask: "Is this a new argument, or is this new data supporting an argument I already surfaced in the past two weeks?"
 
    - **New argument** = promote it as a theme.
-   - **New data, same argument** = only promote if the new data materially changes the recommended action for David's audience (i.e., something they should now do differently). If it doesn't, flag it as a "continuing story" and drop it from themes. Note the drop in `outputs.dropped_as_continuing`.
+   - **New data, same argument** = only promote if the new data materially changes the recommended action for David's audience (i.e., something they should now do differently). If it doesn't, flag it as a "continuing story" and drop it from themes. Note the drop in `state.yaml` `accumulated-context.dropped_as_continuing`.
    - **Same data reframed** = drop it entirely.
 
    The goal is that every theme this week teaches David's audience something they could not have learned from last week's content. Redundancy is a failure mode, not a safety net.
@@ -67,13 +62,13 @@ outputs:
      content_angles: []   # populated by step-02
    ```
 
-6. Write `outputs` to this file's frontmatter:
+6. Record these outputs to `state.yaml` `accumulated-context`:
    ```yaml
-   outputs:
-     items_in_queue: <int>
-     themes_identified: <int>
-     dropped_as_continuing: <int>   # themes dropped because they were continuing stories, not new arguments
-     used_fallback: <bool>
+   # state.yaml -> accumulated-context
+   items_in_queue: <int>
+   themes_identified: <int>
+   dropped_as_continuing: <int>   # themes dropped because they were continuing stories, not new arguments
+   used_fallback: <bool>
    ```
 
 ---
@@ -84,7 +79,7 @@ outputs:
 - Each theme has a synthesis note tied to David's specific lenses — not generic observations.
 - `weekly_themes` written to `state.yaml`.
 - `accumulated-context` contains `delta_check_applied: true` — a run that skips the delta check fails this metric regardless of theme count.
-- `dropped_as_continuing` is present in outputs and is an integer (zero is acceptable; absent is not).
+- `dropped_as_continuing` is present in `state.yaml` `accumulated-context` and is an integer (zero is acceptable; absent is not).
 
 ---
 

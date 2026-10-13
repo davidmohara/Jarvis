@@ -2,40 +2,6 @@
 status: completed
 started-at: 2026-10-09T12:00:00Z
 completed-at: 2026-10-09T12:01:00Z
-outputs:
-  candidates_count: 4
-  entries_compressed: 0
-  digests_updated: 0
-  compression_skipped: true
-  compression_skip_reason: "4 compression candidates this cycle (2026-06-19-session.md, daily-review-2026-06-23-170000.md, system-eval-2026-06-27-040621.md, dream-summary-2026-07-06.md -- all date<2026-07-11, score 0, promoted false; 2 new candidates vs 09-23 explained by 16-day gap advancing the 90-day cutoff from 2026-06-25 to 2026-07-11), still below the 5-entry safety threshold -- skipped, nothing modified. GUARDRAIL 7 approval gate not reached."
-approved-followup-2026-09-15:
-  approved-at: 2026-09-15T08:25:00Z
-  approved-by: david
-  scope: "this 5-entry batch only, one-time — not a standing change to GUARDRAIL 7's approval requirement or the 5-entry threshold"
-  entries_compressed: 5
-  digests_updated: 1
-  digest_file: memory/episodic/digests/2026-Q2-digest.md
-  files_deleted:
-    - memory/episodic/session-work-2026-06-08-162353.md
-    - memory/episodic/2026-06-12-session-wrap.md
-    - memory/episodic/2026-06-12-ai-innovation-lab-pdf.md
-    - memory/episodic/2026-06-12-spring-line-advisory.md
-    - memory/episodic/co-sell-pipeline-2026-06-15-143245.md
-  note: "David replied 'Go ahead with compression' directly to the push notification flagging this cycle's threshold crossing. Digest entries appended to the existing 2026-Q2-digest.md (all 5, chronological, 2-sentence summaries) before any deletion, per this step's ordering rule; all 5 source files deleted only after the digest write was confirmed. Mirrors the 08-29 precedent below exactly."
-prior-cycle-approved-followup:
-  approved-at: 2026-08-29T11:58:00Z
-  approved-by: david
-  scope: "this 5-entry batch only, one-time — not a standing change to GUARDRAIL 7's approval requirement or the 5-entry threshold"
-  entries_compressed: 5
-  digests_updated: 1
-  digest_file: memory/episodic/digests/2026-Q2-digest.md
-  files_deleted:
-    - memory/episodic/2026-04-30-dream-cycle-summary.md
-    - memory/episodic/2026-05-04-dream-cycle-summary.md
-    - memory/episodic/2026-05-08-session-index-build.md
-    - memory/episodic/2026-05-15-dream-cycle-summary.md
-    - memory/episodic/decisions/2026-05-27-185930-decision-rationale-error-improvement-2026-03-21-to-2026-05-27.md
-  note: "David answered '1' to the three options offered in-conversation (approve this batch / lower the threshold / leave permanently manual). Digest entries appended to the existing 2026-Q2-digest.md before any deletion, per this step's ordering rule; all 5 source files deleted only after the digest write was confirmed. memory/episodic/decisions/ is now empty (only .gitkeep). See workflows/dream-cycle/state.yaml accumulated-context.step-04-2026-08-29-approved-followup for the full record."
 ---
 
 <!-- system:start -->

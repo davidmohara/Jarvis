@@ -19,6 +19,8 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "systems" / "eval-harness" / "vendor"))
+sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "systems" / "eval-harness"))
+from step_outputs import load_step_outputs
 try:
     import yaml
 except Exception:
@@ -64,26 +66,20 @@ def main():
         }))
         return
 
-    outputs = extract_frontmatter(step_path.read_text()).get("outputs") or {}
+    outputs = load_step_outputs(ies_root, "watchtower", ['total_gathered', 'total_surfaced', 'content_queue_additions', 'obsidian_note_path'], yaml)
     if not isinstance(outputs, dict) or not outputs:
         print(json.dumps({
             "result": "retry",
             "reason": "daily-step-06 outputs block is empty - no report counts recorded",
             "fields": {"report_verified": False},
             "validation_errors": ["no_outputs"],
-            "retry_instruction": "Re-execute step-06 and record total_gathered/total_surfaced/content_queue_additions/obsidian_note_path in the step frontmatter outputs.",
+            "retry_instruction": "Re-execute step-06 and record total_gathered/total_surfaced/content_queue_additions/obsidian_note_path in state.yaml's accumulated-context.",
         }))
         return
 
-    def upstream_outputs(rel):
-        p = ies_root / rel
-        if p.is_file():
-            o = extract_frontmatter(p.read_text()).get("outputs") or {}
-            return o if isinstance(o, dict) else {}
-        return {}
 
-    d = upstream_outputs(DEDUPE_REL)
-    s = upstream_outputs(SCORE_REL)
+    d = load_step_outputs(ies_root, "watchtower", ["raw_count", "kept_count", "dropped_count"], yaml)
+    s = load_step_outputs(ies_root, "watchtower", ["deduped_count", "awareness_items", "content_worthy_items"], yaml)
 
     gathered = outputs.get("total_gathered")
     surfaced = outputs.get("total_surfaced")

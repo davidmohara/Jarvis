@@ -3,7 +3,7 @@
 
 Re-derives the meeting identity from real records rather than trusting a
 self-reported completion: it reads workflows/client-meeting-prep/state.yaml
-accumulated-context, the step's own frontmatter outputs, and (as a last
+accumulated-context and (as a last
 resort) parses the saved prep-sheet filename, which encodes the attendee and
 company. The step's hard requirement is an external attendee/company
 identity; a missing calendar meeting is a valid state per the step's failure
@@ -16,6 +16,8 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "systems" / "eval-harness" / "vendor"))
+sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "systems" / "eval-harness"))
+from step_outputs import load_step_outputs, load_context
 try:
     import yaml
 except Exception:
@@ -38,26 +40,8 @@ def load_state(path: Path) -> dict:
 
 
 def step_outputs(ies_root: Path) -> dict:
-    p = ies_root / "workflows" / "client-meeting-prep" / "steps" / "step-01-identify-meeting.md"
-    if yaml is None or not p.is_file():
-        return {}
-    lines = p.read_text().split("\n")
-    if not lines or lines[0].strip() != "---":
-        return {}
-    fm_lines = []
-    inside = False
-    for line in lines:
-        if line.strip() == "---":
-            inside = not inside
-            if not inside:
-                break
-            continue
-        if inside:
-            fm_lines.append(line)
-    try:
-        return (yaml.safe_load("\n".join(fm_lines)) or {}).get("outputs") or {}
-    except Exception:
-        return {}
+    """Step-01 outputs from state.yaml accumulated-context (frontmatter no longer carries outputs)."""
+    return load_step_outputs(ies_root, "client-meeting-prep", ["meeting_details"], yaml)
 
 
 def main():
@@ -101,7 +85,7 @@ def main():
         print(json.dumps({
             "result": "retry",
             "reason": "No external attendee/company identity found in accumulated-context.meeting_details, "
-                      "the step outputs, or the saved prep-sheet filename",
+                      "the step outputs in state.yaml, or the saved prep-sheet filename",
             "fields": fields,
             "validation_errors": ["missing_attendee_identity"],
             "retry_instruction": "Re-execute step-01: confirm the external attendee(s) and company and store "

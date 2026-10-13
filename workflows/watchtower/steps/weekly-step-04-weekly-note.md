@@ -2,16 +2,6 @@
 status: complete
 started-at: "2026-08-31T07:50:00Z"
 completed-at: "2026-08-31T08:00:00Z"
-outputs:
-  weekly_note_path: "Watchtower/Weekly/2026-W41.md"
-  themes_in_note: 3
-  candidates_listed: 3
-  tweets_in_note: 10
-  obsidian_unavailable: false
-  fallback_migrated: false
-  artifact_updated: false
-  artifact_fallback_written: true
-  artifact_fallback_path: "workflows/watchtower/artifact-update/watchtower-weekly.html"
 ---
 
 <!-- system:start -->
@@ -22,7 +12,7 @@ outputs:
 3. Filename format: `YYYY-Www.md` (ISO week number, zero-padded). Use the week of the run date.
 4. If the weekly note already exists (re-run), overwrite it.
 5. **Also update the Watchtower Weekly artifact** (`watchtower-weekly`) with the current week's block — both the vault note AND the artifact are required outputs of this step.
-6. Write `status: complete`, `completed-at`, and `outputs` when done.
+6. Write `status: complete` and `completed-at` to this file's frontmatter when done; record run outputs in `state.yaml` `accumulated-context`.
 
 ---
 
@@ -130,14 +120,14 @@ outputs:
    - Tweets section (10 tweets with Post to X links)
    - Note box (run metadata one-liner)
 
-6. Write `outputs` to this file's frontmatter:
+6. Record these outputs to `state.yaml` `accumulated-context`:
    ```yaml
-   outputs:
-     weekly_note_path: "Watchtower/Weekly/YYYY-Www.md"
-     artifact_updated: true
-     themes_in_note: <int>
-     candidates_listed: <int>
-     tweets_in_note: <int>
+   # state.yaml -> accumulated-context
+   weekly_note_path: "Watchtower/Weekly/YYYY-Www.md"
+   artifact_updated: true
+   themes_in_note: <int>
+   candidates_listed: <int>
+   tweets_in_note: <int>
    ```
 
 ---

@@ -1,11 +1,7 @@
 ---
 status: complete
-started-at: '2026-10-09T16:07:30Z'
-completed-at: '2026-10-09T16:08:00Z'
-outputs:
-  knox_status: still_running
-  knox_reason: plaud-ingest state.yaml shows live session pi-20261009-001 (started 2026-10-09T15:48:03Z, in-progress at step-04) ingesting 2 new recordings from 10-08 (Becoming AI Native panel prep 34min, Talent Lab AI in HR 15min) with speaker mappings done and guardrail pass at step-03. No plaud-ingest-named eval record yet; two same-timestamp general-purpose records (154748-2DUOB6, 154819-8QM5X8) show aborted, so the Knox subagent may have been interrupted and restarted. Non-blocking either way; next boot can confirm outcome.
-  knox_eval_id: none-found
+started-at: '2026-10-13T15:23:00Z'
+completed-at: '2026-10-13T15:24:00Z'
 ---
 
 <!-- system:start -->
@@ -17,7 +13,6 @@ outputs:
 2. You MUST check its final status before marking boot complete.
 3. Recording Knox's completion is informational — boot completion does not depend on Knox success.
 4. You MUST log the outcome (success, failure, incomplete) so eval harness knows if background work finished.
-
 ---
 
 ## EXECUTION PROTOCOL
@@ -49,11 +44,11 @@ outputs:
 
 4. **Update frontmatter:**
    ```yaml
-   outputs:
-     knox_status: "success" | "failure" | "still_running" | "no_record"
-     knox_reason: "[detail about why]"
-     knox_duration_seconds: N (if available)
-     knox_eval_id: "[eval record ID]" (if found)
+   # state.yaml -> accumulated-context
+   knox_status: "success" | "failure" | "still_running" | "no_record"
+   knox_reason: "[detail about why]"
+   knox_duration_seconds: N (if available)
+   knox_eval_id: "[eval record ID]" (if found)
    ```
 
 ---

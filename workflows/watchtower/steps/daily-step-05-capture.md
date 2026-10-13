@@ -2,12 +2,6 @@
 status: complete
 started-at: "2026-09-09T00:24:00Z"
 completed-at: "2026-09-09T00:30:00Z"
-outputs:
-  obsidian_note_path: "Watchtower/Daily/2026-09-08.md"
-  items_captured: 14
-  dashboard_built: false
-  through_line_rendered: true
-  consulting_read_rendered: true
 ---
 
 <!-- system:start -->
@@ -18,7 +12,7 @@ outputs:
 3. Write the Obsidian daily note FIRST, then build the dashboard artifact.
 4. Use the Obsidian MCP server for all vault writes — do NOT write vault files via filesystem tools.
 5. Do NOT write content drafts here — that is the weekly run's job.
-6. Write `status: complete`, `completed-at`, and `outputs` when done.
+6. Write `status: complete` and `completed-at` to this file's frontmatter when done; record run outputs in `state.yaml` `accumulated-context`.
 
 ---
 
@@ -76,14 +70,14 @@ outputs:
    - Items grouped by topic: title (linked), source, score, summary, `[content candidate]` badge on flagged items.
    - Style: muted/professional.
 
-6. Write `outputs`:
+6. Record outputs to `state.yaml` `accumulated-context`:
    ```yaml
-   outputs:
-     obsidian_note_path: "Watchtower/Daily/YYYY-MM-DD.md"
-     items_captured: <int>
-     dashboard_built: true
-     through_line_rendered: true
-     consulting_read_rendered: <true|false>
+   # state.yaml -> accumulated-context
+   obsidian_note_path: "Watchtower/Daily/YYYY-MM-DD.md"
+   items_captured: <int>
+   dashboard_built: true
+   through_line_rendered: true
+   consulting_read_rendered: <true|false>
    ```
 
 ---

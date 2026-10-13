@@ -2,16 +2,6 @@
 status: complete
 started-at: "2026-10-09T16:30:00Z"
 completed-at: "2026-10-09T16:33:00Z"
-outputs:
-  meeting_details:
-    person: "Alice Mburu"
-    date: "2026-10-09"
-    day_of_week: "Friday"
-    time: "14:30"
-    duration: 30
-    location: "Microsoft Teams"
-    meeting_name: "Friday Week Wrap-Up"
-    known_cadence: true
 model: sonnet
 ---
 
@@ -86,7 +76,7 @@ model: sonnet
 
 ### Output Persistence (MANDATORY)
 
-Before recording step completion, persist the `meeting_details` block to `state.yaml` under `accumulated-context.meeting_details`, and mirror the identical structure in this step file's frontmatter `outputs` field. The verifier reads `accumulated-context.meeting_details` and re-derives `person`, `date`, `location`, and `known_cadence` from it. Every key below MUST be present (write `null` when a value is genuinely unknown); omitting the block, or flattening the fields to top-level accumulated-context, fails verification.
+Before recording step completion, persist the `meeting_details` block to `state.yaml` under `accumulated-context.meeting_details`. The verifier reads `accumulated-context.meeting_details` and re-derives `person`, `date`, `location`, and `known_cadence` from it. Every key below MUST be present (write `null` when a value is genuinely unknown); omitting the block, or flattening the fields to top-level accumulated-context, fails verification.
 
 ```yaml
 # state.yaml -> accumulated-context
@@ -99,18 +89,6 @@ meeting_details:
   location: "{Teams / in-person / phone}"
   meeting_name: "{calendar event subject}"
   known_cadence: true            # true/false
-
-# step-01-identify-meeting.md -> frontmatter
-outputs:
-  meeting_details:
-    person: "{Full Name}"
-    date: "YYYY-MM-DD"
-    day_of_week: "{Monday-Friday}"
-    time: "HH:MM"
-    duration: {minutes}
-    location: "{Teams / in-person / phone}"
-    meeting_name: "{calendar event subject}"
-    known_cadence: true
 ```
 
 ---

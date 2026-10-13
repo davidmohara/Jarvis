@@ -2,10 +2,6 @@
 status: complete
 started-at: "2026-07-14T00:00:00"
 completed-at: "2026-07-14T00:01:00"
-outputs:
-  revenue_captured: true
-  cache_used: true
-  most_recent_month: June
 model: sonnet
 ---
 
@@ -64,9 +60,9 @@ model: sonnet
    ```yaml
    status: complete
    completed-at: [timestamp]
-   outputs:
-     revenue_captured: true
-     most_recent_month: [month name]
+   # state.yaml -> accumulated-context
+   revenue_captured: true
+   most_recent_month: [month name]
    ```
 
 4. **Update workflow state**:

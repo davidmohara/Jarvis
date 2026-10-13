@@ -1,0 +1,16 @@
+{
+  "id": "err-20261013T151635-DORL18",
+  "timestamp": "2026-10-13T15:16:35.406425Z",
+  "session": "session-2026-10-13-064103",
+  "source": "explicit",
+  "agent": "master",
+  "category": "over-engineering",
+  "description": "Workflow step-file frontmatter is being used as a per-run outputs log (status, started-at, completed-at, plus an outputs map with run data like new-recordings-count and api-total), duplicating state.yaml accumulated-context and bloating step files with run-specific data. Controller flagged that this burns tokens unnecessarily on every step read/write.",
+  "correction": "Step frontmatter must record ONLY current-step execution state (status, started-at, completed-at). Run outputs belong in state.yaml accumulated-context alone. No step file becomes a log of step history.",
+  "failure_mode": "scope-creep",
+  "systemic_fix": "Rigby to update reference/workflow-conventions.md Step Frontmatter Convention (drop outputs map from schema), sweep workflows/*/steps/*.md frontmatter to the minimal schema, and verify step-complete/guardrail hooks do not depend on outputs frontmatter. Convention change routed to Rigby 2026-10-13.",
+  "fix_status": "applied",
+  "fix_applied": "2026-10-13: Rigby applied the convention change. reference/workflow-conventions.md schema reduced to status/started-at/completed-at; all 295 workflows/*/steps/*.md frontmatter stripped of outputs maps and run-log keys; YOUR TASK instructions re-pointed to state.yaml accumulated-context; .claude/hooks/step-complete.py fallback reads state.yaml via new load_step_outputs(); new shared loader systems/eval-harness/step_outputs.py; 28 verify scripts re-pointed to state.yaml; boot step-02 guardrail retry text updated. Logged as pending evolution work-20261013-step-frontmatter-minimal-schema.",
+  "severity": "moderate",
+  "related_entries": []
+}

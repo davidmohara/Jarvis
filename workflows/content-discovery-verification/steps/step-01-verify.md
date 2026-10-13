@@ -2,7 +2,6 @@
 status: not-started
 started-at: ~
 completed-at: ~
-outputs: {}
 ---
 
 <!-- personal:start -->
@@ -36,7 +35,7 @@ outputs: {}
 
 ### Sequence
 
-1. **Locate the artifacts.** Read `workflows/content-discovery/steps/step-01-discover.md` frontmatter `outputs`. Read `workflows/content-approval/pending-drafts.json` and `workflows/content-discovery/state.yaml`. Read the #content Slack pull for the run window (passed in the manifest, or re-read via `systems/slack-bot/read.py`).
+1. **Locate the artifacts.** Read `workflows/content-discovery/state.yaml` `accumulated-context` for the step outputs. Read `workflows/content-approval/pending-drafts.json` and `workflows/content-discovery/state.yaml`. Read the #content Slack pull for the run window (passed in the manifest, or re-read via `systems/slack-bot/read.py`).
 
 2. **Apply the draft-claims-vs-source lens.** For each item, re-derive the truth from the recorded source, then compare to the run's claims:
 
@@ -45,7 +44,7 @@ outputs: {}
    | 1 | Every draft claimed (`posts_drafted` count) | `pending-drafts.json` entries with `created_at` in the run window | Unverified if a claimed draft has no matching entry |
    | 2 | Every draft traced to a real source | Slack pull message (`ts`) or digest text for each entry | Unverified if a draft has no source message (invented angle) |
    | 3 | Every skip claimed has a matching source message | Slack pull: the skipped URL/digest must exist in the pull | Unverified if a skip names a source not present in the pull |
-   | 4 | `new_urls` / `new_digests` counts | Slack pull routing classification vs `outputs` | Unverified if counts disagree with the pull |
+   | 4 | `new_urls` / `new_digests` counts | Slack pull routing classification vs `state.yaml` `accumulated-context` | Unverified if counts disagree with the pull |
    | 5 | `gate_1_result` / `gate_2_result` | The recorded Gate 1 response and Gate 2 validation outcome | Unverified if a gate is claimed PASS with no supporting response recorded |
    | 6 | Every `pending-drafts.json` entry has a Slack notification | `slack_thread_ts` set, or a documented fallback | Unverified if an entry is pending with no notification path |
    | 7 | Right-run check | Entry `created_at` dates vs run-date | Unverified if entries are from a different run |

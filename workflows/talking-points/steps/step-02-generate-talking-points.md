@@ -3,7 +3,6 @@ status: not-started
 model: sonnet
 started-at: ~
 completed-at: ~
-outputs: {}
 ---
 
 <!-- system:start -->
@@ -89,7 +88,7 @@ outputs: {}
 
 ### Output Persistence (MANDATORY)
 
-Before recording step completion, persist the `talking_points` block to `state.yaml` under `accumulated-context.talking_points`, and mirror the identical structure in this step file's frontmatter `outputs` field. The verifier reads `accumulated-context.talking_points.points` and requires at least 3 entries (the step generates 3-5); fewer than 3 fails verification. It reads `anticipated_questions` from the same block. If the structured block is absent, the verifier falls back to this step's frontmatter outputs and then the delivered document, but writing the block is the contract and the block must always be written.
+Before recording step completion, persist the `talking_points` block to `state.yaml` under `accumulated-context.talking_points`. The verifier reads `accumulated-context.talking_points.points` and requires at least 3 entries (the step generates 3-5); fewer than 3 fails verification. It reads `anticipated_questions` from the same block. If the structured block is absent, the verifier falls back to the delivered document, but writing the block is the contract and the block must always be written.
 
 ```yaml
 # state.yaml -> accumulated-context
@@ -117,20 +116,6 @@ talking_points:
       question: "{...}"
       prepared_response: "{...}"
       bridge: null
-
-# step-02-generate-talking-points.md -> frontmatter
-outputs:
-  talking_points:
-    points:
-      - number: 1
-        main_message: "{...}"
-      - number: 2
-        main_message: "{...}"
-      - number: 3
-        main_message: "{...}"
-    anticipated_questions:
-      - number: 1
-        question: "{...}"
 ```
 
 ---

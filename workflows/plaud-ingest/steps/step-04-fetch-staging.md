@@ -3,22 +3,6 @@ status: completed
 started-at: "2026-10-09T15:48:03Z"
 completed-at: "2026-10-09T16:15:00Z"
 model: haiku
-outputs:
-  session-id: pi-20260918-001
-  files-ready: 1
-  speaker-renames-applied: 0
-  gaps: 0
-  notes: >
-    pi-20260918-001: 1 recording in ready-for-fetch
-    (f96b2c110fc35162f390ac5288d6f7f4, "09-18 Meeting: AI Project Architecture and
-    Data Routing"). fetch_plaud.py 2026-09-18 saved
-    plaud_09-18 Meeting_ AI Project Architecture and Data Routing.md + _raw.json to
-    staging (transcript + summary both ready, 0 pending). Rename skipped deliberately:
-    staged transcript already carries correct names throughout (O'Hara, Vladimir
-    Avila; 0 occurrences of "Speaker N"), so the step-03 mapping had no generic labels
-    to rewrite and running --rename would have risked an unnecessary regeneration
-    (the transaction_polish staleness / auto_sum_note wipe seen 09-14 and 09-17).
-    Speaker names verified present in staged markdown. No gaps.
 ---
 
 <!-- system:start -->

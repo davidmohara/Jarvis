@@ -2,11 +2,6 @@
 status: not-started
 started-at: ~
 completed-at: ~
-outputs:
-  baseline_score: null
-  baseline_score_breakdown: {}
-  best_score: null
-  best_skill_path: null
 ---
 
 <!-- system:start -->

@@ -2,7 +2,6 @@
 status: not-started
 started-at: ~
 completed-at: ~
-outputs: {}
 model: sonnet
 ---
 
@@ -31,7 +30,7 @@ model: sonnet
 **Manifest fields:**
 
 ```
-approve-step: workflows/content-approval/steps/step-01-approve.md (frontmatter outputs)
+approve-step: workflows/content-approval/state.yaml (accumulated-context outputs)
 pending-drafts: workflows/content-approval/pending-drafts.json
 state: workflows/content-approval/state.yaml
 run-date: <YYYY-MM-DD>

@@ -2,13 +2,6 @@
 status: complete
 started-at: "2026-07-14T00:09:00"
 completed-at: "2026-07-14T00:10:00"
-outputs:
-  recency_checked: true
-  within_28_day_window: true
-  last_entry_date: "2026-06-22"
-  days_since_last_entry: 22
-  append_outcome: "appended — last entry was partial (new clients only), this is first full H1 workflow run since 2026-04-21"
-  entry_date: "2026-07-14"
 model: sonnet
 ---
 

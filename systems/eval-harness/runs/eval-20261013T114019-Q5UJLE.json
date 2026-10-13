@@ -1,0 +1,574 @@
+{
+  "id": "eval-20261013T114019-Q5UJLE",
+  "type": "workflow",
+  "name": "boot",
+  "agent": "master",
+  "session_id": "1eab1e58-4032-4598-97de-6e35d820e2f4",
+  "trigger": "boot",
+  "started": "2026-10-13T11:40:19.754151Z",
+  "duration_seconds": 13502.33,
+  "status": "success",
+  "steps": [
+    {
+      "name": "step-01.2-unified-data-pull.md",
+      "agent": "master",
+      "step_id": "step-01.2-unified-data-pull.md",
+      "owning_agent": "master",
+      "started": "2026-10-13T11:44:00Z",
+      "completed": "2026-10-13T11:46:00Z",
+      "status": "complete",
+      "tokens_input": 719033,
+      "tokens_output": 4291,
+      "model": "accounts/fireworks/models/glm-5p3",
+      "token_source": "lenient_fallback",
+      "turns_matched": 14,
+      "duration_seconds": 120.0
+    },
+    {
+      "name": "step-01.5-unified-calendar-pull.md",
+      "agent": "master",
+      "step_id": "step-01.5-unified-calendar-pull.md",
+      "owning_agent": "master",
+      "started": "2026-10-13T11:46:00Z",
+      "completed": "2026-10-13T11:49:00Z",
+      "status": "complete",
+      "tokens_input": 66507,
+      "tokens_output": 248,
+      "model": "accounts/fireworks/models/glm-5p3",
+      "token_source": "windowed",
+      "turns_matched": 1,
+      "duration_seconds": 180.0
+    },
+    {
+      "name": "step-02-gather-data.md",
+      "agent": "master",
+      "step_id": "step-02-gather-data.md",
+      "owning_agent": "master",
+      "started": "2026-10-13T11:50:00Z",
+      "completed": "2026-10-13T11:55:00Z",
+      "status": "complete",
+      "tokens_input": 719033,
+      "tokens_output": 4291,
+      "model": "accounts/fireworks/models/glm-5p3",
+      "token_source": "lenient_fallback",
+      "turns_matched": 14,
+      "duration_seconds": 300.0
+    },
+    {
+      "name": "step-02.5-measure-phase2.md",
+      "agent": "master",
+      "step_id": "step-02.5-measure-phase2.md",
+      "owning_agent": "master",
+      "started": "2026-10-13T11:55:00Z",
+      "completed": "2026-10-13T11:55:30Z",
+      "status": "complete",
+      "tokens_input": 719033,
+      "tokens_output": 4291,
+      "model": "accounts/fireworks/models/glm-5p3",
+      "token_source": "lenient_fallback",
+      "turns_matched": 14,
+      "duration_seconds": 30.0
+    },
+    {
+      "name": "step-03-verify-phase2.md",
+      "agent": "master",
+      "step_id": "step-03-verify-phase2.md",
+      "owning_agent": "master",
+      "started": "2026-10-13T11:56:00Z",
+      "completed": "2026-10-13T12:00:00Z",
+      "status": "complete",
+      "tokens_input": 719033,
+      "tokens_output": 4291,
+      "model": "accounts/fireworks/models/glm-5p3",
+      "token_source": "lenient_fallback",
+      "turns_matched": 14,
+      "duration_seconds": 240.0
+    },
+    {
+      "name": "step-04-gather-meeting-context.md",
+      "agent": "master",
+      "step_id": "step-04-gather-meeting-context.md",
+      "owning_agent": "master",
+      "started": "2026-10-13T12:00:00Z",
+      "completed": "2026-10-13T12:04:00Z",
+      "status": "complete",
+      "tokens_input": 719033,
+      "tokens_output": 4291,
+      "model": "accounts/fireworks/models/glm-5p3",
+      "token_source": "lenient_fallback",
+      "turns_matched": 14,
+      "duration_seconds": 240.0
+    },
+    {
+      "name": "step-05-synthesize-briefing.md",
+      "agent": "master",
+      "step_id": "step-05-synthesize-briefing.md",
+      "owning_agent": "master",
+      "started": "2026-10-13T12:05:00Z",
+      "completed": "2026-10-13T12:39:00Z",
+      "status": "complete",
+      "tokens_input": 1715730,
+      "tokens_output": 10887,
+      "model": "accounts/fireworks/models/glm-5p3",
+      "token_source": "lenient_fallback",
+      "turns_matched": 29,
+      "duration_seconds": 2040.0
+    },
+    {
+      "name": "step-06-scan-workflows.md",
+      "agent": "master",
+      "step_id": "step-06-scan-workflows.md",
+      "owning_agent": "master",
+      "started": "2026-10-13T12:40:00Z",
+      "completed": "2026-10-13T12:41:00Z",
+      "status": "complete",
+      "tokens_input": 1715730,
+      "tokens_output": 10887,
+      "model": "accounts/fireworks/models/glm-5p3",
+      "token_source": "lenient_fallback",
+      "turns_matched": 29,
+      "duration_seconds": 60.0
+    },
+    {
+      "name": "step-06.5-guardrail-checkpoint.md",
+      "agent": "master",
+      "step_id": "step-06.5-guardrail-checkpoint.md",
+      "owning_agent": "master",
+      "started": "2026-10-13T12:42:00Z",
+      "completed": "2026-10-13T12:44:00Z",
+      "status": "complete",
+      "tokens_input": 1715730,
+      "tokens_output": 10887,
+      "model": "accounts/fireworks/models/glm-5p3",
+      "token_source": "lenient_fallback",
+      "turns_matched": 29,
+      "duration_seconds": 120.0
+    },
+    {
+      "name": "step-07-verify-completion.md",
+      "agent": "master",
+      "step_id": "step-07-verify-completion.md",
+      "owning_agent": "master",
+      "started": "2026-10-13T12:45:00Z",
+      "completed": "2026-10-13T15:23:26Z",
+      "status": "complete",
+      "tokens_input": 996697,
+      "tokens_output": 6596,
+      "model": "accounts/fireworks/models/glm-5p3",
+      "token_source": "windowed",
+      "turns_matched": 15,
+      "duration_seconds": 9506.0
+    },
+    {
+      "name": "step-08-knox-completion-check.md",
+      "agent": "master",
+      "step_id": "step-08-knox-completion-check.md",
+      "owning_agent": "master",
+      "started": "2026-10-13T15:23:00Z",
+      "completed": "2026-10-13T15:24:00Z",
+      "status": "complete",
+      "tokens_input": 1715730,
+      "tokens_output": 10887,
+      "model": "accounts/fireworks/models/glm-5p3",
+      "token_source": "lenient_fallback",
+      "turns_matched": 29,
+      "duration_seconds": 60.0
+    }
+  ],
+  "subagents": [
+    {
+      "agent_id": "af77b1211a93aea80",
+      "agent_type": "general-purpose",
+      "started": "2026-10-13T11:42:09.216178Z",
+      "completed": "2026-10-13T11:47:04.805247Z",
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 90235,
+      "tokens_output": 400,
+      "cost_usd": 0.09,
+      "duration_seconds": 295.59
+    },
+    {
+      "agent_id": "adbd32a74f0f3668e",
+      "agent_type": "general-purpose",
+      "started": "2026-10-13T11:42:11.279574Z",
+      "completed": "2026-10-13T15:24:27.106538Z",
+      "model": "accounts/fireworks/models/kimi-k3",
+      "tokens_input": 161438,
+      "tokens_output": 399,
+      "cost_usd": 0.09,
+      "duration_seconds": 452.33
+    },
+    {
+      "agent_id": "aabfa9d540ff17351",
+      "agent_type": "general-purpose",
+      "started": "2026-10-13T12:04:04.088382Z",
+      "completed": "2026-10-13T12:06:13.603260Z",
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 0,
+      "tokens_output": 0,
+      "cost_usd": 0.09,
+      "duration_seconds": 129.51
+    },
+    {
+      "agent_id": "adbd32a74f0f3668e",
+      "agent_type": "general-purpose",
+      "started": "2026-10-13T12:06:14.141994Z",
+      "completed": null,
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "agent_id": "adbd32a74f0f3668e",
+      "agent_type": "general-purpose",
+      "started": "2026-10-13T13:00:53.362100Z",
+      "completed": null,
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "agent_id": "abb11ad462be4a824",
+      "agent_type": "general-purpose",
+      "started": "2026-10-13T15:25:15.173674Z",
+      "completed": "2026-10-13T21:12:31.607419Z",
+      "model": "accounts/fireworks/models/kimi-k3",
+      "tokens_input": 1136083,
+      "tokens_output": 1275,
+      "cost_usd": 0.09,
+      "duration_seconds": 691.61
+    }
+  ],
+  "monitoring": {
+    "active": false,
+    "state_yaml_path": "workflows/boot/state.yaml",
+    "opened_by": "eval-turn-start.py",
+    "trigger_evidence": "run the morning boot up workflow"
+  },
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": [],
+      "abort_reason": "session-exit-normal"
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 6,
+      "assertions_passed": 5,
+      "assertion_results": [
+        {
+          "assertion": "boot-001-state-complete",
+          "description": "Boot workflow state.yaml shows status: complete",
+          "passed": true
+        },
+        {
+          "assertion": "boot-002-session-index-exists",
+          "description": "Session index file exists \u2014 boot's Session Index Boot step must have created/appended it",
+          "passed": true
+        },
+        {
+          "assertion": "boot-003-session-index-substantive",
+          "description": "Session index is a real record, not an empty stub",
+          "passed": true
+        },
+        {
+          "assertion": "boot-005-omnifocus-data-file-exists",
+          "description": "OmniFocus pull (step-01.2 Pull B) wrote its consolidated data file",
+          "passed": true
+        },
+        {
+          "assertion": "boot-007-omnifocus-no-completed-tasks-leaked",
+          "description": "No completed task leaked into the OmniFocus pull. The inbox permanently holds ~247 completed tasks alongside ~8 incomplete ones, and Clean Up does NOT remove them, so the query itself must carry `completed is false`. Any `completed: true` in the output means the filter was dropped from the call.",
+          "passed": true
+        },
+        {
+          "assertion": "boot-008-omnifocus-filter-documented",
+          "description": "Regression guard: the boot pull instructions still mandate the `completed is false` filter on the inbox query. If someone strips that filter from the instructions, this trips before the leak reaches a briefing.",
+          "passed": false
+        }
+      ]
+    },
+    "grading": {
+      "last_graded": "2026-10-13T21:19:55Z",
+      "grade": "B",
+      "safety_grade": null,
+      "grader_notes": "Boot executed end-to-end: 11/11 steps complete, 12/12 guardrail checkpoints passed, and degraded sources handled transparently (Clay 502 recorded not hidden; 2 stale sources flagged at pre-completion review rather than silently ignored). Structural assertions 5/6. The one failure, boot-008-omnifocus-filter-documented, is a literal-string check for 'completed is false' in step-01.2-unified-data-pull.md; the file still mandates the filter semantically ('completed MUST be present and false on every task', JSON \"completed\": false) and boot-007 confirmed no completed tasks leaked, so this is wording drift in a modified step file, not a functional regression. Two concerns: (1) restore the literal string in the step file or loosen the assertion pattern; (2) step-06 found 2 genuinely in-progress workflow states while _active.yaml claims 0 - state-tracking drift worth a rigby-integrity look."
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": "f82e3148e8b1defeed38af864c0318df897560c533acf076242633d936b73b56",
+  "prior_baseline_id": null,
+  "tags": [
+    "turn-level"
+  ],
+  "guardrails": [
+    {
+      "name": "step-01.2-unified-data-pull-checkpoint",
+      "after_step": "step-01.2-unified-data-pull.md",
+      "result": "pass",
+      "reason": "All 4 unified data files present and fresh",
+      "escalated_to_human": false,
+      "timestamp": "2026-10-13T11:48:30.223726Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "files_created": [
+          "data/email-unified.json",
+          "data/omnifocus-unified.json",
+          "data/clay-reminders-unified.json",
+          "data/jarvis-inbox-unified.json"
+        ],
+        "files_missing": [],
+        "files_stale": [],
+        "file_status": {
+          "data/email-unified.json": "fresh (0.0h old)",
+          "data/omnifocus-unified.json": "fresh (0.0h old)",
+          "data/clay-reminders-unified.json": "fresh (0.0h old)",
+          "data/jarvis-inbox-unified.json": "fresh (0.0h old)"
+        }
+      }
+    },
+    {
+      "name": "step-01.5-checkpoint",
+      "after_step": "step-01.5-unified-calendar-pull.md",
+      "result": "pass",
+      "reason": "calendar-unified.json exists with 45 events",
+      "escalated_to_human": false,
+      "timestamp": "2026-10-13T11:51:08.018391Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "calendar_file": "/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/data/calendar-unified.json",
+        "event_count": 45,
+        "date_range": {
+          "start": "2026-10-13",
+          "end": "2026-10-16"
+        },
+        "pulled_at": "2026-10-13T11:50:16Z"
+      }
+    },
+    {
+      "name": "step-02-checkpoint",
+      "after_step": "step-02-gather-data.md",
+      "result": "pass",
+      "reason": "4/4 Phase 2 tasks have real backing data on disk",
+      "escalated_to_human": false,
+      "timestamp": "2026-10-13T11:54:26.326498Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "completed_tasks": [
+          "task-g-72hr-lookahead",
+          "task-h-email-triage",
+          "task-i-jarvis-inbox",
+          "task-j-reminders"
+        ],
+        "completed_count": 4,
+        "missing_tasks": [],
+        "phase2_status": "complete"
+      }
+    },
+    {
+      "name": "step-02.5-measure-phase2-checkpoint",
+      "after_step": "step-02.5-measure-phase2.md",
+      "result": "pass",
+      "reason": "Measurement snapshot found: measurement-state-20261013T115511.json (6.99 KB, 0.0h old)",
+      "escalated_to_human": false,
+      "timestamp": "2026-10-13T11:55:50.637784Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "phase2_measurement_file": "systems/boot-instrumentation/measurements/measurement-state-20261013T115511.json",
+        "total_kb": 6.99,
+        "snapshot_age_hours": 0.01
+      }
+    },
+    {
+      "name": "step-03-checkpoint",
+      "after_step": "step-03-verify-phase2.md",
+      "result": "pass",
+      "reason": "0 critical data source failures",
+      "escalated_to_human": false,
+      "timestamp": "2026-10-13T12:06:49.076497Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "critical_failures": [],
+        "critical_failure_count": 0,
+        "verification_results": "pass"
+      }
+    },
+    {
+      "name": "step-04-checkpoint",
+      "after_step": "step-04-gather-meeting-context.md",
+      "result": "pass",
+      "reason": "45 meetings found, 49 unique attendees identified for enrichment",
+      "escalated_to_human": false,
+      "timestamp": "2026-10-13T12:08:22.576281Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "meetings_found": 45,
+        "attendees_enriched": 49,
+        "clay_cross_reference_available": true,
+        "clay_items_checked": 0
+      }
+    },
+    {
+      "name": "step-05-checkpoint",
+      "after_step": "step-05-synthesize-briefing.md",
+      "result": "pass",
+      "reason": "Briefing delivered with 2 sections (701 chars)",
+      "escalated_to_human": false,
+      "timestamp": "2026-10-13T15:18:17.776673Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "briefing_delivered": true,
+        "briefing_sections": 2,
+        "briefing_section_labels": [
+          "ACG Houston luncheon keynote 12",
+          "Houston Bootcamp 8"
+        ],
+        "briefing_content_length": 701,
+        "last_run_status": "partial"
+      }
+    },
+    {
+      "name": "step-06-checkpoint",
+      "after_step": "step-06-scan-workflows.md",
+      "result": "pass",
+      "reason": "Scanned 74 workflow state files, found 2 genuinely in-progress (note: _active.yaml claims 0, actual scan found 2 \u2014 index may be stale)",
+      "escalated_to_human": false,
+      "timestamp": "2026-10-13T15:19:05.963073Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "in_flight_list": [
+          {
+            "workflow": "boot",
+            "current-step": "step-06.5-guardrail-checkpoint.md",
+            "session-started": "2026-10-13T11:41:46Z"
+          },
+          {
+            "workflow": "content-pipeline",
+            "current-step": "step-02",
+            "session-started": null
+          }
+        ],
+        "in_flight_count": 2,
+        "workflows_scanned": 74,
+        "unreadable_state_files": [],
+        "active_yaml_count": 0
+      }
+    },
+    {
+      "name": "pre-completion-review",
+      "after_step": "step-06-scan-workflows",
+      "result": "flag",
+      "reason": "calendar/email/omnifocus fresh this run (11:44-11:50Z); Clay degraded (502) recorded not hidden; briefing reflects gathered data with correct date; session index single record for today; no credential-shaped strings in session index or briefing working memory; workflow scan distinguished live content-pipeline from stale grep hits",
+      "escalated_to_human": false,
+      "timestamp": "2026-10-13T15:21:50.982020+00:00"
+    },
+    {
+      "name": "pre-completion-review",
+      "after_step": "step-06.5-guardrail-checkpoint.md",
+      "result": "pass",
+      "reason": "2 stale source(s): golf-outing-attendees.json, reminders.json (checkpoint recorded: flag)",
+      "escalated_to_human": false,
+      "timestamp": "2026-10-13T15:22:39.480561Z",
+      "validation_errors": [
+        "stale_source: golf-outing-attendees.json",
+        "stale_source: reminders.json"
+      ],
+      "computed_fields": {
+        "stale_sources": [
+          {
+            "file": "golf-outing-attendees.json",
+            "age_hours": 2007.0
+          },
+          {
+            "file": "reminders.json",
+            "age_hours": 2589.3
+          }
+        ],
+        "fresh_sources": [
+          {
+            "file": "calendar-unified.json",
+            "age_hours": 0.9
+          },
+          {
+            "file": "clay-reminders-unified.json",
+            "age_hours": 1.0
+          },
+          {
+            "file": "email-unified.json",
+            "age_hours": 1.0
+          },
+          {
+            "file": "jarvis-inbox-unified.json",
+            "age_hours": 1.0
+          },
+          {
+            "file": "omnifocus-unified.json",
+            "age_hours": 1.0
+          }
+        ],
+        "stale_threshold_hours": 24,
+        "briefing_current": true,
+        "briefing_last_run_date": "2026-10-13",
+        "run_date": "2026-10-13",
+        "checkpoint_recorded": true,
+        "recorded_checkpoint_result": "flag",
+        "boot_eval_record": "eval-20261013T114019-Q5UJLE.json",
+        "boot_eval_record_is_current": true,
+        "leakage_hits": [],
+        "data_freshness_report": "2 stale source(s) found"
+      }
+    },
+    {
+      "name": "step-07-checkpoint",
+      "after_step": "step-07-verify-completion.md",
+      "result": "pass",
+      "reason": "All 10 prior steps complete, state.yaml status=complete, session index present",
+      "escalated_to_human": false,
+      "timestamp": "2026-10-13T15:23:26.289624Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "state_status": "complete",
+        "steps_verified": 10,
+        "failed_steps": [],
+        "session_index_path": "memory/sessions/index.json",
+        "session_index_exists": true
+      }
+    },
+    {
+      "name": "step-08-knox-completion-check-checkpoint",
+      "after_step": "step-08-knox-completion-check.md",
+      "result": "pass",
+      "reason": "No Knox/plaud-ingest eval record found in the relevant window \u2014 valid documented outcome (background job may not have started or finished yet)",
+      "escalated_to_human": false,
+      "timestamp": "2026-10-13T15:23:47.242224Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "knox_status": "no_record",
+        "knox_eval_id": null
+      }
+    }
+  ],
+  "completed": "2026-10-13T15:25:22.079577Z",
+  "total_tokens_input": 11772962,
+  "total_tokens_output": 72646,
+  "total_cost_usd": 0.27
+}

@@ -2,15 +2,6 @@
 status: complete
 started-at: "2026-08-20T07:40:00Z"
 completed-at: "2026-08-20T07:52:00Z"
-outputs:
-  tweets_generated: 10
-  tweets_with_links: 4
-  angle_types:
-    provocative: 3
-    practitioner: 2
-    question: 2
-    data: 3
-  blog_angles_avoided: 3
 ---
 
 <!-- system:start -->
@@ -25,7 +16,7 @@ outputs:
 7. Tweets must approach distinct angles — no two tweets covering the same idea from the same direction.
 8. The intent URL for each tweet uses `https://twitter.com/intent/tweet?text=` + URL-encoded tweet text. Encode spaces as `%20`. Encode `#` as `%23`. Encode `&` as `%26`. Encode `?` as `%3F`. Encode `"` as `%22`. Encode `'` as `%27`.
 9. Store results in `accumulated-context.weekly_tweets` before marking complete.
-10. Write `status: complete`, `completed-at`, and `outputs` when done.
+10. Write `status: complete` and `completed-at` to this file's frontmatter when done; record run outputs in `state.yaml` `accumulated-context`.
 
 ---
 
@@ -124,17 +115,17 @@ outputs:
      - ...
    ```
 
-6. Write `outputs` to this file's frontmatter:
+6. Record these outputs to `state.yaml` `accumulated-context`:
    ```yaml
-   outputs:
-     tweets_generated: 10
-     tweets_with_links: <int>   # how many tweets have a supporting_url
-     angle_types:
-       provocative: <int>
-       practitioner: <int>
-       question: <int>
-       data: <int>
-     blog_angles_avoided: <int>   # count of step-02 angles read and excluded
+   # state.yaml -> accumulated-context
+   tweets_generated: 10
+   tweets_with_links: <int>   # how many tweets have a supporting_url
+   angle_types:
+     provocative: <int>
+     practitioner: <int>
+     question: <int>
+     data: <int>
+   blog_angles_avoided: <int>   # count of step-02 angles read and excluded
    ```
 
 ---
@@ -157,7 +148,7 @@ outputs:
 | Failure | Action |
 |---------|--------|
 | `weekly_themes` empty | Generate 0 tweets; write `tweets_generated: 0` to outputs; continue to step-03 |
-| Step-02 `content_angles` not available | Proceed without overlap check; note in outputs: `overlap_check: skipped` |
+| Step-02 `content_angles` not available | Proceed without overlap check; note in `state.yaml` `accumulated-context`: `overlap_check: skipped` |
 | Tweet makes the same argument as a draft | Discard it. Generate a replacement from a genuinely different direction. Do not soften the wording and call it different — the argument must be different. |
 | Tweet with link exceeds 240 chars | Trim the tweet text — the link headroom is non-negotiable. Cut filler, tighten; do not truncate mid-thought |
 | Tweet without link exceeds 280 chars | Trim — cut filler words, tighten; do not truncate mid-thought |

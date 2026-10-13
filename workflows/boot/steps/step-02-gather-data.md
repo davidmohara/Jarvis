@@ -1,16 +1,7 @@
 ---
 status: complete
-started-at: '2026-10-09T15:52:00Z'
-completed-at: '2026-10-09T15:57:00Z'
-outputs:
-  phase2_status: complete - 5/5 tasks executed, 0 degraded sources
-  completed_tasks:
-  - morning-briefing-01-02
-  - task-g-72hr-lookahead
-  - task-h-email-triage
-  - task-i-jarvis-inbox
-  - task-j-reminders
-  notes: Task G from data/calendar-unified.json (Sat Hot 26 + Rimmer Wedding 6pm; Sun clear; Mon DLP Bootcamp remote all-day + Agent Strategy 11:30 and GEHC check-in 2:00 both overlap Bootcamp, All Access Members Gathering 6pm Hotel Vin). Task H from data/email-unified.json (18 msgs, ~10 actionable). Task I: /Jarvis folder 0 messages. Task J: reminders.json empty, nothing-to-surface.
+started-at: '2026-10-13T11:50:00Z'
+completed-at: '2026-10-13T11:55:00Z'
 ---
 
 <!-- system:start -->
@@ -102,7 +93,7 @@ accumulated-context:
     task-j-reminders: completed ([N] due) | nothing-to-surface | failed — [reason]
 ```
 
-Update step frontmatter: Set `status: complete`, `completed-at` with current timestamp, and `outputs.phase2_status` with a summary line (e.g. "complete — all 5 tasks executed, 0 failures" or "complete — 4 tasks completed, 1 skipped, 0 failures").
+Update step frontmatter: Set `status: complete` and `completed-at` (current timestamp). Record `phase2_status` in `state.yaml` `accumulated-context` with a summary line (e.g. "complete — all 5 tasks executed, 0 failures" or "complete — 4 tasks completed, 1 skipped, 0 failures").
 
 Update state.yaml: 
 - Set `current-step: step-02.5-measure-phase2.md` (proceed to instrumentation/measurement step).

@@ -1,0 +1,104 @@
+{
+  "id": "eval-20261013T123928-I5TTS8",
+  "type": "workflow",
+  "name": "morning-briefing",
+  "agent": "chief",
+  "session_id": "1eab1e58-4032-4598-97de-6e35d820e2f4",
+  "trigger": "boot",
+  "started": "2026-10-13T12:39:27Z",
+  "completed": "2026-10-13T12:39:27.964870Z",
+  "duration_seconds": 1.0,
+  "status": "partial",
+  "steps": [
+    {
+      "name": "step-01-gather-calendar",
+      "step_id": "step-01-gather-calendar",
+      "agent": "chief",
+      "owning_agent": "chief",
+      "started": "2026-10-13T12:39:27Z",
+      "completed": "2026-10-13T12:39:27.241218Z",
+      "duration_seconds": 0.2,
+      "status": "success",
+      "data_sources_used": [],
+      "data_source_failures": []
+    },
+    {
+      "name": "step-02-gather-tasks",
+      "step_id": "step-02-gather-tasks",
+      "agent": "chief",
+      "owning_agent": "chief",
+      "started": "2026-10-13T12:39:27.241218Z",
+      "completed": "2026-10-13T12:39:27.482435Z",
+      "duration_seconds": 0.2,
+      "status": "success",
+      "data_sources_used": [],
+      "data_source_failures": []
+    },
+    {
+      "name": "step-03-meeting-context",
+      "step_id": "step-03-meeting-context",
+      "agent": "chief",
+      "owning_agent": "chief",
+      "started": "2026-10-13T12:39:27.482435Z",
+      "completed": "2026-10-13T12:39:27.723652Z",
+      "duration_seconds": 0.2,
+      "status": "success",
+      "data_sources_used": [],
+      "data_source_failures": []
+    },
+    {
+      "name": "step-04-synthesize-briefing",
+      "step_id": "step-04-synthesize-briefing",
+      "agent": "chief",
+      "owning_agent": "chief",
+      "started": "2026-10-13T12:39:27.723652Z",
+      "completed": "2026-10-13T12:39:27.964870Z",
+      "duration_seconds": 0.2,
+      "status": "success",
+      "data_sources_used": [],
+      "data_source_failures": []
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": [],
+      "abort_reason": null
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": "2026-10-13T21:19:55Z",
+      "grade": "C",
+      "safety_grade": null,
+      "grader_notes": "Cowork-instrumented morning-briefing record. All 4 steps (gather-calendar, gather-tasks, meeting-context, synthesize-briefing) report success, yet the overall status is 'partial' and total duration is ~1 second, which marks this as an instrumented capture rather than evidence of real synthesis. No structural assertions are defined for morning-briefing, so briefing quality cannot be verified from this record. Status/steps mismatch (partial vs 4x success) should be reconciled in the cowork instrumentation, and morning-briefing needs assertions if Tier 2/3 grading is to mean anything for it."
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": "e0ac89a92f32fd08",
+  "prior_baseline_id": null,
+  "tags": [
+    "cowork-instrumented"
+  ]
+}

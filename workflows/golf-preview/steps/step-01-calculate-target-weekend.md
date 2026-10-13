@@ -2,12 +2,6 @@
 status: complete
 started-at: "2026-10-05T22:35:00-05:00"
 completed-at: "2026-10-05T22:35:30-05:00"
-outputs:
-  target_friday: "2026-10-16"
-  target_saturday: "2026-10-17"
-  target_sunday: "2026-10-18"
-  gate_1_result: "pass"
-  recalculation_count: 0
 model: haiku
 ---
 
@@ -125,12 +119,12 @@ calculation before attempting to log a PASS.
 
 Write the outcome to this file's frontmatter:
 ```yaml
-outputs:
-  target_friday: "YYYY-MM-DD"
-  target_saturday: "YYYY-MM-DD"
-  target_sunday: "YYYY-MM-DD"
-  gate_1_result: "pass" | "fail-recalculated"
-  recalculation_count: <int>
+# state.yaml -> accumulated-context
+target_friday: "YYYY-MM-DD"
+target_saturday: "YYYY-MM-DD"
+target_sunday: "YYYY-MM-DD"
+gate_1_result: "pass" | "fail-recalculated"
+recalculation_count: <int>
 ```
 
 Update `state.yaml`'s `accumulated-context` with the three validated dates and set

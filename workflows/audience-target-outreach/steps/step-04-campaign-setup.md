@@ -2,7 +2,6 @@
 status: not-started
 started-at: ~
 completed-at: ~
-outputs: {}
 model: sonnet
 ---
 
@@ -40,13 +39,13 @@ model: sonnet
 
 2. Capture the returned Segment and Journey identifiers (created or reused).
 
-3. Write outputs to this file's frontmatter:
+3. Record these outputs to `state.yaml` `accumulated-context`:
    ```yaml
-   outputs:
-     segment_name: "..."
-     journey_name: "..."
-     segment_journey_status: "created" | "reused-existing"
-     send_readiness_confirmed: true/false
+   # state.yaml -> accumulated-context
+   segment_name: "..."
+   journey_name: "..."
+   segment_journey_status: "created" | "reused-existing"
+   send_readiness_confirmed: true/false
    ```
 
 4. Update `state.yaml`:

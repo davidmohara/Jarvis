@@ -19,6 +19,8 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "systems" / "eval-harness" / "vendor"))
+sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "systems" / "eval-harness"))
+from step_outputs import load_step_outputs
 try:
     import yaml
 except Exception:
@@ -66,14 +68,14 @@ def main():
         }))
         return
 
-    outputs = extract_frontmatter(step_path.read_text()).get("outputs") or {}
+    outputs = load_step_outputs(ies_root, "watchtower", ['proposed_count', 'batch_number'], yaml)
     if not isinstance(outputs, dict) or not outputs:
         print(json.dumps({
             "result": "retry",
             "reason": "weekly-step-03 outputs block is empty - no proposal counts recorded",
             "fields": {"sources_verified": False},
             "validation_errors": ["no_outputs"],
-            "retry_instruction": "Re-execute step-03 and record proposed_count/excluded_count/batch_number in the step frontmatter outputs.",
+            "retry_instruction": "Re-execute step-03 and record proposed_count/excluded_count/batch_number in state.yaml's accumulated-context.",
         }))
         return
 

@@ -2,7 +2,6 @@
 status: not-started
 started-at: ~
 completed-at: ~
-outputs: {}
 ---
 
 <!-- system:start -->
@@ -36,14 +35,14 @@ outputs: {}
 
 ### Sequence
 
-1. **Locate the artifacts.** Read the daily review file for the run date (`reviews/daily/{date}.md` or `reviews/daily/auto-{date}.md`). Read `workflows/daily-review/steps/step-01-capture.md` frontmatter `outputs`. Read `delegations/tracker.md` and `data/omnifocus-unified.json`.
+1. **Locate the artifacts.** Read the daily review file for the run date (`reviews/daily/{date}.md` or `reviews/daily/auto-{date}.md`). Read `workflows/daily-review/state.yaml` `accumulated-context` for the step outputs. Read `delegations/tracker.md` and `data/omnifocus-unified.json`.
 
 2. **Apply the output-vs-source / completion-vs-state lens.** For each item, re-derive the truth from recorded state, then compare to the review:
 
    | # | Checklist item | Ground truth source | Verdict |
    |---|----------------|---------------------|---------|
-   | 1 | "What got done today" claims | step-01-capture frontmatter `outputs.completed` | ⚠️ if the review claims a completion not present in capture data |
-   | 2 | Carry-forward / "not done" claims | step-01-capture `outputs.not_completed` | ⚠️ if a carry-forward item has no capture source |
+   | 1 | "What got done today" claims | step-01-capture outputs in `state.yaml` `accumulated-context.completed` | ⚠️ if the review claims a completion not present in capture data |
+   | 2 | Carry-forward / "not done" claims | step-01-capture outputs in `state.yaml` `accumulated-context.not_completed` | ⚠️ if a carry-forward item has no capture source |
    | 3 | Delegation changes | `delegations/tracker.md` vs capture | ⚠️ if a delegation is marked complete/removed without a matching capture entry |
    | 4 | Task / inbox state claims | `data/omnifocus-unified.json` | ⚠️ if the review's task numbers disagree with the file |
    | 5 | Tomorrow's priorities | step-02 set-tomorrow outputs | ⚠️ if the review's forward plan is empty or unsupported |

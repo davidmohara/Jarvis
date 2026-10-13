@@ -2,7 +2,6 @@
 status: not-started
 started-at: ~
 completed-at: ~
-outputs: {}
 model: sonnet
 ---
 
@@ -58,12 +57,12 @@ model: sonnet
 
 2. Once all contacts are processed (sent, skipped, or the controller ends the
    session):
-   - Write outputs to this file's frontmatter:
+   - Record these outputs to `state.yaml` `accumulated-context`:
      ```yaml
-     outputs:
-       contacts_sent_count: <int>
-       contacts_skipped_count: <int>
-       contacts_remaining: <int>
+     # state.yaml -> accumulated-context
+     contacts_sent_count: <int>
+     contacts_skipped_count: <int>
+     contacts_remaining: <int>
      ```
    - Update `state.yaml`: `status: complete` (only if all contacts have been
      resolved — sent or skipped; otherwise leave `status: in-progress` for

@@ -297,11 +297,37 @@ def generate_retry_instruction(rule: dict, field: str, step_name: str) -> str:
 
     # Otherwise, generate one based on the rule type and reason
     if rule_type == "check_field_exists":
-        return f"Step-{step_name.split('-')[1]} output is missing required field '{field}'. {reason}. Add this field to the outputs section."
+        return f"Step-{step_name.split('-')[1]} output is missing required field '{field}'. {reason}. Record this field in state.yaml's accumulated-context."
     elif rule_type == "check_field_not_empty":
-        return f"The {field} field is empty or missing. {reason}. Re-populate this field with appropriate content based on the step's task."
+        return f"The {field} field is empty or missing. {reason}. Re-populate this field in state.yaml's accumulated-context with appropriate content based on the step's task."
     else:
-        return f"Re-execute step to complete missing output field '{field}'. {reason}"
+        return f"Re-execute step to complete missing output field '{field}' in state.yaml's accumulated-context. {reason}"
+
+
+def load_step_outputs(workflow_name: str) -> dict:
+    """Load the workflow's run outputs from state.yaml accumulated-context.
+
+    Per the 2026-10-13 step-frontmatter convention change, run outputs live in
+    state.yaml accumulated-context only — step-file frontmatter carries only
+    status/started-at/completed-at and is never a log.
+    """
+    if not workflow_name:
+        return {}
+    state_path = IES_ROOT / "workflows" / workflow_name / "state.yaml"
+    if not state_path.is_file():
+        return {}
+    try:
+        merged = {}
+        for doc in yaml.safe_load_all(state_path.read_text()):
+            if isinstance(doc, dict):
+                for k, v in doc.items():
+                    if k not in merged or v:
+                        merged[k] = v
+        ctx = merged.get("accumulated-context")
+        return ctx if isinstance(ctx, dict) else {}
+    except Exception as e:
+        log_error(f"Failed to load state.yaml for {workflow_name}: {e}")
+        return {}
 
 
 def run_step_guardrail_checkpoint(step_name: str, step_frontmatter: dict, eval_record: dict, workflow_name: str = None) -> dict:
@@ -386,13 +412,15 @@ def run_step_guardrail_checkpoint(step_name: str, step_frontmatter: dict, eval_r
             log_info(f"Verifier {verifier_path} unusable for {step_name}, falling back to legacy field-check logic")
     # else: no verifier for this workflow/step — fall back to legacy behavior below, unchanged.
 
-    # Check for outputs (incomplete step → retry, don't escalate)
-    outputs = step_frontmatter.get("outputs", {})
+    # Check for outputs (incomplete step → retry, don't escalate).
+    # Run outputs live in state.yaml accumulated-context (step frontmatter is
+    # status/started-at/completed-at only since the 2026-10-13 convention change).
+    outputs = load_step_outputs(workflow_name)
     if not outputs:
         result["result"] = "retry"
         result["reason"] = "Step incomplete: no outputs recorded"
-        result["retry_feedback"] = "Step must produce outputs recorded in frontmatter."
-        result["retry_instruction"] = f"This step has no outputs yet. Re-execute it to completion, recording all required outputs in the 'outputs:' section of the frontmatter. Review the step instructions for what outputs are expected."
+        result["retry_feedback"] = "Step must produce outputs recorded in state.yaml accumulated-context."
+        result["retry_instruction"] = f"This step has no outputs yet. Re-execute it to completion, recording all required outputs in state.yaml's accumulated-context. Review the step instructions for what outputs are expected."
         result["validation_errors"].append("no_outputs")
         return result
     else:

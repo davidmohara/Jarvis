@@ -6,7 +6,6 @@ workflow: evolution-training-sync
 model: sonnet
 started-at: ~
 completed-at: ~
-outputs: {}
 ---
 
 <!-- system:start -->

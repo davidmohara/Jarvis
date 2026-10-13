@@ -2,7 +2,6 @@
 status: not-started
 started-at: ~
 completed-at: ~
-outputs: {}
 model: sonnet
 ---
 
@@ -12,7 +11,7 @@ model: sonnet
 ## EXECUTION PROTOCOL
 
 **Agent:** Knox, spawned by the coordinator, never executed inline. Knox spawns Ralph.
-**Input:** Step 01-06 frontmatter outputs, `workflows/watchtower/state.yaml`, `workflows/watchtower/seen.jsonl`, the draft/angle sources, `reference/blog-ideas.md`
+**Input:** Step 01-06 outputs from `workflows/watchtower/state.yaml` `accumulated-context`, `workflows/watchtower/seen.jsonl`, the draft/angle sources, `reference/blog-ideas.md`
 **Output:** Ralph's verdict table; an `adversarial-verification` guardrail result recorded; verdict summary written to state.yaml
 
 ## PARAMETERS
@@ -20,7 +19,7 @@ model: sonnet
 - Verification workflow: `workflows/watchtower-verification/workflow.md`
 - Lens: standing-intelligence accounting: drafts approved/posted vs source digests, no unpublished claims of publishing
 - Manifest:
-  - step-outputs: `workflows/watchtower/steps/weekly-step-0{1,2,2b,3,4,5,6}-*.md` frontmatter outputs
+  - step-outputs: `workflows/watchtower/state.yaml` `accumulated-context`
   - state: `workflows/watchtower/state.yaml`
   - seen-ledger: `workflows/watchtower/seen.jsonl`
   - blog-ideas: `reference/blog-ideas.md`

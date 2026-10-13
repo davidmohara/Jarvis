@@ -2,12 +2,6 @@
 status: complete
 started-at: "2026-09-17T03:48:20Z"
 completed-at: "2026-09-17T03:48:50Z"
-outputs:
-  deliverables_checked: 0
-  renamed: []
-  moved: []
-  verified_clean: true
-  no_pdf_docx_pptx_epub_in_diff: true
 model: sonnet
 ---
 

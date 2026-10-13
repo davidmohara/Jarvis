@@ -3,7 +3,6 @@ status: not-started
 model: sonnet
 started-at: ~
 completed-at: ~
-outputs: {}
 ---
 
 <!-- system:start -->
@@ -93,7 +92,7 @@ outputs: {}
 
 ### Output Persistence (MANDATORY)
 
-Before recording step completion, persist the `event_context` block to `state.yaml` under `accumulated-context.event_context`, and mirror the identical structure in this step file's frontmatter `outputs` field. The verifier reads `accumulated-context.event_context.event_type` and requires one of the valid enum values; a missing or unrecognized `event_type` fails verification (it gates the output format for every later step). It also reads `event_name`/`audience` and `key_topics` from the same block.
+Before recording step completion, persist the `event_context` block to `state.yaml` under `accumulated-context.event_context`. The verifier reads `accumulated-context.event_context.event_type` and requires one of the valid enum values; a missing or unrecognized `event_type` fails verification (it gates the output format for every later step). It also reads `event_name`/`audience` and `key_topics` from the same block.
 
 ```yaml
 # state.yaml -> accumulated-context
@@ -112,14 +111,6 @@ event_context:
     quinn: not-needed
     shep: not-needed
     chief: not-needed
-
-# step-01-context-analysis.md -> frontmatter
-outputs:
-  event_context:
-    event_type: meeting
-    event_name: "{Event name}"
-    audience: "{Audience}"
-    key_topics: []
 ```
 
 ---

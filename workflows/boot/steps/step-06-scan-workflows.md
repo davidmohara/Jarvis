@@ -1,18 +1,7 @@
 ---
 status: complete
-started-at: '2026-10-09T16:04:00Z'
-completed-at: '2026-10-09T16:06:00Z'
-outputs:
-  workflows_scanned: 'complete - _active.yaml read (active: []), targeted verification scan of workflows/*/state.yaml confirms: boot (this run) and plaud-ingest (Knox session pi-20261009-001, live at step-04, 2 recordings ingesting) are the only in-progress workflows; morning-briefing ran inside boot and is now complete'
-  in_flight_list:
-  - plaud-ingest (Knox, pi-20261009-001, step-04, live background)
-  status_summary: 'No stale in-flight workflows. plaud-ingest is this session''s fire-and-forget Knox run, mid-flight with 2 new recordings from 10-08 (Becoming AI Native panel prep, Talent Lab AI in HR). Nothing to auto-resume.'
-  result: 0 actionable in-flight workflows to surface (excluding boot itself and Knox background)
-prior-run-2026-09-18:
-  workflows_scanned: 'complete — workflows/_active.yaml read (active: []). Targeted verification scan of workflows/*/state.yaml confirms: the only in-progress workflow is boot itself (this run). plaud-ingest is COMPLETE this session (Knox session pi-20260918-001, outcome complete-one-ingested).'
-  in_flight_list: []
-  status_summary: 'No in-flight workflows other than boot (this run). plaud-ingest completed: 1 new recording ingested (f96b2c110fc35162f390ac5288d6f7f4, ''09-18 Meeting: AI Project Architecture and Data Routing'', 31.5 min, transcript ready). All others idle/complete.'
-  result: 0 in-flight workflows to surface (excluding boot itself). Index verified accurate this run (no stale mismatch). Nothing to auto-resume.
+started-at: '2026-10-13T12:40:00Z'
+completed-at: '2026-10-13T12:41:00Z'
 ---
 
 <!-- system:start -->
@@ -24,7 +13,6 @@ prior-run-2026-09-18:
 2. Surface any `status: in-progress` workflow immediately after the briefing. Do not bury it.
 3. Do NOT auto-resume any in-progress workflow. Surface only. Await controller instruction.
 4. This step concludes boot. Set workflow status to complete when done.
-
 ---
 
 ## EXECUTION PROTOCOL
@@ -69,7 +57,7 @@ prior-run-2026-09-18:
 
    **If no in-progress workflows:** Surface a single line: "No in-flight workflows."
 
-5. **Update step frontmatter:** Set `status: complete`, `completed-at` with current timestamp, and `outputs.workflows_scanned` with a summary (e.g. "complete — active.yaml read, N in-progress workflows found" or "complete — active.yaml read, 0 in-progress workflows found").
+5. **Update step frontmatter:** Set `status: complete` and `completed-at` (current timestamp). Record `workflows_scanned` in `state.yaml` `accumulated-context` with a summary (e.g. "complete — active.yaml read, N in-progress workflows found" or "complete — active.yaml read, 0 in-progress workflows found").
 
 ---
 

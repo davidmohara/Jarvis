@@ -2,7 +2,6 @@
 status: not-started
 started-at: ~
 completed-at: ~
-outputs: {}
 model: sonnet
 ---
 
@@ -165,15 +164,10 @@ It spawns **Ralph** with `workflows/podcast-prep-verification/workflow.md` (the 
 <!-- system:start -->
 ## Output Persistence (MANDATORY)
 
-The verifier for this step finds the rendered PDF on disk (it does not read a nested block), so the save path and file validity are the contract. Save the PDF to `meetings/podcast-prep/Episode {N}.pdf` and record its path in `state.yaml` `accumulated-context.pdf_rendered` plus this step file's frontmatter `outputs`. The verifier checks the file exists, begins with the `%PDF-` magic bytes, and is at least 5000 bytes; a missing or truncated file fails verification.
+The verifier for this step finds the rendered PDF on disk (it does not read a nested block), so the save path and file validity are the contract. Save the PDF to `meetings/podcast-prep/Episode {N}.pdf` and record its path in `state.yaml` `accumulated-context.pdf_rendered`. The verifier checks the file exists, begins with the `%PDF-` magic bytes, and is at least 5000 bytes; a missing or truncated file fails verification.
 
 ```yaml
 # state.yaml -> accumulated-context
 pdf_rendered: "meetings/podcast-prep/Episode {N}.pdf"
-
-# step-05-generate-pdf.md -> frontmatter
-outputs:
-  pdf_rendered: "meetings/podcast-prep/Episode {N}.pdf"
-  valid_pdf_header: true
 ```
 <!-- system:end -->

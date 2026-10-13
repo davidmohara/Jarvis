@@ -19,6 +19,8 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "systems" / "eval-harness" / "vendor"))
+sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "systems" / "eval-harness"))
+from step_outputs import load_step_outputs
 try:
     import yaml
 except Exception:
@@ -62,14 +64,14 @@ def main():
         }))
         return
 
-    outputs = extract_frontmatter(step_path.read_text()).get("outputs") or {}
+    outputs = load_step_outputs(ies_root, "watchtower", ['through_line', 'consulting_read', 'items_synthesized'], yaml)
     if not isinstance(outputs, dict) or not outputs:
         print(json.dumps({
             "result": "retry",
             "reason": "daily-step-04b outputs block is empty - no synthesis recorded",
             "fields": {"synthesis_verified": False},
             "validation_errors": ["no_outputs"],
-            "retry_instruction": "Re-execute step-04b and record through_line/consulting_read/items_synthesized in the step frontmatter outputs.",
+            "retry_instruction": "Re-execute step-04b and record through_line/consulting_read/items_synthesized in state.yaml's accumulated-context.",
         }))
         return
 

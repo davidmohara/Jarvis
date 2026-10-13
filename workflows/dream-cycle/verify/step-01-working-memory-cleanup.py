@@ -4,7 +4,7 @@
 Memory-conservation check. The step claims it archived N files (listed in
 `archived_files`) from memory/working/ into memory/episodic/, deleted M trivial
 files, and skipped the rest. This verifier re-derives the claim from the real
-filesystem instead of trusting the frontmatter self-report:
+filesystem instead of trusting the step's self-reported counts:
 
   * every file listed in `archived_files` must be GONE from memory/working/
     (a listed-but-still-present file is a silent non-archival - the exact
@@ -22,6 +22,8 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "systems" / "eval-harness" / "vendor"))
+sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "systems" / "eval-harness"))
+from step_outputs import load_step_outputs
 try:
     import yaml
 except Exception:
@@ -65,14 +67,14 @@ def main():
         }))
         return
 
-    outputs = extract_frontmatter(step_path.read_text()).get("outputs") or {}
+    outputs = load_step_outputs(ies_root, "dream-cycle", ['archived_files', 'working_archived'], yaml)
     if not isinstance(outputs, dict) or not outputs:
         print(json.dumps({
             "result": "retry",
             "reason": "step-01 outputs block is empty - no working-memory counts recorded",
             "fields": {"archived_verified": False},
             "validation_errors": ["no_outputs"],
-            "retry_instruction": "Re-execute step-01 and record working_archived/archived_files/skipped counts in the step frontmatter outputs.",
+            "retry_instruction": "Re-execute step-01 and record working_archived/archived_files/skipped counts in state.yaml's accumulated-context.",
         }))
         return
 
@@ -123,7 +125,7 @@ def main():
             "reason": f"working_archived ({working_archived}) does not match len(archived_files) ({len(archived_files)})",
             "fields": fields,
             "validation_errors": ["archived_count_mismatch"],
-            "retry_instruction": "Reconcile working_archived with the archived_files list in step-01 outputs.",
+            "retry_instruction": "Reconcile working_archived with the archived_files list in state.yaml's accumulated-context.",
         }))
         return
 

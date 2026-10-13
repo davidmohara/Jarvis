@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Ground-truth verifier for daily-review/step-01-capture.
 
-Reads the step's own frontmatter `outputs` block from disk (not a
+Reads the step's outputs from state.yaml `accumulated-context` (not a
 self-reported status flag) and checks it actually contains capture data —
 completed/not-completed/blocker items or an inbox count — rather than an
 empty or placeholder dict.
@@ -12,6 +12,8 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "systems" / "eval-harness" / "vendor"))
+sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "systems" / "eval-harness"))
+from step_outputs import load_step_outputs, load_context
 try:
     import yaml
 except Exception:
@@ -55,8 +57,7 @@ def main():
         }))
         return
 
-    fm = extract_frontmatter(step_path.read_text())
-    outputs = fm.get("outputs") or {}
+    outputs = load_step_outputs(ies_root, "daily-review", EXPECTED_KEYS, yaml)
 
     matched_keys = [k for k in EXPECTED_KEYS if k in outputs]
     items_captured = 0
@@ -75,10 +76,10 @@ def main():
     if not isinstance(outputs, dict) or not outputs:
         verdict = {
             "result": "retry",
-            "reason": "step-01 outputs block is empty — no capture data recorded",
+            "reason": "step-01 outputs missing from state.yaml accumulated-context — no capture data recorded",
             "fields": fields,
             "validation_errors": ["no_outputs"],
-            "retry_instruction": "Re-execute step-01 and record capture_data (completed/not_completed/blockers/inbox_count) in the step frontmatter outputs.",
+            "retry_instruction": "Re-execute step-01 and record capture_data (completed/not_completed/blockers/inbox_count) in state.yaml's accumulated-context.",
         }
     elif not matched_keys:
         verdict = {

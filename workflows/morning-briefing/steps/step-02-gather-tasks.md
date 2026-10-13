@@ -1,17 +1,7 @@
 ---
 status: complete
-started-at: "2026-10-09T15:54:00Z"
-completed-at: "2026-10-09T15:56:00Z"
-outputs:
-  inbox_count: 16
-  due_today: []
-  overdue: ["Schedule window cleaning — Maintenance, due 2026-09-22, 17 days late", "Print out annual calendar — Deliberate Practices, due 2026-10-02, 7 days late"]
-  flagged: []
-  due_tomorrow_sat: 14 tasks due 2026-10-10 (heavy Saturday: house/errands cluster + Review prayer list, Coherence breathing, Spend time on book ideation)
-  delegations_active: 1
-  delegations_overdue: ["Steve Hall follow up -> Derek Nwamadi, due 2026-09-25, 14 days late, status Waiting"]
-  rocks_source: "memory/personal/quarterly-objectives.md (Q3 2026 draft, unsigned since 2026-07-30 — 71 days; Q3 ended 2026-09-30, now 9 days into Q4 with no signed rocks)"
-  summary: "39 active tasks: 16 unassigned inbox, 0 due today, 2 overdue (window cleaning 17 days, annual calendar 7 days), 0 flagged, 14 due tomorrow Sat. 1 active delegation (Steve Hall follow up -> Derek Nwamadi, 14 days overdue). Q3 rocks never signed; Q4 has no rocks on file."
+started-at: "2026-10-13T11:52:00Z"
+completed-at: "2026-10-13T11:54:00Z"
 model: sonnet
 ---
 

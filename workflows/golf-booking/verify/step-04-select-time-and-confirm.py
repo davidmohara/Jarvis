@@ -4,7 +4,7 @@
 Re-derives the confirmation outcome and re-checks the two hard time limits that
 Gate 3 success does not itself enforce: a round is never booked before 1:00 PM,
 and never before 2:30 PM on a Sunday. The booked time/date is read from the step
-frontmatter outputs and state.yaml, not trusted as a "success" flag. The
+state.yaml accumulated-context, not trusted as a "success" flag. The
 `booking-confirmation` guardrail checkpoint is reported leniently (a recording
 gap is flagged only when an eval record exists without the entry). A documented
 abort is a legitimate terminal state.
@@ -17,6 +17,8 @@ from datetime import datetime
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "systems" / "eval-harness" / "vendor"))
+sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "systems" / "eval-harness"))
+from step_outputs import load_step_outputs, load_context
 try:
     import yaml
 except Exception:
@@ -92,8 +94,7 @@ def main():
         return
 
     ctx = state.get("accumulated-context") or {}
-    step_outputs = parse_frontmatter(step_path.read_text()) if step_path.is_file() else {}
-    step_outputs = step_outputs.get("outputs") or {}
+    step_outputs = load_step_outputs(ies_root, WORKFLOW, ['booked_time', 'booking-time', 'booked_date', 'booking-date'], yaml)
 
     def pick(key):
         if isinstance(step_outputs, dict) and step_outputs.get(key):

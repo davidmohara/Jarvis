@@ -2,14 +2,6 @@
 status: complete
 started-at: "2026-08-31T08:00:00Z"
 completed-at: "2026-08-31T08:20:00Z"
-outputs:
-  artifact_updated: true
-  artifact_id: watchtower-weekly
-  themes_surfaced: 3
-  candidates_surfaced: 3
-  sources_proposed: 5
-  tweets_surfaced: 10
-  weekly_note_path: "Watchtower/Weekly/2026-W36.md"
 ---
 
 <!-- system:start -->
@@ -28,7 +20,7 @@ outputs:
    f. Do NOT call `mcp__cowork__list_artifacts` or `mcp__cowork__update_artifact` — these tools do not exist and have never existed.
    **This is non-negotiable. The dashboard is the primary way David reviews the week's output.**
 6. Set `state.yaml status: complete` and clear `content_queue` after report is surfaced.
-7. Write `status: complete`, `completed-at`, and `outputs` when done.
+7. Write `status: complete` and `completed-at` to this file's frontmatter when done; record run outputs in `state.yaml` `accumulated-context`.
 
 ---
 
@@ -117,15 +109,15 @@ The artifact update mechanism is defined in MANDATORY RULE 5 above.
 
 4. Set `state.yaml status: complete`.
 
-6. Write `outputs` to this file's frontmatter:
+6. Record these outputs to `state.yaml` `accumulated-context`:
    ```yaml
-   outputs:
-     themes_surfaced: <int>
-     candidates_surfaced: <int>
-     sources_proposed: <int>
-     tweets_surfaced: <int>   # count of tweets rendered in report (0-10)
-     weekly_note_path: "Watchtower/Weekly/YYYY-Www.md"
-     artifact_updated: <true | false>
+   # state.yaml -> accumulated-context
+   themes_surfaced: <int>
+   candidates_surfaced: <int>
+   sources_proposed: <int>
+   tweets_surfaced: <int>   # count of tweets rendered in report (0-10)
+   weekly_note_path: "Watchtower/Weekly/YYYY-Www.md"
+   artifact_updated: <true | false>
    ```
 
 ---

@@ -2,24 +2,6 @@
 status: completed
 started-at: 2026-10-09T11:45:00Z
 completed-at: 2026-10-09T11:58:00Z
-outputs:
-  candidates_count: 7
-  clusters_found: 5
-  semantic_created: 0
-  semantic_updated: 5
-  promoted_entries: 7
-  promotion_note: "7 candidates this cycle (all today's own step-01 archives, 16-day batch): dream-summary-2026-09-22.md + dream-summary-2026-09-23.md (scores 10+10) appended to dream-summary-pattern.md (operational/2026-06-12); co-sell-pipeline-2026-09-22-000000.md + co-sell-pipeline-2026-10-05-001533.md (scores 8+6) appended to pipeline-review-pattern.md (operational/2026-06-18) -- notable: gap narrowed $8.87M -> $5.14M in 13 days; 2026-09-28-chief-daily-review.md (score 10) appended to daily-review-pattern.md (operational/2026-06-12) -- Q3 rocks sign-off flagged as imminent miss; 2026-09-28-harper-lone-star-gold-board-update.md (score 6) appended to ypo-pattern.md (operational/2026-06-25) -- LSG board meeting, Western US RBM Oct 5-6 New Orleans; plaud-ingest-2026-10-06-175500.md (score 4) appended to plaud-pattern.md (operational/2026-07-04) -- fourth distinct Monday task creation failure mode. Delegation tracker: Steve Hall/Derek Nwamadi delegation now overdue (was due 09-25). Q3 rocks: unsigned, quarter closed 09-30 -- a miss."
-  cluster_actions:
-    - {tag: dream-summary, domain: operational, size: 2, action: update, target: memory/semantic/operational/2026-06-12-dream-summary-pattern.md, confidence: "high (unchanged, at ceiling)"}
-    - {tag: pipeline-review, domain: operational, size: 2, action: update, target: memory/semantic/operational/2026-06-18-pipeline-review-pattern.md, confidence: "medium (unchanged)"}
-    - {tag: daily-review, domain: operational, size: 1, action: update, target: memory/semantic/operational/2026-06-12-daily-review-pattern.md, confidence: "medium (unchanged)"}
-    - {tag: ypo, domain: operational, size: 1, action: update, target: memory/semantic/operational/2026-06-25-ypo-pattern.md, confidence: "low (unchanged)"}
-    - {tag: plaud, domain: operational, size: 1, action: update, target: memory/semantic/operational/2026-07-04-plaud-pattern.md, confidence: "high (unchanged)"}
-  error_categories_30d: "assumption-error/wrong-assumption:7, process-skip/protocol-skip:5, tool-misuse/tool-ignorance:5, data-accuracy/wrong-assumption:3"
-  error_total_30d: 466
-  error_malformed_30d: 0
-  lessons_appended: 0
-  lessons_note: "4 qualifying categories this cycle, 2 changed vs 09-23: tool-misuse/protocol-skip and tool-misuse/pattern-mismatch aged out of the 30-day window; tool-misuse/tool-ignorance (L357-358) and data-accuracy/wrong-assumption (L231-235, L295-296) re-entered at threshold. All 4 re-verified present and active in LESSONS.md. No new entry appended. No self-detected errors this cycle."
 ---
 
 <!-- system:start -->

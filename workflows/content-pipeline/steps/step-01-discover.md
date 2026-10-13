@@ -2,14 +2,6 @@
 status: complete
 started-at: "2026-10-12T19:00:00Z"
 completed-at: "2026-10-12T19:30:00Z"
-outputs:
-  messages_scanned: 3
-  new_urls: 0
-  new_digests: 3
-  posts_drafted: 3
-  improving_blog_drafts: 0
-  pending_threads_checked: 0
-  outcome: "3 Ghost drafts created from Watchtower digests; 3 Slack notifications posted to #content"
 model: sonnet
 ---
 
@@ -21,7 +13,7 @@ model: sonnet
 1. You MUST read and execute `workflows/content-discovery/steps/step-01-discover.md` in full, including GATE 1 (Source Integrity) and GATE 2 (Content Schema Validation). Do not skip, weaken, or defer either gate.
 2. You MUST NOT re-implement discovery logic in this step. The gated step file is the single source of truth for drafting, tags, images, Ghost creation, and notification.
 3. You MUST write all state to the shared file `workflows/content-approval/pending-drafts.json`. Do not create or write a local pending-drafts file in this directory.
-4. You MUST record this run's outputs in this file's frontmatter after execution (see YOUR TASK).
+4. You MUST record this run's outputs in `state.yaml` `accumulated-context` after execution (see YOUR TASK).
 
 ---
 
@@ -30,7 +22,7 @@ model: sonnet
 **Agent:** Harper, spawned by the coordinator, never executed inline.
 **Mode:** Delegation to the gated sub-workflow step.
 **Input:** #content Slack channel (last 24 hours), shared pending-drafts.json.
-**Output:** Ghost draft posts + Slack review notifications; outputs recorded in this file's frontmatter.
+**Output:** Ghost draft posts + Slack review notifications; outputs recorded in `state.yaml` `accumulated-context`.
 
 ---
 
@@ -49,7 +41,7 @@ model: sonnet
 
 2. Read `workflows/content-discovery/workflow.md` (conventions), then read and execute `workflows/content-discovery/steps/step-01-discover.md` exactly as written, including GATE 1 and GATE 2.
 
-3. After execution, write `status: complete`, `completed-at`, and `outputs` to this file's frontmatter. Record at minimum:
+3. After execution, write `status: complete` and `completed-at` to this file's frontmatter. Record at minimum these keys in `state.yaml` `accumulated-context`:
    ```
    messages_scanned: N
    new_urls: N

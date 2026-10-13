@@ -1,11 +1,7 @@
 ---
 status: complete
-started-at: "2026-10-09T15:52:00Z"
-completed-at: "2026-10-09T15:54:00Z"
-outputs:
-  date: "2026-10-09"
-  meeting_count: 6
-  summary: "Friday. Libby's Birthday (all-day, protected). IGP Bible Study 6:30-7:30am (personal, busy, elapsed). Sales & Recruiting 9:15-9:30am (team, tentative). 2nd Friday Executive Meeting 9:30-10:00am (team, tentative, Month 1 quarterly agenda: Sales/Corporate Special Topics/GoTogether). YPO Industry Insights: Share Your AI 10:00-11:00am (external, tentative, Zoom, in progress at boot). Friday Week Wrap-Up 2:30-3:00pm with Alice Mburu (1:1 EA, busy). Boot ran 10:49am CT; open block 11:00am-2:30pm. No client meetings today. No back-to-back zero-buffer chains."
+started-at: "2026-10-13T11:50:00Z"
+completed-at: "2026-10-13T11:52:00Z"
 model: sonnet
 ---
 

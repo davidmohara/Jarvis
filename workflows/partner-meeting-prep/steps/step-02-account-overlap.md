@@ -2,7 +2,6 @@
 status: not-started
 started-at: ~
 completed-at: ~
-outputs: {}
 model: sonnet
 ---
 
@@ -110,7 +109,7 @@ model: sonnet
 
 ### Output Persistence (MANDATORY)
 
-Before recording step completion, persist the `account_overlap` block to `state.yaml` under `accumulated-context.account_overlap`, and mirror the identical structure in this step file's frontmatter `outputs` field. The verifier reads `accumulated-context.account_overlap` and requires the keys `group_1_active`, `group_2_target`, and `group_3_partner`. It also compares `summary.total_accounts` against the actual combined length of the three group lists, so `summary.total_accounts` MUST equal `len(group_1_active) + len(group_2_target) + len(group_3_partner)`. All three groups must exist even when empty (an all-empty overlap is a valid result and the meeting objective becomes discovery).
+Before recording step completion, persist the `account_overlap` block to `state.yaml` under `accumulated-context.account_overlap`. The verifier reads `accumulated-context.account_overlap` and requires the keys `group_1_active`, `group_2_target`, and `group_3_partner`. It also compares `summary.total_accounts` against the actual combined length of the three group lists, so `summary.total_accounts` MUST equal `len(group_1_active) + len(group_2_target) + len(group_3_partner)`. All three groups must exist even when empty (an all-empty overlap is a valid result and the meeting objective becomes discovery).
 
 ```yaml
 # state.yaml -> accumulated-context
@@ -123,15 +122,6 @@ account_overlap:
     group_1_count: 0
     group_2_count: 0
     group_3_count: 0
-
-# step-02-account-overlap.md -> frontmatter
-outputs:
-  account_overlap:
-    group_1_active: []
-    group_2_target: []
-    group_3_partner: []
-    summary:
-      total_accounts: 0
 ```
 
 ---

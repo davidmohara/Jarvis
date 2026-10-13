@@ -22,6 +22,8 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "systems" / "eval-harness" / "vendor"))
+sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "systems" / "eval-harness"))
+from step_outputs import load_step_outputs
 try:
     import yaml
 except Exception:
@@ -69,26 +71,20 @@ def main():
         }))
         return
 
-    outputs = extract_frontmatter(step_path.read_text()).get("outputs") or {}
+    outputs = load_step_outputs(ies_root, "watchtower", ['weekly_note_path', 'themes_in_note', 'tweets_in_note', 'artifact_updated'], yaml)
     if not isinstance(outputs, dict) or not outputs:
         print(json.dumps({
             "result": "retry",
-            "reason": "weekly-step-04 outputs block is empty - no note results recorded",
+            "reason": "weekly-step-04 outputs missing from state.yaml accumulated-context - no note results recorded",
             "fields": {"note_verified": False},
             "validation_errors": ["no_outputs"],
-            "retry_instruction": "Re-execute step-04 and record weekly_note_path/themes_in_note/tweets_in_note/artifact_updated in the step frontmatter outputs.",
+            "retry_instruction": "Re-execute step-04 and record weekly_note_path/themes_in_note/tweets_in_note/artifact_updated in state.yaml's accumulated-context.",
         }))
         return
 
-    def upstream_outputs(rel):
-        p = ies_root / rel
-        if p.is_file():
-            o = extract_frontmatter(p.read_text()).get("outputs") or {}
-            return o if isinstance(o, dict) else {}
-        return {}
 
-    s1 = upstream_outputs(STEP01_REL)
-    s2b = upstream_outputs(STEP02B_REL)
+    s1 = load_step_outputs(ies_root, "watchtower", ["themes_identified", "dropped_as_continuing", "used_fallback"], yaml)
+    s2b = load_step_outputs(ies_root, "watchtower", ["tweets_generated", "angle_types"], yaml)
 
     note_path = outputs.get("weekly_note_path")
     themes_in_note = outputs.get("themes_in_note")

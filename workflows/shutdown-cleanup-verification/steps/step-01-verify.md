@@ -2,7 +2,6 @@
 status: not-started
 started-at: ~
 completed-at: ~
-outputs: {}
 ---
 
 <!-- system:start -->
@@ -37,7 +36,7 @@ outputs: {}
 
 ### Sequence
 
-1. **Locate the artifacts.** Read the step outputs (`workflows/shutdown-cleanup/steps/step-0{1..4}-*.md` frontmatter), `workflows/shutdown-cleanup/state.yaml`, and the controller summary from the manifest.
+1. **Locate the artifacts.** Read the step outputs (`workflows/shutdown-cleanup/state.yaml` `accumulated-context`), and the controller summary from the manifest.
 
 2. **Read the commit** (lock-free): `git show --stat <commit-sha>` for the file list and counts. If no commit was claimed, read the nothing-to-commit claim against `git diff --name-only HEAD` and `git ls-files --modified --others --exclude-standard` output from the manifest.
 

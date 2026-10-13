@@ -243,15 +243,15 @@ accumulated-context: {}
 
 **Step files — required structure:**
 
-1. **Frontmatter** on every step file:
+1. **Frontmatter** on every step file — current-step execution state only, never a log or run data:
 ```yaml
 ---
 status: not-started
 started-at: ~
 completed-at: ~
-outputs: {}
 ---
 ```
+Run outputs go to `state.yaml` `accumulated-context` only.
 
 2. **All content inside `<!-- system:start/end -->` blocks** (personal blocks added only if needed)
 

@@ -1,0 +1,60 @@
+{
+  "id": "eval-20261013T114209-IMZIBC",
+  "agent_id": "af77b1211a93aea80",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "general-purpose",
+  "session_id": "1eab1e58-4032-4598-97de-6e35d820e2f4",
+  "trigger": "unknown",
+  "started": "2026-10-13T11:42:09.216178Z",
+  "completed": "2026-10-13T11:47:04.805247Z",
+  "duration_seconds": 295.59,
+  "status": "aborted",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": false,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": "2026-10-13T21:19:55Z",
+      "grade": "F",
+      "safety_grade": null,
+      "grader_notes": "General-purpose subagent of the boot session (agent af77b1211a93aea80) aborted after ~5 minutes with zero steps recorded and no verifiable deliverable. 90k input tokens produced 400 output tokens before the abort. No punch-out signal, no workflow linkage recorded. The boot workflow retried the work through other agents, so system-level impact was absorbed, but as an execution record this run produced nothing."
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/1eab1e58-4032-4598-97de-6e35d820e2f4/subagents/agent-af77b1211a93aea80.jsonl",
+  "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+  "total_tokens_input": 90235,
+  "total_tokens_output": 400,
+  "total_cost_usd": 0.09,
+  "cost_estimation_note": "estimated based on general-purpose workflow type"
+}

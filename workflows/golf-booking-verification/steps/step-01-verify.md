@@ -2,7 +2,6 @@
 status: not-started
 started-at: ~
 completed-at: ~
-outputs: {}
 ---
 
 <!-- system:start -->
@@ -36,7 +35,7 @@ outputs: {}
 
 ### Sequence
 
-1. **Locate the artifacts.** Read the step `outputs` frontmatter for steps 00-07, `workflows/golf-booking/state.yaml`, and `workflows/golf-booking/preview-output.json`.
+1. **Locate the artifacts.** Read the step outputs in `workflows/golf-booking/state.yaml` `accumulated-context`, and `workflows/golf-booking/preview-output.json`.
 
 2. **Apply the booking-claims-vs-evidence lens.** For each item, re-derive the truth from the record, then compare to the run's claims:
 

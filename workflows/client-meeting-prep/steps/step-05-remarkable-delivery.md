@@ -2,7 +2,6 @@
 status: not-started
 started-at: ~
 completed-at: ~
-outputs: {}
 model: sonnet
 ---
 
@@ -104,7 +103,7 @@ If upload failed, state the PDF is still saved locally in OneDrive and give the 
 
 ### Output Persistence (MANDATORY)
 
-Before recording step completion, persist the `deliverables` block to `state.yaml` under `accumulated-context.deliverables`, and mirror the identical structure in this step file's frontmatter `outputs` field. The verifier reads `accumulated-context.deliverables.pdf_file`, `remarkable_display_name`, `remarkable_destination`, and `remarkable_upload`. It locates the PDF from `deliverables.pdf_file` (or a glob of `meetings/*.pdf` matching the attendee slug), checks the `%PDF-` header and a 5000-byte minimum, and requires a non-empty `remarkable_upload` value. One source of truth: the `deliverables` block only (the earlier top-level `remarkable_pdf_path` key was consolidated into it).
+Before recording step completion, persist the `deliverables` block to `state.yaml` under `accumulated-context.deliverables`. The verifier reads `accumulated-context.deliverables.pdf_file`, `remarkable_display_name`, `remarkable_destination`, and `remarkable_upload`. It locates the PDF from `deliverables.pdf_file` (or a glob of `meetings/*.pdf` matching the attendee slug), checks the `%PDF-` header and a 5000-byte minimum, and requires a non-empty `remarkable_upload` value. One source of truth: the `deliverables` block only (the earlier top-level `remarkable_pdf_path` key was consolidated into it).
 
 ```yaml
 # state.yaml -> accumulated-context
@@ -114,14 +113,6 @@ deliverables:
   remarkable_display_name: "{Attendee Name} - {Company}"
   remarkable_destination: "/Meetings"
   remarkable_upload: "success"          # or an explicit failure string; REQUIRED non-empty
-
-# step-05-remarkable-delivery.md -> frontmatter
-outputs:
-  deliverables:
-    pdf_file: "meetings/{Attendee Name} - {Company}.pdf"
-    remarkable_display_name: "{Attendee Name} - {Company}"
-    remarkable_destination: "/Meetings"
-    remarkable_upload: "success"
 ```
 
 ---

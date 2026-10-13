@@ -9,7 +9,7 @@
       "critical": false,
       "retry_on_missing": true,
       "reason": "Phase 2 data gathering must report completion status for each task",
-      "retry_instruction": "Step-02 output is missing the 'phase2_status' field. Add this field to outputs with a summary of Phase 2 task completion status (which tasks completed, which failed, and overall readiness for step-03)."
+      "retry_instruction": "Step-02 output is missing the 'phase2_status' field. Record this field in state.yaml's accumulated-context with a summary of Phase 2 task completion status (which tasks completed, which failed, and overall readiness for step-03)."
     },
     {
       "name": "no_critical_data_failures",

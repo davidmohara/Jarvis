@@ -2,7 +2,6 @@
 status: not-started
 started-at: ~
 completed-at: ~
-outputs: {}
 model: sonnet
 ---
 
@@ -12,7 +11,7 @@ model: sonnet
 ## EXECUTION PROTOCOL
 
 **Agent:** Rigby, spawned by the coordinator, never executed inline. Rigby spawns Ralph.
-**Input:** Step 01-04 frontmatter outputs, `workflows/shutdown-cleanup/state.yaml`, `systems/eval-harness/git-ops.jsonl`, the commit sha from step-04
+**Input:** Step 01-04 outputs from `workflows/shutdown-cleanup/state.yaml` `accumulated-context`, `systems/eval-harness/git-ops.jsonl`, the commit sha from step-04
 **Output:** Ralph's verdict table; an `adversarial-verification` guardrail result recorded; verdict summary written to state.yaml
 
 ## PARAMETERS
@@ -20,7 +19,7 @@ model: sonnet
 - Verification workflow: `workflows/shutdown-cleanup-verification/workflow.md`
 - Lens: cleanup claims vs commit and audit trail
 - Manifest:
-  - step-outputs: `workflows/shutdown-cleanup/steps/step-0{1,2,3,4}-*.md` frontmatter outputs
+  - step-outputs: `workflows/shutdown-cleanup/state.yaml` `accumulated-context`
   - state: `workflows/shutdown-cleanup/state.yaml`
   - git-audit: `systems/eval-harness/git-ops.jsonl`
   - commit-sha: `<from step-04 outputs>`

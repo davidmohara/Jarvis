@@ -2,7 +2,6 @@
 status: not-started
 started-at: ~
 completed-at: ~
-outputs: {}
 model: sonnet
 ---
 
@@ -88,7 +87,7 @@ model: sonnet
 
 ### Output Persistence (MANDATORY)
 
-Before recording step completion, persist these keys to `state.yaml` `accumulated-context` (top-level, NOT nested under a wrapper block), and mirror them in this step file's frontmatter `outputs` field. The verifier reads `accumulated-context.meeting_classification`, `reason_for_call`, `evidence_cited`, `do_not_assume`, and `contact_depth`. `meeting_classification` MUST be one of the recognized values or verification fails: `sales-sourced`, `peer-relationship-referral`, `internal-review`, or `unclear-insufficient-evidence` (the run log's `sales/prospect-sourced` and `peer/relationship/referral` variants are also accepted, but prefer the canonical short forms).
+Before recording step completion, persist these keys to `state.yaml` `accumulated-context` (top-level, NOT nested under a wrapper block). The verifier reads `accumulated-context.meeting_classification`, `reason_for_call`, `evidence_cited`, `do_not_assume`, and `contact_depth`. `meeting_classification` MUST be one of the recognized values or verification fails: `sales-sourced`, `peer-relationship-referral`, `internal-review`, or `unclear-insufficient-evidence` (the run log's `sales/prospect-sourced` and `peer/relationship/referral` variants are also accepted, but prefer the canonical short forms).
 
 ```yaml
 # state.yaml -> accumulated-context (top-level keys)
@@ -104,14 +103,6 @@ do_not_assume:
   - "{Explicit thing not to assume}"
 contact_depth: "first-touch"                           # first-touch | repeat-meeting
 contact_depth_basis: "{One line citing what set this}"
-
-# step-02-source-of-truth-email.md -> frontmatter
-outputs:
-  meeting_classification: "peer-relationship-referral"
-  reason_for_call: "{...}"
-  evidence_cited: []
-  do_not_assume: []
-  contact_depth: "first-touch"
 ```
 
 ---

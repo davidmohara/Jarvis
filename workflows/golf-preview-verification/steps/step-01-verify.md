@@ -2,7 +2,6 @@
 status: not-started
 started-at: ~
 completed-at: ~
-outputs: {}
 ---
 
 <!-- system:start -->
@@ -36,7 +35,7 @@ outputs: {}
 
 ### Sequence
 
-1. **Locate the artifacts.** Read the step `outputs` frontmatter for steps 01-05, `workflows/golf-preview/state.yaml`, `workflows/golf-booking/preview-output.json`, and the weather source data for the target weekend.
+1. **Locate the artifacts.** Read the step outputs in `workflows/golf-preview/state.yaml` `accumulated-context`, `workflows/golf-booking/preview-output.json`, and the weather source data for the target weekend.
 
 2. **Apply the preview-claims-vs-source lens.** For each item, re-derive the truth from the source, then compare to the preview's claims:
 

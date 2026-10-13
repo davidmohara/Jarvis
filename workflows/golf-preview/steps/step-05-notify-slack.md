@@ -2,12 +2,6 @@
 status: complete
 started-at: "2026-10-05T22:39:00-05:00"
 completed-at: "2026-10-05T22:40:00-05:00"
-outputs:
-  gate_5_result: "pass"
-  delivery_path: "fallback"
-  fallback_file: "memory/working/golf-preview-2026-10-05.md"
-  rank_1_summary: "Saturday Oct 17, 1:00 PM — 18 holes, $21/player (BEST OPTION)"
-  rank_2_summary: "Sunday Oct 18, 2:30 PM — 18 holes, $21/player (backup)"
 model: haiku
 ---
 

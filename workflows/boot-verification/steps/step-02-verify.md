@@ -2,13 +2,6 @@
 status: complete
 started-at: "2026-10-09T15:56:00Z"
 completed-at: "2026-10-09T15:58:00Z"
-outputs:
-  verdict: all-verified
-  verified: 6
-  unverified: 0
-  skipped: 0
-  not-applicable: 1
-  rerun-required: []
 ---
 
 <!-- system:start -->

@@ -1,12 +1,7 @@
 ---
 status: complete
-started-at: '2026-10-09T15:56:00Z'
-completed-at: '2026-10-09T15:57:30Z'
-outputs:
-  phase2_measurement_file: systems/boot-instrumentation/measurements/measurement-state-20261009T155640.json
-  measurement_method: measure.py measure-state run against state.yaml
-  total_kb: 1.54
-  total_tokens: 393
+started-at: '2026-10-13T11:55:00Z'
+completed-at: '2026-10-13T11:55:30Z'
 ---
 
 <!-- system:start -->
@@ -70,10 +65,10 @@ outputs:
 
 4. **Store measurement path** in outputs:
    ```yaml
-   outputs:
-     phase2_measurement_file: "systems/boot-instrumentation/measurements/measurement-state-{timestamp}.json"
-     total_kb: N
-     total_tokens: N
+   # state.yaml -> accumulated-context
+   phase2_measurement_file: "systems/boot-instrumentation/measurements/measurement-state-{timestamp}.json"
+   total_kb: N
+   total_tokens: N
    ```
 
 5. **Update step frontmatter:** Set `status: complete` and `completed-at` with current timestamp.

@@ -1,16 +1,8 @@
 ---
 status: completed
 model: kimi-k3
-started-at: "2026-10-09T15:48:03Z"
-completed-at: "2026-10-09T16:15:00Z"
-outputs:
-  new-recordings-count: 6
-  api-total: 146
-  confirmed-in-vault: 140
-  gate_1_result: "pass"
-  gate_1_auth_method: "cached-token"
-  gate_2_result: "pass"
-  gate_2_flagged_recordings: []
+started-at: "2026-10-13T00:00:00Z"
+completed-at: "2026-10-13T00:00:00Z"
 ---
 
 <!-- system:start -->
@@ -174,8 +166,8 @@ Log the result:
 ```
 
 Write `gate_2_result: "pass"` (nothing flagged) or `"pass-with-flags"` (flagged but none
-excluded) or `"pass-with-exclusions"` (one or more excluded for missing `file_id`) to this
-step's frontmatter `outputs`, along with `gate_2_flagged_recordings: [{file_id, issue}, ...]`.
+excluded) or `"pass-with-exclusions"` (one or more excluded for missing `file_id`) to `state.yaml`
+`accumulated-context`, along with `gate_2_flagged_recordings: [{file_id, issue}, ...]`.
 
 ---
 

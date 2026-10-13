@@ -23,6 +23,8 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "systems" / "eval-harness" / "vendor"))
+sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "systems" / "eval-harness"))
+from step_outputs import load_step_outputs
 try:
     import yaml
 except Exception:
@@ -68,14 +70,14 @@ def main():
         return
 
     fm = extract_frontmatter(step_path.read_text())
-    outputs = fm.get("outputs") or {}
+    outputs = load_step_outputs(ies_root, "dream-cycle", ['dream_log_appended', 'git_commit', 'git_commit_sha', 'git_push'], yaml)
     if not isinstance(outputs, dict) or not outputs:
         print(json.dumps({
             "result": "retry",
             "reason": "step-05 outputs block is empty - no log/git results recorded",
             "fields": {"log_verified": False},
             "validation_errors": ["no_outputs"],
-            "retry_instruction": "Re-execute step-05 and record dream_log_appended/git_commit/git_commit_sha in the step frontmatter outputs.",
+            "retry_instruction": "Re-execute step-05 and record dream_log_appended/git_commit/git_commit_sha in state.yaml's accumulated-context.",
         }))
         return
 

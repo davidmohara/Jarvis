@@ -2,7 +2,6 @@
 status: not-started
 started-at: ~
 completed-at: ~
-outputs: {}
 model: sonnet
 ---
 
@@ -212,16 +211,11 @@ Before saving, verify:
 
 ### Output Persistence (MANDATORY)
 
-The verifier for this step finds the saved document on disk (searching `outputs/`, `meetings/`, `accounts/`, and the repo root for a filename containing the partner's name slug), then validates its content. Record the save path in `state.yaml` `accumulated-context.output_file` and in this step file's frontmatter `outputs`. The saved document MUST contain these three exact section headers and use the intentional-blank marker `TBD - partner to fill` where partner-side data is left for them:
+The verifier for this step finds the saved document on disk (searching `outputs/`, `meetings/`, `accounts/`, and the repo root for a filename containing the partner's name slug), then validates its content. Record the save path in `state.yaml` `accumulated-context.output_file`. The saved document MUST contain these three exact section headers and use the intentional-blank marker `TBD - partner to fill` where partner-side data is left for them:
 
 ```yaml
 # state.yaml -> accumulated-context
 output_file: "meetings/{Partner} - {YYYY-MM-DD}.md"
-
-# step-04-build-document.md -> frontmatter
-outputs:
-  output_file: "meetings/{Partner} - {YYYY-MM-DD}.md"
-  sections: ["## Meeting Details", "## Priority Accounts", "## Discussion Topics"]
 ```
 
 Required section headers in the saved document:

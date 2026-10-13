@@ -2,10 +2,6 @@
 status: complete
 started-at: "2026-09-17T03:48:50Z"
 completed-at: "2026-09-17T03:49:10Z"
-outputs:
-  patterns_added: []
-  already_covered: 6
-  no_changes_needed: true
 model: sonnet
 ---
 

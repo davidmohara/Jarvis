@@ -1,14 +1,7 @@
 ---
 status: complete
-started-at: '2026-10-09T16:05:00Z'
-completed-at: '2026-10-09T16:06:30Z'
-outputs:
-  data_freshness_report: pass - all 5 data sources live and fresh this run (0 degraded, OmniFocus via skill script, no fallback); briefing reflects gathered data with correct date; session index has exactly 1 record for today, no duplication; no credential-shaped strings in session index or briefing working memory; workflow scan distinguishes live plaud-ingest from stale entries; checkpoint recorded on boot eval eval-20261009T154606-R6ZFEC
-  checkpoint_result: pass
-model: kimi-k3
-prior-run-2026-09-18:
-  data_freshness_report: 'flag — calendar (24 events, pulled 2026-09-18T17:04Z), email (17 msgs), omnifocus (status available, 42 tasks), clay (0 reminders / 2 birthdays), jarvis-inbox (0) all live and fresh this run; briefing reflects gathered data accurately, correct day, no stale context presented as fresh. Flag: a colleague DOB was spotted in one email-unified.json snippet (Legacy Club intake reply) and scrubbed before completion; briefing and session index were always clean.'
-  checkpoint_result: flag
+started-at: '2026-10-13T12:42:00Z'
+completed-at: '2026-10-13T12:44:00Z'
 ---
 
 <!-- system:start -->
@@ -30,7 +23,6 @@ This checkpoint is no longer a manual review whose outcome is only self-reported
 - **Leakage scan**: the session index and the briefing working-memory file are scanned for credential-shaped strings.
 
 The manual checklist below remains as reviewer guidance, but it no longer carries the checkpoint on its own. The verifier's derived fields are written into the eval record's `guardrails[].computed_fields`, which is what the Stage 4 evidence bundle reads.
-
 ---
 
 ## EXECUTION PROTOCOL
@@ -58,7 +50,7 @@ The manual checklist below remains as reviewer guidance, but it no longer carrie
 
 ### Record the result
 
-Record the checkpoint result and update step frontmatter with `outputs.data_freshness_report` (e.g. "pass — calendar fresh, briefing reflects current data, no stale context detected" or "flag — [minor issue noted]" or "escalate — [critical issue]").
+Record the checkpoint result in `state.yaml` `accumulated-context` as `data_freshness_report` (e.g. "pass — calendar fresh, briefing reflects current data, no stale context detected" or "flag — [minor issue noted]" or "escalate — [critical issue]").
 
 ```bash
 python3 systems/eval-harness/guardrail-checkpoint.py boot pre-completion-review step-06-scan-workflows <pass|flag|escalate> "<one-line reason>"

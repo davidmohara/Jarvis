@@ -2,7 +2,6 @@
 status: not-started
 started-at: ~
 completed-at: ~
-outputs: {}
 model: sonnet
 ---
 
@@ -56,11 +55,11 @@ plus the relevant pain point/offering pairing for that contact
 3. Once every contact has an approved message (or the controller chooses to
    skip a contact — record skips as `content_approved: false, skipped: true`
    rather than silently dropping them):
-   - Write outputs to this file's frontmatter:
+   - Record these outputs to `state.yaml` `accumulated-context`:
      ```yaml
-     outputs:
-       messages_approved: <int>
-       messages_skipped: <int>
+     # state.yaml -> accumulated-context
+     messages_approved: <int>
+     messages_skipped: <int>
      ```
    - Update `state.yaml`: `current-step: step-04`
    - Mark this file's frontmatter `status: complete` and `completed-at`.

@@ -3,17 +3,6 @@ status: completed
 started-at: "2026-10-09T15:48:03Z"
 completed-at: "2026-10-09T16:15:00Z"
 model: kimi-k3
-outputs:
-  already-ready: 3
-  triggered: 3
-  pending: 3
-  skipped: 0
-  gate_3_result: "pass"
-  gate_3_retry_counts:
-    d0200e83ccd8c442ba958c3587a0f3d7: 1
-    a93aa078b699d69c62c4a2cef8dcf5b2: 1
-    fa0e4f1fa0ed3f892a83cc6218f4c80d: 1
-  gate_3_aborted_recordings: []
 ---
 
 <!-- system:start -->
@@ -98,10 +87,10 @@ unexpected response.
 
 1. Attempt the two-step trigger (PATCH then POST).
 2. If it fails with anything other than `status: -1`/`status: -12`: wait 2 seconds, retry.
-3. Track the attempt count for this `file_id` in this step's frontmatter `outputs.gate_3_retry_counts` (e.g. `{"<file_id>": 2}`).
+3. Track the attempt count for this `file_id` in `state.yaml` `accumulated-context.gate_3_retry_counts` (e.g. `{"<file_id>": 2}`).
 4. After **3 failed attempts** for the same recording: **HARD STOP for that recording.**
    - Do not add it to `transcription-triggered` or `pending-recordings`.
-   - Add its `file_id` to `outputs.gate_3_aborted_recordings`.
+   - Add its `file_id` to `state.yaml` `accumulated-context.gate_3_aborted_recordings`.
    - Log to the error tracking system per `Error Logging` conventions.
    - Continue processing the remaining recordings in `new-recordings` — one recording's
      repeated failure does not stop the others, consistent with this step's existing
@@ -124,12 +113,12 @@ or on exhaustion:
 [Gate 3] <file_id>: attempt 3 — FAIL. Retry budget exhausted. Excluding from this run.
 ```
 
-Write final tallies to this step's frontmatter:
+Write final tallies to `state.yaml` `accumulated-context`:
 ```yaml
-outputs:
-  gate_3_result: "pass" | "pass-with-exclusions" | "blocked"
-  gate_3_retry_counts: {"<file_id>": <int>, ...}
-  gate_3_aborted_recordings: ["<file_id>", ...]
+# state.yaml -> accumulated-context
+gate_3_result: "pass" | "pass-with-exclusions" | "blocked"
+gate_3_retry_counts: {"<file_id>": <int>, ...}
+gate_3_aborted_recordings: ["<file_id>", ...]
 ```
 
 ---

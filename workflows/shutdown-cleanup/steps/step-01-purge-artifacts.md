@@ -2,34 +2,6 @@
 status: complete
 started-at: "2026-09-17T03:47:19Z"
 completed-at: "2026-09-17T03:48:20Z"
-outputs:
-  deleted:
-    - path: "./.DS_Store"
-      reason: "macOS folder metadata"
-    - path: "./systems/eval-harness/__pycache__"
-      reason: "Python bytecode cache"
-    - path: "./workflows/morning-briefing/verify/__pycache__"
-      reason: "Python bytecode cache"
-    - path: "./skills/plaud-transcripts/scripts/__pycache__"
-      reason: "Python bytecode cache"
-    - path: "./systems/eval-harness/scoring/__pycache__"
-      reason: "Python bytecode cache"
-    - path: "./workflows/weekly-review/verify/__pycache__"
-      reason: "Python bytecode cache"
-    - path: "./systems/eval-harness/vendor/yaml/__pycache__"
-      reason: "Python bytecode cache"
-  total_deleted: 7
-  skipped:
-    - path: "./skills/omnifocus-data/scripts/__pycache__"
-      reason: "Python bytecode cache, but skills/omnifocus-data/ is explicitly off-limits per session instruction — left untouched and flagged for controller"
-    - path: "./meetings/ar-ypo-dinner-talking-points.html"
-      reason: "Gitignored intermediate HTML build artifact — controller instructed to leave the file in place; not staged"
-  root_check:
-    resolved:
-      - name: ".DS_Store"
-        disposition: "Deleted — macOS folder metadata."
-      - name: ".playwright-mcp/"
-        disposition: "No action — gitignored, untracked tool cache (.gitignore line 36)."
 model: sonnet
 ---
 

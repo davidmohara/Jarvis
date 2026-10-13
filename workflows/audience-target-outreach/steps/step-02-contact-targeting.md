@@ -2,7 +2,6 @@
 status: not-started
 started-at: ~
 completed-at: ~
-outputs: {}
 model: sonnet
 ---
 
@@ -36,11 +35,11 @@ model: sonnet
 
 2. Capture the returned `target_contacts` list.
 
-3. Write outputs to this file's frontmatter:
+3. Record these outputs to `state.yaml` `accumulated-context`:
    ```yaml
-   outputs:
-     target_contact_count: <int>
-     accounts_with_no_qualified_contact: [...]
+   # state.yaml -> accumulated-context
+   target_contact_count: <int>
+   accounts_with_no_qualified_contact: [...]
    ```
 
 4. Update `state.yaml`:

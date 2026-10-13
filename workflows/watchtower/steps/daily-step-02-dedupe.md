@@ -2,10 +2,6 @@
 status: complete
 started-at: "2026-09-09T00:05:00Z"
 completed-at: "2026-09-09T00:07:00Z"
-outputs:
-  raw_count: 15
-  dropped_count: 0
-  kept_count: 15
 ---
 
 <!-- system:start -->
@@ -15,7 +11,7 @@ outputs:
 2. Read `seen.jsonl` before comparing. Create it if it does not exist (empty file).
 3. Match on BOTH `url` AND `normalized_title` per `config.yaml dedupe.match_on`. An item is a duplicate if EITHER field matches within the lookback window.
 4. Do NOT modify items — drop or keep only. Append NEW items to `seen.jsonl` after filtering, not before.
-5. Write `status: complete`, `completed-at`, and `outputs` when done.
+5. Write `status: complete` and `completed-at` to this file's frontmatter when done; record run outputs in `state.yaml` `accumulated-context`.
 
 ---
 
@@ -48,12 +44,12 @@ outputs:
 
 6. Append each kept item to `seen.jsonl`: `{"url": "...", "normalized_title": "...", "seen_date": "YYYY-MM-DD"}`
 
-7. Write `outputs`:
+7. Record outputs to `state.yaml` `accumulated-context`:
    ```yaml
-   outputs:
-     raw_count: <int>
-     dropped_count: <int>
-     kept_count: <int>
+   # state.yaml -> accumulated-context
+   raw_count: <int>
+   dropped_count: <int>
+   kept_count: <int>
    ```
 
 ---

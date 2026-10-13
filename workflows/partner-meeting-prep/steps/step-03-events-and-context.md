@@ -2,7 +2,6 @@
 status: not-started
 started-at: ~
 completed-at: ~
-outputs: {}
 model: sonnet
 ---
 
@@ -126,7 +125,7 @@ model: sonnet
 
 ### Output Persistence (MANDATORY)
 
-Before recording step completion, persist the `events_and_context` block to `state.yaml` under `accumulated-context.events_and_context`, and mirror the identical structure in this step file's frontmatter `outputs` field. The verifier reads `accumulated-context.events_and_context` and requires the keys `controller_events`, `partner_events`, `industry_events`, `partner_news`, and `office_offerings`. Empty lists are valid ("nothing found" is a recorded result); a missing key fails verification.
+Before recording step completion, persist the `events_and_context` block to `state.yaml` under `accumulated-context.events_and_context`. The verifier reads `accumulated-context.events_and_context` and requires the keys `controller_events`, `partner_events`, `industry_events`, `partner_news`, and `office_offerings`. Empty lists are valid ("nothing found" is a recorded result); a missing key fails verification.
 
 ```yaml
 # state.yaml -> accumulated-context
@@ -138,15 +137,6 @@ events_and_context:
   office_offerings: []           # REQUIRED key (list; may be empty)
   co_sell_program: {}            # optional supporting detail
   enablement: {}                 # optional supporting detail
-
-# step-03-events-and-context.md -> frontmatter
-outputs:
-  events_and_context:
-    controller_events: []
-    partner_events: []
-    industry_events: []
-    partner_news: []
-    office_offerings: []
 ```
 
 ---

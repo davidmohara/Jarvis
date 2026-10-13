@@ -1,0 +1,15 @@
+{
+  "id": "err-20261013T212504-L3TOFQ",
+  "timestamp": "2026-10-13T21:25:04.888206Z",
+  "session": "session-2026-10-13-064103",
+  "source": "explicit",
+  "agent": "master",
+  "category": "assumption-error",
+  "description": "Master attributed the 2026-10-13 subagent stream stalls (4 F-graded aborts, incl. a 1.1M-input-token burn) to fragile long single generations and proposed anti-stall spawn-prompt conventions as the systemic fix. Controller corrected: the stalls were caused by an internet outage while traveling. The abort cluster is connectivity-driven, not a generation-length or prompt-structure defect.",
+  "correction": "Root cause was loss of connectivity during travel. Do not build anti-stall prompt conventions around this incident; treat watchdog aborts during known outages as environmental, resume the affected agent, and re-grade afterward.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "Downgrade the rigby-error-analysis recommendation for the 2026-10-13 abort cluster: annotate the affected eval records (eval-20261013T120404-NXV0RD, eval-20261013T151654-KYRQYV, eval-20261013T210100-MO2LSH, eval-20261013T114209-IMZIBC) with the outage root cause so pattern analysis does not treat them as system failures. Optional guard: when resuming a watchdog-aborted agent, check basic connectivity before assuming a logic fault.",
+  "fix_status": "proposed",
+  "severity": "minor",
+  "related_entries": []
+}

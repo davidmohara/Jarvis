@@ -2,16 +2,6 @@
 status: complete
 started-at: "2026-08-31T07:20:00Z"
 completed-at: "2026-08-31T07:40:00Z"
-outputs:
-  themes_processed: 3
-  drafts_created: 3
-  draft_paths:
-    - "Mind/Posts/_the-40-percent-problem.md"
-    - "Mind/Posts/_the-billing-model-just-broke.md"
-    - "Mind/Posts/_nist-is-wiring-the-agent-standards-layer.md"
-  blog_ideas_appended: 3
-  obsidian_unavailable: false
-  fallback_used: false
 ---
 
 <!-- system:start -->
@@ -24,8 +14,8 @@ outputs:
 5. After writing each file, verify it exists before logging the path in outputs. A path that was written but not verified must be marked `unverified` in outputs.
 6. Append candidate rows to `reference/blog-ideas.md` with `[watchtower]` source marker. Do NOT rewrite existing rows.
 7. Drafts are starters — hook + outline only, not full posts. Keep them under 300 words total.
-8. VERIFICATION GATE: Before writing `status: complete`, confirm that `outputs.draft_paths` contains only verified paths. A path that was written but not verified must be marked `unverified` in outputs.
-9. Write `status: complete`, `completed-at`, and `outputs` when done.
+8. VERIFICATION GATE: Before writing `status: complete`, confirm that `draft_paths` in `state.yaml` `accumulated-context` contains only verified paths. A path that was written but not verified must be marked `unverified` in outputs.
+9. Write `status: complete` and `completed-at` to this file's frontmatter when done; record run outputs in `state.yaml` `accumulated-context`.
 
 ---
 
@@ -126,13 +116,13 @@ outputs:
 
 4. Update `accumulated-context.weekly_themes` — add `content_angles` list to each theme entry (angle titles only).
 
-5. Write `outputs` to this file's frontmatter:
+5. Record these outputs to `state.yaml` `accumulated-context`:
    ```yaml
-   outputs:
-     themes_processed: <int>
-     drafts_created: <int>
-     draft_paths: []       # list of Obsidian paths written
-     blog_ideas_appended: <int>
+   # state.yaml -> accumulated-context
+   themes_processed: <int>
+   drafts_created: <int>
+   draft_paths: []       # list of Obsidian paths written
+   blog_ideas_appended: <int>
    ```
 
 ---

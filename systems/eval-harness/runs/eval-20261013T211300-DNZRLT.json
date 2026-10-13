@@ -1,0 +1,83 @@
+{
+  "id": "eval-20261013T211300-DNZRLT",
+  "type": "skill",
+  "name": "rigby-eval-grade",
+  "agent": "general-purpose",
+  "session_id": "1eab1e58-4032-4598-97de-6e35d820e2f4",
+  "trigger": "boot",
+  "started": "2026-10-13T21:12:49.971635Z",
+  "completed": "2026-10-13T21:13:00.815538Z",
+  "duration_seconds": 10.8,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 3,
+      "assertions_passed": 3,
+      "assertion_results": [
+        {
+          "assertion": "eval-grade-001-records-graded",
+          "description": "At least one eval record has a grade assigned",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "eval-grade-002-grading-stamped",
+          "description": "At least one eval record carries an ISO last_graded timestamp (the skill's actual deliverable is in-place grading updates to eval records, not a standalone output file)",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "eval-grade-003-notes-substantive",
+          "description": "At least one graded eval record has substantive grader_notes (>20 chars) explaining the grade rationale",
+          "category": "structure",
+          "passed": true
+        }
+      ],
+      "category_breakdown": {
+        "structure": {
+          "passed": 3,
+          "checked": 3
+        },
+        "content": {
+          "passed": 0,
+          "checked": 0
+        },
+        "quality": {
+          "passed": 0,
+          "checked": 0
+        }
+      }
+    },
+    "grading": {
+      "last_graded": "2026-10-13T21:19:55Z",
+      "grade": "D",
+      "grader_notes": "Cowork-hook capture of a rigby-eval-grade invocation: status success in 10.8 seconds with zero steps. Its 3 assertions (records-graded, grading-stamped, notes-substantive) are global-state checks - 'at least one eval record has a grade' - that pass vacuously because older records carry grades, not because this run graded anything. As a record of skill execution it contains no evidence of work and claims a success the record itself cannot support. Recommend either quarantining cowork-hook records like the phantom-candidate class, or tightening eval-grade assertions to require last_graded timestamps newer than the run's own start time.",
+      "safety_grade": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "deterministic_gate": {
+      "score": 1.0,
+      "gate_status": "pass",
+      "computed_at": "2026-10-13T21:13:01.053966Z"
+    }
+  },
+  "version_hash": "0d47dd027cd53273",
+  "prior_baseline_id": null,
+  "tags": [
+    "cowork-hook",
+    "skill"
+  ]
+}

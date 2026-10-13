@@ -2,7 +2,6 @@
 status: not-started
 started-at: ~
 completed-at: ~
-outputs: {}
 model: sonnet
 ---
 
@@ -103,7 +102,7 @@ Read fully and follow: `step-02-gather-data.md`
 <!-- system:start -->
 ## Output Persistence (MANDATORY)
 
-Before recording step completion, persist the `episode` block to `state.yaml` under `accumulated-context.episode`, and mirror the identical structure in this step file's frontmatter `outputs` field. The verifier reads `accumulated-context.episode` and requires a non-empty `number`, a non-empty `title`, and a non-empty `primary_guest.name`. Storing these as flat top-level keys (`episode_number`, `guest`, `filming_date`) fails verification.
+Before recording step completion, persist the `episode` block to `state.yaml` under `accumulated-context.episode`. The verifier reads `accumulated-context.episode` and requires a non-empty `number`, a non-empty `title`, and a non-empty `primary_guest.name`. Storing these as flat top-level keys (`episode_number`, `guest`, `filming_date`) fails verification.
 
 ```yaml
 # state.yaml -> accumulated-context
@@ -124,15 +123,5 @@ episode:
     producer: "{Name}"
     video: "{Name}"
   status: "{from episode map}"
-
-# step-01-identify-episode.md -> frontmatter
-outputs:
-  episode:
-    number: "{N}"
-    title: "{Episode Title}"
-    primary_guest:
-      name: "{Full Name}"
-    filming:
-      date: "YYYY-MM-DD"
 ```
 <!-- system:end -->

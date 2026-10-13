@@ -2,11 +2,6 @@
 status: complete
 started-at: "2026-09-09T00:30:00Z"
 completed-at: "2026-09-09T00:33:00Z"
-outputs:
-  sources_evaluated: 3
-  sources_retired: 0
-  retired_names: []
-  ledger_updated: true
 ---
 
 <!-- system:start -->
@@ -17,9 +12,9 @@ outputs:
 1. Write `status: in-progress` and `started-at` to this file's frontmatter before doing anything else.
 2. Dormancy trigger: "no item SURFACED" (cleared awareness_floor) — NOT "feed silent." Noisy feeds that never clear the floor are dormant.
 3. Never delete a retired source. Move it to `dormant-sources.yaml` — record kept for revival and audit.
-4. Zero retirements is a valid outcome. Still update `source-activity.json` and write outputs.
+4. Zero retirements is a valid outcome. Still update `source-activity.json` and write outputs to `state.yaml` `accumulated-context`.
 5. Write retirements to `accumulated-context.retirements_today` for step-06 to include.
-6. Write `status: complete`, `completed-at`, and `outputs` when done.
+6. Write `status: complete` and `completed-at` to this file's frontmatter when done; record run outputs in `state.yaml` `accumulated-context`.
 
 ---
 
@@ -64,13 +59,13 @@ c. Remove from `source-activity.json` (dormant sources not tracked).
 
 d. Add source name to `accumulated-context.retirements_today`.
 
-**5. Write outputs:**
+**5. Write outputs to `state.yaml` `accumulated-context`:**
 ```yaml
-outputs:
-  sources_evaluated: <int>
-  sources_retired: <int>
-  retired_names: []
-  ledger_updated: true
+# state.yaml -> accumulated-context
+sources_evaluated: <int>
+sources_retired: <int>
+retired_names: []
+ledger_updated: true
 ```
 
 ---

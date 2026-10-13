@@ -3,33 +3,6 @@ status: completed
 started-at: "2026-10-09T15:48:03Z"
 completed-at: "2026-10-09T16:15:00Z"
 model: sonnet
-outputs:
-  shares-attempted: 1
-  shares-succeeded: 1
-  shares-failed: 0
-  tasks-created: 1
-  share-urls:
-    - file_id: f96b2c110fc35162f390ac5288d6f7f4
-      url: "https://web.plaud.ai/s/pub_178f96d1-c545-424c-ada9-69898fb3041f::7ywz6zn_9l_nGk4qYEtsppQOg8Xn-qz686-TCwGp9ZBGZSSvDKZavJxzw0ih64Gp6oriQVnJKwO6AfIC"
-      monday-task-id: 13081548354
-  gate_6_result: "pass"
-  gate_6_delivery_confirmations:
-    - file_id: f96b2c110fc35162f390ac5288d6f7f4
-      task_id: 13081548354
-      assignee_omitted: true
-      share_url_present: true
-      error: null
-  notes: >
-    pi-20260918-001: 1 work recording processed (f96b2c110fc35162f390ac5288d6f7f4
-    "09-18 Meeting: AI Project Architecture and Data Routing"). No personal recordings
-    (0 skipped). `fetch_plaud.py --share` returned a real SHARE_URL on first attempt.
-    Monday review task 13081548354 created via mcp__claude_ai_monday_com__create_item on
-    board 18420619069 group new_group29179, UNASSIGNED (project_owner omitted entirely,
-    per the current Gate 6 spec; note the 09-17 run set Owner=Alice Mburu under the
-    older convention). Gate 6: PASS (assignee omitted, board/group correct, share URL
-    in text_mm50v09n, task ID confirmed). delivery-router skill not in this session's
-    skill list; direct MCP call used with the step's documented config, matching the
-    09-17 run's actual path.
 ---
 
 <!-- system:start -->
@@ -105,7 +78,7 @@ outputs:
    - The skill's own retry budget (up to 3 attempts) applies before it reports a failure — do
      not add a second retry loop around it here.
    - Read `delivery_status[0].success`, `.id` (the created task ID), and `.error` from the
-     skill's return to populate the per-recording log line and `outputs` below.
+     skill's return to populate the per-recording log line and the `state.yaml` `accumulated-context` record below.
    - **Note:** Personal recordings do NOT get Monday tasks in this step (they were handled in step-05 if they had actionable items)
 
 
@@ -113,17 +86,17 @@ outputs:
    - `status: complete`
    - `current-step: step-05b`
    - Update this step's frontmatter: `status: completed`, `completed-at: <ISO timestamp>`
-   - Write share results to `outputs`:
+   - Write share results to `state.yaml` `accumulated-context`:
      ```yaml
-     outputs:
-       shares-attempted: N
-       shares-succeeded: N
-       shares-failed: N
-       tasks-created: N
-       share-urls:
-         - file_id: <id>
-           url: <url>
-           monday-task-id: <task_id>
+     # state.yaml -> accumulated-context
+     shares-attempted: N
+     shares-succeeded: N
+     shares-failed: N
+     tasks-created: N
+     share-urls:
+       - file_id: <id>
+         url: <url>
+         monday-task-id: <task_id>
      ```
 
 6. **Final report:**
@@ -174,11 +147,11 @@ or
 [Gate 6] <file_id>: task creation returned no ID — HARD FAIL. Retrying once.
 ```
 
-Write to this step's frontmatter `outputs`:
+Write to `state.yaml` `accumulated-context`:
 ```yaml
-outputs:
-  gate_6_result: "pass" | "pass-with-soft-flags" | "fail"
-  gate_6_delivery_confirmations: [{file_id, task_id, assignee_omitted, share_url_present}, ...]
+# state.yaml -> accumulated-context
+gate_6_result: "pass" | "pass-with-soft-flags" | "fail"
+gate_6_delivery_confirmations: [{file_id, task_id, assignee_omitted, share_url_present}, ...]
 ```
 
 Do not set `state.yaml status: complete` (this step's terminal action) while any recording

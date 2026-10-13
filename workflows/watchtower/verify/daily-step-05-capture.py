@@ -22,6 +22,8 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "systems" / "eval-harness" / "vendor"))
+sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "systems" / "eval-harness"))
+from step_outputs import load_step_outputs
 try:
     import yaml
 except Exception:
@@ -68,14 +70,14 @@ def main():
         }))
         return
 
-    outputs = extract_frontmatter(step_path.read_text()).get("outputs") or {}
+    outputs = load_step_outputs(ies_root, "watchtower", ['items_captured', 'obsidian_note_path', 'dashboard_built'], yaml)
     if not isinstance(outputs, dict) or not outputs:
         print(json.dumps({
             "result": "retry",
             "reason": "daily-step-05 outputs block is empty - no capture recorded",
             "fields": {"capture_verified": False},
             "validation_errors": ["no_outputs"],
-            "retry_instruction": "Re-execute step-05 and record obsidian_note_path/items_captured/dashboard_built in the step frontmatter outputs.",
+            "retry_instruction": "Re-execute step-05 and record obsidian_note_path/items_captured/dashboard_built in state.yaml's accumulated-context.",
         }))
         return
 
@@ -85,7 +87,7 @@ def main():
 
     upstream_summarized = None
     if upstream_path.is_file():
-        up_outputs = extract_frontmatter(upstream_path.read_text()).get("outputs") or {}
+        up_outputs = load_step_outputs(ies_root, "watchtower", ["items_summarized", "avg_word_count"], yaml)
         if isinstance(up_outputs, dict):
             upstream_summarized = up_outputs.get("items_summarized")
 

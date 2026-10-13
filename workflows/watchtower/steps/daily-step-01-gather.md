@@ -2,10 +2,6 @@
 status: complete
 started-at: "2026-09-08T23:58:05Z"
 completed-at: "2026-09-09T00:05:00Z"
-outputs:
-  item_count: 15
-  sources_fetched: 2
-  failed_sources: []
 ---
 
 <!-- system:start -->
@@ -15,7 +11,7 @@ outputs:
 2. Read `config.yaml` and `sources.yaml` before issuing any fetch or search. Only fetch from `status: active` sources.
 3. Collect from RSS feeds AND web searches. Do not skip either.
 4. Do NOT score, dedupe, or summarize — that is steps 02-04.
-5. Write `status: complete`, `completed-at`, and `outputs` when done.
+5. Write `status: complete` and `completed-at` to this file's frontmatter when done; record run outputs in `state.yaml` `accumulated-context`.
 
 ---
 
@@ -54,17 +50,17 @@ outputs:
      raw_snippet: "string (≤300 chars)"
    ```
 
-7. Write `outputs` to this file's frontmatter:
+7. Record these outputs to `state.yaml` `accumulated-context`:
    ```yaml
-   outputs:
-     item_count: <int>
-     sources_fetched: <int>
-     failed_sources: []
+   # state.yaml -> accumulated-context
+   item_count: <int>
+   sources_fetched: <int>
+   failed_sources: []
    ```
 
 ---
 
-**On failure:** no active sources → log, still run web searches for all four topics; RSS unreachable → log to `outputs.failed_sources`, continue; web search empty → broaden query, log if still empty; `config.yaml` missing → abort with "[Knox]: Watchtower config.yaml not found. Cannot run."
+**On failure:** no active sources → log, still run web searches for all four topics; RSS unreachable → log to `state.yaml` `accumulated-context.failed_sources`, continue; web search empty → broaden query, log if still empty; `config.yaml` missing → abort with "[Knox]: Watchtower config.yaml not found. Cannot run."
 
 ---
 

@@ -5,7 +5,7 @@ Compression-accounting check. The step claims it compressed N entries into
 quarterly digests and skipped the rest. This verifier re-derives the claim
 from the real filesystem rather than trusting the frontmatter self-report:
 
-  * outputs must be present (candidates_count / entries_compressed /
+  * outputs must be present in state.yaml accumulated-context (candidates_count / entries_compressed /
     digests_updated / compression_skipped);
   * if entries_compressed > 0, memory/episodic/digests/ must exist with at
     least `digests_updated` digest files, and the digests must contain at
@@ -22,6 +22,8 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "systems" / "eval-harness" / "vendor"))
+sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "systems" / "eval-harness"))
+from step_outputs import load_step_outputs
 try:
     import yaml
 except Exception:
@@ -65,14 +67,14 @@ def main():
         }))
         return
 
-    outputs = extract_frontmatter(step_path.read_text()).get("outputs") or {}
+    outputs = load_step_outputs(ies_root, "dream-cycle", ['entries_compressed', 'digests_updated', 'candidates_count', 'compression_skipped'], yaml)
     if not isinstance(outputs, dict) or not outputs:
         print(json.dumps({
             "result": "retry",
             "reason": "step-04 outputs block is empty - no compression counts recorded",
             "fields": {"compression_verified": False},
             "validation_errors": ["no_outputs"],
-            "retry_instruction": "Re-execute step-04 and record entries_compressed/digests_updated/compression_skipped in the step frontmatter outputs.",
+            "retry_instruction": "Re-execute step-04 and record entries_compressed/digests_updated/compression_skipped in state.yaml's accumulated-context.",
         }))
         return
 

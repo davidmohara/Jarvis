@@ -2,7 +2,6 @@
 status: not-started
 started-at: ~
 completed-at: ~
-outputs: {}
 model: sonnet
 ---
 
@@ -159,11 +158,11 @@ Build the full document with these sections, in this order:
 
 Write to this file's frontmatter:
 ```yaml
-outputs:
-  path_used: transcript | research-inference
-  question_count: <int, target 7-10>
-  internal_context_included: true | false
-  research_gap_noted: true | false
+# state.yaml -> accumulated-context
+path_used: transcript | research-inference
+question_count: <int, target 7-10>
+internal_context_included: true | false
+research_gap_noted: true | false
 ```
 
 Update `state.yaml`:

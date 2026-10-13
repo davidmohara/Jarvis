@@ -2,10 +2,6 @@
 status: complete
 started-at: "2026-07-14T00:01:00"
 completed-at: "2026-07-14T00:02:00"
-outputs:
-  co_sell_captured: true
-  rock4_gap_calculated: true
-  cache_used: true
 model: sonnet
 ---
 
@@ -62,9 +58,9 @@ model: sonnet
    ```yaml
    status: complete
    completed-at: [timestamp]
-   outputs:
-     co_sell_captured: true
-     rock4_gap_calculated: true
+   # state.yaml -> accumulated-context
+   co_sell_captured: true
+   rock4_gap_calculated: true
    ```
 
 4. **Update workflow state**:

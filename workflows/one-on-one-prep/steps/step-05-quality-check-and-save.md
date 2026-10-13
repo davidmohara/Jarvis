@@ -2,10 +2,6 @@
 status: complete
 started-at: "2026-10-09T16:56:00Z"
 completed-at: "2026-10-09T16:58:00Z"
-outputs:
-  saved_brief: "meetings/Alice Mburu - 2026-10-09.md"
-  sections: ["Summary of Interactions", "Open Action Items", "Key Calendar Events", "Suggested Talking Points"]
-  talking_point_count: 7
 model: sonnet
 ---
 
@@ -103,17 +99,11 @@ If during brief assembly any of these conditions were detected, flag them in you
 
 ### Output Persistence (MANDATORY)
 
-The verifier for this step does not read a nested block; it finds the saved brief on disk and validates its content directly. Save the brief to `meetings/{Person Name} - {YYYY-MM-DD}.md` and record its path in `state.yaml` `accumulated-context.saved_brief`, plus this step's frontmatter `outputs`. The saved file MUST contain these four exact section headers (verbatim strings the verifier greps for) and at least five talking points formatted as a numbered list with a bold lead, matching the pattern `^\d+\.\s+\*\*`:
+The verifier for this step does not read a nested block; it finds the saved brief on disk and validates its content directly. Save the brief to `meetings/{Person Name} - {YYYY-MM-DD}.md` and record its path in `state.yaml` `accumulated-context.saved_brief`. The saved file MUST contain these four exact section headers (verbatim strings the verifier greps for) and at least five talking points formatted as a numbered list with a bold lead, matching the pattern `^\d+\.\s+\*\*`:
 
 ```yaml
 # state.yaml -> accumulated-context
 saved_brief: "meetings/{Person Name} - {YYYY-MM-DD}.md"
-
-# step-05-quality-check-and-save.md -> frontmatter
-outputs:
-  saved_brief: "meetings/{Person Name} - {YYYY-MM-DD}.md"
-  sections: ["Summary of Interactions", "Open Action Items", "Key Calendar Events", "Suggested Talking Points"]
-  talking_point_count: 5
 ```
 
 Required section headers in the saved file:

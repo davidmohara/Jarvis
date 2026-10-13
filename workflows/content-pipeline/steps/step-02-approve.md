@@ -2,7 +2,6 @@
 status: not-started
 started-at: ~
 completed-at: ~
-outputs: {}
 model: sonnet
 ---
 
@@ -14,7 +13,7 @@ model: sonnet
 1. You MUST read and execute `workflows/content-approval/steps/step-01-approve.md` in full, including GATE 3 (Approval Decision), GATE 4 (Publishing Pre-flight), and GATE 5 (Delivery Verification). Do not skip, weaken, or defer any gate.
 2. You MUST NOT re-implement approval logic in this step. The gated step file is the single source of truth for approval classification, publishing, editorial edits, regeneration, and state cleanup.
 3. You MUST write all state to the shared file `workflows/content-approval/pending-drafts.json`. Do not create or write a local pending-drafts file in this directory.
-4. You MUST record this run's outputs in this file's frontmatter after execution (see YOUR TASK).
+4. You MUST record this run's outputs in `state.yaml` `accumulated-context` after execution (see YOUR TASK).
 
 ---
 
@@ -23,7 +22,7 @@ model: sonnet
 **Agent:** Harper, spawned by the coordinator, never executed inline.
 **Mode:** Delegation to the gated sub-workflow step.
 **Input:** #content Slack thread replies, shared pending-drafts.json, live Ghost post state.
-**Output:** Published/rejected/edited Ghost posts + updated pending-drafts.json; outputs recorded in this file's frontmatter.
+**Output:** Published/rejected/edited Ghost posts + updated pending-drafts.json; outputs recorded in `state.yaml` `accumulated-context`.
 
 ---
 
@@ -43,7 +42,7 @@ model: sonnet
 
 2. Read `workflows/content-approval/workflow.md` (conventions), then read and execute `workflows/content-approval/steps/step-01-approve.md` exactly as written, including GATE 3, GATE 4, and GATE 5.
 
-3. After execution, write `status: complete`, `completed-at`, and `outputs` to this file's frontmatter. Record at minimum:
+3. After execution, write `status: complete` and `completed-at` to this file's frontmatter. Record at minimum these keys in `state.yaml` `accumulated-context`:
    ```
    threads_checked: N
    new_approvals: N

@@ -2,26 +2,6 @@
 status: completed
 started-at: 2026-10-09T11:32:47Z
 completed-at: 2026-10-09T11:42:00Z
-outputs:
-  working_archived: 7
-  working_deleted: 0
-  working_skipped: 58
-  working_stranded: 0
-  enrichment_method: "heuristic enrichment via backfill-episodic-tags.py functions imported via importlib.util (hyphenated filename, no subprocess, no Desktop Commander -- consistent with prior cloud-sandbox cycles)"
-  archived_files:
-    - 2026-09-28-chief-daily-review.md
-    - 2026-09-28-harper-lone-star-gold-board-update.md
-    - co-sell-pipeline-2026-09-22-000000.md
-    - co-sell-pipeline-2026-10-05-001533.md
-    - dream-summary-2026-09-22.md
-    - dream-summary-2026-09-23.md
-    - plaud-ingest-2026-10-06-175500.md
-  deleted_trivial_files: []
-  skipped_unparseable_count: 57
-  unparseable_left_untouched_missing_status:
-    - knox-plaud-ingest-2026-08-31.md
-  new_unparseable_this_cycle: []
-  self_caught_bug_note: "none this cycle -- all 7 candidates non-trivial, enriched via heuristic, read back verified clean, moved via shutil.move. 16-day gap since last cycle (09-23 to 10-09) accounts for the larger-than-usual 7-file batch."
 ---
 
 <!-- system:start -->

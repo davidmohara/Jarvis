@@ -2,7 +2,6 @@
 status: not-started
 started-at: ~
 completed-at: ~
-outputs: {}
 model: sonnet
 ---
 
@@ -34,12 +33,12 @@ model: sonnet
 
 2. Capture the returned `audience_profile` object.
 
-3. Write outputs to this file's frontmatter:
+3. Record these outputs to `state.yaml` `accumulated-context`:
    ```yaml
-   outputs:
-     industries: [...]
-     company_size_band: "..."
-     buyer_roles: [...]
+   # state.yaml -> accumulated-context
+   industries: [...]
+   company_size_band: "..."
+   buyer_roles: [...]
    ```
 
 4. Update `state.yaml`:

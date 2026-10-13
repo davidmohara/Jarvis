@@ -1,27 +1,921 @@
 {
-  "pulled_at": "2026-10-09T15:50:00Z",
-  "source": "m365 outlook_calendar_search (single call, query *)",
-  "note": "All dateTime values are UTC as returned by Outlook. America/Chicago is UTC-5 (CDT).",
-  "date_range": {"start": "2026-10-09", "end": "2026-10-12"},
-  "event_count": 18,
+  "pulled_at": "2026-10-13T11:50:16Z",
+  "date_range": {
+    "start": "2026-10-13",
+    "end": "2026-10-16"
+  },
+  "event_count": 45,
   "events": [
-    {"subject": "Dallas Cowboys", "start_utc": "2026-10-08T00:00:00Z", "end_utc": "2026-10-09T00:00:00Z", "all_day": true, "show_as": "free", "organizer": "David.OHara@improving.com", "location": null, "cancelled": false},
-    {"subject": "Libby's Birthday", "start_utc": "2026-10-09T00:00:00Z", "end_utc": "2026-10-10T00:00:00Z", "all_day": true, "show_as": "free", "organizer": "David.OHara@improving.com", "location": null, "cancelled": false},
-    {"subject": "IGP Bible Study", "start_utc": "2026-10-09T11:30:00Z", "end_utc": "2026-10-09T12:30:00Z", "ct": "6:30-7:30am", "show_as": "busy", "organizer": "David.OHara@improving.com", "location": "Integrity Golf Performance, 6363 Dallas Pkwy, Unit 115, Frisco, TX 75034", "cancelled": false},
-    {"subject": "Sales & Recruiting Meeting", "start_utc": "2026-10-09T14:15:00Z", "end_utc": "2026-10-09T14:30:00Z", "ct": "9:15-9:30am", "show_as": "tentative", "organizer": "DallasSales@improving.com", "location": "Microsoft Teams Meeting; Dallas - Longhorn Cavern", "attendee_count": 17, "summary": "Agenda: 1. Celebrate a WIN. 2. Each seller talks board changes: New, Won, Moved, Lost, Changed + help needed. 3. GR...", "cancelled": false},
-    {"subject": "2nd Friday Executive Meeting", "start_utc": "2026-10-09T14:30:00Z", "end_utc": "2026-10-09T15:00:00Z", "ct": "9:30-10:00am", "show_as": "tentative", "organizer": "Mark.Kovacevich@Improving.com", "location": "Microsoft Teams Meeting", "attendee_count": 150, "summary": "Quarterly Agenda - Month 1 (Jan, Apr, Jul, Oct): 1st Sales (Russell), Corporate Special Topics, GoTogether Update (McMichael/Liles); 2nd Balanced Scorecard (Roberts/Keipert), Business Agility & Training (McMillan), CIO (Keipert).", "cancelled": false},
-    {"subject": "Industry Insights: Share Your AI - Where YPO Builders Show What's Working", "start_utc": "2026-10-09T15:00:00Z", "end_utc": "2026-10-09T16:00:00Z", "ct": "10:00-11:00am", "show_as": "tentative", "organizer": "noreply-zoomevents@zoom.us", "location": "Zoom Events", "summary": "Oct 9, 2026 10:00-11:00 AM CDT. Organized by Security & Compliance Subnetwork, AI/ML Subnetwork, Technology Network.", "cancelled": false},
-    {"subject": "Friday Week Wrap-Up", "start_utc": "2026-10-09T19:30:00Z", "end_utc": "2026-10-09T20:00:00Z", "ct": "2:30-3:00pm", "show_as": "busy", "organizer": "alice.mburu@improving.com", "location": "Microsoft Teams Meeting", "attendees": ["alice.mburu@improving.com", "David.OHara@improving.com"], "cancelled": false},
-    {"subject": "Hot 26", "start_utc": "2026-10-10T13:30:00Z", "end_utc": "2026-10-10T14:30:00Z", "ct": "Sat 8:30-9:30am", "show_as": "busy", "organizer": "David.OHara@improving.com", "location": "7151 Preston Road Suite 221 B, Frisco, TX 75034", "cancelled": false},
-    {"subject": "Rimmer Wedding", "start_utc": "2026-10-10T23:00:00Z", "end_utc": "2026-10-11T02:00:00Z", "ct": "Sat 6:00-9:00pm", "show_as": "busy", "organizer": "David.OHara@improving.com", "location": "5285 Dallas Pkwy", "cancelled": false},
-    {"subject": "Houston Bootcamp (remote)", "start_utc": "2026-10-12T00:00:00Z", "end_utc": "2026-10-13T00:00:00Z", "all_day": true, "show_as": "busy", "organizer": "David.OHara@improving.com", "location": "Dallas - Conference Room Lockhart", "cancelled": false},
-    {"subject": "Improving Prayer Call", "start_utc": "2026-10-12T13:00:00Z", "end_utc": "2026-10-12T13:15:00Z", "ct": "Mon 8:00-8:15am", "show_as": "busy", "organizer": "Richard.Kang@Improving.com", "location": "Microsoft Teams Meeting", "attendees": ["Richard.Kang@Improving.com", "Curtis.Hite@Improving.com", "Ric.DeAnda@Improving.com", "David.OHara@improving.com", "Devlin.Liles@Improving.com"], "cancelled": false},
-    {"subject": "Timesheet", "start_utc": "2026-10-12T13:30:00Z", "end_utc": "2026-10-12T13:35:00Z", "ct": "Mon 8:30am", "show_as": "busy", "organizer": "David.Ohara@improving.com", "cancelled": false},
-    {"subject": "Sales & Recruiting Meeting", "start_utc": "2026-10-12T14:15:00Z", "end_utc": "2026-10-12T14:30:00Z", "ct": "Mon 9:15-9:30am", "show_as": "tentative", "organizer": "DallasSales@improving.com", "location": "Microsoft Teams Meeting; Dallas - Longhorn Cavern", "attendee_count": 17, "cancelled": false},
-    {"subject": "Sales Scrum", "start_utc": "2026-10-12T14:30:00Z", "end_utc": "2026-10-12T15:00:00Z", "ct": "Mon 9:30-10:00am", "show_as": "tentative", "organizer": "stephen.johnson@improving.com", "location": "Microsoft Teams Meeting; Houston - Conference Room Trust", "attendee_count": 13, "cancelled": false},
-    {"subject": "Bootcamp", "start_utc": "2026-10-12T15:00:00Z", "end_utc": "2026-10-12T21:50:00Z", "ct": "Mon 10:00am-4:50pm", "show_as": "busy", "organizer": "David.OHara@improving.com", "location": "Microsoft Teams Meeting", "cancelled": false},
-    {"subject": "Agent Strategy", "start_utc": "2026-10-12T16:30:00Z", "end_utc": "2026-10-12T18:30:00Z", "ct": "Mon 11:30am-1:30pm", "show_as": "busy", "organizer": "David.OHara@improving.com", "location": "Microsoft Teams Meeting", "attendees": ["rstone@saxum.com"], "categories": ["Work", "Tracked To Dynamics 365"], "cancelled": false, "conflict": "overlaps Bootcamp 10:00am-4:50pm"},
-    {"subject": "GEHC Twice Weekly Internal Check-In", "start_utc": "2026-10-12T19:00:00Z", "end_utc": "2026-10-12T19:30:00Z", "ct": "Mon 2:00-2:30pm", "show_as": "tentative", "organizer": "lisa.barnes@improving.com", "location": "Microsoft Teams Meeting", "attendees": ["lisa.barnes@improving.com", "vladimir.avila@improving.com", "Tim.Rayburn@Improving.com", "Lisa.Kimbrel@improving.com", "David.OHara@improving.com"], "summary": "Need to adjust the time of our Monday meeting going forward. Internal alignment on plans, progress, internal issues.", "cancelled": false, "conflict": "overlaps Bootcamp 10:00am-4:50pm"},
-    {"subject": "All Access Members Gathering", "start_utc": "2026-10-12T23:00:00Z", "end_utc": "2026-10-13T02:00:00Z", "ct": "Mon 6:00-9:00pm", "show_as": "busy", "organizer": "calendar-invite@lu.ma", "location": "Hotel Vin, Grapevine, Autograph Collection, 215 E Dallas Rd, Grapevine, TX 76051", "summary": "Registered via Lindsay Fulton. 2x Standard, $50.", "categories": ["Tracked To Dynamics 365"], "cancelled": false}
-  ]
+    {
+      "subject": "Houston Bootcamp (remote)",
+      "start": {
+        "dateTime": "2026-10-12T00:00:00",
+        "timeZone": "Central Standard Time"
+      },
+      "end": {
+        "dateTime": "2026-10-13T00:00:00",
+        "timeZone": "Central Standard Time"
+      },
+      "location": "Dallas - Conference Room Lockhart",
+      "organizer": "David.OHara@improving.com",
+      "isAllDay": true,
+      "showAs": "busy",
+      "attendees": null,
+      "categories": null,
+      "summary": null
+    },
+    {
+      "subject": "Hilton Houston Westchase",
+      "start": {
+        "dateTime": "2026-10-13T00:00:00",
+        "timeZone": "Central Standard Time"
+      },
+      "end": {
+        "dateTime": "2026-10-16T00:00:00",
+        "timeZone": "Central Standard Time"
+      },
+      "location": "9999 Westheimer Road, Houston, TX 77042",
+      "organizer": "David.OHara@improving.com",
+      "isAllDay": true,
+      "showAs": "busy",
+      "attendees": null,
+      "categories": [
+        "Travel"
+      ],
+      "summary": "Hotel: 1 King Bed, Honors Breakfast Inc, +17139741000"
+    },
+    {
+      "subject": "Uber to DAL Hangar @ 7201 Lemmon Avenue",
+      "start": {
+        "dateTime": "2026-10-13T05:00:00",
+        "timeZone": "Central Standard Time"
+      },
+      "end": {
+        "dateTime": "2026-10-13T06:00:00",
+        "timeZone": "Central Standard Time"
+      },
+      "location": "7201 Lemmon Avenue, Dallas, TX 75209",
+      "organizer": "David.OHara@improving.com",
+      "isAllDay": false,
+      "showAs": "busy",
+      "attendees": null,
+      "categories": [
+        "Travel"
+      ],
+      "summary": null
+    },
+    {
+      "subject": "FLIGHT: DAL to HOU",
+      "start": {
+        "dateTime": "2026-10-13T07:15:00",
+        "timeZone": "Central Standard Time"
+      },
+      "end": {
+        "dateTime": "2026-10-13T08:30:00",
+        "timeZone": "Central Standard Time"
+      },
+      "location": null,
+      "organizer": "David.OHara@improving.com",
+      "isAllDay": false,
+      "showAs": "busy",
+      "attendees": null,
+      "categories": [
+        "Travel"
+      ],
+      "summary": "DAL hangar 7201 Lemmon Ave; HOU hangar 8919 Paul B Koonce St; Go Rentals ground transport"
+    },
+    {
+      "subject": "Houston Bootcamp (main)",
+      "start": {
+        "dateTime": "2026-10-13T08:30:00",
+        "timeZone": "Central Standard Time"
+      },
+      "end": {
+        "dateTime": "2026-10-13T17:30:00",
+        "timeZone": "Central Standard Time"
+      },
+      "location": "Microsoft Teams Meeting",
+      "organizer": "David.OHara@improving.com",
+      "isAllDay": false,
+      "showAs": "busy",
+      "attendees": [
+        "stephen.lashinski",
+        "Jonathan.Camara",
+        "charles.kiser",
+        "hemakumar.gokulakannan",
+        "matt.nihiser",
+        "matt.spicer",
+        "erik.shafer",
+        "nate.short",
+        "David.Schwartz",
+        "preston.mesarvey",
+        "Devlin.Liles",
+        "Robyn.Fuentes"
+      ],
+      "categories": null,
+      "summary": "Main Bootcamp thread, starts 8:30am CST each day"
+    },
+    {
+      "subject": "Sales & Recruiting Meeting",
+      "start": {
+        "dateTime": "2026-10-13T09:15:00",
+        "timeZone": "Central Standard Time"
+      },
+      "end": {
+        "dateTime": "2026-10-13T09:30:00",
+        "timeZone": "Central Standard Time"
+      },
+      "location": "Teams; Dallas - Longhorn Cavern",
+      "organizer": "DallasSales@improving.com",
+      "isAllDay": false,
+      "showAs": "tentative",
+      "attendees": [
+        "Bryan.Crawford",
+        "Don.McGreal",
+        "Kevin.Baker",
+        "Tim.Rayburn",
+        "derek.nwamadi",
+        "David.Belcher",
+        "Blake.McMillan"
+      ],
+      "categories": "none",
+      "summary": null
+    },
+    {
+      "subject": "DLP self-learning check-in",
+      "start": {
+        "dateTime": "2026-10-13T10:00:00",
+        "timeZone": "Central Standard Time"
+      },
+      "end": {
+        "dateTime": "2026-10-13T10:30:00",
+        "timeZone": "Central Standard Time"
+      },
+      "location": "Microsoft Teams Meeting",
+      "organizer": "stephen.lashinski@improving.com",
+      "isAllDay": false,
+      "showAs": "tentative",
+      "attendees": [
+        "matt.nihiser",
+        "matthew.cramer",
+        "preston.mesarvey",
+        "Robyn.Fuentes",
+        "Tim.Rayburn"
+      ],
+      "categories": null,
+      "summary": null
+    },
+    {
+      "subject": "Sales Scrum",
+      "start": {
+        "dateTime": "2026-10-13T10:00:00",
+        "timeZone": "Central Standard Time"
+      },
+      "end": {
+        "dateTime": "2026-10-13T10:30:00",
+        "timeZone": "Central Standard Time"
+      },
+      "location": "Teams; Houston - Conference Room Trust",
+      "organizer": "stephen.johnson@improving.com",
+      "isAllDay": false,
+      "showAs": "tentative",
+      "attendees": [
+        "devlin.liles",
+        "Oscar.Velazquez",
+        "Shalini.Arora",
+        "jenn.massey",
+        "scott.mai",
+        "Robyn.Fuentes",
+        "Juan.Bernal"
+      ],
+      "categories": null,
+      "summary": null
+    },
+    {
+      "subject": "Drive To (River Oaks Country Club)",
+      "start": {
+        "dateTime": "2026-10-13T11:00:00",
+        "timeZone": "Central Standard Time"
+      },
+      "end": {
+        "dateTime": "2026-10-13T11:30:00",
+        "timeZone": "Central Standard Time"
+      },
+      "location": "River Oaks Country Club",
+      "organizer": "David.OHara@improving.com",
+      "isAllDay": false,
+      "showAs": "busy",
+      "attendees": null,
+      "categories": [
+        "Travel"
+      ],
+      "summary": "ACG luncheon: networking 11:30, lunch 12:05, presentation 12:20-12:55, Q&A"
+    },
+    {
+      "subject": "Speaking Engagement: ACG Houston October Luncheon",
+      "start": {
+        "dateTime": "2026-10-13T11:30:00",
+        "timeZone": "Central Standard Time"
+      },
+      "end": {
+        "dateTime": "2026-10-13T13:00:00",
+        "timeZone": "Central Standard Time"
+      },
+      "location": "River Oaks Country Club",
+      "organizer": "mstone@acg.org",
+      "isAllDay": false,
+      "showAs": "busy",
+      "attendees": [
+        "summer@craiggroup.io"
+      ],
+      "categories": [
+        "Tracked To Dynamics 365"
+      ],
+      "summary": "Agenda: networking 11:30-12, remarks 12-12:10, lunch, presentation & Q&A 12:20-1"
+    },
+    {
+      "subject": "LS Gold Forum 1-5pm 5700 Granite Parkway, Suite 900",
+      "start": {
+        "dateTime": "2026-10-13T13:00:00",
+        "timeZone": "Central Standard Time"
+      },
+      "end": {
+        "dateTime": "2026-10-13T17:00:00",
+        "timeZone": "Central Standard Time"
+      },
+      "location": "Microsoft Teams Meeting",
+      "organizer": "brian@delosshipping.com",
+      "isAllDay": false,
+      "showAs": "tentative",
+      "attendees": [
+        "thomaswheat76",
+        "geoffbrenner",
+        "huddy9370",
+        "beau.wehrle@berchcapital.com"
+      ],
+      "categories": [
+        "Tracked To Dynamics 365"
+      ],
+      "summary": null
+    },
+    {
+      "subject": "GEHC Twice Weekly Internal Check-In",
+      "start": {
+        "dateTime": "2026-10-13T14:00:00",
+        "timeZone": "Central Standard Time"
+      },
+      "end": {
+        "dateTime": "2026-10-13T14:30:00",
+        "timeZone": "Central Standard Time"
+      },
+      "location": "Microsoft Teams Meeting",
+      "organizer": "lisa.barnes@improving.com",
+      "isAllDay": false,
+      "showAs": "tentative",
+      "attendees": [
+        "vladimir.avila",
+        "Tim.Rayburn",
+        "Lisa.Kimbrel"
+      ],
+      "categories": null,
+      "summary": null
+    },
+    {
+      "subject": "Dinner - Nam Giao",
+      "start": {
+        "dateTime": "2026-10-13T19:00:00",
+        "timeZone": "Central Standard Time"
+      },
+      "end": {
+        "dateTime": "2026-10-13T20:00:00",
+        "timeZone": "Central Standard Time"
+      },
+      "location": "Nam Giao, 6938 Wilcrest Dr, Houston, TX 77072",
+      "organizer": "David.OHara@improving.com",
+      "isAllDay": false,
+      "showAs": "busy",
+      "attendees": null,
+      "categories": null,
+      "summary": null
+    },
+    {
+      "subject": "FDE (Bill Curry)",
+      "start": {
+        "dateTime": "2026-10-14T08:00:00",
+        "timeZone": "Central Standard Time"
+      },
+      "end": {
+        "dateTime": "2026-10-14T08:30:00",
+        "timeZone": "Central Standard Time"
+      },
+      "location": "Microsoft Teams Meeting",
+      "organizer": "Bill.Curry@improving.com",
+      "isAllDay": false,
+      "showAs": "busy",
+      "attendees": [
+        "Bill.Curry"
+      ],
+      "categories": null,
+      "summary": "30 min on FDE team build-out; Curry wants David's views"
+    },
+    {
+      "subject": "Dallas Executive Huddle",
+      "start": {
+        "dateTime": "2026-10-14T08:30:00",
+        "timeZone": "Central Standard Time"
+      },
+      "end": {
+        "dateTime": "2026-10-14T09:00:00",
+        "timeZone": "Central Standard Time"
+      },
+      "location": "Dallas - Conference Room Trust",
+      "organizer": "Dallas-Leadership@improving.com",
+      "isAllDay": false,
+      "showAs": "tentative",
+      "attendees": null,
+      "categories": null,
+      "summary": null
+    },
+    {
+      "subject": "Houston Bootcamp (main)",
+      "start": {
+        "dateTime": "2026-10-14T08:30:00",
+        "timeZone": "Central Standard Time"
+      },
+      "end": {
+        "dateTime": "2026-10-14T17:30:00",
+        "timeZone": "Central Standard Time"
+      },
+      "location": "Microsoft Teams Meeting",
+      "organizer": "David.OHara@improving.com",
+      "isAllDay": false,
+      "showAs": "busy",
+      "attendees": null,
+      "categories": null,
+      "summary": null
+    },
+    {
+      "subject": "Sales & Recruiting Meeting",
+      "start": {
+        "dateTime": "2026-10-14T09:15:00",
+        "timeZone": "Central Standard Time"
+      },
+      "end": {
+        "dateTime": "2026-10-14T09:30:00",
+        "timeZone": "Central Standard Time"
+      },
+      "location": "Teams; Dallas - Longhorn Cavern",
+      "organizer": "DallasSales@improving.com",
+      "isAllDay": false,
+      "showAs": "tentative",
+      "attendees": null,
+      "categories": null,
+      "summary": null
+    },
+    {
+      "subject": "Sales Scrum",
+      "start": {
+        "dateTime": "2026-10-14T09:30:00",
+        "timeZone": "Central Standard Time"
+      },
+      "end": {
+        "dateTime": "2026-10-14T10:00:00",
+        "timeZone": "Central Standard Time"
+      },
+      "location": "Teams; Houston - Conference Room Trust",
+      "organizer": "stephen.johnson@improving.com",
+      "isAllDay": false,
+      "showAs": "tentative",
+      "attendees": null,
+      "categories": null,
+      "summary": null
+    },
+    {
+      "subject": "AI Leaders Weekly",
+      "start": {
+        "dateTime": "2026-10-14T09:30:00",
+        "timeZone": "Central Standard Time"
+      },
+      "end": {
+        "dateTime": "2026-10-14T10:00:00",
+        "timeZone": "Central Standard Time"
+      },
+      "location": "Microsoft Teams Meeting",
+      "organizer": "Devlin.Liles@Improving.com",
+      "isAllDay": false,
+      "showAs": "busy",
+      "attendees": [
+        "scott.poulin",
+        "michael.slater",
+        "Bill.Curry",
+        "michael.ell",
+        "Tim.Rayburn"
+      ],
+      "categories": null,
+      "summary": null
+    },
+    {
+      "subject": "Microsoft Partner GTM Check In",
+      "start": {
+        "dateTime": "2026-10-14T10:00:00",
+        "timeZone": "Central Standard Time"
+      },
+      "end": {
+        "dateTime": "2026-10-14T10:30:00",
+        "timeZone": "Central Standard Time"
+      },
+      "location": "Microsoft Teams Meeting",
+      "organizer": "Ben.Kennedy@Improving.com",
+      "isAllDay": false,
+      "showAs": "tentative",
+      "attendees": [
+        "Tim.Rayburn",
+        "David.Vibbert",
+        "Don.McGreal",
+        "David.Belcher",
+        "Skyler.Tweedie",
+        "derek.nwamadi",
+        "Bill.Curry"
+      ],
+      "categories": null,
+      "summary": null
+    },
+    {
+      "subject": "yWhales: yDeep Dive",
+      "start": {
+        "dateTime": "2026-10-14T10:30:00",
+        "timeZone": "Central Standard Time"
+      },
+      "end": {
+        "dateTime": "2026-10-14T12:00:00",
+        "timeZone": "Central Standard Time"
+      },
+      "location": "Zoom",
+      "organizer": "mia.ywhales@gmail.com",
+      "isAllDay": false,
+      "showAs": "busy",
+      "attendees": null,
+      "categories": null,
+      "summary": null
+    },
+    {
+      "subject": "GEHC Improving - AI Routing weekly sync",
+      "start": {
+        "dateTime": "2026-10-14T10:30:00",
+        "timeZone": "Central Standard Time"
+      },
+      "end": {
+        "dateTime": "2026-10-14T11:00:00",
+        "timeZone": "Central Standard Time"
+      },
+      "location": "Microsoft Teams Meeting",
+      "organizer": "justin.holder@gehealthcare.com",
+      "isAllDay": false,
+      "showAs": "tentative",
+      "attendees": [
+        "lisa.barnes",
+        "Vladimir.Avila",
+        "Sandeep.Kaushik",
+        "Michael.Braunstein",
+        "Anthony.PEZET",
+        "lisa.kimbrel"
+      ],
+      "categories": null,
+      "summary": null
+    },
+    {
+      "subject": "GEHC Improving - AI Routing weekly sync (2)",
+      "start": {
+        "dateTime": "2026-10-14T10:30:00",
+        "timeZone": "Central Standard Time"
+      },
+      "end": {
+        "dateTime": "2026-10-14T11:00:00",
+        "timeZone": "Central Standard Time"
+      },
+      "location": "Microsoft Teams Meeting",
+      "organizer": "justin.holder@gehealthcare.com",
+      "isAllDay": false,
+      "showAs": "tentative",
+      "attendees": null,
+      "categories": null,
+      "summary": "Duplicate/replacement invite; Box: gehealthcare.ent.box.com/folder/409725693470"
+    },
+    {
+      "subject": "Rate Realization: Dallas",
+      "start": {
+        "dateTime": "2026-10-14T13:30:00",
+        "timeZone": "Central Standard Time"
+      },
+      "end": {
+        "dateTime": "2026-10-14T14:00:00",
+        "timeZone": "Central Standard Time"
+      },
+      "location": "Microsoft Teams Meeting",
+      "organizer": "scott.mcmichael@improving.com",
+      "isAllDay": false,
+      "showAs": "tentative",
+      "attendees": [
+        "kimberly.roberts",
+        "Don.McGreal",
+        "Kevin.Baker"
+      ],
+      "categories": null,
+      "summary": "CRM 2027 extensions; minimum rate sheet gaps"
+    },
+    {
+      "subject": "GEHC Twice Weekly Internal Check-In",
+      "start": {
+        "dateTime": "2026-10-14T13:30:00",
+        "timeZone": "Central Standard Time"
+      },
+      "end": {
+        "dateTime": "2026-10-14T14:00:00",
+        "timeZone": "Central Standard Time"
+      },
+      "location": "Microsoft Teams Meeting",
+      "organizer": "lisa.barnes@improving.com",
+      "isAllDay": false,
+      "showAs": "tentative",
+      "attendees": null,
+      "categories": null,
+      "summary": null
+    },
+    {
+      "subject": "KeyBank/Improving Walk Through DPL Program",
+      "start": {
+        "dateTime": "2026-10-14T14:00:00",
+        "timeZone": "Central Standard Time"
+      },
+      "end": {
+        "dateTime": "2026-10-14T15:00:00",
+        "timeZone": "Central Standard Time"
+      },
+      "location": "Microsoft Teams Meeting",
+      "organizer": "Jacquie.Bickel@Improving.com",
+      "isAllDay": false,
+      "showAs": "busy",
+      "attendees": [
+        "scott_tucker@keybank.com",
+        "gregg.flagg@improving.com"
+      ],
+      "categories": [
+        "Tracked To Dynamics 365"
+      ],
+      "summary": null
+    },
+    {
+      "subject": "Dinner - Maximo",
+      "start": {
+        "dateTime": "2026-10-14T19:00:00",
+        "timeZone": "Central Standard Time"
+      },
+      "end": {
+        "dateTime": "2026-10-14T20:00:00",
+        "timeZone": "Central Standard Time"
+      },
+      "location": "Maximo, 6119 Edloe St, West University Place, TX 77005",
+      "organizer": "David.OHara@improving.com",
+      "isAllDay": false,
+      "showAs": "busy",
+      "attendees": null,
+      "categories": null,
+      "summary": null
+    },
+    {
+      "subject": "Susie Staff Retreat",
+      "start": {
+        "dateTime": "2026-10-15T00:00:00",
+        "timeZone": "Central Standard Time"
+      },
+      "end": {
+        "dateTime": "2026-10-17T00:00:00",
+        "timeZone": "Central Standard Time"
+      },
+      "location": null,
+      "organizer": "David.OHara@improving.com",
+      "isAllDay": true,
+      "showAs": "free",
+      "attendees": null,
+      "categories": null,
+      "summary": null
+    },
+    {
+      "subject": "Houston Bootcamp (main)",
+      "start": {
+        "dateTime": "2026-10-15T08:30:00",
+        "timeZone": "Central Standard Time"
+      },
+      "end": {
+        "dateTime": "2026-10-15T17:30:00",
+        "timeZone": "Central Standard Time"
+      },
+      "location": "Microsoft Teams Meeting",
+      "organizer": "David.OHara@improving.com",
+      "isAllDay": false,
+      "showAs": "busy",
+      "attendees": null,
+      "categories": null,
+      "summary": null
+    },
+    {
+      "subject": "Sales & Recruiting Meeting",
+      "start": {
+        "dateTime": "2026-10-15T09:15:00",
+        "timeZone": "Central Standard Time"
+      },
+      "end": {
+        "dateTime": "2026-10-15T09:30:00",
+        "timeZone": "Central Standard Time"
+      },
+      "location": "Teams; Dallas - Longhorn Cavern",
+      "organizer": "DallasSales@improving.com",
+      "isAllDay": false,
+      "showAs": "tentative",
+      "attendees": null,
+      "categories": null,
+      "summary": null
+    },
+    {
+      "subject": "DLP self-learning check-in",
+      "start": {
+        "dateTime": "2026-10-15T10:00:00",
+        "timeZone": "Central Standard Time"
+      },
+      "end": {
+        "dateTime": "2026-10-15T10:30:00",
+        "timeZone": "Central Standard Time"
+      },
+      "location": "Microsoft Teams Meeting",
+      "organizer": "stephen.lashinski@improving.com",
+      "isAllDay": false,
+      "showAs": "tentative",
+      "attendees": null,
+      "categories": null,
+      "summary": null
+    },
+    {
+      "subject": "Sales Scrum",
+      "start": {
+        "dateTime": "2026-10-15T10:00:00",
+        "timeZone": "Central Standard Time"
+      },
+      "end": {
+        "dateTime": "2026-10-15T10:30:00",
+        "timeZone": "Central Standard Time"
+      },
+      "location": "Teams; Houston - Conference Room Trust",
+      "organizer": "stephen.johnson@improving.com",
+      "isAllDay": false,
+      "showAs": "tentative",
+      "attendees": null,
+      "categories": null,
+      "summary": null
+    },
+    {
+      "subject": "Improving - AI Automation proposal (HASC)",
+      "start": {
+        "dateTime": "2026-10-15T11:00:00",
+        "timeZone": "Central Standard Time"
+      },
+      "end": {
+        "dateTime": "2026-10-15T11:30:00",
+        "timeZone": "Central Standard Time"
+      },
+      "location": "Microsoft Teams Meeting",
+      "organizer": "jwelsh@hasc.com",
+      "isAllDay": false,
+      "showAs": "busy",
+      "attendees": [
+        "stephen.johnson@improving.com"
+      ],
+      "categories": null,
+      "summary": "Presentation to HASC leadership team; jwelsh joins room to call"
+    },
+    {
+      "subject": "Uber to HOU",
+      "start": {
+        "dateTime": "2026-10-15T17:30:00",
+        "timeZone": "Central Standard Time"
+      },
+      "end": {
+        "dateTime": "2026-10-15T18:30:00",
+        "timeZone": "Central Standard Time"
+      },
+      "location": "8919 Paul B Koonce St, Houston, TX 77061",
+      "organizer": "David.OHara@improving.com",
+      "isAllDay": false,
+      "showAs": "busy",
+      "attendees": null,
+      "categories": [
+        "Travel"
+      ],
+      "summary": null
+    },
+    {
+      "subject": "HOU to DAL",
+      "start": {
+        "dateTime": "2026-10-15T19:20:00",
+        "timeZone": "Central Standard Time"
+      },
+      "end": {
+        "dateTime": "2026-10-15T20:25:00",
+        "timeZone": "Central Standard Time"
+      },
+      "location": "HOU Hobby Airport",
+      "organizer": "David.OHara@improving.com",
+      "isAllDay": false,
+      "showAs": "busy",
+      "attendees": null,
+      "categories": [
+        "Travel"
+      ],
+      "summary": "Departs HOU 7:20PM, arrives DAL Love Field 8:25PM"
+    },
+    {
+      "subject": "Tonya PTO",
+      "start": {
+        "dateTime": "2026-10-16T00:00:00",
+        "timeZone": "Central Standard Time"
+      },
+      "end": {
+        "dateTime": "2026-10-17T00:00:00",
+        "timeZone": "Central Standard Time"
+      },
+      "location": null,
+      "organizer": "Tonya.Guadiz@Improving.com",
+      "isAllDay": true,
+      "showAs": "free",
+      "attendees": null,
+      "categories": null,
+      "summary": null
+    },
+    {
+      "subject": "Houston Bootcamp (remote)",
+      "start": {
+        "dateTime": "2026-10-16T00:00:00",
+        "timeZone": "Central Standard Time"
+      },
+      "end": {
+        "dateTime": "2026-10-17T00:00:00",
+        "timeZone": "Central Standard Time"
+      },
+      "location": "Dallas - Conference Room Lockhart",
+      "organizer": "David.OHara@improving.com",
+      "isAllDay": true,
+      "showAs": "busy",
+      "attendees": null,
+      "categories": null,
+      "summary": null
+    },
+    {
+      "subject": "Drive To",
+      "start": {
+        "dateTime": "2026-10-16T08:00:00",
+        "timeZone": "Central Standard Time"
+      },
+      "end": {
+        "dateTime": "2026-10-16T08:30:00",
+        "timeZone": "Central Standard Time"
+      },
+      "location": null,
+      "organizer": "David.OHara@improving.com",
+      "isAllDay": false,
+      "showAs": "busy",
+      "attendees": null,
+      "categories": [
+        "Travel"
+      ],
+      "summary": null
+    },
+    {
+      "subject": "Houston Bootcamp (main)",
+      "start": {
+        "dateTime": "2026-10-16T08:30:00",
+        "timeZone": "Central Standard Time"
+      },
+      "end": {
+        "dateTime": "2026-10-16T17:30:00",
+        "timeZone": "Central Standard Time"
+      },
+      "location": "Microsoft Teams Meeting",
+      "organizer": "David.OHara@improving.com",
+      "isAllDay": false,
+      "showAs": "busy",
+      "attendees": null,
+      "categories": null,
+      "summary": null
+    },
+    {
+      "subject": "Dr Ryan Jones",
+      "start": {
+        "dateTime": "2026-10-16T08:45:00",
+        "timeZone": "Central Standard Time"
+      },
+      "end": {
+        "dateTime": "2026-10-16T10:15:00",
+        "timeZone": "Central Standard Time"
+      },
+      "location": "2840 Legacy Dr Ste 400, Frisco, TX 75034",
+      "organizer": "David.OHara@improving.com",
+      "isAllDay": false,
+      "showAs": "busy",
+      "attendees": null,
+      "categories": [
+        "Personal"
+      ],
+      "summary": "tel +14692006100"
+    },
+    {
+      "subject": "Sales & Recruiting Meeting",
+      "start": {
+        "dateTime": "2026-10-16T09:15:00",
+        "timeZone": "Central Standard Time"
+      },
+      "end": {
+        "dateTime": "2026-10-16T09:30:00",
+        "timeZone": "Central Standard Time"
+      },
+      "location": "Teams; Dallas - Longhorn Cavern",
+      "organizer": "DallasSales@improving.com",
+      "isAllDay": false,
+      "showAs": "tentative",
+      "attendees": null,
+      "categories": null,
+      "summary": null
+    },
+    {
+      "subject": "1st Friday Executive Meeting",
+      "start": {
+        "dateTime": "2026-10-16T09:30:00",
+        "timeZone": "Central Standard Time"
+      },
+      "end": {
+        "dateTime": "2026-10-16T10:00:00",
+        "timeZone": "Central Standard Time"
+      },
+      "location": "Microsoft Teams Meeting",
+      "organizer": "Mark.Kovacevich@Improving.com",
+      "isAllDay": false,
+      "showAs": "tentative",
+      "attendees": null,
+      "categories": null,
+      "summary": "Moved to accommodate retreat; Oct = Month 1 quarterly agenda: Sales (Russell), Corporate Special Topics, GoTogether Update"
+    },
+    {
+      "subject": "Quarterly Enforcement Compliance Committee (UTB, virtual)",
+      "start": {
+        "dateTime": "2026-10-16T13:30:00",
+        "timeZone": "Central Standard Time"
+      },
+      "end": {
+        "dateTime": "2026-10-16T14:30:00",
+        "timeZone": "Central Standard Time"
+      },
+      "location": "UTB Board Room / Zoom",
+      "organizer": "boardroomschedule@utb.com",
+      "isAllDay": false,
+      "showAs": "busy",
+      "attendees": null,
+      "categories": null,
+      "summary": null
+    },
+    {
+      "subject": "Friday Weekly Wrap-Up (Alice)",
+      "start": {
+        "dateTime": "2026-10-16T16:00:00",
+        "timeZone": "Central Standard Time"
+      },
+      "end": {
+        "dateTime": "2026-10-16T16:45:00",
+        "timeZone": "Central Standard Time"
+      },
+      "location": "Microsoft Teams Meeting",
+      "organizer": "alice.mburu@improving.com",
+      "isAllDay": false,
+      "showAs": "tentative",
+      "attendees": null,
+      "categories": null,
+      "summary": null
+    },
+    {
+      "subject": "Golf",
+      "start": {
+        "dateTime": "2026-10-17T14:00:00",
+        "timeZone": "Central Standard Time"
+      },
+      "end": {
+        "dateTime": "2026-10-17T18:00:00",
+        "timeZone": "Central Standard Time"
+      },
+      "location": null,
+      "organizer": "David.OHara@improving.com",
+      "isAllDay": false,
+      "showAs": "busy",
+      "attendees": null,
+      "categories": null,
+      "summary": null
+    }
+  ],
+  "note": "Single M365 pull (2 pages, 45 raw events incl. 10-12/10-17 boundary stragglers); times are Central wall-clock"
 }

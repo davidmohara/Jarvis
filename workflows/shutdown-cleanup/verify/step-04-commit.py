@@ -23,20 +23,21 @@ def main():
     validation_errors = []
     fields = {}
 
-    # claimed sha from step frontmatter outputs
+    # claimed sha from state.yaml accumulated-context (frontmatter no longer carries outputs)
     import re
-    fm = STEP.read_text()
-    m = re.search(r'commit_sha:\s*"?([0-9a-f]{7,40})"?', fm)
+    state_file = Path(__file__).resolve().parents[1] / "state.yaml"
+    state_text = state_file.read_text() if state_file.is_file() else ""
+    m = re.search(r'commit_sha:\s*"?([0-9a-f]{7,40})"?', state_text)
     sha = m.group(1) if m else None
     fields["claimed_commit_sha"] = sha
 
     if not sha:
         print(json.dumps({
             "result": "retry",
-            "reason": "step-04 frontmatter records no commit_sha: the commit step must complete and record its sha",
+            "reason": "state.yaml accumulated-context records no commit_sha: the commit step must complete and record its sha",
             "fields": fields,
             "validation_errors": ["commit_sha_not_recorded"],
-            "retry_instruction": "Complete step-04 through the ies-git wrapper and record the resulting sha in the step frontmatter outputs.",
+            "retry_instruction": "Complete step-04 through the ies-git wrapper and record the resulting sha in state.yaml's accumulated-context.",
         }))
         return
 

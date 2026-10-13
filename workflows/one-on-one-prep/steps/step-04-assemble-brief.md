@@ -2,8 +2,6 @@
 status: complete
 started-at: "2026-10-09T16:48:00Z"
 completed-at: "2026-10-09T16:56:00Z"
-outputs:
-  brief_assembled: true
 model: sonnet
 ---
 
@@ -159,10 +157,6 @@ meeting_details: { ... }          # REQUIRED still present (written by step-01)
 communication_data: { ... }       # REQUIRED still present (written by step-02)
 task_data: { ... }                # REQUIRED still present (written by step-03)
 brief_assembled: true             # this step's marker
-
-# step-04-assemble-brief.md -> frontmatter
-outputs:
-  brief_assembled: true
 ```
 
 ---

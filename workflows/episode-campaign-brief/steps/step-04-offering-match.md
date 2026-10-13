@@ -2,7 +2,6 @@
 status: not-started
 started-at: ~
 completed-at: ~
-outputs: {}
 model: sonnet
 ---
 
@@ -101,12 +100,12 @@ document
 4. Save the brief to `content/podcast-campaigns/{episode-slug}-campaign-brief.md`
    (create the directory if it doesn't exist).
 
-5. Write outputs to this file's frontmatter:
+5. Record these outputs to `state.yaml` `accumulated-context`:
    ```yaml
-   outputs:
-     offering_matches_count: <int>
-     unmatched_pain_points: [pp-0X, ...]
-     brief_path: "content/podcast-campaigns/{episode-slug}-campaign-brief.md"
+   # state.yaml -> accumulated-context
+   offering_matches_count: <int>
+   unmatched_pain_points: [pp-0X, ...]
+   brief_path: "content/podcast-campaigns/{episode-slug}-campaign-brief.md"
    ```
 
 6. Update `state.yaml`:

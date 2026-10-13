@@ -2,12 +2,6 @@
 status: complete
 started-at: "2026-04-17T13:40:00"
 completed-at: "2026-04-17T13:55:00"
-outputs:
-  narrative-title: "2026-04-16 New Account Energy, Alice Gets the Keys, and YPO Gold After Dark"
-  narrative-path: "reviews/daily/auto-2026-04-16.md"
-  routing-note: "Obsidian MCP disabled — written to local fallback"
-  omnifocus-status: "unavailable (3 timeouts)"
-  calendar-events: 12
 model: sonnet
 ---
 

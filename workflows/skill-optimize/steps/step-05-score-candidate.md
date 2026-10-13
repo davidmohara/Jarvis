@@ -2,10 +2,6 @@
 status: not-started
 started-at: ~
 completed-at: ~
-outputs:
-  candidate_score: null
-  candidate_score_breakdown: {}
-  delta: null
 ---
 
 <!-- system:start -->

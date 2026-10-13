@@ -19,6 +19,8 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "systems" / "eval-harness" / "vendor"))
+sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "systems" / "eval-harness"))
+from step_outputs import load_step_outputs
 try:
     import yaml
 except Exception:
@@ -64,14 +66,14 @@ def main():
         }))
         return
 
-    outputs = extract_frontmatter(step_path.read_text()).get("outputs") or {}
+    outputs = load_step_outputs(ies_root, "watchtower", ['deduped_count', 'awareness_items', 'content_worthy_items', 'dropped_below_floor'], yaml)
     if not isinstance(outputs, dict) or not outputs:
         print(json.dumps({
             "result": "retry",
             "reason": "daily-step-03 outputs block is empty - no scoring counts recorded",
             "fields": {"scoring_verified": False},
             "validation_errors": ["no_outputs"],
-            "retry_instruction": "Re-execute step-03 and record deduped_count/dropped_below_floor/awareness_items/content_worthy_items in the step frontmatter outputs.",
+            "retry_instruction": "Re-execute step-03 and record deduped_count/dropped_below_floor/awareness_items/content_worthy_items in state.yaml's accumulated-context.",
         }))
         return
 

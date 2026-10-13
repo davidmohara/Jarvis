@@ -2,11 +2,6 @@
 status: complete
 started-at: "2026-09-09T00:33:00Z"
 completed-at: "2026-09-09T00:38:00Z"
-outputs:
-  total_gathered: 15
-  total_surfaced: 14
-  content_queue_additions: 4
-  obsidian_note_path: "Watchtower/Daily/2026-09-08.md"
 ---
 
 <!-- system:start -->
@@ -16,7 +11,7 @@ outputs:
 2. Keep the report under 150 words. David reads this as a surface, not a deep read.
 3. Call out content-worthy items by name. Do NOT draft hooks or outlines — that is the weekly run.
 4. Write content-worthy items to `accumulated-context.content_queue` (APPEND if prior entries exist).
-5. Write `status: complete`, `completed-at`, and `outputs` when done. Set `state.yaml status: complete`.
+5. Write `status: complete` and `completed-at` to this file's frontmatter when done; record run outputs in `state.yaml` `accumulated-context`. Set `state.yaml status: complete`.
 
 ---
 
@@ -35,7 +30,7 @@ outputs:
 
 ## YOUR TASK
 
-1. Tally the run from step outputs: total gathered, dropped as duplicates, dropped below awareness floor, surviving awareness items, content-worthy items.
+1. Tally the run from `state.yaml` `accumulated-context`: total gathered, dropped as duplicates, dropped below awareness floor, surviving awareness items, content-worthy items.
 
 2. Write the terminal report:
 
@@ -55,13 +50,13 @@ outputs:
 
 3. Write content-worthy items to `accumulated-context.content_queue` in `state.yaml`. Carry forward all fields from `summarized_items` where `content_worthy: true`. APPEND — do not overwrite prior daily entries.
 
-4. Write `outputs`:
+4. Record outputs to `state.yaml` `accumulated-context`:
    ```yaml
-   outputs:
-     total_gathered: <int>
-     total_surfaced: <int>
-     content_queue_additions: <int>
-     obsidian_note_path: "Watchtower/Daily/YYYY-MM-DD.md"
+   # state.yaml -> accumulated-context
+   total_gathered: <int>
+   total_surfaced: <int>
+   content_queue_additions: <int>
+   obsidian_note_path: "Watchtower/Daily/YYYY-MM-DD.md"
    ```
 
 5. Set `state.yaml status: complete`.

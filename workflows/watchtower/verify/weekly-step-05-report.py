@@ -21,6 +21,8 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "systems" / "eval-harness" / "vendor"))
+sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "systems" / "eval-harness"))
+from step_outputs import load_step_outputs
 try:
     import yaml
 except Exception:
@@ -70,28 +72,22 @@ def main():
         }))
         return
 
-    outputs = extract_frontmatter(step_path.read_text()).get("outputs") or {}
+    outputs = load_step_outputs(ies_root, "watchtower", ['themes_surfaced', 'tweets_surfaced', 'sources_proposed', 'candidates_surfaced', 'artifact_updated'], yaml)
     if not isinstance(outputs, dict) or not outputs:
         print(json.dumps({
             "result": "retry",
             "reason": "weekly-step-05 outputs block is empty - no report results recorded",
             "fields": {"report_verified": False},
             "validation_errors": ["no_outputs"],
-            "retry_instruction": "Re-execute step-05 and record themes_surfaced/candidates_surfaced/sources_proposed/tweets_surfaced in the step frontmatter outputs.",
+            "retry_instruction": "Re-execute step-05 and record themes_surfaced/candidates_surfaced/sources_proposed/tweets_surfaced in state.yaml's accumulated-context.",
         }))
         return
 
-    def upstream_outputs(rel):
-        p = ies_root / rel
-        if p.is_file():
-            o = extract_frontmatter(p.read_text()).get("outputs") or {}
-            return o if isinstance(o, dict) else {}
-        return {}
 
-    s1 = upstream_outputs(STEP01_REL)
-    s2 = upstream_outputs(STEP02_REL)
-    s2b = upstream_outputs(STEP02B_REL)
-    s3 = upstream_outputs(STEP03_REL)
+    s1 = load_step_outputs(ies_root, "watchtower", ["themes_identified", "dropped_as_continuing", "used_fallback"], yaml)
+    s2 = load_step_outputs(ies_root, "watchtower", ["drafts_created", "draft_paths", "blog_ideas_appended"], yaml)
+    s2b = load_step_outputs(ies_root, "watchtower", ["tweets_generated", "angle_types"], yaml)
+    s3 = load_step_outputs(ies_root, "watchtower", ["proposed_count", "batch_number"], yaml)
 
     state = {}
     if (ies_root / STATE_REL).is_file():

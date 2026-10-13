@@ -1,0 +1,61 @@
+{
+  "id": "eval-20261013T211249-STVQ2G",
+  "agent_id": "a5538a7cc97e7c9d0",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "general-purpose",
+  "session_id": "1eab1e58-4032-4598-97de-6e35d820e2f4",
+  "trigger": "unknown",
+  "started": "2026-10-13T21:12:49.981547Z",
+  "completed": "2026-10-13T21:20:53.163904Z",
+  "duration_seconds": 483.18,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/1eab1e58-4032-4598-97de-6e35d820e2f4/subagents/agent-a5538a7cc97e7c9d0.jsonl",
+  "last_assistant_message": "H9HZGT is an in-progress stub (0 steps, 0 subagents) from a new boot session that started mid-sweep \u2014 excluded per the open-stub rule; it will be finalized by eval-turn-stop.py or close-open-evals.py and picked up on a later sweep.\n\nGrading sweep complete. Summary:\n\n```\nGraded: 9 eval records (--since 2026-10-13)\n  A: 0\n  B: 1\n  C: 2\n  D: 2\n  F: 4\n\nRecords graded:\n  - boot: B (eval-20261013T114019-Q5UJLE)\n  - general-purpose: F (eval-20261013T114209-IMZIBC)\n  - general-purpose: C (eval-20261013T114211-G7M41N)\n  - general-purpose: F (eval-20261013T120404-NXV0RD)\n  - general-purpose: D (eval-20261013T120614-SXPEU9)\n  - morning-briefing: C (eval-20261013T123928-I5TTS8)\n  - general-purpose: F (eval-20261013T151654-KYRQYV)\n  - general-purpose: F (eval-20261013T210100-MO2LSH)\n  - rigby-eval-grade: D (eval-20261013T211300-DNZRLT)\n\nSkipped (excluded):\n  - eval-20261013T211249-STVQ2G: in-progress stub, 0 steps/0 subagents\n  - eval-20261013T211428-H9HZGT: in-progress boot stub created mid-sweep\n```\n\nNo safety grades assigned \u2014 `bias_assessment.applicable` was false/None on every record.\n\nFindings worth acting on, in priority order:\n\n1. **Subagent abort cluster (4 F grades).** Six general-purpose subagents ran under boot session `1eab1e58`; four aborted with zero steps. Worst offender: MO2LSH burned 1.1M input tokens for 1,275 output tokens before aborting. Agent `adbd32a74f0f3668e` was retried three times, all ending aborted/incomplete. Good candidate for rigby-error-analysis.\n\n2. **Checkpoint vocabulary false positive (G7M41N, C).** A plaud-ingest run completed 12 real steps, then died at the step-06 adversarial-verification checkpoint over `'completed'` vs `'complete'` status wording and sat awaiting a controller decision until aborted. Recommend normalizing accepted status vocabulary at verification checkpoints.\n\n3. **boot-008 assertion drift (Q5UJLE, B).** The literal-pattern check for `completed is false` in `/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/workflows/boot/steps/step-01.2-unified-data-pull.md` fails because the modified file now expresses the filter as `\"completed\": false` (JSON style). Semantically the filter is still mandated and boot-007 confirmed no leak. Either restore the literal string or loosen the assertion pattern in `systems/eval-harness/assertions/boot.json`.\n\n4. **Cowork-hook records claim vacuous success (DNZRLT, D).** The hook-captured rigby-eval-grade record shows success in 10.8s with 0 steps; its 3 assertions are global-state checks that pass because older records have grades, not because the run graded anything. Recommend quarantining cowork-hook records like the phantom-candidate class, or requiring `last_graded` timestamps newer than the run's own start.\n\n5. **morning-briefing instrumentation gap (I5TTS8, C).** All 4 steps report success but status is `partial` with ~1s duration \u2014 an instrumented marker, not evidence of synthesis. Status/steps mismatch should be reconciled, and morning-briefing has zero structural assertions defined.\n\nAlso noted in Q5UJLE's notes: step-06 found 2 genuinely in-progress workflow states while `_active.yaml` claims 0 \u2014 state-tracking drift worth a rigby-integrity pass.",
+  "model": "accounts/fireworks/models/kimi-k3",
+  "total_tokens_input": 62525,
+  "total_tokens_output": 450,
+  "total_cost_usd": 0.09,
+  "cost_estimation_note": "estimated based on general-purpose workflow type"
+}

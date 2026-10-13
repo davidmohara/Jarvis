@@ -1,0 +1,307 @@
+{
+  "workflow": "boot",
+  "total_size_bytes": 5598,
+  "accumulated_context": {
+    "name": "accumulated-context",
+    "size_bytes": 5598,
+    "size_kb": 5.47,
+    "estimated_tokens": 1399,
+    "type": "dict"
+  },
+  "field_breakdown": [
+    {
+      "name": "boot-2026-09-18.result",
+      "size_bytes": 329,
+      "size_kb": 0,
+      "estimated_tokens": 82,
+      "type": "str"
+    },
+    {
+      "name": "boot-2026-10-09.briefing",
+      "size_bytes": 325,
+      "size_kb": 0,
+      "estimated_tokens": 81,
+      "type": "str"
+    },
+    {
+      "name": "boot-2026-10-09.phase2.task-h-email-triage",
+      "size_bytes": 315,
+      "size_kb": 0,
+      "estimated_tokens": 78,
+      "type": "str"
+    },
+    {
+      "name": "boot-2026-10-13.phase2.morning-briefing-steps-01-02",
+      "size_bytes": 254,
+      "size_kb": 0,
+      "estimated_tokens": 63,
+      "type": "str"
+    },
+    {
+      "name": "boot-2026-10-09.phase2.morning-briefing-steps-01-02",
+      "size_bytes": 243,
+      "size_kb": 0,
+      "estimated_tokens": 60,
+      "type": "str"
+    },
+    {
+      "name": "boot-2026-10-08.degraded",
+      "size_bytes": 218,
+      "size_kb": 0,
+      "estimated_tokens": 54,
+      "type": "str"
+    },
+    {
+      "name": "boot-2026-10-09.phase2.task-g-72hr-lookahead",
+      "size_bytes": 209,
+      "size_kb": 0,
+      "estimated_tokens": 51,
+      "type": "str"
+    },
+    {
+      "name": "boot-2026-09-17.result",
+      "size_bytes": 191,
+      "size_kb": 0,
+      "estimated_tokens": 47,
+      "type": "str"
+    },
+    {
+      "name": "boot-2026-10-08.briefing",
+      "size_bytes": 187,
+      "size_kb": 0,
+      "estimated_tokens": 46,
+      "type": "str"
+    },
+    {
+      "name": "boot-2026-10-13.phase2.task-h-email-triage",
+      "size_bytes": 187,
+      "size_kb": 0,
+      "estimated_tokens": 46,
+      "type": "str"
+    },
+    {
+      "name": "boot-2026-10-13.phase2.task-g-72hr-lookahead",
+      "size_bytes": 179,
+      "size_kb": 0,
+      "estimated_tokens": 44,
+      "type": "str"
+    },
+    {
+      "name": "boot-2026-10-09.phase1-point5.files-created",
+      "size_bytes": 158,
+      "size_kb": 0.15,
+      "estimated_tokens": 39,
+      "type": "list"
+    },
+    {
+      "name": "boot-2026-10-08.data-files",
+      "size_bytes": 158,
+      "size_kb": 0.15,
+      "estimated_tokens": 39,
+      "type": "list"
+    },
+    {
+      "name": "boot-2026-10-13.phase1-point5.files-created",
+      "size_bytes": 128,
+      "size_kb": 0.12,
+      "estimated_tokens": 32,
+      "type": "list"
+    },
+    {
+      "name": "boot-2026-10-09.degraded",
+      "size_bytes": 119,
+      "size_kb": 0,
+      "estimated_tokens": 29,
+      "type": "str"
+    },
+    {
+      "name": "boot-2026-10-09.knox",
+      "size_bytes": 105,
+      "size_kb": 0,
+      "estimated_tokens": 26,
+      "type": "str"
+    },
+    {
+      "name": "boot-2026-10-09.phase2-measurement",
+      "size_bytes": 103,
+      "size_kb": 0,
+      "estimated_tokens": 25,
+      "type": "str"
+    },
+    {
+      "name": "boot-2026-10-09.phase1-point5.unified-data-pulls.omnifocus",
+      "size_bytes": 68,
+      "size_kb": 0,
+      "estimated_tokens": 16,
+      "type": "str"
+    },
+    {
+      "name": "boot-2026-10-08.knox",
+      "size_bytes": 68,
+      "size_kb": 0,
+      "estimated_tokens": 17,
+      "type": "str"
+    },
+    {
+      "name": "boot-2026-10-09.phase1-point5.calendar",
+      "size_bytes": 67,
+      "size_kb": 0,
+      "estimated_tokens": 16,
+      "type": "str"
+    },
+    {
+      "name": "boot-2026-10-09.guardrail",
+      "size_bytes": 66,
+      "size_kb": 0,
+      "estimated_tokens": 16,
+      "type": "str"
+    },
+    {
+      "name": "boot-2026-10-13.phase1-point5.unified-data-pulls.omnifocus",
+      "size_bytes": 66,
+      "size_kb": 0,
+      "estimated_tokens": 16,
+      "type": "str"
+    },
+    {
+      "name": "boot-2026-09-18.session-note",
+      "size_bytes": 63,
+      "size_kb": 0,
+      "estimated_tokens": 15,
+      "type": "str"
+    },
+    {
+      "name": "boot-2026-09-17.session-note",
+      "size_bytes": 63,
+      "size_kb": 0,
+      "estimated_tokens": 15,
+      "type": "str"
+    },
+    {
+      "name": "boot-2026-10-05.session-note",
+      "size_bytes": 63,
+      "size_kb": 0,
+      "estimated_tokens": 15,
+      "type": "str"
+    },
+    {
+      "name": "boot-2026-10-13.phase1-point5.calendar",
+      "size_bytes": 61,
+      "size_kb": 0,
+      "estimated_tokens": 15,
+      "type": "str"
+    },
+    {
+      "name": "boot-2026-10-13.phase1-point5.unified-data-pulls.clay",
+      "size_bytes": 60,
+      "size_kb": 0,
+      "estimated_tokens": 15,
+      "type": "str"
+    },
+    {
+      "name": "boot-2026-10-09.working-memory",
+      "size_bytes": 52,
+      "size_kb": 0,
+      "estimated_tokens": 13,
+      "type": "str"
+    },
+    {
+      "name": "boot-2026-10-09.phase1-point5.unified-data-pulls.clay",
+      "size_bytes": 47,
+      "size_kb": 0,
+      "estimated_tokens": 11,
+      "type": "str"
+    },
+    {
+      "name": "boot-2026-10-09.phase2.task-j-reminders",
+      "size_bytes": 43,
+      "size_kb": 0,
+      "estimated_tokens": 10,
+      "type": "str"
+    },
+    {
+      "name": "boot-2026-10-09.phase1-point5.unified-data-pulls.email",
+      "size_bytes": 42,
+      "size_kb": 0,
+      "estimated_tokens": 10,
+      "type": "str"
+    },
+    {
+      "name": "boot-2026-10-13.phase2.task-j-reminders",
+      "size_bytes": 41,
+      "size_kb": 0,
+      "estimated_tokens": 10,
+      "type": "str"
+    },
+    {
+      "name": "boot-2026-10-13.phase1-point5.unified-data-pulls.email",
+      "size_bytes": 40,
+      "size_kb": 0,
+      "estimated_tokens": 10,
+      "type": "str"
+    },
+    {
+      "name": "boot-2026-10-09.phase1-point5.unified-data-pulls.jarvis-inbox",
+      "size_bytes": 33,
+      "size_kb": 0,
+      "estimated_tokens": 7,
+      "type": "str"
+    },
+    {
+      "name": "boot-2026-10-09.phase2.task-i-jarvis-inbox",
+      "size_bytes": 33,
+      "size_kb": 0,
+      "estimated_tokens": 7,
+      "type": "str"
+    },
+    {
+      "name": "boot-2026-10-13.phase1-point5.unified-data-pulls.jarvis-inbox",
+      "size_bytes": 31,
+      "size_kb": 0,
+      "estimated_tokens": 7,
+      "type": "str"
+    },
+    {
+      "name": "boot-2026-10-13.phase1-point5.degraded_reason",
+      "size_bytes": 31,
+      "size_kb": 0,
+      "estimated_tokens": 7,
+      "type": "str"
+    },
+    {
+      "name": "boot-2026-10-13.phase2.task-i-jarvis-inbox",
+      "size_bytes": 31,
+      "size_kb": 0,
+      "estimated_tokens": 7,
+      "type": "str"
+    },
+    {
+      "name": "boot-2026-10-09.phase1-point5.degraded",
+      "size_bytes": 5,
+      "size_kb": 0,
+      "estimated_tokens": 1,
+      "type": "bool"
+    },
+    {
+      "name": "boot-2026-10-13.phase1-point5.degraded",
+      "size_bytes": 4,
+      "size_kb": 0,
+      "estimated_tokens": 1,
+      "type": "bool"
+    },
+    {
+      "name": "boot-2026-10-09.phase1-point5.total_data_on_disk_kb",
+      "size_bytes": 2,
+      "size_kb": 0,
+      "estimated_tokens": 0,
+      "type": "int"
+    },
+    {
+      "name": "boot-2026-10-13.phase1-point5.total_data_on_disk_kb",
+      "size_bytes": 2,
+      "size_kb": 0,
+      "estimated_tokens": 0,
+      "type": "int"
+    }
+  ]
+}

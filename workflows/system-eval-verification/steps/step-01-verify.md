@@ -2,7 +2,6 @@
 status: not-started
 started-at: ~
 completed-at: ~
-outputs: {}
 ---
 
 <!-- system:start -->
@@ -37,7 +36,7 @@ outputs: {}
 
 ### Sequence
 
-1. **Locate the artifacts.** Read the step outputs (`workflows/system-eval/steps/step-0{1..6}-*.md` frontmatter), `workflows/system-eval/state.yaml`, and the report path from the manifest.
+1. **Locate the artifacts.** Read the step outputs (`workflows/system-eval/state.yaml` `accumulated-context`), and the report path from the manifest.
 
 2. **Re-derive the grading claim.** Load the `grading.grade_distribution` from state.yaml and count the actual non-null `assessment.grading.grade` values across the records. Reconcile the reported distribution against the on-disk distribution.
 

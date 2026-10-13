@@ -2,7 +2,6 @@
 status: not-started
 started-at: ~
 completed-at: ~
-outputs: {}
 ---
 
 <!-- personal:start -->
@@ -36,7 +35,7 @@ outputs: {}
 
 ### Sequence
 
-1. **Locate the artifacts.** Read `workflows/content-approval/steps/step-01-approve.md` frontmatter `outputs`. Read `workflows/content-approval/pending-drafts.json` and `workflows/content-approval/state.yaml`. For every post the run claims to have published, fetch its live state via `mcp__ghost-blog__get_post`.
+1. **Locate the artifacts.** Read `workflows/content-approval/state.yaml` `accumulated-context` for the step outputs. Read `workflows/content-approval/pending-drafts.json` and `workflows/content-approval/state.yaml`. For every post the run claims to have published, fetch its live state via `mcp__ghost-blog__get_post`.
 
 2. **Apply the approval-state-vs-Ghost lens.** For each item, re-derive the truth from Ghost and the Slack record, then compare to the run's claims:
 

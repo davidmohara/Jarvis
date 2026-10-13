@@ -2,8 +2,6 @@
 status: complete
 started-at: "2026-10-09T15:55:00Z"
 completed-at: "2026-10-09T15:56:00Z"
-outputs:
-  manifest-tasks: 6
 ---
 
 <!-- system:start -->

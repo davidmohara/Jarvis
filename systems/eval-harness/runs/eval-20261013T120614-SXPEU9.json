@@ -1,0 +1,81 @@
+{
+  "id": "eval-20261013T120614-SXPEU9",
+  "agent_id": "adbd32a74f0f3668e",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": "boot",
+  "agent": "general-purpose",
+  "session_id": "1eab1e58-4032-4598-97de-6e35d820e2f4",
+  "trigger": "unknown",
+  "started": "2026-10-13T12:06:14.141994Z",
+  "completed": "2026-10-13T14:44:12.674888+00:00",
+  "duration_seconds": null,
+  "status": "incomplete",
+  "steps": [
+    {
+      "name": "step-03-verify-phase2.md",
+      "step_id": "step-03-verify-phase2.md",
+      "agent": "general-purpose",
+      "owning_agent": "master",
+      "started": "2026-10-13T11:56:00Z",
+      "completed": "2026-10-13T12:00:00Z",
+      "duration_seconds": 240.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null,
+      "token_source": null
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": false,
+      "all_steps_finished": true,
+      "tool_failures": 1,
+      "error_ids": [],
+      "tool_failure_log": [
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\nusage: close-eval-record.py [-h] --name NAME [--type {workflow,skill}]\n                            --agent AGENT\n                            --status {success,failure,partial,aborted}\n                            [--trigger {boot,manual,scheduled}]\n                            [--started STARTED] [--steps STEPS]\n                            [--steps-json STEPS_JSON]\n                            [--abort-reason ABORT_REASON]\n\nClose an eval record on workflow completion\n\noptions:\n  -h, --help            show this help message and exit\n  --name NAME           Workflow or skill name (e.g. morning-briefing)\n  --type {workflow,skill}\n  --agent AGENT         Owning agent (e.g. chief)\n  --status {success,failure,partial,aborted}\n                        Outcome status\n  --trigger {boot,manual,scheduled}\n  --started STARTED     ISO8601 start time (optional)\n  --steps STEPS         Comma-separated step names that completed\n  --steps-json STEPS_JSON\n                        Path to a JSON file (or inline JSON array) of\n                        canonical step dicts carrying per-step\n                        model/tokens/cost. Merged by name into --steps.\n  --abort-reason ABORT_REASON\n                        Machine-readable abort cause (e.g. api-error, session-\n                        ended, tool-failure, outage-suspected). Written to\n                        assessment.mechanical.abort_reason. Only meaningful\n                        when --status aborted.\n(eval):1: ==STATE=== not found",
+          "duration_ms": 223,
+          "timestamp": "2026-10-13T07:08:54.056376"
+        }
+      ],
+      "abort_reason": "session-exit-normal"
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": "2026-10-13T21:19:55Z",
+      "grade": "D",
+      "safety_grade": null,
+      "grader_notes": "Partial execution only: one step (step-03-verify-phase2.md for boot) completed before the run went incomplete. Bookkeeping also failed - the agent invoked close-eval-record.py with malformed arguments (shell mangling: '(eval):1: ==STATE=== not found'), so the harness close-out never happened cleanly. The single completed step has no verifiable output attached. Improvement: the state-marker handoff to close-eval-record.py needs quoting that survives zsh evaluation."
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": []
+}

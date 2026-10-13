@@ -3,36 +3,6 @@ status: completed
 started-at: "2026-10-09T15:48:03Z"
 completed-at: "2026-10-09T16:15:00Z"
 model: sonnet
-outputs:
-  ingested-notes:
-    - "zzPlaud/Client/2026-09-18 AI Project Architecture and Data Routing.md"
-  daily-notes-updated:
-    - "Calendar/2026/09-September/2026-09-18.md"
-  monday-tasks-created: 2
-  monday-tasks-logged-manual: 0
-  staging-files-removed: 2
-  gate_5_result: "pass"
-  gate_5_verification_failures: []
-  notes: >
-    pi-20260918-001: 1 recording ingested (f96b2c110fc35162f390ac5288d6f7f4,
-    "09-18 Meeting: AI Project Architecture and Data Routing"), classified work,
-    filed to zzPlaud/Client/2026-09-18 AI Project Architecture and Data Routing.md
-    (GEHC AI routing POC project thread, consistent with 09-17 GEHC sync placement).
-    Impromptu call, no calendar event (David on travel day in Houston); attendees
-    David O'Hara and Vladimir Avila, both Plaud-registered voices, zero generic
-    labels. duration_minutes = 1894s / 60 = 31.6. Note written directly to the vault
-    path (iCloud), then Gate 5 verified via Obsidian MCP read-back: file exists at
-    expected path, file_id/date/duration_minutes/source/tags frontmatter confirmed.
-    Daily note Calendar/2026/09-September/2026-09-18.md created from template with
-    wikilink appended. Monday MCP (claude_ai monday_com connector) IS authenticated
-    this session (unlike 09-17): 2 David-owned action items routed (13081558342 ask
-    Mike Braunstein re self-tuning routing, priority High; 13081547249 confirm DICOM
-    destination fan-out with client, priority Medium), no project_owner set. Non-David
-    items left in note as informational: Vladimir (GPU benchmark move, episodic-memory
-    research) and Mike Braunstein (repo access for David, in flight). Reconciliation:
-    this run staged exactly 1 recording, fully processed; staging cleanup removed the
-    2 files staged this run; pre-existing 132-file backlog untouched per standing
-    cleanup-backlog flag. Follow-up intelligence in final report.
 ---
 
 <!-- system:start -->
@@ -171,11 +141,11 @@ or
 [Gate 5] <vault path>: FILE NOT FOUND at expected path — HARD FAIL. Staged file moved to failed/. Escalating.
 ```
 
-Write to this step's frontmatter `outputs`:
+Write to `state.yaml` `accumulated-context`:
 ```yaml
-outputs:
-  gate_5_result: "pass" | "pass-with-soft-flags" | "fail"
-  gate_5_verification_failures: [{expected_path, reason}, ...]
+# state.yaml -> accumulated-context
+gate_5_result: "pass" | "pass-with-soft-flags" | "fail"
+gate_5_verification_failures: [{expected_path, reason}, ...]
 ```
 
 ---

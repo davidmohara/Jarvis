@@ -2,7 +2,6 @@
 status: not-started
 started-at: ~
 completed-at: ~
-outputs: {}
 model: sonnet
 ---
 
@@ -153,7 +152,7 @@ Before saving, verify:
 
 ### Output Persistence (MANDATORY)
 
-The verifier for this step finds the saved prep sheet on disk (from `accumulated-context.deliverables.markdown_file`, then a glob of `meetings/*.md` for the attendee's name slug) and validates its content. Save the file under `meetings/` using the attendee/company/date naming pattern this step's Save and Deliver section defines (keep the attendee's full name in the filename so the slug match succeeds), then record the path in `state.yaml` and in this step file's frontmatter `outputs`.
+The verifier for this step finds the saved prep sheet on disk (from `accumulated-context.deliverables.markdown_file`, then a glob of `meetings/*.md` for the attendee's name slug) and validates its content. Save the file under `meetings/` using the attendee/company/date naming pattern this step's Save and Deliver section defines (keep the attendee's full name in the filename so the slug match succeeds), then record the path in `state.yaml`.
 
 The saved file MUST satisfy the verifier's content checks:
 
@@ -169,12 +168,6 @@ The saved file MUST satisfy the verifier's content checks:
 deliverables:
   markdown_file: "meetings/{Attendee Name} - {Company} - {YYYY-MM-DD}.md"
   pdf_file: "meetings/{Attendee Name} - {Company}.pdf"
-
-# step-04-build-prep-sheet.md -> frontmatter
-outputs:
-  deliverables:
-    markdown_file: "meetings/{Attendee Name} - {Company} - {YYYY-MM-DD}.md"
-  sections: ["## Who They Are", "## Company Overview", "## Who He/She/They Is", "## Common Connections", "## Reason for the Call", "## Suggested Talking Points", "## Open Questions Going In"]
 ```
 
 ---

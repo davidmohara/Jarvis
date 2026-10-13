@@ -2,46 +2,6 @@
 status: complete
 started-at: "2026-10-09T16:33:00Z"
 completed-at: "2026-10-09T16:45:00Z"
-outputs:
-  communication_data:
-    email_threads:
-      - "AI Innovation Lab (Diana Stevens / Remington Hotels) - action_needed"
-      - "Talent Labs Speaker Coordination - waiting"
-      - "CRM - Contacts helpdesk ticket 69244 - action_needed"
-      - "October 13th ACG Luncheon venue change - resolved"
-      - "Lunch Hugh Breland pushed to Nov 6 - waiting"
-    teams_messages:
-      - "Thanksgiving/Christmas/year-end work plans - action_needed"
-      - "Bethany workshop Feb 5 - action_needed"
-      - "Expense report cost center 705 - action_needed"
-      - "Travel booking Sunday arrival vs later flight - action_needed"
-      - "Dr. Pauza spine clinic callback - waiting"
-      - "Keith reschedule with Luke McGrath - in_progress"
-      - "YPO monday-board tasks (4) - action_needed"
-      - "Principled Business Summit speaker form - action_needed"
-      - "Remington Innovation Lab Nov dates - action_needed"
-    shared_calendar_events:
-      past:
-        - "2026-10-09 Friday Week Wrap-Up"
-      upcoming:
-        - "2026-10-12 Houston Bootcamp remote + Saxum Agent Strategy 11:30 + GEHC 2:00"
-        - "2026-10-13 ACG Houston Luncheon River Oaks 11:30-1:00"
-        - "2026-10-16 Friday Weekly Wrap-Up 2:00"
-        - "2026-10-21 UTB Board of Directors virtual"
-    previous_brief:
-      date: "2026-07-13"
-      carryover_items:
-        - "Verification-before-acting coaching pattern"
-        - "EOD recap open-items section"
-        - "Josh Stevenson CRM duplicate (due 2026-07-18)"
-        - "One email draft per week routed for review"
-        - "Alice joining select meetings live"
-      unresolved_talking_points:
-        - "EOD open-items section adoption"
-        - "Weekly draft routing"
-        - "Live meeting participation progress"
-      coaching_themes:
-        - "Scorecard 12/18 flat; Reliability and Judgment at +1"
 model: sonnet
 ---
 
@@ -148,7 +108,7 @@ model: sonnet
 
 ### Output Persistence (MANDATORY)
 
-Before recording step completion, persist the `communication_data` block to `state.yaml` under `accumulated-context.communication_data`, and mirror the identical structure in this step file's frontmatter `outputs` field. The verifier reads `accumulated-context.communication_data` and requires the three keys `email_threads`, `teams_messages`, and `shared_calendar_events` to be present. Empty lists are a legitimate result ("no communications found"); a missing key fails verification.
+Before recording step completion, persist the `communication_data` block to `state.yaml` under `accumulated-context.communication_data`. The verifier reads `accumulated-context.communication_data` and requires the three keys `email_threads`, `teams_messages`, and `shared_calendar_events` to be present. Empty lists are a legitimate result ("no communications found"); a missing key fails verification.
 
 ```yaml
 # state.yaml -> accumulated-context
@@ -165,20 +125,6 @@ communication_data:
     carryover_items: []
     unresolved_talking_points: []
     coaching_themes: []
-
-# step-02-gather-communications.md -> frontmatter
-outputs:
-  communication_data:
-    email_threads: []
-    teams_messages: []
-    shared_calendar_events:
-      past: []
-      upcoming: []
-    previous_brief:
-      date: "YYYY-MM-DD"
-      carryover_items: []
-      unresolved_talking_points: []
-      coaching_themes: []
 ```
 
 ---

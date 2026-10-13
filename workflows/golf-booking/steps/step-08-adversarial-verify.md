@@ -2,7 +2,6 @@
 status: not-started
 started-at: ~
 completed-at: ~
-outputs: {}
 model: sonnet
 ---
 
@@ -12,7 +11,7 @@ model: sonnet
 ## EXECUTION PROTOCOL
 
 **Agent:** Sterling, spawned by the coordinator, never executed inline. Sterling spawns Ralph.
-**Input:** The step 00-07 frontmatter `outputs`, `workflows/golf-booking/state.yaml`, `workflows/golf-booking/preview-output.json`, the Gate 3/4/6 evidence
+**Input:** Step 00-07 outputs from `workflows/golf-booking/state.yaml` `accumulated-context`, `workflows/golf-booking/preview-output.json`, the Gate 3/4/6 evidence
 **Output:** Ralph's verdict table; an `adversarial-verification` guardrail result recorded; verdict summary written to state.yaml
 
 ## PARAMETERS
@@ -20,7 +19,7 @@ model: sonnet
 - Verification workflow: `workflows/golf-booking-verification/workflow.md`
 - Lens: booking claims vs confirmation evidence; window calculated correctly, no double-booking, confirmation recorded before any success claim
 - Manifest:
-  - step-outputs: `workflows/golf-booking/steps/step-0{0..7}-*.md` frontmatter outputs
+  - step-outputs: `workflows/golf-booking/state.yaml` `accumulated-context`
   - state: `workflows/golf-booking/state.yaml`
   - preview-output: `workflows/golf-booking/preview-output.json`
   - run-date: `<YYYY-MM-DD>`

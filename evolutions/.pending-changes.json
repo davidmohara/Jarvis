@@ -3730,6 +3730,1992 @@
           "description": "Canonical doc for the LinkedIn analytics access path: Playwright MCP persistent-profile mechanism, login-wall protocol corrected per David 2026-10-10 (err-20261010T153840-6FQ5XO) to autonomous 1Password re-auth via op CLI (op read op:// URIs, TOTP via op item get --otp, secrets never logged) with never-fabricate preserved for genuinely unautomatable failures; manual-export fallback to data/linkedin-analytics/; Metricool upgrade path. Instance specifics (profile path, vault item) in personal blocks."
         }
       ]
+    },
+    {
+      "id": "work-20261013-step-frontmatter-minimal-schema",
+      "description": "Convention change per David's 2026-10-13 directive: step-file frontmatter records ONLY current-step execution state (status, started-at, completed-at) and is never a log. Run outputs live exclusively in state.yaml accumulated-context. Swept all 295 step files: stripped outputs maps and run-log keys (prior-run-*, approved-followup-*) from frontmatter (dream-cycle step-04 approval records verified preserved in dream-cycle state.yaml before removal); rewrote YOUR TASK/completion instructions to write outputs to state.yaml only; removed obsolete frontmatter-mirror YAML examples. Impact-driven adaptations: .claude/hooks/step-complete.py legacy fallback + retry instructions now read state.yaml; new shared loader systems/eval-harness/step_outputs.py; 28 verify scripts re-pointed; boot step-02 guardrail retry text updated. Static step frontmatter keys kept: model, step, name, workflow (config, not run data). watchtower config.yaml outputs.* references left untouched (config schema, not step frontmatter). Fixes error entry err-20261013T151635-DORL18 (over-engineering/scope-creep).",
+      "started": "2026-10-13T16:30:00Z",
+      "classification": "system",
+      "files": [
+        {
+          "path": "reference/workflow-conventions.md",
+          "action": "replace",
+          "type": "system",
+          "description": "Step Frontmatter Convention reduced to status/started-at/completed-at only; outputs moved to state.yaml accumulated-context; removed the traceability sentence"
+        },
+        {
+          "path": "agents/rigby.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Step-file frontmatter template in Capability Building Protocol updated (outputs: {} removed)"
+        },
+        {
+          "path": "specs/Workflow State Tracking Plan.md",
+          "action": "replace",
+          "type": "system",
+          "description": "Change 2 schema and Section B quoted convention updated to minimal frontmatter schema"
+        },
+        {
+          "path": ".claude/hooks/step-complete.py",
+          "action": "replace",
+          "type": "system",
+          "description": "Legacy guardrail fallback and retry instructions now read/validate state.yaml accumulated-context instead of step frontmatter outputs; added load_step_outputs()"
+        },
+        {
+          "path": "systems/eval-harness/step_outputs.py",
+          "action": "add",
+          "type": "system",
+          "description": "Shared loader: deep-search state.yaml accumulated-context for a step's outputs by expected keys (replaces frontmatter outputs reads in verify scripts)"
+        },
+        {
+          "path": "workflows/boot/guardrails/step-02-gather-data.json",
+          "action": "replace",
+          "type": "system",
+          "description": "retry_instruction text: record fields in state.yaml accumulated-context, not step outputs"
+        },
+        {
+          "path": "workflows/account-pursuit-map/steps/step-01-entity-anchor-and-trigger.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/account-pursuit-map/steps/step-02-strategic-priorities.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/account-pursuit-map/steps/step-03-competitive-positioning-and-leadership.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/account-pursuit-map/steps/step-04-icp-account-9box.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/account-pursuit-map/steps/step-05-referral-network.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/account-pursuit-map/steps/step-06-synthesize-and-deliver.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/account-pursuit-map/steps/step-07-generate-dashboard.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/account-strategy/steps/step-01-account-data.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/account-strategy/steps/step-02-competitive-intel.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/account-strategy/steps/step-03-strategy-brief.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/audience-target-outreach/steps/step-01-account-targeting.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/audience-target-outreach/steps/step-02-contact-targeting.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/audience-target-outreach/steps/step-03-prospect-message-draft.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/audience-target-outreach/steps/step-04-campaign-setup.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/audience-target-outreach/steps/step-05-campaign-send.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/boot-verification/steps/step-01-build-manifest.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/boot-verification/steps/step-02-verify.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/boot/steps/step-01-load-context.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/boot/steps/step-01.2-unified-data-pull.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/boot/steps/step-01.5-unified-calendar-pull.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/boot/steps/step-02-gather-data.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/boot/steps/step-02.5-measure-phase2.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/boot/steps/step-03-verify-phase2.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/boot/steps/step-04-gather-meeting-context.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/boot/steps/step-05-synthesize-briefing.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/boot/steps/step-06-scan-workflows.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/boot/steps/step-06.5-guardrail-checkpoint.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/boot/steps/step-07-verify-completion.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/boot/steps/step-08-knox-completion-check.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/calendar-prep/steps/step-01-pull-meetings.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/calendar-prep/steps/step-02-build-briefs.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/calendar-prep/steps/step-03-deliver-prep.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/card-review/steps/step-01-audit.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/card-review/steps/step-02-actions.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/card-review/steps/step-03-update.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/card-walkthrough/steps/step-01-walkthrough.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/card-which/steps/step-01-recommend.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/client-meeting-prep-verification/steps/step-01-verify.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/client-meeting-prep/steps/step-01-identify-meeting.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/client-meeting-prep/steps/step-02-source-of-truth-email.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/client-meeting-prep/steps/step-03-research-company-and-attendee.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/client-meeting-prep/steps/step-04-build-prep-sheet.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/client-meeting-prep/steps/step-05-remarkable-delivery.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/client-meeting-prep/steps/step-06-adversarial-verify.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/comp-tracker/steps/step-01-extract-powerbi-revenue.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/comp-tracker/steps/step-02-extract-powerbi-profitability.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/comp-tracker/steps/step-03-update-comp1.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/comp-tracker/steps/step-04-extract-update-comp2.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/comp-tracker/steps/step-05-sync-leads.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/comp-tracker/steps/step-06-match-commissions.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/comp-tracker/steps/step-07-prompt-comp3.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/comp-tracker/steps/step-08-close.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/content-approval-verification/steps/step-01-verify.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/content-approval/steps/step-01-approve.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/content-approval/steps/step-02-git-finalize.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/content-approval/steps/step-03-adversarial-verify.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/content-calendar/steps/step-01-load-content-data.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/content-calendar/steps/step-02-deadline-management.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/content-calendar/steps/step-03-content-recommendations.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/content-calendar/steps/step-04-deliver-calendar.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/content-calendar/steps/step-05-git-finalize.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/content-discovery-verification/steps/step-01-verify.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/content-discovery/steps/step-01-discover.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/content-discovery/steps/step-02-git-finalize.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/content-discovery/steps/step-03-adversarial-verify.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/content-pipeline-verification/steps/step-01-verify.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/content-pipeline/steps/step-01-discover.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/content-pipeline/steps/step-02-approve.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/content-pipeline/steps/step-03-git-finalize.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/content-pipeline/steps/step-04-adversarial-verify.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/daily-review-verification/steps/step-01-verify.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/daily-review/steps/step-01-capture.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/daily-review/steps/step-02-set-tomorrow.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/daily-review/steps/step-03-update-system.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/daily-review/steps/step-03b-guardrail-checkpoint.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/daily-review/steps/step-03c-adversarial-verify.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/daily-review/steps/step-04-root-audit.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/daily-review/steps/step-05-session-close.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/daily-review/steps/step-auto.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/delegation-tracker/steps/step-01-pull-delegations.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/delegation-tracker/steps/step-02-detect-overdue.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/delegation-tracker/steps/step-03-present-tracker.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/dream-cycle-verification/steps/step-01-verify.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/dream-cycle/steps/step-01-working-memory-cleanup.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/dream-cycle/steps/step-02-salience-scoring.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/dream-cycle/steps/step-03-semantic-promotion.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/dream-cycle/steps/step-03b-guardrail-checkpoint.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/dream-cycle/steps/step-04-episodic-compression.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/dream-cycle/steps/step-05-logging.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/dream-cycle/steps/step-06-adversarial-verify.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/email-drafting/steps/step-01-clarify-context.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/email-drafting/steps/step-02-draft.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/email-drafting/steps/step-03-iterate.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/episode-campaign-brief/steps/step-01-transcript-intake.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/episode-campaign-brief/steps/step-02-pain-point-extraction.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/episode-campaign-brief/steps/step-03-audience-profile.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/episode-campaign-brief/steps/step-04-offering-match.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/episode-prep-generator/steps/step-01-transcript-search.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/episode-prep-generator/steps/step-02-guest-research.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/episode-prep-generator/steps/step-03-generate-prep.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/episode-prep-generator/steps/step-04-assemble-output.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/error-improvement-verification/steps/step-01-verify.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/error-improvement/steps/step-01-intake.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/error-improvement/steps/step-02-analyze.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/error-improvement/steps/step-03-triage.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/error-improvement/steps/step-04-apply.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/error-improvement/steps/step-05-verify.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/error-improvement/steps/step-06-compact.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/error-improvement/steps/step-07-summary.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/error-improvement/steps/step-08-adversarial-verify.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/evolution-deployment/steps/step-01-validate-manifest.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/evolution-deployment/steps/step-02-compatibility-check.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/evolution-deployment/steps/step-03-create-snapshot.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/evolution-deployment/steps/step-05-scan-personal-blocks.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/evolution-deployment/steps/step-06-apply-evolution.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/evolution-deployment/steps/step-07-verify-and-log.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/evolution-training-sync/steps/step-01-detect-new-components.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/evolution-training-sync/steps/step-02-integrate-into-tiers.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/evolution-training-sync/steps/step-03-surface-discoveries.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/follow-up-nudges/steps/step-01-identify-overdue.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/follow-up-nudges/steps/step-02-draft-messages.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/follow-up-nudges/steps/step-03-review-and-send.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/galen-monthly-health-review/steps/step-01-whoop.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/galen-monthly-health-review/steps/step-02-bloodwork.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/galen-monthly-health-review/steps/step-03-dexa.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/galen-monthly-health-review/steps/step-04-lifebook.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/galen-monthly-health-review/steps/step-05-synthesize.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/galen-monthly-health-review/steps/step-06-metrics-log.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/goal-alignment/steps/step-01-load-goals-and-activity.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/goal-alignment/steps/step-02-map-and-detect-drift.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/goal-alignment/steps/step-03-alignment-report.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/golf-booking-verification/steps/step-01-verify.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/golf-booking/steps/step-00-cancel-prior-booking.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/golf-booking/steps/step-01-read-preview-and-window-precheck.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/golf-booking/steps/step-02-login-recovery.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/golf-booking/steps/step-03-navigate-select-players.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/golf-booking/steps/step-04-select-time-and-confirm.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/golf-booking/steps/step-05-visual-verification.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/golf-booking/steps/step-06-calendar-block.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/golf-booking/steps/step-07-slack-confirmation.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/golf-booking/steps/step-08-adversarial-verify.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/golf-preview-verification/steps/step-01-verify.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/golf-preview/steps/step-01-calculate-target-weekend.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/golf-preview/steps/step-02-calendar-conflict-check.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/golf-preview/steps/step-03-drought-and-weather.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/golf-preview/steps/step-04-score-and-write-output.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/golf-preview/steps/step-05-notify-slack.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/golf-preview/steps/step-06-adversarial-verify.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/inbox-processing/steps/step-01-pull-inbox.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/inbox-processing/steps/step-02-triage-loop.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/inbox-processing/steps/step-03-confirm-zero.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/initiative-tracker/steps/step-01-load-initiatives.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/initiative-tracker/steps/step-02-blocker-analysis.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/initiative-tracker/steps/step-03-cross-agent-escalation.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/initiative-tracker/steps/step-04-initiative-report.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/knowledge-ingest/steps/step-01-discover.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/knowledge-ingest/steps/step-02-ingest.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/knowledge-ingest/steps/step-03-normalize.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/knowledge-ingest/steps/step-04-link.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/knowledge-ingest/steps/step-05-file.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/knowledge-ingest/steps/step-06-route.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/knowledge-ingest/steps/step-07-report.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/lead-log/steps/step-01-identify-lead.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/lead-log/steps/step-02-write-entry.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/lead-review/steps/step-01-scan-leads.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/lead-review/steps/step-02-surface-and-assign.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/leadership-prep/steps/step-01-event-context.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/leadership-prep/steps/step-02-cross-domain-aggregation.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/leadership-prep/steps/step-03-material-generation.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/leadership-prep/steps/step-04-harper-handoff.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/morning-briefing-verification/steps/step-01-verify.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/morning-briefing/steps/step-01-gather-calendar.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/morning-briefing/steps/step-02-gather-tasks.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/morning-briefing/steps/step-03-gather-context.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/morning-briefing/steps/step-03b-guardrail-checkpoint.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/morning-briefing/steps/step-04-synthesize-briefing.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/morning-briefing/steps/step-05-verify-briefing.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/one-on-one-prep-verification/steps/step-01-verify.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/one-on-one-prep/steps/step-01-identify-meeting.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/one-on-one-prep/steps/step-02-gather-communications.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/one-on-one-prep/steps/step-03-gather-tasks.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/one-on-one-prep/steps/step-04-assemble-brief.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/one-on-one-prep/steps/step-05-quality-check-and-save.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/one-on-one-prep/steps/step-06-adversarial-verify.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/one-texas-scorecard/steps/step-01-revenue.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/one-texas-scorecard/steps/step-02-co-sell.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/one-texas-scorecard/steps/step-03-pipeline.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/one-texas-scorecard/steps/step-04-new-clients.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/one-texas-scorecard/steps/step-05-save-to-obsidian.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/partner-meeting-prep-verification/steps/step-01-verify.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/partner-meeting-prep/steps/step-01-identify-partner.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/partner-meeting-prep/steps/step-02-account-overlap.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/partner-meeting-prep/steps/step-03-events-and-context.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/partner-meeting-prep/steps/step-04-build-document.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/partner-meeting-prep/steps/step-05-adversarial-verify.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/pipeline-review/steps/step-01-pull-pipeline.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/pipeline-review/steps/step-02-health-analysis.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/pipeline-review/steps/step-03-risk-flags.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/pipeline-review/steps/step-04-action-report.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/plaud-ingest-verification/steps/step-01-verify.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/plaud-ingest/steps/step-01-discover.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/plaud-ingest/steps/step-02-trigger-transcription.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/plaud-ingest/steps/step-03-identify-speakers.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/plaud-ingest/steps/step-04-fetch-staging.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/plaud-ingest/steps/step-05-ingest-vault.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/plaud-ingest/steps/step-05b-share-with-alice.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/plaud-ingest/steps/step-06-verify-ingest.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/podcast-prep-verification/steps/step-01-verify.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/podcast-prep/steps/step-01-identify-episode.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/podcast-prep/steps/step-02-gather-data.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/podcast-prep/steps/step-03-build-prep-sheet.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/podcast-prep/steps/step-04-build-pdf-sheet.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/podcast-prep/steps/step-05-generate-pdf.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/podcast-prep/steps/step-06-adversarial-verify.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/political-monitor/steps/step-01-load-roster.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/political-monitor/steps/step-02-harvest.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/political-monitor/steps/step-03-write-harvest.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/political-monitor/steps/step-04-pre-cluster.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/political-monitor/steps/step-05-analyze.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/political-monitor/steps/step-06-source-suggestions.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/political-monitor/steps/step-07-render-validate.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/political-monitor/steps/step-08-send-dashboard.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/political-monitor/steps/step-09-cleanup-commit.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/presentation-builder/steps/step-01-load-source-material.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/presentation-builder/steps/step-02-voice-calibration.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/presentation-builder/steps/step-03-structure-presentation.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/presentation-builder/steps/step-04-handoff-intake.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/rock-review/steps/step-01-load-rocks.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/rock-review/steps/step-02-gather-evidence.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/rock-review/steps/step-03-assess-status.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/rock-review/steps/step-04-action-report.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/rock1-revenue-monthly/steps/step-01-pull-revenue.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/rock1-revenue-monthly/steps/step-02-save.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/rock4-pipeline-weekly/steps/step-01-cosell.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/rock4-pipeline-weekly/steps/step-02-pipeline.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/rock4-pipeline-weekly/steps/step-03-save.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/shutdown-cleanup-verification/steps/step-01-verify.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/shutdown-cleanup/steps/step-01-purge-artifacts.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/shutdown-cleanup/steps/step-02-organize-deliverables.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/shutdown-cleanup/steps/step-03-gitignore-check.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/shutdown-cleanup/steps/step-04-commit.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/shutdown-cleanup/steps/step-05-verify-cleanup.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/skill-optimize/steps/step-01-setup.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/skill-optimize/steps/step-02-score-baseline.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/skill-optimize/steps/step-03-reflect.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/skill-optimize/steps/step-04-apply-candidate.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/skill-optimize/steps/step-05-score-candidate.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/skill-optimize/steps/step-06-gate.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/skill-optimize/steps/step-07-slow-update.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/skill-optimize/steps/step-08-report.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/system-eval-verification/steps/step-01-verify.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/system-eval/steps/step-01-intake.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/system-eval/steps/step-02-assert.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/system-eval/steps/step-03-grade.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/system-eval/steps/step-03b-guardrail-checkpoint.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/system-eval/steps/step-04-score.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/system-eval/steps/step-05-analyze.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/system-eval/steps/step-06-dashboard.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/system-eval/steps/step-07-adversarial-verify.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/talking-points-verification/steps/step-01-verify.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/talking-points/steps/step-01-context-analysis.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/talking-points/steps/step-02-generate-talking-points.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/talking-points/steps/step-03-format-and-deliver.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/talking-points/steps/step-04-adversarial-verify.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/training-module-runner/steps/step-01-load-module.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/training-module-runner/steps/step-02-context-setting.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/training-module-runner/steps/step-03-guided-execution.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/training-module-runner/steps/step-04-reflection.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/training-module-runner/steps/step-05-record-and-suggest.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/training-onboarding/steps/step-01-user-intake.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/training-onboarding/steps/step-02-system-orientation.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/training-onboarding/steps/step-03-first-task.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/training-onboarding/steps/step-04-progression-intro.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/training-status/steps/step-01-load-progress.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/training-status/steps/step-02-render-dashboard.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/watchtower-verification/steps/step-01-verify.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/watchtower/steps/daily-step-01-gather.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/watchtower/steps/daily-step-02-dedupe.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/watchtower/steps/daily-step-03-score.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/watchtower/steps/daily-step-04-summarize.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/watchtower/steps/daily-step-04b-synthesize.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/watchtower/steps/daily-step-05-capture.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/watchtower/steps/daily-step-06-report.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/watchtower/steps/daily-step-07-prune.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/watchtower/steps/weekly-step-01-synthesize.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/watchtower/steps/weekly-step-02-draft-angles.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/watchtower/steps/weekly-step-02b-draft-tweets.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/watchtower/steps/weekly-step-03-suggest-sources.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/watchtower/steps/weekly-step-04-weekly-note.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/watchtower/steps/weekly-step-05-report.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/watchtower/steps/weekly-step-06-publish-drafts.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/watchtower/steps/weekly-step-07-adversarial-verify.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/win-loss-analysis/steps/step-01-deal-data.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/win-loss-analysis/steps/step-02-pattern-recognition.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/win-loss-analysis/steps/step-03-lesson-application.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Frontmatter reduced to minimal schema (status/started-at/completed-at; run outputs stripped); body instructions point at state.yaml accumulated-context"
+        },
+        {
+          "path": "workflows/client-meeting-prep/verify/step-01-identify-meeting.py",
+          "action": "replace",
+          "type": "system",
+          "description": "Verifier reads step outputs from state.yaml accumulated-context via systems/eval-harness/step_outputs.py instead of step frontmatter"
+        },
+        {
+          "path": "workflows/daily-review/verify/step-01-capture.py",
+          "action": "replace",
+          "type": "system",
+          "description": "Verifier reads step outputs from state.yaml accumulated-context via systems/eval-harness/step_outputs.py instead of step frontmatter"
+        },
+        {
+          "path": "workflows/daily-review/verify/step-02-set-tomorrow.py",
+          "action": "replace",
+          "type": "system",
+          "description": "Verifier reads step outputs from state.yaml accumulated-context via systems/eval-harness/step_outputs.py instead of step frontmatter"
+        },
+        {
+          "path": "workflows/dream-cycle/verify/step-01-working-memory-cleanup.py",
+          "action": "replace",
+          "type": "system",
+          "description": "Verifier reads step outputs from state.yaml accumulated-context via systems/eval-harness/step_outputs.py instead of step frontmatter"
+        },
+        {
+          "path": "workflows/dream-cycle/verify/step-02-salience-scoring.py",
+          "action": "replace",
+          "type": "system",
+          "description": "Verifier reads step outputs from state.yaml accumulated-context via systems/eval-harness/step_outputs.py instead of step frontmatter"
+        },
+        {
+          "path": "workflows/dream-cycle/verify/step-03-semantic-promotion.py",
+          "action": "replace",
+          "type": "system",
+          "description": "Verifier reads step outputs from state.yaml accumulated-context via systems/eval-harness/step_outputs.py instead of step frontmatter"
+        },
+        {
+          "path": "workflows/dream-cycle/verify/step-04-episodic-compression.py",
+          "action": "replace",
+          "type": "system",
+          "description": "Verifier reads step outputs from state.yaml accumulated-context via systems/eval-harness/step_outputs.py instead of step frontmatter"
+        },
+        {
+          "path": "workflows/dream-cycle/verify/step-05-logging.py",
+          "action": "replace",
+          "type": "system",
+          "description": "Verifier reads step outputs from state.yaml accumulated-context via systems/eval-harness/step_outputs.py instead of step frontmatter"
+        },
+        {
+          "path": "workflows/golf-booking/verify/step-04-select-time-and-confirm.py",
+          "action": "replace",
+          "type": "system",
+          "description": "Verifier reads step outputs from state.yaml accumulated-context via systems/eval-harness/step_outputs.py instead of step frontmatter"
+        },
+        {
+          "path": "workflows/golf-booking/verify/step-05-visual-verification.py",
+          "action": "replace",
+          "type": "system",
+          "description": "Verifier reads step outputs from state.yaml accumulated-context via systems/eval-harness/step_outputs.py instead of step frontmatter"
+        },
+        {
+          "path": "workflows/golf-booking/verify/step-06-calendar-block.py",
+          "action": "replace",
+          "type": "system",
+          "description": "Verifier reads step outputs from state.yaml accumulated-context via systems/eval-harness/step_outputs.py instead of step frontmatter"
+        },
+        {
+          "path": "workflows/shutdown-cleanup/verify/step-04-commit.py",
+          "action": "replace",
+          "type": "system",
+          "description": "Verifier reads step outputs from state.yaml accumulated-context via systems/eval-harness/step_outputs.py instead of step frontmatter"
+        },
+        {
+          "path": "workflows/talking-points/verify/step-02-generate-talking-points.py",
+          "action": "replace",
+          "type": "system",
+          "description": "Verifier reads step outputs from state.yaml accumulated-context via systems/eval-harness/step_outputs.py instead of step frontmatter"
+        },
+        {
+          "path": "workflows/watchtower/verify/daily-step-01-gather.py",
+          "action": "replace",
+          "type": "system",
+          "description": "Verifier reads step outputs from state.yaml accumulated-context via systems/eval-harness/step_outputs.py instead of step frontmatter"
+        },
+        {
+          "path": "workflows/watchtower/verify/daily-step-02-dedupe.py",
+          "action": "replace",
+          "type": "system",
+          "description": "Verifier reads step outputs from state.yaml accumulated-context via systems/eval-harness/step_outputs.py instead of step frontmatter"
+        },
+        {
+          "path": "workflows/watchtower/verify/daily-step-03-score.py",
+          "action": "replace",
+          "type": "system",
+          "description": "Verifier reads step outputs from state.yaml accumulated-context via systems/eval-harness/step_outputs.py instead of step frontmatter"
+        },
+        {
+          "path": "workflows/watchtower/verify/daily-step-04-summarize.py",
+          "action": "replace",
+          "type": "system",
+          "description": "Verifier reads step outputs from state.yaml accumulated-context via systems/eval-harness/step_outputs.py instead of step frontmatter"
+        },
+        {
+          "path": "workflows/watchtower/verify/daily-step-04b-synthesize.py",
+          "action": "replace",
+          "type": "system",
+          "description": "Verifier reads step outputs from state.yaml accumulated-context via systems/eval-harness/step_outputs.py instead of step frontmatter"
+        },
+        {
+          "path": "workflows/watchtower/verify/daily-step-05-capture.py",
+          "action": "replace",
+          "type": "system",
+          "description": "Verifier reads step outputs from state.yaml accumulated-context via systems/eval-harness/step_outputs.py instead of step frontmatter"
+        },
+        {
+          "path": "workflows/watchtower/verify/daily-step-06-report.py",
+          "action": "replace",
+          "type": "system",
+          "description": "Verifier reads step outputs from state.yaml accumulated-context via systems/eval-harness/step_outputs.py instead of step frontmatter"
+        },
+        {
+          "path": "workflows/watchtower/verify/daily-step-07-prune.py",
+          "action": "replace",
+          "type": "system",
+          "description": "Verifier reads step outputs from state.yaml accumulated-context via systems/eval-harness/step_outputs.py instead of step frontmatter"
+        },
+        {
+          "path": "workflows/watchtower/verify/weekly-step-01-synthesize.py",
+          "action": "replace",
+          "type": "system",
+          "description": "Verifier reads step outputs from state.yaml accumulated-context via systems/eval-harness/step_outputs.py instead of step frontmatter"
+        },
+        {
+          "path": "workflows/watchtower/verify/weekly-step-02-draft-angles.py",
+          "action": "replace",
+          "type": "system",
+          "description": "Verifier reads step outputs from state.yaml accumulated-context via systems/eval-harness/step_outputs.py instead of step frontmatter"
+        },
+        {
+          "path": "workflows/watchtower/verify/weekly-step-02b-draft-tweets.py",
+          "action": "replace",
+          "type": "system",
+          "description": "Verifier reads step outputs from state.yaml accumulated-context via systems/eval-harness/step_outputs.py instead of step frontmatter"
+        },
+        {
+          "path": "workflows/watchtower/verify/weekly-step-03-suggest-sources.py",
+          "action": "replace",
+          "type": "system",
+          "description": "Verifier reads step outputs from state.yaml accumulated-context via systems/eval-harness/step_outputs.py instead of step frontmatter"
+        },
+        {
+          "path": "workflows/watchtower/verify/weekly-step-04-weekly-note.py",
+          "action": "replace",
+          "type": "system",
+          "description": "Verifier reads step outputs from state.yaml accumulated-context via systems/eval-harness/step_outputs.py instead of step frontmatter"
+        },
+        {
+          "path": "workflows/watchtower/verify/weekly-step-05-report.py",
+          "action": "replace",
+          "type": "system",
+          "description": "Verifier reads step outputs from state.yaml accumulated-context via systems/eval-harness/step_outputs.py instead of step frontmatter"
+        },
+        {
+          "path": "workflows/watchtower/verify/weekly-step-06-publish-drafts.py",
+          "action": "replace",
+          "type": "system",
+          "description": "Verifier reads step outputs from state.yaml accumulated-context via systems/eval-harness/step_outputs.py instead of step frontmatter"
+        }
+      ],
+      "followups": [
+        "Package and submit as an evolution when David approves (confirm-before-submit rule).",
+        "projects/ai-certification/* carries its own copies of hooks/conventions - separate certification project, intentionally untouched; consider aligning later."
+      ]
     }
   ]
 }

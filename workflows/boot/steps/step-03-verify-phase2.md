@@ -1,9 +1,7 @@
 ---
 status: complete
-started-at: '2026-10-09T15:57:30Z'
-completed-at: '2026-10-09T16:05:00Z'
-outputs:
-  verification_results: pass - Ralph ran workflows/boot-verification live this run; all 6 Phase 2 tasks verified (briefing 01-02, G, H, I, J verified; E/Knox fire-and-forget confirmed mid-flight at step-04, session pi-20261009-001); 0 re-runs required; 2 non-blocking observations (stale jarvis-inbox skill-run record from 09-28, morning-briefing state.yaml last-run-notes held stale 09-17 prose - latter fixed in step-05 state write)
+started-at: '2026-10-13T11:56:00Z'
+completed-at: '2026-10-13T12:00:00Z'
 ---
 
 <!-- system:start -->
@@ -62,7 +60,7 @@ outputs:
 
 4. **Confirm all tasks are ✅ or ➖** before proceeding.
 
-5. **Update step frontmatter:** Set `status: complete`, `completed-at` with current timestamp, and `outputs.verification_results` with a summary (e.g. "pass — Ralph verified all X Phase 2 tasks (N checked, M failures, K rerun required)").
+5. **Update step frontmatter:** Set `status: complete` and `completed-at` (current timestamp). Record `verification_results` in `state.yaml` `accumulated-context` with a summary (e.g. "pass — Ralph verified all X Phase 2 tasks (N checked, M failures, K rerun required)").
 
 6. **Update state.yaml:** Set `current-step: step-04-gather-meeting-context.md`.
 

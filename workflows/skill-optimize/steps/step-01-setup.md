@@ -2,16 +2,6 @@
 status: not-started
 started-at: ~
 completed-at: ~
-outputs:
-  skill_id: null
-  skill_path: null
-  edit_budget: null
-  total_rounds: null
-  epoch_size: null
-  eval_record_ids: []
-  selection_record_ids: []
-  rejected_edits_path: null
-  slow_update_history_path: null
 ---
 
 <!-- system:start -->

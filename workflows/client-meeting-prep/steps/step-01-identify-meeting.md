@@ -2,7 +2,6 @@
 status: not-started
 started-at: ~
 completed-at: ~
-outputs: {}
 model: sonnet
 ---
 
@@ -76,7 +75,7 @@ model: sonnet
 
 ### Output Persistence (MANDATORY)
 
-Before recording step completion, persist the `meeting_details` block to `state.yaml` under `accumulated-context.meeting_details`, and mirror the identical structure in this step file's frontmatter `outputs` field. The verifier reads `accumulated-context.meeting_details.attendees_external` and requires at least one external attendee with a `name` (a hard failure without it). It also reads `meeting_date`, `meeting_time_verified`, and `format_confirmed` for the pass detail. A missing calendar meeting is valid, but the attendee identity is not optional.
+Before recording step completion, persist the `meeting_details` block to `state.yaml` under `accumulated-context.meeting_details`. The verifier reads `accumulated-context.meeting_details.attendees_external` and requires at least one external attendee with a `name` (a hard failure without it). It also reads `meeting_date`, `meeting_time_verified`, and `format_confirmed` for the pass detail. A missing calendar meeting is valid, but the attendee identity is not optional.
 
 ```yaml
 # state.yaml -> accumulated-context
@@ -91,16 +90,6 @@ meeting_details:
   format_notes: "{Teams link present / phone number present / not on invite - confirm before the call}"
   organizer: "{email}"
   prior_relationship: "new contact - no prior 1:1 history"
-
-# step-01-identify-meeting.md -> frontmatter
-outputs:
-  meeting_details:
-    attendees_external:
-      - name: "{Full Name}"
-        company: "{Company}"
-    meeting_date: "YYYY-MM-DD"
-    meeting_time_verified: "HH:MM-HH:MM {TZ}"
-    format_confirmed: true
 ```
 
 ---

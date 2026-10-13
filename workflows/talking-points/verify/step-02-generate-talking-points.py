@@ -3,11 +3,10 @@
 
 The step generates the calibrated points and anticipated Q&A. This verifier
 re-derives them from real records: first accumulated-context.talking_points
-(the structured block the step is specified to write), then the step's own
-frontmatter outputs, then the delivered document itself (the materialized
+(the structured block the step is specified to write), then the delivered document itself (the materialized
 result of steps 02-03) counting real point and Q&A markers from content.
 
-If no structured block, no step outputs, and no deliverable exists yet (the
+If no structured block, no recorded context, and no deliverable exists yet (the
 normal state at step-02 completion in a live run, before step-03 writes the
 document), the verifier passes with an explicit deferred note rather than
 false-retrying a correct run, the step-03 verifier is the hard gate on the
@@ -20,6 +19,8 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "systems" / "eval-harness" / "vendor"))
+sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "systems" / "eval-harness"))
+from step_outputs import load_step_outputs, load_context
 try:
     import yaml
 except Exception:
@@ -46,26 +47,8 @@ def load_state(path: Path) -> dict:
 
 
 def step_outputs(ies_root: Path) -> dict:
-    p = ies_root / "workflows" / "talking-points" / "steps" / "step-02-generate-talking-points.md"
-    if yaml is None or not p.is_file():
-        return {}
-    lines = p.read_text().split("\n")
-    if not lines or lines[0].strip() != "---":
-        return {}
-    fm_lines = []
-    inside = False
-    for line in lines:
-        if line.strip() == "---":
-            inside = not inside
-            if not inside:
-                break
-            continue
-        if inside:
-            fm_lines.append(line)
-    try:
-        return (yaml.safe_load("\n".join(fm_lines)) or {}).get("outputs") or {}
-    except Exception:
-        return {}
+    """Accumulated-context presence check (frontmatter no longer carries outputs)."""
+    return load_context(ies_root, "talking-points", yaml)
 
 
 def find_deliverable(ies_root: Path, ctx: dict):
@@ -156,7 +139,7 @@ def main():
     if outputs:
         print(json.dumps({
             "result": "pass",
-            "reason": "Step-02 outputs recorded (points generated); no structured block or deliverable to cross-check yet",
+            "reason": "Step outputs recorded in state.yaml (points generated); no structured block or deliverable to cross-check yet",
             "fields": fields,
             "validation_errors": [],
         }))
@@ -164,7 +147,7 @@ def main():
 
     print(json.dumps({
         "result": "pass",
-        "reason": "Deferred: no structured talking_points block, no step outputs, and no deliverable exists yet, "
+        "reason": "Deferred: no structured talking_points block, no recorded context, and no deliverable exists yet, "
                   "step-02 output is not independently verifiable at this point; step-03's deliverable is the hard gate",
         "fields": fields,
         "validation_errors": [],

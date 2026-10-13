@@ -3,7 +3,7 @@
 
 Gate 4 is the second, independent confirmation that ChronoGolf's own
 confirmation screen did not lie. This verifier re-derives the outcome from the
-step outputs and state.yaml: a Gate 4 pass (approval true) is accepted, and a
+step outputs in state.yaml accumulated-context: a Gate 4 pass (approval true) is accepted, and a
 recorded `verification-failed` abort with a documented reason is a legitimate
 terminal state. A run that claims to have proceeded past step-05 without either
 is the failure this catches.
@@ -14,6 +14,8 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "systems" / "eval-harness" / "vendor"))
+sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "systems" / "eval-harness"))
+from step_outputs import load_step_outputs, load_context
 try:
     import yaml
 except Exception:
@@ -71,7 +73,7 @@ def main():
         return
 
     ctx = state.get("accumulated-context") or {}
-    outputs = (parse_frontmatter(step_path.read_text()).get("outputs") or {}) if step_path.is_file() else {}
+    outputs = load_step_outputs(ies_root, WORKFLOW, ['gate_4_result', 'approval', 'booking_visible'], yaml)
 
     gate_4 = None
     if isinstance(outputs, dict):

@@ -81,21 +81,19 @@ accumulated-context: {}
 status: not-started | in-progress | complete | skipped
 started-at: ~
 completed-at: ~
-outputs:
-  # What this step produced — keyed values the next step needs.
-  # Keys are defined per-step. Example (morning-briefing step-01):
-  # calendar-events-count: 4
-  # first-meeting: "9:00 AM - CBRE Quarterly"
-  # conflicts-found: false
 ---
 ```
+
+(Updated 2026-10-13: the `outputs` map was removed from step frontmatter.
+Front matter records current-step execution state only; run outputs live in
+`state.yaml` `accumulated-context`.)
 
 **Write protocol:**
 
 | Event | What to write |
 |-------|--------------|
 | Before executing step | `status: in-progress`, `started-at: {ISO-8601}` |
-| After step completes | `status: complete`, `completed-at: {ISO-8601}`, populate `outputs` |
+| After step completes | `status: complete`, `completed-at: {ISO-8601}`; record outputs in `state.yaml` `accumulated-context` |
 
 **Initial file state** (template, all step files):
 
@@ -104,11 +102,10 @@ outputs:
 status: not-started
 started-at: ~
 completed-at: ~
-outputs: {}
 ---
 ```
 
-**Output key definitions** are specified per step inside the step file itself (in the YOUR TASK section). Each step should document what keys it writes to `outputs` and what those values represent. These same keys flow into `state.yaml`'s `accumulated-context` when the step completes.
+**Output key definitions** are specified per step inside the step file itself (in the YOUR TASK section). Each step documents what keys it writes to `state.yaml`'s `accumulated-context` when the step completes and what those values represent.
 
 ---
 
@@ -315,8 +312,8 @@ See the state.yaml template in each workflow directory.
 
 ### accumulated-context keys
 Each workflow defines its own context keys in the step files (YOUR TASK section).
-Keys written by step N are available to step N+1 and beyond. They are also written
-to the step file's `outputs` frontmatter field for per-step traceability.
+Keys written by step N are available to step N+1 and beyond. Run outputs live
+ONLY here — never in step-file frontmatter.
 
 ### session-id format
 `{agent}-{YYYY-MM-DD}-{HHmmss}` — e.g., `chief-2026-04-03-091532`
@@ -334,13 +331,13 @@ Every workflow step file begins with YAML frontmatter tracking per-step executio
 - `status`: not-started | in-progress | complete | skipped
 - `started-at`: ISO-8601 timestamp written immediately before step execution begins
 - `completed-at`: ISO-8601 timestamp written immediately after step completes
-- `outputs`: key-value map of what this step produced. Keys are defined in the
-  step's YOUR TASK section. These same keys are written into state.yaml's
-  accumulated-context when the step completes.
+
+That is the entire schema. No `outputs` map. No run-specific keys. No history.
 
 ### Write sequence
 1. Before executing: write `status: in-progress`, `started-at`
-2. After executing: write `status: complete`, `completed-at`, populate `outputs`
+2. After executing: write `status: complete`, `completed-at`, and record the
+   step's outputs in `state.yaml` `accumulated-context`
 
 ### Recovery behavior
 If a step's frontmatter shows `status: in-progress` at resume time, the step was

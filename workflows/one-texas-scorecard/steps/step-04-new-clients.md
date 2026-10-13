@@ -2,16 +2,6 @@
 status: complete
 started-at: "2026-07-14T00:08:00"
 completed-at: "2026-07-14T00:09:00"
-outputs:
-  new_clients_captured: true
-  cache_used: true
-  data_through: May 2026
-  dallas_logos: 6
-  dallas_anchors: 1
-  south_texas_logos: 1
-  south_texas_anchors: 1
-  one_texas_logos: 7
-  one_texas_anchors: 2
 model: sonnet
 ---
 

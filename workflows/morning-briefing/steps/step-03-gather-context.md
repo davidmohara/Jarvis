@@ -1,24 +1,8 @@
 ---
 status: complete
-started-at: "2026-10-09T16:05:00Z"
-completed-at: "2026-10-09T16:07:00Z"
-outputs:
-  meeting_context:
-    - meeting: "IGP Bible Study (6:30am CDT, elapsed)"
-      prep_status: "ready — personal, recurring"
-    - meeting: "Sales & Recruiting Meeting (9:15am CDT, tentative)"
-      prep_status: "ready — standing team cadence, no prep needed"
-    - meeting: "2nd Friday Executive Meeting (9:30am CDT, tentative)"
-      prep_status: "ready — Month 1 quarterly agenda: Sales (Russell), Corporate Special Topics, GoTogether Update (McMichael/Liles)"
-    - meeting: "YPO Industry Insights: Share Your AI (10:00am CDT, tentative, in progress at boot)"
-      prep_status: "ready — external Zoom event, listen-only"
-    - meeting: "Friday Week Wrap-Up with Alice Mburu (2:30pm CDT)"
-      prep_status: "ready — standing weekly EA rhythm, no open items on file"
-  system_status:
-    yesterday_review: "missing — no reviews/daily/2026-10-08.md (last on file 2026-09-28, 11 days)"
-    yesterday_top_3: null
-  note: "No client meetings today, no Chase/Shep prep required. Clay checked live: 0 reminders, 0 upcoming birthdays in next 7 days. Knox plaud-ingest live this session (2 recordings from 10-08: Becoming AI Native panel prep, Talent Lab AI in HR)."
-model: sonnet
+started-at: "2026-10-13T12:00:00Z"
+completed-at: "2026-10-13T12:03:00Z"
+model: kimi-k3
 ---
 
 <!-- system:start -->

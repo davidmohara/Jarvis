@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Ground-truth verifier for daily-review/step-02-set-tomorrow.
 
-Reads the step's own frontmatter `outputs` block and checks it actually
+Reads the step's outputs from state.yaml `accumulated-context` and checks it actually
 recorded a confirmed top_3 list (mandatory per the step's execution rules),
 deriving `top_3_count` and rock-alignment count from the real recorded
 data instead of trusting a bare completion claim.
@@ -12,6 +12,8 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "systems" / "eval-harness" / "vendor"))
+sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "systems" / "eval-harness"))
+from step_outputs import load_step_outputs, load_context
 try:
     import yaml
 except Exception:
@@ -53,8 +55,7 @@ def main():
         }))
         return
 
-    fm = extract_frontmatter(step_path.read_text())
-    outputs = fm.get("outputs") or {}
+    outputs = load_step_outputs(ies_root, "daily-review", ["tomorrow_data", "top_3"], yaml)
     tomorrow_data = outputs.get("tomorrow_data") if isinstance(outputs, dict) else None
     top_3 = None
     if isinstance(tomorrow_data, dict):
@@ -78,7 +79,7 @@ def main():
     if not isinstance(outputs, dict) or not outputs:
         verdict = {
             "result": "retry",
-            "reason": "step-02 outputs block is empty — no tomorrow_data recorded",
+            "reason": "step-02 outputs missing from state.yaml accumulated-context — no tomorrow_data recorded",
             "fields": fields,
             "validation_errors": ["no_outputs"],
             "retry_instruction": "Re-execute step-02 and record the confirmed top_3 priorities in tomorrow_data.",

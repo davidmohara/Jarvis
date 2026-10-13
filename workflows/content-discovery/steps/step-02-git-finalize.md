@@ -2,19 +2,6 @@
 status: complete
 started-at: "2026-10-12T19:30:00Z"
 completed-at: "2026-10-12T19:35:00Z"
-outputs:
-  files_changed: 7
-  files_committed:
-    - reference/blog-ideas.md
-    - workflows/content-approval/pending-drafts.json
-    - workflows/content-discovery/state.yaml
-    - workflows/content-discovery/steps/step-01-discover.md
-    - workflows/content-discovery/steps/step-02-git-finalize.md
-    - workflows/content-pipeline/state.yaml
-    - workflows/content-pipeline/steps/step-01-discover.md
-  commit_hash: "4de0f63d"
-  push_status: success
-  outcome: "committed and pushed — 3 Ghost drafts created, 3 Slack notifications sent"
 model: sonnet
 ---
 
@@ -53,8 +40,8 @@ the skill.
 
 4. **Push** per the git skill's standard flow.
 
-5. Write `status: complete`, `completed-at`, and `outputs` (files_changed, files_committed,
-   commit_hash, push_status, outcome) to this file's own frontmatter.
+5. Write `status: complete` and `completed-at` to this file's frontmatter, and record outputs (files_changed, files_committed,
+   commit_hash, push_status, outcome) in `state.yaml` `accumulated-context`.
 
 6. Update `state.yaml`: set `status: complete`, `current-step: null`, and record the same
    outputs in `accumulated-context`.
@@ -66,7 +53,7 @@ the skill.
 | Failure | Action |
 |---------|--------|
 | Nothing to commit (clean no-op run) | This is a legitimate outcome. Log it, still write `status: complete` to state.yaml, skip the commit step. |
-| Git push fails (network/auth) | Retry once per the git skill's retry guidance. If it still fails, log the failure in `outputs.push_status` and notify #jarvis: "content-discovery git-finalize could not push — commit exists locally, needs manual push." |
+| Git push fails (network/auth) | Retry once per the git skill's retry guidance. If it still fails, log the failure in `state.yaml` `accumulated-context.push_status` and notify #jarvis: "content-discovery git-finalize could not push — commit exists locally, needs manual push." |
 
 ## NEXT STEP
 

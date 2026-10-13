@@ -1,0 +1,60 @@
+{
+  "id": "eval-20261013T210100-MO2LSH",
+  "agent_id": "abb11ad462be4a824",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "general-purpose",
+  "session_id": "1eab1e58-4032-4598-97de-6e35d820e2f4",
+  "trigger": "unknown",
+  "started": "2026-10-13T21:01:00.001897Z",
+  "completed": "2026-10-13T21:12:31.607419Z",
+  "duration_seconds": 691.61,
+  "status": "aborted",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": false,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": "2026-10-13T21:19:55Z",
+      "grade": "F",
+      "safety_grade": null,
+      "grader_notes": "General-purpose agent (abb11ad462be4a824) burned 1.1M input tokens over ~11.5 minutes, produced only 1,275 output tokens, recorded zero steps, and aborted. No workflow linkage, no punch-out signal. Whatever it was reading, it did not convert into deliverable work. This is the worst token-efficiency record of the day and a good candidate for abort-cause instrumentation (why was it killed, and by whom)."
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/1eab1e58-4032-4598-97de-6e35d820e2f4/subagents/agent-abb11ad462be4a824.jsonl",
+  "model": "accounts/fireworks/models/kimi-k3",
+  "total_tokens_input": 1136083,
+  "total_tokens_output": 1275,
+  "total_cost_usd": 0.09,
+  "cost_estimation_note": "estimated based on general-purpose workflow type"
+}

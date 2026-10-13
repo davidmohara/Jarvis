@@ -1,9 +1,8 @@
 {
-  "pulled_at": "2026-10-09T15:50:00Z",
-  "status": "available",
+  "pulled_at": "2026-10-13T11:45:07Z",
+  "status": "unavailable",
   "reminders": [],
   "reminder_count": 0,
-  "birthdays": [],
   "birthday_count": 0,
-  "notes": "Clay getUpcomingReminders returned 0. Home activity feed (654 items) contained only past birthdays in window (Tom Opgenorth 2026-10-05, Alex Holmes 2026-10-02); no upcoming birthdays in next 7 days. Libby O'Hara's birthday (today, 2026-10-09) comes from the M365 calendar, not Clay."
+  "error": "claude.ai Clay MCP server failed to connect at session start (HTTP 502 Bad Gateway); only interactive authenticate tool exposed, not usable unattended"
 }

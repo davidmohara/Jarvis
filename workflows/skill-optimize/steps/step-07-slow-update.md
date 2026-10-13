@@ -2,10 +2,6 @@
 status: not-started
 started-at: ~
 completed-at: ~
-outputs:
-  slow_update_written: false
-  slow_update_content: null
-  slow_update_validated: false
 ---
 
 <!-- system:start -->

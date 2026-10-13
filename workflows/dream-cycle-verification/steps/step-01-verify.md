@@ -2,7 +2,6 @@
 status: not-started
 started-at: ~
 completed-at: ~
-outputs: {}
 ---
 
 <!-- system:start -->
@@ -37,7 +36,7 @@ outputs: {}
 
 ### Sequence
 
-1. **Locate the artifacts.** Read the step outputs (`workflows/dream-cycle/steps/step-0{1,2,3,4,5}-*.md` frontmatter), `workflows/dream-cycle/state.yaml`, and the controller summary from the manifest.
+1. **Locate the artifacts.** Read the step outputs (`workflows/dream-cycle/state.yaml` `accumulated-context`), and the controller summary from the manifest.
 
 2. **Read the dream log** (`memory/dream.log`, tail) and find the entry for the run date. Compare its counts and session_id against the step outputs.
 

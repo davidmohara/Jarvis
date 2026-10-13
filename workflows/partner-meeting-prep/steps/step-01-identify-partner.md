@@ -2,7 +2,6 @@
 status: not-started
 started-at: ~
 completed-at: ~
-outputs: {}
 model: sonnet
 ---
 
@@ -100,7 +99,7 @@ model: sonnet
 
 ### Output Persistence (MANDATORY)
 
-Before recording step completion, persist the `partner_details` block to `state.yaml` under `accumulated-context.partner_details`, and mirror the identical structure in this step file's frontmatter `outputs` field. The verifier reads `accumulated-context.partner_details` and requires a non-empty `company` (hard failure without it); `meeting_date`, `partner_attendees`, and `previous_prep.exists` are read for the pass detail. Write every key below even when a value is unknown.
+Before recording step completion, persist the `partner_details` block to `state.yaml` under `accumulated-context.partner_details`. The verifier reads `accumulated-context.partner_details` and requires a non-empty `company` (hard failure without it); `meeting_date`, `partner_attendees`, and `previous_prep.exists` are read for the pass detail. Write every key below even when a value is unknown.
 
 ```yaml
 # state.yaml -> accumulated-context
@@ -122,15 +121,6 @@ partner_details:
     count: 0
     key_threads: []
     pending_follow_ups: []
-
-# step-01-identify-partner.md -> frontmatter
-outputs:
-  partner_details:
-    company: "{Partner Name}"
-    meeting_date: "YYYY-MM-DD"
-    partner_attendees: []
-    previous_prep:
-      exists: true
 ```
 
 ---

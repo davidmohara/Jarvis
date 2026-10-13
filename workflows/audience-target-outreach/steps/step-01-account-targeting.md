@@ -2,7 +2,6 @@
 status: not-started
 started-at: ~
 completed-at: ~
-outputs: {}
 model: sonnet
 ---
 
@@ -40,11 +39,11 @@ model: sonnet
 
 2. Capture the returned `target_accounts` list.
 
-3. Write outputs to this file's frontmatter:
+3. Record these outputs to `state.yaml` `accumulated-context`:
    ```yaml
-   outputs:
-     target_account_count: <int>
-     accounts_with_existing_crm_relationship: <int>
+   # state.yaml -> accumulated-context
+   target_account_count: <int>
+   accounts_with_existing_crm_relationship: <int>
    ```
 
 4. Update `state.yaml`:

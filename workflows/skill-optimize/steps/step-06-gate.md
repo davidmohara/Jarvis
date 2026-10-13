@@ -2,12 +2,6 @@
 status: not-started
 started-at: ~
 completed-at: ~
-outputs:
-  decision: null
-  new_best_score: null
-  new_best_skill_path: null
-  accepted_edits_this_round: 0
-  rejected_edits_logged: 0
 ---
 
 <!-- system:start -->

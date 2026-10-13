@@ -2,9 +2,6 @@
 status: not-started
 started-at: ~
 completed-at: ~
-outputs:
-  candidate_path: null
-  edits_applied: 0
 ---
 
 <!-- system:start -->

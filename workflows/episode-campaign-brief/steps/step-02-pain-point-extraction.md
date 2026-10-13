@@ -2,7 +2,6 @@
 status: not-started
 started-at: ~
 completed-at: ~
-outputs: {}
 model: sonnet
 ---
 
@@ -35,11 +34,11 @@ model: sonnet
 
 2. Capture the returned `pain_points` list.
 
-3. Write outputs to this file's frontmatter:
+3. Record these outputs to `state.yaml` `accumulated-context`:
    ```yaml
-   outputs:
-     pain_point_count: <int>
-     pain_point_ids: [pp-01, pp-02, ...]
+   # state.yaml -> accumulated-context
+   pain_point_count: <int>
+   pain_point_ids: [pp-01, pp-02, ...]
    ```
 
 4. Update `state.yaml`:

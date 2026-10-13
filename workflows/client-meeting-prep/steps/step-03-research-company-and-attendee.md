@@ -2,7 +2,6 @@
 status: not-started
 started-at: ~
 completed-at: ~
-outputs: {}
 model: sonnet
 ---
 
@@ -141,7 +140,7 @@ attendee_bio:
 
 ### Output Persistence (MANDATORY)
 
-Before recording step completion, persist these keys to `state.yaml` `accumulated-context` (top-level, NOT nested under a wrapper block), and mirror them in this step file's frontmatter `outputs` field. The verifier reads `accumulated-context.company_profile`, `company_overview`, `attendee_bio`, and `company_disambiguation`, and requires at least one of the first three to be non-empty. If `company_disambiguation.ambiguous` is true, you MUST also write a `note` (or set `resolution_method: "unresolved"`), or verification fails for a silently unresolved ambiguity.
+Before recording step completion, persist these keys to `state.yaml` `accumulated-context` (top-level, NOT nested under a wrapper block). The verifier reads `accumulated-context.company_profile`, `company_overview`, `attendee_bio`, and `company_disambiguation`, and requires at least one of the first three to be non-empty. If `company_disambiguation.ambiguous` is true, you MUST also write a `note` (or set `resolution_method: "unresolved"`), or verification fails for a silently unresolved ambiguity.
 
 ```yaml
 # state.yaml -> accumulated-context (top-level keys)
@@ -179,17 +178,6 @@ common_connections:
   total_count: null
   displayed: []
   note: "{One line}"
-
-# step-03-research-company-and-attendee.md -> frontmatter
-outputs:
-  company_profile: {}
-  company_overview: {}
-  attendee_bio: {}
-  company_disambiguation:
-    ambiguous: false
-    resolution_method: "email domain match"
-  common_connections:
-    status: "found"
 ```
 
 ---

@@ -2,7 +2,6 @@
 status: not-started
 started-at: ~
 completed-at: ~
-outputs: {}
 model: sonnet
 ---
 
@@ -72,7 +71,7 @@ model: sonnet
 7. Present the complete document to the controller and note explicitly:
    - The output path
    - Which path was used (transcript-driven or research-inference), from
-     step 3's `outputs.path_used`
+     step 3's `path_used` in `state.yaml` `accumulated-context`
    - Whether `research_gaps_flagged` was set, and if so, what was missing
    - If a transcript was used: the source (vault path + description) so
      David can go back to the original conversation if he wants more detail

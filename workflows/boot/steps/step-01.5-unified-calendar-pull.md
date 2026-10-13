@@ -1,14 +1,7 @@
 ---
 status: complete
-started-at: '2026-10-09T15:49:14Z'
-completed-at: '2026-10-09T15:52:00Z'
-outputs:
-  calendar_file: data/calendar-unified.json
-  event_count: 18
-  date_range: 2026-10-09 to 2026-10-12
-  status: written
-  m365_calls: 1
-  highlights: Libby's Birthday all-day today; today 6 events incl 2nd Friday Executive Meeting 9:30am CT and Friday Week Wrap-Up 2:30pm CT; Sat Rimmer Wedding 6pm; Mon DLP Bootcamp (remote) all-day with Agent Strategy and GEHC check-in overlapping
+started-at: '2026-10-13T11:46:00Z'
+completed-at: '2026-10-13T11:49:00Z'
 ---
 
 <!-- system:start -->
@@ -80,14 +73,14 @@ outputs:
    - Check size > 100 bytes (not empty)
    - Check valid JSON
 
-5. **Log to outputs:**
+5. **Log to `state.yaml` `accumulated-context`:**
    ```yaml
-   outputs:
-     calendar_file: "data/calendar-unified.json"
-     event_count: N
-     date_range: "YYYY-MM-DD to YYYY-MM-DD"
-     file_size_kb: N
-     status: "written"
+   # state.yaml -> accumulated-context
+   calendar_file: "data/calendar-unified.json"
+   event_count: N
+   date_range: "YYYY-MM-DD to YYYY-MM-DD"
+   file_size_kb: N
+   status: "written"
    ```
 
 6. **Update step frontmatter:** Set `status: complete` and `completed-at` with current timestamp.

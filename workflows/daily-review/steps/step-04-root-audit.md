@@ -2,7 +2,6 @@
 status: complete
 started-at: ~
 completed-at: "2026-10-09T17:11:00-05:00"
-outputs: {}
 model: sonnet
 ---
 

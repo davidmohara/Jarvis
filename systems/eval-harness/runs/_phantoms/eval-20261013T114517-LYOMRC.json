@@ -1,0 +1,89 @@
+{
+  "id": "eval-20261013T114517-LYOMRC",
+  "type": "workflow",
+  "name": "plaud-ingest",
+  "agent": "knox",
+  "session_id": "1eab1e58-4032-4598-97de-6e35d820e2f4",
+  "trigger": "manual",
+  "started": "2026-10-13T00:00:00Z",
+  "completed": "2026-10-13T11:45:17.421052Z",
+  "duration_seconds": 42317.4,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": true,
+      "outputs_non_empty": true,
+      "assertions_checked": 5,
+      "assertions_passed": 4,
+      "assertion_results": [
+        {
+          "assertion": "plaud-001-state-complete",
+          "description": "Plaud ingest workflow state.yaml shows status: complete",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "plaud_ingest-wm-written",
+          "description": "Plaud ingest working memory file was written to memory/working/",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "plaud_ingest-wm-size",
+          "description": "Plaud ingest working memory file is substantive (>200 bytes)",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "plaud_ingest-wm-content",
+          "description": "Plaud ingest working memory contains expected content",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "plaud-002-adversarial-verification-ran",
+          "description": "Stage 5 Phase 4A: step-06 spawns Ralph (plaud-ingest-verification workflow) and records an 'adversarial-verification' guardrail result on this run. Read from the eval record's own guardrails array. This is the distinct-lens check Tim's Stage 5 finding requires: a separate agent performing ingestion accounting (zero silent drops).",
+          "category": "quality",
+          "passed": false
+        }
+      ],
+      "category_breakdown": {
+        "structure": {
+          "passed": 4,
+          "checked": 4
+        },
+        "content": {
+          "passed": 0,
+          "checked": 0
+        },
+        "quality": {
+          "passed": 0,
+          "checked": 1
+        }
+      }
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    }
+  },
+  "version_hash": "783fae138e930911",
+  "prior_baseline_id": null,
+  "tags": [
+    "cowork-hook",
+    "phantom-candidate"
+  ]
+}

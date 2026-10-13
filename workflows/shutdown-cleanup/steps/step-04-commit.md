@@ -2,21 +2,6 @@
 status: complete
 started-at: "2026-09-17T03:49:10Z"
 completed-at: "2026-09-17T03:50:30Z"
-outputs:
-  commit_sha: "0a8209f1"
-  files_committed: 34
-  files_committed_list:
-    - "memory/working/omnifocus-data-2026-09-16-223600.md (new)"
-    - "systems/eval-harness/runs/*.json (27 files — grading-sweep updates + 2 new 2026-09-17 records)"
-    - "systems/eval-harness/skill-runs/git-latest.json"
-    - "systems/eval-harness/skill-runs/rigby-eval-grade-latest.json"
-    - "workflows/shutdown-cleanup/state.yaml"
-    - "workflows/shutdown-cleanup/steps/step-01-purge-artifacts.md"
-    - "workflows/shutdown-cleanup/steps/step-02-organize-deliverables.md"
-    - "workflows/shutdown-cleanup/steps/step-03-gitignore-check.md"
-  bookkeeping_commit_sha: "recorded in the follow-up state commit"
-  temp_artifacts_staged: false
-  pushed: false
 model: sonnet
 ---
 

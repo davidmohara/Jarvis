@@ -2,11 +2,6 @@
 status: complete
 started-at: "2026-09-09T00:07:00Z"
 completed-at: "2026-09-09T00:12:00Z"
-outputs:
-  deduped_count: 15
-  dropped_below_floor: 1
-  awareness_items: 14
-  content_worthy_items: 4
 ---
 
 <!-- system:start -->
@@ -17,7 +12,7 @@ outputs:
 3. Score every item individually. Do not batch-score or average-score a group.
 4. Drop items below `config.yaml relevance.awareness_floor`. Do not carry them forward.
 5. Mark items at or above `config.yaml relevance.content_flag` as content-worthy.
-6. Write `status: complete`, `completed-at`, and `outputs` when done.
+6. Write `status: complete` and `completed-at` to this file's frontmatter when done; record run outputs in `state.yaml` `accumulated-context`.
 
 ---
 
@@ -86,13 +81,13 @@ outputs:
 
    This is how the dormancy tracker knows a source is still producing signal. Step-07-prune reads these values at end of day.
 
-6. Write `outputs` to this file's frontmatter:
+6. Record these outputs to `state.yaml` `accumulated-context`:
    ```yaml
-   outputs:
-     deduped_count: <int>       # items entering this step
-     dropped_below_floor: <int> # items dropped (score < awareness_floor)
-     awareness_items: <int>     # items kept (score >= awareness_floor)
-     content_worthy_items: <int> # items flagged content_worthy
+   # state.yaml -> accumulated-context
+   deduped_count: <int>       # items entering this step
+   dropped_below_floor: <int> # items dropped (score < awareness_floor)
+   awareness_items: <int>     # items kept (score >= awareness_floor)
+   content_worthy_items: <int> # items flagged content_worthy
    ```
 
 ---

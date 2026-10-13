@@ -2,21 +2,6 @@
 status: complete
 started-at: "2026-09-29T02:50:00Z"
 completed-at: "2026-09-29T03:05:00Z"
-outputs:
-  drafts_sent:
-    - Mind/Posts/_shadow-ai-is-shadow-it-at-10x.md
-    - Mind/Posts/_reversibility-is-the-governing-criterion.md
-    - Mind/Posts/_the-restructuring-is-not-coming-its-here.md
-    - Mind/Posts/_dfws-innovation-economy-is-wider-than-you-think.md
-    - Mind/Posts/_culture-is-the-constraint.md
-    - Mind/Posts/_uniform-governance-is-how-agents-die.md
-  drafts_skipped:
-    - path: Mind/Posts/_the-rate-card-is-the-argument.md
-      reason: vault_read_failed (iCloud stub not downloaded; file confirmed in vault via search but 0 bytes on disk)
-  channel: C0B160MA3EK
-  step_skipped: false
-  guardrail: pass
-  selection: david-specified (W39+W40 except Apprenticeship Got Harder)
 ---
 
 <!-- system:start -->
@@ -38,8 +23,8 @@ outputs:
    " | python3 "$IES_ROOT/systems/slack-bot/post.py" C0B160MA3EK "$(cat)"
    ```
    Or write the sanitized message to a temp file and pass it as a shell variable. Either way — **sanitize before send, no exceptions.**
-8. This step is **optional**. If David types "skip" at the selection prompt, set `status: skipped` and `outputs.step_skipped: true`. Do not send anything.
-9. Write `status: complete` (or `skipped`), `completed-at`, and `outputs` when done.
+8. This step is **optional**. If David types "skip" at the selection prompt, set `status: skipped` and record `step_skipped: true` in `state.yaml` `accumulated-context`. Do not send anything.
+9. Write `status: complete` (or `skipped`) and `completed-at` to this file's frontmatter when done; record outputs in `state.yaml` `accumulated-context`.
 
 ---
 
@@ -51,7 +36,7 @@ outputs:
 |-------|-------|
 | Agent | Knox |
 | Model | sonnet |
-| Input | Step-02 `outputs.draft_paths` (Obsidian paths); vault file content via Obsidian MCP; David's selection |
+| Input | Step-02 `draft_paths` from `state.yaml` `accumulated-context` (Obsidian paths); vault file content via Obsidian MCP; David's selection |
 | Output | Draft posts sent to Slack `#content` (`C0B160MA3EK`); `drafts_sent` and `drafts_skipped` lists written to outputs |
 
 ---
@@ -77,9 +62,9 @@ Read `.claude/skills/master-slack/SKILL.md` in full before proceeding. Internali
 
 ### 2. Collect draft paths
 
-Read `draft_paths` from `workflows/watchtower/steps/weekly-step-02-draft-angles.md` frontmatter `outputs` section.
+Read `draft_paths` from `workflows/watchtower/state.yaml` `accumulated-context`.
 
-If `draft_paths` is empty or absent, surface: "[Knox]: No draft paths found in step-02 outputs. Nothing to send." Set `outputs.step_skipped: true`, set `status: complete`, and stop.
+If `draft_paths` is empty or absent, surface: "[Knox]: No draft paths found in step-02 outputs. Nothing to send." Record `step_skipped: true` in `state.yaml` `accumulated-context`, set `status: complete`, and stop.
 
 ### 3. Read each draft from Obsidian
 
@@ -130,7 +115,7 @@ Excluded by default (contains Abbott/Texas content — type "include-texas" to a
 
 Wait for David's response.
 
-If David types "skip": set `outputs.step_skipped: true`, write `status: skipped`, `completed-at`, and stop.
+If David types "skip": record `step_skipped: true` in `state.yaml` `accumulated-context`, write `status: skipped` and `completed-at` to the frontmatter, and stop.
 
 If David types "include-texas": add the excluded draft(s) back to the selection pool, re-present the full list, and wait again.
 
@@ -193,11 +178,11 @@ Repeat for each selected draft. Send them sequentially — wait for verification
 Write to this file's frontmatter:
 
 ```yaml
-outputs:
-  drafts_sent: []       # list of Obsidian paths successfully delivered
-  drafts_skipped: []    # list of {path, reason} objects
-  channel: C0B160MA3EK
-  step_skipped: false   # true if David typed "skip"
+# state.yaml -> accumulated-context
+drafts_sent: []       # list of Obsidian paths successfully delivered
+drafts_skipped: []    # list of {path, reason} objects
+channel: C0B160MA3EK
+step_skipped: false   # true if David typed "skip"
 ```
 
 ---

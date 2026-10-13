@@ -2,11 +2,6 @@
 status: not-started
 started-at: ~
 completed-at: ~
-outputs:
-  final_score: null
-  total_accepted_edits: 0
-  improvement_delta: null
-  report_path: null
 ---
 
 <!-- system:start -->

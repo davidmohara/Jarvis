@@ -2,7 +2,6 @@
 status: not-started
 started-at: ~
 completed-at: ~
-outputs: {}
 model: sonnet
 ---
 
@@ -130,7 +129,7 @@ Read fully and follow: `step-03-build-prep-sheet.md`
 <!-- system:start -->
 ## Output Persistence (MANDATORY)
 
-Before recording step completion, persist the `gathered_data` block to `state.yaml` under `accumulated-context.gathered_data`, and mirror the identical structure in this step file's frontmatter `outputs` field. The verifier reads `accumulated-context.gathered_data` and requires the keys `sharepoint_questions`, `podcast_guide`, `guest_clay`, and `email_context` to be present, each as a map carrying an honest `found` boolean (`false` plus a flag entry is a valid result; a missing key is not). The `sources_used` list also lives inside this block.
+Before recording step completion, persist the `gathered_data` block to `state.yaml` under `accumulated-context.gathered_data`. The verifier reads `accumulated-context.gathered_data` and requires the keys `sharepoint_questions`, `podcast_guide`, `guest_clay`, and `email_context` to be present, each as a map carrying an honest `found` boolean (`false` plus a flag entry is a valid result; a missing key is not). The `sources_used` list also lives inside this block.
 
 ```yaml
 # state.yaml -> accumulated-context
@@ -165,19 +164,5 @@ gathered_data:
     detailed_sheet: null
     pdf_sheet: null
   flags: []
-
-# step-02-gather-data.md -> frontmatter
-outputs:
-  gathered_data:
-    sources_used: []
-    sharepoint_questions:
-      found: false
-    podcast_guide:
-      found: false
-    guest_clay:
-      found: false
-    email_context:
-      found: false
-    flags: []
 ```
 <!-- system:end -->

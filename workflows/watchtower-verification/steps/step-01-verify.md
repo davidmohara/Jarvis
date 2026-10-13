@@ -2,7 +2,6 @@
 status: not-started
 started-at: ~
 completed-at: ~
-outputs: {}
 ---
 
 <!-- system:start -->
@@ -37,7 +36,7 @@ outputs: {}
 
 ### Sequence
 
-1. **Locate the artifacts.** Read the step outputs (`workflows/watchtower/steps/weekly-step-0{1,2,2b,3,4,5,6}-*.md` frontmatter), `workflows/watchtower/state.yaml`, and the manifest.
+1. **Locate the artifacts.** Read the step outputs (`workflows/watchtower/state.yaml` `accumulated-context`), and the manifest.
 
 2. **Re-derive the theme claim.** For each theme in `weekly_themes`, confirm its `source_items` correspond to real gathered/seen items (cross-check `seen.jsonl` and the daily `content_queue`). Mark any theme with no traceable source ⚠️.
 

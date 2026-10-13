@@ -2,9 +2,6 @@
 status: complete
 started-at: "2026-10-09T16:02:00Z"
 completed-at: "2026-10-09T16:04:00Z"
-outputs:
-  briefing_delivered: "yes — full narrative briefing synthesized (Libby's 27th birthday protected; Solace AT&T/McKesson ask; Monday Bootcamp double-books; Steve Hall delegation 14 days overdue; Q4 rocks absent), carried forward through boot steps 06-08 for verbatim delivery; working memory memory/working/morning-briefing-2026-10-09-110140.md; eval eval-20261009T160313-SN12N3 closed success"
-  format: "3-paragraph narrative + calendar table (6 events incl all-day birthday), no em-dashes, no Watchtower section (no daily run), no Reminders section (0 due), 0 degraded sources"
 model: sonnet
 ---
 

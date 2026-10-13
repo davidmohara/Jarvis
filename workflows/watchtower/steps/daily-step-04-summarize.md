@@ -2,9 +2,6 @@
 status: complete
 started-at: "2026-09-09T00:12:00Z"
 completed-at: "2026-09-09T00:20:00Z"
-outputs:
-  items_summarized: 14
-  avg_word_count: 78.5
 ---
 
 <!-- system:start -->
@@ -16,7 +13,7 @@ outputs:
 4. Plain prose only. No bullet points inside summaries.
 5. Target length: 60–100 words per summary. Strict upper bound: 120 words.
 6. Do NOT editorialize beyond what the item actually says. No hype. No padding.
-7. Write `status: complete`, `completed-at`, and `outputs` when done.
+7. Write `status: complete` and `completed-at` to this file's frontmatter when done; record run outputs in `state.yaml` `accumulated-context`.
 
 ---
 
@@ -62,11 +59,11 @@ outputs:
    ```
    All other fields from scored_items carry forward unchanged.
 
-4. Write `outputs` to this file's frontmatter:
+4. Record these outputs to `state.yaml` `accumulated-context`:
    ```yaml
-   outputs:
-     items_summarized: <int>
-     avg_word_count: <float>   # average summary length
+   # state.yaml -> accumulated-context
+   items_summarized: <int>
+   avg_word_count: <float>   # average summary length
    ```
 
 ---

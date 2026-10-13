@@ -2,33 +2,6 @@
 status: complete
 started-at: "2026-10-09T16:45:00Z"
 completed-at: "2026-10-09T16:48:00Z"
-outputs:
-  task_data:
-    person_tasks:
-      - name: "Alice: parking section in email for Texans"
-        project: null
-        due_date: null
-        flagged: false
-    delegations:
-      to_person: []
-      from_person: []
-    previous_action_items:
-      - item: "Josh Stevenson CRM duplicate resolution"
-        original_owner: "Alice Mburu"
-        current_status: unknown
-        evidence: "CRM-Contacts helpdesk ticket 69244 still active as of 2026-09-30"
-      - item: "EOD recap open-items section"
-        original_owner: "Alice Mburu"
-        current_status: unknown
-        evidence: "No direct evidence; proactive surfacing behavior observed Oct 8-9"
-      - item: "Weekly email draft routed for review"
-        original_owner: "Alice Mburu"
-        current_status: unknown
-        evidence: "No routed drafts visible in this window"
-      - item: "Steve Hall follow-up (Derek Nwamadi)"
-        original_owner: "Derek Nwamadi"
-        current_status: stale
-        evidence: "Tracker: due 2026-09-25, Waiting, 14 days overdue"
 model: sonnet
 ---
 
@@ -119,7 +92,7 @@ model: sonnet
 
 ### Output Persistence (MANDATORY)
 
-Before recording step completion, persist the `task_data` block to `state.yaml` under `accumulated-context.task_data`, and mirror the identical structure in this step file's frontmatter `outputs` field. The verifier reads `accumulated-context.task_data` and requires the keys `person_tasks`, `delegations`, and `previous_action_items` to be present. It independently recomputes overdue delegations from each delegation's `due_date` and `status`, so those two fields must be recorded per delegation. Empty lists are valid; a missing key fails verification.
+Before recording step completion, persist the `task_data` block to `state.yaml` under `accumulated-context.task_data`. The verifier reads `accumulated-context.task_data` and requires the keys `person_tasks`, `delegations`, and `previous_action_items` to be present. It independently recomputes overdue delegations from each delegation's `due_date` and `status`, so those two fields must be recorded per delegation. Empty lists are valid; a missing key fails verification.
 
 ```yaml
 # state.yaml -> accumulated-context
@@ -136,15 +109,6 @@ task_data:
 #     due_date: "YYYY-MM-DD"
 #     status: "..."              # any value; "complete" is treated as not overdue
 #     overdue: true/false
-
-# step-03-gather-tasks.md -> frontmatter
-outputs:
-  task_data:
-    person_tasks: []
-    delegations:
-      to_person: []
-      from_person: []
-    previous_action_items: []
 ```
 
 ---

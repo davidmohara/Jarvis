@@ -2,10 +2,6 @@
 status: not-started
 started-at: ~
 completed-at: ~
-outputs:
-  reflect_output_path: null
-  edits_proposed: 0
-  insufficient_data: false
 ---
 
 <!-- system:start -->

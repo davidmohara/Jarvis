@@ -2,7 +2,6 @@
 status: not-started
 started-at: ~
 completed-at: ~
-outputs: {}
 model: haiku
 ---
 
@@ -148,7 +147,7 @@ Log the result:
 [Gate 3] PASS — routing to {action}.
 ```
 
-Write `gate_3_outcome` for this draft into this step's `outputs` at completion.
+Write `gate_3_outcome` for this draft into `state.yaml` `accumulated-context` at completion.
 
 ---
 
@@ -562,7 +561,7 @@ Harper does NOT write eval records. The eval harness is owned by Rigby. Harper s
 
 After the run completes (published, rejected, regenerated, edited, or a clean no-op exit):
 
-1. Write `status: complete`, `completed-at`, and populated `outputs` (at minimum: `threads_checked`, `new_approvals`, `new_rejections`, `new_edits`, `published`, `gate_3_outcomes`, `gate_4_result`, `gate_5_result`) to this file's own frontmatter.
+1. Write `status: complete` and `completed-at` to this file's frontmatter, and record outputs (at minimum: `threads_checked`, `new_approvals`, `new_rejections`, `new_edits`, `published`, `gate_3_outcomes`, `gate_4_result`, `gate_5_result`) in `state.yaml` `accumulated-context`.
 2. Write those same output keys into `state.yaml`'s `accumulated-context`.
 3. Set `state.yaml`'s `current-step: step-02`.
 

@@ -2,7 +2,6 @@
 status: not-started
 started-at: ~
 completed-at: ~
-outputs: {}
 model: sonnet
 ---
 
@@ -41,12 +40,12 @@ model: sonnet
    transcript: "full transcript text"
    ```
 
-3. Write outputs to this file's frontmatter:
+3. Record these outputs to `state.yaml` `accumulated-context`:
    ```yaml
-   outputs:
-     episode_metadata: {...}
-     transcript_length_chars: <int>
-     transcript_quality_note: "clean" | "auto-generated, may have errors" | ...
+   # state.yaml -> accumulated-context
+   episode_metadata: {...}
+   transcript_length_chars: <int>
+   transcript_quality_note: "clean" | "auto-generated, may have errors" | ...
    ```
    (Store the actual transcript text in `accumulated-context` in `state.yaml`,
    not duplicated into this frontmatter — keep the step file itself light.)

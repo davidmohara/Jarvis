@@ -2,12 +2,6 @@
 status: complete
 started-at: 2026-10-09T12:15:00Z
 completed-at: 2026-10-09T12:20:00Z
-outputs:
-  verification_result: pass
-  ralph_verdict: "19 of 19 verified, 0 unverified"
-  guardrail_checkpoint_recorded: false
-  guardrail_checkpoint_error: "guardrail-checkpoint.py TypeError: unsupported operand type(s) for |: 'type' and 'NoneType' (Python version does not support X|Y union type syntax)"
-  adversarial_summary: "All conservation claims verified: 7 archived files confirmed gone from working/ and present in episodic/, 4 compression candidates intact with score=0 and no promoted flag, all 5 semantic target files exist on disk, dream.log counts match all step outputs exactly, git commit d49070df and push confirmed."
 model: sonnet
 ---
 
@@ -17,7 +11,7 @@ model: sonnet
 ## EXECUTION PROTOCOL
 
 **Agent:** Jarvis, spawned by the coordinator, never executed inline. Jarvis spawns Ralph.
-**Input:** Step 01-05 frontmatter outputs, `workflows/dream-cycle/state.yaml`, `memory/dream.log`, the real `memory/working/` and `memory/episodic/` trees, the semantic targets written in step-03
+**Input:** Step 01-05 outputs from `workflows/dream-cycle/state.yaml` `accumulated-context`, `workflows/dream-cycle/state.yaml`, `memory/dream.log`, the real `memory/working/` and `memory/episodic/` trees, the semantic targets written in step-03
 **Output:** Ralph's verdict table; an `adversarial-verification` guardrail result recorded; verdict summary written to state.yaml; state.yaml set to complete
 
 ## PARAMETERS
@@ -25,7 +19,7 @@ model: sonnet
 - Verification workflow: `workflows/dream-cycle-verification/workflow.md`
 - Lens: memory-conservation accounting: archived/promoted/compressed claims vs actual memory files and dream.log
 - Manifest:
-  - step-outputs: `workflows/dream-cycle/steps/step-0{1,2,3,4,5}-*.md` frontmatter outputs
+  - step-outputs: `workflows/dream-cycle/state.yaml` `accumulated-context`
   - state: `workflows/dream-cycle/state.yaml`
   - dream-log: `memory/dream.log`
   - working-dir: `memory/working/`

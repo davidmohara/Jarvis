@@ -13,6 +13,8 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "systems" / "eval-harness" / "vendor"))
+sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "systems" / "eval-harness"))
+from step_outputs import load_step_outputs, load_context
 try:
     import yaml
 except Exception:
@@ -70,7 +72,7 @@ def main():
         return
 
     ctx = state.get("accumulated-context") or {}
-    outputs = (parse_frontmatter(step_path.read_text()).get("outputs") or {}) if step_path.is_file() else {}
+    outputs = load_step_outputs(ies_root, WORKFLOW, ['confirmation', 'gate_5_result'], yaml)
 
     confirmation = None
     gate_5 = None

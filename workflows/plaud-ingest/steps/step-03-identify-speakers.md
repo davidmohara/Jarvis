@@ -3,30 +3,6 @@ status: completed
 model: kimi-k3
 started-at: "2026-10-09T15:48:03Z"
 completed-at: "2026-10-09T16:15:00Z"
-outputs:
-  gate_4_result: "pass-with-unresolved"
-  gate_4_unresolved_speakers:
-    - file_id: 71aa19de30d2d2a67f7fc608dfa126bf
-      recording: "09-24 Meeting: Architecture Proposal for Event Routing and AI-Driven Dispatch"
-      unresolved: ["Speaker 3"]
-    - file_id: d0200e83ccd8c442ba958c3587a0f3d7
-      recording: "2026-09-25 09:29:53 (4th Friday Executive Meeting window)"
-      unresolved: ["Speaker 1"]
-  notes: >
-    pi-20260928-001: 5 recordings processed (3 ready-for-fetch + 2 watcher-staged).
-    Embeddings checked first for all generic labels (160 registered profiles; all matches
-    <0.61, below threshold). Self-ID full-transcript scans run. Calendar exact-window
-    matches found for all 5. AUTO-RESOLVED: 5214979f Speaker 1 = Diana Stevens (calendar +
-    top embedding); bc6b122e Speaker 3 = Janine Jeanson (calendar, Kristin ruled out by
-    third-person references); d0200e83 Speaker 3 = Guillermo Ortega (self-ID via Ashok's
-    addressed handoff + invite). fa0e4f1f all 4 speakers Plaud-named (Michael Braunstein,
-    O'Hara, Vladimir Avila, Robyn Fuentes). UNRESOLVED (escalated): 71aa19de Speaker 3
-    (third in-office voice, off-invite), d0200e83 Speaker 1 (exec meeting MC, likely
-    organizer Mark Kovacevich but unconfirmed). EDGE CASE B FLAGS: Alex Wilcox 1-seg
-    (5214979f), Alex Wilcox 5-seg (bc6b122e), Robyn Fuentes 8-seg (fa0e4f1f) — all
-    off-invite low-segment named tags. Guardrail checkpoint: pass. State set to
-    awaiting-input; consolidated prompt surfaced. Classification: all 5 work.
-    a93aa078 (60s snippet) still pending transcription; watcher running.
 ---
 
 <!-- system:start -->
@@ -278,11 +254,11 @@ or
 [Gate 4] No unresolved speakers — all resolved via embedding match, self-ID, or calendar.
 ```
 
-Write to this step's frontmatter `outputs`:
+Write to `state.yaml` `accumulated-context`:
 ```yaml
-outputs:
-  gate_4_result: "pass" | "pass-with-unresolved"
-  gate_4_unresolved_speakers: [{file_id, recording, unresolved: [...]}, ...]
+# state.yaml -> accumulated-context
+gate_4_result: "pass" | "pass-with-unresolved"
+gate_4_unresolved_speakers: [{file_id, recording, unresolved: [...]}, ...]
 ```
 
 ---

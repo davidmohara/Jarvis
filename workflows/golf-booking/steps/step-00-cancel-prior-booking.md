@@ -2,7 +2,6 @@
 status: not-started
 started-at: ~
 completed-at: ~
-outputs: {}
 model: sonnet
 ---
 
@@ -171,9 +170,9 @@ already-absent booking): clear `booking-id`, `booking-date`, `booking-time` in
 in this file's outputs and `state.yaml`'s `accumulated-context`. The state is now
 clean for step-01 to validate the new target and the workflow to re-book.
 
-After completing, write `status: complete`, `completed-at`, and the populated
-`outputs` keys to this file's frontmatter, mirror those outputs into
-`state.yaml`'s `accumulated-context`, and set `current-step: step-01`.
+After completing, write `status: complete` and `completed-at` to this file's
+frontmatter, record the run's outputs into `state.yaml`'s `accumulated-context`,
+and set `current-step: step-01`.
 
 ---
 

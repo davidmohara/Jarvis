@@ -1,17 +1,7 @@
 ---
 status: complete
-started-at: '2026-10-09T16:06:30Z'
-completed-at: '2026-10-09T16:07:30Z'
-outputs:
-  verification: passed
-  steps_verified: 10
-  failed_steps: []
-  state_status: complete - all 10 prior steps verified status:complete with 2026-10-09 timestamps (01, 01.2, 01.5, 02, 02.5, 03, 04, 05, 06, 06.5), boot state.yaml updated with completion timestamp; 0 degraded sources; guardrail checkpoint pass (no escalation)
-prior-run-2026-09-18:
-  state_status: complete — all 10 prior step files verified status:complete this run, boot state.yaml updated with completion timestamp
-  verification: passed
-  steps_verified: 10
-  note: All prior steps (01, 01.2, 01.5, 02, 02.5, 03, 04, 05, 06, 06.5) show status:complete with today's timestamps. Boot complete with 0 degraded sources. 0 in-flight workflows other than boot itself; plaud-ingest (Knox) COMPLETE this session, 1 recording ingested. Today is Houston personal retreat day 1 with the GEHC architecture review at noon CT.
+started-at: '2026-10-13T12:45:00Z'
+completed-at: '2026-10-13T15:23:26Z'
 ---
 
 <!-- system:start -->
@@ -23,7 +13,6 @@ prior-run-2026-09-18:
 2. This step is a hard gate. Boot is NOT complete until this step passes.
 3. If any step failed verification, boot status MUST remain `in-progress`. Do NOT mark complete.
 4. Do NOT skip this step for any reason — not for time, not because boot "felt complete."
-
 ---
 
 ## EXECUTION PROTOCOL
@@ -86,7 +75,7 @@ prior-run-2026-09-18:
 
 5. **If PASS (including the escalated-but-complete case):** Update step frontmatter and boot state:
    - Set this step's `status: complete` and `completed-at` with current timestamp
-   - Set `outputs.state_status` with a summary (e.g. "complete — all 7 prior steps verified, boot state.yaml updated with completion timestamp")
+   - Record `state_status` in `state.yaml` `accumulated-context` with a summary (e.g. "complete — all 7 prior steps verified, boot state.yaml updated with completion timestamp")
    - Set `outputs: { verification: passed, steps_verified: 7, failed_steps: [] }`
    - **Update `workflows/boot/state.yaml`: `status: complete`, `current-step: null`, record `completed-at`. This write is mandatory — it's the only event that closes out boot's eval-harness record. Do not defer it, do not skip it because the session is ending anyway.**
 

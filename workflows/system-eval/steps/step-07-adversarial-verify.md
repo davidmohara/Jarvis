@@ -2,7 +2,6 @@
 status: not-started
 started-at: ~
 completed-at: ~
-outputs: {}
 model: sonnet
 ---
 
@@ -20,7 +19,7 @@ model: sonnet
 - Verification workflow: `workflows/system-eval-verification/workflow.md`
 - Lens: eval-record analysis claims vs the records themselves (counts, grades, findings traced to files)
 - Manifest:
-  - step-outputs: `workflows/system-eval/steps/step-0{1,2,3,4,5,6}-*.md` frontmatter outputs
+  - step-outputs: `workflows/system-eval/state.yaml` `accumulated-context`
   - state: `workflows/system-eval/state.yaml`
   - eval-records-dir: `systems/eval-harness/runs/`
   - analysis-report: `<report_path from state.yaml accumulated-context.analysis>`
