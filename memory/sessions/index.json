@@ -2872,7 +2872,11 @@
         "files": [
           "systems/error-tracking/entries/err-20261013T231457-A7IQVJ.json",
           "workflows/shutdown-cleanup/steps/step-05-verify-cleanup.md",
-          "workflows/shutdown-cleanup/state.yaml"
+          "workflows/shutdown-cleanup/state.yaml",
+          "skills/git/scripts/commit_classifier.py",
+          "skills/git/scripts/ies-git",
+          ".claude/hooks/git-gate.py",
+          "skills/git/SKILL.md"
         ],
         "loops": [],
         "flag": true
