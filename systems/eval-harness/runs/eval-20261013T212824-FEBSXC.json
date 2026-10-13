@@ -1,11 +1,11 @@
 {
-  "id": "eval-20261013T211428-H9HZGT",
+  "id": "eval-20261013T212824-FEBSXC",
   "type": "workflow",
   "name": "boot",
   "agent": "master",
-  "session_id": "da43a82c-75d1-4652-b90b-23b19bb40114",
+  "session_id": "6498a8fb-eef0-4460-8ff5-b08642d9a967",
   "trigger": "boot",
-  "started": "2026-10-13T21:14:28.730351Z",
+  "started": "2026-10-13T21:28:24.040308Z",
   "completed": null,
   "duration_seconds": null,
   "status": "in-progress",
@@ -21,16 +21,8 @@
     "mechanical": {
       "completed": null,
       "all_steps_finished": null,
-      "tool_failures": 1,
-      "error_ids": [],
-      "tool_failure_log": [
-        {
-          "tool": "Bash",
-          "error": "Exit code 1\nls: /Users/davidohara/Downloads/AI Offerings/: No such file or directory",
-          "duration_ms": 61,
-          "timestamp": "2026-10-13T16:14:49.357909"
-        }
-      ]
+      "tool_failures": 0,
+      "error_ids": []
     },
     "structural": {
       "expected_outputs_written": null,
