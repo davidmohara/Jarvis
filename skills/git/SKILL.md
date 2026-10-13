@@ -47,6 +47,80 @@ The rules below are enforced by code, not just prose:
 - David's own terminal is unaffected: hooks bind Claude sessions only (`CLAUDECODE=1`).
 <!-- system:end -->
 
+<!-- system:start -->
+## Commit Risk Classes
+
+Every changeset is classified deterministically by path (implemented in
+`skills/git/scripts/commit_classifier.py`, enforced by the wrapper):
+
+| Class | Scope | Ceremony |
+|-------|-------|----------|
+| **A — routine** | `memory/`, `data/`, `reviews/`, `meetings/`, `decisions/`, `people/`, `delegations/`, `projects/`, the run-output carve-outs `systems/eval-harness/runs/` and `systems/error-tracking/entries/`, the tracked audit log `systems/eval-harness/git-ops.jsonl`, and the session index (`memory/sessions/index.json`, via `memory/`) | `session-commit` fast lane: one stage + one commit, standard message, pre-flight blocker, NO `--ack-gated`, NO Ralph, NO per-commit eval wrapping |
+| **B — gated** | `workflows/`, `skills/`, `agents/`, `.claude/`, and the rest of `systems/` (capability files; the two run-output paths above are explicitly Class A churn, not capability files) | Standard path: `--ack-gated` after Rigby-built-this-session check, full wrapper gates, Ralph verification |
+| **C — push/remote** | Any push or remote operation | Unchanged. Full ceremony, always. |
+
+**Structural rule:** if ANY staged path is not Class A, the fast lane refuses
+(exit 4) and names the offenders. Gated content cannot reach the fast lane —
+that is structural (the classifier), not procedural (a remembered rule).
+Anything outside both lists (root files, `briefs/`, `content/`, `evolutions/`,
+etc.) is unclassified and also refuses the fast lane; route it through the
+standard `add`/`commit` path.
+
+**One commit per class.** Commit Class B separately from Class A churn so the
+system-change audit trail stays isolated. Post-commit harness churn (eval
+records written by the commit's own hooks) waits for the next session's
+commit — no churn-chasing sequential commits.
+
+## `session-commit` — the Class A fast lane
+
+```
+python3 skills/git/scripts/ies-git session-commit [--dry-run] [summary words...]
+```
+
+One `add -A` + one commit with the standard message
+`chore: session commit - <summary>` (default summary: "routine class A
+churn"). Runs through this wrapper, so the no-raw-git rule and the
+sole-path rule are untouched, and the operation is audited like any other.
+
+Before staging anything it runs, in order:
+
+1. **Pre-flight pattern blocker** (exit 8) — refuses loudly on staged-to-be
+   artifacts matching: `meetings/**/*.html`, `.DS_Store`, `.fuse_hidden*`,
+   `.~lock.*#`, stray temp scripts (`.js`/`.py`/`.sh` in the repo root or
+   under `meetings/`), `__pycache__`.
+2. **Media-deletion rule** (exit 9) — refuses to stage a deletion of any
+   image/media file (png, jpg, gif, heic, webp, svg, mp4, mov, mp3, m4a,
+   wav, ...) from Class A content folders. Screenshot/media files are never
+   deleted during session commits; surface and restore instead.
+3. **Risk classifier** (exit 4) — refuses if any candidate path is not
+   Class A, listing gated vs unclassified offenders.
+4. **Credential scan** (exit 5) — same secret patterns as the standard path.
+
+`--dry-run` runs all checks and prints what would be staged and the message,
+without staging or committing. Use it to preview a fast-lane commit.
+
+Pre-flight replaces post-hoc verification for Class A: the blocker catches
+problems before the commit exists, which is stronger than Ralph finding them
+after. Ralph remains in force for Class B commits, evolutions, deployments,
+and pushes.
+
+### Minimal spawn pattern (for Master)
+
+A Class A session commit needs no persona load and no skill read — the
+wrapper enforces everything. Master can spawn a minimal agent with this
+entire payload:
+
+```
+Run exactly one command from /Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES:
+  python3 skills/git/scripts/ies-git session-commit "<one-line lowercase summary of the session churn>"
+If it exits non-zero, report stderr verbatim and stop. Do not retry with
+flags. Do not run any other git command.
+```
+
+A refusal is the system working: gated or unclassified paths mean the
+changeset needs the standard path (below), not a retry.
+<!-- system:end -->
+
 <!-- personal:start -->
 ## Jurisdiction
 
@@ -327,6 +401,11 @@ Follow Conventional Commits: `feat(scope): description`
 ---
 
 ## Session-End Commit Protocol
+
+**If every changed file is Class A** (see Commit Risk Classes — the common
+case for session-end churn), use the fast lane instead of the sequence below:
+`python3 skills/git/scripts/ies-git session-commit "<summary>"` — one call,
+done. The sequence below is the standard path for Class B or mixed changesets.
 
 **Every command is a separate, atomic call. Do not chain. Wait for each to return before issuing the next.**
 

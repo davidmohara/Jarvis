@@ -23,8 +23,10 @@ Design notes:
     substrings, so `cat skills/git/SKILL.md` or `git log --grep=commit`
     can never false-positive.
   - Only the first line of a command is classified (same heredoc protection
-    as pre-tool-use.sh); a multi-line command whose first line is a git write
-    is blocked rather than rewritten.
+    as pre-tool-use.sh). A multi-line command whose first line is a git write
+    is rewritten whole ONLY when every extra line sits inside a quoted
+    segment (e.g. a multi-line -m message); a newline surviving the quote
+    strip blocks the command rather than rewriting it.
   - This hook never both blocks and rewrites: one decision per call.
   - Exit codes: 0 = allow (possibly rewritten via stdout JSON), 2 = block
     (stderr is fed back to the model as feedback).
@@ -47,6 +49,7 @@ GIT_WRITE_VERBS = {
 GIT_READ_VERBS = {
     "log", "diff", "show", "ls-files", "remote", "describe", "rev-parse",
     "blame", "shortlog", "cat-file", "reflog", "var", "help", "version",
+    "check-ignore",
 }
 
 # Git at ANY command position (line start or after && / || / ; / |), used
@@ -174,13 +177,18 @@ def main():
     # kind == "write": rewrite only clean single commands. Quoted segments
     # (commit messages legitimately contain && or |) are stripped before the
     # metachar scan; a message that defeats the strip worst-case blocks,
-    # which errs safe.
+    # which errs safe. Note [^"] spans newlines, so a multi-line quoted -m
+    # strips whole and passes; a newline OUTSIDE quotes survives the strip
+    # and blocks (heredoc / chained-command protection).
     unquoted = re.sub(r'"[^"]*"|\'[^\']*\'', "", command)
     if UNSAFE_METACHARS.search(unquoted):
         print(BLOCK_TEMPLATE.format(verb=verb, wrapper=WRAPPER), file=sys.stderr)
         sys.exit(2)
 
-    rewritten = re.sub(r"^git\s+", WRAPPER + " ", command.split("\n", 1)[0].strip(), count=1)
+    # Rewrite the FULL command, not just the first line (2026-10-13 fix):
+    # a multi-line quoted -m reaches here intact, and truncating at the
+    # newline emitted an unterminated quote ("unmatched quote" shell error).
+    rewritten = re.sub(r"^git\s+", WRAPPER + " ", command.lstrip(), count=1)
     # Empirical (2026-10-08, this build): updatedInput must carry ONLY the
     # changed fields ({"command": ...}), exactly matching the documented
     # example shape. A full tool_input copy (with description, etc.) is

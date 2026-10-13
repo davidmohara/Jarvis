@@ -24,6 +24,15 @@ Flags consumed by the wrapper itself (not passed to git):
   --ack-root-files     acknowledge non-canonical root-level staged files (commit)
   --allow-destructive  acknowledge a destructive-op refusal (never for
                        force push to main, which is refused unconditionally)
+
+Non-git verbs implemented by the wrapper itself:
+  session-commit [--dry-run] [summary...]
+      Class A fast lane: pre-flight pattern blocker + deterministic path
+      classifier (commit_classifier.py) + one `add -A` + one commit with a
+      standard message. Refuses (non-zero) on forbidden artifacts, media
+      deletions, secrets, or any non-Class-A path in the changeset.
+  classify <path>...
+      Print the risk class (A/B/other) of each repo-relative path.
 """
 
 import json
@@ -33,6 +42,9 @@ import subprocess
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import commit_classifier as cc
 
 IES_ROOT = Path(__file__).resolve().parents[3]
 AUDIT_LOG = IES_ROOT / "systems" / "eval-harness" / "git-ops.jsonl"
@@ -98,7 +110,130 @@ which orphans on FUSE mounts and blocks all git operations until host-side clean
   git ls-files --modified --others --exclude-standard
 """
 
-USAGE = "usage: python3 skills/git/scripts/ies-git [--ack-gated] [--allow-destructive] <git args>"
+USAGE = "usage: python3 skills/git/scripts/ies-git [--ack-gated] [--allow-destructive] <git args>\n" \
+        "       python3 skills/git/scripts/ies-git session-commit [--dry-run] [summary words...]\n" \
+        "       python3 skills/git/scripts/ies-git classify <path> [<path>...]"
+
+
+def session_commit(argv, ack_gated, allow_destructive):
+    """Class A fast lane (err-20261013T231457-A7IQVJ): one stage + one commit
+    of routine session churn, gated by the deterministic path classifier and
+    the pre-flight pattern blocker. No --ack-gated ceremony (the classifier
+    structurally excludes gated paths), no Ralph (pre-flight replaces
+    post-hoc verification for Class A), one commit per pass (post-commit
+    harness churn waits for the next session)."""
+    dry_run = "--dry-run" in argv
+    words = [a for a in argv if a != "--dry-run"]
+    summary = " ".join(words).strip() or "routine class A churn"
+    message = f"chore: session commit - {summary}"
+    if not COMMIT_LINT.match(message):
+        refuse("session-commit", argv, 1,
+               f"refused: summary produced a non-conforming message: {message[:100]}\n"
+               "Keep the summary lowercase and free of leading punctuation.",
+               reason="session-commit-lint")
+
+    harvest_audit()
+
+    # Candidate set: everything `git add -A` would stage (tracked changes vs
+    # HEAD, including deletions, plus untracked files).
+    ns = git(["diff", "--name-status", "HEAD"], capture=True)
+    status_paths = []
+    for line in (ns.stdout or "").splitlines():
+        if not line.strip():
+            continue
+        parts = line.split("\t")
+        status_paths.append((parts[0][0], parts[-1]))
+    untracked = git(["ls-files", "--others", "--exclude-standard"], capture=True)
+    for rel in (untracked.stdout or "").splitlines():
+        if rel.strip():
+            status_paths.append(("A", rel.strip()))
+
+    if not status_paths:
+        print("session-commit: nothing to commit.")
+        audit("session-commit", argv, 0, ack_gated, allow_destructive, reason="nothing-to-commit")
+        sys.exit(0)
+
+    paths = [p for _, p in status_paths]
+
+    # Pre-flight pattern blocker (Class A replacement for Ralph): loud,
+    # non-zero, BEFORE anything is staged.
+    blocks = cc.preflight_blocks(paths)
+    if blocks:
+        refuse("session-commit", argv, 8,
+               "refused: pre-flight blocked forbidden artifact(s):\n  " +
+               "\n  ".join(f"{p} ({why})" for p, why in blocks[:20]) +
+               "\nDelete or gitignore these before committing; never stage them.",
+               reason="preflight-forbidden-pattern")
+
+    # Screenshot/media rule: never stage a deletion of image/media files
+    # from Class A content folders.
+    media = cc.media_deletions(status_paths)
+    if media:
+        refuse("session-commit", argv, 9,
+               "refused: media file deletion(s) would be staged:\n  " +
+               "\n  ".join(media[:20]) +
+               "\nNever delete image/media files from project folders during session commits"
+               " (feedback_dont_delete_screenshots). Restore them, or delete and commit"
+               " deliberately via the standard path with David's approval.",
+               reason="media-deletion")
+
+    # Risk classifier: ANY non-Class-A path poisons the fast lane.
+    cls, offenders = cc.classify_changeset(paths)
+    if cls != "A":
+        gated = [p for p, c in offenders if c == "B"]
+        other = [p for p, c in offenders if c == "other"]
+        msg = "refused: changeset is not Class A; the session-commit fast lane only carries routine churn.\n"
+        if gated:
+            msg += "Gated (Class B, needs the standard path with --ack-gated):\n  " + "\n  ".join(gated[:20]) + "\n"
+        if other:
+            msg += "Unclassified (not fast-lane content; route via standard add/commit):\n  " + "\n  ".join(other[:20]) + "\n"
+        msg += "Commit Class B separately from Class A churn so the system-change audit trail stays isolated."
+        refuse("session-commit", argv, 4, msg.rstrip(), reason="not-class-a")
+
+    # Credential scan over the full pending diff plus untracked contents.
+    diff = git(["diff", "HEAD"], capture=True)
+    scanned = (diff.stdout or "")[:200_000]
+    for status, rel in status_paths:
+        if status != "A":
+            continue
+        try:
+            scanned += (Path.cwd() / rel).read_text(errors="replace")[:200_000]
+        except OSError:
+            pass
+    hits = scan_secrets(scanned)
+    if hits:
+        refuse("session-commit", argv, 5,
+               "refused: credential-shaped content in pending changes: " + ", ".join(hits) +
+               "\nSTOP. Surface to David immediately.", reason="secrets-session-commit")
+
+    if dry_run:
+        print(f"session-commit DRY RUN: would stage and commit {len(paths)} Class A file(s):")
+        for p in paths[:40]:
+            print(f"  {p}")
+        if len(paths) > 40:
+            print(f"  ... ({len(paths) - 40} more)")
+        print(f"message: {message}")
+        audit("session-commit", argv, 0, ack_gated, allow_destructive, reason="dry-run")
+        sys.exit(0)
+
+    add = git(["add", "-A"])
+    if add.returncode != 0:
+        audit("session-commit", argv, add.returncode, ack_gated, allow_destructive, reason="add-failed")
+        sys.exit(add.returncode)
+    result = git(["commit", "-m", message])
+    audit("session-commit", argv, result.returncode, ack_gated, allow_destructive)
+    sys.exit(result.returncode)
+
+
+def classify_cli(argv):
+    """Expose the risk classifier for inspection and tests:
+    `ies-git classify <path>...` prints one `path: CLASS` line per path."""
+    if not argv:
+        die("usage: python3 skills/git/scripts/ies-git classify <path> [<path>...]")
+    names = {"A": "A (routine, fast lane)", "B": "B (gated)", "other": "other (standard path)"}
+    for p in argv:
+        c = cc.classify_path(p)
+        print(f"{p}: {names[c]}")
 
 
 def die(msg: str, code: int = 1) -> "None":
@@ -210,6 +345,13 @@ def main():
 
     if verb == "status":
         refuse(verb, argv, 1, STATUS_REFUSAL)
+
+    if verb == "session-commit":
+        session_commit(argv[1:], ack_gated, allow_destructive)
+
+    if verb == "classify":
+        classify_cli(argv[1:])
+        sys.exit(0)
 
     # Destructive policy (pre-execution, so nothing runs on refusal)
     if verb == "push" and any(f in argv for f in PUSH_FORCE_FLAGS):

@@ -5716,6 +5716,38 @@
         "Package and submit as an evolution when David approves (confirm-before-submit rule).",
         "projects/ai-certification/* carries its own copies of hooks/conventions - separate certification project, intentionally untouched; consider aligning later."
       ]
+    },
+    {
+      "id": "work-20261013-git-commit-risk-classes",
+      "description": "Risk-classified git commit paths per controller directive (fixes err-20261013T231457-A7IQVJ, over-engineering of routine session commits). Deterministic path-based classifier: Class A routine (memory/, data/, reviews/, meetings/, decisions/, people/, delegations/, projects/, plus explicit run-output carve-outs systems/eval-harness/runs/ and systems/error-tracking/entries/ and the tracked audit log systems/eval-harness/git-ops.jsonl; rest of systems/ stays Class B), Class B gated (workflows/, skills/, agents/, .claude/, systems/), Class C push/remote unchanged. Any non-Class-A path in the changeset structurally refuses the fast lane. New ies-git verbs: session-commit (one add -A + one commit, standard message 'chore: session commit - <summary>', pre-flight pattern blocker replacing post-hoc Ralph verification for Class A, media-deletion rule, credential scan, --dry-run; no --ack-gated ceremony, no per-commit eval wrapping) and classify (path-class inspector for tests/debugging). Pre-flight blocker refuses (exit 8) meetings/**/*.html, .DS_Store, .fuse_hidden*, .~lock.*#, stray root/meetings temp scripts, __pycache__; media deletions from Class A folders refuse at exit 9. One commit per class: Class B commits separately from Class A churn. Also fixed git-gate.py multi-line commit message bug ('unmatched quote': rewrite truncated at first newline; now rewrites the full command when extra lines sit inside quotes, still blocks newlines outside quotes) and added check-ignore to GIT_READ_VERBS.",
+      "started": "2026-10-13T23:30:00Z",
+      "classification": "system",
+      "files": [
+        {
+          "path": "skills/git/scripts/commit_classifier.py",
+          "action": "add",
+          "type": "system",
+          "description": "Deterministic path-based risk classifier (A/B/other) plus pre-flight forbidden-pattern blocker and media-deletion rule"
+        },
+        {
+          "path": "skills/git/scripts/ies-git",
+          "action": "replace",
+          "type": "system",
+          "description": "New session-commit fast-lane verb and classify inspector verb; usage/docs header updated"
+        },
+        {
+          "path": "skills/git/SKILL.md",
+          "action": "merge",
+          "type": "system",
+          "description": "New Commit Risk Classes section, session-commit fast-lane docs, minimal spawn payload pattern, session-end protocol pointer; personal blocks preserved"
+        },
+        {
+          "path": ".claude/hooks/git-gate.py",
+          "action": "replace",
+          "type": "system",
+          "description": "Multi-line quoted -m rewrite fix (full-command rewrite instead of first-line truncation); check-ignore added to read verbs"
+        }
+      ]
     }
   ]
 }
