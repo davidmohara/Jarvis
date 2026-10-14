@@ -18,8 +18,8 @@ tags:
   - email
 related_people:
 salience:
-  score: 6
-  last-promoted-check: 2026-10-09
+  score: 9
+  last-promoted-check: 2026-10-14
   promoted: true
 ---
 

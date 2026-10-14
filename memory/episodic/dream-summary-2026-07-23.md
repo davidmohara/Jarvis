@@ -17,8 +17,8 @@ tags:
   - q3-rocks
 related_people: []
 salience:
-  score: 10
-  last-promoted-check: 2026-10-09
+  score: 9
+  last-promoted-check: 2026-10-14
   promoted: true
 ---
 

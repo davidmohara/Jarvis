@@ -2767,3 +2767,20 @@ digests_updated: 0
 errors: 0
 summary: "Step-01: 7 archived (16-day gap explains larger batch: 2026-09-28-chief-daily-review.md, 2026-09-28-harper-lone-star-gold-board-update.md, co-sell-pipeline-2026-09-22-000000.md, co-sell-pipeline-2026-10-05-001533.md, dream-summary-2026-09-22.md, dream-summary-2026-09-23.md, plaud-ingest-2026-10-06-175500.md), 0 trivial deletions, 58 skipped (57 unparseable, 1 missing status: knox-plaud-ingest-2026-08-31.md). Enrichment via backfill-episodic-tags.py importlib.util import. Step-02: 346 episodic files scored (339->346, +7 from step-01); pct_score_0=59.54% (pass), pct_score_10=18.79% (pass), pct_no_date=10.69% (same legacy), pct_no_tags=56.94% (warning band, same population); 0 read/write errors, 0 frontmatter corruption. Step-03: 5 clusters promoted -- dream-summary (2 entries -> dream-summary-pattern.md), pipeline-review (2 entries -> pipeline-review-pattern.md, notable: gap narrowed $8.87M->$5.14M in 13 days), daily-review (1 entry -> daily-review-pattern.md, Q3 rocks missed), ypo (1 entry -> ypo-pattern.md, LSG board + Western US RBM Oct 5-6), plaud (1 entry -> plaud-pattern.md, 4th distinct Monday task creation failure mode). 4 qualifying error categories: assumption-error/wrong-assumption:7, process-skip/protocol-skip:5, tool-misuse/tool-ignorance:5, data-accuracy/wrong-assumption:3 -- all already in LESSONS.md, none appended. Step-03b: PASS. Step-04: 4 compression candidates (2026-06-19-session.md, daily-review-2026-06-23-170000.md, system-eval-2026-06-27-040621.md, dream-summary-2026-07-06.md), below 5-entry threshold -- skipped, nothing modified. Clean run, no self-detected errors."
 errors_detail: []
+
+---
+## 2026-10-14T12:00:00 UTC
+session_id: dream-cycle-2026-10-14-120000
+working_archived: 7
+working_deleted: 0
+episodic_scanned: 353
+score_updates: 353
+clusters_found: 5
+semantic_created: 0
+semantic_updated: 5
+promoted_entries: 6
+entries_compressed: 0
+digests_updated: 0
+errors: 0
+summary: "Step-01: 7 archived (all 2026-10-09 entries: knox-plaud-ingest, master-assessment-hunt, sterling-houston-dining, chief-daily-review, dream-summary, plaud-ingest-161500, rock-review), 0 deletions; enrichment via backfill-episodic-tags.py heuristic imported directly. Step-02: 353 scored, pct_score_0=58.6%, 0 read/write errors. Step-03: 6 promoted into 5 existing patterns (dream-summary, daily-review x2, plaud, quarterly-rocks, travel). Q3 rocks resolved (David signed five-rock Q4 set 10-10). Error check: new qualifying category over-engineering/scope-creep (5) appended to LESSONS.md; others already present. Step-03b: guardrail-checkpoint.py found no in-progress eval record, result not recorded (manual review: flag). Step-04: 6 compression candidates (2026-06-19-session, 2026-07-14-harper-meeting-coaching-steve-hall, daily-review-2026-06-23-170000, dream-summary-2026-07-06, system-eval-2026-06-27-040621, system-eval-2026-07-11-040557) crosses the 5-entry threshold; Guardrail 7 requires controller approval, none available unattended, so compression skipped and nothing deleted. Step-06 Ralph verification not spawned; inline conservation check confirmed all 7 archives present in episodic and absent from working."
+errors_detail: []

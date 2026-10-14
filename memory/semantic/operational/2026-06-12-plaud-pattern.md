@@ -3,7 +3,7 @@ type: semantic
 domain: operational
 primary-tag: plaud
 created: 2026-06-12
-last-updated: 2026-09-23
+last-updated: 2026-10-14
 confidence: medium
 synthesized-from: 3
 tags:
@@ -62,3 +62,7 @@ Both sources independently flag the same pre-existing hygiene issue carried with
 Sources this cycle: `memory/episodic/plaud-ingest-2026-09-17-113544.md` (score 3) — a real-ingest Knox report (session knox-2026-09-17-113544): 2 new recordings (SST AI Takeoff Weekly, GEHC AI Routing weekly sync), 12 generic speaker labels resolved via transcript self-ID plus calendar and 12 voice profiles registered for future auto-labeling, both public share URLs captured for manual routing to Alice Mburu. One recurring hygiene flag repeated here: Monday task creation was unavailable that session (no authenticated Monday MCP server configured), so 9 action items were logged in the run report for manual creation rather than created directly — the same class of tooling-availability gap this cluster and the dream-summary cluster have both tracked before.
 
 Confidence held at medium — this source predates (09-17) the two real-ingest evidence points already promoted on 09-21 from the 09-18 session; it adds a third distinct real-ingest incident rather than new information about a already-covered one, but the Monday-MCP-unavailable gap is now a second sighting worth watching if it recurs a third time.
+
+### Cycle 2026-10-14
+- 2026-10-14: 2026-10-09-111643-knox-plaud-ingest.md (score 10) — Knox run pi-20261009-001: 2 new recordings (API total 149), filed to zzPlaud/Other/. Speaker resolution needed two David rulings after the run: Speaker 5 was Michelle Bernier, and a 2-segment "Robyn Fuentes" mis-tag was actually Eric Taussig (verified against the invite and a prep email). Final REC1 speaker list had zero generic labels and 2 new voice profiles registered.
+- New signal: for this cluster the speaker-ID failure mode is now mis-tag by existing voice profile, not only unresolved generic labels. An off-invite name from the profile DB should be treated as suspect and checked against the invite list. Also flagged: a stale orphan in plaud_pending.json (a93aa078) absent from both the API and vault, left in place. Monday task creation worked this run (3 David-owned tasks plus 2 review tasks), contrasting with the earlier MCP-unavailable sightings. Confidence held at medium.

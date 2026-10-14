@@ -1,12 +1,31 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "chief-2026-10-09-172332"
 agent-source: chief
 created: 2026-10-09T17:23:32-05:00
 expires: 2026-10-11T17:23:32-05:00
-status: active
+status: archived
 context: "Chief daily review 2026-10-09 — end-of-day wrap"
+date: 2026-10-09
+source_file: memory/working/2026-10-09-172332-chief-daily-review.md
+tags:
+  - daily-review
+  - chief
+  - omnifocus
+  - scorecard
+  - email
+  - overdue-tasks
+  - rigby
+  - knox
+  - shep
+  - quinn
+related_people:
+  - robyn-fuentes
+salience:
+  score: 7
+  last-promoted-check: 2026-10-14
+  promoted: true
 ---
 
 # Chief daily review — 2026-10-09
