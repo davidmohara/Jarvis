@@ -108,3 +108,12 @@ Account working notes for Spring Line Advisory (Fractional CAIO, $20K/quarter re
 
 ### 2026-06-15 — Rock 4 Co-Sell Pipeline Snapshot (working-archive)
 Q2 closed with the Rock 4 co-sell gap at CRITICAL status — $2.5M pipeline plus $3.1M won against a $15M target (37.4% combined), Microsoft the only active partner and Confluent stalled with zero 2026 wins. Flagged the 176360014 CRM misattribution ($2.6M won) for resolution before the next reliable snapshot.
+
+### 2026-06-19 — Session Working Memory (working-archive)
+Full boot ran and a GA4 pull showed flat blog traffic with no anomalies. Two Knox hallucinations from the June 16 Spring Line Advisory Plaud ingest were corrected (a wrongly listed attendee and two invalid OmniFocus tasks), and a hard-gate step-07 verify-completion step was added to the boot workflow.
+
+### 2026-06-23 — Daily Review (working-archive)
+First proper boot in a while; shipped the Kazakhstan delegation deck and prep sheet, content pipeline rework, and the xAI MNDA/Ehren Seim intro (Rock 4 partner traction), plus a batch of client follow-ups and OmniFocus completions. Carry-forwards included the overdue Nahid golf email; active pursuits spanned Dallas, Houston, and the new xAI relationship.
+
+### 2026-06-27 — System Eval (working-archive)
+8 records graded (5A, 2B, 1F) with batch composite 0.6732, up from 0.6253. Top finding: the daily-review scheduled run wrote no output despite status success (6th occurrence in 19 runs), with a file-write guard recommended.
