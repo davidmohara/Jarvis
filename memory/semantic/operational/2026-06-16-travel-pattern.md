@@ -2,7 +2,7 @@
 type: semantic
 domain: operational
 created: 2026-06-16
-last-updated: 2026-07-03
+last-updated: 2026-10-14
 confidence: high
 synthesized-from: 3
 tags:
@@ -85,3 +85,5 @@ Recurring pattern detected via dream-cycle promotion. 3 entries clustered on `tr
 ## Implications
 
 - Cluster is recurring; monitor for further reinforcement during subsequent dream cycles.
+
+- 2026-10-14: 2026-10-09-163142-sterling-houston-dining.md (score 5) — Sterling Houston dining shortlist for the Oct 13-15 trip (Bib Gourmand preferred, gluten-free). Drive-time estimates were corrected by David (Street to Kitchen is 45 min, not 25) and re-verified through Google Maps. Pattern: east of Loop 610 at 6 PM lands 30-55 min; Chinatown, Bellaire, Galleria and West U are the only sub-30 zone. Lesson matches the day's dominant error class: verify travel times with a routing tool rather than inferring from coordinates.

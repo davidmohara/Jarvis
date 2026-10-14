@@ -1,12 +1,22 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "master-2026-10-09-154553"
 agent-source: master
 created: 2026-10-09T15:45:53-05:00
 expires: 2026-10-11T15:45:53-05:00
-status: active
+status: archived
 context: "Bootcamp assessment hunt — AI Adoption Maturity Assessment location — 2026-10-09"
+date: 2026-10-09
+source_file: memory/working/2026-10-09-154553-master-assessment-hunt.md
+tags:
+  - master
+  - omnifocus
+  - session
+related_people:
+salience:
+  score: 0
+  last-promoted-check: 2026-10-14
 ---
 
 # AI Adoption Maturity Assessment — where it actually lives (2026-10-09)

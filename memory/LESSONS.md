@@ -470,3 +470,11 @@ Failure mode: pattern-mismatch
 Pattern: Recurring data-accuracy errors with failure mode `pattern-mismatch` — surfaced by dream-cycle threshold check (err-20260814T154248-OC1SIQ, err-20260827T183203-RSVL2A, err-20260901T081243-R58BYW). The three underlying incidents are not a single coherent failure (a misidentified call subject, an eval-record selection error, and the salience-score.py frontmatter-stranding bug) but each shares the same shape: the agent matched on a superficial pattern (a name fragment, a file naming convention, a plausible-looking parse) instead of verifying against the actual underlying data before acting on the match.
 Fix: When a match is based on a naming pattern, keyword, or superficial similarity rather than a direct lookup of the authoritative record, treat the match as a hypothesis and verify against the actual source before using it — don't let a pattern that "looks right" substitute for confirming it against ground truth.
 Status: active
+
+## 2026-10-14 — Over-Engineering / Scope Creep
+Detected: 5 occurrences over 30 days (window 2026-09-14 to 2026-10-14)
+Category: over-engineering
+Failure mode: scope-creep
+Pattern: Work expands past what was asked or needed. Examples: a research request for a golf foursome triggering a retired prep skill that wrote extra deliverables; plaud-ingest creating 11 Monday items against explicit instruction; a multi-sentence postmortem embedded in workflow step files; step-file frontmatter used as a per-run outputs log duplicating state.yaml; a routine session-end commit requiring a subagent spawn, persona load, and skill read.
+Fix: Do exactly the requested scope and the cheapest path that satisfies it. Before adding a deliverable, side effect, or ceremony layer, ask whether the controller requested it or a written rule requires it. Put postmortems and run data in their canonical homes (error entries, state.yaml), not in instruction files. Routine low-risk operations use the fast lane.
+Status: active

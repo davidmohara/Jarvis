@@ -3,7 +3,7 @@ type: semantic
 domain: operational
 primary-tag: daily-review
 created: 2026-06-12
-last-updated: 2026-08-31
+last-updated: 2026-10-14
 confidence: high
 synthesized-from: 19
   - daily-review-2026-06-08-212450.md
@@ -136,3 +136,9 @@ The full Lifebook review completion here is a positive counter-example to this c
 Sources this cycle: `memory/episodic/2026-09-28-chief-daily-review.md` (score 10, date 2026-09-28, archived by the 10-09 cycle due to 16-day gap). The marathon day before Vegas wheels-up: 10 timed events executed with zero-buffer chain 1:30-6:30pm (LSG board, GEHC internal, Dodds CRM, Shelly Kaiser, SMU Cox panel). SMU panel counts toward Rock 3 speaking pace — the one rock ahead of plan. OmniFocus MCP down all session (unified JSON used; weekly review numbers treated as truth: 22 overdue, 23 inbox). 5 error entries logged that day. Eval health: 14 runs, 10 success, 1 failure, 3 in-flight. Five decisions flagged before 8:50am wheels-up: conflict notices for three morning meetings, GEHC handoff of two Braunstein questions (Vlad Avila / Lisa Barnes), Derek Nwamadi / Steve Hall delegation close-or-kill (3 days overdue), Dawn Dearstone birthday text (dinner next day Vegas 7pm), and Q3 rocks sign-off (quarter closes Wednesday).
 
 New signal for this cluster: Q3 rocks unsigned since 07-30 with the quarter closing in two days (09-30) — the first daily-review entry in this cluster where a quarterly rocks deadline miss is explicitly flagged as imminent rather than a background carry-forward. Briefing scorecard 0-1 of 4 priorities confirmed. The professional-execution-runs-strong / personal-Lifebook-deferred split continues — all five flagged decisions were operational or relationship (not Lifebook categories), while the Q3 rocks sign-off risk is the one planning item that slipped to the edge. Confidence held at medium.
+
+### Cycle 2026-10-14
+- 2026-10-14: 2026-10-09-172332-chief-daily-review.md (score 7) and 2026-09-18-180509-chief-daily-review.md (score 3, a stale entry that crossed the threshold after today's new daily-review archive added a shared tag).
+- 10-09 review ended an 11-day daily-review gap (last was 09-28). Morning priority scorecard 1 of 3 confirmed. Ralph adversarial verification returned FLAG with 3 corrections (Knox tasks live on monday.com not OmniFocus; counts re-sourced to a live pull; a double-book decision marked unconfirmed). Day's dominant error pattern: inference presented as verified fact (drive times, an overclaimed exercise count, a suite assignment). Handoffs went to Rigby, Quinn (Q4 rocks unsigned 9 days in) and Shep.
+- 09-18 review (retreat day 1) is the earlier anchor: the same stale-grader-binding and close-eval-record.py system notes for Rigby it carried reappear on 10-09 (close-eval-record.py creating a new record instead of closing, second occurrence). The Q3-rocks-unsigned flag that first appeared there (51 days) is the same one that resolved on 10-10.
+- Cluster signal: gaps between daily reviews are the failure mode (11 days), not review quality. Confidence held at high.

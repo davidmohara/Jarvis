@@ -1,12 +1,24 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "sterling-2026-10-09-163142"
 agent-source: sterling
 created: 2026-10-09T16:31:42-05:00
 expires: 2026-10-11T16:31:42-05:00
-status: active
+status: archived
 context: "Sterling Houston Michelin dining shortlist for Oct 13-15 trip — 2026-10-09"
+date: 2026-10-09
+source_file: memory/working/2026-10-09-163142-sterling-houston-dining.md
+tags:
+  - sterling
+  - omnifocus
+  - travel
+  - flight
+related_people:
+salience:
+  score: 5
+  last-promoted-check: 2026-10-14
+  promoted: true
 ---
 
 # Sterling: Houston dining shortlist (Bib-first) — 2026-10-09

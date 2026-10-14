@@ -1,12 +1,27 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "knox-20261009-111643"
 agent-source: knox
 created: 2026-10-09T11:16:43-05:00
 expires: 2026-10-11T11:16:43-05:00
-status: active
+status: archived
 context: "Knox plaud-ingest run pi-20261009-001 — 2026-10-09"
+date: 2026-10-09
+source_file: memory/working/2026-10-09-111643-knox-plaud-ingest.md
+tags:
+  - knox
+  - calendar
+  - omnifocus
+  - email
+  - plaud
+  - boot
+related_people:
+  - robyn-fuentes
+salience:
+  score: 10
+  last-promoted-check: 2026-10-14
+  promoted: true
 ---
 
 # Knox plaud-ingest — 2026-10-09

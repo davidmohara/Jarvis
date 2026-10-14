@@ -1,7 +1,27 @@
 ---
-type: working
+type: working-archive
 expires: 2026-10-10
-status: active
+status: archived
+date: 2026-10-09
+source_file: memory/working/dream-summary-2026-10-09.md
+tags:
+  - dream-summary
+  - omnifocus
+  - leads
+  - travel
+  - flight
+  - ypo
+  - rock4
+  - quarterly-rocks
+  - pipeline
+  - co-sell
+related_people:
+  - steve-hall
+  - derek-nwamadi
+salience:
+  score: 10
+  last-promoted-check: 2026-10-14
+  promoted: true
 ---
 
 # Dream Cycle Summary — 2026-10-09
