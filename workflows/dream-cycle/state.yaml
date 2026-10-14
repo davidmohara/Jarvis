@@ -1,13 +1,24 @@
 workflow: dream-cycle
 agent: jarvis
 status: complete
-session-started: 2026-10-09T11:32:47Z
-session-completed: 2026-10-09T12:20:00Z
-session-id: dream-cycle-2026-10-09-113247
+session-started: 2026-10-14T12:00:00Z
+session-completed: 2026-10-14T12:20:00Z
+session-id: dream-cycle-2026-10-14-120000
 current-step: ~
 original-request: "Execute dream-cycle workflow for today (scheduled task)"
-last-successful-run: 2026-09-23T08:20:00Z
+last-successful-run: 2026-10-14T12:20:00Z
 accumulated-context:
+  step-2026-10-14-summary:
+    working_archived: 7
+    episodic_scanned: 353
+    score_distribution: "0:207,1:11,2:9,3:17,4:6,5:5,6:4,7:4,8:13,9:19,10:58"
+    clusters_found: 5
+    semantic_updated: 5
+    promoted_entries: 6
+    lessons_appended: 1
+    step_03b: "guardrail-checkpoint.py could not record (no in-progress eval record); manual verdict flag"
+    step_04: "6 candidates >= 5 threshold, Guardrail 7 approval unavailable unattended; skipped, nothing deleted. Needs David approval to compress."
+    step_06: "Ralph not spawned; inline conservation check passed"
   adversarial-verification:
     verdict: all-verified
     result: pass
