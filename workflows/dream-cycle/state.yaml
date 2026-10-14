@@ -17,7 +17,7 @@ accumulated-context:
     promoted_entries: 6
     lessons_appended: 1
     step_03b: "guardrail-checkpoint.py could not record (no in-progress eval record); manual verdict flag"
-    step_04: "6 candidates >= 5 threshold, Guardrail 7 approval unavailable unattended; skipped, nothing deleted. Needs David approval to compress."
+    step_04: "6 candidates; David approved compression in-session after initial skip. entries_compressed 6, digests_updated 2 (2026-Q2, 2026-Q3)."
     step_06: "Ralph not spawned; inline conservation check passed"
   adversarial-verification:
     verdict: all-verified
