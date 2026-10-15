@@ -2,14 +2,14 @@ workflow: plaud-ingest
 agent: knox
 status: complete
 outcome: no-new-recordings
-session-id: pi-20261013-001
-session-started: '2026-10-13T00:00:00Z'
-completed-at: '2026-10-13T00:00:00Z'
+session-id: pi-20261015-001
+session-started: '2026-10-15T00:00:00Z'
+completed-at: '2026-10-15T00:00:00Z'
 current-step: step-01
-original-request: "Knox — run workflows/plaud-ingest/workflow.md in full. Background task. Today's date is 2026-10-13."
+original-request: "Knox — run workflows/plaud-ingest/workflow.md in full. Background task. Today's date is 2026-10-15."
 blocker: null
 accumulated-context:
-  target-date: null
+  target-date: 2026-10-15
   new-recordings: []
   transcription-triggered: []
   pending-recordings: []
@@ -20,7 +20,12 @@ accumulated-context:
   staged-files: []
   ingested-notes: []
   unresolved_speakers: []
+  gate_1_auth_method: cached-token
+  gate_2_result: pass
+  gate_2_flagged_recordings: []
 notes:
-  - "pi-20261013-001: FULL ENUMERATION (catch-up, no target-date). Gate 1 PASS (cached-token, 69 days remaining). API total 149 (unchanged from 10-09 run). Vault zzPlaud/ 208 .md notes, 149 unique file_ids. Tier1/2/3 dedup via ledger (295 entries): API id set == vault id set exactly (0 new, 0 stale). Newest API recording remains 2026-10-08 (both ingested 10-09). No new Plaud recordings since 2026-10-09."
-  - "Staging: 146 top-level plaud_*.md, all resolve to vault file_ids (0 orphans of ingested recordings). One known stale orphan raw json (a93aa078b699d69c62c4a2cef8dcf5b2, 2026-09-25 60s snippet) remains: not in API (deleted), not in vault; still held in plaud_pending.json. Left in place per prior run — cannot be re-queued because the API source no longer exists. Flagged, not removed."
-  - "Circuit breaker clear (0 new vs prior baseline). Gate 2: 0 recordings to validate. Workflow terminated at step-01 per step-01 failure-mode table (no new recordings -> new-recordings: [], mark complete, do not proceed to step-02). Steps 02-06 not run."
+  - "pi-20261015-001: FULL ENUMERATION (catch-up, target-date ignored per step-01 rule 6 — set for reporting only). Gate 1 PASS (cached-token, ~67 days remaining; /user/me authenticated as David O'Hara). Initial urllib attempt got 403 (default UA blocked); re-ran with fetch_plaud.py canonical headers (requests + Safari UA) per script — API total 149, unchanged from 10-14, 10-13, and 10-09 baselines."
+  - "Obsidian MCP was DOWN this session (ECONNREFUSED at startup). Vault enumerated via direct filesystem walk of iCloud vault zzPlaud/ instead — complete read, not partial: 208 .md notes, 149 unique file_ids, exactly matching the 10-14 baseline. Skill error-handling intent (never dedup against a partial vault read) satisfied; filesystem enumeration is exhaustive by construction."
+  - "Tier1/2/3 dedup via ledger (295 entries: 149 API + 146 staged): API id set == vault id set exactly (0 new, 0 stale). Newest API recording remains 2026-10-08. No new Plaud recordings since 2026-10-09."
+  - "Staging: 146 top-level plaud_*.md, all 146 resolve to vault file_ids via nested recording.id in sibling _raw.json (0 orphans). All are post-ingest leftovers flagged for cleanup, consistent with prior runs. Known stale orphan raw json (a93aa078b699d69c62c4a2cef8dcf5b2, 2026-09-25 60s snippet) still held in plaud_pending.json — not in API (deleted), not in vault; left in place per prior runs."
+  - "Circuit breaker clear (0 new vs 0 baseline). Gate 2: 0 recordings to validate. Workflow terminated at step-01 per step-01 failure-mode table (no new recordings -> new-recordings: [], mark complete, do not proceed to step-02). Steps 02-06 not run."

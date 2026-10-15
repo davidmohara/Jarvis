@@ -1,11 +1,11 @@
 workflow: boot-verification
 agent: ralph
 status: complete
-session-started: '2026-10-09T15:55:00Z'
-session-id: bv-20261009-001
+session-started: '2026-10-15T14:10:00Z'
+session-id: bv-20261015-001
 current-step: step-02
-original-request: "Verify Phase 2 boot tasks for run boot-2026-10-09 (Friday 2026-10-09). Manifest: Morning Briefing 01-02, Task E (Plaud/Knox), Task G (72-Hour Look-Ahead), Task H (Email Triage), Task I (Jarvis Inbox), Task J (Boot Reminders)."
-completed-at: '2026-10-09T15:58:00Z'
+original-request: "Verify Phase 2 boot tasks for run boot-2026-10-15 (Wednesday 2026-10-15). Manifest: Morning Briefing 01-02, Task E (Plaud/Knox), Task G (72-Hour Look-Ahead), Task H (Email Triage), Task I (Jarvis Inbox), Task J (Boot Reminders)."
+completed-at: '2026-10-15T14:13:00Z'
 accumulated-context:
   phase2-manifest:
     - task: "Morning Briefing Steps 01-02"
@@ -13,26 +13,37 @@ accumulated-context:
       state-file: "workflows/morning-briefing/state.yaml"
       expected-output: "data/calendar-unified.json"
       data-files: ["data/calendar-unified.json", "data/omnifocus-unified.json"]
+      verdict: verified
     - task: "E: Plaud Ingest (Knox)"
-      claimed-status: fire-and-forget
+      claimed-status: not-applicable
       state-file: "workflows/plaud-ingest/state.yaml"
-      verification-note: "Fire-and-forget. Mark ➖ when a Knox/plaud-ingest state exists."
+      verification-note: "step-02 no longer defines Task E; Knox completion checked at step-08. Fresh plaud-ingest state.yaml (pi-20261015-001, complete, no-new-recordings) and knox/plaud-ingest eval record (eval-20261015T140022-XQBT3L) exist for today."
+      verdict: not-applicable
     - task: "G: 72-Hour Look-Ahead"
       claimed-status: completed
       expected-output: "data/calendar-unified.json"
       data-files: ["data/calendar-unified.json"]
+      verdict: verified
     - task: "H: Email Triage"
       claimed-status: completed
       expected-output: "data/email-unified.json"
       data-files: ["data/email-unified.json"]
+      verdict: verified
     - task: "I: Jarvis Inbox"
       claimed-status: nothing-to-surface
       expected-log: "systems/eval-harness/skill-runs/jarvis-inbox-latest.json"
       expected-output: "data/jarvis-inbox-unified.json"
       data-files: ["data/jarvis-inbox-unified.json"]
+      verdict: verified
     - task: "J: Boot Reminders"
       claimed-status: nothing-to-surface
       expected-output: "data/reminders.json"
       data-files: ["data/reminders.json"]
+      verdict: verified
   verdict-summary: "all-verified"
   rerun-required: []
+  discrepancies:
+    - "systems/eval-harness/skill-runs/jarvis-inbox-latest.json is stale (2026-09-28) — eval-logging gap only; the fresh jarvis-inbox-unified.json (pulled 2026-10-15T14:00:50Z, 0 messages) is the ground truth and supports the claim."
+    - "No memory/working/ entry for 2026-10-15 — expected for a steps-01-02-only boot spawn (Chief run is in-progress at step-03)."
+    - "data/reminders.json mtime is 2026-06-27 (not touched today) — file exists with an empty reminders array; no due entries, so nothing-to-surface is correct."
+    - "Clay pull status 'unavailable' (502) is a legitimate degraded-source outcome per the manifest, not a task failure."

@@ -1,147 +1,55 @@
 agent: master
 status: complete
 current-step: null
-session-id: boot-2026-10-13
-session-started: '2026-10-13T11:41:46Z'
+session-id: boot-2026-10-15
+session-started: '2026-10-15T13:58:23Z'
+completed-at: '2026-10-15T14:35:30Z'
 original-request: Run the morning boot up workflow
+outputs:
+  verification: passed
+  steps_verified: 7
+  failed_steps: []
 accumulated-context:
-  boot-2026-10-09:
-    phase1-point5:
-      unified-data-pulls:
-        email: "completed \u2014 18 messages (10-06 to 10-09)"
-        omnifocus: "completed \u2014 39 tasks (16 inbox, 0 due today, 2 overdue, 0\
-          \ flagged)"
-        clay: "completed \u2014 0 reminders, 0 upcoming birthdays"
-        jarvis-inbox: "nothing-to-surface \u2014 0 messages"
-      files-created:
+  phase1: 'completed inline by Master (context load, identity files, routing)'
+  phase1-point5:
+    unified-data-pulls:
+      email: 'completed — 8 messages (last ~30h inbox; no flagged/high-priority; notable: Liberty Ventures RSVP due TODAY Oct 15 for Becoming AI Native Oct 29 session, Solace/Texans invoice confirmed sent, Derek Nwamadi locked Lockton AI follow-up for Oct 27 2-3 PM CT, October GoTogether kickoff next week)'
+      omnifocus: 'completed — 35 tasks'
+      clay: 'failed — Clay MCP not connected (502 at session start; only auth stubs registered); attempted anyway per mandatory rule'
+      jarvis-inbox: 'nothing-to-surface — 0 messages in Jarvis folder'
+    files-created:
       - data/email-unified.json
       - data/omnifocus-unified.json
       - data/clay-reminders-unified.json
       - data/jarvis-inbox-unified.json
-      - data/calendar-unified.json
-      calendar: "completed \u2014 18 events, 2026-10-09 to 2026-10-12, single M365\
-        \ call"
-      total_data_on_disk_kb: 15
-      degraded: false
-    phase2:
-      morning-briefing-steps-01-02: "completed \u2014 6 events today (Libby's Birthday\
-        \ protected; 2nd Friday Exec 9:30; Wrap-Up w/ Alice 2:30), 16 inbox, 0 due\
-        \ today, 2 overdue, 0 flagged, delegation Steve Hall->Derek Nwamadi 14 days\
-        \ overdue, Q3 rocks unsigned 71 days / Q4 unstarted"
-      task-g-72hr-lookahead: "completed \u2014 Sat Hot 26 8:30a + Rimmer Wedding 6p;\
-        \ Sun clear; Mon DLP Bootcamp remote all-day w/ Agent Strategy 11:30a and\
-        \ GEHC check-in 2:00p overlapping Bootcamp, All Access Members Gathering 6-9p\
-        \ Hotel Vin"
-      task-h-email-triage: "completed \u2014 18 msgs, actionable: Solace (Ledesma)\
-        \ AT&T/McKesson joint-call ask; YNG intro (Kelsey Viera, OOO til 13th); Talent\
-        \ Labs Nov 4 draft agenda (David 8:35 session); DLP Bootcamp Mon logistics;\
-        \ Becoming AI Native panel Oct 29 notes; YPO Deal Network ExCo MicroForum\
-        \ invite; Q4 security training due ~Oct 30"
-      task-i-jarvis-inbox: "nothing-to-surface \u2014 0 messages"
-      task-j-reminders: "nothing-to-surface \u2014 reminders.json empty"
-    phase2-measurement: systems/boot-instrumentation/measurements/measurement-state-20261009T155640.json
-      (1.54 KB, ~393 tokens)
-    briefing: delivered to caller - Friday 2026-10-09 (boot 10:49am CT); Libby's 27th
-      birthday (protected); Solace Ledesma AT&T/McKesson joint-call ask for next week;
-      Monday DLP Bootcamp double-books (Agent Strategy 11:30, GEHC 2:00); Steve Hall
-      delegation 14 days overdue; Q3 unsigned 71 days, Q4 rocks absent; no daily review
-      since 09-28
-    degraded: none - all 5 sources live (OmniFocus via skill script, no fallback);
-      Ralph verified all Phase 2 tasks (pass, 0 re-runs)
-    guardrail: pre-completion-review pass recorded on eval-20261009T154606-R6ZFEC
-    knox: still_running - plaud-ingest pi-20261009-001 at step-04, 2 recordings ingesting;
-      no named eval record yet
-    working-memory: memory/working/morning-briefing-2026-10-09-110140.md
-  boot-2026-09-18:
-    session-note: Prior run record (completed 2026-09-18). Preserved for history.
-    result: 'Boot complete 2026-09-18. Briefing delivered: Houston retreat day 1,
-      GEHC 12pm AI routing architecture discussion (offline review w/ Vlad doc, Braunstein/Pezet),
-      5 tasks due today (AI for Execs handoff 5pm), Ashford & Remington escalation
-      HIGH, UTB board approvals due, Q3 rocks unsigned 50 days, Monday 09-21 9:30am
-      double-book.'
-  boot-2026-09-17:
-    session-note: Prior run record (completed 2026-09-17). Preserved for history.
-    result: 'Boot complete 2026-09-17. Briefing delivered: return travel day LIT->DFW,
-      GEHC client sync, AI for Execs handoff due 09-18, Opal Group reply owed, OmniFocus
-      recovered, plaud-ingest in flight.'
-  boot-2026-10-05:
-    session-note: Prior run record (completed 2026-10-05). Preserved for history.
-  boot-2026-10-08:
-    briefing: delivered to caller - Thursday 2026-10-08 (boot 10:41am CT); GEHC demo
-      already ran 9:30; Vermeer 1:30 ERP call reschedule request; Steve Hall delegation
-      13 days overdue; Q4 rocks unsigned
-    degraded: OmniFocus script pull failed (no osascript in sandbox), MCP fallback,
-      21 tasks, no notes; guardrail-checkpoint.py could not record (no in-progress
-      boot eval record); boot-verification Ralph not spawnable, self-verified
-    data-files:
-    - data/email-unified.json
-    - data/omnifocus-unified.json
-    - data/clay-reminders-unified.json
-    - data/jarvis-inbox-unified.json
-    - data/calendar-unified.json
-    knox: no_record - Knox spawned by parent in background, no eval record yet
-  boot-2026-10-13:
-    phase1-point5:
-      unified-data-pulls:
-        email: completed - 10 messages (10-10 to 10-13)
-        omnifocus: completed - 40 tasks (14 inbox, 0 due today, 0 overdue, 0 flagged)
-        clay: failed - Clay MCP 502 at session start, recorded unavailable
-        jarvis-inbox: nothing-to-surface - 0 messages
-      files-created:
-      - data/email-unified.json
-      - data/omnifocus-unified.json
-      - data/clay-reminders-unified.json
-      - data/jarvis-inbox-unified.json
-      total_data_on_disk_kb: 18
-      degraded: true
-      degraded_reason: Clay MCP unreachable (HTTP 502)
-      calendar: completed - 45 events, 2026-10-13 to 2026-10-16, 2 M365 pages
-    phase2:
-      morning-briefing-steps-01-02: completed - 12 events today (travel DAL->HOU,
-        Bootcamp 8:30-5:30, ACG luncheon 11:30-1, LS Gold Forum 1-5, GEHC 2:00), 14
-        inbox, 0 due today, 10 overdue, 0 flagged, delegation Steve Hall->Derek 18d
-        overdue (confirmed in-hand 10-09), Q4 rocks signed 10-10
-      task-g-72hr-lookahead: completed - Wed FDE 8a/KeyBank 2p/GEHC sync 10:30a(dup);
-        Thu HASC proposal 11a, fly home 7:20p; Fri Dr Jones 8:45a, UTB Compliance
-        1:30p, Wrap-Up Alice 4p; Bootcamp daily thru Fri
-      task-h-email-triage: 'completed - 10 msgs; actionable: Saxum AI-usage baseline
-        for a meeting today, Solace Texans $5,200 ticket payment follow-up, Principled
-        Business Summit speaker promo kit, EOM info session'
-      task-i-jarvis-inbox: nothing-to-surface - 0 messages
-      task-j-reminders: nothing-to-surface - reminders.json empty
-    phase2-measurement: systems/boot-instrumentation/measurements/measurement-state-20261013T115511.json
-      (5.47 KB, ~1399 tokens)
-    phase2-verification: pass - Ralph verified all 6 Phase 2 tasks live, 0 re-runs;
-      Clay degradation confirmed recorded
-    phase3:
-      morning-briefing-step-03: completed - ACG luncheon prepped from 09-14 Summer
-        Craig call; Renzi Stone off-calendar flag; GEHC 2p conflicts LS Gold Forum;
-        daily review missing since 10-09
-      clay-reminders: unavailable - Clay MCP 502
-      clay-birthdays: unavailable - Clay MCP 502
-    briefing: delivered - Monday 2026-10-13 (boot ~6:40a CT); ACG luncheon keynote
-      12:20-12:55 today; travel DAL->HOU; Renzi Stone off-calendar flag; GEHC 2p vs
-      LS Gold Forum collision; 10 overdue; Q4 rocks signed 10-10; working memory memory/working/morning-briefing-2026-10-13-123927.md
-    degraded: Clay MCP 502 (reminders/birthdays unchecked)
-    workflow-scan:
-      workflows_scanned: 'complete - _active.yaml read (active: []), targeted scan
-        of workflows/*/state.yaml run anyway'
-      in_flight_list:
-      - content-pipeline (harper, started 2026-10-12T19:00:00Z, content-discovery
-        run; ~36h old at boot, likely stale-mid-run)
-      status_summary: boot (this run) excluded; plaud-ingest complete no-new-recordings;
-        daily-review-verification and plaud-ingest-verification complete (grep hits
-        were nested accumulated-context); content-pipeline is the only non-boot in-progress
-      result: 1 actionable in-flight workflow surfaced (content-pipeline); not auto-resumed
-    guardrail: 'pre-completion-review FLAG recorded on eval-20261013T114019-Q5UJLE
-      (flag driver: Clay 502 degradation; all other sources fresh, no leakage, briefing
-      current)'
-    verification: passed - 10/10 prior steps status:complete; step-01 timestamp stale
-      (10-09) though executed inline today by Master, noted not failed; session index
-      has exactly 1 record for today; 0 escalations; guardrail flag (Clay 502) is
-      the only mark
-    knox: workflow complete - plaud-ingest pi-20261013-001 terminated at step-01,
-      outcome no-new-recordings (API 149 == vault 149, 0 new since 10-09); eval eval-20261013T114211-G7M41N
-      shows aborted (closed by cleanup during session stall, not a real failure -
-      state.yaml ground truth is complete)
-completed-at: '2026-10-13T15:23:26Z'
+    total_data_on_disk_kb: 15.4
+  calendar:
+    calendar_file: data/calendar-unified.json
+    event_count: 18
+    date_range: '2026-10-15 to 2026-10-18'
+    file_size_kb: 16.4
+    status: written
+  phase2:
+    morning-briefing-steps-01-02: 'completed — Chief subagent returned today''s calendar (5 timed items: Bootcamp main 8:30-17:30, Sales & Recruiting 9:15 tentative, DLP check-in 10:00 CANCELLED, Sales Scrum 10:00 tentative, HASC AI Automation proposal 11:00-11:30 client-facing), tasks (35 active, 14 inbox, 0 due today, 1 overdue — Schedule window cleaning 23 days late, 0 flagged), delegations (1 overdue, Derek Nwamadi / Steve Hall follow-up 20 days late, watch-only per David 10-09). Anomalies: morning-briefing step-01 verifier crashes on calendar start-object format (harness bug, falls back to legacy checks); Susie Staff Retreat all-day 10-15 to 10-17 overlaps Bootcamp + Houston hotel stay. Rocks: R1 Solace co-sell milestones due Oct 17, R2 South Texas decomposition due Oct 17, R3 Scorecard Truth Sep close by Oct 24.'
+    task-g-72hr-lookahead: 'completed — Thu Oct 16 is heavily conflicted: Houston Bootcamp (remote) all-day + Bootcamp main 8:30-17:30 vs Dr Ryan Jones 8:45-10:15 Frisco vs Sales & Recruiting 9:15 vs 1st Friday Executive Meeting 9:30-10:00 (quarterly Month-1 edition). UTB Quarterly Enforcement Compliance Committee Fri 13:30-14:30 VIRTUAL (OCC exam) — pack review needed; OmniFocus "Review Board book" is due Mon Oct 19, AFTER the meeting. Friday Weekly Wrap-Up with Alice Mburu 16:00-16:45. Sat Oct 17: Hot 26 8:30-9:30, Golf 14:00-18:00. Sun Oct 18: clear.'
+    task-h-email-triage: 'completed — 8 messages last ~30h, none flagged/high-priority. Actionable: Liberty Ventures VIP reception/dinner RSVP due TODAY Oct 15 (Becoming AI Native session confirmed Thu Oct 29 4:20-4:50 PM CT, Salon FG Main Stage). FYI: Solace/Texans partnership invoice confirmed sent (Ana Cerda); Derek Nwamadi locked Lockton AI Deep Learning follow-up Tue Oct 27 2-3 PM CT; October GoTogether kicks off next week (Nov 5 webinar 12-1 PM CST).'
+    task-i-jarvis-inbox: 'nothing-to-surface — 0 messages (M365 Jarvis folder search returned empty at 14:00 UTC)'
+    task-j-reminders: 'nothing-to-surface — data/reminders.json reminders array is empty'
+    phase2_status: 'complete — all 5 tasks executed, 0 failures'
+  phase3:
+    morning-briefing-step-03: 'completed — 7 meetings contextualized. HASC AI Automation proposal (11:00, client) classified needs-prep with tension: system-side context thin (no HASC vault note, no jwelsh person file) but yesterday''s review reports prep completed; recommendation: confirm prep deck in hand before 11:00, Chase prep optional. Bootcamp day 3 ready. Sales & Recruiting + Sales Scrum low-context (tentative standups under bootcamp block). Yesterday daily review completed (retroactive). Flag: HOU-DAL flight date discrepancy carry-forward — verify travel; if David flies tonight, bootcamp week shape changes.'
+    clay-reminders: 'unavailable — Clay MCP failed to connect (502 at session start); attempted at step-01.2, auth stubs only'
+    clay-birthdays: 'unavailable — Clay MCP failed to connect (502 at session start)'
+    meetings_found: '7 events contextualized (5 timed today + 2 all-day); 1 client-facing (HASC) needs-prep-with-caveat'
+  briefing_delivered: 'yes — Chief synthesized full briefing (3 paragraphs + calendar table) per morning-briefing step-04; step-03b guardrail result flag (HASC prep artifact unfindable despite reported completion; Susie retreat all-day anomaly) — not escalate; working memory written to memory/working/morning-briefing-2026-10-15-090500.md; morning-briefing eval eval-20261015T142239-SVVBCP closed partial (Clay+Obsidian degraded); morning-briefing state.yaml complete'
+  degraded_sources: 'Clay MCP (reminders/birthdays unchecked, 502), Obsidian MCP (vault lookups degraded; mitigated via filesystem search for step-03), Watchtower daily not run this boot, HASC prep artifact not findable on disk'
+  knox_status: success
+  knox_reason: 'plaud-ingest pi-20261015-001 complete, outcome no-new-recordings; Knox eval eval-20261015T140022-XQBT3L (agent knox, status success, no punch-out) found under runs/_phantoms'
+  knox_eval_id: eval-20261015T140022-XQBT3L
+  data_freshness_report: 'flag — briefing faithful to fresh pulls (Ralph verified all Phase 2 claims); workflow scan sound (active index empty, cross-check confirms); no credential leakage; session index healthy. Minor: morning-briefing step-01 verifier crashes on calendar start-object format (harness bug); HASC prep artifact unfindable despite review claim (surfaced in briefing); jarvis-inbox skill-run log stale since 09-28. Boot eval record eval-20261015T135734-23IOBH renamed general-purpose to boot so name-scoped checkpoint tooling resolves this run.'
+  state_status: 'complete — all 7 gated steps verified (01, 02, 03, 04, 05, 06, 06.5) plus 01.2, 01.5, 02.5; step-06.5 result flag (not escalate); step-01 completed-at stale from 10-09 (Master ran it inline today without refreshing the timestamp; status complete, passes the gate). Boot state.yaml closing at 2026-10-15T14:35:30Z; step-08 Knox check follows per mandated order.'
+  workflows_scanned: 'complete — _active.yaml read (active: []), fast path taken; integrity cross-check of all workflows/*/state.yaml confirmed no in-flight workflows other than this boot run itself. morning-briefing child run closed complete during this boot. content-pipeline aborted (standing, do not surface unless asked); golf-booking awaiting-window (standing); several workflows report idle (non-standard but not in-progress).'
+  phase2_measurement_file: systems/boot-instrumentation/measurements/measurement-state-20261015T141136.json
+  total_kb: 3.12
+  total_tokens: 799
+  verification_results: 'pass — Ralph (bv-20261015-001) verified all 6 Phase 2 tasks: 5 Verified, 1 Not applicable (Task E), 0 Unverified, 0 Skipped, no re-runs. Non-blocking notes: jarvis-inbox skill-run log stale since 09-28 (fresh data file is authoritative); no working-memory entry yet for today (written at step-05); reminders.json mtime 06-27 but array confirmed empty. Knox eval eval-20261015T140022-XQBT3L (agent knox, success) corroborates plaud-ingest pi-20261015-001 no-new-recordings.'

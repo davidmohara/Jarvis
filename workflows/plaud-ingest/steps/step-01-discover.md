@@ -1,8 +1,13 @@
 ---
 status: completed
 model: kimi-k3
-started-at: "2026-10-13T00:00:00Z"
-completed-at: "2026-10-13T00:00:00Z"
+started-at: "2026-10-15T00:00:00Z"
+completed-at: "2026-10-15T00:00:00Z"
+outputs:
+  previous-run-results:
+    new-recordings: 0
+    confirmed-in-vault: 149
+    api-total: 149
 ---
 
 <!-- system:start -->
