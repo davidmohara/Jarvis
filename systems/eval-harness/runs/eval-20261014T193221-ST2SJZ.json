@@ -1,0 +1,61 @@
+{
+  "id": "eval-20261014T193221-ST2SJZ",
+  "agent_id": "a6e95ec9a828ce61e",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "general-purpose",
+  "session_id": "6f598361-38e2-466f-aa81-c27ed122668a",
+  "trigger": "unknown",
+  "started": "2026-10-14T19:32:21.067106Z",
+  "completed": "2026-10-14T19:33:06.297816Z",
+  "duration_seconds": 45.23,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/6f598361-38e2-466f-aa81-c27ed122668a/subagents/agent-a6e95ec9a828ce61e.jsonl",
+  "last_assistant_message": "Research complete. My main report was delivered via SubagentHandback, and the late-arriving supplement (Walmart, U.S. Army, Providence, Barts Health NHS, FedEx) was sent to the main conversation via SendMessage since the handback channel delivers only once.\n\n**Summary of what was delivered:**\n\n- **Bucket 1 \u2014 Adoption (8 stats):** SHRM \"State of AI in HR 2026\" (39% of orgs use AI in HR; recruiting 27%, L&D 17%; n=1,908); SHRM 2025 (43% of HR pros, up from 26%); SHRM 2024 task breakdown (64% recruiting, only 7% AI video screening); LinkedIn Future of Recruiting (37% of recruiting orgs, ~20% of work week saved); Gartner (88% of HR leaders see no significant business value); WEF Future of Jobs 2025; SHRM worker data; plus a vendor-sponsored \"80% adopt / 10% see gains\" reality check.\n\n- **Bucket 2 \u2014 Deployed (10+ named, quantified):** IBM AskHR (94% of routine inquiries, \u221240% HR budget), Microsoft Employee Self-Service Agent, Chipotle/Paradox (75% faster hiring), McDonald's, Fontainebleau Las Vegas (6,500 hires/4 months), Walmart, 7-Eleven, JLL, Standard Chartered/Gloat (~$49k saved per redeploy), Schneider Electric, TCS, U.S. Army, Providence, Barts Health NHS, plus backups. Spans tech, retail, restaurant, hospitality, government, healthcare, finance, manufacturing, and UK public sector.\n\n- **Bucket 3 \u2014 Emerging + governance:** agentic HR (Workday Autopilot/MCP, SAP Joule, Salesforce Agentforce, Amazon Connect Talent, HireVue AI Interviewer, Apriare); the full regulatory picture \u2014 EEOC guidance removed but not rescinded + 2026 NEP abandoning disparate impact; NYC LL144 (no fines ever issued, Dec 2025 Comptroller audit found enforcement gaps); Illinois HB 3773 (live Jan 1, 2026); **EU AI Act high-risk obligations delayed to Dec 2, 2027 by the AI Omnibus (Reg. 2026/1744)**; **Colorado AI Act repealed and replaced (SB 26-189)**; California ADS regs; and AI-hiring litigation (Amazon, iTutorGroup, Mobley v. Workday, Eightfold FCRA, Stanford bias study).\n\n- **A \"do NOT use\" list** of 12 unverifiable/misattributed/outdated stats, including several premises the research proved wrong (the EU Aug 2026 date, Colorado's June 2026 delay, \"LL144 fines,\" the Maryland law, and the misattributed \"43% of recruiters\").\n\n**Method caveat carried through the report:** WebSearch was unauthorized this session and mainstream engines were bot-blocked, so every item was verified by direct fetches (WebFetch and the r.jina.ai reader proxy) plus Google News RSS with a working URL decoder. Company/vendor self-reported figures are labeled as such.",
+  "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+  "total_tokens_input": 0,
+  "total_tokens_output": 0,
+  "total_cost_usd": 0.09,
+  "cost_estimation_note": "estimated based on general-purpose workflow type"
+}

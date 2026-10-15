@@ -1,0 +1,15 @@
+{
+  "id": "err-20261015T171637-0R6I5L",
+  "timestamp": "2026-10-15T17:16:37Z",
+  "category": "tool-misuse",
+  "failure_mode": "working-directory-drift",
+  "severity": "high",
+  "agent": "master",
+  "session": "session-2026-10-15T083156",
+  "description": "Playwright browser_navigate changed the shell working directory to .playwright-mcp/ and never restored it. Subsequent Bash tool calls resolved paths against the wrong directory, breaking hook lookups (eval-turn-start.py not found) and any other IES-root-relative operations.",
+  "reproduction": "mcp__playwright__browser_navigate followed by Bash commands that rely on CWD being the IES root. The .playwright-mcp/ subdirectory became the active CWD after navigation, causing hooks and scripts to fail with ENOENT.",
+  "hook_error": "UserPromptSubmit blocked: python3 '.claude/hooks/eval-turn-start.py' resolved against /Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/.playwright-mcp/ instead of IES root",
+  "proposed_fix": "After any Playwright tool call, immediately run an explicit `cd {IES_ROOT}` Bash command to restore the working directory. Alternatively, always use absolute paths in Bash commands following Playwright calls. Add a standing rule: after mcp__playwright__browser_* calls, restore CWD before the next Bash tool use.",
+  "systemic_rule": "After any mcp__playwright__browser_* call, restore working directory with `cd /Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES` before the next Bash tool call. Never assume CWD survived a Playwright navigation.",
+  "status": "proposed"
+}

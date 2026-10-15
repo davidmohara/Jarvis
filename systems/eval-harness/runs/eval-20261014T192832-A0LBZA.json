@@ -1,0 +1,61 @@
+{
+  "id": "eval-20261014T192832-A0LBZA",
+  "agent_id": "ae6b5867f4018feae",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "general-purpose",
+  "session_id": "6f598361-38e2-466f-aa81-c27ed122668a",
+  "trigger": "unknown",
+  "started": "2026-10-14T19:28:32.069723Z",
+  "completed": "2026-10-14T19:29:46.303108Z",
+  "duration_seconds": 74.23,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/6f598361-38e2-466f-aa81-c27ed122668a/subagents/agent-ae6b5867f4018feae.jsonl",
+  "last_assistant_message": "All four research streams are complete and relayed to the coordinator. The full deliverable now consists of:\n\n1. **Full primary report** \u2014 three buckets (adoption stats / deployed-in-production / emerging-governance), 54 sourced items, plus the do-NOT-use list.\n2. **Category 2 addendum** \u2014 additional AI-interviewer products and named employers.\n3. **Colorado correction** \u2014 SB 26-189, effective Jan 1, 2027.\n4. **Category 3 addendum** \u2014 AI-to-HRIS/MCP deep dive (Workday ASOR/Agent Gateway, SAP, ServiceNow, Microsoft Agent 365, BambooHR/G-P/isolved/UKG MCP servers).\n5. **Category 4 addendum** \u2014 verified controversies plus five corrections to commonly-cited claims.\n\nThe Category 4 researcher surfaced corrections worth flagging as the highest-value accuracy wins for the deck:\n- **iTutorGroup** was intentional, human-coded age cutoffs (disparate treatment), not machine-learning bias \u2014 calling it an \"AI discrimination\" case is contested.\n- **Amazon's 2018 tool was never used to evaluate actual candidates** \u2014 the viral \"Amazon's AI hated women\" framing overstates it.\n- **NYC Local Law 144 is documented as effectively unenforced** (NY State Comptroller audit, Dec 2025: 2 complaints in two years).\n- **Colorado's AI Act was repealed and replaced** by the narrower SB 26-189 (effective Jan 1, 2027).\n- **HireVue dropped facial analysis for low predictive value (~0.25%) and PR/privacy reasons, not because it was found biased.**\n\nOverarching finding: the \"emerging frontier\" is real but almost entirely early-access or vendor-claimed; the most defensible shipped examples are Salesforce Agentforce HR Service, SAP SuccessFactors assistants, Workable/Gusto/BambooHR MCP servers, Amazon Connect Talent, and HackerRank Chakra. The governance story is the standout: US federal enforcement has been removed (DOJ OLC called EEOC disparate-impact guidelines unconstitutional in June 2026) while states and the EU tighten rules \u2014 and the real action has shifted to private class actions (Mobley v. Workday, Kistler v. Eightfold).",
+  "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+  "total_tokens_input": 0,
+  "total_tokens_output": 0,
+  "total_cost_usd": 0.09,
+  "cost_estimation_note": "estimated based on general-purpose workflow type"
+}

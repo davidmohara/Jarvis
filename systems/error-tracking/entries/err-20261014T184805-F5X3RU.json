@@ -1,0 +1,15 @@
+{
+  "id": "err-20261014T184805-F5X3RU",
+  "timestamp": "2026-10-14T18:48:05Z",
+  "session": "2026-10-14",
+  "source": "explicit",
+  "agent": "master",
+  "category": "hallucination",
+  "description": "While mapping the Houston ACG deck to the DRC Talent Labs talk, presented unverified HR proof points as facts (IBM AskHR ~94% of routine queries, Unilever AI recruiting funnel, Walmart employee assistant, J&J talent marketplace) and proposed re-plotting the Time Impact x Demand Limit scatter/2x2 with HR job families, treating what is actual underlying data as a decorative representation. David corrected: the 2x2 and scatter are real data and must not be touched, and the HR examples were fabricated unless provable.",
+  "correction": "Only cite statistics and case studies that are verifiable from a source already in hand (ideation doc citations, prior decks, or live web research with proof). Do not modify data-driven visuals (scatter, 2x2) that encode actual measured data. When proposing content for a presentation, label unverified examples as candidates requiring sourcing rather than presenting them as established facts.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": null,
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": []
+}

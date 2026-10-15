@@ -1,0 +1,182 @@
+{
+  "id": "eval-20261014T125439-VA23PF",
+  "type": "workflow",
+  "name": "boot",
+  "agent": "master",
+  "session_id": "03cf6cc5-847b-4297-8e30-8db3fb7bd667",
+  "trigger": "boot",
+  "started": "2026-10-14T12:54:39.767139Z",
+  "completed": "2026-10-14T13:23:48.332948Z",
+  "duration_seconds": 1748.57,
+  "status": "success",
+  "steps": [],
+  "subagents": [
+    {
+      "agent_id": "a97d473dce10fbda1",
+      "agent_type": "general-purpose",
+      "started": "2026-10-14T12:56:08.874794Z",
+      "completed": "2026-10-14T13:03:37.658259Z",
+      "model": "accounts/fireworks/models/kimi-k3",
+      "tokens_input": 117753,
+      "tokens_output": 578,
+      "cost_usd": 0.09,
+      "duration_seconds": 448.78
+    },
+    {
+      "agent_id": "af1e5ae854c2a676f",
+      "agent_type": "general-purpose",
+      "started": "2026-10-14T12:56:12.243664Z",
+      "completed": null,
+      "model": "sonnet",
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": 0.09,
+      "duration_seconds": null
+    },
+    {
+      "agent_id": "afd2cf6ac1e7d0493",
+      "agent_type": "general-purpose",
+      "started": "2026-10-14T13:03:23.227448Z",
+      "completed": "2026-10-14T13:04:16.125733Z",
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 0,
+      "tokens_output": 0,
+      "cost_usd": 0.09,
+      "duration_seconds": 52.9
+    },
+    {
+      "agent_id": "aa79a42b29ab0e5d3",
+      "agent_type": "general-purpose",
+      "started": "2026-10-14T13:06:29.121729Z",
+      "completed": "2026-10-14T13:10:09.641167Z",
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 0,
+      "tokens_output": 0,
+      "cost_usd": 0.09,
+      "duration_seconds": 220.52
+    },
+    {
+      "agent_id": "af1e5ae854c2a676f",
+      "agent_type": "general-purpose",
+      "started": "2026-10-14T13:10:09.536020Z",
+      "completed": null,
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "agent_id": "ab70e53a022cf59b9",
+      "agent_type": "general-purpose",
+      "started": "2026-10-14T13:11:12.994480Z",
+      "completed": "2026-10-14T13:13:01.609580Z",
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 0,
+      "tokens_output": 0,
+      "cost_usd": 0.09,
+      "duration_seconds": 108.62
+    },
+    {
+      "agent_id": "a7e2df117898caff9",
+      "agent_type": "general-purpose",
+      "started": "2026-10-14T13:16:14.506292Z",
+      "completed": null,
+      "model": "sonnet",
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": 0.09,
+      "duration_seconds": null
+    }
+  ],
+  "monitoring": {
+    "active": false,
+    "state_yaml_path": "workflows/boot/state.yaml",
+    "opened_by": "eval-turn-start.py",
+    "trigger_evidence": "run the morning boot up workflow"
+  },
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 6,
+      "assertions_passed": 5,
+      "assertion_results": [
+        {
+          "assertion": "boot-001-state-complete",
+          "description": "Boot workflow state.yaml shows status: complete",
+          "passed": true
+        },
+        {
+          "assertion": "boot-002-session-index-exists",
+          "description": "Session index file exists \u2014 boot's Session Index Boot step must have created/appended it",
+          "passed": true
+        },
+        {
+          "assertion": "boot-003-session-index-substantive",
+          "description": "Session index is a real record, not an empty stub",
+          "passed": true
+        },
+        {
+          "assertion": "boot-005-omnifocus-data-file-exists",
+          "description": "OmniFocus pull (step-01.2 Pull B) wrote its consolidated data file",
+          "passed": true
+        },
+        {
+          "assertion": "boot-007-omnifocus-no-completed-tasks-leaked",
+          "description": "No completed task leaked into the OmniFocus pull. The inbox permanently holds ~247 completed tasks alongside ~8 incomplete ones, and Clean Up does NOT remove them, so the query itself must carry `completed is false`. Any `completed: true` in the output means the filter was dropped from the call.",
+          "passed": true
+        },
+        {
+          "assertion": "boot-008-omnifocus-filter-documented",
+          "description": "Regression guard: the boot pull instructions still mandate the `completed is false` filter on the inbox query. If someone strips that filter from the instructions, this trips before the leak reaches a briefing.",
+          "passed": false
+        }
+      ]
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": "f82e3148e8b1defeed38af864c0318df897560c533acf076242633d936b73b56",
+  "prior_baseline_id": null,
+  "tags": [
+    "turn-level"
+  ],
+  "guardrails": [
+    {
+      "name": "pre-completion-review",
+      "after_step": "step-06-scan-workflows",
+      "result": "flag",
+      "reason": "Degraded sources surfaced in briefing: Clay MCP and Obsidian MCP unavailable, no Watchtower daily run today, yesterday daily review missing; briefing otherwise faithful to gathered data; workflow scan integrity verified; no leakage; session index healthy",
+      "escalated_to_human": false,
+      "timestamp": "2026-10-14T13:20:01.630619+00:00"
+    }
+  ],
+  "total_tokens_input": 117753,
+  "total_tokens_output": 578,
+  "total_cost_usd": 0.54
+}

@@ -1,0 +1,332 @@
+{
+  "id": "eval-20261014T182807-83X8QV",
+  "type": "workflow",
+  "name": "boot",
+  "agent": "master",
+  "session_id": "6f598361-38e2-466f-aa81-c27ed122668a",
+  "trigger": "boot",
+  "started": "2026-10-14T18:28:07.764346Z",
+  "completed": "2026-10-14T20:35:38.466928Z",
+  "duration_seconds": 7650.7,
+  "status": "aborted",
+  "steps": [],
+  "subagents": [
+    {
+      "agent_id": "a6e95ec9a828ce61e",
+      "agent_type": "general-purpose",
+      "started": "2026-10-14T18:55:59.347270Z",
+      "completed": "2026-10-14T19:33:06.297816Z",
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 0,
+      "tokens_output": 0,
+      "cost_usd": 0.09,
+      "duration_seconds": 45.23
+    },
+    {
+      "agent_id": "a56ac5ab6f7b1f61c",
+      "agent_type": "general-purpose",
+      "started": "2026-10-14T18:56:22.338254Z",
+      "completed": "2026-10-14T19:08:44.230617Z",
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 978390,
+      "tokens_output": 1064,
+      "cost_usd": 0.09,
+      "duration_seconds": 741.89
+    },
+    {
+      "agent_id": "a4d840194a98b5084",
+      "agent_type": "general-purpose",
+      "started": "2026-10-14T18:56:24.176817Z",
+      "completed": "2026-10-14T19:21:01.762372Z",
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 0,
+      "tokens_output": 0,
+      "cost_usd": 0.09,
+      "duration_seconds": 1477.59
+    },
+    {
+      "agent_id": "a44fc6f7d84c0c768",
+      "agent_type": "general-purpose",
+      "started": "2026-10-14T18:56:58.506581Z",
+      "completed": "2026-10-14T19:07:54.194478Z",
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 0,
+      "tokens_output": 0,
+      "cost_usd": 0.09,
+      "duration_seconds": 655.69
+    },
+    {
+      "agent_id": "ac4559c64bbd889c9",
+      "agent_type": "general-purpose",
+      "started": "2026-10-14T18:57:00.363295Z",
+      "completed": "2026-10-14T19:08:34.803679Z",
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 0,
+      "tokens_output": 0,
+      "cost_usd": 0.09,
+      "duration_seconds": 694.44
+    },
+    {
+      "agent_id": "a05592bea0908ac49",
+      "agent_type": "general-purpose",
+      "started": "2026-10-14T18:57:03.419959Z",
+      "completed": "2026-10-14T19:05:03.287647Z",
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 0,
+      "tokens_output": 0,
+      "cost_usd": 0.09,
+      "duration_seconds": 479.87
+    },
+    {
+      "agent_id": "a203a16f5b127c217",
+      "agent_type": "general-purpose",
+      "started": "2026-10-14T18:57:05.275044Z",
+      "completed": "2026-10-14T19:19:47.804773Z",
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 0,
+      "tokens_output": 0,
+      "cost_usd": 0.09,
+      "duration_seconds": 1362.53
+    },
+    {
+      "agent_id": "a45e0b12760799dd7",
+      "agent_type": "general-purpose",
+      "started": "2026-10-14T18:57:56.324201Z",
+      "completed": "2026-10-14T19:13:08.584059Z",
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 0,
+      "tokens_output": 0,
+      "cost_usd": 0.09,
+      "duration_seconds": 912.26
+    },
+    {
+      "agent_id": "ae6b5867f4018feae",
+      "agent_type": "general-purpose",
+      "started": "2026-10-14T18:57:58.734178Z",
+      "completed": "2026-10-14T19:29:46.303108Z",
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 0,
+      "tokens_output": 0,
+      "cost_usd": 0.09,
+      "duration_seconds": 74.23
+    },
+    {
+      "agent_id": "a4ad1c52d1cabf4e4",
+      "agent_type": "general-purpose",
+      "started": "2026-10-14T18:58:08.323402Z",
+      "completed": "2026-10-14T19:32:21.194070Z",
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 474931,
+      "tokens_output": 748,
+      "cost_usd": 0.09,
+      "duration_seconds": 2052.87
+    },
+    {
+      "agent_id": "a1748bde3bf4db50f",
+      "agent_type": "general-purpose",
+      "started": "2026-10-14T18:58:24.870582Z",
+      "completed": "2026-10-14T19:09:54.074300Z",
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 0,
+      "tokens_output": 0,
+      "cost_usd": 0.09,
+      "duration_seconds": 689.2
+    },
+    {
+      "agent_id": "aeb79c2ae1c7c7f98",
+      "agent_type": "general-purpose",
+      "started": "2026-10-14T18:58:27.386384Z",
+      "completed": "2026-10-14T19:16:18.660602Z",
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 0,
+      "tokens_output": 0,
+      "cost_usd": 0.09,
+      "duration_seconds": 1071.27
+    },
+    {
+      "agent_id": "ac7c46ef25c36e431",
+      "agent_type": "general-purpose",
+      "started": "2026-10-14T18:58:45.242070Z",
+      "completed": "2026-10-14T19:24:41.789464Z",
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 154072,
+      "tokens_output": 518,
+      "cost_usd": 0.09,
+      "duration_seconds": 1556.55
+    },
+    {
+      "agent_id": "af3b2de96c3421a7a",
+      "agent_type": "general-purpose",
+      "started": "2026-10-14T18:58:48.354378Z",
+      "completed": "2026-10-14T19:28:32.147284Z",
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 613307,
+      "tokens_output": 1020,
+      "cost_usd": 0.09,
+      "duration_seconds": 1783.79
+    },
+    {
+      "agent_id": "ae6b5867f4018feae",
+      "agent_type": "general-purpose",
+      "started": "2026-10-14T19:16:18.578306Z",
+      "completed": null,
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "agent_id": "ae6b5867f4018feae",
+      "agent_type": "general-purpose",
+      "started": "2026-10-14T19:18:23.097632Z",
+      "completed": null,
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "agent_id": "ae6b5867f4018feae",
+      "agent_type": "general-purpose",
+      "started": "2026-10-14T19:24:41.766576Z",
+      "completed": null,
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "agent_id": "ae6b5867f4018feae",
+      "agent_type": "general-purpose",
+      "started": "2026-10-14T19:25:10.203957Z",
+      "completed": null,
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "agent_id": "ae6b5867f4018feae",
+      "agent_type": "general-purpose",
+      "started": "2026-10-14T19:28:32.069723Z",
+      "completed": null,
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "agent_id": "a6e95ec9a828ce61e",
+      "agent_type": "general-purpose",
+      "started": "2026-10-14T19:32:21.067106Z",
+      "completed": null,
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    }
+  ],
+  "monitoring": {
+    "active": false,
+    "state_yaml_path": "workflows/boot/state.yaml",
+    "opened_by": "eval-turn-start.py",
+    "trigger_evidence": "boot-first-prompt-of-session",
+    "close_reason": "state.yaml's own completion timestamp predates this record's open time by 2.1h \u2014 likely a spurious open, not a real run"
+  },
+  "assessment": {
+    "mechanical": {
+      "completed": false,
+      "all_steps_finished": false,
+      "tool_failures": 3,
+      "error_ids": [],
+      "tool_failure_log": [
+        {
+          "tool": "mcp__claude_ai_Microsoft_365__read_resource",
+          "error": "{\n  \"code\": \"NOT_FOUND\",\n  \"message\": \"NOT_FOUND: Email message not found: AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcHAABAtd68aKbhTanh4UbLkkAvAA8QMQeBAAA=\",\n  \"details\": {\n    \"addressing\": \"id\",\n    \"itemIdShape\": \"ok\",\n    \"uriPath\": \"/messages/AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcHAABAtd68aKbhTanh4UbLkkAvAA8QMQeBAAA%3D\",\n    \"paramKeys\": [\n      \"uri\"\n    ]\n  }\n}",
+          "duration_ms": 783,
+          "timestamp": "2026-10-14T13:29:03.795522"
+        },
+        {
+          "tool": "mcp__claude_ai_Microsoft_365__read_resource",
+          "error": "{\n  \"code\": \"NOT_FOUND\",\n  \"message\": \"NOT_FOUND: Email message not found: AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAiq3ZAABAtd68aKbhTanh4UbLkkAvAA8QMQeCAAA=\",\n  \"details\": {\n    \"addressing\": \"id\",\n    \"itemIdShape\": \"ok\",\n    \"uriPath\": \"/messages/AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAiq3ZAABAtd68aKbhTanh4UbLkkAvAA8QMQeCAAA%3D\",\n    \"paramKeys\": [\n      \"uri\"\n    ]\n  }\n}",
+          "duration_ms": 661,
+          "timestamp": "2026-10-14T13:29:15.601782"
+        },
+        {
+          "tool": "Read",
+          "error": "This PDF has 19 pages, which is too many to read at once. Use the pages parameter to read specific page ranges (e.g., pages: \"1-5\"). Maximum 20 pages per request.",
+          "duration_ms": 1736,
+          "timestamp": "2026-10-14T13:32:32.277700"
+        }
+      ],
+      "abort_reason": "unspecified"
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 6,
+      "assertions_passed": 5,
+      "assertion_results": [
+        {
+          "assertion": "boot-001-state-complete",
+          "description": "Boot workflow state.yaml shows status: complete",
+          "passed": true
+        },
+        {
+          "assertion": "boot-002-session-index-exists",
+          "description": "Session index file exists \u2014 boot's Session Index Boot step must have created/appended it",
+          "passed": true
+        },
+        {
+          "assertion": "boot-003-session-index-substantive",
+          "description": "Session index is a real record, not an empty stub",
+          "passed": true
+        },
+        {
+          "assertion": "boot-005-omnifocus-data-file-exists",
+          "description": "OmniFocus pull (step-01.2 Pull B) wrote its consolidated data file",
+          "passed": true
+        },
+        {
+          "assertion": "boot-007-omnifocus-no-completed-tasks-leaked",
+          "description": "No completed task leaked into the OmniFocus pull. The inbox permanently holds ~247 completed tasks alongside ~8 incomplete ones, and Clean Up does NOT remove them, so the query itself must carry `completed is false`. Any `completed: true` in the output means the filter was dropped from the call.",
+          "passed": true
+        },
+        {
+          "assertion": "boot-008-omnifocus-filter-documented",
+          "description": "Regression guard: the boot pull instructions still mandate the `completed is false` filter on the inbox query. If someone strips that filter from the instructions, this trips before the leak reaches a briefing.",
+          "passed": false
+        }
+      ]
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": "f82e3148e8b1defeed38af864c0318df897560c533acf076242633d936b73b56",
+  "prior_baseline_id": null,
+  "tags": [
+    "turn-level"
+  ],
+  "total_tokens_input": 2220700,
+  "total_tokens_output": 3350,
+  "total_cost_usd": 1.26
+}

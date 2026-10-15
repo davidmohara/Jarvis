@@ -1,0 +1,76 @@
+{
+  "id": "eval-20261015T141817-ZDBX5H",
+  "type": "skill",
+  "name": "peekaboo",
+  "agent": "general-purpose",
+  "session_id": "c88c7928-e2a6-45b1-afae-f35233b7d427",
+  "trigger": "manual",
+  "started": "2026-10-15T14:12:06.972715Z",
+  "completed": "2026-10-15T14:18:17.434725Z",
+  "duration_seconds": 370.5,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": true,
+      "outputs_non_empty": null,
+      "assertions_checked": 2,
+      "assertions_passed": 2,
+      "assertion_results": [
+        {
+          "assertion": "peekaboo-signal-written",
+          "description": "peekaboo skill-run signal file was written",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "peekaboo-signal-status",
+          "description": "peekaboo skill-run did not end in failure",
+          "category": "structure",
+          "passed": true
+        }
+      ],
+      "category_breakdown": {
+        "structure": {
+          "passed": 2,
+          "checked": 2
+        },
+        "content": {
+          "passed": 0,
+          "checked": 0
+        },
+        "quality": {
+          "passed": 0,
+          "checked": 0
+        }
+      }
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "deterministic_gate": {
+      "score": 1.0,
+      "gate_status": "pass",
+      "computed_at": "2026-10-15T14:18:17.763565Z"
+    }
+  },
+  "version_hash": "af728854d6a207bb",
+  "prior_baseline_id": null,
+  "tags": [
+    "cowork-hook",
+    "skill"
+  ]
+}

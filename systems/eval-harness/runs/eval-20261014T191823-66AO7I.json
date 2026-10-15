@@ -1,0 +1,61 @@
+{
+  "id": "eval-20261014T191823-66AO7I",
+  "agent_id": "ae6b5867f4018feae",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "general-purpose",
+  "session_id": "6f598361-38e2-466f-aa81-c27ed122668a",
+  "trigger": "unknown",
+  "started": "2026-10-14T19:18:23.097632Z",
+  "completed": "2026-10-14T19:19:40.347731Z",
+  "duration_seconds": 77.25,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/6f598361-38e2-466f-aa81-c27ed122668a/subagents/agent-ae6b5867f4018feae.jsonl",
+  "last_assistant_message": "Full primary report resent to the coordinator in the requested three-bucket structure (adoption stats / deployed-in-production / emerging-governance), with claim, number, company, source name, URL, date, and confidence note per item, plus the do-NOT-use list.\n\nSummary of what was delivered across all messages:\n- **Full primary report** (just sent) \u2014 54 sourced items across the three buckets plus an 11-item do-NOT-use list.\n- **Addendum** \u2014 additional Category 2 products (Amazon Connect Talent, HackerRank Chakra, Textio Lavalier, Pete & Gabi, micro1, HeyMilo, Sapia.ai, Joveo), named employers (Xponential Fitness, Chipotle, McDonald's, Fontainebleau, Olive Garden, US federal pilot), the Paradox password-exposure incident, and governance additions (California No Robo Bosses Act, CVS settlement).\n- **Correction** \u2014 Colorado AI Act: SB 24-205 repealed/replaced by SB 26-189; applies to consequential decisions on/after Jan 1, 2027.\n\nNote on the two still-running parallel researchers (Categories 3 and 4): their domains are fully covered in the primary report I just resent, so nothing is missing from the deliverable. If they return new material, it would be duplicative.\n\nOne standing caveat for the deck: the sharpest, most defensible \"emerging frontier\" story is Workday's (agents, MCP, Anthropic/Sana, C1.ai agent-identity) \u2014 but almost all of it is early-access or announced, with only a handful of broadly-GA products. The governance slide's strongest non-obvious point is the 2026 split: the federal EEOC deprioritized disparate-impact enforcement while California, Colorado, and the EU AI Act tightened automated-hiring rules.",
+  "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+  "total_tokens_input": 0,
+  "total_tokens_output": 0,
+  "total_cost_usd": 0.09,
+  "cost_estimation_note": "estimated based on general-purpose workflow type"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "err-20261014T185135-CN4A04",
+  "timestamp": "2026-10-14T18:51:35Z",
+  "session": "2026-10-14",
+  "source": "explicit",
+  "agent": "master",
+  "category": "stale-knowledge",
+  "description": "Recommended Grape (Greenville Ave) as a wine bar meetup spot; David corrected that Grape closed in 2019. Recommendation was made from unverified training-data knowledge rather than checking current status.",
+  "correction": "For local venue/restaurant recommendations, verify the business is still open (live web search) before recommending, or state clearly that the suggestion is unverified and may be outdated.",
+  "failure_mode": "stale-training-data",
+  "systemic_fix": null,
+  "fix_status": "proposed",
+  "severity": "minor",
+  "related_entries": []
+}

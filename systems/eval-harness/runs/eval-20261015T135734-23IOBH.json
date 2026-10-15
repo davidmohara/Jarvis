@@ -1,0 +1,555 @@
+{
+  "id": "eval-20261015T135734-23IOBH",
+  "agent_id": "aa47d075a788e9729",
+  "type": "agent",
+  "name": "boot",
+  "workflow": "plaud-ingest",
+  "agent": "master",
+  "session_id": "c716bcec-4a49-47da-be33-4c429477d500",
+  "trigger": "unknown",
+  "started": "2026-10-15T13:57:34.514541Z",
+  "completed": null,
+  "duration_seconds": null,
+  "status": "aborted",
+  "steps": [
+    {
+      "name": "step-01.2-unified-data-pull.md",
+      "step_id": "step-01.2-unified-data-pull.md",
+      "agent": "general-purpose",
+      "owning_agent": "master",
+      "started": "2026-10-15T13:58:30Z",
+      "completed": "2026-10-15T14:01:30Z",
+      "duration_seconds": 180.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "glm-5p3-flash",
+      "tokens_input": 94934,
+      "tokens_output": 131,
+      "cost_usd": null,
+      "token_source": "windowed",
+      "turns_matched": 1
+    },
+    {
+      "name": "step-01.5-unified-calendar-pull.md",
+      "step_id": "step-01.5-unified-calendar-pull.md",
+      "agent": "general-purpose",
+      "owning_agent": "master",
+      "started": "2026-10-15T14:01:30Z",
+      "completed": "2026-10-15T14:03:30Z",
+      "duration_seconds": 120.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "glm-5p3",
+      "tokens_input": 114575,
+      "tokens_output": 481,
+      "cost_usd": null,
+      "token_source": "lenient_fallback",
+      "turns_matched": 4
+    },
+    {
+      "name": "step-02-gather-data.md",
+      "step_id": "step-02-gather-data.md",
+      "agent": "general-purpose",
+      "owning_agent": "master",
+      "started": "2026-10-15T14:03:30Z",
+      "completed": "2026-10-15T14:10:30Z",
+      "duration_seconds": 420.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null,
+      "token_source": null
+    },
+    {
+      "name": "step-02.5-measure-phase2.md",
+      "step_id": "step-02.5-measure-phase2.md",
+      "agent": "general-purpose",
+      "owning_agent": "master",
+      "started": "2026-10-15T14:10:30Z",
+      "completed": "2026-10-15T14:12:00Z",
+      "duration_seconds": 90.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null,
+      "token_source": null
+    },
+    {
+      "name": "step-03-verify-phase2.md",
+      "step_id": "step-03-verify-phase2.md",
+      "agent": "general-purpose",
+      "owning_agent": "master",
+      "started": "2026-10-15T14:12:00Z",
+      "completed": "2026-10-15T14:16:30Z",
+      "duration_seconds": 270.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null,
+      "token_source": null
+    },
+    {
+      "name": "step-04-gather-meeting-context.md",
+      "step_id": "step-04-gather-meeting-context.md",
+      "agent": "general-purpose",
+      "owning_agent": "master",
+      "started": "2026-10-15T14:16:30Z",
+      "completed": "2026-10-15T14:23:00Z",
+      "duration_seconds": 390.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null,
+      "token_source": null
+    },
+    {
+      "name": "step-05-synthesize-briefing.md",
+      "step_id": "step-05-synthesize-briefing.md",
+      "agent": "general-purpose",
+      "owning_agent": "master",
+      "started": "2026-10-15T14:23:00Z",
+      "completed": "2026-10-15T14:29:00Z",
+      "duration_seconds": 360.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null,
+      "token_source": null
+    },
+    {
+      "name": "step-06-scan-workflows.md",
+      "step_id": "step-06-scan-workflows.md",
+      "agent": "general-purpose",
+      "owning_agent": "master",
+      "started": "2026-10-15T14:29:00Z",
+      "completed": "2026-10-15T14:30:00Z",
+      "duration_seconds": 60.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null,
+      "token_source": null
+    },
+    {
+      "name": "step-06.5-guardrail-checkpoint.md",
+      "step_id": "step-06.5-guardrail-checkpoint.md",
+      "agent": "master",
+      "owning_agent": "master",
+      "started": "2026-10-15T14:30:00Z",
+      "completed": "2026-10-15T14:34:00Z",
+      "duration_seconds": 240.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null,
+      "token_source": null
+    },
+    {
+      "name": "step-07-verify-completion.md",
+      "step_id": "step-07-verify-completion.md",
+      "agent": "master",
+      "owning_agent": "master",
+      "started": "2026-10-15T14:34:00Z",
+      "completed": "2026-10-15T14:35:30Z",
+      "duration_seconds": 90.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null,
+      "token_source": null
+    },
+    {
+      "name": "step-08-knox-completion-check.md",
+      "step_id": "step-08-knox-completion-check.md",
+      "agent": "master",
+      "owning_agent": "master",
+      "started": "2026-10-15T14:35:30Z",
+      "completed": "2026-10-15T14:37:00Z",
+      "duration_seconds": 90.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null,
+      "token_source": null
+    },
+    {
+      "name": "step-01-discover.md",
+      "step_id": "step-01-discover.md",
+      "agent": "general-purpose",
+      "owning_agent": "knox",
+      "started": "2026-10-15T00:00:00Z",
+      "completed": "2026-10-15T00:00:00Z",
+      "duration_seconds": 0.0,
+      "status": "completed",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "accounts/fireworks/models/kimi-k3",
+      "tokens_input": 2086176,
+      "tokens_output": 4554,
+      "cost_usd": null,
+      "token_source": "lenient_fallback",
+      "turns_matched": 88
+    },
+    {
+      "name": "step-02-trigger-transcription.md",
+      "agent": "master",
+      "step_id": "step-02-trigger-transcription.md",
+      "owning_agent": "master",
+      "started": "2026-10-09T15:48:03Z",
+      "completed": "2026-10-09T16:15:00Z",
+      "status": "completed",
+      "tokens_input": 2086176,
+      "tokens_output": 4554,
+      "model": "accounts/fireworks/models/kimi-k3",
+      "token_source": "lenient_fallback",
+      "turns_matched": 88,
+      "duration_seconds": 1617.0
+    },
+    {
+      "name": "step-03-identify-speakers.md",
+      "agent": "master",
+      "step_id": "step-03-identify-speakers.md",
+      "owning_agent": "master",
+      "started": "2026-10-09T15:48:03Z",
+      "completed": "2026-10-09T16:15:00Z",
+      "status": "completed",
+      "tokens_input": 2086176,
+      "tokens_output": 4554,
+      "model": "accounts/fireworks/models/kimi-k3",
+      "token_source": "lenient_fallback",
+      "turns_matched": 88,
+      "duration_seconds": 1617.0
+    },
+    {
+      "name": "step-04-fetch-staging.md",
+      "agent": "master",
+      "step_id": "step-04-fetch-staging.md",
+      "owning_agent": "master",
+      "started": "2026-10-09T15:48:03Z",
+      "completed": "2026-10-09T16:15:00Z",
+      "status": "completed",
+      "tokens_input": 2086176,
+      "tokens_output": 4554,
+      "model": "accounts/fireworks/models/kimi-k3",
+      "token_source": "lenient_fallback",
+      "turns_matched": 88,
+      "duration_seconds": 1617.0
+    },
+    {
+      "name": "step-05-ingest-vault.md",
+      "agent": "master",
+      "step_id": "step-05-ingest-vault.md",
+      "owning_agent": "master",
+      "started": "2026-10-09T15:48:03Z",
+      "completed": "2026-10-09T16:15:00Z",
+      "status": "completed",
+      "tokens_input": 2086176,
+      "tokens_output": 4554,
+      "model": "accounts/fireworks/models/kimi-k3",
+      "token_source": "lenient_fallback",
+      "turns_matched": 88,
+      "duration_seconds": 1617.0
+    },
+    {
+      "name": "step-05b-share-with-alice.md",
+      "agent": "master",
+      "step_id": "step-05b-share-with-alice.md",
+      "owning_agent": "master",
+      "started": "2026-10-09T15:48:03Z",
+      "completed": "2026-10-09T16:15:00Z",
+      "status": "completed",
+      "tokens_input": 2086176,
+      "tokens_output": 4554,
+      "model": "accounts/fireworks/models/kimi-k3",
+      "token_source": "lenient_fallback",
+      "turns_matched": 88,
+      "duration_seconds": 1617.0
+    },
+    {
+      "name": "step-06-verify-ingest.md",
+      "agent": "master",
+      "step_id": "step-06-verify-ingest.md",
+      "owning_agent": "master",
+      "started": "2026-10-09T15:48:03Z",
+      "completed": "2026-10-09T16:15:00Z",
+      "status": "completed",
+      "tokens_input": 2086176,
+      "tokens_output": 4554,
+      "model": "accounts/fireworks/models/kimi-k3",
+      "token_source": "lenient_fallback",
+      "turns_matched": 88,
+      "duration_seconds": 1617.0
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": false,
+      "all_steps_finished": true,
+      "tool_failures": 10,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": true,
+      "outputs_non_empty": true,
+      "assertions_checked": 8,
+      "assertions_passed": 7,
+      "assertion_results": [
+        {
+          "assertion": "boot-001-state-complete",
+          "description": "Boot workflow state.yaml shows status: complete",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "boot-002-session-index-exists",
+          "description": "Session index file exists \u2014 boot's Session Index Boot step must have created/appended it",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "boot-003-session-index-substantive",
+          "description": "Session index is a real record, not an empty stub",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "boot-004-guardrail-checkpoint-ran",
+          "description": "step-06.5's guardrail checkpoint recorded a result (pass/flag/escalate) on this run \u2014 read from the eval record's own guardrails array, not self-reported by the workflow",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "boot-005-omnifocus-data-file-exists",
+          "description": "OmniFocus pull (step-01.2 Pull B) wrote its consolidated data file",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "boot-006-omnifocus-pull-not-failed",
+          "description": "OmniFocus pull did not report status:failed. This assertion surfaces the five consecutive degraded boots of September 2026, which were caused by treating the absent Desktop Commander tool as OmniFocus being unreachable. Both the OmniFocus MCP and osascript via the Bash tool work, and neither requires Desktop Commander.",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "boot-007-omnifocus-no-completed-tasks-leaked",
+          "description": "No completed task leaked into the OmniFocus pull. The inbox permanently holds ~247 completed tasks alongside ~8 incomplete ones, and Clean Up does NOT remove them, so the query itself must carry `completed is false`. Any `completed: true` in the output means the filter was dropped from the call.",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "boot-008-omnifocus-filter-documented",
+          "description": "Regression guard: the boot pull instructions still mandate the `completed is false` filter on the inbox query. If someone strips that filter from the instructions, this trips before the leak reaches a briefing.",
+          "category": "structure",
+          "passed": false
+        }
+      ],
+      "category_breakdown": {
+        "structure": {
+          "passed": 7,
+          "checked": 8
+        },
+        "content": {
+          "passed": 0,
+          "checked": 0
+        },
+        "quality": {
+          "passed": 0,
+          "checked": 0
+        }
+      }
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "guardrails": [
+    {
+      "name": "step-01.2-unified-data-pull-checkpoint",
+      "after_step": "step-01.2-unified-data-pull.md",
+      "result": "pass",
+      "reason": "All 4 unified data files present and fresh",
+      "escalated_to_human": false,
+      "timestamp": "2026-10-15T14:02:16.986118Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "files_created": [
+          "data/email-unified.json",
+          "data/omnifocus-unified.json",
+          "data/clay-reminders-unified.json",
+          "data/jarvis-inbox-unified.json"
+        ],
+        "files_missing": [],
+        "files_stale": [],
+        "file_status": {
+          "data/email-unified.json": "fresh (0.0h old)",
+          "data/omnifocus-unified.json": "fresh (0.0h old)",
+          "data/clay-reminders-unified.json": "fresh (0.0h old)",
+          "data/jarvis-inbox-unified.json": "fresh (0.0h old)"
+        }
+      }
+    },
+    {
+      "name": "step-01.5-checkpoint",
+      "after_step": "step-01.5-unified-calendar-pull.md",
+      "result": "pass",
+      "reason": "calendar-unified.json exists with 18 events",
+      "escalated_to_human": false,
+      "timestamp": "2026-10-15T14:05:08.602200Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "calendar_file": "/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/data/calendar-unified.json",
+        "event_count": 18,
+        "date_range": {
+          "start": "2026-10-15",
+          "end": "2026-10-18"
+        },
+        "pulled_at": "2026-10-15T14:04:39Z"
+      }
+    },
+    {
+      "name": "pre-completion-review",
+      "after_step": "step-06-scan-workflows",
+      "result": "flag",
+      "reason": "briefing faithful to fresh pulls (Ralph verified all Phase 2 claims); workflow scan sound (active index empty, cross-check confirms); no credential leakage; session index healthy (record session-2026-10-15T083156). Minor: morning-briefing step-01 verifier crashes on calendar start-object format (harness bug, legacy fallback covered); HASC prep artifact unfindable despite review claim (surfaced in briefing); jarvis-inbox skill-run log stale since 09-28.",
+      "escalated_to_human": false,
+      "timestamp": "2026-10-15T14:28:52.361081+00:00"
+    },
+    {
+      "name": "step-01-discover-checkpoint",
+      "after_step": "step-01-discover.md",
+      "result": "escalate",
+      "reason": "CRITICAL: Step status is 'completed', expected 'complete'",
+      "escalated_to_human": true,
+      "timestamp": "2026-10-15T14:33:53.527679Z",
+      "validation_errors": [
+        "status_mismatch: completed"
+      ]
+    },
+    {
+      "name": "step-02-trigger-transcription-checkpoint",
+      "after_step": "step-02-trigger-transcription.md",
+      "result": "escalate",
+      "reason": "CRITICAL: Step status is 'completed', expected 'complete'",
+      "escalated_to_human": true,
+      "timestamp": "2026-10-15T14:33:53.624460Z",
+      "validation_errors": [
+        "status_mismatch: completed"
+      ]
+    },
+    {
+      "name": "step-03-identify-speakers-checkpoint",
+      "after_step": "step-03-identify-speakers.md",
+      "result": "escalate",
+      "reason": "CRITICAL: Step status is 'completed', expected 'complete'",
+      "escalated_to_human": true,
+      "timestamp": "2026-10-15T14:33:53.716936Z",
+      "validation_errors": [
+        "status_mismatch: completed"
+      ]
+    },
+    {
+      "name": "step-04-fetch-staging-checkpoint",
+      "after_step": "step-04-fetch-staging.md",
+      "result": "escalate",
+      "reason": "CRITICAL: Step status is 'completed', expected 'complete'",
+      "escalated_to_human": true,
+      "timestamp": "2026-10-15T14:33:53.790170Z",
+      "validation_errors": [
+        "status_mismatch: completed"
+      ]
+    },
+    {
+      "name": "step-05-ingest-vault-checkpoint",
+      "after_step": "step-05-ingest-vault.md",
+      "result": "escalate",
+      "reason": "CRITICAL: Step status is 'completed', expected 'complete'",
+      "escalated_to_human": true,
+      "timestamp": "2026-10-15T14:33:53.858319Z",
+      "validation_errors": [
+        "status_mismatch: completed"
+      ]
+    },
+    {
+      "name": "step-05b-share-with-alice-checkpoint",
+      "after_step": "step-05b-share-with-alice.md",
+      "result": "escalate",
+      "reason": "CRITICAL: Step status is 'completed', expected 'complete'",
+      "escalated_to_human": true,
+      "timestamp": "2026-10-15T14:33:53.921302Z",
+      "validation_errors": [
+        "status_mismatch: completed"
+      ]
+    },
+    {
+      "name": "adversarial-verification",
+      "after_step": "step-06-verify-ingest.md",
+      "result": "escalate",
+      "reason": "CRITICAL: Step status is 'completed', expected 'complete'",
+      "escalated_to_human": true,
+      "timestamp": "2026-10-15T14:33:53.985010Z",
+      "validation_errors": [
+        "status_mismatch: completed"
+      ]
+    }
+  ],
+  "punch_out_signal": {
+    "step": "step-06-verify-ingest.md",
+    "checkpoint": "adversarial-verification",
+    "reason": "CRITICAL: Step status is 'completed', expected 'complete'",
+    "awaiting_controller_decision": true,
+    "timestamp": "2026-10-15T14:33:53.985176Z"
+  },
+  "total_cost_usd": 0.0555,
+  "cost_estimation_note": "estimated based on boot workflow type",
+  "model": "sonnet"
+}

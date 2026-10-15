@@ -1,0 +1,13 @@
+{
+  "id": "err-20261015T182423-VWBB3K",
+  "timestamp": "2026-10-15T18:24:23Z",
+  "category": "voice-failure",
+  "failure_mode": "sales-language-in-personal-email",
+  "severity": "high",
+  "agent": "harper",
+  "session": "session-2026-10-15T083156",
+  "description": "Harper produced sales-ish email drafts that David would never write. Specific failure: opener 'That dinner conversation...set me up perfectly...' is performative and artificial — David's voice is warm and direct, not staged. Additionally, [REGISTRATION LINK] placeholder was passed through to drafts despite being flagged as a known gap, rather than being omitted or handled cleanly.",
+  "controller_feedback": "These drafts are terrible. They sound sales-ish and say stupid things like 'That dinner conversation...set me up perfectly...' which I would NEVER say. Plus you didn't even put the link in there.",
+  "proposed_fix": "1. Before writing any email draft, Harper must re-read identity/VOICE.md and identity/writing-rules.md. 2. Warm personal invites must read like David typed them in 60 seconds — no framing devices, no staged callbacks, no 'this conversation set me up perfectly' constructions. 3. If a required element (like a registration link) is not yet available, the draft should note it clearly at the TOP of the draft body (e.g., 'NOTE: Add registration link before sending') not buried as an inline placeholder. 4. Master must review draft quality against voice rules before pushing to Superhuman — do not push drafts that fail the voice check.",
+  "status": "proposed"
+}

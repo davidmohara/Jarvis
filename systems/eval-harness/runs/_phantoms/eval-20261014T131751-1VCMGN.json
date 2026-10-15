@@ -1,0 +1,107 @@
+{
+  "id": "eval-20261014T131751-1VCMGN",
+  "type": "workflow",
+  "name": "morning-briefing",
+  "agent": "chief",
+  "session_id": "03cf6cc5-847b-4297-8e30-8db3fb7bd667",
+  "trigger": "manual",
+  "started": "2026-10-14T13:16:51.594007Z",
+  "completed": "2026-10-14T13:17:51.594007Z",
+  "duration_seconds": 60.0,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": true,
+      "outputs_non_empty": true,
+      "assertions_checked": 8,
+      "assertions_passed": 6,
+      "assertion_results": [
+        {
+          "assertion": "morning-001-state-complete",
+          "description": "Morning briefing workflow state.yaml shows status: complete",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "morning-002-briefing-written",
+          "description": "Morning briefing output file was written to memory/working/",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "morning-003-briefing-substantive",
+          "description": "Morning briefing output is substantive (>500 bytes)",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "morning-004-calendar-section",
+          "description": "Morning briefing contains calendar/schedule section",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "morning-005-priorities-section",
+          "description": "Morning briefing contains priorities/tasks section",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "morning-006-guardrail-checkpoint-ran",
+          "description": "step-03b's guardrail checkpoint recorded a result (pass/flag/escalate) on this run \u2014 read from the eval record's own guardrails array, not self-reported by the workflow",
+          "category": "structure",
+          "passed": false
+        },
+        {
+          "assertion": "morning-007-omnifocus-addressed",
+          "description": "Briefing addresses OmniFocus either way round: task data when the pull succeeded, or an explicit disclosure when it was degraded. Silence is the failure this catches, since a briefing that quietly omits task data reads as a clean day.",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "morning-008-adversarial-verification-ran",
+          "description": "Stage 5 Phase 4A: step-05 spawns Ralph (morning-briefing-verification workflow) and records an 'adversarial-verification' guardrail result on this run. Read from the eval record's own guardrails array, not self-reported by the workflow. This is the distinct-lens check Tim's Stage 5 finding requires: a separate agent cross-checking the briefing against source data.",
+          "category": "quality",
+          "passed": false
+        }
+      ],
+      "category_breakdown": {
+        "structure": {
+          "passed": 6,
+          "checked": 7
+        },
+        "content": {
+          "passed": 0,
+          "checked": 0
+        },
+        "quality": {
+          "passed": 0,
+          "checked": 1
+        }
+      }
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    }
+  },
+  "version_hash": "e0ac89a92f32fd08",
+  "prior_baseline_id": null,
+  "tags": [
+    "cowork-hook",
+    "phantom-candidate"
+  ]
+}

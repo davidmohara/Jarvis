@@ -1,8 +1,8 @@
 {
-  "pulled_at": "2026-10-13T11:45:07Z",
+  "pulled_at": "2026-10-15T14:00:50Z",
   "status": "unavailable",
   "reminders": [],
   "reminder_count": 0,
   "birthday_count": 0,
-  "error": "claude.ai Clay MCP server failed to connect at session start (HTTP 502 Bad Gateway); only interactive authenticate tool exposed, not usable unattended"
+  "error": "Clay MCP failed to connect at session start (502 Bad Gateway); reminder/birthday tools not registered. Attempted anyway per mandatory rule."
 }

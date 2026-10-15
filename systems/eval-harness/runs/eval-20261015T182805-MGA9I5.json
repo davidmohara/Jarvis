@@ -1,0 +1,112 @@
+{
+  "id": "eval-20261015T182805-MGA9I5",
+  "type": "skill",
+  "name": "add-reminder",
+  "agent": "general-purpose",
+  "session_id": "c716bcec-4a49-47da-be33-4c429477d500",
+  "trigger": "manual",
+  "started": "2026-10-15T18:27:59.877332Z",
+  "completed": "2026-10-15T18:28:05.314892Z",
+  "duration_seconds": 5.4,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": true,
+      "outputs_non_empty": true,
+      "assertions_checked": 8,
+      "assertions_passed": 5,
+      "assertion_results": [
+        {
+          "assertion": "add-reminder-001-signal-written",
+          "description": "add-reminder skill-run signal file was written",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "add-reminder-002-signal-status",
+          "description": "add-reminder skill-run did not end in failure",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "add-reminder-003-registry-exists",
+          "description": "data/reminders.json exists after skill run",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "add-reminder-004-registry-substantive",
+          "description": "data/reminders.json has at least one entry (not empty)",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "add-reminder-005-entry-has-trigger-prompt",
+          "description": "reminders.json contains at least one entry with a trigger_prompt field",
+          "category": "structure",
+          "passed": false
+        },
+        {
+          "assertion": "add-reminder-006-entry-has-routing-agent",
+          "description": "reminders.json routing block contains an agent field",
+          "category": "structure",
+          "passed": false
+        },
+        {
+          "assertion": "add-reminder-007-entry-has-action-prompt",
+          "description": "reminders.json routing block contains an action_prompt (no silent drops)",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "add-reminder-008-signal-has-reminder-id",
+          "description": "skill-run signal includes the reminder_id of the entry written",
+          "category": "structure",
+          "passed": false
+        }
+      ],
+      "category_breakdown": {
+        "structure": {
+          "passed": 5,
+          "checked": 8
+        },
+        "content": {
+          "passed": 0,
+          "checked": 0
+        },
+        "quality": {
+          "passed": 0,
+          "checked": 0
+        }
+      }
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "deterministic_gate": {
+      "score": 0.8438,
+      "gate_status": "pass",
+      "computed_at": "2026-10-15T18:28:05.595079Z"
+    }
+  },
+  "version_hash": "34bc1c97e507db36",
+  "prior_baseline_id": null,
+  "tags": [
+    "cowork-hook",
+    "skill"
+  ]
+}

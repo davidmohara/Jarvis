@@ -2876,10 +2876,97 @@
           "skills/git/scripts/commit_classifier.py",
           "skills/git/scripts/ies-git",
           ".claude/hooks/git-gate.py",
-          "skills/git/SKILL.md"
+          "skills/git/SKILL.md",
+          "workflows/boot/state.yaml"
         ],
         "loops": [],
         "flag": true
+      }
+    ]
+  },
+  {
+    "id": "session-2026-10-14-075548",
+    "started": "2026-10-14T07:55:48",
+    "closed": "2026-10-15T08:00:00",
+    "current_topic": "morning-boot",
+    "topics": [
+      {
+        "name": "morning-boot",
+        "loops": [
+          {
+            "task": "boot-sequence",
+            "resolved": false
+          }
+        ],
+        "files": [
+          "workflows/plaud-ingest/state.yaml",
+          "workflows/boot/steps/step-01.2-unified-data-pull.md",
+          "workflows/boot/state.yaml",
+          "workflows/boot/steps/step-01.5-unified-calendar-pull.md",
+          "workflows/plaud-ingest/steps/step-01-discover.md",
+          "workflows/boot/steps/step-02-gather-data.md",
+          "workflows/boot/steps/step-02.5-measure-phase2.md",
+          "workflows/boot-verification/state.yaml",
+          "workflows/boot/steps/step-03-verify-phase2.md",
+          "workflows/boot/steps/step-04-gather-meeting-context.md",
+          "workflows/boot/steps/step-06-scan-workflows.md",
+          "workflows/boot/steps/step-08-knox-completion-check.md",
+          "memory/working/morning-briefing-2026-10-14-081625.md",
+          "workflows/morning-briefing/state.yaml",
+          "workflows/boot/steps/step-05-synthesize-briefing.md",
+          "workflows/boot/steps/step-06.5-guardrail-checkpoint.md",
+          "workflows/boot/steps/step-07-verify-completion.md",
+          "/tmp/fix_slide49.py",
+          "/Users/davidohara/Downloads/AI PDFs/Executive Deep Learning Program - Definition.md",
+          "/private/tmp/xdlp_onepager.py",
+          "/tmp/fix_labs_51_53.py",
+          "systems/error-tracking/entries/err-20261014T184805-F5X3RU.json",
+          "systems/error-tracking/entries/err-20261014T185135-CN4A04.json",
+          "reviews/daily/2026-10-14.md"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "session-2026-10-15T083156",
+    "started": "2026-10-15T08:31:56",
+    "closed": null,
+    "current_topic": "morning-boot",
+    "topics": [
+      {
+        "name": "morning-boot",
+        "loops": [
+          {
+            "task": "boot-sequence",
+            "resolved": false
+          }
+        ],
+        "files": [
+          "workflows/boot/workflow.md",
+          "workflows/plaud-ingest/state.yaml",
+          "workflows/boot/state.yaml",
+          "workflows/plaud-ingest/steps/step-01-discover.md",
+          "workflows/boot/steps/step-01.2-unified-data-pull.md",
+          "workflows/boot/steps/step-01.5-unified-calendar-pull.md",
+          "workflows/morning-briefing/steps/step-01-gather-calendar.md",
+          "workflows/morning-briefing/steps/step-02-gather-tasks.md",
+          "workflows/morning-briefing/state.yaml",
+          "workflows/boot/steps/step-02-gather-data.md",
+          "workflows/boot/steps/step-02.5-measure-phase2.md",
+          "workflows/boot-verification/state.yaml",
+          "workflows/boot/steps/step-03-verify-phase2.md",
+          "workflows/morning-briefing/steps/step-03-gather-context.md",
+          "workflows/boot/steps/step-04-gather-meeting-context.md",
+          "memory/working/morning-briefing-2026-10-15-090500.md",
+          "workflows/boot/steps/step-05-synthesize-briefing.md",
+          "workflows/boot/steps/step-06-scan-workflows.md",
+          "workflows/boot/steps/step-06.5-guardrail-checkpoint.md",
+          "workflows/boot/steps/step-07-verify-completion.md",
+          "workflows/boot/steps/step-08-knox-completion-check.md",
+          "systems/error-tracking/entries/err-20261015T171637-0R6I5L.json",
+          "systems/error-tracking/entries/err-20261015T182423-VWBB3K.json",
+          "data/reminders.json"
+        ]
       }
     ]
   }

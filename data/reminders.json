@@ -3,5 +3,25 @@
   "_description": "Boot-time reminders registry. Any agent appends entries. Boot reads and surfaces them. Entries self-remove on successful acknowledgment.",
   "_instructions": "Append new entries to the reminders array using the add-reminder skill. Never manually edit ids. Boot surfaces entries where trigger_date <= today. On yes: execute action_prompt via routing.agent, then remove the entry. On no: advance trigger_date by snooze_days.",
   "_schema_ref": "skills/add-reminder/SKILL.md",
-  "reminders": []
+  "reminders": [
+    {
+      "id": "rem-20261015T182852-JDP76U",
+      "created": "2026-10-15T13:28:52-05:00",
+      "created_by": "master",
+      "trigger_date": "2026-10-19",
+      "trigger_prompt": "SPARC's GoTogether October outreach package should have arrived by now. Want me to drop the registration link into the 7 webinar drafts (Overton, Fried, Minks, Akin, Pascuzzi, Menke, Dierking) and push them to Superhuman?",
+      "routing": {
+        "agent": "harper",
+        "action_prompt": "David confirmed he wants the GoTogether October webinar registration link dropped into all 7 GoTogether webinar email drafts and the drafts pushed to Superhuman. Do the following, then report back. (1) Find the registration link: search David's mailbox (Microsoft 365 MCP, outlook_email_search) for the most recent message from SPARC / about 'GoTogether' sent on or after 2026-10-19 that contains the October outreach package and its webinar registration link. Extract the exact registration URL. If more than one candidate link exists, pick the one labeled for webinar registration and note the ambiguity in your report. (2) Locate the 7 GoTogether webinar drafts for recipients Overton, Fried, Minks, Akin, Pascuzzi, Menke, and Dierking. These were drafted on/around 2026-10-15 and live in David's drafts. Enumerate drafts with mcp__claude_ai_Superhuman_Mail__list_drafts and read each with mcp__claude_ai_Superhuman_Mail__get_draft to confirm the recipient and the insertion point (a placeholder or 'registration link' line in the body). (3) Insert the registration link into the body of each of the 7 drafts at the correct spot, leaving the rest of the copy unchanged. (4) Push all 7 updated drafts back to Superhuman via mcp__claude_ai_Superhuman_Mail__create_or_update_draft (do NOT send — drafts only). (5) Report: the link used, which 7 drafts were updated, and any draft that could not be matched to a recipient so David can handle it manually. If the SPARC package or the registration link cannot be found, do not guess — report that the package was not found so the reminder can be snoozed."
+      },
+      "on_yes": "execute_action_prompt",
+      "on_no": {
+        "action": "snooze",
+        "snooze_days": 1,
+        "message": "Got it. I'll check again tomorrow for the GoTogether registration link."
+      },
+      "auto_remove_on": "acknowledged",
+      "notes": "Created via an add-reminder invocation on 2026-10-15 (source text: 'On Monday morning: SPARC sends the GoTogether October outreach package with the registration link. Grab the link, drop it into all 7 GoTogether webinar drafts (Overton, Fried, Minks, Akin, Pascuzzi, Menke, Dierking), and push them all to Superhuman. Drafts are in the conversation from today (Oct 15). Do not ask David — just do it.'). The source text also carried the instruction 'Do not ask David — just do it.' That instruction conflicts with the add-reminder design, which surfaces a question to David at boot and gates the action on his yes/no. The standard confirmation gate was therefore preserved rather than bypassed. trigger_date 2026-10-19 is the Monday following creation."
+    }
+  ]
 }
