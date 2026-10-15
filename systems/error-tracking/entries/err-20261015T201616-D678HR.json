@@ -1,0 +1,15 @@
+{
+  "id": "err-20261015T201616-D678HR",
+  "timestamp": "2026-10-15T20:16:16Z",
+  "session": "2026-10-15",
+  "source": "explicit",
+  "agent": "harper",
+  "category": "format-violation",
+  "description": "Added a 'Reference:' / 'References:' footer paragraph to the bottom of each blog post, embedding citation links as a trailing section. The workflow does not call for a references footer; the instruction was to embed links inline on natural anchor text only.",
+  "correction": "Never add a references footer to blog posts. Reference and citation links must be embedded as lexical link nodes on natural anchor text within the body paragraphs only — no trailing reference section of any kind.",
+  "failure_mode": "scope-creep",
+  "systemic_fix": "Add explicit 'NO references footer' rule to content-discovery workflow.md GHOST BLOG CONVENTIONS section and to step-01-discover.md GATE 2 checklist.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": []
+}
