@@ -54,8 +54,8 @@
       "id": "boot-008-omnifocus-filter-documented",
       "check": "file_contains",
       "path": "workflows/boot/steps/step-01.2-unified-data-pull.md",
-      "pattern": "completed is false",
-      "description": "Regression guard: the boot pull instructions still mandate the `completed is false` filter on the inbox query. If someone strips that filter from the instructions, this trips before the leak reaches a briefing."
+      "pattern": "completed\"?\\s*(?::|is)\\s*false",
+      "description": "Regression guard: the boot pull instructions still mandate the completed=false filter on the inbox query. Matches both the prose form (`completed is false`) and the JSON field form (`\"completed\": false`) — step-01.2 was rewritten to express the filter as the JSON field, which the old literal `completed is false` string-match false-fired on. If someone strips the filter entirely, this trips before the leak reaches a briefing."
     }
   ]
 }

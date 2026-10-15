@@ -104,6 +104,37 @@ Report results grouped by source type, most recent first:
 
 If no results found, state that clearly: "No record of {term}. Checked all vault sources — Remarkable, Plaud, Meetings, Projects. Nothing since vault creation."
 
+## Incremental Output (Crash-Safe)
+
+A multi-source sweep can be long, and a mid-run cutoff (turn limit, tool
+failure, session end) must never zero out the deliverable. Write results to a
+working file **as you find them**, not only in the final report.
+
+**Working file:** `memory/working/knox-search-{slug}-{YYYY-MM-DD-HHMM}.md`,
+where `{slug}` is a short kebab-case form of the query (or "contact-sweep" for
+an audience/contact sweep).
+
+Protocol:
+
+1. Create the working file **before** the first source is searched, with a
+   header (query, date, sources to sweep in order) and an empty `## Findings`
+   section.
+2. After each source completes (each folder, each grep pass, each MCP search),
+   append its findings to the working file immediately — do not batch all
+   writes to the end. Keep the file valid at every point: partial findings are
+   fine, a half-written bullet is not.
+3. After each source, append a progress marker so a cut-off or resumed run is
+   legible: `<!-- progress: searched {source} at {timestamp} -->`.
+4. Only after all sources are swept, compose the final grouped report (above)
+   from the working file. If the run is cut off first, the working file itself
+   is the deliverable — it is already on disk and the next turn can resume from
+   the last progress marker.
+
+This exists because a 2026-10-15 Knox webinar contact sweep ran ten minutes of
+evidence gathering across vault + email + IES files and was cut off while
+"compiling the final ranked list" with nothing written to disk — the whole run
+was lost and had to be redone.
+
 ## Performance Notes
 
 - For broad searches that return 20+ results, summarize by folder and offer to drill into specific areas

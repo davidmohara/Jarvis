@@ -369,8 +369,15 @@ def run_step_guardrail_checkpoint(step_name: str, step_frontmatter: dict, eval_r
         "computed_fields": None  # Ground-truth field values, when a verifier ran
     }
 
-    # CRITICAL CHECK: step status must be complete
-    if step_frontmatter.get("status") != "complete":
+    # CRITICAL CHECK: step status must be complete.
+    # Both "complete" and "completed" are live in the workflow library (boot
+    # uses "complete", plaud-ingest uses "completed" — see the matching gate in
+    # main() above). Comparing against the single literal "complete" made every
+    # plaud-ingest step escalate with a bogus
+    # "CRITICAL: Step status is 'completed', expected 'complete'" and punch the
+    # run out to the controller (2026-10-15: 7 false escalations + a spurious
+    # punch_out on step-06-verify-ingest.md). Accept either spelling.
+    if step_frontmatter.get("status") not in ("complete", "completed"):
         result["result"] = "escalate"
         result["escalated_to_human"] = True
         result["reason"] = f"CRITICAL: Step status is '{step_frontmatter.get('status')}', expected 'complete'"

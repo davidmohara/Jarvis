@@ -471,11 +471,26 @@ def main():
                 "timestamp": now.isoformat().replace("+00:00", "Z")
             })
 
-    # If completed is still None (no state.yaml written — skill run, not workflow),
-    # treat as completed=True if the subagent produced a final message (returned a result).
-    # Tool failures mid-run are normal retries and shouldn't indicate non-completion.
+    # If completed is still None (no state.yaml written — subagent/skill run,
+    # not a workflow turn-level record), derive completion from the record's own
+    # evidence. The SubagentStop payload frequently omits last_assistant_message
+    # (it is empty for many subagents, including handback-only runs), so the old
+    # `completed = bool(last_assistant_message)` defaulted those to False and
+    # stamped verifiably-complete work as 'aborted' (2026-10-15: multiple
+    # subagent records with completed steps — boot, morning-briefing, plaud-ingest
+    # — were mislabeled aborted for exactly this reason). Tool failures mid-run
+    # are normal retries and shouldn't indicate non-completion.
     if completed is None:
-        completed = bool(eval_record.get("last_assistant_message"))
+        if eval_record.get("last_assistant_message"):
+            completed = True
+        else:
+            # Fallback: steps recorded with a terminal status mean the subagent
+            # ran its work to completion even when no final message text was
+            # captured in the stop payload. Both spellings are live in the
+            # workflow library (boot "complete", plaud-ingest "completed").
+            terminal = ("complete", "completed", "success")
+            steps = eval_record.get("steps") or []
+            completed = bool(steps) and all(s.get("status") in terminal for s in steps)
     if all_steps_finished is None:
         all_steps_finished = True  # skills have no steps
 

@@ -111,6 +111,40 @@ def run_assertions(name: str, eval_record: dict) -> dict:
                     passed = data.get(a.get("field")) == a.get("value")
                 else:
                     passed = False
+            elif check == "json_path_exists":
+                # Field-path check (parity with assertion_checks.check_json_path_exists):
+                # walk a dotted path, fanning out over `[]` array segments.
+                import json as _json
+                json_matches = list(IES_ROOT.glob(a.get("path", "")))
+                field_path = a.get("field_path", "")
+                min_matches = a.get("min_matches", 1)
+                if not json_matches:
+                    passed = False
+                else:
+                    try:
+                        data = _json.loads(json_matches[0].read_text(errors="replace"))
+                    except Exception:
+                        data = None
+                    if data is None:
+                        passed = False
+                    else:
+                        nodes = [data]
+                        for seg in [s for s in field_path.split(".") if s]:
+                            is_list = seg.endswith("[]")
+                            key = seg[:-2] if is_list else seg
+                            nxt = []
+                            for node in nodes:
+                                if isinstance(node, dict) and key in node:
+                                    val = node[key]
+                                    if is_list:
+                                        if isinstance(val, list):
+                                            nxt.extend(val)
+                                    else:
+                                        nxt.append(val)
+                            nodes = nxt
+                            if not nodes:
+                                break
+                        passed = len(nodes) >= min_matches
             elif check == "step_count_gte":
                 passed = len(eval_record.get("steps", [])) >= a.get("min_count", a.get("min_steps", 0))
             elif check == "duration_lte":

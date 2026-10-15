@@ -327,6 +327,57 @@ def check_banned_phrases_absent(a, eval_record, ies_root, transcript_path, yaml_
     return passed, ({"found_phrases": found} if found else {})
 
 
+def check_json_path_exists(a, eval_record, ies_root, transcript_path, yaml_module=None):
+    """A dotted field path must exist in a JSON file, optionally fanning out
+    over an array with a trailing `[]` segment.
+
+    This is the field-path check that naive `file_contains` assertions should
+    have used. A whole-file substring match cannot tell an entry's real field
+    from the same token appearing in the file's own boilerplate (e.g. the
+    reminders registry's `_instructions` header literally contains the words
+    "action_prompt" and "routing.agent", so `file_contains "action_prompt"`
+    passed against an EMPTY reminders array). Parsing the JSON and walking the
+    path checks the actual entry structure instead.
+
+    Fields: path (JSON file, glob-resolved), field_path (dotted; a segment
+    ending in `[]` fans out over a list — e.g. `reminders[].routing.agent`),
+    min_matches (default 1).
+    """
+    matches = _glob(ies_root, a.get("path", ""), a.get("newest_only", False))
+    field_path = a.get("field_path", "")
+    min_matches = a.get("min_matches", 1)
+    if not matches:
+        return False, {"reason": "file not found"}
+    data = _load_json(matches[0])
+    if data is None:
+        return False, {"reason": "file is not valid JSON"}
+
+    segments = [seg for seg in field_path.split(".") if seg != ""]
+    if not segments:
+        return False, {"reason": "empty field_path"}
+
+    nodes = [data]
+    for seg in segments:
+        is_list = seg.endswith("[]")
+        key = seg[:-2] if is_list else seg
+        nxt = []
+        for node in nodes:
+            if not isinstance(node, dict) or key not in node:
+                continue
+            value = node[key]
+            if is_list:
+                if isinstance(value, list):
+                    nxt.extend(value)
+            else:
+                nxt.append(value)
+        nodes = nxt
+        if not nodes:
+            break
+
+    count = len(nodes)
+    return count >= min_matches, {"matched": count}
+
+
 def check_numeric_field_in_range(a, eval_record, ies_root, transcript_path, yaml_module=None):
     """A named field in a JSON file (or eval_record itself when path omitted)
     falls within [min, max]. Generalizes "PDF must be exactly 1 page" style
@@ -384,6 +435,7 @@ CHECKS = {
     "word_count_range": check_word_count_range,
     "banned_phrases_absent": check_banned_phrases_absent,
     "numeric_field_in_range": check_numeric_field_in_range,
+    "json_path_exists": check_json_path_exists,
 }
 
 
