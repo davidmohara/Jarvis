@@ -1,40 +1,42 @@
 workflow: golf-preview
 agent: sterling
 status: complete
-session-started: "2026-10-09T09:27:00-05:00"
-session-id: scheduled-task-golf-tee-time-preview-rerun
-current-step: step-05
-execution-run: "2026-10-09T09:19:00-05:00"
-completion-time: "2026-10-09T10:21:00-05:00"
+session-started: "2026-10-13T23:00:00-05:00"
+session-id: scheduled-task-golf-tee-time-preview-weekly
+current-step: null
+execution-run: "2026-10-13T23:00:00-05:00"
+completion-time: "2026-10-13T23:10:00-05:00"
 gate-failures: []
 grade: null
-resolution-note: "Target weekend Oct 23-25 (Oct 16-18 is inside the 8-day booking window). Friday unavailable. Saturday and Sunday viable. Weather unavailable for target dates (Open-Meteo error, NWS coverage ends Oct 11). Slack post.py returned 403 tunnel error; fallback written to memory/working/golf-preview-2026-10-09.md; error logged err-20261009T142822-51QNCS. Re-run at 09:27 CT confirmed same result. Weather still unavailable (Open-Meteo empty, NWS stale)."
+resolution-note: "Target weekend Oct 23-25 (10 days out). Friday unavailable (Houston Bootcamp 8:30-5:30 CT). Saturday available 1:00 PM start (party 6 PM). Sunday available 2:30 PM start (church until 1:30 PM). Weather from Open-Meteo via Claude in Chrome (direct fetch returned empty). Heat streak inactive. Drought false (last round Sep 25). Slack delivered to #golf. Step-06 adversarial verification not performed: ralph agent not available in this session; recorded as flag. Guardrail-checkpoint write failed (no in-progress eval record)."
 
-original-request: "Weekly golf tee time preview — automated scheduled task"
+original-request: "Weekly golf tee time preview - automated scheduled task"
 accumulated-context:
   target_friday: "2026-10-23"
   target_saturday: "2026-10-24"
   target_sunday: "2026-10-25"
   calendar_unavailable: false
-  weather_data_missing: true
+  weather_data_missing: false
   day_status:
-    friday: { status: "unavailable", reason: "No continuous 3-hour gap 1-6 PM CT" }
+    friday: { status: "unavailable", reason: "Houston Bootcamp 8:30 AM-5:30 PM CT; no 3-hour gap 1-6 PM" }
     saturday: { status: "available", reason: "Party 6-9 PM CT; latest start 1:30 PM" }
     sunday: { status: "available", reason: "Church until 1:30 PM; no conflicts" }
   drought: false
   drought_last_round: "2026-09-25"
   heat_streak: false
-  heat_streak_calc_failed: true
+  heat_streak_daily_highs_f: [76.9, 80.2, 84.5, 80.9, 80.9]
+  heat_streak_calc_failed: false
   candidate_windows_found: 2
   gate_1_result: "pass"
   gate_2_result: "pass"
-  gate_3_result: "pass-degraded"
+  gate_3_result: "pass"
   gate_4_result: "pass"
   gate_5_result: "pass"
   top_option_1: "Saturday Oct 24, 1:00 PM, 18 holes, $21/player, score 0"
   top_option_2: "Sunday Oct 25, 2:30 PM, 18 holes, $21/player, score 5"
-  slack_delivery: { path: "slack", channel: "C0B15SW9FB5", ts: "1791557353.161679" }
-  weather_step: "verified 2026-10-09: Open-Meteo via Claude in Chrome; Saturday 66F/6%/5mph; Sunday beyond horizon; heat streak 0 of 5 >= 99F"
-  end_to_end_run: "2026-10-09T09:52 CT, Slack via relative path under cd ~/develop/jarvis"
-  gate_4_rerun: "pass"
-  gate_5_rerun: "pass-slack"
+  slack_delivery: { path: "slack", channel: "C0B15SW9FB5", ts: "1791950505.134649" }
+  adversarial-verification:
+    verdict: "not-performed"
+    result: "flag"
+    findings: ["ralph agent not spawnable in this session"]
+    lens: "preview claims vs weather/course source data"

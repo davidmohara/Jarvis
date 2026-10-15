@@ -545,7 +545,15 @@
     "created_at": "2026-10-12T19:00:00Z",
     "status": "pending",
     "source_type": "digest",
-    "content_type": "post"
+    "content_type": "post",
+    "editorial_edits": [
+      {
+        "reply_ts": "1791836857.663489",
+        "instruction": "You already used that image of Dallas. Find another one that hasn't been used but fits the criteria",
+        "applied_at": "2026-10-12T21:26:22Z",
+        "summary": "Swapped duplicate Dallas skyline for Gabriel Tovar nighttime city skyline (photo-1580536793208), free license, landscape confirmed"
+      }
+    ]
   },
   {
     "ghost_post_id": "6acd34bdcca8120283da1684",
@@ -567,6 +575,14 @@
     "created_at": "2026-10-12T19:00:00Z",
     "status": "pending",
     "source_type": "digest",
-    "content_type": "post"
+    "content_type": "post",
+    "editorial_edits": [
+      {
+        "reply_ts": "1791836972.525519",
+        "instruction": "You used a ChatGPT image on a Google post. Fail!! Find a better image.",
+        "applied_at": "2026-10-12T21:26:26Z",
+        "summary": "Swapped ChatGPT screenshot for Google Workspace/Gmail desk setup photo (Stephen Phillips, photo-1556597803), free license, landscape confirmed"
+      }
+    ]
   }
 ]

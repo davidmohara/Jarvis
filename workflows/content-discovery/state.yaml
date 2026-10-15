@@ -2,37 +2,27 @@
 workflow: content-discovery
 agent: harper
 status: complete
-session-started: "2026-10-12T19:00:00Z"
-session-id: "harper-20261012-002"
-started-at: "2026-10-12T19:00:00Z"
-completed-at: "2026-10-12T19:35:00Z"
+session-started: "2026-10-14T18:00:00Z"
+session-id: "harper-20261014-002"
+started-at: "2026-10-14T18:00:00Z"
+completed-at: "2026-10-14T18:05:00Z"
 current-step: null
-original-request: "Scheduled content pipeline run (evening)"
+original-request: "Scheduled content-discovery run (evening 2026-10-14)"
 accumulated-context:
   messages_scanned: 3
   new_urls: 0
-  new_digests: 3
-  posts_drafted: 3
-  gate_1_result: "PASS — ok: true, 3 Watchtower digest messages in channel C0B160MA3EK"
-  gate_2_result: "PASS — word counts 325/355/332; all four arc elements present; no em-dashes; tags on locked list; landscape images confirmed; image CDN fallback (external Unsplash URLs)"
-  pending_threads_checked: 3
-  editorial_feedback_found: 2
-  editorial_edits_applied: 2
-  commit_hash: "4de0f63d"
-  push_status: success
+  new_digests: 0
+  posts_drafted: 0
+  gate_1_result: "PASS — ok: true, 3 messages in C0B160MA3EK (48h window; 24h returned 0 with warning, auto-retried)"
+  gate_2_result: "n/a — no new drafts"
+  pending_threads_checked: 2
+  editorial_feedback_found: 0
+  editorial_edits_applied: 0
   notes: |
-    Evening run of 2026-10-12 at 19:00. 3 Watchtower digest messages found in #content.
-    All 3 processed on DIGEST PATH. Ghost drafts created:
-    - "Your Next Browser May Come from Dallas" (6acd3485cca8120283da167c) — Island $400M, DFW enterprise browser/agent governance. Slack ts: 1791833428.934229
-    - "The 5 Percent Problem" (6acd34bdcca8120283da1684) — AI ROI gap, only 5-8% of enterprises show measurable P&L impact. Slack ts: 1791833434.839009
-    - "The Day Your Agent Got Its Own Email Address" (6acd34bdcca8120283da168c) — Google Workspace agent identity governance. Slack ts: 1791833439.641219
-    GATE 1: PASS. GATE 2: PASS (all 3 posts).
-    mcp__ghost-blog__upload_image_from_url failed for all 3 — used direct Unsplash CDN URLs as fallback.
-    3 Slack review notifications posted to C0B160MA3EK.
-    Committed 4de0f63d and pushed to origin/main.
-    Second run (David trigger): 2 editorial feedback replies found and applied.
-    - Post 1: replaced duplicate Dallas skyline with Gabriel Tovar nighttime skyline (photo-1580536793208).
-    - Post 3: replaced ChatGPT screenshot with Stephen Phillips Gmail/Google desk photo (photo-1556597803).
-    Slack replies sent to both review threads confirming edits.
+    Evening run 2026-10-14 at 18:00. 24h window returned 0 messages with auto-retry warning.
+    48h window returned 3 messages: all bot review notifications from Oct 12 — no digest signal, all SKIP.
+    Step 1b: 2 threads checked (Dallas Browser ts 1791833428, Agent Email ts 1791833439).
+    Human replies from Oct 12 at 21:26 UTC already recorded in editorial_edits. No replies in last 24h.
+    No new Ghost drafts. No Slack notifications sent. Clean no-op.
 model: sonnet
 ---

@@ -1,7 +1,19 @@
 ---
 status: complete
-started-at: "2026-10-12T19:00:00Z"
-completed-at: "2026-10-12T19:30:00Z"
+started-at: "2026-10-14T18:00:00Z"
+completed-at: "2026-10-14T18:05:00Z"
+outputs:
+  messages_scanned: 3
+  new_urls: 0
+  new_digests: 0
+  posts_drafted: 0
+  improving_blog_drafts: 0
+  pending_threads_checked: 2
+  editorial_feedback_found: 0
+  editorial_edits_applied: 0
+  gate_1_result: "PASS — ok: true, 3 messages in channel C0B160MA3EK (48h window; 24h returned 0 with warning, auto-retried)"
+  gate_2_result: "n/a — no new drafts"
+  outcome: "No new content. 3 bot review notifications from Oct 12 (Dallas Browser, 5 Percent Problem, Agent Email Address) — all SKIP (no digest signal). 2 pending threads checked — all replies from Oct 12 already handled. Clean no-op."
 model: sonnet
 ---
 
@@ -796,7 +808,7 @@ Add the new post to the Candidates table in `reference/blog-ideas.md`:
 
 After Step 10 completes (or after an early clean exit with no new content):
 
-1. Write `status: complete` and `completed-at` to this file's frontmatter, and record outputs (at minimum: `messages_scanned`, `new_urls`, `new_digests`, `posts_drafted`, `gate_1_result`, `gate_2_result`) in `state.yaml` `accumulated-context`.
+1. Write `status: complete`, `completed-at`, and populated `outputs` (at minimum: `messages_scanned`, `new_urls`, `new_digests`, `posts_drafted`, `gate_1_result`, `gate_2_result`) to this file's own frontmatter.
 2. Write those same output keys into `state.yaml`'s `accumulated-context`.
 3. Set `state.yaml`'s `current-step: step-02`.
 
