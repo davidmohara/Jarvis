@@ -1,17 +1,19 @@
 workflow: content-pipeline
 agent: harper
-status: aborted
-started-at: 2026-10-12T19:00:00Z
-completed-at: '2026-10-13T21:30:00Z'
-outputs:
-  messages_scanned: 3
+status: complete
+started-at: 2026-10-15T22:00:00Z
+completed-at: 2026-10-15T22:05:00Z
+session-id: harper-content-pipeline-20261015-2200
+original-request: user-triggered re-run to pick up new drafts with reference links
+current-step: step-01
+accumulated-context:
+  messages_scanned: 4
   new_urls: 0
-  new_digests: 3
-  posts_drafted: 3
+  new_digests: 4
+  posts_drafted: 4
   improving_blog_drafts: 0
-  editorial_feedback: 2
-  pending_threads_checked: 3
-  outcome: "3 Ghost drafts created from Watchtower digests; 3 Slack review notifications posted to #content"
-  resolution: "Stalled at step-02 during 2026-10-12 travel internet outage; cleared 2026-10-13 per controller. Drafts posted to #content are handled by Alice Mburu - do not resume."
+  pending_threads_checked: 0
+  editorial_feedback_found: 0
+  editorial_edits_applied: 0
+  outcome: "4 Ghost drafts created with images and reference link nodes. 4 Slack notifications sent."
 model: sonnet
-current-step: step-02

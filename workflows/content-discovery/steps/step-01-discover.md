@@ -1,19 +1,19 @@
 ---
 status: complete
-started-at: "2026-10-14T18:00:00Z"
-completed-at: "2026-10-14T18:05:00Z"
+started-at: "2026-10-15T22:00:00Z"
+completed-at: "2026-10-15T22:05:00Z"
 outputs:
-  messages_scanned: 3
+  messages_scanned: 4
   new_urls: 0
-  new_digests: 0
-  posts_drafted: 0
+  new_digests: 4
+  posts_drafted: 4
   improving_blog_drafts: 0
-  pending_threads_checked: 2
+  pending_threads_checked: 0
   editorial_feedback_found: 0
   editorial_edits_applied: 0
-  gate_1_result: "PASS — ok: true, 3 messages in channel C0B160MA3EK (48h window; 24h returned 0 with warning, auto-retried)"
-  gate_2_result: "n/a — no new drafts"
-  outcome: "No new content. 3 bot review notifications from Oct 12 (Dallas Browser, 5 Percent Problem, Agent Email Address) — all SKIP (no digest signal). 2 pending threads checked — all replies from Oct 12 already handled. Clean no-op."
+  gate_1_result: "PASS — ok: true, 4 digest bot messages (Oct 15) from second channel read"
+  gate_2_result: "PASS — all 4 posts: 300-500 words, 4-arc, no em-dashes, no bullets, tags from locked list, landscape images verified, reference links embedded as lexical link nodes"
+  outcome: "4 Ghost drafts created: Love With Your Presence (6ad132fecca8120283da16a5), The Hardest Leadership Transition I've Made (6ad13300cca8120283da16ad), Genetics Are Not Your Destiny (6ad13300cca8120283da16b5), Your Business Has a Dashboard. You Don't. (6ad13302cca8120283da16bd). 4 Slack review notifications posted to #content."
 model: sonnet
 ---
 
