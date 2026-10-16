@@ -1,16 +1,95 @@
 workflow: client-meeting-prep
 agent: chase
 status: complete
-session-started: "2026-09-21T17:14:01-05:00"
-session-id: prep-bryon-schillaci-2026-09-21-1714
-current-step: complete
-original-request: "Research attendee Bryon Schillaci (brschillaci@microsoft.com) for Microsoft golf tournament"
+session-started: "2026-10-16T08:15:00-05:00"
+session-id: prep-gehc-internal-checkin-2026-10-16-0815
+current-step: step-04
+original-request: "Client meeting prep for the GEHC Twice Weekly Internal Check-In, Monday 2026-10-19 14:00-14:30 CST, Teams, organizer Lisa Barnes"
 accumulated-context:
+  meeting_details:
+    attendees_external:            # internal Improving-side meeting: no external attendees; company is the GEHC account
+      - name: "Lisa Barnes"
+        company: "Improving (internal - organizer)"
+      - name: "Vladimir Avila"
+        company: "Improving (internal)"
+      - name: "Tim Rayburn"
+        company: "Improving (internal)"
+      - name: "Lisa Kimbrel"
+        company: "Improving (internal)"
+      - name: "David O'Hara"
+        company: "Improving (internal - self)"
+    account_company: "GE HealthCare (GE Precision Healthcare, LLC) - the client the internal team is aligned on"
+    meeting_date: "2026-10-19"
+    meeting_time_verified: "14:00-14:30 CDT - verified against Mac local time (CDT, UTC-5); invite label reads 'Central Standard Time' but Oct 19 is daylight time"
+    duration_minutes: 30
+    format_confirmed: true
+    format_notes: "Microsoft Teams link present on the invite"
+    organizer: "lisa.barnes@improving.com"
+    prior_relationship: "ongoing - repeat meeting; internal Improving-side check-in; joined account 2026-09-11 as Tim Rayburn's replacement"
+  meeting_classification: "internal-review"
+  reason_for_call: "Standing internal Improving-side check-in on the GE HealthCare AI-Routing engagement, run twice weekly by Lisa Barnes to 'discuss plans, progress, internal issues, etc.' (calendar invite body). Last internal window before the client's Tue 10/20 deeper dive and Wed 10/21 weekly sync."
+  evidence_cited:
+    - source: "calendar"
+      sender: "lisa.barnes@improving.com"
+      subject: "GEHC Twice Weekly Internal Check-In"
+      date: "2026-10-19"
+      key_quote_or_paraphrase: "Attendees Lisa Barnes, Vladimir Avila, Tim Rayburn, Lisa Kimbrel, David O'Hara; Teams; 'Need to adjust the time of our Monday meeting going forward... internal alignment meetings to discuss plans, progress, internal issues, etc.'"
+    - source: "email"
+      sender: "justin.holder@gehealthcare.com"
+      subject: "welcome to the party"
+      date: "2026-09-16"
+      key_quote_or_paraphrase: "Onboarding David: 'GEHC is a bureaucracy and quite a few steps end up being serial and with some delays for internal systems to synch up.'"
+    - source: "memory"
+      sender: "n/a"
+      subject: "quarterly-objectives.md / reviews/weekly/2026-W41.md"
+      date: "2026-10-09"
+      key_quote_or_paraphrase: "GEHC AI Router POC mid-point demo ran Oct 8; outcomes still uncaptured/unlogged."
+  do_not_assume:
+    - "Do not treat this as a client meeting - every attendee is Improving; this is where internal issues go, not the Wednesday GEHC sync."
+    - "Do not assume the Oct 8 mid-point demo went well (or badly) - no outcome is logged anywhere."
+    - "Do not assume the two open client questions (self-tuning/contextual-memory routing; DICOM destination fan-out count) were settled."
+    - "Do not assume GEHC repo/VPN/PRISMA access is fully granted."
+    - "Do not assume the meeting time is fixed - the invite body says the Monday time is being adjusted."
+    - "Do not volunteer for more than ~5 hrs/week without talking to Lisa Barnes and Lisa Kimbrel first."
+  contact_depth: "repeat-meeting"
+  contact_depth_basis: "Ongoing recurring internal cadence; prior prep sheet exists (meetings/2026-09-16-gehc-ai-routing-prep.md) and Plaud notes date to 09-14."
+  company_disambiguation:
+    ambiguous: true
+    resolution_method: "email domain match"
+    note: "'GEHC' confirmed as GE HealthCare (GE Precision Healthcare, LLC, Imaging division) via gehealthcare.com domain and SOW #22633 - not GE Aerospace or GE Vernova."
+  company_profile:
+    company: "GE HealthCare (GE Precision Healthcare, LLC)"
+    industry: "Medical technology / medical imaging"
+    hq: "Chicago, IL"
+    founded: "2023 (spun out of GE)"
+    size: "Large-cap public medtech (not researched in depth - repeat meeting)"
+    known_tech_stack: "GEHC Clinical Data Hub; AWS (SQS, Fargate); Qwen 3B SLM (swappable to Bedrock/Ollama); MCP destination adapters; SQLite/Dynamo registry; DICOM/DICOMweb; GEHC-approved Git; PRISMA; GlobalProtect VPN"
+    email_domain: "gehealthcare.com"
+  company_overview:
+    depth: "brief-refresh"
+    narrative: "No material company-level change since the engagement began. Movement is inside the engagement: the Oct 8 mid-point demo ran (outcomes unlogged), and the architecture evolved from the 09-18 review through the 09-24 simplified-dispatcher proposal to the demo."
+    recent_news: []
+    strategic_initiatives: []
+    competitive_or_market_pressures: []
+    sources_used: "Calendar (M365) + prior prep sheet + Plaud notes (09-14/17/18/24) + morning briefings (10-07/08)"
+    crm_history: "Active Dynamics opportunity 'GE Healthcare - AI PoC' exists under the GE Healthcare account; stage/value/owner not read this run."
+  attendee_bio:
+    name: "Internal Improving account team (Lisa Barnes, Vladimir Avila, Tim Rayburn, Lisa Kimbrel) + David O'Hara"
+    title: "Delivery Lead/PM; AI Engineer; former Tech Lead; Account Manager/Supplier PM"
+    education: "not found"
+    location: "Lisa Barnes/Improving; Vlad Avila near-shore (Mexico); Tim Rayburn US; Lisa Kimbrel US"
+    affiliations: "Improving"
+    public_facing_work: "not found"
+    linkedin: "not found"
+    read_on_them: "Small budget-constrained fixed-price engagement; the client PM cares most about Vlad staying unblocked - the room rewards blocker-clearing and plan, not architectural debate."
+  common_connections:
+    status: "unavailable"
+    total_count: null
+    displayed: []
+    note: "No LinkedIn URLs surfaced and Clay (relationship intelligence) failed to connect this session - mutual connections could not be pulled."
   deliverables:
-    markdown_file: "/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/meetings/Bryon Schillaci — Microsoft — 2026-09-24.md"
-    pdf_file: "/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/meetings/Bryon Schillaci - Microsoft.pdf"
-    remarkable_display_name: "Bryon Schillaci - Microsoft"
+    markdown_file: "meetings/GEHC Internal Check-In - GE HealthCare - 2026-10-19.md"
+    pdf_file: "meetings/GEHC Internal Check-In - GE HealthCare.pdf"
+    remarkable_display_name: "GEHC Internal Check-In - GE HealthCare"
     remarkable_destination: "/Meetings"
-    remarkable_upload: "success - verified via rmapi ls"
-  meeting_classification: "peer-relationship-referral"
-  contact_depth: "first-touch"
+    remarkable_upload: "not attempted - reMarkable/Knox delivery not run this session"

@@ -1,6 +1,6 @@
 {
-  "last_analyzed": "2026-09-17T00:00:00Z",
-  "analysis_run": "on-demand full pattern pass (rigby-error-analysis) \u2014 period 2026-08-23 to 2026-09-17",
+  "last_analyzed": "2026-10-16T00:00:00Z",
+  "analysis_run": "on-demand window pass (rigby-error-analysis) \u2014 period 2026-10-14 to 2026-10-16 (6 entries), cross-referenced to full 488-entry log",
   "recurring": [
     {
       "pattern_id": "pat-001",
@@ -552,15 +552,16 @@
       "pattern_id": "pat-023",
       "category": "hallucination",
       "failure_mode": "wrong-assumption",
-      "occurrences": 3,
+      "occurrences": 4,
       "entry_ids": [
         "err-20260624T171633-YTH6YU",
         "err-20260729T203906-V2PTIT",
-        "err-20260730T144624-C36DHR"
+        "err-20260730T144624-C36DHR",
+        "err-20261014T184805-F5X3RU"
       ],
       "first_seen": "2026-06-24T17:16:33Z",
-      "last_seen": "2026-07-30T14:46:24Z",
-      "proposed_fix": "Master fabricates specific facts (vault paths, speaker names, cause of a subagent block) rather than verifying or flagging uncertainty, then relays them as established fact. Draft a rule: any fact not directly sourced this session (path, name, error cause) must be verified or flagged as unconfirmed before being stated to David.",
+      "last_seen": "2026-10-14T18:48:05Z",
+      "proposed_fix": "Master fabricates specific facts (vault paths, speaker names, cause of a subagent block, HR proof points in a deck) rather than verifying or flagging uncertainty, then relays them as established fact. Extended 2026-10-14 by err-20261014T184805-F5X3RU (unverified IBM/Unilever/Walmart/J&J HR statistics presented as fact). Draft a rule: any fact not directly sourced this session (path, name, statistic, error cause) must be verified or flagged as unconfirmed before being stated to David.",
       "fix_type": "rule",
       "fix_status": "proposed",
       "tier": 2
@@ -657,6 +658,72 @@
       "fix_type": "rule",
       "fix_status": "proposed",
       "tier": 1
+    },
+    {
+      "pattern_id": "pat-029",
+      "category": "format-violation",
+      "failure_mode": "schema-nonconformance",
+      "occurrences": 5,
+      "entry_ids": [
+        "err-20261014T185135-CN4A04",
+        "err-20261015T171637-0R6I5L",
+        "err-20261015T182423-VWBB3K",
+        "err-20261015T211612-NFD2B2",
+        "err-20261016T123345-KNNL1T"
+      ],
+      "first_seen": "2026-10-14T18:51:35Z",
+      "last_seen": "2026-10-16T12:33:45Z",
+      "proposed_fix": "Error entries are being written outside schema.md: non-canonical categories ('stale-knowledge','voice-failure'), non-canonical failure_modes ('stale-training-data','working-directory-drift','sales-language-in-personal-email'), non-canonical severity ('high'), and alternate field names (error_type/summary/status/proposed_fix in place of category/description/fix_status/systemic_fix). 5 of 6 entries in the 2026-10-14..16 window and 155 of 488 entries log-wide are nonconforming; the alternate-field entries are invisible to category/failure_mode/severity aggregation, which is the whole point of the log. Fix: require every entry to be created via new-entry.py (it validates category/severity/failure_mode), and add a schema-conformance check to rebuild-log.py that flags nonconforming entries at analysis time.",
+      "fix_type": "skill-update",
+      "fix_status": "proposed",
+      "tier": 1
+    },
+    {
+      "pattern_id": "pat-030",
+      "category": "format-violation",
+      "failure_mode": "agent-label-drift",
+      "occurrences": 88,
+      "entry_ids": [
+        "err-20260904T081107-GYF8D1",
+        "err-20260909T103406-8XHZUT",
+        "err-20260911T080849-3TCTQW",
+        "err-20260912T080901-GNRQ9D",
+        "err-20260914T194742-2DFSK0",
+        "err-20260915T080707-UDZNMO",
+        "err-20260917T080756-YTMOLT",
+        "err-20260920T081144-4Z5NUY",
+        "err-20260928T144636-YVL7PG",
+        "err-20260930T145444-71UE48",
+        "err-20260930T145822-3K44N3",
+        "err-20260930T150508-3FHQ8N",
+        "err-20261008T194550-F23FC1",
+        "err-20261008T215834-DZMS5V",
+        "err-20261008T225429-450VNP"
+      ],
+      "first_seen": "2026-03-21T00:00:00Z",
+      "last_seen": "2026-10-16T12:33:45Z",
+      "proposed_fix": "88 entries carry non-canonical agent labels (sample of the 92 jarvis* entries listed; 'jarvis' x79, 'Jarvis' x9, 'Jarvis (Master)' x4). Canonical agent name is `master` \u2014 Jarvis is the IES system as a whole (corrected in err-20261016T123345-KNNL1T). Also 22 entries with agent=None, mixed-case labels ('Master' x22, 'Harper' x6, 'Knox' x5, 'Chase' x4), and descriptive labels ('boot-subagent-steps-2-8', 'knox-plaud-ingest-step-01'). Fix: add a jarvis->master alias map plus lowercase normalization to new-entry.py, document the alias in schema.md, and retro-normalize existing labels.",
+      "fix_type": "rule",
+      "fix_status": "proposed",
+      "tier": 1
+    },
+    {
+      "pattern_id": "pat-031",
+      "category": "mixed-category",
+      "failure_mode": "unverified-output",
+      "occurrences": 4,
+      "entry_ids": [
+        "err-20261014T184805-F5X3RU",
+        "err-20261014T185135-CN4A04",
+        "err-20261015T182423-VWBB3K",
+        "err-20261016T123345-KNNL1T"
+      ],
+      "first_seen": "2026-10-14T18:48:05Z",
+      "last_seen": "2026-10-16T12:33:45Z",
+      "proposed_fix": "4 of the 6 window entries share one root cause: output produced without checking the authoritative source before delivery \u2014 fabricated HR proof points (err-...F5X3RU), a venue closed since 2019 (err-...CN4A04), sales-ish voice plus a leaked [REGISTRATION LINK] placeholder (err-...VWBB3K), and Master/Jarvis label conflation (err-...KNNL1T). Categories differ (hallucination/stale-knowledge/voice-failure/format-violation), so no single mechanical fix. Tier 2: needs David's call on adding a shared 'verify against the authoritative source (live web, VOICE.md, canonical naming, source docs) before delivery' gate to the affected agents.",
+      "fix_type": "agent-update",
+      "fix_status": "proposed",
+      "tier": 2
     }
   ]
 }

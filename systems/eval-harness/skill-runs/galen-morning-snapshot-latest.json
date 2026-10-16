@@ -2,8 +2,9 @@
   "skill": "galen-morning-snapshot",
   "agent": "galen",
   "trigger": "manual",
-  "started": "2026-05-24T20:07:10Z",
+  "started": "2026-10-16T13:12:24Z",
   "status": "success",
   "tool_failures": 0,
-  "error_ids": []
+  "error_ids": [],
+  "notes": "Today's recovery/sleep/cycles/workouts/body-measurement pulled live from WHOOP MCP. 7-day recovery/HRV/RHR series UNAVAILABLE — this MCP build exposes only single-record get_recovery (no collection endpoint); direct API blocked by credential policy. No values interpolated. Obsidian MCP down (ECONNREFUSED); health-protocols.md read from local filesystem. Output: memory/working/galen-morning-snapshot-2026-10-16.md"
 }

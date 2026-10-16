@@ -2,12 +2,32 @@
 workflow: talking-points
 agent: harper
 status: complete
-session-started: 2026-09-16
-session-id: ar-ypo-dinner-2026-09-16
+session-started: 2026-10-16
+session-id: leadership-dallas-improving-2026-10-20
 current-step: step-03
-original-request: "Build talking points for the AR YPO Dinner, Little Rock, 2026-09-16"
+original-request: "Build talking points for hosting Leadership Dallas at Improving, 2026-10-20"
 accumulated-context:
-  event_type: panel
-  event_name: "The YPO You Don't Know Yet (AR YPO chapter kickoff dinner)"
-  output: meetings/2026-09-16-ar-ypo-dinner-talking-points.md
+  event_type: meeting
+  event_name: "Hosting Leadership Dallas at Improving (reunion breakfast)"
+  event_date: "2026-10-20"
+  audience: "Current executives of mid-sized Dallas companies (Leadership Dallas alumni, Bethany Hilton's class, Dallas Regional Chamber)"
+  key_topics:
+    - topic: "What Improving is"
+      executive_position: "Modern digital services firm: AI, data, application development, platform engineering; founded 2007, ~$300M, 2,500 people, 21 offices, Texas ~$72.5M"
+      available_data: []
+      knowledge_layer_refs: ["identity/MEMORY.md", "YPO/YPO-Speaker-Video-Script.md"]
+    - topic: "AI adoption gap for mid-sized company executives"
+      executive_position: "The biggest risk is a leadership team waiting to understand AI before engaging; industry has moved from chatbots to agentic operations"
+      available_data: []
+      knowledge_layer_refs: ["projects/Intelligence OS v2 - Abstract.md"]
+    - topic: "Culture and Conscious Capitalism as differentiator"
+      executive_position: "Culture is the reason people stay; relationships over transactions; purpose and profit are not in conflict"
+      available_data: []
+      knowledge_layer_refs: ["context/principles.md", "identity/MEMORY.md"]
+  domain_context:
+    chase: not-needed
+    quinn: not-needed
+    shep: not-needed
+    chief: not-needed
+  output: meetings/2026-10-20-leadership-dallas-improving-talking-points.md
 ---
