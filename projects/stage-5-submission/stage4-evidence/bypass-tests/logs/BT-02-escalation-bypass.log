@@ -1,0 +1,31 @@
+========================================================================
+BT-02 ESCALATION BYPASS TEST
+Real component: systems/eval-harness/guardrail-checkpoint.py
+Temp EVAL_RUNS_DIR: /var/folders/cq/jqgcl_9x4n54gldznrb0fr200000gn/T/bt02-runs-jl4sr6y1
+Real constants: RETRY_MAX_ATTEMPTS=6 (kept), RETRY_INTERVAL_SECONDS=0 (lowered from 2s for speed)
+========================================================================
+
+--- CASE A (control): result='escalate' ---
+  exit=0
+  stdout='GUARDRAIL_ESCALATE: cp-a after step-x: briefing misrepresents data'
+  recorded result='escalate' escalated_to_human=True
+  VERDICT: control correct. Escalate is recorded and flagged for the human.
+
+--- CASE B (BYPASS ATTEMPT): result='Escalate' (capital E) ---
+  exit=0
+  stderr="Warning: result 'Escalate' not in {'escalate', 'pass', 'flag'} — recording anyway"
+  recorded result='Escalate' escalated_to_human=False
+  BYPASS SUCCEEDED: True  <-- a non-canonical result string records as NOT-escalated
+
+--- CASE C (BYPASS ATTEMPT): escalate but no in-progress record exists ---
+  exit=0
+  stdout=''
+  stderr="Warning: no in-progress eval record found for workflow 'bt02-nonexistent-workflow' after 6 retries over 0s — checkpoint result NOT recorded"
+  DROPPED: escalation is not recorded anywhere; only a stderr warning.
+
+========================================================================
+BT-02 SUMMARY: escalate path holds for the canonical string (A). Two
+holes found: (B) a case-variant/typo result string silently records as
+non-escalated; (C) an escalate with no open record is dropped with a
+stderr warning only, exit 0.
+========================================================================

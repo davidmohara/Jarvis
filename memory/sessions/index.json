@@ -3052,7 +3052,20 @@
           "systems/eval-harness/stage3/shep.md",
           "systems/eval-harness/stage3/sterling.md",
           "systems/eval-harness/stage3/galen.md",
-          "systems/eval-harness/runs/eval-20261016T133352-LNZPBS.json"
+          "systems/eval-harness/runs/eval-20261016T133352-LNZPBS.json",
+          "projects/stage-5-submission/README.md",
+          "projects/stage-4-evidence/adversarial-catches/README.md",
+          "projects/stage-4-evidence/adversarial-catches/catches.jsonl",
+          "projects/stage-4-evidence/adversarial-catches/catches.md",
+          "agents/adversarial-isolation.md",
+          "systems/eval-harness/assertions/dream-cycle.json",
+          ".claude/hooks/eval-turn-start.py",
+          "systems/eval-harness/assertions/content-pipeline.json",
+          ".claude/hooks/tests/test_detect_workflow.py",
+          "systems/eval-harness/model-pricing.json",
+          "systems/eval-harness/token_usage.py",
+          ".claude/hooks/tests/test_step_token_capture.py",
+          "projects/stage-5-submission/stage3-remediation-plan.md"
         ]
       }
     ]
