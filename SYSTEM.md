@@ -64,7 +64,7 @@ Read these rules. Follow them. No exceptions.
 
 **Never declare something "not found" until at least 3 different search strategies have been exhausted.**
 
-1. **Calendar searches**: Search by subject keywords, by attendee/organizer, AND by date range. Provider names (e.g., "Julli Randol") may not appear in the calendar entry — search by what the event is ("wellness", "exam", "check-up"), not just who it's with.
+1. **Calendar searches**: Search by subject keywords, by attendee/organizer, AND by date range. Provider names (e.g., "Ryan Jones") may not appear in the calendar entry — search by what the event is ("wellness", "exam", "check-up"), not just who it's with.
 2. **File searches**: Search by filename, by content keywords, AND by directory browsing. Try synonyms and abbreviations.
 3. **Contact/people searches**: Search by name, by email, by organization, AND by keyword.
 

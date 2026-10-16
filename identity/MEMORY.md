@@ -148,7 +148,7 @@ These dates are **never** to be scheduled over. Jarvis must provide reminders **
 
 ## Providers
 
-- **PC (NP)**: Julli Randol, FNP-C @ Performance Medicine & Sports Therapy (6101 Windhaven Pkwy, Plano TX 75093) — also manages testosterone protocol
+- **PC (PCP)**: Dr. Ryan Jones @ Inspire Health, Frisco Legacy (2840 Legacy Dr Ste 400, Frisco TX 75034; 469-200-6100) — physician of record. Prior: Julli Randol, FNP-C @ Performance Medicine & Sports Therapy (6101 Windhaven Pkwy, Plano TX 75093), who also managed the testosterone protocol
 - **Chiropractor**: Dr. Ishmael Gonzales @ Performance Medicine
 - **Dermatologist**: Dr. Crawford @ Dallas Associated Dermatologists (Legacy & Preston)
 - **Audiologist**: North Dallas ENT (Plano)
@@ -181,6 +181,6 @@ These dates are **never** to be scheduled over. Jarvis must provide reminders **
 - **Bloodwork**: Function Health — 160+ biomarkers, 2x/year at Quest Diagnostics. Ad hoc testing available.
 - **Body Comp**: Hume Body Pod (lean mass, body fat %)
 - **Recovery**: Whoop (HRV, sleep, strain, recovery)
-- **Testosterone**: 70IU/week, managed by Julli Randol (FNP-C)
+- **Testosterone**: 70IU/week, physician of record: Dr. Ryan Jones
 - **Peptides**: Self-directed, cycled by phase and goal
 - **Diet**: Gluten-free. Super Shake morning protocol. Protein-forward.

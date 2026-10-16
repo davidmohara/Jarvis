@@ -136,7 +136,7 @@ Sourced from David's "Assistant Needs" document in Obsidian. This is the operati
 | Audiologist | North Dallas ENT | Plano office preferred |
 | Chiropractor | Dr. Ishmael Gonzales | Performance Medicine & Sports Therapy |
 | Dermatologist | Dr. Crawford | Dallas Associated Dermatologists (Legacy & Preston) |
-| GP | Julli Randol | Performance Medicine / Trend Healthcare |
+| GP | Dr. Ryan Jones | Inspire Health, Frisco Legacy |
 | Optical | Dr. Tom McClintock | Clarkson Eyecare (Frisco, Stonebrook) |
 | Sleep | Dr. Vikas Jain | Dream Sleep Medicine (4645 Avon Ln #340, Frisco) |
 | Orthopedic | Dr. Mark Mueller | Carrell Clinic (Star location) |
