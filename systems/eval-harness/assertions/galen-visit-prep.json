@@ -29,6 +29,30 @@
       "path": "memory/working/galen-visit-prep-*.md",
       "pattern": "(?i)(complete|done|finished|output|result)",
       "description": "galen-visit-prep output contains expected content"
+    },
+    {
+      "id": "galen-vi-question-list",
+      "check": "file_contains",
+      "category": "content",
+      "path": "memory/working/galen-visit-prep-*.md",
+      "pattern": "(?i)(question|ask dr|randol)",
+      "description": "Galen visit-prep (question list generated): the visit-prep output carries the outstanding-questions list for Dr. Randol. Honest limit: the deliverable is saved to the Obsidian vault (Mind/Health/Visit Prep - Dr Randol - [Date].md), which lives outside this repo and cannot be globbed from here, so this checks the run's own working-memory record of the question list; the vault note itself is the primary artifact."
+    },
+    {
+      "id": "galen-vi-g3-trend-source",
+      "check": "json_path_exists",
+      "category": "content",
+      "path": "data/health/metrics-log.json",
+      "field_path": "entries[]",
+      "min_matches": 1,
+      "description": "Galen G3 (longitudinal continuity): the metrics-log store the visit-prep brief reads WHOOP/bloodwork/protocol changes from is populated, so the brief has longitudinal data to compile."
+    },
+    {
+      "id": "galen-vi-g4-grade",
+      "check": "grade_threshold",
+      "min_grade": "B",
+      "category": "quality",
+      "description": "Galen G4 (Tier 3 grade >= B): visit-prep quality is judged by Tier 3 grading. Honest alternative — grade presence at B or better; defers (skipped) until graded."
     }
   ]
 }

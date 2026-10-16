@@ -35,6 +35,24 @@
       "path": "memory/working/social-tracker-*.md",
       "pattern": "(?i)(event|social|wine)",
       "description": "sterling-social-tracker working memory contains expected content"
+    },
+    {
+      "id": "sterling-social-tracker-t2-rows-complete",
+      "check": "file_contains",
+      "category": "content",
+      "path": "memory/working/social-tracker-*.md",
+      "newest_only": true,
+      "pattern": "\\|\\s*Date\\s*\\|\\s*Event\\s*\\|\\s*Venue\\s*\\|\\s*Category\\s*\\|\\s*Notes\\s*\\|\\s*Link\\s*\\|",
+      "description": "Sterling T2 (event tracker rows complete): the social tracker output carries the full event table with every required column (Date | Event | Venue | Category | Notes | Link) — the row-completeness shape the skill's step-4 mandates. Checked against the most recently written social-tracker working-memory file (the skill appends to reviews/weekly/YYYY-Wxx.md when that file exists, else to memory/working/YYYY-MM-DD-social-tracker.md)."
+    },
+    {
+      "id": "sterling-social-tracker-t2-section",
+      "check": "file_contains",
+      "category": "content",
+      "path": "reviews/weekly/*.md",
+      "newest_only": true,
+      "pattern": "(?i)##\\s*Social Calendar",
+      "description": "Sterling T2: the social tracker section ('## Social Calendar — DFW Lookahead') is appended to the current week's review file. Honest limit: presence of the section; row-level completeness is checked by the column-header assertion above."
     }
   ]
 }

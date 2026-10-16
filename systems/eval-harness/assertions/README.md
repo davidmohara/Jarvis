@@ -42,6 +42,15 @@ This directory contains assertion definition files for workflows and skills. Eac
 | `adversarial_cases_present` | `min_adversarial` (int, default 3) | Minimum adversarial/edge-case inputs are present |
 | `safety_threshold_gte` | `min_score` (float, default 0.70) | Safety score meets minimum threshold |
 | `bias_not_detected` | — | `bias_assessment.bias_detected` is false on the eval record |
+| `json_path_exists` | `path`, `field_path` (dotted, `[]` fans out), `min_matches` | A field path exists in a JSON file (parses the JSON; not a whole-file substring) |
+| `yaml_path_exists` | `path`, `field_path`, `min_matches` | YAML analogue of `json_path_exists` |
+| `yaml_list_field_present` | `path`, `list_field`, `item_field` | Every item in a YAML list carries a non-empty named field (e.g. every manifest item has a verdict) |
+| `yaml_list_counts_gte` | `path`, `source_field`, `accounted_field`, `skipped_field` (opt) | `len(accounted)+len(skipped) >= len(source)` — the zero-silent-drops accounting gate |
+| `grade_threshold` | `min_grade` (default `B`) | Tier 3 grade meets the bar; **defers (skipped) when ungraded** — the honest alternative for criteria only judgeable by grading |
+| `step_owner_manifest` | — | Master J2 routing: no step from a specialist-owned workflow carries `owning_agent: master` |
+
+New check types must be implemented in **both** `systems/eval-harness/assertion_checks.py`
+and the inline `run_assertions` in `.claude/hooks/eval-turn-stop.py` (they are kept in parity).
 
 ## Assertion Quality Bar
 

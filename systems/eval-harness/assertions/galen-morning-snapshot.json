@@ -17,6 +17,20 @@
       "field": "status",
       "value": "failure",
       "description": "galen-morning-snapshot skill-run did not end in failure"
+    },
+    {
+      "id": "galen-ms-g1-data-store",
+      "check": "file_exists",
+      "category": "content",
+      "path": "data/health/metrics-log.json",
+      "description": "Galen G1 (data-integrity honesty): the longitudinal health metrics store exists and is the file Galen reads/writes. Honest limit: whether a given run correctly declared a WHOOP source unavailable/stale and refused to interpolate is a semantic judgment (it depends on the live token state at run time) and is covered by the G4 Tier 3 grade — no mechanical check can tell a declared-unavailable source from a silently-fabricated value."
+    },
+    {
+      "id": "galen-ms-g4-grade",
+      "check": "grade_threshold",
+      "min_grade": "B",
+      "category": "quality",
+      "description": "Galen G4 (Tier 3 grade >= B): morning-snapshot quality, including G1 data-integrity honesty, is judged by Tier 3 grading. Honest alternative — grade presence at B or better; defers (skipped) until graded."
     }
   ]
 }

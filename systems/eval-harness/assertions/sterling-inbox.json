@@ -35,6 +35,36 @@
       "path": "memory/working/sterling-inbox-*.md",
       "pattern": "(?i)(wine|deliver|inbox)",
       "description": "sterling-inbox working memory contains expected content"
+    },
+    {
+      "id": "sterling-inbox-t1-report-exists",
+      "check": "file_exists",
+      "category": "content",
+      "path": "reports/jarvis_inbox_report.md",
+      "description": "Sterling T1 (inbox triage correctness — every /Jarvis item triaged): the /Jarvis inbox report exists after the sweep. The report is the on-disk record of the triage decisions for this run."
+    },
+    {
+      "id": "sterling-inbox-t1-triage-sections",
+      "check": "file_contains",
+      "category": "content",
+      "path": "reports/jarvis_inbox_report.md",
+      "pattern": "(?i)actions taken|routed|needs your decision|filed",
+      "description": "Sterling T1 (inbox triage correctness): the report carries the triage-decision sections — Actions Taken / Routed / Needs Your Decision / Filed — one of which every /Jarvis item must land in (act, route, or surface). Pass = 100% accounted for; an item that lands in none of these is the silent-drop failure this catches."
+    },
+    {
+      "id": "sterling-inbox-t2-routing-target",
+      "check": "file_contains",
+      "category": "content",
+      "path": "reports/jarvis_inbox_report.md",
+      "pattern": "(?i)(routed|route to|handed to|forwarded to).{0,80}(chase|harper|quinn|shep|knox|galen|rigby|chief)",
+      "description": "Sterling T2 (routing correctness — routed items reach the correct agent): where items were routed, the report names a target IES agent. Honest limit: this confirms a routing target was recorded, not that it was the correct agent for the item; the correctness judgment (client->Chase, content->Harper) is the T2 Tier 3 grade."
+    },
+    {
+      "id": "sterling-inbox-t2-grade",
+      "check": "grade_threshold",
+      "min_grade": "B",
+      "category": "quality",
+      "description": "Sterling T2 (routing correctness, >= 95%): whether a routed item reached the correct agent is a semantic judgment. Honest alternative — grade presence at B or better; defers (skipped) until graded."
     }
   ]
 }

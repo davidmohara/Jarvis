@@ -29,6 +29,29 @@
       "path": "memory/working/galen-protocols-*.md",
       "pattern": "(?i)(complete|done|finished|output|result)",
       "description": "galen-protocols output contains expected content"
+    },
+    {
+      "id": "galen-pr-g1-conflict-source",
+      "check": "json_path_exists",
+      "category": "content",
+      "path": "data/health/tracking.json",
+      "field_path": "peptide_constraints",
+      "min_matches": 1,
+      "description": "Galen G1/G3 (protocol conflict + gap flags): the protocol run reads peptide_constraints (max frequency, pause windows, restart eligibility) from data/health/tracking.json, the source every conflict/gap flag is derived from. Honest limit: presence of the constraint source, not that a given flag fired correctly — that judgment is the G4 Tier 3 grade."
+    },
+    {
+      "id": "galen-pr-supplement-stack",
+      "check": "file_exists",
+      "category": "content",
+      "path": "data/health/supplement-stack.json",
+      "description": "Galen G1: the authoritative supplement-stack registry exists, so the protocol status card is grounded in a real stack source rather than memory."
+    },
+    {
+      "id": "galen-pr-g4-grade",
+      "check": "grade_threshold",
+      "min_grade": "B",
+      "category": "quality",
+      "description": "Galen G4 (Tier 3 grade >= B): protocol-card quality is judged by Tier 3 grading. Honest alternative — grade presence at B or better; defers (skipped) until graded."
     }
   ]
 }

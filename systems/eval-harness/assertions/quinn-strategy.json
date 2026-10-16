@@ -29,6 +29,28 @@
       "path": "memory/working/quinn-strategy-*.md",
       "pattern": "(?i)(complete|done|finished|output|result)",
       "description": "quinn-strategy output contains expected content"
+    },
+    {
+      "id": "quinn-st-q1-kernel",
+      "check": "file_contains",
+      "category": "content",
+      "path": "memory/working/quinn-strategy-*.md",
+      "pattern": "(?i)(diagnosis|guiding policy|coherent action|our challenge|our approach|first three moves)",
+      "description": "Quinn Q1 (strategy-kernel presence): the strategy output names the kernel — a diagnosis, a guiding policy, and coherent actions (or the equivalent 2-minute format lines 'Our challenge / Our approach / First three moves'). Honest limit: this confirms the kernel vocabulary is present in the persisted strategy output, not that each element is well-formed; the semantic quality is covered by the Q4 Tier 3 grade."
+    },
+    {
+      "id": "quinn-st-q2-bad-strategy",
+      "check": "grade_threshold",
+      "min_grade": "B",
+      "category": "quality",
+      "description": "Quinn Q2 (bad-strategy detection): whether the output flags goals-as-strategy / fluff / template thinking is a conditional, semantic judgment (it only fires when a bad pattern is present) that cannot be mechanically asserted. Honest alternative — Tier 3 grade presence at B or better; defers (skipped) until graded."
+    },
+    {
+      "id": "quinn-st-q3-objectives-file",
+      "check": "file_exists",
+      "category": "content",
+      "path": "memory/personal/quarterly-objectives.md",
+      "description": "Quinn Q3 (goal-grounding): the authoritative quarterly objectives file that strategy/rock/alignment outputs must reference exists and is readable. Honest limit: this asserts the grounding source is present, not that a given output cited it; the citation itself is judged by the Q4 grade and by the rock/alignment working-memory checks in the sibling files."
     }
   ]
 }

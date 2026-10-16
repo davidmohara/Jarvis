@@ -1,0 +1,61 @@
+{
+  "name": "boot-verification",
+  "type": "workflow",
+  "assertions": [
+    {
+      "id": "bv-001-state-exists",
+      "check": "file_exists",
+      "category": "structure",
+      "path": "workflows/boot-verification/state.yaml",
+      "description": "Ralph A4 (boot-verification gate): the boot-verification run wrote its state file — a verification run happened for this boot."
+    },
+    {
+      "id": "bv-002-state-complete",
+      "check": "file_contains",
+      "category": "structure",
+      "path": "workflows/boot-verification/state.yaml",
+      "pattern": "^status:\\s*complete",
+      "description": "Ralph A4: the boot-verification run reached status: complete — it ran to completion rather than aborting before returning a verdict table."
+    },
+    {
+      "id": "bv-a1-verdict-completeness",
+      "check": "yaml_list_field_present",
+      "category": "content",
+      "path": "workflows/boot-verification/state.yaml",
+      "list_field": "accumulated-context.phase2-manifest",
+      "item_field": "verdict",
+      "description": "Ralph A1 (verdict-table completeness): every item in the Phase 2 manifest (accumulated-context.phase2-manifest) carries a non-empty `verdict` — no manifest item is silently omitted. Pass = 100% of items covered."
+    },
+    {
+      "id": "bv-a2-evidence-required",
+      "check": "file_contains",
+      "category": "content",
+      "path": "workflows/boot-verification/state.yaml",
+      "pattern": "(?i)(state-file|data-files|expected-output|expected-log)",
+      "description": "Ralph A2 (false-positive rate): each manifest item names its evidence artifact (state-file / data-files / expected-output / expected-log), the ground-truth pointer Ralph verifies against. Honest limit: this confirms the manifest carries evidence pointers, not that a 'verified' verdict always had qualifying evidence; the seeded-missing-artifact A/B (one clean manifest, one with a known-missing artifact) is what proves zero false positives, and is the run the Stage 3 plan calls for."
+    },
+    {
+      "id": "bv-a3-silence-discipline",
+      "check": "yaml_path_exists",
+      "category": "content",
+      "path": "workflows/boot-verification/state.yaml",
+      "field_path": "accumulated-context.verdict-summary",
+      "description": "Ralph A3 (unverifiable-on-silence discipline): the run records a verdict-summary field, so missing/unreadable evidence is surfaced as Unverified rather than passing silently. A run that omits the aggregate verdict has no summary field and fails here. Field-path check (not a whole-file substring) so the summary must be a real state field, not a token appearing in the run's notes."
+    },
+    {
+      "id": "bv-a2-escalations-surfaced",
+      "check": "yaml_path_exists",
+      "category": "content",
+      "path": "workflows/boot-verification/state.yaml",
+      "field_path": "accumulated-context.rerun-required",
+      "description": "Ralph A2/A4 (escalations surfaced): the run records the rerun-required list field, the escalation channel by which unverified items are surfaced to Master before the next phase proceeds."
+    },
+    {
+      "id": "bv-a4-grade",
+      "check": "grade_threshold",
+      "min_grade": "B",
+      "category": "quality",
+      "description": "Ralph A4 (Tier 3 grade): verification quality (did Ralph's verdicts match ground truth) is judged by Tier 3 grading. Honest alternative — grade presence at B or better; defers (skipped) until graded."
+    }
+  ]
+}

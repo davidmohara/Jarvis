@@ -1,5 +1,6 @@
 ---
 name: galen-morning-snapshot
+owning_agent: galen
 description: "Pull today's WHOOP recovery score, interpret in context of last 7 days, surface health status for Chief's morning briefing. Flags red recovery, notable HRV trends, sleep quality, and active peptide cycle reminders. Trigger on 'morning snapshot', 'how did I sleep', 'my recovery score'."
 context: fork
 agent: general-purpose

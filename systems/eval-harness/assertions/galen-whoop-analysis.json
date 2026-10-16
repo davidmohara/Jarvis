@@ -29,6 +29,31 @@
       "path": "memory/working/galen-whoop-analysis-*.md",
       "pattern": "(?i)(complete|done|finished|output|result)",
       "description": "galen-whoop-analysis output contains expected content"
+    },
+    {
+      "id": "galen-wh-g3-trend-fields",
+      "check": "json_path_exists",
+      "category": "content",
+      "path": "data/health/metrics-log.json",
+      "field_path": "entries[].metrics.recovery_trend",
+      "min_matches": 1,
+      "description": "Galen G3 (longitudinal continuity): the run appended a whoop_monthly entry to data/health/metrics-log.json carrying trend fields (recovery_trend), so each metric is presented against its 7-day trend rather than as a bare value. The schema (data/health/schema.md) defines recovery_trend/hrv_trend/sleep_trend on whoop_monthly entries."
+    },
+    {
+      "id": "galen-wh-g3-hrv-trend",
+      "check": "json_path_exists",
+      "category": "content",
+      "path": "data/health/metrics-log.json",
+      "field_path": "entries[].metrics.hrv_trend",
+      "min_matches": 1,
+      "description": "Galen G3 (longitudinal continuity): the whoop_monthly entry carries the HRV trend field — the longitudinal counterpart to the recovery trend, so HRV is shown against its drift, not in isolation."
+    },
+    {
+      "id": "galen-wh-g4-grade",
+      "check": "grade_threshold",
+      "min_grade": "B",
+      "category": "quality",
+      "description": "Galen G4 (Tier 3 grade >= B): WHOOP-analysis quality is judged by Tier 3 grading. Honest alternative — grade presence at B or better; defers (skipped) until graded."
     }
   ]
 }

@@ -35,6 +35,21 @@
       "path": "memory/working/initiative-tracker-*.md",
       "pattern": "(?i)(initiative|block|owner)",
       "description": "quinn-initiatives working memory contains expected content"
+    },
+    {
+      "id": "quinn-initiatives-q3-goal-grounding",
+      "check": "file_contains",
+      "category": "content",
+      "path": "memory/working/initiative-tracker-*.md",
+      "pattern": "(?i)(quarterly-objectives|quarterly objectives|Q[1-4] 20\\d\\d|rock [1-9]|orphan|blocker|status)",
+      "description": "Quinn Q3 (goal-grounding / initiative tracker currency): the initiative output ties initiatives back to the quarterly objectives or rocks (quarter label, objectives file, or named rock), and carries per-initiative status/blocker/orphan flags. Currency is the status-and-blocker vocabulary being present on the tracked items."
+    },
+    {
+      "id": "quinn-initiatives-q4-grade",
+      "check": "grade_threshold",
+      "min_grade": "B",
+      "category": "quality",
+      "description": "Quinn Q4 (Tier 3 grade >= B): initiative-tracker quality is judged by Tier 3 grading. Honest alternative — grade presence at B or better; defers (skipped) until graded."
     }
   ]
 }

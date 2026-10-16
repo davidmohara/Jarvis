@@ -29,6 +29,13 @@
       "path": "memory/working/email-drafting-*.md",
       "pattern": "(?i)(complete|done|finished|output|result)",
       "description": "email-drafting output contains expected content"
+    },
+    {
+      "id": "email-dr-p1-voice-grade",
+      "check": "grade_threshold",
+      "min_grade": "B",
+      "category": "quality",
+      "description": "Harper P1 (voice calibration) on the email-drafting workflow: tone calibration to recipient/relationship is only judgeable by Tier 3 grading. Honest alternative — grade presence at B or better; defers (skipped) until graded."
     }
   ]
 }

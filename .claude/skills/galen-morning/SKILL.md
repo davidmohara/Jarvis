@@ -1,5 +1,6 @@
 ---
 name: galen-morning
+owning_agent: galen
 description: Morning health snapshot — WHOOP recovery score, 7-day context, HRV trend, sleep quality flags, peptide cycle reminders
 context: fork
 agent: general-purpose

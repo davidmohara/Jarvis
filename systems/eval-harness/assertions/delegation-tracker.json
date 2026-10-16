@@ -29,6 +29,28 @@
       "path": "memory/working/delegation-tracker-*.md",
       "pattern": "(?i)(complete|done|finished|output|result)",
       "description": "delegation-tracker output contains expected content"
+    },
+    {
+      "id": "deleg-s2-tracker-exists",
+      "check": "file_exists",
+      "category": "content",
+      "path": "delegations/tracker.md",
+      "description": "Shep S2 (delegation sync fidelity): the delegation tracker exists after the run."
+    },
+    {
+      "id": "deleg-s2-tracker-has-delegations",
+      "check": "file_contains",
+      "category": "content",
+      "path": "delegations/tracker.md",
+      "pattern": "(?i)delegated to|active delegations|status",
+      "description": "Shep S2: the delegation tracker carries the delegation table structure (owner + status columns)."
+    },
+    {
+      "id": "deleg-s2-omnifocus-mirror",
+      "check": "file_exists",
+      "category": "content",
+      "path": "data/omnifocus-unified.json",
+      "description": "Shep S2 (delegation sync fidelity): the OmniFocus mirror data file exists so tracker changes have a live counterpart to mirror into. Honest limit: presence, not zero-drift; drift detection needs the tracker-vs-OmniFocus diff A/B."
     }
   ]
 }

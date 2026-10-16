@@ -29,6 +29,40 @@
       "path": "memory/working/galen-bloodwork-*.md",
       "pattern": "(?i)(complete|done|finished|output|result)",
       "description": "galen-bloodwork output contains expected content"
+    },
+    {
+      "id": "galen-bl-g2-out-of-range",
+      "check": "json_path_exists",
+      "category": "content",
+      "path": "data/health/metrics-log.json",
+      "field_path": "entries[].out_of_range",
+      "min_matches": 1,
+      "description": "Galen G2 (reference-range grounding): the run appended a bloodwork entry to data/health/metrics-log.json carrying the out_of_range array — the field the schema (data/health/schema.md) defines for markers flagged against their reference range. Pass = 100% of bloodwork outputs."
+    },
+    {
+      "id": "galen-bl-g2-metrics",
+      "check": "json_path_exists",
+      "category": "content",
+      "path": "data/health/metrics-log.json",
+      "field_path": "entries[].metrics.cardiovascular",
+      "min_matches": 1,
+      "description": "Galen G2: the bloodwork entry carries the structured metrics block (cardiovascular panel etc.) so every marker value is recorded against its category — the grounding data the out_of_range flags and the prior-draw comparison are computed from."
+    },
+    {
+      "id": "galen-bl-g3-prior-comparison",
+      "check": "json_path_exists",
+      "category": "content",
+      "path": "data/health/tracking.json",
+      "field_path": "bloodwork_history",
+      "min_matches": 1,
+      "description": "Galen G3 (longitudinal continuity): the tracking store carries bloodwork_history, the prior-draw record each new bloodwork interpretation is compared against. Honest limit: presence of the history, not that this run's comparison was correct — the correctness is the G4 Tier 3 grade."
+    },
+    {
+      "id": "galen-bl-g4-grade",
+      "check": "grade_threshold",
+      "min_grade": "B",
+      "category": "quality",
+      "description": "Galen G4 (Tier 3 grade >= B): bloodwork-interpretation quality is judged by Tier 3 grading. Honest alternative — grade presence at B or better; defers (skipped) until graded."
     }
   ]
 }

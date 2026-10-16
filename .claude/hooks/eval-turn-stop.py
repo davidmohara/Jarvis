@@ -38,6 +38,21 @@ try:
     from step_audit import steps_all_terminal
 except Exception:
     steps_all_terminal = None
+try:
+    from step_audit import MANIFEST_AGENTS, normalize_agent_label
+except Exception:
+    MANIFEST_AGENTS = (
+        "master", "chief", "chase", "knox", "shep", "quinn",
+        "harper", "rigby", "sterling", "galen", "ralph",
+    )
+
+    def normalize_agent_label(agent):
+        if not agent:
+            return None
+        a = str(agent).strip().lower()
+        if a in ("master", "jarvis"):
+            return "master"
+        return a if a in MANIFEST_AGENTS else None
 
 TAG = "TURN-STOP"
 ASSERTIONS_DIR = IES_ROOT / "systems" / "eval-harness" / "assertions"
@@ -53,6 +68,100 @@ def extract_frontmatter_block(content: str) -> str:
         if line.strip() == "---":
             return "\n".join(lines[1:i])
     return "\n".join(lines[1:])
+
+
+# --- Stage 3 Phase 1 check helpers (parity with assertion_checks.py) ---------
+# These mirror assertion_checks.py's step_owner_manifest / grade_threshold /
+# yaml_* helpers so this hook evaluates the new check types identically.
+
+GRADE_ORDER = {"A": 4, "B": 3, "C": 2, "D": 1, "F": 0}
+
+
+def _frontmatter_field(text: str, field: str):
+    lines = (text or "").split("\n")
+    if not lines or lines[0].strip() != "---":
+        return None
+    for line in lines[1:]:
+        if line.strip() == "---":
+            break
+        m = re.match(rf"^{re.escape(field)}\s*:\s*(.+?)\s*$", line)
+        if m:
+            return m.group(1).strip().strip("'\"")
+    return None
+
+
+def _manifest_ownership(ies_root) -> dict:
+    path = ies_root / "agents" / "manifest.md"
+    if not path.is_file():
+        return {}
+    owners = {}
+    for line in path.read_text(errors="replace").split("\n"):
+        stripped = line.strip()
+        if not stripped.startswith("|"):
+            continue
+        cells = [c.strip() for c in stripped.strip("|").split("|")]
+        if len(cells) < 4:
+            continue
+        m = re.match(r"\*\*([A-Za-z]+)\*\*", cells[0])
+        if not m:
+            continue
+        agent = m.group(1).strip().lower()
+        if agent in MANIFEST_AGENTS:
+            owners[agent] = cells[3]
+    return owners
+
+
+def _manifest_boot_step_ranges(owners: dict):
+    ranges = []
+    for agent, owns in owners.items():
+        for m in re.finditer(
+            r"boot steps?\s+(\d+(?:\.\d+)?)\s*(?:[-–]\s*(\d+(?:\.\d+)?))?", owns or ""
+        ):
+            lo = float(m.group(1))
+            hi = float(m.group(2)) if m.group(2) else lo
+            ranges.append((agent, lo, hi))
+    return ranges
+
+
+def _workflow_step_owner_map(ies_root) -> dict:
+    step_owners = {}
+    wf_dir = ies_root / "workflows"
+    if not wf_dir.is_dir():
+        return step_owners
+    for wf in wf_dir.iterdir():
+        if not wf.is_dir():
+            continue
+        wf_md = wf / "workflow.md"
+        if not wf_md.is_file():
+            continue
+        owner = normalize_agent_label(_frontmatter_field(wf_md.read_text(errors="replace"), "agent"))
+        steps_dir = wf / "steps"
+        if not steps_dir.is_dir():
+            continue
+        for sf in steps_dir.glob("*.md"):
+            step_owners.setdefault(sf.name, set()).add(owner or wf.name)
+    return step_owners
+
+
+def _yaml_walk(data, field_path):
+    nodes = [data]
+    for seg in [x for x in field_path.split(".") if x]:
+        is_list = seg.endswith("[]")
+        key = seg[:-2] if is_list else seg
+        nxt = []
+        for node in nodes:
+            if not isinstance(node, dict) or key not in node:
+                continue
+            val = node[key]
+            if is_list:
+                if isinstance(val, list):
+                    nxt.extend(val)
+            else:
+                nxt.append(val)
+        nodes = nxt
+        if not nodes:
+            break
+    return nodes
 
 
 def read_state_yaml(rel_path: str) -> dict:
@@ -149,8 +258,84 @@ def run_assertions(name: str, eval_record: dict) -> dict:
                             if not nodes:
                                 break
                         passed = len(nodes) >= min_matches
-            elif check == "step_count_gte":
-                passed = len(eval_record.get("steps", [])) >= a.get("min_count", a.get("min_steps", 0))
+            elif check == "step_owner_manifest":
+                # Master J2 — parity with assertion_checks.check_step_owner_manifest.
+                steps = eval_record.get("steps") or []
+                if not steps:
+                    passed = None
+                else:
+                    owners_map = _manifest_ownership(IES_ROOT)
+                    boot_ranges = _manifest_boot_step_ranges(owners_map)
+                    step_owners = _workflow_step_owner_map(IES_ROOT)
+                    violations = 0
+                    for s in steps:
+                        if isinstance(s, dict):
+                            nm = s.get("name") or ""
+                            ow = normalize_agent_label(s.get("owning_agent"))
+                        elif isinstance(s, str):
+                            nm, ow = s, None
+                        else:
+                            continue
+                        if not nm:
+                            continue
+                        expected = set()
+                        base = nm if nm.endswith(".md") else f"{nm}.md"
+                        for o in step_owners.get(base, set()):
+                            if o and o in MANIFEST_AGENTS:
+                                expected.add(o)
+                        num = re.match(r"^step-(\d+(?:\.\d+)?)", nm)
+                        if num:
+                            n = float(num.group(1))
+                            for agent, lo, hi in boot_ranges:
+                                if lo <= n <= hi:
+                                    expected.add(agent)
+                        if expected and ow == "master" and "master" not in expected:
+                            violations += 1
+                    passed = violations == 0
+            elif check == "grade_threshold":
+                grading = (eval_record.get("assessment", {}) or {}).get("grading", {}) or {}
+                grade = grading.get("grade")
+                min_grade = str(a.get("min_grade", "B")).upper()
+                if not grade:
+                    passed = None
+                else:
+                    g = GRADE_ORDER.get(str(grade).upper())
+                    passed = (g is not None) and g >= GRADE_ORDER.get(min_grade, 3)
+            elif check in ("yaml_path_exists", "yaml_list_field_present", "yaml_list_counts_gte"):
+                ymatches = list(IES_ROOT.glob(a.get("path", "")))
+                if not ymatches:
+                    passed = False
+                else:
+                    try:
+                        ydata = yaml.safe_load(
+                            extract_frontmatter_block(ymatches[0].read_text(errors="replace"))
+                        ) or {}
+                    except Exception:
+                        ydata = {}
+                    if check == "yaml_path_exists":
+                        passed = len(_yaml_walk(ydata, a.get("field_path", ""))) >= a.get("min_matches", 1)
+                    elif check == "yaml_list_field_present":
+                        nodes = _yaml_walk(ydata, a.get("list_field", ""))
+                        items = nodes[0] if nodes and isinstance(nodes[0], list) else []
+                        if not items:
+                            passed = None
+                        else:
+                            item_field = a.get("item_field", "")
+                            missing = [
+                                i for i, it in enumerate(items)
+                                if not (isinstance(it, dict) and str(it.get(item_field, "")).strip())
+                            ]
+                            passed = len(missing) == 0
+                    else:  # yaml_list_counts_gte
+                        def _ylist(field):
+                            if not field:
+                                return []
+                            nn = _yaml_walk(ydata, field)
+                            return nn[0] if nn and isinstance(nn[0], list) else []
+                        src = _ylist(a.get("source_field", ""))
+                        acct = _ylist(a.get("accounted_field", ""))
+                        skip = _ylist(a.get("skipped_field", ""))
+                        passed = True if not src else (len(acct) + len(skip)) >= len(src)
             elif check == "duration_lte":
                 passed = eval_record.get("duration_seconds", float("inf")) <= a.get("max_duration_seconds", float("inf"))
             else:

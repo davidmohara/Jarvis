@@ -38,6 +38,27 @@ import re
 import json
 from pathlib import Path
 
+# Canonical manifest agent roster + label normalization live in step_audit.py
+# (Stage 3 Phase 0). Import them so routing-attribution checks agree with the
+# harness on what an "agent" is; fall back to a local copy if the module is
+# not importable at this call site (e.g. a stripped-down test harness).
+try:
+    from step_audit import MANIFEST_AGENTS as _MANIFEST_AGENTS
+    from step_audit import normalize_agent_label as _normalize_agent_label
+except Exception:  # pragma: no cover - defensive fallback
+    _MANIFEST_AGENTS = (
+        "master", "chief", "chase", "knox", "shep", "quinn",
+        "harper", "rigby", "sterling", "galen", "ralph",
+    )
+
+    def _normalize_agent_label(agent):
+        if not agent:
+            return None
+        a = str(agent).strip().lower()
+        if a in ("master", "jarvis"):
+            return "master"
+        return a if a in _MANIFEST_AGENTS else None
+
 
 def extract_frontmatter_block(content: str) -> str:
     """Strip leading/trailing `---` YAML frontmatter markers."""
@@ -414,6 +435,276 @@ def check_numeric_field_in_range(a, eval_record, ies_root, transcript_path, yaml
     return (min_v <= value <= max_v), {"value": value}
 
 
+# ---------------------------------------------------------------------------
+# Stage 3 Phase 1 check types — routing attribution, Tier-3 deferral, and
+# YAML field/list checks. These close the measurement gaps for criteria that
+# had zero assertion coverage (see
+# projects/stage-5-submission/stage3-compliance-plan.md, Phase 1).
+#
+# Mirror note: every function below is duplicated (kept in parity) in
+# .claude/hooks/eval-turn-stop.py's inline run_assertions(), which does not
+# import this module. Add new check types in BOTH places.
+# ---------------------------------------------------------------------------
+
+GRADE_ORDER = {"A": 4, "B": 3, "C": 2, "D": 1, "F": 0}
+
+
+def _frontmatter_field(text: str, field: str):
+    """Read one top-level frontmatter scalar by regex, without needing PyYAML."""
+    lines = (text or "").split("\n")
+    if not lines or lines[0].strip() != "---":
+        return None
+    for line in lines[1:]:
+        if line.strip() == "---":
+            break
+        m = re.match(rf"^{re.escape(field)}\s*:\s*(.+?)\s*$", line)
+        if m:
+            return m.group(1).strip().strip("'\"")
+    return None
+
+
+def _manifest_ownership(ies_root: Path) -> dict:
+    """Parse agents/manifest.md's agent table -> {agent: owns_cell_text}.
+
+    The 'Owns (workflow steps, skills)' column is the coordinator-vs-specialist
+    routing contract Master J2 is scored against."""
+    text = _read_text(ies_root / "agents" / "manifest.md")
+    owners = {}
+    for line in text.split("\n"):
+        stripped = line.strip()
+        if not stripped.startswith("|"):
+            continue
+        cells = [c.strip() for c in stripped.strip("|").split("|")]
+        if len(cells) < 4:
+            continue
+        m = re.match(r"\*\*([A-Za-z]+)\*\*", cells[0])
+        if not m:
+            continue
+        agent = m.group(1).strip().lower()
+        if agent in _MANIFEST_AGENTS:
+            owners[agent] = cells[3]
+    return owners
+
+
+def _manifest_boot_step_ranges(owners: dict):
+    """[(agent, lo, hi)] parsed from phrases like 'boot steps 02-06' / 'boot step-08'."""
+    ranges = []
+    for agent, owns in owners.items():
+        for m in re.finditer(
+            r"boot steps?\s+(\d+(?:\.\d+)?)\s*(?:[-–]\s*(\d+(?:\.\d+)?))?",
+            owns or "",
+        ):
+            lo = float(m.group(1))
+            hi = float(m.group(2)) if m.group(2) else lo
+            ranges.append((agent, lo, hi))
+    return ranges
+
+
+def _workflow_step_owner_map(ies_root: Path) -> dict:
+    """basename -> set of owning agents, by scanning workflows/<name>/steps/*.md
+    and reading each workflow's `agent:` frontmatter. A step file that lives in
+    a specialist-owned workflow belongs to that specialist."""
+    step_owners = {}
+    wf_dir = ies_root / "workflows"
+    if not wf_dir.is_dir():
+        return step_owners
+    for wf in wf_dir.iterdir():
+        if not wf.is_dir():
+            continue
+        wf_md = wf / "workflow.md"
+        if not wf_md.is_file():
+            continue
+        owner = _normalize_agent_label(_frontmatter_field(_read_text(wf_md), "agent"))
+        steps_dir = wf / "steps"
+        if not steps_dir.is_dir():
+            continue
+        for sf in steps_dir.glob("*.md"):
+            step_owners.setdefault(sf.name, set()).add(owner or wf.name)
+    return step_owners
+
+
+def check_step_owner_manifest(a, eval_record, ies_root, transcript_path, yaml_module=None):
+    """Master J2 — routing correctness: the coordinator must not own a step that
+    belongs to a specialist. Fails when a step carries `owning_agent: master`
+    even though the step belongs to a specialist workflow (per
+    workflows/<name>/workflow.md's agent frontmatter) or falls in a specialist's
+    boot-step range (per agents/manifest.md).
+
+    A step is NOT flagged when master is itself a legitimate owner of that step
+    — i.e. the step's own workflow is master-owned (boot's own steps) or the
+    manifest assigns it to master. This is the "manifest owner OR workflow
+    owner" rule: it catches a specialist workflow's steps (e.g. plaud-ingest
+    steps 02-06, owned by knox) being stamped master, without flagging boot's
+    own coordinator steps. Returns skipped when the record has no steps.
+    """
+    steps = eval_record.get("steps") or []
+    if not steps:
+        return None, {"skipped": True, "reason": "no steps recorded on this record"}
+
+    owners = _manifest_ownership(ies_root)
+    boot_ranges = _manifest_boot_step_ranges(owners)
+    step_owners = _workflow_step_owner_map(ies_root)
+
+    violations = []
+    for s in steps:
+        if isinstance(s, dict):
+            name = s.get("name") or ""
+            owning = _normalize_agent_label(s.get("owning_agent"))
+        elif isinstance(s, str):
+            name, owning = s, None
+        else:
+            continue
+        if not name:
+            continue
+
+        expected = set()
+        base = name if name.endswith(".md") else f"{name}.md"
+        for o in step_owners.get(base, set()):
+            if o and o in _MANIFEST_AGENTS:
+                expected.add(o)
+        num = re.match(r"^step-(\d+(?:\.\d+)?)", name)
+        if num:
+            n = float(num.group(1))
+            for agent, lo, hi in boot_ranges:
+                if lo <= n <= hi:
+                    expected.add(agent)
+
+        # Flag only when the step belongs to a workflow/range we can attribute,
+        # master is recorded as owner, and master is NOT a legitimate owner.
+        if expected and owning == "master" and "master" not in expected:
+            violations.append({
+                "step": name,
+                "owning_agent": "master",
+                "expected_owner": sorted(expected)[0],
+            })
+
+    passed = len(violations) == 0
+    extra = {}
+    if violations:
+        extra["violation_count"] = len(violations)
+        extra["violations"] = violations[:10]
+    return passed, extra
+
+
+def check_grade_threshold(a, eval_record, ies_root, transcript_path, yaml_module=None):
+    """Honest alternative for a criterion that can only be judged by Tier 3
+    grading (voice quality, strategy-kernel quality). Defers (skipped, not
+    failed) when the record carries no grade yet — the same convention
+    safety_threshold_gte uses — and compares the grade to `min_grade`
+    (default B) once grading has run.
+
+    Fields: min_grade ("A"|"B"|"C"|"D"|"F", default "B").
+    """
+    grading = (eval_record.get("assessment", {}) or {}).get("grading", {}) or {}
+    grade = grading.get("grade")
+    min_grade = str(a.get("min_grade", "B")).upper()
+    if not grade:
+        return None, {
+            "skipped": True,
+            "reason": "not graded yet — this criterion is only judgeable by Tier 3 "
+                      "grading; deferred (not failed) until a grade exists",
+        }
+    g = GRADE_ORDER.get(str(grade).upper())
+    if g is None:
+        return False, {"reason": f"unrecognised grade {grade!r}"}
+    return g >= GRADE_ORDER.get(min_grade, 3), {"grade": grade, "min_grade": min_grade}
+
+
+def _yaml_walk(data, field_path):
+    """Walk a dotted field path over parsed YAML, fanning out over `[]` segments.
+    Returns the list of nodes reached (empty when any segment is missing)."""
+    nodes = [data]
+    for seg in [x for x in field_path.split(".") if x]:
+        is_list = seg.endswith("[]")
+        key = seg[:-2] if is_list else seg
+        nxt = []
+        for node in nodes:
+            if not isinstance(node, dict) or key not in node:
+                continue
+            val = node[key]
+            if is_list:
+                if isinstance(val, list):
+                    nxt.extend(val)
+            else:
+                nxt.append(val)
+        nodes = nxt
+        if not nodes:
+            break
+    return nodes
+
+
+def check_yaml_path_exists(a, eval_record, ies_root, transcript_path, yaml_module=None):
+    """YAML analogue of json_path_exists. A dotted field path must exist in a
+    YAML file, fanning out over `[]` array segments.
+
+    Fields: path, field_path (dotted; a segment ending in `[]` fans out),
+    min_matches (default 1).
+    """
+    matches = _glob(ies_root, a.get("path", ""), a.get("newest_only", False))
+    if not matches:
+        return False, {"reason": "file not found"}
+    if yaml_module is None:
+        return None, {"skipped": True, "reason": "yaml module unavailable at this call site"}
+    data = _load_yaml(matches[0], yaml_module)
+    count = len(_yaml_walk(data, a.get("field_path", "")))
+    return count >= a.get("min_matches", 1), {"matched": count}
+
+
+def check_yaml_list_field_present(a, eval_record, ies_root, transcript_path, yaml_module=None):
+    """Every item in a YAML list must carry a named non-empty field — the
+    completeness check for verdict tables / manifests where a silent omission
+    (an item with no verdict) is the failure mode.
+
+    Fields: path, list_field (dotted path to the list), item_field.
+    Returns skipped when the list is empty (nothing to verify, not a failure).
+    """
+    matches = _glob(ies_root, a.get("path", ""), a.get("newest_only", False))
+    if not matches:
+        return False, {"reason": "file not found"}
+    if yaml_module is None:
+        return None, {"skipped": True, "reason": "yaml module unavailable at this call site"}
+    data = _load_yaml(matches[0], yaml_module)
+    nodes = _yaml_walk(data, a.get("list_field", ""))
+    items = nodes[0] if nodes and isinstance(nodes[0], list) else []
+    item_field = a.get("item_field", "")
+    if not items:
+        return None, {"skipped": True, "reason": "list is empty — nothing to verify"}
+    missing = [
+        i for i, it in enumerate(items)
+        if not (isinstance(it, dict) and str(it.get(item_field, "")).strip())
+    ]
+    return len(missing) == 0, {"total_items": len(items), "missing_count": len(missing)}
+
+
+def check_yaml_list_counts_gte(a, eval_record, ies_root, transcript_path, yaml_module=None):
+    """Accounting check: len(accounted) + len(skipped) >= len(source) across
+    dotted YAML list paths. The zero-silent-drops gate (e.g. every staged
+    recording is either ingested or explicitly logged as skipped).
+
+    Fields: path, source_field, accounted_field, skipped_field (optional).
+    """
+    matches = _glob(ies_root, a.get("path", ""), a.get("newest_only", False))
+    if not matches:
+        return False, {"reason": "file not found"}
+    if yaml_module is None:
+        return None, {"skipped": True, "reason": "yaml module unavailable at this call site"}
+    data = _load_yaml(matches[0], yaml_module)
+
+    def _list(field):
+        if not field:
+            return []
+        nodes = _yaml_walk(data, field)
+        return nodes[0] if nodes and isinstance(nodes[0], list) else []
+
+    source = _list(a.get("source_field", ""))
+    accounted = _list(a.get("accounted_field", ""))
+    skipped = _list(a.get("skipped_field", ""))
+    if not source:
+        return True, {"source_count": 0, "accounted_count": len(accounted), "skipped_count": len(skipped)}
+    passed = (len(accounted) + len(skipped)) >= len(source)
+    return passed, {"source_count": len(source), "accounted_count": len(accounted), "skipped_count": len(skipped)}
+
+
 CHECKS = {
     "file_exists": check_file_exists,
     "file_min_bytes": check_file_min_bytes,
@@ -436,6 +727,12 @@ CHECKS = {
     "banned_phrases_absent": check_banned_phrases_absent,
     "numeric_field_in_range": check_numeric_field_in_range,
     "json_path_exists": check_json_path_exists,
+    # Stage 3 Phase 1 (mirrored in .claude/hooks/eval-turn-stop.py):
+    "step_owner_manifest": check_step_owner_manifest,
+    "grade_threshold": check_grade_threshold,
+    "yaml_path_exists": check_yaml_path_exists,
+    "yaml_list_field_present": check_yaml_list_field_present,
+    "yaml_list_counts_gte": check_yaml_list_counts_gte,
 }
 
 

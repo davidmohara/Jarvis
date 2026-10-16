@@ -50,6 +50,31 @@
       "path": "meetings/podcast-prep/*.md",
       "newest_only": true,
       "description": "no em-dashes or placeholder text in podcast prep markdown (most recently written .md; org style rule, previously corrected: err-20260901T135033-NVNABQ)"
+    },
+    {
+      "id": "harper-podcast-prep-p2-question-section",
+      "check": "file_contains",
+      "category": "content",
+      "path": "meetings/podcast-prep/*.md",
+      "newest_only": true,
+      "pattern": "(?i)#+.*question",
+      "description": "Harper P2 (source merge completeness): the detailed prep sheet carries a questions section — the merged output of the Episode Prep Generator questions and Janine's SharePoint questions doc. Honest limit: this confirms the merged questions layer landed, not that every question from both sources was deduped in; a direct count_matches_source comparison still needs a local cache of Janine's SharePoint source doc (see the detail-sheet-substantive note)."
+    },
+    {
+      "id": "harper-podcast-prep-p2-guest-layer",
+      "check": "file_contains",
+      "category": "content",
+      "path": "meetings/podcast-prep/*.md",
+      "newest_only": true,
+      "pattern": "(?i)(guest|background|bio|suggested flow|talking points|logistics)",
+      "description": "Harper P2 (source merge completeness): the detailed prep sheet carries the guest/background/logistics layer from the Episode Prep Generator output, so both source layers (deep prep + Janine's questions) are present in the merged document. When only one source exists, the workflow is expected to gather whichever returns content — this assertion checks the merged-document shape, not a per-source count."
+    },
+    {
+      "id": "harper-podcast-prep-p1-voice-grade",
+      "check": "grade_threshold",
+      "min_grade": "B",
+      "category": "quality",
+      "description": "Harper P1 (voice calibration) on podcast prep: calibration to David's voice is only judgeable by Tier 3 grading. Honest alternative — grade presence at B or better; defers (skipped) until graded."
     }
   ]
 }

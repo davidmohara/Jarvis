@@ -1,5 +1,6 @@
 ---
 name: galen-visit-prep
+owning_agent: galen
 description: Physician visit prep for Dr. Randol — WHOOP trends, bloodwork changes, protocol changes, outstanding questions, body comp update
 context: fork
 agent: general-purpose

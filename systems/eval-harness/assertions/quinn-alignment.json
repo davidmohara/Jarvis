@@ -35,6 +35,21 @@
       "path": "memory/working/goal-alignment-*.md",
       "pattern": "(?i)(goal|drift|align)",
       "description": "quinn-alignment working memory contains expected content"
+    },
+    {
+      "id": "quinn-alignment-q3-goal-grounding",
+      "check": "file_contains",
+      "category": "content",
+      "path": "memory/working/goal-alignment-*.md",
+      "pattern": "(?i)(quarterly-objectives|quarterly objectives|Q[1-4] 20\\d\\d|rock [1-9]|drift|aligned)",
+      "description": "Quinn Q3 (goal-grounding): the alignment output references the actual quarterly objectives (quarter label, objectives file, or named rocks) and reports drift/aligned status against them. Pass = 100%."
+    },
+    {
+      "id": "quinn-alignment-q4-grade",
+      "check": "grade_threshold",
+      "min_grade": "B",
+      "category": "quality",
+      "description": "Quinn Q4 (Tier 3 grade >= B): alignment quality is judged by Tier 3 grading. Honest alternative — grade presence at B or better; defers (skipped) until graded."
     }
   ]
 }

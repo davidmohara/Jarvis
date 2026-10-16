@@ -1,5 +1,6 @@
 ---
 name: galen-whoop
+owning_agent: galen
 description: Deep WHOOP analysis — 30 days of recovery, sleep, and workout data with narrative, data table, and actionable recommendations
 context: fork
 agent: general-purpose

@@ -35,6 +35,21 @@
       "path": "memory/working/rock-review-*.md",
       "pattern": "(?i)(rock|quarter|progress)",
       "description": "quinn-rocks working memory contains expected content"
+    },
+    {
+      "id": "quinn-rocks-q3-goal-grounding",
+      "check": "file_contains",
+      "category": "content",
+      "path": "memory/working/rock-review-*.md",
+      "pattern": "(?i)(quarterly-objectives|quarterly objectives|Q[1-4] 20\\d\\d|rock [1-9]|on track|at risk|off track)",
+      "description": "Quinn Q3 (goal-grounding): the rock-review output references the actual quarterly objectives — a quarter label (Q# YYYY), the objectives file, or named rocks with a status. Rock deltas recorded is Q3's second half; the status vocabulary (on/at risk/off track) is the delta signal. Pass = 100%."
+    },
+    {
+      "id": "quinn-rocks-q4-grade",
+      "check": "grade_threshold",
+      "min_grade": "B",
+      "category": "quality",
+      "description": "Quinn Q4 (Tier 3 grade >= B): rock-review quality is judged by Tier 3 grading. Honest alternative — grade presence at B or better; defers (skipped) until graded."
     }
   ]
 }

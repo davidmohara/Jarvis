@@ -50,6 +50,60 @@
       "path": "meetings/*.md",
       "newest_only": true,
       "description": "no em-dashes or placeholder text in the prep sheet markdown (most recently written .md in meetings/)"
+    },
+    {
+      "id": "chase-client-prep-h1-who-they-are",
+      "check": "file_contains",
+      "category": "content",
+      "path": "meetings/*.md",
+      "newest_only": true,
+      "pattern": "##\\s*Who They Are",
+      "description": "Chase H1 (prep-sheet completeness — account context): 'Who They Are' company-context section present on the produced prep sheet (most recently written .md in meetings/)."
+    },
+    {
+      "id": "chase-client-prep-h1-attendee-bio",
+      "check": "file_contains",
+      "category": "content",
+      "path": "meetings/*.md",
+      "newest_only": true,
+      "pattern": "##\\s*Who (He|She|They) Is",
+      "description": "Chase H1 (prep-sheet completeness — attendee research): attendee-bio section present. Attendee research present is a required part of H1."
+    },
+    {
+      "id": "chase-client-prep-h1-talking-points",
+      "check": "file_contains",
+      "category": "content",
+      "path": "meetings/*.md",
+      "newest_only": true,
+      "pattern": "##\\s*Suggested Talking Points",
+      "description": "Chase H1 (prep-sheet completeness — talking points): calibrated talking-points section present."
+    },
+    {
+      "id": "chase-client-prep-h2-reason-for-call",
+      "check": "file_contains",
+      "category": "content",
+      "path": "meetings/*.md",
+      "newest_only": true,
+      "pattern": "##\\s*Reason for the Call",
+      "description": "Chase H2 (reason-for-call verification): the mandatory 'Reason for the Call' section is present (email-derived, per the skill's format). Pass = 100% of client preps."
+    },
+    {
+      "id": "chase-client-prep-h2-reason-cites-evidence",
+      "check": "file_contains",
+      "category": "content",
+      "path": "meetings/*.md",
+      "newest_only": true,
+      "pattern": "(?i)(thread|subject|introduction|from:|re:|sender|no prior|not found|none was found)",
+      "description": "Chase H2: the reason for the call cites its email evidence (thread/subject/introduction reference, or an explicit 'none found'). Presence proxy — the semantic verification is the adversarial-verification layer."
+    },
+    {
+      "id": "chase-client-prep-h3-source-grounding",
+      "check": "file_contains",
+      "category": "content",
+      "path": "meetings/*.md",
+      "newest_only": true,
+      "pattern": "(?i)(crm|dynamics|clay|linkedin|powerbi|email thread|calendar|pipeline|relationship map)",
+      "description": "Chase H3 (data-grounding): the prep sheet references at least one live source. Grounding-marker presence check; per-fact traceability is the adversarial-verification layer."
     }
   ]
 }

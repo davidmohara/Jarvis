@@ -17,6 +17,33 @@
       "field": "status",
       "value": "failure",
       "description": "shep-1on1-prep skill-run did not end in failure"
+    },
+    {
+      "id": "shep-1on1-s1-summary-interactions",
+      "check": "file_contains",
+      "category": "content",
+      "path": "meetings/*-1on1.md",
+      "newest_only": true,
+      "pattern": "##\\s*Summary of Interactions",
+      "description": "Shep S1 (1:1 prep completeness): the prep sheet carries the mandatory 'Summary of Interactions' section (interaction threads from M365 email/Teams), per the skill's mandatory section order. Checked against the most recently written *-1on1.md in meetings/ (the skill's output convention: meetings/YYYY-MM-DD-{firstname}-{lastname}-1on1.md)."
+    },
+    {
+      "id": "shep-1on1-s1-open-action-items",
+      "check": "file_contains",
+      "category": "content",
+      "path": "meetings/*-1on1.md",
+      "newest_only": true,
+      "pattern": "##\\s*Open Action Items",
+      "description": "Shep S1 (1:1 prep completeness): the prep sheet carries the mandatory 'Open Action Items & Commitments' section — the open-action-items element of S1."
+    },
+    {
+      "id": "shep-1on1-s1-talking-points",
+      "check": "file_contains",
+      "category": "content",
+      "path": "meetings/*-1on1.md",
+      "newest_only": true,
+      "pattern": "##\\s*Suggested Talking Points",
+      "description": "Shep S1 (1:1 prep completeness): the prep sheet carries the mandatory 'Suggested Talking Points' section. S1 = interaction threads + open action items + talking points, in the mandatory format; pass = 100%."
     }
   ]
 }

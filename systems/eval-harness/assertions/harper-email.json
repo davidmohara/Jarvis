@@ -17,6 +17,13 @@
       "field": "status",
       "value": "failure",
       "description": "harper-email skill-run did not end in failure"
+    },
+    {
+      "id": "harper-email-p1-voice-grade",
+      "check": "grade_threshold",
+      "min_grade": "B",
+      "category": "quality",
+      "description": "Harper P1 (voice calibration): whether a draft matches the recipient/relationship tone profile is a semantic judgment that cannot be mechanically asserted — no keyword check can tell calibrated tone from uncalibrated. Wired to the honest alternative: Tier 3 grade presence at B or better. Defers (skipped, not failed) until graded. The >= 90% pass-rate threshold across drafts is applied by the Stage 3 rollup."
     }
   ]
 }

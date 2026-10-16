@@ -36,6 +36,32 @@
       "checkpoint_name": "adversarial-verification",
       "category": "quality",
       "description": "Stage 5 Phase 4A: step-06 spawns Ralph (plaud-ingest-verification workflow) and records an 'adversarial-verification' guardrail result on this run. Read from the eval record's own guardrails array. This is the distinct-lens check Tim's Stage 5 finding requires: a separate agent performing ingestion accounting (zero silent drops)."
+    },
+    {
+      "id": "plaud-k1-ingestion-accounting",
+      "check": "yaml_list_counts_gte",
+      "category": "content",
+      "path": "workflows/plaud-ingest/state.yaml",
+      "source_field": "accumulated-context.staged-files",
+      "accounted_field": "accumulated-context.ingested-notes",
+      "skipped_field": "accumulated-context.skipped-recordings",
+      "description": "Knox K1 (ingestion completeness, 0 silent drops): every staged recording is either converted to a note (accumulated-context.ingested-notes) or explicitly logged as skipped with a reason (accumulated-context.skipped-recordings) — len(ingested) + len(skipped) >= len(staged). Passes trivially when nothing was staged (the common no-new-recordings run)."
+    },
+    {
+      "id": "plaud-k2-routing",
+      "check": "file_contains",
+      "category": "content",
+      "path": "workflows/plaud-ingest/state.yaml",
+      "pattern": "(zzPlaud/|ingested-notes:\\s*\\[\\])",
+      "description": "Knox K2 (tag compliance / correct folder routing): produced notes are routed under the zzPlaud/ tree (zzPlaud/Personal|Client|Improving|YPO|Other), or the run ingested nothing (ingested-notes: [] — a no-op run is vacuously compliant). Honest limit: tag/frontmatter presence on each note is verified in-run by QUALITY GATE 5 (see plaud-k2-gate5) against the vault, which lives outside this repo and cannot be globbed from here; this assertion checks the routing half that the run records on disk."
+    },
+    {
+      "id": "plaud-k2-gate5",
+      "check": "file_contains",
+      "category": "content",
+      "path": "workflows/plaud-ingest/state.yaml",
+      "pattern": "(gate_5_result:\\s*\"?pass|ingested-notes:\\s*\\[\\])",
+      "description": "Knox K2 (tag compliance): step-05's QUALITY GATE 5 verifies each written note's required frontmatter (source tag, file_id traceability) by re-reading it from the vault. A passing gate_5_result is the on-disk evidence that the tag/frontmatter check ran and passed; a no-op run (ingested-notes: []) is vacuously compliant. Honest limit: this asserts the gate passed, not that a human re-checked every tag; a note failing Gate 5 is moved to failed/ and excluded from ingested-notes, which plaud-k1's accounting then surfaces."
     }
   ]
 }

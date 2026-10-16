@@ -56,6 +56,19 @@
       "path": "workflows/boot/steps/step-01.2-unified-data-pull.md",
       "pattern": "completed\"?\\s*(?::|is)\\s*false",
       "description": "Regression guard: the boot pull instructions still mandate the completed=false filter on the inbox query. Matches both the prose form (`completed is false`) and the JSON field form (`\"completed\": false`) — step-01.2 was rewritten to express the filter as the JSON field, which the old literal `completed is false` string-match false-fired on. If someone strips the filter entirely, this trips before the leak reaches a briefing."
+    },
+    {
+      "id": "boot-009-step-owner-manifest",
+      "check": "step_owner_manifest",
+      "category": "quality",
+      "description": "Master J2 (routing correctness): no step on this run that belongs to a specialist workflow (per workflows/<name>/workflow.md's agent frontmatter) or to a specialist's boot-step range (per agents/manifest.md) may carry owning_agent: master. Fails if the coordinator is recorded as owning a specialist's step — e.g. a plaud-ingest step (owned by knox) stamped master. A step whose own workflow is master-owned (boot's own steps) or that the manifest assigns to master is not flagged. This is the routing-assertion hook J2's A/B evidence requires; it reads the manifest ownership table and the workflow step definitions, not self-reported claims."
+    },
+    {
+      "id": "boot-010-j4-grade-threshold",
+      "check": "grade_threshold",
+      "min_grade": "B",
+      "category": "quality",
+      "description": "Master J4 (Tier 3 grade >= B on >= 80% of graded coordination runs): voice/quality of a coordination run can only be judged by Tier 3 grading, so this assertion defers (skipped, not failed) until the record carries a grade, then requires grade B or better. The >= 80% pass-rate threshold across runs is applied by the Stage 3 rollup, not by this per-record check."
     }
   ]
 }

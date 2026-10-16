@@ -29,6 +29,35 @@
       "path": "memory/working/shep-delegations-*.md",
       "pattern": "(?i)(complete|done|finished|output|result)",
       "description": "shep-delegations output contains expected content"
+    },
+    {
+      "id": "shep-del-s2-tracker-exists",
+      "check": "file_exists",
+      "category": "content",
+      "path": "delegations/tracker.md",
+      "description": "Shep S2 (delegation sync fidelity): the delegation tracker (delegations/tracker.md) — the canonical record of every handed-off item — exists after the run."
+    },
+    {
+      "id": "shep-del-s2-tracker-substantive",
+      "check": "file_min_bytes",
+      "category": "content",
+      "path": "delegations/tracker.md",
+      "min_bytes": 200,
+      "description": "Shep S2: the delegation tracker is substantive (has an active-delegations section, not an empty stub)."
+    },
+    {
+      "id": "shep-del-s2-omnifocus-mirror",
+      "check": "file_exists",
+      "category": "content",
+      "path": "data/omnifocus-unified.json",
+      "description": "Shep S2 (delegation sync fidelity): the OmniFocus mirror data file exists, so the tracker-to-OmniFocus sync has a live counterpart to mirror into. Honest limit: this confirms both sides of the mirror are present and non-empty, not that every tracker change was mirrored with zero drift; zero-drift detection needs the delegation-sync A/B (tracker diff vs OmniFocus diff over a set of changes) the Stage 3 plan calls for."
+    },
+    {
+      "id": "shep-del-s3-nudge-grade",
+      "check": "grade_threshold",
+      "min_grade": "B",
+      "category": "quality",
+      "description": "Shep S3 (nudge calibration — tone tier match) surfaced through the delegations view: whether a follow-up nudge matches the required tone tier is only judgeable by Tier 3 grading. Honest alternative — grade presence at B or better; defers (skipped) until graded."
     }
   ]
 }

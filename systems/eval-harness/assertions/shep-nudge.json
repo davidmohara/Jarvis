@@ -29,6 +29,21 @@
       "path": "memory/working/shep-nudge-*.md",
       "pattern": "(?i)(complete|done|finished|output|result)",
       "description": "shep-nudge output contains expected content"
+    },
+    {
+      "id": "shep-nud-s3-tone-tier",
+      "check": "file_contains",
+      "category": "content",
+      "path": "memory/working/shep-nudge-*.md",
+      "pattern": "(?i)(gentle|escalat|reminder|overdue|tone|nudge)",
+      "description": "Shep S3 (nudge calibration — tone tier): the nudge output records the tone tier used (gentle reminder vs escalation) or the overdue signal that selects it. Presence proxy for the calibration decision; the correctness of the chosen tier is judged by the S3 Tier 3 grade."
+    },
+    {
+      "id": "shep-nud-s3-grade",
+      "check": "grade_threshold",
+      "min_grade": "B",
+      "category": "quality",
+      "description": "Shep S3 (nudge calibration, >= 90% tone-tier match): whether the nudge's tone matches the required tier is a semantic judgment only Tier 3 grading can make. Honest alternative — grade presence at B or better; defers (skipped) until graded."
     }
   ]
 }
