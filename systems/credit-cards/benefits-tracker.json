@@ -294,7 +294,7 @@
         "offers_added": 0,
         "expiring_offers": 0,
         "saved_to_date": 6.39,
-        "note": "Full offer list read. ZERO offers matched the 14 Sapphire YNAB payees (Costco, Undrgrndcellar W, Ls Roots And Water Win, PGA Tournament, B-21 Liquors, Lone Star Bikes, Remarkable Operations, Mindbody, Delugs, Johnsbrana, The Home Depot, Late Fee, Papa John's, Parchment). No Costco, Home Depot, or Papa John's offers exist in the Chase offer set. Wine Access ($40) and TaylorMade Golf (10%) are wine/golf category matches but not actual payees — skipped per vendor-match rule.",
+        "note": "Full offer list read. ZERO offers matched the 14 Sapphire YNAB payees (Costco, Undrgrndcellar W, Ls Roots And Water Win, PGA Tournament, B-21 Liquors, Lone Star Bikes, Remarkable Operations, Mindbody, Delugs, Johnsbrana, The Home Depot, Late Fee, Papa John's, Parchment). No Costco, Home Depot, or Papa John's offers exist in the Chase offer set. Wine Access ($40) and TaylorMade Golf (10%) are wine/golf category matches but not actual payees \u2014 skipped per vendor-match rule.",
         "ur_balance_note": "UR balance not re-read this run: the Ultimate Rewards portal redirected to chase.com home for the base Sapphire card. Tracker retains 8,920 as of 2026-10-16."
       },
       "current_balance": 370.21,
@@ -1040,14 +1040,7 @@
           "note": "YNAB-validated: The Home Depot spend on Citi within 12-month window. Enrolled and confirmed on portal."
         }
       ],
-      "enrollment_failures_2026_10_16": [
-        {
-          "vendor": "Sixt Rent A Car",
-          "cashback": "$30 back",
-          "expires": "2026-11-30",
-          "error": "Unable to enroll merchant offer. Please try again. — Citi-side intermittent error, failed twice (known issue)."
-        }
-      ],
+      "enrollment_failures_2026_10_16": [],
       "enrollment_failures_2026_04_21": [],
       "expiring_tomorrow_2026_05_02": [
         {
@@ -1177,7 +1170,32 @@
           "reason": "David is on T-Mobile"
         }
       ],
-      "note": "Full page requires scrolling to load all 283 shopping offers. Jarvis can scroll via JS window.scrollBy() in future sessions."
+      "note": "Full page requires scrolling to load all 283 shopping offers. Jarvis can scroll via JS window.scrollBy() in future sessions.",
+      "newly_added_2026_10_16": [
+        {
+          "vendor": "Sixt Rent A Car",
+          "cashback": "$30 back",
+          "expires": "2026-11-30",
+          "added_date": "2026-10-16",
+          "note": "Enrollment reported an error toast, but David confirmed the offer WAS added (2026-10-16). Recorded as added; see err-20261016T231646-46S5HD."
+        },
+        {
+          "vendor": "Walmart",
+          "cashback": "$5 back",
+          "expires": "2026-10-31",
+          "added_date": "2026-10-16",
+          "ynab_validated": true,
+          "note": "Reported enrolled by the 2026-10-16 walkthrough (confirmed on the Citi Enrolled tab per the run report); not independently re-verified here. Confirm on the next walkthrough."
+        },
+        {
+          "vendor": "The Home Depot",
+          "cashback": "$5 back",
+          "expires": "2026-10-31",
+          "added_date": "2026-10-16",
+          "ynab_validated": true,
+          "note": "Reported enrolled by the 2026-10-16 walkthrough (confirmed on the Citi Enrolled tab per the run report); not independently re-verified here. Confirm on the next walkthrough."
+        }
+      ]
     }
   },
   "discover-it": {
@@ -1230,32 +1248,32 @@
     {
       "date": "2026-10-31",
       "card": "amex-bcp",
-      "action": "23andMe offer expires ($10 back on $10+) — added 2026-10-16"
+      "action": "23andMe offer expires ($10 back on $10+) \u2014 added 2026-10-16"
     },
     {
       "date": "2026-10-31",
       "card": "amex-plat",
-      "action": "Wyndham Hotels offer expires ($20 back on $100+) — added 2026-10-16"
+      "action": "Wyndham Hotels offer expires ($20 back on $100+) \u2014 added 2026-10-16"
     },
     {
       "date": "2026-10-31",
       "card": "citi-aa-exec",
-      "action": "Walmart offer expires ($5 back) and The Home Depot offer expires ($5 back) — both enrolled 2026-10-16"
+      "action": "Walmart offer expires ($5 back) and The Home Depot offer expires ($5 back) \u2014 both enrolled 2026-10-16"
     },
     {
       "date": "2026-11-30",
       "card": "citi-aa-exec",
-      "action": "Sixt Rent A Car offer expires ($30 back) — ENROLLMENT FAILED twice 2026-10-16 (Citi backend error); retry if still wanted"
+      "action": "Sixt Rent A Car offer expires ($30 back) \u2014 ENROLLMENT FAILED twice 2026-10-16 (Citi backend error); retry if still wanted"
     },
     {
       "date": "2026-12-31",
       "card": "amex-plat",
-      "action": "Best Western & SureStay Hotels offer expires ($50 back on $250+) — added 2026-10-16"
+      "action": "Best Western & SureStay Hotels offer expires ($50 back on $250+) \u2014 added 2026-10-16"
     },
     {
       "date": "2027-01-15",
       "card": "amex-plat",
-      "action": "Hotels.com/amex offer expires (10% back up to $125) — added 2026-10-16"
+      "action": "Hotels.com/amex offer expires (10% back up to $125) \u2014 added 2026-10-16"
     },
     {
       "date": "2026-10-16",
@@ -1442,7 +1460,7 @@
       "date": "2026-10-16",
       "type": "card_walkthrough_offers_enrollment",
       "status": "COMPLETE",
-      "findings": "Re-ran the card walkthrough with live 1Password logins (fresh sessions). YNAB filter used the cached data/ynab-unified.json (pulled_at 2026-10-16T22:39:15Z, 12-month window) — not re-pulled. AMEX BCP (73008): Reward Dollars $188.94 confirmed; offers page read (100 rows); ADDED 23andMe ($10 back on $10+, exp 10/31/26) — the only BCP offer matching the BCP payee list. 'Added to Card' 5 to 6. AMEX PLATINUM (21001): MR 492,104 confirmed; credits re-read live and unchanged (Airline $126/$74; Digital Ent $87.90 YTD/$25 mo; Hotel $300 H1/$300 H2; CLEAR+ $0/$219; Walmart+ $0; Resy $200/$100; lululemon $75/$75; Uber One $96/$24; Uber Cash $0/$200; Centurion guest + Unlimited Delta Sky Club through Jan 31 2028). ADDED Hotels.com/amex (10% up to $125, exp 1/15/27), Best Western & SureStay ($50 on $250+, exp 12/31/26), Wyndham Hotels ($20 on $100+, exp 10/31/26) under the hotels/travel-on-Platinum pattern exception. 'Added to Card' 6 to 9. CITI AA EXEC (9598): miles 851,936; balance $21,625.49; available $14,310.15; limit $40,000; due Oct 24 2026; remaining statement $14,591.02; min $148; statement closing Oct 28; FICO Bankcard 832 (09/22/2026); savings to date $34.72 — all confirmed live. ADDED Walmart ($5 back, exp 10/31/26) and The Home Depot ($5 back, exp 10/31/26), both confirmed on the Enrolled tab. FAILED: Sixt Rent A Car ($30 back, exp 11/30/26) — 'Unable to enroll merchant offer' twice (known Citi backend error). CHASE SAPPHIRE (0209): balance $370.21; available credit $100,027.79; payment due Nov 7 2026; last statement $370.21; Chase Offers 107 (was 106); saved to date $6.39; 0 added; 0 expiring; VantageScore 801 (10/13/2026). ZERO offers matched the 14 Sapphire payees — nothing added. UR balance not re-read (UR portal redirected). DISCOVER: skipped (Capital One migration, portal unmapped).",
+      "findings": "Re-ran the card walkthrough with live 1Password logins (fresh sessions). YNAB filter used the cached data/ynab-unified.json (pulled_at 2026-10-16T22:39:15Z, 12-month window) \u2014 not re-pulled. AMEX BCP (73008): Reward Dollars $188.94 confirmed; offers page read (100 rows); ADDED 23andMe ($10 back on $10+, exp 10/31/26) \u2014 the only BCP offer matching the BCP payee list. 'Added to Card' 5 to 6. AMEX PLATINUM (21001): MR 492,104 confirmed; credits re-read live and unchanged (Airline $126/$74; Digital Ent $87.90 YTD/$25 mo; Hotel $300 H1/$300 H2; CLEAR+ $0/$219; Walmart+ $0; Resy $200/$100; lululemon $75/$75; Uber One $96/$24; Uber Cash $0/$200; Centurion guest + Unlimited Delta Sky Club through Jan 31 2028). ADDED Hotels.com/amex (10% up to $125, exp 1/15/27), Best Western & SureStay ($50 on $250+, exp 12/31/26), Wyndham Hotels ($20 on $100+, exp 10/31/26) under the hotels/travel-on-Platinum pattern exception. 'Added to Card' 6 to 9. CITI AA EXEC (9598): miles 851,936; balance $21,625.49; available $14,310.15; limit $40,000; due Oct 24 2026; remaining statement $14,591.02; min $148; statement closing Oct 28; FICO Bankcard 832 (09/22/2026); savings to date $34.72 \u2014 all confirmed live. ADDED Walmart ($5 back, exp 10/31/26) and The Home Depot ($5 back, exp 10/31/26), both confirmed on the Enrolled tab. FAILED: Sixt Rent A Car ($30 back, exp 11/30/26) \u2014 'Unable to enroll merchant offer' twice (known Citi backend error). CHASE SAPPHIRE (0209): balance $370.21; available credit $100,027.79; payment due Nov 7 2026; last statement $370.21; Chase Offers 107 (was 106); saved to date $6.39; 0 added; 0 expiring; VantageScore 801 (10/13/2026). ZERO offers matched the 14 Sapphire payees \u2014 nothing added. UR balance not re-read (UR portal redirected). DISCOVER: skipped (Capital One migration, portal unmapped).",
       "offers_added_total": 6,
       "offers_added": [
         "amex-bcp: 23andMe $10 on $10+",
@@ -1452,7 +1470,9 @@
         "citi-aa-exec: Walmart $5 back",
         "citi-aa-exec: The Home Depot $5 back"
       ],
-      "enrollment_failures": ["citi-aa-exec: Sixt Rent A Car $30 back (Citi backend error, x2)"]
+      "enrollment_failures": [
+        "citi-aa-exec: Sixt Rent A Car $30 back (Citi backend error, x2)"
+      ]
     },
     {
       "date": "2026-10-16",

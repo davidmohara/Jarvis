@@ -63,12 +63,30 @@ Update `systems/credit-cards/benefits-tracker.json`:
 - [Card]: [merchant] — [offer terms], expires [date]
 - ...
 
+### NEEDS MANUAL ADD — could not be enrolled
+- [Card]: [merchant] — [offer terms], expires [date] — reason: [error / not found]
+- ...
+
 ### Skipped (no YNAB spend)
 - [Card]: [merchant] — no matching spend in 12 months
 
 ### Skipped (portal not mapped)
 - Discover — Capital One migration
 ```
+
+## Failures and manual follow-up (hard rules)
+
+**An error message is not proof of failure.** When an enrollment attempt errors, the portal often still enrolled the offer (this happened with Citi Sixt on 2026-10-16: the page showed "Unable to enroll merchant offer" twice, but the offer WAS added). Before recording a failure:
+
+1. Re-read the card's enrolled/added list.
+2. If the merchant appears there, record it as **added**, not failed.
+3. Only record a failure when the enrolled list confirms the merchant is absent.
+
+**Every genuine failure goes in a `### NEEDS MANUAL ADD` section at the end of the report**, never buried in per-card detail. David adds these by hand. For each, give the card, the merchant, the terms, the expiry, and the exact error so he can decide.
+
+Also record failures in `benefits-tracker.json` under `<card>.enrollment_failures_<date>` so they persist across runs until resolved.
+
+**Do not silently drop a failed offer.** A failed enrollment is either retried or surfaced; it is never just logged and forgotten.
 
 ## Completion
 
