@@ -1,0 +1,2612 @@
+{
+  "generated_at": "2026-10-16T15:17:21.663201Z",
+  "source_runs": [
+    "eval-20260613T021205-CFZ2ZA.json",
+    "eval-20260811T021320-OV3F77.json",
+    "eval-20260728T021215-1C4F7E.json",
+    "eval-20260929T030303-0W2JQU.json",
+    "eval-20260526T215647-T3Q5PX.json",
+    "eval-20260917T232724-AZ9DQO.json",
+    "eval-20260711T021151-T7AGFP.json",
+    "eval-20260618T021249-SMAWWC.json",
+    "eval-20260801T021336-KBSSMN.json",
+    "eval-20260528T021206-IMUITJ.json",
+    "eval-20260814T021417-9IMDHV.json",
+    "eval-20260805T021415-1USR62.json",
+    "eval-20261009T222114-63PRWC.json",
+    "eval-20260529T021226-T3TGHW.json",
+    "eval-20260718T021141-QZAG77.json",
+    "eval-20260702T021204-2E3TK4.json",
+    "eval-20260813T021300-TULUKT.json",
+    "eval-20260707T021251-KHEVMG.json",
+    "eval-20260612T132309-PSAUO8.json",
+    "eval-20260804T021410-VB8NM9.json",
+    "eval-20260903T170821-4OELTZ.json",
+    "eval-20260725T021309-IREQ63.json",
+    "eval-20260701T021245-IKR49U.json",
+    "eval-20260721T133339-HZRLN2.json",
+    "eval-20260623T021234-DH9VSD.json",
+    "eval-20260731T021245-CHG8UY.json",
+    "eval-20260709T021252-HHX7I9.json",
+    "eval-20260722T021626-Z27I2O.json",
+    "eval-20260704T021304-XNRG5T.json",
+    "eval-20260617T021222-ZQTYH1.json",
+    "eval-20260729T021225-M8SAJ1.json",
+    "eval-20260627T021053-VB6Z9C.json",
+    "eval-20260807T021321-O6FSIJ.json",
+    "eval-20260620T021321-T6V6WJ.json",
+    "eval-20260527T021153-F0GRE1.json",
+    "eval-20260714T021310-LJKKIQ.json",
+    "eval-20261009T221319-BA32GV.json",
+    "eval-20260605T021223-ARZ3WN.json",
+    "eval-20260917T232746-4MKGN1.json",
+    "eval-20260806T021233-NTOEO1.json",
+    "eval-20260708T021227-5P65RK.json",
+    "eval-20260724T021252-QZBRKO.json",
+    "eval-20260730T021325-RKAN1A.json",
+    "eval-20260723T021136-XGYF36.json",
+    "eval-20260630T021252-XWZAFG.json",
+    "eval-20260918T230336-Z4WC4H.json",
+    "eval-20260812T021205-BFRJ8S.json",
+    "eval-20260710T140505-6TTTHK.json",
+    "eval-20260603T021219-4T8MSY.json",
+    "eval-20260619T021216-OI0WLY.json",
+    "eval-20260616T021202-5AMBIW.json",
+    "eval-20260715T021228-FA34YW.json",
+    "eval-20260808T021542-KROVW3.json",
+    "eval-chief-daily-review-2026-07-15-060000.json",
+    "eval-20260602T021149-SL6FJ9.json",
+    "eval-20260530T021202-MKO2P3.json",
+    "eval-20260717T021226-JC2Y4F.json",
+    "eval-20260626T021138-W3TDFA.json",
+    "eval-20260625T021317-18HGDJ.json",
+    "eval-20260929T031202-O3KXJB.json"
+  ],
+  "run_count": 60,
+  "step_count": 84,
+  "instrumented_run_count": 0,
+  "runs": [
+    {
+      "run_id": "eval-20260613T021205-CFZ2ZA",
+      "run_name": "daily-review",
+      "run_agent": "chief",
+      "run_owning_agent": "chief",
+      "run_type": "workflow",
+      "run_status": "success",
+      "run_started": "2026-06-13T02:12:05.446590Z",
+      "run_completed": "2026-06-13T02:12:05.446590Z",
+      "source_file": "eval-20260613T021205-CFZ2ZA.json",
+      "instrumented": false,
+      "step_count": 1,
+      "totals": {
+        "tokens_input": null,
+        "tokens_output": null,
+        "cost_usd": null
+      },
+      "steps": [
+        {
+          "index": 0,
+          "name": "step-auto",
+          "step_id": "step-auto",
+          "agent": null,
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": "success",
+          "started": "2026-06-13T02:12:05.446590Z",
+          "completed": "2026-06-13T02:12:05.446590Z",
+          "duration_seconds": 0.0
+        }
+      ]
+    },
+    {
+      "run_id": "eval-20260811T021320-OV3F77",
+      "run_name": "daily-review",
+      "run_agent": "chief",
+      "run_owning_agent": "chief",
+      "run_type": "workflow",
+      "run_status": "partial",
+      "run_started": "2026-08-11T02:13:20.557931Z",
+      "run_completed": "2026-08-11T02:13:20.557931Z",
+      "source_file": "eval-20260811T021320-OV3F77.json",
+      "instrumented": false,
+      "step_count": 1,
+      "totals": {
+        "tokens_input": null,
+        "tokens_output": null,
+        "cost_usd": null
+      },
+      "steps": [
+        {
+          "index": 0,
+          "name": "step-auto",
+          "step_id": "step-auto",
+          "agent": null,
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": "success",
+          "started": "2026-08-11T02:13:20.557931Z",
+          "completed": "2026-08-11T02:13:20.557931Z",
+          "duration_seconds": 0.0
+        }
+      ]
+    },
+    {
+      "run_id": "eval-20260728T021215-1C4F7E",
+      "run_name": "daily-review",
+      "run_agent": "chief",
+      "run_owning_agent": "chief",
+      "run_type": "workflow",
+      "run_status": "success",
+      "run_started": "2026-07-28T02:12:14.991969Z",
+      "run_completed": "2026-07-28T02:12:14.991969Z",
+      "source_file": "eval-20260728T021215-1C4F7E.json",
+      "instrumented": false,
+      "step_count": 1,
+      "totals": {
+        "tokens_input": null,
+        "tokens_output": null,
+        "cost_usd": null
+      },
+      "steps": [
+        {
+          "index": 0,
+          "name": "step-auto",
+          "step_id": "step-auto",
+          "agent": null,
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": "success",
+          "started": "2026-07-28T02:12:14.991969Z",
+          "completed": "2026-07-28T02:12:14.991969Z",
+          "duration_seconds": 0.0
+        }
+      ]
+    },
+    {
+      "run_id": "eval-20260929T030303-0W2JQU",
+      "run_name": "daily-review",
+      "run_agent": "chief",
+      "run_owning_agent": "chief",
+      "run_type": "agent",
+      "run_status": "incomplete",
+      "run_started": "2026-09-29T03:03:03.210429Z",
+      "run_completed": "2026-09-29T03:14:21.400169+00:00",
+      "source_file": "eval-20260929T030303-0W2JQU.json",
+      "instrumented": false,
+      "step_count": 5,
+      "totals": {
+        "tokens_input": null,
+        "tokens_output": null,
+        "cost_usd": null
+      },
+      "steps": [
+        {
+          "index": 0,
+          "name": "step-01-capture",
+          "step_id": "step-01-capture",
+          "agent": null,
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": "complete",
+          "started": "2026-09-28T22:45:00",
+          "completed": "2026-09-28T22:47:00",
+          "duration_seconds": 120.0
+        },
+        {
+          "index": 1,
+          "name": "step-02-set-tomorrow",
+          "step_id": "step-02-set-tomorrow",
+          "agent": null,
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": "complete",
+          "started": "2026-09-28T22:47:00",
+          "completed": "2026-09-28T22:49:00",
+          "duration_seconds": 120.0
+        },
+        {
+          "index": 2,
+          "name": "step-03-update-system",
+          "step_id": "step-03-update-system",
+          "agent": null,
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": "complete",
+          "started": "2026-09-28T22:49:00",
+          "completed": "2026-09-28T22:53:00",
+          "duration_seconds": 240.0
+        },
+        {
+          "index": 3,
+          "name": "step-04-root-audit",
+          "step_id": "step-04-root-audit",
+          "agent": null,
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": "complete",
+          "started": "2026-09-28T22:53:00",
+          "completed": "2026-09-28T22:54:00",
+          "duration_seconds": 60.0
+        },
+        {
+          "index": 4,
+          "name": "step-05-session-close",
+          "step_id": "step-05-session-close",
+          "agent": null,
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": "complete",
+          "started": "2026-09-28T22:54:00",
+          "completed": "2026-09-28T22:58:00",
+          "duration_seconds": 240.0
+        }
+      ]
+    },
+    {
+      "run_id": "eval-20260526T215647-T3Q5PX",
+      "run_name": "daily-review",
+      "run_agent": "chief",
+      "run_owning_agent": "chief",
+      "run_type": "workflow",
+      "run_status": "partial",
+      "run_started": "2026-05-26T21:56:47.400897Z",
+      "run_completed": "2026-05-26T21:56:47.400897Z",
+      "source_file": "eval-20260526T215647-T3Q5PX.json",
+      "instrumented": false,
+      "step_count": 1,
+      "totals": {
+        "tokens_input": null,
+        "tokens_output": null,
+        "cost_usd": null
+      },
+      "steps": [
+        {
+          "index": 0,
+          "name": "step-auto",
+          "step_id": "step-auto",
+          "agent": null,
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": "success",
+          "started": "2026-05-26T21:56:47.400897Z",
+          "completed": "2026-05-26T21:56:47.400897Z",
+          "duration_seconds": 0.0
+        }
+      ]
+    },
+    {
+      "run_id": "eval-20260917T232724-AZ9DQO",
+      "run_name": "daily-review",
+      "run_agent": "chief",
+      "run_owning_agent": "chief",
+      "run_type": "workflow",
+      "run_status": "success",
+      "run_started": "2026-09-17T17:30:00-05:00",
+      "run_completed": "2026-09-17T23:27:24.853720Z",
+      "source_file": "eval-20260917T232724-AZ9DQO.json",
+      "instrumented": false,
+      "step_count": 5,
+      "totals": {
+        "tokens_input": 3137208,
+        "tokens_output": 11741,
+        "cost_usd": 0.0
+      },
+      "steps": [
+        {
+          "index": 0,
+          "name": "step-01-capture",
+          "step_id": "step-01-capture",
+          "agent": null,
+          "owning_agent": "chief",
+          "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+          "tokens_input": 800877,
+          "tokens_output": 2543,
+          "cost_usd": null,
+          "token_source": "backfilled-windowed",
+          "status": "success",
+          "started": "2026-09-17T17:30:00-05:00",
+          "completed": "2026-09-17T17:41:28.970744-05:00",
+          "duration_seconds": 689.0
+        },
+        {
+          "index": 1,
+          "name": "step-02-set-tomorrow",
+          "step_id": "step-02-set-tomorrow",
+          "agent": null,
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": "success",
+          "started": "2026-09-17T17:41:28.970744-05:00",
+          "completed": "2026-09-17T17:52:57.941488-05:00",
+          "duration_seconds": 689.0
+        },
+        {
+          "index": 2,
+          "name": "step-03-update-system",
+          "step_id": "step-03-update-system",
+          "agent": null,
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": "success",
+          "started": "2026-09-17T17:52:57.941488-05:00",
+          "completed": "2026-09-17T18:04:26.912232-05:00",
+          "duration_seconds": 689.0
+        },
+        {
+          "index": 3,
+          "name": "step-04-root-audit",
+          "step_id": "step-04-root-audit",
+          "agent": null,
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": "success",
+          "started": "2026-09-17T18:04:26.912232-05:00",
+          "completed": "2026-09-17T18:15:55.882976-05:00",
+          "duration_seconds": 689.0
+        },
+        {
+          "index": 4,
+          "name": "step-05-session-close",
+          "step_id": "step-05-session-close",
+          "agent": null,
+          "owning_agent": "chief",
+          "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+          "tokens_input": 2336331,
+          "tokens_output": 9198,
+          "cost_usd": null,
+          "token_source": "backfilled-windowed",
+          "status": "success",
+          "started": "2026-09-17T18:15:55.882976-05:00",
+          "completed": "2026-09-17T18:27:24.853720-05:00",
+          "duration_seconds": 689.0
+        }
+      ]
+    },
+    {
+      "run_id": "eval-20260711T021151-T7AGFP",
+      "run_name": "daily-review",
+      "run_agent": "chief",
+      "run_owning_agent": "chief",
+      "run_type": "workflow",
+      "run_status": "success",
+      "run_started": "2026-07-11T02:11:51.109295Z",
+      "run_completed": "2026-07-11T02:11:51.109295Z",
+      "source_file": "eval-20260711T021151-T7AGFP.json",
+      "instrumented": false,
+      "step_count": 1,
+      "totals": {
+        "tokens_input": null,
+        "tokens_output": null,
+        "cost_usd": null
+      },
+      "steps": [
+        {
+          "index": 0,
+          "name": "step-auto",
+          "step_id": "step-auto",
+          "agent": null,
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": "success",
+          "started": "2026-07-11T02:11:51.109295Z",
+          "completed": "2026-07-11T02:11:51.109295Z",
+          "duration_seconds": 0.0
+        }
+      ]
+    },
+    {
+      "run_id": "eval-20260618T021249-SMAWWC",
+      "run_name": "daily-review",
+      "run_agent": "chief",
+      "run_owning_agent": "chief",
+      "run_type": "workflow",
+      "run_status": "success",
+      "run_started": "2026-06-18T02:12:49.587990Z",
+      "run_completed": "2026-06-18T02:12:49.587990Z",
+      "source_file": "eval-20260618T021249-SMAWWC.json",
+      "instrumented": false,
+      "step_count": 1,
+      "totals": {
+        "tokens_input": null,
+        "tokens_output": null,
+        "cost_usd": null
+      },
+      "steps": [
+        {
+          "index": 0,
+          "name": "step-auto",
+          "step_id": "step-auto",
+          "agent": null,
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": "success",
+          "started": "2026-06-18T02:12:49.587990Z",
+          "completed": "2026-06-18T02:12:49.587990Z",
+          "duration_seconds": 0.0
+        }
+      ]
+    },
+    {
+      "run_id": "eval-20260801T021336-KBSSMN",
+      "run_name": "daily-review",
+      "run_agent": "chief",
+      "run_owning_agent": "chief",
+      "run_type": "workflow",
+      "run_status": "success",
+      "run_started": "2026-08-01T02:13:36.401606Z",
+      "run_completed": "2026-08-01T02:13:36.401606Z",
+      "source_file": "eval-20260801T021336-KBSSMN.json",
+      "instrumented": false,
+      "step_count": 1,
+      "totals": {
+        "tokens_input": null,
+        "tokens_output": null,
+        "cost_usd": null
+      },
+      "steps": [
+        {
+          "index": 0,
+          "name": "step-auto",
+          "step_id": "step-auto",
+          "agent": null,
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": "success",
+          "started": "2026-08-01T02:13:36.401606Z",
+          "completed": "2026-08-01T02:13:36.401606Z",
+          "duration_seconds": 0.0
+        }
+      ]
+    },
+    {
+      "run_id": "eval-20260528T021206-IMUITJ",
+      "run_name": "daily-review",
+      "run_agent": "chief",
+      "run_owning_agent": "chief",
+      "run_type": "workflow",
+      "run_status": "partial",
+      "run_started": "2026-05-28T02:12:06.641822Z",
+      "run_completed": "2026-05-28T02:12:06.641822Z",
+      "source_file": "eval-20260528T021206-IMUITJ.json",
+      "instrumented": false,
+      "step_count": 1,
+      "totals": {
+        "tokens_input": null,
+        "tokens_output": null,
+        "cost_usd": null
+      },
+      "steps": [
+        {
+          "index": 0,
+          "name": "step-auto",
+          "step_id": "step-auto",
+          "agent": null,
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": "success",
+          "started": "2026-05-28T02:12:06.641822Z",
+          "completed": "2026-05-28T02:12:06.641822Z",
+          "duration_seconds": 0.0
+        }
+      ]
+    },
+    {
+      "run_id": "eval-20260814T021417-9IMDHV",
+      "run_name": "daily-review",
+      "run_agent": "chief",
+      "run_owning_agent": "chief",
+      "run_type": "workflow",
+      "run_status": "partial",
+      "run_started": "2026-08-14T02:14:17.674326Z",
+      "run_completed": "2026-08-14T02:14:17.674326Z",
+      "source_file": "eval-20260814T021417-9IMDHV.json",
+      "instrumented": false,
+      "step_count": 1,
+      "totals": {
+        "tokens_input": null,
+        "tokens_output": null,
+        "cost_usd": null
+      },
+      "steps": [
+        {
+          "index": 0,
+          "name": "step-auto",
+          "step_id": "step-auto",
+          "agent": null,
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": "success",
+          "started": "2026-08-14T02:14:17.674326Z",
+          "completed": "2026-08-14T02:14:17.674326Z",
+          "duration_seconds": 0.0
+        }
+      ]
+    },
+    {
+      "run_id": "eval-20260805T021415-1USR62",
+      "run_name": "daily-review",
+      "run_agent": "chief",
+      "run_owning_agent": "chief",
+      "run_type": "workflow",
+      "run_status": "partial",
+      "run_started": "2026-08-05T02:14:15.507203Z",
+      "run_completed": "2026-08-05T02:14:15.507203Z",
+      "source_file": "eval-20260805T021415-1USR62.json",
+      "instrumented": false,
+      "step_count": 1,
+      "totals": {
+        "tokens_input": null,
+        "tokens_output": null,
+        "cost_usd": null
+      },
+      "steps": [
+        {
+          "index": 0,
+          "name": "step-auto",
+          "step_id": "step-auto",
+          "agent": null,
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": "success",
+          "started": "2026-08-05T02:14:15.507203Z",
+          "completed": "2026-08-05T02:14:15.507203Z",
+          "duration_seconds": 0.0
+        }
+      ]
+    },
+    {
+      "run_id": "eval-20261009T222114-63PRWC",
+      "run_name": "daily-review",
+      "run_agent": "chief",
+      "run_owning_agent": "chief",
+      "run_type": "workflow",
+      "run_status": "success",
+      "run_started": "2026-10-09T17:11:00-05:00",
+      "run_completed": "2026-10-09T22:21:14.020792Z",
+      "source_file": "eval-20261009T222114-63PRWC.json",
+      "instrumented": false,
+      "step_count": 6,
+      "totals": {
+        "tokens_input": null,
+        "tokens_output": null,
+        "cost_usd": null
+      },
+      "steps": [
+        {
+          "index": 0,
+          "name": "step-01-capture",
+          "step_id": "step-01-capture",
+          "agent": "chief",
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": "success",
+          "started": "2026-10-09T17:11:00-05:00",
+          "completed": "2026-10-09T17:12:42.336799-05:00",
+          "duration_seconds": 102.3
+        },
+        {
+          "index": 1,
+          "name": "step-02-set-tomorrow",
+          "step_id": "step-02-set-tomorrow",
+          "agent": "chief",
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": "success",
+          "started": "2026-10-09T17:12:42.336799-05:00",
+          "completed": "2026-10-09T17:14:24.673597-05:00",
+          "duration_seconds": 102.3
+        },
+        {
+          "index": 2,
+          "name": "step-03-update-system",
+          "step_id": "step-03-update-system",
+          "agent": "chief",
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": "success",
+          "started": "2026-10-09T17:14:24.673597-05:00",
+          "completed": "2026-10-09T17:16:07.010396-05:00",
+          "duration_seconds": 102.3
+        },
+        {
+          "index": 3,
+          "name": "step-03c-adversarial-verify",
+          "step_id": "step-03c-adversarial-verify",
+          "agent": "chief",
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": "success",
+          "started": "2026-10-09T17:16:07.010396-05:00",
+          "completed": "2026-10-09T17:17:49.347195-05:00",
+          "duration_seconds": 102.3
+        },
+        {
+          "index": 4,
+          "name": "step-04-root-audit",
+          "step_id": "step-04-root-audit",
+          "agent": "chief",
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": "success",
+          "started": "2026-10-09T17:17:49.347195-05:00",
+          "completed": "2026-10-09T17:19:31.683993-05:00",
+          "duration_seconds": 102.3
+        },
+        {
+          "index": 5,
+          "name": "step-05-session-close",
+          "step_id": "step-05-session-close",
+          "agent": "chief",
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": "success",
+          "started": "2026-10-09T17:19:31.683993-05:00",
+          "completed": "2026-10-09T17:21:14.020792-05:00",
+          "duration_seconds": 102.3
+        }
+      ]
+    },
+    {
+      "run_id": "eval-20260529T021226-T3TGHW",
+      "run_name": "daily-review",
+      "run_agent": "chief",
+      "run_owning_agent": "chief",
+      "run_type": "workflow",
+      "run_status": "partial",
+      "run_started": "2026-05-29T02:12:26.508082Z",
+      "run_completed": "2026-05-29T02:12:26.508082Z",
+      "source_file": "eval-20260529T021226-T3TGHW.json",
+      "instrumented": false,
+      "step_count": 1,
+      "totals": {
+        "tokens_input": null,
+        "tokens_output": null,
+        "cost_usd": null
+      },
+      "steps": [
+        {
+          "index": 0,
+          "name": "step-auto",
+          "step_id": "step-auto",
+          "agent": null,
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": "success",
+          "started": "2026-05-29T02:12:26.508082Z",
+          "completed": "2026-05-29T02:12:26.508082Z",
+          "duration_seconds": 0.0
+        }
+      ]
+    },
+    {
+      "run_id": "eval-20260718T021141-QZAG77",
+      "run_name": "daily-review",
+      "run_agent": "chief",
+      "run_owning_agent": "chief",
+      "run_type": "workflow",
+      "run_status": "success",
+      "run_started": "2026-07-18T02:11:41.290796Z",
+      "run_completed": "2026-07-18T02:11:41.290796Z",
+      "source_file": "eval-20260718T021141-QZAG77.json",
+      "instrumented": false,
+      "step_count": 1,
+      "totals": {
+        "tokens_input": null,
+        "tokens_output": null,
+        "cost_usd": null
+      },
+      "steps": [
+        {
+          "index": 0,
+          "name": "step-auto",
+          "step_id": "step-auto",
+          "agent": null,
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": "success",
+          "started": "2026-07-18T02:11:41.290796Z",
+          "completed": "2026-07-18T02:11:41.290796Z",
+          "duration_seconds": 0.0
+        }
+      ]
+    },
+    {
+      "run_id": "eval-20260702T021204-2E3TK4",
+      "run_name": "daily-review",
+      "run_agent": "chief",
+      "run_owning_agent": "chief",
+      "run_type": "workflow",
+      "run_status": "success",
+      "run_started": "2026-07-02T02:12:04.512661Z",
+      "run_completed": "2026-07-02T02:12:04.512661Z",
+      "source_file": "eval-20260702T021204-2E3TK4.json",
+      "instrumented": false,
+      "step_count": 1,
+      "totals": {
+        "tokens_input": null,
+        "tokens_output": null,
+        "cost_usd": null
+      },
+      "steps": [
+        {
+          "index": 0,
+          "name": "step-auto",
+          "step_id": "step-auto",
+          "agent": null,
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": "success",
+          "started": "2026-07-02T02:12:04.512661Z",
+          "completed": "2026-07-02T02:12:04.512661Z",
+          "duration_seconds": 0.0
+        }
+      ]
+    },
+    {
+      "run_id": "eval-20260813T021300-TULUKT",
+      "run_name": "daily-review",
+      "run_agent": "chief",
+      "run_owning_agent": "chief",
+      "run_type": "workflow",
+      "run_status": "partial",
+      "run_started": "2026-08-13T02:13:00.788646Z",
+      "run_completed": "2026-08-13T02:13:00.788646Z",
+      "source_file": "eval-20260813T021300-TULUKT.json",
+      "instrumented": false,
+      "step_count": 1,
+      "totals": {
+        "tokens_input": null,
+        "tokens_output": null,
+        "cost_usd": null
+      },
+      "steps": [
+        {
+          "index": 0,
+          "name": "step-auto",
+          "step_id": "step-auto",
+          "agent": null,
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": "success",
+          "started": "2026-08-13T02:13:00.788646Z",
+          "completed": "2026-08-13T02:13:00.788646Z",
+          "duration_seconds": 0.0
+        }
+      ]
+    },
+    {
+      "run_id": "eval-20260707T021251-KHEVMG",
+      "run_name": "daily-review",
+      "run_agent": "chief",
+      "run_owning_agent": "chief",
+      "run_type": "workflow",
+      "run_status": "success",
+      "run_started": "2026-07-07T02:12:51.843682Z",
+      "run_completed": "2026-07-07T02:12:51.843682Z",
+      "source_file": "eval-20260707T021251-KHEVMG.json",
+      "instrumented": false,
+      "step_count": 1,
+      "totals": {
+        "tokens_input": null,
+        "tokens_output": null,
+        "cost_usd": null
+      },
+      "steps": [
+        {
+          "index": 0,
+          "name": "step-auto",
+          "step_id": "step-auto",
+          "agent": null,
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": "success",
+          "started": "2026-07-07T02:12:51.843682Z",
+          "completed": "2026-07-07T02:12:51.843682Z",
+          "duration_seconds": 0.0
+        }
+      ]
+    },
+    {
+      "run_id": "eval-20260612T132309-PSAUO8",
+      "run_name": "daily-review",
+      "run_agent": "chief",
+      "run_owning_agent": "chief",
+      "run_type": "workflow",
+      "run_status": "success",
+      "run_started": "2026-06-12T13:23:09.228803Z",
+      "run_completed": "2026-06-12T13:23:09.228803Z",
+      "source_file": "eval-20260612T132309-PSAUO8.json",
+      "instrumented": false,
+      "step_count": 1,
+      "totals": {
+        "tokens_input": null,
+        "tokens_output": null,
+        "cost_usd": null
+      },
+      "steps": [
+        {
+          "index": 0,
+          "name": "step-auto",
+          "step_id": "step-auto",
+          "agent": null,
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": "success",
+          "started": "2026-06-12T13:23:09.228803Z",
+          "completed": "2026-06-12T13:23:09.228803Z",
+          "duration_seconds": 0.0
+        }
+      ]
+    },
+    {
+      "run_id": "eval-20260804T021410-VB8NM9",
+      "run_name": "daily-review",
+      "run_agent": "chief",
+      "run_owning_agent": "chief",
+      "run_type": "workflow",
+      "run_status": "partial",
+      "run_started": "2026-08-04T02:14:10.386822Z",
+      "run_completed": "2026-08-04T02:14:10.386822Z",
+      "source_file": "eval-20260804T021410-VB8NM9.json",
+      "instrumented": false,
+      "step_count": 1,
+      "totals": {
+        "tokens_input": null,
+        "tokens_output": null,
+        "cost_usd": null
+      },
+      "steps": [
+        {
+          "index": 0,
+          "name": "step-auto",
+          "step_id": "step-auto",
+          "agent": null,
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": "success",
+          "started": "2026-08-04T02:14:10.386822Z",
+          "completed": "2026-08-04T02:14:10.386822Z",
+          "duration_seconds": 0.0
+        }
+      ]
+    },
+    {
+      "run_id": "eval-20260903T170821-4OELTZ",
+      "run_name": "daily-review",
+      "run_agent": "chief",
+      "run_owning_agent": "chief",
+      "run_type": "workflow",
+      "run_status": "success",
+      "run_started": "2026-09-03T00:00:00-05:00",
+      "run_completed": "2026-09-03T17:08:21.105203Z",
+      "source_file": "eval-20260903T170821-4OELTZ.json",
+      "instrumented": false,
+      "step_count": 6,
+      "totals": {
+        "tokens_input": null,
+        "tokens_output": null,
+        "cost_usd": null
+      },
+      "steps": [
+        {
+          "index": 0,
+          "name": "step-03b-guardrail-checkpoint",
+          "step_id": "step-03b-guardrail-checkpoint",
+          "agent": null,
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": "success",
+          "started": "2026-09-03T06:04:10.552601-05:00",
+          "completed": "2026-09-03T08:05:34.070135-05:00",
+          "duration_seconds": 7283.5
+        },
+        {
+          "index": 1,
+          "name": "step-04-root-audit",
+          "step_id": "step-04-root-audit",
+          "agent": null,
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": "success",
+          "started": "2026-09-03T08:05:34.070135-05:00",
+          "completed": "2026-09-03T10:06:57.587669-05:00",
+          "duration_seconds": 7283.5
+        },
+        {
+          "index": 2,
+          "name": "step-05-session-close",
+          "step_id": "step-05-session-close",
+          "agent": null,
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": "success",
+          "started": "2026-09-03T10:06:57.587669-05:00",
+          "completed": "2026-09-03T12:08:21.105203-05:00",
+          "duration_seconds": 7283.5
+        },
+        {
+          "index": 3,
+          "name": "step-01-capture",
+          "step_id": "step-01-capture",
+          "agent": null,
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": "complete",
+          "started": "2026-09-17T17:30:00",
+          "completed": "2026-09-17T18:10:00",
+          "duration_seconds": 2400.0
+        },
+        {
+          "index": 4,
+          "name": "step-02-set-tomorrow",
+          "step_id": "step-02-set-tomorrow",
+          "agent": null,
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": "complete",
+          "started": "2026-09-17T18:10:00",
+          "completed": "2026-09-17T18:15:00",
+          "duration_seconds": 300.0
+        },
+        {
+          "index": 5,
+          "name": "step-03-update-system",
+          "step_id": "step-03-update-system",
+          "agent": null,
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": "complete",
+          "started": "2026-09-17T18:15:00",
+          "completed": "2026-09-17T18:35:00",
+          "duration_seconds": 1200.0
+        }
+      ]
+    },
+    {
+      "run_id": "eval-20260725T021309-IREQ63",
+      "run_name": "daily-review",
+      "run_agent": "chief",
+      "run_owning_agent": "chief",
+      "run_type": "workflow",
+      "run_status": "success",
+      "run_started": "2026-07-25T02:13:09.127712Z",
+      "run_completed": "2026-07-25T02:13:09.127712Z",
+      "source_file": "eval-20260725T021309-IREQ63.json",
+      "instrumented": false,
+      "step_count": 1,
+      "totals": {
+        "tokens_input": null,
+        "tokens_output": null,
+        "cost_usd": null
+      },
+      "steps": [
+        {
+          "index": 0,
+          "name": "step-auto",
+          "step_id": "step-auto",
+          "agent": null,
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": "success",
+          "started": "2026-07-25T02:13:09.127712Z",
+          "completed": "2026-07-25T02:13:09.127712Z",
+          "duration_seconds": 0.0
+        }
+      ]
+    },
+    {
+      "run_id": "eval-20260701T021245-IKR49U",
+      "run_name": "daily-review",
+      "run_agent": "chief",
+      "run_owning_agent": "chief",
+      "run_type": "workflow",
+      "run_status": "success",
+      "run_started": "2026-07-01T02:12:45.390012Z",
+      "run_completed": "2026-07-01T02:12:45.390012Z",
+      "source_file": "eval-20260701T021245-IKR49U.json",
+      "instrumented": false,
+      "step_count": 1,
+      "totals": {
+        "tokens_input": null,
+        "tokens_output": null,
+        "cost_usd": null
+      },
+      "steps": [
+        {
+          "index": 0,
+          "name": "step-auto",
+          "step_id": "step-auto",
+          "agent": null,
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": "success",
+          "started": "2026-07-01T02:12:45.390012Z",
+          "completed": "2026-07-01T02:12:45.390012Z",
+          "duration_seconds": 0.0
+        }
+      ]
+    },
+    {
+      "run_id": "eval-20260721T133339-HZRLN2",
+      "run_name": "daily-review",
+      "run_agent": "chief",
+      "run_owning_agent": "chief",
+      "run_type": "workflow",
+      "run_status": "success",
+      "run_started": "2026-07-21T13:33:39.127746Z",
+      "run_completed": "2026-07-21T13:33:39.127746Z",
+      "source_file": "eval-20260721T133339-HZRLN2.json",
+      "instrumented": false,
+      "step_count": 1,
+      "totals": {
+        "tokens_input": null,
+        "tokens_output": null,
+        "cost_usd": null
+      },
+      "steps": [
+        {
+          "index": 0,
+          "name": "step-auto",
+          "step_id": "step-auto",
+          "agent": null,
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": "success",
+          "started": "2026-07-21T13:33:39.127746Z",
+          "completed": "2026-07-21T13:33:39.127746Z",
+          "duration_seconds": 0.0
+        }
+      ]
+    },
+    {
+      "run_id": "eval-20260623T021234-DH9VSD",
+      "run_name": "daily-review",
+      "run_agent": "chief",
+      "run_owning_agent": "chief",
+      "run_type": "workflow",
+      "run_status": "success",
+      "run_started": "2026-06-23T02:12:34.713732Z",
+      "run_completed": "2026-06-23T02:12:34.713732Z",
+      "source_file": "eval-20260623T021234-DH9VSD.json",
+      "instrumented": false,
+      "step_count": 1,
+      "totals": {
+        "tokens_input": null,
+        "tokens_output": null,
+        "cost_usd": null
+      },
+      "steps": [
+        {
+          "index": 0,
+          "name": "step-auto",
+          "step_id": "step-auto",
+          "agent": null,
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": "success",
+          "started": "2026-06-23T02:12:34.713732Z",
+          "completed": "2026-06-23T02:12:34.713732Z",
+          "duration_seconds": 0.0
+        }
+      ]
+    },
+    {
+      "run_id": "eval-20260731T021245-CHG8UY",
+      "run_name": "daily-review",
+      "run_agent": "chief",
+      "run_owning_agent": "chief",
+      "run_type": "workflow",
+      "run_status": "success",
+      "run_started": "2026-07-31T02:12:45.628482Z",
+      "run_completed": "2026-07-31T02:12:45.628482Z",
+      "source_file": "eval-20260731T021245-CHG8UY.json",
+      "instrumented": false,
+      "step_count": 1,
+      "totals": {
+        "tokens_input": null,
+        "tokens_output": null,
+        "cost_usd": null
+      },
+      "steps": [
+        {
+          "index": 0,
+          "name": "step-auto",
+          "step_id": "step-auto",
+          "agent": null,
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": "success",
+          "started": "2026-07-31T02:12:45.628482Z",
+          "completed": "2026-07-31T02:12:45.628482Z",
+          "duration_seconds": 0.0
+        }
+      ]
+    },
+    {
+      "run_id": "eval-20260709T021252-HHX7I9",
+      "run_name": "daily-review",
+      "run_agent": "chief",
+      "run_owning_agent": "chief",
+      "run_type": "workflow",
+      "run_status": "success",
+      "run_started": "2026-07-09T02:12:52.615233Z",
+      "run_completed": "2026-07-09T02:12:52.615233Z",
+      "source_file": "eval-20260709T021252-HHX7I9.json",
+      "instrumented": false,
+      "step_count": 1,
+      "totals": {
+        "tokens_input": null,
+        "tokens_output": null,
+        "cost_usd": null
+      },
+      "steps": [
+        {
+          "index": 0,
+          "name": "step-auto",
+          "step_id": "step-auto",
+          "agent": null,
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": "success",
+          "started": "2026-07-09T02:12:52.615233Z",
+          "completed": "2026-07-09T02:12:52.615233Z",
+          "duration_seconds": 0.0
+        }
+      ]
+    },
+    {
+      "run_id": "eval-20260722T021626-Z27I2O",
+      "run_name": "daily-review",
+      "run_agent": "chief",
+      "run_owning_agent": "chief",
+      "run_type": "workflow",
+      "run_status": "success",
+      "run_started": "2026-07-22T02:16:26.869080Z",
+      "run_completed": "2026-07-22T02:16:26.869080Z",
+      "source_file": "eval-20260722T021626-Z27I2O.json",
+      "instrumented": false,
+      "step_count": 1,
+      "totals": {
+        "tokens_input": null,
+        "tokens_output": null,
+        "cost_usd": null
+      },
+      "steps": [
+        {
+          "index": 0,
+          "name": "step-auto",
+          "step_id": "step-auto",
+          "agent": null,
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": "success",
+          "started": "2026-07-22T02:16:26.869080Z",
+          "completed": "2026-07-22T02:16:26.869080Z",
+          "duration_seconds": 0.0
+        }
+      ]
+    },
+    {
+      "run_id": "eval-20260704T021304-XNRG5T",
+      "run_name": "daily-review",
+      "run_agent": "chief",
+      "run_owning_agent": "chief",
+      "run_type": "workflow",
+      "run_status": "success",
+      "run_started": "2026-07-04T02:13:04.883076Z",
+      "run_completed": "2026-07-04T02:13:04.883076Z",
+      "source_file": "eval-20260704T021304-XNRG5T.json",
+      "instrumented": false,
+      "step_count": 1,
+      "totals": {
+        "tokens_input": null,
+        "tokens_output": null,
+        "cost_usd": null
+      },
+      "steps": [
+        {
+          "index": 0,
+          "name": "step-auto",
+          "step_id": "step-auto",
+          "agent": null,
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": "success",
+          "started": "2026-07-04T02:13:04.883076Z",
+          "completed": "2026-07-04T02:13:04.883076Z",
+          "duration_seconds": 0.0
+        }
+      ]
+    },
+    {
+      "run_id": "eval-20260617T021222-ZQTYH1",
+      "run_name": "daily-review",
+      "run_agent": "chief",
+      "run_owning_agent": "chief",
+      "run_type": "workflow",
+      "run_status": "success",
+      "run_started": "2026-06-17T02:12:22.024492Z",
+      "run_completed": "2026-06-17T02:12:22.024492Z",
+      "source_file": "eval-20260617T021222-ZQTYH1.json",
+      "instrumented": false,
+      "step_count": 1,
+      "totals": {
+        "tokens_input": null,
+        "tokens_output": null,
+        "cost_usd": null
+      },
+      "steps": [
+        {
+          "index": 0,
+          "name": "step-auto",
+          "step_id": "step-auto",
+          "agent": null,
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": "success",
+          "started": "2026-06-17T02:12:22.024492Z",
+          "completed": "2026-06-17T02:12:22.024492Z",
+          "duration_seconds": 0.0
+        }
+      ]
+    },
+    {
+      "run_id": "eval-20260729T021225-M8SAJ1",
+      "run_name": "daily-review",
+      "run_agent": "chief",
+      "run_owning_agent": "chief",
+      "run_type": "workflow",
+      "run_status": "success",
+      "run_started": "2026-07-29T02:12:25.547048Z",
+      "run_completed": "2026-07-29T02:12:25.547048Z",
+      "source_file": "eval-20260729T021225-M8SAJ1.json",
+      "instrumented": false,
+      "step_count": 1,
+      "totals": {
+        "tokens_input": null,
+        "tokens_output": null,
+        "cost_usd": null
+      },
+      "steps": [
+        {
+          "index": 0,
+          "name": "step-auto",
+          "step_id": "step-auto",
+          "agent": null,
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": "success",
+          "started": "2026-07-29T02:12:25.547048Z",
+          "completed": "2026-07-29T02:12:25.547048Z",
+          "duration_seconds": 0.0
+        }
+      ]
+    },
+    {
+      "run_id": "eval-20260627T021053-VB6Z9C",
+      "run_name": "daily-review",
+      "run_agent": "chief",
+      "run_owning_agent": "chief",
+      "run_type": "workflow",
+      "run_status": "success",
+      "run_started": "2026-06-27T02:10:53.774419Z",
+      "run_completed": "2026-06-27T02:10:53.774419Z",
+      "source_file": "eval-20260627T021053-VB6Z9C.json",
+      "instrumented": false,
+      "step_count": 1,
+      "totals": {
+        "tokens_input": null,
+        "tokens_output": null,
+        "cost_usd": null
+      },
+      "steps": [
+        {
+          "index": 0,
+          "name": "step-auto",
+          "step_id": "step-auto",
+          "agent": null,
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": "success",
+          "started": "2026-06-27T02:10:53.774419Z",
+          "completed": "2026-06-27T02:10:53.774419Z",
+          "duration_seconds": 0.0
+        }
+      ]
+    },
+    {
+      "run_id": "eval-20260807T021321-O6FSIJ",
+      "run_name": "daily-review",
+      "run_agent": "chief",
+      "run_owning_agent": "chief",
+      "run_type": "workflow",
+      "run_status": "partial",
+      "run_started": "2026-08-07T02:13:21.314686Z",
+      "run_completed": "2026-08-07T02:13:21.314686Z",
+      "source_file": "eval-20260807T021321-O6FSIJ.json",
+      "instrumented": false,
+      "step_count": 1,
+      "totals": {
+        "tokens_input": null,
+        "tokens_output": null,
+        "cost_usd": null
+      },
+      "steps": [
+        {
+          "index": 0,
+          "name": "step-auto",
+          "step_id": "step-auto",
+          "agent": null,
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": "success",
+          "started": "2026-08-07T02:13:21.314686Z",
+          "completed": "2026-08-07T02:13:21.314686Z",
+          "duration_seconds": 0.0
+        }
+      ]
+    },
+    {
+      "run_id": "eval-20260620T021321-T6V6WJ",
+      "run_name": "daily-review",
+      "run_agent": "chief",
+      "run_owning_agent": "chief",
+      "run_type": "workflow",
+      "run_status": "success",
+      "run_started": "2026-06-20T02:13:21.731366Z",
+      "run_completed": "2026-06-20T02:13:21.731366Z",
+      "source_file": "eval-20260620T021321-T6V6WJ.json",
+      "instrumented": false,
+      "step_count": 1,
+      "totals": {
+        "tokens_input": null,
+        "tokens_output": null,
+        "cost_usd": null
+      },
+      "steps": [
+        {
+          "index": 0,
+          "name": "step-auto",
+          "step_id": "step-auto",
+          "agent": null,
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": "success",
+          "started": "2026-06-20T02:13:21.731366Z",
+          "completed": "2026-06-20T02:13:21.731366Z",
+          "duration_seconds": 0.0
+        }
+      ]
+    },
+    {
+      "run_id": "eval-20260527T021153-F0GRE1",
+      "run_name": "daily-review",
+      "run_agent": "chief",
+      "run_owning_agent": "chief",
+      "run_type": "workflow",
+      "run_status": "partial",
+      "run_started": "2026-05-27T02:11:53.069307Z",
+      "run_completed": "2026-05-27T02:11:53.069307Z",
+      "source_file": "eval-20260527T021153-F0GRE1.json",
+      "instrumented": false,
+      "step_count": 1,
+      "totals": {
+        "tokens_input": null,
+        "tokens_output": null,
+        "cost_usd": null
+      },
+      "steps": [
+        {
+          "index": 0,
+          "name": "step-auto",
+          "step_id": "step-auto",
+          "agent": null,
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": "success",
+          "started": "2026-05-27T02:11:53.069307Z",
+          "completed": "2026-05-27T02:11:53.069307Z",
+          "duration_seconds": 0.0
+        }
+      ]
+    },
+    {
+      "run_id": "eval-20260714T021310-LJKKIQ",
+      "run_name": "daily-review",
+      "run_agent": "chief",
+      "run_owning_agent": "chief",
+      "run_type": "workflow",
+      "run_status": "success",
+      "run_started": "2026-07-14T02:13:10.004537Z",
+      "run_completed": "2026-07-14T02:13:10.004537Z",
+      "source_file": "eval-20260714T021310-LJKKIQ.json",
+      "instrumented": false,
+      "step_count": 1,
+      "totals": {
+        "tokens_input": null,
+        "tokens_output": null,
+        "cost_usd": null
+      },
+      "steps": [
+        {
+          "index": 0,
+          "name": "step-auto",
+          "step_id": "step-auto",
+          "agent": null,
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": "success",
+          "started": "2026-07-14T02:13:10.004537Z",
+          "completed": "2026-07-14T02:13:10.004537Z",
+          "duration_seconds": 0.0
+        }
+      ]
+    },
+    {
+      "run_id": "eval-20261009T221319-BA32GV",
+      "run_name": "daily-review",
+      "run_agent": "chief",
+      "run_owning_agent": "chief",
+      "run_type": "agent",
+      "run_status": "complete",
+      "run_started": "2026-10-09T22:13:19.833094Z",
+      "run_completed": "2026-10-09T17:21:00-05:00",
+      "source_file": "eval-20261009T221319-BA32GV.json",
+      "instrumented": false,
+      "step_count": 0,
+      "totals": {
+        "tokens_input": null,
+        "tokens_output": null,
+        "cost_usd": null
+      },
+      "steps": []
+    },
+    {
+      "run_id": "eval-20260605T021223-ARZ3WN",
+      "run_name": "daily-review",
+      "run_agent": "chief",
+      "run_owning_agent": "chief",
+      "run_type": "workflow",
+      "run_status": "success",
+      "run_started": "2026-06-05T02:12:23.001924Z",
+      "run_completed": "2026-06-05T02:12:23.001924Z",
+      "source_file": "eval-20260605T021223-ARZ3WN.json",
+      "instrumented": false,
+      "step_count": 1,
+      "totals": {
+        "tokens_input": null,
+        "tokens_output": null,
+        "cost_usd": null
+      },
+      "steps": [
+        {
+          "index": 0,
+          "name": "step-auto",
+          "step_id": "step-auto",
+          "agent": null,
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": "success",
+          "started": "2026-06-05T02:12:23.001924Z",
+          "completed": "2026-06-05T02:12:23.001924Z",
+          "duration_seconds": 0.0
+        }
+      ]
+    },
+    {
+      "run_id": "eval-20260917T232746-4MKGN1",
+      "run_name": "daily-review",
+      "run_agent": "chief",
+      "run_owning_agent": "chief",
+      "run_type": "workflow",
+      "run_status": "success",
+      "run_started": "2026-09-17T17:30:00Z",
+      "run_completed": "2026-09-17T23:27:46.723323Z",
+      "source_file": "eval-20260917T232746-4MKGN1.json",
+      "instrumented": false,
+      "step_count": 0,
+      "totals": {
+        "tokens_input": null,
+        "tokens_output": null,
+        "cost_usd": null
+      },
+      "steps": []
+    },
+    {
+      "run_id": "eval-20260806T021233-NTOEO1",
+      "run_name": "daily-review",
+      "run_agent": "chief",
+      "run_owning_agent": "chief",
+      "run_type": "workflow",
+      "run_status": "success",
+      "run_started": "2026-08-06T02:12:33.666307Z",
+      "run_completed": "2026-08-06T02:12:33.666307Z",
+      "source_file": "eval-20260806T021233-NTOEO1.json",
+      "instrumented": false,
+      "step_count": 1,
+      "totals": {
+        "tokens_input": null,
+        "tokens_output": null,
+        "cost_usd": null
+      },
+      "steps": [
+        {
+          "index": 0,
+          "name": "step-auto",
+          "step_id": "step-auto",
+          "agent": null,
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": "success",
+          "started": "2026-08-06T02:12:33.666307Z",
+          "completed": "2026-08-06T02:12:33.666307Z",
+          "duration_seconds": 0.0
+        }
+      ]
+    },
+    {
+      "run_id": "eval-20260708T021227-5P65RK",
+      "run_name": "daily-review",
+      "run_agent": "chief",
+      "run_owning_agent": "chief",
+      "run_type": "workflow",
+      "run_status": "success",
+      "run_started": "2026-07-08T02:12:27.831411Z",
+      "run_completed": "2026-07-08T02:12:27.831411Z",
+      "source_file": "eval-20260708T021227-5P65RK.json",
+      "instrumented": false,
+      "step_count": 1,
+      "totals": {
+        "tokens_input": null,
+        "tokens_output": null,
+        "cost_usd": null
+      },
+      "steps": [
+        {
+          "index": 0,
+          "name": "step-auto",
+          "step_id": "step-auto",
+          "agent": null,
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": "success",
+          "started": "2026-07-08T02:12:27.831411Z",
+          "completed": "2026-07-08T02:12:27.831411Z",
+          "duration_seconds": 0.0
+        }
+      ]
+    },
+    {
+      "run_id": "eval-20260724T021252-QZBRKO",
+      "run_name": "daily-review",
+      "run_agent": "chief",
+      "run_owning_agent": "chief",
+      "run_type": "workflow",
+      "run_status": "success",
+      "run_started": "2026-07-24T02:12:52.889446Z",
+      "run_completed": "2026-07-24T02:12:52.889446Z",
+      "source_file": "eval-20260724T021252-QZBRKO.json",
+      "instrumented": false,
+      "step_count": 1,
+      "totals": {
+        "tokens_input": null,
+        "tokens_output": null,
+        "cost_usd": null
+      },
+      "steps": [
+        {
+          "index": 0,
+          "name": "step-auto",
+          "step_id": "step-auto",
+          "agent": null,
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": "success",
+          "started": "2026-07-24T02:12:52.889446Z",
+          "completed": "2026-07-24T02:12:52.889446Z",
+          "duration_seconds": 0.0
+        }
+      ]
+    },
+    {
+      "run_id": "eval-20260730T021325-RKAN1A",
+      "run_name": "daily-review",
+      "run_agent": "chief",
+      "run_owning_agent": "chief",
+      "run_type": "workflow",
+      "run_status": "success",
+      "run_started": "2026-07-30T02:13:25.664024Z",
+      "run_completed": "2026-07-30T02:13:25.664024Z",
+      "source_file": "eval-20260730T021325-RKAN1A.json",
+      "instrumented": false,
+      "step_count": 1,
+      "totals": {
+        "tokens_input": null,
+        "tokens_output": null,
+        "cost_usd": null
+      },
+      "steps": [
+        {
+          "index": 0,
+          "name": "step-auto",
+          "step_id": "step-auto",
+          "agent": null,
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": "success",
+          "started": "2026-07-30T02:13:25.664024Z",
+          "completed": "2026-07-30T02:13:25.664024Z",
+          "duration_seconds": 0.0
+        }
+      ]
+    },
+    {
+      "run_id": "eval-20260723T021136-XGYF36",
+      "run_name": "daily-review",
+      "run_agent": "chief",
+      "run_owning_agent": "chief",
+      "run_type": "workflow",
+      "run_status": "success",
+      "run_started": "2026-07-23T02:11:36.938924Z",
+      "run_completed": "2026-07-23T02:11:36.938924Z",
+      "source_file": "eval-20260723T021136-XGYF36.json",
+      "instrumented": false,
+      "step_count": 1,
+      "totals": {
+        "tokens_input": null,
+        "tokens_output": null,
+        "cost_usd": null
+      },
+      "steps": [
+        {
+          "index": 0,
+          "name": "step-auto",
+          "step_id": "step-auto",
+          "agent": null,
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": "success",
+          "started": "2026-07-23T02:11:36.938924Z",
+          "completed": "2026-07-23T02:11:36.938924Z",
+          "duration_seconds": 0.0
+        }
+      ]
+    },
+    {
+      "run_id": "eval-20260630T021252-XWZAFG",
+      "run_name": "daily-review",
+      "run_agent": "chief",
+      "run_owning_agent": "chief",
+      "run_type": "workflow",
+      "run_status": "success",
+      "run_started": "2026-06-30T02:12:52.160638Z",
+      "run_completed": "2026-06-30T02:12:52.160638Z",
+      "source_file": "eval-20260630T021252-XWZAFG.json",
+      "instrumented": false,
+      "step_count": 1,
+      "totals": {
+        "tokens_input": null,
+        "tokens_output": null,
+        "cost_usd": null
+      },
+      "steps": [
+        {
+          "index": 0,
+          "name": "step-auto",
+          "step_id": "step-auto",
+          "agent": null,
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": "success",
+          "started": "2026-06-30T02:12:52.160638Z",
+          "completed": "2026-06-30T02:12:52.160638Z",
+          "duration_seconds": 0.0
+        }
+      ]
+    },
+    {
+      "run_id": "eval-20260918T230336-Z4WC4H",
+      "run_name": "daily-review",
+      "run_agent": "chief",
+      "run_owning_agent": "chief",
+      "run_type": "workflow",
+      "run_status": "success",
+      "run_started": "2026-09-18T21:00:00-05:00",
+      "run_completed": "2026-09-18T23:03:36.046341Z",
+      "source_file": "eval-20260918T230336-Z4WC4H.json",
+      "instrumented": false,
+      "step_count": 5,
+      "totals": {
+        "tokens_input": null,
+        "tokens_output": null,
+        "cost_usd": null
+      },
+      "steps": [
+        {
+          "index": 0,
+          "name": "step-01-capture",
+          "step_id": "step-01-capture",
+          "agent": null,
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": "success",
+          "started": "2026-09-18T21:00:00-05:00",
+          "completed": "2026-09-18T21:00:00-05:00",
+          "duration_seconds": 0.0
+        },
+        {
+          "index": 1,
+          "name": "step-02-set-tomorrow",
+          "step_id": "step-02-set-tomorrow",
+          "agent": null,
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": "success",
+          "started": "2026-09-18T21:00:00-05:00",
+          "completed": "2026-09-18T21:00:00-05:00",
+          "duration_seconds": 0.0
+        },
+        {
+          "index": 2,
+          "name": "step-03-update-system",
+          "step_id": "step-03-update-system",
+          "agent": null,
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": "success",
+          "started": "2026-09-18T21:00:00-05:00",
+          "completed": "2026-09-18T21:00:00-05:00",
+          "duration_seconds": 0.0
+        },
+        {
+          "index": 3,
+          "name": "step-04-root-audit",
+          "step_id": "step-04-root-audit",
+          "agent": null,
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": "success",
+          "started": "2026-09-18T21:00:00-05:00",
+          "completed": "2026-09-18T21:00:00-05:00",
+          "duration_seconds": 0.0
+        },
+        {
+          "index": 4,
+          "name": "step-05-session-close",
+          "step_id": "step-05-session-close",
+          "agent": null,
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": "success",
+          "started": "2026-09-18T21:00:00-05:00",
+          "completed": "2026-09-18T21:00:00-05:00",
+          "duration_seconds": 0.0
+        }
+      ]
+    },
+    {
+      "run_id": "eval-20260812T021205-BFRJ8S",
+      "run_name": "daily-review",
+      "run_agent": "chief",
+      "run_owning_agent": "chief",
+      "run_type": "workflow",
+      "run_status": "success",
+      "run_started": "2026-08-12T02:12:05.105103Z",
+      "run_completed": "2026-08-12T02:12:05.105103Z",
+      "source_file": "eval-20260812T021205-BFRJ8S.json",
+      "instrumented": false,
+      "step_count": 1,
+      "totals": {
+        "tokens_input": null,
+        "tokens_output": null,
+        "cost_usd": null
+      },
+      "steps": [
+        {
+          "index": 0,
+          "name": "step-auto",
+          "step_id": "step-auto",
+          "agent": null,
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": "success",
+          "started": "2026-08-12T02:12:05.105103Z",
+          "completed": "2026-08-12T02:12:05.105103Z",
+          "duration_seconds": 0.0
+        }
+      ]
+    },
+    {
+      "run_id": "eval-20260710T140505-6TTTHK",
+      "run_name": "daily-review",
+      "run_agent": "chief",
+      "run_owning_agent": "chief",
+      "run_type": "workflow",
+      "run_status": "success",
+      "run_started": "2026-07-10T14:05:05.092831Z",
+      "run_completed": "2026-07-10T14:05:05.092831Z",
+      "source_file": "eval-20260710T140505-6TTTHK.json",
+      "instrumented": false,
+      "step_count": 1,
+      "totals": {
+        "tokens_input": null,
+        "tokens_output": null,
+        "cost_usd": null
+      },
+      "steps": [
+        {
+          "index": 0,
+          "name": "step-auto",
+          "step_id": "step-auto",
+          "agent": null,
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": "success",
+          "started": "2026-07-10T14:05:05.092831Z",
+          "completed": "2026-07-10T14:05:05.092831Z",
+          "duration_seconds": 0.0
+        }
+      ]
+    },
+    {
+      "run_id": "eval-20260603T021219-4T8MSY",
+      "run_name": "daily-review",
+      "run_agent": "chief",
+      "run_owning_agent": "chief",
+      "run_type": "workflow",
+      "run_status": "success",
+      "run_started": "2026-06-03T02:12:19.989195Z",
+      "run_completed": "2026-06-03T02:12:19.989195Z",
+      "source_file": "eval-20260603T021219-4T8MSY.json",
+      "instrumented": false,
+      "step_count": 1,
+      "totals": {
+        "tokens_input": null,
+        "tokens_output": null,
+        "cost_usd": null
+      },
+      "steps": [
+        {
+          "index": 0,
+          "name": "step-auto",
+          "step_id": "step-auto",
+          "agent": null,
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": "success",
+          "started": "2026-06-03T02:12:19.989195Z",
+          "completed": "2026-06-03T02:12:19.989195Z",
+          "duration_seconds": 0.0
+        }
+      ]
+    },
+    {
+      "run_id": "eval-20260619T021216-OI0WLY",
+      "run_name": "daily-review",
+      "run_agent": "chief",
+      "run_owning_agent": "chief",
+      "run_type": "workflow",
+      "run_status": "success",
+      "run_started": "2026-06-19T02:12:16.499002Z",
+      "run_completed": "2026-06-19T02:12:16.499002Z",
+      "source_file": "eval-20260619T021216-OI0WLY.json",
+      "instrumented": false,
+      "step_count": 1,
+      "totals": {
+        "tokens_input": null,
+        "tokens_output": null,
+        "cost_usd": null
+      },
+      "steps": [
+        {
+          "index": 0,
+          "name": "step-auto",
+          "step_id": "step-auto",
+          "agent": null,
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": "success",
+          "started": "2026-06-19T02:12:16.499002Z",
+          "completed": "2026-06-19T02:12:16.499002Z",
+          "duration_seconds": 0.0
+        }
+      ]
+    },
+    {
+      "run_id": "eval-20260616T021202-5AMBIW",
+      "run_name": "daily-review",
+      "run_agent": "chief",
+      "run_owning_agent": "chief",
+      "run_type": "workflow",
+      "run_status": "success",
+      "run_started": "2026-06-16T02:12:02.917979Z",
+      "run_completed": "2026-06-16T02:12:02.917979Z",
+      "source_file": "eval-20260616T021202-5AMBIW.json",
+      "instrumented": false,
+      "step_count": 1,
+      "totals": {
+        "tokens_input": null,
+        "tokens_output": null,
+        "cost_usd": null
+      },
+      "steps": [
+        {
+          "index": 0,
+          "name": "step-auto",
+          "step_id": "step-auto",
+          "agent": null,
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": "success",
+          "started": "2026-06-16T02:12:02.917979Z",
+          "completed": "2026-06-16T02:12:02.917979Z",
+          "duration_seconds": 0.0
+        }
+      ]
+    },
+    {
+      "run_id": "eval-20260715T021228-FA34YW",
+      "run_name": "daily-review",
+      "run_agent": "chief",
+      "run_owning_agent": "chief",
+      "run_type": "workflow",
+      "run_status": "success",
+      "run_started": "2026-07-15T02:12:28.902670Z",
+      "run_completed": "2026-07-15T02:12:28.902670Z",
+      "source_file": "eval-20260715T021228-FA34YW.json",
+      "instrumented": false,
+      "step_count": 1,
+      "totals": {
+        "tokens_input": null,
+        "tokens_output": null,
+        "cost_usd": null
+      },
+      "steps": [
+        {
+          "index": 0,
+          "name": "step-auto",
+          "step_id": "step-auto",
+          "agent": null,
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": "success",
+          "started": "2026-07-15T02:12:28.902670Z",
+          "completed": "2026-07-15T02:12:28.902670Z",
+          "duration_seconds": 0.0
+        }
+      ]
+    },
+    {
+      "run_id": "eval-20260808T021542-KROVW3",
+      "run_name": "daily-review",
+      "run_agent": "chief",
+      "run_owning_agent": "chief",
+      "run_type": "workflow",
+      "run_status": "partial",
+      "run_started": "2026-08-08T02:15:42.630141Z",
+      "run_completed": "2026-08-08T02:15:42.630141Z",
+      "source_file": "eval-20260808T021542-KROVW3.json",
+      "instrumented": false,
+      "step_count": 1,
+      "totals": {
+        "tokens_input": null,
+        "tokens_output": null,
+        "cost_usd": null
+      },
+      "steps": [
+        {
+          "index": 0,
+          "name": "step-auto",
+          "step_id": "step-auto",
+          "agent": null,
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": "success",
+          "started": "2026-08-08T02:15:42.630141Z",
+          "completed": "2026-08-08T02:15:42.630141Z",
+          "duration_seconds": 0.0
+        }
+      ]
+    },
+    {
+      "run_id": "eval-chief-daily-review-2026-07-15-060000",
+      "run_name": "daily-review",
+      "run_agent": "chief",
+      "run_owning_agent": "chief",
+      "run_type": "workflow",
+      "run_status": "success",
+      "run_started": "2026-07-15T06:00:00Z",
+      "run_completed": "2026-07-15T06:05:00Z",
+      "source_file": "eval-chief-daily-review-2026-07-15-060000.json",
+      "instrumented": false,
+      "step_count": 1,
+      "totals": {
+        "tokens_input": null,
+        "tokens_output": null,
+        "cost_usd": null
+      },
+      "steps": [
+        {
+          "index": 0,
+          "name": "step-auto",
+          "step_id": "step-auto",
+          "agent": null,
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": null,
+          "started": null,
+          "completed": null,
+          "duration_seconds": null
+        }
+      ]
+    },
+    {
+      "run_id": "eval-20260602T021149-SL6FJ9",
+      "run_name": "daily-review",
+      "run_agent": "chief",
+      "run_owning_agent": "chief",
+      "run_type": "workflow",
+      "run_status": "success",
+      "run_started": "2026-06-02T02:11:49.255268Z",
+      "run_completed": "2026-06-02T02:11:49.255268Z",
+      "source_file": "eval-20260602T021149-SL6FJ9.json",
+      "instrumented": false,
+      "step_count": 1,
+      "totals": {
+        "tokens_input": null,
+        "tokens_output": null,
+        "cost_usd": null
+      },
+      "steps": [
+        {
+          "index": 0,
+          "name": "step-auto",
+          "step_id": "step-auto",
+          "agent": null,
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": "success",
+          "started": "2026-06-02T02:11:49.255268Z",
+          "completed": "2026-06-02T02:11:49.255268Z",
+          "duration_seconds": 0.0
+        }
+      ]
+    },
+    {
+      "run_id": "eval-20260530T021202-MKO2P3",
+      "run_name": "daily-review",
+      "run_agent": "chief",
+      "run_owning_agent": "chief",
+      "run_type": "workflow",
+      "run_status": "success",
+      "run_started": "2026-05-30T02:12:02.188636Z",
+      "run_completed": "2026-05-30T02:12:02.188636Z",
+      "source_file": "eval-20260530T021202-MKO2P3.json",
+      "instrumented": false,
+      "step_count": 1,
+      "totals": {
+        "tokens_input": null,
+        "tokens_output": null,
+        "cost_usd": null
+      },
+      "steps": [
+        {
+          "index": 0,
+          "name": "step-auto",
+          "step_id": "step-auto",
+          "agent": null,
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": "success",
+          "started": "2026-05-30T02:12:02.188636Z",
+          "completed": "2026-05-30T02:12:02.188636Z",
+          "duration_seconds": 0.0
+        }
+      ]
+    },
+    {
+      "run_id": "eval-20260717T021226-JC2Y4F",
+      "run_name": "daily-review",
+      "run_agent": "chief",
+      "run_owning_agent": "chief",
+      "run_type": "workflow",
+      "run_status": "partial",
+      "run_started": "2026-07-17T02:12:26.736785Z",
+      "run_completed": "2026-07-17T02:12:26.736785Z",
+      "source_file": "eval-20260717T021226-JC2Y4F.json",
+      "instrumented": false,
+      "step_count": 1,
+      "totals": {
+        "tokens_input": null,
+        "tokens_output": null,
+        "cost_usd": null
+      },
+      "steps": [
+        {
+          "index": 0,
+          "name": "step-auto",
+          "step_id": "step-auto",
+          "agent": null,
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": "success",
+          "started": "2026-07-17T02:12:26.736785Z",
+          "completed": "2026-07-17T02:12:26.736785Z",
+          "duration_seconds": 0.0
+        }
+      ]
+    },
+    {
+      "run_id": "eval-20260626T021138-W3TDFA",
+      "run_name": "daily-review",
+      "run_agent": "chief",
+      "run_owning_agent": "chief",
+      "run_type": "workflow",
+      "run_status": "success",
+      "run_started": "2026-06-26T02:11:38.426006Z",
+      "run_completed": "2026-06-26T02:11:38.426006Z",
+      "source_file": "eval-20260626T021138-W3TDFA.json",
+      "instrumented": false,
+      "step_count": 1,
+      "totals": {
+        "tokens_input": null,
+        "tokens_output": null,
+        "cost_usd": null
+      },
+      "steps": [
+        {
+          "index": 0,
+          "name": "step-auto",
+          "step_id": "step-auto",
+          "agent": null,
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": "success",
+          "started": "2026-06-26T02:11:38.426006Z",
+          "completed": "2026-06-26T02:11:38.426006Z",
+          "duration_seconds": 0.0
+        }
+      ]
+    },
+    {
+      "run_id": "eval-20260625T021317-18HGDJ",
+      "run_name": "daily-review",
+      "run_agent": "chief",
+      "run_owning_agent": "chief",
+      "run_type": "workflow",
+      "run_status": "success",
+      "run_started": "2026-06-25T02:13:17.708762Z",
+      "run_completed": "2026-06-25T02:13:17.708762Z",
+      "source_file": "eval-20260625T021317-18HGDJ.json",
+      "instrumented": false,
+      "step_count": 1,
+      "totals": {
+        "tokens_input": null,
+        "tokens_output": null,
+        "cost_usd": null
+      },
+      "steps": [
+        {
+          "index": 0,
+          "name": "step-auto",
+          "step_id": "step-auto",
+          "agent": null,
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": "success",
+          "started": "2026-06-25T02:13:17.708762Z",
+          "completed": "2026-06-25T02:13:17.708762Z",
+          "duration_seconds": 0.0
+        }
+      ]
+    },
+    {
+      "run_id": "eval-20260929T031202-O3KXJB",
+      "run_name": "daily-review",
+      "run_agent": "chief",
+      "run_owning_agent": "chief",
+      "run_type": "workflow",
+      "run_status": "success",
+      "run_started": "2026-09-28T22:45:00-05:00",
+      "run_completed": "2026-09-29T03:12:02.838859Z",
+      "source_file": "eval-20260929T031202-O3KXJB.json",
+      "instrumented": false,
+      "step_count": 5,
+      "totals": {
+        "tokens_input": null,
+        "tokens_output": null,
+        "cost_usd": null
+      },
+      "steps": [
+        {
+          "index": 0,
+          "name": "step-01-capture",
+          "step_id": "step-01-capture",
+          "agent": null,
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": "success",
+          "started": "2026-09-28T22:45:00-05:00",
+          "completed": "2026-09-28T22:45:00-05:00",
+          "duration_seconds": 0.0
+        },
+        {
+          "index": 1,
+          "name": "step-02-set-tomorrow",
+          "step_id": "step-02-set-tomorrow",
+          "agent": null,
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": "success",
+          "started": "2026-09-28T22:45:00-05:00",
+          "completed": "2026-09-28T22:45:00-05:00",
+          "duration_seconds": 0.0
+        },
+        {
+          "index": 2,
+          "name": "step-03-update-system",
+          "step_id": "step-03-update-system",
+          "agent": null,
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": "success",
+          "started": "2026-09-28T22:45:00-05:00",
+          "completed": "2026-09-28T22:45:00-05:00",
+          "duration_seconds": 0.0
+        },
+        {
+          "index": 3,
+          "name": "step-04-root-audit",
+          "step_id": "step-04-root-audit",
+          "agent": null,
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": "success",
+          "started": "2026-09-28T22:45:00-05:00",
+          "completed": "2026-09-28T22:45:00-05:00",
+          "duration_seconds": 0.0
+        },
+        {
+          "index": 4,
+          "name": "step-05-session-close",
+          "step_id": "step-05-session-close",
+          "agent": null,
+          "owning_agent": "chief",
+          "model": null,
+          "tokens_input": null,
+          "tokens_output": null,
+          "cost_usd": null,
+          "token_source": null,
+          "status": "success",
+          "started": "2026-09-28T22:45:00-05:00",
+          "completed": "2026-09-28T22:45:00-05:00",
+          "duration_seconds": 0.0
+        }
+      ]
+    }
+  ]
+}

@@ -1,8 +1,25 @@
 {
-  "description": "Per-million-token USD pricing for token/cost tracking in eval records. Approved models only (Sonnet, Haiku) per org policy — see CLAUDE.md.",
-  "updated": "2026-08-20",
+  "description": "Per-million-token USD pricing for token/cost tracking in eval records. Two families: the Claude API list rates (sonnet/haiku/opus) and the serverless provider rates this instance's eval records actually carry (the ANTHROPIC_DEFAULT_*_MODEL tier aliases — see notes).",
+  "updated": "2026-10-16",
+  "notes": [
+    "CLAUDE LIST RATES (Anthropic first-party API): sonnet 3/15 = Sonnet 4.6, haiku 1/5 = Haiku 4.5, opus 5/25 = Opus 4.6/5. opus was added 2026-10-16 (Stage 5 finding #4): 4 step entries carried model=opus with a null cost_usd because the table lacked an opus key.",
+    "PROVIDER TIER ALIASES: this instance routes Claude tiers to Fireworks serverless models (~/.claude/settings.json ANTHROPIC_DEFAULT_*_MODEL). The eval records' `model` field carries the provider model id, not the tier name, so the table prices those ids at their REAL configured provider rates (the rates the instance is actually billed):",
+    "  Sonnet tier -> kimi-k3            ($3/$15 per Mtok)   [ANTHROPIC_DEFAULT_SONNET_MODEL]",
+    "  Haiku  tier -> deepseek-v4p1-flash ($0.3/$1.2 per Mtok) [ANTHROPIC_DEFAULT_HAIKU_MODEL]",
+    "  Opus   tier -> glm-5p3 / glm-latest ($1.4/$4.4 per Mtok) [ANTHROPIC_DEFAULT_OPUS_MODEL]",
+    "  Fable  tier -> glm-5p3-flash / glm-flash-latest ($0.15/$0.5 per Mtok) [ANTHROPIC_DEFAULT_FABLE_MODEL]",
+    "Both spellings of each provider id are listed where they appear in the data (full 'accounts/fireworks/models/<id>' from transcripts, short '<id>' from step frontmatter).",
+    "STILL UNPRICED (documented, not fabricated): accounts/fireworks/models/deepseek-v4-pro-0813 — no configured rate found; left null. A null cost_usd on any model absent from this table means 'unpriced model', not 'capture failure'."
+  ],
   "models": {
     "sonnet": { "input_per_mtok": 3.00, "output_per_mtok": 15.00 },
-    "haiku": { "input_per_mtok": 1.00, "output_per_mtok": 5.00 }
+    "haiku": { "input_per_mtok": 1.00, "output_per_mtok": 5.00 },
+    "opus": { "input_per_mtok": 5.00, "output_per_mtok": 25.00 },
+    "accounts/fireworks/models/kimi-k3": { "input_per_mtok": 3.00, "output_per_mtok": 15.00 },
+    "kimi-k3": { "input_per_mtok": 3.00, "output_per_mtok": 15.00 },
+    "accounts/fireworks/models/deepseek-v4p1-flash": { "input_per_mtok": 0.30, "output_per_mtok": 1.20 },
+    "accounts/fireworks/models/glm-5p3": { "input_per_mtok": 1.40, "output_per_mtok": 4.40 },
+    "glm-5p3": { "input_per_mtok": 1.40, "output_per_mtok": 4.40 },
+    "glm-5p3-flash": { "input_per_mtok": 0.15, "output_per_mtok": 0.50 }
   }
 }

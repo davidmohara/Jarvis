@@ -42,6 +42,21 @@ CASES = [
     ("boot, go ahead and run it", None, "name first, verb refers to pronoun not name"),
     ("we discussed boot instrumentation earlier tonight, the eval record for boot never fired", None, "bare mention, no run-verb adjacency"),
     ("kick off shutdown cleanup", "shutdown-cleanup", "run-verb + phrase form of name"),
+    # daily-review (Chief-owned, added to MAIN_SESSION_TRIGGER_WORKFLOWS
+    # 2026-10-16): its trigger lands in Master's main session even though
+    # execution is a Chief subagent, so turn-level detection must fire — the
+    # same reason shutdown-cleanup is listed there.
+    ("run daily review", "daily-review", "explicit run-verb + name"),
+    ("/daily-review", "daily-review", "slash command"),
+    ("workflows/daily-review/workflow.md", "daily-review", "explicit path reference"),
+    ("start the daily review workflow", "daily-review", "run-verb + phrase form of name"),
+    ("wrap up the day", "daily-review", "documented trigger phrase (real invocation from state.yaml)"),
+    ("daily review", None, "bare mention, no run-verb adjacency"),
+    (
+        "I was reading yesterday's daily review notes and they look solid",
+        None,
+        "bare mention mid-clause, no run-verb adjacency",
+    ),
     # weekly-review case removed 2026-10-09: the workflow was retired (David-approved);
     # the live flow is the quinn-weekly-review skill, and the workflow dir no longer exists.
     ("what does boot even do", None, "'do' is not a run-verb (regression case: 'do' was mistakenly included once)"),

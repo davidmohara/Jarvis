@@ -705,12 +705,39 @@ def check_yaml_list_counts_gte(a, eval_record, ies_root, transcript_path, yaml_m
     return passed, {"source_count": len(source), "accounted_count": len(accounted), "skipped_count": len(skipped)}
 
 
+def check_yaml_field_not_equals(a, eval_record, ies_root, transcript_path, yaml_module=None):
+    """A named field in a YAML file must NOT equal a given value — the "the
+    run actually recorded X" check (e.g. `messages_scanned` is not null).
+
+    Dotted field paths are supported (fanning out over `[]` segments), unlike
+    check_yaml_field_equals which only reads a top-level key — so a field
+    nested under `outputs:` is reachable.
+
+    Fields: path, field (dotted), value (default None/null).
+    A missing field path yields no nodes -> treated as null -> fails when
+    `value` is null (the "must be recorded, not left empty" intent).
+    """
+    matches = _glob(ies_root, a.get("path", ""), a.get("newest_only", False))
+    if not matches:
+        return False, {"reason": "file not found"}
+    if yaml_module is None:
+        return None, {"skipped": True, "reason": "yaml module unavailable at this call site"}
+    data = _load_yaml(matches[0], yaml_module)
+    nodes = _yaml_walk(data, a.get("field", ""))
+    value = a.get("value")
+    if not nodes:
+        # Field path absent == null; fails only when the forbidden value is null.
+        return value is not None, {"reason": "field path not present", "actual": None}
+    return all(node != value for node in nodes), {"actual": nodes[0]}
+
+
 CHECKS = {
     "file_exists": check_file_exists,
     "file_min_bytes": check_file_min_bytes,
     "file_contains": check_file_contains,
     "file_not_contains": check_file_not_contains,
     "yaml_field_equals": check_yaml_field_equals,
+    "yaml_field_not_equals": check_yaml_field_not_equals,
     "json_field_not_equals": check_json_field_not_equals,
     "step_count_gte": check_step_count_gte,
     "guardrail_checkpoint_ran": check_guardrail_checkpoint_ran,
@@ -734,6 +761,30 @@ CHECKS = {
     "yaml_list_field_present": check_yaml_list_field_present,
     "yaml_list_counts_gte": check_yaml_list_counts_gte,
 }
+
+
+def _resolve_run_date(eval_record: dict):
+    """The run's date (YYYY-MM-DD) for date-scoped assertions.
+
+    Prefers an explicit `run_date` field, else derives it from the record's
+    `started` timestamp. Returns None when neither is usable, in which case a
+    date-scoped assertion falls back to its bare glob (behavior unchanged for
+    records with no derivable date). This is the consumer for the
+    `date_path_template` / `date_specific` fields that daily-review.json and
+    others declare — previously declared but never read, so date-scoped
+    assertions silently evaluated against a bare `????-??-??` glob and could
+    false-pass by matching a prior day's output file.
+    """
+    rd = eval_record.get("run_date")
+    if rd:
+        return str(rd)[:10]
+    started = eval_record.get("started")
+    if started:
+        s = str(started)[:10]
+        # Guard against a non-date prefix (only accept YYYY-MM-DD shape).
+        if re.match(r"^\d{4}-\d{2}-\d{2}$", s):
+            return s
+    return None
 
 
 def find_assertion_file(assertions_dir: Path, name: str, agent: str = None) -> "Path | None":
@@ -806,8 +857,20 @@ def run_assertions(
             })
             continue
 
+        # Date-scoped assertions: resolve `{run_date}` in a declared
+        # `date_path_template` so the check measures THIS run's output, not any
+        # historical file the bare glob happens to match. Falls back to the
+        # bare `path` when no run date is derivable.
+        a_eff = a
+        tpl = a.get("date_path_template")
+        if tpl:
+            run_date = _resolve_run_date(eval_record)
+            if run_date:
+                a_eff = dict(a)
+                a_eff["path"] = tpl.replace("{run_date}", run_date)
+
         try:
-            passed, extra = fn(a, eval_record, ies_root, transcript_path, yaml_module)
+            passed, extra = fn(a_eff, eval_record, ies_root, transcript_path, yaml_module)
         except Exception as e:
             if log_error:
                 log_error(f"run_assertions: error evaluating {a_id}: {e}")

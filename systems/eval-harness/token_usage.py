@@ -35,6 +35,15 @@ MODEL_ALIASES = {
     "claude-sonnet-4-5": "sonnet",
     "claude-haiku-4-5": "haiku",
     "claude-haiku-4-5-20251001": "haiku",
+    # Opus tier (added 2026-10-16, Stage 5 finding #4). These map to the
+    # "opus" key now present in model-pricing.json. Only the Opus 4.6/4.7/4.8/5
+    # first-party rate ($5/$25 per MTok) is modelled; claude-opus-5-5 has a
+    # different rate ($4/$20) and is deliberately left unmapped so it prices
+    # null rather than wrong if it ever appears.
+    "claude-opus-5": "opus",
+    "claude-opus-4-8": "opus",
+    "claude-opus-4-7": "opus",
+    "claude-opus-4-6": "opus",
 }
 
 

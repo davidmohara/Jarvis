@@ -278,12 +278,120 @@ def test_close_merge_does_not_shadow_captured_step(tmp):
     assert merged[0].get("tokens_input") == 6800, merged[0]
 
 
+def test_daily_review_subagent_capture(tmp):
+    """daily-review is instrumented the same way as the other candidates:
+    a daily-review-shaped subagent run whose step carries a real
+    [started-at, completed-at] window yields a windowed per-step token entry
+    on the record (Stage 5 finding #4 — before this, no daily-review step
+    ever carried token_source)."""
+    root = tmp / "d"
+    runs, _demo_step, transcript = build_temp_ies(root)
+    dr_steps = root / "workflows" / "daily-review" / "steps"
+    dr_steps.mkdir(parents=True, exist_ok=True)
+    (dr_steps / "step-01-capture.md").write_text(STEP_FRONTMATTER)
+
+    sid = "sid-daily-review"
+    rec = make_record(
+        "eval-TESTDAILYREVIEW01", sid,
+        agent_id="AID_DR",
+        name="general-purpose",   # subagent-type label, not the workflow
+        workflow="daily-review",
+    )
+    rec_path = write_record(runs, rec)
+
+    mod = load_module("eas_dr", "eval-agent-stop.py")
+    mod.EVAL_RUNS_DIR = runs
+    mod.IES_ROOT = root
+
+    run_main(mod, {
+        "agent_id": "AID_DR",
+        "agent_type": "general-purpose",
+        "agent_transcript_path": str(transcript),
+        "session_id": sid,
+    })
+
+    entries = steps_named(read_steps(rec_path), "step-01-capture.md")
+    assert len(entries) == 1, f"expected one daily-review step entry, got {entries}"
+    entry = entries[0]
+    assert entry.get("tokens_input") == 6800, f"input tokens: {entry.get('tokens_input')}"
+    assert entry.get("tokens_output") == 300, f"output tokens: {entry.get('tokens_output')}"
+    assert entry.get("cost_usd") is not None, "cost_usd must be computed"
+    assert entry.get("token_source") == "windowed", f"token_source: {entry.get('token_source')}"
+
+
+def test_daily_review_step_files_conform():
+    """Every real daily-review step file carries the frontmatter the capture
+    chain reads (status/started-at/completed-at + model). The previous state
+    was the only place in the whole library with `status: complete` alongside a
+    null `started-at`, which made the window uncomputable and blocked every
+    capture path (Stage 5 finding #4)."""
+    steps_dir = IES_ROOT / "workflows" / "daily-review" / "steps"
+    files = sorted(steps_dir.glob("step-*.md"))
+    assert files, f"no daily-review step files found under {steps_dir}"
+    for f in files:
+        text = f.read_text()
+        lines = text.split("\n")
+        assert lines and lines[0].strip() == "---", f"{f.name}: no leading frontmatter"
+        fm = {}
+        for line in lines[1:]:
+            if line.strip() == "---":
+                break
+            if ":" in line:
+                k, v = line.split(":", 1)
+                fm[k.strip()] = v.strip()
+        for key in ("status", "started-at", "completed-at", "model"):
+            assert key in fm, f"{f.name}: missing frontmatter key {key!r}"
+        # A completed step must carry a real start; a not-started one must not
+        # claim completion. (The invalid old state was complete + null start.)
+        if fm["status"] in ("complete", "completed"):
+            assert fm["started-at"] not in ("~", "null", ""), \
+                f"{f.name}: complete step with null started-at (blocks windowed capture)"
+        else:
+            assert fm["completed-at"] in ("~", "null", ""), \
+                f"{f.name}: un-run step should not carry a completed-at"
+
+
+def test_provider_model_pricing_populates_cost(tmp):
+    """The pricing fix (Stage 5 finding #4): the provider model ids the eval
+    records actually carry (this instance routes Claude tiers to Fireworks —
+    ~/.claude/settings.json ANTHROPIC_DEFAULT_*_MODEL) now resolve in
+    model-pricing.json, so a capture over such a transcript yields a real
+    cost_usd instead of null."""
+    harness = load_harness_module("tu", "token_usage.py")
+    from step_audit import compute_cost
+    # Direct lookup: priced provider id -> cost; genuinely unknown id -> None.
+    assert compute_cost("accounts/fireworks/models/kimi-k3", 1000, 500) is not None
+    assert compute_cost("glm-5p3", 1000, 500) is not None
+    assert compute_cost("accounts/fireworks/models/does-not-exist", 1000, 500) is None
+
+    transcript = tmp / "fleet.jsonl"
+    lines = []
+    for i, ts in enumerate(("2026-10-09T10:03:00.000Z", "2026-10-09T10:07:00.000Z")):
+        lines.append({
+            "type": "assistant", "isSidechain": False, "timestamp": ts,
+            "message": {"id": f"msg_fleet_{i}", "model": "accounts/fireworks/models/kimi-k3",
+                        "usage": {"input_tokens": 1000, "output_tokens": 200,
+                                  "cache_read_input_tokens": 0,
+                                  "cache_creation": {"ephemeral_5m_input_tokens": 0, "ephemeral_1h_input_tokens": 0}}},
+        })
+    transcript.write_text("\n".join(json.dumps(x) for x in lines) + "\n")
+    usage = harness.usage_between(str(transcript), STEP_STARTED, STEP_COMPLETED,
+                                  exclude_sidechain=True, lenient_fallback=False)
+    assert usage is not None, "usage_between returned nothing"
+    assert usage.get("cost_usd") is not None, \
+        f"provider model must now price, got cost_usd={usage.get('cost_usd')}"
+    assert usage.get("model") == "accounts/fireworks/models/kimi-k3", usage.get("model")
+
+
 def main():
     tmp = Path(tempfile.mkdtemp(prefix="ies-step-token-test-"))
     test_post_tool_use_inline_extraction(tmp)
     test_step_complete_updates_same_key(tmp)
     test_agent_stop_wiring_end_to_end(tmp)
     test_close_merge_does_not_shadow_captured_step(tmp)
+    test_daily_review_subagent_capture(tmp)
+    test_daily_review_step_files_conform()
+    test_provider_model_pricing_populates_cost(tmp)
     print("test_step_token_capture: all cases passed")
 
 

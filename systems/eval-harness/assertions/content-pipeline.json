@@ -14,7 +14,7 @@
       "id": "messages-scanned",
       "check": "yaml_field_not_equals",
       "path": "workflows/content-pipeline/state.yaml",
-      "field": "accumulated-context.messages_scanned",
+      "field": "outputs.messages_scanned",
       "value": null,
       "description": "Workflow recorded how many Slack messages were scanned (not null)"
     },
@@ -22,9 +22,9 @@
       "id": "routing-outcome-recorded",
       "check": "yaml_field_not_equals",
       "path": "workflows/content-pipeline/state.yaml",
-      "field": "accumulated-context.result",
+      "field": "outputs.outcome",
       "value": null,
-      "description": "accumulated-context.result records the routing outcome (draft created / obsidian note / flagged)"
+      "description": "outputs.outcome records the routing outcome (draft created / obsidian note / flagged)"
     },
     {
       "id": "pending-drafts-valid-json",

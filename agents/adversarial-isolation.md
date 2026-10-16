@@ -51,3 +51,7 @@ All four verification passes run Ralph with a workflow-specific lens checklist (
 ## What adversarial agents check that producers cannot
 
 Because a producer knows what it intended and optimizes for completing its workflow, while the adversarial agent only knows what the record says happened and optimizes for finding where the completion is wrong, the adversarial layer catches the failure classes producers are structurally biased against reporting: intent-vs-record mismatches, silent drops, empty outputs that satisfy file-existence checks, and degraded runs labeled success.
+
+## Evidence of catches
+
+Real catches are recorded structurally in `projects/stage-4-evidence/adversarial-catches/` (`README.md` defines the format; `catches.jsonl` is canonical, `catches.md` is the readable view). As of 2026-10-16 the log holds **5 catches**, and it is thin: the strongest is a harness defect (`CATCH-01`, six completed 2026-10-16 specialist runs mislabeled `aborted`/`general-purpose`, fixed in `56488e15`); the other four are the same class the Phase 4A wiring targets, a record that claims `status: success`/`complete` while its `adversarial-verification` (or `pre-completion-review`) checkpoint is absent from the record's own `guardrails` array. The log grows from the machine-checked assertions (`boot-004`, `morning-008`, `daily-007`, `plaud-002`) rather than from narrative, so a run that skips adversarial verification fails a recorded assertion rather than passing silently.

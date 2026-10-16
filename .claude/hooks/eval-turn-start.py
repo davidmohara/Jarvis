@@ -41,13 +41,25 @@ SEEN_MARKER_DIR = Path("/tmp/ies-eval-session-seen")
 
 # Workflows whose trigger phrase lands in Master's main session on
 # UserPromptSubmit even though their execution was reconciled to a different
-# owner (shutdown-cleanup became Rigby-owned 2026-10-09 per agents/manifest.md,
-# but "exit" / "log off" still arrives as a main-session prompt, so turn-level
-# detection must keep firing for it). Without this set, an ownership
-# reconciliation silently deletes the workflow's exit-trigger detection
-# (the exact regression test_detect_workflow.py's shutdown-cleanup cases
-# were preserved to catch).
-MAIN_SESSION_TRIGGER_WORKFLOWS = {"shutdown-cleanup"}
+# owner. Two cases live here:
+#   - shutdown-cleanup became Rigby-owned 2026-10-09 per agents/manifest.md,
+#     but "exit" / "log off" still arrives as a main-session prompt, so
+#     turn-level detection must keep firing for it.
+#   - daily-review is Chief-owned (workflows/daily-review/workflow.md
+#     `agent: chief`) and runs as a Chief subagent, so `load_master_workflows`
+#     below never picks it up from frontmatter. But its real trigger ("run
+#     daily review", "wrap up the day") still lands in Master's main session,
+#     and without a turn-level record open for the run the guardrail
+#     checkpoint finds no in-progress record and the run falls back to the
+#     manual close-eval-record.py Cowork path — which writes skeleton steps
+#     with no per-step model/tokens/cost/token_source (the exact daily-review
+#     instrumentation gap: no daily-review step ever carried token_source).
+#     Listing it here gives daily-review the same turn-level eval-record path
+#     boot has.
+# Without this set, an ownership reconciliation silently deletes the
+# workflow's exit-trigger detection (the exact regression
+# test_detect_workflow.py's shutdown-cleanup cases were preserved to catch).
+MAIN_SESSION_TRIGGER_WORKFLOWS = {"shutdown-cleanup", "daily-review"}
 
 
 def load_master_workflows() -> dict:
@@ -107,6 +119,15 @@ WORKFLOW_TRIGGER_PHRASES = {
     "shutdown-cleanup": [
         r"\blog(?:ging)? off\b",
         r"\bend(?:ing)? (?:the |this )?session\b",
+    ],
+    # daily-review's real invocation is often the name-less "wrap up the day"
+    # (see workflows/daily-review/state.yaml original-request) rather than the
+    # workflow's own name/slug. Kept as literal, specific phrases (not fuzzy)
+    # for the same reason the name-based match requires a run-verb: these are
+    # unlikely to appear in an unrelated first clause.
+    "daily-review": [
+        r"\bwrap up (?:the|my|our) day\b",
+        r"\bend.of.day (?:review|shutdown)\b",
     ],
 }
 WORKFLOW_TRIGGER_PHRASES_ANCHORED = {

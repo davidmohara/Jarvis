@@ -201,6 +201,18 @@ def run_assertions(name: str, eval_record: dict) -> dict:
 
     results = []
     for a in assertion_data.get("assertions", []):
+        # Date-scoped assertions: resolve `{run_date}` in a declared
+        # `date_path_template` (parity with assertion_checks.run_assertions) so
+        # the check measures THIS run's output, not a historical file the bare
+        # glob happens to match. Falls back to the bare path when no date is
+        # derivable from the record.
+        tpl = a.get("date_path_template")
+        if tpl:
+            _rd = eval_record.get("run_date")
+            _rd = str(_rd)[:10] if _rd else str(eval_record.get("started", ""))[:10]
+            if re.match(r"^\d{4}-\d{2}-\d{2}$", _rd):
+                a = dict(a)
+                a["path"] = tpl.replace("{run_date}", _rd)
         check = a.get("check")
         a_id = a.get("id", "unknown")
         description = a.get("description", "")
@@ -224,6 +236,26 @@ def run_assertions(name: str, eval_record: dict) -> dict:
                     passed = data.get(a.get("field")) == a.get("value")
                 else:
                     passed = False
+            elif check == "yaml_field_not_equals":
+                # Parity with assertion_checks.check_yaml_field_not_equals:
+                # dotted field path; missing path == null (fails only when the
+                # forbidden value is null — the "must be recorded" intent).
+                yaml_matches = list(IES_ROOT.glob(a.get("path", "")))
+                if not yaml_matches:
+                    passed = False
+                else:
+                    try:
+                        ydata = yaml.safe_load(
+                            extract_frontmatter_block(yaml_matches[0].read_text(errors="replace"))
+                        ) or {}
+                    except Exception:
+                        ydata = {}
+                    nodes = _yaml_walk(ydata, a.get("field", ""))
+                    value = a.get("value")
+                    if not nodes:
+                        passed = value is not None
+                    else:
+                        passed = all(node != value for node in nodes)
             elif check == "json_path_exists":
                 # Field-path check (parity with assertion_checks.check_json_path_exists):
                 # walk a dotted path, fanning out over `[]` array segments.

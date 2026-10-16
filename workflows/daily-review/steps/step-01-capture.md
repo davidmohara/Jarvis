@@ -1,7 +1,7 @@
 ---
-status: complete
+status: not-started
 started-at: ~
-completed-at: "2026-10-09T17:11:00-05:00"
+completed-at: ~
 model: sonnet
 ---
 

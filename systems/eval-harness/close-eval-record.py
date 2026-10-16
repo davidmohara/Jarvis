@@ -137,19 +137,35 @@ def atomic_write(path: Path, data: dict):
 
 
 def find_stub(name: str, session_id: str) -> tuple:
-    """Find the most recent in-progress eval stub for this name and session."""
+    """Find the most recent in-progress eval stub for this name and session.
+
+    Falls back to a name-only match (ignoring session_id) when no
+    session-matched stub exists. A session-id mismatch between the hook that
+    created the stub and close time used to make this miss the real in-progress
+    stub, so close-eval-record.py took the "no stub" branch and created a
+    SECOND, duplicate record for the same run — the "spurious record" defect
+    (e.g. eval-20260718T041610-W4CIW9, eval-20260711T041415-8DNQT4,
+    eval-20260725T041406-RL9YH6, eval-20260708T204409-VFJBTD). Closing the
+    name-matched in-progress stub instead of fabricating a duplicate is the
+    fix. Returns None only when no in-progress stub for the name exists at all
+    (a genuine Cowork close with no hook-created stub, which still needs the
+    from-scratch path).
+    """
     if not EVAL_RUNS_DIR.exists():
         return None, None
-    candidates = []
+    session_matched = []
+    name_matched = []
     for f in EVAL_RUNS_DIR.glob("eval-*.json"):
         try:
             data = json.loads(f.read_text())
-            if (data.get("name") == name
-                    and data.get("status") == "in-progress"
-                    and data.get("session_id") == session_id):
-                candidates.append((f, data))
         except Exception:
             continue
+        if data.get("name") != name or data.get("status") != "in-progress":
+            continue
+        name_matched.append((f, data))
+        if data.get("session_id") == session_id:
+            session_matched.append((f, data))
+    candidates = session_matched or name_matched
     if not candidates:
         return None, None
     # Most recently started
