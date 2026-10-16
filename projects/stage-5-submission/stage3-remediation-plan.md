@@ -315,3 +315,14 @@ Also completed since the plan was written: **finding 4** audit exports generated
 7. **knox K3** — re-scope `plaud_ingest-wm-*` to the run date (one-line, makes it stricter).
 8. **Per-workflow output-contract decision** for the `memory/working/<wf>-*.md` globs.
 9. **knox step-06 status-vocabulary** ('completed' vs 'complete') — deliberate shared-vocabulary change.
+
+
+### plaud-ingest instrumented-run constraint (2026-10-16)
+
+plaud-ingest runs daily but has been a no-op since 2026-10-08: the Plaud API's newest recording is 2026-10-08 and the total (149) is unchanged across the 10-09, 10-13, 10-14, and 10-15 runs. Each run enumerates the API, finds zero new recordings, and terminates at step-01 by design. No new recordings have been made (confirmed by David).
+
+Consequences for the instrumented-run requirement:
+- plaud-ingest cannot produce 3-5 *meaningful* windowed runs before 2026-10-21 because there is nothing to ingest. No-op runs have a single step and no substantive per-step token work.
+- A separate defect was found and is being fixed: the daily no-op runs left **no eval record at all** (the phantom-cleanup rule deletes zero-activity records, and a deliberate no-op has zero steps). No-op runs must leave a record marked `no_op` so the audit trail is complete, while still being excluded from success metrics.
+
+Honest submission position for plaud-ingest: instrumented and running daily; the window contains only no-op runs. This is a disclosure, not a gap to paper over, and no-op runs are not counted as instrumented evidence.
