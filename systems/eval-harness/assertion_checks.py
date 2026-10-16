@@ -705,6 +705,106 @@ def check_yaml_list_counts_gte(a, eval_record, ies_root, transcript_path, yaml_m
     return passed, {"source_count": len(source), "accounted_count": len(accounted), "skipped_count": len(skipped)}
 
 
+def _leaf_values(node):
+    """Every scalar leaf under a parsed-YAML node (a scalar is its own leaf).
+    Used by yaml_field_pattern to test a whole subtree's values (e.g. every
+    resolved name in a speaker-mappings dict) without touching the dict keys."""
+    if isinstance(node, dict):
+        out = []
+        for v in node.values():
+            out.extend(_leaf_values(v))
+        return out
+    if isinstance(node, list):
+        out = []
+        for v in node:
+            out.extend(_leaf_values(v))
+        return out
+    return [node]
+
+
+def _gate_truthy(node):
+    """Gate helper: is a resolved YAML node non-empty / non-false?
+    Empty list, empty dict, empty/whitespace string, None, False, and 0 are all
+    closed; anything else opens the gate."""
+    if node is None or node is False:
+        return False
+    if isinstance(node, str):
+        return node.strip() != ""
+    if isinstance(node, (list, dict)):
+        return len(node) > 0
+    if isinstance(node, (int, float)):
+        return node != 0
+    return True
+
+
+def check_yaml_field_pattern(a, eval_record, ies_root, transcript_path, yaml_module=None):
+    """Conditional regex match on a dotted YAML field, or on every scalar leaf
+    under it. This is the check type `plaud-speaker-id.json`'s calendar/transcript
+    "required" assertions declare but which was never implemented — so those two
+    assertions silently skipped with "unknown check type: yaml_field_pattern" and
+    the escalation-without-a-calendar-lookup defect (err-20260929T024338-K3K074,
+    Knox K4) went unenforced. See projects/stage-5-submission/stage3-remediation-plan.md.
+
+    Fields:
+      path          YAML file (glob-resolved, first match), frontmatter-stripped.
+      field         dotted path to the value to test; a segment ending in `[]`
+                    fans out over a list. When the resolved node is a container
+                    (dict/list), every scalar leaf beneath it is tested — keys are
+                    never tested, only values.
+      pattern       regex a leaf value must match (positive mode) or must not
+                    match (when `negate` is set).
+      negate        (default false) when true, PASS iff NO leaf value matches.
+      when_field    (optional) dotted gate path. The gate is OPEN only when the
+                    gate field resolves to a non-empty/truthy value; when closed,
+                    the assertion PASSES vacuously — e.g. "no speaker was
+                    escalated, so no escalation evidence is required."
+      when_pattern  (optional) gate opens only when a gate leaf's string form
+                    matches this regex (overrides the truthiness rule).
+      min_matches   (default 1) in positive mode, the number of matching leaf
+                    values required; also guards a missing/empty field from
+                    trivially passing.
+
+    A missing `field` path resolves to zero leaves: positive mode then FAILS
+    (the "must be recorded, not left empty" intent), negate mode PASSES.
+    """
+    matches = _glob(ies_root, a.get("path", ""), a.get("newest_only", False))
+    if not matches:
+        return False, {"reason": "file not found"}
+    if yaml_module is None:
+        return None, {"skipped": True, "reason": "yaml module unavailable at this call site"}
+    data = _load_yaml(matches[0], yaml_module)
+
+    when_field = a.get("when_field")
+    if when_field:
+        gate_nodes = _yaml_walk(data, when_field)
+        when_pattern = a.get("when_pattern")
+        if when_pattern:
+            gate_open = any(
+                re.search(when_pattern, str(v), re.IGNORECASE)
+                for n in gate_nodes for v in _leaf_values(n)
+            )
+        else:
+            gate_open = any(_gate_truthy(n) for n in gate_nodes)
+        if not gate_open:
+            return True, {"gate": "closed", "reason": "gate condition not met (vacuous pass)"}
+
+    nodes = _yaml_walk(data, a.get("field", ""))
+    leaves = [v for n in nodes for v in _leaf_values(n)]
+    pattern = a.get("pattern", "")
+    matched = [v for v in leaves if re.search(pattern, str(v), re.IGNORECASE)]
+
+    if a.get("negate", False):
+        extra = {"leaf_count": len(leaves)}
+        if matched:
+            extra["matched_sample"] = [str(v) for v in matched[:3]]
+        return len(matched) == 0, extra
+
+    min_matches = a.get("min_matches", 1)
+    return len(matched) >= min_matches, {
+        "leaf_count": len(leaves), "match_count": len(matched)
+    }
+
+
 def check_yaml_field_not_equals(a, eval_record, ies_root, transcript_path, yaml_module=None):
     """A named field in a YAML file must NOT equal a given value — the "the
     run actually recorded X" check (e.g. `messages_scanned` is not null).
@@ -731,6 +831,194 @@ def check_yaml_field_not_equals(a, eval_record, ies_root, transcript_path, yaml_
     return all(node != value for node in nodes), {"actual": nodes[0]}
 
 
+# ---------------------------------------------------------------------------
+# Harper P4 — content-discovery draft-quality gate (Stage 3 P4 remediation).
+#
+# Mirror note: check_draft_quality and its helpers below are duplicated (kept
+# in parity) in .claude/hooks/eval-turn-stop.py's inline run_assertions().
+# ---------------------------------------------------------------------------
+
+def _draft_norm(text) -> str:
+    return re.sub(r"\s+", " ", str(text or "").strip().lower())
+
+
+def _draft_url_norm(url) -> str:
+    return _draft_norm(url).rstrip("/")
+
+
+def _draft_word_tokens(text):
+    return re.findall(r"[a-z0-9']+", str(text or "").lower())
+
+
+def _longest_common_run(a_tokens, b_tokens):
+    """Length and text of the longest contiguous verbatim word run shared by
+    two token lists. Detects a draft that reuses a long stretch of its
+    source's own prose rather than writing in the author's voice (the P4
+    'paraphrase' defect)."""
+    if not a_tokens or not b_tokens:
+        return 0, ""
+    b_positions = {}
+    for j, tok in enumerate(b_tokens):
+        b_positions.setdefault(tok, []).append(j)
+    prev = [0] * (len(b_tokens) + 1)
+    best_len = 0
+    best_end_a = 0
+    for i in range(1, len(a_tokens) + 1):
+        cur = [0] * (len(b_tokens) + 1)
+        for j in b_positions.get(a_tokens[i - 1], ()):
+            jj = j + 1
+            run = prev[jj - 1] + 1
+            cur[jj] = run
+            if run > best_len:
+                best_len = run
+                best_end_a = i
+        prev = cur
+    run_text = " ".join(a_tokens[best_end_a - best_len:best_end_a]) if best_len else ""
+    return best_len, run_text
+
+
+def _draft_manifest_posts(ies_root, a):
+    """Load the run-scoped drafts manifest a content-discovery run writes.
+    Returns (found, posts, error_reason)."""
+    matches = _glob(ies_root, a.get("path", ""), a.get("newest_only", False))
+    if not matches:
+        return False, [], "draft manifest not found"
+    data = _load_json(matches[0])
+    if not isinstance(data, dict):
+        return True, None, "manifest is not a JSON object"
+    posts = data.get("posts")
+    if posts is None:
+        return True, None, "manifest has no 'posts' list"
+    if not isinstance(posts, list):
+        return True, None, "'posts' is not a list"
+    return True, posts, None
+
+
+def check_draft_quality(a, eval_record, ies_root, transcript_path, yaml_module=None):
+    """Mechanical content-quality gate for content-discovery drafts (Harper P4).
+
+    Reads the run-scoped drafts manifest the workflow writes
+    (memory/working/content-discovery-drafts-<run_date>.json) and checks one
+    `dimension` across every drafted post, closing the three defects the
+    F-graded record eval-20260915T060000-harper-content-discovery was passed
+    with: paraphrased (not original) bodies, geographically-wrong images, and
+    missing internal links.
+
+      dimension = "voice"
+        * every post records a non-empty body AND the source_text it was
+          drafted from (the evidence the gate needs, so it cannot be silently
+          skipped);
+        * is_voice_original is present and true;
+        * the longest verbatim word run shared with source_text stays under
+          max_verbatim_run (default 12) — a draft that reuses a long stretch of
+          the source's own words is a copy, not original writing;
+        * any quoted span of >= min_quote_words (default 4) words must be
+          verbatim-present in source_text (a quote absent from the source is a
+          fabricated/paraphrased quote).
+
+      dimension = "image"
+        * feature_image is set and is an http(s) URL;
+        * image_landscape is true;
+        * when geo_specific is true, post_city and image_search_query are
+          recorded, the query names the city, and image_geo_confirmed is true
+          (the 'DFW post used a non-DFW skyline' defect).
+
+      dimension = "links"
+        * when related_published_post is set, internal_links contains it (the
+          lexical link node was built) — the 'no posts contained required
+          internal links' defect.
+
+    A run that drafted nothing (no manifest, or an empty posts list, or
+    outputs.posts_drafted == 0) is a legitimate no-op and PASSES.
+    """
+    dimension = a.get("dimension", "voice")
+    found, posts, err = _draft_manifest_posts(ies_root, a)
+
+    if not found:
+        # No manifest: a failure only if the run claims to have drafted posts.
+        outs = eval_record.get("outputs") or {}
+        declared = outs.get("posts_drafted")
+        try:
+            declared = int(declared)
+        except (TypeError, ValueError):
+            declared = None
+        if declared and declared > 0:
+            return False, {"dimension": dimension, "reason": err, "posts_drafted": declared}
+        return True, {"dimension": dimension, "posts": 0, "reason": "no drafts to check"}
+
+    if posts is None:
+        return False, {"dimension": dimension, "reason": err}
+    if not posts:
+        return True, {"dimension": dimension, "posts": 0}
+
+    failures = []
+    for idx, post in enumerate(posts):
+        if not isinstance(post, dict):
+            failures.append(f"post[{idx}]: not an object")
+            continue
+        title = post.get("title") or f"post[{idx}]"
+        if dimension == "voice":
+            body = post.get("body") or ""
+            source = post.get("source_text") or ""
+            if not str(body).strip():
+                failures.append(f"'{title}': body not recorded")
+                continue
+            if not str(source).strip():
+                failures.append(f"'{title}': source_text not recorded (voice cannot be checked)")
+                continue
+            if not post.get("is_voice_original"):
+                failures.append(f"'{title}': is_voice_original not true")
+            max_run = int(a.get("max_verbatim_run", 12))
+            run_len, run_text = _longest_common_run(
+                _draft_word_tokens(body), _draft_word_tokens(source))
+            if run_len > max_run:
+                failures.append(
+                    f"'{title}': {run_len}-word verbatim run from source "
+                    f"(limit {max_run}): \"{run_text[:80]}\"")
+            min_q = int(a.get("min_quote_words", 4))
+            for quote in re.findall(r"[\"“]([^\"”]{1,400})[\"”]", str(body)):
+                if len(_draft_word_tokens(quote)) >= min_q and _draft_norm(quote) not in _draft_norm(source):
+                    failures.append(
+                        f"'{title}': quoted text not present verbatim in source: \"{quote[:80]}\"")
+        elif dimension == "image":
+            img = str(post.get("feature_image") or "").strip()
+            if not img:
+                failures.append(f"'{title}': feature_image not set")
+            elif not re.match(r"^https?://", img):
+                failures.append(f"'{title}': feature_image is not an http(s) URL: {img!r}")
+            if not post.get("image_landscape"):
+                failures.append(f"'{title}': image_landscape not true")
+            if post.get("geo_specific"):
+                city = str(post.get("post_city") or "").strip()
+                query = str(post.get("image_search_query") or "")
+                if not city:
+                    failures.append(f"'{title}': geo_specific but post_city not recorded")
+                elif city.lower() not in query.lower():
+                    failures.append(
+                        f"'{title}': image_search_query does not name '{city}': {query!r}")
+                if not post.get("image_geo_confirmed"):
+                    failures.append(f"'{title}': image_geo_confirmed not true for geo-specific post")
+        elif dimension == "links":
+            related = post.get("related_published_post")
+            if related:
+                links = post.get("internal_links") or []
+                norm_links = {_draft_url_norm(x) for x in links if isinstance(x, str)}
+                if not links:
+                    failures.append(f"'{title}': related post exists but no internal_links recorded")
+                elif _draft_url_norm(related) not in norm_links:
+                    failures.append(
+                        f"'{title}': internal_links does not contain related post {related!r}")
+        else:
+            return False, {"dimension": dimension, "reason": f"unknown dimension {dimension!r}"}
+
+    passed = not failures
+    extra = {"dimension": dimension, "posts": len(posts)}
+    if failures:
+        extra["failures"] = failures[:10]
+        extra["failure_count"] = len(failures)
+    return passed, extra
+
+
 CHECKS = {
     "file_exists": check_file_exists,
     "file_min_bytes": check_file_min_bytes,
@@ -738,6 +1026,7 @@ CHECKS = {
     "file_not_contains": check_file_not_contains,
     "yaml_field_equals": check_yaml_field_equals,
     "yaml_field_not_equals": check_yaml_field_not_equals,
+    "yaml_field_pattern": check_yaml_field_pattern,
     "json_field_not_equals": check_json_field_not_equals,
     "step_count_gte": check_step_count_gte,
     "guardrail_checkpoint_ran": check_guardrail_checkpoint_ran,
@@ -760,6 +1049,8 @@ CHECKS = {
     "yaml_path_exists": check_yaml_path_exists,
     "yaml_list_field_present": check_yaml_list_field_present,
     "yaml_list_counts_gte": check_yaml_list_counts_gte,
+    # Harper P4 (mirrored in .claude/hooks/eval-turn-stop.py):
+    "draft_quality": check_draft_quality,
 }
 
 

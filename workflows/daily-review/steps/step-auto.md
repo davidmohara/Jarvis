@@ -1,7 +1,7 @@
 ---
-status: complete
-started-at: "2026-04-17T13:40:00"
-completed-at: "2026-04-17T13:55:00"
+status: not-started
+started-at: ~
+completed-at: ~
 model: sonnet
 ---
 
@@ -157,34 +157,6 @@ model: sonnet
 
 ---
 
-## EVAL RECORD
-
-**Before closing**, write an eval record for this autonomous run.
-
-Determine status:
-- `success` — narrative written to knowledge system (or fallback file) with descriptive title
-- `partial` — narrative written but one major source failed
-- `failure` — both primary sources failed and no substantive narrative could be written
-
-Run:
-```bash
-python3 systems/eval-harness/close-eval-record.py \
-  --name daily-review \
-  --type workflow \
-  --agent chief \
-  --status {success|partial|failure} \
-  --trigger scheduled \
-  --steps "step-auto"
-```
-
-## STEP COMPLETE
-
-This is the only step for auto mode. No further steps to load.
-
-The auto narrative is a data baseline. The interactive daily review (`/chief-review` without arguments) is the definitive record when the controller runs it.
-<!-- system:end -->
-
-
 ## WRITE WORKING MEMORY
 
 Follow `reference/post-step-protocol.md` (Working Memory Write). Filename: `daily-review-{YYYY-MM-DD}-{HHmmss}.md`; agent-source `chief`; compose the body from this step's output: the day's narrative and any flags (3-5 bullets, under 200 words).
@@ -216,6 +188,35 @@ accumulated-context:
 
 This write is mandatory. If `status: complete` is not written, the workflow will attempt to resume on the next run rather than starting fresh.
 
----
+## EVAL RECORD
+
+**Before closing**, write an eval record for this autonomous run.
+
+Determine status:
+- `success` — narrative written to knowledge system (or fallback file) with descriptive title
+- `partial` — narrative written but one major source failed
+- `failure` — both primary sources failed and no substantive narrative could be written
+
+Run:
+```bash
+python3 systems/eval-harness/close-eval-record.py \
+  --name daily-review \
+  --type workflow \
+  --agent chief \
+  --status {success|partial|failure} \
+  --trigger scheduled \
+  --started "{session-started from state.yaml}" \
+  --steps "step-auto"
+```
+
+Pass the run's real `session-started` from `state.yaml` (set at init by the state-check protocol). Without it — and with no hook-created stub — the close has no execution window and `close-eval-record.py`'s phantom-success guard refuses to record `success`/`partial` (it downgrades to `failure`), which is the correct outcome for a run that never actually executed.
+
+## STEP COMPLETE
+
+This is the only step for auto mode. No further steps to load.
+
+The auto narrative is a data baseline. The interactive daily review (`/chief-review` without arguments) is the definitive record when the controller runs it.
+<!-- system:end -->
+
 <!-- personal:start -->
 <!-- personal:end -->

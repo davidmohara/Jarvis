@@ -37,6 +37,27 @@ This is a hierarchy, not alternatives. Controller escalation only after 1 AND 2 
 
 **Only if all three are exhausted with no confident match: add to `pending-speaker-mappings` for controller escalation.**
 
+> **⛔ ESCALATION EVIDENCE IS MANDATORY (err-20260929T024338-K3K074).** An
+> `awaiting-input` escalation is only valid if the run has (1) cross-referenced
+> the recording timestamp against calendar attendees and (2) run the transcript
+> self-ID scan. Before surfacing the prompt you MUST write the evidence for both
+> into `accumulated-context.escalation-evidence` (a single string naming the
+> matched event's time and the attendees checked, the adjacent/recurring events
+> tried, and what the transcript self-ID scan returned) and record each
+> unresolved speaker in `accumulated-context.unresolved_speakers`. An escalation
+> that asks the controller without this recorded calendar cross-reference is the
+> exact defect this step exists to prevent. The assertion `plaud-k4-escalation-evidence`
+> (plaud-ingest) and `plaud-sp-004/005` (this skill) fail a run that escalates
+> with no calendar evidence in that field.
+
+> **⛔ NO GENERIC LABELS IN FINAL MAPPINGS.** `accumulated-context.speaker-mappings`
+> must map every generic label to a real name. Never leave a value of the form
+> `Speaker N` in `speaker-mappings` when an identification was possible — a
+> speaker you cannot resolve goes in `unresolved_speakers` /
+> `pending-speaker-mappings` with the calendar evidence above, not in
+> `speaker-mappings` as `Speaker 1: "Speaker 1"`. Enforced by
+> `plaud-k4-no-generic-speaker-labels`.
+
 ## MANDATORY EXECUTION RULES
 
 1. You MUST check for `_speakers.json` files in `~/Downloads/transcript-staging/` for every recording in `ready-for-fetch`.
@@ -96,6 +117,13 @@ This is a hierarchy, not alternatives. Controller escalation only after 1 AND 2 
    - If checkpoint returns `escalate`: **re-execute step-02/03 with full discipline**, do not ask controller yet
    - If checkpoint returns `pass`: proceed below to ask controller
    
+   - **Write the escalation evidence to `state.yaml` BEFORE surfacing the prompt** (required — see the HARD GATE above):
+     ```yaml
+     accumulated-context:
+       unresolved_speakers:
+         - {file_id: <id>, recording: <name>, unresolved: ["Speaker 3"], evidence: "<what the calendar lookup returned and why it was insufficient>"}
+       escalation-evidence: "<calendar: matched event <time> attendees <names>; adjacent/recurring tried <...>; transcript self-ID scan: <...>>"
+     ```
    - Update `state.yaml status: awaiting-input`
    - Compile a single consolidated message (see User Interaction Protocol in workflow.md) that includes evidence of calendar search (event times, attendees checked, adjacent events) and transcript scan (end of call checked, names looked for)
    - Surface it to the controller and stop. Do not proceed until the controller responds.
@@ -259,7 +287,13 @@ Write to `state.yaml` `accumulated-context`:
 # state.yaml -> accumulated-context
 gate_4_result: "pass" | "pass-with-unresolved"
 gate_4_unresolved_speakers: [{file_id, recording, unresolved: [...]}, ...]
+# Required whenever gate_4_result is "pass-with-unresolved" (or any escalation occurred):
+unresolved_speakers: [{file_id, recording, unresolved: [...], evidence: "<calendar lookup result>"}, ...]
+escalation-evidence: "<calendar event time + attendees checked + why insufficient; transcript self-ID scan result>"
 ```
+`escalation-evidence` and a non-empty `unresolved_speakers` are what
+`plaud-k4-escalation-evidence` / `plaud-sp-004/005` read — leave them empty (`[]`
+and `null`) on a fully auto-resolved run, and the evidence check passes vacuously.
 
 ---
 
@@ -268,6 +302,8 @@ gate_4_unresolved_speakers: [{file_id, recording, unresolved: [...]}, ...]
 - All `_speakers.json` files processed
 - Calendar cross-referenced for every recording with generic speakers
 - `speaker-mappings` fully populated — no recording left with unresolved generic speakers
+- `speaker-mappings` contains no generic-label VALUES (`Speaker N`); unresolved speakers are recorded in `unresolved_speakers` instead
+- Any escalation wrote `accumulated-context.escalation-evidence` naming the calendar lookup performed before asking
 - Controller interaction was a single consolidated message (not per-recording)
 
 ## FAILURE MODES

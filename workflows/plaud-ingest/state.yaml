@@ -20,6 +20,7 @@ accumulated-context:
   staged-files: []
   ingested-notes: []
   unresolved_speakers: []
+  escalation-evidence: null
   gate_1_auth_method: cached-token
   gate_2_result: pass
   gate_2_flagged_recordings: []

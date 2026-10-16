@@ -31,7 +31,8 @@ import json
 import os
 import sys
 import tempfile
-from contextlib import redirect_stdout
+from contextlib import redirect_stdout, redirect_stderr
+from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
 HOOKS_DIR = Path(__file__).resolve().parents[1]
@@ -383,6 +384,57 @@ def test_provider_model_pricing_populates_cost(tmp):
     assert usage.get("model") == "accounts/fireworks/models/kimi-k3", usage.get("model")
 
 
+def test_phantom_success_guard(tmp):
+    """close-eval-record.py refuses to record success/partial with no execution
+    window (Stage 3 remediation — chief C4/C2).
+
+    The 16 phantom-success daily-review scheduled runs were closed as
+    `status: success` with duration_seconds 0.0 and a stale session_id — the
+    from-scratch (Cowork) path with no stub and no --started, so started_dt
+    fell back to `now` (eval-20260711T021151-T7AGFP, eval-20260707T021251-KHEVMG,
+    eval-20260704T021304-XNRG5T, eval-20260620T021321-T6V6WJ,
+    eval-20260602T021149-SL6FJ9, …). A run with no execution window cannot
+    claim success; a real run (a --started window) still can.
+    """
+    mod = load_harness_module("cer_guard", "close-eval-record.py")
+
+    root = tmp / "g"
+    idx = root / "memory" / "sessions" / "index.json"
+    idx.parent.mkdir(parents=True)
+    idx.write_text("[]")
+    mod.IES_ROOT = root
+    mod.SESSION_INDEX = idx
+    mod.current_session_id = lambda: "sid-guard"
+
+    base = ["--name", "daily-review", "--type", "workflow", "--agent", "chief",
+            "--trigger", "scheduled", "--steps", "step-auto"]
+
+    def run_close(argv):
+        runs = Path(tempfile.mkdtemp(prefix="ies-cer-guard-", dir=str(root)))
+        mod.EVAL_RUNS_DIR = runs
+        mod.sys.argv = ["close-eval-record.py"] + argv
+        err = io.StringIO()
+        with redirect_stdout(io.StringIO()), redirect_stderr(err):
+            mod.main()
+        recs = list(runs.glob("eval-*.json"))
+        assert len(recs) == 1, f"expected one record, got {recs}"
+        return json.loads(recs[0].read_text()), err.getvalue()
+
+    # (1) Phantom: success, no stub, no --started -> downgraded to failure.
+    rec, err = run_close(base + ["--status", "success"])
+    assert rec["status"] == "failure", f"phantom not downgraded: {rec['status']}"
+    assert rec["duration_seconds"] == 0.0, rec["duration_seconds"]
+    assert rec["assessment"]["mechanical"]["abort_reason"] == "zero-duration-no-execution", rec
+    assert "PHANTOM-SUCCESS GUARD" in err, err
+
+    # (2) Legit: success WITH a real --started window -> stays success.
+    start = (datetime.now(timezone.utc) - timedelta(minutes=10)).isoformat().replace("+00:00", "Z")
+    rec, err = run_close(base + ["--status", "success", "--started", start])
+    assert rec["status"] == "success", f"legit run downgraded: {rec['status']}"
+    assert rec["duration_seconds"] >= 500, rec["duration_seconds"]
+    assert "PHANTOM-SUCCESS GUARD" not in err, err
+
+
 def main():
     tmp = Path(tempfile.mkdtemp(prefix="ies-step-token-test-"))
     test_post_tool_use_inline_extraction(tmp)
@@ -392,6 +444,7 @@ def main():
     test_daily_review_subagent_capture(tmp)
     test_daily_review_step_files_conform()
     test_provider_model_pricing_populates_cost(tmp)
+    test_phantom_success_guard(tmp)
     print("test_step_token_capture: all cases passed")
 
 

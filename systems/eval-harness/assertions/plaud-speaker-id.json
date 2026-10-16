@@ -33,22 +33,26 @@
     {
       "id": "plaud-sp-004-calendar-required",
       "check": "yaml_field_pattern",
-      "path": "workflows/plaud-ingest/steps/step-03-identify-speakers.md",
-      "field": "outputs.notes",
+      "category": "quality",
+      "path": "workflows/plaud-ingest/state.yaml",
+      "field": "accumulated-context.escalation-evidence",
       "pattern": "(?i)(calendar|attendee|event)",
-      "rule": "If output indicates controller was asked (notes mention 'escalat' OR 'pending'), then notes MUST also contain evidence of calendar search (attendee lookup, event time match, adjacent events). If no controller escalation: assertion passes.",
+      "when_field": "accumulated-context.unresolved_speakers",
+      "min_matches": 1,
       "severity": "high",
-      "description": "Step-03 speaker identification: if controller was escalated, evidence shows calendar was checked before asking"
+      "description": "Step-03 speaker identification: if any speaker was escalated to the controller (accumulated-context.unresolved_speakers non-empty), the recorded escalation evidence must show the calendar was cross-referenced first (event time / attendees checked). Was previously skipped as 'unknown check type: yaml_field_pattern' — the harness gap that let err-20260929T024338-K3K074 recur unenforced."
     },
     {
       "id": "plaud-sp-005-transcript-required",
       "check": "yaml_field_pattern",
-      "path": "workflows/plaud-ingest/steps/step-03-identify-speakers.md",
-      "field": "outputs.notes",
-      "pattern": "(?i)(transcript|self-id|self-identification|name.*end|sign-off)",
-      "rule": "If output indicates controller was asked, notes MUST contain evidence of transcript self-ID scan (checked end of recording, looked for name mentions, etc). If no controller escalation: assertion passes.",
+      "category": "quality",
+      "path": "workflows/plaud-ingest/state.yaml",
+      "field": "accumulated-context.escalation-evidence",
+      "pattern": "(?i)(transcript|self-id|self-identification|sign-off|end of)",
+      "when_field": "accumulated-context.unresolved_speakers",
+      "min_matches": 1,
       "severity": "high",
-      "description": "Step-03 speaker identification: if controller was escalated, evidence shows transcript self-ID was checked before asking"
+      "description": "Step-03 speaker identification: if any speaker was escalated (accumulated-context.unresolved_speakers non-empty), the recorded escalation evidence must show the transcript self-ID scan ran first (end-of-recording / name-mention check). Was previously skipped as 'unknown check type: yaml_field_pattern'."
     }
   ]
 }

@@ -300,13 +300,20 @@ def main():
     #   1. Stub's recorded started (most accurate; written at actual boot/spawn time)
     #   2. --started argument passed by the caller
     #   3. Warn and use now (no fabricated 60s offset; duration will be ~0 but honest)
+    #
+    # `real_start` records whether source 1 or 2 supplied a usable start. It is
+    # the evidence that the run had a genuine execution window; the
+    # phantom-success guard below keys on its absence.
+    real_start = False
     if stub is not None and stub.get("started"):
         started_dt = _parse_started(stub["started"])
+        real_start = started_dt is not None
     else:
         started_dt = None
 
     if started_dt is None and args.started:
         started_dt = _parse_started(args.started)
+        real_start = started_dt is not None
 
     if started_dt is None:
         print(
@@ -318,6 +325,36 @@ def main():
 
     started_iso = started_dt.isoformat().replace("+00:00", "Z")
     duration = max(0.0, (now - started_dt).total_seconds())
+
+    # Phantom-success guard (Stage 3 remediation — chief C4 / C2).
+    #
+    # A scheduled/Cowork daily-review run that never actually executed was
+    # being closed as `status: success` with duration_seconds 0.0 and a stale
+    # session_id — the "phantom success" defect behind 16 F-grades
+    # (eval-20260711T021151-T7AGFP, eval-20260707T021251-KHEVMG,
+    # eval-20260704T021304-XNRG5T, eval-20260620T021321-T6V6WJ,
+    # eval-20260602T021149-SL6FJ9, …). Those records took this script's
+    # from-scratch (Cowork) path with no stub and no --started, so started_dt
+    # fell back to `now` and the window collapsed to zero — the record claimed
+    # success while the workflow body produced no output at all.
+    #
+    # A run with no execution window (no real start and/or a zero-length
+    # window) has no evidence it ever ran, so it cannot honestly claim success.
+    # Downgrade to failure and stamp the reason. Real runs supply their start
+    # via the turn-level stub (eval-turn-start.py) or --started, so they are
+    # unaffected.
+    status = args.status
+    abort_reason = args.abort_reason
+    if status in ("success", "partial") and (not real_start or round(duration, 1) == 0.0):
+        print(
+            f"[close-eval] PHANTOM-SUCCESS GUARD: refusing to record "
+            f"'{args.name}' as '{status}' with no execution window "
+            f"(real_start={real_start}, duration_seconds={round(duration, 1)}). "
+            f"Recording as failure instead.",
+            file=sys.stderr,
+        )
+        status = "failure"
+        abort_reason = "zero-duration-no-execution"
 
     step_names = [s.strip() for s in args.steps.split(",") if s.strip()]
     # Attribution (Stage 3 Phase 0): the workflow's own owner is authoritative
@@ -350,8 +387,8 @@ def main():
         except Exception as e:
             print(f"[close-eval] WARNING: could not parse --steps-json: {e}", file=sys.stderr)
 
-    completed_flag = args.status in ("success", "partial")
-    all_steps = bool(step_names) and args.status in ("success", "partial")
+    completed_flag = status in ("success", "partial")
+    all_steps = bool(step_names) and status in ("success", "partial")
 
     if stub is not None:
         # Close the existing stub
@@ -361,15 +398,15 @@ def main():
         stub["trigger"] = args.trigger
         stub["completed"] = completed_iso
         stub["duration_seconds"] = round(duration, 1)
-        stub["status"] = args.status
+        stub["status"] = status
         if steps:
             # Merge, never replace: a step entry already carrying captured
             # model/tokens/cost must survive the close.
             stub["steps"] = merge_steps(stub.get("steps"), steps)
         stub["assessment"]["mechanical"]["completed"] = completed_flag
         stub["assessment"]["mechanical"]["all_steps_finished"] = all_steps
-        if args.abort_reason is not None:
-            stub["assessment"]["mechanical"]["abort_reason"] = args.abort_reason
+        if abort_reason is not None:
+            stub["assessment"]["mechanical"]["abort_reason"] = abort_reason
         if vhash:
             stub["version_hash"] = vhash
         if apply_record_attribution:
@@ -390,7 +427,7 @@ def main():
             "started": started_iso,
             "completed": completed_iso,
             "duration_seconds": round(duration, 1),
-            "status": args.status,
+            "status": status,
             "steps": steps,
             "assessment": {
                 "mechanical": {
@@ -398,7 +435,7 @@ def main():
                     "all_steps_finished": all_steps,
                     "tool_failures": 0,
                     "error_ids": [],
-                    "abort_reason": args.abort_reason
+                    "abort_reason": abort_reason
                 },
                 "structural": {
                     "expected_outputs_written": None,

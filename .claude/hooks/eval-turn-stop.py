@@ -164,6 +164,210 @@ def _yaml_walk(data, field_path):
     return nodes
 
 
+def _leaf_values(node):
+    """Every scalar leaf under a parsed-YAML node (a scalar is its own leaf).
+    Parity with assertion_checks._leaf_values."""
+    if isinstance(node, dict):
+        out = []
+        for v in node.values():
+            out.extend(_leaf_values(v))
+        return out
+    if isinstance(node, list):
+        out = []
+        for v in node:
+            out.extend(_leaf_values(v))
+        return out
+    return [node]
+
+
+def _gate_truthy(node):
+    """Gate helper (parity with assertion_checks._gate_truthy): non-empty/truthy."""
+    if node is None or node is False:
+        return False
+    if isinstance(node, str):
+        return node.strip() != ""
+    if isinstance(node, (list, dict)):
+        return len(node) > 0
+    if isinstance(node, (int, float)):
+        return node != 0
+    return True
+
+
+def check_yaml_field_pattern(a, data):
+    """Conditional regex match on a dotted YAML field / its scalar leaves.
+    Parity with assertion_checks.check_yaml_field_pattern — see that function
+    for the full field reference. Returns (passed, extra)."""
+    when_field = a.get("when_field")
+    if when_field:
+        gate_nodes = _yaml_walk(data, when_field)
+        when_pattern = a.get("when_pattern")
+        if when_pattern:
+            gate_open = any(
+                re.search(when_pattern, str(v), re.IGNORECASE)
+                for n in gate_nodes for v in _leaf_values(n)
+            )
+        else:
+            gate_open = any(_gate_truthy(n) for n in gate_nodes)
+        if not gate_open:
+            return True, {"gate": "closed", "reason": "gate condition not met (vacuous pass)"}
+
+    nodes = _yaml_walk(data, a.get("field", ""))
+    leaves = [v for n in nodes for v in _leaf_values(n)]
+    pattern = a.get("pattern", "")
+    matched = [v for v in leaves if re.search(pattern, str(v), re.IGNORECASE)]
+
+    if a.get("negate", False):
+        extra = {"leaf_count": len(leaves)}
+        if matched:
+            extra["matched_sample"] = [str(v) for v in matched[:3]]
+        return len(matched) == 0, extra
+
+    min_matches = a.get("min_matches", 1)
+    return len(matched) >= min_matches, {"leaf_count": len(leaves), "match_count": len(matched)}
+
+
+def _draft_norm(text) -> str:
+    return re.sub(r"\s+", " ", str(text or "").strip().lower())
+
+
+def _draft_url_norm(url) -> str:
+    return _draft_norm(url).rstrip("/")
+
+
+def _draft_word_tokens(text):
+    return re.findall(r"[a-z0-9']+", str(text or "").lower())
+
+
+def _longest_common_run(a_tokens, b_tokens):
+    """Length + text of the longest contiguous verbatim word run shared by two
+    token lists. Parity with assertion_checks._longest_common_run."""
+    if not a_tokens or not b_tokens:
+        return 0, ""
+    b_positions = {}
+    for j, tok in enumerate(b_tokens):
+        b_positions.setdefault(tok, []).append(j)
+    prev = [0] * (len(b_tokens) + 1)
+    best_len = 0
+    best_end_a = 0
+    for i in range(1, len(a_tokens) + 1):
+        cur = [0] * (len(b_tokens) + 1)
+        for j in b_positions.get(a_tokens[i - 1], ()):
+            jj = j + 1
+            run = prev[jj - 1] + 1
+            cur[jj] = run
+            if run > best_len:
+                best_len = run
+                best_end_a = i
+        prev = cur
+    run_text = " ".join(a_tokens[best_end_a - best_len:best_end_a]) if best_len else ""
+    return best_len, run_text
+
+
+def check_draft_quality(a, eval_record):
+    """Harper P4 content-discovery draft-quality gate. Parity with
+    assertion_checks.check_draft_quality — see that function for the full
+    field reference. Returns (passed, extra)."""
+    import json as _json
+    dimension = a.get("dimension", "voice")
+    pattern = a.get("path", "")
+    matches = list(IES_ROOT.glob(pattern))
+    if a.get("newest_only") and len(matches) > 1:
+        matches = [max(matches, key=lambda m: m.stat().st_mtime)]
+
+    if not matches:
+        outs = eval_record.get("outputs") or {}
+        declared = outs.get("posts_drafted")
+        try:
+            declared = int(declared)
+        except (TypeError, ValueError):
+            declared = None
+        if declared and declared > 0:
+            return False, {"dimension": dimension, "reason": "draft manifest not found",
+                           "posts_drafted": declared}
+        return True, {"dimension": dimension, "posts": 0, "reason": "no drafts to check"}
+
+    try:
+        data = _json.loads(matches[0].read_text(errors="replace"))
+    except Exception:
+        return False, {"dimension": dimension, "reason": "manifest is not valid JSON"}
+    if not isinstance(data, dict):
+        return False, {"dimension": dimension, "reason": "manifest is not a JSON object"}
+    posts = data.get("posts")
+    if posts is None:
+        return False, {"dimension": dimension, "reason": "manifest has no 'posts' list"}
+    if not isinstance(posts, list):
+        return False, {"dimension": dimension, "reason": "'posts' is not a list"}
+    if not posts:
+        return True, {"dimension": dimension, "posts": 0}
+
+    failures = []
+    for idx, post in enumerate(posts):
+        if not isinstance(post, dict):
+            failures.append(f"post[{idx}]: not an object")
+            continue
+        title = post.get("title") or f"post[{idx}]"
+        if dimension == "voice":
+            body = post.get("body") or ""
+            source = post.get("source_text") or ""
+            if not str(body).strip():
+                failures.append(f"'{title}': body not recorded")
+                continue
+            if not str(source).strip():
+                failures.append(f"'{title}': source_text not recorded (voice cannot be checked)")
+                continue
+            if not post.get("is_voice_original"):
+                failures.append(f"'{title}': is_voice_original not true")
+            max_run = int(a.get("max_verbatim_run", 12))
+            run_len, run_text = _longest_common_run(
+                _draft_word_tokens(body), _draft_word_tokens(source))
+            if run_len > max_run:
+                failures.append(
+                    f"'{title}': {run_len}-word verbatim run from source "
+                    f"(limit {max_run}): \"{run_text[:80]}\"")
+            min_q = int(a.get("min_quote_words", 4))
+            for quote in re.findall(r"[\"“]([^\"”]{1,400})[\"”]", str(body)):
+                if len(_draft_word_tokens(quote)) >= min_q and _draft_norm(quote) not in _draft_norm(source):
+                    failures.append(
+                        f"'{title}': quoted text not present verbatim in source: \"{quote[:80]}\"")
+        elif dimension == "image":
+            img = str(post.get("feature_image") or "").strip()
+            if not img:
+                failures.append(f"'{title}': feature_image not set")
+            elif not re.match(r"^https?://", img):
+                failures.append(f"'{title}': feature_image is not an http(s) URL: {img!r}")
+            if not post.get("image_landscape"):
+                failures.append(f"'{title}': image_landscape not true")
+            if post.get("geo_specific"):
+                city = str(post.get("post_city") or "").strip()
+                query = str(post.get("image_search_query") or "")
+                if not city:
+                    failures.append(f"'{title}': geo_specific but post_city not recorded")
+                elif city.lower() not in query.lower():
+                    failures.append(
+                        f"'{title}': image_search_query does not name '{city}': {query!r}")
+                if not post.get("image_geo_confirmed"):
+                    failures.append(f"'{title}': image_geo_confirmed not true for geo-specific post")
+        elif dimension == "links":
+            related = post.get("related_published_post")
+            if related:
+                links = post.get("internal_links") or []
+                norm_links = {_draft_url_norm(x) for x in links if isinstance(x, str)}
+                if not links:
+                    failures.append(f"'{title}': related post exists but no internal_links recorded")
+                elif _draft_url_norm(related) not in norm_links:
+                    failures.append(
+                        f"'{title}': internal_links does not contain related post {related!r}")
+        else:
+            return False, {"dimension": dimension, "reason": f"unknown dimension {dimension!r}"}
+
+    passed = not failures
+    extra = {"dimension": dimension, "posts": len(posts)}
+    if failures:
+        extra["failures"] = failures[:10]
+        extra["failure_count"] = len(failures)
+    return passed, extra
+
+
 def read_state_yaml(rel_path: str) -> dict:
     path = IES_ROOT / rel_path
     if not path.exists():
@@ -333,6 +537,18 @@ def run_assertions(name: str, eval_record: dict) -> dict:
                 else:
                     g = GRADE_ORDER.get(str(grade).upper())
                     passed = (g is not None) and g >= GRADE_ORDER.get(min_grade, 3)
+            elif check == "yaml_field_pattern":
+                yp_matches = list(IES_ROOT.glob(a.get("path", "")))
+                if not yp_matches:
+                    passed = False
+                else:
+                    try:
+                        yp_data = yaml.safe_load(
+                            extract_frontmatter_block(yp_matches[0].read_text(errors="replace"))
+                        ) or {}
+                    except Exception:
+                        yp_data = {}
+                    passed, _extra = check_yaml_field_pattern(a, yp_data)
             elif check in ("yaml_path_exists", "yaml_list_field_present", "yaml_list_counts_gte"):
                 ymatches = list(IES_ROOT.glob(a.get("path", "")))
                 if not ymatches:
@@ -368,6 +584,8 @@ def run_assertions(name: str, eval_record: dict) -> dict:
                         acct = _ylist(a.get("accounted_field", ""))
                         skip = _ylist(a.get("skipped_field", ""))
                         passed = True if not src else (len(acct) + len(skip)) >= len(src)
+            elif check == "draft_quality":
+                passed, _extra = check_draft_quality(a, eval_record)
             elif check == "duration_lte":
                 passed = eval_record.get("duration_seconds", float("inf")) <= a.get("max_duration_seconds", float("inf"))
             else:

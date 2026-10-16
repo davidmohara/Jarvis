@@ -60,6 +60,20 @@ recording. This is deliberate: those are exactly the cases most likely to be a w
 resolution, and "proceed silently" was never meant to hide a mis-tag from the
 controller, only to skip bothering them when nothing looks wrong.
 
+**Two non-negotiable output rules (err-20260929T024338-K3K074):**
+
+1. **Every escalation must carry calendar evidence.** Before any `awaiting-input`
+   escalation, write `accumulated-context.escalation-evidence` (the matched event's
+   time and the attendees checked, the adjacent/recurring events tried, and the
+   transcript self-ID scan result) and list the unresolved speakers in
+   `accumulated-context.unresolved_speakers`. Asking the controller with no recorded
+   calendar cross-reference is the exact defect this skill exists to prevent.
+2. **Never emit a generic label as a resolved value.** A `speaker-mappings` entry
+   must map each label to a real name. If a speaker cannot be resolved, it goes in
+   `unresolved_speakers` / `pending-speaker-mappings` with the evidence above — never
+   as `Speaker 1: "Speaker 1"` in `speaker-mappings`. Enforced by the plaud-ingest
+   assertion `plaud-k4-no-generic-speaker-labels`.
+
 ---
 
 ## How this works
@@ -379,7 +393,16 @@ Likewise, the ⚠️/ℹ️ lines from step 3 are conditional — only appear wh
 found something. A recording with zero step-3 findings and zero unresolved speakers
 never enters this prompt at all (still fully silent, per the HARD GATE).
 
-Update `state.yaml status: awaiting-input` before surfacing the prompt.
+Update `state.yaml status: awaiting-input` before surfacing the prompt. **Before**
+surfacing it, also write the escalation evidence (required — see the two output rules
+in the HARD GATE above):
+
+```yaml
+accumulated-context:
+  unresolved_speakers: [{file_id, recording, unresolved: [...], evidence: "<calendar lookup result>"}, ...]
+  escalation-evidence: "<calendar: matched event time + attendees checked + why insufficient; transcript self-ID scan result>"
+```
+
 Do not surface recordings with no unresolved speakers and no step-3 findings in this
 prompt — silent auto-resolution is still the default outcome for the common case; step 3
 is a check that most recordings will simply pass.
