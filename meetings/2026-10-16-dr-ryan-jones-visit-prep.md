@@ -21,9 +21,9 @@ This is a first visit to Inspire Health (no prior history with this practice in 
 
 Honest state of the record:
 
-- **No prior history with Inspire Health.** The only correspondence on file is today's Phreesia intake, payment receipt, and post-visit survey. Nothing before that.
-- **One possible prior clinical link, unconfirmed.** Five blood draws in 2022 (Mar 31, Apr 20, Jun 21, Aug 23, Dec 27) were ordered by a "Jones MD" at Bent Tree Family Physicians (CPL lab, Frisco). The Apr to Jun 2022 draws were a low-testosterone workup (total T 202 then 263, later 415). The first name is not recorded anywhere, and I could not verify the practice affiliation externally (web search was unavailable this run). So: a plausible connection, not a confirmed one. Do not assume he remembers you.
-- **Your care team file does not list him.** `Mind/Health/Care Team.md` (updated 2026-06-08) lists Dr. Julli Randol as your general practitioner. Dr. Jones is a new addition.
+- **Dr. Ryan Jones is your physician of record.** Your care team file (`Mind/Health/Care Team.md`) previously listed Dr. Julli Randol as your general practitioner; that is now out of date. Dr. Randol was your prior physician of record, and Dr. Ryan Jones (Inspire Health, Frisco Legacy) is your current physician of record.
+- **This is your first visit to Inspire Health.** Today's Phreesia intake, payment receipt, and post-visit survey are the first correspondence on file with this practice, so treat it as an establishing visit where you hand over a clean, honest picture.
+- **One possible earlier clinical link.** Five blood draws in 2022 (Mar 31, Apr 20, Jun 21, Aug 23, Dec 27) were ordered by a "Jones MD" at Bent Tree Family Physicians (CPL lab, Frisco). The Apr to Jun 2022 draws were a low-testosterone workup (total T 202 then 263, later 415). The first name is not recorded, so this may or may not be the same Dr. Jones. Do not assume he remembers you.
 
 If he asks whether you have seen him before, the accurate answer is no, or at most "a Dr. Jones at Bent Tree ordered labs for me in 2022, I am not sure if that was you."
 
@@ -129,7 +129,7 @@ Also from June 1, 2026:
 | LH | below 0.2 | - | - | suppressed |
 | FSH | below 0.7 | - | - | suppressed |
 
-This is driven by daily DHEA supplementation (50 mg), with the HPG axis suppressed. A new primary care physician should see this, even though it is being managed on the Randol side. The recommendation on file is to cut DHEA from 50 mg to 25 mg and recheck E2, but the supplement-stack file still shows 50 mg with the reduction "recommended," not done. Be honest that this is an area where you are self-directed and that he should have the full picture.
+This is driven by daily DHEA supplementation (50 mg), with the HPG axis suppressed. As your primary care physician, Dr. Jones should see this, even though the hormone protocol has been self-directed and previously overseen by Dr. Randol. The recommendation on file is to cut DHEA from 50 mg to 25 mg and recheck E2, but the supplement-stack file still shows 50 mg with the reduction "recommended," not done. Be honest that this is an area where you are self-directed and that he should have the full picture.
 
 ### F. Protocol records disagree, and the cycles may be stale
 
@@ -152,7 +152,7 @@ Net: the GH stack was scheduled to end in late August and, on paper, should now 
 1. My platelets are low (114, down from a prior 102) and my MCV and MCH are high and getting worse. Do you want to work this up, and would that mean a smear, reticulocyte count, and B12 and folate, or a hematology referral?
 2. My homocysteine nearly doubled (19.5 from 12.0) and my hs-CRP rose to 2.2, with small-dense LDL. Given ApoB and Lp(a) look fine, how concerned are you, and do you want a repeat panel?
 3. My AST is mildly up (42) with a persistently low ALP (12). Does that pattern warrant any testing, or is it noise?
-4. I take daily DHEA and my testosterone, estradiol, and DHEA-S all came back markedly high with LH and FSH suppressed. As my new primary care doctor, how do you want to monitor this?
+4. I take daily DHEA and my testosterone, estradiol, and DHEA-S all came back markedly high with LH and FSH suppressed. As my primary care physician, how do you want to monitor this?
 5. I run a self-directed peptide stack. My records are out of date and I need to reconcile what is active. Do you want a current, accurate list, and are there any interactions you would want to flag?
 6. My weight is at a floor I set for myself while a GLP-1 is still active. At what point would you want to adjust it?
 7. Is there anything about today's red recovery and elevated resting HR, in the context of my other labs, that you would want to look into?
@@ -169,7 +169,7 @@ State these plainly so you do not over-rely on incomplete data.
 - **Bloodwork is 4.5 months old.** The most recent draw is 2026-06-01. Nothing newer exists in the vault or the tracking files.
 - **IGF-1 has never been ordered.** It was absent from the June 2025, December 2025, and June 2026 panels. That was flagged as a gap for the Tesamorelin decision.
 - **No post-cycle DEXA.** The last body-composition scan is 2026-06-25. The recommended mid to late September post-cycle scan was not logged, so current lean mass and body fat are unknown. Today's weight is from WHOOP, not a DEXA.
-- **Dr. Jones identity and history unconfirmed.** The only possible prior link is an unconfirmed "Jones MD" (2022 labs). No email history with him or with Inspire Health before today, and external verification was unavailable this run.
+- **Earlier "Jones MD" link (2022 labs) unconfirmed.** Whether the 2022 ordering provider at Bent Tree is the same Dr. Jones is not confirmed. No email history with Inspire Health before today, and external verification was unavailable this run.
 
 ---
 

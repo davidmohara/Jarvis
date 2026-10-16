@@ -25,8 +25,8 @@ All health data lives in **Dropbox → Family → Health**:
 
 | Role | Provider | Notes |
 |------|----------|-------|
-| Primary Care / Testosterone | Julli Randol, FNP-C @ Performance Medicine & Sports Therapy (6101 Windhaven Pkwy Ste 145, Plano TX 75093) | Oversees testosterone protocol (70IU/week). **Annual wellness check** + **quarterly follow-ups** (every 3 months). |
-| Julli's Assistant | Jessica Fipps (MA) — jfipps@specialtycareclinics.com — P: 972.473.8980, F: 972.435.9702 | Schedule through Jessica. |
+| Primary Care / Testosterone | Dr. Ryan Jones @ Inspire Health, Frisco Legacy (2840 Legacy Dr Ste 400, Frisco TX 75034; 469-200-6100) | Physician of record (testosterone protocol 70IU/week). Establishing visit 2026-10-16. Prior: Julli Randol, FNP-C @ Performance Medicine & Sports Therapy. |
+| Scheduling (prior physician) | Jessica Fipps (MA) — jfipps@specialtycareclinics.com — P: 972.473.8980, F: 972.435.9702 | Assistant to prior physician Dr. Julli Randol. |
 | Bloodwork | [Function Health](https://www.functionhealth.com) | 160+ biomarkers, 2x/year at Quest Diagnostics. Ad hoc testing available. |
 | Peptide Stacks | Self-directed | David selects and cycles peptides based on goals and phase |
 | Body Composition | [Hume Body Pod](https://www.humebodypod.com) | Tracks lean mass, body fat %, trends over time |
@@ -85,7 +85,7 @@ Optimized for 5:30/5:45 AM workouts (Lifting/Yoga/Recovery).
 
 | Compound | Dose | Frequency | Oversight |
 |----------|------|-----------|-----------|
-| Testosterone | 70IU | Weekly | Juli Randoll (PC) |
+| Testosterone | 70IU | Weekly | Dr. Ryan Jones (physician of record) |
 | DHEA | 50mg (2x25mg caps) | Daily | Self-directed, monitored via Function Health |
 
 ---
@@ -119,12 +119,15 @@ Optimized for 5:30/5:45 AM workouts (Lifting/Yoga/Recovery).
 - **Next Test**: TBD — likely mid-March 2026 (during washout Mar 11-20)
 - **Ad Hoc**: Available as needed for mid-cycle checks
 
-### Julli Randol Appointment Cadence
+### Physician Appointment Cadence
+
+Dr. Julli Randol was the prior physician of record; the cadence below was hers. Dr. Ryan Jones (Inspire Health, Frisco Legacy) is now the physician of record — establishing visit 2026-10-16; the ongoing cadence is to be confirmed.
 
 | Appointment | Frequency | Next Due | Notes |
 |-------------|-----------|----------|-------|
-| Annual Wellness Check | 1x/year | **June 8, 2026 — 9:00 AM CT** | Specialty Care Clinics, 6101 Windhaven Pkwy Ste 145, Plano. Scheduled by Ilse. |
-| Quarterly Follow-Up | Every 3 months | TBD | Testosterone monitoring, protocol check-in. Last in-office visit was 8/12/25. |
+| Annual Wellness Check (prior — Dr. Randol) | 1x/year | June 8, 2026 — 9:00 AM CT | Specialty Care Clinics, 6101 Windhaven Pkwy Ste 145, Plano. Scheduled by Ilse. |
+| Quarterly Follow-Up (prior — Dr. Randol) | Every 3 months | TBD | Testosterone monitoring, protocol check-in. Last in-office visit was 8/12/25. |
+| Physician of record follow-up (Dr. Jones) | TBD | TBD | Establish cadence at the 2026-10-16 visit. |
 
 **Jarvis rule**: On boot, verify these appointments exist on calendar within the expected window. If missing, create an OmniFocus task to schedule with a 1-week-out reminder.
 
