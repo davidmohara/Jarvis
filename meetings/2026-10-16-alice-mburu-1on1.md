@@ -6,13 +6,13 @@
 
 ## Summary of Interactions (Oct 9 – Oct 16, 2026)
 
-This week ran on travel logistics and expense recovery. Alice held the Houston trip together through a flight delay and a hotel checkout fight, closed out the Vegas expense cycle with you, scheduled the podcast sync with Janine Jeanson and Kristin Johnson, and kept the YPO and personal decision queue moving. The last formal prep was the October 9 wrap-up, and the weekly cadence has held since. Volume stayed high: roughly 25 Teams messages a day in the 1:1 chat, with Alice carrying the end-of-day recaps on Oct 13, Oct 14, and Oct 16.
+This week ran on travel logistics and expense recovery. Alice held the Houston trip together through a rough return -- the flight was rerouted (David made the change, Alice advised on timing) and the Westchase checkout remains open -- closed out the Vegas expense cycle with you, scheduled the podcast sync with Janine Jeanson and Kristin Johnson, and kept the YPO and personal decision queue moving. The last formal prep was the October 9 wrap-up, and the weekly cadence has held since. Volume stayed high: roughly 25 Teams messages a day in the 1:1 chat, with Alice carrying the end-of-day recaps on Oct 13, Oct 14, and Oct 16.
 
 ### Houston Travel Week and the Rough Return (Oct 13 – 16)
 
-The Houston run dominated the front half of the week. Alice handled the ACG luncheon logistics, the Westchase hotel stay, and the bootcamp scheduling around your travel. Wednesday evening turned into a scramble over the HOU to DAL return. On the flight, David raised the change himself ("Looking at other flights - may be able to hop home on one-way and cancel JSX", Oct 14 22:12) and Alice advised on timing and offered to cancel the JSX booking before it charged ("The 8:00 PM one would work... so we can cancel JSX before they start charging"). On the hotel, Alice could not reach anyone and asked David to handle it at the desk ("The hotel is not picking up my calls... Could you please let the front desk know? Ask them to update your checkout to the 14th and waive the early departure fee", Oct 13 21:52), then followed up the next evening ("Might we have an update from the hotel you stayed at last night? I can call them again"). Your own read on the trip was blunt ("I swear I hate coming to Houston"), and Alice's follow-up was the same ("Houston lately has been a nightmare and they didn't make it any better"). **STATUS: RESOLVED.**
+The Houston run dominated the front half of the week. Alice handled the ACG luncheon logistics, the Westchase hotel stay, and the bootcamp scheduling around your travel. Wednesday evening turned into a scramble over the HOU to DAL return. On the flight, David raised the change himself ("Looking at other flights - may be able to hop home on one-way and cancel JSX", Oct 14 22:12) and Alice advised on timing and offered to cancel the JSX booking before it charged ("The 8:00 PM one would work... so we can cancel JSX before they start charging"). On the hotel, Alice could not reach anyone and asked David to handle it at the desk ("The hotel is not picking up my calls... Could you please let the front desk know? Ask them to update your checkout to the 14th and waive the early departure fee", Oct 13 21:52), then followed up the next evening ("Might we have an update from the hotel you stayed at last night? I can call them again"). Your own read on the trip was blunt ("I swear I hate coming to Houston"), and Alice's follow-up was the same ("Houston lately has been a nightmare and they didn't make it any better"). **STATUS: UNRESOLVED (hotel).** The return flight is settled. The Westchase checkout is not -- Alice's last word was Oct 14 asking for an update, and nothing closed it.
 
-*Correction 2026-10-16: an earlier draft of this section said Alice moved David off the JSX flight and chased the hotel herself. Both are wrong -- David made the flight change and handled the desk request; Alice advised on the flight and could not get through to the hotel. Source: Teams 1:1, Oct 13-14 (msg 1791928359312, 1791928864899, 1792008112344, 1792015970654, 1792016132980). Logged err-20261016T175429-47RLWC.*
+*Correction 2026-10-16: an earlier draft of this section said Alice moved David off the JSX flight and chased the hotel herself, and marked the whole block RESOLVED. All three are wrong -- David made the flight change and handled the desk request; Alice advised on the flight and could not get through to the hotel; and the hotel issue is NOT resolved. Source: Teams 1:1, Oct 13-14 (msg 1791928359312, 1791928864899, 1792008112344, 1792015970654, 1792016132980); no hotel messages after Oct 14. Logged err-20261016T175429-47RLWC and err-20261016T180211-GOS763.*
 
 ### Vegas Expense Report and Cost-Center Reconciliation (Oct 13 – 14)
 
@@ -45,6 +45,11 @@ The CRM helpdesk ticket is still open. Helpdesk wrote on Oct 14 that you got it 
 ---
 
 ## Open Threads Requiring Action
+
+### 0. ⚠️ Westchase Hotel: Unresolved Checkout / Early-Departure Fee (OPEN)
+
+**Status**: The one-night cancellation and early-departure-fee waiver were never confirmed. Alice could not reach the hotel on Oct 13 and asked David to handle it at the desk; her last word was Oct 14 asking for an update ("I can call them again"). Nothing has closed it since.
+- **Action needed**: Confirm whether the checkout was updated to the 14th and the fee waived, and whether a charge is pending. If not, decide who closes it out.
 
 ### 1. ⚠️ Vegas Expense Report: Attendee Names and the Kaps Gift Card (OPEN)
 

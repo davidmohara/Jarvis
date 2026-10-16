@@ -1,0 +1,14 @@
+{
+  "id": "err-20261016T180211-GOS763",
+  "timestamp": "2026-10-16T18:02:11.428997+00:00",
+  "agent": "shep",
+  "category": "hallucination",
+  "failure_mode": "false-resolution-claim",
+  "severity": "moderate",
+  "description": "Alice 1:1 prep (2026-10-16) marked the Houston travel block 'STATUS: RESOLVED' and said 'The travel closed out cleanly', including the Westchase hotel checkout/early-departure-fee issue. David states the hotel was never resolved. Teams shows Alice's last word on it was Oct 14 20:01 asking for an update ('I can call them again') with no resolution message after.",
+  "correction": "The hotel checkout/early-departure fee is UNRESOLVED. Status must not be marked resolved without a message or artifact showing resolution.",
+  "root_cause": "Inferred closure from the absence of further traffic rather than from evidence of resolution.",
+  "fix_status": "proposed",
+  "source": "user-correction",
+  "session": "2026-10-16"
+}
