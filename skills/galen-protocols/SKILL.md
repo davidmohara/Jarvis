@@ -142,7 +142,7 @@ alignment_check:
 Output:
 ```
 conflicts:
-  - "E2 at 45 (elevated) + DHEA 50mg daily — monitor for aromatization; discuss with Dr. Randol"
+  - "E2 at 45 (elevated) + DHEA 50mg daily — monitor for aromatization; discuss with Dr. Jones"
   - "CJC/Ipamorelin + high training load — confirm fasting insulin not declining"
 
 gaps:
@@ -282,7 +282,7 @@ Peptide protocols in particular have limited RCT data — flag those as `emergin
 
 ### IMPORTANT (Start Within 2 Weeks)
 4. Add Quercetin 500mg daily (CV support)
-5. Discuss E2 management with Dr. Randol (DIM or other)
+5. Discuss E2 management with Dr. Jones (DIM or other)
 
 ### MONITORING (Track Over Next 4 Weeks)
 6. CJC/Ipamorelin cycle → ends [date], plan deload week
@@ -298,7 +298,7 @@ Peptide protocols in particular have limited RCT data — flag those as `emergin
 **Status Card Generated:** [timestamp]
 **Protocol Tracking Since:** January 2026
 **Next Protocol Review:** Monthly (aligned with monthly health review)
-**Physician:** Dr. Julli Randol
+**Physician:** Dr. Ryan Jones
 ```
 
 ---
@@ -343,7 +343,7 @@ This write happens after the status card is delivered — it is the final action
 
 - Output protocol status card suitable for Obsidian vault storage or email sharing
 - Galen feeds protocol summary to Visit Prep skill pre-appointment
-- Protocol conflicts escalate to Bloodwork Review and Dr. Randol question list
+- Protocol conflicts escalate to Bloodwork Review and Dr. Jones question list
 - Upcoming cycle changes may trigger Recovery Coaching if load adjustments needed
 - Monthly health review incorporates protocol assessment as one data stream
 

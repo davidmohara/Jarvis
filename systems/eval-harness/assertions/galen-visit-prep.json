@@ -35,8 +35,8 @@
       "check": "file_contains",
       "category": "content",
       "path": "memory/working/galen-visit-prep-*.md",
-      "pattern": "(?i)(question|ask dr|randol)",
-      "description": "Galen visit-prep (question list generated): the visit-prep output carries the outstanding-questions list for Dr. Randol. Honest limit: the deliverable is saved to the Obsidian vault (Mind/Health/Visit Prep - Dr Randol - [Date].md), which lives outside this repo and cannot be globbed from here, so this checks the run's own working-memory record of the question list; the vault note itself is the primary artifact."
+      "pattern": "(?i)(question|ask dr|jones)",
+      "description": "Galen visit-prep (question list generated): the visit-prep output carries the outstanding-questions list for Dr. Jones. Honest limit: the deliverable is saved to the Obsidian vault (Mind/Health/Visit Prep - Dr Jones - [Date].md), which lives outside this repo and cannot be globbed from here, so this checks the run's own working-memory record of the question list; the vault note itself is the primary artifact."
     },
     {
       "id": "galen-vi-g3-trend-source",

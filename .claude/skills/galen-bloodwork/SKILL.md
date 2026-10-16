@@ -1,7 +1,7 @@
 ---
 name: galen-bloodwork
 owning_agent: galen
-description: Interpret Function Health bloodwork — flag out-of-range markers, cross-reference protocols, compare to prior results, generate Dr. Randol question list
+description: Interpret Function Health bloodwork — flag out-of-range markers, cross-reference protocols, compare to prior results, generate Dr. Jones question list
 context: fork
 agent: general-purpose
 allowed-tools:

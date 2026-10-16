@@ -1,7 +1,7 @@
 ---
 name: galen-bloodwork
 owning_agent: galen
-description: Interpret Function Health bloodwork results. Flag out-of-range markers, assess severity, cross-reference with active protocols, compare to prior results, generate Dr. Randol question list. Produces shareable interpretation brief.
+description: Interpret Function Health bloodwork results. Flag out-of-range markers, assess severity, cross-reference with active protocols, compare to prior results, generate Dr. Jones question list. Produces shareable interpretation brief.
 evolution: system
 model: sonnet
 trigger_keywords: [bloodwork, labs, blood panel, results]
@@ -30,7 +30,7 @@ Read latest bloodwork from Dropbox (PDF files on disk — not Obsidian):
 - Use `mcp__PDF_Tools__read_pdf_content` or Desktop Commander to extract text from PDF
 - Extract all biomarkers with values and reference ranges
 - Capture test date and lab (Function Health @ Quest Diagnostics)
-- Note ordering physician (Dr. Julli Randol)
+- Note the ordering physician named on the draw (the physician of record is Dr. Ryan Jones)
 
 If multiple recent tests exist, also load 1-2 prior results for trend comparison.
 
@@ -39,7 +39,7 @@ Store in working memory:
 bloodwork:
   test_date: YYYY-MM-DD
   lab: "Quest Diagnostics via Function Health"
-  physician: "Dr. Julli Randol"
+  physician: "Dr. Ryan Jones"
   markers:
     [marker_name]:
       value: N
@@ -153,7 +153,7 @@ trend_analysis:
     prior_value: [prior] pg/ml ([prior date])
     current_value: [current] pg/ml ([current date])
     change: "[change] ([improving/worsening])"
-    assessment: "E2 [trend] — may be DHEA dosing or dietary factors; discuss with Dr. Randol"
+    assessment: "E2 [trend] — may be DHEA dosing or dietary factors; discuss with Dr. Jones"
 ```
 
 ### Step 5: Cross-Reference with Peptide Protocols
@@ -201,7 +201,7 @@ Before writing new recommendations, read `data/health/metrics-log.json` and filt
 
 If the log has no prior bloodwork entries, proceed with PDF-only comparison and note "no prior log entries."
 
-### Step 7: Generate Dr. Randol Question List
+### Step 7: Generate Dr. Jones Question List
 
 Create a priority-ordered list of questions for the next physician visit:
 
@@ -238,7 +238,7 @@ If you cannot cite a source for a recommendation, state it as an observation for
 
 ## Test Summary
 - **Lab:** Quest Diagnostics via Function Health
-- **Physician:** Dr. Julli Randol
+- **Physician:** Dr. Ryan Jones
 - **Prior Test:** [Date, comparison available: yes/no]
 
 ## Overall Health Snapshot
@@ -299,14 +299,14 @@ If you cannot cite a source for a recommendation, state it as an observation for
 
 ### Priority Action Items
 1. **[URGENT]** Add CoQ10 500mg daily + restart Berberine 500mg BID for ApoB management
-2. **[URGENT]** Address E2 elevation (discuss DIM or calcium d-glucarate with Dr. Randol)
+2. **[URGENT]** Address E2 elevation (discuss DIM or calcium d-glucarate with Dr. Jones)
 3. **[IMPORTANT]** Increase B12 supplementation; check folate status
 4. **[DISCUSSION]** Peptide cycle assessment — [N]+ months in, consider IGF-1 testing
 5. **[MONITORING]** Retest ApoB, E2, lipid panel in 12 weeks
 
 ---
 
-## Questions for Dr. Randol
+## Questions for Dr. Jones
 1. ApoB [change] — protocol adjustment or dietary shift?
 2. E2 elevated — manage with DIM, or dosage adjustment?
 3. B12/MCH/MCV concern — folate status, recommend B12 injections?
@@ -344,7 +344,7 @@ This write happens after the brief is delivered — it is the final action befor
 - Trend analysis completed (current vs. prior, if available)
 - Cross-referenced with active supplement stack and peptide protocols
 - 4 Horsemen risk assessed for each category
-- Dr. Randol question list generated (priority-ordered)
+- Dr. Jones question list generated (priority-ordered)
 - Interpretation brief is sharable with physician
 - Recommendations are specific, testable, and include retest timeline
 
@@ -352,7 +352,7 @@ This write happens after the brief is delivered — it is the final action befor
 
 | Scenario | Response |
 |----------|----------|
-| Latest bloodwork not found in vault | Report "No recent bloodwork found" and suggest Galen: "Schedule visit prep" to access Dr. Randol records |
+| Latest bloodwork not found in vault | Report "No recent bloodwork found" and suggest Galen: "Schedule visit prep" to access Dr. Jones records |
 | Prior bloodwork not available | Proceed with snapshot assessment; omit trend analysis |
 | Reference ranges differ from expected | Note "Non-standard reference range" and use Galen's standard ranges for severity assessment |
 | Incomplete panel (missing key markers) | Proceed with available data; note "Panel incomplete — missing [marker]" for physician follow-up |

@@ -31,7 +31,7 @@ Written by `galen-bloodwork` skill after every bloodwork draw.
   "category": "bloodwork",
   "source": "Function Health / Quest Diagnostics",
   "source_file": "~/Library/CloudStorage/Dropbox/Family/Health/David - Bloodwork/2026/2026-06-01.pdf",
-  "physician": "Dr. Julli Randol",
+  "physician": "Dr. Ryan Jones",
   "metrics": {
     "cardiovascular": {
       "apob_mg_dl": null,

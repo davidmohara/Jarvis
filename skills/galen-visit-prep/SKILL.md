@@ -1,7 +1,7 @@
 ---
 name: galen-visit-prep
 owning_agent: galen
-description: Pre-visit brief for Dr. Julli Randol. Compile WHOOP trends, bloodwork changes, protocol changes, outstanding questions, new questions, body comp update. Exportable to Obsidian note.
+description: Pre-visit brief for David's physician of record (currently Dr. Ryan Jones). Compile WHOOP trends, bloodwork changes, protocol changes, outstanding questions, new questions, body comp update. Exportable to Obsidian note.
 evolution: system
 model: sonnet
 trigger_keywords: [doctor, visit prep, appointment, medical]
@@ -11,7 +11,7 @@ trigger_agents: [galen]
 <!-- system:start -->
 ## Trigger Phrases
 
-- "visit prep", "Dr. Randol", "appointment prep", "health visit prep"
+- "visit prep", "Dr. Jones", "appointment prep", "health visit prep"
 - "prep for my doctor appointment", "get ready for Function Health visit"
 - Triggered by Galen on demand via Master routing
 
@@ -20,7 +20,7 @@ trigger_agents: [galen]
 ### Step 1: Confirm Visit Date & History
 
 Read from Obsidian vault:
-- **Physician:** Dr. Julli Randol
+- **Physician:** Dr. Ryan Jones (physician of record). The skill works for any provider — substitute the physician being seen.
 - **Last Visit Date:** [search vault for most recent visit note, typically August/September annually]
 - **Upcoming Visit Date:** [check calendar or David's schedule]
 - **Time Remaining:** [days until visit]
@@ -162,7 +162,7 @@ body_comp_update:
 ### Step 6: Compile Outstanding Questions from Last Visit
 
 Read visit notes from last appointment (Obsidian `Mind/Health/Visit - [Last Date].md`):
-- What did Dr. Randol recommend?
+- What did Dr. Jones recommend?
 - What follow-ups were promised?
 - What questions are still unresolved?
 
@@ -182,7 +182,7 @@ outstanding_questions_from_last_visit:
 
 ### Step 7: Generate New Questions Based on Data
 
-Synthesize findings and generate new questions for Dr. Randol:
+Synthesize findings and generate new questions for Dr. Jones:
 
 **URGENT (out-of-range bloodwork findings):**
 - "ApoB at [current] ([change] vs prior) — is this protocol-driven? Should we adjust CoQ10/berberine dosing?"
@@ -216,7 +216,7 @@ new_questions_for_dr:
 **Format: Markdown note, exportable to Obsidian**
 
 ```markdown
-# Pre-Visit Brief: Dr. Julli Randol
+# Pre-Visit Brief: Dr. Ryan Jones
 
 **Visit Date:** [date]
 **Days Until Visit:** [N]
@@ -346,7 +346,7 @@ new_questions_for_dr:
 
 ---
 
-## New Questions for Dr. Randol
+## New Questions for Dr. Jones
 
 ### URGENT
 1. **ApoB at [current] ([change] vs prior)** — Is this protocol-driven or dietary? Should we adjust CoQ10/berberine dosing or try other interventions?
@@ -409,13 +409,13 @@ If the entry already exists (same scan date), skip the write.
 ### Step 9: Route to Obsidian
 
 Save visit prep brief to Obsidian:
-- **Path:** `Mind/Health/Visit Prep - Dr Randol - [Upcoming Visit Date].md`
+- **Path:** `Mind/Health/Visit Prep - Dr Jones - [Upcoming Visit Date].md`
 - **Frontmatter:**
   ```
   ---
   date: YYYY-MM-DD (prep date)
   visit_date: YYYY-MM-DD (appointment date)
-  physician: Dr. Julli Randol
+  physician: Dr. Ryan Jones
   visit_type: Annual physical / Bloodwork review / Protocol check
   tags: [health, physician-visit, Function-Health]
   ---
@@ -434,7 +434,7 @@ Save visit prep brief to Obsidian:
 - Protocol changes since last visit documented
 - Body composition update included with progress vs. goals
 - Visit prep brief is comprehensive, scannable, and shareable
-- Brief can be printed or emailed to Dr. Randol pre-visit
+- Brief can be printed or emailed to Dr. Jones pre-visit
 
 ## Error Handling
 
@@ -450,8 +450,8 @@ Save visit prep brief to Obsidian:
 ## Integration Notes
 
 - Output visit prep brief is saved to Obsidian and ready for physician review
-- Visit prep can be shared with Dr. Randol 3-5 days before appointment
-- Post-visit, new visit note is created (`Mind/Health/Visit - [Visit Date].md`) with Dr. Randol recommendations
+- Visit prep can be shared with Dr. Jones 3-5 days before appointment
+- Post-visit, new visit note is created (`Mind/Health/Visit - [Visit Date].md`) with Dr. Jones recommendations
 - Any urgent findings (red bloodwork, critical questions) may escalate to Chief if they suggest immediate action
 - Quarterly bloodwork retest is scheduled as follow-up action
 
