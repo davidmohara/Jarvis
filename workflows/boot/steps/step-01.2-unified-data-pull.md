@@ -220,6 +220,25 @@ message_count: N
 file_size_kb: N
 ```
 
+### Pull E: YNAB Spend
+
+**Source:** YNAB (MCP connector where available; REST API fallback)
+**Output file:** `data/ynab-unified.json`
+
+Run the canonical pull:
+
+```bash
+python3 skills/ynab-data/scripts/ynab_data.py pull
+```
+
+That command writes `data/ynab-unified.json` and is the single writer for it. Read the file back and report `status` and the payee counts. A `status` other than `available` is a degraded source to surface (dead token, API error), never something to pass over as a quiet month.
+
+Why delegated rather than inlined: the transfer/spend filter, the 12-month window, and the `status` contract live in code. See `skills/ynab-data/SKILL.md`.
+
+**Output file:** `data/ynab-unified.json`
+
+**Consumers:** card-offer filtering (`chase-card-offers-*`, `card-walkthrough` step-02), spend reviews, budget questions.
+
 ---
 
 ## Recording Results
@@ -234,11 +253,13 @@ accumulated-context:
       omnifocus: "completed — N tasks" | "nothing-to-surface" | "failed — [reason]"
       clay: "completed — N reminders, M birthdays" | "nothing-to-surface" | "failed — [reason]"
       jarvis-inbox: "completed — N messages" | "nothing-to-surface" | "failed — [reason]"
+      ynab: "completed — N payees" | "nothing-to-surface" | "failed — [reason]"
     files-created:
       - "data/email-unified.json"
       - "data/omnifocus-unified.json"
       - "data/clay-reminders-unified.json"
       - "data/jarvis-inbox-unified.json"
+      - "data/ynab-unified.json"
     total_data_on_disk_kb: N
 ```
 
@@ -255,7 +276,8 @@ Fire all 4 pulls simultaneously:
   ├─ Pull A: Email (M365 API call)
   ├─ Pull B: OmniFocus
   ├─ Pull C: Clay reminders
-  └─ Pull D: Jarvis inbox
+  ├─ Pull D: Jarvis inbox
+  └─ Pull E: YNAB spend
   
 Wait for all to complete
   ↓
@@ -281,7 +303,7 @@ Silence is not an option. Every pull must report status.
 
 - All 4 pulls fire simultaneously (not sequentially)
 - All 4 pulls report status (no silent failures)
-- Files written to disk: 4 JSON files in `data/` directory
+- Files written to disk: 5 JSON files in `data/` directory
 - Total data on disk: < 500 KB combined
 - No raw data stored in accumulated-context (only file paths and summaries)
 - Estimated context savings: 80-90% vs. storing raw data in context
