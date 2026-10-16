@@ -260,7 +260,7 @@
       },
       {
         "reply_ts": "user-correction-2",
-        "instruction": "Add links to underlying research on why we're bad at predicting happiness \u2014 not books, actual studies",
+        "instruction": "Add links to underlying research on why we're bad at predicting happiness — not books, actual studies",
         "applied_at": "2026-09-04T19:54:56Z",
         "summary": "Linked 'we are remarkably bad at predicting what will make us happy' to Wilson & Gilbert 2005 (affective forecasting, Sage Journals); linked 'we picked the wrong passion' to O'Keefe, Dweck & Walton 2018 (implicit theories of interest, Psychological Science)"
       }
@@ -405,7 +405,7 @@
     "ghost_post_id": "6aaae9da57f821028a9e9542",
     "slack_thread_ts": "1789585948.083979",
     "slack_channel": "C0B160MA3EK",
-    "title": "You\u2019re Modeling Contentment or You\u2019re Modeling Desire",
+    "title": "You’re Modeling Contentment or You’re Modeling Desire",
     "source_url": "https://x.com/martinvars/status/2095842517191106683",
     "created_at": "2026-09-16T19:11:22Z",
     "status": "pending",
@@ -425,9 +425,9 @@
     "editorial_edits": [
       {
         "reply_ts": "1789909249.969879",
-        "instruction": "Image is poor representation \u2014 mountainside has nothing to do with AI agents. Pick a better image.",
+        "instruction": "Image is poor representation — mountainside has nothing to do with AI agents. Pick a better image.",
         "applied_at": "2026-09-20T19:10:09Z",
-        "summary": "Swapped to developer at multiple monitors in dark office: photo-1754039985001-ccafee437736 (Jakub \u017berdzicki, landscape 2000x1168, free Unsplash license). Matches agent-monitoring anxiety theme directly."
+        "summary": "Swapped to developer at multiple monitors in dark office: photo-1754039985001-ccafee437736 (Jakub Żerdzicki, landscape 2000x1168, free Unsplash license). Matches agent-monitoring anxiety theme directly."
       },
       {
         "reply_ts": "1789831257.011929",
@@ -594,7 +594,15 @@
     "created_at": "2026-10-15T22:00:00Z",
     "status": "pending",
     "source_type": "digest",
-    "content_type": "post"
+    "content_type": "post",
+    "editorial_edits": [
+      {
+        "reply_ts": "1792095284.549669",
+        "instruction": "Change image to adult children not little children",
+        "applied_at": "2026-10-16T11:19:00Z",
+        "summary": "Swapped to Anneliese Phillips Yosemite photo of two adults sitting together in grass field (photo-1445575722865, free Unsplash license, landscape 2000x1338). Uploaded to Ghost CDN as love-with-your-presence-adult.jpg."
+      }
+    ]
   },
   {
     "ghost_post_id": "6ad13300cca8120283da16ad",
@@ -627,6 +635,14 @@
     "created_at": "2026-10-15T22:00:00Z",
     "status": "pending",
     "source_type": "digest",
-    "content_type": "post"
+    "content_type": "post",
+    "editorial_edits": [
+      {
+        "reply_ts": "1792095256.030579",
+        "instruction": "Add the Stanford study link inline to the post",
+        "applied_at": "2026-10-16T11:19:00Z",
+        "summary": "Added lexical link node on \"A Stanford study published this year\" pointing to Stanford Medicine SleepFM announcement (med.stanford.edu/news/all-news/2026/01/ai-sleep-disease.html)"
+      }
+    ]
   }
 ]

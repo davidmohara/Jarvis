@@ -1,19 +1,19 @@
 ---
 status: complete
-started-at: "2026-10-15T22:00:00Z"
-completed-at: "2026-10-15T22:05:00Z"
+started-at: "2026-10-16T11:14:31Z"
+completed-at: "2026-10-16T11:19:30Z"
 outputs:
-  messages_scanned: 4
+  messages_scanned: 8
   new_urls: 0
-  new_digests: 4
-  posts_drafted: 4
+  new_digests: 0
+  posts_drafted: 0
   improving_blog_drafts: 0
-  pending_threads_checked: 0
-  editorial_feedback_found: 0
-  editorial_edits_applied: 0
-  gate_1_result: "PASS — ok: true, 4 digest bot messages (Oct 15) from second channel read"
-  gate_2_result: "PASS — all 4 posts: 300-500 words, 4-arc, no em-dashes, no bullets, tags from locked list, landscape images verified, reference links embedded as lexical link nodes"
-  outcome: "4 Ghost drafts created: Love With Your Presence (6ad132fecca8120283da16a5), The Hardest Leadership Transition I've Made (6ad13300cca8120283da16ad), Genetics Are Not Your Destiny (6ad13300cca8120283da16b5), Your Business Has a Dashboard. You Don't. (6ad13302cca8120283da16bd). 4 Slack review notifications posted to #content."
+  pending_threads_checked: 2
+  editorial_feedback_found: 2
+  editorial_edits_applied: 2
+  gate_1_result: "PASS — ok: true, 8 bot messages (48h retry; 24h returned 0 with warning) from C0B160MA3EK. All 8 are bot review notifications without digest signal — SKIP."
+  gate_2_result: "n/a — no new drafts"
+  outcome: "No new content. 2 editorial edits applied: (1) 'Your Business Has a Dashboard. You Don't.' — Stanford SleepFM link added inline (med.stanford.edu); (2) 'Love With Your Presence' — image swapped to adult pair in Yosemite (photo-1445575722865, landscape confirmed). Both Slack thread replies posted."
 model: sonnet
 ---
 

@@ -1,28 +1,26 @@
 ---
 workflow: content-discovery
 agent: harper
-status: complete
-session-started: "2026-10-14T18:00:00Z"
-session-id: "harper-20261014-002"
-started-at: "2026-10-14T18:00:00Z"
-completed-at: "2026-10-14T18:05:00Z"
-current-step: null
-original-request: "Scheduled content-discovery run (evening 2026-10-14)"
+status: in-progress
+session-started: "2026-10-16T11:14:31Z"
+session-id: "harper-20261016-001"
+started-at: "2026-10-16T11:14:31Z"
+completed-at: null
+current-step: step-02
+original-request: "Scheduled content-discovery run (2026-10-16 morning)"
 accumulated-context:
-  messages_scanned: 3
-  new_urls: 0
-  new_digests: 0
-  posts_drafted: 0
-  gate_1_result: "PASS — ok: true, 3 messages in C0B160MA3EK (48h window; 24h returned 0 with warning, auto-retried)"
-  gate_2_result: "n/a — no new drafts"
-  pending_threads_checked: 2
-  editorial_feedback_found: 0
-  editorial_edits_applied: 0
-  notes: |
-    Evening run 2026-10-14 at 18:00. 24h window returned 0 messages with auto-retry warning.
-    48h window returned 3 messages: all bot review notifications from Oct 12 — no digest signal, all SKIP.
-    Step 1b: 2 threads checked (Dallas Browser ts 1791833428, Agent Email ts 1791833439).
-    Human replies from Oct 12 at 21:26 UTC already recorded in editorial_edits. No replies in last 24h.
-    No new Ghost drafts. No Slack notifications sent. Clean no-op.
+  step-01:
+    completed-at: "2026-10-16T11:19:30Z"
+    messages_scanned: 8
+    new_urls: 0
+    new_digests: 0
+    posts_drafted: 0
+    improving_blog_drafts: 0
+    pending_threads_checked: 2
+    editorial_feedback_found: 2
+    editorial_edits_applied: 2
+    gate_1_result: "PASS — ok: true, 8 bot messages (48h retry; 24h returned 0 with warning) from C0B160MA3EK"
+    gate_2_result: "n/a — no new drafts"
+    outcome: "No new content. 2 editorial edits applied: (1) 'Your Business Has a Dashboard. You Don't.' — Stanford SleepFM link added inline; (2) 'Love With Your Presence' — image swapped to adult pair in Yosemite (photo-1445575722865). Both Slack thread replies posted."
 model: sonnet
 ---
