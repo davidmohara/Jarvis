@@ -24,7 +24,7 @@ related_people:
   - robyn-fuentes
 salience:
   score: 7
-  last-promoted-check: 2026-10-14
+  last-promoted-check: 2026-10-16
   promoted: true
 ---
 

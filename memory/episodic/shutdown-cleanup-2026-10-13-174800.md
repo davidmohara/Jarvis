@@ -1,12 +1,23 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "rigby-2026-10-13-174800"
 agent-source: rigby
 created: 2026-10-13T17:48:00
 expires: 2026-10-15T17:48:00
-status: active
+status: archived
 context: "Shutdown cleanup — session wrap and final commit — 2026-10-13"
+date: 2026-10-13
+source_file: memory/working/shutdown-cleanup-2026-10-13-174800.md
+tags:
+  - session-wrap
+  - rigby
+  - git-issues
+  - session-index
+related_people:
+salience:
+  score: 2
+  last-promoted-check: 2026-10-16
 ---
 
 # Shutdown cleanup — 2026-10-13
