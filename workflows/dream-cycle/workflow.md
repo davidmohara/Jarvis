@@ -81,7 +81,7 @@ Read and follow `reference/state-check-protocol.md` before any execution. Workfl
 | 03 | `steps/step-03-semantic-promotion.md` | Promote high-salience episodic clusters into semantic memory |
 | 03b | `steps/step-03b-guardrail-checkpoint.md` | Automated guardrail checkpoint reviewing the compression candidate set before step-04's irreversible deletion |
 | 04 | `steps/step-04-episodic-compression.md` | Compress old low-salience episodic entries into quarterly digests |
-| 05 | `steps/step-05-logging.md` | Write dream.log entry, conditionally surface summary, commit and push |
+| 05 | `steps/step-05-logging.md` | Write dream.log entry, conditionally surface summary, commit and push, open a PR for any non-default branch |
 | 06 | `steps/step-06-adversarial-verify.md` | Terminal adversarial verification - Ralph cross-checks the cycle's memory-conservation claims (archived/promoted/compressed) against the actual memory files and dream.log |
 
 Read fully and follow: `steps/step-01-working-memory-cleanup.md` to begin.
