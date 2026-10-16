@@ -16,7 +16,7 @@
     "mechanical": {
       "completed": null,
       "all_steps_finished": null,
-      "tool_failures": 1,
+      "tool_failures": 3,
       "error_ids": [],
       "tool_failure_log": [
         {
@@ -24,6 +24,18 @@
           "error": "Exit code 4\nrefused: changeset is not Class A; the session-commit fast lane only carries routine churn.\nGated (Class B, needs the standard path with --ack-gated):\n  systems/eval-harness/skill-runs/peekaboo-latest.json\n  systems/eval-harness/skill-runs/plaud-discover-ledger-latest.json\n  workflows/boot-verification/state.yaml\n  workflows/boot/state.yaml\n  workflows/boot/steps/step-01.2-unified-data-pull.md\n  workflows/boot/steps/step-01.5-unified-calendar-pull.md\n  workflows/boot/steps/step-02-gather-data.md\n  workflows/boot/steps/step-02.5-measure-phase2.md\n  workflows/boot/steps/step-03-verify-phase2.md\n  workflows/boot/steps/step-04-gather-meeting-context.md\n  workflows/boot/steps/step-05-synthesize-briefing.md\n  workflows/boot/steps/step-06-scan-workflows.md\n  workflows/boot/steps/step-06.5-guardrail-checkpoint.md\n  workflows/boot/steps/step-07-verify-completion.md\n  workflows/boot/steps/step-08-knox-completion-check.md\n  workflows/morning-briefing/state.yaml\n  workflows/morning-briefing/steps/step-01-gather-calendar.md\n  workflows/morning-briefing/steps/step-02-gather-tasks.md\n  workflows/morning-briefing/steps/step-03-gather-context.md\n  workflows/plaud-ingest/state.yaml\nUnclassified (not fast-lane content; route via standard add/commit):\n  Talks/DRC Talent Labs - HR AI Research Brief 2026-10-14.md\nCommit Class B separately from Class A churn so the system-change audit trail stays isolated.",
           "duration_ms": 320,
           "timestamp": "2026-10-15T16:08:50.464000"
+        },
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\nrefused: commit message fails Conventional Commits lint.\nRequired: <type>(<scope>)?: lowercase imperative description, no trailing period\nTypes: feat|fix|chore|docs|refactor|perf|test|revert\nGot: chore(memory): dream-cycle 2026-10-16 \u2014 archived 1, promoted 0, compressed 0\n\nCo-Authored-By: Claude",
+          "duration_ms": 94,
+          "timestamp": "2026-10-16T08:03:21.948967"
+        },
+        {
+          "tool": "Bash",
+          "error": "Exit code 4\nrefused: gated directories changed and --ack-gated is not set.\nPer the pre-flight gate: gated-dir work must be Rigby-built this session.\nChanged gated files:\n  workflows/dream-cycle/state.yaml\nRe-run with --ack-gated to proceed consciously.",
+          "duration_ms": 66,
+          "timestamp": "2026-10-16T08:03:24.924204"
         }
       ]
     },
