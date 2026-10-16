@@ -240,6 +240,38 @@ def resolve_workflow_name(state_data: dict, rel_path: str | None = None) -> str 
     return None
 
 
+# Explicit, machine-readable "the workflow ran and there was deliberately
+# nothing to do" dispositions on state.yaml. A record with zero steps is only
+# a legitimate no-op when one of these is present; with none present it is an
+# unverifiable phantom and stays quarantined (see create_eval_record_from_state).
+# This is the line between "a record opened but the workflow never ran" and
+# "the workflow ran and correctly found nothing to do".
+NO_OP_OUTCOME_VALUES = frozenset({
+    "no-op", "no_op", "noop",
+    "no-new-recordings", "no-recordings", "no-new-records",
+    "nothing-to-do", "nothing_to_do",
+    "no-work", "no-changes", "no-change", "no-updates", "no-update",
+    "empty", "none",
+})
+
+
+def is_documented_no_op(state_data: dict) -> bool:
+    """True when state.yaml carries an explicit no-op disposition: a truthy
+    `no_op`/`no-op` field, or an `outcome` whose value is a documented no-op
+    outcome (e.g. plaud-ingest's `outcome: no-new-recordings`). This is what
+    distinguishes a deliberate no-op (keep the record) from a phantom with no
+    execution behind it (quarantine) — a phantom carries no such disposition."""
+    if not isinstance(state_data, dict):
+        return False
+    for key in ("no_op", "no-op"):
+        if state_data.get(key) is True:
+            return True
+    outcome = state_data.get("outcome")
+    if isinstance(outcome, str) and outcome.strip().lower() in NO_OP_OUTCOME_VALUES:
+        return True
+    return False
+
+
 def find_active_eval_record(session_id: str) -> Path | None:
     """Find the most recent in-progress eval record for this session."""
     try:
@@ -666,16 +698,43 @@ def create_eval_record_from_state(state_data: dict, session_id: str, rel_path: s
         # but it remains on disk for diagnosis. The authoritative record for
         # a properly instrumented workflow arrives via close-eval-record.py
         # or eval-turn-stop.py into the main runs dir as before.
+        #
+        # EXCEPTION — a deliberate no-op (2026-10-16): a zero-step record is
+        # NOT always a phantom. A workflow like plaud-ingest legitimately runs
+        # every day and terminates at step-01 because there is nothing to do
+        # (`new-recordings: []`, `outcome: no-new-recordings`). That run DID
+        # execute — it has a real [session-started, now] window and a
+        # documented disposition on state.yaml — it just produced no steps.
+        # Quarantining it to _phantoms/ made every such run invisible to the
+        # audit trail (no plaud-ingest record for days). When state.yaml
+        # carries an explicit no-op disposition it is kept in the main runs
+        # dir, given an honest `no-op` status (never `success`, so no
+        # success-rate/grade metric counts it as a substantive run), and
+        # marked with `no_op: true` + a `no-op` tag so any consumer can
+        # exclude it. A zero-step record with NO such disposition is still a
+        # phantom and is quarantined exactly as before.
         if not record.get("steps"):
-            record["tags"] = list(set(record.get("tags", [])) | {"phantom-candidate"})
-            EVAL_PHANTOMS_DIR.mkdir(parents=True, exist_ok=True)
-            path = EVAL_PHANTOMS_DIR / f"{eval_id}.json"
-            log_error(
-                f"[GUARD] Quarantined cowork-hook workflow eval for '{workflow_name}' "
-                f"session='{session_id}' to _phantoms/{eval_id}.json — steps: [] means this "
-                f"path cannot produce a verifiable record. If this workflow SHOULD have an "
-                f"authoritative record in runs/, have its final step call close-eval-record.py."
-            )
+            if is_documented_no_op(state_data):
+                record["no_op"] = True
+                record["status"] = "no-op"
+                record["tags"] = list(set(record.get("tags", [])) | {"no-op"})
+                path = EVAL_RUNS_DIR / f"{eval_id}.json"
+                log_error(
+                    f"[NO-OP] Recorded deliberate no-op run for '{workflow_name}' "
+                    f"session='{session_id}' at {path.name} "
+                    f"(outcome={state_data.get('outcome')!r}) — kept in runs/ with "
+                    f"no_op=true and status=no-op; excluded from success-rate metrics."
+                )
+            else:
+                record["tags"] = list(set(record.get("tags", [])) | {"phantom-candidate"})
+                EVAL_PHANTOMS_DIR.mkdir(parents=True, exist_ok=True)
+                path = EVAL_PHANTOMS_DIR / f"{eval_id}.json"
+                log_error(
+                    f"[GUARD] Quarantined cowork-hook workflow eval for '{workflow_name}' "
+                    f"session='{session_id}' to _phantoms/{eval_id}.json — steps: [] means this "
+                    f"path cannot produce a verifiable record. If this workflow SHOULD have an "
+                    f"authoritative record in runs/, have its final step call close-eval-record.py."
+                )
         else:
             path = EVAL_RUNS_DIR / f"{eval_id}.json"
         atomic_write_json(path, record)

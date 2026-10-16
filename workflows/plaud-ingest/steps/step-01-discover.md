@@ -193,8 +193,26 @@ excluded) or `"pass-with-exclusions"` (one or more excluded for missing `file_id
 | Plaud API unreachable (token expired or missing) | Run the skill. The skill runs `fetch_plaud.py` which handles Chrome login flow and token acquisition. A missing token file is NOT a pre-execution blocker — it is handled here. Only abort if the Chrome login flow itself fails after attempting. |
 | Gate 1 hard fail (Chrome login attempted and failed) | Set `state.yaml status: blocked`. Do not proceed to step-02. Report the auth failure to the controller per Gate 1 above. |
 | Vault unreadable | Proceed without dedup — note in report. Risk of duplicate notes is acceptable vs. missing new recordings. |
-| No new recordings found | Set `new-recordings: []`, report "No new Plaud recordings", mark workflow complete. Do not proceed to step-02. |
+| No new recordings found | Set `accumulated-context.new-recordings: []`, write the top-level `outcome: no-new-recordings` (the documented no-op disposition — see below), report "No new Plaud recordings", set `state.yaml status: complete`, mark workflow complete. Do not proceed to step-02. |
 | Gate 2 excludes a recording for missing `file_id` | Log it, continue with the remaining valid recordings. Do not halt the step for one bad entry. |
+
+---
+
+## NO-OP EXIT (no new recordings)
+
+When discovery finds zero new recordings, this run is a **deliberate no-op**, not a
+failure and not a phantom. Terminate the workflow honestly and leave the audit trail
+intact:
+
+1. Set `accumulated-context.new-recordings: []`.
+2. Write the top-level `outcome: no-new-recordings` on `state.yaml`. This is the
+   machine-readable no-op disposition the eval harness keys on: with it present, the
+   run's eval record is kept in `runs/` and marked `status: no-op` / `no_op: true`
+   (excluded from success-rate metrics) instead of being quarantined as a phantom.
+   Omitting it makes a legitimate no-op indistinguishable from a workflow that never ran.
+3. Set `state.yaml status: complete`, `current-step: step-01`, and stamp `completed-at`.
+4. Report: `[Knox/Discover]: No new Plaud recordings — no-op run (outcome: no-new-recordings).`
+5. Do **not** proceed to step-02. Do **not** delete or leave the run unrecorded.
 
 ---
 

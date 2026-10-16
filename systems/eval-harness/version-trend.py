@@ -46,6 +46,11 @@ def load_records(workflow_name: str) -> list[dict]:
         # runs of this workflow — exclude them from version trend math.
         if "phantom-candidate" in data.get("tags", []):
             continue
+        # Deliberate no-op runs (status `no-op`, `no_op: true`) are legitimate
+        # records but not substantive executions — exclude them from pass_rate
+        # and every other trend metric so they cannot inflate the rate.
+        if data.get("no_op") or "no-op" in data.get("tags", []):
+            continue
         if data.get("name") == workflow_name:
             data["_file"] = f.name
             records.append(data)

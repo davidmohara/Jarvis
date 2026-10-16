@@ -25,7 +25,7 @@ Example: `eval-20260523T133045-a1b2c3.json`
   "started": "2026-05-23T13:30:45Z",
   "completed": "2026-05-23T13:33:07Z",
   "duration_seconds": 142,
-  "status": "success | failure | partial | aborted",
+  "status": "success | failure | partial | aborted | no-op",
   "steps": [
     {
       "name": "step-01-gather-calendar",
@@ -132,7 +132,8 @@ Example: `eval-20260523T133045-a1b2c3.json`
 | `started` | ISO8601 | Yes | When the execution started |
 | `completed` | ISO8601 | Yes | When the execution completed |
 | `duration_seconds` | number | Yes | Total execution time |
-| `status` | enum | Yes | "success", "failure", "partial", or "aborted" |
+| `status` | enum | Yes | "success", "failure", "partial", "aborted", or "no-op". `no-op` marks a deliberate no-op run — the workflow executed and correctly determined there was nothing to do (e.g. plaud-ingest's `outcome: no-new-recordings` daily pass). It is a legitimate, audit-visible record, never a substantive success: success-rate/grade metrics must exclude it (it is not `success`, and it also carries `no_op: true` + a `no-op` tag for explicit filtering). See `no_op` below. |
+| `no_op` | boolean | No | Present and `true` only on a deliberate no-op run (see `status: "no-op"`). Set by `post-tool-use.py` when a zero-step cowork-path record's state.yaml carries an explicit no-op disposition (`outcome: no-new-recordings`, `no_op: true`, …). Lets any downstream metric/consumer exclude the run without string-matching on `status`. A zero-step record with NO such disposition is still a phantom and is quarantined to `runs/_phantoms/`. |
 
 ### Steps Array
 

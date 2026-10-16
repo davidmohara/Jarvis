@@ -37,6 +37,11 @@ Read eval records from `systems/eval-harness/runs/`. Apply the filter from `$ARG
 
 Compute the following metrics across the selected records:
 
+**Exclude first:** drop any record with `no_op: true`, a `no-op` tag, or `status: no-op`
+(deliberate no-op runs — the workflow executed and found nothing to do), and any record
+with a `phantom-candidate` tag. These are not substantive runs; including them dilutes
+every rate below.
+
 **Overall Metrics:**
 - Total eval records analyzed
 - Success rate (status: success / total)

@@ -61,6 +61,17 @@ def load_eval_records(eval_dir, recent, period, workflow, skill, agent):
             if "phantom-candidate" in data.get("tags", []):
                 continue
 
+            # Exclude deliberate no-op runs (a workflow that ran and found
+            # nothing to do, e.g. plaud-ingest's daily `no-new-recordings`
+            # pass). These are legitimate, audit-visible records but they are
+            # not substantive executions — counting them as `success` would
+            # inflate the success rate, and counting them at all would dilute
+            # every rate. They carry status `no-op` and `no_op: true` so any
+            # consumer can exclude them; this is the dashboard doing exactly
+            # that.
+            if data.get("no_op") or "no-op" in data.get("tags", []):
+                continue
+
             # Apply filters
             if workflow and data.get("name") != workflow:
                 continue
