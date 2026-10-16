@@ -1,0 +1,85 @@
+{
+  "id": "eval-20261016T131245-N35NBQ",
+  "type": "skill",
+  "name": "galen-morning-snapshot",
+  "agent": "galen",
+  "session_id": "3a57609e-8cb8-4028-91b3-b4ea5e0790fe",
+  "trigger": "manual",
+  "started": "2026-10-16T13:12:24Z",
+  "completed": "2026-10-16T13:12:45.657721Z",
+  "duration_seconds": 21.7,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": true,
+      "outputs_non_empty": null,
+      "assertions_checked": 3,
+      "assertions_passed": 3,
+      "assertion_results": [
+        {
+          "assertion": "galen-morning-snapshot-signal-written",
+          "description": "galen-morning-snapshot skill-run signal file was written",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "galen-morning-snapshot-signal-status",
+          "description": "galen-morning-snapshot skill-run did not end in failure",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "galen-ms-g1-data-store",
+          "description": "Galen G1 (data-integrity honesty): the longitudinal health metrics store exists and is the file Galen reads/writes. Honest limit: whether a given run correctly declared a WHOOP source unavailable/stale and refused to interpolate is a semantic judgment (it depends on the live token state at run time) and is covered by the G4 Tier 3 grade \u2014 no mechanical check can tell a declared-unavailable source from a silently-fabricated value.",
+          "category": "content",
+          "passed": true
+        },
+        {
+          "assertion": "galen-ms-g4-grade",
+          "description": "Galen G4 (Tier 3 grade >= B): morning-snapshot quality, including G1 data-integrity honesty, is judged by Tier 3 grading. Honest alternative \u2014 grade presence at B or better; defers (skipped) until graded.",
+          "category": "quality",
+          "passed": null,
+          "skipped": true,
+          "reason": "not graded yet \u2014 this criterion is only judgeable by Tier 3 grading; deferred (not failed) until a grade exists"
+        }
+      ],
+      "category_breakdown": {
+        "structure": {
+          "passed": 2,
+          "checked": 2
+        },
+        "content": {
+          "passed": 1,
+          "checked": 1
+        },
+        "quality": {
+          "passed": 0,
+          "checked": 0
+        }
+      }
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    }
+  },
+  "version_hash": "02b19b1e91edc05c",
+  "prior_baseline_id": null,
+  "tags": [
+    "cowork-hook",
+    "skill"
+  ]
+}

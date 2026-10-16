@@ -1,0 +1,90 @@
+{
+  "id": "eval-20261016T131004-QI7D3H",
+  "type": "workflow",
+  "name": "talking-points",
+  "agent": "harper",
+  "owning_agent": "harper",
+  "session_id": "3a57609e-8cb8-4028-91b3-b4ea5e0790fe",
+  "trigger": "manual",
+  "started": "2026-10-16T13:09:04.388122Z",
+  "completed": "2026-10-16T13:10:04.388122Z",
+  "duration_seconds": 60.0,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": false,
+      "outputs_non_empty": false,
+      "assertions_checked": 5,
+      "assertions_passed": 1,
+      "assertion_results": [
+        {
+          "assertion": "tp-001-state-complete",
+          "description": "Talking points workflow state.yaml shows status: complete",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "talking--001-exists",
+          "description": "talking-points output file was written",
+          "category": "structure",
+          "passed": false
+        },
+        {
+          "assertion": "talking--002-substantive",
+          "description": "talking-points output is substantive (>200 bytes)",
+          "category": "structure",
+          "passed": false
+        },
+        {
+          "assertion": "talking--003-content",
+          "description": "talking-points output contains expected content",
+          "category": "structure",
+          "passed": false
+        },
+        {
+          "assertion": "tp-002-adversarial-verification-ran",
+          "description": "Stage 5 Phase 4A: step-04 spawns Ralph (talking-points-verification workflow) and records an 'adversarial-verification' guardrail result on this run. Read from the eval record's own guardrails array. A separate agent traces each delivered point back to a real source so no point is unsourced.",
+          "category": "quality",
+          "passed": false
+        }
+      ],
+      "category_breakdown": {
+        "structure": {
+          "passed": 1,
+          "checked": 4
+        },
+        "content": {
+          "passed": 0,
+          "checked": 0
+        },
+        "quality": {
+          "passed": 0,
+          "checked": 1
+        }
+      }
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    }
+  },
+  "version_hash": "edcbd93005654a79",
+  "prior_baseline_id": null,
+  "tags": [
+    "cowork-hook",
+    "phantom-candidate"
+  ]
+}
