@@ -261,6 +261,37 @@ Action: Add frontmatter block with today's date and a 90-day review-by.
 <!-- system:start -->
 ---
 
+#### Rule 11: Scheduled Cadence Coverage
+
+Every workflow that documents a recurring cadence must have a matching entry in `config/scheduled-tasks.json`. A documented cadence with no scheduled task is a silent failure: the workflow never runs and nothing flags it. This was the root cause of the `card-review` / `card-walkthrough` defect found 2026-10-16 — both documented a monthly cadence but were never registered, so they never ran.
+
+**Check:**
+1. For each `workflows/*/workflow.md`, extract the documented cadence from any of:
+   - the frontmatter `schedule:` field
+   - a body `**Cadence:**` line
+   - a `**Trigger:**` line that mentions `Scheduled` plus a recurring interval (daily, weekly, monthly, quarterly, nightly, "1st of", "last day of", "every Monday", etc.)
+   Ignore on-demand-only workflows and sub-workflows whose trigger is "invoked by" another workflow (those are covered by their parent).
+2. Read `config/scheduled-tasks.json` and build the set of covered workflows. Match a task by its `workflow` field, OR by resolving the task's `skill` to a workflow (read `.claude/skills/{skill}/SKILL.md` and look for `workflows/{name}/workflow.md` — e.g. the `chief-morning` skill executes `workflows/morning-briefing/workflow.md`).
+3. For each workflow with a documented recurring cadence and no matching task: FLAG.
+
+**Flag — documented cadence with no scheduled task:**
+```
+{workflow} documents cadence "{cadence}" but has no entry in config/scheduled-tasks.json.
+Action: either add a scheduled task (requires Cowork setup by David) or remove the cadence claim from the workflow.
+```
+
+**Finding type:** FLAG (registering a Cowork scheduled task requires David's manual setup — no auto-fix).
+
+**Trust note — the `configured` boolean is NOT a source of truth.** As of 2026-10-16 the flags are stale in both directions: `chief-morning` is `configured: false` yet the morning briefing runs daily, while `rock1-revenue-monthly` and `rock4-pipeline-weekly` are `configured: true` yet show no October output. Never treat a `configured: true` flag as evidence a task is live. Verify against produced artifacts instead (memory/working entries, Obsidian snapshots, dashboards, tracker `last_updated` dates).
+
+A deterministic implementation of this rule lives at `systems/integrity/check-scheduled-cadence.py` — run it for the current gap list; it exits non-zero when a gap exists.
+
+---
+<!-- system:end -->
+
+<!-- system:start -->
+---
+
 ### Step 3 — Apply All Auto-Fixes
 
 Apply every AUTO-FIX finding collected in Step 2, in this order:
