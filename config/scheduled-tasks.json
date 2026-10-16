@@ -178,9 +178,9 @@
       "keep_awake": false,
       "configured": false,
       "agent": "Chase",
-      "description": "Guided monthly walkthrough of each card portal (Amex Blue Cash Preferred, Amex Platinum, Citi AAdvantage Executive, Discover it, Chase Sapphire, Atlas Visa Infinite) to capture current benefit details, credit usage, new card-linked offers, and category status, then sync card-registry.json, benefits-tracker.json, and optimization-guide.json. Runs after the monthly card review when stored data is more than 30 days stale.",
+      "description": "Guided monthly walkthrough of each card portal (Amex Blue Cash Preferred, Amex Platinum, Citi AAdvantage Executive, Discover it, Chase Sapphire, Atlas Visa Infinite) to capture current benefit details, credit usage, new card-linked offers, and category status, then sync card-registry.json, benefits-tracker.json, and optimization-guide.json, and enroll card-linked offers filtered against 12 months of YNAB spend (step-02). Runs after the monthly card review when stored data is more than 30 days stale.",
       "storage": "systems/credit-cards/benefits-tracker.json",
-      "cowork_prompt": "Run the card-walkthrough workflow: read and follow workflows/card-walkthrough/workflow.md in full, starting with steps/step-01-walkthrough.md. Walk each card portal in sequence via Chrome automation, capture credits, balances, offers, and category status, then update systems/credit-cards/card-registry.json, benefits-tracker.json, and optimization-guide.json. David must be present to log into card portals.",
+      "cowork_prompt": "Run the card-walkthrough workflow: read and follow workflows/card-walkthrough/workflow.md in full, starting with steps/step-01-walkthrough.md. Walk each card portal in sequence via Chrome automation, capture credits, balances, offers, and category status, then update systems/credit-cards/card-registry.json, benefits-tracker.json, and optimization-guide.json. Then run steps/step-02-offers.md to enroll card-linked offers filtered against 12 months of YNAB spend. David must be present to log into card portals.",
       "setup_note": "Requires David present for card portal logins (~20 minutes) and Chrome open. Requires setup in Cowork's Scheduled Tasks panel."
     }
   ]

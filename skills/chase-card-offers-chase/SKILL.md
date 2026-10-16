@@ -7,6 +7,8 @@ trigger_keywords: [chase offers, chase card, chase deal]
 trigger_agents: [chase]
 ---
 
+> **Primary path (2026-10-16):** this skill now runs as `steps/step-02-offers.md` inside the `card-walkthrough` workflow, so offers get enrolled in the same session as the monthly data capture. Run it standalone only for an ad-hoc add between walkthroughs.
+
 # Chase Sapphire Offers — Read & Add
 
 **Card:** Chase Sapphire Preferred

@@ -7,6 +7,8 @@ trigger_keywords: [amex offers, american express, amex deals]
 trigger_agents: [chase]
 ---
 
+> **Primary path (2026-10-16):** this skill now runs as `steps/step-02-offers.md` inside the `card-walkthrough` workflow, so offers get enrolled in the same session as the monthly data capture. Run it standalone only for an ad-hoc add between walkthroughs.
+
 # Amex Offers — Read & Add
 
 **Portal:** `https://global.americanexpress.com/offers/eligible`

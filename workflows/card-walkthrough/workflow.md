@@ -55,7 +55,14 @@ Read and follow `reference/state-check-protocol.md` before any execution. Workfl
 
 ## EXECUTION
 
-Read and follow the step file. It walks each card portal in sequence, extracting credits, balances, offers, and category status, then syncing `card-registry.json`, `benefits-tracker.json`, and `optimization-guide.json`.
+Read and follow each step file in order. The step files own the detailed process.
+
+| Step | File | What It Does |
+|------|------|-------------|
+| 1 | `steps/step-01-walkthrough.md` | Walk each card portal in sequence, extracting credits, balances, offers, and category status; sync `card-registry.json`, `benefits-tracker.json`, and `optimization-guide.json` |
+| 2 | `steps/step-02-offers.md` | Enroll card-linked offers per card, filtered against 12 months of YNAB spend; update the tracker |
+
+Run step-02 in the same session as step-01, while the portals are still logged in. Capture and enrollment are one job, not two.
 
 Read fully and follow: `steps/step-01-walkthrough.md` to begin.
 <!-- system:end -->
@@ -67,10 +74,10 @@ Read fully and follow: `steps/step-01-walkthrough.md` to begin.
 
 ### Rule 5: Offer Recommendations Must Be Filtered Against YNAB Spend
 
-**Before recommending or adding any card-linked offer, pull 90 days of YNAB transaction data for that card and filter the offer list to vendors where David has actual spend.** Do not recommend offers for services David doesn't use.
+**Before recommending or adding any card-linked offer, pull 12 months of YNAB transaction data for that card and filter the offer list to vendors where David has actual spend.** Do not recommend offers for services David doesn't use.
 
 **Process:**
-1. Run `systems/credit-cards/scripts/ynab-card-pull.py` for the card being reviewed (requires YNAB_API_TOKEN — if unavailable, ask David before recommending)
+1. Pull the card's YNAB transactions with a 12-month window (the inline `curl` pattern documented in `skills/chase-card-offers-*/SKILL.md`, using `YNAB_API_TOKEN` from `config/.env`; requires YNAB_API_TOKEN — if unavailable, ask David before recommending). NOTE: the previously referenced `systems/credit-cards/scripts/ynab-card-pull.py` does not exist; the offer skills' inline curl is the working method.
 2. Extract the top payees from YNAB output
 3. Cross-reference against available offers — only surface offers where the vendor appears in David's actual spend history
 4. For vendors with no YNAB history, do not recommend unless David explicitly asks
