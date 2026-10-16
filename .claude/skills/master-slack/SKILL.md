@@ -36,14 +36,14 @@ python3 "$(mdfind -name 'post.py' | grep 'systems/slack-bot/post.py' | head -1)"
 ```bash
 python3 - <<'PYEOF'
 import subprocess
-IES = "/Users/davidohara/develop/jarvis"
+IES = subprocess.run(["bash", "-lc", "mdfind -name 'post.py' | grep 'systems/slack-bot/post.py' | head -1 | sed 's|/systems/slack-bot/post.py||'"], capture_output=True, text=True).stdout.strip()
 msg = """your message here"""
 r = subprocess.run(["python3", f"{IES}/systems/slack-bot/post.py", "<channel_id>", msg], capture_output=True, text=True)
 print(r.stdout.strip() or r.stderr.strip())
 PYEOF
 ```
 
-**WARNING — `find ~` HANGS on this machine.** The `find ~ -name 'SYSTEM.md'` path-discovery pattern causes Desktop Commander processes to block indefinitely on David's machine. Never use it. The hardcoded direct path is always correct and always faster.
+**WARNING — `find ~` HANGS on this machine.** The `find ~ -name 'SYSTEM.md'` path-discovery pattern causes Desktop Commander processes to block indefinitely on David's machine. Never use it. The mdfind-derived path in Option 2 is always correct and works from any working directory.
 
 **Option 3: mdfind (macOS interactive shells only)**
 
@@ -72,7 +72,7 @@ Timeout: 15000
 
 Where `$IES_ROOT` is found via:
 ```bash
-IES_ROOT="/Users/davidohara/develop/jarvis"
+IES_ROOT="$(mdfind -name 'post.py' | grep 'systems/slack-bot/post.py' | head -1 | sed 's|/systems/slack-bot/post.py||')"
 ```
 
 ### ⚠️ No-Duplicate Rule — MANDATORY
@@ -87,7 +87,7 @@ Desktop Commander network calls frequently return no initial output even when th
 2. Wait at least 10 seconds before checking output
 3. Read the channel via `read.py` to confirm delivery:
    ```bash
-   IES_ROOT="/Users/davidohara/develop/jarvis"
+   IES_ROOT="$(mdfind -name 'post.py' | grep 'systems/slack-bot/post.py' | head -1 | sed 's|/systems/slack-bot/post.py||')"
    python3 "$IES_ROOT/systems/slack-bot/read.py" channel <channel_id> 0.1
    ```
 4. If the message appears in the response — **done. Do not send again.**
@@ -101,7 +101,7 @@ Desktop Commander network calls frequently return no initial output even when th
 
 ```bash
 # Set IES_ROOT once, then reuse it
-IES_ROOT="/Users/davidohara/develop/jarvis"
+IES_ROOT="$(mdfind -name 'post.py' | grep 'systems/slack-bot/post.py' | head -1 | sed 's|/systems/slack-bot/post.py||')"
 
 # Post morning briefing summary to #jarvis (multi-line — newlines are real)
 python3 "$IES_ROOT/systems/slack-bot/post.py" C0AN2PQNXBR "*Morning Briefing — March 24, 2026*
@@ -160,7 +160,7 @@ For reading channel history or thread replies, use the companion `systems/slack-
 
 ```bash
 # Find IES_ROOT once
-IES_ROOT="/Users/davidohara/develop/jarvis"
+IES_ROOT="$(mdfind -name 'post.py' | grep 'systems/slack-bot/post.py' | head -1 | sed 's|/systems/slack-bot/post.py||')"
 
 # Read last 24 hours of a channel (returns top-level messages only)
 python3 "$IES_ROOT/systems/slack-bot/read.py" channel <channel_id> <hours_ago>

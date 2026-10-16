@@ -64,16 +64,15 @@ paths used by the bot script.
 
 1. **Load Desktop Commander** if its tools are deferred:
    `ToolSearch` with `select:mcp__Desktop_Commander__start_process,mcp__Desktop_Commander__read_process_output`.
-2. **Use paths relative to the jarvis repo.** Desktop Commander does not start in the repo: its
-   working directory is `/`. Every command must therefore begin with `cd ~/develop/jarvis &&`.
-   After that, use only relative paths such as `systems/slack-bot/post.py`. Do not use the
-   OneDrive IES path from `master-slack` Option 2. Before sending, confirm the script is present:
-   `cd ~/develop/jarvis && test -f systems/slack-bot/post.py && echo ok`. If that check fails,
+2. **Use repo-relative paths.** The workflow runs with the IES repo root as its working
+   directory, so every command uses paths relative to the repo root, such as
+   `systems/slack-bot/post.py`. Do not hardcode an absolute repo path. Before sending, confirm
+   the script is present: `test -f systems/slack-bot/post.py && echo ok`. If that check fails,
    go to the fallback in step 6. Do not guess another path.
 3. **Send through Desktop Commander** (`mcp__Desktop_Commander__start_process`, `timeout_ms: 15000`),
    using the heredoc pattern from `master-slack` Option 2 with a relative path:
    ```bash
-   cd ~/develop/jarvis && python3 - <<'PYEOF'
+   python3 - <<'PYEOF'
    import subprocess
    msg = """<message body with real newlines, no literal \n>"""
    r = subprocess.run(["python3", "systems/slack-bot/post.py", "C0B15SW9FB5", msg], capture_output=True, text=True)

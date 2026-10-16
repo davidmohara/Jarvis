@@ -6,11 +6,13 @@
 
 **Repo confirmed:** `https://github.com/davidmohara/Jarvis.git` (verified via `git remote -v` in the sandbox).
 
+> **Path convention:** `$IES_ROOT` below means the IES repo root on your Mac (the folder that contains `SYSTEM.md`). Set it once in your terminal with `export IES_ROOT=/path/to/IES`, or substitute your actual path in each command.
+
 ---
 
 ## How the credential flow works
 
-The sandbox mounts `~/develop/jarvis` at `/sessions/<session-id>/mnt/jarvis/`. The session ID in that path rotates whenever Cowork rebuilds the sandbox — confirmed behavior. This means any credential.helper path hardcoding the session ID breaks on rotation.
+The sandbox mounts the IES repo root (`$IES_ROOT` on your Mac) at `/sessions/<session-id>/mnt/IES/`. The session ID in that path rotates whenever Cowork rebuilds the sandbox — confirmed behavior. This means any credential.helper path hardcoding the session ID breaks on rotation.
 
 **Rotation-proof design:** A shell script committed at `systems/sandbox-credentials/git-credential-helper.sh` resolves its own directory at runtime via `$(dirname "$0")`, then reads `.git-credentials` from that same directory. Git is configured with:
 
@@ -61,25 +63,25 @@ Run these commands in your Mac terminal (not in the sandbox):
 
 ```bash
 # Create the credentials file (gitignored, 600 permissions)
-touch ~/develop/jarvis/systems/sandbox-credentials/.git-credentials
-chmod 600 ~/develop/jarvis/systems/sandbox-credentials/.git-credentials
+touch $IES_ROOT/systems/sandbox-credentials/.git-credentials
+chmod 600 $IES_ROOT/systems/sandbox-credentials/.git-credentials
 
 # Write the token — replace <token from 1Password> with the actual value
 echo "https://davidmohara:<token from 1Password>@github.com" \
-  > ~/develop/jarvis/systems/sandbox-credentials/.git-credentials
+  > $IES_ROOT/systems/sandbox-credentials/.git-credentials
 ```
 
 Verify it's gitignored (the `.gitignore` rule should already be present — add it if not):
 
 ```bash
-grep "sandbox-credentials/.git-credentials" ~/develop/jarvis/.gitignore \
-  || echo "systems/sandbox-credentials/.git-credentials" >> ~/develop/jarvis/.gitignore
+grep "sandbox-credentials/.git-credentials" $IES_ROOT/.gitignore \
+  || echo "systems/sandbox-credentials/.git-credentials" >> $IES_ROOT/.gitignore
 ```
 
 Verify the file is excluded from tracking:
 
 ```bash
-git -C ~/develop/jarvis status systems/sandbox-credentials/.git-credentials
+git -C $IES_ROOT status systems/sandbox-credentials/.git-credentials
 # Expected: nothing (untracked but ignored)
 ```
 
@@ -90,14 +92,14 @@ git -C ~/develop/jarvis status systems/sandbox-credentials/.git-credentials
 This step was performed during the credential flow design session. Verify it's still in place:
 
 ```bash
-git -C ~/develop/jarvis config --local credential.helper
+git -C $IES_ROOT config --local credential.helper
 # Expected: !$(git rev-parse --show-toplevel)/systems/sandbox-credentials/git-credential-helper.sh
 ```
 
 If it's missing (e.g., after a git config reset), restore it:
 
 ```bash
-git -C ~/develop/jarvis config --local credential.helper \
+git -C $IES_ROOT config --local credential.helper \
   '!$(git rev-parse --show-toplevel)/systems/sandbox-credentials/git-credential-helper.sh'
 ```
 
@@ -110,14 +112,14 @@ This command can be run from either the Mac terminal or the sandbox — both wri
 The script at `systems/sandbox-credentials/git-credential-helper.sh` must be executable. Check it:
 
 ```bash
-ls -la ~/develop/jarvis/systems/sandbox-credentials/git-credential-helper.sh
+ls -la $IES_ROOT/systems/sandbox-credentials/git-credential-helper.sh
 # Expected: -rwx------ (or similar with x bit set)
 ```
 
 If not executable:
 
 ```bash
-chmod +x ~/develop/jarvis/systems/sandbox-credentials/git-credential-helper.sh
+chmod +x $IES_ROOT/systems/sandbox-credentials/git-credential-helper.sh
 ```
 
 ---
@@ -128,18 +130,18 @@ From inside the sandbox (via workspace bash tool or scheduled task):
 
 ```bash
 # Verify git resolves credentials correctly
-echo -e "protocol=https\nhost=github.com" | git -C /sessions/*/mnt/jarvis credential fill
+echo -e "protocol=https\nhost=github.com" | git -C /sessions/*/mnt/IES credential fill
 # Expected: username=davidmohara / password=<your token>
 
 # Dry-run push
-git -C /sessions/*/mnt/jarvis push --dry-run origin main
+git -C /sessions/*/mnt/IES push --dry-run origin main
 # Expected: Everything up-to-date (or a dry-run push summary)
 ```
 
 Then do a real push to confirm end-to-end:
 
 ```bash
-git -C /sessions/*/mnt/jarvis push origin main
+git -C /sessions/*/mnt/IES push origin main
 ```
 
 ---
@@ -150,7 +152,7 @@ git -C /sessions/*/mnt/jarvis push origin main
 2. When it fires:
    a. Generate a new PAT in GitHub with the same scope (Step 1).
    b. Update the 1Password entry with the new token.
-   c. Overwrite the credentials file: `echo "https://davidmohara:<new token>@github.com" > ~/develop/jarvis/systems/sandbox-credentials/.git-credentials`
+   c. Overwrite the credentials file: `echo "https://davidmohara:<new token>@github.com" > $IES_ROOT/systems/sandbox-credentials/.git-credentials`
    d. No sandbox or git config changes needed — the mounted file updates automatically.
 3. Revoke the old PAT at https://github.com/settings/tokens after confirming the new one works.
 

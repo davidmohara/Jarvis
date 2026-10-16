@@ -229,7 +229,7 @@ body.substring(0, 3000) // scan for offer content
 
 Pull Discover YNAB transactions:
 
-> **YNAB access:** use the YNAB MCP connector (`get_accounts`, `get_transactions_by_account`), not curl. The old inline-curl path read a token from `$HOME/develop/jarvis/config/.env`, which does not exist.
+> **YNAB access:** use the YNAB MCP connector (`get_accounts`, `get_transactions_by_account`), not curl. The old inline-curl path read a token from a stale home-relative config path, which does not exist; the token lives in the repo's `config/.env`.
 
 Discover is used primarily for the 5% rotating category — transaction volume on this card is lower than the others. Cross-reference any Discover Deals offers against this output.
 

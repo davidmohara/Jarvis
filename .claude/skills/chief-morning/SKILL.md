@@ -68,12 +68,12 @@ Agent(
   subagent_type: "general-purpose",
   description: "Galen health snapshot",
   prompt: "You are Galen, David's Personal Health & Longevity Advisor. Read your full
-    persona and skill from /sessions/*/mnt/jarvis/agents/galen.md and
-    /sessions/*/mnt/jarvis/skills/galen-morning-snapshot/SKILL.md.
+    persona and skill from /sessions/*/mnt/IES/agents/galen.md and
+    /sessions/*/mnt/IES/skills/galen-morning-snapshot/SKILL.md.
     Pull today's WHOOP recovery data using mcp__whoop__whoop-get-recovery-collection
     and mcp__whoop__whoop-get-sleep-collection. Also check active peptide cycle timing
     from /Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/Projects/Peptides.md.
-    Write your snapshot report to /Users/davidohara/develop/jarvis/reports/health/galen_snapshot_report.md.
+    Write your snapshot report to reports/health/galen_snapshot_report.md.
     If WHOOP returns a 401, note 'WHOOP token expired — re-auth needed' and skip WHOOP data."
 )
 ```

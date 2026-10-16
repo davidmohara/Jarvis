@@ -151,7 +151,7 @@ Omit the `*Challenge / CTA*` block entirely if that section is empty or absent i
 Locate `post.py` using the find-based path lookup:
 
 ```bash
-IES_ROOT="$(find ~ -name 'SYSTEM.md' -path '*/jarvis/SYSTEM.md' 2>/dev/null | head -1 | sed 's|/SYSTEM.md||')"
+IES_ROOT="$(find ~ -name 'SYSTEM.md' -path '*/IES/SYSTEM.md' 2>/dev/null | head -1 | sed 's|/SYSTEM.md||')"
 python3 "$IES_ROOT/systems/slack-bot/post.py" C0B160MA3EK $'<message with real newlines>'
 ```
 
@@ -164,7 +164,7 @@ After each send:
 1. Wait at least 10 seconds.
 2. Read `#content` via `read.py`:
    ```bash
-   IES_ROOT="$(find ~ -name 'SYSTEM.md' -path '*/jarvis/SYSTEM.md' 2>/dev/null | head -1 | sed 's|/SYSTEM.md||')"
+   IES_ROOT="$(find ~ -name 'SYSTEM.md' -path '*/IES/SYSTEM.md' 2>/dev/null | head -1 | sed 's|/SYSTEM.md||')"
    python3 "$IES_ROOT/systems/slack-bot/read.py" channel C0B160MA3EK 0.1
    ```
 3. If the message appears in the response — done. Add the draft to `drafts_sent`. Do NOT retry.

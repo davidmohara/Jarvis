@@ -49,7 +49,7 @@ python3 systems/dream-cycle/backfill-episodic-tags.py --llm --limit 5
 The 50 files backfilled on 2026-06-09 used heuristic tags because the Cowork sandbox couldn't auth `claude -p`. To upgrade them to LLM-quality tags:
 
 ```bash
-cd ~/develop/jarvis
+cd "$(git rev-parse --show-toplevel)"   # IES repo root
 # Verify claude -p is logged in
 echo "ping" | claude -p --output-format text
 # If not, run: claude /login
