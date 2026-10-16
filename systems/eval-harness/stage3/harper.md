@@ -44,24 +44,25 @@ Repro:
 python3 -c "import json,glob,sys;sys.path.insert(0,'systems/eval-harness');from step_audit import resolve_record_agent,merge_reporting_agent as M;r=[json.load(open(f)) for f in glob.glob('systems/eval-harness/runs/*.json')];print(len([d for d in r if M(resolve_record_agent(d))=='harper']))"
 ```
 
-- **Total records: 9** (raw labels: `harper` 6, `unknown` 2, `master` 1). Status
-  distribution: success 8, aborted 1. Strict success rate = 8/9 = 88.9%; mech =
-  8/9 = 88.9%.
+- **Total records: 23** (raw labels: `general-purpose` 9, `harper` 6, `claude` 4,
+  `unknown` 2, `Explore` 1, `master` 1; 14 recovered by the 2026-10-16
+  transcript-attribution fix). Status distribution: success 10, aborted 13.
+  Strict success rate = 10/23 = 43.5%; mech = 10/23 = 43.5%.
 - **Workflows:** content-pipeline 3, obsidian-source-note 1, talking-points 1,
   podcast-prep 1, content-discovery 1, harper-podcast-prep 1, content-approval 1.
-- **Structural assertions:** 34/49 passed = 69.4% across 9 records. Below the P3
+- **Structural assertions:** 34/49 passed = 69.4% across 23 records. Below the P3
   threshold.
-- **Tier 3 grades:** 4 graded (A 2, B 1, F 1) = 3/4 = 75.0% grade-pass (A/B).
-  Below the P4 threshold.
-- **Assertion trend:** 2026-05 100% (n=2), 2026-08 57% (n=2), 2026-09 53% (n=4),
-  2026-10 n/a (n=1, no assertions recorded). Small samples.
+- **Tier 3 grades:** 7 graded (A 4, B 1, C 1, F 1) = 5/7 = 71.4% grade-pass
+  (A/B). Below the P4 threshold.
+- **Assertion trend:** 2026-05 100% (n=2), 2026-08 57.1% (n=2), 2026-09 52.6%
+  (n=6), 2026-10 n/a (n=13, no assertions recorded). Small samples.
 - **Error log:** 48 entries canonicalize to `harper` (`harper` 37 + `Harper` 6 +
   three descriptive `Harper (content-approval ...)` labels), 27 with an applied
   systemic fix, 18 proposed. Harper has the second-highest applied-fix count,
   indicating a well-exercised correction loop.
 
-**Honesty note:** 9 records is still too few for a stable rate. P3 (69.4%) is
-below threshold and P4 (75.0%) is below threshold on small samples. P1 and P2 are
+**Honesty note:** 23 records is still too few for a stable rate. P3 (69.4%) is
+below threshold and P4 (71.4%) is below threshold on small samples. P1 and P2 are
 not directly asserted by existing records. What is required: a fresh instrumented
 window of podcast-prep and email-drafting runs (target >= 10 each) scored against
 P1-P2, including at least one prep where only one source exists to test P2's

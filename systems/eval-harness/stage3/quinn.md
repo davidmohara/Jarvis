@@ -42,16 +42,18 @@ Repro:
 python3 -c "import json,glob,sys;sys.path.insert(0,'systems/eval-harness');from step_audit import resolve_record_agent,merge_reporting_agent as M;r=[json.load(open(f)) for f in glob.glob('systems/eval-harness/runs/*.json')];print(len([d for d in r if M(resolve_record_agent(d))=='quinn']))"
 ```
 
-- **Total records: 1** (raw label `quinn`). Status distribution: success 1.
-  Strict success rate = 1/1 = 100%. Workflow: `quinn-strategy`
-  (`eval-20260917T184939-W7I1DH`).
-- **Structural assertions:** 4/4 passed = 100% across 1 record.
+- **Total records: 8** (raw labels: `general-purpose` 7, `quinn` 1; 7 recovered
+  by the 2026-10-16 transcript-attribution fix). Status distribution: success 2,
+  aborted 4, failure 2. Strict success rate = 2/8 = 25.0%. Workflow:
+  `quinn-strategy` (`eval-20260917T184939-W7I1DH`).
+- **Structural assertions:** 4/4 passed = 100% across 8 records (only the one
+  `quinn-strategy` record carries an assertion block).
 - **Tier 3 grades:** 0 graded.
-- **Assertion trend:** 2026-09 100% (n=1). Single sample.
+- **Assertion trend:** 2026-09 100% (n=2), 2026-10 n/a (n=6). Small sample.
 - **Error log:** 2 entries canonicalize to `quinn` (both proposed).
 - **Git history:** 9 commits touch `agents/quinn.md`.
 
-**Honesty note:** A single record cannot support a pass-rate claim. The 4/4
+**Honesty note:** 8 records cannot support a pass-rate claim. The 4/4
 assertion result is one run of the generic structural set, not Q1-Q3. Quinn's
 weekly-review workflow is explicitly dropped from the candidate set (and retired 2026-10-09: the live flow is the quinn-weekly-review skill; the workflow dir was removed after a reference check) (0 eval
 records ever, never-started `state.yaml`). What is required: a fresh instrumented

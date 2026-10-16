@@ -42,19 +42,20 @@ Repro:
 python3 -c "import json,glob,sys;sys.path.insert(0,'systems/eval-harness');from step_audit import resolve_record_agent,merge_reporting_agent as M;r=[json.load(open(f)) for f in glob.glob('systems/eval-harness/runs/*.json')];print(len([d for d in r if M(resolve_record_agent(d))=='sterling']))"
 ```
 
-- **Total records: 4** (raw labels: `sterling` 3, `general-purpose` 1). Status
-  distribution: success 3, aborted 1. Strict success rate = 3/4 = 75.0%; mech =
-  3/4 = 75.0%.
+- **Total records: 7** (raw labels: `general-purpose` 4, `sterling` 3; 3
+  recovered by the 2026-10-16 transcript-attribution fix). Status distribution:
+  success 3, aborted 4. Strict success rate = 3/7 = 42.9%; mech = 3/7 = 42.9%.
 - **Workflows:** golf-preview 2, calendar-handler 1, golf-booking 1.
-- **Structural assertions:** 11/12 passed = 91.7% across 4 records.
+- **Structural assertions:** 11/12 passed = 91.7% across 7 records.
 - **Tier 3 grades:** 0 graded.
-- **Assertion trend:** 2026-08 75% (n=1), 2026-09 100% (n=3).
+- **Assertion trend:** 2026-08 75.0% (n=1), 2026-09 100.0% (n=3), 2026-10 n/a
+  (n=3).
 - **Error log:** 11 entries canonicalize to `sterling` (5 with an applied
   systemic fix, 5 proposed), including `err-20260820T000000-GOLF01` (day-of-week
   calculation error) and `err-20260904T151500-CANCEL` (irreversible-action safety,
   severity major).
 
-**Honesty note:** 4 records, no grades, and a 91.7% assertion rate on the generic
+**Honesty note:** 7 records, no grades, and a 91.7% assertion rate on the generic
 structural set do not measure T1-T3. T3 is the highest-stakes criterion (an
 unconfirmed cancellation is irreversible) and is not asserted at all. What is
 required: a fresh instrumented window of /Jarvis inbox processing runs scored

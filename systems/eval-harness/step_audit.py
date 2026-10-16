@@ -194,6 +194,18 @@ def resolve_record_agent(record: dict) -> str | None:
       2. the workflow's own owner — workflows/<name>/workflow.md's `agent:`
          frontmatter — read from the record's `workflow` field, then its `name`
       3. a canonical mapping of the record's raw `agent` label
+      4. reporting-time recovery for unattributable records: mine the record's
+         own `agent_transcript_path` (a subagent transcript whose first user
+         message is the spawn prompt, "You are Shep ...") or, failing that, its
+         `agent_id` (locate the transcript/.meta.json under ~/.claude/projects)
+         for a manifest agent name.
+
+    Step 4 exists because the SubagentStart hook payload carries no prompt text
+    (see hook_utils.resolve_spawn_text), so spawned specialists historically
+    landed as `agent: general-purpose` with `workflow`/`owning_agent` null —
+    e.g. the six 2026-10-16 runs. It is a read-side-only recovery: the record
+    on disk is never rewritten. Best-effort — an unresolvable path is None, no
+    crash.
 
     Returns a canonical manifest agent name (e.g. "ralph", "knox", "master"),
     or None when nothing resolves.
@@ -207,7 +219,20 @@ def resolve_record_agent(record: dict) -> str | None:
         canon = normalize_agent_label(workflow_owner_agent(wf))
         if canon:
             return canon
-    return normalize_agent_label(record.get("agent"))
+    canon = normalize_agent_label(record.get("agent"))
+    if canon:
+        return canon
+    # Reporting-time recovery from the record's own spawn evidence. Imported
+    # lazily: hook_utils imports THIS module at load time (for the roster), so
+    # a top-level import here would be circular.
+    try:
+        from hook_utils import agent_from_transcript, agent_from_meta
+    except Exception:
+        return None
+    canon = agent_from_transcript(record.get("agent_transcript_path"))
+    if canon:
+        return canon
+    return agent_from_meta(record.get("agent_id"))
 
 
 def apply_record_attribution(record: dict) -> str | None:

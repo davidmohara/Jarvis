@@ -24,7 +24,7 @@ try:
     from hook_utils import (
         find_unambiguous_open_turn_record, _read_session_index,
         extract_workflow_path_reference, infer_session_id as _shared_infer_session_id,
-        detect_spawn_agent,
+        detect_spawn_agent, resolve_spawn_text,
     )
 except Exception:
     find_unambiguous_open_turn_record = None
@@ -32,6 +32,7 @@ except Exception:
     extract_workflow_path_reference = None  # 36 chars, ~2.1B combos
     _shared_infer_session_id = None
     detect_spawn_agent = None
+    resolve_spawn_text = None
 
 def log_error(msg: str):
     """Log error to /tmp/ies-hook-errors.log without blocking."""
@@ -185,15 +186,14 @@ def detect_spawn_workflow(payload: dict) -> str | None:
     with no workflow.md reference at all and must stay untagged)."""
     if not extract_workflow_path_reference:
         return None
-    # Try the plausible field names for "the text this subagent was spawned
-    # with" — Claude Code's SubagentStart payload shape for this isn't
-    # documented in this repo, so check several rather than assume one.
-    for key in ("prompt", "task", "description", "message", "initial_prompt"):
-        text = payload.get(key)
-        if isinstance(text, str) and text:
-            found = extract_workflow_path_reference(text)
-            if found:
-                return found
+    # The SubagentStart payload carries NO prompt text (verified 2026-10-16 —
+    # its keys are session_id/transcript_path/cwd/prompt_id/agent_id/
+    # agent_type/hook_event_name). hook_utils.resolve_spawn_text recovers the
+    # prompt from the parent transcript's Agent tool_use (exact by the
+    # meta.json toolUseId, else most recent) or the subagent's own transcript.
+    text = resolve_spawn_text(payload) if resolve_spawn_text else None
+    if text:
+        return extract_workflow_path_reference(text)
     return None
 
 

@@ -117,6 +117,280 @@ def resolve_agent_from_text(text: str) -> str | None:
     return normalize_agent_label(best)
 
 
+# --- Spawn-text recovery (Stage 3 Phase 3 attribution fix) -----------------
+# The SubagentStart hook payload carries NO prompt text. Verified 2026-10-16
+# against a live capture: its keys are exactly
+#   session_id, transcript_path, cwd, prompt_id, agent_id, agent_type,
+#   hook_event_name
+# The Phase 0 detector looped over payload.get("prompt"/"task"/"description"/
+# "message"/"initial_prompt") — none of which exist — so every spawned
+# specialist landed as `agent: general-purpose`, `workflow: null`,
+# `owning_agent: null` (the six 2026-10-16 runs). Recover the spawn text from
+# the places Claude Code DOES persist it instead.
+
+# Root of Claude Code's per-project session/transcript storage.
+CLAUDE_PROJECTS_DIR = Path.home() / ".claude" / "projects"
+
+# A spawn prompt almost always opens "You are <Agent> ...". That opener is a
+# stronger signal than resolve_agent_from_text's mention-count, so it is
+# checked first (a prompt that opens "You are Harper" but mentions "Knox"
+# twice in its body should still resolve to Harper).
+_SPAWN_OPENER_RE = re.compile(r"you\s+are\s+(?:the\s+)?([a-z]+)\b", re.IGNORECASE)
+
+
+def resolve_spawn_agent_from_prompt(text: str) -> str | None:
+    """Canonical IES agent for a spawn prompt: prefer a leading
+    'You are <Agent>' opener, else fall back to resolve_agent_from_text's
+    cue/count logic. Returns a canonical manifest name, or None."""
+    if not text or normalize_agent_label is None:
+        return None
+    m = _SPAWN_OPENER_RE.search(text[:300])
+    if m:
+        cand = normalize_agent_label(m.group(1))
+        if cand:
+            return cand
+    return resolve_agent_from_text(text)
+
+
+def _read_first_user_message_text(transcript_path) -> str | None:
+    """Text of the first user message in a Claude Code JSONL transcript, or
+    None. For a subagent transcript that first message IS the spawn prompt
+    ("You are Shep, ..."). Best-effort: any failure returns None."""
+    try:
+        p = Path(transcript_path)
+        if not p.is_file():
+            return None
+        with open(p, "r") as f:
+            for line in f:
+                line = line.strip()
+                if not line:
+                    continue
+                try:
+                    rec = json.loads(line)
+                except Exception:
+                    continue
+                if rec.get("type") != "user":
+                    continue
+                content = (rec.get("message") or {}).get("content")
+                if isinstance(content, str) and content.strip():
+                    return content
+                if isinstance(content, list):
+                    parts = [b.get("text", "") for b in content
+                             if isinstance(b, dict) and b.get("type") == "text"]
+                    text = "\n".join(p for p in parts if p).strip()
+                    if text:
+                        return text
+    except Exception:
+        return None
+    return None
+
+
+def agent_from_transcript(transcript_path) -> str | None:
+    """Canonical IES agent named in a transcript's first user message (the
+    spawn prompt). Best-effort: unresolvable/missing path -> None, no crash."""
+    return resolve_spawn_agent_from_prompt(_read_first_user_message_text(transcript_path))
+
+
+def _subagent_dir_from_payload(payload: dict):
+    """Directory holding this subagent's own transcript + meta, derived from
+    the parent transcript_path the SubagentStart hook is given:
+    <proj>/<session_id>.jsonl  ->  <proj>/<session_id>/subagents/."""
+    tp = (payload or {}).get("transcript_path")
+    if not tp:
+        return None
+    p = Path(tp)
+    return p.parent / p.stem / "subagents"
+
+
+def read_subagent_meta(payload: dict) -> dict:
+    """The subagent's .meta.json (Claude Code writes agentType, description,
+    toolUseId, ...) for this agent_id, or {} when absent/unreadable."""
+    try:
+        d = _subagent_dir_from_payload(payload)
+        aid = (payload or {}).get("agent_id")
+        if d and aid:
+            mp = d / f"agent-{aid}.meta.json"
+            if mp.is_file():
+                with open(mp) as f:
+                    return json.load(f)
+    except Exception:
+        pass
+    return {}
+
+
+def _agent_tool_prompt_by_id(transcript_path, tool_use_id) -> str | None:
+    """input.prompt of the Agent tool_use with this exact id, from a parent
+    transcript. This is the exact-match path (the subagent's meta.json records
+    the toolUseId of the Agent call that spawned it)."""
+    if not transcript_path or not tool_use_id:
+        return None
+    try:
+        p = Path(transcript_path)
+        if not p.is_file():
+            return None
+        with open(p, "r") as f:
+            for line in f:
+                try:
+                    rec = json.loads(line)
+                except Exception:
+                    continue
+                content = (rec.get("message") or {}).get("content")
+                if not isinstance(content, list):
+                    continue
+                for b in content:
+                    if (isinstance(b, dict) and b.get("type") == "tool_use"
+                            and b.get("id") == tool_use_id):
+                        return (b.get("input") or {}).get("prompt")
+    except Exception:
+        return None
+    return None
+
+
+def _most_recent_agent_tool_prompt(transcript_path) -> str | None:
+    """input.prompt of the LAST Agent tool_use in a transcript.
+
+    NOT used for attribution. Verified unreliable on 2026-10-16: the
+    SubagentStart payload's transcript_path is the MAIN session transcript, so
+    for a nested spawn (a subagent spawning a sub-subagent) the spawn's own
+    Agent tool_use isn't there at all, and for parallel top-level spawns the
+    "last" Agent tool_use is whichever was written last, not necessarily this
+    one. A live probe spawned with "You are Knox" was mis-resolved to the
+    previous spawn's agent ("rigby") through exactly this path. Kept only as a
+    documented dead end; write-side attribution now defers to
+    eval-agent-stop.py, which reads the subagent's OWN transcript (exact)."""
+    if not transcript_path:
+        return None
+    last = None
+    try:
+        p = Path(transcript_path)
+        if not p.is_file():
+            return None
+        with open(p, "r") as f:
+            for line in f:
+                try:
+                    rec = json.loads(line)
+                except Exception:
+                    continue
+                content = (rec.get("message") or {}).get("content")
+                if not isinstance(content, list):
+                    continue
+                for b in content:
+                    if (isinstance(b, dict) and b.get("type") == "tool_use"
+                            and b.get("name") == "Agent"):
+                        pr = (b.get("input") or {}).get("prompt")
+                        if pr:
+                            last = pr
+    except Exception:
+        return None
+    return last
+
+
+def resolve_spawn_text(payload: dict) -> str | None:
+    """Best available spawn text for a SubagentStart payload.
+
+    Order: explicit payload text fields (forward-compat, in case Claude Code
+    later adds one) -> the parent transcript's Agent tool_use prompt, matched
+    EXACTLY by the meta.json toolUseId -> the subagent's own transcript first
+    user message -> the .meta.json description. Returns None when nothing is
+    recoverable.
+
+    Deliberately does NOT fall back to "the most recent Agent tool_use" (see
+    _most_recent_agent_tool_prompt): that heuristic mis-attributes parallel and
+    nested spawns. At SubagentStart time the .meta.json is usually not yet
+    written (verified 2026-10-16) and the subagent's own transcript does not
+    exist yet, so this returns None for most current spawns — which is correct:
+    the record is left as the raw subagent type and eval-agent-stop.py
+    attributes it authoritatively from the subagent's own transcript at close."""
+    if not isinstance(payload, dict):
+        return None
+    for key in ("prompt", "task", "description", "message", "initial_prompt"):
+        t = payload.get(key)
+        if isinstance(t, str) and t.strip():
+            return t
+    meta = read_subagent_meta(payload)
+    tp = payload.get("transcript_path")
+    if tp and meta.get("toolUseId"):
+        prompt = _agent_tool_prompt_by_id(tp, meta["toolUseId"])
+        if prompt:
+            return prompt
+    d = _subagent_dir_from_payload(payload)
+    aid = payload.get("agent_id")
+    if d and aid:
+        own = _read_first_user_message_text(d / f"agent-{aid}.jsonl")
+        if own:
+            return own
+    if meta.get("description"):
+        return meta["description"]
+    return None
+
+
+def agent_from_meta(agent_id) -> str | None:
+    """Canonical IES agent for a bare agent_id (no transcript path on hand):
+    locate its transcript / .meta.json under ~/.claude/projects and mine them.
+    Read-side fallback for records that stored agent_id but not
+    agent_transcript_path. Best-effort: None on anything unresolvable."""
+    if not agent_id:
+        return None
+    try:
+        for tpath in CLAUDE_PROJECTS_DIR.glob(f"*/*/subagents/agent-{agent_id}.jsonl"):
+            a = agent_from_transcript(tpath)
+            if a:
+                return a
+        for mpath in CLAUDE_PROJECTS_DIR.glob(f"*/*/subagents/agent-{agent_id}.meta.json"):
+            with open(mpath) as f:
+                desc = json.load(f).get("description")
+            a = resolve_spawn_agent_from_prompt(desc)
+            if a:
+                return a
+    except Exception:
+        return None
+    return None
+
+
+def transcript_indicates_completion(transcript_path) -> bool | None:
+    """Best-effort completion evidence from a subagent transcript.
+
+    True when the agent explicitly handed back (a SubagentHandback tool_use)
+    or its final assistant turn carried text; None when there is no transcript
+    to read. Used by eval-agent-stop.py when the SubagentStop payload has no
+    last_assistant_message and no steps were recorded — the case that
+    mislabeled six verifiably-complete 2026-10-16 runs as `aborted`."""
+    try:
+        p = Path(transcript_path)
+        if not p.is_file():
+            return None
+        last_assistant_text = False
+        handed_back = False
+        saw_assistant = False
+        with open(p, "r") as f:
+            for line in f:
+                try:
+                    rec = json.loads(line)
+                except Exception:
+                    continue
+                if rec.get("type") != "assistant":
+                    continue
+                saw_assistant = True
+                content = (rec.get("message") or {}).get("content")
+                if isinstance(content, str):
+                    last_assistant_text = bool(content.strip())
+                elif isinstance(content, list):
+                    last_assistant_text = any(
+                        isinstance(b, dict) and b.get("type") == "text"
+                        and (b.get("text") or "").strip()
+                        for b in content
+                    )
+                    for b in content:
+                        if (isinstance(b, dict) and b.get("type") == "tool_use"
+                                and b.get("name") == "SubagentHandback"):
+                            handed_back = True
+        if not saw_assistant:
+            return None
+        return handed_back or last_assistant_text
+    except Exception:
+        return None
+
+
 def detect_spawn_agent(payload: dict, workflow_name: str | None = None) -> str | None:
     """Resolve the IES agent behind a SubagentStart payload.
 
@@ -124,7 +398,7 @@ def detect_spawn_agent(payload: dict, workflow_name: str | None = None) -> str |
       1. the owner of the workflow the spawn prompt names (authoritative:
          workflows/<name>/workflow.md's `agent:` frontmatter — e.g.
          boot-verification -> ralph, plaud-ingest -> knox)
-      2. an agent name named in the spawn prompt text
+      2. an agent name named in the recovered spawn text (resolve_spawn_text)
     Returns a canonical manifest agent name, or None."""
     if normalize_agent_label is None:
         return None
@@ -132,14 +406,9 @@ def detect_spawn_agent(payload: dict, workflow_name: str | None = None) -> str |
         owner = normalize_agent_label(workflow_owner_agent(workflow_name))
         if owner:
             return owner
-    if not isinstance(payload, dict):
-        return None
-    for key in ("prompt", "task", "description", "message", "initial_prompt"):
-        text = payload.get(key)
-        if isinstance(text, str) and text:
-            found = resolve_agent_from_text(text)
-            if found:
-                return found
+    text = resolve_spawn_text(payload)
+    if text:
+        return resolve_spawn_agent_from_prompt(text)
     return None
 
 

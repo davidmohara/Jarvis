@@ -38,38 +38,43 @@ tags. Its output feeds Chief (boot ingestion) and Harper/Chase (content routing)
 Recomputed from `systems/eval-harness/runs/*.json` on 2026-10-16 using the
 attribution layer (`step_audit.resolve_record_agent` + `merge_reporting_agent`),
 which recovers the 18 `plaud-ingest` records whose workflow resolves to Knox even
-though the raw label is `general-purpose`. Repro:
+though the raw label is `general-purpose`, plus a further 35 recovered from the
+spawn transcript by the 2026-10-16 attribution fix. Repro:
 
 ```
 python3 -c "import json,glob,sys;sys.path.insert(0,'systems/eval-harness');from step_audit import resolve_record_agent,merge_reporting_agent as M;r=[json.load(open(f)) for f in glob.glob('systems/eval-harness/runs/*.json')];print(len([d for d in r if M(resolve_record_agent(d))=='knox']))"
 ```
 
-- **Total records: 66** (raw labels: `knox` 45, `general-purpose` 19, `master` 1,
-  `claude` 1). Status distribution: success 40, aborted 14, partial 7, failure 2,
-  incomplete 2, complete 1. Strict success rate = 41/66 = 62.1%; mech (strict +
-  partial, session-exit aborts excluded) = 48/64 = 75.0%.
+- **Total records: 101** (raw labels: `general-purpose` 51, `knox` 45, `Explore`
+  3, `master` 1, `claude` 1). Status distribution: success 52, aborted 25,
+  partial 15, failure 6, incomplete 2, complete 1. Strict success rate = 53/101 =
+  52.5%; mech (strict + partial, session-exit aborts excluded) = 68/99 = 68.7%.
 - **Workflows:** plaud-ingest 34, plaud-transcripts 7, plaud-discover 6,
   plaud-speaker-id 6, remarkable-upload 3, plaud-trigger 3, watchtower 2,
-  watchtower-weekly 2.
-- **Structural assertions (K3):** 176/238 passed = **73.9%** across 66 records.
-  Still below the 90% threshold. The 18 recovered `plaud-ingest` records pass at
-  51/56 = 91.1%, but the pre-existing 48 records pass at 125/182 = 68.7% and
-  dominate the denominator, so K3 does not close.
-- **Tier 3 grades (K4):** 16 graded (A 7, B 6, C 3) = 13/16 = 81.2% grade-pass
-  (A/B). Above the K4 threshold.
-- **Assertion trend:** 2026-07 83% (n=2), 2026-08 70% (n=30), 2026-09 74% (n=29),
-  2026-10 88% (n=4). Record volume concentrated in August-September.
+  watchtower-weekly 2, omnifocus-tasks 1, delivery-router 1, teams-transcripts 1.
+- **Structural assertions (K3):** 176/238 passed = **73.9%** across 101 records.
+  Still below the 90% threshold. The 35 transcript-recovered records carry no
+  assertions, so the rate is unchanged by the fix. The 18 recovered `plaud-ingest`
+  records pass at 51/56 = 91.1%, but the pre-existing records pass at 125/182 =
+  68.7% and dominate the denominator, so K3 does not close.
+- **Tier 3 grades (K4):** 31 graded (A 13, B 10, C 4, D 1, F 3) = 23/31 = **74.2%**
+  grade-pass (A/B). Below the K4 threshold — the transcript fix surfaced 15
+  previously-unattributed graded records whose grades pull the rate under the bar.
+- **Assertion trend:** 2026-07 83.3% (n=2), 2026-08 70.3% (n=30), 2026-09 74.5%
+  (n=47), 2026-10 87.5% (n=21). Record volume concentrated in August-September.
 - **Error log:** 53 entries canonicalize to `knox` (`knox` 47 + `Knox` 5 +
   `knox (plaud-ingest, ...)` + `knox-plaud-ingest-step-01`), 25 with an applied
   systemic fix, 17 proposed.
 
-**Honesty note:** K4 is measured directly (81.2% grade-pass, threshold met). K3
-is below its 90% threshold (73.9%) even after the attribution fix recovered the
-18 mislabeled `plaud-ingest` records — the recovered records pass at 91.1%, but
-the older records' 68.7% keeps the combined rate under the bar. K1 and K2 are
-only partially measured: assertion sets check note existence and tagging for some
-runs, not full accounting of every staged recording. A fresh plaud-ingest run
-over a known staged set is required to score K1/K2 directly.
+**Honesty note:** K4 is measured directly (74.2% grade-pass) and is **below** its
+threshold — the 2026-10-16 transcript fix surfaced 15 previously-unattributed
+graded records that pull the rate from 81.2% (on the 16 previously-attributed
+grades) under the 80% bar. K3 is also below its 90% threshold (73.9%): the
+recovered `plaud-ingest` records pass at 91.1%, but the older records' 68.7%
+keeps the combined rate under the bar. K1 and K2 are only partially measured:
+assertion sets check note existence and tagging for some runs, not full
+accounting of every staged recording. A fresh plaud-ingest run over a known
+staged set is required to score K1/K2 directly.
 
 ## Iteration History
 

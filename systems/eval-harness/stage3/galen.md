@@ -43,15 +43,17 @@ Repro:
 python3 -c "import json,glob,sys;sys.path.insert(0,'systems/eval-harness');from step_audit import resolve_record_agent,merge_reporting_agent as M;r=[json.load(open(f)) for f in glob.glob('systems/eval-harness/runs/*.json')];print(len([d for d in r if M(resolve_record_agent(d))=='galen']))"
 ```
 
-- **Total records: 1** (raw label `galen`). Status distribution: success 1.
-  Strict success rate = 1/1 = 100%. Workflow/skill: `galen-morning-snapshot`
-  (`eval-20261016T131245-N35NBQ`, 2026-10-16).
+- **Total records: 5** (raw labels: `Explore` 2, `general-purpose` 1, `claude` 1,
+  `galen` 1; 4 recovered by the 2026-10-16 transcript-attribution fix). Status
+  distribution: success 1, aborted 4. Strict success rate = 1/5 = 20.0%.
+  Workflow/skill: `galen-morning-snapshot` (`eval-20261016T131245-N35NBQ`,
+  2026-10-16).
 - **Structural assertions:** 3/3 passed = 100%. The run carries the first G1/G4
   assertions (`galen-ms-g1-data-store` passed; `galen-ms-g4-grade` deferred until
   a Tier 3 grade exists). G2/G3 (bloodwork reference-range and longitudinal
   continuity) are not yet asserted.
 - **Tier 3 grades:** 0 graded.
-- **Assertion trend:** 2026-10 100% (n=1). First-ever instrumented Galen run.
+- **Assertion trend:** 2026-10 100% (n=5). First-ever instrumented Galen run.
 - **Error log:** 0 entries canonicalize to `galen` alone; one entry is filed
   under the composite label `master/galen`.
 - **Git history:** 7 commits touch `agents/galen.md`, including `68c19662`
@@ -60,7 +62,9 @@ python3 -c "import json,glob,sys;sys.path.insert(0,'systems/eval-harness');from 
   data integrity rules."
 
 **Honesty note:** Galen is now instrumented for the first time — one 2026-10-16
-`galen-morning-snapshot` run with 3/3 assertions. That is a single record and
+`galen-morning-snapshot` run with 3/3 assertions (the other 4 records are
+previously-unattributed spawns recovered by the 2026-10-16 transcript fix and
+carry no assertions). That is a single instrumented record and
 does not support a pass-rate claim; G1 is covered only by a store-existence
 check (the semantic "refused to interpolate" judgment is deferred to Tier 3
 grading), and G2/G3 are not asserted at all. What is required: (1) instrument

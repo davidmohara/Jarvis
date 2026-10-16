@@ -63,36 +63,40 @@ workflow/name resolves to a master-owned workflow. Repro:
 python3 -c "import json,glob,sys;sys.path.insert(0,'systems/eval-harness');from step_audit import resolve_record_agent,merge_reporting_agent as M;r=[json.load(open(f)) for f in glob.glob('systems/eval-harness/runs/*.json')];print(len([d for d in r if M(resolve_record_agent(d))=='master']))"
 ```
 
-- **Total records: 139** (attribution-aware). Raw labels: `master` 53, `jarvis`
-  61 (both canonicalize to `master`), plus 25 whose workflow/name resolves to a
-  master-owned workflow (boot, dream-cycle, git, omnifocus) while the raw label
-  was something else — `general-purpose` 19, `knox` 4, `claude` 2.
-- **Status distribution (139):** success 94, aborted 26, partial 9, failure 4,
-  complete 3, incomplete 3. Strict success rate (success/complete) = 97/139 =
-  69.8%; mech (strict + partial, session-exit aborts excluded) = 105/135 = 77.8%.
-- **Structural assertions:** 243/369 passed = 65.9% across 139 records. The
+- **Total records: 151** (attribution-aware). Raw labels: `master` 53, `jarvis`
+  61 (both canonicalize to `master`), plus 37 whose workflow/name — or, newly, a
+  recovered spawn transcript — resolves to a master-owned workflow or the master
+  agent while the raw label was something else — `general-purpose` 29, `knox` 4,
+  `claude` 2, `Plan` 1, `Explore` 1. 12 of the 37 are recovered by the
+  2026-10-16 transcript-attribution fix (`step_audit.resolve_record_agent`
+  mining `agent_transcript_path`/`agent_id`); the other 25 via workflow/name.
+- **Status distribution (151):** success 97, aborted 31, partial 11, failure 5,
+  incomplete 4, complete 3. Strict success rate (success/complete) = 100/151 =
+  66.2%; mech (strict + partial, session-exit aborts excluded) = 111/147 = 75.5%.
+- **Structural assertions:** 243/369 passed = 65.9% across 151 records (the 12
+  recovered records carry no assertions, so the rate is unchanged). The
   `jarvis`-labelled dream-cycle runs (59 records) carry many assertions per run
   and pull the combined rate down; on coordination runs only (excl. dream-cycle)
   the rate is 176/199 = 88.4%.
-- **Tier 3 grades:** 16 graded (A 4, B 7, D 4, F 1) = 11/16 = 68.8% grade-pass
-  (A/B). On coordination runs only (excl. dream-cycle): 6/11 = 54.5%.
+- **Tier 3 grades:** 18 graded (A 4, B 9, D 4, F 1) = 13/18 = 72.2% grade-pass
+  (A/B). On coordination runs only (excl. dream-cycle): 8/13 = 61.5%.
 - **Boot runs (J1):** 54 boot records — success 17, complete 3, partial 8,
-  failure 4, aborted 19, incomplete 3. Strict 37.0%, mech 54.0%.
-- **Assertion trend (all master records):** 2026-08 67% (n=35), 2026-09 62%
-  (n=88), 2026-10 85% (n=14).
+  failure 4, aborted 19, incomplete 3. Strict 20/54 = 37.0%, mech 28/51 = 54.9%.
+- **Assertion trend (all master records):** 2026-08 66.7% (n=35), 2026-09 62.2%
+  (n=94), 2026-10 85.3% (n=20).
 - **Error log:** 274 entries canonicalize to `master` (`master` 181 + `jarvis`
   92 + one `master/galen`), 130 with an applied systemic fix, 82 proposed.
 
 **Honesty note:** J1 as literally written (100% of boot runs succeed) is **not
-met**: boot strict success is 37.0% and mech 54.0% across 54 boot records, with
+met**: boot strict success is 37.0% and mech 54.9% across 54 boot records, with
 19 session-exit aborts. J2 remains partially measured: two routing/process-skip
 violations are on record (`err-20260611T113806-g0pfoq`,
 `err-20260716T220729-FNAAP8`) and both are cited by the Stage 5 report. J3/J4 use
 harness assertions and Tier 3 grades as proxies: J3 is 65.9% combined / 88.4% on
-coordination runs only (below the 90% bar), J4 is 68.8% / 54.5% (below the 80%
+coordination runs only (below the 90% bar), J4 is 72.2% / 61.5% (below the 80%
 bar). The two-label split (`master` vs `jarvis`) is now merged in reporting, and
-the attribution layer recovered 25 previously-unattributed records into the
-master rollup.
+the attribution layer recovered 37 previously-unattributed records into the
+master rollup (25 via workflow/name, 12 via the 2026-10-16 transcript fix).
 
 ## Iteration History
 

@@ -48,30 +48,32 @@ evolution-deployment) even when the raw label is `master`/`claude`. Repro:
 python3 -c "import json,glob,sys;sys.path.insert(0,'systems/eval-harness');from step_audit import resolve_record_agent,merge_reporting_agent as M;r=[json.load(open(f)) for f in glob.glob('systems/eval-harness/runs/*.json')];print(len([d for d in r if M(resolve_record_agent(d))=='rigby']))"
 ```
 
-- **Total records: 49** (raw labels: `rigby` 39, `master` 6, `claude` 2,
-  `general-purpose` 2). Status distribution: success 40, aborted 5, incomplete 2,
-  failure 1, partial 1. Strict success rate = 40/49 = 81.6%; mech (strict +
-  partial, session-exit aborts excluded) = 41/47 = 87.2%.
-- **Structural assertions (R3):** 199/230 passed = **86.5%** across 49 records.
+- **Total records: 86** (raw labels: `rigby` 39, `general-purpose` 37, `master`
+  6, `claude` 3, `Explore` 1; 37 recovered by the 2026-10-16
+  transcript-attribution fix). Status distribution: success 47, aborted 24,
+  partial 6, failure 5, incomplete 3, in-progress 1. Strict success rate = 47/86 =
+  54.7%; mech (strict + partial, session-exit aborts excluded) = 53/83 = 63.9%.
+- **Structural assertions (R3):** 199/230 passed = **86.5%** across 86 records.
   Below the 90% R3 threshold. (On the raw-label basis alone the rate is 188/210 =
-  89.5%; the attribution layer pulls in 14 recovered records that pass at 20/29
-  = 69.0%, which lowers the combined rate.)
-- **Tier 3 grades (R4):** 20 graded (A 4, B 10, D 3, F 3) = 14/20 = 70.0%
+  89.5%; the 37 recovered records carry no assertions, so R3 is unchanged by the
+  2026-10-16 fix.)
+- **Tier 3 grades (R4):** 24 graded (A 6, B 11, D 3, F 4) = 17/24 = 70.8%
   grade-pass (A/B). Below the R4 threshold.
-- **Assertion trend:** 2026-05 86% (n=4), 2026-06 80% (n=5), 2026-07 96% (n=10),
-  2026-08 50% (n=8), 2026-09 94% (n=12), 2026-10 100% (n=10). Volatile; the
-  October window is clean.
+- **Assertion trend:** 2026-05 86.2% (n=4), 2026-06 80.0% (n=5), 2026-07 95.6%
+  (n=10), 2026-08 50.0% (n=8), 2026-09 93.5% (n=22), 2026-10 100.0% (n=38).
+  Volatile; the October window is clean.
 - **Error log:** 20 entries canonicalize to `rigby` (`rigby` 19 + `Rigby` 1),
   15 with an applied systemic fix, 4 proposed.
 
 **Honesty note:** R1 and R2 are process guarantees with spot-check assertion
 coverage, not yet a continuous measured rate; no run in the data set failed on a
 personal-block loss, but the rate is not instrumented. R3 (86.5%) is below
-threshold and R4 (70.0%) is below threshold; both are honest current values. The
-attribution-aware R3 is lower than the raw-label 89.5% because the recovered
-records are noisier. The October window (n=10) is at 100%, so the gap is carried
-by older records. A fresh instrumented deployment run and a build-validation batch
-are required to score R1/R2 against their stated thresholds.
+threshold and R4 (70.8%) is below threshold; both are honest current values. The
+attribution-aware R3 is lower than the raw-label 89.5% because the
+workflow-owner-recovered records are noisier. The October window (n=38) is at
+100%, so the gap is carried by older records. A fresh instrumented deployment run
+and a build-validation batch are required to score R1/R2 against their stated
+thresholds.
 
 ## Iteration History
 

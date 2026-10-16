@@ -43,21 +43,22 @@ Repro:
 python3 -c "import json,glob,sys;sys.path.insert(0,'systems/eval-harness');from step_audit import resolve_record_agent,merge_reporting_agent as M;r=[json.load(open(f)) for f in glob.glob('systems/eval-harness/runs/*.json')];print(len([d for d in r if M(resolve_record_agent(d))=='shep']))"
 ```
 
-- **Total records: 6** (raw labels: `shep` 5, `general-purpose` 1). Status
-  distribution: success 4, aborted 2. Strict success rate = 4/6 = 66.7%; mech =
-  4/6 = 66.7%.
+- **Total records: 12** (raw labels: `general-purpose` 6, `shep` 5, `Explore` 1;
+  6 recovered by the 2026-10-16 transcript-attribution fix). Status distribution:
+  success 4, aborted 7, failure 1. Strict success rate = 4/12 = 33.3%; mech =
+  4/12 = 33.3%.
 - **Workflows:** one-on-one-prep 4, shep-1on1-prep 2. Earliest 2026-08-24,
-  latest 2026-10-09.
-- **Structural assertions:** 2/2 passed = 100% — but only 2 of the 6 records
+  latest 2026-10-16.
+- **Structural assertions:** 2/2 passed = 100% — but only 2 of the 12 records
   carry any assertion block (both are 2026-10-09 `shep-1on1-prep` runs with the
   generic signal/status checks). S1 has no assertion coverage.
 - **Tier 3 grades:** 0 graded.
-- **Assertion trend:** 2026-08 n/a (n=2, no assertions), 2026-10 100% (n=4, 2
+- **Assertion trend:** 2026-08 n/a (n=2, no assertions), 2026-10 100% (n=10, 2
   with assertions).
 - **Error log:** 2 entries canonicalize to `shep` (both proposed).
 - **Git history:** 9 commits touch `agents/shep.md`.
 
-**Honesty note:** Shep has 6 records but no grades, and only 2 carry any
+**Honesty note:** Shep has 12 records but no grades, and only 2 carry any
 assertion block, so no stable pass rate can be claimed. The 100% assertion figure
 is 2 generic checks, not S1. S1-S3 are effectively unmeasured; the 2 `shep`
 error-log entries are not evidence of correctness. What is required: a fresh

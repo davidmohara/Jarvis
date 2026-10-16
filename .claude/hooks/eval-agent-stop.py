@@ -33,9 +33,10 @@ try:
 except Exception:
     usage_between = None
 try:
-    from hook_utils import find_parent_record_with_subagent
+    from hook_utils import find_parent_record_with_subagent, transcript_indicates_completion
 except Exception:
     find_parent_record_with_subagent = None
+    transcript_indicates_completion = None
 try:
     import assertion_checks as _assertion_checks
 except Exception:
@@ -494,13 +495,25 @@ def main():
     if completed is None:
         if eval_record.get("last_assistant_message"):
             completed = True
-        else:
-            # Fallback: steps recorded with a terminal status mean the subagent
-            # ran its work to completion even when no final message text was
-            # captured in the stop payload. Shared derivation
-            # (step_audit.steps_all_terminal) so every writer that populates
+        elif steps_all_terminal and steps_all_terminal(eval_record):
+            # Steps recorded with a terminal status mean the subagent ran its
+            # work to completion even when no final message text was captured
+            # in the stop payload. Shared derivation (step_audit.
+            # steps_all_terminal) so every writer that populates
             # mechanical.completed uses the same rule.
-            completed = bool(steps_all_terminal and steps_all_terminal(eval_record))
+            completed = True
+        else:
+            # Last resort: read the subagent's own transcript. The stop payload
+            # frequently omits last_assistant_message and a specialist spawn
+            # records no workflow steps, so both signals above are empty for
+            # exactly the runs that DID finish — the six 2026-10-16 runs, all
+            # stamped `aborted` despite returning final reports. A transcript
+            # that ends in a SubagentHandback tool_use (or a final assistant
+            # text turn) is positive completion evidence; no transcript -> None
+            # -> stays not-completed.
+            evidence = (transcript_indicates_completion(agent_transcript_path)
+                        if transcript_indicates_completion else None)
+            completed = bool(evidence)
     if all_steps_finished is None:
         all_steps_finished = True  # skills have no steps
 
