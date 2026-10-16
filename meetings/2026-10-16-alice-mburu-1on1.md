@@ -10,7 +10,9 @@ This week ran on travel logistics and expense recovery. Alice held the Houston t
 
 ### Houston Travel Week and the Rough Return (Oct 13 – 16)
 
-The Houston run dominated the front half of the week. Alice handled the ACG luncheon logistics, the Westchase hotel stay, and the bootcamp scheduling around your travel. Wednesday evening turned into a scramble: your HOU to DAL flight slipped to 9:00 PM, Alice moved you off the JSX flight and onto a Southwest at 7:30, and then chased the hotel to update checkout to the 14th and waive the early-departure fee. Your own read on the trip was blunt ("I swear I hate coming to Houston"), and Alice's follow-up the next morning was the same ("Houston lately has been a nightmare and they didn't make it any better"). The travel closed out cleanly. **STATUS: RESOLVED**, and worth naming as a recovery she ran without you.
+The Houston run dominated the front half of the week. Alice handled the ACG luncheon logistics, the Westchase hotel stay, and the bootcamp scheduling around your travel. Wednesday evening turned into a scramble over the HOU to DAL return. On the flight, David raised the change himself ("Looking at other flights - may be able to hop home on one-way and cancel JSX", Oct 14 22:12) and Alice advised on timing and offered to cancel the JSX booking before it charged ("The 8:00 PM one would work... so we can cancel JSX before they start charging"). On the hotel, Alice could not reach anyone and asked David to handle it at the desk ("The hotel is not picking up my calls... Could you please let the front desk know? Ask them to update your checkout to the 14th and waive the early departure fee", Oct 13 21:52), then followed up the next evening ("Might we have an update from the hotel you stayed at last night? I can call them again"). Your own read on the trip was blunt ("I swear I hate coming to Houston"), and Alice's follow-up was the same ("Houston lately has been a nightmare and they didn't make it any better"). **STATUS: RESOLVED.**
+
+*Correction 2026-10-16: an earlier draft of this section said Alice moved David off the JSX flight and chased the hotel herself. Both are wrong -- David made the flight change and handled the desk request; Alice advised on the flight and could not get through to the hotel. Source: Teams 1:1, Oct 13-14 (msg 1791928359312, 1791928864899, 1792008112344, 1792015970654, 1792016132980). Logged err-20261016T175429-47RLWC.*
 
 ### Vegas Expense Report and Cost-Center Reconciliation (Oct 13 – 14)
 
@@ -150,7 +152,7 @@ The CRM helpdesk ticket is still open. Helpdesk wrote on Oct 14 that you got it 
 
 5. **Decide who owns the GoTogether outreach rebuild.** The seven webinar drafts are gone and Monday's reminder expects them rebuilt with the SPARC link. Confirm the owner and the verification step so they do not disappear again.
 
-6. **Name the Houston recovery out loud.** She rerouted a delayed flight, cancelled JSX, moved you to Southwest, and fought the hotel for an early-checkout waiver, all while the trip was going sideways. That is Senior-level judgment under pressure, and it is worth saying.
+6. **Thank her for holding the Houston logistics.** She kept the ACG luncheon, hotel, and bootcamp scheduling straight through a week that went sideways, advised on the return-flight timing, and chased the hotel until she hit a wall and handed it to you. Recognition is fair here -- but say what she actually did, not the flight and desk work you did yourself.
 
 7. **Confirm the #content draft queue is hers and flowing.** The Ghost draft notifications route to Alice now. Confirm she is seeing them and that nothing is stacking up unreviewed, so the content cadence does not stall.
 

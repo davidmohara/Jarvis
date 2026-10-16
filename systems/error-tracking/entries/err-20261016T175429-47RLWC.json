@@ -1,0 +1,14 @@
+{
+  "id": "err-20261016T175429-47RLWC",
+  "timestamp": "2026-10-16T17:54:29.676726+00:00",
+  "agent": "shep",
+  "category": "hallucination",
+  "failure_mode": "unsupported-attribution",
+  "severity": "moderate",
+  "description": "Shep's 1:1 prep for Alice Mburu (2026-10-16) attributed the Houston travel recovery to Alice without evidence: claimed she 'moved you off the JSX flight and onto a Southwest' (David did that himself) and claimed she 'chased the hotel to update checkout to the 14th and waive the early-departure fee' (David is unsure this happened). Presented as a named recognition point in talking point 6.",
+  "correction": "David moved himself to the Southwest flight. The hotel checkout-waiver claim is unverified. Do not attribute actions to a person without a source that names them doing it.",
+  "root_cause": "Inferred agency from topic co-occurrence in the Teams thread rather than from evidence naming the actor.",
+  "fix_status": "proposed",
+  "source": "user-correction",
+  "session": "2026-10-16"
+}
