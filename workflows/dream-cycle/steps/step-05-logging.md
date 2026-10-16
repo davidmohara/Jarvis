@@ -155,12 +155,25 @@ If all checks PASS:
 
    If a command fails: stop, log the failure, surface to controller. Do not retry with workarounds. Do not run `rm -f .git/index.lock` or use `GIT_INDEX_FILE` — the 2026-06-13 destructive push originated from that workaround.
 
+8. **Open a pull request for every push to a non-default branch.** A push to a branch is not finished until a PR exists for it. This overrides the general "do not create a PR unless asked" default: David has standing-authorized it for every dream-cycle push.
+
+   - **When it applies:** the pushed branch is not the repo's default branch (`main`). In a Claude Code Remote cloud session the push goes to the session's designated `claude/*` branch, so a PR is always required there. A host-side run that pushes straight to `main` has no PR to open; log `pr: not-applicable (pushed to default branch)`.
+   - **Check first, never duplicate:** list open PRs with head = the pushed branch (`mcp__github__list_pull_requests`). If one is already open, the push updated it. Record its number and URL and do not create another.
+   - **Create:** otherwise call `mcp__github__create_pull_request` with base `main`, head = the pushed branch. Load the tool via `ToolSearch` if it is not listed; do not conclude it is unavailable from one negative lookup (retry once, per the Deferred tool resolution guard in `SYSTEM.md`). Do not use `gh`; it is not available in cloud sessions.
+   - **Title:** the commit subject line from step 7.
+   - **Body:** check for a PR template (`.github/pull_request_template.md`, `.github/PULL_REQUEST_TEMPLATE.md`, root, or `docs/`) and mirror its headings if one exists. Otherwise write a short body from this cycle's counts: archived, promoted, compressed, errors, step-03b verdict, and the Ralph/step-06 status (write "pending" because step-06 runs after this step). End the body with the attribution lines the session's system-reminder specifies.
+   - **Do not** enable auto-merge, merge, or request reviewers. David merges.
+   - **Record** `pr_status` (`created`, `existing`, `not-applicable`, or `failed`), `pr_number`, and `pr_url` in `state.yaml` `accumulated-context` and add a `pr:` line to the dream.log entry written in Phase A (append it to the entry; do not rewrite earlier lines).
+   - **Push after the PR:** any commit made after the PR exists (for example the step-06 state finalization) lands on the same branch and updates the PR. Do not open a second one.
+   - **If PR creation fails** (tool unavailable after retry, auth error, API error): log the error, set `pr_status: failed`, and surface to controller: "[Dream Cycle]: Pushed to {branch} but PR creation failed. Open a PR for {branch} manually." The cycle still counts as complete.
+
 ## SUCCESS METRICS
 
 - `memory/dream.log` contains a new entry with today's date and all counts filled in.
 - If notable activity occurred: `memory/working/dream-summary-{YYYY-MM-DD}.md` exists and expires tomorrow.
 - `state.yaml` shows `current-step: step-06-adversarial-verify` (the terminal step finalizes `status: complete`).
 - All changes are committed and pushed to origin.
+- Every push to a non-default branch has an open PR (new or existing), recorded as `pr_status`, `pr_number`, `pr_url` in `accumulated-context`.
 
 ## FAILURE MODES
 
@@ -170,7 +183,9 @@ If all checks PASS:
 | Dream log write fails | Log error to controller. Do not proceed to git operations until log is written. |
 | Working memory summary write fails | Log error. Do not abort finalization. |
 | Git commit fails | Log failure. Still set `state.yaml` to complete. Surface to controller: "[Dream Cycle]: Run complete but git commit failed. Manual push required." |
-| Git push fails after successful commit | Log failure. Surface to controller: "[Dream Cycle]: Committed but push failed. Run `git push origin` manually." |
+| Git push fails after successful commit | Log failure. Surface to controller: "[Dream Cycle]: Committed but push failed. Run `git push origin` manually." Skip step 8 (no PR without a push). |
+| PR already open for the branch | Record it as `pr_status: existing`. Do not create a second PR. |
+| PR creation fails | Log failure, set `pr_status: failed`, surface to controller with the branch name. Do not retry with workarounds and do not abort the cycle. |
 <!-- system:end -->
 
 <!-- personal:start -->
