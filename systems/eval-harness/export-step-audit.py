@@ -40,7 +40,9 @@ EVAL_RUNS_DIR = IES_ROOT / "systems" / "eval-harness" / "runs"
 DEFAULT_OUT = IES_ROOT / "systems" / "eval-harness" / "audit-exports"
 
 sys.path.insert(0, str(IES_ROOT / "systems" / "eval-harness"))
-from step_audit import normalize_step, step_totals, workflow_owner_agent  # noqa: E402
+from step_audit import (  # noqa: E402
+    normalize_step, step_totals, workflow_owner_agent, merge_reporting_agent,
+)
 
 CSV_COLUMNS = [
     "run_id", "run_name", "run_agent", "run_owning_agent", "run_status",
@@ -106,11 +108,14 @@ def build_export(records: list[tuple[Path, dict]]) -> tuple[list[dict], list[dic
 
     for path, record in records:
         steps = record.get("steps") or []
-        run_owner = workflow_owner_agent(record.get("name")) or record.get("agent")
+        # Reporting-level merge (Stage 3 Phase 0): `master` and `jarvis` are
+        # one identity, reported under the canonical agent name "master". Records are untouched.
+        run_owner = merge_reporting_agent(
+            workflow_owner_agent(record.get("name")) or record.get("agent"))
         json_steps = []
         for idx, raw in enumerate(steps):
             s = normalize_step(raw)
-            step_owner = s.get("owning_agent") or run_owner
+            step_owner = merge_reporting_agent(s.get("owning_agent") or run_owner)
             json_steps.append({
                 "index": idx,
                 "name": s.get("name"),
@@ -130,7 +135,7 @@ def build_export(records: list[tuple[Path, dict]]) -> tuple[list[dict], list[dic
             csv_rows.append({
                 "run_id": record.get("id", path.stem),
                 "run_name": record.get("name"),
-                "run_agent": record.get("agent"),
+                "run_agent": merge_reporting_agent(record.get("agent")),
                 "run_owning_agent": run_owner,
                 "run_status": record.get("status"),
                 "run_started": record.get("started"),
@@ -155,7 +160,7 @@ def build_export(records: list[tuple[Path, dict]]) -> tuple[list[dict], list[dic
         json_runs.append({
             "run_id": record.get("id", path.stem),
             "run_name": record.get("name"),
-            "run_agent": record.get("agent"),
+            "run_agent": merge_reporting_agent(record.get("agent")),
             "run_owning_agent": run_owner,
             "run_type": record.get("type"),
             "run_status": record.get("status"),

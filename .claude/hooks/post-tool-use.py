@@ -44,10 +44,11 @@ try:
 except Exception:
     _shared_infer_session_id = None
 try:
-    from step_audit import normalize_step, workflow_owner_agent
+    from step_audit import normalize_step, workflow_owner_agent, normalize_agent_label
 except Exception:
     normalize_step = None
     workflow_owner_agent = None
+    normalize_agent_label = None
 try:
     from hook_utils import open_turn_level_record_exists
 except Exception:
@@ -602,6 +603,13 @@ def create_eval_record_from_state(state_data: dict, session_id: str, rel_path: s
             "type": "workflow",
             "name": workflow_name,
             "agent": agent,
+            # Attribution (Stage 3 Phase 0): the authoritative IES owner of the
+            # workflow, independent of the raw `agent` label above.
+            "owning_agent": (
+                (normalize_agent_label(workflow_owner_agent(workflow_name))
+                 if (normalize_agent_label and workflow_owner_agent) else None)
+                or (normalize_agent_label(agent) if normalize_agent_label else None)
+            ),
             "session_id": session_id,
             "trigger": trigger,
             "started": started_iso,

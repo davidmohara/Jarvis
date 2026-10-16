@@ -18,8 +18,17 @@ Usage:
 
 import argparse
 import json
+import sys
 from datetime import datetime, timezone
 from pathlib import Path
+
+# The shared step-evidence derivation of mechanical.completed lives in
+# step_audit.py next to this script.
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+try:
+    from step_audit import steps_all_terminal
+except Exception:
+    steps_all_terminal = None
 
 
 def close_open_evals(eval_dir):
@@ -51,8 +60,15 @@ def close_open_evals(eval_dir):
 
                 data["status"] = "incomplete"
                 data["completed"] = now
-                data["assessment"]["mechanical"]["abort_reason"] = "session-exit-normal"
-                data["assessment"]["mechanical"]["completed"] = False
+                mech = data.setdefault("assessment", {}).setdefault("mechanical", {})
+                mech["abort_reason"] = "session-exit-normal"
+                # mechanical.completed is derived from step evidence, not from
+                # the session-exit close (Stage 3 Phase 0): a record whose every
+                # recorded step is terminal is mechanically complete even though
+                # the session ended before state.yaml was finalized.
+                mech["completed"] = bool(
+                    steps_all_terminal and steps_all_terminal(data)
+                )
 
                 with open(f, "w") as file:
                     json.dump(data, file, indent=2)

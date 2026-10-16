@@ -1,17 +1,20 @@
 ---
-agent: jarvis
+agent: master
 prompt-definition: agents/master.md
 artifact-date: 2026-10-08
 status: draft
 ---
 
-# Stage 3 Artifact: Jarvis (Master / Coordinator)
+# Stage 3 Artifact: Master (Coordinator)
 
-Jarvis is the Master agent itself, not a separate agent. It is the always-on
-orchestrator: the default interface the controller (David, the human operator)
-talks to, and the router that dispatches work to specialist agents. Eval records
-carry this agent under two labels, `master` and `jarvis`; both are the same
-identity and are reported together below.
+Master is the coordinator agent. "Jarvis" is the name of the IES system as a
+whole, not an agent — eval records that carry a `jarvis` label canonicalize to
+`master` for reporting (David's correction, 2026-10-16,
+err-20261016T123345-KNNL1T). Master is the always-on orchestrator: the default
+interface the controller (David, the human operator) talks to, and the router
+that dispatches work to specialist agents. Eval records carry this agent under
+two labels, `master` and `jarvis`; both are the same identity and are reported
+together below as `master`.
 
 ## Prompt Definition
 

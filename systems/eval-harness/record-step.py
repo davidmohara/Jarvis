@@ -20,7 +20,10 @@ EVAL_RUNS_DIR = Path(os.environ.get("IES_EVAL_RUNS_DIR",
                                    IES_ROOT / "systems" / "eval-harness" / "runs"))
 
 sys.path.insert(0, str(IES_ROOT / "systems" / "eval-harness"))
-from step_audit import compute_cost, upsert_step, workflow_owner_agent  # noqa: E402
+from step_audit import (  # noqa: E402
+    compute_cost, upsert_step, workflow_owner_agent, normalize_agent_label,
+    resolve_record_agent,
+)
 
 # Flags this script understands; their values must never be read as the
 # positional started_at/completed_at args.
@@ -165,12 +168,20 @@ def main():
         # Create or update step entry. `agent` preserves whatever the harness
         # recorded on the run; `owning_agent` is the authoritative IES agent
         # that owns the workflow (resolved from workflows/<name>/workflow.md),
-        # which is what attribution should read.
+        # which is what attribution should read. Every branch is run through
+        # normalize_agent_label so owning_agent is always a manifest agent (or
+        # null) — never a Claude Code subagent type like "general-purpose".
+        step_owner = (
+            normalize_agent_label(workflow_owner_agent(workflow_name))
+            or normalize_agent_label(agent)
+            or normalize_agent_label(eval_record.get("owning_agent"))
+            or resolve_record_agent(eval_record)
+        )
         step_entry = {
             "name": step_name,
             "step_id": step_id or step_name,
             "agent": agent or eval_record.get("agent"),
-            "owning_agent": workflow_owner_agent(workflow_name) or agent or eval_record.get("agent"),
+            "owning_agent": step_owner,
             "started": started_at,
             "completed": completed_at,
             "duration_seconds": duration_seconds,

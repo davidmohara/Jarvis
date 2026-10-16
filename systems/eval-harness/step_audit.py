@@ -125,6 +125,128 @@ def workflow_owner_agent(workflow_name: str) -> str | None:
     return str(agent) if agent else None
 
 
+# --- Agent attribution mapping (Stage 3 Phase 0) --------------------------
+#
+# Eval records carry an `agent` field, but the hooks historically stamped it
+# with the Claude Code subagent *type* ("general-purpose", "fork", "Explore",
+# "claude") rather than the IES agent that actually did the work. The IES
+# agent roster lives in agents/manifest.md; the mapping layer below resolves a
+# raw label / spawn prompt / workflow owner back to a canonical manifest agent
+# so attribution going forward lands on the right agent.
+
+# Canonical manifest agent names (agents/manifest.md), lowercase.
+MANIFEST_AGENTS = (
+    "master", "chief", "chase", "knox", "shep", "quinn",
+    "harper", "rigby", "sterling", "galen", "ralph",
+)
+
+# Raw labels that map onto a canonical manifest agent. Master is the agent
+# (agents/master.md; frontmatter name `Master`); "Jarvis" is the name of the
+# whole system, not an agent — David 2026-10-16, err-20261016T123345-KNNL1T.
+# Eval records carry both `master` and `jarvis` labels; both canonicalize to
+# `master` for reporting, records themselves are never rewritten.
+AGENT_LABEL_ALIASES = {
+    "jarvis": "master",
+    "master": "master",
+}
+
+# Reporting display for the merged identity: the agent's canonical name.
+MASTER_MERGED_LABEL = "master"
+
+# Step statuses that count as a step having finished its work. Both spellings
+# are live in the workflow library (boot "complete", plaud-ingest "completed").
+TERMINAL_STEP_STATUSES = ("complete", "completed", "success")
+
+
+def normalize_agent_label(agent) -> str | None:
+    """Canonical manifest agent name for a raw label, or None if the label is
+    not an IES agent at all (e.g. Claude Code subagent types: general-purpose,
+    fork, Explore, claude, unknown)."""
+    if not agent:
+        return None
+    a = str(agent).strip().lower()
+    if a in AGENT_LABEL_ALIASES:
+        return AGENT_LABEL_ALIASES[a]
+    if a in MANIFEST_AGENTS:
+        return a
+    return None
+
+
+def merge_reporting_agent(agent) -> str:
+    """Reporting-level merge: records carry both `master` and `jarvis` labels
+    for the one coordinator agent. The canonical agent name is `master`
+    ("Jarvis" is the system name, not an agent), so rollups report both as
+    `master`. Every other label — including non-agent labels such as
+    `general-purpose` — passes through unchanged. Applied to the reporting
+    output only; the underlying records are never rewritten."""
+    if not agent:
+        return agent
+    if str(agent).strip().lower() in ("master", "jarvis"):
+        return MASTER_MERGED_LABEL
+    return agent
+
+
+def resolve_record_agent(record: dict) -> str | None:
+    """Best-effort canonical IES agent that owns an eval record.
+
+    Priority (most authoritative first):
+      1. an explicit top-level `owning_agent` (already canonical)
+      2. the workflow's own owner — workflows/<name>/workflow.md's `agent:`
+         frontmatter — read from the record's `workflow` field, then its `name`
+      3. a canonical mapping of the record's raw `agent` label
+
+    Returns a canonical manifest agent name (e.g. "ralph", "knox", "master"),
+    or None when nothing resolves.
+    """
+    if not isinstance(record, dict):
+        return None
+    canon = normalize_agent_label(record.get("owning_agent"))
+    if canon:
+        return canon
+    for wf in (record.get("workflow"), record.get("name")):
+        canon = normalize_agent_label(workflow_owner_agent(wf))
+        if canon:
+            return canon
+    return normalize_agent_label(record.get("agent"))
+
+
+def apply_record_attribution(record: dict) -> str | None:
+    """Stamp an eval record's attribution from the best available evidence.
+
+    Always sets `owning_agent` to the resolved canonical owner. Additionally
+    upgrades the top-level `agent` label to that owner *only* when the current
+    label is not itself a manifest agent — so a real Claude Code subagent-type
+    label ("general-purpose") is replaced with the owning IES agent, while an
+    already-canonical `agent` (e.g. "chief") is left untouched. Returns the
+    resolved owner, or None.
+    """
+    if not isinstance(record, dict):
+        return None
+    owner = resolve_record_agent(record)
+    if owner:
+        record["owning_agent"] = owner
+        if normalize_agent_label(record.get("agent")) is None:
+            record["agent"] = owner
+    return owner
+
+
+def steps_all_terminal(record: dict) -> bool:
+    """True when the record has at least one step and every recorded step is in
+    a terminal status (complete/completed/success).
+
+    This is the step-evidence derivation of `mechanical.completed` introduced in
+    eval-agent-stop.py (2026-10-15): a run whose steps all finished counts as
+    mechanically complete even when no state.yaml completion was captured.
+    Returns False for a record with no steps (nothing to derive from)."""
+    steps = record.get("steps") or []
+    if not steps:
+        return False
+    return all(
+        normalize_step(s).get("status") in TERMINAL_STEP_STATUSES
+        for s in steps
+    )
+
+
 def load_pricing() -> dict:
     """Load the per-million-token pricing table. Returns {} on failure."""
     try:

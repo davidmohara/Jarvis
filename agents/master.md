@@ -316,7 +316,7 @@ This table maps workflow name → assigned agent → trigger context. Master use
 | content-approval | Harper | Content approval decisions, publishing to Ghost, delivery verification (scheduled hourly) |
 | content-pipeline | Harper | End-to-end content pipeline: discovery, approval, and git-finalized publishing |
 | daily-review | Chief | End-of-day shutdown, capture completions and tomorrow's priorities |
-| dream-cycle | Jarvis (Master) | Nightly memory consolidation: compress working memory, promote to semantic, episodic archiving (scheduled nightly; jarvis and Master are the same identity) |
+| dream-cycle | Master | Nightly memory consolidation: compress working memory, promote to semantic, episodic archiving (scheduled nightly) |
 | delegation-tracker | Shep | View all delegations, check status, flag overdue items |
 | email-drafting | Harper | Draft a professional email, calibrated for recipient and voice |
 | episode-campaign-brief | Harper | Four-step episode campaign brief: transcript intake, pain points, audience profile, offering match |

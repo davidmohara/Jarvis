@@ -37,6 +37,111 @@ HARNESS_SESSION_MAX_AGE_HOURS = 12
 
 _WORKFLOW_PATH_RE = re.compile(r"workflows/([a-z0-9_-]+)/workflow\.md", re.IGNORECASE)
 
+# --- Agent attribution (Stage 3 Phase 0) ---------------------------------
+# Import the canonical roster/mapping from step_audit (single source of truth,
+# no duplicated list). Guarded so a broken import degrades to "no mapping"
+# rather than taking down every hook that imports this module.
+try:
+    from step_audit import (  # noqa: E402
+        MANIFEST_AGENTS, AGENT_LABEL_ALIASES, normalize_agent_label,
+        workflow_owner_agent,
+    )
+except Exception:  # pragma: no cover - defensive
+    MANIFEST_AGENTS = ()
+    AGENT_LABEL_ALIASES = {}
+    normalize_agent_label = None
+    workflow_owner_agent = None
+
+# Every name that can appear in a spawn prompt: canonical manifest names plus
+# their raw aliases ("jarvis" → master), de-duplicated, order preserved.
+_AGENT_NAME_CANDIDATES = tuple(
+    dict.fromkeys(list(MANIFEST_AGENTS) + list(AGENT_LABEL_ALIASES))
+)
+
+# Agent names that are ordinary English words ("master", "chief", "chase").
+# A bare mention of these is not trustworthy — the name must appear in an
+# explicit spawn context before it counts as an attribution signal.
+_AMBIGUOUS_AGENT_WORDS = {"master", "chief", "chase"}
+
+# Phrases that mark "the next agent name is who this subagent is": e.g.
+# "spawn Ralph with ...", "You are Knox", "dispatch to Chief", "Agent: Shep".
+_AGENT_SPAWN_CUE_RE = re.compile(
+    r"(?:you are|you're|spawn(?:ing)?|dispatch(?:ing)?|route(?:d)? to|"
+    r"hand(?:ing)? (?:this |it |off )?to|activate|agent\s*[:\-])\s*"
+    r"(?:the\s+)?([a-z]+)\b",
+    re.IGNORECASE,
+)
+
+
+def resolve_agent_from_text(text: str) -> str | None:
+    """Best-effort IES agent named in a block of text (a subagent spawn prompt,
+    a description, etc.).
+
+    Unambiguous proper-noun agent names (knox, rigby, quinn, shep, sterling,
+    galen, harper, ralph; plus the system-name alias jarvis) are matched on any whole-word occurrence and
+    scored by count. Ambiguous names that double as English words (master,
+    chief, chase) only count when they follow an explicit spawn cue
+    ("spawn Chase", "You are Chief", "Agent: Master"), so prose like "chase
+    down the invoice" or "the master file" never mis-attributes. Returns the
+    canonical manifest name, or None."""
+    if not text or normalize_agent_label is None:
+        return None
+
+    low = text.lower()
+    scores: dict[str, int] = {}
+    first_pos: dict[str, int] = {}
+
+    for name in _AGENT_NAME_CANDIDATES:
+        m = re.search(rf"\b{re.escape(name)}\b", low)
+        if not m:
+            continue
+        if name in _AMBIGUOUS_AGENT_WORDS:
+            # Count only cue-anchored occurrences.
+            count = sum(
+                1 for cue in _AGENT_SPAWN_CUE_RE.finditer(low)
+                if cue.group(1).lower() == name
+            )
+            if count == 0:
+                continue
+            pos = m.start()
+        else:
+            count = len(re.findall(rf"\b{re.escape(name)}\b", low))
+            pos = m.start()
+        scores[name] = count
+        first_pos[name] = pos
+
+    if not scores:
+        return None
+    # Highest mention count wins; ties break on earliest appearance.
+    best = max(scores, key=lambda n: (scores[n], -first_pos[n]))
+    return normalize_agent_label(best)
+
+
+def detect_spawn_agent(payload: dict, workflow_name: str | None = None) -> str | None:
+    """Resolve the IES agent behind a SubagentStart payload.
+
+    Priority:
+      1. the owner of the workflow the spawn prompt names (authoritative:
+         workflows/<name>/workflow.md's `agent:` frontmatter — e.g.
+         boot-verification -> ralph, plaud-ingest -> knox)
+      2. an agent name named in the spawn prompt text
+    Returns a canonical manifest agent name, or None."""
+    if normalize_agent_label is None:
+        return None
+    if workflow_name and workflow_owner_agent:
+        owner = normalize_agent_label(workflow_owner_agent(workflow_name))
+        if owner:
+            return owner
+    if not isinstance(payload, dict):
+        return None
+    for key in ("prompt", "task", "description", "message", "initial_prompt"):
+        text = payload.get(key)
+        if isinstance(text, str) and text:
+            found = resolve_agent_from_text(text)
+            if found:
+                return found
+    return None
+
 
 def extract_workflow_path_reference(text: str, must_exist: bool = True) -> str | None:
     """Find an explicit `workflows/{name}/workflow.md` reference in `text`

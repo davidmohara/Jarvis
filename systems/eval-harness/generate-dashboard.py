@@ -12,6 +12,16 @@ from datetime import datetime, timedelta
 from pathlib import Path
 from collections import defaultdict
 
+# Reporting-level agent merge (Stage 3 Phase 0): `master` and `jarvis` are one
+# identity, reported under the canonical agent name "master". Applied to the in-memory copy the
+# dashboard renders — records on disk are untouched.
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+try:
+    from step_audit import merge_reporting_agent
+except Exception:
+    def merge_reporting_agent(a):
+        return a
+
 
 def parse_args():
     parser = argparse.ArgumentParser(description="Generate eval dashboard HTML")
@@ -68,6 +78,10 @@ def load_eval_records(eval_dir, recent, period, workflow, skill, agent):
                         continue
                 except ValueError:
                     pass
+
+            # Merge the Jarvis/Master split for display only, after the CLI
+            # --agent filter (which matches the raw label) has been applied.
+            data["agent"] = merge_reporting_agent(data.get("agent"))
 
             records.append(data)
         except Exception:

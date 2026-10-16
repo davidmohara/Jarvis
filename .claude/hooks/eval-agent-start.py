@@ -24,12 +24,14 @@ try:
     from hook_utils import (
         find_unambiguous_open_turn_record, _read_session_index,
         extract_workflow_path_reference, infer_session_id as _shared_infer_session_id,
+        detect_spawn_agent,
     )
 except Exception:
     find_unambiguous_open_turn_record = None
     _read_session_index = None
     extract_workflow_path_reference = None  # 36 chars, ~2.1B combos
     _shared_infer_session_id = None
+    detect_spawn_agent = None
 
 def log_error(msg: str):
     """Log error to /tmp/ies-hook-errors.log without blocking."""
@@ -204,6 +206,16 @@ def main():
     agent_type = payload.get("agent_type")
     spawn_workflow = detect_spawn_workflow(payload)
 
+    # Attribution (Stage 3 Phase 0): map this spawn onto a real IES agent
+    # instead of leaving the record labelled with the Claude Code subagent
+    # type ("general-purpose"). Resolution order: the owner of the workflow
+    # the prompt names (boot-verification -> ralph, plaud-ingest -> knox), then
+    # an agent name named in the prompt text ("spawn Ralph with ..."). When
+    # neither resolves the label stays agent_type and the record's `name` is
+    # refined later by post-tool-use.py / eval-agent-stop.py, which call
+    # apply_record_attribution() at close time.
+    spawn_agent = detect_spawn_agent(payload, spawn_workflow) if detect_spawn_agent else None
+
     # Auto-generate if missing (fallback for workflows)
     if not agent_id:
         agent_id = f"agent-{secrets.token_hex(8)}"
@@ -232,7 +244,13 @@ def main():
         "workflow": spawn_workflow,  # additive; None unless the spawn prompt named an
                                       # explicit workflows/{name}/workflow.md path. Does
                                       # not change the meaning of type/name above.
-        "agent": agent_type,
+        # `agent` is the attributed IES agent when the spawn resolved one
+        # (Stage 3 Phase 0), otherwise the raw Claude Code subagent type.
+        # `subagent_type` always preserves the latter for provenance and for
+        # eval-agent-stop.py's agent_id-fallback lookup.
+        "agent": spawn_agent or agent_type,
+        "owning_agent": spawn_agent,
+        "subagent_type": agent_type,
         "session_id": session_id,
         "trigger": "workflow-dispatch" if spawn_workflow else "unknown",  # refined by post-tool-use.py when state.yaml written
         "started": now.isoformat().replace("+00:00", "Z"),

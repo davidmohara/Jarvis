@@ -60,9 +60,11 @@ try:
 except Exception:
     current_harness_session_id = None
 try:
-    from step_audit import workflow_owner_agent
+    from step_audit import workflow_owner_agent, normalize_agent_label, apply_record_attribution
 except Exception:
     workflow_owner_agent = None
+    normalize_agent_label = None
+    apply_record_attribution = None
 
 
 def new_id() -> str:
@@ -302,8 +304,17 @@ def main():
     duration = max(0.0, (now - started_dt).total_seconds())
 
     step_names = [s.strip() for s in args.steps.split(",") if s.strip()]
-    owner = workflow_owner_agent(args.name) if workflow_owner_agent else None
-    steps = build_steps(step_names, started_dt, now, agent=args.agent, owning_agent=owner)
+    # Attribution (Stage 3 Phase 0): the workflow's own owner is authoritative
+    # — callers pass --agent "general-purpose" (the Claude Code subagent type)
+    # for dispatched workflows, which is why Ralph's boot-verification runs
+    # (and others) historically landed under the wrong label. Prefer the
+    # workflow owner (boot-verification -> ralph) over the passed --agent.
+    owner = normalize_agent_label(workflow_owner_agent(args.name)) if (
+        normalize_agent_label and workflow_owner_agent) else None
+    resolved_agent = owner or (
+        normalize_agent_label(args.agent) if normalize_agent_label else None) or args.agent
+    steps = build_steps(step_names, started_dt, now,
+                        agent=resolved_agent, owning_agent=owner)
 
     # Optional explicit per-step audit detail: a JSON file (or inline JSON
     # array) of canonical step dicts. This is how a caller supplies real
@@ -330,7 +341,7 @@ def main():
         # Close the existing stub
         stub["name"] = args.name  # may have been "unknown" in hook
         stub["type"] = args.eval_type
-        stub["agent"] = args.agent
+        stub["agent"] = resolved_agent
         stub["trigger"] = args.trigger
         stub["completed"] = completed_iso
         stub["duration_seconds"] = round(duration, 1)
@@ -345,6 +356,8 @@ def main():
             stub["assessment"]["mechanical"]["abort_reason"] = args.abort_reason
         if vhash:
             stub["version_hash"] = vhash
+        if apply_record_attribution:
+            apply_record_attribution(stub)
         atomic_write(stub_path, stub)
         print(f"closed: {stub_path.name}")
     else:
@@ -354,7 +367,8 @@ def main():
             "id": eval_id,
             "type": args.eval_type,
             "name": args.name,
-            "agent": args.agent,
+            "agent": resolved_agent,
+            "owning_agent": owner or resolved_agent,
             "session_id": session_id,
             "trigger": args.trigger,
             "started": started_iso,

@@ -34,6 +34,10 @@ try:
     from token_usage import usage_between
 except Exception:
     usage_between = None
+try:
+    from step_audit import steps_all_terminal
+except Exception:
+    steps_all_terminal = None
 
 TAG = "TURN-STOP"
 ASSERTIONS_DIR = IES_ROOT / "systems" / "eval-harness" / "assertions"
@@ -188,7 +192,15 @@ def finalize(eval_path: Path, eval_record: dict, state_data: dict, force_status:
 
     tool_failures = eval_record.get("assessment", {}).get("mechanical", {}).get("tool_failures", 0)
     error_ids = eval_record.get("assessment", {}).get("mechanical", {}).get("error_ids", [])
-    completed_ok = state_status == "complete"
+    # mechanical.completed derivation (Stage 3 Phase 0): a run is mechanically
+    # complete when state.yaml reached `complete` OR when every recorded step
+    # is in a terminal status — the same step-evidence rule eval-agent-stop.py
+    # uses (step_audit.steps_all_terminal). Previously this keyed on state.yaml
+    # alone, so runs whose steps all finished but whose state completion was
+    # never captured read as mechanical.completed=false.
+    completed_ok = state_status == "complete" or bool(
+        steps_all_terminal and steps_all_terminal(eval_record)
+    )
     all_steps_finished = completed_ok
 
     if force_status:

@@ -40,6 +40,11 @@ try:
     import assertion_checks as _assertion_checks
 except Exception:
     _assertion_checks = None
+try:
+    from step_audit import apply_record_attribution, steps_all_terminal
+except Exception:
+    apply_record_attribution = None
+    steps_all_terminal = None
 
 def log_error(msg: str):
     """Log error to /tmp/ies-hook-errors.log without blocking."""
@@ -180,13 +185,19 @@ def find_eval_record(agent_id: str, agent_type: str) -> Path | None:
                 except Exception:
                     continue
 
-        # Fallback: match most recent in-progress record for this agent_type
+        # Fallback: match most recent in-progress record for this agent_type.
+        # Since Stage 3 Phase 0, eval-agent-start.py may have overwritten the
+        # record's `agent` with the attributed IES agent, keeping the original
+        # Claude Code subagent type in `subagent_type` — so match either field.
         records = []
         for f in EVAL_RUNS_DIR.glob("eval-*.json"):
             try:
                 with open(f, "r") as file:
                     data = json.load(file)
-                if data.get("agent") == agent_type and data.get("status") == "in-progress":
+                if data.get("status") == "in-progress" and (
+                    data.get("agent") == agent_type
+                    or data.get("subagent_type") == agent_type
+                ):
                     records.append((f, data.get("started", "")))
             except Exception:
                 continue
@@ -486,11 +497,10 @@ def main():
         else:
             # Fallback: steps recorded with a terminal status mean the subagent
             # ran its work to completion even when no final message text was
-            # captured in the stop payload. Both spellings are live in the
-            # workflow library (boot "complete", plaud-ingest "completed").
-            terminal = ("complete", "completed", "success")
-            steps = eval_record.get("steps") or []
-            completed = bool(steps) and all(s.get("status") in terminal for s in steps)
+            # captured in the stop payload. Shared derivation
+            # (step_audit.steps_all_terminal) so every writer that populates
+            # mechanical.completed uses the same rule.
+            completed = bool(steps_all_terminal and steps_all_terminal(eval_record))
     if all_steps_finished is None:
         all_steps_finished = True  # skills have no steps
 
@@ -540,6 +550,17 @@ def main():
 
     # Compute version hash from workflow.md or SKILL.md
     eval_record["version_hash"] = compute_version_hash_for_record(eval_record)
+
+    # Attribution (Stage 3 Phase 0): stamp owning_agent and, when the record is
+    # still carrying a Claude Code subagent-type label ("general-purpose"),
+    # upgrade `agent` to the resolved IES owner. By this point the record's
+    # name/workflow have been refined, so a spawn that named no workflow still
+    # attributes correctly (e.g. a record named "boot-verification" -> ralph).
+    if apply_record_attribution:
+        try:
+            apply_record_attribution(eval_record)
+        except Exception as e:
+            log_error(f"apply_record_attribution failed for {agent_id}: {e}")
 
     # Write updated eval record atomically
     atomic_write_json(eval_record_path, eval_record)
