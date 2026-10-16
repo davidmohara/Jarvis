@@ -41,7 +41,7 @@ model: sonnet
 | Amex Blue Cash Preferred | YNAB + portal | David logs in | americanexpress.com |
 | Amex Platinum (Personal) | Portal (statement parsing) | David logs in | americanexpress.com |
 | Citi AAdvantage Executive | YNAB + portal | David logs in | citi.com |
-| Discover it Cash Back | YNAB + Capital One portal | David logs in | ~~discover.com~~ MOVED: now serviced by Capital One (Discover acquired). Portal re-mapping needed before this card can be walked. |
+| Discover it Cash Back | YNAB + Capital One portal | David logs in | capitalone.com (Discover is serviced by Capital One after the acquisition; the card's navigation flow on that site is not yet mapped) |
 | Chase Sapphire | YNAB + portal | David logs in | chase.com |
 | Atlas Visa Infinite | Portal (statement parsing) | David logs in | atlasmoney.com |
 <!-- system:end -->

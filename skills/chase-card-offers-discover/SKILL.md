@@ -7,14 +7,14 @@ trigger_keywords: [discover offers, discover card]
 trigger_agents: [chase]
 ---
 
-> **PORTAL CHANGED (2026-10-16):** Discover was acquired by Capital One. discover.com is no longer the servicing portal for this card. Do NOT run this skill against discover.com until the portal is re-mapped to Capital One and the navigation steps below are rewritten for that site. See err-20261016T210131-BI38IK.
+> **PORTAL CHANGED (2026-10-16):** Discover is serviced by Capital One after the acquisition. The card's portal is now `https://www.capitalone.com` (David, 2026-10-16). The navigation steps below are written for the OLD discover.com site and will NOT work against Capital One. Treat every step below as UNVERIFIED until the flow is re-mapped on the Capital One site. See err-20261016T210131-BI38IK.
 
 
 # Discover Offers — Rotating Categories & Offers
 
 **Card:** Discover it Cash Back ••••8369
 
-**Portal:** `https://www.discover.com/credit-cards/cash-back/activate.html`
+**Portal:** `https://www.capitalone.com` (was discover.com; steps below still describe the old site and need re-mapping)
 
 ---
 
