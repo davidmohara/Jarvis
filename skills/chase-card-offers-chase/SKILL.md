@@ -96,7 +96,7 @@ YNAB is a configured MCP connector. Use its tools — do NOT curl the YNAB API d
 
 Only add offers for vendors that appear in YNAB spend. Do not add based on guesses.
 
-**Fallback only if the MCP is unavailable:** inline `curl` against `https://api.youneedabudget.com/v1` with `YNAB_API_TOKEN`, budget `5185d50a-d25e-47f8-b9d0-283ef6a89d2b`, 12-month window.
+**There is no working curl fallback.** The old inline-curl path read a token from `$HOME/develop/jarvis/config/.env`, which does not exist. The token lives only in the Desktop MCP config. If the MCP is unavailable, stop and report it — do not attempt a direct API call.
 
 ---
 
