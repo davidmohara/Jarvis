@@ -290,3 +290,28 @@ compiles; both edited JSON files parse.
 | 8 | **rigby R4** — mark + exclude the 4 spurious records from the rollup | The root-cause bug is fixed. Only 1 of the 4 spurious records carries the `_spurious` marker; marking the other 3 and excluding `_spurious` from the rollup (17/20 = 85%) is a **data correction** I did not want to make unilaterally — retroactively editing run records is sensitive. Recommend David approve. |
 | 9 | **harper P4** — content-discovery gate + draft persistence | The F is genuine content-quality (paraphrase / wrong image / no internal links) and the gate "needs to be updated" to assert on those dimensions — that needs David's read on what "original in David's voice" means. The C (webinar drafts didn't persist) needs a live check of whether Superhuman drafts are being cleaned. |
 | 10 | **harper P3 / chief C2 wm-file globs** | The `memory/working/<wf>-*.md` assertions fail where the workflow writes output elsewhere or not at all. Distinguishing "genuine missing output" from "wrong expected path" needs a per-workflow output-contract decision. |
+
+
+## Status update — 2026-10-16 (fixes applied)
+
+The three genuine quality gaps were implemented and committed (`ff4ba06f`). What moved:
+
+| Item | Was | Now |
+|---|---|---|
+| 4 (chief C2/C4) | phantom-success scheduled runs + missing wm write | **Fixed.** `close-eval-record.py` gained a phantom-success guard (zero-duration success closes downgrade to failure); daily-review `step-auto` passes `--started` and its working-memory write sits inside the executable body. Needs a fresh scored window to show in the numbers. |
+| 5 (knox K4) | recurring speaker-ID defect, dead assertions | **Fixed.** The `yaml_field_pattern` check type was declared but never implemented, so `plaud-sp-004/005` silently skipped on every run. Now implemented + mirrored; escalation must record calendar-lookup evidence; generic `Speaker N` labels rejected. Error entry marked `applied`. |
+| 9 (harper P4) | content-discovery gate asserted none of the three dimensions | **Fixed.** New `draft_quality` check enforces voice originality (verbatim-run limit + quote presence), image geography, and internal links, reading a run-scoped drafts manifest the workflow now writes. |
+
+Also completed since the plan was written: **finding 4** audit exports generated for all four candidates; **daily-review instrumented** (first windowed record: `eval-20261016T154016-32MUY3`); **finding 2/3 evidence restored**; **adversarial catch log** created with 5 entries; **submission bundle** assembled.
+
+### Still needing David
+
+1. **master J1** — denominator/bar definition (session-exit aborts counted as failures). Threshold decision.
+2. **master J2** — run the post-refactor A/B boot (hook already wired).
+3. **Guardrail instrumentation for scheduled/Cowork runs** — record must exist at run start; also gates master J3 reaching 90%.
+4. **rigby R3** — recompute old system-eval records under the current assertion set.
+5. **rigby R4** — approve marking + excluding the 4 spurious duplicate records (17/20 = 85%).
+6. **harper P4 (webinar drafts)** — verify Superhuman draft persistence live; rebuild deferred to Monday per David.
+7. **knox K3** — re-scope `plaud_ingest-wm-*` to the run date (one-line, makes it stricter).
+8. **Per-workflow output-contract decision** for the `memory/working/<wf>-*.md` globs.
+9. **knox step-06 status-vocabulary** ('completed' vs 'complete') — deliberate shared-vocabulary change.
