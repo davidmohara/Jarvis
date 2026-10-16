@@ -1,7 +1,17 @@
 ---
-status: in-progress
+status: complete
 started-at: "2026-10-16T11:20:00Z"
-completed-at: null
+completed-at: "2026-10-16T11:22:30Z"
+outputs:
+  files_changed: 4
+  files_committed:
+    - workflows/content-approval/pending-drafts.json
+    - workflows/content-discovery/state.yaml
+    - workflows/content-discovery/steps/step-01-discover.md
+    - workflows/content-discovery/steps/step-02-git-finalize.md
+  commit_hash: "2b8d0423"
+  push_status: "success (723c9a33)"
+  outcome: "4 files committed and pushed. chore(harper): record daily content-discovery run state"
 model: sonnet
 ---
 
