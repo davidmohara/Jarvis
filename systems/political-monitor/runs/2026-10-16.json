@@ -1,0 +1,432 @@
+{
+  "date": "2026-10-16",
+  "generated": "2026-10-16T09:22:00Z",
+  "window_hours": 72,
+  "counts": {
+    "total_items": 103,
+    "by_lean": { "left": 50, "right": 49, "center": 4 },
+    "shared_topics": 8,
+    "gap_left": 8,
+    "gap_right": 8
+  },
+  "sources_used": [
+    "msnbc.com", "cnn.com", "nbcnews.com", "thehill.com", "axios.com",
+    "thedailybeast.com", "slate.com", "newrepublic.com", "foxnews.com",
+    "nationalreview.com", "washingtonexaminer.com", "thefederalist.com",
+    "dailywire.com", "breitbart.com", "townhall.com", "realclearpolitics.com",
+    "theamericanconservative.com", "spectator.org", "thefp.com"
+  ],
+  "sources_muted": [
+    { "name": "New York Times", "lean": "left", "reason": "paywalled / not accessible to crawler" },
+    { "name": "Washington Post", "lean": "left", "reason": "paywalled / not accessible to crawler" },
+    { "name": "Politico", "lean": "left", "reason": "paywalled / not accessible to crawler" },
+    { "name": "Vox", "lean": "left", "reason": "not accessible to crawler" },
+    { "name": "Mother Jones", "lean": "left", "reason": "not accessible to crawler" },
+    { "name": "WSJ Opinion", "lean": "right", "reason": "paywalled / not accessible to crawler" },
+    { "name": "New York Post", "lean": "right", "reason": "not accessible to crawler" },
+    { "name": "Reuters Politics", "lean": "center", "reason": "not accessible to crawler" },
+    { "name": "Associated Press", "lean": "center", "reason": "not accessible to crawler" },
+    { "name": "BBC US & Canada", "lean": "center", "reason": "not accessible to crawler" }
+  ],
+  "shared_topics": [
+    {
+      "topic_key": "economy-inflation-jobs-cpi-september",
+      "title": "September CPI Hits 3.7%, Jobs Miss Badly — Economy Dominates Pre-Midterm Coverage",
+      "summary": "September's economic data landed as a double blow ahead of the November 3 midterms: payrolls grew by only 29,000 — far short of the ~90,000 expected — while the unemployment rate edged up to 4.2%, and consumer prices rose 3.7% year-over-year, driven largely by gas and diesel price increases tied to the ongoing Iran conflict. Wholesale inflation (PPI) surged 6.3% annually, real average hourly earnings fell 0.7% year-over-year, and the University of Michigan consumer sentiment index hit an all-time low of 44.7. The Federal Reserve raised rates last month for the first time since 2023; markets are pricing a roughly 28% chance of another hike at the October 27-28 meeting. Both parties are citing these numbers as evidence for their competing economic narratives.",
+      "left": {
+        "framing": "Left-leaning outlets frame the economic data as the human cost of the Iran war: gas and diesel prices driven by the Hormuz conflict are inflating the CPI, squeezing workers whose wages no longer keep pace, and cratering consumer confidence ahead of the election. Coverage emphasizes the squeeze on ordinary Americans — falling real wages, record-low sentiment, workers losing the ability to job-switch for raises — and ties the suffering directly to administration policy choices.",
+        "sources": [
+          { "source": "CNN Economy", "url": "https://www.cnn.com/2026/10/14/economy/us-cpi-inflation-september" },
+          { "source": "CNN Economy", "url": "https://www.cnn.com/2026/10/02/economy/us-jobs-report-september-final" },
+          { "source": "NBC News", "url": "https://www.nbcnews.com/business/economy/inflation-jumped-september-gas-diesel-prices-squeezed-consumers-ahead-rcna603202" },
+          { "source": "Axios", "url": "https://www.axios.com/2026/10/14/inflation-warning-sign-cpi" },
+          { "source": "CNN Economy", "url": "https://www.cnn.com/2026/10/09/economy/us-economy-consumer-sentiment" }
+        ]
+      },
+      "right": {
+        "framing": "Right-leaning outlets acknowledge the same data but pivot the blame toward Democratic spending and regulatory overreach, arguing the underlying fiscal crisis — with the national debt crossing $40 trillion — was set in motion long before the Iran conflict. Coverage frames the inflation as evidence that big-government policies are unsustainable and calls for fiscal discipline rather than blaming the war exclusively.",
+        "sources": [
+          { "source": "Breitbart", "url": "https://www.breitbart.com/politics/2026/10/16/exclusive-rick-scott-congress-must-break-its-spending-addiction-return-to-fiscal-sanity-as-national-debt-hits-40-trillion/" },
+          { "source": "Axios", "url": "https://www.axios.com/2026/10/16/warsh-federal-reserve-interest-rates" },
+          { "source": "The Free Press", "url": "https://www.thefp.com/p/the-folly-of-affordability-politics" }
+        ]
+      },
+      "correlation": 65,
+      "correlation_label": "Agree on facts, diverge on emphasis.",
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "days_seen": 1
+    },
+    {
+      "topic_key": "elon-musk-366m-political-spending",
+      "title": "Elon Musk's $366 Million in Midterm Donations Reshapes Campaign Finance",
+      "summary": "New Federal Election Commission filings confirm Elon Musk has contributed at least $366 million this election cycle, making him the dominant individual donor of the 2026 midterms. His spending includes more than $150 million concentrated in the Texas Senate race to support Republican Ken Paxton over Democrat James Talarico, as well as targeted investments in governor races and Senate contests from Minnesota to Alaska. The scale of his spending has prompted comparisons to George Soros from the right and to unchecked oligarchic influence from the left, and it has become a central subplot in nearly every competitive race.",
+      "left": {
+        "framing": "Left outlets frame Musk's spending as a dangerous concentration of billionaire power in democracy, highlighting that a single individual can effectively buy Senate seats. Coverage emphasizes the $150M+ in Texas as evidence of a thumb on the electoral scale and connects his spending to broader concerns about unchecked wealth in politics.",
+        "sources": [
+          { "source": "CNN Politics", "url": "https://www.cnn.com/2026/10/16/politics/musk-gop-support-texas-senate-race-hnk" },
+          { "source": "The Hill", "url": "https://thehill.com/policy/technology/6145993-musk-rejoins-trump-orbit-politics-midterms/" }
+        ]
+      },
+      "right": {
+        "framing": "Right outlets treat Musk's spending as legitimate political activity by a private citizen exercising free speech rights. Coverage notes that Republicans still trail in several races despite Musk's investment, framing it as a necessary counter to Democratic fundraising advantages at the candidate level rather than as a democracy-threatening action.",
+        "sources": [
+          { "source": "Washington Examiner", "url": "https://www.washingtonexaminer.com/news/campaigns/congressional/4768561/elon-musk-political-donations-2026-elections/" },
+          { "source": "Fox News", "url": "https://www.foxnews.com/politics/democrats-widening-path-power-400m-gop-advantage-brutal-dilemma" }
+        ]
+      },
+      "correlation": 55,
+      "correlation_label": "Same event, materially different framing.",
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "days_seen": 1
+    },
+    {
+      "topic_key": "iran-war-diplomatic-pause-moab-planning",
+      "title": "Trump Pauses Iran Strikes Before Midterms While Pentagon Plans MOAB Deployment",
+      "summary": "As of October 15-16, the United States is in a de facto pre-election pause on active strikes against Iran, now in its 228th day of conflict. Trump has publicly ruled out nuclear weapons and ground troops while leaving conventional air strikes open after the midterms. CNN and Fox News separately reported that the Pentagon has developed plans to deploy the GBU-57 Massive Ordnance Penetrator — the 'Mother of All Bombs' — against Iran's underground nuclear facilities and energy infrastructure. Qatari-mediated diplomacy remains in limbo, with Iran's foreign minister saying his country is prepared to resume fighting but has not foreclosed talks. Brent crude exceeded $106 per barrel, and Saudi-Houthi exchanges near the Strait of Hormuz continue to threaten shipping lanes.",
+      "left": {
+        "framing": "Left-leaning outlets emphasize the war's economic toll — oil and diesel prices fueling inflation, eroding household budgets, and depressing consumer confidence — and frame the pre-midterm pause as a politically calculated move. Coverage also highlights the human and fiscal costs ($37.5B spent by the Pentagon) and expresses concern about post-election escalation.",
+        "sources": [
+          { "source": "CNN Politics", "url": "https://www.cnn.com/2026/10/15/politics/us-considering-mother-of-all-bombs-iran" },
+          { "source": "NBC News", "url": "https://www.nbcnews.com/world/iran/iran-fully-prepared-war-resume-foreign-minister-rcna600059" },
+          { "source": "Axios", "url": "https://www.axios.com/2026/10/13/netanyahu-trump-iran-war-elections" }
+        ]
+      },
+      "right": {
+        "framing": "Right-leaning outlets frame the pause as strategic restraint ahead of the elections and describe the MOAB planning as prudent military preparation. Coverage takes a harder line on Iran's nuclear ambitions, frames the diplomatic stall as Tehran's fault, and emphasizes the need for credible military deterrence after the midterms.",
+        "sources": [
+          { "source": "Fox News", "url": "https://www.foxnews.com/live-news/us-iran-war-peace-donald-trump-strait-hormuz-oil-prices-midterms-october-15" },
+          { "source": "Fox News", "url": "https://www.foxnews.com/live-news/iran-war-trump-strait-hormuz-oil-prices-midterms-october-16" },
+          { "source": "The American Conservative", "url": "https://theamericanconservative.com/iran-war-day-228-saudis-houthis-trade-strikes" }
+        ]
+      },
+      "correlation": 52,
+      "correlation_label": "Same event, materially different framing.",
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "days_seen": 1
+    },
+    {
+      "topic_key": "trump-russia-diesel-deal",
+      "title": "Trump's Diesel Deal with Russia Draws Cross-Ideological Criticism",
+      "summary": "Reports of a Trump administration agreement to purchase Russian diesel fuel to relieve domestic energy prices have generated unusually broad criticism spanning left, right, and center outlets. The deal is seen as undermining Ukraine and Western sanctions on Moscow while providing Russia economic relief at a moment of geopolitical pressure. Diesel prices have risen roughly 50% since the start of the Iran war, and the administration framed the purchase as consumer relief, but critics across the spectrum question whether the strategic and diplomatic costs outweigh the price benefit.",
+      "left": {
+        "framing": "Left and center outlets frame the deal as a betrayal of Ukraine and a reward for Russia that signals Trump's preference for cheap gas over allied solidarity. Coverage ties it to broader concerns about the administration's Russia posture and argues it represents a strategic gift to Putin during active military conflict.",
+        "sources": [
+          { "source": "Slate", "url": "https://slate.com/podcasts/political-gabfest/2026/10/politics-why-trump-seems-to-want-russia-to-win-in-ukraine" },
+          { "source": "The Free Press", "url": "https://thefp.com/p/trump-disastrous-diesel-deal-russia-ukraine?amp=&amp=" }
+        ]
+      },
+      "right": {
+        "framing": "National Review — the primary right-leaning outlet to cover it substantively — calls the deal 'futile but revealing,' questioning whether any price relief will materialize while noting it exposes a troubling instinct in Trump's Russia policy. Coverage is critical but frames it as an unforced error rather than deliberate betrayal.",
+        "sources": [
+          { "source": "National Review", "url": "https://nationalreview.com/carnival-of-fools/what-trumps-putin-pact-reveals" }
+        ]
+      },
+      "correlation": 48,
+      "correlation_label": "Same event, materially different framing.",
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "days_seen": 1
+    },
+    {
+      "topic_key": "texas-senate-talarico-paxton",
+      "title": "Texas Senate Race — Talarico vs. Paxton Tests Whether Democrats Can Flip Texas",
+      "summary": "The Texas Senate contest between Democrat James Talarico and Republican incumbent Attorney General Ken Paxton has become the most expensive Senate race of the cycle, with ad spending exceeding $500 million and Elon Musk contributing more than $150 million to Paxton's campaign. Polling is highly conflicting: multiple left-leaning surveys show Talarico with a narrow lead of 1-3 points, while right-leaning polls including InsiderAdvantage show Paxton narrowly ahead at 49%-48%. Democrats raised $64 million in the third quarter to Republicans' $18 million. Trump publicly blamed Sen. John Cornyn and Karl Rove should Paxton lose, signaling internal GOP anxiety. The race is rated a toss-up by Cook Political Report.",
+      "left": {
+        "framing": "Left outlets frame the race as a historic Democratic opportunity, featuring extensive coverage of Talarico's fundraising dominance, his personal narrative, and the possibility of Democrats winning a Texas Senate seat for the first time in three decades. Coverage emphasizes Musk's spending as evidence of Republican desperation and frames Paxton as a Trump loyalist facing accountability.",
+        "sources": [
+          { "source": "CNN Politics", "url": "https://www.cnn.com/2026/10/13/politics/james-talarico-texas-senate-democrats" },
+          { "source": "The Hill", "url": "https://thehill.com/homenews/campaign/6148528-talarico-paxton-texas-senate" },
+          { "source": "Axios", "url": "https://www.axios.com/local/austin/2026/10/14/texas-poll-talarico-paxton-senate" }
+        ]
+      },
+      "right": {
+        "framing": "Right outlets select polls showing Paxton ahead or tied and frame Talarico's abortion and policy positions as out of step with Texas voters. Coverage portrays Musk's spending as a necessary defensive investment in a state that should not be competitive, and Trump's Cornyn/Rove comments as a fair warning to the GOP establishment.",
+        "sources": [
+          { "source": "Breitbart", "url": "https://www.breitbart.com/politics/2026/10/15/poll-shows-ken-paxton-narrowly-leading-james-talarico-texas-senate-race/" },
+          { "source": "Townhall", "url": "https://townhall.com/news/josephchalfant/2026/10/13/new-poll-puts-paxton-out-in-front-in-texas-senate-race-n2684611" },
+          { "source": "Washington Examiner", "url": "https://washingtonexaminer.com/news/campaigns/congressional/4768013/trump-cornyn-rove-paxton-texas-senate" }
+        ]
+      },
+      "correlation": 42,
+      "correlation_label": "Same event, materially different framing.",
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "days_seen": 1
+    },
+    {
+      "topic_key": "immigration-ice-surge-scotus-detention",
+      "title": "ICE Arrest Surge and Supreme Court Immigration Case Split Coverage",
+      "summary": "Two major immigration developments are driving coverage this week. First, ICE leadership directed agents to increase daily arrests from roughly 2,000 to 3,000, raising the total number of people in immigration detention to over 65,000 — up from 38,000 at the end of the Biden administration. Second, the Supreme Court agreed to review the Trump administration's mandatory detention-without-bond policy for people who entered the country illegally, with a decision expected by late June. Politically, polling shows immigration has lost some of its earlier salience: Trump's approval on immigration jumped to 58% disapproval in a late-August Ipsos survey, up from 38% when he took office.",
+      "left": {
+        "framing": "Left-leaning outlets frame the ICE surge as an escalating civil rights concern, noting the dramatic increase in detention numbers and questioning the legality of mandatory detention without bond. Coverage of the SCOTUS case is framed as a high-stakes test for due process. Immigration is portrayed as losing political potency for Republicans, with voters shifting focus to the economy.",
+        "sources": [
+          { "source": "CNN Politics", "url": "https://www.cnn.com/2026/10/08/politics/ice-immigration-arrests" },
+          { "source": "CNN Politics", "url": "https://edition.cnn.com/2026/10/01/politics/supreme-court-trump-ice-migrants-detention-without-bond" },
+          { "source": "Axios", "url": "https://www.axios.com/2026/10/01/trump-immigration-midterms-polling-economy" }
+        ]
+      },
+      "right": {
+        "framing": "Right-leaning outlets frame the ICE surge as necessary enforcement and celebrate the SCOTUS case as an opportunity to uphold mandatory detention. Coverage emphasizes concerns about noncitizen voter registration and Democratic proposals to expand benefits to immigrants, framing the overall immigration debate as evidence of Democrats embracing open-borders policy.",
+        "sources": [
+          { "source": "The Federalist", "url": "https://thefederalist.com/2026/10/15/the-nonissue-of-noncitizens-voting-is-becoming-a-bigger-issue/" },
+          { "source": "Breitbart", "url": "https://breitbart.com/politics/2026/10/14/blakeman-hochul-battle-over-immigration-in-new-york-governor-debate" },
+          { "source": "The Hill", "url": "https://thehill.com/homenews/campaign/6126619-gop-trump-immigration-enforcement-midterms/" }
+        ]
+      },
+      "correlation": 35,
+      "correlation_label": "Sharply divergent narratives.",
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "days_seen": 1
+    },
+    {
+      "topic_key": "2026-midterms-senate-battle",
+      "title": "2026 Midterms — Democrats Lead Broadly But Senate Control Remains Uncertain",
+      "summary": "With Election Day on November 3 — 18 days away — Democrats hold a substantial structural advantage: an 8-point generic congressional ballot lead, fundraising dominance in key Senate races, and a Trump approval rating ranging from 33% to 39% across major polls. Cook Political Report has shifted 11 additional House districts toward Democrats, giving Democrats an advantage in at least 219 seats. The Senate is closer: forecasters put Democrats at 59-71% probability of winning the chamber. Key contests include Texas (toss-up), Alaska (toss-up), Maine (toss-up), Michigan (lean-D), Georgia (lean-D), and South Carolina (competitive). Republicans hold a $400M outside-group spending advantage despite trailing badly in candidate-level fundraising.",
+      "left": {
+        "framing": "Left outlets frame the midterms as a referendum on Trump and project a significant Democratic wave, emphasizing unprecedented fundraising, Cook report shifts, and favorable polling. Coverage suggests the House is nearly certain for Democrats while framing the Senate as winnable. Analysis pieces argue anti-incumbent voter anger reflects specifically anti-Trump sentiment rather than broader frustration with both parties.",
+        "sources": [
+          { "source": "CNN Politics", "url": "https://www.cnn.com/2026/10/14/politics/midterms-ad-wars-republican-spending" },
+          { "source": "Axios", "url": "https://www.axios.com/2026/10/16/democrats-midterms-fundraising-senate" },
+          { "source": "The New Republic", "url": "https://newrepublic.com/article/216703/transcript-dems-will-win-house-senate-big-question" },
+          { "source": "NBC News", "url": "https://www.nbcnews.com/politics/2026-election/democrats-eye-generation-opportunity-flip-state-legislative-chambers-rcna601702" }
+        ]
+      },
+      "right": {
+        "framing": "Right outlets acknowledge Democrats' polling lead but emphasize countervailing factors: Republicans' $400M outside-spending advantage, historical midterm patterns, lingering uncertainty about voter modeling, and the possibility that the blue-wave narrative is overstated. Coverage highlights individual races where Republicans may outperform — Alaska, Maine, South Carolina — and argues Democratic overconfidence is a risk.",
+        "sources": [
+          { "source": "Fox News", "url": "https://www.foxnews.com/politics/fox-news-power-rankings-house-falls-senate-stays-play" },
+          { "source": "RealClearPolitics", "url": "https://realclearpolitics.com/2026/10/12/the_blue_wave_looks_real_until_you_look_a_little_closer_713930.html" },
+          { "source": "The American Spectator", "url": "https://spectator.org/why-republicans-may-defy-midterm-history/" },
+          { "source": "Slate", "url": "https://slate.com/news-and-politics/2026/10/midterms-maga-elon-musk-trump-senate.html" }
+        ]
+      },
+      "correlation": 33,
+      "correlation_label": "Sharply divergent narratives.",
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "days_seen": 1
+    },
+    {
+      "topic_key": "ilhan-omar-home-raid",
+      "title": "Federal Officers Search Rep. Ilhan Omar's Home — Competing Narratives Emerge",
+      "summary": "Federal agents executed a search warrant at the Washington, D.C.-area home of Rep. Ilhan Omar (D-MN) on October 12. The Trump administration has signaled it is investigating claims that Omar committed immigration fraud in obtaining her citizenship. Omar and House Democrats have condemned the search as a politically motivated attempt to weaponize federal law enforcement against an elected opponent. The White House stated the president was not involved. The action follows Omar's public criticism of the administration and her ongoing profile as one of Trump's most vocal congressional critics.",
+      "left": {
+        "framing": "Left outlets frame the home search as an alarming use of federal law enforcement for political retaliation, drawing comparisons to authoritarian tactics. Coverage emphasizes Omar's response — 'I will not be silenced' — and situates the raid within a broader pattern of the administration targeting political opponents, including press restrictions and the suspension of security clearances for critics.",
+        "sources": [
+          { "source": "CNN Politics", "url": "https://www.cnn.com/2026/10/12/politics/ilhan-omar-search" },
+          { "source": "NBC News", "url": "https://www.nbcnews.com/politics/trump-administration/live-blog/trump-maine-alaska-senate-2026-midterms-ai-task-force-live-updates-rcna603568" }
+        ]
+      },
+      "right": {
+        "framing": "Right outlets report the facts of the search with less critical framing, presenting the investigation into Omar's citizenship as a legitimate law enforcement matter. Coverage cites the administration's stated position that Trump was not personally involved and notes Omar's past controversies without characterizing the search as politically motivated.",
+        "sources": [
+          { "source": "Breitbart", "url": "https://www.breitbart.com/politics/2026/10/12/ilhan-omar-speaks-out-after-raid-i-will-not-be-silenced/" },
+          { "source": "The American Conservative", "url": "https://www.theamericanconservative.com/what-i-saw-and-heard-in-vance-country/" }
+        ]
+      },
+      "correlation": 28,
+      "correlation_label": "Sharply divergent narratives.",
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "days_seen": 1
+    }
+  ],
+  "gap_left": [
+    {
+      "topic_key": "trump-approval-33pct-gop-distancing",
+      "title": "Trump at 33-38% Approval — GOP Candidates Openly Distancing",
+      "summary": "Multiple left-leaning outlets are tracking Trump's approval rating — ranging from 33% in CNN's poll of polls to 38.7% in The Hill's tracker — as the defining factor in the midterm environment. Coverage focuses on the growing number of Republican Senate candidates publicly distancing themselves from Trump on the Iran war, the Russia diesel deal, and tariff policy, arguing the pattern reflects a president who has become a political liability even in Republican-leaning states.",
+      "sources": [
+        { "source": "CNN Politics", "url": "https://www.cnn.com/2026/10/15/politics/trump-unpopular-ideas-republicans-distancing" },
+        { "source": "The Hill", "url": "https://thehill.com/homenews/campaign/6151005-ossoff-georgia-republicans-do-not-want-the-president-to-come" },
+        { "source": "The Daily Beast", "url": "https://www.thedailybeast.com/trump-aides-privately-admit-embarrassing-reality-about-midterm-prospects/" }
+      ],
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "days_seen": 1
+    },
+    {
+      "topic_key": "democratic-fundraising-dominance-senate",
+      "title": "Democratic Fundraising Dominance — 'Mind-Blowing' Senate Numbers",
+      "summary": "Axios and NBC report Democrats have outraised Republican Senate candidates in every key race, led by Texas ($64M vs. $18M) and Georgia ($33M vs. $3M). Democratic candidates as a whole posted what strategists called 'mind-blowing' third-quarter numbers. While GOP outside groups hold a $400M overall spending advantage, the candidate-level gap signals strong small-dollar grassroots energy on the Democratic side.",
+      "sources": [
+        { "source": "Axios", "url": "https://www.axios.com/2026/10/16/democrats-midterms-fundraising-senate" },
+        { "source": "CNN Politics", "url": "https://cnn.com/2026/10/16/politics/live-news/midterm-election-congress" }
+      ],
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "days_seen": 1
+    },
+    {
+      "topic_key": "cook-report-11-house-seats-shift",
+      "title": "Cook Political Report Shifts 11 More House Districts Toward Democrats",
+      "summary": "Cook Political Report moved 11 additional House seats toward Democrats in its latest ratings update, giving Democrats an advantage in at least 219 seats — enough to hold a bare majority. The shifts are concentrated in suburban districts and formerly safe Republican seats in states with elevated Iran war disapproval. The movement represents the continuation of a months-long electoral drift that has turned the House from uncertain to effectively out of reach for Republicans barring a dramatic environment change.",
+      "sources": [
+        { "source": "The Hill", "url": "https://thehill.com/homenews/campaign/6153418-cook-political-report-11-house-districts-shift-democratic/" },
+        { "source": "Washington Examiner", "url": "https://www.washingtonexaminer.com/news/campaigns/congressional/4768639/seats-shift-democrats-three-red-areas-major-projection-shows/" }
+      ],
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "days_seen": 1
+    },
+    {
+      "topic_key": "progressive-vs-centrist-democrat-debate",
+      "title": "Progressive vs. Centrist Democrats — Intra-Party Tension as Primaries End",
+      "summary": "The New Republic and Slate are covering a live intra-Democratic argument about what a midterm victory would mean for the party's direction. Progressive nominees in Michigan (Abdul El-Sayed), New York (multiple House seats), and other states are winning primaries on Medicare for All and anti-Israel platforms, while centrist Democrats argue such candidates are risky in general elections. Centrists are 'moving the goalposts' post-facto to claim credit for the wave even if progressive nominees win.",
+      "sources": [
+        { "source": "The New Republic", "url": "https://newrepublic.com/article/216575/progressives-swing-states-centrists-2026" },
+        { "source": "The New Republic", "url": "https://newrepublic.com/article/216690/voters-rejecting-trump-anti-incumbent" }
+      ],
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "days_seen": 1
+    },
+    {
+      "topic_key": "blue-wave-southern-state-legislatures",
+      "title": "Potential Blue Wave Could Reshape Southern State Legislatures",
+      "summary": "The New Republic reports forecasters project Democrats flipping more than 400 state legislative seats nationally, with disproportionate gains in Southern states where Republicans have held supermajorities. Democrats are targeting eight states for potential trifecta control. If the state-level wave matches congressional projections, it would be the largest single-cycle Democratic legislative gain in decades and would set up redistricting influence in key states.",
+      "sources": [
+        { "source": "The New Republic", "url": "https://newrepublic.com/article/216656/blue-wave-reshape-politics-south" },
+        { "source": "NBC News", "url": "https://www.nbcnews.com/politics/2026-election/democrats-eye-generation-opportunity-flip-state-legislative-chambers-rcna601702" }
+      ],
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "days_seen": 1
+    },
+    {
+      "topic_key": "anti-incumbent-wave-limits-democratic-gains",
+      "title": "Anti-Incumbent Sentiment May Limit How Democrats Interpret a Wave Victory",
+      "summary": "New Republic analysts argue that voter anger driving Democratic gains is more accurately characterized as anti-incumbent than pro-Democrat, drawing on data showing that from 2021 to 2024, incumbent leaders were defeated in 40 of 54 elections across Western democracies. The argument is that Democrats risk misreading a wave as an ideological mandate when voters may simply be punishing whoever holds power — a dynamic that could reverse sharply in 2028.",
+      "sources": [
+        { "source": "The New Republic", "url": "https://newrepublic.com/article/216690/voters-rejecting-trump-anti-incumbent" }
+      ],
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "days_seen": 1
+    },
+    {
+      "topic_key": "trump-firing-squad-livestream-reversal",
+      "title": "Trump Reverses Course on Firing Squad Execution Livestream After Bipartisan Backlash",
+      "summary": "The White House reversed a plan to livestream a military firing squad execution after bipartisan criticism, with roughly 80% of Americans in polling opposing the livestream proposal. The reversal is framed by left-leaning outlets as a rare instance of Trump backing down from a controversial position under pressure, and as evidence that his political instincts are misfiring in the pre-election environment.",
+      "sources": [
+        { "source": "The New Republic", "url": "https://newrepublic.com/post/216669/trump-backs-down-firing-squad-execution-livestream-plan" }
+      ],
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "days_seen": 1
+    },
+    {
+      "topic_key": "political-polarization-spiking-local-communities",
+      "title": "Political Polarization Spiking in Local Communities Ahead of Midterms",
+      "summary": "A new CivicPulse survey found that 41% of local elected officials reported 'substantial negative effects' of political polarization in their communities in the past year, with cost of living and immigration cited as top drivers of local conflict. The survey covers mayors, city council members, and county commissioners and represents a ground-level view of how national political tensions are cascading into local governance.",
+      "sources": [
+        { "source": "NBC News", "url": "https://www.nbcnews.com/politics/2026-election/political-polarization-rising-2026-midterm-trump-economy-immigration-rcna600236" }
+      ],
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "days_seen": 1
+    }
+  ],
+  "gap_right": [
+    {
+      "topic_key": "scotus-expansion-court-packing-midterm-issue",
+      "title": "Democratic Court-Packing Plans — Right Frames SCOTUS Expansion as Midterm Threat",
+      "summary": "The Federalist and The American Spectator are running multiple pieces framing potential Democratic Supreme Court expansion as a central midterm issue. Coverage cites Kamala Harris as having endorsed SCOTUS expansion and quotes progressive members of Congress including AOC, Raskin, and Khanna as supporting a third Trump impeachment and judiciary reform if Democrats win the House. The Spectator describes the scenario of Speaker Jeffries leading a 'nightmare scenario' for conservatives if Democrats gain the majority.",
+      "sources": [
+        { "source": "The Federalist", "url": "https://thefederalist.com/2026/10/16/vote-like-dems-court-packing-gambit-is-on-the-ballot-because-it-is" },
+        { "source": "The American Spectator", "url": "https://spectator.org/speaker-jeffries-and-the-nightmare-scenario/" }
+      ],
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "days_seen": 1
+    },
+    {
+      "topic_key": "democrats-push-medicare-for-immigrants",
+      "title": "Democrats Introduce Medicare Coverage Expansion for Immigrants",
+      "summary": "The Federalist and Spectator report that House Democrats introduced a bill that would extend Medicare coverage to immigrants, which right-leaning outlets frame as confirmation of a position Democrats previously called a 'GOP hoax.' Coverage treats the legislation as evidence that Democrats are moving toward policy positions the right characterizes as open-borders entitlement expansion, and use it as midterm mobilization messaging for conservative voters.",
+      "sources": [
+        { "source": "The Federalist", "url": "https://thefederalist.com/2026/10/13/dems-push-medicare-for-illegals-after-claiming-medicare-for-illegals-was-a-gop-hoax" },
+        { "source": "The American Spectator", "url": "https://spectator.org/el-sayeds-medicare-for-all-plays-well-with-voters-it-wont-if-it-ever-becomes-law/" }
+      ],
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "days_seen": 1
+    },
+    {
+      "topic_key": "national-debt-40-trillion-rick-scott",
+      "title": "National Debt Hits $40 Trillion — Rick Scott Calls for Immediate Spending Cuts",
+      "summary": "Sen. Rick Scott published an op-ed in Breitbart calling on both parties to confront a national debt that has crossed $40 trillion, urging Congress to cut spending, balance the budget, and begin paying down debt rather than expanding entitlements. The story is heavily covered on right-leaning outlets as a fiscal alarm and used to critique both Democratic spending proposals and what Scott characterizes as Republican complicity in unsustainable deficits.",
+      "sources": [
+        { "source": "Breitbart", "url": "https://www.breitbart.com/politics/2026/10/16/exclusive-rick-scott-congress-must-break-its-spending-addiction-return-to-fiscal-sanity-as-national-debt-hits-40-trillion/" },
+        { "source": "National Review", "url": "https://nationalreview.com/2026/10/why-are-republicans-in-danger-in-middle-america" }
+      ],
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "days_seen": 1
+    },
+    {
+      "topic_key": "abdel-el-sayed-medicare-for-all-michigan",
+      "title": "Michigan Senate Race — Abdul El-Sayed's Medicare for All Platform Under Sustained Attack",
+      "summary": "Right-leaning outlets including Townhall, The American Spectator, and RealClearPolitics are devoting sustained coverage to attacks on Michigan Democratic Senate candidate Abdul El-Sayed's Medicare for All plan, character, and family ties. Coverage ranges from policy critiques of the plan's cost and feasibility to unverified allegations about his organizational associations. El-Sayed is leading or tied in most polls; Democrats including Alexandria Ocasio-Cortez have contributed $1 million to his final push.",
+      "sources": [
+        { "source": "Townhall", "url": "https://townhall.com/columnists/byronyork/2026/10/13/columnistsbyronyork20261013byron-york-by-byron-york-n2684614" },
+        { "source": "The American Spectator", "url": "https://spectator.org/el-sayeds-medicare-for-all-plays-well-with-voters-it-wont-if-it-ever-becomes-law/" },
+        { "source": "Townhall", "url": "https://townhall.com/columnists/joshhammer/2026/10/16/abdul-el-sayed-a-muslim-brotherhood-puppet-and-a-grave-national-security-threat-n2684772" }
+      ],
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "days_seen": 1
+    },
+    {
+      "topic_key": "noncitizen-voter-registration-concerns",
+      "title": "Noncitizen Voter Registration — New Jersey Acknowledgment Amplifies Right's Concern",
+      "summary": "New Jersey Governor Mikie Sherrill acknowledged that 6,600 noncitizens had been registered to vote in 2023 and 2024, a concession that right-leaning outlets are using to validate broader concerns about election integrity. The Federalist frames this as proof that noncitizen voting is a real and growing issue, not a conspiracy theory, and connects it to the Trump administration's California lawsuit over mail-in ballots sent to potentially ineligible voters.",
+      "sources": [
+        { "source": "The Federalist", "url": "https://thefederalist.com/2026/10/15/the-nonissue-of-noncitizens-voting-is-becoming-a-bigger-issue/" },
+        { "source": "The Federalist", "url": "https://thefederalist.com/2026/10/16/democrats-are-targeting-small-towns-through-migrants-and-low-turnout-races/" }
+      ],
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "days_seen": 1
+    },
+    {
+      "topic_key": "trump-death-penalty-police-firefighter-killers",
+      "title": "Trump Proposes Death Penalty for Killers of Police Officers and Firefighters",
+      "summary": "The American Spectator reports that President Trump announced a proposal to institute the death penalty for anyone convicted of murdering a police officer or firefighter in the line of duty. Right-leaning outlets frame this as a popular law-and-order position ahead of the midterms, fitting within Trump's broader crime and public safety messaging.",
+      "sources": [
+        { "source": "The American Spectator", "url": "https://spectator.org/trump-death-penalty-for-killers-of-firefighters-police-officers" }
+      ],
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "days_seen": 1
+    },
+    {
+      "topic_key": "democrats-small-towns-migrant-voter-strategy",
+      "title": "Federalist: Democrats Exploiting Low Turnout and Migrant Voters in Small-Town Races",
+      "summary": "The Federalist published a report alleging that Democrats are specifically targeting small-town municipal races with low typical turnout, using recently arrived immigrant communities as an electoral base. The framing positions the strategy as an intentional exploitation of civic gaps, and the article connects it to the broader noncitizen voter registration concern. The allegation is unverified and contested by Democrats who describe voter registration drives as standard civic engagement.",
+      "sources": [
+        { "source": "The Federalist", "url": "https://thefederalist.com/2026/10/16/democrats-are-targeting-small-towns-through-migrants-and-low-turnout-races/" }
+      ],
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "days_seen": 1
+    },
+    {
+      "topic_key": "alaska-senate-republican-fight-peltola",
+      "title": "Alaska Senate — Republican Fight to Hold a Seat That Could Decide Control",
+      "summary": "Multiple right-leaning outlets including The Daily Wire and The American Conservative are covering Alaska as a sleeper Senate race that could determine control of the chamber. Democrat Mary Peltola holds a lead over Republican incumbent Dan Sullivan in polling; Republicans have reserved $45 million in advertising between August and Election Day, while Democrats are spending $32 million. The race is rated a toss-up and would represent an extraordinary upset if Peltola wins one of the most Republican states in the country.",
+      "sources": [
+        { "source": "The Daily Wire", "url": "https://www.dailywire.com/news/inside-the-republican-fight-to-hold-alaska" },
+        { "source": "The American Conservative", "url": "https://www.theamericanconservative.com/the-sleeper-race-that-could-decide-control-of-the-senate/" }
+      ],
+      "relevance": 100,
+      "relevance_label": "New — first appearance",
+      "days_seen": 1
+    }
+  ],
+  "suggestions": []
+}
