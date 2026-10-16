@@ -16,7 +16,7 @@ tags:
 related_people:
 salience:
   score: 0
-  last-promoted-check: 2026-10-14
+  last-promoted-check: 2026-10-16
 ---
 
 # AI Adoption Maturity Assessment — where it actually lives (2026-10-09)

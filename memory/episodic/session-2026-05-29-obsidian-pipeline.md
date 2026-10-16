@@ -7,7 +7,7 @@ context: obsidian-source-note skill build, Spotify transcript extraction, conten
   routing, eval harness assertions
 salience:
   score: 0
-  last-promoted-check: 2026-10-14
+  last-promoted-check: 2026-10-16
 ---
 
 # Session Working Memory — 2026-05-29 (Evening)

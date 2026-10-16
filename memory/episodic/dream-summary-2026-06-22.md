@@ -6,7 +6,7 @@ agent-source: jarvis
 type: working-archive
 salience:
   score: 0
-  last-promoted-check: 2026-10-14
+  last-promoted-check: 2026-10-16
 ---
 
 # Dream Cycle Summary — 2026-06-22

@@ -19,8 +19,8 @@ tags:
   - delegation-tracker
 related_people: []
 salience:
-  score: 9
-  last-promoted-check: 2026-10-14
+  score: 7
+  last-promoted-check: 2026-10-16
   promoted: true
 ---
 
