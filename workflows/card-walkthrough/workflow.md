@@ -77,7 +77,7 @@ Read fully and follow: `steps/step-01-walkthrough.md` to begin.
 **Before recommending or adding any card-linked offer, pull 12 months of YNAB transaction data for that card and filter the offer list to vendors where David has actual spend.** Do not recommend offers for services David doesn't use.
 
 **Process:**
-1. Pull the card's YNAB transactions **through the YNAB MCP connector** (`get_accounts` to find the card's account, then `get_transactions_by_account`) with a 12-month window. YNAB is a configured MCP connector — do not curl the API directly. There is no working curl fallback: the old path read a token from `$HOME/develop/jarvis/config/.env`, which does not exist. If the MCP is unavailable, stop and report it. NOTE: the previously referenced `systems/credit-cards/scripts/ynab-card-pull.py` does not exist.
+1. Pull the card's YNAB transactions **through the YNAB MCP connector** (`get_accounts` to find the card's account, then `get_transactions_by_account`) with a 12-month window. YNAB is a configured MCP connector — do not curl the API directly. If the MCP is unavailable, fall back to inline `curl` with `YNAB_API_TOKEN` from the repo's `config/.env` (the old `$HOME/develop/jarvis/config/.env` path was wrong). NOTE: the previously referenced `systems/credit-cards/scripts/ynab-card-pull.py` does not exist.
 2. Extract the top payees from YNAB output
 3. Cross-reference against available offers — only surface offers where the vendor appears in David's actual spend history
 4. For vendors with no YNAB history, do not recommend unless David explicitly asks

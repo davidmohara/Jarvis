@@ -36,7 +36,7 @@ For each card with a live session, in this order:
 For each card:
 
 1. **Read every available offer** on the portal's offers page, noting which are already enrolled and which are new.
-2. **Pull YNAB spend for that card through the YNAB MCP connector** (`get_accounts` then `get_transactions_by_account`) with a **12-month lookback** (not 90 days). A merchant bought from at any point this year is a legitimate target. Do not curl the YNAB API: the old token path does not exist. The MCP is the only working access.
+2. **Pull YNAB spend for that card through the YNAB MCP connector** (`get_accounts` then `get_transactions_by_account`) with a **12-month lookback** (not 90 days). A merchant bought from at any point this year is a legitimate target. If the MCP is unavailable, fall back to inline curl with `YNAB_API_TOKEN` from the repo's `config/.env`.
 3. **Filter**: only add offers where the vendor appears in YNAB spend history, or where spend is highly probable from known patterns (e.g. hotels and travel on the Platinum). Do not add offers for services David does not use.
 4. **Add the qualifying offers** via the skill's enrollment flow.
 5. **Confirm each enrollment on the page** ("Added to Card") before moving on. Do not report an offer as added unless the page confirms it.

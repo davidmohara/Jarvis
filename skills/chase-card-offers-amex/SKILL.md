@@ -238,7 +238,7 @@ YNAB is a configured MCP connector. Use its tools — do NOT curl the YNAB API d
 3. Aggregate by payee and rank by total spend.
 4. **Only add offers where the vendor appears in YNAB spend history**, or where spend is highly probable from known patterns (hotels and travel on the Platinum).
 
-**There is no working curl fallback.** The old inline-curl path read a token from `$HOME/develop/jarvis/config/.env`, which does not exist, and no YNAB token exists in the repo or any env file. The token lives only in the Desktop MCP config. If the MCP is unavailable, stop and report it — do not attempt a direct API call.
+**Fallback if the MCP is unavailable:** inline `curl` against `https://api.youneedabudget.com/v1` with `YNAB_API_TOKEN` read from the repo's `config/.env` (not `$HOME/develop/jarvis/config/.env` — that path was wrong). Budget ID `5185d50a-d25e-47f8-b9d0-283ef6a89d2b`, 12-month window.
 
 **Amex account IDs (fallback):** BCP `b4b7a7c8-32f5-4503-baf5-207d87050813`; Platinum `69de6bb6-...` (historically returns no transactions — rely on known spend patterns if empty).
 
