@@ -1,0 +1,62 @@
+{
+  "id": "eval-20261016T152907-YPXTAW",
+  "agent_id": "a915ce3516f759236",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "rigby",
+  "owning_agent": "rigby",
+  "subagent_type": "general-purpose",
+  "session_id": "3a57609e-8cb8-4028-91b3-b4ea5e0790fe",
+  "trigger": "unknown",
+  "started": "2026-10-16T15:29:07.511585Z",
+  "completed": "2026-10-16T15:36:37.061186Z",
+  "duration_seconds": 449.55,
+  "status": "partial",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 1,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/3a57609e-8cb8-4028-91b3-b4ea5e0790fe/subagents/agent-a0b7fd22775ca38ea.jsonl",
+  "last_assistant_message": "All changes are complete and verified. Here is my report.\n\n## Knox K4 speaker-ID defect \u2014 fixed\n\n### The recorded defect (`err-20260929T024338-K3K074`)\nOn 2026-09-28 Knox stalled plaud-ingest at step-03 (`awaiting-input`) asking David to identify Speaker 3 on the 09-24 GEHC recording and Speaker 1 on the 09-25 4th Friday meeting, when both recordings' timestamps could be cross-referenced against calendar attendees. Failure mode `lazy-search`; David's correction: \"Why are you asking me about speaker ID when it's in the calendar invite?\" The entry's proposed systemic fix: calendar-attendee cross-reference must be a mandatory, evidenced step before any escalation. `fix_status` was still `\"proposed\"` \u2014 never applied. This is the single defect dragging Knox K4 (74.2%) per the remediation plan.\n\n### Why it recurred (two independent causes)\n1. **The instruction was prose-only, not checkable.** step-03 and the skill said \"calendar first,\" but nothing in the run's artifacts proved the calendar was actually consulted, and nothing forbade emitting a generic label as a resolved value.\n2. **The enforcement that existed was dead code.** The two skill assertions built for exactly this (`plaud-sp-004-calendar-required`, `plaud-sp-005-transcript-required`) used check type `yaml_field_pattern`, which was **never implemented** in either `assertion_checks.py` or `eval-turn-stop.py`. They silently skipped as `unknown check type: yaml_field_pattern` on every run (confirmed in `eval-20260928T163649-ZQQBT7`, `eval-20260917T161704-RA9I49`, `eval-20260914T200017-WUMQG0`). The ZQQBT7 grader even named it: *\"two more were skipped due to an unsupported yaml_field_pattern check type (harness gap)... add a supported assertion type for the calendar/transcript-required checks.\"* Those assertions also pointed at a markdown step file with a nonexistent field path, so they'd have been useless even if the type existed.\n\n### The fix (files)\n- **`systems/eval-harness/assertion_checks.py`** \u2014 implemented the declared-but-missing `yaml_field_pattern` check (conditional regex match on a dotted YAML field or its scalar leaf values; optional `when_field`/`when_pattern` gate, `negate`, `min_matches`), registered in `CHECKS`. No threshold touched.\n- **`.claude/hooks/eval-turn-stop.py`** \u2014 mirrored `yaml_field_pattern` (helpers `_leaf_values`/`_gate_truthy` + branch) for parity, as required.\n- **`systems/eval-harness/assertions/plaud-ingest.json`** \u2014 added `plaud-k4-escalation-evidence` (gated on `accumulated-context.unresolved_speakers`; the recorded escalation evidence must name the calendar lookup) and `plaud-k4-no-generic-speaker-labels` (no `Speaker N` as a mapped *value*).\n- **`systems/eval-harness/assertions/plaud-speaker-id.json`** \u2014 repointed the dead `plaud-sp-004/005` to the state.yaml evidence fields so they now evaluate and fire.\n- **`workflows/plaud-ingest/steps/step-03-identify-speakers.md`** and **`skills/plaud-speaker-id/SKILL.md`** \u2014 made the requirement explicit and checkable: escalation must write `accumulated-context.escalation-evidence` (event time + attendees checked + why insufficient + transcript self-ID result) and `unresolved_speakers`; `speaker-mappings` must never carry a generic label as a value. Added to the state write instructions, HARD GATE, Gate 4, and success metrics.\n- **`workflows/plaud-ingest/state.yaml`** \u2014 added `escalation-evidence: null` to document the schema.\n- **`systems/error-tracking/entries/err-20260929T024338-K3K074.json`** \u2014 `fix_status: \"proposed\" \u2192 \"applied\"` (schema.md's resolved value; entry not deleted), with `systemic_fix` updated to name the implementation.\n\n### Test evidence\n- **/tmp fixtures** (`yaml_field_pattern`): identified transcript \u2192 PASS; generic `Speaker 2: \"Speaker 2\"` \u2192 FAIL; escalation *with* calendar evidence \u2192 PASS; escalation *without* evidence \u2192 FAIL; no-escalation \u2192 PASS (vacuous). Hook copy produces identical results (parity GREEN).\n- **End-to-end via the real `run_assertions`** on fixture roots: escalation-no-evidence \u2192 `plaud-k4-escalation-evidence = False`; generic label \u2192 `plaud-k4-no-generic-speaker-labels = False`; full evidence + clean mappings \u2192 both `True`.\n- **Live state.yaml** (a no-op run): both new checks now evaluate (no longer skipped) and pass vacuously; plaud-speaker-id checked count went 4\u21926 as `plaud-sp-004/005` came alive.\n- **Hook suites**: all six `.claude/hooks/tests/*.py` green (`test_detect_workflow` 32/32, `test_eval_session_end`, `test_git_gate`, `test_ies_git`, `test_skill_capture`, `test_step_token_capture`). Both edited modules compile; all edited JSON parses; the error entry passes `rebuild-log.py --conformance`.\n\nNote: a concurrent agent added an unrelated `draft_quality` check to the same two files during my run; my edits are additive and intact. I made no commits (per constraint) and did not touch thresholds. The status-vocabulary false positive (`'completed'` vs `'complete'`, G7M41N) is a separate K4 item the remediation plan deliberately left for David (shared verification vocabulary) and was out of scope here.",
+  "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+  "total_tokens_input": 431236,
+  "total_tokens_output": 2010,
+  "total_cost_usd": 0.017541
+}

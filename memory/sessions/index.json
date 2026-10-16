@@ -3065,7 +3065,17 @@
           "systems/eval-harness/model-pricing.json",
           "systems/eval-harness/token_usage.py",
           ".claude/hooks/tests/test_step_token_capture.py",
-          "projects/stage-5-submission/stage3-remediation-plan.md"
+          "projects/stage-5-submission/stage3-remediation-plan.md",
+          "systems/eval-harness/assertions/plaud-speaker-id.json",
+          "workflows/plaud-ingest/steps/step-03-identify-speakers.md",
+          "skills/plaud-speaker-id/SKILL.md",
+          "systems/eval-harness/assertions/content-discovery.json",
+          "workflows/content-discovery/steps/step-01-discover.md",
+          "systems/error-tracking/entries/err-20260929T024338-K3K074.json",
+          "workflows/daily-review/steps/step-auto.md",
+          "reviews/daily/auto-2026-10-16.md",
+          "memory/working/daily-review-2026-10-16-104000.md",
+          "workflows/daily-review/state.yaml"
         ]
       }
     ]
