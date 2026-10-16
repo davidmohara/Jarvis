@@ -7,6 +7,9 @@ trigger_keywords: [discover offers, discover card]
 trigger_agents: [chase]
 ---
 
+> **PORTAL CHANGED (2026-10-16):** Discover was acquired by Capital One. discover.com is no longer the servicing portal for this card. Do NOT run this skill against discover.com until the portal is re-mapped to Capital One and the navigation steps below are rewritten for that site. See err-20261016T210131-BI38IK.
+
+
 # Discover Offers — Rotating Categories & Offers
 
 **Card:** Discover it Cash Back ••••8369
@@ -228,7 +231,7 @@ Pull Discover YNAB transactions:
 
 ```bash
 YNAB_TOKEN=$(grep YNAB_API_TOKEN $HOME/develop/jarvis/config/.env | cut -d= -f2)
-curl -s "https://api.youneedabudget.com/v1/budgets/5185d50a-d25e-47f8-b9d0-283ef6a89d2b/accounts/0ff3092d-c9ea-4f56-b558-c760e6da7b04/transactions?since_date=$(date -v-90d +%Y-%m-%d)" \
+curl -s "https://api.youneedabudget.com/v1/budgets/5185d50a-d25e-47f8-b9d0-283ef6a89d2b/accounts/0ff3092d-c9ea-4f56-b558-c760e6da7b04/transactions?since_date=$(date -v-1y +%Y-%m-%d)" \
   -H "Authorization: Bearer $YNAB_TOKEN" | \
   python3 -c "import sys,json; txns=json.load(sys.stdin)['data']['transactions']; p={}; [p.update({t['payee_name']: p.get(t['payee_name'],0)+abs(t['amount'])/1000}) for t in txns if t.get('payee_name')]; [print(f'{v:.0f} | {k}') for k,v in sorted(p.items(),key=lambda x:-x[1])[:30]]"
 ```
