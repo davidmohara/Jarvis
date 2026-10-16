@@ -34,25 +34,33 @@ OmniFocus.
 
 ## Measured Results
 
-Mined from `systems/eval-harness/runs/*.json` on 2026-10-08. Repro:
+Recomputed from `systems/eval-harness/runs/*.json` on 2026-10-16 using the
+attribution layer (`step_audit.resolve_record_agent` + `merge_reporting_agent`),
+which recovers records whose workflow/name resolves to a shep-owned workflow.
+Repro:
 
 ```
-python3 -c "import json,glob;r=[json.load(open(f)) for f in glob.glob('systems/eval-harness/runs/*.json')];print(len([d for d in r if d.get('agent')=='shep']))"
+python3 -c "import json,glob,sys;sys.path.insert(0,'systems/eval-harness');from step_audit import resolve_record_agent,merge_reporting_agent as M;r=[json.load(open(f)) for f in glob.glob('systems/eval-harness/runs/*.json')];print(len([d for d in r if M(resolve_record_agent(d))=='shep']))"
 ```
 
-- **Total records: 2.** Status distribution: success 2. Workflows:
-  `shep-1on1-prep` (`eval-20260824T141251-5CDIXW`), `one-on-one-prep`
-  (`eval-20260827T173100-AZ4CQR`).
-- **Structural assertions:** 0/0. The two records carry no structural assertion
-  block, so there is no assertion pass rate to report.
+- **Total records: 6** (raw labels: `shep` 5, `general-purpose` 1). Status
+  distribution: success 4, aborted 2. Strict success rate = 4/6 = 66.7%; mech =
+  4/6 = 66.7%.
+- **Workflows:** one-on-one-prep 4, shep-1on1-prep 2. Earliest 2026-08-24,
+  latest 2026-10-09.
+- **Structural assertions:** 2/2 passed = 100% — but only 2 of the 6 records
+  carry any assertion block (both are 2026-10-09 `shep-1on1-prep` runs with the
+  generic signal/status checks). S1 has no assertion coverage.
 - **Tier 3 grades:** 0 graded.
-- **Error log:** 0 entries tagged `shep`.
+- **Assertion trend:** 2026-08 n/a (n=2, no assertions), 2026-10 100% (n=4, 2
+  with assertions).
+- **Error log:** 2 entries canonicalize to `shep` (both proposed).
 - **Git history:** 9 commits touch `agents/shep.md`.
 
-**Honesty note:** Shep has 2 records, no assertions, and no grades, so no pass
-rate can be claimed. Both recorded runs succeeded. S1-S3 are not measured at all;
-the absence of any `shep` error-log entries is not evidence of correctness, it is
-evidence that Shep work has not been error-logged. What is required: a fresh
+**Honesty note:** Shep has 6 records but no grades, and only 2 carry any
+assertion block, so no stable pass rate can be claimed. The 100% assertion figure
+is 2 generic checks, not S1. S1-S3 are effectively unmeasured; the 2 `shep`
+error-log entries are not evidence of correctness. What is required: a fresh
 instrumented window of at least 10 1:1 preps scored against S1, a delegation-sync
 check that compares OmniFocus against the delegation tracker over a set of
 changes to test S2, and a nudge-calibration review to test S3.

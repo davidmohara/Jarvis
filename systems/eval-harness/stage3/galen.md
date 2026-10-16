@@ -35,32 +35,38 @@ and peptide cycles, and preps physician visits. It works in biomarker language
 
 ## Measured Results
 
-Mined from `systems/eval-harness/runs/*.json` on 2026-10-08. Repro:
+Recomputed from `systems/eval-harness/runs/*.json` on 2026-10-16 using the
+attribution layer (`step_audit.resolve_record_agent` + `merge_reporting_agent`).
+Repro:
 
 ```
-python3 -c "import json,glob;r=[json.load(open(f)) for f in glob.glob('systems/eval-harness/runs/*.json')];print(len([d for d in r if d.get('agent')=='galen']))"
+python3 -c "import json,glob,sys;sys.path.insert(0,'systems/eval-harness');from step_audit import resolve_record_agent,merge_reporting_agent as M;r=[json.load(open(f)) for f in glob.glob('systems/eval-harness/runs/*.json')];print(len([d for d in r if M(resolve_record_agent(d))=='galen']))"
 ```
 
-- **Total records: 0.** Galen has no eval records in the harness. This is the
-  honest headline: no measured pass rate exists.
-- **Structural assertions:** none.
-- **Tier 3 grades:** none.
-- **Error log:** one entry is associated with Galen, filed under the composite
-  agent label `master/galen` (2026, low severity, data-accuracy). No entry is
-  tagged `galen` alone.
+- **Total records: 1** (raw label `galen`). Status distribution: success 1.
+  Strict success rate = 1/1 = 100%. Workflow/skill: `galen-morning-snapshot`
+  (`eval-20261016T131245-N35NBQ`, 2026-10-16).
+- **Structural assertions:** 3/3 passed = 100%. The run carries the first G1/G4
+  assertions (`galen-ms-g1-data-store` passed; `galen-ms-g4-grade` deferred until
+  a Tier 3 grade exists). G2/G3 (bloodwork reference-range and longitudinal
+  continuity) are not yet asserted.
+- **Tier 3 grades:** 0 graded.
+- **Assertion trend:** 2026-10 100% (n=1). First-ever instrumented Galen run.
+- **Error log:** 0 entries canonicalize to `galen` alone; one entry is filed
+  under the composite label `master/galen`.
 - **Git history:** 7 commits touch `agents/galen.md`, including `68c19662`
   "Galen session: supplement stack, peptide protocols, eval harness, boot
   reminders" and `0d93d1f2` "Galen: add longitudinal metrics store and tighten
   data integrity rules."
 
-**Honesty note:** Galen has never been instrumented. Zero eval records means
-zero measured results, and the composite `master/galen` error label shows Galen
-work was happening but was not attributed to Galen. What is required: (1) wire
-the `galen-morning-snapshot` and `galen-whoop-analysis` skills into the eval
-harness so runs record `agent: galen`, (2) instrument G1-G3 as assertions, and
-(3) run at least 5 WHOOP analyses and one bloodwork interpretation scored against
-the criteria, including a run with a deliberately unavailable WHOOP token to test
-G1.
+**Honesty note:** Galen is now instrumented for the first time — one 2026-10-16
+`galen-morning-snapshot` run with 3/3 assertions. That is a single record and
+does not support a pass-rate claim; G1 is covered only by a store-existence
+check (the semantic "refused to interpolate" judgment is deferred to Tier 3
+grading), and G2/G3 are not asserted at all. What is required: (1) instrument
+G2/G3 as assertions, and (2) run at least 5 WHOOP analyses and one bloodwork
+interpretation scored against the criteria, including a run with a deliberately
+unavailable WHOOP token to test G1.
 
 ## Iteration History
 

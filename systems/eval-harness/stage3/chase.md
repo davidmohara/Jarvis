@@ -34,29 +34,33 @@ It also runs the card-optimizer task portfolio.
 
 ## Measured Results
 
-Mined from `systems/eval-harness/runs/*.json` on 2026-10-08. Repro:
+Recomputed from `systems/eval-harness/runs/*.json` on 2026-10-16 using the
+attribution layer (`step_audit.resolve_record_agent` + `merge_reporting_agent`),
+which recovers records whose workflow/name resolves to a chase-owned workflow.
+Repro:
 
 ```
-python3 -c "import json,glob;r=[json.load(open(f)) for f in glob.glob('systems/eval-harness/runs/*.json')];print(len([d for d in r if d.get('agent')=='chase']))"
+python3 -c "import json,glob,sys;sys.path.insert(0,'systems/eval-harness');from step_audit import resolve_record_agent,merge_reporting_agent as M;r=[json.load(open(f)) for f in glob.glob('systems/eval-harness/runs/*.json')];print(len([d for d in r if M(resolve_record_agent(d))=='chase']))"
 ```
 
-- **Total records: 3.** Status distribution: success 2, aborted 1. Workflows:
-  `partner-meeting-prep` (`eval-20260624T155626-B8WRE2`), `co-sell-pipeline`
-  (`eval-20260831T150120-LBC9T0`), `client-meeting-prep`
-  (`eval-20260921T222024-S5B1MP`, aborted).
-- **Structural assertions:** 14/15 passed = 93.3% across 3 records.
+- **Total records: 6** (raw labels: `chase` 3, `general-purpose` 1, `rigby` 1,
+  `claude` 1). Status distribution: success 2, partial 1, aborted 2, incomplete 1.
+  Strict success rate = 2/6 = 33.3%; mech = 3/5 = 60.0%.
+- **Workflows:** client-meeting-prep 3, partner-meeting-prep 1,
+  account-pursuit-map 1, co-sell-pipeline 1.
+- **Structural assertions:** 15/19 passed = 78.9% across 6 records.
 - **Tier 3 grades:** 1 graded (A) = 1/1 = 100% grade-pass.
-- **Error log:** 24 entries tagged `chase` (4 with an applied systemic fix,
-  15 proposed), plus one `chase-client-prep` entry. Chase has a high error count
-  relative to its 3 eval records, which reflects that most Chase work ran before
-  or outside the instrumented eval path.
+- **Error log:** 24 entries canonicalize to `chase` (4 with an applied systemic
+  fix, 16 proposed). Chase has a high error count relative to its 6 eval records,
+  which reflects that most Chase work ran before or outside the instrumented eval
+  path.
 
-**Honesty note:** 3 records is far too few to claim a stable pass rate. H1-H3
-are not directly asserted by the existing records; the 93.3% is the generic
-structural assertion set. The one graded run is an A. What is required: a fresh
-instrumented window of client-meeting-prep and co-sell-pipeline runs (target >=
-10 each) scored against H1-H4, including at least one prep where the reason for
-the call is ambiguous to test H2.
+**Honesty note:** 6 records is still far too few to claim a stable pass rate. H1-H3
+are not directly asserted by the existing records; the 78.9% is the generic
+structural assertion set. The one graded run is an A (H4 passes on n=1, which is
+not evidence). What is required: a fresh instrumented window of client-meeting-prep
+and co-sell-pipeline runs (target >= 10 each) scored against H1-H4, including at
+least one prep where the reason for the call is ambiguous to test H2.
 
 ## Iteration History
 

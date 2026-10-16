@@ -33,23 +33,28 @@ the golf tee-time booking workflow.
 
 ## Measured Results
 
-Mined from `systems/eval-harness/runs/*.json` on 2026-10-08. Repro:
+Recomputed from `systems/eval-harness/runs/*.json` on 2026-10-16 using the
+attribution layer (`step_audit.resolve_record_agent` + `merge_reporting_agent`),
+which recovers records whose workflow/name resolves to a sterling-owned workflow.
+Repro:
 
 ```
-python3 -c "import json,glob;r=[json.load(open(f)) for f in glob.glob('systems/eval-harness/runs/*.json')];print(len([d for d in r if d.get('agent')=='sterling']))"
+python3 -c "import json,glob,sys;sys.path.insert(0,'systems/eval-harness');from step_audit import resolve_record_agent,merge_reporting_agent as M;r=[json.load(open(f)) for f in glob.glob('systems/eval-harness/runs/*.json')];print(len([d for d in r if M(resolve_record_agent(d))=='sterling']))"
 ```
 
-- **Total records: 3.** Status distribution: success 3. Workflows: `golf-preview`
-  (`eval-20260902T185220-MMAAR2`, `eval-20260902T185228-G5ABK1`),
-  `calendar-handler` (`eval-20260902T185232-LXGJA9`).
-- **Structural assertions:** 8/8 passed = 100% across 3 records.
+- **Total records: 4** (raw labels: `sterling` 3, `general-purpose` 1). Status
+  distribution: success 3, aborted 1. Strict success rate = 3/4 = 75.0%; mech =
+  3/4 = 75.0%.
+- **Workflows:** golf-preview 2, calendar-handler 1, golf-booking 1.
+- **Structural assertions:** 11/12 passed = 91.7% across 4 records.
 - **Tier 3 grades:** 0 graded.
-- **Error log:** 8 entries tagged `sterling` (4 with an applied systemic fix,
-  3 proposed), including `err-20260820T000000-GOLF01` (day-of-week calculation
-  error) and `err-20260904T151500-CANCEL` (irreversible-action safety, severity
-  major).
+- **Assertion trend:** 2026-08 75% (n=1), 2026-09 100% (n=3).
+- **Error log:** 11 entries canonicalize to `sterling` (5 with an applied
+  systemic fix, 5 proposed), including `err-20260820T000000-GOLF01` (day-of-week
+  calculation error) and `err-20260904T151500-CANCEL` (irreversible-action safety,
+  severity major).
 
-**Honesty note:** 3 records, no grades, and a 100% assertion rate on the generic
+**Honesty note:** 4 records, no grades, and a 91.7% assertion rate on the generic
 structural set do not measure T1-T3. T3 is the highest-stakes criterion (an
 unconfirmed cancellation is irreversible) and is not asserted at all. What is
 required: a fresh instrumented window of /Jarvis inbox processing runs scored

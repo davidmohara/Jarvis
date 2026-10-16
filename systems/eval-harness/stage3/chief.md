@@ -37,33 +37,44 @@ today's meetings, delegations due, high-priority tasks, inbox last.
 
 ## Measured Results
 
-Mined from `systems/eval-harness/runs/*.json` on 2026-10-08. Repro:
+Recomputed from `systems/eval-harness/runs/*.json` on 2026-10-16 using the
+attribution layer (`step_audit.resolve_record_agent` + `merge_reporting_agent`),
+which recovers records whose workflow/name resolves to a chief-owned workflow
+even when the raw label is a Claude Code subagent type. Repro:
 
 ```
-python3 -c "import json,glob;r=[json.load(open(f)) for f in glob.glob('systems/eval-harness/runs/*.json')];print(len([d for d in r if d.get('agent')=='chief']))"
+python3 -c "import json,glob,sys;sys.path.insert(0,'systems/eval-harness');from step_audit import resolve_record_agent,merge_reporting_agent as M;r=[json.load(open(f)) for f in glob.glob('systems/eval-harness/runs/*.json')];print(len([d for d in r if M(resolve_record_agent(d))=='chief']))"
 ```
 
-- **Total records: 82.** Status distribution: success 57, partial 23,
-  incomplete 2. Completion (success) rate = 57/82 = 69.5%.
-- **Workflows:** daily-review and morning-briefing dominate; earliest record
-  2026-05-24, latest 2026-09.
-- **Structural assertions:** 306/470 passed = 65.1% across 82 records.
-- **Tier 3 grades:** 59 graded (A 11, B 19, C 13, F 16) = 30/59 = 50.8%
-  grade-pass (A/B).
+- **Total records: 91** (raw labels: `chief` 87, `general-purpose` 3, `Explore` 1).
+  Status distribution: success 60, partial 25, aborted 3, incomplete 2, complete 1.
+  Strict success rate = 61/91 = 67.0%; mech (strict + partial, session-exit
+  aborts excluded) = 86/90 = 95.6%.
+- **Workflows:** daily-review 60, morning-briefing 24, jarvis-inbox 4, git 2,
+  omnifocus-tasks 1.
+- **Structural assertions:** 307/476 passed = 64.5% across 91 records.
+  `expected_outputs_written` (C2): 41/68 = 60.3%. `outputs_non_empty` (C2):
+  35/63 = 55.6%.
+- **Tier 3 grades (C4):** 63 graded (A 13, B 20, C 14, F 16) = 33/63 = 52.4%
+  grade-pass (A/B). Excluding `trigger: scheduled` runs: 10/15 = 66.7%. The 16
+  F-grades sit entirely on scheduled runs (15 scheduled F + 1 boot F).
 - **Assertion trend:** 2026-05 62% (n=6), 2026-06 64% (n=19), 2026-07 69%
-  (n=25), 2026-08 48% (n=18), 2026-09 83% (n=14). Net improvement May to
-  September despite an August dip.
-- **Error log:** 25 entries tagged `chief` (16 with an applied systemic fix,
-  5 proposed).
+  (n=25), 2026-08 46% (n=19), 2026-09 83% (n=14), 2026-10 n/a (n=8, no
+  assertions recorded).
+- **Error log:** 24 entries canonicalize to `chief` (16 with an applied systemic
+  fix, 5 proposed).
 
 **Honesty note:** C2 and C3 are measured directly by existing assertions
-(outputs-written, non-empty, honest data-gap narratives). C1 is measured by the
-per-run assertion set (the daily-005 "completions section" assertion is the one
-that most often fails on data-gap runs). C4 uses Tier 3 grades as the direct
-measure. The 50.8% grade-pass rate is below the C4 threshold and is the honest
-headline: Chief's briefings are structurally sound but frequently graded C/D/F
-for thin content on headless scheduled runs. A fresh instrumented run window is
-required to re-score C1/C4 against thresholds with live data.
+(outputs-written, non-empty, honest data-gap narratives); C2's outputs-non-empty
+rate is only 55.6%, well below the 100% bar. C1 is measured by the per-run
+assertion set (the daily-005 "completions section" assertion is the one that most
+often fails on data-gap runs). C4 is 52.4% and is the honest headline: Chief's
+briefings are structurally sound but frequently graded C/D/F for thin content on
+headless scheduled runs. Excluding scheduled runs lifts C4 to 66.7% (10/15), still
+below the 80% bar — so the F-grades are not purely a scheduled-run artifact. Per
+the plan, this is disclosed but the criterion is not changed (thresholds are
+David's call). A fresh instrumented run window with live data is required to
+re-score C1/C4.
 
 ## Iteration History
 

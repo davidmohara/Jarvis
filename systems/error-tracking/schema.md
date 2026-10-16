@@ -71,7 +71,7 @@ The filename must match the `id` field exactly: `entries/<id>.json`.
 
 ## Writing a New Entry
 
-1. Generate the id and validated skeleton: `python3 systems/error-tracking/new-entry.py --category <category>` prints the new file path. The category is required and must be one of the canonical categories below; severity must be one of the Severity Levels (`--severity`, default `minor`); `--agent` is lowercase-normalized; `--failure-mode` is validated against the Failure Modes list (unknown labels warn to stderr but are kept); `--session` and `--source` are optional (`explicit` is the default source). Non-canonical severity/category/source fail loudly with the allowed set — they are never silently coerced.
+1. Generate the id and validated skeleton: `python3 systems/error-tracking/new-entry.py --category <category>` prints the new file path. The category is required and must be one of the canonical categories below; severity must be one of the Severity Levels (`--severity`, default `minor`); `--agent` is lowercase-normalized and run through the agent alias map (`jarvis` -> `master`; "Jarvis" is the IES system name, not an agent — a label that is still not a canonical manifest agent warns but does not block); `--failure-mode` is validated against the Failure Modes list (unknown labels warn to stderr but are kept); `--session` and `--source` are optional (`explicit` is the default source). Non-canonical severity/category/source fail loudly with the allowed set — they are never silently coerced.
 2. Fill in the remaining fields (description, correction, systemic_fix, related_entries).
 3. Commit only the new file. No other file in `systems/error-tracking/` needs to change for a new entry.
 
@@ -86,6 +86,14 @@ python3 systems/error-tracking/rebuild-log.py --out /tmp/log.json
 ```
 
 This emits a single aggregated JSON object with `metadata` and `entries[]` (sorted by id), structurally identical to the retired monolithic log.
+
+For a schema-conformance check over the whole log (flags entries that do not conform to this file — non-canonical category/severity/source/fix_status, missing required fields, alternate field names, agent-label drift), run:
+
+```
+python3 systems/error-tracking/rebuild-log.py --conformance
+```
+
+The report is read-only: it names the nonconforming entries and their issues but never rewrites them (pattern pat-029).
 
 ## Error Categories
 

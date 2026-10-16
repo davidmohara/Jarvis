@@ -54,36 +54,45 @@ violations now have remediation log entries
 
 ## Measured Results
 
-Mined from `systems/eval-harness/runs/*.json` on 2026-10-08. Repro:
+Recomputed from `systems/eval-harness/runs/*.json` on 2026-10-16 using the
+attribution layer (`step_audit.resolve_record_agent` + `merge_reporting_agent`),
+which merges the `master`/`jarvis` label split and recovers records whose
+workflow/name resolves to a master-owned workflow. Repro:
 
 ```
-python3 -c "import json,glob;r=[json.load(open(f)) for f in glob.glob('systems/eval-harness/runs/*.json')];print(len([d for d in r if d.get('agent') in ('master','jarvis')]))"
+python3 -c "import json,glob,sys;sys.path.insert(0,'systems/eval-harness');from step_audit import resolve_record_agent,merge_reporting_agent as M;r=[json.load(open(f)) for f in glob.glob('systems/eval-harness/runs/*.json')];print(len([d for d in r if M(resolve_record_agent(d))=='master']))"
 ```
 
-- **Total records: 113** (two labels: `master` 53, `jarvis` 60).
-- **`master` status distribution (53):** success 35, aborted 8, complete 2,
-  incomplete 2, failure 3, partial 2, in-progress 1.
-- **`jarvis` status distribution (60):** success 54, aborted 6. Workflows under
-  the `jarvis` label: dream-cycle 52, git 7, remarkable-upload 1.
-- **Structural assertions:** master 102/117 passed (87.2%) across 53 records;
-  jarvis 76/158 passed (48.1%) across 60 records. Combined 178/275 = 64.7%.
-  (Note: the `jarvis`-labelled dream-cycle runs carry many assertions per run,
-  which pulls the combined rate down.)
-- **Tier 3 grades:** master 9 graded (A 2, B 3, D 3, F 1) = 55.6% grade-pass
-  (A/B); jarvis 4 graded (A 2, B 2) = 100% grade-pass. Combined 13 graded,
-  9 grade-pass = 69.2%.
-- **Assertion trend (master label):** 2026-08 68% (n=15) to 2026-09 94% (n=31)
-  to 2026-10 90% (n=4). See Iteration History.
-- **Error log:** 167 entries tagged `master` (72 with an applied systemic fix,
-  52 proposed), 86 tagged `jarvis` (50 applied, 21 proposed).
+- **Total records: 139** (attribution-aware). Raw labels: `master` 53, `jarvis`
+  61 (both canonicalize to `master`), plus 25 whose workflow/name resolves to a
+  master-owned workflow (boot, dream-cycle, git, omnifocus) while the raw label
+  was something else — `general-purpose` 19, `knox` 4, `claude` 2.
+- **Status distribution (139):** success 94, aborted 26, partial 9, failure 4,
+  complete 3, incomplete 3. Strict success rate (success/complete) = 97/139 =
+  69.8%; mech (strict + partial, session-exit aborts excluded) = 105/135 = 77.8%.
+- **Structural assertions:** 243/369 passed = 65.9% across 139 records. The
+  `jarvis`-labelled dream-cycle runs (59 records) carry many assertions per run
+  and pull the combined rate down; on coordination runs only (excl. dream-cycle)
+  the rate is 176/199 = 88.4%.
+- **Tier 3 grades:** 16 graded (A 4, B 7, D 4, F 1) = 11/16 = 68.8% grade-pass
+  (A/B). On coordination runs only (excl. dream-cycle): 6/11 = 54.5%.
+- **Boot runs (J1):** 54 boot records — success 17, complete 3, partial 8,
+  failure 4, aborted 19, incomplete 3. Strict 37.0%, mech 54.0%.
+- **Assertion trend (all master records):** 2026-08 67% (n=35), 2026-09 62%
+  (n=88), 2026-10 85% (n=14).
+- **Error log:** 274 entries canonicalize to `master` (`master` 181 + `jarvis`
+  92 + one `master/galen`), 130 with an applied systemic fix, 82 proposed.
 
-**Honesty note:** J1 (boot success) is measured directly and passes. J2 is
-partially measured: two routing/process-skip violations are on record
-(`err-20260611T113806-g0pfoq`, `err-20260716T220729-FNAAP8`) and both are cited
-by the Stage 5 report. J3/J4 use harness assertions and Tier 3 grades as proxies,
-not the named criteria. A fresh instrumented boot run is required to score J2
-against its stated threshold. The two-label split (`master` vs `jarvis`) is a
-data-quality issue that should be normalized before grading.
+**Honesty note:** J1 as literally written (100% of boot runs succeed) is **not
+met**: boot strict success is 37.0% and mech 54.0% across 54 boot records, with
+19 session-exit aborts. J2 remains partially measured: two routing/process-skip
+violations are on record (`err-20260611T113806-g0pfoq`,
+`err-20260716T220729-FNAAP8`) and both are cited by the Stage 5 report. J3/J4 use
+harness assertions and Tier 3 grades as proxies: J3 is 65.9% combined / 88.4% on
+coordination runs only (below the 90% bar), J4 is 68.8% / 54.5% (below the 80%
+bar). The two-label split (`master` vs `jarvis`) is now merged in reporting, and
+the attribution layer recovered 25 previously-unattributed records into the
+master rollup.
 
 ## Iteration History
 

@@ -34,17 +34,21 @@ leadership/board materials.
 
 ## Measured Results
 
-Mined from `systems/eval-harness/runs/*.json` on 2026-10-08. Repro:
+Recomputed from `systems/eval-harness/runs/*.json` on 2026-10-16 using the
+attribution layer (`step_audit.resolve_record_agent` + `merge_reporting_agent`).
+Repro:
 
 ```
-python3 -c "import json,glob;r=[json.load(open(f)) for f in glob.glob('systems/eval-harness/runs/*.json')];print(len([d for d in r if d.get('agent')=='quinn']))"
+python3 -c "import json,glob,sys;sys.path.insert(0,'systems/eval-harness');from step_audit import resolve_record_agent,merge_reporting_agent as M;r=[json.load(open(f)) for f in glob.glob('systems/eval-harness/runs/*.json')];print(len([d for d in r if M(resolve_record_agent(d))=='quinn']))"
 ```
 
-- **Total records: 1.** Status distribution: success 1. Workflow:
-  `quinn-strategy` (`eval-20260917T184939-W7I1DH`).
+- **Total records: 1** (raw label `quinn`). Status distribution: success 1.
+  Strict success rate = 1/1 = 100%. Workflow: `quinn-strategy`
+  (`eval-20260917T184939-W7I1DH`).
 - **Structural assertions:** 4/4 passed = 100% across 1 record.
 - **Tier 3 grades:** 0 graded.
-- **Error log:** 0 entries tagged `quinn`.
+- **Assertion trend:** 2026-09 100% (n=1). Single sample.
+- **Error log:** 2 entries canonicalize to `quinn` (both proposed).
 - **Git history:** 9 commits touch `agents/quinn.md`.
 
 **Honesty note:** A single record cannot support a pass-rate claim. The 4/4

@@ -35,31 +35,41 @@ tags. Its output feeds Chief (boot ingestion) and Harper/Chase (content routing)
 
 ## Measured Results
 
-Mined from `systems/eval-harness/runs/*.json` on 2026-10-08. Repro:
+Recomputed from `systems/eval-harness/runs/*.json` on 2026-10-16 using the
+attribution layer (`step_audit.resolve_record_agent` + `merge_reporting_agent`),
+which recovers the 18 `plaud-ingest` records whose workflow resolves to Knox even
+though the raw label is `general-purpose`. Repro:
 
 ```
-python3 -c "import json,glob;r=[json.load(open(f)) for f in glob.glob('systems/eval-harness/runs/*.json')];print(len([d for d in r if d.get('agent')=='knox']))"
+python3 -c "import json,glob,sys;sys.path.insert(0,'systems/eval-harness');from step_audit import resolve_record_agent,merge_reporting_agent as M;r=[json.load(open(f)) for f in glob.glob('systems/eval-harness/runs/*.json')];print(len([d for d in r if M(resolve_record_agent(d))=='knox']))"
 ```
 
-- **Total records: 48.** Status distribution: success 40, partial 6, incomplete
-  2. Completion (success) rate = 40/48 = 83.3%.
-- **Structural assertions:** 125/182 passed = 68.7% across 48 records.
-- **Tier 3 grades:** 15 graded (A 7, B 6, C 2) = 13/15 = 86.7% grade-pass (A/B).
-  This is above the K4 threshold.
-- **Assertion trend:** 2026-07 83% (n=2), 2026-08 60% (n=12), 2026-09 68%
-  (n=33). Record volume concentrated in September.
-- **Error log:** 50 entries tagged `knox` (23 with an applied systemic fix,
-  16 proposed), plus one entry tagged `knox (plaud-ingest, general-purpose
-  subagent)` and one `knox-plaud-ingest-step-01`.
+- **Total records: 66** (raw labels: `knox` 45, `general-purpose` 19, `master` 1,
+  `claude` 1). Status distribution: success 40, aborted 14, partial 7, failure 2,
+  incomplete 2, complete 1. Strict success rate = 41/66 = 62.1%; mech (strict +
+  partial, session-exit aborts excluded) = 48/64 = 75.0%.
+- **Workflows:** plaud-ingest 34, plaud-transcripts 7, plaud-discover 6,
+  plaud-speaker-id 6, remarkable-upload 3, plaud-trigger 3, watchtower 2,
+  watchtower-weekly 2.
+- **Structural assertions (K3):** 176/238 passed = **73.9%** across 66 records.
+  Still below the 90% threshold. The 18 recovered `plaud-ingest` records pass at
+  51/56 = 91.1%, but the pre-existing 48 records pass at 125/182 = 68.7% and
+  dominate the denominator, so K3 does not close.
+- **Tier 3 grades (K4):** 16 graded (A 7, B 6, C 3) = 13/16 = 81.2% grade-pass
+  (A/B). Above the K4 threshold.
+- **Assertion trend:** 2026-07 83% (n=2), 2026-08 70% (n=30), 2026-09 74% (n=29),
+  2026-10 88% (n=4). Record volume concentrated in August-September.
+- **Error log:** 53 entries canonicalize to `knox` (`knox` 47 + `Knox` 5 +
+  `knox (plaud-ingest, ...)` + `knox-plaud-ingest-step-01`), 25 with an applied
+  systemic fix, 17 proposed.
 
-**Honesty note:** K4 is measured directly (86.7% grade-pass, threshold met). K3
-is below its 90% threshold on the current data (68.7%). K1 and K2 are only
-partially measured: assertion sets check note existence and tagging for some
+**Honesty note:** K4 is measured directly (81.2% grade-pass, threshold met). K3
+is below its 90% threshold (73.9%) even after the attribution fix recovered the
+18 mislabeled `plaud-ingest` records — the recovered records pass at 91.1%, but
+the older records' 68.7% keeps the combined rate under the bar. K1 and K2 are
+only partially measured: assertion sets check note existence and tagging for some
 runs, not full accounting of every staged recording. A fresh plaud-ingest run
-over a known staged set is required to score K1/K2 directly. Note also that 18
-`plaud-ingest` eval records are attributed to the harness label `general-purpose`
-rather than `knox` (a sub-agent attribution gap), so Knox's true execution count
-is higher than 48.
+over a known staged set is required to score K1/K2 directly.
 
 ## Iteration History
 

@@ -35,30 +35,34 @@ Podcast-to-Pipeline content system.
 
 ## Measured Results
 
-Mined from `systems/eval-harness/runs/*.json` on 2026-10-08. Repro:
+Recomputed from `systems/eval-harness/runs/*.json` on 2026-10-16 using the
+attribution layer (`step_audit.resolve_record_agent` + `merge_reporting_agent`),
+which recovers records whose workflow/name resolves to a harper-owned workflow.
+Repro:
 
 ```
-python3 -c "import json,glob;r=[json.load(open(f)) for f in glob.glob('systems/eval-harness/runs/*.json')];print(len([d for d in r if d.get('agent')=='harper']))"
+python3 -c "import json,glob,sys;sys.path.insert(0,'systems/eval-harness');from step_audit import resolve_record_agent,merge_reporting_agent as M;r=[json.load(open(f)) for f in glob.glob('systems/eval-harness/runs/*.json')];print(len([d for d in r if M(resolve_record_agent(d))=='harper']))"
 ```
 
-- **Total records: 6.** Status distribution: success 6. Workflows:
-  `content-approval` (`eval-20260526T125258-Q3KWG7`), `obsidian-source-note`
-  (`eval-20260529T224500-ypo001`), `podcast-prep`, `harper-podcast-prep`,
-  `content-discovery`, `talking-points`.
-- **Structural assertions:** 26/35 passed = 74.3% across 6 records. Below the P3
+- **Total records: 9** (raw labels: `harper` 6, `unknown` 2, `master` 1). Status
+  distribution: success 8, aborted 1. Strict success rate = 8/9 = 88.9%; mech =
+  8/9 = 88.9%.
+- **Workflows:** content-pipeline 3, obsidian-source-note 1, talking-points 1,
+  podcast-prep 1, content-discovery 1, harper-podcast-prep 1, content-approval 1.
+- **Structural assertions:** 34/49 passed = 69.4% across 9 records. Below the P3
   threshold.
 - **Tier 3 grades:** 4 graded (A 2, B 1, F 1) = 3/4 = 75.0% grade-pass (A/B).
-  Slightly below the P4 threshold.
-- **Assertion trend:** 2026-05 100% (n=2), 2026-09 53% (n=4). Small samples.
-- **Error log:** 42 entries tagged `harper` (25 with an applied systemic fix,
-  15 proposed), plus entries under `harper (content-approval scheduled task)`,
-  `harper (content approval)`, and `harper (content-approval scheduler)`. Harper
-  has the second-highest applied-fix count, indicating a well-exercised
-  correction loop.
+  Below the P4 threshold.
+- **Assertion trend:** 2026-05 100% (n=2), 2026-08 57% (n=2), 2026-09 53% (n=4),
+  2026-10 n/a (n=1, no assertions recorded). Small samples.
+- **Error log:** 48 entries canonicalize to `harper` (`harper` 37 + `Harper` 6 +
+  three descriptive `Harper (content-approval ...)` labels), 27 with an applied
+  systemic fix, 18 proposed. Harper has the second-highest applied-fix count,
+  indicating a well-exercised correction loop.
 
-**Honesty note:** 6 records is too few for a stable rate. P3 (74.3%) is below
-threshold and P4 (75.0%) is below threshold on small samples. P1 and P2 are not
-directly asserted by existing records. What is required: a fresh instrumented
+**Honesty note:** 9 records is still too few for a stable rate. P3 (69.4%) is
+below threshold and P4 (75.0%) is below threshold on small samples. P1 and P2 are
+not directly asserted by existing records. What is required: a fresh instrumented
 window of podcast-prep and email-drafting runs (target >= 10 each) scored against
 P1-P2, including at least one prep where only one source exists to test P2's
 "when both exist" branch.

@@ -39,29 +39,35 @@ line ("All verified: proceed." or "Re-run required: [tasks].").
 
 ## Measured Results
 
-Mined from `systems/eval-harness/runs/*.json` and `workflows/boot-verification/`
-on 2026-10-08.
+Recomputed from `systems/eval-harness/runs/*.json` on 2026-10-16 using the
+attribution layer (`step_audit.resolve_record_agent` + `merge_reporting_agent`),
+which now resolves the `boot-verification` sub-agent records to Ralph (workflow
+owner) even though their raw label is `general-purpose`. Repro:
 
-- **Eval records tagged `ralph`: 0.** No run in the harness is attributed to
-  Ralph by agent name. This is the honest headline: Ralph has no measured pass
-  rate yet.
-- **Boot-verification evidence (indirect):** two harness records exist under the
-  label `general-purpose` with `name: boot-verification`
-  (`eval-20260823T174826-98HPVA`, status aborted; `eval-20260823T174957-Y47934`,
-  status success). These are sub-agent spawn records that lost the `ralph` agent
-  attribution, so they cannot be scored against A1-A3 as-is.
+```
+python3 -c "import json,glob,sys;sys.path.insert(0,'systems/eval-harness');from step_audit import resolve_record_agent,merge_reporting_agent as M;r=[json.load(open(f)) for f in glob.glob('systems/eval-harness/runs/*.json')];print(len([d for d in r if M(resolve_record_agent(d))=='ralph']))"
+```
+
+- **Total records: 2** (raw label `general-purpose` both; recovered via
+  `workflow: boot-verification`). Status distribution: success 1, aborted 1.
+  Strict success rate = 1/2 = 50.0%.
+- **Records:** `eval-20260823T174826-98HPVA` (aborted),
+  `eval-20260823T174957-Y47934` (success). Both are 2026-08-23 boot-verification
+  spawns.
+- **Structural assertions:** 0/0 — neither record carries an assertion block, so
+  A1-A3 have no assertion coverage and there is no pass rate to report.
+- **Tier 3 grades:** 0 graded.
 - **Workflow state:** `workflows/boot-verification/state.yaml` exists (last
   updated 2026-08-23); the workflow is present but stale.
-- **Error log:** 0 entries tagged `ralph`.
+- **Error log:** 0 entries canonicalize to `ralph`.
 - **Git history:** 3 commits touch `agents/ralph.md`.
 
-**Honesty note:** Ralph has no graded records and no assertion coverage, so no
-pass rate can be reported. The two boot-verification records above are the only
-execution trace and are misattributed. What is required: (1) fix sub-agent
-attribution so boot-verification runs record `agent: ralph`, (2) instrument A1-A3
-as assertions, and (3) run boot verification on at least 5 boots with a seeded
-manifest containing at least one known-missing artifact to test A2/A3 (false
-positive and silence discipline).
+**Honesty note:** The attribution fix recovers Ralph's 2 records (previously
+reported as 0), but they carry no assertions and no grades, so no pass rate can
+be reported for A1-A4. What is required: (1) instrument A1-A3 as assertions, and
+(2) run boot verification on at least 5 boots with a seeded manifest containing
+at least one known-missing artifact to test A2/A3 (false positive and silence
+discipline).
 
 ## Iteration History
 
