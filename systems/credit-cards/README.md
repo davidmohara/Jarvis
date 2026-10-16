@@ -17,7 +17,7 @@
 
 ### Data Sources
 - **YNAB MCP** (4 cards): Amex Blue, Citi AAdvantage, Discover, Chase Sapphire — pull via API
-- **Chrome login** (2 cards): Amex Platinum, Atlas Visa Infinite — ask David to log in, then Jarvis drives Chrome via AppleScript JS execution to read activity, benefits, and rewards pages directly
+- **Chrome login** (Amex Platinum; Discover now via Capital One): ask David to log in, then Jarvis drives Chrome via AppleScript JS execution to read activity, benefits, and rewards pages directly. (Atlas Visa closed 2026-07-01 and has been removed.)
 - **Statement parsing** (fallback): Upload PDF/XLSX statements if Chrome isn't available
 
 ### Chrome Capabilities

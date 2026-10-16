@@ -43,7 +43,7 @@ model: sonnet
 | Citi AAdvantage Executive | YNAB + portal | David logs in | citi.com |
 | Discover it Cash Back | YNAB + Capital One portal | David logs in | capitalone.com (Discover is serviced by Capital One after the acquisition; the card's navigation flow on that site is not yet mapped) |
 | Chase Sapphire | YNAB + portal | David logs in | chase.com |
-| Atlas Visa Infinite | Portal (statement parsing) | David logs in | atlasmoney.com |
+
 <!-- system:end -->
 
 ---
@@ -87,7 +87,6 @@ Rationale: A 35% offer on a service you don't use is worth $0. Filter first, the
 
 These changes require immediate action or notification to David:
 
-- Atlas top category dropped from dining (affects every restaurant meal)
 - Amex BCP grocery cap hit — switch grocery spend to Discover or Citi
 - Discover quarterly category not activated — losing 5% on qualifying spend
 - Any credit with <7 days remaining and significant balance unused

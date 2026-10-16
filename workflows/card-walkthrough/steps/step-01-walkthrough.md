@@ -101,17 +101,9 @@ Walk through each card portal in sequence. For each card:
 - Current quarter: activated? Spend to date vs $1,500 cap
 - Next quarter: categories announced? Activation available?
 
-### 6. Atlas Visa Infinite (atlas.co or app)
+### 6. (Removed) Atlas Visa Infinite
 
-**Pages to visit:**
-- Dashboard → points balance
-- Benefits → current benefit status
-- Transactions → recent dining to verify current earn rate
-
-**Extract:**
-- Points balance (compare to stored)
-- Current dining earn rate (verify still 2x or check for change)
-- Any benefit changes
+Closed 2026-07-01 and removed from the card set (David, 2026-10-16). No walkthrough step.
 
 ---
 
