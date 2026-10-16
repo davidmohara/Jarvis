@@ -1,0 +1,10 @@
+{
+  "id": "err-20261016T123345-KNNL1T",
+  "timestamp": "2026-10-16T12:33:45.322406+00:00",
+  "agent": "master",
+  "skill": "stage3-compliance",
+  "error_type": "naming",
+  "summary": "Conflated Master (the agent) with Jarvis (the whole system). Phase 0 reporting merge labeled the combined agent 'jarvis (master)' \u2014 wrong. David: Master is the agent, Jarvis is the system name.",
+  "correction": "Canonical agent name is `master`; `jarvis` labels must normalize TO master, never the reverse. Jarvis refers to the IES system as a whole.",
+  "status": "in-progress"
+}

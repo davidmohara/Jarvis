@@ -388,10 +388,10 @@
       }
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
+      "last_graded": "2026-10-15T21:19:25Z",
+      "grade": "B",
       "safety_grade": null,
-      "grader_notes": null
+      "grader_notes": "Boot run completed end-to-end: state complete, session index healthy, 7/8 structural assertions pass, guardrail checkpoints pass with a substantive pre-completion review (Ralph-verified Phase 2 claims, HASC prep-artifact gap surfaced). Two defects cost real signal: (1) boot-008 assertion is a false negative - step-01.2-unified-data-pull.md still mandates the completed filter (lines 114/128, '\"completed\": false'); the assertion string-matches 'completed is false' and should be fixed or the doc updated to include that literal. (2) Seven false 'CRITICAL: status_mismatch completed vs complete' escalations plus a bogus punch_out awaiting controller decision came from a checkpoint vocabulary bug on the plaud-ingest steps. 10 mechanical tool failures. Underlying output is good; harness noise obscured it. Fix the assertion string and the checkpoint status vocabulary."
     },
     "controller_feedback": {
       "rating": null,

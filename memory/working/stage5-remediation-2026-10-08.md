@@ -23,13 +23,26 @@ Tim Rayburn's Stage 5 exam (Teams, 2026-10-07) returned FAIL with 9 findings. Sa
 - Hardening: git-gate (PreToolUse updatedInput transparent rewrite of raw git writes onto skills/git/scripts/ies-git) + wrapper (atomic, status refusal, destructive policy, commit lint, gated-dirs --ack-gated, secrets scan + allowlist, git-ops.jsonl audit of every op and refusal). Empirical: updatedInput must be minimal-shape {"command": ...}; full tool_input is silently ignored (err-20261008T210353-9XIRVF). Exit-2 blocking and JSON deny both honored. Hook edits propagate with OneDrive lag (probe after editing).
 - Live punch-outs to David during the session: secrets-scan refusals x2 (allowlist approved), git-latest.json conflict resolution, stuck-rebase handoff (err-20261008T222241-UHTK59).
 
-## Pending (data window, ~Oct 9-27)
+## Pending (data window closes 2026-10-21)
 
 - 3-5 instrumented runs per candidate workflow (token_source=windowed), export to systems/eval-harness/audit-exports/.
-- Success-rate recompute restricted to instrumented runs; verify 18 unexplained aborts (boot 7, plaud-ingest 11).
+- Success-rate recompute restricted to instrumented runs; verify unexplained aborts (boot 19, plaud-ingest 11).
 - Fresh measured runs to close Stage 3 threshold gaps (see stage3 artifacts' gap lists).
 - Adversarial catch examples accumulating structurally (assertions boot-004/morning-008/daily-007/plaud-002).
 - Phase 6: evidence bundle per projects/stage-5-submission/index.md (cover note points 1-7 drafted there), v2.0.0 tag, resubmit to Tim via Teams.
+
+## Success rates — apples-to-apples recompute (2026-10-15)
+
+Two methods: "strict" = success/complete only. "Mech" = strict + partial (ran but degraded). Prior Oct 8 baselines (94%/98%/89%) used the mech method on all-time records. Both shown consistently across periods.
+
+| Workflow | Aug strict | Aug mech | Oct 8-15 strict | Oct 8-15 mech | All-time mech |
+|---|---|---|---|---|---|
+| boot | 35.3% (34) | 58.8% | 57.1% (14) | 57.1% | 60.9% (64) |
+| morning-briefing | 37.5% (8) | 87.5% | 50.0% (4) | 100.0% | 95.7% (23) |
+| daily-review | 30.0% (10) | 100.0% | 100.0% (4) | 100.0% | 98.4% (62) |
+| plaud-ingest | 30.0% (20) | 35.0% | 100.0% (6) | 100.0% | 60.5% (38) |
+
+Session-exit aborts: boot Aug=13/Oct=6; plaud Aug=11/Oct=0. Not counted in mech denominator.
 
 ## Systemic notes
 

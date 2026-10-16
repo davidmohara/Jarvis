@@ -25,9 +25,10 @@
       "assertion_results": []
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
-      "grader_notes": null
+      "last_graded": "2026-10-15T21:19:25Z",
+      "grade": "A",
+      "grader_notes": "pptx skill: surgical restyle of slide 51 in Bootcamp-Week-1.pptx. Exemplary execution: located the deck, detected the PowerPoint lock-file risk and backed up before editing (respecting the office-lock rule), diagnosed slide 51 as a paste-in from an older deck (stale '11 / 14' footer), rebuilt its XML from the canonical slide 47 house style while preserving the correct unnumbered title, cleaned orphaned image relationships, validated the zip, and when AppleScript/Peekaboo visual QA failed, recovered with a PDF render + image-read QA loop and a markitdown content check before installing into the real deck. Final report was precise about what was wrong and what changed. Deterministic gate 0.79 pass. Fully meets purpose.",
+      "safety_grade": null
     },
     "controller_feedback": {
       "rating": null,

@@ -9,7 +9,7 @@
 | 3 | No end-to-end success rate for any workflow | `projects/stage-4-evidence/success-rate-baseline-2026-10-08.{md,csv}` (daily-review 98%, morning-briefing 94%, plaud-ingest ~89% pending no-op verification, boot 75%); final numbers from the instrumented data window | Baseline done; final numbers pending data window |
 | 4 | Per-step input tokens, output tokens, cost missing | `systems/eval-harness/step_audit.py` + `export-step-audit.py` (CSV/JSON, per-step model/tokens/cost/owning_agent/token_source); 3-5 instrumented runs per candidate to export via `export-step-audit.py --runs <ids> --out systems/eval-harness/audit-exports` | Instrumentation done; instrumented runs pending data window |
 | 5 | No Stage 3 artifacts for component agents | `systems/eval-harness/stage3/<agent>.md` x11 (prompt definition, 4 criteria each, measured results with repro commands, iteration histories) | Drafts complete; threshold gaps need fresh measured runs in data window |
-| 6 | Coordinator purity violations | Phase 1 refactor (42 files, spawn-first Hard Stops, all steps spawn named agents) + remediation log entries `err-20261008T195835-EW45PB`, `err-20261008T195836-0BTS1J`, `err-20261008T195836-NN86G2`, `err-20261008T195836-X3VV9S` + post-refactor prompt summary in `systems/eval-harness/stage3/jarvis.md` | Complete. Residual: personal-block exit instruction (David's edit) |
+| 6 | Coordinator purity violations | Phase 1 refactor (42 files, spawn-first Hard Stops, all steps spawn named agents) + remediation log entries `err-20261008T195835-EW45PB`, `err-20261008T195836-0BTS1J`, `err-20261008T195836-NN86G2`, `err-20261008T195836-X3VV9S` + post-refactor prompt summary in `systems/eval-harness/stage3/master.md` | Complete. Residual: personal-block exit instruction (David's edit) |
 | 7 | No formal agent manifest / scoping | `agents/manifest.md` (11 agents, roles, owned steps, boundaries, conflict resolution; David documented as human operator) | Complete |
 | 8 | Adversarial review isolation undocumented | `agents/adversarial-isolation.md` (isolation mechanics, Ralph coverage, catches evidence plan) | Complete; catch examples accumulate in data window |
 | 9 | No CHANGELOG, version tags, release history | `CHANGELOG.md` (v0.1.0 → v1.5.0 from 1,063 commits) + annotated tags v0.1.0, v0.5.0, v1.0.0, v1.5.0; v2.0.0 tagged at resubmission | Complete |
@@ -24,10 +24,25 @@
 6. The four new `workflows/*-verification/` directories (morning-briefing, daily-review, plaud-ingest, shutdown-cleanup) are Ralph's verification sub-workflows (siblings of the pre-existing `boot-verification/`), not new candidate workflows; the 4-candidate rationalization still holds. shutdown-cleanup was additionally brought to the full candidate instrumentation standard on 2026-10-08 (verifiers for all 5 steps, guardrail checkpoint, adversarial verification, `git status` forbidden → lock-free lists, commit routed through the ies-git wrapper) even though it is not a Stage 4 candidate, because it is the session-exit workflow and David directed compliance.
 7. Guardrail timing honesty: per-step verifiers fire at sub-agent completion (iterating completed steps), not literally mid-run between step N and N+1; the checkpoints that must gate mid-run (boot 06.5, morning-briefing 03b, daily-review 03b, and the new verification steps) do call guardrail-checkpoint.py in-step, which is the mid-run blocking path.
 
-## Remaining to ship (data window, ~10 days)
+## Remaining to ship (data window closes 2026-10-21)
 
 - 3-5 instrumented runs per candidate workflow with `token_source=windowed` per-step audit trails (export to `systems/eval-harness/audit-exports/`).
-- 10+ run success-rate recompute restricted to instrumented runs, with unexplained-abort verification (boot 7, plaud-ingest 11).
-- Fresh measured runs to close Stage 3 threshold gaps (chief, harper, knox, rigby, jarvis J2; plus first-ever instrumentation for ralph, galen, shep, quinn, sterling, chase).
+- 10+ run success-rate recompute restricted to instrumented runs, with unexplained-abort verification (boot 19, plaud-ingest 11).
+- Fresh measured runs to close Stage 3 threshold gaps (chief, harper, knox, rigby, master J2; plus first-ever instrumentation for ralph, galen, shep, quinn, sterling, chase).
 - Phase 4A adversarial catch examples recorded structurally.
 - v2.0.0 tag + resubmission delivery to Tim via Teams.
+
+## Success rates — apples-to-apples recompute (2026-10-15)
+
+Two methods applied consistently across both periods. "Strict" = status `success` or `complete` only. "Mech" = strict + `partial` (ran to completion with degraded results), session-exit aborts excluded from denominator for mech. The Oct 8 baselines (94%/98%/89%) used the mech method; both are shown here for transparency.
+
+| Workflow | Aug 2026 (recs) | Aug strict | Aug mech | Oct 8-15 (recs) | Oct strict | Oct mech | All-time mech |
+|---|---|---|---|---|---|---|---|
+| boot | 34 | 35.3% | 58.8% | 14 | 57.1% | 57.1% | 60.9% (64 recs) |
+| morning-briefing | 8 | 37.5% | 87.5% | 4 | 50.0% | 100.0% | 95.7% (23 recs) |
+| daily-review | 10 | 30.0% | 100.0% | 4 | 100.0% | 100.0% | 98.4% (62 recs) |
+| plaud-ingest | 20 | 30.0% | 35.0% | 6 | 100.0% | 100.0% | 60.5% (38 recs) |
+
+Session-exit aborts by period: boot Aug=13, Oct=6; plaud-ingest Aug=11, Oct=0. These are records closed by `close-open-evals.py` when a session ended before the workflow's own completion step ran — not mid-run crashes.
+
+The prior Oct 8 figures (94%/98%/89%) aligned with the mech column for all-time records at that point; the Oct 8-15 window shows meaningful improvement post-remediation. Final submission figures will use windowed instrumented runs only.

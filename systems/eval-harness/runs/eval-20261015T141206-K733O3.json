@@ -27,10 +27,10 @@
       "assertion_results": []
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
+      "last_graded": "2026-10-15T21:19:25Z",
+      "grade": "B",
       "safety_grade": null,
-      "grader_notes": null
+      "grader_notes": "Peekaboo invocation. The CLI is not installed, and the agent executed the skill's missing-install fallback exactly as written: checked PATH, Homebrew prefixes, ~/.local/bin, /Applications, and Spotlight, then reported BLOCKED with concrete unblock steps (brew install, TCC permissions) and also flagged that the invocation carried no input args. Fallback output is excellent, but the primary purpose (UI automation for the pptx visual QA) was undelivered; the parent flow recovered via PowerPoint PDF export. Recommend installing the CLI or gating the skill's triggers on its presence."
     },
     "controller_feedback": {
       "rating": null,

@@ -1,0 +1,60 @@
+{
+  "id": "eval-20261015T215759-A0EA8Y",
+  "agent_id": "a439106530e734250",
+  "type": "agent",
+  "name": "fork",
+  "workflow": null,
+  "agent": "fork",
+  "session_id": "3a57609e-8cb8-4028-91b3-b4ea5e0790fe",
+  "trigger": "unknown",
+  "started": "2026-10-15T21:57:59.954138Z",
+  "completed": "2026-10-15T21:58:37.808110Z",
+  "duration_seconds": 37.85,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/3a57609e-8cb8-4028-91b3-b4ea5e0790fe/subagents/agent-a439106530e734250.jsonl",
+  "last_assistant_message": "Task: Read all 11 stage3 files and produce a structured gap summary.\n\n---\n\n## Gap Summary Table\n\n| Agent | Criteria that PASS | Criteria that FAIL | Criteria with NO DATA | Needs first run? | Key gap summary |\n|---|---|---|---|---|---|\n| **Jarvis** | J1 (boot success) | J3 (assertions 64.7% combined, <90%); J4 (69.2% grade-pass, <80%) | J2 (no fresh A/B post-refactor) | No (113 records) | Two-label split (`master`/`jarvis`) pollutes the data; J2 needs a post-Phase-1 routing-assertion boot run |\n| **Chief** | C2, C3 | C4 (50.8% grade-pass, <80%) | C1 (asserted but borderline) | No (82 records) | 16 F-grades on thin-content scheduled runs drag C4 below threshold; needs fresh instrumented morning-briefing window |\n| **Chase** | H4 (100%, n=1) | \u2014 | H1, H2, H3 (not directly asserted) | Yes (3 records, needs \u226510) | Only 3 records \u2014 none directly score H1-H3; needs a paired client-meeting-prep window with an ambiguous reason-for-call |\n| **Harper** | \u2014 | P3 (74.3%, <90%); P4 (75.0%, <80%) | P1, P2 (not directly asserted) | Yes (6 records, needs \u226510) | Both measurable thresholds miss; P1/P2 have zero assertion coverage; needs podcast-prep and email-drafting batch |\n| **Knox** | K4 (86.7%, \u226580%) | K3 (68.7%, <90%) | K1, K2 (only partially asserted) | No (48 records) | K3 assertion rate nearly 20pts below threshold; 18 plaud-ingest records misattributed to `general-purpose` inflate the gap |\n| **Quinn** | \u2014 | \u2014 | Q1, Q2, Q3, Q4 (1 record, 0 graded) | Yes (1 record, needs \u226510) | Single record with generic assertions only; Q1-Q3 never asserted; weekly-review workflow retired, leaving only `quinn-strategy` |\n| **Ralph** | \u2014 | \u2014 | A1, A2, A3, A4 (0 records tagged `ralph`) | Yes (0 records) | Zero harness records; attribution broken \u2014 boot-verification runs land as `general-purpose`; A1-A3 never asserted |\n| **Rigby** | R1, R2 (spot-check, no losses) | R3 (89.1%, <90% threshold); R4 (70.0%, <80%) | \u2014 | No (35 records) | R3 is 0.9pts below threshold; R4 hurt by 3D+3F grades on eval/error-analysis runs |\n| **Shep** | \u2014 | \u2014 | S1, S2, S3, S4 (2 records, 0 assertions, 0 graded) | Yes (2 records, needs \u226510) | No assertions, no grades, no error-log entries \u2014 S1-S3 completely unmeasured |\n| **Sterling** | T3 (process applied) | \u2014 | T1, T2 (not asserted); T4 (0 graded) | Yes (3 records, needs \u226510) | 100% generic assertion rate masks that T1/T2 are not asserted at all; T3 major incident on record with no measured rate post-fix |\n| **Galen** | \u2014 | \u2014 | G1, G2, G3, G4 (0 records) | Yes (0 records) | Never instrumented \u2014 harness wiring attempted but produced zero records; eval attribution went to `master/galen` composite label |\n\n---\n\n## Failing/Missing Criteria by Agent\n\n**Jarvis:** FAIL J3 (assertions 64.7% vs. 90% threshold), FAIL J4 (69.2% vs. 80%); NO DATA J2 (no post-Phase-1 A/B run)\n\n**Chief:** FAIL C4 (50.8% vs. 80%); borderline C1 (assertion set present, daily-005 most common failure)\n\n**Chase:** NO DATA H1 (prep completeness), H2 (reason-for-call verification), H3 (data-grounding); H4 passes on n=1 (not reliable)\n\n**Harper:** FAIL P3 (74.3% vs. 90%), FAIL P4 (75.0% vs. 80%); NO DATA P1 (voice calibration), P2 (source merge)\n\n**Knox:** FAIL K3 (68.7% vs. 90%); NO DATA K1 (full ingestion accounting), K2 (tag compliance \u2014 partial only)\n\n**Quinn:** NO DATA Q1, Q2, Q3, Q4 \u2014 all unmeasured; weekly-review retired\n\n**Ralph:** NO DATA A1, A2, A3, A4 \u2014 zero attributed records; attribution broken\n\n**Rigby:** FAIL R3 (89.1% vs. 90%), FAIL R4 (70.0% vs. 80%); R1/R2 spot-check only (not continuous)\n\n**Shep:** NO DATA S1, S2, S3, S4 \u2014 no assertions, no grades, no error-log entries\n\n**Sterling:** NO DATA T1, T2, T4; T3 has a major incident on record (post-fix rate unmeasured)\n\n**Galen:** NO DATA G1, G2, G3, G4 \u2014 never successfully instrumented",
+  "model": "sonnet",
+  "total_tokens_input": 217072,
+  "total_tokens_output": 1413,
+  "total_cost_usd": 0.156116
+}

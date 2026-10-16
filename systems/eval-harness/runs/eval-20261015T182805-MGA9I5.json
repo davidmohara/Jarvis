@@ -88,9 +88,10 @@
       }
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
-      "grader_notes": null
+      "last_graded": "2026-10-15T21:19:25Z",
+      "grade": "B",
+      "grader_notes": "add-reminder skill record. 5/8 structural assertions, but two failures are false negatives: the entry in data/reminders.json DOES contain trigger_prompt (005) and routing.agent (006) - the assertions appear to resolve the wrong path and should be fixed. One genuine gap: the skill-run signal file lacks the reminder_id (008), which breaks traceability from signal to registry entry. The registry entry itself is complete and correct (see agent record eval-20261015T182759-RRW6W7). Fixes: repair assertion path resolution for 005/006; include reminder_id in the signal writer.",
+      "safety_grade": null
     },
     "controller_feedback": {
       "rating": null,

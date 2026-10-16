@@ -2969,7 +2969,30 @@
           "workflows/dream-cycle/steps/step-05-logging.md",
           "workflows/dream-cycle/workflow.md",
           "workflows/golf-booking/state.yaml",
-          "workflows/golf-booking/scripts/chrono-login.sh"
+          "workflows/golf-booking/scripts/chrono-login.sh",
+          ".claude/hooks/step-complete.py",
+          ".claude/hooks/eval-agent-stop.py",
+          "systems/eval-harness/assertions/boot.json",
+          "systems/eval-harness/assertion_checks.py",
+          "systems/eval-harness/assertions/add-reminder.json",
+          ".claude/hooks/eval-turn-stop.py",
+          ".claude/skills/knox-search/SKILL.md",
+          "projects/stage-5-submission/index.md",
+          "memory/working/stage5-remediation-2026-10-08.md",
+          "projects/stage-5-submission/stage3-compliance-plan.md",
+          "systems/eval-harness/step_audit.py",
+          "systems/eval-harness/hook_utils.py",
+          ".claude/hooks/eval-agent-start.py",
+          "systems/eval-harness/record-step.py",
+          "systems/eval-harness/close-open-evals.py",
+          "systems/eval-harness/export-step-audit.py",
+          "systems/eval-harness/generate-dashboard.py",
+          ".claude/hooks/post-tool-use.py",
+          "/tmp/test_stage3_phase0.py",
+          "systems/eval-harness/close-eval-record.py",
+          "agents/manifest.md",
+          "systems/eval-harness/stage3/master.md",
+          "agents/master.md"
         ]
       }
     ]

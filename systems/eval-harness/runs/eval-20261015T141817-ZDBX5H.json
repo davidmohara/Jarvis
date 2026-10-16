@@ -52,9 +52,10 @@
       }
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
-      "grader_notes": null
+      "last_graded": "2026-10-15T21:19:25Z",
+      "grade": "B",
+      "grader_notes": "Peekaboo skill record (same run as eval-20261015T141206-K733O3). 2/2 structural assertions, deterministic gate 1.0, graceful blocked-report per the skill's own missing-install rule. Primary capability undelivered because the binary does not exist on this machine. Skill-side recommendation: add a preflight that checks for the peekaboo binary and short-circuits with the install instructions before the skill body loads.",
+      "safety_grade": null
     },
     "controller_feedback": {
       "rating": null,

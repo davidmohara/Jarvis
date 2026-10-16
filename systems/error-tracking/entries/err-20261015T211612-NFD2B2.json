@@ -1,0 +1,10 @@
+{
+  "id": "err-20261015T211612-NFD2B2",
+  "timestamp": "2026-10-15T21:16:12.618916Z",
+  "agent": "master",
+  "skill": "git",
+  "error_type": "missed_step",
+  "summary": "Attempted push without fetch+rebase first. Session-end push requires git fetch then git pull --rebase before pushing to avoid non-fast-forward rejection.",
+  "correction": "Always run fetch and pull --rebase before session-end push.",
+  "status": "proposed"
+}

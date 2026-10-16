@@ -27,10 +27,10 @@
       "assertion_results": []
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
+      "last_graded": "2026-10-15T21:19:25Z",
+      "grade": "C",
       "safety_grade": null,
-      "grader_notes": null
+      "grader_notes": "Harper: 7 personalized GoTogether webinar drafts pushed via Superhuman create_or_update_draft. Execution followed spec and personalization was strong (recipient-specific hooks: 'That CIO-as-orchestrator conversation from August', 'Something from our SIM dinner conversation', 'You basically already gave this webinar talk in August'); all 7 create calls returned success with draft IDs and the handback was clean. However, grading-time verification shows the deliverable did not persist: list_drafts on david.ohara@improving.com returns only 4 stale drafts, and get_draft on draft00e2d4b45b06d143 returns 'no longer active... sent or discarded'. The run performed no post-creation verification. OPERATIONAL IMPACT: the Monday reminder rem-20261015T182852-JDP76U expects these 7 drafts to exist - they are gone, so Monday's flow will report them unmatchable unless the drafts are recreated. Improvements: (1) add a list_drafts verification pass after batch creation, (2) recreate the 7 drafts before 2026-10-19."
     },
     "controller_feedback": {
       "rating": null,

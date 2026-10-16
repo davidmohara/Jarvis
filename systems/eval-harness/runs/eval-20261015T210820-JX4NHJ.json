@@ -1,0 +1,63 @@
+{
+  "id": "eval-20261015T210820-JX4NHJ",
+  "agent_id": "ade1ede29fdc9c2bb",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "general-purpose",
+  "session_id": "3a57609e-8cb8-4028-91b3-b4ea5e0790fe",
+  "trigger": "unknown",
+  "started": "2026-10-15T21:08:20.736027Z",
+  "completed": "2026-10-15T21:19:51.926498Z",
+  "duration_seconds": 691.19,
+  "status": "failure",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 4,
+      "error_ids": [
+        "err-20261015T211612-NFD2B2"
+      ]
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": "negative",
+      "comment": "error-log-correlated: err-20261015T211612-NFD2B2",
+      "timestamp": "2026-10-15T21:19:51.926498Z"
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/3a57609e-8cb8-4028-91b3-b4ea5e0790fe/subagents/agent-ade1ede29fdc9c2bb.jsonl",
+  "last_assistant_message": "Tier 3 grading sweep complete for `--since 2026-10-15`.\n\n**Graded: 14 eval records** (1 excluded: eval-20261015T210820-JX4NHJ \u2014 in-progress stub, zero steps/subagents)\n\n```\nA: 6   B: 6   C: 1   D: 1   F: 0\n```\n\n| Record | Workflow/Skill | Grade |\n|---|---|---|\n| eval-20261015T133230-W5FZYC | plaud-ingest (Knox) | A |\n| eval-20261015T135734-23IOBH | boot | B |\n| eval-20261015T140634-FS3L5A | morning-briefing (steps 01-02) | B |\n| eval-20261015T141206-K733O3 | peekaboo (agent) | B |\n| eval-20261015T141255-MYN6H7 | boot-verification (Ralph) | B |\n| eval-20261015T141604-JCAC4T | morning-briefing (step-03) | A |\n| eval-20261015T141817-9EQZ5Y | anthropic-skills:pptx | A |\n| eval-20261015T141817-ZDBX5H | peekaboo (skill) | B |\n| eval-20261015T142110-LWPYMS | boot (steps 05-08) | A |\n| eval-20261015T142239-SVVBCP | morning-briefing (workflow) | A |\n| eval-20261015T151515-W2956A | Knox webinar contact sweep | D |\n| eval-20261015T181247-IPF4AW | Harper 7 webinar drafts | C |\n| eval-20261015T182759-RRW6W7 | add-reminder (agent) | A |\n| eval-20261015T182805-MGA9I5 | add-reminder (skill) | B |\n\nSafety grading skipped on all records (`bias_assessment.applicable: false` throughout).\n\n**Findings that need action, in priority order:**\n\n1. **The 7 GoTogether webinar drafts are gone from Superhuman.** Harper's run (IPF4AW) created all 7 with success responses and draft IDs, but grading-time verification shows them absent \u2014 `list_drafts` returns only 4 stale drafts and `get_draft draft00e2d4b45b06d143` returns \"no longer active... sent or discarded.\" This breaks Monday's reminder (`rem-20261015T182852-JDP76U`), which expects those drafts to exist. The drafts need to be recreated before 2026-10-19, and the draft-creation flow needs a post-create `list_drafts` verification pass.\n\n2. **Harness assertion bugs are generating false signal.** Three instances: boot-008 fails on a string match (`completed is false`) even though step-01.2 mandates `\"completed\": false` (lines 114/128); add-reminder assertions 005/006 fail even though the entry contains both `trigger_prompt` and `routing.agent`; and a checkpoint vocabulary bug ('completed' vs 'complete') produced 7 false CRITICAL escalations plus a bogus punch-out on the boot record.\n\n3. **Harness status mislabeling is widespread today.** Six records show `aborted` for work that verifiably completed (plaud-ingest state, boot state, briefing delivered, step-03 context in state.yaml). Grading had to rely on on-disk artifacts and transcripts rather than record status.\n\n4. **Genuine execution gaps:** the Knox contact sweep (W2956A) was cut off mid-compile with zero deliverable \u2014 research sweeps should write intermediate results incrementally. Peekaboo is correctly blocked (CLI not installed); either install it (`brew install steipete/tap/peekaboo` + TCC grants) or gate its triggers.\n\n**Highlights:** the pptx slide-51 restyle (9EQZ5Y) was exemplary \u2014 lock-check, backup, canonical-template rebuild, orphan cleanup, and PDF-render QA recovery. The add-reminder run (RRW6W7) made exactly the right judgment call: it refused to encode the \"do not ask David\" bypass, preserved the confirmation gate, and documented the conflict. The morning briefing itself is strong, with honest Clay/Obsidian degradation disclosure.\n\nAll grades and notes are written back to `systems/eval-harness/runs/*.json`.",
+  "model": "accounts/fireworks/models/kimi-k3",
+  "total_tokens_input": 161212,
+  "total_tokens_output": 205,
+  "total_cost_usd": 0.09,
+  "cost_estimation_note": "estimated based on general-purpose workflow type"
+}

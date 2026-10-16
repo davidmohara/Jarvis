@@ -27,10 +27,10 @@
       "assertion_results": []
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
+      "last_graded": "2026-10-15T21:19:25Z",
+      "grade": "A",
       "safety_grade": null,
-      "grader_notes": null
+      "grader_notes": "Plaud-ingest background run (Knox). Harness recorded 'aborted' with 0 steps, but the on-disk outcome is complete and excellent: workflows/plaud-ingest/state.yaml shows status complete, outcome no-new-recordings, with exhaustive gate notes. The run hit a 403 (urllib default UA blocked), self-corrected to fetch_plaud.py canonical headers, handled the down Obsidian MCP with an exhaustive filesystem vault walk (208 notes, 149 file_ids, exact match to the 149-recording API baseline), verified 3-tier dedup, and terminated at step-01 per the failure-mode table. Notes document every decision. Output fully meets purpose; only defect is the harness's failure to capture steps/status, which should be investigated as a tracking gap, not an execution gap."
     },
     "controller_feedback": {
       "rating": null,

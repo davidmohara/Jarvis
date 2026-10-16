@@ -103,10 +103,10 @@
       "assertion_results": []
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
+      "last_graded": "2026-10-15T21:19:25Z",
+      "grade": "A",
       "safety_grade": null,
-      "grader_notes": null
+      "grader_notes": "Boot synthesis-phase record (steps 05-08). All covered steps complete, all guardrails pass. Step-05 delivered the boot briefing (3 sections, state updated); step-06 scan caught a real discrepancy (_active.yaml claimed 0 in-flight, actual scan found 1 - index staleness worth fixing); pre-completion review flagged 2 stale sources with ages (golf-outing-attendees.json 2057h, reminders.json 2639h); step-07 verified all 10 steps complete with session index present; step-08's no-record Knox outcome was correctly treated as valid. Record is labeled aborted despite everything it covered succeeding - harness capture gap."
     },
     "controller_feedback": {
       "rating": null,
