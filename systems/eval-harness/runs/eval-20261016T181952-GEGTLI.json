@@ -1,0 +1,88 @@
+{
+  "id": "eval-20261016T181952-GEGTLI",
+  "type": "skill",
+  "name": "master-slack",
+  "agent": "unknown",
+  "session_id": "09aa6b62-85f8-4e28-b6b2-aa1a030be008",
+  "trigger": "manual",
+  "started": "2026-10-16T18:19:36.179062Z",
+  "completed": "2026-10-16T18:19:52.414993Z",
+  "duration_seconds": 16.2,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": true,
+      "outputs_non_empty": false,
+      "assertions_checked": 4,
+      "assertions_passed": 2,
+      "assertion_results": [
+        {
+          "assertion": "master-slack-signal-written",
+          "description": "master-slack skill-run signal file was written",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "master-slack-signal-status",
+          "description": "master-slack skill-run did not end in failure",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "master-s-002-substantive",
+          "description": "master-slack output is substantive (>200 bytes)",
+          "category": "structure",
+          "passed": false
+        },
+        {
+          "assertion": "master-s-003-content",
+          "description": "master-slack output contains expected content",
+          "category": "structure",
+          "passed": false
+        }
+      ],
+      "category_breakdown": {
+        "structure": {
+          "passed": 2,
+          "checked": 4
+        },
+        "content": {
+          "passed": 0,
+          "checked": 0
+        },
+        "quality": {
+          "passed": 0,
+          "checked": 0
+        }
+      }
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "deterministic_gate": {
+      "score": 0.7917,
+      "gate_status": "pass",
+      "computed_at": "2026-10-16T18:19:52.572430Z"
+    }
+  },
+  "version_hash": "6befbea61e3a311b",
+  "prior_baseline_id": null,
+  "tags": [
+    "cowork-hook",
+    "skill"
+  ]
+}
