@@ -1,9 +1,16 @@
 ---
 workflow: card-walkthrough
 agent: chase
-status: not-started
-session-started: ~
-session-id: ~
-current-step: ~
-original-request: ~
-accumulated-context: {}
+status: complete
+session-started: 2026-10-16
+session-id: cw-20261016-chase
+current-step: step-02
+original-request: "Chase card walkthrough: capture live portal data (step 1) and enroll YNAB-filtered offers (step 2) for Amex Plat/BCP, Citi AA Exec, Chase Sapphire. Discover skipped (Capital One migration)."
+accumulated-context:
+  ynab_cache: data/ynab-unified.json
+  ynab_pulled_at: 2026-10-16T22:39:15Z
+  cards_done: [amex-bcp, amex-plat, citi-aa-exec, chase-sapphire]
+  cards_skipped: [discover]
+  offers_added: 6
+  enrollment_failures: 1
+---

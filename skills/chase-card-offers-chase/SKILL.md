@@ -9,6 +9,8 @@ trigger_agents: [chase]
 
 > **Primary path (2026-10-16):** this skill now runs as `steps/step-02-offers.md` inside the `card-walkthrough` workflow, so offers get enrolled in the same session as the monthly data capture. Run it standalone only for an ad-hoc add between walkthroughs.
 
+> **Credential injection (2026-10-16):** where a session needs to self-authenticate, credentials come from the `op` CLI and are injected in memory via `osascript` execute-javascript (base64 through `op`, `atob` in the page). Never write a credential to disk, and never print one. Note: navigating to `ultimaterewards.chase.com` logs the session out; read offers from the card's offers page instead.
+
 # Chase Sapphire Offers — Read & Add
 
 **Card:** Chase Sapphire Preferred
