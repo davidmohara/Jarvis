@@ -3075,7 +3075,13 @@
           "workflows/daily-review/steps/step-auto.md",
           "reviews/daily/auto-2026-10-16.md",
           "memory/working/daily-review-2026-10-16-104000.md",
-          "workflows/daily-review/state.yaml"
+          "workflows/daily-review/state.yaml",
+          "/tmp/plaud_noop_repro/repro.py",
+          "systems/eval-harness/version-trend.py",
+          "systems/eval-harness/schema.md",
+          ".claude/hooks/tests/test_noop_records.py",
+          ".claude/skills/rigby-eval-grade/SKILL.md",
+          ".claude/skills/rigby-eval-analyze/SKILL.md"
         ]
       }
     ]
