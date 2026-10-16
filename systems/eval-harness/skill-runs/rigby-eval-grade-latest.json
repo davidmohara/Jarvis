@@ -1,10 +1,10 @@
 {
   "skill": "rigby-eval-grade",
   "agent": "general-purpose",
-  "trigger": "boot",
-  "started": "2026-10-13T21:12:49.971635Z",
-  "completed": "2026-10-13T21:13:00.809185Z",
-  "status": "success",
+  "trigger": "manual",
+  "started": "2026-10-15T21:08:20.738345Z",
+  "completed": "2026-10-16T08:03:43.624123Z",
+  "status": "aborted",
   "tool_failures": 0,
   "error_ids": [],
   "captured_via": "hook"
