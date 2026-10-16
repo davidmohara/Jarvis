@@ -226,23 +226,21 @@ This returns every offer with its row index. Note the index — you'll use it to
 
 ---
 
-## Step 5 — Filter Against YNAB Spend
+## Step 5 — Filter Against YNAB Spend (use the YNAB MCP connector)
 
-Before adding any offer, run the YNAB card pull for the card being reviewed:
+YNAB is a configured MCP connector. Use its tools — do NOT curl the YNAB API directly.
 
-```bash
-# BCP (account: b4b7a7c8)
-YNAB_TOKEN=$(grep YNAB_API_TOKEN $HOME/develop/jarvis/config/.env | cut -d= -f2)
-curl -s "https://api.youneedabudget.com/v1/budgets/5185d50a-d25e-47f8-b9d0-283ef6a89d2b/accounts/b4b7a7c8-32f5-4503-baf5-207d87050813/transactions?since_date=$(date -v-1y +%Y-%m-%d)" \
-  -H "Authorization: Bearer $YNAB_TOKEN" | \
-  python3 -c "import sys,json; txns=json.load(sys.stdin)['data']['transactions']; p={}; [p.update({t['payee_name']: p.get(t['payee_name'],0)+abs(t['amount'])/1000}) for t in txns if t.get('payee_name')]; [print(f'{v:.0f} | {k}') for k,v in sorted(p.items(),key=lambda x:-x[1])[:30]]"
+**Tools available:** `get_plans`, `get_plan_by_id`, `get_accounts`, `get_account_by_id`, `get_transactions`, `get_transactions_by_account`, `get_categories`, `get_plan_months`.
 
-# Platinum (account: 69de6bb6) — use same pattern with account ID 69de6bb6-...
-# Note: Platinum has historically returned no transactions. If empty, skip YNAB step
-# and rely on known spend patterns (travel, hotels, dining).
-```
+**Process:**
+1. `get_accounts` for the plan, and find the card's account by name (Blue Cash Preferred, Platinum). The account IDs below are a fallback if name matching is ambiguous.
+2. `get_transactions_by_account` for that account. Filter to the **last 12 months** — a merchant bought from at any point this year is a legitimate target, not just the last 90 days.
+3. Aggregate by payee and rank by total spend.
+4. **Only add offers where the vendor appears in YNAB spend history**, or where spend is highly probable from known patterns (hotels and travel on the Platinum).
 
-**Only add offers where the vendor appears in YNAB spend history**, or where spend is highly probable based on known patterns (e.g., hotels on Platinum).
+**Fallback only if the MCP is unavailable:** the inline `curl` pattern against `https://api.youneedabudget.com/v1` with `YNAB_API_TOKEN`, same 12-month window. Budget ID `5185d50a-d25e-47f8-b9d0-283ef6a89d2b`.
+
+**Amex account IDs (fallback):** BCP `b4b7a7c8-32f5-4503-baf5-207d87050813`; Platinum `69de6bb6-...` (historically returns no transactions — rely on known spend patterns if empty).
 
 ---
 

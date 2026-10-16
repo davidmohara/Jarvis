@@ -77,7 +77,7 @@ Read fully and follow: `steps/step-01-walkthrough.md` to begin.
 **Before recommending or adding any card-linked offer, pull 12 months of YNAB transaction data for that card and filter the offer list to vendors where David has actual spend.** Do not recommend offers for services David doesn't use.
 
 **Process:**
-1. Pull the card's YNAB transactions with a 12-month window (the inline `curl` pattern documented in `skills/chase-card-offers-*/SKILL.md`, using `YNAB_API_TOKEN` from `config/.env`; requires YNAB_API_TOKEN — if unavailable, ask David before recommending). NOTE: the previously referenced `systems/credit-cards/scripts/ynab-card-pull.py` does not exist; the offer skills' inline curl is the working method.
+1. Pull the card's YNAB transactions **through the YNAB MCP connector** (`get_accounts` to find the card's account, then `get_transactions_by_account`) with a 12-month window. YNAB is a configured MCP connector — do not curl the API directly. Fallback to inline `curl` with `YNAB_API_TOKEN` only if the MCP is unavailable. NOTE: the previously referenced `systems/credit-cards/scripts/ynab-card-pull.py` does not exist.
 2. Extract the top payees from YNAB output
 3. Cross-reference against available offers — only surface offers where the vendor appears in David's actual spend history
 4. For vendors with no YNAB history, do not recommend unless David explicitly asks

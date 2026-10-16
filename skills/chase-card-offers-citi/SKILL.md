@@ -202,22 +202,23 @@ for (var i = 0; i < btns.length; i++) {
 
 ---
 
-## Step 4 — Filter Against YNAB Spend
+## Step 4 — Filter Against YNAB Spend (use the YNAB MCP connector)
 
-Before enrolling, pull Citi's YNAB transactions:
+YNAB is a configured MCP connector. Use its tools — do NOT curl the YNAB API directly.
 
-```bash
-YNAB_TOKEN=$(grep YNAB_API_TOKEN $HOME/develop/jarvis/config/.env | cut -d= -f2)
-curl -s "https://api.youneedabudget.com/v1/budgets/5185d50a-d25e-47f8-b9d0-283ef6a89d2b/accounts/c95b51b9-5d5b-4aff-8c67-9c54589ff016/transactions?since_date=$(date -v-1y +%Y-%m-%d)" \
-  -H "Authorization: Bearer $YNAB_TOKEN" | \
-  python3 -c "import sys,json; txns=json.load(sys.stdin)['data']['transactions']; p={}; [p.update({t['payee_name']: p.get(t['payee_name'],0)+abs(t['amount'])/1000}) for t in txns if t.get('payee_name')]; [print(f'{v:.0f} | {k}') for k,v in sorted(p.items(),key=lambda x:-x[1])[:30]]"
-```
+**Tools:** `get_plans`, `get_accounts`, `get_transactions`, `get_transactions_by_account`, `get_categories`, `get_plan_months`.
+
+1. `get_accounts`, find the Citi AAdvantage Executive account by name (fallback ID `c95b51b9-5d5b-4aff-8c67-9c54589ff016`).
+2. `get_transactions_by_account` for the **last 12 months** (not 90 days — a merchant bought from any time this year counts).
+3. Aggregate by payee, rank by spend.
 
 **Key Citi YNAB spend (known high-value vendors):**
 - Turo, American Airlines, Nebraska Furniture Mart, Boardroom Salon, Uplift Desk
 - Wine vendors (Promontory, Tusk Estates, etc.), Amazon, Integrity Golf Performance
 
 Only enroll offers for vendors that appear in this output.
+
+**Fallback only if the MCP is unavailable:** inline `curl` against `https://api.youneedabudget.com/v1` with `YNAB_API_TOKEN`, budget `5185d50a-d25e-47f8-b9d0-283ef6a89d2b`, 12-month window.
 
 ---
 
