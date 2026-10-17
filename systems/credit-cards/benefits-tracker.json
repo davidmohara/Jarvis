@@ -263,9 +263,10 @@
       "fee_gross": 1285,
       "fee_oop": 0,
       "reimbursed_by": "YPO Lone Star",
-      "value_extracted": 7.58,
+      "value_extracted": 1234.9,
       "roi_positive": true,
-      "note": "All fees paid by YPO. $2,494 in credits = pure upside. ROI is infinite. fee_gross updated to $1,285 ($895 primary + $390 auth users) on 2026-10-17."
+      "note": "All fees paid by YPO. $2,494 in credits = pure upside. ROI is infinite. fee_gross updated to $1,285 ($895 primary + $390 auth users) on 2026-10-17. value_extracted corrected from 7.58 to 1234.90 on 2026-10-17 (err-20261017T160932-X53WQ4 area; the old figure contradicted the card's own note).",
+      "value_extracted_basis": "credits used YTD ($884.90) + card-linked offer savings ($350.00), consistent with how the other cards report value_extracted. Excludes MR point value, which is not grounded."
     },
     "citi-aa-exec": {
       "fee_oop": 770,
