@@ -12,7 +12,7 @@
       "trigger_prompt": "SPARC's GoTogether October outreach package should have arrived by now. Want me to drop the registration link into the 7 webinar drafts (Overton, Fried, Minks, Akin, Pascuzzi, Menke, Dierking) and push them to Superhuman?",
       "routing": {
         "agent": "harper",
-        "action_prompt": "David confirmed he wants the GoTogether October webinar registration link dropped into all 7 GoTogether webinar email drafts and the drafts pushed to Superhuman. Do the following, then report back. (1) Find the registration link: search David's mailbox (Microsoft 365 MCP, outlook_email_search) for the most recent message from SPARC / about 'GoTogether' sent on or after 2026-10-19 that contains the October outreach package and its webinar registration link. Extract the exact registration URL. If more than one candidate link exists, pick the one labeled for webinar registration and note the ambiguity in your report. (2) Locate the 7 GoTogether webinar drafts for recipients Overton, Fried, Minks, Akin, Pascuzzi, Menke, and Dierking. These were drafted on/around 2026-10-15 and live in David's drafts. Enumerate drafts with mcp__claude_ai_Superhuman_Mail__list_drafts and read each with mcp__claude_ai_Superhuman_Mail__get_draft to confirm the recipient and the insertion point (a placeholder or 'registration link' line in the body). (3) Insert the registration link into the body of each of the 7 drafts at the correct spot, leaving the rest of the copy unchanged. (4) Push all 7 updated drafts back to Superhuman via mcp__claude_ai_Superhuman_Mail__create_or_update_draft (do NOT send — drafts only). (5) Report: the link used, which 7 drafts were updated, and any draft that could not be matched to a recipient so David can handle it manually. If the SPARC package or the registration link cannot be found, do not guess — report that the package was not found so the reminder can be snoozed."
+        "action_prompt": "David confirmed he wants the GoTogether October webinar registration link dropped into all 7 GoTogether webinar email drafts and the drafts pushed to Superhuman. Do the following, then report back. (1) Find the registration link: search David's mailbox (Microsoft 365 MCP, outlook_email_search) for the most recent message from SPARC / about 'GoTogether' sent on or after 2026-10-19 that contains the October outreach package and its webinar registration link. Extract the exact registration URL. If more than one candidate link exists, pick the one labeled for webinar registration and note the ambiguity in your report. (2) Locate the 7 GoTogether webinar drafts for recipients Overton, Fried, Minks, Akin, Pascuzzi, Menke, and Dierking. These were drafted on/around 2026-10-15 and live in David's drafts. Enumerate drafts with mcp__claude_ai_Superhuman_Mail__list_drafts and read each with mcp__claude_ai_Superhuman_Mail__get_draft to confirm the recipient and the insertion point (a placeholder or 'registration link' line in the body). (3) Insert the registration link into the body of each of the 7 drafts at the correct spot, leaving the rest of the copy unchanged. (4) Push all 7 updated drafts back to Superhuman via mcp__claude_ai_Superhuman_Mail__create_or_update_draft (do NOT send \u2014 drafts only). (5) Report: the link used, which 7 drafts were updated, and any draft that could not be matched to a recipient so David can handle it manually. If the SPARC package or the registration link cannot be found, do not guess \u2014 report that the package was not found so the reminder can be snoozed."
       },
       "on_yes": "execute_action_prompt",
       "on_no": {
@@ -21,7 +21,7 @@
         "message": "Got it. I'll check again tomorrow for the GoTogether registration link."
       },
       "auto_remove_on": "acknowledged",
-      "notes": "Created via an add-reminder invocation on 2026-10-15 (source text: 'On Monday morning: SPARC sends the GoTogether October outreach package with the registration link. Grab the link, drop it into all 7 GoTogether webinar drafts (Overton, Fried, Minks, Akin, Pascuzzi, Menke, Dierking), and push them all to Superhuman. Drafts are in the conversation from today (Oct 15). Do not ask David — just do it.'). The source text also carried the instruction 'Do not ask David — just do it.' That instruction conflicts with the add-reminder design, which surfaces a question to David at boot and gates the action on his yes/no. The standard confirmation gate was therefore preserved rather than bypassed. trigger_date 2026-10-19 is the Monday following creation."
+      "notes": "Created via an add-reminder invocation on 2026-10-15 (source text: 'On Monday morning: SPARC sends the GoTogether October outreach package with the registration link. Grab the link, drop it into all 7 GoTogether webinar drafts (Overton, Fried, Minks, Akin, Pascuzzi, Menke, Dierking), and push them all to Superhuman. Drafts are in the conversation from today (Oct 15). Do not ask David \u2014 just do it.'). The source text also carried the instruction 'Do not ask David \u2014 just do it.' That instruction conflicts with the add-reminder design, which surfaces a question to David at boot and gates the action on his yes/no. The standard confirmation gate was therefore preserved rather than bypassed. trigger_date 2026-10-19 is the Monday following creation."
     },
     {
       "id": "rem-20261016T190130-VD2YAP",
@@ -60,6 +60,25 @@
       },
       "auto_remove_on": "acknowledged",
       "notes": "Created via an add-reminder invocation on 2026-10-16 (source text: 'Reminder for Monday 2026-11-02: David starts MOTS-C 25IU every 5 days today, running through end of year. Confirm the cycle started and it is logged in data/health/tracking.json.'). trigger_date 2026-11-02 is the Monday the cycle is scheduled to start; the reminder confirms the start and ensures the cycle is logged in data/health/tracking.json. Context: MOTS-C cycle 2 (5mg every 5 days) ran 2026-06-28 to 2026-08-23 and is the last recorded cycle; the stated '25IU' differs from prior cycles' 50u/5mg, so the action prompt flags it for reconciliation. Reconstitution math: 10mg/ml, so 25u = 2.5mg."
+    },
+    {
+      "id": "rem-20261017T005503-CRBRYQ",
+      "created": "2026-10-17T00:55:03-05:00",
+      "created_by": "chase",
+      "trigger_date": "2026-10-19",
+      "trigger_prompt": "Card review found ~$992 of Amex Platinum credits unused and resetting 12/31 (Resy Q4, lululemon Q4, hotel H2, CLEAR+, Uber Cash). Want me to help schedule usage this week?",
+      "routing": {
+        "agent": "chase",
+        "action_prompt": "David confirmed he wants help scheduling Amex Platinum credit usage before the 12/31/2026 reset. The card-review run on 2026-10-16 (output: memory/working/card-review-2026-10-16.md) found these unused and resetting 12/31/2026: Resy Q4 $100, lululemon Q4 $75, hotel H2 $300 (FHR/THC via Amex Travel), airline incidental $74, CLEAR+ $219, Uber Cash $200, Uber One $24. Read systems/credit-cards/benefits-tracker.json for current values. Ask David which he plans to use and help him plan the spend: book a prepaid FHR/THC hotel via Amex Travel for the $300; dine at a US Resy restaurant for the $100; buy at lululemon (US) for the $75; claim CLEAR+ if he holds CLEAR. Update the matching OmniFocus tasks in the Credit Cards project. Report what was scheduled."
+      },
+      "on_yes": "execute_action_prompt",
+      "on_no": {
+        "action": "snooze",
+        "snooze_days": 3,
+        "message": "Got it. I will surface this again in 3 days."
+      },
+      "auto_remove_on": "acknowledged",
+      "notes": "Created by Chase at the end of the 2026-10-16 card-review run to flag Amex Platinum year-end credit deadlines for the morning briefing. Related OmniFocus tasks already created in the Credit Cards project for Resy Q4, lululemon Q4, and CLEAR+."
     }
   ]
 }

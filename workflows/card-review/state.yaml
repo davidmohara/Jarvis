@@ -2,13 +2,19 @@
 workflow: card-review
 agent: chase
 status: complete
-session-started: 2026-10-16T15:35:54-05:00
+session-started: 2026-10-16T19:00:00-05:00
 session-id: chase-card-review-2026-10-16
 current-step: step-03
-original-request: "Run card-review workflow (overdue by months, never previously executed)"
+original-request: "Re-run card-review on fresh data after the 2026-10-16 live portal walkthrough refreshed all card files"
 accumulated-context:
   mode: audit-only-no-portal-access
-  data-freshness: "benefits-tracker 107d stale; card-registry/optimization-guide 244d stale"
+  data-freshness: "benefits-tracker / card-registry / optimization-guide all last_updated 2026-10-16 (0 days). Freshness gate PASSED."
   output: memory/working/card-review-2026-10-16.md
-  step-03-writeback: BLOCKED (no fresh portal data + Obsidian/OmniFocus MCP unreachable)
-  next: card-walkthrough required to clear staleness
+  step-03-writeback: "Dashboard + state written; monthly_review_log entry appended to benefits-tracker.json; OmniFocus tasks created in the Credit Cards project for the Amex Plat credits with no existing task; time-sensitive alerts flagged for Chief."
+  key-findings:
+    - "$992 of Amex Plat credits unused as of 2026-10-16, resetting 12/31 (Resy Q4 100, lululemon Q4 75, hotel H2 300, airline 74, CLEAR+ 219, Uber Cash 200, Uber One 24)."
+    - "Confirmed Amex Plat losses 2026: $250 (Q1 Resy, Q1 lululemon, Q3 lululemon). Contradicts the earlier run's $650-$725 figure."
+    - "Discover stale since 2026-06-01 (137 days), portal unmapped, Q4 category unknown."
+    - "Citi credit usage entirely unverifiable; Grubhub no longer listed."
+    - "BCP grocery 6% cap REACHED ($6,000 spent)."
+  next: "card-walkthrough recommended to re-map the Discover (Capital One) portal and confirm Citi credit usage. Cadence: walkthrough 1st, review 2nd."
