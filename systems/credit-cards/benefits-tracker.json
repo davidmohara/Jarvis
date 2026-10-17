@@ -250,6 +250,20 @@
         "note": "NEW benefit \u2014 up to $500 back on eligible AA Vacations (up to $250 Jan-Jun, up to $250 Jul-Dec). No usage figure on portal.",
         "usage_log": []
       }
+    },
+    "capital-one-savor": {
+      "card_status": "approved_not_activated",
+      "note": "New card (••••2965), approved 2026-10-17, not yet activated. No credits or benefits have usage figures yet, and none are fabricated: the card has no activity. Earn rates were not displayed on the Capital One portal pre-activation and remain unverified.",
+      "sign_up_bonus": {
+        "total": 200,
+        "used": 0,
+        "remaining": 200,
+        "spend_requirement": 500,
+        "window_days": 93,
+        "approximate_deadline": "2027-01-18",
+        "status": "open",
+        "note": "Verified on the Capital One portal 2026-10-17: $200 cash bonus for spending $500 within 93 days (approximately 2027-01-18). $0.00 spent so far. TIME-SENSITIVE: see upcoming_deadlines."
+      }
     }
   },
   "annual_fee_roi": {
@@ -284,6 +298,13 @@
       "value_extracted": 6.39,
       "roi_positive": true,
       "note": "$6.39 saved from card-linked offers to date"
+    },
+    "capital-one-savor": {
+      "fee": 0,
+      "fee_verified": false,
+      "value_extracted": 0,
+      "roi_positive": null,
+      "note": "New card, approved 2026-10-17, not yet activated. No value extracted to date (no activity). Annual fee recorded as $0 but not portal-verified (fee was not displayed pre-activation)."
     }
   },
   "card_linked_offers": {
@@ -1278,7 +1299,12 @@
     {
       "date": "2026-10-16",
       "card": "amex-bcp",
-      "action": "CHANGE FLAG: $6K grocery 6% cap REACHED (supermarket cashback $360.00 = exactly $6,000 spend). Route further grocery spend to Discover (if grocery is the rotating category) or Citi."
+      "action": "CHANGE FLAG: $6K grocery 6% cap REACHED (supermarket cashback $360.00 = exactly $6,000 spend). Route further grocery spend to Capital One Savor (its primary job per David). Savor's rate is unverified pre-activation; confirm on activation."
+    },
+    {
+      "date": "2027-01-18",
+      "card": "capital-one-savor",
+      "action": "SIGN-UP BONUS DEADLINE: earn $200 cash bonus by spending $500 within 93 days of approval (~2027-01-18). $0.00 spent so far as of 2026-10-17. TIME-SENSITIVE: card is approved but not yet activated."
     },
     {
       "date": "2026-12-31",
@@ -1456,6 +1482,12 @@
     "lesson": "Quarterly credits need calendar reminders 2 weeks before expiry. Monthly review alone is insufficient \u2014 need mid-quarter nudges."
   },
   "monthly_review_log": [
+    {
+      "date": "2026-10-17",
+      "type": "new_card_added",
+      "status": "COMPLETE",
+      "findings": "Capital One Savor (••••2965) added to the portfolio. Approved 2026-10-17, not yet activated. Credit line $30,000.00; balance $0.00; last statement $0.00; rewards cash $0.00. Sign-up bonus: $200 cash for $500 spend within 93 days (~2027-01-18), $0.00 spent so far. Benefits tab lists Capital One Entertainment, Capital One Shopping, Broadway Direct, and a complimentary 6-month Vinous subscription. Earn rates were NOT displayed on the portal pre-activation and remain UNVERIFIED. Recorded in card-registry.json as capital-one-savor. Routing updated in optimization-guide.json: groceries best_card moved to capital-one-savor (Amex BCP $6K grocery cap reached, earns 1% after); new general_other_discover_offseason category added with Savor as the fallback when Discover is out of rotation. Portfolio is now 6 active cards."
+    },
     {
       "date": "2026-10-17",
       "type": "portal_mapping",

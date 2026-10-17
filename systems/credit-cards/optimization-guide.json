@@ -4,11 +4,11 @@
     "description": "Which card to use for each spending category to maximize rewards",
     "categories": {
       "groceries_us": {
-        "best_card": "amex-bcp",
-        "rate": "6% (up to $6K/yr)",
-        "runner_up": "discover-it",
-        "runner_up_rate": "5% when rotating category is active (Q1 2026), 1% otherwise",
-        "note": "After $6K annual grocery cap on Amex, switch to Discover if in-season or Citi for 1x miles"
+        "best_card": "capital-one-savor",
+        "rate": "unverified (Savor earn rates were not displayed on the Capital One portal pre-activation)",
+        "runner_up": "amex-bcp",
+        "runner_up_rate": "1% (the $6K annual 6% grocery cap is REACHED for 2026)",
+        "note": "Amex BCP's $6K annual grocery 6% cap is REACHED ($6,000 spent, $360 cashback). Further grocery spend on BCP earns 1%. Capital One Savor (••••2965) becomes the grocery card per David's stated intent (groceries are its primary job). Savor's rate is UNVERIFIED because the portal did not display rates for the not-yet-activated card; confirm on activation. If Savor's rate turns out to be below BCP's capped 1%, revisit."
       },
       "wholesale_clubs": {
         "best_card": "discover-it",
@@ -132,6 +132,14 @@
         "runner_up_rate": "1x UR",
         "note": "AA miles generally worth 1.5-1.7cpp vs 1% cashback. Citi wins for uncategorized spend."
       },
+      "general_other_discover_offseason": {
+        "best_card": "capital-one-savor",
+        "rate": "unverified (Savor earn rates were not displayed on the Capital One portal pre-activation)",
+        "condition": "When the purchase does NOT fall in Discover's rotating 5% category for the quarter",
+        "runner_up": "discover-it",
+        "runner_up_rate": "5% when the purchase falls in Discover's rotating category, otherwise 1%",
+        "note": "Per David: Savor is the fallback for general/other spend when Discover's rotating 5% does not cover the category (\"groceries and any other when they're not in rotation for the Discover\"). Savor's rate is UNVERIFIED (portal did not show it pre-activation); confirm on activation. If Discover's rotating category does cover the purchase, Discover (5%) wins."
+      },
       "international": {
         "best_card": "citi-aa-exec",
         "rate": "1x AA miles (no foreign transaction fee)",
@@ -159,13 +167,14 @@
     },
     "card_migration_rules": {
       "dining": "In Q4 2026, route dining to Discover it first (5% rotating, up to the $1,500/quarter cap), then Chase Sapphire (2x UR) after the cap. In other quarters, Chase Sapphire (2x) is the dining card, never Citi (1x) or Amex (1x unless BCP for specific vendors). Discover's 5% applies to dining only when restaurants are the rotating category.",
-      "groceries": "Should be on Amex BCP (6% up to $6K) then Discover (5% when rotating) — never on Citi or Chase",
+      "groceries": "Should be on Capital One Savor now (Amex BCP's $6K annual 6% cap is REACHED for 2026, so BCP earns only 1% on further grocery spend). Savor's rate is unverified pre-activation — confirm on activation. Never on Citi or Chase.",
       "streaming": "Should be on Amex BCP (6%) — never on Plat (1x) or Chase (1x)",
       "gas": "Should be on Amex BCP (3%) or Discover (5% when rotating) — never on Citi (1x)",
       "flights_aa": "Always Citi AA Exec (4x)",
       "flights_other": "Amex Platinum via Amex Travel (5x)",
       "rideshare": "Lyft → Citi (stacks $15/mo credit up to $180/yr + 1x miles). Other rideshare → Amex BCP (3%)",
       "subscriptions": "Map each sub to its best card. Digital entertainment subs → Amex Plat (up to $25/mo credit). Other subs → category-based optimization.",
+      "general_other": "When Discover is NOT in its rotating category for the quarter, route general/other spend to Capital One Savor (David's stated fallback). Savor's rate is unverified pre-activation. If Discover's rotating category covers the purchase, Discover (5%) wins.",
       "insurance": "Portfolio gap — use Citi (1x miles) until a 2% card is added"
     }
   },

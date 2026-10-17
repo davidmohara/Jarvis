@@ -2,8 +2,9 @@
   "last_updated": "2026-10-17",
   "walkthrough_verified_2026_10_17": "Discover it (••••8369) portal mapped to Capital One and live data captured: balance $4,278.77, rewards cash $249.86, all four 2026 rotating quarters activated, replacement card being issued. See the discover-it entry for details.",
   "walkthrough_verified_2026_10_16": "Re-verified live via 1Password-logged portal sessions. Amex Plat MR 492,104; Amex BCP Reward Dollars $188.94; Citi miles 851,936; Chase Sapphire balance $370.21 / available $100,027.79. All matched stored values — no registry changes. UR balance not re-read this run (UR portal redirected for the base Sapphire card); retains 8,920.",
+  "active_card_count": 6,
   "total_annual_fees": 2150,
-  "total_annual_fees_note": "Recomputed 2026-10-17. Basis: sum of annual_fee_with_auth_users across active cards = amex-bcp 95 + amex-plat 1,285 + citi-aa-exec 770 + discover-it 0 + chase-sapphire 0 = 2,150. The prior value (1,760) did not reconcile to any component sum under the stored per-card fees and was stale; it was also built on the old $695 Amex Platinum fee. Amex Platinum fee corrected to $895 (2025 fee) this same date.",
+  "total_annual_fees_note": "Recomputed 2026-10-17. Basis: sum of annual_fee_with_auth_users across active cards = amex-bcp 95 + amex-plat 1,285 + citi-aa-exec 770 + discover-it 0 + chase-sapphire 0 + capital-one-savor 0 = 2,150. The prior value (1,760) did not reconcile to any component sum under the stored per-card fees and was stale; it was also built on the old $695 Amex Platinum fee. Amex Platinum fee corrected to $895 (2025 fee) this same date. capital-one-savor adds $0 (annual fee not displayed on the portal pre-activation; recorded as $0 for the no-fee Savor product, unverified).",
   "cards": [
     {
       "id": "amex-bcp",
@@ -220,6 +221,53 @@
       "credits": {},
       "chase_banking_note": "Chase is also David's primary bank. Main Checking ...7817, Trust Account ...6375. Same portal as Sapphire card.",
       "notes": "Base Sapphire card. UR points worth 1cpp without Preferred/Reserve for transfer. Now the best dining card in the portfolio at 2x UR. Consider product change to Preferred/Reserve for transfer partners."
+    },
+    {
+      "id": "capital-one-savor",
+      "name": "Capital One Savor",
+      "issuer": "Capital One",
+      "network": "unverified",
+      "card_last_four": "2965",
+      "status": "approved_not_activated",
+      "status_note": "Approved 2026-10-17, not yet activated. Card Tracker on the portal shows Approved -> Creating -> Shipping -> Activate. Shipping to 1717 Bunkhouse Rd, Frisco, TX 75036.",
+      "annual_fee": 0,
+      "annual_fee_verified": false,
+      "annual_fee_note": "Annual fee not displayed on the Capital One portal (card not yet activated). Recorded as $0 for the no-fee Savor product; not portal-verified.",
+      "credit_limit": 30000,
+      "current_balance": 0.00,
+      "current_balance_as_of": "2026-10-17",
+      "last_statement_balance": 0.00,
+      "rewards_cash_balance": 0.00,
+      "rewards_cash_balance_as_of": "2026-10-17",
+      "data_source": "capital_one_portal",
+      "foreign_transaction_fee": "unverified",
+      "rewards_type": "cashback",
+      "rewards_structure": {
+        "note": "Earn rates were NOT displayed on the Capital One portal (the card is not activated yet). Rates are UNVERIFIED. Do not treat any category rate as confirmed until the portal shows them post-activation.",
+        "groceries_us": { "rate": null, "unit": "percent", "status": "unverified" },
+        "everything_else": { "rate": null, "unit": "percent", "status": "unverified" }
+      },
+      "primary_role": "Groceries. Per David: \"It will be groceries and any other when they're not in rotation for the Discover.\" Groceries are its primary job; it also fills categories when Discover's rotating 5% does not cover them.",
+      "sign_up_bonus": {
+        "amount": 200,
+        "currency": "cash",
+        "spend_requirement": 500,
+        "window_days": 93,
+        "approximate_deadline": "2027-01-18",
+        "spent_to_date": 0.00,
+        "status": "open",
+        "note": "Verified on the portal 2026-10-17: $200 cash bonus, spend $500 within 93 days (~2027-01-18). $0.00 spent so far. Time-sensitive."
+      },
+      "benefits": {
+        "capital_one_entertainment": "Listed on the portal Benefits tab (details not captured).",
+        "capital_one_shopping": "Listed on the portal Benefits tab (details not captured).",
+        "broadway_direct": "Listed on the portal Benefits tab (details not captured).",
+        "vinous_subscription": "Complimentary 6-month Vinous subscription, listed on the portal Benefits tab."
+      },
+      "portal": "myaccounts.capitalone.com",
+      "portal_sign_in": "verified.capitalone.com/auth/signin",
+      "portal_note": "Same Capital One portal as the Discover card. Credentials in 1Password item \"Capital One\".",
+      "notes": "New card, approved 2026-10-17, not yet activated. All values captured live from the Capital One portal on 2026-10-17. Earn rates and the annual fee were not displayed pre-activation and remain unverified. Benefits list captured from the portal Benefits tab."
     }
   ],
   "closed_cards": [
