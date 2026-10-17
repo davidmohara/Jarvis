@@ -1,0 +1,14 @@
+{
+  "id": "err-20261016T203925-XMT2U0",
+  "timestamp": "2026-10-16T20:39:25.575686+00:00",
+  "agent": "chase",
+  "category": "hallucination",
+  "failure_mode": "inference-presented-as-observation",
+  "severity": "high",
+  "description": "The 2026-10-16 card-review run read only stored JSON (benefits-tracker 107 days stale, card-registry/optimization-guide 244 days stale) and never logged into any card portal. It then presented usage conclusions as findings: 'Q3 Resy $100 + Q3 lululemon $75 likely also lost on 9/30' and 'Atlas points redemption UNKNOWN and at risk'. David corrected: Q3 Resy WAS used, lululemon was NOT, and the Atlas points were used to pay the card down. The master summary relayed these as confirmed findings without leading with the fact that nothing was verified live.",
+  "correction": "card-review performs NO portal access. It must never state or imply what usage has been recorded. Every usage claim must be labelled as an unverified inference from a file of a stated age, or omitted. Only card-walkthrough (which logs in with David present) can assert what activity is recorded.",
+  "root_cause": "Stale-data analysis output was phrased as findings; the consumer summary dropped the UNKNOWN qualifiers the subagent had applied.",
+  "fix_status": "in-progress",
+  "source": "user-correction",
+  "session": "2026-10-16"
+}

@@ -2,7 +2,6 @@
 name: watchtower
 description: Standing intelligence monitor — scans news and sources across David's topic areas, delivers daily awareness summaries, and surfaces weekly content candidates feeding the existing content pipeline.
 agent: knox
-owner: knox
 evolution: personal
 model: sonnet
 ---

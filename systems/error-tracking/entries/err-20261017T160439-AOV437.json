@@ -1,0 +1,14 @@
+{
+  "id": "err-20261017T160439-AOV437",
+  "timestamp": "2026-10-17T16:04:39.003017+00:00",
+  "agent": "chase",
+  "category": "hallucination",
+  "failure_mode": "false-negative-claim-unverified",
+  "severity": "minor",
+  "description": "The 2026-10-16 card review reported that card-review/workflow.md references reference/state-check-protocol.md, which 'does not exist'. The file exists (1,259 bytes, git-tracked) and is referenced by 57 files. The claim was made without verifying the path. Second unverified negative assertion from a review run the same day (the first being the Citi Sixt enrollment reported as failed when it succeeded).",
+  "correction": "Before reporting a file or reference as missing, check the actual path. A negative claim ('does not exist', 'failed', 'no match') requires the same verification as a positive one.",
+  "root_cause": "Negative findings asserted without a confirming check.",
+  "fix_status": "proposed",
+  "source": "subagent-review-verification",
+  "session": "2026-10-16"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "err-20261016T185753-4AL6AB",
+  "timestamp": "2026-10-16T18:57:53.973881+00:00",
+  "agent": "galen",
+  "category": "stale-knowledge",
+  "failure_mode": "wrong-physician-of-record",
+  "severity": "moderate",
+  "description": "Dr. Randol was treated as David's physician of record across the health skills and health data. David's physician is now Dr. Ryan Jones (Inspire Health, Frisco Legacy). The 2026-10-16 visit prep framed Dr. Jones as 'a different provider' rather than the physician of record.",
+  "correction": "Dr. Randol is no longer David's physician. Dr. Ryan Jones is. Health skills scoped to 'Dr. Randol' must be re-scoped.",
+  "fix_status": "in-progress",
+  "source": "user-correction",
+  "session": "2026-10-16"
+}

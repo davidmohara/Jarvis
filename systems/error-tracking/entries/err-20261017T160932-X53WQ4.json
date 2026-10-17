@@ -1,0 +1,14 @@
+{
+  "id": "err-20261017T160932-X53WQ4",
+  "timestamp": "2026-10-17T16:09:32.518399+00:00",
+  "agent": "chase",
+  "category": "hallucination",
+  "failure_mode": "fabricated-card-in-routing",
+  "severity": "high",
+  "description": "The card optimization guide routed categories (flights/hotels, business purchases 5K+, Dell technology, wireless phone, international) to an 'Amex Business Platinum' (amex-biz-plat) that David does not hold and which is not in card-registry.json. David: 'biz platinum is a hallucination you made.' A card that does not exist was used as a routing target in credit-card optimization logic.",
+  "correction": "Only route to cards present in systems/credit-cards/card-registry.json. Never introduce a card that is not in the registry, and never assign benefits to it from general knowledge of what such a card offers.",
+  "root_cause": "Fabricated a plausible card and its benefit structure rather than routing only to the cards actually held.",
+  "fix_status": "in-progress",
+  "source": "user-correction",
+  "session": "2026-10-17"
+}

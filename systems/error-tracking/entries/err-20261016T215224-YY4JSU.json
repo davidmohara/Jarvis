@@ -1,0 +1,14 @@
+{
+  "id": "err-20261016T215224-YY4JSU",
+  "timestamp": "2026-10-16T21:52:24.092704+00:00",
+  "agent": "master",
+  "category": "portability",
+  "failure_mode": "polluted-local-paths",
+  "severity": "moderate",
+  "description": "Local developer paths containing 'jarvis' (e.g. /Users/davidohara/develop/jarvis/..., ~/develop/jarvis, /sessions/*/mnt/jarvis) have been written into live skills and workflows: content-discovery step-01 (slack-bot read.py), golf-preview step-05, dream-cycle workflow.md, watchtower weekly-step-06, chief-morning, master-slack (IES root), dream-cycle README, sandbox-credentials SETUP. David: these are pointers to a local path of the system that have gotten polluted into the files.",
+  "correction": "Live skills and workflows must not hardcode a local developer path. Use repo-relative paths or the IES_ROOT environment variable.",
+  "root_cause": "Paths copied from interactive sessions and past local installs rather than written portably.",
+  "fix_status": "in-progress",
+  "source": "user-correction",
+  "session": "2026-10-16"
+}

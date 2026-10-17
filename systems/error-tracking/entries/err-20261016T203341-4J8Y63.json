@@ -1,0 +1,14 @@
+{
+  "id": "err-20261016T203341-4J8Y63",
+  "timestamp": "2026-10-16T20:33:41.866701+00:00",
+  "agent": "chase",
+  "category": "process-skip",
+  "failure_mode": "unscheduled-cadence",
+  "severity": "moderate",
+  "description": "card-review and card-walkthrough both document a monthly cadence ('1st of each month (scheduled)' and 'Monthly, triggered after the monthly benefits review') but neither exists in config/scheduled-tasks.json. Result: no reminder ever fired, neither workflow has ever produced an eval record, and the card data has aged 107 days (benefits-tracker) to 244 days (card-registry, optimization-guide) with nothing flagging it. The thing that was supposed to flag staleness was itself not running.",
+  "correction": "A workflow that documents a cadence must have a matching entry in config/scheduled-tasks.json, or the cadence is fiction. Add card-review (monthly, 1st) and card-walkthrough (monthly, after review) as scheduled tasks.",
+  "root_cause": "Cadence documented in the workflow file was never registered with the scheduler; no check verifies that documented cadences have live scheduled tasks.",
+  "fix_status": "in-progress",
+  "source": "user-question",
+  "session": "2026-10-16"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "err-20261016T213056-LA1SF1",
+  "timestamp": "2026-10-16T21:30:56.591644+00:00",
+  "agent": "chase",
+  "category": "tool-misuse",
+  "failure_mode": "bypassed-connector",
+  "severity": "moderate",
+  "description": "The card offer skills pulled YNAB spend with inline curl against api.youneedabudget.com plus a token read from config/.env, instead of using the configured YNAB MCP connector (ynab-mcp-server, configured in Claude Desktop). YNAB is a connector and should be used like MCP.",
+  "correction": "Use the YNAB MCP tools (get_accounts, get_transactions_by_account, get_transactions, get_categories, get_plan_months) for all YNAB spend reads. Inline curl is a fallback only if the MCP is unavailable.",
+  "root_cause": "Skills were written before the YNAB MCP existed and never migrated.",
+  "fix_status": "applied",
+  "source": "user-correction",
+  "session": "2026-10-16"
+}

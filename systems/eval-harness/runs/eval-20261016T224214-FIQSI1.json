@@ -1,0 +1,49 @@
+{
+  "id": "eval-20261016T224214-FIQSI1",
+  "type": "skill",
+  "name": "update-config",
+  "agent": "unknown",
+  "session_id": "3a57609e-8cb8-4028-91b3-b4ea5e0790fe",
+  "trigger": "manual",
+  "started": "2026-10-16T22:36:02.180289Z",
+  "completed": "2026-10-16T22:42:14.107709Z",
+  "duration_seconds": 371.9,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "deterministic_gate": {
+      "score": 0.7917,
+      "gate_status": "pass",
+      "computed_at": "2026-10-16T22:42:14.359207Z"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [
+    "cowork-hook",
+    "skill"
+  ]
+}

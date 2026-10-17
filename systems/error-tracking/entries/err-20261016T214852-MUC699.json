@@ -1,0 +1,14 @@
+{
+  "id": "err-20261016T214852-MUC699",
+  "timestamp": "2026-10-16T21:48:52.421096+00:00",
+  "agent": "master",
+  "category": "wrong-assumption",
+  "failure_mode": "concluded-dead-path-without-checking-moved-location",
+  "severity": "moderate",
+  "description": "Found the offer skills' YNAB curl path pointing at $HOME/develop/jarvis/config/.env, which does not exist, and concluded the curl path was dead and could never have worked. David corrected: the token belongs in the repo's config/.env, where it now is. The path was wrong, not the approach. I then made an edit (removing the documented curl fallback entirely) based on that wrong conclusion.",
+  "correction": "When a referenced path is missing, check whether the file moved before declaring the mechanism dead. The correct path is the repo's config/.env.",
+  "root_cause": "Treated a missing path as proof the mechanism was never functional, without asking where the token actually lives or whether it had moved.",
+  "fix_status": "applied",
+  "source": "user-correction",
+  "session": "2026-10-16"
+}

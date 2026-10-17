@@ -1,0 +1,14 @@
+{
+  "id": "err-20261016T205519-TQHQJ5",
+  "timestamp": "2026-10-16T20:55:19.175100+00:00",
+  "agent": "chase",
+  "category": "wrong-assumption",
+  "failure_mode": "insufficient-lookback-window",
+  "severity": "moderate",
+  "description": "chase-card-offers-* filter offers against YNAB spend using a 90-day window (since_date=$(date -v-90d)). David's example: a Hollywood Feed offer should be added to BCP because they have bought there this year, but a purchase earlier than 90 days ago would not appear and the offer would be skipped.",
+  "correction": "The YNAB lookback for offer eligibility must cover at least the current calendar year (or 12 months), not 90 days. A merchant bought from at any point this year is a legitimate offer target.",
+  "root_cause": "90-day window chosen for recency; too narrow for annual spend patterns.",
+  "fix_status": "in-progress",
+  "source": "user-correction",
+  "session": "2026-10-16"
+}

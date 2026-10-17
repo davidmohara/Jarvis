@@ -1,0 +1,14 @@
+{
+  "id": "err-20261016T231646-46S5HD",
+  "timestamp": "2026-10-16T23:16:46.454081+00:00",
+  "agent": "chase",
+  "category": "wrong-assumption",
+  "failure_mode": "trusted-error-message-over-verification",
+  "severity": "moderate",
+  "description": "The 2026-10-16 card walkthrough reported the Citi Sixt Rent A Car offer as an enrollment FAILURE ('Unable to enroll merchant offer. Please try again.', twice). David checked: the offer WAS added. The error message was misleading and the agent recorded the failure without re-verifying the enrolled list, which would have shown it.",
+  "correction": "On an enrollment error, re-read the enrolled/added list before recording a failure. An error message is not proof of failure. Report the offer as added if the enrolled list shows it, and only record a genuine failure when the list confirms it is absent.",
+  "root_cause": "Trusted the portal's error toast over the ground truth on the same page.",
+  "fix_status": "in-progress",
+  "source": "user-correction",
+  "session": "2026-10-16"
+}

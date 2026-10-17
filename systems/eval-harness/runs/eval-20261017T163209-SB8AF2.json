@@ -1,0 +1,94 @@
+{
+  "id": "eval-20261017T163209-SB8AF2",
+  "agent_id": "a0f69edfd66f896ec",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": "card-walkthrough",
+  "agent": "chase",
+  "owning_agent": "chase",
+  "subagent_type": "general-purpose",
+  "session_id": "3a57609e-8cb8-4028-91b3-b4ea5e0790fe",
+  "trigger": "unknown",
+  "started": "2026-10-17T16:32:09.416969Z",
+  "completed": null,
+  "duration_seconds": null,
+  "status": "success",
+  "steps": [
+    {
+      "name": "step-01-walkthrough.md",
+      "step_id": "step-01-walkthrough.md",
+      "agent": "general-purpose",
+      "owning_agent": "chase",
+      "started": null,
+      "completed": null,
+      "duration_seconds": null,
+      "status": "not-started",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "sonnet",
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null,
+      "token_source": null
+    },
+    {
+      "name": "step-02-offers.md",
+      "step_id": "step-02-offers.md",
+      "agent": "general-purpose",
+      "owning_agent": "chase",
+      "started": null,
+      "completed": null,
+      "duration_seconds": null,
+      "status": "not-started",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "sonnet",
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null,
+      "token_source": null
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "total_cost_usd": 0.09,
+  "cost_estimation_note": "estimated based on general-purpose workflow type",
+  "model": "sonnet"
+}

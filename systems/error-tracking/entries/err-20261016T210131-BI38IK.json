@@ -1,0 +1,14 @@
+{
+  "id": "err-20261016T210131-BI38IK",
+  "timestamp": "2026-10-16T21:01:31.773934+00:00",
+  "agent": "chase",
+  "category": "stale-knowledge",
+  "failure_mode": "changed-issuer-portal",
+  "severity": "moderate",
+  "description": "The Discover it card (\u2022\u2022\u2022\u20228369) is managed through Capital One now (Discover was acquired by Capital One). The card-walkthrough workflow card inventory and the chase-card-offers-discover skill both still direct to discover.com, which is no longer the correct portal. Portal mapping and any changed benefit/category structure are unknown.",
+  "correction": "Skip the Discover portal. Route Discover card activity through Capital One. The portal URL, benefit structure, and rotating-category mechanics need to be re-mapped before the card can be walked again.",
+  "root_cause": "Issuer acquisition changed the servicing portal; the workflow and skill were never updated.",
+  "fix_status": "in-progress",
+  "source": "user-correction",
+  "session": "2026-10-16"
+}
