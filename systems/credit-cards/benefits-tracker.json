@@ -253,7 +253,7 @@
     },
     "capital-one-savor": {
       "card_status": "approved_not_activated",
-      "note": "New card (••••2965), approved 2026-10-17, not yet activated. No credits or benefits have usage figures yet, and none are fabricated: the card has no activity. Earn rates were not displayed on the Capital One portal pre-activation and remain unverified.",
+      "note": "New card (\u2022\u2022\u2022\u20222965), approved 2026-10-17, not yet activated. No credits or benefits have usage figures yet, and none are fabricated: the card has no activity. Earn rates were not displayed on the Capital One portal pre-activation and remain unverified.",
       "sign_up_bonus": {
         "total": 200,
         "used": 0,
@@ -1185,7 +1185,14 @@
           "ynab_validated": true,
           "note": "Reported enrolled by the 2026-10-16 walkthrough (confirmed on the Citi Enrolled tab per the run report); not independently re-verified here. Confirm on the next walkthrough."
         }
-      ]
+      ],
+      "keep_decision": {
+        "decision": "KEEP",
+        "date": "2026-10-17",
+        "by": "David",
+        "note": "Deliberate keep despite the $770 annual fee and unverifiable credit usage. Do not re-raise keep-or-cut in future reviews. Value is carried by Admirals Club access and AAdvantage Executive Platinum status, not by the credits.",
+        "do_not_requestion": true
+      }
     }
   },
   "discover-it": {
@@ -1486,7 +1493,7 @@
       "date": "2026-10-17",
       "type": "new_card_added",
       "status": "COMPLETE",
-      "findings": "Capital One Savor (••••2965) added to the portfolio. Approved 2026-10-17, not yet activated. Credit line $30,000.00; balance $0.00; last statement $0.00; rewards cash $0.00. Sign-up bonus: $200 cash for $500 spend within 93 days (~2027-01-18), $0.00 spent so far. Benefits tab lists Capital One Entertainment, Capital One Shopping, Broadway Direct, and a complimentary 6-month Vinous subscription. Earn rates were NOT displayed on the portal pre-activation and remain UNVERIFIED. Recorded in card-registry.json as capital-one-savor. Routing updated in optimization-guide.json: groceries best_card moved to capital-one-savor (Amex BCP $6K grocery cap reached, earns 1% after); new general_other_discover_offseason category added with Savor as the fallback when Discover is out of rotation. Portfolio is now 6 active cards."
+      "findings": "Capital One Savor (\u2022\u2022\u2022\u20222965) added to the portfolio. Approved 2026-10-17, not yet activated. Credit line $30,000.00; balance $0.00; last statement $0.00; rewards cash $0.00. Sign-up bonus: $200 cash for $500 spend within 93 days (~2027-01-18), $0.00 spent so far. Benefits tab lists Capital One Entertainment, Capital One Shopping, Broadway Direct, and a complimentary 6-month Vinous subscription. Earn rates were NOT displayed on the portal pre-activation and remain UNVERIFIED. Recorded in card-registry.json as capital-one-savor. Routing updated in optimization-guide.json: groceries best_card moved to capital-one-savor (Amex BCP $6K grocery cap reached, earns 1% after); new general_other_discover_offseason category added with Savor as the fallback when Discover is out of rotation. Portfolio is now 6 active cards."
     },
     {
       "date": "2026-10-17",
