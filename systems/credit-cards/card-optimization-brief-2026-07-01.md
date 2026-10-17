@@ -169,7 +169,7 @@ Map all subscriptions and recurring charges to optimal cards:
 |--------|--------------|---------|
 | Spotify, Apple Music, etc. | Amex BCP (6%) | $X per year |
 | Gym membership | Amex BCP (6%) if on BCP categories, else Citi (1x miles) | Verify |
-| Software subscriptions | Amex Biz Plat (1x MR + credits if applicable) | Check if business |
+| Software subscriptions | Amex Plat (1x MR) | No held card carries software credits |
 | Insurance (auto, home) | Citi (1x miles preferred over 1% cashback) | $410+ miles/year |
 | Grubhub, DoorDash | Citi ($10/mo Grubhub credit on Citi) | Stacked credit |
 
@@ -218,7 +218,7 @@ Based on YNAB, you have **16 subscription transactions** in Q2. Current card: **
 
 **Charges to move if not already on Amex BCP:**
 - Any digital entertainment not on Amex BCP → move to Amex BCP (6%)
-- Business subscriptions → verify on Amex Biz Plat (1x MR + potential credits)
+- Business subscriptions → Amex Plat (1x MR); no held card carries subscription credits
 
 **Estimated opportunity: $0 (already optimal per analysis), but verify actual card assignments in YNAB**
 

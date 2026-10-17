@@ -55,14 +55,14 @@
         "rate": "5x MR on flights booked direct with airlines or via Amex Travel",
         "runner_up": "citi-aa-exec",
         "runner_up_rate": "1x AA miles (non-AA flights)",
-        "note": "Amex Platinum ••••21001 earns 5x on flights booked direct or via Amex Travel. Corrected 2026-10-17 from amex-biz-plat (a card not in card-registry.json)."
+        "note": "Amex Platinum ••••21001 earns 5x on flights booked direct or via Amex Travel. Corrected 2026-10-17: this category previously routed to a card that does not exist in card-registry.json (a fabricated entry); it now points to a held card."
       },
       "hotels": {
         "best_card": "amex-plat",
         "rate": "5x MR on prepaid hotels via Amex Travel",
         "runner_up": "citi-aa-exec",
         "runner_up_rate": "12x on hotels booked via aadvantagehotels.com (increased from 10x — 2026-10-16)",
-        "note": "Use the Amex Platinum's FHR/THC bookings to also earn the $600 hotel credit. Corrected 2026-10-17 from amex-biz-plat (a card not in card-registry.json)."
+        "note": "Use the Amex Platinum's FHR/THC bookings to also earn the $600 hotel credit. Corrected 2026-10-17: this category previously routed to a card that does not exist in card-registry.json (a fabricated entry); it now points to a held card."
       },
       "rental_cars": {
         "best_card": "citi-aa-exec",
@@ -91,19 +91,25 @@
         "note": "Check Discover calendar quarterly for Amazon/online categories."
       },
       "business_purchases_5k_plus": {
-        "best_card": "amex-biz-plat",
-        "rate": "2x MR on purchases $5K+",
-        "note": "Up to $2M/yr. Great for large business expenses."
+        "best_card": "citi-aa-exec",
+        "rate": "1x AA miles",
+        "runner_up": "amex-plat",
+        "runner_up_rate": "1x MR",
+        "note": "No held card carries a large-purchase bonus. The personal Amex Platinum earns 1x on general spend, so there is no bonus rate to chase. Citi AAdvantage Executive earns 1x AA miles (worth roughly 1.5-1.7cpp) and is the best available choice for large uncategorized business expenses."
       },
       "dell_technology": {
-        "best_card": "amex-biz-plat",
-        "rate": "1x MR + up to $1,150 in credits",
-        "note": "Always use Biz Plat for Dell purchases to earn credits"
+        "best_card": "citi-aa-exec",
+        "rate": "1x AA miles",
+        "runner_up": "amex-plat",
+        "runner_up_rate": "1x MR",
+        "note": "No Dell credit exists on the portfolio. Dell purchases are uncategorized spend, so use the best available earning card: Citi AAdvantage Executive at 1x AA miles (Amex Platinum at 1x MR is the alternative)."
       },
       "wireless_phone": {
-        "best_card": "amex-biz-plat",
-        "rate": "1x MR + $10/mo credit",
-        "note": "Always pay wireless bill with Biz Plat for $120/yr credit"
+        "best_card": "citi-aa-exec",
+        "rate": "1x AA miles",
+        "runner_up": "amex-plat",
+        "runner_up_rate": "1x MR",
+        "note": "No wireless credit is available on the portfolio. The personal Amex Platinum does not include a wireless phone credit. Pay the wireless bill with the best available earning card: Citi AAdvantage Executive at 1x AA miles."
       },
       "everything_else": {
         "best_card": "citi-aa-exec",
@@ -113,10 +119,12 @@
         "note": "AA miles generally worth 1.5-1.7cpp vs 1% cashback. Citi wins for uncategorized spend."
       },
       "international": {
-        "best_card": "citi-aa-exec OR amex-biz-plat",
-        "rate": "Varies",
+        "best_card": "citi-aa-exec",
+        "rate": "1x AA miles (no foreign transaction fee)",
+        "runner_up": "amex-plat",
+        "runner_up_rate": "1x MR (no foreign transaction fee)",
         "avoid": "amex-bcp (2.7% FTX fee)",
-        "note": "Never use Amex Blue Cash Preferred internationally."
+        "note": "Confirmed no foreign transaction fee: Citi AAdvantage Executive, Amex Platinum (personal), and Discover it. Chase Sapphire's foreign transaction fee is unconfirmed in card-registry.json (listed as unknown), so do not treat it as a safe international card. Never use Amex Blue Cash Preferred internationally (2.7% fee)."
       }
     }
   },
