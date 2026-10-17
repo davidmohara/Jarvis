@@ -51,18 +51,18 @@
         "note": "Always use Citi for AA purchases"
       },
       "flights_non_aa": {
-        "best_card": "amex-biz-plat",
-        "rate": "5x MR via Amex Travel",
+        "best_card": "amex-plat",
+        "rate": "5x MR on flights booked direct with airlines or via Amex Travel",
         "runner_up": "citi-aa-exec",
         "runner_up_rate": "1x AA miles (non-AA flights)",
-        "note": "Must book through Amex Travel for 5x. Direct booking = 1x."
+        "note": "Amex Platinum ••••21001 earns 5x on flights booked direct or via Amex Travel. Corrected 2026-10-17 from amex-biz-plat (a card not in card-registry.json)."
       },
       "hotels": {
-        "best_card": "amex-biz-plat",
-        "rate": "5x MR via Amex Travel (prepaid)",
+        "best_card": "amex-plat",
+        "rate": "5x MR on prepaid hotels via Amex Travel",
         "runner_up": "citi-aa-exec",
         "runner_up_rate": "12x on hotels booked via aadvantagehotels.com (increased from 10x — 2026-10-16)",
-        "note": "Use Biz Plat FHR/THC bookings to also earn $600 hotel credit"
+        "note": "Use the Amex Platinum's FHR/THC bookings to also earn the $600 hotel credit. Corrected 2026-10-17 from amex-biz-plat (a card not in card-registry.json)."
       },
       "rental_cars": {
         "best_card": "citi-aa-exec",
@@ -105,11 +105,6 @@
         "rate": "1x MR + $10/mo credit",
         "note": "Always pay wireless bill with Biz Plat for $120/yr credit"
       },
-      "grubhub": {
-        "best_card": "citi-aa-exec",
-        "rate": "1x + $10/mo credit (credit status unclear — not listed on refreshed benefits 2026-10-16)",
-        "note": "Citi Grubhub credit is no longer listed on the portal (2026-10-16) — verify before relying on it."
-      },
       "everything_else": {
         "best_card": "citi-aa-exec",
         "rate": "1x AA miles",
@@ -146,7 +141,7 @@
       "streaming": "Should be on Amex BCP (6%) — never on Plat (1x) or Chase (1x)",
       "gas": "Should be on Amex BCP (3%) or Discover (5% when rotating) — never on Citi (1x)",
       "flights_aa": "Always Citi AA Exec (4x)",
-      "flights_other": "Amex Biz Plat via Amex Travel (5x)",
+      "flights_other": "Amex Platinum via Amex Travel (5x)",
       "rideshare": "Lyft → Citi (stacks $15/mo credit up to $180/yr + 1x miles). Other rideshare → Amex BCP (3%)",
       "subscriptions": "Map each sub to its best card. Digital entertainment subs → Amex Plat (up to $25/mo credit). Other subs → category-based optimization.",
       "insurance": "Portfolio gap — use Citi (1x miles) until a 2% card is added"

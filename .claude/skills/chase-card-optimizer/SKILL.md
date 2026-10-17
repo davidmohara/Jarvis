@@ -121,7 +121,7 @@ When David reports using a benefit or finding new offers, update `benefits-track
 
 ## Amex Biz Plat Handling
 
-The optimization guide references `amex-biz-plat` as best card for several categories (non-AA flights, hotels, $5K+ purchases, Dell, wireless). This card is NOT in the card registry. When it comes up:
+The optimization guide references `amex-biz-plat` as best card for several categories ($5K+ purchases, Dell, wireless; also an option for international). Non-AA flights and hotels were corrected to `amex-plat` on 2026-10-17 (the personal Platinum ••••21001 earns 5x on flights/hotels direct or via Amex Travel). This card is NOT in the card registry. When it comes up:
 - Note: "Optimization guide recommends Amex Business Platinum, which is not currently in your portfolio."
 - Fall through to the runner-up card that IS in the registry
 - If no runner-up listed: recommend the best available card from the registry for that category

@@ -255,16 +255,17 @@
   "annual_fee_roi": {
     "amex-bcp": {
       "fee_oop": 95,
-      "value_extracted": 0,
-      "roi_positive": false
+      "value_extracted": 637.87,
+      "roi_positive": true,
+      "note": "Corrected 2026-10-17: the field was stale at value_extracted 0 / roi_positive false. value_extracted = 2026 Reward Dollars earned ($637.87) against the $95 annual fee (Reward Dollars balance $188.94 as of 2026-10-16). Basis (gross value extracted, not net of fee) matches the other cards."
     },
     "amex-plat": {
-      "fee_gross": 1085,
+      "fee_gross": 1285,
       "fee_oop": 0,
       "reimbursed_by": "YPO Lone Star",
       "value_extracted": 7.58,
       "roi_positive": true,
-      "note": "All fees paid by YPO. $2,484 in credits = pure upside. ROI is infinite."
+      "note": "All fees paid by YPO. $2,494 in credits = pure upside. ROI is infinite. fee_gross updated to $1,285 ($895 primary + $390 auth users) on 2026-10-17."
     },
     "citi-aa-exec": {
       "fee_oop": 770,
@@ -940,12 +941,12 @@
       "statement_closing": "2026-10-28",
       "loyalty_points": 232718,
       "loyalty_status": "AAdvantage Executive Platinum (highest tier); qualify by 2027-02-28",
-      "currently_enrolled_offers": 0,
+      "currently_enrolled_offers": 9,
       "walkthrough_status": "COMPLETE \u2014 2026-10-16 live read of dashboard, benefits hub, and Merchant Offers page.",
       "merchant_offers_2026_10_16": {
         "savings_to_date": 34.72,
-        "currently_enrolled": 0,
-        "note": "No offers currently enrolled. Featured (4): Lyft 10% (76d), BP $5 (15d), Dollar General 10% (45d), Macy's $5 (15d). Travel (9): Avis $30 (15d), Lyft 10% (76d), BP $5 (15d), Sunoco 3% (15d), Marriott Bonvoy $30 (45d), Loaf 'n Jug 5% (45d), LugLess $19 (45d), Luggage Forward $48 (45d), Sixt $30 (45d). Dining (39): Burger King $5 (15d), Blue Apron $24 (45d), Norma's Cafe-Frisco 5% (42d), Lulu Modern Chinese 5% (80d, NEW), Burnt BBQ & Tacos 5% (17d), The Nest 5% (42d), Shell Shack-Plano 5% (42d), Sushi-Zen 5% (17d), Shell Shack-Fort Worth 5% (17d), Numero 28 Allen 5% (17d), Splendid Spoon 10% (15d), Fulton Fish Market $20 (15d), plus 12 NEW local dining offers at 5%/88d (Nite Thyme Wine Bar, Gigi's Pizzeria, Hiro Japanese, Joe's Pho Original, Carpe Kitchen & Cocktails, Avant Garden BAR, Pedone's Pizza, Mecha BBQ, Saemaeul, San Jose Deli & Grill, WG Pizzas, Bistro Jupiter, Slab Daddy Barbecue). Expiring soonest (~15d): Avis, Walmart, BP, Macy's, Sunoco, Burger King, Splendid Spoon, Fulton Fish Market."
+        "currently_enrolled": 9,
+        "note": "9 offers currently enrolled (the enrolled[] array, pruned of expired entries on 2026-10-17). The 2026-10-16 Merchant Offers summary counter read 0, but the Enrolled tab confirmed the day's two adds (Walmart, The Home Depot), so the summary counter is unreliable; the array is the source of truth. Featured (4): Lyft 10% (76d), BP $5 (15d), Dollar General 10% (45d), Macy's $5 (15d). Travel (9): Avis $30 (15d), Lyft 10% (76d), BP $5 (15d), Sunoco 3% (15d), Marriott Bonvoy $30 (45d), Loaf 'n Jug 5% (45d), LugLess $19 (45d), Luggage Forward $48 (45d), Sixt $30 (45d). Dining (39): Burger King $5 (15d), Blue Apron $24 (45d), Norma's Cafe-Frisco 5% (42d), Lulu Modern Chinese 5% (80d, NEW), Burnt BBQ & Tacos 5% (17d), The Nest 5% (42d), Shell Shack-Plano 5% (42d), Sushi-Zen 5% (17d), Shell Shack-Fort Worth 5% (17d), Numero 28 Allen 5% (17d), Splendid Spoon 10% (15d), Fulton Fish Market $20 (15d), plus 12 NEW local dining offers at 5%/88d (Nite Thyme Wine Bar, Gigi's Pizzeria, Hiro Japanese, Joe's Pho Original, Carpe Kitchen & Cocktails, Avant Garden BAR, Pedone's Pizza, Mecha BBQ, Saemaeul, San Jose Deli & Grill, WG Pizzas, Bistro Jupiter, Slab Daddy Barbecue). Expiring soonest (~15d): Avis, Walmart, BP, Macy's, Sunoco, Burger King, Splendid Spoon, Fulton Fish Market."
       },
       "benefit_refresh_2026_10_16": {
         "note": "Citi AAdvantage Executive card 'refreshed'. NEW: $100 inflight/Admirals Club credit, $500 AA Vacations credit (up to $250 Jan-Jun / $250 Jul-Dec), Omni Hotels Champion Status (enroll), Omni Free Night Award (annual, 2+ night stay booked direct), 10% off AA Vacations non-flight components. ENHANCED: Lyft credits to $180/yr (was $120), 12X hotels & rental cars on AA.com (was 10X), up to 40,000 bonus Loyalty Points (was 20,000). UNCHANGED: Avis/Budget $120/yr, Global Entry/TSA $120/4yr. Grubhub credit NOT listed (status unclear)."
@@ -982,44 +983,11 @@
           "added_by": "David"
         },
         {
-          "vendor": "snakeriverfarms.com",
-          "cashback": "4%",
-          "added_by": "David"
-        },
-        {
-          "vendor": "bumbleandbumble.com",
-          "cashback": "5%",
-          "added_by": "David"
-        },
-        {
-          "vendor": "ancestry.com",
-          "cashback": "4%",
-          "added_by": "David"
-        },
-        {
           "vendor": "Live Nation",
           "cashback": "5%",
           "added_by": "David",
           "added": "2026-02-16",
           "note": "Concert tickets \u2014 pairs with Amex Venue Collection 10% on concessions."
-        },
-        {
-          "vendor": "Turo",
-          "cashback": "$30 back on $200+",
-          "expires": "2026-06-30",
-          "added_by": "Jarvis",
-          "added_date": "2026-04-21",
-          "ynab_validated": true,
-          "note": "Turo rental car spend"
-        },
-        {
-          "vendor": "Sixt Rent A Car",
-          "cashback": "$30 back on $200+",
-          "expires": "2026-05-31",
-          "added_by": "Jarvis",
-          "added_date": "2026-04-21",
-          "ynab_validated": true,
-          "note": "Car rental spend"
         },
         {
           "vendor": "Walmart",
@@ -1408,7 +1376,7 @@
     {
       "date": "2026-12-28",
       "card": "amex-plat",
-      "action": "Annual fee renewal ($695) \u2014 ROI review 30 days prior"
+      "action": "Annual fee renewal ($895) \u2014 ROI review 30 days prior"
     },
     {
       "date": "2026-12-31",
@@ -1443,7 +1411,7 @@
     ],
     "total_lost": 175,
     "credits_captured": 22.74,
-    "capture_rate": "0.9% of $2,484 Amex Plat credits",
+    "capture_rate": "0.9% of $2,494 Amex Plat credits",
     "offers_expired_unused": [
       "Orkin ($30 free)",
       "Topgolf ($15)",

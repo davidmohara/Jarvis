@@ -1,7 +1,8 @@
 {
   "last_updated": "2026-10-16",
   "walkthrough_verified_2026_10_16": "Re-verified live via 1Password-logged portal sessions. Amex Plat MR 492,104; Amex BCP Reward Dollars $188.94; Citi miles 851,936; Chase Sapphire balance $370.21 / available $100,027.79. All matched stored values — no registry changes. UR balance not re-read this run (UR portal redirected for the base Sapphire card); retains 8,920.",
-  "total_annual_fees": 1760,
+  "total_annual_fees": 2150,
+  "total_annual_fees_note": "Recomputed 2026-10-17. Basis: sum of annual_fee_with_auth_users across active cards = amex-bcp 95 + amex-plat 1,285 + citi-aa-exec 770 + discover-it 0 + chase-sapphire 0 = 2,150. The prior value (1,760) did not reconcile to any component sum under the stored per-card fees and was stale; it was also built on the old $695 Amex Platinum fee. Amex Platinum fee corrected to $895 (2025 fee) this same date.",
   "cards": [
     {
       "id": "amex-bcp",
@@ -46,17 +47,17 @@
       "name": "Amex Platinum (Personal)",
       "issuer": "American Express",
       "network": "Amex",
-      "annual_fee": 695,
+      "annual_fee": 895,
       "auth_users_detail": [
         { "name": "Susan W O'Hara", "card_type": "Additional Platinum Card", "fee": 195, "renewal_date": "Dec 28", "confirmed": true, "reimbursed_by": "YPO Lone Star" },
         { "name": "Lindsay M Smith (-23023)", "card_type": "Additional Platinum Card", "fee": 195, "renewal_date": "Apr 27", "confirmed": true, "reimbursed_by": "YPO Lone Star", "note": "YPO Lone Star admin. Spend cannot be optimized to other cards." }
       ],
       "auth_user_fee_total": 390,
       "auth_user_fee_out_of_pocket": 0,
-      "annual_fee_with_auth_users": 1085,
+      "annual_fee_with_auth_users": 1285,
       "annual_fee_out_of_pocket": 0,
       "annual_fee_reimbursed_by": "YPO Lone Star",
-      "annual_fee_note": "ALL Platinum fees reimbursed by YPO Lone Star — $695 primary + $195 Susie + $195 Lindsay = $1,085/yr, $0 out-of-pocket.",
+      "annual_fee_note": "ALL Platinum fees reimbursed by YPO Lone Star — $895 primary + $195 Susie + $195 Lindsay = $1,285/yr, $0 out-of-pocket. Primary fee corrected from $695 to $895 (the Amex Platinum fee as of 2025) on 2026-10-17.",
       "renewal_date": "2026-12-28",
       "account_last_digits": "21001",
       "auth_users": ["Lindsay M Smith (-23023, YPO Lone Star admin)", "Susan W O'Hara"],
@@ -89,11 +90,11 @@
         "lululemon": { "amount": 300, "period": "year", "reset": "quarterly", "quarterly_cap": 75, "details": "$75/quarter on eligible lululemon purchases in U.S. Enrollment required." },
         "uber_cash": { "amount": 200, "period": "year", "details": "Up to $200 Uber Cash annually when Platinum added to Uber account" },
         "airline_incidental": { "amount": 200, "period": "year", "reset": "calendar_year", "details": "Incidental fees from selected airline", "selected_airline": "American Airlines" },
-        "clear_plus": { "amount": 209, "period": "year", "reset": "calendar_year", "details": "CLEAR+ membership" },
+        "clear_plus": { "amount": 219, "period": "year", "reset": "calendar_year", "details": "CLEAR+ membership" },
         "walmart_plus": { "amount": 155, "period": "year", "reset": "monthly", "monthly_cap": 12.95, "details": "$12.95+tax/mo on Walmart+ monthly membership" },
         "uber_one": { "amount": 120, "period": "year", "reset": "calendar_year", "details": "Statement credit for auto-renewing Uber One membership" }
       },
-      "total_credit_value": 2484
+      "total_credit_value": 2494
     },
     {
       "id": "citi-aa-exec",

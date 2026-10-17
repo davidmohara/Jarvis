@@ -53,7 +53,7 @@ Jarvis can control Chrome via AppleScript JavaScript execution:
 - **Annually**: Renewal decisions — keep/cancel/product-change recommendations
 
 ### Key Numbers
-- **Total annual fees (gross)**: $1,950 ($1,085 Amex Plat + $770 Citi + $95 Amex BCP)
+- **Total annual fees (gross)**: $2,150 ($1,285 Amex Plat + $770 Citi + $95 Amex BCP)
 - **Total annual fees (out-of-pocket)**: $865 (Amex Plat fully reimbursed by YPO Lone Star)
-- **Total available credits**: $2,844/yr (Amex Plat $2,484 + Citi $360)
-- **Break-even**: Already exceeded — $0 OOP for Amex Plat with $2,484 in credits
+- **Total available credits**: $2,854/yr (Amex Plat $2,494 + Citi $360)
+- **Break-even**: Already exceeded — $0 OOP for Amex Plat with $2,494 in credits
