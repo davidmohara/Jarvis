@@ -1,5 +1,6 @@
 {
-  "last_updated": "2026-10-16",
+  "last_updated": "2026-10-17",
+  "walkthrough_verified_2026_10_17": "Discover it (••••8369) portal mapped to Capital One and live data captured: balance $4,278.77, rewards cash $249.86, all four 2026 rotating quarters activated, replacement card being issued. See the discover-it entry for details.",
   "walkthrough_verified_2026_10_16": "Re-verified live via 1Password-logged portal sessions. Amex Plat MR 492,104; Amex BCP Reward Dollars $188.94; Citi miles 851,936; Chase Sapphire balance $370.21 / available $100,027.79. All matched stored values — no registry changes. UR balance not re-read this run (UR portal redirected for the base Sapphire card); retains 8,920.",
   "total_annual_fees": 2150,
   "total_annual_fees_note": "Recomputed 2026-10-17. Basis: sum of annual_fee_with_auth_users across active cards = amex-bcp 95 + amex-plat 1,285 + citi-aa-exec 770 + discover-it 0 + chase-sapphire 0 = 2,150. The prior value (1,760) did not reconcile to any component sum under the stored per-card fees and was stale; it was also built on the old $695 Amex Platinum fee. Amex Platinum fee corrected to $895 (2025 fee) this same date.",
@@ -155,27 +156,39 @@
       "annual_fee": 0,
       "cardmember_since": 2017,
       "card_last_four": "8369",
+      "portal": "myaccounts.capitalone.com",
+      "portal_sign_in": "verified.capitalone.com/auth/signin",
+      "portal_note": "Serviced by Capital One after the Discover acquisition. Credentials live in 1Password item \"Capital One\" (fields txtUserID, txtPassword). After sign-in you land on /accountSummary.",
       "ynab_account_id": "0ff3092d-c9ea-4f56-b558-c760e6da7b04",
       "ynab_account_name": "Discover",
       "data_source": "ynab",
       "foreign_transaction_fee": "none",
       "rewards_type": "cashback",
       "rewards_structure": {
-        "rotating_5pct": { "rate": 5, "unit": "percent", "cap": 1500, "cap_period": "quarter", "then": 1, "requires_activation": true, "note": "Rotating categories, $1,500/quarter cap, must activate" },
+        "rotating_5pct": { "rate": 5, "unit": "percent", "cap": 1500, "cap_period": "quarter", "then": 1, "requires_activation": true, "note": "Rotating categories, $1,500/quarter spend cap (max $75 earned/quarter), must activate" },
         "everything_else": { "rate": 1, "unit": "percent" }
       },
+      "current_balance": 4278.77,
+      "current_balance_as_of": "2026-10-17",
+      "rewards_cash_balance": 249.86,
+      "rewards_cash_balance_as_of": "2026-10-17",
+      "replacement_card_notice": "Portal notice 2026-10-17: \"Your new card is on its way and may have already arrived. Activate it here\". A replacement card is being issued.",
       "rotating_categories": {
-        "2026_Q1": { "period": "Jan-Mar 2026", "categories": ["Grocery stores", "Wholesale clubs", "Select streaming"], "activated": true },
-        "2026_Q2": { "period": "Apr-Jun 2026", "categories": ["TBA"] },
-        "2026_Q3": { "period": "Jul-Sep 2026", "categories": ["TBA"] },
-        "2026_Q4": { "period": "Oct-Dec 2026", "categories": ["TBA"] }
+        "2026_Q1": { "period": "Jan-Mar 2026", "categories": ["Grocery stores", "Wholesale clubs", "Select streaming"], "activated": true, "earned": 75.00, "max_earned": 75, "other_purchases_earned": 63.05 },
+        "2026_Q2": { "period": "Apr-Jun 2026", "categories": ["Restaurants", "Home improvement stores"], "activated": true, "earned": 3.79, "max_earned": 75, "other_purchases_earned": 23.97 },
+        "2026_Q3": { "period": "Jul-Sep 2026", "categories": ["Gas stations", "Transportation", "Drug stores"], "activated": true, "earned": 75.01, "max_earned": 75, "other_purchases_earned": 87.76 },
+        "2026_Q4": { "period": "Oct-Dec 2026", "categories": ["Restaurants", "Entertainment", "Utilities"], "activated": true, "earned": 15.32, "max_earned": 75, "remaining_to_max": 59.68, "other_purchases_earned": 0.00 }
       },
       "benefits": {
         "no_annual_fee": true,
         "rewards_never_expire": true,
-        "no_foreign_transaction_fee": true
+        "no_foreign_transaction_fee": true,
+        "rotating_5pct": "5% on quarterly rotating categories (up to $1,500/quarter) and unlimited 1% on all other purchases.",
+        "capital_one_travel_hotels": "5% on hotels booked through Capital One Travel.",
+        "capital_one_entertainment": "5% on Capital One Entertainment purchases."
       },
-      "credits": {}
+      "credits": {},
+      "notes": "Portal mapped to Capital One on 2026-10-17; live data captured (card ••••8369). Rewards navigation: on /accountSummary click the BUTTON whose text is exactly \"View rewards\" to reach /Card/<opaque-token>/rewards. All four 2026 quarters are activated. A replacement card is being issued per the 2026-10-17 portal notice."
     },
     {
       "id": "chase-sapphire",

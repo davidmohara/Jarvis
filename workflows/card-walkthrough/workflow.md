@@ -41,7 +41,7 @@ model: sonnet
 | Amex Blue Cash Preferred | YNAB + portal | David logs in | americanexpress.com |
 | Amex Platinum (Personal) | Portal (statement parsing) | David logs in | americanexpress.com |
 | Citi AAdvantage Executive | YNAB + portal | David logs in | citi.com |
-| Discover it Cash Back | YNAB + Capital One portal | David logs in | capitalone.com (Discover is serviced by Capital One after the acquisition; the card's navigation flow on that site is not yet mapped) |
+| Discover it Cash Back | YNAB + Capital One portal | David logs in | myaccounts.capitalone.com (sign-in at verified.capitalone.com/auth/signin). After sign-in you land on `/accountSummary`; click the BUTTON whose text is exactly `View rewards` to reach `/Card/<opaque-token>/rewards` |
 | Chase Sapphire | YNAB + portal | David logs in | chase.com |
 
 <!-- system:end -->

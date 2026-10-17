@@ -7,14 +7,14 @@ trigger_keywords: [discover offers, discover card]
 trigger_agents: [chase]
 ---
 
-> **PORTAL CHANGED (2026-10-16):** Discover is serviced by Capital One after the acquisition. The card's portal is now `https://www.capitalone.com` (David, 2026-10-16). The navigation steps below are written for the OLD discover.com site and will NOT work against Capital One. Treat every step below as UNVERIFIED until the flow is re-mapped on the Capital One site. See err-20261016T210131-BI38IK.
+> **PORTAL MAPPED TO CAPITAL ONE (2026-10-17):** Discover is serviced by Capital One after the acquisition. The card's portal is `myaccounts.capitalone.com`; sign-in is at `verified.capitalone.com/auth/signin`. Credentials live in 1Password item "Capital One" (fields `txtUserID`, `txtPassword`). The login, rewards, and rotating-category navigation below was verified live on 2026-10-17. The card-linked OFFERS flow on Capital One has NOT been observed: every offers step below is marked UNVERIFIED. See err-20261016T210131-BI38IK.
 
 
-# Discover Offers — Rotating Categories & Offers
+# Discover Offers: Rotating Categories & Offers
 
 **Card:** Discover it Cash Back ••••8369
 
-**Portal:** `https://www.capitalone.com` (was discover.com; steps below still describe the old site and need re-mapping)
+**Portal:** `myaccounts.capitalone.com` (sign-in at `verified.capitalone.com/auth/signin`)
 
 ---
 
@@ -24,17 +24,17 @@ trigger_agents: [chase]
 
 ---
 
-## Step 0 — Login via 1Password
+## Step 0: Login via 1Password
 
-### 0a — Retrieve credentials
+### 0a: Retrieve credentials
 
 ```bash
 cat > /tmp/op-discover-login.sh << 'SCRIPT'
 #!/usr/bin/env bash
 set +x
 set -euo pipefail
-USER=$(/opt/homebrew/bin/op item get "discover.com" --account my.1password.com --fields "label=userID" 2>/dev/null)
-PASS=$(/opt/homebrew/bin/op item get "discover.com" --account my.1password.com --fields "label=password" 2>/dev/null)
+USER=$(/opt/homebrew/bin/op item get "Capital One" --account my.1password.com --fields "label=txtUserID" 2>/dev/null)
+PASS=$(/opt/homebrew/bin/op item get "Capital One" --account my.1password.com --fields "label=txtPassword" 2>/dev/null)
 echo "USER_LEN:${#USER}"
 echo "PASS_LEN:${#PASS}"
 echo "$USER" > /tmp/.discover_user
@@ -47,7 +47,9 @@ bash /tmp/op-discover-login.sh; rm -f /tmp/op-discover-login.sh
 
 Verify `USER_LEN` and `PASS_LEN` both > 0.
 
-### 0b — Navigate to login and sign in
+### 0b: Navigate to the Capital One sign-in page and sign in
+
+Sign-in URL: `https://verified.capitalone.com/auth/signin`.
 
 Check current URL:
 
@@ -55,27 +57,13 @@ Check current URL:
 document.title + ' | ' + window.location.href
 ```
 
-If already on `card.discover.com` and authenticated (Account Center visible), skip to the Primary Job section.
+If already authenticated (URL contains `myaccounts.capitalone.com/accountSummary` and the account summary is visible), skip to the Primary Job section.
 
-If not authenticated, find and click Log In:
-
-```javascript
-var links = document.querySelectorAll('a, button');
-for (var i = 0; i < links.length; i++) {
-  var txt = (links[i].textContent || '').trim().toLowerCase();
-  var href = links[i].href || '';
-  if (txt === 'log in' || txt === 'sign in' || href.indexOf('login') > -1 || href.indexOf('logon') > -1) {
-    links[i].click(); break;
-  }
-}
-'navigated to login'
-```
-
-Wait for login page, then fill credentials (construct JS string in bash with actual values from temp files — never log values):
+If not authenticated, navigate to the sign-in URL and fill the credentials. **UNVERIFIED:** the exact Capital One input selectors have not been confirmed. Probe for the fields, then fill (construct the JS string in bash with the actual values from the temp files, never log values):
 
 ```javascript
-// Fill username
-var userField = document.querySelector('#userid-content, [name="userId"], [name="userID"], input[type="text"]');
+// UNVERIFIED selectors: confirm against the live Capital One sign-in page before trusting
+var userField = document.querySelector('input[name="username"], input[type="text"], #username, #userid-content, [name="userID"]');
 if (userField) {
   userField.value = 'INJECT_USER';
   userField.dispatchEvent(new Event('input', {bubbles: true}));
@@ -85,8 +73,8 @@ if (userField) {
 ```
 
 ```javascript
-// Fill password
-var passField = document.querySelector('#password-content, [name="password"], input[type="password"]');
+// UNVERIFIED selectors: confirm against the live Capital One sign-in page before trusting
+var passField = document.querySelector('input[type="password"], #password-content, [name="password"]');
 if (passField) {
   passField.value = 'INJECT_PASS';
   passField.dispatchEvent(new Event('input', {bubbles: true}));
@@ -95,70 +83,74 @@ if (passField) {
 'filled password'
 ```
 
-Click log in:
+Click sign in:
 
 ```javascript
 var btns = document.querySelectorAll('button, input[type="submit"]');
 for (var i = 0; i < btns.length; i++) {
   var txt = (btns[i].textContent || btns[i].value || '').trim().toLowerCase();
-  if (txt.indexOf('log in') > -1 || txt.indexOf('sign in') > -1 || txt.indexOf('submit') > -1) {
+  if (txt.indexOf('sign in') > -1 || txt.indexOf('log in') > -1 || txt.indexOf('submit') > -1) {
     btns[i].click(); break;
   }
 }
 'submitted login'
 ```
 
-### 0c — Verify authentication
+### 0c: Verify authentication
 
 Wait 4 seconds, then confirm:
 
 ```javascript
 document.title + ' | ' + window.location.href
-// Expected: "Account Center Home" or similar, URL contains card.discover.com
+// Expected: URL contains myaccounts.capitalone.com/accountSummary
 ```
 
-### 0d — Clean up
+### 0d: Clean up
 
 ```bash
 rm -f /tmp/.discover_user /tmp/.discover_pass
 ```
 
-Once on the Discover Account Center, proceed to the Primary Job section below.
+Once on `/accountSummary`, proceed to the Primary Job section below.
 
 ---
 
 ## Primary Job: Quarterly Category Activation
 
-Discover's main offer is the **5% rotating category** on up to $1,500/quarter. This is the first thing to check every month.
+Discover's main offer is the **5% rotating category** on up to $1,500/quarter in spend ($75 max earned). This is the first thing to check every month.
 
-### Step 1 — Check Current Quarter Activation Status
+### Step 1: Reach the rewards page and check current-quarter activation
+
+From `/accountSummary`, find the button whose text is exactly `View rewards`:
+
+```javascript
+var btns = document.querySelectorAll('button, [role="button"]');
+for (var i = 0; i < btns.length; i++) {
+  if ((btns[i].textContent || '').trim() === 'View rewards') {
+    ['mousedown','mouseup','click'].forEach(function(t){
+      btns[i].dispatchEvent(new MouseEvent(t, {bubbles: true, cancelable: true, view: window}));
+    });
+    break;
+  }
+}
+'clicked View rewards'
+```
+
+Note: `View rewards` is a BUTTON element, not a link. The surrounding "Explore rewards and benefits" container is a DIV with no href. A plain `.click()` may not fire the handler, so dispatch mousedown/mouseup/click with `bubbles:true` as above.
+
+This navigates to `/Card/<opaque-token>/rewards`. The token is opaque and per-session, so always navigate by clicking, never by constructing the URL.
+
+Read the activation status:
 
 ```javascript
 document.title + ' | ' + window.location.href
-// Navigate to activation page if needed
-```
-
-From the Discover dashboard:
-```javascript
-var links = document.querySelectorAll('a');
-for (var i = 0; i < links.length; i++) {
-  var txt = (links[i].textContent || '').trim();
-  var href = links[i].href || '';
-  if (txt.indexOf('Cash Back') > -1 || txt.indexOf('Activate') > -1 || href.indexOf('activate') > -1) {
-    links[i].click(); break;
-  }
-}
-```
-
-Read the activation status:
-```javascript
 var body = document.body.innerText;
-// Look for current quarter category and activation status
 var idx = body.indexOf('5%');
 body.substring(idx - 50, idx + 300)
 ```
 
-**If not activated:** Activate immediately. Look for the "Activate Now" button:
+**If a quarter's category is not activated:** activate immediately. Look for the activation control (button text typically contains "Activate"):
+
 ```javascript
 var btns = document.querySelectorAll('button, a');
 for (var i = 0; i < btns.length; i++) {
@@ -169,78 +161,70 @@ for (var i = 0; i < btns.length; i++) {
 }
 ```
 
-**This is a CRITICAL escalation item.** If the quarter's category is not activated, David is losing 4% on all qualifying spend (5% vs 1% base). Flag immediately.
+**This is a CRITICAL escalation item.** If a quarter's category is not activated, David is losing 4% on all qualifying spend (5% vs 1% base). Flag immediately.
 
 ---
 
 ## Quarterly Categories Reference
 
-| Quarter | 2026 Categories | Cap |
-|---------|----------------|-----|
-| Q1 (Jan–Mar) | Grocery Stores, Wholesale Clubs, Select Streaming | $1,500 |
-| Q2 (Apr–Jun) | Restaurants, Home Improvement Stores | $1,500 |
-| Q3 (Jul–Sep) | TBD (check portal — Discover announces ~1 month before) | $1,500 |
-| Q4 (Oct–Dec) | TBD | $1,500 |
+| Quarter | 2026 Categories | Status (as of 2026-10-17) | Earned |
+|---------|-----------------|---------------------------|--------|
+| Q1 (Jan-Mar) | Grocery Stores, Wholesale Clubs, Select Streaming | Activated (complete) | $75.00 of $75 (maxed) + $63.05 other |
+| Q2 (Apr-Jun) | Restaurants, Home Improvement Stores | Activated (complete) | $3.79 of $75 + $23.97 other |
+| Q3 (Jul-Sep) | Gas Stations, Transportation, Drug Stores | Activated (complete) | $75.01 of $75 (maxed) + $87.76 other |
+| Q4 (Oct-Dec) | Restaurants, Entertainment, Utilities | Activated (current) | $15.32 of $75 + $0.00 other |
+
+Cap: $1,500/quarter in spend, $75 max earned. Discover announces the next quarter's categories roughly a month before.
 
 **Current quarter status:** tracked live in `systems/credit-cards/benefits-tracker.json` (check there rather than hardcoding dates here).
 
-**Strategy:** Use Discover for all dining under $1,500/quarter cap. Beats Atlas 2x. After cap, switch back to Atlas or Chase.
+**Strategy:** In Q4 2026, use Discover for restaurants/dining, entertainment, and utilities up to the cap. Restaurants at 5% beats Chase Sapphire (2x UR). After the cap, switch to Chase Sapphire for dining. Do NOT route transportation to Discover this quarter (transportation was Q3, not Q4).
 
 ---
 
-## Step 2 — Check Cap Progress
+## Step 2: Check Cap Progress
+
+On the rewards page, read the per-quarter earned amount:
 
 ```javascript
 var body = document.body.innerText;
-// Look for cap usage text like "You've earned $X of your $1,500 cap"
-var idx = body.indexOf('1,500');
+// The 5% cap is $1,500 in spend / $75 max earned per quarter
+var idx = body.indexOf('75');
 body.substring(idx - 100, idx + 200)
 ```
 
-**Flag when within $300 of the $1,500 cap** — David needs to switch spend routing to the next-best card.
+**Flag when within $300 of the $1,500 spend cap** (roughly $15 of the $75 max earned remaining), so David needs to switch spend routing to the next-best card.
 
 ---
 
-## Step 3 — Check for Additional Discover Offers (Discover Deals)
+## Step 3: Check for Additional Discover Offers (UNVERIFIED)
 
-Discover also has card-linked merchant offers separate from the rotating category:
+> **UNVERIFIED:** The Capital One card-linked offers page has NOT been observed. The Discover Deals section described for the old discover.com site does not map to Capital One. Do not attempt to navigate or enroll offers until this flow is documented.
 
 ```javascript
-// Navigate to Discover Deals / Offers section
-var links = document.querySelectorAll('a');
-for (var i = 0; i < links.length; i++) {
-  var txt = (links[i].textContent || '').trim();
-  var href = links[i].href || '';
-  if (txt.indexOf('Deals') > -1 || txt.indexOf('Shop') > -1 || href.indexOf('deals') > -1) {
-    links[i].click(); break;
-  }
-}
-```
-
-Read available offers:
-```javascript
-var body = document.body.innerText;
-body.substring(0, 3000) // scan for offer content
+// UNVERIFIED: no confirmed Capital One offers entry point.
+// TODO: map the offers path on myaccounts.capitalone.com before using this step.
+'offers path not mapped'
 ```
 
 ---
 
-## Step 4 — Filter Against YNAB Spend
+## Step 4: Filter Against YNAB Spend
 
 Pull Discover YNAB transactions:
 
 > **YNAB access:** use the YNAB MCP connector (`get_accounts`, `get_transactions_by_account`), not curl. The old inline-curl path read a token from a stale home-relative config path, which does not exist; the token lives in the repo's `config/.env`.
 
-Discover is used primarily for the 5% rotating category — transaction volume on this card is lower than the others. Cross-reference any Discover Deals offers against this output.
+Discover is used primarily for the 5% rotating category; transaction volume on this card is lower than the others. Cross-reference any Discover offers against this output.
 
 ---
 
-## Step 5 — Add Discover Deal Offers
+## Step 5: Add Offers (UNVERIFIED)
 
-If Discover renders clickable offer tiles:
+> **UNVERIFIED:** Enrollment on the Capital One offers page has NOT been observed. The tile/Add-button selectors below are carried over from the old discover.com site and are NOT confirmed against Capital One. Do not run this step until the offers flow is mapped.
 
 ```javascript
-// Find and click the offer tile, then look for Add/Activate button
+// UNVERIFIED selectors (old discover.com): do not trust against Capital One
 var tiles = document.querySelectorAll('[class*="offer"], [class*="deal"]');
 for (var i = 0; i < tiles.length; i++) {
   if ((tiles[i].innerText || '').indexOf('MERCHANT_NAME') > -1) {
@@ -248,7 +232,6 @@ for (var i = 0; i < tiles.length; i++) {
   }
 }
 
-// Then find the activation button
 var btns = document.querySelectorAll('button, a');
 for (var i = 0; i < btns.length; i++) {
   var txt = (btns[i].textContent || btns[i].innerText || '').trim();
@@ -258,7 +241,7 @@ for (var i = 0; i < btns.length; i++) {
 }
 ```
 
-**Note:** Discover's Deals section has a limited number of offers vs. Amex/Citi. The rotating category is the primary value driver — Discover Deals are secondary.
+The rotating category remains the primary value driver; any card-linked offers are secondary.
 
 ---
 
@@ -277,10 +260,11 @@ for (var i = 0; i < btns.length; i++) {
 
 | Check | Frequency | Action if Issue |
 |-------|-----------|----------------|
-| Quarterly category activated? | Monthly | **ACTIVATE IMMEDIATELY — escalate to Chief** |
-| Cap progress ($1,500/quarter) | Monthly | Flag when within $300 — adjust routing |
+| Quarterly category activated? | Monthly | **ACTIVATE IMMEDIATELY: escalate to Chief** |
+| Cap progress ($1,500/quarter spend, $75 max earned) | Monthly | Flag when within $300, adjust routing |
 | Next quarter category announced? | Monthly from ~day 15 | Note in tracker, update routing strategy |
-| Cashback balance | Monthly | Note available balance in tracker |
+| Rewards cash balance | Monthly | Note available balance in tracker |
+| Replacement card activated? | One-time (notice seen 2026-10-17) | Activate the replacement card when it arrives |
 
 ---
 
@@ -289,8 +273,6 @@ for (var i = 0; i < btns.length; i++) {
 Update `systems/credit-cards/benefits-tracker.json` → `discover-it`:
 - `last_reviewed` → today
 - `rotating_categories.q[N]_2026.confirmed` → today (if activated)
-- `cashback_available` → current balance from portal
+- `cashback_available` → current rewards cash balance from portal
 - `current_balance` → outstanding balance
 - Note next quarter's category if announced
-
-

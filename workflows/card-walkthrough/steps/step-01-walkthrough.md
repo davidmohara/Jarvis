@@ -89,17 +89,26 @@ Walk through each card portal in sequence. For each card:
 - New Chase Offers to add
 - Expiring offers
 
-### 5. Discover it (discover.com)
+### 5. Discover it (myaccounts.capitalone.com)
+
+Discover is serviced by Capital One. Sign-in is at `verified.capitalone.com/auth/signin`; credentials live in 1Password item "Capital One" (fields `txtUserID`, `txtPassword`), inject in memory via osascript, never write to disk or print.
+
+**Navigation (verified live 2026-10-17):**
+- After sign-in you land on `/accountSummary`.
+- Find the button whose text is exactly `View rewards`. It is a BUTTON element, not a link: the surrounding "Explore rewards and benefits" container is a DIV with no href.
+- Dispatching mousedown/mouseup/click with `bubbles:true` on that button navigates to `/Card/<opaque-token>/rewards`.
 
 **Pages to visit:**
-- Dashboard → cashback balance
-- Rewards → rotating category status, quarterly activation
-- Next quarter's categories (if announced)
+- `/accountSummary` → current balance
+- `/Card/<opaque-token>/rewards` → rewards cash balance, rotating category status, and per-quarter earned amounts
 
 **Extract:**
-- Cashback balance
-- Current quarter: activated? Spend to date vs $1,500 cap
-- Next quarter: categories announced? Activation available?
+- Current balance
+- Rewards cash balance
+- Each quarter's rotating categories, activation status, and earned amount (of the $75 max earned per quarter)
+- Any portal notice (e.g. a replacement card being issued)
+
+**Note:** the card-linked offers page on Capital One is NOT yet mapped (only the rewards/rotating-category path is verified). Leave offer enrollment to step-02 and its current skip.
 
 ### 6. (Removed) Atlas Visa Infinite
 

@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-16",
+  "last_updated": "2026-10-17",
   "card_selection_guide": {
     "description": "Which card to use for each spending category to maximize rewards",
     "categories": {
@@ -18,11 +18,25 @@
         "note": "Costco only accepts Visa — use Chase Sapphire (1x) if Discover not in rotating season"
       },
       "dining": {
-        "best_card": "chase-sapphire",
-        "rate": "2x UR",
+        "best_card": "discover-it",
+        "rate": "5% (Q4 2026 rotating category, up to $1,500/quarter spend, $75 max earned)",
+        "runner_up": "chase-sapphire",
+        "runner_up_rate": "2x UR",
+        "note": "Q4 2026 (Oct-Dec): Discover earns 5% on restaurants up to the $1,500/quarter cap, which beats Chase Sapphire (2x UR). After the Discover cap is reached, switch to Chase Sapphire. In quarters where restaurants are not a Discover rotating category, Chase Sapphire (2x UR) is the best dining card. Discover is usable again: its portal is mapped to Capital One."
+      },
+      "entertainment": {
+        "best_card": "discover-it",
+        "rate": "5% (Q4 2026 rotating category, up to $1,500/quarter spend, $75 max earned)",
+        "runner_up": "amex-plat",
+        "runner_up_rate": "1x MR (plus Amex Venue Collection 10% on qualifying concessions at select venues)",
+        "note": "Q4 2026 (Oct-Dec): Discover earns 5% on entertainment up to the $1,500/quarter cap. The 5% cap is shared across all of Discover's Q4 categories (restaurants, entertainment, utilities)."
+      },
+      "utilities": {
+        "best_card": "discover-it",
+        "rate": "5% (Q4 2026 rotating category, up to $1,500/quarter spend, $75 max earned)",
         "runner_up": "citi-aa-exec",
         "runner_up_rate": "1x AA miles",
-        "note": "Chase Sapphire (2x UR) is the best dining card. Discover it was previously a 5% dining option in rotating quarters, but it is now managed via Capital One and is out of scope pending portal re-mapping."
+        "note": "Q4 2026 (Oct-Dec): Discover earns 5% on utilities up to the $1,500/quarter cap (shared with restaurants and entertainment). Otherwise every held card earns base rate on utilities."
       },
       "streaming_us": {
         "best_card": "amex-bcp",
@@ -43,7 +57,7 @@
         "rate": "3%",
         "runner_up": "citi-aa-exec",
         "runner_up_rate": "1x AA miles (Lyft credit stacks)",
-        "note": "Citi Lyft credit ($15/mo after 3 rides, up to $180/yr) stacks — use Citi for Lyft specifically. Discover is now managed via Capital One and out of scope."
+        "note": "Citi Lyft credit ($15/mo after 3 rides, up to $180/yr) stacks, so use Citi for Lyft specifically. Discover's Q4 2026 rotating categories are restaurants, entertainment, and utilities, so transportation is NOT a current Discover category. Do not route transit or rideshare to Discover this quarter."
       },
       "american_airlines": {
         "best_card": "citi-aa-exec",
@@ -144,7 +158,7 @@
       "always_add": "Free money offers (e.g., Orkin $30 back on $30 = free, CNN/discovery+ subscription credits), TurboTax (annual tax filing), any vendor where David has an active subscription"
     },
     "card_migration_rules": {
-      "dining": "Should be on Chase Sapphire (2x) — never on Citi (1x) or Amex (1x unless BCP for specific vendors). Discover it was a 5% dining option in rotating quarters but is now managed via Capital One and out of scope.",
+      "dining": "In Q4 2026, route dining to Discover it first (5% rotating, up to the $1,500/quarter cap), then Chase Sapphire (2x UR) after the cap. In other quarters, Chase Sapphire (2x) is the dining card, never Citi (1x) or Amex (1x unless BCP for specific vendors). Discover's 5% applies to dining only when restaurants are the rotating category.",
       "groceries": "Should be on Amex BCP (6% up to $6K) then Discover (5% when rotating) — never on Citi or Chase",
       "streaming": "Should be on Amex BCP (6%) — never on Plat (1x) or Chase (1x)",
       "gas": "Should be on Amex BCP (3%) or Discover (5% when rotating) — never on Citi (1x)",

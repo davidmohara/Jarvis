@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-16",
+  "last_updated": "2026-10-17",
   "tracking_year": 2026,
   "benefits_usage": {
     "amex-plat": {
@@ -1168,50 +1168,81 @@
     }
   },
   "discover-it": {
-    "last_reviewed": "2026-06-01",
+    "last_reviewed": "2026-10-17",
     "card_ending": "8369",
-    "current_balance": 834.48,
-    "available_credit": 21798,
-    "credit_line": 22700,
-    "cashback_available": 100.24,
+    "portal": "myaccounts.capitalone.com",
+    "portal_note": "Discover is serviced by Capital One. Rewards navigation: on /accountSummary click the BUTTON whose text is exactly \"View rewards\" to reach /Card/<opaque-token>/rewards.",
+    "current_balance": 4278.77,
+    "current_balance_as_of": "2026-10-17",
+    "available_credit": null,
+    "credit_line": null,
+    "cashback_available": 249.86,
+    "cashback_available_as_of": "2026-10-17",
+    "replacement_card_notice": "Portal notice 2026-10-17: \"Your new card is on its way and may have already arrived. Activate it here\". A replacement card is being issued.",
     "last_payment": {
       "amount": 2566.27,
       "date": "2026-03-18",
-      "note": "Full balance paid"
+      "note": "Full balance paid (historical, as of 2026-03-18)"
     },
     "rotating_categories": {
       "q1_2026": {
         "categories": "Grocery Stores, Wholesale Clubs, Select Streaming",
-        "status": "completed",
-        "ends": "2026-03-31"
+        "status": "COMPLETED",
+        "ends": "2026-03-31",
+        "activated": true,
+        "confirmed": "2026-10-17",
+        "earned": 75.0,
+        "max_earned": 75,
+        "other_purchases_earned": 63.05,
+        "note": "Maxed: $75.00 earned of $75 on the 5% categories."
       },
       "q2_2026": {
         "categories": "Restaurants and Home Improvement Stores",
-        "status": "ACTIVATED",
+        "status": "COMPLETED",
         "starts": "2026-04-01",
         "ends": "2026-06-30",
-        "confirmed": "2026-06-01",
+        "activated": true,
+        "confirmed": "2026-10-17",
         "activated_portal_verified": true,
-        "strategy": "Use Discover for all dining under $1,500/quarter cap. After cap, switch to Chase Sapphire. Current earning: 5% cash back on eligible transactions."
+        "earned": 3.79,
+        "max_earned": 75,
+        "other_purchases_earned": 23.97,
+        "note": "Only $3.79 earned of $75 on the 5% categories."
       },
       "q3_2026": {
         "categories": "Gas Stations, Transportation and Drug Stores",
-        "status": "ACTIVATED",
+        "status": "COMPLETED",
         "starts": "2026-07-01",
         "ends": "2026-09-30",
-        "confirmed": "2026-06-01",
+        "activated": true,
+        "confirmed": "2026-10-17",
         "activated_portal_verified": true,
-        "strategy": "Use Discover for gas (beats BCP 3%). Also covers Uber/Lyft (transportation) and CVS/Walgreens."
+        "earned": 75.01,
+        "max_earned": 75,
+        "other_purchases_earned": 87.76,
+        "note": "Maxed: $75.01 earned of $75 on the 5% categories."
+      },
+      "q4_2026": {
+        "categories": "Restaurants, Entertainment and Utilities",
+        "status": "ACTIVATED",
+        "starts": "2026-10-01",
+        "ends": "2026-12-31",
+        "activated": true,
+        "confirmed": "2026-10-17",
+        "activated_portal_verified": true,
+        "earned": 15.32,
+        "max_earned": 75,
+        "remaining_to_max": 59.68,
+        "other_purchases_earned": 0.0,
+        "strategy": "Current quarter. Use Discover for restaurants/dining, entertainment, and utilities up to the $1,500/quarter cap ($75 max earned). Restaurants beats Chase Sapphire (2x UR)."
       }
     },
-    "q2_2026_progress": {
-      "spend_so_far": 75.8,
-      "cap": 1500,
-      "remaining": 1424.2,
-      "earnings": 3.79,
-      "note": "Portal confirmed $3.79 earned as of 2026-06-01. $1,424 cap remaining. Heavy use needed through June 30."
+    "benefits": {
+      "rotating_5pct": "5% quarterly rotating categories (up to $1,500/quarter, $75 max earned) / unlimited 1% elsewhere",
+      "capital_one_travel_hotels": "5% on Capital One Travel hotels",
+      "capital_one_entertainment": "5% on Capital One Entertainment"
     },
-    "note": "2026-04-21: Q2 rotating category CONFIRMED ACTIVATED on portal. Restaurants + Home Improvement at 5% starting April. Discover 5% on restaurants is strong for the first $1,500/quarter of spend. No merchant offers reviewed (secondary feature, Discover Deals section has limited offers vs. Amex/Citi). 2026-10-16: SKIPPED this walkthrough \u2014 Discover migrated to Capital One; portal re-mapping needed. Fields left untouched."
+    "note": "2026-10-17: Portal mapped to Capital One and live data captured (card \u2022\u2022\u2022\u20228369). Balance $4,278.77; rewards cash $249.86. All four 2026 quarters activated. Q4 (Oct-Dec) categories are Restaurants, Entertainment, Utilities; $15.32 earned of $75 ($59.68 remaining). Replacement card being issued per portal notice. Discover is usable again: its rotating categories are real and current."
   },
   "upcoming_deadlines": [
     {
@@ -1425,6 +1456,12 @@
     "lesson": "Quarterly credits need calendar reminders 2 weeks before expiry. Monthly review alone is insufficient \u2014 need mid-quarter nudges."
   },
   "monthly_review_log": [
+    {
+      "date": "2026-10-17",
+      "type": "portal_mapping",
+      "status": "COMPLETE",
+      "findings": "Discover it (8369) portal mapped to Capital One and live data captured. Portal myaccounts.capitalone.com; sign-in verified.capitalone.com/auth/signin; credentials in 1Password item 'Capital One' (txtUserID/txtPassword). Navigation: on /accountSummary click the BUTTON with text exactly 'View rewards' to reach /Card/<opaque-token>/rewards. Balance $4,278.77; rewards cash $249.86. All four 2026 quarters activated: Q1 grocery/wholesale/streaming $75.00 of $75 (maxed) + $63.05 other; Q2 restaurants/home improvement $3.79 of $75 + $23.97 other; Q3 gas/transportation/drug stores $75.01 of $75 (maxed) + $87.76 other; Q4 restaurants/entertainment/utilities $15.32 of $75 ($59.68 remaining) + $0.00 other. Portal notice: a replacement card is being issued. Discover is usable again; optimization-guide now routes dining/entertainment/utilities to Discover for Q4. The Capital One card-linked offers page is NOT yet mapped (offers steps remain UNVERIFIED)."
+    },
     {
       "date": "2026-10-16",
       "type": "card_review_audit",

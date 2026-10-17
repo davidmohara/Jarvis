@@ -31,7 +31,7 @@ For each card with a live session, in this order:
 1. **Amex (Platinum ••••21001 and Blue Cash Preferred ••••73008)** — follow `skills/chase-card-offers-amex/SKILL.md`.
 2. **Citi AAdvantage Executive ••••9598** — follow `skills/chase-card-offers-citi/SKILL.md`.
 3. **Chase Sapphire ••••0209** — follow `skills/chase-card-offers-chase/SKILL.md`.
-4. **Discover** — SKIP. Discover is serviced by Capital One now and the portal is not mapped (err-20261016T210131-BI38IK). Do not run the discover offer skill.
+4. **Discover**: SKIP the offers flow. The card is now on the Capital One portal and the rewards / rotating-category path IS mapped (see `steps/step-01-walkthrough.md`), but the Capital One card-linked offers page is NOT mapped. Do not run the discover offer skill until that path is documented.
 
 For each card:
 
@@ -70,8 +70,8 @@ Update `systems/credit-cards/benefits-tracker.json`:
 ### Skipped (no YNAB spend)
 - [Card]: [merchant] — no matching spend in 12 months
 
-### Skipped (portal not mapped)
-- Discover — Capital One migration
+### Skipped (offers path not mapped)
+- Discover: card is on the Capital One portal; the rewards path is mapped but the Capital One card-linked offers page is not yet documented
 ```
 
 ## Failures and manual follow-up (hard rules)
