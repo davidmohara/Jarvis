@@ -18,7 +18,7 @@
 | Sterling | 3 | T3 | T1/T2 never asserted, T4 zero graded |
 | Galen | 0 | none | Never instrumented |
 
-## Phase 0 — Fix the plumbing (blocks everything else)
+## Phase 0 — Fix the plumbing (blocks everything else) — DONE 2026-10-16
 
 **Owner: Rigby. Do first — no measured run is trustworthy until this lands.**
 
@@ -27,7 +27,7 @@
 3. **Populate `mechanical.completed`** (schema gap found in the Oct 15 recompute — reads as 0% everywhere). Backfill logic in `eval-agent-stop.py` derives it from step evidence.
 4. **Define measurement hooks per agent** (see Phase 2) as assertions in `systems/eval-harness/assertions/` — a criterion with no assertion cannot be measured, and today 16 of 44 criteria have zero coverage.
 
-## Phase 1 — Structural criteria coverage (assertion wiring)
+## Phase 1 — Structural criteria coverage (assertion wiring) — DONE 2026-10-16
 
 Each agent's criteria that are currently unasserted need a sentinel assertion file or step-verifier. Rigby builds these:
 
@@ -43,7 +43,7 @@ Each agent's criteria that are currently unasserted need a sentinel assertion fi
 | Galen | G1-G4 | Protocol conflict flags, WHOOP pull freshness, bloodwork comparison present, question list generated |
 | Ralph | A1-A3 | Verification runs recorded per boot, escalations surfaced, assertion file freshness |
 
-## Phase 2 — Measured runs per agent (the data window)
+## Phase 2 — Measured runs per agent (the data window) — PARTIAL 2026-10-16: 7 on-demand runs executed and attributed; scheduled boot/briefing/plaud runs continue through the window; Ralph accrues per boot
 
 3-5 instrumented runs per agent with `token_source=windowed`, exported via `export-step-audit.py`. Triggers per agent — mostly these happen naturally inside the four candidate workflows; the rest need scheduled or on-demand invocation:
 
@@ -61,7 +61,7 @@ Each agent's criteria that are currently unasserted need a sentinel assertion fi
 | Galen | Morning WHOOP snapshots (scheduled — enable/verify the harness wiring first) | 3-5 |
 | Ralph | Automatic on every boot verification — needs only the attribution fix from Phase 0, then 3 boots supply the data | 3 |
 
-## Phase 3 — Recompute and remediate below-threshold agents
+## Phase 3 — Recompute and remediate below-threshold agents — DONE 2026-10-16: recompute + attribution fix (144 records recovered) + schema enforcement (new-entry.py validation, rebuild-log --conformance); verdicts in index.md
 
 After Phase 2 runs land, recompute all 44 criteria with the same apples-to-apples method (strict and mech, per period). For agents still below their own bars:
 

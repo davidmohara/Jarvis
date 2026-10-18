@@ -8,7 +8,25 @@
 | 2 | Punch-out mechanisms not bypass-tested | `projects/stage-4-evidence/bypass-tests/` (BT-01..BT-04 matrix + logs; BT-02 found 2 real holes, both fixed same day with closed-loop re-test evidence in `BT-02-fix-verification-2026-10-08.md`) | Complete |
 | 3 | No end-to-end success rate for any workflow | `projects/stage-4-evidence/success-rate-baseline-2026-10-08.{md,csv}` (daily-review 98%, morning-briefing 94%, plaud-ingest ~89% pending no-op verification, boot 75%); final numbers from the instrumented data window | Baseline done; final numbers pending data window |
 | 4 | Per-step input tokens, output tokens, cost missing | `systems/eval-harness/step_audit.py` + `export-step-audit.py` (CSV/JSON, per-step model/tokens/cost/owning_agent/token_source); 3-5 instrumented runs per candidate to export via `export-step-audit.py --runs <ids> --out systems/eval-harness/audit-exports` | Instrumentation done; instrumented runs pending data window |
-| 5 | No Stage 3 artifacts for component agents | `systems/eval-harness/stage3/<agent>.md` x11 (prompt definition, 4 criteria each, measured results with repro commands, iteration histories) | Drafts complete; threshold gaps need fresh measured runs in data window |
+| 5 | No Stage 3 artifacts for component agents | `systems/eval-harness/stage3/<agent>.md` x11 (prompt definition, 4 criteria each, attribution-aware measured results with repro commands, iteration histories). Full plan: `stage3-compliance-plan.md` (Phases 0-3 executed 2026-10-16: attribution layer, assertion wiring for 16 previously unmeasured criteria, 7 measured runs, recompute). Final measured verdicts below | Attribution-aware recompute done; final graded-run window closes 2026-10-21 |
+
+**Stage 3 verdicts (2026-10-16, attribution-aware recompute; thresholds untouched):**
+
+| Agent | Records (after attribution recovery) | Strict success | Criteria verdict |
+|---|---|---|---|
+| master | 151 | 69.8% | J1-J4 below bars; J2 routing sentinel (boot-009) now active |
+| chief | 97 | 67.0% | C4 52.4% overall, 66.7% excluding scheduled runs — below 80% both ways |
+| chase | 12 | 33.3% | H1-H3 now have assertions; graded runs accumulating |
+| harper | 23 | 88.9% | P3 69.4%, P4 71.4% — below bars |
+| knox | 101 | 62.1% | K3 73.9% below 90%; K4 flipped to 74.2% below 80% after 15 recovered graded records surfaced |
+| quinn | 8 | 100% (n=8) | First runs landed 2026-10-16 |
+| ralph | 16 | 50.0% | First attribution 2026-10-16; assertions wired, graded runs pending |
+| rigby | 86 | 81.6% | R3 86.5% below 90%; R4 70.0% below 80% |
+| shep | 12 | 66.7% | First assertion-bearing runs 2026-10-16 |
+| sterling | 7 | 75.0% | First assertion-bearing runs 2026-10-16 |
+| galen | 5 | 100% (n=5) | First records ever 2026-10-16 (attribution fix unblocked) |
+
+144 historically unattributed records recovered at read time via transcript mining; historical records never rewritten. Remaining failures are genuine quality measurements, not harness artifacts — they need the instrumented run window (through 2026-10-21) and David's threshold calls, not code.
 | 6 | Coordinator purity violations | Phase 1 refactor (42 files, spawn-first Hard Stops, all steps spawn named agents) + remediation log entries `err-20261008T195835-EW45PB`, `err-20261008T195836-0BTS1J`, `err-20261008T195836-NN86G2`, `err-20261008T195836-X3VV9S` + post-refactor prompt summary in `systems/eval-harness/stage3/master.md` | Complete. Residual: personal-block exit instruction (David's edit) |
 | 7 | No formal agent manifest / scoping | `agents/manifest.md` (11 agents, roles, owned steps, boundaries, conflict resolution; David documented as human operator) | Complete |
 | 8 | Adversarial review isolation undocumented | `agents/adversarial-isolation.md` (isolation mechanics, Ralph coverage, catches evidence plan) | Complete; catch examples accumulate in data window |
