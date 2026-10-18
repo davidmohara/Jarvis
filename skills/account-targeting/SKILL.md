@@ -4,13 +4,8 @@ owning_agent: harper
 model: sonnet
 trigger_keywords: [find target accounts, account targeting, who should we target for this]
 trigger_agents: [harper]
-description: >
-  Fifth step of the Podcast-to-Pipeline pipeline (first step of the
-  audience-target-outreach workflow). Takes an audience profile and produces a
-  target account list, CRM-first then public/LinkedIn research to fill gaps.
-  Every field carries a source. Includes a mandatory compliance pre-check
-  before any research proceeds. Called by
-  workflows/audience-target-outreach/workflow.md step 01.
+description: >-
+  Find real target accounts for an episode's audience profile, CRM-first then public/LinkedIn research to fill gaps. Every field carries a source. Includes a mandatory compliance pre-check before any research proceeds. Fifth step of the Podcast-to-Pipeline pipeline (first step of the audience-target-outreach workflow). Called by workflows/audience-target-outreach/workflow.md step 01.
 ---
 
 <!-- system:start -->

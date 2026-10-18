@@ -1,6 +1,7 @@
 ---
 name: chase-card-offers-amex
-description: Autonomously log in and add offers on American Express cards (Platinum ••••21001 and Blue Cash Preferred ••••73008) via Chrome automation. Retrieves credentials from 1Password, handles login, navigates to the offers page via clicks only, and adds YNAB-validated offers.
+description: >-
+  Add offers on American Express cards (Platinum ••••21001 and Blue Cash Preferred ••••73008) via autonomous Chrome automation. Retrieves credentials from 1Password, handles login, navigates to the offers page via clicks only, and adds YNAB-validated offers.
 owning_agent: chase
 model: haiku
 trigger_keywords: [amex offers, american express, amex deals]

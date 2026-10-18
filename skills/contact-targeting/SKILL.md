@@ -4,12 +4,8 @@ owning_agent: harper
 model: sonnet
 trigger_keywords: [find contacts, contact targeting, who do we reach out to]
 trigger_agents: [harper]
-description: >
-  Sixth step of the Podcast-to-Pipeline pipeline (second step of the
-  audience-target-outreach workflow). Drills from target accounts down to
-  individual contacts matching the audience profile's buyer role. CRM/Clay-first,
-  LinkedIn as tie-breaker and authority on title conflicts. Called by
-  workflows/audience-target-outreach/workflow.md step 02.
+description: >-
+  Find contacts at target accounts matching the audience profile's buyer role. CRM/Clay-first, LinkedIn as tie-breaker and authority on title conflicts. Sixth step of the Podcast-to-Pipeline pipeline (second step of the audience-target-outreach workflow). Called by workflows/audience-target-outreach/workflow.md step 02.
 ---
 
 <!-- system:start -->

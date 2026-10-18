@@ -1,6 +1,7 @@
 ---
 name: harper-content
-description: Content calendar — plan and track thought leadership output
+description: >-
+  Plan and track the content calendar for thought leadership output.
 context: fork
 agent: general-purpose
 allowed-tools:

@@ -16,11 +16,8 @@ trigger_keywords:
 trigger_agents:
   - sterling
   - master
-description: >
-  Provides Sterling with read/write access to David's Invintory wine cellar via
-  the Invintory MCP server (https://api.invintory.com/mcp). Handles OAuth token
-  management autonomously — reads access token from config/.env, refreshes
-  before expiry, and writes updated tokens back without intervention.
+description: >-
+  Manage Sterling's read/write access to David's Invintory wine cellar via the Invintory MCP server (https://api.invintory.com/mcp). Handle OAuth token management autonomously: read access token from config/.env, refresh before expiry, and write updated tokens back without intervention.
 ---
 
 <!-- system:start -->

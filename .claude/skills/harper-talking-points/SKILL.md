@@ -1,6 +1,7 @@
 ---
 name: harper-talking-points
-description: Talking points — crisp points for meetings, panels, podcasts, or internal comms
+description: >-
+  Draft talking points: crisp points for meetings, panels, podcasts, or internal comms.
 context: fork
 agent: general-purpose
 allowed-tools:

@@ -1,16 +1,8 @@
 ---
 name: quinn-strategy
 owning_agent: quinn
-description: >
-  Strategy builder — coaches users through rigorous strategy development using a structured action agenda methodology.
-  Guides diagnosis of challenges, identification of the crux, building the kernel (diagnosis → guiding policy → coherent
-  actions), detection of bad strategy patterns, and stress-testing via create-destroy. Use this skill whenever the user
-  mentions strategy, strategic planning, competitive positioning, strategic diagnosis, building a strategy, evaluating
-  a strategy, quarterly planning, annual planning, or asks "what should we do about X" in a business context. Also trigger
-  when reviewing someone else's strategy document, preparing for a strategy offsite, or thinking through a major business
-  decision. Also trigger on pricing strategy, market entry, organizational restructuring, or when someone is clearly
-  confusing a goal with a strategy. Even casual phrases like "I need a plan for..." or "how should we approach..." benefit
-  from this skill.
+description: >-
+  Coach users through rigorous strategy development using a structured action agenda methodology. Guide diagnosis of challenges, identification of the crux, building the kernel (diagnosis → guiding policy → coherent actions), detection of bad strategy patterns, and stress-testing via create-destroy. Use this skill whenever the user mentions strategy, strategic planning, competitive positioning, strategic diagnosis, building a strategy, evaluating a strategy, quarterly planning, annual planning, or asks "what should we do about X" in a business context. Also trigger when reviewing someone else's strategy document, preparing for a strategy offsite, or thinking through a major business decision. Also trigger on pricing strategy, market entry, organizational restructuring, or when someone is clearly confusing a goal with a strategy. Even casual phrases like "I need a plan for..." or "how should we approach..." benefit from this skill.
 model: sonnet
 trigger_keywords: [strategy, rocks, quarterly, planning, alignment]
 trigger_agents: [quinn]

@@ -1,6 +1,7 @@
 ---
 name: rigby-eval-grade
-description: On-demand grading of eval records — Tier 3 assessment for workflows and skills
+description: >-
+  Grade eval records on demand: Tier 3 assessment for workflows and skills.
 context: fork
 agent: general-purpose
 model: sonnet

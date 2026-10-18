@@ -1,6 +1,7 @@
 ---
 name: shep-onboard
-description: First-launch onboarding — intake interview, system orientation, first real task, progression intro
+description: >-
+  Run first-launch onboarding: intake interview, system orientation, first real task, progression intro.
 context: fork
 agent: general-purpose
 allowed-tools:

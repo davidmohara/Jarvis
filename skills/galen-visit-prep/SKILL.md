@@ -1,7 +1,8 @@
 ---
 name: galen-visit-prep
 owning_agent: galen
-description: Pre-visit brief for David's physician of record (currently Dr. Ryan Jones). Compile WHOOP trends, bloodwork changes, protocol changes, outstanding questions, new questions, body comp update. Exportable to Obsidian note.
+description: >-
+  Prepare the pre-visit brief for David's physician of record (currently Dr. Ryan Jones): compile WHOOP trends, bloodwork changes, protocol changes, outstanding questions, new questions, body comp update. Exportable to Obsidian note.
 evolution: system
 model: sonnet
 trigger_keywords: [doctor, visit prep, appointment, medical]

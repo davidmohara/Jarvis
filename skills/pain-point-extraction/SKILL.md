@@ -4,11 +4,8 @@ owning_agent: harper
 model: sonnet
 trigger_keywords: [pain points, extract pain points, episode pain points]
 trigger_agents: [harper]
-description: >
-  Second step of the Podcast-to-Pipeline pipeline. Reads a podcast transcript and
-  extracts structured pain points, each grounded in a supporting quote. Feeds
-  audience-profile-builder and offering-match. Called by
-  workflows/episode-campaign-brief/workflow.md step 02.
+description: >-
+  Extract structured, quote-grounded pain points from a podcast transcript. Second step of the Podcast-to-Pipeline pipeline. Feeds audience-profile-builder and offering-match. Called by workflows/episode-campaign-brief/workflow.md step 02.
 ---
 
 <!-- system:start -->

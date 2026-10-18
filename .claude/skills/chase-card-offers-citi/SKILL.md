@@ -1,6 +1,7 @@
 ---
 name: chase-card-offers-citi
-description: "Autonomously log in and enroll in offers on the Citi AAdvantage Executive card (••••9598) via Chrome automation. Retrieves credentials from 1Password."
+description: >-
+  Enroll in offers on the Citi AAdvantage Executive card (••••9598) via autonomous Chrome automation. Retrieves credentials from 1Password.
 context: fork
 agent: general-purpose
 allowed-tools:

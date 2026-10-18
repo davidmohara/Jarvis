@@ -1,6 +1,7 @@
 ---
 name: harper-presentation
-description: Presentation builder — turn talking points, outlines, or strategy docs into a polished slide-by-slide deck structure calibrated to the executive's voice
+description: >-
+  Turn talking points, outlines, or strategy docs into a polished slide-by-slide deck structure calibrated to the executive's voice.
 context: fork
 agent: general-purpose
 model: sonnet

@@ -1,6 +1,7 @@
 ---
 name: peekaboo
-description: "macOS screenshots, UI inspection, clicks, typing, and app/window automation via the Peekaboo CLI. Trigger on 'screenshot', 'screen capture', 'inspect the UI', 'click on', 'automate the window'."
+description: >-
+  Capture macOS screenshots, inspect UI, click, type, and automate apps/windows via the Peekaboo CLI. Trigger on 'screenshot', 'screen capture', 'inspect the UI', 'click on', 'automate the window'.
 context: fork
 agent: general-purpose
 allowed-tools:

@@ -1,6 +1,7 @@
 ---
 name: quinn-alignment
-description: Goal alignment check — map current activity against quarterly and annual goals, identify drift
+description: >-
+  Check goal alignment: map current activity against quarterly and annual goals, identify drift.
 context: fork
 agent: general-purpose
 allowed-tools:

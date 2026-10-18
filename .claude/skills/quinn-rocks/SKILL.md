@@ -1,6 +1,7 @@
 ---
 name: quinn-rocks
-description: Quarterly rock review — progress check with risk flags and corrective actions
+description: >-
+  Review quarterly rocks: progress check with risk flags and corrective actions.
 context: fork
 agent: general-purpose
 allowed-tools:

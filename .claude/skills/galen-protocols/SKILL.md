@@ -1,7 +1,8 @@
 ---
 name: galen-protocols
 owning_agent: galen
-description: Protocol management — active supplement stack and peptide cycles, timing tracking, cycle reminders, conflict and gap flags
+description: >-
+  Manage protocols: active supplement stack and peptide cycles, timing tracking, cycle reminders, conflict and gap flags.
 context: fork
 agent: general-purpose
 allowed-tools:

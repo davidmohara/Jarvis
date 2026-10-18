@@ -1,6 +1,7 @@
 ---
 name: chase-card-offers-amex
-description: "Autonomously log in and add offers on American Express cards (Platinum ••••21001 and Blue Cash Preferred ••••73008) via Chrome automation. Retrieves credentials from 1Password."
+description: >-
+  Add offers on American Express cards (Platinum ••••21001 and Blue Cash Preferred ••••73008) via autonomous Chrome automation. Retrieves credentials from 1Password.
 context: fork
 agent: general-purpose
 allowed-tools:

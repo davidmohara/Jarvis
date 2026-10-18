@@ -4,15 +4,8 @@ owning_agent: harper
 model: sonnet
 trigger_keywords: [draft campaign message, prospect message, campaign outreach content]
 trigger_agents: [harper]
-description: >
-  Eighth skill in the Podcast-to-Pipeline pipeline. Drafts personalized cold
-  outreach content for one contact, referencing the specific episode, pain point,
-  and matched offering. Reuses harper-email's content-quality pattern (VOICE.md,
-  Draft/Notes/Alternative-closings presentation, cold-prospect tone-table entry)
-  but produces content only — not a delivered draft. Output becomes the Email
-  asset for campaign-send's Journey step, never an Outlook/Superhuman draft.
-  Called by workflows/audience-target-outreach/workflow.md step 03, looped once
-  per contact.
+description: >-
+  Draft personalized cold-outreach content for one contact, referencing the specific episode, pain point, and matched offering. Reuses harper-email's content-quality pattern (VOICE.md, Draft/Notes/Alternative-closings presentation, cold-prospect tone-table entry) but produces content only, not a delivered draft. Output becomes the Email asset for campaign-send's Journey step, never an Outlook/Superhuman draft. Eighth skill in the Podcast-to-Pipeline pipeline. Called by workflows/audience-target-outreach/workflow.md step 03, looped once per contact.
 ---
 
 <!-- system:start -->

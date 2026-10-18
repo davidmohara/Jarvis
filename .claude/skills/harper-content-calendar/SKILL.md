@@ -1,6 +1,7 @@
 ---
 name: harper-content-calendar
-description: Content calendar manager — track thought leadership commitments with deadlines, statuses, and topic recommendations based on expertise and strategy
+description: >-
+  Track thought leadership commitments: deadlines, statuses, and topic recommendations based on expertise and strategy.
 context: fork
 agent: general-purpose
 model: sonnet

@@ -1,6 +1,7 @@
 ---
 name: shep-delegations
-description: Delegation tracker — full view of active delegations with overdue flags and follow-up actions
+description: >-
+  Track delegations: full view of active delegations with overdue flags and follow-up actions.
 context: fork
 agent: general-purpose
 allowed-tools:

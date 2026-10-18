@@ -1,6 +1,7 @@
 ---
 name: chief-morning
-description: Morning briefing — calendar, priorities, delegations due, key context for today
+description: >-
+  Brief the morning: calendar, priorities, delegations due, key context for today.
 context: fork
 agent: general-purpose
 allowed-tools:

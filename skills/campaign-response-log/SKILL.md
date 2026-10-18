@@ -4,14 +4,8 @@ owning_agent: harper
 model: sonnet
 trigger_keywords: [log this reply, log campaign response, someone replied to the campaign]
 trigger_agents: [harper]
-description: >
-  Tenth skill in the Podcast-to-Pipeline pipeline. Links an inbound reply back
-  to the correct Journey/Contact in Customer Insights – Journeys as a Note or
-  Activity with a Response Type — the part reply-tracking that Dynamics does
-  NOT do automatically. Opens/clicks/bounces are already tracked natively by
-  Email insights and are out of scope here. Runs asynchronously/on-demand
-  (surfaced via inbox monitoring or a manual flag), not as part of the main
-  send workflow, since replies arrive on their own timeline.
+description: >-
+  Link an inbound reply back to the correct Journey/Contact in Customer Insights – Journeys as a Note or Activity with a Response Type, the part of reply-tracking that Dynamics does NOT do automatically. Opens/clicks/bounces are already tracked natively by Email insights and are out of scope here. Tenth skill in the Podcast-to-Pipeline pipeline. Runs asynchronously/on-demand (surfaced via inbox monitoring or a manual flag), not as part of the main send workflow, since replies arrive on their own timeline.
 ---
 
 <!-- system:start -->

@@ -1,6 +1,7 @@
 ---
 name: harper-email
-description: Email drafter — draft professional emails calibrated for recipient, relationship, and context
+description: >-
+  Draft professional emails calibrated for recipient, relationship, and context.
 context: fork
 agent: general-purpose
 allowed-tools:

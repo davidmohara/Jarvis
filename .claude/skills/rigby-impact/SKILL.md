@@ -1,11 +1,8 @@
 ---
 name: rigby-impact
 model: sonnet
-description: >
-  Impact analysis — before changing or deleting a skill, workflow, or step file,
-  identify every other IES file that references it. Prevents cascading breaks
-  from seemingly local changes. Run before any significant edit or deletion.
-  Also triggered by "what references this", "what depends on", "impact of changing".
+description: >-
+  Run impact analysis before changing or deleting a skill, workflow, or step file: identify every other IES file that references it. Prevents cascading breaks from seemingly local changes. Run before any significant edit or deletion. Also triggered by 'what references this', 'what depends on', 'impact of changing'.
 ---
 <!-- system:start -->
 

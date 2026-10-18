@@ -1,6 +1,7 @@
 ---
 name: chase-card-review
-description: Monthly credit card benefits review — credit usage dashboard, expiring deadlines, spend threshold pace, card-linked offer savings, and action items.
+description: >-
+  Review monthly credit card benefits: credit usage dashboard, expiring deadlines, spend threshold pace, card-linked offer savings, and action items.
 triggers:
   - "card review"
   - "benefits review"

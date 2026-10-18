@@ -1,6 +1,7 @@
 ---
 name: quinn-initiatives
-description: Initiative tracker — living view of strategic initiatives with status, owners, and blockers
+description: >-
+  Track initiatives: living view of strategic initiatives with status, owners, and blockers.
 context: fork
 agent: general-purpose
 allowed-tools:

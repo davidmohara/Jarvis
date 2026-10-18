@@ -1,6 +1,7 @@
 ---
 name: shep-nudge
-description: Follow-up nudges — surface overdue delegations and draft calibrated follow-up messages
+description: >-
+  Send follow-up nudges: surface overdue delegations and draft calibrated follow-up messages.
 context: fork
 agent: general-purpose
 allowed-tools:

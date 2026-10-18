@@ -1,6 +1,7 @@
 ---
 name: ynab-data
-description: YNAB data extraction — the canonical pull into data/ynab-unified.json plus shared read primitives (per-account payee totals, spend ranking). Trigger on 'pull ynab', 'ynab spend', 'what did I spend at', or as boot step-01.2 Pull E.
+description: >-
+  Pull YNAB data into the canonical data/ynab-unified.json plus shared read primitives (per-account payee totals, spend ranking). Trigger on 'pull ynab', 'ynab spend', 'what did I spend at', or as boot step-01.2 Pull E.
 owning_agent: chase
 model: haiku
 trigger_keywords: [ynab, budget, spend, payee, you need a budget]

@@ -1,7 +1,8 @@
 ---
 name: rigby-skill-reflect
 owning_agent: rigby
-description: Trajectory-to-edits reflection skill. Reads eval records and session transcripts for a target skill, separates successes from failures, identifies procedural patterns, and proposes bounded add/delete/replace edits to the skill document. Core component of the skill-optimize workflow.
+description: >-
+  Turn a target skill's trajectory into bounded edits: read eval records and session transcripts, separate successes from failures, identify procedural patterns, and propose bounded add/delete/replace edits to the skill document. Core component of the skill-optimize workflow.
 evolution: system
 model: sonnet
 trigger_keywords: [skill reflect, reflect on skill, skill improvement, optimize skill]

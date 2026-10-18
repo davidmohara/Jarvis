@@ -1,6 +1,7 @@
 ---
 name: rigby-integrity
-description: System integrity scan — check all IES files for inconsistencies, auto-fix what is unambiguous, flag what needs human review, and write a timestamped findings log
+description: >-
+  Scan system integrity: check all IES files for inconsistencies, auto-fix what is unambiguous, flag what needs human review, and write a timestamped findings log.
 context: fork
 agent: general-purpose
 model: sonnet

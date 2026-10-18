@@ -1,6 +1,7 @@
 ---
 name: harper-deck
-description: Presentation builder — create or refine slide decks from ideas, outlines, or strategy docs
+description: >-
+  Build presentations: create or refine slide decks from ideas, outlines, or strategy docs.
 context: fork
 agent: general-purpose
 allowed-tools:

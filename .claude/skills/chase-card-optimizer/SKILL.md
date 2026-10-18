@@ -1,6 +1,7 @@
 ---
 name: chase-card-optimizer
-description: Credit card selection, benefit tracking, ROI analysis, and portfolio optimization
+description: >-
+  Optimize credit card selection, benefit tracking, ROI analysis, and portfolio optimization.
 context: fork
 agent: general-purpose
 allowed-tools:

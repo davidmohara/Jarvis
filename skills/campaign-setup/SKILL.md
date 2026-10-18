@@ -4,14 +4,8 @@ owning_agent: harper
 model: sonnet
 trigger_keywords: [set up the campaign, create the journey, create the segment]
 trigger_agents: [harper]
-description: >
-  Seventh skill in the Podcast-to-Pipeline pipeline. Creates the Segment and
-  Journey for an episode in Customer Insights – Journeys (not native Sales Quick
-  Campaigns), naming per convention, and adds each targeted contact to the
-  Segment. Pure CRM write — Plan-Only Mode required, dedup-checks against
-  existing journeys before creating anything new. Called by
-  workflows/audience-target-outreach/workflow.md step 04, once per episode
-  (before the per-contact prospect-message-draft/campaign-send loop).
+description: >-
+  Create the Segment and Journey for an episode in Customer Insights – Journeys (not native Sales Quick Campaigns), naming per convention, and add each targeted contact to the Segment. Pure CRM write: Plan-Only Mode required, dedup-checks against existing journeys before creating anything new. Seventh skill in the Podcast-to-Pipeline pipeline. Called by workflows/audience-target-outreach/workflow.md step 04, once per episode (before the per-contact prospect-message-draft/campaign-send loop).
 ---
 
 <!-- system:start -->

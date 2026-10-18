@@ -4,7 +4,8 @@ owning_agent: knox
 model: sonnet
 trigger_keywords: [dream, memory consolidation, compress memory, promote semantic]
 trigger_agents: [rigby, knox]
-description: "Nightly memory consolidation. Runs automatically via scheduled task."
+description: >-
+  Run nightly memory consolidation: compress working memory, promote to semantic, run episodic archiving. Runs automatically via scheduled task.
 ---
 <!-- system:start -->
 

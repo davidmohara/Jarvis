@@ -1,6 +1,7 @@
 ---
 name: chief-review
-description: End-of-day review — capture what got done, what didn't, what carries forward
+description: >-
+  Review the end of day: capture what got done, what didn't, what carries forward.
 context: fork
 agent: general-purpose
 allowed-tools:

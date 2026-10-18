@@ -1,6 +1,7 @@
 ---
 name: chase-win-loss
-description: Win/loss analysis — post-decision debrief with lessons to apply to active pursuits
+description: >-
+  Analyze win/loss: post-decision debrief with lessons to apply to active pursuits.
 context: fork
 agent: general-purpose
 allowed-tools:

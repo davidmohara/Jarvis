@@ -4,11 +4,8 @@ owning_agent: harper
 model: sonnet
 trigger_keywords: [audience profile, ICP for this episode, who is this episode for]
 trigger_agents: [harper]
-description: >
-  Third step of the Podcast-to-Pipeline pipeline. Reads extracted pain points and
-  builds a target audience profile (ICP) for the episode - industry, company size,
-  buyer role, and buying-trigger signals. Feeds account-targeting and
-  contact-targeting. Called by workflows/episode-campaign-brief/workflow.md step 03.
+description: >-
+  Build a target audience profile (ICP) for an episode from extracted pain points: industry, company size, buyer role, and buying-trigger signals. Third step of the Podcast-to-Pipeline pipeline. Feeds account-targeting and contact-targeting. Called by workflows/episode-campaign-brief/workflow.md step 03.
 ---
 
 <!-- system:start -->

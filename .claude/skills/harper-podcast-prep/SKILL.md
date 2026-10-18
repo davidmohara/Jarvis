@@ -1,6 +1,7 @@
 ---
 name: harper-podcast-prep
-description: Podcast prep — generate episode prep documents (detailed reference sheet + single-page PDF) for The Improving Edge
+description: >-
+  Generate episode prep documents (detailed reference sheet + single-page PDF) for The Improving Edge.
 context: fork
 agent: general-purpose
 allowed-tools:

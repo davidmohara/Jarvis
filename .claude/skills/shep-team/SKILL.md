@@ -1,6 +1,7 @@
 ---
 name: shep-team
-description: Team health pulse — who needs attention, who is thriving, who is at risk
+description: >-
+  Surface team health: who needs attention, who is thriving, who is at risk.
 context: fork
 agent: general-purpose
 allowed-tools:

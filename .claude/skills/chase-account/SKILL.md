@@ -1,6 +1,7 @@
 ---
 name: chase-account
-description: Account strategy — deep-dive on a target account with history, contacts, and recommended playbook
+description: >-
+  Deep-dive a target account's strategy: history, contacts, and recommended playbook.
 context: fork
 agent: general-purpose
 allowed-tools:

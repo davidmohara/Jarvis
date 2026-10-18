@@ -1,6 +1,7 @@
 ---
 name: shep-training
-description: Training coach — progression dashboard, module recommendations, guided walkthroughs, mastery tracking, proactive nudges
+description: >-
+  Coach training: progression dashboard, module recommendations, guided walkthroughs, mastery tracking, proactive nudges.
 context: fork
 agent: general-purpose
 allowed-tools:

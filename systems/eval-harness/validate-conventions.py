@@ -51,7 +51,8 @@ VERB_START = re.compile(
     r"copy|fetch|retrieve|store|save|load|list|enumerate|count|measure|test|benchmark|"
     r"polish|refine|improve|optimize|compact|archive|restore|revert|rollback|register|"
     r"authenticate|connect|disconnect|configure|setup|deploy|publish|post|notify|alert|"
-    r"prompt|remind|brief|prep|review|cross-reference|cross reference)", re.I)
+    r"prompt|remind|brief|prep|review|cross-reference|cross reference|"
+    r"get|identify|query|trigger|scrape|fire|link|receive|enroll|activate)", re.I)
 IMPORT_RE = re.compile(r"^(?:from\s+([\w.]+)\s+import\s+[\w.(]|import\s+([\w.]+(?:\s*,\s*[\w.]+)*))", re.M)
 # local packages inside IES never need a PEP 723 dependency declaration
 LOCAL_PACKAGES = {"scripts", "systems", "skills", "agents", "utils", "hook_utils", "step_outputs", "step_audit", "scoring", "score_eval", "assertion_checks", "token_usage", "apply_ruling", "mcp_client"}
@@ -90,8 +91,25 @@ def parse_frontmatter_text(text):
 
 
 def fm_get(fm_block, key):
-    m = re.search(rf"^{key}:\s*(.+)$", fm_block or "", re.M)
-    return m.group(1).strip().strip("\"'") if m else None
+    """Return a frontmatter value, unwrapping YAML block scalars (> / |) and quotes."""
+    m = re.search(rf"^{key}:\s*(.*)$", fm_block or "", re.M)
+    if not m:
+        return None
+    inline = m.group(1).strip().strip("\"'")
+    if inline in (">", "|", ">-", "|-", ">+", "|+"):
+        # block scalar: join indented continuation lines
+        lines = fm_block.split("\n")
+        start = next(i for i, l in enumerate(lines) if re.match(rf"^{key}:", l))
+        block = []
+        for l in lines[start + 1:]:
+            if l.startswith(("  ", "\t")) or (block and not l.strip()):
+                block.append(l.strip())
+            elif not l.strip() and not block:
+                continue
+            else:
+                break
+        return " ".join(x for x in block if x)
+    return inline
 
 
 def load_exceptions():

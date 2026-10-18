@@ -1,6 +1,7 @@
 ---
 name: quinn-strategy
-description: Strategy builder — coaches through rigorous strategy development using a structured action agenda methodology. Diagnose challenges, identify the crux, build the kernel (diagnosis → guiding policy → coherent actions), detect bad strategy patterns, and stress-test via create-destroy. Use when the user mentions strategy, strategic planning, competitive positioning, building a strategy, evaluating a strategy, quarterly planning, annual planning, market entry, pricing strategy, or asks "what should we do about X" in a business context. Also trigger on strategy offsites, major business decisions, or when someone is confusing a goal with a strategy.
+description: >-
+  Coach users through rigorous strategy development using a structured action agenda methodology. Diagnose challenges, identify the crux, build the kernel (diagnosis → guiding policy → coherent actions), detect bad strategy patterns, and stress-test via create-destroy. Use when the user mentions strategy, strategic planning, competitive positioning, building a strategy, evaluating a strategy, quarterly planning, annual planning, market entry, pricing strategy, or asks "what should we do about X" in a business context. Also trigger on strategy offsites, major business decisions, or when someone is confusing a goal with a strategy.
 context: fork
 agent: general-purpose
 allowed-tools:

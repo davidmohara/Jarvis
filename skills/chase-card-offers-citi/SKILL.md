@@ -1,6 +1,7 @@
 ---
 name: chase-card-offers-citi
-description: Autonomously log in and enroll in offers on the Citi AAdvantage Executive card (••••9598) via Chrome automation. Retrieves credentials from 1Password, handles login, navigates to Merchant Offers via clicks only, and enrolls YNAB-validated offers.
+description: >-
+  Enroll in offers on the Citi AAdvantage Executive card (••••9598) via autonomous Chrome automation. Retrieves credentials from 1Password, handles login, navigates to Merchant Offers via clicks only, and enrolls YNAB-validated offers.
 owning_agent: chase
 model: haiku
 trigger_keywords: [citi offers, citi card, citibank]

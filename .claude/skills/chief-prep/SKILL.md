@@ -1,6 +1,7 @@
 ---
 name: chief-prep
-description: Calendar prep — pre-brief for upcoming meetings with attendee context and talking points
+description: >-
+  Prep the calendar: pre-brief for upcoming meetings with attendee context and talking points.
 context: fork
 agent: general-purpose
 allowed-tools:

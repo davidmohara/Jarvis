@@ -1,6 +1,7 @@
 ---
 name: omnifocus-tasks
-description: "Gate-enforced OmniFocus task creation. Every task MUST have a project and tag before creation executes. This skill is the ONLY authorized path for creating OmniFocus tasks. Trigger on 'create task', 'add task', 'new task'."
+description: >-
+  Create OmniFocus tasks through the gate-enforced path. Every task MUST have a project and tag before creation executes. This skill is the ONLY authorized path for creating OmniFocus tasks. Trigger on 'create task', 'add task', 'new task'.
 context: fork
 agent: general-purpose
 allowed-tools:

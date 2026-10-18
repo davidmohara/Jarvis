@@ -4,15 +4,8 @@ owning_agent: harper
 model: sonnet
 trigger_keywords: [send the campaign email, send to this contact, trigger the journey send]
 trigger_agents: [harper]
-description: >
-  Ninth skill in the Podcast-to-Pipeline pipeline. Creates/updates the Email
-  asset in Customer Insights – Journeys for one contact's journey step and
-  triggers the send via Chrome automation. The one skill in this system with a
-  real, irreversible side effect — requires explicit per-contact human
-  confirmation immediately before send, regardless of Plan-Only setting, and
-  re-verifies send-readiness at run time. Called by
-  workflows/audience-target-outreach/workflow.md step 05, looped once per
-  contact, never batched.
+description: >-
+  Create/update the Email asset in Customer Insights – Journeys for one contact's journey step and fire the send via Chrome automation. The one skill in this system with a real, irreversible side effect: requires explicit per-contact human confirmation immediately before send, regardless of Plan-Only setting, and re-verifies send-readiness at run time. Ninth skill in the Podcast-to-Pipeline pipeline. Called by workflows/audience-target-outreach/workflow.md step 05, looped once per contact, never batched.
 ---
 
 <!-- system:start -->

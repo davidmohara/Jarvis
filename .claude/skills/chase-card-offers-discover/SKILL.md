@@ -1,6 +1,7 @@
 ---
 name: chase-card-offers-discover
-description: "Autonomously log in and check/activate rotating categories on the Discover it Cash Back card (••••8369) via Chrome automation. Retrieves credentials from 1Password."
+description: >-
+  Activate rotating categories on the Discover it Cash Back card (••••8369) via autonomous Chrome automation. Retrieves credentials from 1Password.
 context: fork
 agent: general-purpose
 allowed-tools:

@@ -1,6 +1,7 @@
 ---
 name: chase-pipeline
-description: Pipeline review — health check on active deals with stage, risk flags, and next actions
+description: >-
+  Review pipeline health: active deals with stage, risk flags, and next actions.
 context: fork
 agent: general-purpose
 allowed-tools:

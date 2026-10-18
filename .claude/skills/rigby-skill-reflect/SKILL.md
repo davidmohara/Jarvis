@@ -1,6 +1,7 @@
 ---
 name: rigby-skill-reflect
-description: "Trajectory-to-edits reflection skill. Reads eval records and session transcripts for a target skill, identifies procedural patterns, and proposes bounded edits. Core component of the skill-optimize workflow. Trigger on 'skill reflect', 'reflect on skill', 'optimize skill'."
+description: >-
+  Turn eval records and session transcripts for a target skill into bounded add/delete/replace edits. Core component of the skill-optimize workflow. Trigger on 'skill reflect', 'reflect on skill', 'optimize skill'.
 context: fork
 agent: general-purpose
 allowed-tools:

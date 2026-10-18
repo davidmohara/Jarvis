@@ -1,6 +1,7 @@
 ---
 name: dream-cycle
-description: "Nightly memory consolidation — compress working memory, promote to semantic, run episodic archiving. Runs automatically via scheduled task. Trigger on 'dream cycle', 'memory consolidation'."
+description: >-
+  Run nightly memory consolidation: compress working memory, promote to semantic, run episodic archiving. Runs automatically via scheduled task. Trigger on 'dream cycle', 'memory consolidation'.
 context: fork
 agent: general-purpose
 allowed-tools:

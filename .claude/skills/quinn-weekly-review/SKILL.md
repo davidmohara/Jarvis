@@ -1,6 +1,7 @@
 ---
 name: quinn-weekly-review
-description: "Weekly review prep — assemble rock progress, delegation status, OmniFocus health, relationship warmth, and drift assessment so the controller walks into their weekly review with everything pre-staged. Use when the user says 'weekly review', 'prep my review', 'review prep', 'how was my week', or on a scheduled Friday cadence."
+description: >-
+  Prep the weekly review: assemble rock progress, delegation status, OmniFocus health, relationship warmth, and drift assessment so the controller walks into their weekly review with everything pre-staged. Use when the user says 'weekly review', 'prep my review', 'review prep', 'how was my week', or on a scheduled Friday cadence.
 context: fork
 agent: general-purpose
 allowed-tools:

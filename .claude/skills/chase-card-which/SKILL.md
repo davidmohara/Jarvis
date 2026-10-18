@@ -1,6 +1,7 @@
 ---
 name: chase-card-which
-description: Which card should I use for this purchase? Full optimization across category rates, rotating categories, caps, spend thresholds, card-linked offers, and credits.
+description: >-
+  Optimize card choice for a purchase: which card to use across category rates, rotating categories, caps, spend thresholds, card-linked offers, and credits.
 triggers:
   - "which card"
   - "what card"

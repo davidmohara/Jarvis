@@ -1,7 +1,8 @@
 ---
 name: peekaboo
 owning_agent: rigby
-description: "macOS screenshots, UI inspection, clicks, typing, and app/window automation via the Peekaboo CLI."
+description: >-
+  Capture macOS screenshots, inspect UI, click, type, and automate apps/windows via the Peekaboo CLI. Trigger on 'screenshot', 'screen capture', 'inspect the UI', 'click on', 'automate the window'.
 model: sonnet
 trigger_keywords: [screenshot, screen capture, UI inspect, click, type, window automation, peekaboo]
 trigger_agents: [rigby, chief]

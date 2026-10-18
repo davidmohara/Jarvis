@@ -1,18 +1,31 @@
 workflow: conventions-migration
 agent: rigby
-status: not-started
-session-started: null
+status: in-progress
+session-started: 2026-10-18
 session-id: null
-current-step: null
-original-request: null
+current-step: step-03-judgment
+original-request: description-rewrite batch, approved by David 2026-10-18
 accumulated-context:
   baseline_findings_path: workflows/conventions-migration/state-baseline-findings.json
   census_baseline: null
   buckets:
     mechanical: []
-    judgment: []
+    judgment:
+      - description_imperative
     size: []
-  fixes_applied: []
+  fixes_applied:
+    - batch: description_imperative rewrites
+      date: 2026-10-18
+      applied: 67
+      details: >-
+        Rewrote 67 descriptions to verb-first imperative (approved by David in
+        session, pre-approval for the batch). 14 additional findings were
+        false reads from a linter bug (fm_get did not unwrap YAML block
+        scalars, returned literal '>'); fixed the linter instead. 10 more
+        findings were genuinely imperative but used verbs missing from the
+        heuristic (get/identify/query/trigger/scrape/fire/link/receive/enroll/
+        activate); extended VERB_START rather than contorting descriptions.
+        Result: description_imperative WARNs 93 -> 0; total WARNs 172 -> 79.
   exceptions_recorded: []
   exceptions_retired: []
   rejected_drafts: []

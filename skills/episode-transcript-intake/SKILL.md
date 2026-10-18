@@ -4,12 +4,8 @@ owning_agent: harper
 model: sonnet
 trigger_keywords: [episode intake, podcast to pipeline, turn this episode into a campaign, campaign brief, ingest episode]
 trigger_agents: [harper]
-description: >
-  First step of the Podcast-to-Pipeline pipeline. Takes a podcast episode reference
-  (public URL or internal Improving Edge episode already in Obsidian) and produces a
-  clean transcript plus episode metadata for downstream pain-point extraction. Never
-  called standalone in normal use — invoked by workflows/episode-campaign-brief/workflow.md
-  step 01, but callable directly for testing or re-intake.
+description: >-
+  Retrieve and normalize a podcast episode reference (public URL or internal Improving Edge episode already in Obsidian) into a clean transcript plus episode metadata for downstream pain-point extraction. First step of the Podcast-to-Pipeline pipeline. Never called standalone in normal use, invoked by workflows/episode-campaign-brief/workflow.md step 01, but callable directly for testing or re-intake.
 ---
 
 <!-- system:start -->

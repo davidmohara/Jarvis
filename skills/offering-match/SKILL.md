@@ -4,12 +4,8 @@ owning_agent: harper
 model: sonnet
 trigger_keywords: [offering match, match pain points to services, what do we sell for this]
 trigger_agents: [harper]
-description: >
-  Fourth step of the Podcast-to-Pipeline pipeline. Matches extracted pain points to
-  Improving's actual, current service offerings by searching live SharePoint sources
-  - never a cached or invented offerings list. Refuses to fabricate a match if none
-  exists. Called by workflows/episode-campaign-brief/workflow.md step 04, and reused
-  standalone by prospect-message-draft for pitch grounding.
+description: >-
+  Match extracted pain points to Improving's actual, current service offerings by searching live SharePoint sources, never a cached or invented offerings list. Refuses to fabricate a match if none exists. Fourth step of the Podcast-to-Pipeline pipeline. Called by workflows/episode-campaign-brief/workflow.md step 04, and reused standalone by prospect-message-draft for pitch grounding.
 ---
 
 <!-- system:start -->

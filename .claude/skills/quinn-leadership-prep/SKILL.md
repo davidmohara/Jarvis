@@ -1,6 +1,7 @@
 ---
 name: quinn-leadership-prep
-description: Leadership prep — build materials for board meetings, reviews, or town halls
+description: >-
+  Prep leadership materials: build for board meetings, reviews, or town halls.
 context: fork
 agent: general-purpose
 allowed-tools:

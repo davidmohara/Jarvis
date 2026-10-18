@@ -1,6 +1,7 @@
 ---
 name: chase-client-prep
-description: Client meeting prep — attendee research, account context, talking points, and landmines to avoid
+description: >-
+  Prep client meetings: attendee research, account context, talking points, and landmines to avoid.
 context: fork
 agent: general-purpose
 allowed-tools:
