@@ -1,0 +1,4784 @@
+{
+ "mode": "description-regression-smoke-mechanical",
+ "date": "20261018T172051",
+ "protocol": {
+  "scope": "mechanical verb-first rewrites only (commit 002032a9 minus meaning-sensitive verified set)",
+  "per_skill": "3 positives + 2 negatives, 1 repetition per variant",
+  "confirmation": "3-repetition pass on every flagged query, both variants, majority-of-3",
+  "deviation_from_prior": "lighter 5-query protocol per directive; query sets authored from OLD (parent-commit) descriptions"
+ },
+ "judge": "claude -p via committed (HEAD) scripts.run_eval.run_single_query, blind per run, isolated scratch project root /tmp/desc-smoke-judge (judge cannot see real working-tree skills)",
+ "ground_truth": "old descriptions at 002032a9^ (git show), frontmatter description only",
+ "judge_runs": {
+  "smoke_controls": 2,
+  "main": 410,
+  "confirmation": 234,
+  "total": 646
+ },
+ "elapsed_seconds": {
+  "main": 503,
+  "confirmation": 277
+ },
+ "skills": 41,
+ "descriptions": {
+  ".claude/skills/chase-card-optimizer/SKILL.md": {
+   "old": "Credit card selection, benefit tracking, ROI analysis, and portfolio optimization",
+   "new": "Optimize credit card selection, benefit tracking, ROI analysis, and portfolio optimization."
+  },
+  ".claude/skills/chase-card-review/SKILL.md": {
+   "old": "Monthly credit card benefits review \u2014 credit usage dashboard, expiring deadlines, spend threshold pace, card-linked offer savings, and action items.",
+   "new": "Review monthly credit card benefits: credit usage dashboard, expiring deadlines, spend threshold pace, card-linked offer savings, and action items."
+  },
+  ".claude/skills/chase-client-prep/SKILL.md": {
+   "old": "Client meeting prep \u2014 attendee research, account context, talking points, and landmines to avoid",
+   "new": "Prep client meetings: attendee research, account context, talking points, and landmines to avoid."
+  },
+  ".claude/skills/chase-pipeline/SKILL.md": {
+   "old": "Pipeline review \u2014 health check on active deals with stage, risk flags, and next actions",
+   "new": "Review pipeline health: active deals with stage, risk flags, and next actions."
+  },
+  ".claude/skills/chase-win-loss/SKILL.md": {
+   "old": "Win/loss analysis \u2014 post-decision debrief with lessons to apply to active pursuits",
+   "new": "Analyze win/loss: post-decision debrief with lessons to apply to active pursuits."
+  },
+  ".claude/skills/chief-morning/SKILL.md": {
+   "old": "Morning briefing \u2014 calendar, priorities, delegations due, key context for today",
+   "new": "Brief the morning: calendar, priorities, delegations due, key context for today."
+  },
+  ".claude/skills/chief-prep/SKILL.md": {
+   "old": "Calendar prep \u2014 pre-brief for upcoming meetings with attendee context and talking points",
+   "new": "Prep the calendar: pre-brief for upcoming meetings with attendee context and talking points."
+  },
+  ".claude/skills/chief-review/SKILL.md": {
+   "old": "End-of-day review \u2014 capture what got done, what didn't, what carries forward",
+   "new": "Review the end of day: capture what got done, what didn't, what carries forward."
+  },
+  ".claude/skills/contact-targeting/SKILL.md": {
+   "old": "Drill from target accounts to individual contacts matching the audience profile's buyer role - CRM/Clay-first, LinkedIn as tie-breaker and title authority. Sixth step of the Podcast-to-Pipeline pipeline. Trigger on \"find contacts at these accounts\" or as workflows/audience-target-outreach step 02.",
+   "new": "Find contacts at target accounts matching the audience profile's buyer role, CRM/Clay-first, LinkedIn as tie-breaker and title authority. Sixth step of the Podcast-to-Pipeline pipeline. Trigger on \"find contacts at these accounts\" or as workflows/audience-target-outreach step 02."
+  },
+  ".claude/skills/galen-protocols/SKILL.md": {
+   "old": "Protocol management \u2014 active supplement stack and peptide cycles, timing tracking, cycle reminders, conflict and gap flags",
+   "new": "Manage protocols: active supplement stack and peptide cycles, timing tracking, cycle reminders, conflict and gap flags."
+  },
+  ".claude/skills/harper-content-calendar/SKILL.md": {
+   "old": "Content calendar manager \u2014 track thought leadership commitments with deadlines, statuses, and topic recommendations based on expertise and strategy",
+   "new": "Track thought leadership commitments: deadlines, statuses, and topic recommendations based on expertise and strategy."
+  },
+  ".claude/skills/harper-content/SKILL.md": {
+   "old": "Content calendar \u2014 plan and track thought leadership output",
+   "new": "Plan and track the content calendar for thought leadership output."
+  },
+  ".claude/skills/harper-deck/SKILL.md": {
+   "old": "Presentation builder \u2014 create or refine slide decks from ideas, outlines, or strategy docs",
+   "new": "Build presentations: create or refine slide decks from ideas, outlines, or strategy docs."
+  },
+  ".claude/skills/harper-email/SKILL.md": {
+   "old": "Email drafter \u2014 draft professional emails calibrated for recipient, relationship, and context",
+   "new": "Draft professional emails calibrated for recipient, relationship, and context."
+  },
+  ".claude/skills/harper-podcast-prep/SKILL.md": {
+   "old": "Podcast prep \u2014 generate episode prep documents (detailed reference sheet + single-page PDF) for The Improving Edge",
+   "new": "Generate episode prep documents (detailed reference sheet + single-page PDF) for The Improving Edge."
+  },
+  ".claude/skills/harper-presentation/SKILL.md": {
+   "old": "Presentation builder \u2014 turn talking points, outlines, or strategy docs into a polished slide-by-slide deck structure calibrated to the executive's voice",
+   "new": "Turn talking points, outlines, or strategy docs into a polished slide-by-slide deck structure calibrated to the executive's voice."
+  },
+  ".claude/skills/harper-talking-points/SKILL.md": {
+   "old": "Talking points \u2014 crisp points for meetings, panels, podcasts, or internal comms",
+   "new": "Draft talking points: crisp points for meetings, panels, podcasts, or internal comms."
+  },
+  ".claude/skills/omnifocus-tasks/SKILL.md": {
+   "old": "Gate-enforced OmniFocus task creation. Every task MUST have a project and tag before creation executes. This skill is the ONLY authorized path for creating OmniFocus tasks. Trigger on 'create task', 'add task', 'new task'.",
+   "new": "Create OmniFocus tasks through the gate-enforced path. Every task MUST have a project and tag before creation executes. This skill is the ONLY authorized path for creating OmniFocus tasks. Trigger on 'create task', 'add task', 'new task'."
+  },
+  ".claude/skills/quinn-alignment/SKILL.md": {
+   "old": "Goal alignment check \u2014 map current activity against quarterly and annual goals, identify drift",
+   "new": "Check goal alignment: map current activity against quarterly and annual goals, identify drift."
+  },
+  ".claude/skills/quinn-initiatives/SKILL.md": {
+   "old": "Initiative tracker \u2014 living view of strategic initiatives with status, owners, and blockers",
+   "new": "Track initiatives: living view of strategic initiatives with status, owners, and blockers."
+  },
+  ".claude/skills/quinn-leadership-prep/SKILL.md": {
+   "old": "Leadership prep \u2014 build materials for board meetings, reviews, or town halls",
+   "new": "Prep leadership materials: build for board meetings, reviews, or town halls."
+  },
+  ".claude/skills/quinn-rocks/SKILL.md": {
+   "old": "Quarterly rock review \u2014 progress check with risk flags and corrective actions",
+   "new": "Review quarterly rocks: progress check with risk flags and corrective actions."
+  },
+  ".claude/skills/quinn-weekly-review/SKILL.md": {
+   "old": "Weekly review prep \u2014 assemble rock progress, delegation status, OmniFocus health, relationship warmth, and drift assessment so the controller walks into their weekly review with everything pre-staged. Use when the user says 'weekly review', 'prep my review', 'review prep', 'how was my week', or on a scheduled Friday cadence.",
+   "new": "Prep the weekly review: assemble rock progress, delegation status, OmniFocus health, relationship warmth, and drift assessment so the controller walks into their weekly review with everything pre-staged. Use when the user says 'weekly review', 'prep my review', 'review prep', 'how was my week', or on a scheduled Friday cadence."
+  },
+  ".claude/skills/rigby-eval-grade/SKILL.md": {
+   "old": "On-demand grading of eval records \u2014 Tier 3 assessment for workflows and skills",
+   "new": "Grade eval records on demand: Tier 3 assessment for workflows and skills."
+  },
+  ".claude/skills/rigby-impact/SKILL.md": {
+   "old": "Impact analysis \u2014 before changing or deleting a skill, workflow, or step file, identify every other IES file that references it. Prevents cascading breaks from seemingly local changes. Run before any significant edit or deletion. Also triggered by \"what references this\", \"what depends on\", \"impact of changing\". --- <!-- system:start --> # Rigby \u2014 Impact Analysis Before modifying or deleting an IES file, identify everything that depends on it. ## Input `$ARGUMENTS` \u2014 a file path (relative to IES root) or a name pattern.",
+   "new": "Run impact analysis before changing or deleting a skill, workflow, or step file: identify every other IES file that references it. Prevents cascading breaks from seemingly local changes. Run before any significant edit or deletion. Also triggered by 'what references this', 'what depends on', 'impact of changing'. --- <!-- system:start --> # Rigby \u2014 Impact Analysis Before modifying or deleting an IES file, identify everything that depends on it. ## Input `$ARGUMENTS` \u2014 a file path (relative to IES root) or a name pattern."
+  },
+  ".claude/skills/rigby-integrity/SKILL.md": {
+   "old": "System integrity scan \u2014 check all IES files for inconsistencies, auto-fix what is unambiguous, flag what needs human review, and write a timestamped findings log",
+   "new": "Scan system integrity: check all IES files for inconsistencies, auto-fix what is unambiguous, flag what needs human review, and write a timestamped findings log."
+  },
+  ".claude/skills/rigby-package-create/SKILL.md": {
+   "old": "Discover custom agents, workflows, and skills; package them for contribution to the IES ecosystem",
+   "new": "Package custom agents, workflows, and skills for contribution to the IES ecosystem."
+  },
+  ".claude/skills/rigby-register/SKILL.md": {
+   "old": "Device code flow registration \u2014 authenticate this IES instance with Improving's Entra ID. Called during onboarding and for self-healing when credentials expire.",
+   "new": "Register this IES instance with Improving's Entra ID via device code flow. Called during onboarding and for self-healing when credentials expire."
+  },
+  ".claude/skills/shep-delegations/SKILL.md": {
+   "old": "Delegation tracker \u2014 full view of active delegations with overdue flags and follow-up actions",
+   "new": "Track delegations: full view of active delegations with overdue flags and follow-up actions."
+  },
+  ".claude/skills/shep-nudge/SKILL.md": {
+   "old": "Follow-up nudges \u2014 surface overdue delegations and draft calibrated follow-up messages",
+   "new": "Send follow-up nudges: surface overdue delegations and draft calibrated follow-up messages."
+  },
+  ".claude/skills/shep-onboard/SKILL.md": {
+   "old": "First-launch onboarding \u2014 intake interview, system orientation, first real task, progression intro",
+   "new": "Run first-launch onboarding: intake interview, system orientation, first real task, progression intro."
+  },
+  ".claude/skills/shep-one-on-one/SKILL.md": {
+   "old": "1:1 prep \u2014 build agenda from delegations, last meeting notes, goals, and coaching themes",
+   "new": "Prep a 1:1: build agenda from delegations, last meeting notes, goals, and coaching themes."
+  },
+  ".claude/skills/shep-team/SKILL.md": {
+   "old": "Team health pulse \u2014 who needs attention, who is thriving, who is at risk",
+   "new": "Surface team health: who needs attention, who is thriving, who is at risk."
+  },
+  ".claude/skills/shep-training/SKILL.md": {
+   "old": "Training coach \u2014 progression dashboard, module recommendations, guided walkthroughs, mastery tracking, proactive nudges",
+   "new": "Coach training: progression dashboard, module recommendations, guided walkthroughs, mastery tracking, proactive nudges."
+  },
+  "skills/audience-profile-builder/SKILL.md": {
+   "old": "Third step of the Podcast-to-Pipeline pipeline. Reads extracted pain points and builds a target audience profile (ICP) for the episode - industry, company size, buyer role, and buying-trigger signals. Feeds account-targeting and contact-targeting. Called by workflows/episode-campaign-brief/workflow.md step 03. --- <!-- system:start --> # Audience Profile Builder ## Purpose Turn a set of extracted pain points into a concrete target audience profile - the ICP for this specific episode. This is what `account-targeting` and `contact-targeting` use to find real companies and people, so it must be specific enough to search on, not a generic \"mid-market companies\" statement. ## Input The `pain_points` list produced by `pain-point-extraction`, plus the episode metadata (industry context of the guest/host, if any, informs but does not substitute for pain-point-derived signals). ## Output ```yaml",
+   "new": "Build a target audience profile (ICP) for an episode from extracted pain points: industry, company size, buyer role, and buying-trigger signals. Third step of the Podcast-to-Pipeline pipeline. Feeds account-targeting and contact-targeting. Called by workflows/episode-campaign-brief/workflow.md step 03. --- <!-- system:start --> # Audience Profile Builder ## Purpose Turn a set of extracted pain points into a concrete target audience profile - the ICP for this specific episode. This is what `account-targeting` and `contact-targeting` use to find real companies and people, so it must be specific enough to search on, not a generic \"mid-market companies\" statement. ## Input The `pain_points` list produced by `pain-point-extraction`, plus the episode metadata (industry context of the guest/host, if any, informs but does not substitute for pain-point-derived signals). ## Output ```yaml"
+  },
+  "skills/contact-targeting/SKILL.md": {
+   "old": "Sixth step of the Podcast-to-Pipeline pipeline (second step of the audience-target-outreach workflow). Drills from target accounts down to individual contacts matching the audience profile's buyer role. CRM/Clay-first, LinkedIn as tie-breaker and authority on title conflicts. Called by workflows/audience-target-outreach/workflow.md step 02. --- <!-- system:start --> # Contact Targeting ## Purpose For each target account from `account-targeting`, identify the specific individuals who match the audience profile's buyer role, with enough context to explain why the episode's pain point applies to them personally \u2014 not just a name and title pulled off a directory. ## Input - `target_accounts` from `account-targeting` - `audience_profile` (specifically `buyer_roles`) from `audience-profile-builder` ## Output ```yaml",
+   "new": "Find contacts at target accounts matching the audience profile's buyer role. CRM/Clay-first, LinkedIn as tie-breaker and authority on title conflicts. Sixth step of the Podcast-to-Pipeline pipeline (second step of the audience-target-outreach workflow). Called by workflows/audience-target-outreach/workflow.md step 02. --- <!-- system:start --> # Contact Targeting ## Purpose For each target account from `account-targeting`, identify the specific individuals who match the audience profile's buyer role, with enough context to explain why the episode's pain point applies to them personally \u2014 not just a name and title pulled off a directory. ## Input - `target_accounts` from `account-targeting` - `audience_profile` (specifically `buyer_roles`) from `audience-profile-builder` ## Output ```yaml"
+  },
+  "skills/offering-match/SKILL.md": {
+   "old": "Fourth step of the Podcast-to-Pipeline pipeline. Matches extracted pain points to Improving's actual, current service offerings by searching live SharePoint sources - never a cached or invented offerings list. Refuses to fabricate a match if none exists. Called by workflows/episode-campaign-brief/workflow.md step 04, and reused standalone by prospect-message-draft for pitch grounding. --- <!-- system:start --> # Offering Match ## Purpose Pair each extracted pain point with a real Improving service offering, pulled live from SharePoint at the time this skill runs. **Hard rule: query the live SharePoint sources every time this skill runs.** Do not rely on any previously-fetched offerings list, a summary from a prior session, or general knowledge of \"what Improving probably sells.\" If SharePoint is unreachable, this skill fails rather than falling back to memory or invention (see Failure Modes). ## Input The `pain_points` list from `pain-point-extraction`. ## Grounding Sources (query in this priority order, both if needed) 1. **Primary** \u2014 `OfficeoftheChiefConsultingOfficer/Shared Documents/General/Sales Support/Sales Offerings/` Structured per-offering documents organized by category (AI Offerings, DevOps Enablement, Data Enablement, Platform Engineering, Business Agility, etc.). Each doc includes Duration, Price, and Summary fields \u2014 pull all three verbatim. 2. **Secondary** \u2014 `https://improving.sharepoint.com/sites/Sales` Central Sales / SPARC site. Sales playbooks and regional service-offering decks (e.g. Pune capabilities). Use only to fill gaps not covered by the primary folder. 3. **Persona sources** (used only for the buyer/anti-buyer persona step, Process step 5) \u2014 `https://improving.sharepoint.com/sites/OfficeoftheChiefConsultingOfficer/Shared Documents/General/Marketing/Personas/`, specifically the `Buyer Personas/` and `Anti-Buyer Personas/` subfolders. Buyer persona docs carry a \"Persona at a Glance\" table with a Service line field and a \"How Improving Wins\" section. Anti-buyer persona docs carry a \"Buyer personas they counter\" cross-reference field and a \"How Improving Disarms\" section. Use `mcp__claude_ai_Microsoft_365__sharepoint_search` and `mcp__claude_ai_Microsoft_365__sharepoint_folder_search` to locate candidate documents, then `mcp__claude_ai_Microsoft_365__read_resource` (or `mcp__claude_ai_Microsoft_365__sharepoint_search` result content, whichever surfaces the actual document text) to read the offering's Duration/Price/Summary. Do not rely on the search result snippet alone if it doesn't clearly contain all three fields \u2014 open the document. **Do not use** the older third-party 2020 offerings PDF that may surface in a general search. If a hit's provenance or date is unclear, verify it lives in one of the two sources above before citing it. ## Output ```yaml",
+   "new": "Match extracted pain points to Improving's actual, current service offerings by searching live SharePoint sources, never a cached or invented offerings list. Refuses to fabricate a match if none exists. Fourth step of the Podcast-to-Pipeline pipeline. Called by workflows/episode-campaign-brief/workflow.md step 04, and reused standalone by prospect-message-draft for pitch grounding. --- <!-- system:start --> # Offering Match ## Purpose Pair each extracted pain point with a real Improving service offering, pulled live from SharePoint at the time this skill runs. **Hard rule: query the live SharePoint sources every time this skill runs.** Do not rely on any previously-fetched offerings list, a summary from a prior session, or general knowledge of \"what Improving probably sells.\" If SharePoint is unreachable, this skill fails rather than falling back to memory or invention (see Failure Modes). ## Input The `pain_points` list from `pain-point-extraction`. ## Grounding Sources (query in this priority order, both if needed) 1. **Primary** \u2014 `OfficeoftheChiefConsultingOfficer/Shared Documents/General/Sales Support/Sales Offerings/` Structured per-offering documents organized by category (AI Offerings, DevOps Enablement, Data Enablement, Platform Engineering, Business Agility, etc.). Each doc includes Duration, Price, and Summary fields \u2014 pull all three verbatim. 2. **Secondary** \u2014 `https://improving.sharepoint.com/sites/Sales` Central Sales / SPARC site. Sales playbooks and regional service-offering decks (e.g. Pune capabilities). Use only to fill gaps not covered by the primary folder. 3. **Persona sources** (used only for the buyer/anti-buyer persona step, Process step 5) \u2014 `https://improving.sharepoint.com/sites/OfficeoftheChiefConsultingOfficer/Shared Documents/General/Marketing/Personas/`, specifically the `Buyer Personas/` and `Anti-Buyer Personas/` subfolders. Buyer persona docs carry a \"Persona at a Glance\" table with a Service line field and a \"How Improving Wins\" section. Anti-buyer persona docs carry a \"Buyer personas they counter\" cross-reference field and a \"How Improving Disarms\" section. Use `mcp__claude_ai_Microsoft_365__sharepoint_search` and `mcp__claude_ai_Microsoft_365__sharepoint_folder_search` to locate candidate documents, then `mcp__claude_ai_Microsoft_365__read_resource` (or `mcp__claude_ai_Microsoft_365__sharepoint_search` result content, whichever surfaces the actual document text) to read the offering's Duration/Price/Summary. Do not rely on the search result snippet alone if it doesn't clearly contain all three fields \u2014 open the document. **Do not use** the older third-party 2020 offerings PDF that may surface in a general search. If a hit's provenance or date is unclear, verify it lives in one of the two sources above before citing it. ## Output ```yaml"
+  },
+  "skills/omnifocus-tasks/SKILL.md": {
+   "old": "Gate-enforced OmniFocus task creation. Every task MUST have a project and tag before creation executes. No exceptions. No bare inbox drops. This skill is the ONLY path for creating tasks \u2014 do not write raw OmniFocus AppleScript outside this skill.",
+   "new": "Create OmniFocus tasks through the gate-enforced path. Every task MUST have a project and tag before creation executes. No exceptions. No bare inbox drops. This skill is the ONLY path for creating tasks, do not write raw OmniFocus AppleScript outside this skill."
+  },
+  "skills/pain-point-extraction/SKILL.md": {
+   "old": "Second step of the Podcast-to-Pipeline pipeline. Reads a podcast transcript and extracts structured pain points, each grounded in a supporting quote. Feeds audience-profile-builder and offering-match. Called by workflows/episode-campaign-brief/workflow.md step 02. --- <!-- system:start --> # Pain Point Extraction ## Purpose Read a transcript and pull out the real business/operational pain points discussed \u2014 not generic industry problems, but the specific frustrations, failures, or friction points the guest or host actually described. Every pain point must be traceable to a quote. This skill does not match pain points to offerings or audiences \u2014 that is `offering-match` and `audience-profile-builder`'s job, each working from this output. ## Input The transcript + episode metadata object produced by `episode-transcript-intake`. ## Output ```yaml",
+   "new": "Extract structured, quote-grounded pain points from a podcast transcript. Second step of the Podcast-to-Pipeline pipeline. Feeds audience-profile-builder and offering-match. Called by workflows/episode-campaign-brief/workflow.md step 02. --- <!-- system:start --> # Pain Point Extraction ## Purpose Read a transcript and pull out the real business/operational pain points discussed \u2014 not generic industry problems, but the specific frustrations, failures, or friction points the guest or host actually described. Every pain point must be traceable to a quote. This skill does not match pain points to offerings or audiences \u2014 that is `offering-match` and `audience-profile-builder`'s job, each working from this output. ## Input The transcript + episode metadata object produced by `episode-transcript-intake`. ## Output ```yaml"
+  },
+  "skills/prospect-message-draft/SKILL.md": {
+   "old": "Eighth skill in the Podcast-to-Pipeline pipeline. Drafts personalized cold outreach content for one contact, referencing the specific episode, pain point, and matched offering. Reuses harper-email's content-quality pattern (VOICE.md, Draft/Notes/Alternative-closings presentation, cold-prospect tone-table entry) but produces content only \u2014 not a delivered draft. Output becomes the Email asset for campaign-send's Journey step, never an Outlook/Superhuman draft. Called by workflows/audience-target-outreach/workflow.md step 03, looped once per contact. --- <!-- system:start --> # Prospect Message Draft ## Purpose Produce personalized cold-outreach message content for one contact, grounded in the actual episode, the specific pain point that applies to them, and the matched offering \u2014 content quality held to the same bar as `harper-email`, but with a fundamentally different delivery destination. **Explicit deviation from `harper-email` \u2014 read this before drafting anything:** This skill reuses `workflows/email-drafting/`'s voice/tone/draft-presentation *content* pattern (loading `identity/VOICE.md`, the fixed Draft/Notes/Alternative-closings presentation format, and the tone-calibration table in `workflows/email-drafting/steps/step-02-draft.md`, which now includes a \"Cold Prospect / Campaign Outreach\" column added for this system). It does **not** reuse that workflow's delivery step (`mcp__claude_ai_Microsoft_365__outlook_create_draft`). The output of this skill is message content that becomes the Email asset inside a Customer Insights \u2013 Journeys journey step, created and sent by `campaign-send` \u2014 never an Outlook draft, never a Superhuman draft, never something delivered from David's personal inbox. This distinction exists because CRM-side reply attribution only works if the send itself is CRM-native. Do not \"simplify\" this by routing content through `harper-email`'s Outlook delivery in a future edit \u2014 that would silently break attribution for the whole system. ## Input - One contact (from `contact-targeting`'s output) - The pain point + offering pairing relevant to that contact (from `pain-point-extraction` + `offering-match`) - Episode metadata (title, episode number, guest, date) ## Process 1. **Load `identity/VOICE.md`** exactly as `workflows/email-drafting/steps/step-01-clarify-context.md` does, for baseline formatting conventions (em-dash rule, greeting/paragraph spacing, closing style). 2. **Load recipient context.** Same as `harper-email`'s pattern: check CRM/Clay for anything relevant to this specific contact (existing relationship, prior interaction) that should shape tone \u2014 a contact with an existing relationship gets a warmer opener than a fully cold one. 3. **Apply the \"Cold Prospect / Campaign Outreach\" tone-table entry** in `workflows/email-drafting/steps/step-02-draft.md` for structure, sentence length, vocabulary, and sign-off. Read that entry's additional rules before drafting. 4. **Draft the message**, anchored to: - The specific pain point (plain-language restatement, and \u2014 if it reads naturally, not forced \u2014 a short reference to the episode itself, e.g. \"On a recent episode of The Improving Edge, we talked about...\") - The matched offering, referenced only if `offering-match` found a real, tight fit for this pain point \u2014 never force in an offering that was flagged `no_match` - One clear, low-friction call to action 5. **Present using the same fixed structure `harper-email` uses**: Draft / Notes (tone, assumptions, call to action) / Alternative closings. This is content for controller review and approval \u2014 approving the content here is NOT the same as approving the send. Say so explicitly in the presentation: \"Content approval only \u2014 sending still requires the explicit per-contact confirmation at campaign-send time.\" 6. **Return the approved content** (subject line + body) to the caller in a form `campaign-send` can use directly as the journey step's Email asset: ```yaml",
+   "new": "Draft personalized cold-outreach content for one contact, referencing the specific episode, pain point, and matched offering. Reuses harper-email's content-quality pattern (VOICE.md, Draft/Notes/Alternative-closings presentation, cold-prospect tone-table entry) but produces content only, not a delivered draft. Output becomes the Email asset for campaign-send's Journey step, never an Outlook/Superhuman draft. Eighth skill in the Podcast-to-Pipeline pipeline. Called by workflows/audience-target-outreach/workflow.md step 03, looped once per contact. --- <!-- system:start --> # Prospect Message Draft ## Purpose Produce personalized cold-outreach message content for one contact, grounded in the actual episode, the specific pain point that applies to them, and the matched offering \u2014 content quality held to the same bar as `harper-email`, but with a fundamentally different delivery destination. **Explicit deviation from `harper-email` \u2014 read this before drafting anything:** This skill reuses `workflows/email-drafting/`'s voice/tone/draft-presentation *content* pattern (loading `identity/VOICE.md`, the fixed Draft/Notes/Alternative-closings presentation format, and the tone-calibration table in `workflows/email-drafting/steps/step-02-draft.md`, which now includes a \"Cold Prospect / Campaign Outreach\" column added for this system). It does **not** reuse that workflow's delivery step (`mcp__claude_ai_Microsoft_365__outlook_create_draft`). The output of this skill is message content that becomes the Email asset inside a Customer Insights \u2013 Journeys journey step, created and sent by `campaign-send` \u2014 never an Outlook draft, never a Superhuman draft, never something delivered from David's personal inbox. This distinction exists because CRM-side reply attribution only works if the send itself is CRM-native. Do not \"simplify\" this by routing content through `harper-email`'s Outlook delivery in a future edit \u2014 that would silently break attribution for the whole system. ## Input - One contact (from `contact-targeting`'s output) - The pain point + offering pairing relevant to that contact (from `pain-point-extraction` + `offering-match`) - Episode metadata (title, episode number, guest, date) ## Process 1. **Load `identity/VOICE.md`** exactly as `workflows/email-drafting/steps/step-01-clarify-context.md` does, for baseline formatting conventions (em-dash rule, greeting/paragraph spacing, closing style). 2. **Load recipient context.** Same as `harper-email`'s pattern: check CRM/Clay for anything relevant to this specific contact (existing relationship, prior interaction) that should shape tone \u2014 a contact with an existing relationship gets a warmer opener than a fully cold one. 3. **Apply the \"Cold Prospect / Campaign Outreach\" tone-table entry** in `workflows/email-drafting/steps/step-02-draft.md` for structure, sentence length, vocabulary, and sign-off. Read that entry's additional rules before drafting. 4. **Draft the message**, anchored to: - The specific pain point (plain-language restatement, and \u2014 if it reads naturally, not forced \u2014 a short reference to the episode itself, e.g. \"On a recent episode of The Improving Edge, we talked about...\") - The matched offering, referenced only if `offering-match` found a real, tight fit for this pain point \u2014 never force in an offering that was flagged `no_match` - One clear, low-friction call to action 5. **Present using the same fixed structure `harper-email` uses**: Draft / Notes (tone, assumptions, call to action) / Alternative closings. This is content for controller review and approval \u2014 approving the content here is NOT the same as approving the send. Say so explicitly in the presentation: \"Content approval only \u2014 sending still requires the explicit per-contact confirmation at campaign-send time.\" 6. **Return the approved content** (subject line + body) to the caller in a form `campaign-send` can use directly as the journey step's Email asset: ```yaml"
+  },
+  "skills/ynab-data/SKILL.md": {
+   "old": "YNAB data extraction \u2014 the canonical pull into data/ynab-unified.json plus shared read primitives (per-account payee totals, spend ranking). Trigger on 'pull ynab', 'ynab spend', 'what did I spend at', or as boot step-01.2 Pull E.",
+   "new": "Pull YNAB data into the canonical data/ynab-unified.json plus shared read primitives (per-account payee totals, spend ranking). Trigger on 'pull ynab', 'ynab spend', 'what did I spend at', or as boot step-01.2 Pull E."
+  }
+ },
+ "queries": {
+  ".claude/skills/chase-card-optimizer/SKILL.md": {
+   "positives": [
+    "which card in my wallet gives me the best ROI overall",
+    "run a benefits ROI analysis across my whole credit card portfolio",
+    "help me optimize my credit card selection for maximum value"
+   ],
+   "negatives": [
+    "which card should I use for this specific grocery run",
+    "review my monthly card benefits and deadlines"
+   ]
+  },
+  ".claude/skills/chase-card-review/SKILL.md": {
+   "positives": [
+    "monthly card review time, pull my credit usage dashboard and expiring deadlines",
+    "check my spend threshold pace and card-linked offer savings this month",
+    "give me my monthly credit card benefits review with action items"
+   ],
+   "negatives": [
+    "which card should I get next to optimize value",
+    "prep my client meeting next week"
+   ]
+  },
+  ".claude/skills/chase-client-prep/SKILL.md": {
+   "positives": [
+    "prep me for the client meeting Thursday, research the attendees",
+    "build talking points and landmines to avoid for our account review",
+    "pull account context for the upcoming client meeting"
+   ],
+   "negatives": [
+    "prep my 1:1 with a direct report",
+    "what's on my calendar today"
+   ]
+  },
+  ".claude/skills/chase-pipeline/SKILL.md": {
+   "positives": [
+    "run a pipeline review, health check on active deals",
+    "show me my pipeline by stage with risk flags",
+    "check the health of my active deals and next actions"
+   ],
+   "negatives": [
+    "pull the weekly pipeline snapshot from the PowerBI report",
+    "review our quarterly rocks"
+   ]
+  },
+  ".claude/skills/chase-win-loss/SKILL.md": {
+   "positives": [
+    "we lost the Acme deal, run a win/loss debrief",
+    "do a post-decision analysis on the deal we just won",
+    "debrief the loss and pull lessons for active pursuits"
+   ],
+   "negatives": [
+    "how did we do against revenue target last month",
+    "review pipeline health on active deals"
+   ]
+  },
+  ".claude/skills/chief-morning/SKILL.md": {
+   "positives": [
+    "give me my morning briefing",
+    "brief me for the day, calendar and delegations due",
+    "what are my priorities and key context for today"
+   ],
+   "negatives": [
+    "review what got done today",
+    "prep me for my 2pm meeting"
+   ]
+  },
+  ".claude/skills/chief-prep/SKILL.md": {
+   "positives": [
+    "prep me for my upcoming meetings with attendee context",
+    "run calendar prep for tomorrow's meetings",
+    "pre-brief me for the meeting with the CTO"
+   ],
+   "negatives": [
+    "give me the morning briefing",
+    "draft talking points for my podcast interview"
+   ]
+  },
+  ".claude/skills/chief-review/SKILL.md": {
+   "positives": [
+    "run the end-of-day review",
+    "capture what got done today and what carries forward",
+    "end of day, what didn't I get to"
+   ],
+   "negatives": [
+    "morning briefing please",
+    "show me the initiative tracker"
+   ]
+  },
+  ".claude/skills/contact-targeting/SKILL.md": {
+   "positives": [
+    "find contacts at these target accounts matching the buyer role",
+    "drill the account list into individual contacts, CRM first",
+    "who should we reach out to at these accounts, LinkedIn as tie-breaker"
+   ],
+   "negatives": [
+    "find target accounts for this audience profile",
+    "draft the outreach message for this contact"
+   ]
+  },
+  ".claude/skills/galen-protocols/SKILL.md": {
+   "positives": [
+    "manage my protocols, active supplement stack and peptide cycles",
+    "check for conflicts and gaps in my current protocol stack",
+    "when is my next peptide cycle reminder due"
+   ],
+   "negatives": [
+    "interpret my Function Health bloodwork results",
+    "how did I sleep last night"
+   ]
+  },
+  ".claude/skills/harper-content-calendar/SKILL.md": {
+   "positives": [
+    "update my content calendar with this commitment and deadline",
+    "what's the status of my thought leadership commitments",
+    "recommend topics for my next piece based on my strategy"
+   ],
+   "negatives": [
+    "draft the email to the editor",
+    "review how I did hosting the last episode"
+   ]
+  },
+  ".claude/skills/harper-content/SKILL.md": {
+   "positives": [
+    "plan and track my thought leadership output",
+    "help me plan my content pipeline for the quarter",
+    "put this idea on the content calendar"
+   ],
+   "negatives": [
+    "what are my content commitment deadlines and statuses",
+    "generate episode prep docs for the podcast"
+   ]
+  },
+  ".claude/skills/harper-deck/SKILL.md": {
+   "positives": [
+    "build a deck from this outline",
+    "create a slide deck from my strategy document",
+    "refine my presentation for the board review"
+   ],
+   "negatives": [
+    "turn these talking points into a polished slide-by-slide structure",
+    "draft talking points for the town hall"
+   ]
+  },
+  ".claude/skills/harper-email/SKILL.md": {
+   "positives": [
+    "draft an email to my CFO about the budget request",
+    "write a follow-up email to the client, professional tone",
+    "draft this email for a difficult conversation with my report"
+   ],
+   "negatives": [
+    "draft the cold outreach for the campaign contact",
+    "give me talking points for the panel"
+   ]
+  },
+  ".claude/skills/harper-podcast-prep/SKILL.md": {
+   "positives": [
+    "generate the prep doc for the next Improving Edge episode",
+    "build the reference sheet and one-pager for my podcast guest",
+    "prep me for episode 42 of the podcast"
+   ],
+   "negatives": [
+    "review how I did as host on the last episode",
+    "extract pain points from this episode transcript"
+   ]
+  },
+  ".claude/skills/harper-presentation/SKILL.md": {
+   "positives": [
+    "turn these talking points into a polished slide-by-slide structure",
+    "convert my strategy doc into a deck structure calibrated to my voice",
+    "structure the outline into presentation slides"
+   ],
+   "negatives": [
+    "package this as an actual pptx file from the outline",
+    "prep leadership materials for the board meeting"
+   ]
+  },
+  ".claude/skills/harper-talking-points/SKILL.md": {
+   "positives": [
+    "draft talking points for my panel appearance",
+    "give me crisp talking points for the town hall",
+    "pull together talking points for the customer keynote"
+   ],
+   "negatives": [
+    "draft an email to the sponsor",
+    "build a deck from these points"
+   ]
+  },
+  ".claude/skills/omnifocus-tasks/SKILL.md": {
+   "positives": [
+    "create an OmniFocus task to review the deck on Friday",
+    "add a task to my week: call the bank",
+    "new task: renew the domain next month"
+   ],
+   "negatives": [
+    "check my tasks, what's on my plate",
+    "surface my overdue delegations"
+   ]
+  },
+  ".claude/skills/quinn-alignment/SKILL.md": {
+   "positives": [
+    "check whether my current activity aligns with my quarterly goals",
+    "map what I'm doing against the annual plan and identify drift",
+    "are we drifting from the quarterly goals"
+   ],
+   "negatives": [
+    "review quarterly rock progress with risk flags",
+    "prep my weekly review"
+   ]
+  },
+  ".claude/skills/quinn-initiatives/SKILL.md": {
+   "positives": [
+    "show me the initiative tracker, who owns what and blockers",
+    "what's the status of our strategic initiatives",
+    "update the initiative board with the new owner"
+   ],
+   "negatives": [
+    "check goal alignment against the quarter",
+    "prep materials for the board meeting"
+   ]
+  },
+  ".claude/skills/quinn-leadership-prep/SKILL.md": {
+   "positives": [
+    "build the materials for next month's board meeting",
+    "prep my leadership review materials for the executive team",
+    "assemble town hall materials"
+   ],
+   "negatives": [
+    "build a slide deck from my product outline",
+    "draft talking points for the panel"
+   ]
+  },
+  ".claude/skills/quinn-rocks/SKILL.md": {
+   "positives": [
+    "review our quarterly rocks, progress and risk flags",
+    "how are the rocks tracking this quarter, any corrective actions needed",
+    "run the quarterly rock review"
+   ],
+   "negatives": [
+    "check alignment of my activity with annual goals",
+    "show the initiative tracker"
+   ]
+  },
+  ".claude/skills/quinn-weekly-review/SKILL.md": {
+   "positives": [
+    "prep my weekly review",
+    "assemble everything for my weekly review, delegations and rock progress",
+    "how was my week"
+   ],
+   "negatives": [
+    "run the end-of-day review",
+    "review the quarterly rocks in detail"
+   ]
+  },
+  ".claude/skills/rigby-eval-grade/SKILL.md": {
+   "positives": [
+    "grade these eval records on demand",
+    "run Tier 3 assessment on this workflow's evals",
+    "on-demand grade the eval record from yesterday"
+   ],
+   "negatives": [
+    "analyze eval records for patterns and trends",
+    "generate the eval dashboard"
+   ]
+  },
+  ".claude/skills/rigby-impact/SKILL.md": {
+   "positives": [
+    "what references this skill before I change it",
+    "run impact analysis on deleting this workflow step",
+    "what depends on this file, check before the edit"
+   ],
+   "negatives": [
+    "scan the system for inconsistencies",
+    "show pending unpackaged capability changes"
+   ]
+  },
+  ".claude/skills/rigby-integrity/SKILL.md": {
+   "positives": [
+    "run a system integrity scan across IES",
+    "check all IES files for inconsistencies",
+    "scan for integrity issues and write the findings log"
+   ],
+   "negatives": [
+    "run impact analysis before deleting this skill",
+    "analyze the error log for recurring patterns"
+   ]
+  },
+  ".claude/skills/rigby-package-create/SKILL.md": {
+   "positives": [
+    "package my custom agents and skills for contribution",
+    "discover and package my workflows for the IES ecosystem",
+    "build a contribution package from my custom work"
+   ],
+   "negatives": [
+    "submit the package to Improving for review",
+    "install the downloaded company package"
+   ]
+  },
+  ".claude/skills/rigby-register/SKILL.md": {
+   "positives": [
+    "register this IES instance with Improving's Entra ID",
+    "authenticate the instance using device code flow",
+    "self-heal the expired credentials, re-register"
+   ],
+   "negatives": [
+    "verify the newly installed connector works",
+    "package my changes for contribution"
+   ]
+  },
+  ".claude/skills/shep-delegations/SKILL.md": {
+   "positives": [
+    "show me all active delegations with overdue flags",
+    "full view of my delegation tracker",
+    "which delegated items are overdue and need follow-up"
+   ],
+   "negatives": [
+    "draft a nudge to the team about overdue items",
+    "prep my 1:1 with Sarah"
+   ]
+  },
+  ".claude/skills/shep-nudge/SKILL.md": {
+   "positives": [
+    "draft follow-up nudges for the overdue delegations",
+    "nudge the team about the late deliverable",
+    "surface what's overdue and write the follow-up messages"
+   ],
+   "negatives": [
+    "just show the delegation tracker, no messages",
+    "give me a team health pulse"
+   ]
+  },
+  ".claude/skills/shep-onboard/SKILL.md": {
+   "positives": [
+    "run first-launch onboarding for the new team member",
+    "walk a new agent through intake and orientation",
+    "start the onboarding interview for the new instance"
+   ],
+   "negatives": [
+    "prep a 1:1 with the new hire",
+    "coach training for the associate"
+   ]
+  },
+  ".claude/skills/shep-one-on-one/SKILL.md": {
+   "positives": [
+    "prep my 1:1 with Maria",
+    "build the 1:1 agenda from her delegations and last meeting notes",
+    "1:1 prep sheet for my direct report"
+   ],
+   "negatives": [
+    "give me team health, who needs attention",
+    "prep the client meeting"
+   ]
+  },
+  ".claude/skills/shep-team/SKILL.md": {
+   "positives": [
+    "give me a team health pulse, who's at risk",
+    "who on the team needs attention right now",
+    "which team members are thriving"
+   ],
+   "negatives": [
+    "prep my 1:1 with the team lead",
+    "track active delegations"
+   ]
+  },
+  ".claude/skills/shep-training/SKILL.md": {
+   "positives": [
+    "coach the training progression for my associate, recommend modules",
+    "show the training progression dashboard and mastery tracking",
+    "guide a walkthrough of the next training module"
+   ],
+   "negatives": [
+    "prep the 1:1 with my trainee",
+    "onboard the new agent"
+   ]
+  },
+  "skills/audience-profile-builder/SKILL.md": {
+   "positives": [
+    "build the audience profile for this episode from the extracted pain points",
+    "turn the extracted pain points into an ICP with industry and buyer role",
+    "episode-campaign-brief step 03, build the target audience profile"
+   ],
+   "negatives": [
+    "find target accounts for this audience profile",
+    "extract pain points from this transcript"
+   ]
+  },
+  "skills/contact-targeting/SKILL.md": {
+   "positives": [
+    "find contacts at these target accounts matching the buyer role",
+    "drill the account list into individual contacts, CRM first",
+    "audience-target-outreach step 02, identify the people at these accounts"
+   ],
+   "negatives": [
+    "find target accounts for this audience profile",
+    "draft the outreach message for this contact"
+   ]
+  },
+  "skills/offering-match/SKILL.md": {
+   "positives": [
+    "what do we sell for this pain point",
+    "match the extracted pain points to our current service offerings, live from SharePoint",
+    "episode-campaign-brief step 04, ground each pain point in a real offering"
+   ],
+   "negatives": [
+    "extract the pain points from the episode transcript",
+    "draft the outreach message for this contact"
+   ]
+  },
+  "skills/omnifocus-tasks/SKILL.md": {
+   "positives": [
+    "create an OmniFocus task to review the deck on Friday",
+    "add a task to my week: call the bank",
+    "new task: renew the domain next month"
+   ],
+   "negatives": [
+    "check my tasks, what's on my plate",
+    "surface my overdue delegations"
+   ]
+  },
+  "skills/pain-point-extraction/SKILL.md": {
+   "positives": [
+    "extract pain points from this episode's transcript",
+    "pull the structured pain points with supporting quotes from the transcript",
+    "episode-campaign-brief step 02, extract the pain points"
+   ],
+   "negatives": [
+    "build the audience profile from these pain points",
+    "save this podcast episode to Obsidian"
+   ]
+  },
+  "skills/prospect-message-draft/SKILL.md": {
+   "positives": [
+    "draft the outreach message for this contact",
+    "audience-target-outreach step 03, draft the personalized message for this one contact",
+    "write the cold outreach content referencing the episode and matched offering"
+   ],
+   "negatives": [
+    "send this campaign email now",
+    "draft a regular email to my mentor"
+   ]
+  },
+  "skills/ynab-data/SKILL.md": {
+   "positives": [
+    "pull ynab",
+    "ynab spend",
+    "what did I spend at Whole Foods last month"
+   ],
+   "negatives": [
+    "which card should I use for this grocery purchase",
+    "review my monthly card benefits"
+   ]
+  }
+ },
+ "results": [
+  {
+   "skill": ".claude/skills/chase-card-optimizer/SKILL.md",
+   "skill_name": "chase-card-optimizer",
+   "variant": "new",
+   "query": "which card should I use for this specific grocery run",
+   "kind": "negative",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/chase-card-optimizer/SKILL.md",
+   "skill_name": "chase-card-optimizer",
+   "variant": "old",
+   "query": "which card in my wallet gives me the best ROI overall",
+   "kind": "positive",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/chase-card-optimizer/SKILL.md",
+   "skill_name": "chase-card-optimizer",
+   "variant": "old",
+   "query": "which card should I use for this specific grocery run",
+   "kind": "negative",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/chase-card-optimizer/SKILL.md",
+   "skill_name": "chase-card-optimizer",
+   "variant": "old",
+   "query": "run a benefits ROI analysis across my whole credit card portfolio",
+   "kind": "positive",
+   "qi": 1,
+   "result": true
+  },
+  {
+   "skill": ".claude/skills/chase-card-optimizer/SKILL.md",
+   "skill_name": "chase-card-optimizer",
+   "variant": "old",
+   "query": "help me optimize my credit card selection for maximum value",
+   "kind": "positive",
+   "qi": 2,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/chase-card-optimizer/SKILL.md",
+   "skill_name": "chase-card-optimizer",
+   "variant": "new",
+   "query": "run a benefits ROI analysis across my whole credit card portfolio",
+   "kind": "positive",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/chase-card-optimizer/SKILL.md",
+   "skill_name": "chase-card-optimizer",
+   "variant": "new",
+   "query": "which card in my wallet gives me the best ROI overall",
+   "kind": "positive",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/chase-card-optimizer/SKILL.md",
+   "skill_name": "chase-card-optimizer",
+   "variant": "new",
+   "query": "help me optimize my credit card selection for maximum value",
+   "kind": "positive",
+   "qi": 2,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/chase-card-optimizer/SKILL.md",
+   "skill_name": "chase-card-optimizer",
+   "variant": "old",
+   "query": "review my monthly card benefits and deadlines",
+   "kind": "negative",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/chase-card-review/SKILL.md",
+   "skill_name": "chase-card-review",
+   "variant": "old",
+   "query": "check my spend threshold pace and card-linked offer savings this month",
+   "kind": "positive",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/chase-card-optimizer/SKILL.md",
+   "skill_name": "chase-card-optimizer",
+   "variant": "new",
+   "query": "review my monthly card benefits and deadlines",
+   "kind": "negative",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/chase-card-review/SKILL.md",
+   "skill_name": "chase-card-review",
+   "variant": "old",
+   "query": "monthly card review time, pull my credit usage dashboard and expiring deadlines",
+   "kind": "positive",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/chase-card-review/SKILL.md",
+   "skill_name": "chase-card-review",
+   "variant": "new",
+   "query": "monthly card review time, pull my credit usage dashboard and expiring deadlines",
+   "kind": "positive",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/chase-card-review/SKILL.md",
+   "skill_name": "chase-card-review",
+   "variant": "old",
+   "query": "give me my monthly credit card benefits review with action items",
+   "kind": "positive",
+   "qi": 2,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/chase-card-review/SKILL.md",
+   "skill_name": "chase-card-review",
+   "variant": "new",
+   "query": "check my spend threshold pace and card-linked offer savings this month",
+   "kind": "positive",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/chase-card-review/SKILL.md",
+   "skill_name": "chase-card-review",
+   "variant": "new",
+   "query": "give me my monthly credit card benefits review with action items",
+   "kind": "positive",
+   "qi": 2,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/chase-card-review/SKILL.md",
+   "skill_name": "chase-card-review",
+   "variant": "old",
+   "query": "which card should I get next to optimize value",
+   "kind": "negative",
+   "qi": 0,
+   "result": true
+  },
+  {
+   "skill": ".claude/skills/chase-card-review/SKILL.md",
+   "skill_name": "chase-card-review",
+   "variant": "old",
+   "query": "prep my client meeting next week",
+   "kind": "negative",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/chase-client-prep/SKILL.md",
+   "skill_name": "chase-client-prep",
+   "variant": "old",
+   "query": "prep me for the client meeting Thursday, research the attendees",
+   "kind": "positive",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/chase-card-review/SKILL.md",
+   "skill_name": "chase-card-review",
+   "variant": "new",
+   "query": "which card should I get next to optimize value",
+   "kind": "negative",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/chase-card-review/SKILL.md",
+   "skill_name": "chase-card-review",
+   "variant": "new",
+   "query": "prep my client meeting next week",
+   "kind": "negative",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/chase-client-prep/SKILL.md",
+   "skill_name": "chase-client-prep",
+   "variant": "new",
+   "query": "prep me for the client meeting Thursday, research the attendees",
+   "kind": "positive",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/chase-client-prep/SKILL.md",
+   "skill_name": "chase-client-prep",
+   "variant": "old",
+   "query": "build talking points and landmines to avoid for our account review",
+   "kind": "positive",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/chase-client-prep/SKILL.md",
+   "skill_name": "chase-client-prep",
+   "variant": "new",
+   "query": "build talking points and landmines to avoid for our account review",
+   "kind": "positive",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/chase-client-prep/SKILL.md",
+   "skill_name": "chase-client-prep",
+   "variant": "old",
+   "query": "pull account context for the upcoming client meeting",
+   "kind": "positive",
+   "qi": 2,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/chase-client-prep/SKILL.md",
+   "skill_name": "chase-client-prep",
+   "variant": "new",
+   "query": "what's on my calendar today",
+   "kind": "negative",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/chase-client-prep/SKILL.md",
+   "skill_name": "chase-client-prep",
+   "variant": "new",
+   "query": "prep my 1:1 with a direct report",
+   "kind": "negative",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/chase-client-prep/SKILL.md",
+   "skill_name": "chase-client-prep",
+   "variant": "old",
+   "query": "what's on my calendar today",
+   "kind": "negative",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/chase-pipeline/SKILL.md",
+   "skill_name": "chase-pipeline",
+   "variant": "old",
+   "query": "run a pipeline review, health check on active deals",
+   "kind": "positive",
+   "qi": 0,
+   "result": true
+  },
+  {
+   "skill": ".claude/skills/chase-client-prep/SKILL.md",
+   "skill_name": "chase-client-prep",
+   "variant": "old",
+   "query": "prep my 1:1 with a direct report",
+   "kind": "negative",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/chase-pipeline/SKILL.md",
+   "skill_name": "chase-pipeline",
+   "variant": "new",
+   "query": "run a pipeline review, health check on active deals",
+   "kind": "positive",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/chase-pipeline/SKILL.md",
+   "skill_name": "chase-pipeline",
+   "variant": "old",
+   "query": "check the health of my active deals and next actions",
+   "kind": "positive",
+   "qi": 2,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/chase-pipeline/SKILL.md",
+   "skill_name": "chase-pipeline",
+   "variant": "new",
+   "query": "check the health of my active deals and next actions",
+   "kind": "positive",
+   "qi": 2,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/chase-pipeline/SKILL.md",
+   "skill_name": "chase-pipeline",
+   "variant": "new",
+   "query": "show me my pipeline by stage with risk flags",
+   "kind": "positive",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/chase-pipeline/SKILL.md",
+   "skill_name": "chase-pipeline",
+   "variant": "old",
+   "query": "show me my pipeline by stage with risk flags",
+   "kind": "positive",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/chase-client-prep/SKILL.md",
+   "skill_name": "chase-client-prep",
+   "variant": "new",
+   "query": "pull account context for the upcoming client meeting",
+   "kind": "positive",
+   "qi": 2,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/chase-pipeline/SKILL.md",
+   "skill_name": "chase-pipeline",
+   "variant": "old",
+   "query": "pull the weekly pipeline snapshot from the PowerBI report",
+   "kind": "negative",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/chase-pipeline/SKILL.md",
+   "skill_name": "chase-pipeline",
+   "variant": "new",
+   "query": "pull the weekly pipeline snapshot from the PowerBI report",
+   "kind": "negative",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/chase-pipeline/SKILL.md",
+   "skill_name": "chase-pipeline",
+   "variant": "old",
+   "query": "review our quarterly rocks",
+   "kind": "negative",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/chase-win-loss/SKILL.md",
+   "skill_name": "chase-win-loss",
+   "variant": "old",
+   "query": "we lost the Acme deal, run a win/loss debrief",
+   "kind": "positive",
+   "qi": 0,
+   "result": true
+  },
+  {
+   "skill": ".claude/skills/chase-win-loss/SKILL.md",
+   "skill_name": "chase-win-loss",
+   "variant": "old",
+   "query": "do a post-decision analysis on the deal we just won",
+   "kind": "positive",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/chase-win-loss/SKILL.md",
+   "skill_name": "chase-win-loss",
+   "variant": "new",
+   "query": "we lost the Acme deal, run a win/loss debrief",
+   "kind": "positive",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/chase-win-loss/SKILL.md",
+   "skill_name": "chase-win-loss",
+   "variant": "new",
+   "query": "do a post-decision analysis on the deal we just won",
+   "kind": "positive",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/chase-pipeline/SKILL.md",
+   "skill_name": "chase-pipeline",
+   "variant": "new",
+   "query": "review our quarterly rocks",
+   "kind": "negative",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/chase-win-loss/SKILL.md",
+   "skill_name": "chase-win-loss",
+   "variant": "old",
+   "query": "debrief the loss and pull lessons for active pursuits",
+   "kind": "positive",
+   "qi": 2,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/chase-win-loss/SKILL.md",
+   "skill_name": "chase-win-loss",
+   "variant": "new",
+   "query": "debrief the loss and pull lessons for active pursuits",
+   "kind": "positive",
+   "qi": 2,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/chase-win-loss/SKILL.md",
+   "skill_name": "chase-win-loss",
+   "variant": "old",
+   "query": "how did we do against revenue target last month",
+   "kind": "negative",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/chase-win-loss/SKILL.md",
+   "skill_name": "chase-win-loss",
+   "variant": "new",
+   "query": "how did we do against revenue target last month",
+   "kind": "negative",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/chase-win-loss/SKILL.md",
+   "skill_name": "chase-win-loss",
+   "variant": "new",
+   "query": "review pipeline health on active deals",
+   "kind": "negative",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/chase-win-loss/SKILL.md",
+   "skill_name": "chase-win-loss",
+   "variant": "old",
+   "query": "review pipeline health on active deals",
+   "kind": "negative",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/chief-morning/SKILL.md",
+   "skill_name": "chief-morning",
+   "variant": "old",
+   "query": "give me my morning briefing",
+   "kind": "positive",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/chief-morning/SKILL.md",
+   "skill_name": "chief-morning",
+   "variant": "old",
+   "query": "brief me for the day, calendar and delegations due",
+   "kind": "positive",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/chief-morning/SKILL.md",
+   "skill_name": "chief-morning",
+   "variant": "new",
+   "query": "brief me for the day, calendar and delegations due",
+   "kind": "positive",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/chief-morning/SKILL.md",
+   "skill_name": "chief-morning",
+   "variant": "new",
+   "query": "give me my morning briefing",
+   "kind": "positive",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/chief-morning/SKILL.md",
+   "skill_name": "chief-morning",
+   "variant": "old",
+   "query": "what are my priorities and key context for today",
+   "kind": "positive",
+   "qi": 2,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/chief-morning/SKILL.md",
+   "skill_name": "chief-morning",
+   "variant": "new",
+   "query": "what are my priorities and key context for today",
+   "kind": "positive",
+   "qi": 2,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/chief-morning/SKILL.md",
+   "skill_name": "chief-morning",
+   "variant": "old",
+   "query": "prep me for my 2pm meeting",
+   "kind": "negative",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/chief-morning/SKILL.md",
+   "skill_name": "chief-morning",
+   "variant": "new",
+   "query": "prep me for my 2pm meeting",
+   "kind": "negative",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/chief-morning/SKILL.md",
+   "skill_name": "chief-morning",
+   "variant": "new",
+   "query": "review what got done today",
+   "kind": "negative",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/chief-prep/SKILL.md",
+   "skill_name": "chief-prep",
+   "variant": "new",
+   "query": "prep me for my upcoming meetings with attendee context",
+   "kind": "positive",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/chief-prep/SKILL.md",
+   "skill_name": "chief-prep",
+   "variant": "old",
+   "query": "prep me for my upcoming meetings with attendee context",
+   "kind": "positive",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/chief-morning/SKILL.md",
+   "skill_name": "chief-morning",
+   "variant": "old",
+   "query": "review what got done today",
+   "kind": "negative",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/chief-prep/SKILL.md",
+   "skill_name": "chief-prep",
+   "variant": "new",
+   "query": "run calendar prep for tomorrow's meetings",
+   "kind": "positive",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/chief-prep/SKILL.md",
+   "skill_name": "chief-prep",
+   "variant": "old",
+   "query": "run calendar prep for tomorrow's meetings",
+   "kind": "positive",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/chief-prep/SKILL.md",
+   "skill_name": "chief-prep",
+   "variant": "new",
+   "query": "pre-brief me for the meeting with the CTO",
+   "kind": "positive",
+   "qi": 2,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/chief-prep/SKILL.md",
+   "skill_name": "chief-prep",
+   "variant": "old",
+   "query": "pre-brief me for the meeting with the CTO",
+   "kind": "positive",
+   "qi": 2,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/chief-prep/SKILL.md",
+   "skill_name": "chief-prep",
+   "variant": "old",
+   "query": "give me the morning briefing",
+   "kind": "negative",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/chief-prep/SKILL.md",
+   "skill_name": "chief-prep",
+   "variant": "new",
+   "query": "give me the morning briefing",
+   "kind": "negative",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/chief-prep/SKILL.md",
+   "skill_name": "chief-prep",
+   "variant": "new",
+   "query": "draft talking points for my podcast interview",
+   "kind": "negative",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/chief-prep/SKILL.md",
+   "skill_name": "chief-prep",
+   "variant": "old",
+   "query": "draft talking points for my podcast interview",
+   "kind": "negative",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/chief-review/SKILL.md",
+   "skill_name": "chief-review",
+   "variant": "old",
+   "query": "run the end-of-day review",
+   "kind": "positive",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/chief-review/SKILL.md",
+   "skill_name": "chief-review",
+   "variant": "new",
+   "query": "run the end-of-day review",
+   "kind": "positive",
+   "qi": 0,
+   "result": true
+  },
+  {
+   "skill": ".claude/skills/chief-review/SKILL.md",
+   "skill_name": "chief-review",
+   "variant": "old",
+   "query": "capture what got done today and what carries forward",
+   "kind": "positive",
+   "qi": 1,
+   "result": true
+  },
+  {
+   "skill": ".claude/skills/chief-review/SKILL.md",
+   "skill_name": "chief-review",
+   "variant": "new",
+   "query": "capture what got done today and what carries forward",
+   "kind": "positive",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/chief-review/SKILL.md",
+   "skill_name": "chief-review",
+   "variant": "new",
+   "query": "end of day, what didn't I get to",
+   "kind": "positive",
+   "qi": 2,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/chief-review/SKILL.md",
+   "skill_name": "chief-review",
+   "variant": "new",
+   "query": "morning briefing please",
+   "kind": "negative",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/chief-review/SKILL.md",
+   "skill_name": "chief-review",
+   "variant": "old",
+   "query": "end of day, what didn't I get to",
+   "kind": "positive",
+   "qi": 2,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/chief-review/SKILL.md",
+   "skill_name": "chief-review",
+   "variant": "old",
+   "query": "morning briefing please",
+   "kind": "negative",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/chief-review/SKILL.md",
+   "skill_name": "chief-review",
+   "variant": "old",
+   "query": "show me the initiative tracker",
+   "kind": "negative",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/contact-targeting/SKILL.md",
+   "skill_name": "contact-targeting",
+   "variant": "old",
+   "query": "find contacts at these target accounts matching the buyer role",
+   "kind": "positive",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/chief-review/SKILL.md",
+   "skill_name": "chief-review",
+   "variant": "new",
+   "query": "show me the initiative tracker",
+   "kind": "negative",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/contact-targeting/SKILL.md",
+   "skill_name": "contact-targeting",
+   "variant": "old",
+   "query": "drill the account list into individual contacts, CRM first",
+   "kind": "positive",
+   "qi": 1,
+   "result": true
+  },
+  {
+   "skill": ".claude/skills/contact-targeting/SKILL.md",
+   "skill_name": "contact-targeting",
+   "variant": "new",
+   "query": "drill the account list into individual contacts, CRM first",
+   "kind": "positive",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/contact-targeting/SKILL.md",
+   "skill_name": "contact-targeting",
+   "variant": "old",
+   "query": "who should we reach out to at these accounts, LinkedIn as tie-breaker",
+   "kind": "positive",
+   "qi": 2,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/contact-targeting/SKILL.md",
+   "skill_name": "contact-targeting",
+   "variant": "new",
+   "query": "find contacts at these target accounts matching the buyer role",
+   "kind": "positive",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/contact-targeting/SKILL.md",
+   "skill_name": "contact-targeting",
+   "variant": "new",
+   "query": "who should we reach out to at these accounts, LinkedIn as tie-breaker",
+   "kind": "positive",
+   "qi": 2,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/contact-targeting/SKILL.md",
+   "skill_name": "contact-targeting",
+   "variant": "old",
+   "query": "find target accounts for this audience profile",
+   "kind": "negative",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/contact-targeting/SKILL.md",
+   "skill_name": "contact-targeting",
+   "variant": "new",
+   "query": "find target accounts for this audience profile",
+   "kind": "negative",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/contact-targeting/SKILL.md",
+   "skill_name": "contact-targeting",
+   "variant": "old",
+   "query": "draft the outreach message for this contact",
+   "kind": "negative",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/contact-targeting/SKILL.md",
+   "skill_name": "contact-targeting",
+   "variant": "new",
+   "query": "draft the outreach message for this contact",
+   "kind": "negative",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/galen-protocols/SKILL.md",
+   "skill_name": "galen-protocols",
+   "variant": "old",
+   "query": "manage my protocols, active supplement stack and peptide cycles",
+   "kind": "positive",
+   "qi": 0,
+   "result": true
+  },
+  {
+   "skill": ".claude/skills/galen-protocols/SKILL.md",
+   "skill_name": "galen-protocols",
+   "variant": "new",
+   "query": "manage my protocols, active supplement stack and peptide cycles",
+   "kind": "positive",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/galen-protocols/SKILL.md",
+   "skill_name": "galen-protocols",
+   "variant": "old",
+   "query": "check for conflicts and gaps in my current protocol stack",
+   "kind": "positive",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/galen-protocols/SKILL.md",
+   "skill_name": "galen-protocols",
+   "variant": "new",
+   "query": "check for conflicts and gaps in my current protocol stack",
+   "kind": "positive",
+   "qi": 1,
+   "result": true
+  },
+  {
+   "skill": ".claude/skills/galen-protocols/SKILL.md",
+   "skill_name": "galen-protocols",
+   "variant": "old",
+   "query": "when is my next peptide cycle reminder due",
+   "kind": "positive",
+   "qi": 2,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/galen-protocols/SKILL.md",
+   "skill_name": "galen-protocols",
+   "variant": "new",
+   "query": "when is my next peptide cycle reminder due",
+   "kind": "positive",
+   "qi": 2,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/galen-protocols/SKILL.md",
+   "skill_name": "galen-protocols",
+   "variant": "old",
+   "query": "how did I sleep last night",
+   "kind": "negative",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/galen-protocols/SKILL.md",
+   "skill_name": "galen-protocols",
+   "variant": "new",
+   "query": "how did I sleep last night",
+   "kind": "negative",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/galen-protocols/SKILL.md",
+   "skill_name": "galen-protocols",
+   "variant": "old",
+   "query": "interpret my Function Health bloodwork results",
+   "kind": "negative",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/harper-content-calendar/SKILL.md",
+   "skill_name": "harper-content-calendar",
+   "variant": "old",
+   "query": "update my content calendar with this commitment and deadline",
+   "kind": "positive",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/harper-content-calendar/SKILL.md",
+   "skill_name": "harper-content-calendar",
+   "variant": "old",
+   "query": "what's the status of my thought leadership commitments",
+   "kind": "positive",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/galen-protocols/SKILL.md",
+   "skill_name": "galen-protocols",
+   "variant": "new",
+   "query": "interpret my Function Health bloodwork results",
+   "kind": "negative",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/harper-content-calendar/SKILL.md",
+   "skill_name": "harper-content-calendar",
+   "variant": "new",
+   "query": "update my content calendar with this commitment and deadline",
+   "kind": "positive",
+   "qi": 0,
+   "result": true
+  },
+  {
+   "skill": ".claude/skills/harper-content-calendar/SKILL.md",
+   "skill_name": "harper-content-calendar",
+   "variant": "new",
+   "query": "what's the status of my thought leadership commitments",
+   "kind": "positive",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/harper-content-calendar/SKILL.md",
+   "skill_name": "harper-content-calendar",
+   "variant": "old",
+   "query": "recommend topics for my next piece based on my strategy",
+   "kind": "positive",
+   "qi": 2,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/harper-content-calendar/SKILL.md",
+   "skill_name": "harper-content-calendar",
+   "variant": "new",
+   "query": "recommend topics for my next piece based on my strategy",
+   "kind": "positive",
+   "qi": 2,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/harper-content-calendar/SKILL.md",
+   "skill_name": "harper-content-calendar",
+   "variant": "old",
+   "query": "review how I did hosting the last episode",
+   "kind": "negative",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/harper-content-calendar/SKILL.md",
+   "skill_name": "harper-content-calendar",
+   "variant": "new",
+   "query": "review how I did hosting the last episode",
+   "kind": "negative",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/harper-content-calendar/SKILL.md",
+   "skill_name": "harper-content-calendar",
+   "variant": "old",
+   "query": "draft the email to the editor",
+   "kind": "negative",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/harper-content/SKILL.md",
+   "skill_name": "harper-content",
+   "variant": "old",
+   "query": "plan and track my thought leadership output",
+   "kind": "positive",
+   "qi": 0,
+   "result": true
+  },
+  {
+   "skill": ".claude/skills/harper-content/SKILL.md",
+   "skill_name": "harper-content",
+   "variant": "new",
+   "query": "plan and track my thought leadership output",
+   "kind": "positive",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/harper-content-calendar/SKILL.md",
+   "skill_name": "harper-content-calendar",
+   "variant": "new",
+   "query": "draft the email to the editor",
+   "kind": "negative",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/harper-content/SKILL.md",
+   "skill_name": "harper-content",
+   "variant": "old",
+   "query": "help me plan my content pipeline for the quarter",
+   "kind": "positive",
+   "qi": 1,
+   "result": true
+  },
+  {
+   "skill": ".claude/skills/harper-content/SKILL.md",
+   "skill_name": "harper-content",
+   "variant": "old",
+   "query": "put this idea on the content calendar",
+   "kind": "positive",
+   "qi": 2,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/harper-content/SKILL.md",
+   "skill_name": "harper-content",
+   "variant": "old",
+   "query": "what are my content commitment deadlines and statuses",
+   "kind": "negative",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/harper-content/SKILL.md",
+   "skill_name": "harper-content",
+   "variant": "new",
+   "query": "help me plan my content pipeline for the quarter",
+   "kind": "positive",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/harper-content/SKILL.md",
+   "skill_name": "harper-content",
+   "variant": "new",
+   "query": "what are my content commitment deadlines and statuses",
+   "kind": "negative",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/harper-content/SKILL.md",
+   "skill_name": "harper-content",
+   "variant": "new",
+   "query": "put this idea on the content calendar",
+   "kind": "positive",
+   "qi": 2,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/harper-content/SKILL.md",
+   "skill_name": "harper-content",
+   "variant": "old",
+   "query": "generate episode prep docs for the podcast",
+   "kind": "negative",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/harper-content/SKILL.md",
+   "skill_name": "harper-content",
+   "variant": "new",
+   "query": "generate episode prep docs for the podcast",
+   "kind": "negative",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/harper-deck/SKILL.md",
+   "skill_name": "harper-deck",
+   "variant": "old",
+   "query": "build a deck from this outline",
+   "kind": "positive",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/harper-deck/SKILL.md",
+   "skill_name": "harper-deck",
+   "variant": "new",
+   "query": "create a slide deck from my strategy document",
+   "kind": "positive",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/harper-deck/SKILL.md",
+   "skill_name": "harper-deck",
+   "variant": "new",
+   "query": "refine my presentation for the board review",
+   "kind": "positive",
+   "qi": 2,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/harper-deck/SKILL.md",
+   "skill_name": "harper-deck",
+   "variant": "old",
+   "query": "refine my presentation for the board review",
+   "kind": "positive",
+   "qi": 2,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/harper-deck/SKILL.md",
+   "skill_name": "harper-deck",
+   "variant": "new",
+   "query": "build a deck from this outline",
+   "kind": "positive",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/harper-deck/SKILL.md",
+   "skill_name": "harper-deck",
+   "variant": "old",
+   "query": "create a slide deck from my strategy document",
+   "kind": "positive",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/harper-deck/SKILL.md",
+   "skill_name": "harper-deck",
+   "variant": "old",
+   "query": "turn these talking points into a polished slide-by-slide structure",
+   "kind": "negative",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/harper-deck/SKILL.md",
+   "skill_name": "harper-deck",
+   "variant": "new",
+   "query": "turn these talking points into a polished slide-by-slide structure",
+   "kind": "negative",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/harper-deck/SKILL.md",
+   "skill_name": "harper-deck",
+   "variant": "old",
+   "query": "draft talking points for the town hall",
+   "kind": "negative",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/harper-email/SKILL.md",
+   "skill_name": "harper-email",
+   "variant": "old",
+   "query": "draft an email to my CFO about the budget request",
+   "kind": "positive",
+   "qi": 0,
+   "result": true
+  },
+  {
+   "skill": ".claude/skills/harper-email/SKILL.md",
+   "skill_name": "harper-email",
+   "variant": "new",
+   "query": "draft an email to my CFO about the budget request",
+   "kind": "positive",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/harper-email/SKILL.md",
+   "skill_name": "harper-email",
+   "variant": "new",
+   "query": "write a follow-up email to the client, professional tone",
+   "kind": "positive",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/harper-email/SKILL.md",
+   "skill_name": "harper-email",
+   "variant": "old",
+   "query": "write a follow-up email to the client, professional tone",
+   "kind": "positive",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/harper-email/SKILL.md",
+   "skill_name": "harper-email",
+   "variant": "old",
+   "query": "draft this email for a difficult conversation with my report",
+   "kind": "positive",
+   "qi": 2,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/harper-deck/SKILL.md",
+   "skill_name": "harper-deck",
+   "variant": "new",
+   "query": "draft talking points for the town hall",
+   "kind": "negative",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/harper-email/SKILL.md",
+   "skill_name": "harper-email",
+   "variant": "old",
+   "query": "draft the cold outreach for the campaign contact",
+   "kind": "negative",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/harper-email/SKILL.md",
+   "skill_name": "harper-email",
+   "variant": "new",
+   "query": "draft this email for a difficult conversation with my report",
+   "kind": "positive",
+   "qi": 2,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/harper-email/SKILL.md",
+   "skill_name": "harper-email",
+   "variant": "old",
+   "query": "give me talking points for the panel",
+   "kind": "negative",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/harper-podcast-prep/SKILL.md",
+   "skill_name": "harper-podcast-prep",
+   "variant": "new",
+   "query": "generate the prep doc for the next Improving Edge episode",
+   "kind": "positive",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/harper-podcast-prep/SKILL.md",
+   "skill_name": "harper-podcast-prep",
+   "variant": "old",
+   "query": "generate the prep doc for the next Improving Edge episode",
+   "kind": "positive",
+   "qi": 0,
+   "result": true
+  },
+  {
+   "skill": ".claude/skills/harper-podcast-prep/SKILL.md",
+   "skill_name": "harper-podcast-prep",
+   "variant": "old",
+   "query": "build the reference sheet and one-pager for my podcast guest",
+   "kind": "positive",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/harper-email/SKILL.md",
+   "skill_name": "harper-email",
+   "variant": "new",
+   "query": "draft the cold outreach for the campaign contact",
+   "kind": "negative",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/harper-email/SKILL.md",
+   "skill_name": "harper-email",
+   "variant": "new",
+   "query": "give me talking points for the panel",
+   "kind": "negative",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/harper-podcast-prep/SKILL.md",
+   "skill_name": "harper-podcast-prep",
+   "variant": "old",
+   "query": "prep me for episode 42 of the podcast",
+   "kind": "positive",
+   "qi": 2,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/harper-podcast-prep/SKILL.md",
+   "skill_name": "harper-podcast-prep",
+   "variant": "new",
+   "query": "build the reference sheet and one-pager for my podcast guest",
+   "kind": "positive",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/harper-podcast-prep/SKILL.md",
+   "skill_name": "harper-podcast-prep",
+   "variant": "new",
+   "query": "prep me for episode 42 of the podcast",
+   "kind": "positive",
+   "qi": 2,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/harper-podcast-prep/SKILL.md",
+   "skill_name": "harper-podcast-prep",
+   "variant": "old",
+   "query": "extract pain points from this episode transcript",
+   "kind": "negative",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/harper-podcast-prep/SKILL.md",
+   "skill_name": "harper-podcast-prep",
+   "variant": "old",
+   "query": "review how I did as host on the last episode",
+   "kind": "negative",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/harper-podcast-prep/SKILL.md",
+   "skill_name": "harper-podcast-prep",
+   "variant": "new",
+   "query": "extract pain points from this episode transcript",
+   "kind": "negative",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/harper-podcast-prep/SKILL.md",
+   "skill_name": "harper-podcast-prep",
+   "variant": "new",
+   "query": "review how I did as host on the last episode",
+   "kind": "negative",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/harper-presentation/SKILL.md",
+   "skill_name": "harper-presentation",
+   "variant": "old",
+   "query": "turn these talking points into a polished slide-by-slide structure",
+   "kind": "positive",
+   "qi": 0,
+   "result": true
+  },
+  {
+   "skill": ".claude/skills/harper-presentation/SKILL.md",
+   "skill_name": "harper-presentation",
+   "variant": "old",
+   "query": "convert my strategy doc into a deck structure calibrated to my voice",
+   "kind": "positive",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/harper-presentation/SKILL.md",
+   "skill_name": "harper-presentation",
+   "variant": "new",
+   "query": "turn these talking points into a polished slide-by-slide structure",
+   "kind": "positive",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/harper-presentation/SKILL.md",
+   "skill_name": "harper-presentation",
+   "variant": "new",
+   "query": "convert my strategy doc into a deck structure calibrated to my voice",
+   "kind": "positive",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/harper-presentation/SKILL.md",
+   "skill_name": "harper-presentation",
+   "variant": "old",
+   "query": "package this as an actual pptx file from the outline",
+   "kind": "negative",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/harper-presentation/SKILL.md",
+   "skill_name": "harper-presentation",
+   "variant": "new",
+   "query": "package this as an actual pptx file from the outline",
+   "kind": "negative",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/harper-presentation/SKILL.md",
+   "skill_name": "harper-presentation",
+   "variant": "new",
+   "query": "structure the outline into presentation slides",
+   "kind": "positive",
+   "qi": 2,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/harper-presentation/SKILL.md",
+   "skill_name": "harper-presentation",
+   "variant": "old",
+   "query": "structure the outline into presentation slides",
+   "kind": "positive",
+   "qi": 2,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/harper-presentation/SKILL.md",
+   "skill_name": "harper-presentation",
+   "variant": "old",
+   "query": "prep leadership materials for the board meeting",
+   "kind": "negative",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/harper-talking-points/SKILL.md",
+   "skill_name": "harper-talking-points",
+   "variant": "old",
+   "query": "draft talking points for my panel appearance",
+   "kind": "positive",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/harper-talking-points/SKILL.md",
+   "skill_name": "harper-talking-points",
+   "variant": "new",
+   "query": "give me crisp talking points for the town hall",
+   "kind": "positive",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/harper-presentation/SKILL.md",
+   "skill_name": "harper-presentation",
+   "variant": "new",
+   "query": "prep leadership materials for the board meeting",
+   "kind": "negative",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/harper-talking-points/SKILL.md",
+   "skill_name": "harper-talking-points",
+   "variant": "old",
+   "query": "pull together talking points for the customer keynote",
+   "kind": "positive",
+   "qi": 2,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/harper-talking-points/SKILL.md",
+   "skill_name": "harper-talking-points",
+   "variant": "new",
+   "query": "pull together talking points for the customer keynote",
+   "kind": "positive",
+   "qi": 2,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/harper-talking-points/SKILL.md",
+   "skill_name": "harper-talking-points",
+   "variant": "old",
+   "query": "give me crisp talking points for the town hall",
+   "kind": "positive",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/harper-talking-points/SKILL.md",
+   "skill_name": "harper-talking-points",
+   "variant": "new",
+   "query": "draft talking points for my panel appearance",
+   "kind": "positive",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/harper-talking-points/SKILL.md",
+   "skill_name": "harper-talking-points",
+   "variant": "new",
+   "query": "draft an email to the sponsor",
+   "kind": "negative",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/harper-talking-points/SKILL.md",
+   "skill_name": "harper-talking-points",
+   "variant": "old",
+   "query": "draft an email to the sponsor",
+   "kind": "negative",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/harper-talking-points/SKILL.md",
+   "skill_name": "harper-talking-points",
+   "variant": "old",
+   "query": "build a deck from these points",
+   "kind": "negative",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/omnifocus-tasks/SKILL.md",
+   "skill_name": "omnifocus-tasks",
+   "variant": "old",
+   "query": "create an OmniFocus task to review the deck on Friday",
+   "kind": "positive",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/omnifocus-tasks/SKILL.md",
+   "skill_name": "omnifocus-tasks",
+   "variant": "new",
+   "query": "create an OmniFocus task to review the deck on Friday",
+   "kind": "positive",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/omnifocus-tasks/SKILL.md",
+   "skill_name": "omnifocus-tasks",
+   "variant": "old",
+   "query": "add a task to my week: call the bank",
+   "kind": "positive",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/omnifocus-tasks/SKILL.md",
+   "skill_name": "omnifocus-tasks",
+   "variant": "new",
+   "query": "add a task to my week: call the bank",
+   "kind": "positive",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/harper-talking-points/SKILL.md",
+   "skill_name": "harper-talking-points",
+   "variant": "new",
+   "query": "build a deck from these points",
+   "kind": "negative",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/omnifocus-tasks/SKILL.md",
+   "skill_name": "omnifocus-tasks",
+   "variant": "old",
+   "query": "new task: renew the domain next month",
+   "kind": "positive",
+   "qi": 2,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/omnifocus-tasks/SKILL.md",
+   "skill_name": "omnifocus-tasks",
+   "variant": "old",
+   "query": "check my tasks, what's on my plate",
+   "kind": "negative",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/omnifocus-tasks/SKILL.md",
+   "skill_name": "omnifocus-tasks",
+   "variant": "new",
+   "query": "check my tasks, what's on my plate",
+   "kind": "negative",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/omnifocus-tasks/SKILL.md",
+   "skill_name": "omnifocus-tasks",
+   "variant": "new",
+   "query": "surface my overdue delegations",
+   "kind": "negative",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/omnifocus-tasks/SKILL.md",
+   "skill_name": "omnifocus-tasks",
+   "variant": "old",
+   "query": "surface my overdue delegations",
+   "kind": "negative",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/quinn-alignment/SKILL.md",
+   "skill_name": "quinn-alignment",
+   "variant": "old",
+   "query": "check whether my current activity aligns with my quarterly goals",
+   "kind": "positive",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/quinn-alignment/SKILL.md",
+   "skill_name": "quinn-alignment",
+   "variant": "new",
+   "query": "check whether my current activity aligns with my quarterly goals",
+   "kind": "positive",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/quinn-alignment/SKILL.md",
+   "skill_name": "quinn-alignment",
+   "variant": "old",
+   "query": "map what I'm doing against the annual plan and identify drift",
+   "kind": "positive",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/omnifocus-tasks/SKILL.md",
+   "skill_name": "omnifocus-tasks",
+   "variant": "new",
+   "query": "new task: renew the domain next month",
+   "kind": "positive",
+   "qi": 2,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/quinn-alignment/SKILL.md",
+   "skill_name": "quinn-alignment",
+   "variant": "old",
+   "query": "are we drifting from the quarterly goals",
+   "kind": "positive",
+   "qi": 2,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/quinn-alignment/SKILL.md",
+   "skill_name": "quinn-alignment",
+   "variant": "new",
+   "query": "map what I'm doing against the annual plan and identify drift",
+   "kind": "positive",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/quinn-alignment/SKILL.md",
+   "skill_name": "quinn-alignment",
+   "variant": "new",
+   "query": "are we drifting from the quarterly goals",
+   "kind": "positive",
+   "qi": 2,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/quinn-alignment/SKILL.md",
+   "skill_name": "quinn-alignment",
+   "variant": "old",
+   "query": "prep my weekly review",
+   "kind": "negative",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/quinn-alignment/SKILL.md",
+   "skill_name": "quinn-alignment",
+   "variant": "old",
+   "query": "review quarterly rock progress with risk flags",
+   "kind": "negative",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/quinn-initiatives/SKILL.md",
+   "skill_name": "quinn-initiatives",
+   "variant": "old",
+   "query": "show me the initiative tracker, who owns what and blockers",
+   "kind": "positive",
+   "qi": 0,
+   "result": true
+  },
+  {
+   "skill": ".claude/skills/quinn-alignment/SKILL.md",
+   "skill_name": "quinn-alignment",
+   "variant": "new",
+   "query": "review quarterly rock progress with risk flags",
+   "kind": "negative",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/quinn-initiatives/SKILL.md",
+   "skill_name": "quinn-initiatives",
+   "variant": "new",
+   "query": "show me the initiative tracker, who owns what and blockers",
+   "kind": "positive",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/quinn-initiatives/SKILL.md",
+   "skill_name": "quinn-initiatives",
+   "variant": "old",
+   "query": "what's the status of our strategic initiatives",
+   "kind": "positive",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/quinn-initiatives/SKILL.md",
+   "skill_name": "quinn-initiatives",
+   "variant": "new",
+   "query": "what's the status of our strategic initiatives",
+   "kind": "positive",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/quinn-alignment/SKILL.md",
+   "skill_name": "quinn-alignment",
+   "variant": "new",
+   "query": "prep my weekly review",
+   "kind": "negative",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/quinn-initiatives/SKILL.md",
+   "skill_name": "quinn-initiatives",
+   "variant": "old",
+   "query": "update the initiative board with the new owner",
+   "kind": "positive",
+   "qi": 2,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/quinn-initiatives/SKILL.md",
+   "skill_name": "quinn-initiatives",
+   "variant": "new",
+   "query": "check goal alignment against the quarter",
+   "kind": "negative",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/quinn-initiatives/SKILL.md",
+   "skill_name": "quinn-initiatives",
+   "variant": "old",
+   "query": "check goal alignment against the quarter",
+   "kind": "negative",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/quinn-initiatives/SKILL.md",
+   "skill_name": "quinn-initiatives",
+   "variant": "new",
+   "query": "update the initiative board with the new owner",
+   "kind": "positive",
+   "qi": 2,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/quinn-initiatives/SKILL.md",
+   "skill_name": "quinn-initiatives",
+   "variant": "old",
+   "query": "prep materials for the board meeting",
+   "kind": "negative",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/quinn-initiatives/SKILL.md",
+   "skill_name": "quinn-initiatives",
+   "variant": "new",
+   "query": "prep materials for the board meeting",
+   "kind": "negative",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/quinn-leadership-prep/SKILL.md",
+   "skill_name": "quinn-leadership-prep",
+   "variant": "old",
+   "query": "build the materials for next month's board meeting",
+   "kind": "positive",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/quinn-leadership-prep/SKILL.md",
+   "skill_name": "quinn-leadership-prep",
+   "variant": "new",
+   "query": "build the materials for next month's board meeting",
+   "kind": "positive",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/quinn-leadership-prep/SKILL.md",
+   "skill_name": "quinn-leadership-prep",
+   "variant": "old",
+   "query": "prep my leadership review materials for the executive team",
+   "kind": "positive",
+   "qi": 1,
+   "result": true
+  },
+  {
+   "skill": ".claude/skills/quinn-leadership-prep/SKILL.md",
+   "skill_name": "quinn-leadership-prep",
+   "variant": "new",
+   "query": "prep my leadership review materials for the executive team",
+   "kind": "positive",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/quinn-leadership-prep/SKILL.md",
+   "skill_name": "quinn-leadership-prep",
+   "variant": "new",
+   "query": "assemble town hall materials",
+   "kind": "positive",
+   "qi": 2,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/quinn-leadership-prep/SKILL.md",
+   "skill_name": "quinn-leadership-prep",
+   "variant": "old",
+   "query": "assemble town hall materials",
+   "kind": "positive",
+   "qi": 2,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/quinn-leadership-prep/SKILL.md",
+   "skill_name": "quinn-leadership-prep",
+   "variant": "new",
+   "query": "build a slide deck from my product outline",
+   "kind": "negative",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/quinn-leadership-prep/SKILL.md",
+   "skill_name": "quinn-leadership-prep",
+   "variant": "old",
+   "query": "build a slide deck from my product outline",
+   "kind": "negative",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/quinn-leadership-prep/SKILL.md",
+   "skill_name": "quinn-leadership-prep",
+   "variant": "old",
+   "query": "draft talking points for the panel",
+   "kind": "negative",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/quinn-rocks/SKILL.md",
+   "skill_name": "quinn-rocks",
+   "variant": "old",
+   "query": "review our quarterly rocks, progress and risk flags",
+   "kind": "positive",
+   "qi": 0,
+   "result": true
+  },
+  {
+   "skill": ".claude/skills/quinn-rocks/SKILL.md",
+   "skill_name": "quinn-rocks",
+   "variant": "new",
+   "query": "review our quarterly rocks, progress and risk flags",
+   "kind": "positive",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/quinn-rocks/SKILL.md",
+   "skill_name": "quinn-rocks",
+   "variant": "old",
+   "query": "how are the rocks tracking this quarter, any corrective actions needed",
+   "kind": "positive",
+   "qi": 1,
+   "result": true
+  },
+  {
+   "skill": ".claude/skills/quinn-rocks/SKILL.md",
+   "skill_name": "quinn-rocks",
+   "variant": "new",
+   "query": "how are the rocks tracking this quarter, any corrective actions needed",
+   "kind": "positive",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/quinn-leadership-prep/SKILL.md",
+   "skill_name": "quinn-leadership-prep",
+   "variant": "new",
+   "query": "draft talking points for the panel",
+   "kind": "negative",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/quinn-rocks/SKILL.md",
+   "skill_name": "quinn-rocks",
+   "variant": "old",
+   "query": "run the quarterly rock review",
+   "kind": "positive",
+   "qi": 2,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/quinn-rocks/SKILL.md",
+   "skill_name": "quinn-rocks",
+   "variant": "old",
+   "query": "check alignment of my activity with annual goals",
+   "kind": "negative",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/quinn-rocks/SKILL.md",
+   "skill_name": "quinn-rocks",
+   "variant": "new",
+   "query": "run the quarterly rock review",
+   "kind": "positive",
+   "qi": 2,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/quinn-rocks/SKILL.md",
+   "skill_name": "quinn-rocks",
+   "variant": "new",
+   "query": "check alignment of my activity with annual goals",
+   "kind": "negative",
+   "qi": 0,
+   "result": true
+  },
+  {
+   "skill": ".claude/skills/quinn-rocks/SKILL.md",
+   "skill_name": "quinn-rocks",
+   "variant": "old",
+   "query": "show the initiative tracker",
+   "kind": "negative",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/quinn-rocks/SKILL.md",
+   "skill_name": "quinn-rocks",
+   "variant": "new",
+   "query": "show the initiative tracker",
+   "kind": "negative",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/quinn-weekly-review/SKILL.md",
+   "skill_name": "quinn-weekly-review",
+   "variant": "old",
+   "query": "prep my weekly review",
+   "kind": "positive",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/quinn-weekly-review/SKILL.md",
+   "skill_name": "quinn-weekly-review",
+   "variant": "new",
+   "query": "prep my weekly review",
+   "kind": "positive",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/quinn-weekly-review/SKILL.md",
+   "skill_name": "quinn-weekly-review",
+   "variant": "new",
+   "query": "assemble everything for my weekly review, delegations and rock progress",
+   "kind": "positive",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/quinn-weekly-review/SKILL.md",
+   "skill_name": "quinn-weekly-review",
+   "variant": "old",
+   "query": "assemble everything for my weekly review, delegations and rock progress",
+   "kind": "positive",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/quinn-weekly-review/SKILL.md",
+   "skill_name": "quinn-weekly-review",
+   "variant": "old",
+   "query": "how was my week",
+   "kind": "positive",
+   "qi": 2,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/quinn-weekly-review/SKILL.md",
+   "skill_name": "quinn-weekly-review",
+   "variant": "new",
+   "query": "how was my week",
+   "kind": "positive",
+   "qi": 2,
+   "result": true
+  },
+  {
+   "skill": ".claude/skills/quinn-weekly-review/SKILL.md",
+   "skill_name": "quinn-weekly-review",
+   "variant": "new",
+   "query": "run the end-of-day review",
+   "kind": "negative",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/quinn-weekly-review/SKILL.md",
+   "skill_name": "quinn-weekly-review",
+   "variant": "old",
+   "query": "review the quarterly rocks in detail",
+   "kind": "negative",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/quinn-weekly-review/SKILL.md",
+   "skill_name": "quinn-weekly-review",
+   "variant": "new",
+   "query": "review the quarterly rocks in detail",
+   "kind": "negative",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/rigby-eval-grade/SKILL.md",
+   "skill_name": "rigby-eval-grade",
+   "variant": "old",
+   "query": "grade these eval records on demand",
+   "kind": "positive",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/rigby-eval-grade/SKILL.md",
+   "skill_name": "rigby-eval-grade",
+   "variant": "old",
+   "query": "run Tier 3 assessment on this workflow's evals",
+   "kind": "positive",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/rigby-eval-grade/SKILL.md",
+   "skill_name": "rigby-eval-grade",
+   "variant": "new",
+   "query": "grade these eval records on demand",
+   "kind": "positive",
+   "qi": 0,
+   "result": true
+  },
+  {
+   "skill": ".claude/skills/quinn-weekly-review/SKILL.md",
+   "skill_name": "quinn-weekly-review",
+   "variant": "old",
+   "query": "run the end-of-day review",
+   "kind": "negative",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/rigby-eval-grade/SKILL.md",
+   "skill_name": "rigby-eval-grade",
+   "variant": "new",
+   "query": "run Tier 3 assessment on this workflow's evals",
+   "kind": "positive",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/rigby-eval-grade/SKILL.md",
+   "skill_name": "rigby-eval-grade",
+   "variant": "old",
+   "query": "on-demand grade the eval record from yesterday",
+   "kind": "positive",
+   "qi": 2,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/rigby-eval-grade/SKILL.md",
+   "skill_name": "rigby-eval-grade",
+   "variant": "new",
+   "query": "on-demand grade the eval record from yesterday",
+   "kind": "positive",
+   "qi": 2,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/rigby-eval-grade/SKILL.md",
+   "skill_name": "rigby-eval-grade",
+   "variant": "old",
+   "query": "analyze eval records for patterns and trends",
+   "kind": "negative",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/rigby-eval-grade/SKILL.md",
+   "skill_name": "rigby-eval-grade",
+   "variant": "new",
+   "query": "analyze eval records for patterns and trends",
+   "kind": "negative",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/rigby-eval-grade/SKILL.md",
+   "skill_name": "rigby-eval-grade",
+   "variant": "old",
+   "query": "generate the eval dashboard",
+   "kind": "negative",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/rigby-eval-grade/SKILL.md",
+   "skill_name": "rigby-eval-grade",
+   "variant": "new",
+   "query": "generate the eval dashboard",
+   "kind": "negative",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/rigby-impact/SKILL.md",
+   "skill_name": "rigby-impact",
+   "variant": "old",
+   "query": "what references this skill before I change it",
+   "kind": "positive",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/rigby-impact/SKILL.md",
+   "skill_name": "rigby-impact",
+   "variant": "new",
+   "query": "what references this skill before I change it",
+   "kind": "positive",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/rigby-impact/SKILL.md",
+   "skill_name": "rigby-impact",
+   "variant": "old",
+   "query": "run impact analysis on deleting this workflow step",
+   "kind": "positive",
+   "qi": 1,
+   "result": true
+  },
+  {
+   "skill": ".claude/skills/rigby-impact/SKILL.md",
+   "skill_name": "rigby-impact",
+   "variant": "new",
+   "query": "run impact analysis on deleting this workflow step",
+   "kind": "positive",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/rigby-impact/SKILL.md",
+   "skill_name": "rigby-impact",
+   "variant": "old",
+   "query": "what depends on this file, check before the edit",
+   "kind": "positive",
+   "qi": 2,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/rigby-impact/SKILL.md",
+   "skill_name": "rigby-impact",
+   "variant": "old",
+   "query": "scan the system for inconsistencies",
+   "kind": "negative",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/rigby-impact/SKILL.md",
+   "skill_name": "rigby-impact",
+   "variant": "new",
+   "query": "what depends on this file, check before the edit",
+   "kind": "positive",
+   "qi": 2,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/rigby-impact/SKILL.md",
+   "skill_name": "rigby-impact",
+   "variant": "new",
+   "query": "scan the system for inconsistencies",
+   "kind": "negative",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/rigby-impact/SKILL.md",
+   "skill_name": "rigby-impact",
+   "variant": "old",
+   "query": "show pending unpackaged capability changes",
+   "kind": "negative",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/rigby-impact/SKILL.md",
+   "skill_name": "rigby-impact",
+   "variant": "new",
+   "query": "show pending unpackaged capability changes",
+   "kind": "negative",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/rigby-integrity/SKILL.md",
+   "skill_name": "rigby-integrity",
+   "variant": "old",
+   "query": "run a system integrity scan across IES",
+   "kind": "positive",
+   "qi": 0,
+   "result": true
+  },
+  {
+   "skill": ".claude/skills/rigby-integrity/SKILL.md",
+   "skill_name": "rigby-integrity",
+   "variant": "new",
+   "query": "run a system integrity scan across IES",
+   "kind": "positive",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/rigby-integrity/SKILL.md",
+   "skill_name": "rigby-integrity",
+   "variant": "old",
+   "query": "check all IES files for inconsistencies",
+   "kind": "positive",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/rigby-integrity/SKILL.md",
+   "skill_name": "rigby-integrity",
+   "variant": "new",
+   "query": "check all IES files for inconsistencies",
+   "kind": "positive",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/rigby-integrity/SKILL.md",
+   "skill_name": "rigby-integrity",
+   "variant": "new",
+   "query": "scan for integrity issues and write the findings log",
+   "kind": "positive",
+   "qi": 2,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/rigby-integrity/SKILL.md",
+   "skill_name": "rigby-integrity",
+   "variant": "old",
+   "query": "scan for integrity issues and write the findings log",
+   "kind": "positive",
+   "qi": 2,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/rigby-integrity/SKILL.md",
+   "skill_name": "rigby-integrity",
+   "variant": "old",
+   "query": "run impact analysis before deleting this skill",
+   "kind": "negative",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/rigby-integrity/SKILL.md",
+   "skill_name": "rigby-integrity",
+   "variant": "old",
+   "query": "analyze the error log for recurring patterns",
+   "kind": "negative",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/rigby-integrity/SKILL.md",
+   "skill_name": "rigby-integrity",
+   "variant": "new",
+   "query": "analyze the error log for recurring patterns",
+   "kind": "negative",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/rigby-package-create/SKILL.md",
+   "skill_name": "rigby-package-create",
+   "variant": "old",
+   "query": "package my custom agents and skills for contribution",
+   "kind": "positive",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/rigby-integrity/SKILL.md",
+   "skill_name": "rigby-integrity",
+   "variant": "new",
+   "query": "run impact analysis before deleting this skill",
+   "kind": "negative",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/rigby-package-create/SKILL.md",
+   "skill_name": "rigby-package-create",
+   "variant": "new",
+   "query": "package my custom agents and skills for contribution",
+   "kind": "positive",
+   "qi": 0,
+   "result": true
+  },
+  {
+   "skill": ".claude/skills/rigby-package-create/SKILL.md",
+   "skill_name": "rigby-package-create",
+   "variant": "old",
+   "query": "discover and package my workflows for the IES ecosystem",
+   "kind": "positive",
+   "qi": 1,
+   "result": true
+  },
+  {
+   "skill": ".claude/skills/rigby-package-create/SKILL.md",
+   "skill_name": "rigby-package-create",
+   "variant": "old",
+   "query": "build a contribution package from my custom work",
+   "kind": "positive",
+   "qi": 2,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/rigby-package-create/SKILL.md",
+   "skill_name": "rigby-package-create",
+   "variant": "new",
+   "query": "discover and package my workflows for the IES ecosystem",
+   "kind": "positive",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/rigby-package-create/SKILL.md",
+   "skill_name": "rigby-package-create",
+   "variant": "new",
+   "query": "build a contribution package from my custom work",
+   "kind": "positive",
+   "qi": 2,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/rigby-package-create/SKILL.md",
+   "skill_name": "rigby-package-create",
+   "variant": "old",
+   "query": "submit the package to Improving for review",
+   "kind": "negative",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/rigby-package-create/SKILL.md",
+   "skill_name": "rigby-package-create",
+   "variant": "new",
+   "query": "submit the package to Improving for review",
+   "kind": "negative",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/rigby-package-create/SKILL.md",
+   "skill_name": "rigby-package-create",
+   "variant": "old",
+   "query": "install the downloaded company package",
+   "kind": "negative",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/rigby-package-create/SKILL.md",
+   "skill_name": "rigby-package-create",
+   "variant": "new",
+   "query": "install the downloaded company package",
+   "kind": "negative",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/rigby-register/SKILL.md",
+   "skill_name": "rigby-register",
+   "variant": "old",
+   "query": "register this IES instance with Improving's Entra ID",
+   "kind": "positive",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/rigby-register/SKILL.md",
+   "skill_name": "rigby-register",
+   "variant": "old",
+   "query": "authenticate the instance using device code flow",
+   "kind": "positive",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/rigby-register/SKILL.md",
+   "skill_name": "rigby-register",
+   "variant": "new",
+   "query": "authenticate the instance using device code flow",
+   "kind": "positive",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/rigby-register/SKILL.md",
+   "skill_name": "rigby-register",
+   "variant": "new",
+   "query": "register this IES instance with Improving's Entra ID",
+   "kind": "positive",
+   "qi": 0,
+   "result": true
+  },
+  {
+   "skill": ".claude/skills/rigby-register/SKILL.md",
+   "skill_name": "rigby-register",
+   "variant": "new",
+   "query": "self-heal the expired credentials, re-register",
+   "kind": "positive",
+   "qi": 2,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/rigby-register/SKILL.md",
+   "skill_name": "rigby-register",
+   "variant": "old",
+   "query": "self-heal the expired credentials, re-register",
+   "kind": "positive",
+   "qi": 2,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/rigby-register/SKILL.md",
+   "skill_name": "rigby-register",
+   "variant": "old",
+   "query": "verify the newly installed connector works",
+   "kind": "negative",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/rigby-register/SKILL.md",
+   "skill_name": "rigby-register",
+   "variant": "old",
+   "query": "package my changes for contribution",
+   "kind": "negative",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/rigby-register/SKILL.md",
+   "skill_name": "rigby-register",
+   "variant": "new",
+   "query": "verify the newly installed connector works",
+   "kind": "negative",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/rigby-register/SKILL.md",
+   "skill_name": "rigby-register",
+   "variant": "new",
+   "query": "package my changes for contribution",
+   "kind": "negative",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/shep-delegations/SKILL.md",
+   "skill_name": "shep-delegations",
+   "variant": "old",
+   "query": "show me all active delegations with overdue flags",
+   "kind": "positive",
+   "qi": 0,
+   "result": true
+  },
+  {
+   "skill": ".claude/skills/shep-delegations/SKILL.md",
+   "skill_name": "shep-delegations",
+   "variant": "new",
+   "query": "show me all active delegations with overdue flags",
+   "kind": "positive",
+   "qi": 0,
+   "result": true
+  },
+  {
+   "skill": ".claude/skills/shep-delegations/SKILL.md",
+   "skill_name": "shep-delegations",
+   "variant": "new",
+   "query": "full view of my delegation tracker",
+   "kind": "positive",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/shep-delegations/SKILL.md",
+   "skill_name": "shep-delegations",
+   "variant": "old",
+   "query": "full view of my delegation tracker",
+   "kind": "positive",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/shep-delegations/SKILL.md",
+   "skill_name": "shep-delegations",
+   "variant": "old",
+   "query": "which delegated items are overdue and need follow-up",
+   "kind": "positive",
+   "qi": 2,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/shep-delegations/SKILL.md",
+   "skill_name": "shep-delegations",
+   "variant": "new",
+   "query": "which delegated items are overdue and need follow-up",
+   "kind": "positive",
+   "qi": 2,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/shep-delegations/SKILL.md",
+   "skill_name": "shep-delegations",
+   "variant": "new",
+   "query": "draft a nudge to the team about overdue items",
+   "kind": "negative",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/shep-delegations/SKILL.md",
+   "skill_name": "shep-delegations",
+   "variant": "old",
+   "query": "draft a nudge to the team about overdue items",
+   "kind": "negative",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/shep-delegations/SKILL.md",
+   "skill_name": "shep-delegations",
+   "variant": "old",
+   "query": "prep my 1:1 with Sarah",
+   "kind": "negative",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/shep-delegations/SKILL.md",
+   "skill_name": "shep-delegations",
+   "variant": "new",
+   "query": "prep my 1:1 with Sarah",
+   "kind": "negative",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/shep-nudge/SKILL.md",
+   "skill_name": "shep-nudge",
+   "variant": "new",
+   "query": "draft follow-up nudges for the overdue delegations",
+   "kind": "positive",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/shep-nudge/SKILL.md",
+   "skill_name": "shep-nudge",
+   "variant": "old",
+   "query": "draft follow-up nudges for the overdue delegations",
+   "kind": "positive",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/shep-nudge/SKILL.md",
+   "skill_name": "shep-nudge",
+   "variant": "old",
+   "query": "nudge the team about the late deliverable",
+   "kind": "positive",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/shep-nudge/SKILL.md",
+   "skill_name": "shep-nudge",
+   "variant": "old",
+   "query": "surface what's overdue and write the follow-up messages",
+   "kind": "positive",
+   "qi": 2,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/shep-nudge/SKILL.md",
+   "skill_name": "shep-nudge",
+   "variant": "new",
+   "query": "nudge the team about the late deliverable",
+   "kind": "positive",
+   "qi": 1,
+   "result": true
+  },
+  {
+   "skill": ".claude/skills/shep-nudge/SKILL.md",
+   "skill_name": "shep-nudge",
+   "variant": "new",
+   "query": "surface what's overdue and write the follow-up messages",
+   "kind": "positive",
+   "qi": 2,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/shep-nudge/SKILL.md",
+   "skill_name": "shep-nudge",
+   "variant": "old",
+   "query": "just show the delegation tracker, no messages",
+   "kind": "negative",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/shep-nudge/SKILL.md",
+   "skill_name": "shep-nudge",
+   "variant": "new",
+   "query": "just show the delegation tracker, no messages",
+   "kind": "negative",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/shep-nudge/SKILL.md",
+   "skill_name": "shep-nudge",
+   "variant": "new",
+   "query": "give me a team health pulse",
+   "kind": "negative",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/shep-nudge/SKILL.md",
+   "skill_name": "shep-nudge",
+   "variant": "old",
+   "query": "give me a team health pulse",
+   "kind": "negative",
+   "qi": 1,
+   "result": true
+  },
+  {
+   "skill": ".claude/skills/shep-onboard/SKILL.md",
+   "skill_name": "shep-onboard",
+   "variant": "old",
+   "query": "run first-launch onboarding for the new team member",
+   "kind": "positive",
+   "qi": 0,
+   "result": true
+  },
+  {
+   "skill": ".claude/skills/shep-onboard/SKILL.md",
+   "skill_name": "shep-onboard",
+   "variant": "old",
+   "query": "walk a new agent through intake and orientation",
+   "kind": "positive",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/shep-onboard/SKILL.md",
+   "skill_name": "shep-onboard",
+   "variant": "new",
+   "query": "run first-launch onboarding for the new team member",
+   "kind": "positive",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/shep-onboard/SKILL.md",
+   "skill_name": "shep-onboard",
+   "variant": "new",
+   "query": "walk a new agent through intake and orientation",
+   "kind": "positive",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/shep-onboard/SKILL.md",
+   "skill_name": "shep-onboard",
+   "variant": "new",
+   "query": "start the onboarding interview for the new instance",
+   "kind": "positive",
+   "qi": 2,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/shep-onboard/SKILL.md",
+   "skill_name": "shep-onboard",
+   "variant": "old",
+   "query": "start the onboarding interview for the new instance",
+   "kind": "positive",
+   "qi": 2,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/shep-onboard/SKILL.md",
+   "skill_name": "shep-onboard",
+   "variant": "new",
+   "query": "prep a 1:1 with the new hire",
+   "kind": "negative",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/shep-onboard/SKILL.md",
+   "skill_name": "shep-onboard",
+   "variant": "old",
+   "query": "prep a 1:1 with the new hire",
+   "kind": "negative",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/shep-onboard/SKILL.md",
+   "skill_name": "shep-onboard",
+   "variant": "new",
+   "query": "coach training for the associate",
+   "kind": "negative",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/shep-one-on-one/SKILL.md",
+   "skill_name": "shep-one-on-one",
+   "variant": "old",
+   "query": "prep my 1:1 with Maria",
+   "kind": "positive",
+   "qi": 0,
+   "result": true
+  },
+  {
+   "skill": ".claude/skills/shep-one-on-one/SKILL.md",
+   "skill_name": "shep-one-on-one",
+   "variant": "new",
+   "query": "prep my 1:1 with Maria",
+   "kind": "positive",
+   "qi": 0,
+   "result": true
+  },
+  {
+   "skill": ".claude/skills/shep-one-on-one/SKILL.md",
+   "skill_name": "shep-one-on-one",
+   "variant": "new",
+   "query": "build the 1:1 agenda from her delegations and last meeting notes",
+   "kind": "positive",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/shep-one-on-one/SKILL.md",
+   "skill_name": "shep-one-on-one",
+   "variant": "old",
+   "query": "build the 1:1 agenda from her delegations and last meeting notes",
+   "kind": "positive",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/shep-onboard/SKILL.md",
+   "skill_name": "shep-onboard",
+   "variant": "old",
+   "query": "coach training for the associate",
+   "kind": "negative",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/shep-one-on-one/SKILL.md",
+   "skill_name": "shep-one-on-one",
+   "variant": "old",
+   "query": "1:1 prep sheet for my direct report",
+   "kind": "positive",
+   "qi": 2,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/shep-one-on-one/SKILL.md",
+   "skill_name": "shep-one-on-one",
+   "variant": "new",
+   "query": "1:1 prep sheet for my direct report",
+   "kind": "positive",
+   "qi": 2,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/shep-one-on-one/SKILL.md",
+   "skill_name": "shep-one-on-one",
+   "variant": "old",
+   "query": "give me team health, who needs attention",
+   "kind": "negative",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/shep-one-on-one/SKILL.md",
+   "skill_name": "shep-one-on-one",
+   "variant": "new",
+   "query": "give me team health, who needs attention",
+   "kind": "negative",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/shep-one-on-one/SKILL.md",
+   "skill_name": "shep-one-on-one",
+   "variant": "old",
+   "query": "prep the client meeting",
+   "kind": "negative",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/shep-team/SKILL.md",
+   "skill_name": "shep-team",
+   "variant": "old",
+   "query": "give me a team health pulse, who's at risk",
+   "kind": "positive",
+   "qi": 0,
+   "result": true
+  },
+  {
+   "skill": ".claude/skills/shep-team/SKILL.md",
+   "skill_name": "shep-team",
+   "variant": "new",
+   "query": "give me a team health pulse, who's at risk",
+   "kind": "positive",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/shep-team/SKILL.md",
+   "skill_name": "shep-team",
+   "variant": "old",
+   "query": "who on the team needs attention right now",
+   "kind": "positive",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/shep-one-on-one/SKILL.md",
+   "skill_name": "shep-one-on-one",
+   "variant": "new",
+   "query": "prep the client meeting",
+   "kind": "negative",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/shep-team/SKILL.md",
+   "skill_name": "shep-team",
+   "variant": "new",
+   "query": "who on the team needs attention right now",
+   "kind": "positive",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/shep-team/SKILL.md",
+   "skill_name": "shep-team",
+   "variant": "new",
+   "query": "which team members are thriving",
+   "kind": "positive",
+   "qi": 2,
+   "result": true
+  },
+  {
+   "skill": ".claude/skills/shep-team/SKILL.md",
+   "skill_name": "shep-team",
+   "variant": "old",
+   "query": "which team members are thriving",
+   "kind": "positive",
+   "qi": 2,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/shep-team/SKILL.md",
+   "skill_name": "shep-team",
+   "variant": "old",
+   "query": "track active delegations",
+   "kind": "negative",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/shep-team/SKILL.md",
+   "skill_name": "shep-team",
+   "variant": "new",
+   "query": "track active delegations",
+   "kind": "negative",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/shep-training/SKILL.md",
+   "skill_name": "shep-training",
+   "variant": "old",
+   "query": "coach the training progression for my associate, recommend modules",
+   "kind": "positive",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/shep-team/SKILL.md",
+   "skill_name": "shep-team",
+   "variant": "old",
+   "query": "prep my 1:1 with the team lead",
+   "kind": "negative",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/shep-training/SKILL.md",
+   "skill_name": "shep-training",
+   "variant": "new",
+   "query": "coach the training progression for my associate, recommend modules",
+   "kind": "positive",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/shep-training/SKILL.md",
+   "skill_name": "shep-training",
+   "variant": "new",
+   "query": "show the training progression dashboard and mastery tracking",
+   "kind": "positive",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/shep-training/SKILL.md",
+   "skill_name": "shep-training",
+   "variant": "old",
+   "query": "show the training progression dashboard and mastery tracking",
+   "kind": "positive",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/shep-team/SKILL.md",
+   "skill_name": "shep-team",
+   "variant": "new",
+   "query": "prep my 1:1 with the team lead",
+   "kind": "negative",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/shep-training/SKILL.md",
+   "skill_name": "shep-training",
+   "variant": "new",
+   "query": "guide a walkthrough of the next training module",
+   "kind": "positive",
+   "qi": 2,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/shep-training/SKILL.md",
+   "skill_name": "shep-training",
+   "variant": "old",
+   "query": "prep the 1:1 with my trainee",
+   "kind": "negative",
+   "qi": 0,
+   "result": true
+  },
+  {
+   "skill": ".claude/skills/shep-training/SKILL.md",
+   "skill_name": "shep-training",
+   "variant": "old",
+   "query": "guide a walkthrough of the next training module",
+   "kind": "positive",
+   "qi": 2,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/shep-training/SKILL.md",
+   "skill_name": "shep-training",
+   "variant": "new",
+   "query": "prep the 1:1 with my trainee",
+   "kind": "negative",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/shep-training/SKILL.md",
+   "skill_name": "shep-training",
+   "variant": "old",
+   "query": "onboard the new agent",
+   "kind": "negative",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": "skills/audience-profile-builder/SKILL.md",
+   "skill_name": "audience-profile-builder",
+   "variant": "old",
+   "query": "build the audience profile for this episode from the extracted pain points",
+   "kind": "positive",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": ".claude/skills/shep-training/SKILL.md",
+   "skill_name": "shep-training",
+   "variant": "new",
+   "query": "onboard the new agent",
+   "kind": "negative",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": "skills/audience-profile-builder/SKILL.md",
+   "skill_name": "audience-profile-builder",
+   "variant": "new",
+   "query": "build the audience profile for this episode from the extracted pain points",
+   "kind": "positive",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": "skills/audience-profile-builder/SKILL.md",
+   "skill_name": "audience-profile-builder",
+   "variant": "old",
+   "query": "turn the extracted pain points into an ICP with industry and buyer role",
+   "kind": "positive",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": "skills/audience-profile-builder/SKILL.md",
+   "skill_name": "audience-profile-builder",
+   "variant": "new",
+   "query": "turn the extracted pain points into an ICP with industry and buyer role",
+   "kind": "positive",
+   "qi": 1,
+   "result": true
+  },
+  {
+   "skill": "skills/audience-profile-builder/SKILL.md",
+   "skill_name": "audience-profile-builder",
+   "variant": "old",
+   "query": "episode-campaign-brief step 03, build the target audience profile",
+   "kind": "positive",
+   "qi": 2,
+   "result": false
+  },
+  {
+   "skill": "skills/audience-profile-builder/SKILL.md",
+   "skill_name": "audience-profile-builder",
+   "variant": "new",
+   "query": "episode-campaign-brief step 03, build the target audience profile",
+   "kind": "positive",
+   "qi": 2,
+   "result": false
+  },
+  {
+   "skill": "skills/audience-profile-builder/SKILL.md",
+   "skill_name": "audience-profile-builder",
+   "variant": "old",
+   "query": "extract pain points from this transcript",
+   "kind": "negative",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": "skills/audience-profile-builder/SKILL.md",
+   "skill_name": "audience-profile-builder",
+   "variant": "old",
+   "query": "find target accounts for this audience profile",
+   "kind": "negative",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": "skills/audience-profile-builder/SKILL.md",
+   "skill_name": "audience-profile-builder",
+   "variant": "new",
+   "query": "find target accounts for this audience profile",
+   "kind": "negative",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": "skills/contact-targeting/SKILL.md",
+   "skill_name": "contact-targeting",
+   "variant": "new",
+   "query": "find contacts at these target accounts matching the buyer role",
+   "kind": "positive",
+   "qi": 0,
+   "result": true
+  },
+  {
+   "skill": "skills/contact-targeting/SKILL.md",
+   "skill_name": "contact-targeting",
+   "variant": "old",
+   "query": "find contacts at these target accounts matching the buyer role",
+   "kind": "positive",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": "skills/contact-targeting/SKILL.md",
+   "skill_name": "contact-targeting",
+   "variant": "old",
+   "query": "drill the account list into individual contacts, CRM first",
+   "kind": "positive",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": "skills/audience-profile-builder/SKILL.md",
+   "skill_name": "audience-profile-builder",
+   "variant": "new",
+   "query": "extract pain points from this transcript",
+   "kind": "negative",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": "skills/contact-targeting/SKILL.md",
+   "skill_name": "contact-targeting",
+   "variant": "new",
+   "query": "drill the account list into individual contacts, CRM first",
+   "kind": "positive",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": "skills/contact-targeting/SKILL.md",
+   "skill_name": "contact-targeting",
+   "variant": "old",
+   "query": "find target accounts for this audience profile",
+   "kind": "negative",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": "skills/contact-targeting/SKILL.md",
+   "skill_name": "contact-targeting",
+   "variant": "new",
+   "query": "audience-target-outreach step 02, identify the people at these accounts",
+   "kind": "positive",
+   "qi": 2,
+   "result": false
+  },
+  {
+   "skill": "skills/contact-targeting/SKILL.md",
+   "skill_name": "contact-targeting",
+   "variant": "old",
+   "query": "audience-target-outreach step 02, identify the people at these accounts",
+   "kind": "positive",
+   "qi": 2,
+   "result": false
+  },
+  {
+   "skill": "skills/contact-targeting/SKILL.md",
+   "skill_name": "contact-targeting",
+   "variant": "new",
+   "query": "find target accounts for this audience profile",
+   "kind": "negative",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": "skills/contact-targeting/SKILL.md",
+   "skill_name": "contact-targeting",
+   "variant": "new",
+   "query": "draft the outreach message for this contact",
+   "kind": "negative",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": "skills/contact-targeting/SKILL.md",
+   "skill_name": "contact-targeting",
+   "variant": "old",
+   "query": "draft the outreach message for this contact",
+   "kind": "negative",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": "skills/offering-match/SKILL.md",
+   "skill_name": "offering-match",
+   "variant": "old",
+   "query": "what do we sell for this pain point",
+   "kind": "positive",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": "skills/offering-match/SKILL.md",
+   "skill_name": "offering-match",
+   "variant": "old",
+   "query": "match the extracted pain points to our current service offerings, live from SharePoint",
+   "kind": "positive",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": "skills/offering-match/SKILL.md",
+   "skill_name": "offering-match",
+   "variant": "new",
+   "query": "what do we sell for this pain point",
+   "kind": "positive",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": "skills/offering-match/SKILL.md",
+   "skill_name": "offering-match",
+   "variant": "old",
+   "query": "episode-campaign-brief step 04, ground each pain point in a real offering",
+   "kind": "positive",
+   "qi": 2,
+   "result": true
+  },
+  {
+   "skill": "skills/offering-match/SKILL.md",
+   "skill_name": "offering-match",
+   "variant": "new",
+   "query": "match the extracted pain points to our current service offerings, live from SharePoint",
+   "kind": "positive",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": "skills/offering-match/SKILL.md",
+   "skill_name": "offering-match",
+   "variant": "new",
+   "query": "extract the pain points from the episode transcript",
+   "kind": "negative",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": "skills/offering-match/SKILL.md",
+   "skill_name": "offering-match",
+   "variant": "old",
+   "query": "extract the pain points from the episode transcript",
+   "kind": "negative",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": "skills/offering-match/SKILL.md",
+   "skill_name": "offering-match",
+   "variant": "new",
+   "query": "episode-campaign-brief step 04, ground each pain point in a real offering",
+   "kind": "positive",
+   "qi": 2,
+   "result": false
+  },
+  {
+   "skill": "skills/offering-match/SKILL.md",
+   "skill_name": "offering-match",
+   "variant": "old",
+   "query": "draft the outreach message for this contact",
+   "kind": "negative",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": "skills/offering-match/SKILL.md",
+   "skill_name": "offering-match",
+   "variant": "new",
+   "query": "draft the outreach message for this contact",
+   "kind": "negative",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": "skills/omnifocus-tasks/SKILL.md",
+   "skill_name": "omnifocus-tasks",
+   "variant": "old",
+   "query": "create an OmniFocus task to review the deck on Friday",
+   "kind": "positive",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": "skills/omnifocus-tasks/SKILL.md",
+   "skill_name": "omnifocus-tasks",
+   "variant": "new",
+   "query": "create an OmniFocus task to review the deck on Friday",
+   "kind": "positive",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": "skills/omnifocus-tasks/SKILL.md",
+   "skill_name": "omnifocus-tasks",
+   "variant": "old",
+   "query": "add a task to my week: call the bank",
+   "kind": "positive",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": "skills/omnifocus-tasks/SKILL.md",
+   "skill_name": "omnifocus-tasks",
+   "variant": "new",
+   "query": "add a task to my week: call the bank",
+   "kind": "positive",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": "skills/omnifocus-tasks/SKILL.md",
+   "skill_name": "omnifocus-tasks",
+   "variant": "old",
+   "query": "new task: renew the domain next month",
+   "kind": "positive",
+   "qi": 2,
+   "result": false
+  },
+  {
+   "skill": "skills/omnifocus-tasks/SKILL.md",
+   "skill_name": "omnifocus-tasks",
+   "variant": "old",
+   "query": "surface my overdue delegations",
+   "kind": "negative",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": "skills/omnifocus-tasks/SKILL.md",
+   "skill_name": "omnifocus-tasks",
+   "variant": "new",
+   "query": "new task: renew the domain next month",
+   "kind": "positive",
+   "qi": 2,
+   "result": false
+  },
+  {
+   "skill": "skills/omnifocus-tasks/SKILL.md",
+   "skill_name": "omnifocus-tasks",
+   "variant": "new",
+   "query": "check my tasks, what's on my plate",
+   "kind": "negative",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": "skills/omnifocus-tasks/SKILL.md",
+   "skill_name": "omnifocus-tasks",
+   "variant": "new",
+   "query": "surface my overdue delegations",
+   "kind": "negative",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": "skills/pain-point-extraction/SKILL.md",
+   "skill_name": "pain-point-extraction",
+   "variant": "old",
+   "query": "extract pain points from this episode's transcript",
+   "kind": "positive",
+   "qi": 0,
+   "result": true
+  },
+  {
+   "skill": "skills/pain-point-extraction/SKILL.md",
+   "skill_name": "pain-point-extraction",
+   "variant": "new",
+   "query": "extract pain points from this episode's transcript",
+   "kind": "positive",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": "skills/pain-point-extraction/SKILL.md",
+   "skill_name": "pain-point-extraction",
+   "variant": "new",
+   "query": "pull the structured pain points with supporting quotes from the transcript",
+   "kind": "positive",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": "skills/pain-point-extraction/SKILL.md",
+   "skill_name": "pain-point-extraction",
+   "variant": "new",
+   "query": "episode-campaign-brief step 02, extract the pain points",
+   "kind": "positive",
+   "qi": 2,
+   "result": false
+  },
+  {
+   "skill": "skills/pain-point-extraction/SKILL.md",
+   "skill_name": "pain-point-extraction",
+   "variant": "old",
+   "query": "pull the structured pain points with supporting quotes from the transcript",
+   "kind": "positive",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": "skills/pain-point-extraction/SKILL.md",
+   "skill_name": "pain-point-extraction",
+   "variant": "old",
+   "query": "episode-campaign-brief step 02, extract the pain points",
+   "kind": "positive",
+   "qi": 2,
+   "result": false
+  },
+  {
+   "skill": "skills/omnifocus-tasks/SKILL.md",
+   "skill_name": "omnifocus-tasks",
+   "variant": "old",
+   "query": "check my tasks, what's on my plate",
+   "kind": "negative",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": "skills/pain-point-extraction/SKILL.md",
+   "skill_name": "pain-point-extraction",
+   "variant": "old",
+   "query": "build the audience profile from these pain points",
+   "kind": "negative",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": "skills/pain-point-extraction/SKILL.md",
+   "skill_name": "pain-point-extraction",
+   "variant": "new",
+   "query": "build the audience profile from these pain points",
+   "kind": "negative",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": "skills/pain-point-extraction/SKILL.md",
+   "skill_name": "pain-point-extraction",
+   "variant": "old",
+   "query": "save this podcast episode to Obsidian",
+   "kind": "negative",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": "skills/pain-point-extraction/SKILL.md",
+   "skill_name": "pain-point-extraction",
+   "variant": "new",
+   "query": "save this podcast episode to Obsidian",
+   "kind": "negative",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": "skills/prospect-message-draft/SKILL.md",
+   "skill_name": "prospect-message-draft",
+   "variant": "old",
+   "query": "draft the outreach message for this contact",
+   "kind": "positive",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": "skills/prospect-message-draft/SKILL.md",
+   "skill_name": "prospect-message-draft",
+   "variant": "old",
+   "query": "audience-target-outreach step 03, draft the personalized message for this one contact",
+   "kind": "positive",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": "skills/prospect-message-draft/SKILL.md",
+   "skill_name": "prospect-message-draft",
+   "variant": "new",
+   "query": "draft the outreach message for this contact",
+   "kind": "positive",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": "skills/prospect-message-draft/SKILL.md",
+   "skill_name": "prospect-message-draft",
+   "variant": "new",
+   "query": "audience-target-outreach step 03, draft the personalized message for this one contact",
+   "kind": "positive",
+   "qi": 1,
+   "result": true
+  },
+  {
+   "skill": "skills/prospect-message-draft/SKILL.md",
+   "skill_name": "prospect-message-draft",
+   "variant": "old",
+   "query": "write the cold outreach content referencing the episode and matched offering",
+   "kind": "positive",
+   "qi": 2,
+   "result": false
+  },
+  {
+   "skill": "skills/prospect-message-draft/SKILL.md",
+   "skill_name": "prospect-message-draft",
+   "variant": "new",
+   "query": "write the cold outreach content referencing the episode and matched offering",
+   "kind": "positive",
+   "qi": 2,
+   "result": false
+  },
+  {
+   "skill": "skills/prospect-message-draft/SKILL.md",
+   "skill_name": "prospect-message-draft",
+   "variant": "old",
+   "query": "send this campaign email now",
+   "kind": "negative",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": "skills/ynab-data/SKILL.md",
+   "skill_name": "ynab-data",
+   "variant": "old",
+   "query": "pull ynab",
+   "kind": "positive",
+   "qi": 0,
+   "result": true
+  },
+  {
+   "skill": "skills/prospect-message-draft/SKILL.md",
+   "skill_name": "prospect-message-draft",
+   "variant": "new",
+   "query": "send this campaign email now",
+   "kind": "negative",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": "skills/ynab-data/SKILL.md",
+   "skill_name": "ynab-data",
+   "variant": "new",
+   "query": "pull ynab",
+   "kind": "positive",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": "skills/prospect-message-draft/SKILL.md",
+   "skill_name": "prospect-message-draft",
+   "variant": "old",
+   "query": "draft a regular email to my mentor",
+   "kind": "negative",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": "skills/prospect-message-draft/SKILL.md",
+   "skill_name": "prospect-message-draft",
+   "variant": "new",
+   "query": "draft a regular email to my mentor",
+   "kind": "negative",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": "skills/ynab-data/SKILL.md",
+   "skill_name": "ynab-data",
+   "variant": "new",
+   "query": "ynab spend",
+   "kind": "positive",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": "skills/ynab-data/SKILL.md",
+   "skill_name": "ynab-data",
+   "variant": "old",
+   "query": "ynab spend",
+   "kind": "positive",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": "skills/ynab-data/SKILL.md",
+   "skill_name": "ynab-data",
+   "variant": "old",
+   "query": "which card should I use for this grocery purchase",
+   "kind": "negative",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": "skills/ynab-data/SKILL.md",
+   "skill_name": "ynab-data",
+   "variant": "old",
+   "query": "what did I spend at Whole Foods last month",
+   "kind": "positive",
+   "qi": 2,
+   "result": false
+  },
+  {
+   "skill": "skills/ynab-data/SKILL.md",
+   "skill_name": "ynab-data",
+   "variant": "new",
+   "query": "what did I spend at Whole Foods last month",
+   "kind": "positive",
+   "qi": 2,
+   "result": false
+  },
+  {
+   "skill": "skills/ynab-data/SKILL.md",
+   "skill_name": "ynab-data",
+   "variant": "new",
+   "query": "which card should I use for this grocery purchase",
+   "kind": "negative",
+   "qi": 0,
+   "result": false
+  },
+  {
+   "skill": "skills/ynab-data/SKILL.md",
+   "skill_name": "ynab-data",
+   "variant": "old",
+   "query": "review my monthly card benefits",
+   "kind": "negative",
+   "qi": 1,
+   "result": false
+  },
+  {
+   "skill": "skills/ynab-data/SKILL.md",
+   "skill_name": "ynab-data",
+   "variant": "new",
+   "query": "review my monthly card benefits",
+   "kind": "negative",
+   "qi": 1,
+   "result": false
+  }
+ ],
+ "flagged_single_rep": [
+  {
+   "skill": ".claude/skills/chase-card-optimizer/SKILL.md",
+   "kind": "positive",
+   "query": "run a benefits ROI analysis across my whole credit card portfolio",
+   "old": true,
+   "new": false,
+   "type": "lost"
+  },
+  {
+   "skill": ".claude/skills/chase-card-review/SKILL.md",
+   "kind": "negative",
+   "query": "which card should I get next to optimize value",
+   "old": true,
+   "new": false,
+   "type": "lost"
+  },
+  {
+   "skill": ".claude/skills/chase-pipeline/SKILL.md",
+   "kind": "positive",
+   "query": "run a pipeline review, health check on active deals",
+   "old": true,
+   "new": false,
+   "type": "lost"
+  },
+  {
+   "skill": ".claude/skills/chase-win-loss/SKILL.md",
+   "kind": "positive",
+   "query": "we lost the Acme deal, run a win/loss debrief",
+   "old": true,
+   "new": false,
+   "type": "lost"
+  },
+  {
+   "skill": ".claude/skills/chief-review/SKILL.md",
+   "kind": "positive",
+   "query": "run the end-of-day review",
+   "old": false,
+   "new": true,
+   "type": "broadened"
+  },
+  {
+   "skill": ".claude/skills/chief-review/SKILL.md",
+   "kind": "positive",
+   "query": "capture what got done today and what carries forward",
+   "old": true,
+   "new": false,
+   "type": "lost"
+  },
+  {
+   "skill": ".claude/skills/contact-targeting/SKILL.md",
+   "kind": "positive",
+   "query": "drill the account list into individual contacts, CRM first",
+   "old": true,
+   "new": false,
+   "type": "lost"
+  },
+  {
+   "skill": ".claude/skills/galen-protocols/SKILL.md",
+   "kind": "positive",
+   "query": "manage my protocols, active supplement stack and peptide cycles",
+   "old": true,
+   "new": false,
+   "type": "lost"
+  },
+  {
+   "skill": ".claude/skills/galen-protocols/SKILL.md",
+   "kind": "positive",
+   "query": "check for conflicts and gaps in my current protocol stack",
+   "old": false,
+   "new": true,
+   "type": "broadened"
+  },
+  {
+   "skill": ".claude/skills/harper-content-calendar/SKILL.md",
+   "kind": "positive",
+   "query": "update my content calendar with this commitment and deadline",
+   "old": false,
+   "new": true,
+   "type": "broadened"
+  },
+  {
+   "skill": ".claude/skills/harper-content/SKILL.md",
+   "kind": "positive",
+   "query": "plan and track my thought leadership output",
+   "old": true,
+   "new": false,
+   "type": "lost"
+  },
+  {
+   "skill": ".claude/skills/harper-content/SKILL.md",
+   "kind": "positive",
+   "query": "help me plan my content pipeline for the quarter",
+   "old": true,
+   "new": false,
+   "type": "lost"
+  },
+  {
+   "skill": ".claude/skills/harper-email/SKILL.md",
+   "kind": "positive",
+   "query": "draft an email to my CFO about the budget request",
+   "old": true,
+   "new": false,
+   "type": "lost"
+  },
+  {
+   "skill": ".claude/skills/harper-podcast-prep/SKILL.md",
+   "kind": "positive",
+   "query": "generate the prep doc for the next Improving Edge episode",
+   "old": true,
+   "new": false,
+   "type": "lost"
+  },
+  {
+   "skill": ".claude/skills/harper-presentation/SKILL.md",
+   "kind": "positive",
+   "query": "turn these talking points into a polished slide-by-slide structure",
+   "old": true,
+   "new": false,
+   "type": "lost"
+  },
+  {
+   "skill": ".claude/skills/quinn-initiatives/SKILL.md",
+   "kind": "positive",
+   "query": "show me the initiative tracker, who owns what and blockers",
+   "old": true,
+   "new": false,
+   "type": "lost"
+  },
+  {
+   "skill": ".claude/skills/quinn-leadership-prep/SKILL.md",
+   "kind": "positive",
+   "query": "prep my leadership review materials for the executive team",
+   "old": true,
+   "new": false,
+   "type": "lost"
+  },
+  {
+   "skill": ".claude/skills/quinn-rocks/SKILL.md",
+   "kind": "positive",
+   "query": "review our quarterly rocks, progress and risk flags",
+   "old": true,
+   "new": false,
+   "type": "lost"
+  },
+  {
+   "skill": ".claude/skills/quinn-rocks/SKILL.md",
+   "kind": "positive",
+   "query": "how are the rocks tracking this quarter, any corrective actions needed",
+   "old": true,
+   "new": false,
+   "type": "lost"
+  },
+  {
+   "skill": ".claude/skills/quinn-rocks/SKILL.md",
+   "kind": "negative",
+   "query": "check alignment of my activity with annual goals",
+   "old": false,
+   "new": true,
+   "type": "broadened"
+  },
+  {
+   "skill": ".claude/skills/quinn-weekly-review/SKILL.md",
+   "kind": "positive",
+   "query": "how was my week",
+   "old": false,
+   "new": true,
+   "type": "broadened"
+  },
+  {
+   "skill": ".claude/skills/rigby-eval-grade/SKILL.md",
+   "kind": "positive",
+   "query": "grade these eval records on demand",
+   "old": false,
+   "new": true,
+   "type": "broadened"
+  },
+  {
+   "skill": ".claude/skills/rigby-impact/SKILL.md",
+   "kind": "positive",
+   "query": "run impact analysis on deleting this workflow step",
+   "old": true,
+   "new": false,
+   "type": "lost"
+  },
+  {
+   "skill": ".claude/skills/rigby-integrity/SKILL.md",
+   "kind": "positive",
+   "query": "run a system integrity scan across IES",
+   "old": true,
+   "new": false,
+   "type": "lost"
+  },
+  {
+   "skill": ".claude/skills/rigby-package-create/SKILL.md",
+   "kind": "positive",
+   "query": "package my custom agents and skills for contribution",
+   "old": false,
+   "new": true,
+   "type": "broadened"
+  },
+  {
+   "skill": ".claude/skills/rigby-package-create/SKILL.md",
+   "kind": "positive",
+   "query": "discover and package my workflows for the IES ecosystem",
+   "old": true,
+   "new": false,
+   "type": "lost"
+  },
+  {
+   "skill": ".claude/skills/rigby-register/SKILL.md",
+   "kind": "positive",
+   "query": "register this IES instance with Improving's Entra ID",
+   "old": false,
+   "new": true,
+   "type": "broadened"
+  },
+  {
+   "skill": ".claude/skills/shep-nudge/SKILL.md",
+   "kind": "positive",
+   "query": "nudge the team about the late deliverable",
+   "old": false,
+   "new": true,
+   "type": "broadened"
+  },
+  {
+   "skill": ".claude/skills/shep-nudge/SKILL.md",
+   "kind": "negative",
+   "query": "give me a team health pulse",
+   "old": true,
+   "new": false,
+   "type": "lost"
+  },
+  {
+   "skill": ".claude/skills/shep-onboard/SKILL.md",
+   "kind": "positive",
+   "query": "run first-launch onboarding for the new team member",
+   "old": true,
+   "new": false,
+   "type": "lost"
+  },
+  {
+   "skill": ".claude/skills/shep-team/SKILL.md",
+   "kind": "positive",
+   "query": "give me a team health pulse, who's at risk",
+   "old": true,
+   "new": false,
+   "type": "lost"
+  },
+  {
+   "skill": ".claude/skills/shep-team/SKILL.md",
+   "kind": "positive",
+   "query": "which team members are thriving",
+   "old": false,
+   "new": true,
+   "type": "broadened"
+  },
+  {
+   "skill": ".claude/skills/shep-training/SKILL.md",
+   "kind": "negative",
+   "query": "prep the 1:1 with my trainee",
+   "old": true,
+   "new": false,
+   "type": "lost"
+  },
+  {
+   "skill": "skills/audience-profile-builder/SKILL.md",
+   "kind": "positive",
+   "query": "turn the extracted pain points into an ICP with industry and buyer role",
+   "old": false,
+   "new": true,
+   "type": "broadened"
+  },
+  {
+   "skill": "skills/contact-targeting/SKILL.md",
+   "kind": "positive",
+   "query": "find contacts at these target accounts matching the buyer role",
+   "old": false,
+   "new": true,
+   "type": "broadened"
+  },
+  {
+   "skill": "skills/offering-match/SKILL.md",
+   "kind": "positive",
+   "query": "episode-campaign-brief step 04, ground each pain point in a real offering",
+   "old": true,
+   "new": false,
+   "type": "lost"
+  },
+  {
+   "skill": "skills/pain-point-extraction/SKILL.md",
+   "kind": "positive",
+   "query": "extract pain points from this episode's transcript",
+   "old": true,
+   "new": false,
+   "type": "lost"
+  },
+  {
+   "skill": "skills/prospect-message-draft/SKILL.md",
+   "kind": "positive",
+   "query": "audience-target-outreach step 03, draft the personalized message for this one contact",
+   "old": false,
+   "new": true,
+   "type": "broadened"
+  },
+  {
+   "skill": "skills/ynab-data/SKILL.md",
+   "kind": "positive",
+   "query": "pull ynab",
+   "old": true,
+   "new": false,
+   "type": "lost"
+  }
+ ],
+ "confirmed": [
+  {
+   "skill": ".claude/skills/contact-targeting/SKILL.md",
+   "kind": "positive",
+   "query": "drill the account list into individual contacts, CRM first",
+   "old": true,
+   "new": false,
+   "type": "lost",
+   "old3": [
+    true,
+    false,
+    true
+   ],
+   "new3": [
+    false,
+    false,
+    false
+   ],
+   "confirmed": "lost"
+  },
+  {
+   "skill": ".claude/skills/harper-content/SKILL.md",
+   "kind": "positive",
+   "query": "plan and track my thought leadership output",
+   "old": true,
+   "new": false,
+   "type": "lost",
+   "old3": [
+    true,
+    true,
+    false
+   ],
+   "new3": [
+    false,
+    false,
+    false
+   ],
+   "confirmed": "lost"
+  },
+  {
+   "skill": ".claude/skills/harper-podcast-prep/SKILL.md",
+   "kind": "positive",
+   "query": "generate the prep doc for the next Improving Edge episode",
+   "old": true,
+   "new": false,
+   "type": "lost",
+   "old3": [
+    true,
+    true,
+    false
+   ],
+   "new3": [
+    false,
+    false,
+    false
+   ],
+   "confirmed": "lost"
+  },
+  {
+   "skill": ".claude/skills/quinn-leadership-prep/SKILL.md",
+   "kind": "positive",
+   "query": "prep my leadership review materials for the executive team",
+   "old": true,
+   "new": false,
+   "type": "lost",
+   "old3": [
+    true,
+    false,
+    true
+   ],
+   "new3": [
+    false,
+    false,
+    false
+   ],
+   "confirmed": "lost"
+  },
+  {
+   "skill": ".claude/skills/rigby-package-create/SKILL.md",
+   "kind": "positive",
+   "query": "package my custom agents and skills for contribution",
+   "old": false,
+   "new": true,
+   "type": "broadened",
+   "old3": [
+    true,
+    false,
+    false
+   ],
+   "new3": [
+    true,
+    false,
+    true
+   ],
+   "confirmed": "broadened"
+  },
+  {
+   "skill": "skills/audience-profile-builder/SKILL.md",
+   "kind": "positive",
+   "query": "turn the extracted pain points into an ICP with industry and buyer role",
+   "old": false,
+   "new": true,
+   "type": "broadened",
+   "old3": [
+    true,
+    true,
+    false
+   ],
+   "new3": [
+    false,
+    true,
+    false
+   ],
+   "confirmed": "lost"
+  },
+  {
+   "skill": "skills/prospect-message-draft/SKILL.md",
+   "kind": "positive",
+   "query": "audience-target-outreach step 03, draft the personalized message for this one contact",
+   "old": false,
+   "new": true,
+   "type": "broadened",
+   "old3": [
+    true,
+    false,
+    true
+   ],
+   "new3": [
+    false,
+    false,
+    false
+   ],
+   "confirmed": "lost"
+  }
+ ],
+ "verdict": "7 confirmed flags, all marginal (majority 2/3 vs <=1/3). 6 lost + 1 broadened. In 6 of 7 the queried phrasing is textually present in both old and new descriptions (judge variance). One lexical deletion: 'drill' removed from contact-targeting old text. No fix applied; David decides."
+}
