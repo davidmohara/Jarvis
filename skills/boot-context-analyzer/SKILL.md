@@ -4,6 +4,8 @@ description: Analyze boot workflow context bloat — measure, identify sources, 
 tags: [boot-workflow, instrumentation, context-optimization]
 ---
 
+<!-- system:start -->
+
 # Boot Context Analyzer Skill
 
 **Purpose:** Measure context window usage in the boot workflow, identify bloat sources, and track optimization impact.
@@ -214,3 +216,8 @@ The accumulated-context may be empty. Check that the boot workflow completed ste
 ---
 
 
+
+<!-- system:end -->
+
+<!-- personal:start -->
+<!-- personal:end -->

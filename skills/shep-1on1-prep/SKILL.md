@@ -1,3 +1,13 @@
+---
+name: shep-1on1-prep
+description: Build a research-backed markdown prep sheet for internal 1:1 meetings with direct reports â€” M365 email, calendar, Obsidian vault, OmniFocus, and Teams chat searched before drafting, every section earned by real data.
+model: sonnet
+owning_agent: shep
+trigger_keywords: ["1:1", "prep for my 1:1", "1:1 prep sheet"]
+trigger_agents: ["shep", "chief"]
+---
+
+<!-- system:start -->
 # Skill: 1:1 Prep
 **Owner:** Shep  
 **Trigger:** `1:1` / "prep for my 1:1 with [name]" / "build a 1:1 prep sheet for [name]"  
@@ -93,6 +103,9 @@ End with a bolded STATUS note if the thread is unresolved.]
 
 ---
 
+<!-- system:end -->
+
+<!-- personal:start -->
 ## Research Sequence
 
 Complete all searches before writing a single word of output. Do not draft from memory.
@@ -311,3 +324,5 @@ If PowerBI is inaccessible, note explicitly: "PowerBI unavailable this session â
 
 ---
 
+
+<!-- personal:end -->

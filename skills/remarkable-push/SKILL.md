@@ -1,5 +1,6 @@
 ---
 id: remarkable-push
+description: "Push documents to the reMarkable tablet — convert, upload, and confirm delivery for PDF and EPUB files."
 name: reMarkable Agent Delivery
 owning_agent: rigby
 model: haiku

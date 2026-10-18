@@ -12,6 +12,8 @@ trigger_keywords: [pipeline, deal status, revenue snapshot, crm]
 trigger_agents: [chase]
 ---
 
+<!-- system:start -->
+
 # Pipeline Snapshot
 
 ## Purpose
@@ -33,6 +35,9 @@ which KPI labels matter, the cache location, and the output voice/format.
 
 ---
 
+<!-- system:end -->
+
+<!-- personal:start -->
 ## Phase 0 — Cache Check (Run First)
 
 Call `skills/vault-freshness-check/SKILL.md` with:
@@ -204,3 +209,5 @@ Rock 1 context: Revenue Visibility — "graded on actuals, not feel." One Texas 
 ---
 
 
+
+<!-- personal:end -->

@@ -7,6 +7,7 @@ description: >
   from seemingly local changes. Run before any significant edit or deletion.
   Also triggered by "what references this", "what depends on", "impact of changing".
 ---
+<!-- system:start -->
 
 # Rigby — Impact Analysis
 
@@ -125,3 +126,5 @@ If the intent is deletion (inferred from context or explicit `--delete` flag), a
 - **Glob** — enumerate all files in scope
 
 
+
+<!-- system:end -->

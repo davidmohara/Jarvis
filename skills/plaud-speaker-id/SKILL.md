@@ -13,6 +13,11 @@ trigger_keywords: [speaker id, identify speaker, who was on the call]
 trigger_agents: [knox, chief]
 ---
 
+<!-- system:start -->
+<!-- system:end -->
+
+<!-- personal:start -->
+
 # Plaud Speaker Identification
 
 Resolve generic speaker labels in Plaud recordings to real names, using calendar
@@ -460,3 +465,5 @@ controller asks about speaker identification for a specific recording. In that c
 | Step 3 finds an off-invite name mentioned but never assigned to a speaker | Note it as informational in the consolidated prompt. Does not block ingestion or require a speaker-mapping answer — it's context, not an error. |
 
 
+
+<!-- personal:end -->

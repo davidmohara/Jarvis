@@ -10,6 +10,8 @@ trigger_keywords: [bookings, weekly bookings, bookings review]
 trigger_agents: [chase, chief]
 ---
 
+<!-- system:start -->
+
 # Bookings Review
 
 ## Purpose
@@ -28,6 +30,9 @@ live every time this skill runs, no Obsidian snapshot file backs it.
 
 ---
 
+<!-- system:end -->
+
+<!-- personal:start -->
 ## Execution
 
 ### Step 1 — Navigate Directly to Wins By Enterprise
@@ -122,3 +127,5 @@ Connector: Playwright MCP (`mcp__playwright__*`)
 Auth: SSO (auto)
 
 
+
+<!-- personal:end -->

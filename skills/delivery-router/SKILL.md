@@ -1,5 +1,6 @@
 ---
 id: delivery-router
+description: "Route a request to the IES agent that owns the work — match the request against agent Task Portfolios and dispatch with full context."
 name: Delivery Router
 owning_agent: rigby
 model: sonnet

@@ -48,6 +48,8 @@ For each pattern:
 
 ### Step 4: Propose Fixes (Tiered)
 
+**Gotchas routing:** when an entry (or a pattern's entries) carries a `related_skill`, the proposed `skill-update` fix must also state the one-line gotcha to write into that skill's `## Gotchas` section — environment-specific facts that defy reasonable assumptions, phrased as a rule, not a story. This is where lessons get a durable home; without it the fix lives only in the error log that nobody reads at run time.
+
 **Tier 1: Auto-Propose (clear-cut fixes)**
 
 These have obvious, low-risk solutions. Rigby drafts the specific fix and presents it for approval:

@@ -98,6 +98,16 @@ Write `skills/{skill_id}/optimization-report-{YYYY-MM-DD}.md`:
 - "Unresolved patterns require architectural changes beyond skill-level optimization — surface to Rigby for capability build."
 ```
 
+### 3b. Convention Lint (report only)
+
+Run the conventions linter in report mode against the target skill — it never blocks this workflow; the gate remains the score delta:
+
+```
+python3 systems/eval-harness/validate-conventions.py --target skills/{skill_id}/SKILL.md
+```
+
+Include the findings in the report. Findings already excused in `systems/eval-harness/conventions-exceptions.json` print as `acknowledged` — do not re-report those to the controller as open items. WARN-class findings that the accepted edits made worse (new ones vs. the baseline lint run in step-01) are worth calling out explicitly.
+
 ### 4. Clean Candidate Directory
 
 In `skills/{skill_id}/candidates/`:

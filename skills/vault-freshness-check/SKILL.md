@@ -1,5 +1,6 @@
 ---
 id: vault-freshness-check
+description: "Check Obsidian vault freshness — flag stale notes and data that have aged past their useful life so agents re-pull before relying on them."
 name: Vault Freshness Check
 owning_agent: rigby
 model: haiku

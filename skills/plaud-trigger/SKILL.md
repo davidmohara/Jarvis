@@ -12,6 +12,7 @@ description: >
 trigger_keywords: [trigger transcription, start transcription]
 trigger_agents: [knox]
 ---
+<!-- system:start -->
 
 # Plaud Trigger
 
@@ -168,3 +169,5 @@ file so the next fetch script run picks them up:
 | Token expired during trigger loop | Refresh token. Continue from where you left off. |
 
 
+
+<!-- system:end -->

@@ -1,3 +1,4 @@
+<!-- system:start -->
 # Routing Table
 
 Master's authoritative agent routing reference. Read this before taking any action beyond answering a factual question.
@@ -85,3 +86,4 @@ These are the few things Master legitimately handles without routing:
 - Connector installation or configuration
 
 This is the highest-violation category. There are no exceptions.
+<!-- system:end -->

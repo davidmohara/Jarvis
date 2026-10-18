@@ -1,3 +1,4 @@
+<!-- system:start -->
 # IES Agent Manifest
 
 **Maintained by:** Rigby · **Companion docs:** `agents/routing.md` (dispatch rules), `agents/adversarial-isolation.md` (adversarial layer), `agents/conventions.md` (shared protocols)
@@ -26,3 +27,8 @@ The coordinator is **Master** (`agents/master.md`). Master routes, synthesizes a
 
 - **David O'Hara** — the human operator/controller. Not an agent. He is the punch-out target for escalations, the approver of gated actions (new OmniFocus projects/tags, evolutions, PRs), and the source of corrections logged to `systems/error-tracking/`.
 - **Verification loops** — the eval harness's guardrail/assertion machinery (`systems/eval-harness/`) is deterministic infrastructure, not an agent. Ralph is the agent that operates boot verification.
+
+<!-- system:end -->
+
+<!-- personal:start -->
+<!-- personal:end -->

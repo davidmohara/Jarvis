@@ -7,6 +7,11 @@ trigger_keywords: [discover offers, discover card]
 trigger_agents: [chase]
 ---
 
+<!-- system:start -->
+<!-- system:end -->
+
+<!-- personal:start -->
+
 > **PORTAL MAPPED TO CAPITAL ONE (2026-10-17):** Discover is serviced by Capital One after the acquisition. The card's portal is `myaccounts.capitalone.com`; sign-in is at `verified.capitalone.com/auth/signin`. Credentials live in 1Password item "Capital One" (fields `txtUserID`, `txtPassword`). The login, rewards, and rotating-category navigation below was verified live on 2026-10-17. The card-linked OFFERS flow on Capital One has NOT been observed: every offers step below is marked UNVERIFIED. See err-20261016T210131-BI38IK.
 
 
@@ -276,3 +281,5 @@ Update `systems/credit-cards/benefits-tracker.json` → `discover-it`:
 - `cashback_available` → current rewards cash balance from portal
 - `current_balance` → outstanding balance
 - Note next quarter's category if announced
+
+<!-- personal:end -->

@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+# /// script
+# requires-python = ">=3.10"
+# dependencies = ["requests"]
+# ///
 """
 Quick discovery script for Knox — lists all Plaud recordings without downloading transcripts.
 """

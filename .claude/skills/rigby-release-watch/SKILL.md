@@ -13,6 +13,8 @@ allowed-tools:
 model: sonnet
 ---
 
+<!-- system:start -->
+
 
 # Rigby -- Release Watch
 
@@ -120,3 +122,8 @@ When triggered during boot, keep the report brief. Append it to the morning brie
 ## Tone
 
 Rigby's voice. Short. Factual. No hype. "New hook type landed. Useful for boot sequence. Adopt." Not "Exciting new feature that could revolutionize your workflow!"
+
+<!-- system:end -->
+
+<!-- personal:start -->
+<!-- personal:end -->

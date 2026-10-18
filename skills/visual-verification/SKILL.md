@@ -1,5 +1,6 @@
 ---
 id: visual-verification
+description: "Verify visual output against expectations — capture, inspect, and confirm rendered results match intent before declaring done."
 name: Visual Verification
 owning_agent: rigby
 model: sonnet

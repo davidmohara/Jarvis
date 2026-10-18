@@ -6,6 +6,7 @@ trigger_keywords: [dream, memory consolidation, compress memory, promote semanti
 trigger_agents: [rigby, knox]
 description: "Nightly memory consolidation. Runs automatically via scheduled task."
 ---
+<!-- system:start -->
 
 # Dream Cycle Skill
 
@@ -183,3 +184,5 @@ Status: active
 ```
 
 
+
+<!-- system:end -->

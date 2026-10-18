@@ -155,6 +155,17 @@ If `$ARGUMENTS` is vague or incomplete, ask targeted questions:
 
 Do NOT ask questions you can answer by reading the request carefully. Ask only what is genuinely ambiguous.
 
+### 1b. Harvest Operational Lessons
+
+Before planning anything, mine IES's own operational record for material the new capability must encode:
+
+1. **Error log:** scan `systems/error-tracking/entries/*.json` for entries whose `category`, `description`, or `related_skill` matches the new capability's domain. Each matching entry is a gotcha or guardrail candidate — facts that defy reasonable assumptions go into a `## Gotchas` section of the new skill.
+2. **Eval failures:** scan `systems/eval-harness/runs/*.json` for failed runs of sibling capabilities in the same domain; their failure patterns are pre-identified weaknesses.
+3. **Transcripts:** check `memory/sessions/index.json` for recent sessions where the executive described doing this work manually — the manual procedure is the expertise to encode.
+4. **Sibling gotchas:** read the `## Gotchas` sections of the two closest sibling skills; environment-specific facts (auth quirks, data staleness, tool gotchas) usually carry over.
+
+Record what was harvested in the Step 11 summary. If all four sources come up empty for the domain, note that too — the capability is genuinely novel, and its own eval runs become the harvest source for future builds.
+
 ### 2. Identify Existing Patterns
 
 Before creating anything:
@@ -567,6 +578,18 @@ Then run the loop:
 Run this in the background. Periodically tail the output and report iteration progress to the executive.
 
 **Substep 9d — Apply.** When the loop exits, read `description-tuning/results.json`. Show the executive a before/after diff with trigger-rate scores. On approval, update the `description:` field in the skill's frontmatter.
+
+### 9b. Lint Gate (hard gate)
+
+Run the conventions linter in build-gate mode against every artifact this build produced:
+
+```
+python3 systems/eval-harness/validate-conventions.py --target <new-or-changed artifact> --mode build-gate
+```
+
+Repeat per artifact (skill, workflow.md, each step file, each bundled script). Any FAIL-class finding blocks the build: fix it and rerun — FAIL-class rules carry no exceptions. Size WARNs do not block; if a size WARN is unavoidable, record the exception in `systems/eval-harness/conventions-exceptions.json` (Rigby records, David approves — surface it in the Step 11 summary as pending approval) and move on.
+
+The conventions themselves live in `reference/capability-conventions.md`. Read it when authoring; do not restate its rules in the new capability's files.
 
 ### 10. Track in Pending Changes
 

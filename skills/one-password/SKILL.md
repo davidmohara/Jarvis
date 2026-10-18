@@ -4,6 +4,8 @@ description: "1Password/op: service-account first, targeted secret read/store/in
 metadata: {"clawdbot":{"emoji":"🔐","requires":{"bins":["op","tmux"]},"install":[{"id":"brew","kind":"brew","formula":"1password-cli","bins":["op"],"label":"Install 1Password CLI (brew)"}]}}
 ---
 
+<!-- system:start -->
+
 # 1Password CLI
 
 Follow the official CLI get-started steps. Don't guess install commands.
@@ -26,6 +28,9 @@ Follow the official CLI get-started steps. Don't guess install commands.
 8. If multiple accounts: use `--account` or `OP_ACCOUNT`.
 9. If a command fails, reuse the same tmux session with `tmux send-keys`; do not start a second session just to retry.
 
+<!-- system:end -->
+
+<!-- personal:start -->
 ## Default Account
 
 - Default account for personal/work secrets is `my.1password.com`.
@@ -75,6 +80,9 @@ Target the session as `$SESSION:` instead of assuming window `0`; older sessions
 - For npm registry/package work, use `$npm`; it documents the `npmjs` item, username/password/TOTP flow, and package reservation helper.
 - This skill owns only the generic 1Password rules: tmux-only `op`, targeted reads, one persistent session, no broad enumeration, no secret output.
 
+<!-- personal:end -->
+
+<!-- system:start -->
 ## Known working secret-write pattern
 
 Use the persistent tmux session. Write the exact secret task to a temp script, then send that script into `op-work`; do not create a second tmux session for retries.
@@ -194,3 +202,5 @@ tmux -S "$SOCKET" send-keys -t "$SESSION" -- "bash /tmp/op-debug.sh; rm -f /tmp/
 - Do not run `op` outside tmux; stop and ask if tmux is unavailable.
 
 
+
+<!-- system:end -->

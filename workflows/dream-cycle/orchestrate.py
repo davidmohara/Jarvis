@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+# /// script
+# requires-python = ">=3.10"
+# dependencies = ["pyyaml"]
+# ///
 """Dream Cycle Orchestrator - Runs all 5 steps of the nightly memory consolidation."""
 import os
 import sys

@@ -1,5 +1,6 @@
 ---
 id: calendar-handler
+description: "Handle calendar operations for the executive — search, create, update, and delete events via the M365 connector with confirmation on destructive actions."
 name: Calendar Handler
 owning_agent: rigby
 model: sonnet

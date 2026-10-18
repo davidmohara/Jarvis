@@ -93,7 +93,7 @@ AGENT_ALIASES = {
 REQUIRED_FIELDS = (
     "id", "timestamp", "session", "source", "agent", "category",
     "description", "correction", "failure_mode", "systemic_fix",
-    "fix_status", "severity", "related_entries",
+    "fix_status", "severity", "related_entries", "related_skill",
 )
 
 # Alternate field names seen in hand-written entries that bypassed this script
@@ -188,7 +188,8 @@ def validate_entry(entry: dict, entry_id: Optional[str] = None) -> list:
 
 
 def skeleton(entry_id: str, category: str, severity: str, agent: str,
-             failure_mode: str, session: str, source: str) -> dict:
+             failure_mode: str, session: str, source: str,
+             related_skill: str | None = None) -> dict:
     return {
         "id": entry_id,
         "timestamp": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
@@ -203,6 +204,7 @@ def skeleton(entry_id: str, category: str, severity: str, agent: str,
         "fix_status": "proposed",
         "severity": severity,
         "related_entries": [],
+        "related_skill": related_skill or None,
     }
 
 
@@ -221,6 +223,8 @@ def main():
                     help=f"REQUIRED (unless --id-only). One of: {', '.join(CATEGORIES)}")
     ap.add_argument("--severity", default="minor",
                     help=f"Severity level (default: minor). One of: {', '.join(SEVERITIES)}")
+    ap.add_argument("--related-skill", default="",
+                    help="Optional skill-id the error traces to (routing key for Gotchas writeback)")
     ap.add_argument("--agent", default="",
                     help="Agent active when the error occurred (lowercase-normalized)")
     ap.add_argument("--failure-mode", default="",
@@ -283,7 +287,8 @@ def main():
 
     entry = skeleton(entry_id, category=category, severity=severity,
                      agent=agent, failure_mode=failure_mode,
-                     session=args.session, source=source)
+                     session=args.session, source=source,
+                     related_skill=args.related_skill.strip() or None)
 
     # Self-check: the skeleton we are about to write must conform. Any "error"
     # here is a bug in this script, not in the caller's input, so fail loudly.

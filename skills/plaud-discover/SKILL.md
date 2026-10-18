@@ -13,6 +13,11 @@ trigger_keywords: [plaud discover, find recordings, plaud scan]
 trigger_agents: [knox]
 ---
 
+<!-- system:start -->
+<!-- system:end -->
+
+<!-- personal:start -->
+
 # Plaud Discover
 
 Identify Plaud recordings that exist in the API but have not yet been ingested into
@@ -292,3 +297,5 @@ detection automatically.
   a blocked run is always better than fabricating a new-recordings count on broken dedup data.
 
 
+
+<!-- personal:end -->

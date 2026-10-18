@@ -11,6 +11,8 @@ trigger_keywords: [co-sell, partner pipeline, microsoft, cosell]
 trigger_agents: [chase]
 ---
 
+<!-- system:start -->
+
 # Co-Sell Pipeline
 
 ## Purpose
@@ -30,6 +32,9 @@ reads that the caller sums itself), the cache location, and the output voice/for
 
 ---
 
+<!-- system:end -->
+
+<!-- personal:start -->
 ## Phase 0 — Cache Check (Run First)
 
 Call `skills/vault-freshness-check/SKILL.md` with:
@@ -227,3 +232,5 @@ Auth: SSO (auto via Chrome session)
 Rock 4 Target: $15M co-sell pipeline by end of Q2 2026
 
 
+
+<!-- personal:end -->

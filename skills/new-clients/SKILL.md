@@ -11,6 +11,8 @@ trigger_keywords: [new client, onboard, kickoff]
 trigger_agents: [chase, chief]
 ---
 
+<!-- system:start -->
+
 # New Clients (New Logos & Anchors)
 
 ## Purpose
@@ -31,6 +33,9 @@ from the KPI-tile extraction that skill covers. That logic stays inline below.
 
 ---
 
+<!-- system:end -->
+
+<!-- personal:start -->
 ## Phase 0 — Cache Check (Run First)
 
 Call `skills/vault-freshness-check/SKILL.md` with:
@@ -285,3 +290,5 @@ Freshness threshold: 30 days
 Auth: SSO (auto via Chrome session)
 
 
+
+<!-- personal:end -->

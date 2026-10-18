@@ -1,3 +1,16 @@
+---
+name: harper-blog-linkedin-post
+description: Draft a LinkedIn share post from a published blog release — read the blog content, extract the sharable insight, and write a Harper-voiced post calibrated for David's LinkedIn audience.
+model: sonnet
+owning_agent: harper
+trigger_keywords: ["linkedin post for my blog", "linkedin share", "draft a linkedin post"]
+trigger_agents: ["harper", "master"]
+---
+
+<!-- system:start -->
+<!-- system:end -->
+
+<!-- personal:start -->
 # Skill: LinkedIn Post from Blog Release
 
 ## Agent
@@ -224,3 +237,5 @@ These are the rules most likely to fail in LinkedIn drafts:
 - **Specificity over abstraction.** Abstract insight without a real anchor reads like a carousel. Names, numbers, and real situations are what make it his.
 
 
+
+<!-- personal:end -->

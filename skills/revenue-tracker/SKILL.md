@@ -12,6 +12,8 @@ trigger_keywords: [revenue, bookings, ats, target vs actual]
 trigger_agents: [chase, quinn]
 ---
 
+<!-- system:start -->
+
 # Revenue Tracker
 
 ## Purpose
@@ -48,6 +50,9 @@ are in-progress or future — ignore them for the Monthly Revenue figure.
 
 ---
 
+<!-- system:end -->
+
+<!-- personal:start -->
 ## Phase 0 — Cache Check (Run First)
 
 Call `skills/vault-freshness-check/SKILL.md` with:
@@ -423,3 +428,5 @@ Freshness threshold: 30 days (or new month closed since last pull)
 Auth: SSO (auto via Chrome session)
 
 
+
+<!-- personal:end -->

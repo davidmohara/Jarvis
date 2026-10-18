@@ -55,25 +55,12 @@ For each eval record ID in `eval_record_ids`:
    - `systems/eval-harness/runs/{id}.json`
    - `systems/evals/*/iteration-*/eval-*/{id}.json` (for structured eval work directories)
 2. Read the record. Extract: `status`, `assessment.structural.assertion_results`, `assessment.grading.grade`, `assessment.controller_feedback.rating`, `assessment.controller_feedback.comment`, `version_hash`
-3. Compute a scalar score using the composite formula (see Scoring section below)
+3. Compute a scalar score using the composite formula
 4. Classify as **success** (score ≥ 0.7) or **failure** (score < 0.7)
 
 If fewer than 2 eval records are found: report `insufficient_data` and exit. The workflow should surface this to the controller rather than proceeding.
 
-**Scoring formula:**
-
-```
-score = (mechanical × 0.25) + (assertion_rate × 0.35) + (grade_score × 0.20) + (feedback × 0.10) + (no_errors × 0.10)
-```
-
-Where:
-- `mechanical` = 1 if status is "success", 0.5 if "partial", 0 otherwise
-- `assertion_rate` = assertions_passed / assertions_checked (0 if assertions_checked = 0, use 0.5 as neutral)
-- `grade_score` = A=1.0, B=0.8, C=0.6, D=0.4, F=0.0, null=omit (redistribute weights)
-- `feedback` = 1 if "positive", 0 if "negative", omit if null (redistribute weights)
-- `no_errors` = 1 if error_ids is empty, 0 otherwise
-
-When grading or feedback is null: drop those components and redistribute their weights proportionally across the remaining components.
+**Scoring formula:** Read `systems/eval-harness/scoring/FORMULA.md` when scoring any eval record. That file is the single statement of the composite formula, weights, null-handling, and the success/failure threshold; both the build path and the improve path read it from there.
 
 ### Step 3: Load Session Transcripts
 

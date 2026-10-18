@@ -1,0 +1,19 @@
+workflow: conventions-migration
+agent: rigby
+status: not-started
+session-started: null
+session-id: null
+current-step: null
+original-request: null
+accumulated-context:
+  baseline_findings_path: workflows/conventions-migration/state-baseline-findings.json
+  census_baseline: null
+  buckets:
+    mechanical: []
+    judgment: []
+    size: []
+  fixes_applied: []
+  exceptions_recorded: []
+  exceptions_retired: []
+  rejected_drafts: []
+  close_findings: null

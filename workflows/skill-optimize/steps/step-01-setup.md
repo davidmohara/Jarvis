@@ -51,6 +51,16 @@ Apply defaults unless the controller specified overrides:
 
 Store these in `accumulated-context`.
 
+### 2b. Baseline Convention Lint
+
+Run the conventions linter in report mode against the target skill and store the finding count:
+
+```
+python3 systems/eval-harness/validate-conventions.py --target skills/{skill_id}/SKILL.md
+```
+
+This is the baseline for step-08's comparison — findings the accepted edits made worse. Report mode only; nothing here blocks the run.
+
 ### 3. Gather Eval Records
 
 Scan `systems/eval-harness/runs/` for eval records matching this skill:

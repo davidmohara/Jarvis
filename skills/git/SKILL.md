@@ -1,5 +1,6 @@
 ---
 id: git
+description: "Execute git operations for IES — commit, push, branch, merge, and PR creation following the IES git skill's authorization path."
 name: Git Operations
 owning_agent: rigby
 model: haiku

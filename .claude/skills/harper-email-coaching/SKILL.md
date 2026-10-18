@@ -5,6 +5,7 @@ context: fork
 agent: general-purpose
 model: sonnet
 ---
+<!-- system:start -->
 
 # Harper Email Coaching Skill
 
@@ -141,3 +142,5 @@ Each coaching session delivers:
 ```
 
 
+
+<!-- system:end -->

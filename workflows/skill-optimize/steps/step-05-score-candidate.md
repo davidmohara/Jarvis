@@ -34,11 +34,7 @@ Read `accumulated-context.candidate_path`. Note any changes from the current bes
 
 For each record in `selection_record_ids`:
 
-Apply the same composite scoring formula:
-
-```
-score = (mechanical × 0.25) + (assertion_rate × 0.35) + (grade_score × 0.20) + (feedback × 0.10) + (no_errors × 0.10)
-```
+Apply the same composite scoring formula — read `systems/eval-harness/scoring/FORMULA.md` for the single shared statement of it. No deviations from step-02's formula: same file, same weights.
 
 **Important note on scoring with existing records:** Because the records were generated with the *current* skill (not the candidate), the scores reflect the current skill's behavior. The candidate score will be identical to the baseline unless:
 

@@ -16,6 +16,11 @@ trigger_keywords: [plaud, transcript, recording, ingest, audio]
 trigger_agents: [chief, knox]
 ---
 
+<!-- system:start -->
+<!-- system:end -->
+
+<!-- personal:start -->
+
 # Plaud Transcripts → Obsidian
 
 Transform pre-fetched Plaud.ai recording transcripts into properly tagged Obsidian
@@ -433,3 +438,5 @@ Agent(
 The sub-agent is fully self-contained — no scheduled tasks to clean up, no orphaned
 state files. It polls, processes, cleans up, and terminates.
 
+
+<!-- personal:end -->

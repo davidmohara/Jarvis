@@ -1,3 +1,16 @@
+---
+name: grammarly-polish
+description: Run Grammarly polishing passes over drafted content via the Grammarly desktop integration â€” surface and apply clarity, correctness, and tone fixes without changing meaning. On-demand tool skill, not a pipeline default.
+model: sonnet
+owning_agent: harper
+trigger_keywords: ["grammarly", "polish this draft", "grammarly polish"]
+trigger_agents: ["harper", "master"]
+---
+
+<!-- system:start -->
+<!-- system:end -->
+
+<!-- personal:start -->
 # Grammarly Polish
 
 **ID:** `grammarly-polish`
@@ -317,3 +330,5 @@ The skill returns the polish report inline. No files are written by this skill â
 - One document per invocation. If multiple pieces of content are provided, polish them sequentially and return separate reports.
 
 
+
+<!-- personal:end -->

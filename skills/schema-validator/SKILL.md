@@ -1,5 +1,6 @@
 ---
 id: schema-validator
+description: "Validate JSON and YAML files against their declared schemas — flag drift, missing fields, and type errors before downstream consumers hit them."
 name: Schema Validator
 owning_agent: rigby
 model: haiku

@@ -1,5 +1,6 @@
 ---
 id: eval-signal-write
+description: "Write eval harness signals from skill and workflow executions — record invocation, outcome, and timing data that feed scoring and grading."
 name: Eval Signal Write
 owning_agent: rigby
 model: haiku

@@ -13,6 +13,7 @@ model: sonnet
 trigger_keywords: [teams transcript, teams meeting, teams recording]
 trigger_agents: [chief, knox]
 ---
+<!-- system:start -->
 
 # Teams Transcripts → Obsidian
 
@@ -176,3 +177,5 @@ When signals are ambiguous, default to the broader tag. When nothing specific ma
 - Rate limiting on transcript fetches → add brief pauses between requests
 
 
+
+<!-- system:end -->

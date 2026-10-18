@@ -5,6 +5,8 @@ description: >
 model: sonnet
 ---
 
+<!-- system:start -->
+
 # Reddit Monitor Skill
 
 Build a live Reddit post monitor that filters for recent and relevant posts and surfaces a prioritized engagement queue.
@@ -153,6 +155,9 @@ Use consistent key names so multiple refreshes/sessions share state:
 
 ---
 
+<!-- system:end -->
+
+<!-- personal:start -->
 ## Example subreddit and keyword defaults (Kare Devices context)
 
 If you detect this is for Kare Devices / Kare Patch / tube securement outreach, use these defaults unless the user specifies otherwise:
@@ -176,6 +181,9 @@ These are starting defaults — the user can tune them in the settings panel.
 
 ---
 
+<!-- personal:end -->
+
+<!-- system:start -->
 ## What not to do
 
 - Don't use Reddit's OAuth API or ask for credentials — the public search API is sufficient for read access
@@ -188,3 +196,5 @@ These are starting defaults — the user can tune them in the settings panel.
 - Don't let a failed username fetch block the page — username tracking is a convenience feature, not a critical path
 
 
+
+<!-- system:end -->

@@ -7,6 +7,11 @@ trigger_keywords: [citi offers, citi card, citibank]
 trigger_agents: [chase]
 ---
 
+<!-- system:start -->
+<!-- system:end -->
+
+<!-- personal:start -->
+
 > **Primary path (2026-10-16):** this skill now runs as `steps/step-02-offers.md` inside the `card-walkthrough` workflow, so offers get enrolled in the same session as the monthly data capture. Run it standalone only for an ad-hoc add between walkthroughs.
 
 # Citi Offers — Read & Enroll
@@ -315,3 +320,5 @@ Update `systems/credit-cards/benefits-tracker.json`:
 - Add expiring offers to `upcoming_deadlines`
 
 
+
+<!-- personal:end -->

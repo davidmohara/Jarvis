@@ -28,6 +28,18 @@ model: sonnet
 
 ## YOUR TASK
 
+### Gotchas writeback
+
+For every approved fix typed `skill-update` whose source entries carry a `related_skill`:
+
+1. Read the target skill's SKILL.md. If it has no `## Gotchas` section, add one at the end of the body (inside the `<!-- system:start -->` block when present).
+2. Append the approved one-line gotcha — phrased as a rule ("X fails when Y; do Z"), never a narrative.
+3. Cap it: if the section already holds the same lesson, do not duplicate it.
+4. Record the skill file in `files_modified` alongside the other fix targets.
+
+If the entries lack `related_skill`, skip the writeback and note in the summary that the routing key was missing — future entries should set it via `python3 systems/error-tracking/new-entry.py --related-skill`.
+
+
 ### 1. Load the approved fix list
 
 Read `accumulated-context.approved_fixes` from state.yaml. This is the authoritative list. Apply exactly these, nothing more.

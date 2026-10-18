@@ -1,5 +1,6 @@
 ---
 id: powerbi-extract-kpis
+description: "Extract KPI values and table data from Improving PowerBI reports — navigate, read, and normalize into structured JSON for downstream reporting skills."
 name: PowerBI KPI & Table Extraction
 owning_agent: rigby
 model: sonnet

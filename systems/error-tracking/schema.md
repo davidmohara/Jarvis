@@ -63,7 +63,8 @@ Each file in `entries/` contains a single JSON object:
   "systemic_fix": "proposed or applied fix (null if pending analysis)",
   "fix_status": "proposed | applied | deferred | not-applicable",
   "severity": "minor | moderate | major",
-  "related_entries": ["err-..."]
+  "related_entries": ["err-..."],
+  "related_skill": "skill-id | null"
 }
 ```
 
@@ -73,6 +74,8 @@ The filename must match the `id` field exactly: `entries/<id>.json`.
 
 1. Generate the id and validated skeleton: `python3 systems/error-tracking/new-entry.py --category <category>` prints the new file path. The category is required and must be one of the canonical categories below; severity must be one of the Severity Levels (`--severity`, default `minor`); `--agent` is lowercase-normalized and run through the agent alias map (`jarvis` -> `master`; "Jarvis" is the IES system name, not an agent — a label that is still not a canonical manifest agent warns but does not block); `--failure-mode` is validated against the Failure Modes list (unknown labels warn to stderr but are kept); `--session` and `--source` are optional (`explicit` is the default source). Non-canonical severity/category/source fail loudly with the allowed set — they are never silently coerced.
 2. Fill in the remaining fields (description, correction, systemic_fix, related_entries).
+`related_skill` is optional (null when the error isn't attributable to a skill). Set it whenever the error traces to a specific skill's protocol — it is the routing key for the Gotchas writeback (recurring lessons get written into the target skill's `## Gotchas` section via `workflows/error-improvement` step 04).
+
 3. Commit only the new file. No other file in `systems/error-tracking/` needs to change for a new entry.
 
 Agents writing entries programmatically should follow the same id format and write to `entries/<id>.json` directly. Never edit other entries or `_meta.json` when recording a new correction.

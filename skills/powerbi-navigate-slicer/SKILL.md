@@ -1,5 +1,6 @@
 ---
 id: powerbi-navigate-slicer
+description: "Navigate PowerBI report slicers — select the filter states needed before KPI extraction so pulled values match the requested slice."
 name: PowerBI Navigate & Slicer Filter
 owning_agent: rigby
 model: sonnet

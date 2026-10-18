@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+# /// script
+# requires-python = ">=3.10"
+# dependencies = ["pyyaml"]
+# ///
 """
 RETIRED — no longer registered in .claude/settings.json as of the
 eval-turn-lifecycle build (2026-08-26/27).

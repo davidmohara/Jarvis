@@ -1,18 +1,29 @@
 #!/usr/bin/env python3
+# /// script
+# requires-python = ">=3.10"
+# dependencies = ["pyyaml"]
+# ///
 """
 Jarvis Skill Library Audit
 Usage: python3 skills/rigby-skill-audit/scripts/audit.py [--threshold-days N]
+       python3 skills/rigby-skill-audit/scripts/audit.py --census [--json] [--output FILE]
 
 Audits both skill roots:
   skills/           -- library skills (owning_agent, trigger_keywords, etc.)
   .claude/skills/   -- fork skills (context: fork, agent, allowed-tools)
 
-Five report sections:
+Default mode — five report sections:
   1. Structural Validation
   2. Root Coverage
   3. Schema Classification
   4. Token Pressure
   5. Execution Health
+
+Census mode (--census) — artifact inventory across the whole repo:
+  counts by artifact type; line/token distributions with percentiles;
+  files over each size guide; exception-manifest coverage gaps;
+  agent-specific skills missing their two-tier stub.
+Structured JSON to stdout with --json; human summary otherwise.
 """
 
 import argparse
@@ -642,6 +653,204 @@ def render_report(skills, s1, s2, s3, s4, s5):
 
 
 # ---------------------------------------------------------------------------
+# Census mode (--census)
+# ---------------------------------------------------------------------------
+
+CENSUS_GUIDES = {
+    "skill":     {"lines": 500, "tokens": 5000},
+    "workflow":  {"lines": 150, "tokens": None},
+    "step":      {"lines": 200, "tokens": None},
+    "agent":     {"lines": 400, "tokens": None},
+    "script":    {"lines": 300, "tokens": None},
+}
+EXCEPTIONS_PATH = Path("systems/eval-harness/conventions-exceptions.json")
+
+
+def percentile(sorted_vals, p):
+    if not sorted_vals:
+        return None
+    idx = min(int(round(p / 100 * (len(sorted_vals) - 1))), len(sorted_vals) - 1)
+    return sorted_vals[idx]
+
+
+def load_exceptions():
+    if not EXCEPTIONS_PATH.exists():
+        return []
+    try:
+        return json.loads(EXCEPTIONS_PATH.read_text()).get("exceptions", [])
+    except Exception as e:
+        print(f"WARNING: cannot parse {EXCEPTIONS_PATH}: {e}", file=sys.stderr)
+        return []
+
+
+def classify_artifact(path: Path):
+    """Map a file path to a census artifact type, or None if not census-tracked."""
+    parts = path.parts
+    if path.name == "SKILL.md":
+        return "skill"
+    if path.name == "workflow.md" and "workflows" in parts:
+        return "workflow"
+    if "workflows" in parts and "steps" in parts and path.suffix == ".md":
+        return "step"  # references/, guardrails/, verify/ files are not step files
+    if "agents" in parts and path.suffix == ".md":
+        return "agent"
+    if path.suffix == ".py":
+        return "script"
+    return None
+
+
+def run_census(json_output: bool):
+    skills = discover_skills()
+    exceptions = load_exceptions()
+    exc_keys = {(e.get("path"), e.get("rule")) for e in exceptions}
+
+    artifacts = []  # {path, type, lines, tokens}
+    # evolutions/ holds point-in-time snapshots and packages — not live convention targets
+    skip_dirs = {".git", "__pycache__", "node_modules", ".obsidian", "dist", ".venv", "evolutions"}
+
+    for path in Path(".").rglob("*"):
+        if not path.is_file():
+            continue
+        if any(part in skip_dirs for part in path.parts):
+            continue
+        art_type = classify_artifact(path)
+        if art_type is None:
+            continue
+        try:
+            text = path.read_text(encoding="utf-8", errors="ignore")
+        except Exception:
+            continue
+        artifacts.append({
+            "path": str(path),
+            "type": art_type,
+            "lines": len(text.splitlines()),
+            "tokens": token_estimate(text),
+        })
+
+    # --- distributions by type
+    by_type = {}
+    for a in artifacts:
+        by_type.setdefault(a["type"], []).append(a)
+
+    dist = {}
+    for t, items in by_type.items():
+        lines_sorted = sorted(i["lines"] for i in items)
+        tokens_sorted = sorted(i["tokens"] for i in items)
+        dist[t] = {
+            "count": len(items),
+            "lines": {
+                "min": lines_sorted[0], "max": lines_sorted[-1],
+                "mean": round(sum(lines_sorted) / len(lines_sorted), 1),
+                "p50": percentile(lines_sorted, 50),
+                "p90": percentile(lines_sorted, 90),
+                "p95": percentile(lines_sorted, 95),
+            },
+            "tokens": {
+                "min": tokens_sorted[0], "max": tokens_sorted[-1],
+                "mean": round(sum(tokens_sorted) / len(tokens_sorted), 1),
+                "p50": percentile(tokens_sorted, 50),
+                "p90": percentile(tokens_sorted, 90),
+                "p95": percentile(tokens_sorted, 95),
+            },
+        }
+
+    # --- files over guide
+    over_guide = []
+    for a in artifacts:
+        guide = CENSUS_GUIDES[a["type"]]
+        reasons = []
+        if guide["lines"] and a["lines"] > guide["lines"]:
+            reasons.append(f"lines {a['lines']} > {guide['lines']}")
+        if guide["tokens"] and a["tokens"] > guide["tokens"]:
+            reasons.append(f"tokens {a['tokens']} > {guide['tokens']}")
+        if reasons:
+            rule = f"size.{'skill' if a['type'] == 'skill' else a['type']}"
+            if a["type"] == "skill":
+                rule = "size.skill_body"
+            elif a["type"] == "workflow":
+                rule = "size.workflow_md"
+            elif a["type"] == "step":
+                rule = "size.step_file"
+            elif a["type"] == "agent":
+                rule = "size.agent_file"
+            else:
+                rule = "size.script"
+            has_exception = (a["path"], rule) in exc_keys
+            over_guide.append({
+                "path": a["path"], "type": a["type"], "rule": rule,
+                "reasons": reasons, "exception": has_exception,
+            })
+
+    # --- exception manifest coverage
+    manifest_coverage = {"no_longer_applies": [], "unmatched": []}
+    for e in exceptions:
+        p, rule = e.get("path"), e.get("rule")
+        path_obj = Path(p) if p else None
+        if path_obj and path_obj.exists():
+            art = next((a for a in artifacts if a["path"] == p), None)
+            if art:
+                still_over = any(o["path"] == p and o["rule"] == rule for o in over_guide)
+                if not still_over:
+                    manifest_coverage["no_longer_applies"].append(p)
+        else:
+            manifest_coverage["unmatched"].append(p)
+
+    # --- agent-specific skills missing their stub (two-tier check)
+    missing_stub = []
+    for s in skills:
+        fm = s["frontmatter"] or {}
+        if fm.get("context") == "fork" or fm.get("agent"):
+            # agent-specific skill: expects a library content file + fork stub
+            lib_dir = LIBRARY_ROOT / s["dir_name"]
+            if not (lib_dir / "SKILL.md").exists():
+                missing_stub.append(str(s["path"]))
+
+    result = {
+        "generated": datetime.now(tz=timezone.utc).isoformat(),
+        "guides": CENSUS_GUIDES,
+        "counts": {t: dist[t]["count"] for t in sorted(dist)},
+        "distribution": dist,
+        "over_guide": over_guide,
+        "over_guide_unexcused": [o for o in over_guide if not o["exception"]],
+        "exception_manifest": manifest_coverage,
+        "missing_two_tier_stub": missing_stub,
+    }
+
+    if json_output:
+        print(json.dumps(result, indent=2))
+        return
+
+    # Human summary
+    print(f"CENSUS — {datetime.now().strftime('%Y-%m-%d %H:%M')}")
+    print("=" * 70)
+    print(f"{'type':<10} {'count':>5} {'lines p50/p90/max':>24} {'tokens p50/p90/max':>26}")
+    for t in sorted(dist):
+        d = dist[t]
+        print(f"{t:<10} {d['count']:>5} "
+              f"{d['lines']['p50']:>7}/{d['lines']['p90']}/{d['lines']['max']:>7} "
+              f"{d['tokens']['p50']:>8}/{d['tokens']['p90']}/{d['tokens']['max']:>8}")
+    print()
+    excused = sum(1 for o in over_guide if o["exception"])
+    print(f"OVER GUIDE: {len(over_guide)} files ({excused} with recorded exceptions)")
+    for o in result["over_guide_unexcused"][:40]:
+        print(f"  {o['type']:<9} {o['path']}  ({'; '.join(o['reasons'])})")
+    if len(result["over_guide_unexcused"]) > 40:
+        print(f"  ... and {len(result['over_guide_unexcused']) - 40} more (use --json)")
+    if manifest_coverage["no_longer_applies"]:
+        print(f"\nEXCEPTIONS NO LONGER NEEDED (retire): {len(manifest_coverage['no_longer_applies'])}")
+        for p in manifest_coverage["no_longer_applies"]:
+            print(f"  {p}")
+    if manifest_coverage["unmatched"]:
+        print(f"\nEXCEPTIONS WITH NO FILE: {len(manifest_coverage['unmatched'])}")
+        for p in manifest_coverage["unmatched"]:
+            print(f"  {p}")
+    if missing_stub:
+        print(f"\nAGENT-SPECIFIC SKILLS MISSING LIBRARY CONTENT FILE: {len(missing_stub)}")
+        for p in missing_stub:
+            print(f"  {p}")
+
+
+# ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
 
@@ -649,12 +858,21 @@ def main():
     parser = argparse.ArgumentParser(description="Audit Jarvis skill library")
     parser.add_argument("--threshold-days", type=int, default=90,
                         help="Days before a skill run is considered stale (default: 90)")
+    parser.add_argument("--census", action="store_true",
+                        help="Artifact census instead of the standard audit: counts, "
+                             "line/token distributions, size-guide overages, exception coverage")
+    parser.add_argument("--json", action="store_true",
+                        help="With --census: emit structured JSON to stdout (human summary otherwise)")
     args = parser.parse_args()
 
     # Verify we're running from the jarvis root
     if not MANIFEST_PATH.exists() and not LIBRARY_ROOT.exists():
         print("ERROR: Run this script from the jarvis repo root (where skills/ lives).", file=sys.stderr)
         sys.exit(1)
+
+    if args.census:
+        run_census(json_output=args.json)
+        return
 
     skills = discover_skills()
 

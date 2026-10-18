@@ -1,3 +1,11 @@
+---
+name: session-index
+description: Read, write, and update the session index (memory/sessions/index.json) — Jarvis's append-only continuity record of file writes, open loops, and topic shifts across a session.
+model: sonnet
+owning_agent: master
+trigger_keywords: ["session index", "update the session index", "close the session index"]
+trigger_agents: ["master"]
+---
 # Session Index Skill
 
 <!-- system:start -->

@@ -37,18 +37,7 @@ Extract: `status`, `assessment.structural`, `assessment.grading`, `assessment.co
 
 ### 2. Compute Score Per Record
 
-Apply the composite scoring formula from `rigby-skill-reflect` SKILL.md:
-
-```
-score = (mechanical × 0.25) + (assertion_rate × 0.35) + (grade_score × 0.20) + (feedback × 0.10) + (no_errors × 0.10)
-```
-
-Where:
-- `mechanical` = 1 if status "success", 0.5 if "partial", 0 otherwise
-- `assertion_rate` = assertions_passed / assertions_checked (use 0.5 if assertions_checked = 0)
-- `grade_score` = A=1.0, B=0.8, C=0.6, D=0.4, F=0.0, null → omit, redistribute weights
-- `feedback` = 1 if "positive", 0 if "negative", null → omit, redistribute weights
-- `no_errors` = 1 if error_ids empty, 0 otherwise
+Read `systems/eval-harness/scoring/FORMULA.md` when scoring each record — that file is the single statement of the composite formula (weights, null-handling, success/failure threshold), shared with the build path. Never restate the weights locally.
 
 If all records use assertion_rate = 0.5 (no assertions defined): note `no_assertions_defined: true` in output and surface to controller:
 

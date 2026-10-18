@@ -11,6 +11,11 @@ trigger_keywords: [jarvis inbox, inbox folder, outlook jarvis]
 trigger_agents: [chief]
 ---
 
+<!-- system:start -->
+<!-- system:end -->
+
+<!-- personal:start -->
+
 # Jarvis Inbox — Mail Folder Processing
 
 ## Purpose
@@ -116,3 +121,5 @@ has been sitting for more than 2 sessions without resolution, re-surface it with
 | Classification unclear | Surface the item to David with your best guess and let him decide |
 | Email has attachments | Note the attachment names but don't attempt to download — flag for David if action-dependent |
 
+
+<!-- personal:end -->

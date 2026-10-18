@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+# /// script
+# requires-python = ">=3.10"
+# dependencies = ["pyyaml"]
+# ///
 """
 SubagentStop Hook: Eval Record Completion + Tier 1 & 2 Assessments
 Triggered when a sub-agent returns.

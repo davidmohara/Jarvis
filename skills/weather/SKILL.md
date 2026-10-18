@@ -10,6 +10,7 @@ trigger_keywords: [weather, forecast, temperature, rain, wttr]
 trigger_agents: []
 source: https://lobehub.com/skills/openclaw-openclaw-weather (openclaw/openclaw, GitHub)
 ---
+<!-- system:start -->
 
 # Weather Skill
 
@@ -113,3 +114,5 @@ curl "wttr.in/London?format=v2"
 - Supports airport codes: `curl wttr.in/ORD`
 
 
+
+<!-- system:end -->

@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+# /// script
+# requires-python = ">=3.10"
+# dependencies = ["pyyaml"]
+# ///
 """
 Step-Complete Hook: Per-Step Token Extraction + Guardrail Validation
 Triggered when a workflow step completes (status: complete written to frontmatter).

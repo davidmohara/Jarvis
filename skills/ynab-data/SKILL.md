@@ -6,6 +6,7 @@ model: haiku
 trigger_keywords: [ynab, budget, spend, payee, you need a budget]
 trigger_agents: [chase]
 ---
+<!-- system:start -->
 
 # YNAB Data
 
@@ -59,3 +60,5 @@ python3 skills/ynab-data/scripts/ynab_data.py payees --account amex-blue [--limi
 
 - `workflows/card-walkthrough/steps/step-02-offers.md` and the `chase-card-offers-*` skills — filter card offers against real spend.
 - Boot step-01.2 Pull E — refresh the cache each boot so it is current when needed.
+
+<!-- system:end -->
