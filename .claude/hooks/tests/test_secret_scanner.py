@@ -18,6 +18,10 @@ Guarantees under test:
   - raw file text (deletions_exempt=False) scans every line as an addition,
     so '- bullet' and '---' frontmatter are content, not diff markers
   - all six known-prefix literal patterns still refuse on added lines
+  - run-output carve-out content (systems/eval-harness/runs/) is exempt from
+    the blocking scan (machine-generated eval archives quote fixtures and
+    refusal messages by design) but warns on stderr when a known key shape
+    appears, and the same literal outside the carve-out still refuses
 """
 
 import contextlib
@@ -140,8 +144,10 @@ def main():
 
     def run_wrapper(argv):
         mod.sys.argv = ["ies-git", *argv]
+        err = io.StringIO()
         try:
-            mod.main()
+            with contextlib.redirect_stderr(err):
+                mod.main()
             return 0
         except SystemExit as e:
             return e.code or 0
@@ -155,6 +161,50 @@ def main():
         '    # handles the Plaud token; no literals here\n'
     )
     assert run_wrapper(["add", "clean.txt"]) == 0, "add must pass bare identifier code"
+
+    # --- carve-out exemption: run-output carve-outs quote fixtures and
+    # refusal messages by design; they are excluded from the blocking scan
+    # and checked warn-only instead (no more case-by-case allowlist growth) ---
+
+    # (a) digit-bearing token literal under systems/eval-harness/runs/ must
+    # NOT refuse (the eval-record quoting-fixture case that accreted entries)
+    runs_dir = repo / "systems" / "eval-harness" / "runs"
+    runs_dir.mkdir(parents=True)
+    # built by concatenation so this test's own source never carries the
+    # digit-bearing literal verbatim (no allowlist entry needed to stage it)
+    quoted_val = 'token = "' + "a1b2c3d4e5f6g7h" + '8"'
+    (runs_dir / "eval-20261018T000000-TEST01.json").write_text(
+        '{\n  "query": "add fixture",\n'
+        '  "refusal_message": "refused: credential-shaped content: ' + quoted_val + '"\n}\n'
+    )
+    assert run_wrapper(["add", "systems/eval-harness/runs/eval-20261018T000000-TEST01.json"]) == 0, \
+        "add must not refuse carve-out content quoting fixtures"
+
+    # (b) the same literal in a non-carve-out path must still refuse
+    (repo / "notes.txt").write_text('token = "' + "a1b2c3d4e5f6g7h" + '"')
+    assert run_wrapper(["add", "notes.txt"]) == 5, "add must exit 5 on the same literal outside the carve-out"
+
+    # (c) warn-not-silent: a real-shaped known-prefix literal (ghp_ + 30) in
+    # carve-out content passes the gate but surfaces on stderr
+    (runs_dir / "eval-20261018T000001-TEST02.json").write_text(
+        '{"fixture_quoted_from_refusal": "ghp_' + "a" * 30 + '"}\n'
+    )
+    err = io.StringIO()
+    with contextlib.redirect_stderr(err):
+        code = None
+        mod.sys.argv = ["ies-git", "add", "systems/eval-harness/runs"]
+        try:
+            mod.main()
+        except SystemExit as e:
+            code = e.code or 0
+    assert code == 0, "add must pass carve-out content with a ghp_ literal (warn-only)"
+    assert "warn:" in err.getvalue(), "carve-out content with a real key shape must warn on stderr"
+
+    # (d) carve-out pathspec helpers: single source of truth is the
+    # classifier's CLASS_A_SYSTEM_CARVEOUTS, so the exemption cannot drift
+    assert mod.is_carveout_path("systems/eval-harness/runs/eval-x.json"), "carve-out path recognized"
+    assert not mod.is_carveout_path("systems/eval-harness/validate-conventions.py"), "non-carve-out rejected"
+    assert mod.carveout_pathspecs() == [f":(exclude){c}" for c in mod.cc.CLASS_A_SYSTEM_CARVEOUTS]
 
     print("test_secret_scanner: all cases passed")
     return 0
