@@ -13,12 +13,16 @@ Usage:
   python3 fetch_plaud.py --login            # force re-login (ignore cached token)
 
 Authentication:
-  The script authenticates automatically. On first run it reads credentials from
-  environment variables or prompts interactively, logs in via the Plaud API, and
+  The script authenticates automatically. It reads credentials from environment
+  variables or ~/.config/plaud/credentials.json, logs in via the Plaud API, and
   caches the token to ~/.config/plaud/token.json. Tokens last ~300 days and auto-
   refresh when within 30 days of expiry.
 
-  Environment variables (optional — script will prompt if not set):
+  Non-interactive (required): if no cached token and no credentials are found,
+  the script exits with code 2 and a helpful error on stderr — the calling agent
+  handles the Chrome login flow to capture a token from web.plaud.ai.
+
+  Environment variables:
     PLAUD_EMAIL    — your Plaud account email
     PLAUD_PASSWORD — your Plaud account password
     PLAUD_REGION   — "us" (default) or "eu"
@@ -32,7 +36,6 @@ import json
 import os
 import sys
 import base64
-import getpass
 import random
 import uuid
 from datetime import datetime, timedelta
@@ -86,23 +89,20 @@ def load_credentials():
     return None
 
 
-def prompt_credentials():
-    """Interactively prompt for credentials."""
-    print("Plaud login required.")
-    print("  (If you use Google Sign-In, set a password first via 'Forgot Password' at web.plaud.ai)")
-    email = input("  Email: ").strip()
-    password = getpass.getpass("  Password: ")
-    region = input("  Region (us/eu) [us]: ").strip().lower() or "us"
-
-    if region not in ("us", "eu"):
-        print(f"  Invalid region '{region}', defaulting to 'us'")
-        region = "us"
-
-    save_creds = input("  Save credentials for future runs? (y/n) [y]: ").strip().lower()
-    if save_creds != "n":
-        save_credentials(email, password, region)
-
-    return {"email": email, "password": password, "region": region}
+def missing_credentials_error():
+    """Non-interactive credential error: what went wrong, what was expected, what to try."""
+    sys.stderr.write(
+        "ERROR: no usable Plaud credentials.\n"
+        "  Expected: a cached token at ~/.config/plaud/token.json, credentials at\n"
+        "  ~/.config/plaud/credentials.json, or PLAUD_EMAIL + PLAUD_PASSWORD env vars\n"
+        "  (PLAUD_REGION optional, 'us' or 'eu').\n"
+        "  Try one of:\n"
+        "    - export PLAUD_EMAIL=... PLAUD_PASSWORD=... and rerun\n"
+        "    - write ~/.config/plaud/credentials.json ({\"email\": ..., \"password\": ..., \"region\": \"us\"})\n"
+        "    - use the Chrome login flow to capture a token from web.plaud.ai\n"
+        "  Note: if you use Google Sign-In on Plaud, set a password first via 'Forgot\n"
+        "  Password' at web.plaud.ai — the API needs email/password.\n"
+    )
 
 
 def decode_jwt_expiry(token):
@@ -214,16 +214,11 @@ def get_token(force_login=False):
     # Need to authenticate — try saved credentials first
     creds = load_credentials()
 
-    # If no saved credentials and running non-interactively, exit with code 2
-    # so the calling agent can trigger the Chrome login flow
+    # Non-interactive only: no credentials means exit code 2 so the calling
+    # agent can trigger the Chrome login flow
     if not creds or not creds.get("password"):
-        if not sys.stdin.isatty():
-            print("NO_TOKEN")
-            print("  No cached token and no saved credentials.")
-            print("  Use the Chrome login flow to capture a token from web.plaud.ai.")
-            sys.exit(2)
-        # Interactive mode — prompt for credentials
-        creds = prompt_credentials()
+        missing_credentials_error()
+        sys.exit(2)
 
     token = login(creds)
     if not token:
@@ -867,6 +862,18 @@ def get_target_date():
 
 
 def main():
+    if "--help" in sys.argv or "-h" in sys.argv:
+        print(__doc__.strip())
+        print("""
+Other modes:
+  --check <file_id>       poll one recording's transcription status
+  --share <file_id>      request share-token transcript for one recording
+  --rename <file_id> <new_title>
+                          rename a recording and refetch its transcript
+  --list-all --out <json> write all recordings to a JSON file
+""")
+        sys.exit(0)
+
     force_login = "--login" in sys.argv or "--force-login" in sys.argv
 
     print("=" * 60)
