@@ -3145,7 +3145,15 @@
           ".claude/skills/rigby-capability-build/scripts/run_eval.py",
           ".claude/skills/rigby-capability-build/scripts/improve_description.py",
           ".claude/skills/rigby-capability-build/scripts/run_loop.py",
-          ".claude/skills/contact-targeting/SKILL.md"
+          ".claude/skills/contact-targeting/SKILL.md",
+          ".claude/skills/rigby-capability-build/references/file-structure.md",
+          ".claude/skills/rigby-capability-build/references/two-tier-skills.md",
+          ".claude/skills/rigby-capability-build/references/eval-authoring.md",
+          ".claude/skills/rigby-capability-build/references/eval-run-protocol.md",
+          ".claude/skills/rigby-capability-build/references/description-optimization.md",
+          ".claude/skills/rigby-capability-build/SKILL.md",
+          "skills/plaud-transcripts/scripts/fetch_plaud.py",
+          "skills/git/scripts/ies-git"
         ]
       }
     ]

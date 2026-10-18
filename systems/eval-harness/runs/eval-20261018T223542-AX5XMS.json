@@ -1,0 +1,70 @@
+{
+  "id": "eval-20261018T223542-AX5XMS",
+  "agent_id": "a05db8b52a16c6a46",
+  "type": "agent",
+  "name": "fork",
+  "workflow": null,
+  "agent": "fork",
+  "owning_agent": null,
+  "subagent_type": "fork",
+  "session_id": "6cf7139a-f602-45e6-8ce9-0195333ebabd",
+  "trigger": "unknown",
+  "started": "2026-10-18T22:35:42.894383Z",
+  "completed": null,
+  "duration_seconds": null,
+  "status": "in-progress",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": null,
+      "all_steps_finished": null,
+      "tool_failures": 2,
+      "error_ids": [],
+      "tool_failure_log": [
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\nTraceback (most recent call last):\n  File \"<stdin>\", line 2, in <module>\nAttributeError: module 'importlib' has no attribute 'machinery'",
+          "duration_ms": 197,
+          "timestamp": "2026-10-18T17:37:30.247520"
+        },
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\nPASS (a) deletion line with token identifier: hits=[] warn=False\nPASS (b) added line with real ghp_ literal: hits=['ghp_A1b2C3d4E5f6G7h8...'] warn=False\nPASS (c) added line with identifier value: hits=[] warn=False\nPASS (d) added line with digit-bearing literal: hits=['password = \"abc123de...'] warn=False\nPASS (e) context line with identifier: hits=[] warn=False\nPASS (f) deletion line with real literal (warn only): hits=[] warn=True\nFAIL (g) raw text: '- bullet' with literal: hits=[] warn=False\nPASS (h) raw text: frontmatter --- line: hits=[] warn=False\nSOME FAILED",
+          "duration_ms": 172,
+          "timestamp": "2026-10-18T17:37:50.308662"
+        }
+      ]
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": []
+}
