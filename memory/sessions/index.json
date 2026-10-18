@@ -3142,7 +3142,9 @@
           "/tmp/regress_description.py",
           "/tmp/confirm_lost.py",
           "systems/eval-harness/runs/description-regression-20261018T164844-confirmation.md",
-          ".claude/skills/rigby-capability-build/scripts/run_eval.py"
+          ".claude/skills/rigby-capability-build/scripts/run_eval.py",
+          ".claude/skills/rigby-capability-build/scripts/improve_description.py",
+          ".claude/skills/rigby-capability-build/scripts/run_loop.py"
         ]
       }
     ]

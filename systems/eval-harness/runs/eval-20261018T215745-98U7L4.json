@@ -4,36 +4,22 @@
   "type": "agent",
   "name": "fork",
   "workflow": null,
-  "agent": "fork",
-  "owning_agent": null,
+  "agent": "rigby",
+  "owning_agent": "rigby",
   "subagent_type": "fork",
   "session_id": "6cf7139a-f602-45e6-8ce9-0195333ebabd",
   "trigger": "unknown",
   "started": "2026-10-18T21:57:45.350582Z",
-  "completed": null,
-  "duration_seconds": null,
-  "status": "in-progress",
+  "completed": "2026-10-18T22:06:18.461062Z",
+  "duration_seconds": 513.11,
+  "status": "partial",
   "steps": [],
   "assessment": {
     "mechanical": {
-      "completed": null,
-      "all_steps_finished": null,
-      "tool_failures": 2,
-      "error_ids": [],
-      "tool_failure_log": [
-        {
-          "tool": "Bash",
-          "error": "Exit code 1\n12:import subprocess\n22:def find_project_root() -> Path:\n26:    we create ends up where claude -p will look for it.\n35:def run_single_query(\n46:    available_skills list, then runs `claude -p` with the raw query.\n80:        # Remove CLAUDECODE env var to allow nesting claude -p inside a\n82:        # programmatic subprocess usage is safe.\n85:        process = subprocess.Popen(\n87:            stdout=subprocess.PIPE,\n88:            stderr=subprocess.DEVNULL,\n184:def run_eval(\n203:                    run_single_query,\n259:def main():\n268:    parser.add_argument(\"--model\", default=None, help=\"Model to use for claude -p (default: user's configured model)\")\n(eval):1: == not found",
-          "duration_ms": 28,
-          "timestamp": "2026-10-18T16:57:57.996140"
-        },
-        {
-          "tool": "Bash",
-          "error": "Exit code 4\nrefused: changeset is not Class A; the session-commit fast lane only carries routine churn.\nGated (Class B, needs the standard path with --ack-gated):\n  .claude/skills/rigby-capability-build/scripts/run_eval.py\nCommit Class B separately from Class A churn so the system-change audit trail stays isolated.",
-          "duration_ms": 245,
-          "timestamp": "2026-10-18T17:01:19.679283"
-        }
-      ]
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 3,
+      "error_ids": []
     },
     "structural": {
       "expected_outputs_written": null,
@@ -66,5 +52,11 @@
   },
   "version_hash": null,
   "prior_baseline_id": null,
-  "tags": []
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/6cf7139a-f602-45e6-8ce9-0195333ebabd/subagents/agent-a3289466b4f9c5bb9.jsonl",
+  "last_assistant_message": "Task complete: token usage is now captured on every eval judge run, by default, in the shared runner. Nothing committed.\n\n## What changed\n\n- **`.claude/skills/rigby-capability-build/scripts/run_eval.py`** \u2014 `run_single_query` now returns a record `{\"triggered\", \"usage\", \"model\", \"requests_seen\", \"usage_complete\", \"elapsed\", \"cost_usd?\"}` instead of a bare bool. `run_eval()` aggregates every run's usage into an output `\"usage\"` block (totals, runs measured, runs complete, per-model counts) plus `run_details` per run \u2014 so any driver or archive consuming `run_eval`'s output gets token counts for free and cannot forget them.\n- **`improve_description.py`** \u2014 `_call_claude` switched from `--output-format text` to `json`; usage/cost/model from the result envelope ride into each iteration transcript (`claude_usage`, `rewrite_claude_usage`).\n- **`run_loop.py`** \u2014 propagates `eval_usage` into each iteration's history entry.\n- **`reference/capability-conventions.md`** \u2014 new \"Eval scripts\" section, rule 24: every eval run records actual token usage; no usage block means the driver is broken, not optional.\n\n## Capture mechanism (empirically verified, not assumed)\n\nProbed the CLI first: `message_delta` stream events carry each request's **final usage** and arrive **before tool execution** \u2014 so capture survives the runner's early-trigger exit. `message_start` carries the model id. The end-of-session `result` event carries authoritative totals. Design: trigger runs exit early *after* holding on for their `message_delta` usage; no-tool runs read through to `result` for authoritative totals.\n\nTwo bugs the smoke test caught and I fixed: the `assistant` event arrives **before** `message_delta` and was returning early (non-triggered runs scored 0/0 usage), and returning at `message_delta` unconditionally skipped `result` totals for cheap no-tool runs.\n\n## Smoke-test evidence (real runs, isolated scratch root)\n\n- Triggered run: 17,828 in / 22 out, model captured\n- Non-triggered run: 15,760 in / 4 out, `usage_complete: true` (authoritative from `result`)\n- Aggregated block: 2 runs, 2 measured, per-model `{\"glm-5p3-flash\": 2}` \u2014 note the judge resolved to a GLM flash model, consistent with David's \"fireworks routing\" comment\n- Linter on all three modified files: 0 fail, 0 warn (1 acknowledged = pre-existing size exception on run_eval.py)\n\n## Caveats\n\n- `cost_usd` is best-effort: the `result` event didn't carry `total_cost_usd` under the runner's launch flags (my direct probe showed it), so it's recorded when present, absent otherwise. Token counts are the guaranteed capture.\n- Early-exited runs report **partial** usage (requests completed up to the trigger decision) and are flagged `usage_complete: false` \u2014 the trigger decision happens in the first request or two, so this covers nearly all the cost, but it's marked, not silently wrong.\n- `run_single_query`'s return type changed from bool to dict. In-repo callers are all updated; the ephemeral `/tmp` regression drivers from yesterday's eval would need a one-line adaptation if they still exist.\n- Judge trigger detection is unchanged in semantics; triggered runs now take a few hundred ms longer (waiting for their `message_delta`).",
+  "model": "glm-5p3",
+  "total_tokens_input": 2550605,
+  "total_tokens_output": 3160,
+  "total_cost_usd": 0.380453
 }
