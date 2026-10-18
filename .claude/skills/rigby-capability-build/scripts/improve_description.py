@@ -17,13 +17,16 @@ from pathlib import Path
 from scripts.utils import parse_skill_md
 
 
-def _call_claude(prompt: str, model: str | None, timeout: int = 300) -> str:
-    """Run `claude -p` with the prompt on stdin and return the text response.
+def _call_claude(prompt: str, model: str | None, timeout: int = 300) -> tuple[str, dict]:
+    """Run `claude -p` with the prompt on stdin; return (text, usage_info).
 
     Prompt goes over stdin (not argv) because it embeds the full SKILL.md
     body and can easily exceed comfortable argv length.
+
+    Uses --output-format json so token usage and cost ride along in the
+    result envelope; usage_info carries them for costing.
     """
-    cmd = ["claude", "-p", "--output-format", "text"]
+    cmd = ["claude", "-p", "--output-format", "json"]
     if model:
         cmd.extend(["--model", model])
 
@@ -44,7 +47,38 @@ def _call_claude(prompt: str, model: str | None, timeout: int = 300) -> str:
         raise RuntimeError(
             f"claude -p exited {result.returncode}\nstderr: {result.stderr}"
         )
-    return result.stdout
+
+    usage_info: dict = {}
+    text = result.stdout
+    try:
+        envelope = json.loads(result.stdout)
+        text = envelope.get("result", result.stdout)
+        if envelope.get("usage"):
+            usage_info["usage"] = envelope["usage"]
+        if envelope.get("total_cost_usd") is not None:
+            usage_info["cost_usd"] = envelope["total_cost_usd"]
+        # Per-model breakdown: costUSD is a CLI-computed estimate
+        # (costBasis, currently "unknown"); tokens are authoritative.
+        if isinstance(envelope.get("modelUsage"), dict) and envelope["modelUsage"]:
+            usage_info["model_usage"] = {
+                m: {
+                    "cost_usd": stats.get("costUSD"),
+                    "input_tokens": stats.get("inputTokens"),
+                    "output_tokens": stats.get("outputTokens"),
+                    "cache_read_input_tokens": stats.get("cacheReadInputTokens"),
+                    "cache_creation_input_tokens": stats.get("cacheCreationInputTokens"),
+                    "provider": stats.get("provider"),
+                    "cost_basis": stats.get("costBasis"),
+                }
+                for m, stats in envelope["modelUsage"].items()
+                if isinstance(stats, dict)
+            }
+        if envelope.get("model"):
+            usage_info["model"] = envelope["model"]
+    except (json.JSONDecodeError, AttributeError):
+        pass  # non-JSON envelope: keep raw text, no usage available
+
+    return text, usage_info
 
 
 def improve_description(
@@ -141,7 +175,7 @@ I'd encourage you to be creative and mix up the style in different iterations si
 
 Please respond with only the new description text in <new_description> tags, nothing else."""
 
-    text = _call_claude(prompt, model)
+    text, usage_info = _call_claude(prompt, model)
 
     match = re.search(r"<new_description>(.*?)</new_description>", text, re.DOTALL)
     description = match.group(1).strip().strip('"') if match else text.strip().strip('"')
@@ -154,6 +188,8 @@ Please respond with only the new description text in <new_description> tags, not
         "char_count": len(description),
         "over_limit": len(description) > 1024,
     }
+    if usage_info:
+        transcript["claude_usage"] = usage_info
 
     # Safety net: the prompt already states the 1024-char hard limit, but if
     # the model blew past it anyway, make one fresh single-turn call that
@@ -171,12 +207,14 @@ Please respond with only the new description text in <new_description> tags, not
             f"important trigger words and intent coverage. Respond with only "
             f"the new description in <new_description> tags."
         )
-        shorten_text = _call_claude(shorten_prompt, model)
+        shorten_text, shorten_usage = _call_claude(shorten_prompt, model)
         match = re.search(r"<new_description>(.*?)</new_description>", shorten_text, re.DOTALL)
         shortened = match.group(1).strip().strip('"') if match else shorten_text.strip().strip('"')
 
         transcript["rewrite_prompt"] = shorten_prompt
         transcript["rewrite_response"] = shorten_text
+        if shorten_usage:
+            transcript["rewrite_claude_usage"] = shorten_usage
         transcript["rewrite_description"] = shortened
         transcript["rewrite_char_count"] = len(shortened)
         description = shortened

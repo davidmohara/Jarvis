@@ -36,6 +36,10 @@ Source guidance: the four agentskills.io skill-creation guides (best-practices, 
 19. **Predictable output size.** Summary by default; `--offset` / `--output` for more.
 20. **List scripts in SKILL.md; reference them by relative path from the skill root.** Never `(cd dir && python3 -m ...)`.
 
+## Eval scripts
+
+24. **Every eval run records actual token usage.** Scripts that launch `claude -p` subprocesses capture per-run usage (input, output, cache-read, cache-creation tokens, model id) from stream events or the result envelope, and every archive/result they write carries an aggregated usage block (totals, runs measured, per-model counts). Estimates are never a substitute: no usage block in the archive means the driver is broken, not optional. Reference implementation: `run_eval.py`'s `run_single_query`/`run_eval` (usage from `message_delta` stream events, authoritative totals from the `result` event; aggregation happens in the shared runner so no future driver can forget it).
+
 ## Workflows
 
 21. **`workflow.md` stays an orchestrator** (under the size guide). Logic lives in step files.

@@ -39,14 +39,20 @@ def run_single_query(
     timeout: int,
     project_root: str,
     model: str | None = None,
-) -> bool:
-    """Run a single query and return whether the skill was triggered.
+) -> dict:
+    """Run a single query; return {"triggered": bool, "usage": {...}, ...}.
 
     Creates a command file in .claude/commands/ so it appears in Claude's
     available_skills list, then runs `claude -p` with the raw query.
     Uses --include-partial-messages to detect triggering early from
     stream events (content_block_start) rather than waiting for the
     full assistant message, which only arrives after tool execution.
+
+    Token usage is captured from message_delta stream events, which carry
+    each request's final usage and arrive BEFORE tool execution begins, so
+    the capture survives the early-trigger return. The result event (end of
+    session) carries authoritative totals plus cost; when the stream reaches
+    it those overwrite the accumulated values and "complete" is True.
     """
     unique_id = uuid.uuid4().hex[:8]
     clean_name = f"{skill_name}-skill-{unique_id}"
@@ -91,11 +97,51 @@ def run_single_query(
         )
 
         triggered = False
+        decided = False  # trigger decision made; waiting for usage before exiting
+        tool_ahead = False  # a tool_use block was seen: execution will follow
+        saw_result = False
+        cost_usd = None  # total_cost_usd from the result event, when reached
+        model_usage = None  # per-model breakdown from the result event
+        cost_basis = None  # CLI's own flag on how costUSD was computed
+        judge_model = None
+        requests_seen = 0
+        usage = {
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "cache_read_input_tokens": 0,
+            "cache_creation_input_tokens": 0,
+        }
         start_time = time.time()
         buffer = ""
         # Track state for stream event detection
         pending_tool_name = None
         accumulated_json = ""
+
+        def record() -> dict:
+            rec = {
+                "triggered": triggered,
+                "usage": dict(usage),
+                "model": judge_model,
+                "requests_seen": requests_seen,
+                # True only when the end-of-session result event supplied
+                # authoritative totals; otherwise usage is partial (sum of
+                # message_delta events seen before the early exit).
+                "usage_complete": saw_result,
+                "elapsed": round(time.time() - start_time, 3),
+            }
+            if cost_usd is not None:
+                rec["cost_usd"] = cost_usd
+            if model_usage is not None:
+                rec["model_usage"] = model_usage
+            if cost_basis is not None:
+                rec["cost_basis"] = cost_basis
+            return rec
+
+        def add_usage(u: dict) -> None:
+            if not u:
+                return
+            for key in usage:
+                usage[key] += int(u.get(key) or 0)
 
         try:
             while time.time() - start_time < timeout:
@@ -130,31 +176,53 @@ def run_single_query(
                         se = event.get("event", {})
                         se_type = se.get("type", "")
 
-                        if se_type == "content_block_start":
+                        if se_type == "message_start":
+                            msg = se.get("message", {})
+                            if not judge_model:
+                                judge_model = msg.get("model")
+
+                        elif se_type == "content_block_start":
                             cb = se.get("content_block", {})
                             if cb.get("type") == "tool_use":
+                                tool_ahead = True  # tool execution will follow
                                 tool_name = cb.get("name", "")
                                 if tool_name in ("Skill", "Read"):
                                     pending_tool_name = tool_name
                                     accumulated_json = ""
                                 else:
-                                    return False
+                                    decided = True  # other tool used: not triggered
 
                         elif se_type == "content_block_delta" and pending_tool_name:
                             delta = se.get("delta", {})
                             if delta.get("type") == "input_json_delta":
                                 accumulated_json += delta.get("partial_json", "")
                                 if clean_name in accumulated_json:
-                                    return True
+                                    triggered = True
+                                    decided = True
+
+                        elif se_type == "message_delta":
+                            # Final usage for the request that just ended.
+                            # Arrives before tool execution, so it survives
+                            # the early-trigger exit once we hold on for it.
+                            add_usage(se.get("usage"))
+                            requests_seen += 1
+                            if decided and tool_ahead:
+                                # Tool execution would follow; exit early
+                                # with message_delta usage (partial).
+                                return record()
 
                         elif se_type in ("content_block_stop", "message_stop"):
                             if pending_tool_name:
-                                return clean_name in accumulated_json
-                            if se_type == "message_stop":
-                                return False
+                                triggered = clean_name in accumulated_json
+                                decided = True
+                            if se_type == "message_stop" and not pending_tool_name:
+                                decided = True
 
                     # Fallback: full assistant message
                     elif event.get("type") == "assistant":
+                        # NOTE: this event arrives BEFORE message_delta in
+                        # the stream; never return here without usage — the
+                        # message_delta/result events right behind it carry it.
                         message = event.get("message", {})
                         for content_item in message.get("content", []):
                             if content_item.get("type") != "tool_use":
@@ -165,17 +233,49 @@ def run_single_query(
                                 triggered = True
                             elif tool_name == "Read" and clean_name in tool_input.get("file_path", ""):
                                 triggered = True
-                            return triggered
+                        decided = True
+                        if message.get("usage"):
+                            add_usage(message["usage"])
+                            requests_seen += 1
 
                     elif event.get("type") == "result":
-                        return triggered
+                        # End of session: authoritative totals plus cost.
+                        saw_result = True
+                        if event.get("usage"):
+                            usage.update({
+                                key: int(event["usage"].get(key) or 0)
+                                for key in usage
+                            })
+                        if event.get("total_cost_usd") is not None:
+                            cost_usd = event["total_cost_usd"]
+                        # Per-model breakdown (costUSD is a CLI-computed
+                        # estimate; cost_basis records how it was derived,
+                        # currently "unknown" under this routing).
+                        mu = event.get("modelUsage")
+                        if isinstance(mu, dict) and mu:
+                            model_usage = {
+                                m: {
+                                    "cost_usd": stats.get("costUSD"),
+                                    "input_tokens": stats.get("inputTokens"),
+                                    "output_tokens": stats.get("outputTokens"),
+                                    "cache_read_input_tokens": stats.get("cacheReadInputTokens"),
+                                    "cache_creation_input_tokens": stats.get("cacheCreationInputTokens"),
+                                    "provider": stats.get("provider"),
+                                    "cost_basis": stats.get("costBasis"),
+                                }
+                                for m, stats in mu.items()
+                                if isinstance(stats, dict)
+                            }
+                            bases = {v.get("cost_basis") for v in model_usage.values() if v.get("cost_basis")}
+                            cost_basis = sorted(bases)[0] if len(bases) == 1 else (sorted(bases) if bases else None)
+                        return record()
         finally:
             # Clean up process on any exit path (return, exception, timeout)
             if process.poll() is None:
                 process.kill()
                 process.wait()
 
-        return triggered
+        return record()
     finally:
         if command_file.exists():
             command_file.unlink()
@@ -194,6 +294,24 @@ def run_eval(
 ) -> dict:
     """Run the full eval set and return results."""
     results = []
+
+    # Token usage aggregated across every judge run (records, or None when a
+    # caller-supplied bool result or a failed run carries no usage).
+    usage_totals = {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0,
+    }
+    usage_runs_measured = 0
+    usage_runs_total = 0
+    usage_runs_complete = 0
+    cost_usd_total = 0.0
+    cost_runs = 0  # runs that reached the result event and reported cost
+    cost_bases: set = set()
+    per_model: dict[str, int] = {}
+    per_model_usage: dict[str, dict] = {}  # costUSD/token totals summed per model
+    per_run_records: list[dict] = []
 
     with ProcessPoolExecutor(max_workers=num_workers) as executor:
         future_to_info = {}
@@ -219,10 +337,66 @@ def run_eval(
             if query not in query_triggers:
                 query_triggers[query] = []
             try:
-                query_triggers[query].append(future.result())
+                run_result = future.result()
             except Exception as e:
                 print(f"Warning: query failed: {e}", file=sys.stderr)
                 query_triggers[query].append(False)
+                usage_runs_total += 1
+                continue
+
+            usage_runs_total += 1
+            if isinstance(run_result, dict):
+                query_triggers[query].append(run_result.get("triggered", False))
+                per_run_records.append({
+                    "query": query,
+                    "triggered": run_result.get("triggered", False),
+                    "usage": run_result.get("usage"),
+                    "model": run_result.get("model"),
+                    "usage_complete": run_result.get("usage_complete", False),
+                    "elapsed": run_result.get("elapsed"),
+                    **({"cost_usd": run_result["cost_usd"]}
+                       if run_result.get("cost_usd") is not None else {}),
+                    **({"model_usage": run_result["model_usage"]}
+                       if run_result.get("model_usage") is not None else {}),
+                    **({"cost_basis": run_result["cost_basis"]}
+                       if run_result.get("cost_basis") is not None else {}),
+                })
+                u = run_result.get("usage")
+                if u:
+                    usage_runs_measured += 1
+                    for key in usage_totals:
+                        usage_totals[key] += int(u.get(key) or 0)
+                if run_result.get("usage_complete"):
+                    usage_runs_complete += 1
+                m = run_result.get("model")
+                if m:
+                    per_model[m] = per_model.get(m, 0) + 1
+                ru = run_result.get("cost_usd")
+                if ru is not None:
+                    cost_usd_total += float(ru)
+                    cost_runs += 1
+                if run_result.get("cost_basis"):
+                    cost_bases.add(
+                        run_result["cost_basis"]
+                        if isinstance(run_result["cost_basis"], str)
+                        else tuple(run_result["cost_basis"])
+                    )
+                # Sum per-model cost/token totals from result-event breakdowns.
+                for m2, stats in (run_result.get("model_usage") or {}).items():
+                    agg = per_model_usage.setdefault(m2, {
+                        "cost_usd": 0.0,
+                        "input_tokens": 0,
+                        "output_tokens": 0,
+                        "cache_read_input_tokens": 0,
+                        "cache_creation_input_tokens": 0,
+                    })
+                    agg["cost_usd"] += float(stats.get("cost_usd") or 0)
+                    for k in ("input_tokens", "output_tokens",
+                              "cache_read_input_tokens", "cache_creation_input_tokens"):
+                        agg[k] += int(stats.get(k) or 0)
+            else:
+                # Backward compatibility: bare bool from an older caller.
+                query_triggers[query].append(bool(run_result))
 
     for query, triggers in query_triggers.items():
         item = query_items[query]
@@ -253,6 +427,26 @@ def run_eval(
             "passed": passed,
             "failed": total - passed,
         },
+        "usage": {
+            "runs": usage_runs_total,
+            "runs_measured": usage_runs_measured,
+            # Runs whose usage came from the end-of-session result event
+            # (authoritative). Others are partial: summed from message_delta
+            # events observed before the early-trigger exit.
+            "runs_complete": usage_runs_complete,
+            **usage_totals,
+            "per_model": per_model,
+            # Dollar cost summed from result-event total_cost_usd; only runs
+            # that reached the result event contribute (cost_runs of runs).
+            # costUSD is a CLI-computed estimate (cost_basis, currently
+            # "unknown" under this routing); token counts are authoritative.
+            "cost_usd": round(cost_usd_total, 6),
+            "cost_runs": cost_runs,
+            "cost_basis": (sorted(cost_bases)[0] if len(cost_bases) == 1
+                           else (sorted(map(str, cost_bases)) if cost_bases else None)),
+            "per_model_usage": per_model_usage,
+        },
+        "run_details": per_run_records,
     }
 
 
