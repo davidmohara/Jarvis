@@ -89,15 +89,24 @@ COMMIT_LINT = re.compile(
     r"[a-z][^\n]*$"                                       # lowercase imperative description
 )
 
-SECRET_PATTERNS = [
+# Literal-value patterns: known key shapes and formats. High confidence by
+# construction — these are what real leaked secrets look like.
+SECRET_VALUE_PATTERNS = [
     re.compile(r"AKIA[0-9A-Z]{16}"),
     re.compile(r"sk-[A-Za-z0-9_-]{20,}"),
     re.compile(r"ghp_[A-Za-z0-9]{30,}"),
     re.compile(r"github_pat_[A-Za-z0-9_]{30,}"),
     re.compile(r"xox[baprs]-[A-Za-z0-9-]{10,}"),
     re.compile(r"-----BEGIN (?:RSA |EC |OPENSSH |PGP |DSA )?PRIVATE KEY-----"),
-    re.compile(r"(?i)api[_-]?key['\"]?\s*[:=]\s*['\"]?[A-Za-z0-9_\-]{16,}"),
-    re.compile(r"(?i)(?:secret|token|password)['\"]?\s*[:=]\s*['\"]?[A-Za-z0-9_\-]{12,}"),
+]
+
+# Assignment patterns: a secret/token/password/api_key name with a value that
+# looks like a literal, not an identifier. The value must be at least 12/16
+# chars AND contain a digit — bare identifiers (access_token, save_token)
+# carry no entropy signal and are the code that handles secrets, not a leak.
+SECRET_PATTERNS = SECRET_VALUE_PATTERNS + [
+    re.compile(r"(?i)api[_-]?key['\"]?\s*[:=]\s*['\"]?(?=[A-Za-z0-9_\-]{16,})(?=[A-Za-z0-9_\-]*[0-9])[A-Za-z0-9_\-]+"),
+    re.compile(r"(?i)(?:secret|token|password)['\"]?\s*[:=]\s*['\"]?(?=[A-Za-z0-9_\-]{12,})(?=[A-Za-z0-9_\-]*[0-9])[A-Za-z0-9_\-]+"),
 ]
 
 STATUS_REFUSAL = """refused: `git status` writes .git/index.lock as part of its index refresh,
@@ -320,14 +329,42 @@ def load_allowlist():
     return [l.strip() for l in lines if l.strip() and not l.strip().startswith("#")]
 
 
-def scan_secrets(diff_text):
+def scan_secrets(diff_text, deletions_exempt=True):
+    """Scan diff text (or raw file text with deletions_exempt=False) for
+    credential-shaped content.
+
+    Line-aware (err-20261018): only lines that would be ADDED to the repo can
+    produce a refusal. Diff deletion lines ('-', not '---') and context lines
+    (space-prefixed) are not additions: deletions are checked against the
+    literal-value patterns only and warned on stderr (a deleted line can still
+    reveal a real secret value in the diff text, but it is already in git
+    history — surface it, don't block on it); context lines are skipped
+    entirely. Raw file text (untracked file contents) passes
+    deletions_exempt=False so every line scans as an addition, since a raw
+    '- bullet' or '---' frontmatter line is content, not a diff marker."""
     for literal in load_allowlist():
         diff_text = diff_text.replace(literal, "")
     hits = []
-    for pat in SECRET_PATTERNS:
-        m = pat.search(diff_text)
-        if m:
-            hits.append(m.group(0)[:20] + "...")
+    for line in diff_text.splitlines():
+        if line.startswith("---") or line.startswith("+++"):
+            continue  # diff file headers
+        is_deletion = line.startswith("-")
+        is_context = line.startswith(" ")
+        if deletions_exempt and (is_deletion or is_context):
+            if is_deletion:
+                for pat in SECRET_VALUE_PATTERNS:
+                    m = pat.search(line)
+                    if m:
+                        print(f"warn: deleted line may reveal a literal secret value ({m.group(0)[:20]}...); "
+                              "already in git history — consider rotating it.", file=sys.stderr)
+                        break
+            continue
+        body = line[1:] if (deletions_exempt and line[:1] == "+") else line
+        for pat in SECRET_PATTERNS:
+            m = pat.search(body)
+            if m:
+                hits.append(m.group(0)[:20] + "...")
+                break
     return hits
 
 
@@ -415,16 +452,20 @@ def main():
         diff = git(["diff", "--"] + (paths if paths else []), capture=True)
         # `git diff` shows nothing for untracked files, so read untracked
         # targets directly (capped) or the add-scan silently scans nothing.
+        # Raw file text scans with deletions_exempt=False: its lines are all
+        # additions, and '- bullet'/'---' frontmatter lines are content, not
+        # diff markers.
         scanned = (diff.stdout or "")[:200_000]
+        raw_scanned = ""
         untracked = git(["ls-files", "--others", "--exclude-standard", "--"] + (paths if paths else []), capture=True)
         for rel in (untracked.stdout or "").splitlines():
             if not rel.strip():
                 continue
             try:
-                scanned += (Path.cwd() / rel).read_text(errors="replace")[:200_000]
+                raw_scanned += (Path.cwd() / rel).read_text(errors="replace")[:200_000] + "\n"
             except OSError:
                 pass
-        hits = scan_secrets(scanned)
+        hits = scan_secrets(scanned) + scan_secrets(raw_scanned, deletions_exempt=False)
         if hits:
             refuse(verb, argv, 5, "refused: credential-shaped content in the diff being staged: " + ", ".join(hits) + "\nSTOP. Surface to David immediately.", reason="secrets-add")
 
