@@ -1,7 +1,7 @@
 ---
 name: contact-targeting
 description: >-
-  Find contacts at target accounts matching the audience profile's buyer role, CRM/Clay-first, LinkedIn as tie-breaker and title authority. Sixth step of the Podcast-to-Pipeline pipeline. Trigger on "find contacts at these accounts" or as workflows/audience-target-outreach step 02.
+  Drill from target accounts into individual contacts matching the audience profile's buyer role, CRM/Clay-first, LinkedIn as tie-breaker and title authority. Sixth step of the Podcast-to-Pipeline pipeline. Trigger on "find contacts at these accounts" or as workflows/audience-target-outreach step 02.
 context: fork
 agent: general-purpose
 allowed-tools:
