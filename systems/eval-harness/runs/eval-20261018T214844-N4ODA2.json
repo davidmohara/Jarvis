@@ -1,0 +1,62 @@
+{
+  "id": "eval-20261018T214844-N4ODA2",
+  "agent_id": "a5b531924d98aa55f",
+  "type": "agent",
+  "name": "fork",
+  "workflow": null,
+  "agent": "rigby",
+  "owning_agent": "rigby",
+  "subagent_type": "fork",
+  "session_id": "6cf7139a-f602-45e6-8ce9-0195333ebabd",
+  "trigger": "unknown",
+  "started": "2026-10-18T21:48:44.762225Z",
+  "completed": "2026-10-18T21:54:31.927784Z",
+  "duration_seconds": 347.17,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/6cf7139a-f602-45e6-8ce9-0195333ebabd/subagents/agent-a5b531924d98aa55f.jsonl",
+  "last_assistant_message": "Regression eval complete. Report follows.\n\n**Task:** blind A/B regression eval on the meaning-sensitive description rewrites; old (git HEAD) descriptions as ground truth; no fixes applied, nothing committed.\n\n## Verdict\n\n**The meaning-sensitive rewrite batch passes: 0 confirmed lost triggers, 0 confirmed broadenings. No description needs a fix.**\n\n## Protocol as run (trimmed from the directed spec, stated per instructions)\n\n- **22 skill instances** (23 targeted; `skills/chase-card-offers-chase` was old==new and skipped): 6 positives + 4 negatives each \u2014 queries authored from the OLD descriptions' trigger surfaces \u2014 \u00d7 2 variants, **1 repetition** (not 3) = **460 blind judge runs**, followed by a **3-repetition confirmation pass on the 23 flagged queries** (84 runs). Total cost: **~546 judge runs**, 408s for the main pass.\n- Judge = existing `run_single_query` (fresh `claude -p` subprocess per run, sees only one description), reused not rebuilt. **One protocol fix made during smoke tests:** judges run in an isolated scratch project root (`/tmp/desc-regression-judge`), because running them inside IES let the judge satisfy NEW-variant queries via the real working-tree skill \u2014 scoring false \"not triggered\". Smoke controls: old=True, new=True on a known peekaboo positive.\n\n## Results\n\n- Full pass flagged 14 lost / 9 broadened, but the confirmation pass showed **all 23 were judge noise**: most flagged \"losses\" were the *original* pass's old=True being the outlier (old fired 0\u20131/3 on re-run). Judge triggering is stochastic; single-repetition flags are review candidates, not verdicts.\n- Four **marginal** cases where old out-fires new (3/3 vs 1/3, 2/3 vs 1/3): `.claude/quinn-strategy` (\"what should we do about our declining enterprise bookings?\" \u2014 the new text retains the quoted trigger phrase, so this is variance, not lost surface), `account-targeting`, `episode-transcript-intake`, `rigby-skill-reflect`. Worth watching in live use, not worth edits.\n- Agreement was otherwise total: no skill lost its trigger surface, no near-miss false-positive gain survived confirmation.\n\n## Artifacts (uncommitted, Class A runs carve-out)\n\n- `systems/eval-harness/runs/description-regression-20261018T164844.json` \u2014 full archive: query sets, old/new descriptions, all 460 raw results, per-skill scoring\n- `systems/eval-harness/runs/description-regression-20261018T164844-confirmation.md` \u2014 confirmation verdicts and the marginal-case watch list\n- Drivers (`/tmp/regress_description.py`, `/tmp/confirm_lost.py`) left in /tmp, ephemeral; the archive is self-contained\n\n**Recommendation to carry forward:** treat single-repetition LOST/BROADENED flags from this driver as review-only, confirm with a 3-rep pass before editing a description. The rewrites are safe to commit as-is.",
+  "model": "glm-5p3",
+  "total_tokens_input": 696485,
+  "total_tokens_output": 1370,
+  "total_cost_usd": 0.107622
+}

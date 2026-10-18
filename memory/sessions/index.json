@@ -3136,7 +3136,13 @@
           "skills/rigby-skill-reflect/SKILL.md",
           ".claude/skills/rigby-capability-build/scripts/quick_validate.py",
           "workflows/conventions-migration/workflow.md",
-          "workflows/conventions-migration/state.yaml"
+          "workflows/conventions-migration/state.yaml",
+          "/tmp/rewrite-descs.py",
+          "/tmp/desc-regression-queries.json",
+          "/tmp/regress_description.py",
+          "/tmp/confirm_lost.py",
+          "systems/eval-harness/runs/description-regression-20261018T164844-confirmation.md",
+          ".claude/skills/rigby-capability-build/scripts/run_eval.py"
         ]
       }
     ]

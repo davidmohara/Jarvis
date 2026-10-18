@@ -1,0 +1,70 @@
+{
+  "id": "eval-20261018T215745-98U7L4",
+  "agent_id": "a3289466b4f9c5bb9",
+  "type": "agent",
+  "name": "fork",
+  "workflow": null,
+  "agent": "fork",
+  "owning_agent": null,
+  "subagent_type": "fork",
+  "session_id": "6cf7139a-f602-45e6-8ce9-0195333ebabd",
+  "trigger": "unknown",
+  "started": "2026-10-18T21:57:45.350582Z",
+  "completed": null,
+  "duration_seconds": null,
+  "status": "in-progress",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": null,
+      "all_steps_finished": null,
+      "tool_failures": 2,
+      "error_ids": [],
+      "tool_failure_log": [
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\n12:import subprocess\n22:def find_project_root() -> Path:\n26:    we create ends up where claude -p will look for it.\n35:def run_single_query(\n46:    available_skills list, then runs `claude -p` with the raw query.\n80:        # Remove CLAUDECODE env var to allow nesting claude -p inside a\n82:        # programmatic subprocess usage is safe.\n85:        process = subprocess.Popen(\n87:            stdout=subprocess.PIPE,\n88:            stderr=subprocess.DEVNULL,\n184:def run_eval(\n203:                    run_single_query,\n259:def main():\n268:    parser.add_argument(\"--model\", default=None, help=\"Model to use for claude -p (default: user's configured model)\")\n(eval):1: == not found",
+          "duration_ms": 28,
+          "timestamp": "2026-10-18T16:57:57.996140"
+        },
+        {
+          "tool": "Bash",
+          "error": "Exit code 4\nrefused: changeset is not Class A; the session-commit fast lane only carries routine churn.\nGated (Class B, needs the standard path with --ack-gated):\n  .claude/skills/rigby-capability-build/scripts/run_eval.py\nCommit Class B separately from Class A churn so the system-change audit trail stays isolated.",
+          "duration_ms": 245,
+          "timestamp": "2026-10-18T17:01:19.679283"
+        }
+      ]
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": []
+}

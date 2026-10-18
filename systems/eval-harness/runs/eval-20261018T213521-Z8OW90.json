@@ -1,0 +1,62 @@
+{
+  "id": "eval-20261018T213521-Z8OW90",
+  "agent_id": "a5b531924d98aa55f",
+  "type": "agent",
+  "name": "fork",
+  "workflow": null,
+  "agent": "rigby",
+  "owning_agent": "rigby",
+  "subagent_type": "fork",
+  "session_id": "6cf7139a-f602-45e6-8ce9-0195333ebabd",
+  "trigger": "unknown",
+  "started": "2026-10-18T21:35:21.069196Z",
+  "completed": "2026-10-18T21:42:08.476129Z",
+  "duration_seconds": 407.41,
+  "status": "partial",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 1,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/6cf7139a-f602-45e6-8ce9-0195333ebabd/subagents/agent-a5b531924d98aa55f.jsonl",
+  "last_assistant_message": "The full eval is running in the background (460 blind judge runs, 8 workers). I'll report the verdict table when it completes.\n\nInterim status \u2014 protocol as executed:\n- **23 skill instances** (22 with changed descriptions; `skills/chase-card-offers-chase` was identical old==new and skipped)\n- **6 positives + 4 negatives each, 1 repetition per variant** = **460 judge runs**, query sets authored from the OLD (HEAD) descriptions' trigger surfaces\n- **Judge**: fresh `claude -p` subprocess per run via the existing `run_single_query`, executed in an **isolated scratch project root** (`/tmp/desc-regression-judge`) containing only the injected test command \u2014 a confound I caught and fixed during smoke testing: without isolation, NEW-variant runs could satisfy queries via the real working-tree skill and score false \"not triggered\"\n- **Controls passed**: old=True/new=True on a known peekaboo positive under isolation\n\nWaiting on completion for the lost-trigger/broadened verdict table.",
+  "model": "glm-5p3",
+  "total_tokens_input": 502741,
+  "total_tokens_output": 486,
+  "total_cost_usd": 0.079123
+}
