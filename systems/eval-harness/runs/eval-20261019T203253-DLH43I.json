@@ -1,0 +1,76 @@
+{
+  "id": "eval-20261019T203253-DLH43I",
+  "type": "skill",
+  "name": "jarvis-inbox",
+  "agent": "general-purpose",
+  "session_id": "a8dd07c2-4c3f-4f37-b7da-2b8552d58c86",
+  "trigger": "manual",
+  "started": "2026-10-19T20:32:48.364934Z",
+  "completed": "2026-10-19T20:32:53.052771Z",
+  "duration_seconds": 4.7,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": true,
+      "outputs_non_empty": null,
+      "assertions_checked": 2,
+      "assertions_passed": 2,
+      "assertion_results": [
+        {
+          "assertion": "jarvis-inbox-signal-written",
+          "description": "jarvis-inbox skill-run signal file was written",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "jarvis-inbox-signal-status",
+          "description": "jarvis-inbox skill-run did not end in failure",
+          "category": "structure",
+          "passed": true
+        }
+      ],
+      "category_breakdown": {
+        "structure": {
+          "passed": 2,
+          "checked": 2
+        },
+        "content": {
+          "passed": 0,
+          "checked": 0
+        },
+        "quality": {
+          "passed": 0,
+          "checked": 0
+        }
+      }
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "deterministic_gate": {
+      "score": 1.0,
+      "gate_status": "pass",
+      "computed_at": "2026-10-19T20:32:54.993528Z"
+    }
+  },
+  "version_hash": "09c549ef5ecc8a1c",
+  "prior_baseline_id": null,
+  "tags": [
+    "cowork-hook",
+    "skill"
+  ]
+}

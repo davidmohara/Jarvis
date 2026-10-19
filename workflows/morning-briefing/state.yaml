@@ -1,167 +1,227 @@
 workflow: morning-briefing
 agent: chief
 status: complete
-session-id: chief-2026-10-15-140500
-session-started: '2026-10-15T14:05:00Z'
-original-request: 'Morning briefing 2026-10-15 — partial run (steps 01-02 only per coordinator; step-03+ and the Watchtower/Knox invocation not run)'
+session-id: chief-2026-10-19-205219
+session-started: '2026-10-19T20:52:19Z'
+completed: '2026-10-19T21:19:52Z'
+original-request: 'Morning briefing 2026-10-19 — partial run (steps 01-02 only per boot coordinator)'
 current-step: step-05-verify-briefing
 accumulated-context:
   step-01-gather-calendar:
     calendar_data:
-      date: '2026-10-15'
-      source: data/calendar-unified.json
-      meeting_count: 7
-      events_starting_today: 6
+      date: '2026-10-19'
+      source: 'data/calendar-unified.json (pulled 2026-10-19T20:46Z via Superhuman Mail; M365 MCP unavailable this session; times CDT America/Chicago)'
+      meeting_count: 13
+      timed_events: 11
+      all_day_events: 2
       meetings:
+        - time: '06:00-07:00'
+          subject: 'Hot 26'
+          type: personal
+          attendees: 0
+          location: '7151 Preston Road Suite 221 B, Frisco, TX (yoga studio)'
+          needs_prep: false
+          flags: ['workout class']
+        - time: '08:00-08:15'
+          subject: 'Improving Prayer Call'
+          type: recurring-skip
+          attendees: '5 (Richard Kang, Curtis Hite, Ric DeAnda, David O''Hara, Devlin Liles)'
+          location: 'Microsoft Teams Meeting'
+          needs_prep: false
+          flags: ['standing daily call', '15-min buffer to bootcamp start']
+        - time: '08:30-08:35'
+          subject: 'Timesheet'
+          type: personal
+          attendees: 0
+          location: null
+          needs_prep: false
+          flags: ['reminder block', 'under bootcamp block']
         - time: '08:30-17:30'
           subject: 'Houston Bootcamp (main)'
           type: team
-          attendees: '12 (stephen.lashinski, Jonathan.Camara, charles.kiser, hemakumar.gokulakannan, matt.nihiser, matt.spicer, erik.shafer, nate.short, David.Schwartz, preston.mesarvey, Devlin.Liles, Robyn.Fuentes)'
+          attendees: '12 (Stephen Lashinski, Jonathan Camara, Charles Kiser, Hemakumar Gokulakannan, Matt Nihiser, Matt Spicer, Erik Shafer, Nathaniel Short, David Schwartz, Preston Mesarvey, Robyn Fuentes, Devlin Liles)'
           location: 'Microsoft Teams Meeting'
           needs_prep: false
-          flags: ['full-day block collides with every other timed meeting today']
-        - time: '09:15-09:30'
-          subject: 'Sales & Recruiting Meeting'
-          type: team
-          attendees: '9 (DallasSales, Bryan.Crawford, Don.McGreal, Kevin.Baker, Tim.Rayburn, jenn.massey, derek.nwamadi, David.OHara, Blake.McMillan)'
-          location: 'Microsoft Teams; Dallas - Longhorn Cavern'
-          needs_prep: false
-          flags: ['tentative', 'under bootcamp block']
-        - time: '10:00-10:30'
-          subject: 'Canceled: DLP self-learning check-in'
-          type: team
-          attendees: '8'
-          location: 'Microsoft Teams Meeting'
-          needs_prep: false
-          flags: ['CANCELLED', 'same slot as Sales Scrum']
-        - time: '10:00-10:30'
-          subject: 'Sales Scrum'
-          type: team
-          attendees: '11 (stephen.johnson, devlin.liles, Oscar.Velazquez, Shalini.Arora, jenn.massey, Jake.Stevenson, victoria.ochoa, scott.mai, David.OHara, Robyn.Fuentes, Juan.Bernal)'
-          location: 'Microsoft Teams; Houston - Conference Room Trust'
-          needs_prep: false
-          flags: ['tentative', 'double-booked 10:00-10:30 with (cancelled) DLP check-in', 'under bootcamp block']
-        - time: '11:00-11:30'
-          subject: 'Improving - AI Automation proposal'
-          type: client
-          attendees: '3 (jwelsh@hasc.com, stephen.johnson@improving.com, David.OHara)'
-          location: 'Microsoft Teams Meeting'
-          needs_prep: true
-          flags: ['CLIENT (HASC) — Chase prep recommended', 'under bootcamp block']
-        - time: 'all-day (10-13 to 10-16)'
-          subject: 'Hilton Houston Westchase'
+          flags: ['full-day block collides with every other timed meeting 08:30-17:30', 'head-on overlap 10:00-16:50 with Dallas "Bootcamp" (Lockhart) block']
+        - time: '08:40-09:00'
+          subject: 'Drive To'
           type: personal
-          attendees: []
-          location: '9999 Westheimer Road, Houston, TX'
-          needs_prep: false
-          flags: ['travel/lodging — spans today']
-        - time: 'all-day (10-15 to 10-17)'
-          subject: 'Susie Staff Retreat'
-          type: personal
-          attendees: []
+          attendees: 0
           location: null
           needs_prep: false
-          flags: ['showAs free', 'overlaps Houston Bootcamp and hotel stay — possible conflict/data anomaly']
-      open_blocks: []
+          flags: ['travel block', 'under bootcamp block']
+        - time: '09:15-10:15'
+          subject: 'Haircut'
+          type: personal
+          attendees: 0
+          location: 'Boardroom Salon for Men, Lakeside Market, Plano'
+          needs_prep: false
+          flags: ['under bootcamp block', 'overlaps Dallas Bootcamp block 10:00-10:15']
+        - time: '10:00-16:50'
+          subject: 'Bootcamp'
+          type: team
+          attendees: 0
+          location: 'Dallas - Conference Room Lockhart'
+          needs_prep: false
+          flags: ['second bootcamp block — head-on overlap with Houston Bootcamp (main) 10:00-16:50', 'no attendee data']
+        - time: '10:30-10:50'
+          subject: 'Drive From'
+          type: personal
+          attendees: 0
+          location: null
+          needs_prep: false
+          flags: ['travel block', 'under bootcamp blocks']
+        - time: '11:45-12:45'
+          subject: 'Lunch with Imran'
+          type: personal
+          attendees: 0
+          location: 'Mexican Sugar - Plano'
+          needs_prep: false
+          flags: ['attendee data incomplete — no attendees on invite; if external/client lunch, prep may be needed', 'under bootcamp blocks']
+        - time: '14:00-14:30'
+          subject: 'GEHC Twice Weekly Internal Check-In'
+          type: team
+          attendees: '5 (Lisa Barnes, Vladimir Avila, Tim Rayburn, David O''Hara, Lisa Kimbrel)'
+          location: 'Microsoft Teams Meeting'
+          needs_prep: false
+          flags: ['GE HealthCare account internal check-in', 'under bootcamp blocks']
+        - time: '17:00-20:30'
+          subject: 'Tre Wilcox: Chef Smackdown'
+          type: personal
+          attendees: 0
+          location: null
+          needs_prep: false
+          flags: ['evening event']
+        - time: 'all-day (10-19 to 10-24)'
+          subject: 'Ipamorelin 10IU/PM (AM training days)'
+          type: personal
+          attendees: 0
+          location: null
+          needs_prep: false
+          flags: ['peptide cycle reminder']
+        - time: 'all-day (10-19 to 10-24)'
+          subject: 'Tesamorelin 50IU/PM'
+          type: personal
+          attendees: 0
+          location: null
+          needs_prep: false
+          flags: ['peptide cycle reminder']
+      open_blocks:
+        - '07:00-08:00 (between Hot 26 and Prayer Call)'
+        - 'effectively none 08:30-17:30 (bootcamp block)'
       warnings:
-        - '4 Teams video calls today (bootcamp, sales & recruiting, sales scrum, HASC) — 3+ cluster flag'
-        - 'Bootcamp block leaves effectively no open time'
-        - 'Susie Staff Retreat (all-day, 10-15 to 10-17) conflicts with Houston Bootcamp and the hotel stay through 10-16'
+        - '3 Teams video calls today (Prayer Call, Houston Bootcamp main, GEHC check-in) — at the 3+ cluster threshold'
+        - 'Full-day Houston Bootcamp (main) 08:30-17:30 collides with every other timed event today'
+        - 'Two overlapping bootcamp blocks: Houston Bootcamp (main) on Teams 08:30-17:30 AND "Bootcamp" at Dallas - Conference Room Lockhart 10:00-16:50. Combined with Drive To/From, Plano haircut, and Plano lunch, the pattern suggests David is attending bootcamp from Dallas today — location interpretation flag, not a hard conflict'
+        - 'Haircut 09:15-10:15 and Lunch with Imran 11:45-12:45 sit inside both bootcamp blocks'
+        - 'No Houston hotel event today (Westchase stay ended 10-16) — consistent with Dallas presence'
   step-02-gather-tasks:
     task_data:
-      source: data/omnifocus-unified.json
+      source: 'data/omnifocus-unified.json (pulled 2026-10-19T20:39:52Z)'
       status: available
-      active_task_count: 35
-      inbox_count: 14
+      active_task_count: 34
+      inbox_count: 12
+      inbox_items:
+        - {name: 'Higgsfield - video', age_days: null}
+        - {name: 'Movies', age_days: null}
+        - {name: 'Exec AI Workshop', age_days: null}
+        - {name: 'Take hanger for jacket to work', age_days: null}
+        - {name: 'Mike Chaffin intro for Rozzell', age_days: null}
+        - {name: 'Clint ARK', age_days: null}
+        - {name: 'What could be a video?', age_days: null}
+        - {name: 'Study: predestination', age_days: null}
+        - {name: 'Study: handling the poor today', age_days: null}
+        - {name: 'Join BMW club of America', age_days: null}
+        - {name: 'Talk', age_days: null}
+        - {name: 'Size watches', age_days: null}
+      inbox_note: 'no creation-date field in this pull — inbox item ages unavailable'
       due_today: []
       overdue:
-        - task: 'Schedule window cleaning'
-          project: 'Maintenance'
-          due_date: '2026-09-22'
-          days_late: 23
+        - task: 'Fix media room lights'
+          project: 'Family'
+          due_date: '2026-10-17'
+          days_late: 2
       flagged: []
+      notes:
+        - 'Prior overdue item "Schedule window cleaning" (23d late on 10-15) no longer present — cleared'
+        - 'due_date values arrived as human-readable strings (e.g. "Saturday, October 17, 2026 at 5:00:00 PM") instead of ISO — parsed successfully, format-change anomaly vs prior pulls'
+        - 'Heads-up for tomorrow 10-20 (not due today): Identify 5 Microsoft contacts to grow relationships (Reachout), Confluent Regional Sales Director (Reachout), Review prayer list and Coherence breathing (Deliberate Practices)'
     delegation_data:
       source: delegations/tracker.md
       overdue:
-        - task: 'Steve Hall follow up'
+        - task: 'Steve Hall follow up (scheduled 2026-09-17, never happened)'
           owner: 'Derek Nwamadi'
           due_date: '2026-09-25'
-          days_late: 20
-          note: 'watch-only — David confirmed 2026-10-09 Derek is handling; no nudge'
+          days_late: 24
+          note: 'watch-only — David confirmed 2026-10-09 Derek is actively handling; no nudge'
       due_today: []
       due_this_week: []
     rocks:
-      - {name: 'Rock 1: Solace Co-Sell Motions to Milestones and Won-Dollars', status: 'KR1 dated milestones for AT&T/McKesson/SLB by Oct 17'}
-      - {name: 'Rock 2: South Texas Revenue Recovery', status: 'Chase decomposition due Oct 17'}
-      - {name: 'Rock 3: Scorecard Truth', status: 'Sep close validated by Oct 24; $2M+/$750K+ tracking by Oct 31'}
-      - {name: 'Rock 4: Thought Leadership (Podcast, Speaking, Publishing)', status: 'real status captured by Nov 30'}
-      - {name: 'Rock 5: AI Practice Leadership Plan (2027)', status: 'plan defined by Dec 15 (soft-confirmed)'}
+      - {name: 'Rock 1: Solace Co-Sell Motions to Milestones and Won-Dollars', status: 'KR1 dated milestones for AT&T/McKesson/SLB with named owners was due Oct 17 — date PASSED, no IES status update recorded'}
+      - {name: 'Rock 2: South Texas Revenue Recovery', status: 'Chase gap decomposition was due Oct 17 — date PASSED, no IES status update recorded; 90-day forecast climb toward high 80s by Dec 15'}
+      - {name: 'Rock 3: Scorecard Truth', status: 'Sep close validated live by Oct 24 (5 days out); $2M+/$750K+ account-increase tracking live by Oct 31'}
+      - {name: 'Rock 4: Thought Leadership (Podcast, Speaking, Publishing)', status: 'publishing performing via Alice; podcast real status due into IES by Nov 30; next speaking: Becoming AI Native panel Oct 29, Talent Labs Session 4 Nov 4'}
+      - {name: 'Rock 5: AI Practice Leadership Plan (2027)', status: 'plan defined by Dec 15 (soft-confirmed); work with Curtis Hite ongoing'}
+  adversarial-verification:
+    verdict: findings
+    result: flag
+    lens: 'calendar/email/omnifocus cross-check (Ralph, run-date 2026-10-19)'
+    items-checked: 44
+    verified: 39
+    findings:
+      - 'Calendar warning overstatement: "bootcamp block collides with every other timed event" — Hot 26 (06:00-07:00) and Prayer Call (08:00-08:15) do not overlap the 08:30-17:30 block'
+      - '"Only open block is 07:00-08:00" ignores the 08:15-08:30 15-minute gap'
+      - '"3 Teams calls sit inside the bootcamp block" — Prayer Call precedes the 08:30 start; only Houston Bootcamp and GEHC are inside'
+      - 'Rock 5 Dec 15 stated as "due" when source (quarterly-objectives.md) says proposed/soft-confirmed'
+      - 'SPARC reminder note asserts the package is in the inbox; email snippet only confirms the kickoff email'
+    no-fabricated-claims: true
+    no-silent-drops: true
+    operational-note: 'Ralph flagged that data/reminders.json no longer contains rem-20261015T182852-JDP76U (GoTogether) in the working tree though git HEAD and boot state have it; briefing claim of 3 reminders is supported by boot state, but the file deletion should be restored or explained'
+    recording-gap: 'guardrail-checkpoint.py could not record: no in-progress eval record after 6 retries (known instrumentation gap dream-004/boot-004; close-eval-record.py created a completed record eval-20261019T211406-D5DPY3 rather than an in-progress one). Verdict recorded here per failure mode.'
   step-03-gather-context:
-    agent: chief
-    completed-at: '2026-10-15T14:22:00Z'
+    gathered_at: '2026-10-19T21:06:14Z'
+    needs_prep_meetings: 0
     meeting_context:
-      - meeting: 'Houston Bootcamp (main) — 08:30-17:30'
-        attendees: ['12 (Stephen Lashinski, Jonathan Camara, Charles Kiser, Hemakumar Gokulakannan, Matt Nihiser, Matt Spicer, Erik Shafer, Nate Short, David Schwartz, Preston Mesarvey, Devlin Liles, Robyn Fuentes)']
-        context_found: 'David hosting. Day 3 of Houston bootcamp week (day 1 Mon, day 2 delivered Tue 10-14 per daily review). Teams; hotel stay Westchase through 10-16.'
+      - meeting: 'GEHC Twice Weekly Internal Check-In (14:00-14:30)'
+        attendees: ['Lisa Barnes', 'Lisa Kimbrel', 'Tim Rayburn', 'Vladimir Avila', "David O'Hara"]
+        context_found: 'Recurring internal sync on GE HealthCare AI-Routing-for-DICOM-Images engagement (organizer Lisa Barnes). Most recent vault note: 2026-09-14 project status — Vladimir Avila technical update on LLM routing layer (~5 weeks stale). Prior thread: Braunstein question re self-tuning routing + DICOM destination fan-out action items from 2026-09-18.'
         open_items: []
         prep_status: ready
-      - meeting: 'Sales & Recruiting Meeting — 09:15-09:30'
-        attendees: ['DallasSales, Bryan Crawford, Don McGreal, Kevin Baker, Tim Rayburn, jenn.massey, Derek Nwamadi, David O''Hara, Blake McMillan']
-        context_found: 'Recurring daily Sales & Recruiting cadence standup (RESPONSIBILITIES.md Daily cadence). Tentative; sits under the bootcamp block. No dedicated prep artifact expected.'
-        open_items: ['Derek Nwamadi (attendee) owns the Steve Hall follow-up delegation — 20 days past due, watch-only per David 2026-10-09 (no nudge).']
-        prep_status: low-context
-      - meeting: 'Sales Scrum — 10:00-10:30'
-        attendees: ['Stephen Johnson, Devlin Liles, Oscar Velazquez, Shalini Arora, jenn.massey, Jake Stevenson, victoria.ochoa, scott.mai, David O''Hara, Robyn Fuentes, Juan Bernal']
-        context_found: 'Stephen Johnson''s Houston scrum (Teams; Houston - Conference Room Trust). Tentative; double-booked 10:00-10:30 with the CANCELLED DLP self-learning check-in; sits under bootcamp block while David is hosting.'
+        note: 'Internal recurring check-in; sits inside bootcamp block 08:30-17:30 — attendance is the open question, not prep'
+      - meeting: 'Lunch with Imran (11:45-12:45, Mexican Sugar Plano)'
+        attendees: ['Imran (identity unknown — no attendees on invite)']
+        context_found: 'NONE — zero hits for "Imran" in Obsidian vault (MCP search_simple + direct grep both negative). Mexican Sugar is a known favorite lunch spot; lunch typed personal.'
         open_items: []
         prep_status: low-context
-      - meeting: 'Canceled: DLP self-learning check-in — 10:00-10:30'
-        attendees: ['8']
-        context_found: 'CANCELLED — no action. Same slot as Sales Scrum.'
+        note: 'Identity unresolvable from knowledge layer; recommend David confirm who Imran is if this is external/client'
+      - meeting: 'Houston Bootcamp (main) 08:30-17:30 + parallel Dallas Bootcamp block 10:00-16:50'
+        attendees: ['12 attendees incl. Stephen Lashinski, Devlin Liles, Robyn Fuentes']
+        context_found: 'Full-day anchor event; David pattern suggests attending from Dallas (Lockhart conf room) per step-01 location analysis. Active initiative context: Executive AI Workshops + AI Practice leadership (Rock 5) are the related One Texas initiatives.'
         open_items: []
         prep_status: ready
-      - meeting: 'Improving - AI Automation proposal (CLIENT: HASC) — 11:00-11:30'
-        attendees: ['jwelsh@hasc.com (organizer)', 'stephen.johnson@improving.com', 'David O''Hara']
-        context_found: 'Client-facing presentation to the HASC leadership team; in-person that day, Stephen Johnson joins the room. Unresolved follow-up from the August 14 HASC AI Automation call. NO HASC account note, jwelsh person file, or prep artifact found in the project or the Obsidian vault (vault searched directly on filesystem; Obsidian MCP down). Only traces: Aug 12/13 episodic calendar refs and Alice Mburu 10-09 notes listing it as a calendar item. Yesterday''s daily review (10-14) asserts prep was completed day-of.'
-        open_items: ['Open thread = the Aug 14 HASC follow-up itself (no delegation-tracker or OmniFocus item tied to attendees).']
-        prep_status: needs-prep
-      - meeting: 'Hilton Houston Westchase — all-day (10-13 to 10-16)'
-        attendees: []
-        context_found: 'Travel/lodging; spans today.'
-        open_items: []
-        prep_status: ready
-      - meeting: 'Susie Staff Retreat — all-day (10-15 to 10-17)'
-        attendees: []
-        context_found: 'showAs free; overlaps Houston Bootcamp and the Westchase hotel stay through 10-16 — likely a shared/anomalous calendar entry, flag as data anomaly rather than a real conflict.'
-        open_items: []
-        prep_status: low-context
+        note: 'Dominant block of the day; everything else is subordinate to it'
     system_status:
-      yesterday_review: completed
-      yesterday_review_path: reviews/daily/2026-10-14.md
-      yesterday_review_note: 'Written retroactively on 2026-10-15; closes the gap since 10-09.'
+      yesterday_review: missing
+      yesterday_review_detail: 'No reviews/daily/2026-10-18.md (Sunday) and no 2026-10-17.md (Saturday). Latest completed: auto-2026-10-16.md (Friday, auto-synthesized, no live controller). Its proposed Sat top-3 (eval-harness fresh window, Stage 5 bundle close-out, phantom-success guard verification) are now 2 days stale — all system-rock items, not client-facing.'
       yesterday_top_3: null
-      yesterday_priorities_hit:
-        - 'Hold bootcamp thread — hit'
-        - 'Prep HASC proposal — hit'
-        - 'SPARC close dates — hit'
-      yesterday_priorities_note: 'Review lists 10-14 priorities hit 3/3 but no explicit forward top-3 for today (2026-10-15).'
-    degradation:
-      - 'Obsidian MCP unavailable (ECONNREFUSED) — knowledge layer degraded; vault searched directly on filesystem at ~/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian, no HASC content found.'
-      - 'Clay MCP unavailable (502) — no attendee relationship lookups this run.'
+      identity_files: 'all present and read (MEMORY.md, RESPONSIBILITIES.md, MISSION_CONTROL.md)'
+      mission_control_context: 'Active pursuits incl. AT&T (Derek), Marriott (Chris Rogan, Houston); Rock 1 KR1 milestones (AT&T/McKesson/SLB) due Oct 17 PASSED unrecorded; Rock 2 Chase gap decomposition due Oct 17 PASSED unrecorded; Rock 3 Sep close validation due Oct 24 (5 days); Rock 4 Becoming AI Native panel Oct 29; Rock 5 AI Practice plan due Dec 15'
+    checkpoint:
+      checkpoint_id: pre-synthesis-review
+      result: flag
+      reason: 'No needs_prep meetings today; Imran lunch identity unresolvable (zero vault hits via MCP + grep) and weekend daily reviews missing (last: auto Fri 10-16) — quirks noted, nothing misleading'
+      recorded: false
+      record_failure: 'guardrail-checkpoint.py found no in-progress eval record after 6 retries/10s — known instrumentation gap (dream-004/boot-004, flagged in 2026-10-16 review). Result recorded here in state.yaml; step-04 must note the checkpoint could not be recorded to the eval harness.'
 degraded-sources:
-  - 'Clay MCP: unavailable (502) — no Clay reminders/birthdays this run'
-  - 'Obsidian MCP: unavailable (ECONNREFUSED)'
-last-run: '2026-10-14T08:16:25-05:00'
+  - 'M365 MCP unavailable this session (auth stubs only) — calendar pulled via Superhuman Mail instead (data/calendar-unified.json, 2026-10-19T20:46Z)'
+  - 'OmniFocus pull lacks creation-date field — inbox item ages unavailable'
+  - 'step-03: OmniFocus MCP failed to connect this session — per-attendee open-item lookups skipped; delegation tracker (step-02) used as the open-items source'
+  - 'step-03: Obsidian MCP available and used (search_simple) — knowledge layer NOT degraded this run'
+last-run: '2026-10-15T14:05:00Z'
 last-run-status: partial
-last-run-notes: 'Morning Briefing Wednesday 2026-10-14. Houston Bootcamp main day 1 (08:30-17:30,
-  David hosting, Westchase); three head-on collisions under the block (09:30 Sales Scrum vs AI
-  Leaders Weekly; 10:30 yWhales vs GEHC sync, GEHC invite duplicated; 13:30 Rate Realization vs
-  GEHC Twice Weekly); KeyBank/Improving DPL walkthrough 14:00 CLIENT (Chase prep recommended,
-  thin context); travel data flag HOU->DAL flight dated 10-14 but details say 10-15, contradicts
-  hotel through 10-16. Tasks: 3 due today (breathing 10:00, prayer 11:00, dinner dates 17:00), 2
-  overdue (annual calendar 12d, window cleaning 22d), 14 inbox. Delegation Steve Hall->Derek 19d
-  watch-only. Email: SPARC stale close dates ASAP, UTB pack before Fri 13:30, UTB minutes approval
-  outstanding, cyber training Oct 31, HASC proposal Thu 11:00 prep TODAY. Rocks: Rock 1 milestones
-  and Rock 2 decomposition both due Oct 17. Clay UNAVAILABLE (CONNECT_TIMEOUT), Obsidian UNAVAILABLE
-  (ECONNREFUSED), no Watchtower daily run, no daily review since 10-09. Working memory
-  memory/working/morning-briefing-2026-10-14-081625.md.'
+last-run-notes: 'Morning Briefing Wednesday 2026-10-15 (partial, steps 01-02 + step-03). Houston Bootcamp
+  main day 3 (08:30-17:30, David hosting, Westchase hotel through 10-16); HASC AI Automation proposal
+  11:00 CLIENT (needs-prep, thin context); Susie Staff Retreat all-day entry flagged as data anomaly.
+  Tasks: 35 active, 14 inbox, 1 overdue (window cleaning 23d), 0 due today. Delegation Steve
+  Hall->Derek 20d watch-only. Rocks 1 & 2 milestones/decomposition due Oct 17. Clay and Obsidian MCP
+  unavailable.'

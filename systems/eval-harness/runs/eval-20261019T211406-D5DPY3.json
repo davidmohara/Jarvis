@@ -1,0 +1,129 @@
+{
+  "id": "eval-20261019T211406-D5DPY3",
+  "type": "workflow",
+  "name": "morning-briefing",
+  "agent": "chief",
+  "owning_agent": "chief",
+  "session_id": "14665b00-c08f-4954-b92c-1e7a20e135fb",
+  "trigger": "boot",
+  "started": "2026-10-19T20:52:19Z",
+  "completed": "2026-10-19T21:14:06.365212Z",
+  "duration_seconds": 1307.4,
+  "status": "success",
+  "steps": [
+    {
+      "name": "watchtower-daily",
+      "step_id": "watchtower-daily",
+      "agent": "chief",
+      "owning_agent": "chief",
+      "started": "2026-10-19T20:52:19Z",
+      "completed": "2026-10-19T20:55:56.894202Z",
+      "duration_seconds": 217.9,
+      "status": "success",
+      "data_sources_used": [],
+      "data_source_failures": []
+    },
+    {
+      "name": "step-01-gather-calendar",
+      "step_id": "step-01-gather-calendar",
+      "agent": "chief",
+      "owning_agent": "chief",
+      "started": "2026-10-19T20:55:56.894202Z",
+      "completed": "2026-10-19T20:59:34.788404Z",
+      "duration_seconds": 217.9,
+      "status": "success",
+      "data_sources_used": [],
+      "data_source_failures": []
+    },
+    {
+      "name": "step-02-gather-tasks",
+      "step_id": "step-02-gather-tasks",
+      "agent": "chief",
+      "owning_agent": "chief",
+      "started": "2026-10-19T20:59:34.788404Z",
+      "completed": "2026-10-19T21:03:12.682606Z",
+      "duration_seconds": 217.9,
+      "status": "success",
+      "data_sources_used": [],
+      "data_source_failures": []
+    },
+    {
+      "name": "step-03-meeting-context",
+      "step_id": "step-03-meeting-context",
+      "agent": "chief",
+      "owning_agent": "chief",
+      "started": "2026-10-19T21:03:12.682606Z",
+      "completed": "2026-10-19T21:06:50.576808Z",
+      "duration_seconds": 217.9,
+      "status": "success",
+      "data_sources_used": [],
+      "data_source_failures": []
+    },
+    {
+      "name": "step-04-synthesize-briefing",
+      "step_id": "step-04-synthesize-briefing",
+      "agent": "chief",
+      "owning_agent": "chief",
+      "started": "2026-10-19T21:06:50.576808Z",
+      "completed": "2026-10-19T21:10:28.471010Z",
+      "duration_seconds": 217.9,
+      "status": "success",
+      "data_sources_used": [],
+      "data_source_failures": []
+    },
+    {
+      "name": "step-05-verify-briefing",
+      "step_id": "step-05-verify-briefing",
+      "agent": "chief",
+      "owning_agent": "chief",
+      "started": "2026-10-19T21:10:28.471010Z",
+      "completed": "2026-10-19T21:14:06.365212Z",
+      "duration_seconds": 217.9,
+      "status": "success",
+      "data_sources_used": [],
+      "data_source_failures": []
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": [],
+      "abort_reason": null
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": "e0ac89a92f32fd08",
+  "prior_baseline_id": null,
+  "tags": [
+    "cowork-instrumented"
+  ]
+}

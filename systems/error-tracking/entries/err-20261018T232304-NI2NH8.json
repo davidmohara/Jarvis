@@ -1,0 +1,16 @@
+{
+  "id": "err-20261018T232304-NI2NH8",
+  "timestamp": "2026-10-18T23:23:04.338813Z",
+  "session": "",
+  "source": "self-detected",
+  "agent": "rigby",
+  "category": "tool-misuse",
+  "description": "During a 71-commit rebase onto origin/main (2026-10-18), git rebase --continue intermittently refused with 'You must edit all merge conflicts and then mark them as resolved using git add' even though the index was verifiably clean (git ls-files -u empty, git diff --diff-filter=U empty). Recurred 5 times total across the parent session and the completion agent. GIT_TRACE confirmed git itself emitted the message, not the wrapper. Workaround that succeeded every time: manual commit from .git/rebase-merge/message via the ies-git wrapper, then git rebase --skip (safe because the stopped pick's content was just committed manually). Also observed once: the wrapper's commit correctly refuses while a rebase is in progress, so the fallback only applies at a stopped pick.",
+  "correction": "",
+  "failure_mode": "pattern-mismatch",
+  "systemic_fix": "Investigate why git's unmerged-index check in rebase --continue disagrees with ls-files -u when driven through the ies-git wrapper subprocess environment (suspect: environment or index view divergence between the wrapper's exec and the interactive shell, e.g. index refresh timing on the OneDrive/FUSE mount). Candidate hardening: teach the wrapper a rebase-continue verb that verifies the clean index itself and, if clean, applies the manual-commit-plus-skip fallback automatically with an audit-log note.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": [],
+  "related_skill": "git"
+}

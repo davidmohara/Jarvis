@@ -1,8 +1,8 @@
 {
-  "pulled_at": "2026-10-15T14:00:50Z",
+  "pulled_at": "2026-10-19T20:42:00Z",
   "status": "unavailable",
   "reminders": [],
   "reminder_count": 0,
   "birthday_count": 0,
-  "error": "Clay MCP failed to connect at session start (502 Bad Gateway); reminder/birthday tools not registered. Attempted anyway per mandatory rule."
+  "error": "Clay MCP not connected this session - only authenticate/complete_authentication stubs registered; no data tools available. Attempted anyway per mandatory rule."
 }

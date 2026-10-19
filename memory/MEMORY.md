@@ -1,0 +1,1 @@
+- [No Hi greeting](memory/feedback_no_hi_greeting.md) — greeting is first name + comma, never "Hi [Name]"

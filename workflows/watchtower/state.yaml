@@ -1,134 +1,128 @@
 workflow: watchtower
 agent: knox
 status: complete
-session-started: '2026-10-12T07:05:00Z'
-session-completed: '2026-10-12T07:45:00Z'
-session-id: wt-weekly-2026-W42
+session-started: '2026-10-19T07:05:00Z'
+session-completed: '2026-10-19T08:15:00Z'
+session-id: wt-weekly-2026-W43
 current-step: complete
-original-request: watchtower-weekly run (Knox) — scheduled Monday 7am, 2026-10-12 (W42)
+original-request: watchtower-weekly run (Knox) — scheduled Monday 7am, 2026-10-19 (W43)
 retirements_today: []
 accumulated-context:
   content_queue: []
   delta_check_applied: true
   dropped_as_continuing: 0
-  used_fallback: false
+  used_fallback: true
+  fallback_reason: seen.jsonl empty (daily runs not populating); used web searches
   obsidian_unavailable: false
   obsidian_write_method: desktop-commander-direct (MCP path encoding broken for subdirs)
   weekly_themes:
   - theme_id: 1
-    theme_title: The Agent Got Its Own Email Address
-    synthesis: "Google's Gemini universal agent (announced Oct 8 at Gemini at Work
-      2026) gives enterprise agents their own Workspace identity: email, calendar,
-      Drive, OAuth scope, and audit trail. This is architecturally distinct from W41's
-      governance product announcements. W41 was about control layers on top of agents.
-      W42's argument is that agents are now first-class organizational members, not
-      tools. For IT teams running Microsoft Entra ID and Copilot, agent identity provisioning
-      is becoming the new competitive battleground. The governance question shifts
-      from 'how do we audit agent access?' to 'how do we provision agents into our
-      directory?'"
+    theme_title: Microsoft Just Picked a Side in the Agent Identity War
+    synthesis: "Microsoft shipped Copilot Studio agent accounts (Oct 15, 2026): agents
+      now get their own Entra ID rather than borrowing user credentials. Google shipped
+      agent Workspace identity on Oct 8. Both major enterprise stacks deployed competing
+      agent identity architectures in the same month. New argument vs W42's 'agents
+      getting identities' framing: W43 is about vendor choice — Microsoft and Google
+      have committed to architecturally different models, and clients running M365 or
+      Google Workspace must now evaluate whether their governance policies extend to
+      agent accounts (which are distinct from service principals in licensing and behavior)."
     source_items:
-    - 'Google Collapses Enterprise AI Into a Single Gemini Agent — Futurum (2026-10-08)'
-    - 'Google brings agentic AI to Gemini, starting with businesses — TechCrunch (2026-10-08)'
-    - 'Google debuts its all-purpose Gemini agent for work — Reworked (2026-10-08)'
+    - 'Microsoft Copilot Studio agent accounts preview — Windows Forum (2026-10-15)'
+    - 'Google Gemini agent Workspace identity — TechCrunch (2026-10-08)'
     content_angles:
-    - The Day Your Agent Got Its Own Email Address
+    - Microsoft Just Picked a Side in the Agent Identity War
   - theme_id: 2
-    theme_title: The 5 Percent Problem
-    synthesis: "McKinsey's 2026 State of AI survey shows 37% of organizations report
-      AI contributed to EBIT — unchanged from last year, despite investment set to
-      double. PwC CEO Survey: 56% saw neither revenue growth nor cost reduction from
-      AI in the past year. Only 5-8% of enterprises show measurable P&L impact. The
-      minority that succeeds embeds AI in high-volume workflows with clean before-and-after
-      metrics, redesigns roles rather than layering AI on top, and measures rigorously.
-      This is new from W41's leadership gap benchmark: W41 measured the readiness
-      gap; W42 identifies what the firms that close the gap actually do differently."
+    theme_title: The Agent Inventory You Don't Know You Have
+    synthesis: "OutSystems surveyed 850+ IT DMs (Oct 15, 2026): 96% using agents,
+      94% report sprawl increasing complexity/security risk, only 26% prepared for
+      agent conflicts between systems. New argument vs prior shadow AI coverage: these
+      are authorized deployments IT sanctioned and then lost operational track of.
+      The governance failure is architectural — no accounting system was built before
+      the agents were. An agent registry is a prerequisite, not a follow-on."
     source_items:
-    - 'The State of AI in 2026: On the Road to ROI — McKinsey'
-    - 'AI ROI: Why Only 5% of Enterprises See Real Returns in 2026 — Master of Code'
-    - 'PwC AI Consulting Services Forrester Wave 2026'
+    - 'OutSystems Agentic AI Enterprise Readiness research (2026-10-15) — SD Times coverage'
     content_angles:
-    - The 5 Percent Problem
+    - The Agent Inventory You Don't Know You Have
   - theme_id: 3
-    theme_title: Island Is Worth $6.4 Billion and It Launched in Dallas
-    synthesis: "DFW's Q3 2026 was the region's best VC quarter on record ($962.5M
-      across 52 deals). Island, a Dallas enterprise browser company, raised a $400M
-      Series F at a $6.4B valuation. Venture Dallas is October 22. The Texas Stock
-      Exchange launched this year. This builds on W41's capital layer story with a
-      distinct argument: DFW is now producing enterprise software unicorns solving
-      enterprise AI security problems, at the same time those problems are the central
-      concern of every IT organization. The Island story is not just a funding round
-      — it is DFW regional tech specialization converging with the most urgent enterprise
-      AI challenge of 2026."
+    theme_title: Your Manager Is Worth More Than Your AI Budget
+    synthesis: "Microsoft Work Trend Index 2026 (20,000 workers, 10 countries): organizational
+      factors — culture, manager support, talent practices — account for 67% of reported
+      AI productivity impact vs 32% for individual mindset (2:1 ratio). isolved HR
+      Leaders Report (Oct 14, 2026, 1,005 DMs): strategic AI expectations outpacing
+      capacity of people leaders. New argument vs W42 readiness benchmarks: the lever
+      is manager-level AI capability, not individual tools training. Investment implication
+      shifts."
     source_items:
-    - 'DFW Venture Capital Rebounds in Q3 — Dallas Innovates (2026-10)'
-    - 'Island $400M Series F at $6.4B valuation'
-    - 'Venture Dallas 2026 — October 22'
+    - 'Microsoft Work Trend Index 2026 — worklab.microsoft.com'
+    - 'isolved HR Leaders Report October 2026'
     content_angles:
-    - Your Next Browser May Come from Dallas
+    - Your Manager Is Worth More Than Your AI Budget
   draft_paths:
-  - Mind/_the-day-your-agent-got-its-own-email-address.md
-  - Mind/_the-five-percent-problem.md
-  - Mind/_your-next-browser-may-come-from-dallas.md
-  weekly_note_path: Watchtower/Weekly/2026-W42.md
-  weekly_tweets:
-  - text: "Google just gave enterprise AI agents their own corporate email addresses.
-      Treat that as a UX update and you'll miss what it actually is: the governance
-      model for agents just became an identity provisioning problem."
-    supporting_url: https://futurumgroup.com/insights/google-collapses-enterprise-ai-into-a-single-gemini-agent-at-gemini-at-work-2026/
-    intent_url: https://twitter.com/intent/tweet?text=Google%20just%20gave%20enterprise%20AI%20agents%20their%20own%20corporate%20email%20addresses.%20Treat%20that%20as%20a%20UX%20update%20and%20you%27ll%20miss%20what%20it%20actually%20is%3A%20the%20governance%20model%20for%20agents%20just%20became%20an%20identity%20provisioning%20problem.
-    angle_type: provocative
-  - text: "56% of CEOs say AI produced neither revenue growth nor cost reduction in
-      the past year. That is not a skepticism problem. That is a workflow design problem
-      dressed up as a technology budget."
-    supporting_url: https://www.pwc.com/gx/en/about/analyst-relations/2026/forrester-ai-consulting-services-2026.html
-    intent_url: https://twitter.com/intent/tweet?text=56%25%20of%20CEOs%20say%20AI%20produced%20neither%20revenue%20growth%20nor%20cost%20reduction%20in%20the%20past%20year.%20That%20is%20not%20a%20skepticism%20problem.%20That%20is%20a%20workflow%20design%20problem%20dressed%20up%20as%20a%20technology%20budget.
-    angle_type: data
-  - text: "The companies seeing real AI ROI are not smarter. They picked a workflow
-      with clean before-and-after metrics and embedded AI there. That is the entire
-      strategy. The rest is procurement."
-    supporting_url: https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai
-    intent_url: https://twitter.com/intent/tweet?text=The%20companies%20seeing%20real%20AI%20ROI%20are%20not%20smarter.%20They%20picked%20a%20workflow%20with%20clean%20before-and-after%20metrics%20and%20embedded%20AI%20there.%20That%20is%20the%20entire%20strategy.%20The%20rest%20is%20procurement.
-    angle_type: practitioner
-  - text: "94% of companies plan to keep investing in AI even if it doesn't generate
-      immediate returns. Which means the pressure to show P&L impact in 2027 is about
-      to become very uncomfortable for a lot of IT and consulting leaders."
-    supporting_url: null
-    intent_url: https://twitter.com/intent/tweet?text=94%25%20of%20companies%20plan%20to%20keep%20investing%20in%20AI%20even%20if%20it%20doesn%27t%20generate%20immediate%20returns.%20Which%20means%20the%20pressure%20to%20show%20P%26L%20impact%20in%202027%20is%20about%20to%20become%20very%20uncomfortable%20for%20a%20lot%20of%20IT%20and%20consulting%20leaders.
-    angle_type: data
-  - text: "Island (enterprise browser, Dallas) just raised $400M at a $6.4B valuation.
-      DFW is no longer just a market for IT services. It is producing enterprise software
-      companies that the rest of the country's IT teams depend on."
-    supporting_url: https://dallasinnovates.com/?p=293056
-    intent_url: https://twitter.com/intent/tweet?text=Island%20(enterprise%20browser%2C%20Dallas)%20just%20raised%20%24400M%20at%20a%20%246.4B%20valuation.%20DFW%20is%20no%20longer%20just%20a%20market%20for%20IT%20services.%20It%20is%20producing%20enterprise%20software%20companies%20that%20the%20rest%20of%20the%20country%27s%20IT%20teams%20depend%20on.
-    angle_type: data
-  - text: "Venture Dallas is October 22. If you work with DFW clients on AI strategy
-      and you are not paying attention to what is being funded here, you are going
-      to be behind the conversation your clients are already having."
-    supporting_url: null
-    intent_url: https://twitter.com/intent/tweet?text=Venture%20Dallas%20is%20October%2022.%20If%20you%20work%20with%20DFW%20clients%20on%20AI%20strategy%20and%20you%20are%20not%20paying%20attention%20to%20what%20is%20being%20funded%20here%2C%20you%20are%20going%20to%20be%20behind%20the%20conversation%20your%20clients%20are%20already%20having.
-    angle_type: practitioner
-  - text: "Google agents get their own Workspace identity. Microsoft agents operate
-      under Entra permissions and sensitivity labels. These are two different theories
-      of control. Your clients are going to pick one. Know which one you're recommending."
-    supporting_url: null
-    intent_url: https://twitter.com/intent/tweet?text=Google%20agents%20get%20their%20own%20Workspace%20identity.%20Microsoft%20agents%20operate%20under%20Entra%20permissions%20and%20sensitivity%20labels.%20These%20are%20two%20different%20theories%20of%20control.%20Your%20clients%20are%20going%20to%20pick%20one.%20Know%20which%20one%20you%27re%20recommending.
-    angle_type: provocative
-  - text: "If your AI governance plan does not include an answer to 'what identity
-      does this agent run under,' you do not have a governance plan. You have a policy
-      doc."
-    supporting_url: null
-    intent_url: https://twitter.com/intent/tweet?text=If%20your%20AI%20governance%20plan%20does%20not%20include%20an%20answer%20to%20%22what%20identity%20does%20this%20agent%20run%20under%2C%22%20you%20do%20not%20have%20a%20governance%20plan.%20You%20have%20a%20policy%20doc.
-    angle_type: practitioner
-  - text: "Most organizations layered AI onto existing roles and called it transformation.
-      The 5% seeing P&L impact redesigned the roles first. One of those is a technology
-      initiative. The other is an operating model change."
-    supporting_url: null
-    intent_url: https://twitter.com/intent/tweet?text=Most%20organizations%20layered%20AI%20onto%20existing%20roles%20and%20called%20it%20transformation.%20The%205%25%20seeing%20P%26L%20impact%20redesigned%20the%20roles%20first.%20One%20of%20those%20is%20a%20technology%20initiative.%20The%20other%20is%20an%20operating%20model%20change.
-    angle_type: practitioner
-  - text: "DFW's Q3 2026 was the best VC quarter the region has ever recorded. The
-      capital formation story is no longer a prediction. It's a data set."
-    supporting_url: https://dallasinnovates.com/?p=293056
-    intent_url: https://twitter.com/intent/tweet?text=DFW%27s%20Q3%202026%20was%20the%20best%20VC%20quarter%20the%20region%20has%20ever%20recorded.%20The%20capital%20formation%20story%20is%20no%20longer%20a%20prediction.%20It%27s%20a%20data%20set.
-    angle_type: data
-  source_proposals_batch: 18
+  - Mind/Posts/_microsoft-picked-a-side-agent-identity-war.md
+  - Mind/Posts/_the-agent-inventory-you-dont-know-you-have.md
+  - Mind/Posts/_your-manager-is-worth-more-than-your-ai-budget.md
+  weekly_note_path: Watchtower/Weekly/2026-W43.md
+  source_proposals_batch: 19
   source_proposals_count: 5
+  weekly_tweets:
+  - text: "Entra now has two kinds of identities: human and agent. Most IT teams have
+      governance policies for one of them."
+    supporting_url: https://windowsforum.com/news/microsoft-copilot-studio-agent-accounts-preview-entra-ids-shared-memory-triggers-and-licensing.448622/
+    intent_url: https://twitter.com/intent/tweet?text=Entra%20now%20has%20two%20kinds%20of%20identities%3A%20human%20and%20agent.%20Most%20IT%20teams%20have%20governance%20policies%20for%20one%20of%20them.&url=https%3A%2F%2Fwindowsforum.com%2Fnews%2Fmicrosoft-copilot-studio-agent-accounts-preview-entra-ids-shared-memory-triggers-and-licensing.448622%2F
+    angle_type: provocative
+  - text: "26% of enterprises feel prepared to handle conflicts between AI agents in
+      the same workflow. The other 74% are going to learn the hard way what happens
+      when two agents give contradictory instructions to the same system."
+    supporting_url: https://sdtimes.com/ai/agentic-ai-goes-mainstream-in-the-enterprise-but-94-raise-concern-about-sprawl-outsystems-research-finds/
+    intent_url: https://twitter.com/intent/tweet?text=26%25%20of%20enterprises%20feel%20prepared%20to%20handle%20conflicts%20between%20AI%20agents%20in%20the%20same%20workflow.%20The%20other%2074%25%20are%20going%20to%20learn%20the%20hard%20way%20what%20happens%20when%20two%20agents%20give%20contradictory%20instructions%20to%20the%20same%20system.&url=https%3A%2F%2Fsdtimes.com%2Fai%2Fagentic-ai-goes-mainstream-in-the-enterprise-but-94-raise-concern-about-sprawl-outsystems-research-finds%2F
+    angle_type: data
+  - text: "NTT Data opened a Cyber Defense Center in Plano last week. When the third
+      major global cybersecurity operation plants a flag in your backyard, it stops
+      being a coincidence and starts being a market signal."
+    supporting_url: https://dallasinnovates.com/?p=293070
+    intent_url: https://twitter.com/intent/tweet?text=NTT%20Data%20opened%20a%20Cyber%20Defense%20Center%20in%20Plano%20last%20week.%20When%20the%20third%20major%20global%20cybersecurity%20operation%20plants%20a%20flag%20in%20your%20backyard%2C%20it%20stops%20being%20a%20coincidence%20and%20starts%20being%20a%20market%20signal.&url=https%3A%2F%2Fdallasinnovates.com%2F%3Fp%3D293070
+    angle_type: practitioner
+  - text: "The default AI adoption playbook: buy licenses. Run training. Measure seat
+      count. Then wonder why some teams are three times more productive than others
+      with the same tools. Nobody asks about the manager."
+    supporting_url: https://www.microsoft.com/en-us/worklab/work-trend-index/agents-human-agency-and-the-opportunity-for-every-organization
+    intent_url: https://twitter.com/intent/tweet?text=The%20default%20AI%20adoption%20playbook%3A%20buy%20licenses.%20Run%20training.%20Measure%20seat%20count.%20Then%20wonder%20why%20some%20teams%20are%20three%20times%20more%20productive%20than%20others%20with%20the%20same%20tools.%20Nobody%20asks%20about%20the%20manager.&url=https%3A%2F%2Fwww.microsoft.com%2Fen-us%2Fworklab%2Fwork-trend-index%2Fagents-human-agency-and-the-opportunity-for-every-organization
+    angle_type: provocative
+  - text: "If an AI agent in your Copilot environment makes a wrong call, who is accountable?
+      The employee who configured it? The team that owns the workflow? The vendor?
+      This is not a hypothetical anymore."
+    supporting_url: null
+    intent_url: https://twitter.com/intent/tweet?text=If%20an%20AI%20agent%20in%20your%20Copilot%20environment%20makes%20a%20wrong%20call%2C%20who%20is%20accountable%3F%20The%20employee%20who%20configured%20it%3F%20The%20team%20that%20owns%20the%20workflow%3F%20The%20vendor%3F%20This%20is%20not%20a%20hypothetical%20anymore.
+    angle_type: question
+  - text: "88% of organizations report regular AI use in at least one business function.
+      37% can attribute any EBIT impact to it. That gap is not closing by buying more
+      tools."
+    supporting_url: https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai
+    intent_url: https://twitter.com/intent/tweet?text=88%25%20of%20organizations%20report%20regular%20AI%20use%20in%20at%20least%20one%20business%20function.%2037%25%20can%20attribute%20any%20EBIT%20impact%20to%20it.%20That%20gap%20is%20not%20closing%20by%20buying%20more%20tools.&url=https%3A%2F%2Fwww.mckinsey.com%2Fcapabilities%2Fquantumblack%2Four-insights%2Fthe-state-of-ai
+    angle_type: data
+  - text: "Every enterprise AI initiative hits the same wall eventually: the center
+      of excellence was built for coordination, not decision rights. You cannot govern
+      agent deployments with a newsletter and a champion program."
+    supporting_url: null
+    intent_url: https://twitter.com/intent/tweet?text=Every%20enterprise%20AI%20initiative%20hits%20the%20same%20wall%20eventually%3A%20the%20center%20of%20excellence%20was%20built%20for%20coordination%2C%20not%20decision%20rights.%20You%20cannot%20govern%20agent%20deployments%20with%20a%20newsletter%20and%20a%20champion%20program.
+    angle_type: practitioner
+  - text: "Since July 2026, Copilot Studio automatically creates an Entra Agent ID
+      for every new agent. No opt-out. If you're running Copilot Studio without a
+      governance policy for agent accounts, that is not a gap in your security plan.
+      It is the security plan."
+    supporting_url: null
+    intent_url: https://twitter.com/intent/tweet?text=Since%20July%202026%2C%20Copilot%20Studio%20automatically%20creates%20an%20Entra%20Agent%20ID%20for%20every%20new%20agent.%20No%20opt-out.%20If%20you%27re%20running%20Copilot%20Studio%20without%20a%20governance%20policy%20for%20agent%20accounts%2C%20that%20is%20not%20a%20gap%20in%20your%20security%20plan.%20It%20is%20the%20security%20plan.
+    angle_type: practitioner
+  - text: "Two years ago the question was whether AI was ready for enterprise use.
+      Today, 96% of organizations are using agents in some capacity. The question
+      has flipped: is your enterprise ready for AI?"
+    supporting_url: https://www.outsystems.com/pt-br/news/outsystems-research-agentic-ai-enterprise-readiness
+    intent_url: https://twitter.com/intent/tweet?text=Two%20years%20ago%20the%20question%20was%20whether%20AI%20was%20ready%20for%20enterprise%20use.%20Today%2C%2096%25%20of%20organizations%20are%20using%20agents%20in%20some%20capacity.%20The%20question%20has%20flipped%3A%20is%20your%20enterprise%20ready%20for%20AI%3F&url=https%3A%2F%2Fwww.outsystems.com%2Fpt-br%2Fnews%2Foutsystems-research-agentic-ai-enterprise-readiness
+    angle_type: question
+  - text: "DFW had 24 expansion-stage exits worth $55.9B in the first half of 2026.
+      Added a $6.4B enterprise browser unicorn. Now a global cyber defense center.
+      The question is no longer whether DFW is a tier-one tech market."
+    supporting_url: https://dallasinnovates.com/?p=293070
+    intent_url: https://twitter.com/intent/tweet?text=DFW%20had%2024%20expansion-stage%20exits%20worth%20%2455.9B%20in%20the%20first%20half%20of%202026.%20Added%20a%20%246.4B%20enterprise%20browser%20unicorn.%20Now%20a%20global%20cyber%20defense%20center.%20The%20question%20is%20no%20longer%20whether%20DFW%20is%20a%20tier-one%20tech%20market.&url=https%3A%2F%2Fdallasinnovates.com%2F%3Fp%3D293070
+    angle_type: data
+  step_07_adversarial_verify: skipped-no-spawnable-agent-in-scheduled-context

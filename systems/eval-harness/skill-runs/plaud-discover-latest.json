@@ -1,10 +1,11 @@
 {
   "skill": "plaud-discover",
-  "agent": "knox",
+  "agent": "general-purpose",
   "trigger": "boot",
-  "started": "2026-10-09T15:48:03Z",
-  "completed": "2026-10-09T15:49:48Z",
+  "started": "2026-10-19T20:33:31.422329Z",
+  "completed": "2026-10-19T20:37:50.088729Z",
   "status": "success",
   "tool_failures": 0,
-  "error_ids": []
+  "error_ids": [],
+  "captured_via": "hook"
 }

@@ -3156,7 +3156,50 @@
           "skills/git/scripts/ies-git",
           "systems/error-tracking/entries/err-20261018T223936-PR851S.json",
           ".claude/hooks/tests/test_secret_scanner.py",
-          "skills/git/scripts/secret-allowlist.txt"
+          "skills/git/scripts/secret-allowlist.txt",
+          "systems/error-tracking/entries/err-20261018T232304-NI2NH8.json",
+          "/Users/davidohara/develop/improving/AI-Course-Development/AI-Bootcamp/Trainer/Training-Weeks/Bootcamp-Week-2.deck.md",
+          "/Users/davidohara/develop/improving/AI-Course-Development/AI-Bootcamp/Trainer/Training-Weeks/build_decks.py",
+          "systems/error-tracking/entries/err-20261019T202144-DT9NSB.json"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "session-2026-10-19-000000",
+    "started": "2026-10-19T08:00:00-05:00",
+    "closed": null,
+    "current_topic": "morning-boot",
+    "topics": [
+      {
+        "name": "morning-boot",
+        "loops": [
+          {
+            "task": "boot-sequence",
+            "resolved": false
+          }
+        ],
+        "files": [
+          "workflows/boot/state.yaml",
+          "workflows/plaud-ingest/state.yaml",
+          "workflows/plaud-ingest/steps/step-01-discover.md",
+          "workflows/boot/steps/step-01.2-unified-data-pull.md",
+          "workflows/boot/steps/step-01.5-unified-calendar-pull.md",
+          "workflows/morning-briefing/state.yaml",
+          "workflows/morning-briefing/steps/step-01-gather-calendar.md",
+          "workflows/morning-briefing/steps/step-02-gather-tasks.md",
+          "workflows/boot/steps/step-02-gather-data.md",
+          "workflows/boot/steps/step-02.5-measure-phase2.md",
+          "workflows/boot-verification/state.yaml",
+          "workflows/boot/steps/step-03-verify-phase2.md",
+          "workflows/morning-briefing/steps/step-03-gather-context.md",
+          "workflows/boot/steps/step-04-gather-meeting-context.md",
+          "memory/working/morning-briefing-2026-10-19-161051.md",
+          "workflows/morning-briefing/steps/step-04-synthesize-briefing.md",
+          "systems/error-tracking/entries/err-20261019T211530-GRP7MR.json",
+          "workflows/morning-briefing-verification/state.yaml",
+          "workflows/morning-briefing/steps/step-05-verify-briefing.md",
+          "meetings/podcast-prep/2026-10-26-amber-robinson.md"
         ]
       }
     ]

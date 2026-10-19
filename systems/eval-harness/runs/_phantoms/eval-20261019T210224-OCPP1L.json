@@ -1,0 +1,108 @@
+{
+  "id": "eval-20261019T210224-OCPP1L",
+  "type": "workflow",
+  "name": "boot-verification",
+  "agent": "ralph",
+  "owning_agent": "ralph",
+  "session_id": "14665b00-c08f-4954-b92c-1e7a20e135fb",
+  "trigger": "boot",
+  "started": "2026-10-19T21:00:34Z",
+  "completed": "2026-10-19T21:02:24.573350Z",
+  "duration_seconds": 110.6,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": true,
+      "outputs_non_empty": null,
+      "assertions_checked": 6,
+      "assertions_passed": 5,
+      "assertion_results": [
+        {
+          "assertion": "bv-001-state-exists",
+          "description": "Ralph A4 (boot-verification gate): the boot-verification run wrote its state file \u2014 a verification run happened for this boot.",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "bv-002-state-complete",
+          "description": "Ralph A4: the boot-verification run reached status: complete \u2014 it ran to completion rather than aborting before returning a verdict table.",
+          "category": "structure",
+          "passed": false
+        },
+        {
+          "assertion": "bv-a1-verdict-completeness",
+          "description": "Ralph A1 (verdict-table completeness): every item in the Phase 2 manifest (accumulated-context.phase2-manifest) carries a non-empty `verdict` \u2014 no manifest item is silently omitted. Pass = 100% of items covered.",
+          "category": "content",
+          "passed": true,
+          "total_items": 6,
+          "missing_count": 0
+        },
+        {
+          "assertion": "bv-a2-evidence-required",
+          "description": "Ralph A2 (false-positive rate): each manifest item names its evidence artifact (state-file / data-files / expected-output / expected-log), the ground-truth pointer Ralph verifies against. Honest limit: this confirms the manifest carries evidence pointers, not that a 'verified' verdict always had qualifying evidence; the seeded-missing-artifact A/B (one clean manifest, one with a known-missing artifact) is what proves zero false positives, and is the run the Stage 3 plan calls for.",
+          "category": "content",
+          "passed": true
+        },
+        {
+          "assertion": "bv-a3-silence-discipline",
+          "description": "Ralph A3 (unverifiable-on-silence discipline): the run records a verdict-summary field, so missing/unreadable evidence is surfaced as Unverified rather than passing silently. A run that omits the aggregate verdict has no summary field and fails here. Field-path check (not a whole-file substring) so the summary must be a real state field, not a token appearing in the run's notes.",
+          "category": "content",
+          "passed": true,
+          "matched": 1
+        },
+        {
+          "assertion": "bv-a2-escalations-surfaced",
+          "description": "Ralph A2/A4 (escalations surfaced): the run records the rerun-required list field, the escalation channel by which unverified items are surfaced to Master before the next phase proceeds.",
+          "category": "content",
+          "passed": true,
+          "matched": 1
+        },
+        {
+          "assertion": "bv-a4-grade",
+          "description": "Ralph A4 (Tier 3 grade): verification quality (did Ralph's verdicts match ground truth) is judged by Tier 3 grading. Honest alternative \u2014 grade presence at B or better; defers (skipped) until graded.",
+          "category": "quality",
+          "passed": null,
+          "skipped": true,
+          "reason": "not graded yet \u2014 this criterion is only judgeable by Tier 3 grading; deferred (not failed) until a grade exists"
+        }
+      ],
+      "category_breakdown": {
+        "structure": {
+          "passed": 1,
+          "checked": 2
+        },
+        "content": {
+          "passed": 4,
+          "checked": 4
+        },
+        "quality": {
+          "passed": 0,
+          "checked": 0
+        }
+      }
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    }
+  },
+  "version_hash": "804bec8daa0e338c",
+  "prior_baseline_id": null,
+  "tags": [
+    "cowork-hook",
+    "phantom-candidate"
+  ]
+}

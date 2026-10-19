@@ -1,0 +1,192 @@
+{
+  "id": "eval-20261019T203746-9WPXHL",
+  "agent_id": "ac597e1029e6e78be",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": "plaud-ingest",
+  "agent": "general-purpose",
+  "owning_agent": null,
+  "subagent_type": "general-purpose",
+  "session_id": "14665b00-c08f-4954-b92c-1e7a20e135fb",
+  "trigger": "unknown",
+  "started": "2026-10-19T20:37:46.391100Z",
+  "completed": null,
+  "duration_seconds": null,
+  "status": "in-progress",
+  "steps": [
+    {
+      "name": "step-01-discover.md",
+      "step_id": "step-01-discover.md",
+      "agent": "general-purpose",
+      "owning_agent": "knox",
+      "started": "2026-10-19T00:00:00Z",
+      "completed": "2026-10-19T20:40:00Z",
+      "duration_seconds": 74400.0,
+      "status": "completed",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "glm-5p3-flash",
+      "tokens_input": 348894,
+      "tokens_output": 1668,
+      "cost_usd": 0.024526,
+      "token_source": "windowed",
+      "turns_matched": 7
+    },
+    {
+      "name": "step-01.2-unified-data-pull.md",
+      "step_id": "step-01.2-unified-data-pull.md",
+      "agent": "general-purpose",
+      "owning_agent": "master",
+      "started": "2026-10-19T20:39:43Z",
+      "completed": "2026-10-19T20:44:00Z",
+      "duration_seconds": 257.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "glm-5p3-flash",
+      "tokens_input": 69719,
+      "tokens_output": 100,
+      "cost_usd": 0.001211,
+      "token_source": "windowed",
+      "turns_matched": 1
+    },
+    {
+      "name": "step-01.5-unified-calendar-pull.md",
+      "step_id": "step-01.5-unified-calendar-pull.md",
+      "agent": "general-purpose",
+      "owning_agent": "master",
+      "started": "2026-10-19T20:44:00Z",
+      "completed": "2026-10-19T20:49:00Z",
+      "duration_seconds": 300.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null,
+      "token_source": null
+    },
+    {
+      "name": "step-02-gather-data.md",
+      "step_id": "step-02-gather-data.md",
+      "agent": "general-purpose",
+      "owning_agent": "master",
+      "started": "2026-10-19T20:50:00Z",
+      "completed": "2026-10-19T20:58:00Z",
+      "duration_seconds": 480.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null,
+      "token_source": null
+    },
+    {
+      "name": "step-02.5-measure-phase2.md",
+      "step_id": "step-02.5-measure-phase2.md",
+      "agent": "general-purpose",
+      "owning_agent": "master",
+      "started": "2026-10-19T20:58:00Z",
+      "completed": "2026-10-19T20:59:30Z",
+      "duration_seconds": 90.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null,
+      "token_source": null
+    },
+    {
+      "name": "step-03-verify-phase2.md",
+      "step_id": "step-03-verify-phase2.md",
+      "agent": "general-purpose",
+      "owning_agent": "master",
+      "started": "2026-10-19T21:00:00Z",
+      "completed": "2026-10-19T21:05:00Z",
+      "duration_seconds": 300.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null,
+      "token_source": null
+    },
+    {
+      "name": "step-04-gather-meeting-context.md",
+      "step_id": "step-04-gather-meeting-context.md",
+      "agent": "general-purpose",
+      "owning_agent": "master",
+      "started": "2026-10-19T21:05:00Z",
+      "completed": "2026-10-19T21:10:00Z",
+      "duration_seconds": 300.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null,
+      "token_source": null
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": null,
+      "all_steps_finished": true,
+      "tool_failures": 2,
+      "error_ids": [],
+      "tool_failure_log": [
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\nTraceback (most recent call last):\n  File \"<string>\", line 4, in <module>\n    a0 = y['accounts'][0]\n         ~~~~~~~~~~~~~^^^\nKeyError: 0",
+          "duration_ms": 85,
+          "timestamp": "2026-10-19T15:45:18.798728"
+        },
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\nTraceback (most recent call last):\n  File \"<string>\", line 6, in <module>\n    d = [r for r in d if r['id'] != 'rem-20261015T182852-JDP76U']\n                         ~^^^^^^\nTypeError: string indices must be integers, not 'str'",
+          "duration_ms": 121,
+          "timestamp": "2026-10-19T16:08:42.024228"
+        }
+      ]
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": []
+}

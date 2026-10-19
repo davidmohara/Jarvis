@@ -1,0 +1,15 @@
+{
+  "id": "err-20261019T202144-DT9NSB",
+  "timestamp": "2026-10-19T20:21:44Z",
+  "session": "2026-10-19",
+  "source": "explicit",
+  "agent": "jarvis",
+  "category": "destructive-regeneration",
+  "failure_mode": "regenerated-derived-artifact-without-checking-for-handcrafted-divergence",
+  "severity": "major",
+  "description": "Rebuilt Bootcamp-Week-2.pptx via build_decks.py and overwrote a slide David had hand-crafted directly in PowerPoint ('Lab 4: End to End', 90-minute exercise, position 18 after Lab 3). Assumed the .deck.md/manifest were complete sources of truth for Week 2 despite the Week 1 lesson the same session that David hand-crafts pptx files as he goes.",
+  "correction": "David: 'You deleted my slide from Week 2 deck' \u2014 restore the handcrafted Lab 4 slide into the deck (splice from the committed pptx) and add a deck.md section + manifest entry so future rebuilds preserve it.",
+  "systemic_fix": "Before regenerating any pptx from build_decks.py, diff the current pptx slide list against the manifest output and surface any slide not representable by the manifest (handcrafted slides) for explicit keep/drop decision. Treat pptx-as-authoritative as the default for the AI-Bootcamp Training-Weeks folder.",
+  "fix_status": "applied",
+  "related_entries": []
+}

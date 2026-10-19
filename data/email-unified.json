@@ -1,78 +1,126 @@
 {
-  "pulled_at": "2026-10-15T14:00:50Z",
-  "message_count": 8,
+  "pulled_at": "2026-10-19T20:42:00Z",
+  "source": "superhuman-mail (M365 MCP unavailable - auth stubs only this session)",
+  "message_count": 72,
+  "accounts": {
+    "improving": {
+      "unread_since_2026-10-18": 50,
+      "starred": 0
+    },
+    "personal": {
+      "unread_since_2026-10-18": 22,
+      "actionable": 0
+    }
+  },
   "messages": [
     {
-      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA9UFYEpAAA=",
-      "subject": "I want to connect",
-      "from": "invitations@linkedin.com",
-      "received_at": "2026-10-15T13:53:27Z",
+      "subject": "Booking October Performance MTD-9.3M",
+      "from": "Curtis.Hite@Improving.com",
+      "received_at": "2026-10-19T14:52Z",
       "is_flagged": false,
       "importance": "normal",
-      "snippet": "Rob, Financial Advisor from The Fitzpatrick Group is waiting for your response (LinkedIn invitation)"
+      "snippet": "Company-wide October booking performance, MTD $9.3M, sent to Presidents@",
+      "account": "improving"
     },
     {
-      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA9UFYEoAAA=",
-      "subject": "New Gartner research on AI Application Security",
-      "from": "info@em.proofpoint.com",
-      "received_at": "2026-10-15T13:50:22Z",
+      "subject": "WEEK of October 19 - 23 Thought Leadership: Blogs and Webinars",
+      "from": "Curtis.Hite@Improving.com / Marketing@improving.com",
+      "received_at": "2026-10-19T14:00Z",
       "is_flagged": false,
       "importance": "normal",
-      "snippet": "Proofpoint recognized as a Pace Setter; Gartner 2026 Emerging Market Quadrant for AI Application Security"
+      "snippet": "Weekly thought leadership lineup: blogs and webinars for Oct 19-23",
+      "account": "improving"
     },
     {
-      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA9UFYElAAA=",
-      "subject": "FW: NEXT WEEK: October GoTogether!",
-      "from": "Don.McGreal@Improving.com",
-      "received_at": "2026-10-15T13:05:08Z",
-      "is_flagged": false,
-      "importance": "normal",
-      "snippet": "Don McGreal forwarded SPARC's October GoTogether kickoff note to TexasLeaders"
-    },
-    {
-      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA9UFYEkAAA=",
-      "subject": "NEXT WEEK: October GoTogether!",
+      "subject": "October GoTogether Starts Today!",
       "from": "SPARC@improving.com",
-      "received_at": "2026-10-15T13:05:01Z",
+      "received_at": "2026-10-19T13:01Z",
       "is_flagged": false,
       "importance": "normal",
-      "snippet": "October GoTogether kicks off next week; November 5 webinar 12:00-1:00 PM CST; outreach details and sample email coming"
+      "snippet": "October GoTogether kicks off today; Nov 5 webinar 12-1 PM CST previously noted",
+      "account": "improving"
     },
     {
-      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA9UFYEbAAA=",
-      "subject": "Today's devo",
-      "from": "waynegono@gmail.com",
-      "received_at": "2026-10-15T06:36:15Z",
+      "subject": "UTB Meeting Schedule - Week of 10/19/2026-10/23/2026",
+      "from": "alerts@boardvantage.com",
+      "received_at": "2026-10-19T13:00Z",
       "is_flagged": false,
       "importance": "normal",
-      "snippet": "Daily devotional, Romans 8:38-39"
+      "snippet": "BoardVantage: UTB board meeting schedule for this week",
+      "account": "improving"
     },
     {
-      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA9M_jRVAAA=",
-      "subject": "RE: Solace payment for partnership in Texans game",
-      "from": "ar@improving.com",
-      "received_at": "2026-10-14T21:31:53Z",
+      "subject": "Improving at an upcoming SME&C East Partner Showcase",
+      "from": "Lowell.Messner@improving.com",
+      "received_at": "2026-10-19T16:36Z",
       "is_flagged": false,
       "importance": "normal",
-      "snippet": "Ana Cerda (Finance) confirms the Solace/Texans game partnership invoice has been sent"
+      "snippet": "Microsoft partner showcase thread (Geoff Rigsby, Saurabh Vijay); Lowell confirms Improving onsite 11/12 with West team; labeled Respond",
+      "account": "improving"
     },
     {
-      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA9M_jRSAAA=",
-      "subject": "Re: Improving follow up related to the AI Deep Learning Program and Innovation Workshop",
-      "from": "derek.nwamadi@improving.com",
-      "received_at": "2026-10-14T20:38:33Z",
+      "subject": "Upcoming Webinar invite - October 6th",
+      "from": "alice.mburu@improving.com",
+      "received_at": "2026-10-19T02:17Z",
       "is_flagged": false,
       "importance": "normal",
-      "snippet": "Derek Nwamadi to Lockton (Mandi Holmes et al.): planning Tuesday Oct 27, 2-3 PM CT for AI Deep Learning Program follow-up"
+      "snippet": "Tracked to Dynamics 365; Capital One contacts (Deena McCool, Howard Dierking) on thread",
+      "account": "improving"
     },
     {
-      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA9M_jRPAAA=",
-      "subject": "Your final session time + VIP reception and dinner RSVP by October 15",
-      "from": "michelle@libertyventures.xyz",
-      "received_at": "2026-10-14T20:03:13Z",
+      "subject": "Budget increase approved",
+      "from": "no-reply@compliance.improving.ai",
+      "received_at": "2026-10-18T14:15Z",
       "is_flagged": false,
       "importance": "normal",
-      "snippet": "Becoming AI Native session locked: Thursday Oct 29, 4:20-4:50 PM CT, Salon FG Main Stage; VIP reception/dinner RSVP due Oct 15 (TODAY)"
+      "snippet": "AI budget increase approved",
+      "account": "improving"
+    },
+    {
+      "subject": "Ticket Resolved - AI budget increase - David O'Hara ($500/mo -> $1,000/mo)",
+      "from": "helpdesk@improving.com",
+      "received_at": "2026-10-18T14:15Z",
+      "is_flagged": false,
+      "importance": "normal",
+      "snippet": "Helpdesk confirms AI budget increase resolved: $500/mo to $1,000/mo",
+      "account": "improving"
+    },
+    {
+      "subject": "You've been added to Improving on Claude",
+      "from": "no-reply@mail.anthropic.com",
+      "received_at": "2026-10-18T16:13Z",
+      "is_flagged": false,
+      "importance": "normal",
+      "snippet": "Added to Improving org on Claude",
+      "account": "improving"
+    },
+    {
+      "subject": "Weekly Sales Digest",
+      "from": "no-reply-powerbi@microsoft.com",
+      "received_at": "2026-10-19T11:33Z",
+      "is_flagged": false,
+      "importance": "normal",
+      "snippet": "PowerBI weekly sales digest",
+      "account": "improving"
+    },
+    {
+      "subject": "[GitHub] Your organization Improving has received personal access token requests",
+      "from": "noreply@github.com",
+      "received_at": "2026-10-18T21:15Z",
+      "is_flagged": false,
+      "importance": "normal",
+      "snippet": "GitHub admin: org members requested PAT access approvals",
+      "account": "personal"
+    },
+    {
+      "subject": "New Post: GBS 2026 + ICWs: The Right Connections Begin in Istanbul",
+      "from": "noreply@ypo.org",
+      "received_at": "2026-10-19T13:05Z",
+      "is_flagged": false,
+      "importance": "normal",
+      "snippet": "YPO GBS 2026 Istanbul post",
+      "account": "improving"
     }
-  ]
+  ],
+  "notes": "0 flagged/starred messages on either account. Remainder of 72 unread are newsletters, YPO digests, LinkedIn invitations, wine/marketing promotions. No explicit-deadline or high-priority items found."
 }

@@ -10,6 +10,9 @@ Running list of potential blog topics. Jarvis captures these proactively from co
 
 | Idea | Source | Tags | Notes |
 |------|--------|------|-------|
+| "Microsoft Just Picked a Side in the Agent Identity War" | Watchtower (2026-10-19) [watchtower] | AI, technology, leadership | Draft at `Mind/Posts/_microsoft-picked-a-side-agent-identity-war.md` |
+| "The Agent Inventory You Don't Know You Have" | Watchtower (2026-10-19) [watchtower] | AI, technology, business | Draft at `Mind/Posts/_the-agent-inventory-you-dont-know-you-have.md` |
+| "Your Manager Is Worth More Than Your AI Budget" | Watchtower (2026-10-19) [watchtower] | leadership, AI, business | Draft at `Mind/Posts/_your-manager-is-worth-more-than-your-ai-budget.md` |
 | "Your Next Browser May Come from Dallas" | Content pipeline (2026-10-12) | AI, technology, leadership | Ghost draft — pending approval. Island \$400M raise, enterprise browser as agent governance layer. Internal link: DFW Is Now #4 and the Capital Layer Is the Real Story. |
 | "The 5 Percent Problem" | Content pipeline (2026-10-12) | AI, business, leadership | Ghost draft — pending approval. Enterprise AI ROI gap: only 5-8% show measurable P&L impact. Internal link: The Amplifier Paradox. |
 | "The Day Your Agent Got Its Own Email Address" | Content pipeline (2026-10-12) | AI, technology, leadership | Ghost draft — pending approval. Google Workspace agent identity, enterprise directory governance. Internal link: Shadow AI Is Shadow IT at 10x. |

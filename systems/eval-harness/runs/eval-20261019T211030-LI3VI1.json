@@ -1,0 +1,250 @@
+{
+  "id": "eval-20261019T211030-LI3VI1",
+  "agent_id": "aa940ac542af232c7",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": "morning-briefing",
+  "agent": "chief",
+  "owning_agent": "chief",
+  "subagent_type": "general-purpose",
+  "session_id": "14665b00-c08f-4954-b92c-1e7a20e135fb",
+  "trigger": "unknown",
+  "started": "2026-10-19T21:10:30.526710Z",
+  "completed": null,
+  "duration_seconds": null,
+  "status": "failure",
+  "steps": [
+    {
+      "name": "step-01-gather-calendar.md",
+      "agent": "general-purpose",
+      "step_id": "step-01-gather-calendar.md",
+      "owning_agent": "general-purpose",
+      "started": "2026-10-19T20:52:19Z",
+      "completed": "2026-10-19T20:53:33Z",
+      "status": "complete",
+      "tokens_input": 145785,
+      "tokens_output": 676,
+      "cost_usd": 0.058341,
+      "model": "accounts/fireworks/models/kimi-k3",
+      "token_source": "lenient_fallback",
+      "turns_matched": 13,
+      "duration_seconds": 74.0
+    },
+    {
+      "name": "step-02-gather-tasks.md",
+      "agent": "general-purpose",
+      "step_id": "step-02-gather-tasks.md",
+      "owning_agent": "general-purpose",
+      "started": "2026-10-19T20:53:33Z",
+      "completed": "2026-10-19T20:55:40Z",
+      "status": "complete",
+      "tokens_input": 145785,
+      "tokens_output": 676,
+      "cost_usd": 0.058341,
+      "model": "accounts/fireworks/models/kimi-k3",
+      "token_source": "lenient_fallback",
+      "turns_matched": 13,
+      "duration_seconds": 127.0
+    },
+    {
+      "name": "step-03-gather-context.md",
+      "agent": "general-purpose",
+      "step_id": "step-03-gather-context.md",
+      "owning_agent": "general-purpose",
+      "started": "2026-10-19T20:56:00Z",
+      "completed": "2026-10-19T21:06:14Z",
+      "status": "complete",
+      "tokens_input": 145785,
+      "tokens_output": 676,
+      "cost_usd": 0.058341,
+      "model": "accounts/fireworks/models/kimi-k3",
+      "token_source": "lenient_fallback",
+      "turns_matched": 13,
+      "duration_seconds": 614.0
+    },
+    {
+      "name": "step-03b-guardrail-checkpoint.md",
+      "agent": "general-purpose",
+      "step_id": "step-03b-guardrail-checkpoint.md",
+      "owning_agent": "general-purpose",
+      "started": "2026-09-29T02:27:00Z",
+      "completed": "2026-09-29T02:28:00Z",
+      "status": "complete",
+      "tokens_input": 145785,
+      "tokens_output": 676,
+      "cost_usd": 0.058341,
+      "model": "accounts/fireworks/models/kimi-k3",
+      "token_source": "lenient_fallback",
+      "turns_matched": 13,
+      "duration_seconds": 60.0
+    },
+    {
+      "name": "step-04-synthesize-briefing.md",
+      "step_id": "step-04-synthesize-briefing.md",
+      "agent": "general-purpose",
+      "owning_agent": "chief",
+      "started": "2026-10-19T21:08:00Z",
+      "completed": "2026-10-19T21:14:28Z",
+      "duration_seconds": 388.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "accounts/fireworks/models/kimi-k3",
+      "tokens_input": 46369,
+      "tokens_output": 181,
+      "cost_usd": 0.017941,
+      "token_source": "windowed",
+      "turns_matched": 6
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": [
+        "err-20261019T211530-GRP7MR"
+      ]
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": "negative",
+      "comment": "error-log-correlated: err-20261019T211530-GRP7MR",
+      "timestamp": "2026-10-19T21:15:45.758137Z"
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "guardrails": [
+    {
+      "name": "step-01-gather-calendar-checkpoint",
+      "after_step": "step-01-gather-calendar.md",
+      "result": "pass",
+      "reason": "Calendar data present: 13 event(s) today, 47 total in range",
+      "escalated_to_human": false,
+      "timestamp": "2026-10-19T21:15:45.885809Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "events_today": 13,
+        "total_events": 47,
+        "date_range": {
+          "start": "2026-10-19",
+          "end": "2026-10-22"
+        },
+        "file_age_hours": 0.1
+      }
+    },
+    {
+      "name": "step-02-gather-tasks-checkpoint",
+      "after_step": "step-02-gather-tasks.md",
+      "result": "pass",
+      "reason": "Task sources present: 12 inbox, 0 due today, 1 overdue, 0 flagged; 1 active delegation row(s)",
+      "escalated_to_human": false,
+      "timestamp": "2026-10-19T21:15:46.030391Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "omnifocus_status": "available",
+        "task_count": 34,
+        "inbox_count": 12,
+        "due_today": 0,
+        "overdue": 1,
+        "flagged": 0,
+        "unparsed_due_dates": 0,
+        "file_age_hours": 0.3,
+        "active_delegation_rows": 1,
+        "omnifocus_source_present": true,
+        "objectives_present": true
+      }
+    },
+    {
+      "name": "step-03-gather-context-checkpoint",
+      "after_step": "step-03-gather-context.md",
+      "result": "pass",
+      "reason": "Identity context loaded; yesterday's review is missing",
+      "escalated_to_human": false,
+      "timestamp": "2026-10-19T21:15:46.139865Z",
+      "validation_errors": [
+        "yesterday_review_missing"
+      ],
+      "computed_fields": {
+        "identity_files_present": 3,
+        "missing_identity_files": [],
+        "yesterday_review_status": "missing",
+        "yesterday_review_file": null,
+        "yesterday_date_checked": "2026-10-18"
+      }
+    },
+    {
+      "name": "step-03b-guardrail-checkpoint-checkpoint",
+      "after_step": "step-03b-guardrail-checkpoint.md",
+      "result": "pass",
+      "reason": "Guardrail checkpoint recorded with result 'flag': Calendar is correct-day (2026-10-15) and meeting context is current; two minor quirks noted: (1) HASC 11:00 client meeting shows needs-prep but no prep artifact found in project or vault despite yesterday's review claiming prep done; (2) Susie Staff Retreat all-day entry overlaps bootcamp/hotel (showAs free) - data anomaly only. Watchtower not run this boot, no synthesis to validate.",
+      "escalated_to_human": false,
+      "timestamp": "2026-10-19T21:15:46.431014Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "checkpoint_found": true,
+        "checkpoint_result": "flag",
+        "checkpoint_reason": "Calendar is correct-day (2026-10-15) and meeting context is current; two minor quirks noted: (1) HASC 11:00 client meeting shows needs-prep but no prep artifact found in project or vault despite yesterday's review claiming prep done; (2) Susie Staff Retreat all-day entry overlaps bootcamp/hotel (showAs free) - data anomaly only. Watchtower not run this boot, no synthesis to validate.",
+        "eval_record_started": "2026-10-15T14:22:39.626350Z",
+        "eval_records_scanned": 22
+      }
+    },
+    {
+      "name": "step-04-synthesize-briefing-checkpoint",
+      "after_step": "step-04-synthesize-briefing.md",
+      "result": "retry",
+      "reason": "Briefing not properly delivered (content_len=491, status=in-progress, current-step=step-05-verify-briefing)",
+      "escalated_to_human": false,
+      "timestamp": "2026-10-19T21:15:46.538618Z",
+      "validation_errors": [
+        "state_status_or_step_mismatch"
+      ],
+      "computed_fields": {
+        "briefing_delivered": true,
+        "briefing_content_length": 491,
+        "state_status": "in-progress",
+        "state_current_step": "step-05-verify-briefing",
+        "working_memory_written": true,
+        "working_memory_file": "morning-briefing-2026-10-19-161051.md",
+        "working_memory_age_hours": 0.0
+      }
+    }
+  ],
+  "retry_signal": {
+    "step": "step-04-synthesize-briefing.md",
+    "checkpoint": "step-04-synthesize-briefing-checkpoint",
+    "reason": "Briefing not properly delivered (content_len=491, status=in-progress, current-step=step-05-verify-briefing)",
+    "feedback": "Briefing not properly delivered (content_len=491, status=in-progress, current-step=step-05-verify-briefing)",
+    "instruction": "Re-execute step-04 to synthesize and deliver the briefing, then update state.yaml to status: complete, current-step: step-04.",
+    "attempt_number": 1,
+    "timestamp": "2026-10-19T21:15:46.538784Z",
+    "max_attempts": 2
+  },
+  "total_cost_usd": 0.09,
+  "cost_estimation_note": "estimated based on general-purpose workflow type",
+  "model": "sonnet"
+}

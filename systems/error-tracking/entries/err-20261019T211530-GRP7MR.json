@@ -1,0 +1,15 @@
+{
+  "id": "err-20261019T211530-GRP7MR",
+  "timestamp": "2026-10-19T21:15:30Z",
+  "session": "2026-10-19",
+  "source": "explicit",
+  "agent": "jarvis",
+  "category": "voice-violation",
+  "failure_mode": "rebuilt-drafts-in-verbatim-transcript-voice-without-checking-identity-voice-md",
+  "severity": "minor",
+  "description": "Rebuilt the 7 GoTogether webinar drafts copying bodies verbatim from the Oct 15 Harper transcript, including 'Hi [Name],' openers, without consulting identity/VOICE.md. David never opens with 'Hi [Name]'. The verbatim-recovery framing made the transcript the voice standard, which it is not.",
+  "correction": "David: 'I never open with Hi [Name] - did you not use my voice.md?' \u2014 check identity/VOICE.md for the correct opening convention, correct all 7 draft bodies in Superhuman to match, and treat VOICE.md as the authority over any recovered transcript content.",
+  "systemic_fix": "When rebuilding or reusing previously drafted content, apply identity/VOICE.md as a post-pass before committing drafts; transcript-recovered text is source material, not approved voice.",
+  "fix_status": "applied",
+  "related_entries": []
+}

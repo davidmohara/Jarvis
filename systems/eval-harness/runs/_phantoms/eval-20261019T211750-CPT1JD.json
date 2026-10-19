@@ -1,0 +1,45 @@
+{
+  "id": "eval-20261019T211750-CPT1JD",
+  "type": "workflow",
+  "name": "morning-briefing-verification",
+  "agent": "ralph",
+  "owning_agent": "ralph",
+  "session_id": "14665b00-c08f-4954-b92c-1e7a20e135fb",
+  "trigger": "manual",
+  "started": "2026-10-19T21:17:46Z",
+  "completed": "2026-10-19T21:17:50.337050Z",
+  "duration_seconds": 4.3,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    }
+  },
+  "version_hash": "d31c5a50d4793d7b",
+  "prior_baseline_id": null,
+  "tags": [
+    "phantom-candidate",
+    "cowork-hook"
+  ]
+}

@@ -1,8 +1,19 @@
 workflow: morning-briefing-verification
 agent: ralph
-status: not-started
-session-started: null
-session-id: null
-current-step: null
-original-request: null
-accumulated-context: {}
+status: complete
+session-started: '2026-10-19T21:17:46Z'
+session-id: ralph-2026-10-19-211746
+current-step: step-01
+original-request: 'Verify memory/working/morning-briefing-2026-10-19-161051.md against calendar, email, OmniFocus, and delegation sources.'
+accumulated-context:
+  verdict-summary: findings
+  findings:
+  - 'Calendar warning overstates: full-day bootcamp block (08:30-17:30) does not collide with Hot 26 (06:00-07:00) or Prayer Call (08:00-08:15).'
+  - 'Calendar warning imprecise: 08:15-08:30 is also open besides the stated 07:00-08:00 block (15-minute gap).'
+  - 'Delivered text says three Teams calls sit inside the full-day bootcamp block; Prayer Call (08:00-08:15) precedes the 08:30 bootcamp start.'
+  - 'Working-memory rocks line says Rock 5 plan due Dec 15; source records Dec 15 as proposed/soft-confirmed, date open for confirmation.'
+  - 'SPARC reminder note says the package is in the inbox; the recorded email snippet confirms the kickoff email but not the package/registration link.'
+  - 'Operational note: data/reminders.json no longer contains the GoTogether entry (rem-20261015T182852-JDP76U) although boot state recorded it due and git HEAD still has it.'
+  verified-count: 41
+  unverified-count: 5
+  briefing-file: memory/working/morning-briefing-2026-10-19-161051.md

@@ -1,11 +1,11 @@
 workflow: boot-verification
 agent: ralph
 status: complete
-session-started: '2026-10-15T14:10:00Z'
-session-id: bv-20261015-001
+session-started: '2026-10-19T21:00:34Z'
+session-id: bv-20261019-001
 current-step: step-02
-original-request: "Verify Phase 2 boot tasks for run boot-2026-10-15 (Wednesday 2026-10-15). Manifest: Morning Briefing 01-02, Task E (Plaud/Knox), Task G (72-Hour Look-Ahead), Task H (Email Triage), Task I (Jarvis Inbox), Task J (Boot Reminders)."
-completed-at: '2026-10-15T14:13:00Z'
+original-request: "Verify Phase 2 boot tasks for run boot-2026-10-19 (Monday 2026-10-19). Manifest: Morning Briefing 01-02, Task E (Plaud/Knox), Task G (72-Hour Look-Ahead), Task H (Email Triage), Task I (Jarvis Inbox), Task J (Boot Reminders)."
+completed-at: '2026-10-19T21:02:00Z'
 accumulated-context:
   phase2-manifest:
     - task: "Morning Briefing Steps 01-02"
@@ -15,9 +15,9 @@ accumulated-context:
       data-files: ["data/calendar-unified.json", "data/omnifocus-unified.json"]
       verdict: verified
     - task: "E: Plaud Ingest (Knox)"
-      claimed-status: not-applicable
+      claimed-status: spawned-fire-and-forget
       state-file: "workflows/plaud-ingest/state.yaml"
-      verification-note: "step-02 no longer defines Task E; Knox completion checked at step-08. Fresh plaud-ingest state.yaml (pi-20261015-001, complete, no-new-recordings) and knox/plaud-ingest eval record (eval-20261015T140022-XQBT3L) exist for today."
+      verification-note: "Fire-and-forget spawn evidenced by eval-20261019T203922-DEHON9 (knox/plaud-ingest, today) and fresh plaud-ingest state.yaml (pi-20261019-001, complete, no-new-recordings, completed 2026-10-19T20:40:00Z)."
       verdict: not-applicable
     - task: "G: 72-Hour Look-Ahead"
       claimed-status: completed
@@ -36,14 +36,14 @@ accumulated-context:
       data-files: ["data/jarvis-inbox-unified.json"]
       verdict: verified
     - task: "J: Boot Reminders"
-      claimed-status: nothing-to-surface
+      claimed-status: completed
       expected-output: "data/reminders.json"
       data-files: ["data/reminders.json"]
       verdict: verified
   verdict-summary: "all-verified"
   rerun-required: []
   discrepancies:
-    - "systems/eval-harness/skill-runs/jarvis-inbox-latest.json is stale (2026-09-28) — eval-logging gap only; the fresh jarvis-inbox-unified.json (pulled 2026-10-15T14:00:50Z, 0 messages) is the ground truth and supports the claim."
-    - "No memory/working/ entry for 2026-10-15 — expected for a steps-01-02-only boot spawn (Chief run is in-progress at step-03)."
-    - "data/reminders.json mtime is 2026-06-27 (not touched today) — file exists with an empty reminders array; no due entries, so nothing-to-surface is correct."
-    - "Clay pull status 'unavailable' (502) is a legitimate degraded-source outcome per the manifest, not a task failure."
+    - "data/reminders.json mtime is 2026-10-18 18:19 local (not rewritten today) — content is the ground truth for Task J and matches the claim exactly (3 due 2026-10-19 + 1 future 2026-11-02); staleness noted, not a failure."
+    - "Clay pull status 'unavailable' (MCP auth stubs only) is a legitimate degraded-source outcome with a mandatory attempt evidenced in the file's error field — corroborated by this session's own tool list showing only Clay authenticate stubs. Not a task failure."
+    - "M365 MCP unavailable (auth stubs only) corroborated independently: this session's tool index exposes only mcp__claude_ai_Microsoft_365__authenticate/complete_authentication. Superhuman/Apple Mail fallbacks were the correct path."
+    - "data/omnifocus-unified.json due_date values arrived as human-readable strings instead of ISO (format-change anomaly, already noted in morning-briefing accumulated-context) — parsing unaffected."
