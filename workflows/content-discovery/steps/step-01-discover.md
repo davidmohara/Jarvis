@@ -1,7 +1,7 @@
 ---
 status: complete
-started-at: "2026-10-16T22:00:00Z"
-completed-at: "2026-10-16T22:05:00Z"
+started-at: "2026-10-17T19:00:00Z"
+completed-at: "2026-10-17T19:05:00Z"
 outputs:
   messages_scanned: 8
   new_urls: 0
@@ -11,9 +11,9 @@ outputs:
   pending_threads_checked: 2
   editorial_feedback_found: 0
   editorial_edits_applied: 0
-  gate_1_result: "PASS — ok: true, 8 bot messages (48h retry; 24h returned 0 with warning) from C0B160MA3EK. All 8 are bot operational/review messages without digest signal — SKIP."
+  gate_1_result: "PASS — ok: true, 8 bot messages (48h retry) from C0B160MA3EK. All without digest signal — SKIP."
   gate_2_result: "n/a — no new drafts"
-  outcome: "No new content. Pending thread check: 2 threads checked (Love With Your Presence, Your Business Has a Dashboard). Both latest replies are prior Jarvis confirmations — no unprocessed human feedback. Clean exit."
+  outcome: "No new content. 2 pending threads checked (Your Business Has a Dashboard, Love With Your Presence). Both threads fully actioned in prior run — latest replies at ts 1792149571 and 1792149573 (~30h ago) outside 24h window and already confirmed handled in editorial_edits. Clean exit."
 model: sonnet
 ---
 

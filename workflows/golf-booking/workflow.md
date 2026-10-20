@@ -68,6 +68,8 @@ This workflow wraps the accumulated golf-booking rules in seven checkable gates,
 
 Read and follow `reference/state-check-protocol.md` before any execution. Workflow: `golf-booking`; agent: `sterling`.
 
+**Window clock (authoritative):** the 8-day window opens at 11:00 PM CST (midnight EST). Compute "today" in `America/New_York` (`TZ=America/New_York date +%Y-%m-%d`). A run at or after 11:00 PM CST uses the next Eastern date. If the live ChronoGolf calendar rejects a date that Gate 1 passed, the run must NOT skip: record the verbatim rejection, set `awaiting-window`, and retry that same date first on the next run.
+
 **Variant:** extra case `status: awaiting-window`: the target date is not yet inside the 8-day booking window (Gate 1); re-check on the next scheduled run, do not re-evaluate or re-rank, and book exactly what was already validated once the window opens. `status: verification-failed` is treated with aborted (surface and wait). Also check the calendar for an already-booked round this weekend and skip booking if found, unless directed otherwise. On every fresh run step-00 runs first: if a prior booking exists and the new target differs, Gate 0's cancellation protocol must complete or explicitly defer before any re-booking.
 
 ---

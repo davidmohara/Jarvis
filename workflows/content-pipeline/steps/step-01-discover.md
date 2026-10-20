@@ -1,7 +1,7 @@
 ---
 status: complete
-started-at: "2026-10-16T22:00:00Z"
-completed-at: "2026-10-16T22:05:00Z"
+started-at: "2026-10-17T19:00:00Z"
+completed-at: "2026-10-17T19:05:00Z"
 outputs:
   messages_scanned: 8
   new_urls: 0
@@ -13,7 +13,7 @@ outputs:
   editorial_edits_applied: 0
   gate_1_result: "PASS — ok: true, 8 bot messages (48h retry) from C0B160MA3EK. All without digest signal — SKIP."
   gate_2_result: "n/a — no new drafts"
-  outcome: "No new content. 2 pending threads checked (Love With Your Presence, Your Business Has a Dashboard). No unprocessed editorial feedback. Clean exit."
+  outcome: "No new content. 2 pending threads checked (Your Business Has a Dashboard, Love With Your Presence). Both fully actioned in prior run — replies outside 24h window, nothing new to process. Clean exit."
 model: sonnet
 ---
 

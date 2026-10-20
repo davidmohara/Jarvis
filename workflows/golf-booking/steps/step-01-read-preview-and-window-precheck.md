@@ -63,13 +63,20 @@ Compute whether the target date (from `override_instructions` if present, otherw
 top-ranked option) falls within 8 days of today.
 
 **Compute "today" correctly:**
-The booking workflow runs at 11:00 PM CST on Wed/Thu/Fri, which is midnight EST (start of the
-next day). Use `date +%Y-%m-%d` to get the actual "today" at runtime (e.g., if you run at 11 PM
-CST on Sept 4, `date` returns Sept 5 because it's already Sept 5 EST). This ensures the math
-is correct: "8 days from Sept 5" = Sept 13 is in range.
+The ChronoGolf 8-day booking window opens at 11:00 PM CST, which is midnight EST (start of the
+next day). Any run at or after 11:00 PM CST on day D counts as day D+1 for "today". Always compute
+"today" in Eastern time, never Central. Example: at 11 PM CST on Oct 16 the Eastern date is Oct 17,
+so Sunday Oct 25 is 8 days out and in window. Do not use bare `date` without `TZ=America/New_York`,
+because the sandbox clock may be in Central.
+
+**Live rejection rule:** Gate 1 is a pre-check, not the source of truth. If the live ChronoGolf
+calendar rejects a date that Gate 1 passed ("out of your booking range"), do NOT pick another date
+and do NOT end the run silently. Record the rejection verbatim in `state.yaml` `latest-check-result`,
+set `status: awaiting-window`, and send the Slack or fallback notice. The next scheduled run re-checks
+that same date first.
 
 ```bash
-TODAY=$(date +%Y-%m-%d)
+TODAY=$(TZ=America/New_York date +%Y-%m-%d)
 TARGET_DATE="<from preview-output.json or override_instructions>"
 DAYS_OUT=$(($(date -jf '%Y-%m-%d' "$TARGET_DATE" '+%s') - $(date -jf '%Y-%m-%d' "$TODAY" '+%s') / 86400))
 ```

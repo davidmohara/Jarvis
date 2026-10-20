@@ -5,15 +5,15 @@ session-started: 2026-10-16T13:19:00-05:00
 session-id: manual-golf-tee-time-booking-2026-10-16
 current-step: step-01-read-preview-and-window-precheck
 execution-run: 2026-10-16
-latest-check: 2026-10-16T13:19:00-05:00
-latest-check-result: "Gate 0: no prior booking (booking-id null), cancellation not required. Gate 1: rank-1 Saturday 2026-10-24 is 8 days out, window open — passed inline check and verify script. Gate 2: login verified (already authenticated). Widget opened, 18 holes / 2 players / both Total Member selected. Live Saturday tee times: nothing between 1:00 PM and the 1:30 PM party-capped latest start (12:51 PM violates the never-before-1:00-PM hard rule; 3:55 PM+ would end ~8:25 PM, missing Erin's 6 PM surprise party). Rank-2 Sunday 2026-10-25 was attempted but ChronoGolf live UI rejected it: out of the 8-day member booking range (9 days out as of this 10-16 afternoon run). No substitution made, no booking made. Status: awaiting-window — Sunday window opens tonight (10-17 EST)."
+latest-check: 2026-10-16T23:06:00-05:00
+latest-check-result: "Scheduled run 2026-10-16 23:01 CDT. Gate 1 (EST date 2026-10-17): Sunday 2026-10-25 is 8 days out, window open. Rank-1 Saturday 2026-10-24 re-checked live: no viable slot (12:51 PM violates 1 PM rule; 3:55 PM+ violates party cap). Sunday 2026-10-25 attempted: ChronoGolf UI returned 'You are out of your booking range... can only book 8 days in advance' (club-local date still 2026-10-16, i.e. 9 days out). No substitution, no booking made. Status: awaiting-window; retry on next run, which must re-check Sunday 10-25 live first."
 gate-failures: []
 booking-id: null
 booking-date: null
 booking-time: null
 booking-status: "not-booked"
 grade: null
-resolution-note: "AWAITING WINDOW (2026-10-16 13:19 CDT, manual run). Rank 1 Saturday 2026-10-24 is in-window but has NO viable slot: only afternoon times are 12:51 PM (hard-rule violation, before 1:00 PM cost threshold) and 3:55 PM onward (violates preview party cap — latest start 1:30 PM, Erin's surprise party 6:00-9:00 PM CT). Rank 2 Sunday 2026-10-25 preferred 14:30-19:00 is 9 days out; ChronoGolf live UI confirmed out of member booking range. Next scheduled run (Fri 10-16 11:00 PM CST = Sat 10-17 EST) MUST: (1) re-check Saturday 2026-10-24 live times first for any cancellation opening in 13:00-13:30 window; (2) if none, book Sunday 2026-10-25 — preferred 14:30, expand within 14:30-19:00, hard rule never before 2:30 PM; (3) if neither viable, Slack abort. Do not re-rank. No substitution beyond these two ranked options."
+resolution-note: "AWAITING WINDOW (2026-10-16 23:06 CDT). Saturday 10-24 has no viable slot (only 12:51 PM before 1 PM rule, 3:55 PM+ past 1:30 PM party cap). Sunday 10-25 rejected by live ChronoGolf range check (club-local date 10-16, 9 days out). Next run: re-check Sunday 10-25 first, book 14:30 preferred within 14:30-19:00 (never before 2:30 PM). If Sunday still rejected, Slack abort. Do not re-rank, do not substitute Saturday except as already validated rank-1 slot 13:00-13:30."
 
 original-request: ~
 accumulated-context:
