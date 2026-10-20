@@ -1,0 +1,61 @@
+{
+  "id": "eval-20261020T134016-ITIJSR",
+  "agent_id": "a08513f78e3207a28",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": "conventions-migration",
+  "agent": "rigby",
+  "owning_agent": "rigby",
+  "subagent_type": "general-purpose",
+  "session_id": "14665b00-c08f-4954-b92c-1e7a20e135fb",
+  "trigger": "workflow-dispatch",
+  "started": "2026-10-20T13:40:16.826715Z",
+  "completed": "2026-10-20T13:59:30.552633Z",
+  "duration_seconds": 1153.73,
+  "status": "partial",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 1,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/14665b00-c08f-4954-b92c-1e7a20e135fb/subagents/agent-a08513f78e3207a28.jsonl",
+  "model": "accounts/fireworks/models/kimi-k3",
+  "total_tokens_input": 971040,
+  "total_tokens_output": 5302,
+  "total_cost_usd": 0.392855
+}

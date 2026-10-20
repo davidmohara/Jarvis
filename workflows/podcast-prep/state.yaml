@@ -1,18 +1,90 @@
 ---
 workflow: podcast-prep
 agent: harper
-status: complete
-session-started: 2026-09-04T00:00:00Z
-session-id: harper-podcast-prep-2026-09-04-suchala
-current-step: step-05
-original-request: "Generate podcast prep for Ryan Suchala (Episode TBD/16, filming 2026-09-04) from meetings/podcast-prep/2026-09-04-suchala-updated.md"
-sources_used: [episode-prep] # SharePoint Season 1_Episode {N}_Topics and Questions not found for this guest/episode; proceeded with episode-prep source alone per instructions
+status: in-progress
+session-started: 2026-10-20T00:00:00Z
+session-id: harper-podcast-prep-2026-10-20-amber
+current-step: step-03
+original-request: "Episode with Amber, filming Monday 2026-10-26. Storyline: welcome (personal question re: desire to become a lawyer), emerging issues in legal space, outcome-based vs hourly billing shift, why paralegals won't disappear, wrap with her personal use of AI. Janine provided a list of questions to consider. Review prior episode documents for guidance."
+sources_used: [sharepoint-janine-doc, calendar, teams-chat, email]
 accumulated-context:
-  episode_number: "16 (unconfirmed placeholder — next unused after Episode 15; no SharePoint doc or calendar event confirms this)"
-  guest: "Ryan Suchala, EVP & Chief Banking Officer, First United Bank & Trust Company"
-  filming_date: "2026-09-04"
-  outputs:
-    detailed_sheet: "meetings/podcast-prep/2026-09-04-suchala.md"
-    pdf_markdown: "meetings/podcast-prep/Episode 16.md"
-    pdf_rendered: "meetings/podcast-prep/Episode 16.pdf"
-  remarkable_upload: "skipped per explicit instruction — do not push to reMarkable"
+  episode:
+    number: "17"
+    title: "TBD (AI and the Legal Landscape - working title)"
+    season: 1
+    primary_guest:
+      name: "Amber Robinson"
+      title: "Corporate Counsel, Improving"
+      email: "Amber.Robinson@improving.com"
+      phone: "214.226.6758"
+    secondary_guest: null
+    filming:
+      date: "2026-10-26"
+      time: "12:00 PM - 2:00 PM CT"
+      location: "MarketScale Studio, 901 Main St #5300, Dallas, TX 75202"
+    attendees:
+      host: "David O'Hara"
+      producer: "Janine Jeanson"
+      coordinator: "Alice Mburu"
+      marketing: "Kristin Johnson"
+      guest: "Amber Robinson"
+    status: "Scheduled - invite accepted"
+  janine_doc_uri: "file:///b!zOWa7mFJmU60YkQP77LoB11PGhEO_BVKmEGtBxvzjhj7lwZvq6LjRaU6NyFfYbVH/01M43Q7NZBAGL3VJ77IBHZPJEGREB4FMQ5"
+  janine_note: "15 questions provided; 'Feel free to change them up. I highly doubt you'll get through all 15, but I wanted you to have options. Not sure how deep into the legal side of things you want to go, so I created a range of question types/topics.'"
+  relationship_context: "Internal guest. David and Amber synced on Employee AI Usage policy in September 2026 (David asked how he could help; Curtis briefed him on the project). Janine met Amber in person in Toronto the week of 2026-09-14 and David suggested her as a guest. Booked 2026-09-24 via Teams."
+  gathered_data:
+    sources_used: [sharepoint]
+    episode_prep_source:
+      found: false
+      source_path: null
+      questions_block: null
+      suggested_flow: null
+      guest_research_brief: null
+      notes_section: null
+    sharepoint_questions:
+      found: true
+      source_file: "Season 1_Episode 17_Topics and Questions.docx (Janine's OneDrive, Teams Chat Files, modified 2026-10-20)"
+      questions:
+        - "1. What are the biggest legal risks companies take on when their employees start using AI tools at work?"
+        - "2. Who owns the content AI produces, and can a company really claim ownership of AI-generated work product?"
+        - "3. How should a company think about copyright exposure when AI tools generate text, code, or images that look similar to existing works?"
+        - "4. What should an AI usage policy cover at minimum, and which sections do companies most often leave out?"
+        - "5. What client data should never go into a public AI tool, and how do we explain that line to employees who just want to get their work done faster?"
+        - "6. What should we look for in the terms of service of AI vendors, especially around data retention, training on our inputs, and indemnification?"
+        - "7. If an AI tool gives a client wrong advice or a flawed deliverable, who is liable, and how do contracts typically allocate that risk?"
+        - "8. Do we need to disclose to clients when we use AI in their projects, and does that answer change if the client has confidentiality requirements?"
+        - "9. How should a company handle 'shadow AI,' meaning employees using tools that IT never approved, without creating a culture of fear?"
+        - "10. If you were advising a mid-sized company that is just starting its AI journey, what three things would you tell them to do in the first 90 days?"
+        - "11. What legal complexities have you come across regarding AI in your daily work as a lawyer?"
+        - "12. What's a situation where AI made your job easier, and what's one where it created more problems than it solved?"
+        - "13. Has there been a moment when a client's AI question caught you off guard, and how did you handle it?"
+        - "14. How has your own relationship with AI tools changed since you started working on these issues?"
+        - "15. If there was one takeaway you would want listeners to have after today's episode, what would it be?"
+    podcast_guide:
+      found: false
+      key_reminders:
+        - "Conversational, light, casual tone; wide audience, avoid overly technical terms"
+        - "40% host / 60% guest speaking split"
+        - "Film ~1 hour, final cut 25-35 min; mistakes get edited out"
+        - "Unscripted, key topics as guide not script; tell personal stories, be human"
+    guest_clay:
+      found: false
+      full_name: "Amber Robinson"
+      title: "Corporate Counsel"
+      company: "Improving"
+      background: "Internal Improving counsel based in Dallas. Works on employee AI usage policy and AI-related legal questions for the business. Met Janine in person in Toronto week of 2026-09-14."
+      relationship_notes: "David requested a sync with her on the Employee AI Usage policy project in Sept 2026. She is responsive and informal in email ('I can just give you a ring on Sunday')."
+      last_interaction: "2026-09-16 email re: Employee AI Usage policy sync"
+    email_context:
+      found: true
+      key_threads:
+        - "Sept 2026: 'Employee AI Usage policy' / 'Sync: Employee AI Usage policy' - David asked Amber how he could help with the AI usage policy project (Curtis briefed); Amber suggested a call. Directly relevant on-air material: she is actively writing Improving's own AI usage policy."
+    existing_prep:
+      detailed_sheet: null
+      pdf_sheet: null
+    flags:
+      - "Clay MCP requires OAuth re-authentication and was unavailable this run; guest background built from M365 directory, email signature, and email/Teams history instead."
+      - "No standalone 'Podcast Guide' doc found on SharePoint this run (only Improving Edge decks); using cached key reminders from prior runs."
+      - "WebSearch unavailable (search_unauthorized); no external bio pulled. Guest is internal, so directory + internal context used."
+      - "Episode title is TBD in Janine's doc."
+      - "DAVID DIRECTIVE (mid-run): Do NOT include the personal welcome question (why she became a lawyer) anywhere in the prep doc - he is bringing it in cold, unscripted. Build flow from segment 2 (emerging legal issues). Segment mapping: emerging issues = Q1/Q4/Q7/Q9/Q10; billing shift + paralegals = fresh material framed from the buyer's perspective (Amber is in-house counsel); personal AI close = Q12/Q13/Q14/Q15. Target ~30 min."

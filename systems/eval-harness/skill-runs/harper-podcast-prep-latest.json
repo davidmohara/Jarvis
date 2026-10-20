@@ -1,10 +1,11 @@
 {
   "skill": "harper-podcast-prep",
-  "agent": "harper",
+  "agent": "general-purpose",
   "trigger": "manual",
-  "started": "2026-09-04T20:35:00Z",
-  "completed": "2026-09-04T20:38:51Z",
+  "started": "2026-10-20T15:17:15.426487Z",
+  "completed": "2026-10-20T15:19:32.974711Z",
   "status": "success",
   "tool_failures": 0,
-  "error_ids": []
+  "error_ids": [],
+  "captured_via": "hook"
 }

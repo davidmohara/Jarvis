@@ -1,0 +1,64 @@
+{
+  "id": "eval-20261020T151715-HK014K",
+  "agent_id": "ab7790e9f022f0057",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "general-purpose",
+  "owning_agent": null,
+  "subagent_type": "general-purpose",
+  "session_id": "870cd0c9-d780-4fe0-ab54-2e0a035f6eeb",
+  "trigger": "unknown",
+  "started": "2026-10-20T15:17:15.423677Z",
+  "completed": null,
+  "duration_seconds": null,
+  "status": "in-progress",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": null,
+      "all_steps_finished": null,
+      "tool_failures": 1,
+      "error_ids": [],
+      "tool_failure_log": [
+        {
+          "tool": "mcp__claude_ai_Microsoft_365__read_resource",
+          "error": "{\n  \"code\": \"INTERNAL_ERROR\",\n  \"message\": \"INTERNAL_ERROR: Failed to fetch OneDrive metadata caused by: The provided drive id appears to be malformed, or does not represent a valid drive.\",\n  \"details\": {\n    \"graphErrorCode\": \"invalidRequest\",\n    \"graphStatusCode\": 400,\n    \"graphRequestId\": \"fd9a3529-c538-4eec-879e-833bc5bde8a4\",\n    \"graphInnerErrorCode\": null,\n    \"graphRetryAfterSeconds\": null,\n    \"graphRateLimitReason\": null,\n    \"graphThrottleScope\": null,\n    \"graphThrottleInformation\": null,\n    \"transportErrno\": null,\n    \"driveId\": \"janine_jeanson_improving_com\",\n    \"itemId\": \"Microsoft Teams Chat Files\",\n    \"itemPath\": \"Microsoft Teams Chat Files/Season 1_Episode 17_Topics and Questions.docx\",\n    \"uriPath\": \"/janine_jeanson_improving_com/Microsoft%20Teams%20Chat%20Files/Season%201_Episode%2017_Topics%20and%20Questions.docx\",\n    \"paramKeys\": [\n      \"uri\"\n    ]\n  }\n}",
+          "duration_ms": 788,
+          "timestamp": "2026-10-20T10:19:01.837549"
+        }
+      ]
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": []
+}

@@ -1,0 +1,13 @@
+{
+  "id": "err-20261020T143020-Y5EFJG",
+  "timestamp": "2026-10-20T14:30:20Z",
+  "severity": "minor",
+  "category": "data-accuracy",
+  "failure_mode": "wrong-assumption",
+  "agent": "master",
+  "source": "explicit",
+  "description": "Prior session context summary stated David does 2x/year personal retreats. David corrected this to 4x/year (1 per quarter).",
+  "correction_made": "Updated understanding: David does 4 personal retreats per year, one per quarter. The solitude/intentional retreat blog post angle should reflect quarterly cadence, not twice-yearly.",
+  "context": "Content brief session for 4 blog post drafts (PD + goal-setting). The error originated in the prior session's Ghost post inventory analysis, likely from an incorrect inference rather than a documented source.",
+  "logged_by": "master"
+}

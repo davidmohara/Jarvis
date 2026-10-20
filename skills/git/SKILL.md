@@ -462,5 +462,6 @@ Includes session cleanup."
 ## Gotchas
 
 - `git rebase --continue` can falsely refuse with "You must edit all merge conflicts" through the ies-git wrapper on the OneDrive/FUSE mount even when the index is clean (`git ls-files -u` empty; seen 2026-10-18, 5 recurrences). Workaround: commit manually from `.git/rebase-merge/message` via the wrapper, then `git rebase --skip` (safe: the stopped pick's content was just committed). Tracked as err-20261018T232304-NI2NH8.
+- The ies-git wrapper's Conventional Commits lint (`COMMIT_LINT` matches only `messages[0]` against `[a-z][^\n]*$`) rejects a single `-m` string containing newlines, so a subject-plus-body in one `-m` fails with "commit message fails Conventional Commits lint" even when the subject itself is valid (seen 2026-10-20). Workaround: pass the subject as the first `-m` flag and the body plus `Co-Authored-By:` footer as one or more separate `-m` flags — git joins them as paragraphs and only the first is linted.
 
 
