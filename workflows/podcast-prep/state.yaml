@@ -1,16 +1,16 @@
 ---
 workflow: podcast-prep
 agent: harper
-status: in-progress
+status: complete
 session-started: 2026-10-20T00:00:00Z
 session-id: harper-podcast-prep-2026-10-20-amber
-current-step: step-03
+current-step: null
 original-request: "Episode with Amber, filming Monday 2026-10-26. Storyline: welcome (personal question re: desire to become a lawyer), emerging issues in legal space, outcome-based vs hourly billing shift, why paralegals won't disappear, wrap with her personal use of AI. Janine provided a list of questions to consider. Review prior episode documents for guidance."
 sources_used: [sharepoint-janine-doc, calendar, teams-chat, email]
 accumulated-context:
   episode:
     number: "17"
-    title: "TBD (AI and the Legal Landscape - working title)"
+    title: "AI Meets the Law: In-House Counsel on Risk, Policy, and the New Legal Economics (working title, TBD per Janine)"
     season: 1
     primary_guest:
       name: "Amber Robinson"
@@ -32,6 +32,17 @@ accumulated-context:
   janine_doc_uri: "file:///b!zOWa7mFJmU60YkQP77LoB11PGhEO_BVKmEGtBxvzjhj7lwZvq6LjRaU6NyFfYbVH/01M43Q7NZBAGL3VJ77IBHZPJEGREB4FMQ5"
   janine_note: "15 questions provided; 'Feel free to change them up. I highly doubt you'll get through all 15, but I wanted you to have options. Not sure how deep into the legal side of things you want to go, so I created a range of question types/topics.'"
   relationship_context: "Internal guest. David and Amber synced on Employee AI Usage policy in September 2026 (David asked how he could help; Curtis briefed him on the project). Janine met Amber in person in Toronto the week of 2026-09-14 and David suggested her as a guest. Booked 2026-09-24 via Teams."
+  detailed_sheet: "meetings/podcast-prep/2026-10-26-amber-robinson.md"
+  pdf_markdown: "meetings/podcast-prep/Episode 17.md"
+  pdf_rendered: "meetings/podcast-prep/Episode 17.pdf"
+  remarkable_upload: "uploaded to /Improving/Podcast as 'Episode 17' via rmapi on 2026-10-20; re-uploaded same day after page-filling revision (larger fonts, exactly one page) per David's revision request"
+  adversarial-verification:
+    verdict: "findings"
+    result: "flag"
+    findings:
+      - "Minor: detailed sheet says 'invite accepted by all attendees'; recorded state only supports 'invite accepted' (no per-attendee acceptance record). Cosmetic; does not affect filming logistics."
+    lens: "prep-sheet completeness vs episode inputs; reference sheet + PDF both exist and are substantive"
+    note: "Ralph: 10/11 items verified, 0 escalate triggers. guardrail-checkpoint.py could not record (no in-progress eval record existed for this run); verdict persisted here instead."
   gathered_data:
     sources_used: [sharepoint]
     episode_prep_source:
