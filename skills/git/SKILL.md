@@ -457,4 +457,10 @@ Includes session cleanup."
 | Wrong commit message | `git commit --amend` if not yet pushed. If pushed, leave it and note the error. |
 | Detached HEAD | `git checkout main` or create a branch: `git checkout -b <branch>`. |
 
+---
+
+## Gotchas
+
+- `git rebase --continue` can falsely refuse with "You must edit all merge conflicts" through the ies-git wrapper on the OneDrive/FUSE mount even when the index is clean (`git ls-files -u` empty; seen 2026-10-18, 5 recurrences). Workaround: commit manually from `.git/rebase-merge/message` via the wrapper, then `git rebase --skip` (safe: the stopped pick's content was just committed). Tracked as err-20261018T232304-NI2NH8.
+
 

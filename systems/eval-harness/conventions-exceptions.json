@@ -81,6 +81,357 @@
       "granted_on": "2026-10-17",
       "approval": "approved",
       "review_after": "2027-01-17"
+    },
+    {
+      "path": ".claude/hooks/tests/test_step_token_capture.py",
+      "rule": "script.help_flag",
+      "reason": "test harness entry point, not operator-facing",
+      "granted_by": "david",
+      "granted_on": "2026-10-20",
+      "approval": "approved",
+      "review_after": "2027-01-20"
+    },
+    {
+      "path": ".claude/hooks/tests/test_ies_git.py",
+      "rule": "script.help_flag",
+      "reason": "test harness entry point, not operator-facing",
+      "granted_by": "david",
+      "granted_on": "2026-10-20",
+      "approval": "approved",
+      "review_after": "2027-01-20"
+    },
+    {
+      "path": ".claude/hooks/tests/test_secret_scanner.py",
+      "rule": "script.help_flag",
+      "reason": "test harness entry point, not operator-facing",
+      "granted_by": "david",
+      "granted_on": "2026-10-20",
+      "approval": "approved",
+      "review_after": "2027-01-20"
+    },
+    {
+      "path": "workflows/comp-tracker/workflow.md",
+      "rule": "size.workflow_md",
+      "reason": "borderline over guide (181/150); orchestrator is cohesive",
+      "granted_by": "david",
+      "granted_on": "2026-10-20",
+      "approval": "approved",
+      "review_after": "2027-01-20"
+    },
+    {
+      "path": "workflows/evolution-deployment/workflow.md",
+      "rule": "size.workflow_md",
+      "reason": "borderline over guide (151/150); orchestrator is cohesive",
+      "granted_by": "david",
+      "granted_on": "2026-10-20",
+      "approval": "approved",
+      "review_after": "2027-01-20"
+    },
+    {
+      "path": ".claude/hooks/eval-agent-start.py",
+      "rule": "size.script",
+      "reason": "eval harness hook; cohesive event handler",
+      "granted_by": "david",
+      "granted_on": "2026-10-20",
+      "approval": "approved",
+      "review_after": "2027-01-20"
+    },
+    {
+      "path": ".claude/hooks/eval-agent-stop.py",
+      "rule": "size.script",
+      "reason": "eval harness hook; cohesive event handler",
+      "granted_by": "david",
+      "granted_on": "2026-10-20",
+      "approval": "approved",
+      "review_after": "2027-01-20"
+    },
+    {
+      "path": ".claude/hooks/eval-turn-start.py",
+      "rule": "size.script",
+      "reason": "eval harness hook; cohesive event handler",
+      "granted_by": "david",
+      "granted_on": "2026-10-20",
+      "approval": "approved",
+      "review_after": "2027-01-20"
+    },
+    {
+      "path": ".claude/hooks/eval-turn-stop.py",
+      "rule": "size.script",
+      "reason": "eval harness hook; cohesive event handler",
+      "granted_by": "david",
+      "granted_on": "2026-10-20",
+      "approval": "approved",
+      "review_after": "2027-01-20"
+    },
+    {
+      "path": ".claude/hooks/post-tool-use.py",
+      "rule": "size.script",
+      "reason": "eval harness hook; cohesive event handler",
+      "granted_by": "david",
+      "granted_on": "2026-10-20",
+      "approval": "approved",
+      "review_after": "2027-01-20"
+    },
+    {
+      "path": ".claude/hooks/step-complete.py",
+      "rule": "size.script",
+      "reason": "eval harness hook; cohesive event handler",
+      "granted_by": "david",
+      "granted_on": "2026-10-20",
+      "approval": "approved",
+      "review_after": "2027-01-20"
+    },
+    {
+      "path": ".claude/hooks/tests/test_step_token_capture.py",
+      "rule": "size.script",
+      "reason": "test harness, cohesive",
+      "granted_by": "david",
+      "granted_on": "2026-10-20",
+      "approval": "approved",
+      "review_after": "2027-01-20"
+    },
+    {
+      "path": "skills/amazing-race-monitor/scripts/apply_ruling.py",
+      "rule": "size.script",
+      "reason": "borderline (314/300); ruling application logic, cohesive",
+      "granted_by": "david",
+      "granted_on": "2026-10-20",
+      "approval": "approved",
+      "review_after": "2027-01-20"
+    },
+    {
+      "path": "skills/amazing-race-monitor/scripts/dashboard_server.py",
+      "rule": "size.script",
+      "reason": "borderline (303/300); single-file dashboard server",
+      "granted_by": "david",
+      "granted_on": "2026-10-20",
+      "approval": "approved",
+      "review_after": "2027-01-20"
+    },
+    {
+      "path": "skills/amazing-race-monitor/scripts/poll_channel.py",
+      "rule": "size.script",
+      "reason": "Graph polling pipeline, cohesive",
+      "granted_by": "david",
+      "granted_on": "2026-10-20",
+      "approval": "approved",
+      "review_after": "2027-01-20"
+    },
+    {
+      "path": "skills/omnifocus-data/scripts/omnifocus_data.py",
+      "rule": "size.script",
+      "reason": "OmniFocus data extraction, cohesive",
+      "granted_by": "david",
+      "granted_on": "2026-10-20",
+      "approval": "approved",
+      "review_after": "2027-01-20"
+    },
+    {
+      "path": "skills/plaud-transcripts/scripts/fetch_plaud.py",
+      "rule": "size.script",
+      "reason": "Plaud API client, cohesive",
+      "granted_by": "david",
+      "granted_on": "2026-10-20",
+      "approval": "approved",
+      "review_after": "2027-01-20"
+    },
+    {
+      "path": "systems/dream-cycle/backfill-episodic-tags.py",
+      "rule": "size.script",
+      "reason": "one-shot backfill utility",
+      "granted_by": "david",
+      "granted_on": "2026-10-20",
+      "approval": "approved",
+      "review_after": "2027-01-20"
+    },
+    {
+      "path": "systems/error-tracking/compact.py",
+      "rule": "size.script",
+      "reason": "error log compaction, cohesive",
+      "granted_by": "david",
+      "granted_on": "2026-10-20",
+      "approval": "approved",
+      "review_after": "2027-01-20"
+    },
+    {
+      "path": "systems/error-tracking/new-entry.py",
+      "rule": "size.script",
+      "reason": "borderline (305/300); error entry writer, cohesive",
+      "granted_by": "david",
+      "granted_on": "2026-10-20",
+      "approval": "approved",
+      "review_after": "2027-01-20"
+    },
+    {
+      "path": "systems/eval-harness/assertion_checks.py",
+      "rule": "size.script",
+      "reason": "eval machinery, cohesive module",
+      "granted_by": "david",
+      "granted_on": "2026-10-20",
+      "approval": "approved",
+      "review_after": "2027-01-20"
+    },
+    {
+      "path": "systems/eval-harness/close-eval-record.py",
+      "rule": "size.script",
+      "reason": "eval machinery, cohesive module",
+      "granted_by": "david",
+      "granted_on": "2026-10-20",
+      "approval": "approved",
+      "review_after": "2027-01-20"
+    },
+    {
+      "path": "systems/eval-harness/generate-dashboard.py",
+      "rule": "size.script",
+      "reason": "eval machinery, cohesive module",
+      "granted_by": "david",
+      "granted_on": "2026-10-20",
+      "approval": "approved",
+      "review_after": "2027-01-20"
+    },
+    {
+      "path": "systems/eval-harness/hook_utils.py",
+      "rule": "size.script",
+      "reason": "eval machinery, cohesive module",
+      "granted_by": "david",
+      "granted_on": "2026-10-20",
+      "approval": "approved",
+      "review_after": "2027-01-20"
+    },
+    {
+      "path": "systems/eval-harness/scoring/score_eval.py",
+      "rule": "size.script",
+      "reason": "eval machinery, cohesive module",
+      "granted_by": "david",
+      "granted_on": "2026-10-20",
+      "approval": "approved",
+      "review_after": "2027-01-20"
+    },
+    {
+      "path": "systems/eval-harness/step_audit.py",
+      "rule": "size.script",
+      "reason": "eval machinery, cohesive module",
+      "granted_by": "david",
+      "granted_on": "2026-10-20",
+      "approval": "approved",
+      "review_after": "2027-01-20"
+    },
+    {
+      "path": "systems/ies-channel/ies-channel.py",
+      "rule": "size.script",
+      "reason": "daemon loop, cohesive",
+      "granted_by": "david",
+      "granted_on": "2026-10-20",
+      "approval": "approved",
+      "review_after": "2027-01-20"
+    },
+    {
+      "path": "systems/political-monitor/render.py",
+      "rule": "size.script",
+      "reason": "single-template HTML renderer, cohesive",
+      "granted_by": "david",
+      "granted_on": "2026-10-20",
+      "approval": "approved",
+      "review_after": "2027-01-20"
+    },
+    {
+      "path": "systems/wine-monitor/monitor.py",
+      "rule": "size.script",
+      "reason": "single-site monitor, cohesive",
+      "granted_by": "david",
+      "granted_on": "2026-10-20",
+      "approval": "approved",
+      "review_after": "2027-01-20"
+    },
+    {
+      "path": "workflows/dream-cycle/orchestrate.py",
+      "rule": "size.script",
+      "reason": "pipeline orchestrator, cohesive",
+      "granted_by": "david",
+      "granted_on": "2026-10-20",
+      "approval": "approved",
+      "review_after": "2027-01-20"
+    },
+    {
+      "path": "agents/master.md",
+      "rule": "size.agent_file",
+      "reason": "runs on every message; Agent Routing block kept inline by controller decision 2026-10-20 (workflow registry and sub-agent process model split to agents/references/)",
+      "granted_by": "david",
+      "granted_on": "2026-10-20",
+      "approval": "approved",
+      "review_after": "2027-01-20"
+    },
+    {
+      "path": "workflows/content-discovery/steps/step-01-discover.md",
+      "rule": "size.step_file",
+      "reason": "monolithic multi-path drafting procedure (3 paths, 2 hard gates, 10 tasks); reference bulk already extracted. Disposition: structural split into per-path steps queued as separate follow-up work; excepted at 338 lines meanwhile",
+      "granted_by": "david",
+      "granted_on": "2026-10-20",
+      "approval": "approved",
+      "review_after": "2027-01-20"
+    },
+    {
+      "path": "workflows/content-approval/steps/step-01-approve.md",
+      "rule": "size.step_file",
+      "reason": "monolithic approval/publish procedure; reference bulk already extracted. Disposition: structural split queued as separate follow-up work; excepted at 306 lines meanwhile",
+      "granted_by": "david",
+      "granted_on": "2026-10-20",
+      "approval": "approved",
+      "review_after": "2027-01-20"
+    },
+    {
+      "path": "workflows/comp-tracker/steps/step-04-extract-update-comp2.md",
+      "rule": "size.step_file",
+      "reason": "procedure-dense PowerBI/Excel automation step; sheet layout, formulas, and examples already extracted to references/",
+      "granted_by": "david",
+      "granted_on": "2026-10-20",
+      "approval": "approved",
+      "review_after": "2027-01-20"
+    },
+    {
+      "path": "workflows/comp-tracker/steps/step-05-sync-leads.md",
+      "rule": "size.step_file",
+      "reason": "procedure-dense Excel sync step; append formatting protocol already extracted to references/",
+      "granted_by": "david",
+      "granted_on": "2026-10-20",
+      "approval": "approved",
+      "review_after": "2027-01-20"
+    },
+    {
+      "path": "workflows/comp-tracker/steps/step-06-match-commissions.md",
+      "rule": "size.step_file",
+      "reason": "procedure-dense commission matching step; record schemas and column maps already extracted to references/",
+      "granted_by": "david",
+      "granted_on": "2026-10-20",
+      "approval": "approved",
+      "review_after": "2027-01-20"
+    },
+    {
+      "path": "workflows/plaud-ingest/steps/step-03-identify-speakers.md",
+      "rule": "size.step_file",
+      "reason": "procedure-dense speaker-ID step with failure-mode gates; heuristics, edge cases, and gate-4 detail already extracted to references/",
+      "granted_by": "david",
+      "granted_on": "2026-10-20",
+      "approval": "approved",
+      "review_after": "2027-01-20"
+    },
+    {
+      "path": "workflows/boot/steps/step-01.2-unified-data-pull.md",
+      "rule": "size.step_file",
+      "reason": "five-pull data collection spec; file formats, status shapes, and execution guidelines already extracted to references/",
+      "granted_by": "david",
+      "granted_on": "2026-10-20",
+      "approval": "approved",
+      "review_after": "2027-01-20"
+    },
+    {
+      "path": "workflows/client-meeting-prep/steps/step-03-research-company-and-attendee.md",
+      "rule": "size.step_file",
+      "reason": "procedure-dense research step; LinkedIn capture protocol already extracted to references/",
+      "granted_by": "david",
+      "granted_on": "2026-10-20",
+      "approval": "approved",
+      "review_after": "2027-01-20"
     }
   ]
 }

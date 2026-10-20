@@ -167,133 +167,13 @@ This is a hierarchy, not alternatives. Controller escalation only after 1 AND 2 
 
 ---
 
-## AUTO-RESOLUTION HEURISTICS
+## AUTO-RESOLUTION HEURISTICS AND EDGE CASES
 
-Use these in order. Stop as soon as you reach high confidence (>85%):
-
-0. **Self-identification in transcript**: the speaker states their own name aloud
-   anywhere in their segments (most commonly a sign-off near the end). This is checked
-   BEFORE calendar heuristics 1-4 and does not require calendar confirmation to resolve
-   — see `skills/plaud-speaker-id/SKILL.md` step 0.
-1. **Calendar attendees match speaker count exactly** and David O'Hara is an attendee: assign David to highest segment count speaker.
-2. **Sample text contains a name** ("...as Todd mentioned..." → that speaker knows Todd → likely David speaking about Todd).
-3. **Segment count pattern**: in a 2-person meeting, the host (David) typically has 55-70% of segments.
-4. **Known speakers list from Plaud**: if Plaud already has a registered voice profile matching a speaker, use it.
-
-If none of these produce high confidence, before falling back to `pending-speaker-mappings`
-confirm the calendar search discipline was actually exhausted (matched event attendees +
-adjacent events + recurring 1:1 pattern check, per the HARD GATE) — do not put a recording
-into `pending-speaker-mappings` on a subject-line mismatch alone.
-
-## EDGE CASE CHECKS — run before surfacing mappings to controller
-
-These have occurred in practice. Run all checks before presenting any mapping:
-
-### A. David split across two labels
-
-Plaud sometimes assigns David to a named label ("O'Hara") for part of the recording and
-a generic "Speaker N" label for the rest. Before treating a generic speaker as someone
-new, check:
-- Does the named "O'Hara" label already exist in `all_speakers`?
-- Does the generic speaker's `sample_text` sound like David? (First-person Improving
-  context, references to "our clients", "we at Improving", meeting facilitation language)
-- Is the generic speaker's segment count roughly comparable to what you'd expect David
-  to have if the named label under-counted him?
-
-If yes: include that generic label in the mapping pointing to "David O'Hara". Do not
-surface it to the controller as a mystery speaker.
-
-### B. Known speaker wrongly assigned (voice mis-tag)
-
-A registered Plaud voice profile may appear in a recording that person did not attend.
-Before accepting a named speaker at face value:
-- Cross-reference their name against the calendar attendee list
-- If they do not appear on the invite and their segment count is low (≤10 segments),
-  flag as a likely mis-tag
-- Include in `pending-speaker-mappings` with a note: "Plaud tagged [Name] but they may
-  not have been on this call — please confirm or correct"
-
-If the controller says they were not on the call, include the name in the `--rename`
-payload mapping it to the correct person.
-
-### C. Recording timestamp does not match any calendar event
-
-Plaud timestamps are UTC. Convert to CDT (UTC−5) before searching. When no event
-covers the timestamp:
-- Expand search window to ±45 minutes
-- Check whether the recording *ends* during a known event (pre-call warmup scenario)
-- Read the Plaud-generated title from the `.md` file — it often identifies the meeting
-  even without a calendar match
-- If still no match, add to `pending-speaker-mappings` with the CDT timestamp and
-  duration so the controller can identify the meeting
-
-### D. Actual call participants differ from calendar invite
-
-Always present `all_speakers` (with segment counts and sample text) alongside calendar
-attendees. State explicitly: "These are the calendar invitees — please correct if
-someone joined who wasn't invited or if an invitee didn't actually speak."
-
-### E. Sample text too short to identify speaker
-
-If `sample_text` is ≤5 words (e.g. "I understand," or "All right,"), do not present
-it as-is. Before surfacing to controller, pull additional lines from the `.md` transcript:
-read the file and extract the first 5 utterances attributed to that speaker label.
-Present those instead.
-
----
+Read `references/speaker-id-heuristics.md` when resolving speakers after the primary-source hierarchy and before surfacing any mapping to the controller. It holds the ordered auto-resolution heuristics (stop at >85% confidence) and the five edge-case checks (A-E) that must all run before presenting mappings.
 
 ## QUALITY GATE 4 — Speaker Identification Completeness (SOFT, LOGGED, DOES NOT REPLACE THE AWAITING-INPUT PAUSE)
 
-This gate formalizes what "unresolved speaker" means and makes it an explicit, tracked flag.
-It does **not** change the interactive-pause behavior in the workflow's STATE CHECK item 3 or
-in step 3 of YOUR TASK above (pause, ask the controller in one consolidated message, resume
-on response) — that behavior is preserved exactly as-is. This gate documents and carries the
-condition forward; it does not gate progression to step-04 (the existing pause already does
-that when needed) and it never silently drops the pause.
-
-**Definition of "unresolved speaker"** for this gate's purposes: any generic label (e.g.
-"Speaker 1", "Speaker 2") that survives all three resolution passes above — registered-speaker
-embedding match, self-ID transcript scan, and the full calendar search discipline (matched
-event attendees, adjacent events, recurring 1:1 pattern) — with no confident match to a real
-name. This is exactly the set that ends up in `pending-speaker-mappings` before controller
-escalation.
-
-**What this gate does:**
-
-1. After step 2 (auto-resolution) completes and before step 3 (controller escalation, if
-   needed), take a snapshot of whatever remains in `pending-speaker-mappings` and write it,
-   per-recording, into a new `accumulated-context.unresolved_speakers` list — same shape as
-   `pending-speaker-mappings` (file_id, recording, unresolved labels, note) — so this
-   condition is visible in state even after the controller eventually resolves it and
-   `pending-speaker-mappings` is cleared back to `[]`.
-2. If the controller later resolves some or all of them, update the corresponding
-   `unresolved_speakers` entries to reflect resolution (do not delete the history — mark
-   `resolved: true` with the method, e.g. "controller-provided") rather than removing the
-   entry outright. This gives a durable record of which speakers needed a human across runs.
-3. If nothing is unresolved after auto-resolution, `unresolved_speakers` stays `[]` and
-   `gate_4_result: "pass"`.
-
-Log the result:
-```
-[Gate 4] Unresolved speakers this run: N (across M recordings). Logged to accumulated-context.unresolved_speakers.
-```
-or
-```
-[Gate 4] No unresolved speakers — all resolved via embedding match, self-ID, or calendar.
-```
-
-Write to `state.yaml` `accumulated-context`:
-```yaml
-# state.yaml -> accumulated-context
-gate_4_result: "pass" | "pass-with-unresolved"
-gate_4_unresolved_speakers: [{file_id, recording, unresolved: [...]}, ...]
-# Required whenever gate_4_result is "pass-with-unresolved" (or any escalation occurred):
-unresolved_speakers: [{file_id, recording, unresolved: [...], evidence: "<calendar lookup result>"}, ...]
-escalation-evidence: "<calendar event time + attendees checked + why insufficient; transcript self-ID scan result>"
-```
-`escalation-evidence` and a non-empty `unresolved_speakers` are what
-`plaud-k4-escalation-evidence` / `plaud-sp-004/005` read — leave them empty (`[]`
-and `null`) on a fully auto-resolved run, and the evidence check passes vacuously.
+Run the Gate 4 protocol in `references/gate-4-unresolved-speakers.md` (read it after auto-resolution, before any controller escalation): snapshot `pending-speaker-mappings` into `accumulated-context.unresolved_speakers`, the resolution-marking rule, the log format, and the state.yaml schema (`gate_4_result`, `unresolved_speakers`, `escalation-evidence`). It does not gate progression to step-04 and never drops the interactive pause.
 
 ---
 
@@ -326,6 +206,3 @@ and `null`) on a fully auto-resolved run, and the evidence check passes vacuousl
 
 Read fully and follow: `step-04-fetch-staging.md`
 <!-- system:end -->
-
-<!-- personal:start -->
-<!-- personal:end -->

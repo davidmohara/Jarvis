@@ -21,84 +21,9 @@ model: haiku
 
 ---
 
-## COMP 2 — REGION SHEET LAYOUT
+## COMP 2 SHEET LAYOUT AND ROW 14 FORMULA
 
-```
-Row 1:  Header — "COMPONENT 2: ONE TEXAS REGIONAL GROWTH"
-Row 2:  Threshold description
-Row 3:  (blank)
-Row 4:  B="2025 One Texas Total Revenue"  C=72200000
-Row 5:  B="2025 Focused Accounts Baseline" C=14000000
-Row 6:  B="6% Growth Target"  C=formula (=C4*1.06)
-Row 7:  (blank)
-Row 8:  Column headers:
-          B = Metric
-          C = Jan
-          D = Feb
-          E = Mar
-          F = Apr
-          G = May
-          H = Jun
-          I = Jul
-          J = Aug
-          K = Sep
-          L = Oct
-          M = Nov
-          N = Dec
-          O = YTD Total (formula: =SUM(C9:N9))
-
-Data rows:
-  Row 9:  Regional Revenue      ← WRITE TARGET: C9 through N9 (by month)
-  Row 10: Regional Cost         ← WRITE TARGET: C10 through N10 (by month)
-  Row 11: Regional Gross Profit (formula: =C9-C10 etc — DO NOT WRITE)
-  Row 12: Regional GM %         (formula — DO NOT WRITE)
-  Row 13: Cumulative Revenue    (formula — DO NOT WRITE)
-  Row 14: Cumulative Growth vs 2025 (formula — DO NOT WRITE)
-
-Row 16: BONUS QUALIFICATION header
-Row 17: Regional YoY Growth %  (formula — DO NOT WRITE)
-Row 18: Weighted Avg Regional GM % (formula — DO NOT WRITE)
-Row 19: Bonus Earned (enter amount) — David fills manually
-```
-
-**Month → column map:**
-
-| Month | Column | Revenue Cell | Cost Cell |
-|-------|--------|-------------|-----------|
-| January | C | C9 | C10 |
-| February | D | D9 | D10 |
-| March | E | E9 | E10 |
-| April | F | F9 | F10 |
-| May | G | G9 | G10 |
-| June | H | H9 | H10 |
-| July | I | I9 | I10 |
-| August | J | J9 | J10 |
-| September | K | K9 | K10 |
-| October | L | L9 | L10 |
-| November | M | M9 | M10 |
-| December | N | N9 | N10 |
-
-**Do NOT write to rows 11–14 or 17–18 — those are formula rows that calculate automatically.**
-
----
-
-## ROW 14 FORMULA — PRO-RATED GROWTH vs 2025
-
-Row 14 shows "Cumulative Growth vs 2025". The formula must compare the YTD cumulative revenue against a **pro-rated** 2025 baseline (not the full $72.2M annual figure mid-year).
-
-**Correct formula for Row 14 (apply to C14:N14):**
-```
-=(C13-($C$4*(COLUMN()-2)/12))/($C$4*(COLUMN()-2)/12)
-```
-
-Where:
-- `C13` = Cumulative Revenue for that month (formula row — auto-calculated)
-- `$C$4` = 2025 full-year baseline ($72,200,000)
-- `COLUMN()-2` = month number (column C = 3, so 3-2=1 for January; column D = 4, so 4-2=2 for February, etc.)
-
-**If Row 14 shows an incorrect formula** (e.g., compares YTD to full $72.2M annual baseline instead of pro-rated), fix it by writing the correct formula to C14 and dragging/filling across C14:N14.
-
-If the values shown are wildly off (e.g., a January entry near -90%), the formula is comparing to the full annual baseline — fix it.
+Read `references/comp2-sheet-layout.md` before reading or writing any cell on the "Comp 2 - Region" sheet. It holds the full row layout, the month-to-column map (Revenue row 9, Cost row 10, C through N; rows 11-14 and 17-18 are formula rows, never write), the structure spot-check values, and the pro-rated Row 14 formula spec.
 
 ---
 
@@ -156,13 +81,7 @@ Click with cliclick. Then find and click "2026" in the dropdown. Verify via `get
 
 Call `mcp__Control_Chrome__get_page_content`.
 
-The One Texas page shows tabular data (when "Show visuals as tables" is active) with rows like:
-```
-Year, Month    Austin        Dallas        Houston
-2026, January  $1,456,127   $2,748,530   $1,235,959
-2026, February $1,366,394   $2,911,328   $1,167,126
-2026, March    $1,521,899   $3,074,539   $1,268,871
-```
+The One Texas page shows tabular data (when "Show visuals as tables" is active); see `references/comp2-extraction-examples.md` (read it in this step) for the row format.
 
 **ONLY read rows labeled with the current year.** Ignore all 2025 rows entirely.
 
@@ -188,12 +107,7 @@ For each current-year month present:
 **Gross Profit per month** = Austin GP + Dallas GP + Houston GP (from Gross Profit table)
 **Cost per month** = Revenue − Gross Profit
 
-Example:
-```
-<YYYY, Month>:  Austin $<a> + Dallas $<d> + Houston $<h> = $<revenue>
-                Austin GP $<agp> + Dallas GP $<dgp> + Houston GP $<hgp> = $<gp>
-                Cost = $<revenue> − $<gp> = $<cost>
-```
+A worked example of the per-month calculation is in `references/comp2-extraction-examples.md` (read it in this step).
 
 For April and beyond: read from page if present, otherwise leave blank.
 
@@ -207,14 +121,7 @@ The comp tracker should still be open from Step 3. If not, open it again using t
 
 Select the **"Comp 2 - Region"** sheet.
 
-**Verify structure before writing** — spot-check:
-- B8 should return: "Metric"
-- C8 should return: "Jan"
-- F8 should return: "Apr"
-- B9 should return: "Regional Revenue"
-- B10 should return: "Regional Cost"
-
-If any mismatch, stop and report.
+**Verify structure before writing** — spot-check against the values in `references/comp2-sheet-layout.md` (B8/C8/F8/B9/B10). If any mismatch, stop and report.
 
 ---
 
@@ -222,14 +129,7 @@ If any mismatch, stop and report.
 
 Before writing Row 9 and Row 10 data, read cell C14.
 
-If C14 contains a formula that compares to the full $72.2M annual baseline (e.g., `=(C13-$C$4)/$C$4` or similar), it will show wildly negative values mid-year. Fix it:
-
-Write the pro-rated formula to C14:
-```
-=(C13-($C$4*(COLUMN()-2)/12))/($C$4*(COLUMN()-2)/12)
-```
-
-Then verify this formula auto-propagates across D14:N14. If it doesn't (Excel doesn't always auto-fill), write the same formula individually to D14 through N14.
+If C14 contains a formula that compares to the full $72.2M annual baseline (e.g., `=(C13-$C$4)/$C$4` or similar), it will show wildly negative values mid-year. Fix it: write the pro-rated formula from `references/comp2-sheet-layout.md` (Row 14 formula spec) to C14, then verify it auto-propagates across D14:N14. If it doesn't (Excel doesn't always auto-fill), write the same formula individually to D14 through N14.
 
 **After writing Row 9 data, verify Row 14 shows sensible values** (e.g., Jan should be close to 0%, not -90%). If it's still wildly off, the formula needs checking.
 
@@ -237,15 +137,7 @@ Then verify this formula auto-propagates across D14:N14. If it doesn't (Excel do
 
 ### 7. Write monthly Regional Revenue to Row 9
 
-For each month with current-year data, write the One Texas total revenue (Austin + Dallas + Houston) to the corresponding cell in Row 9:
-
-```
-January revenue   → C9
-February revenue  → D9
-March revenue     → E9
-April revenue     → F9
-(continue through current month)
-```
+For each month with current-year data, write the One Texas total revenue (Austin + Dallas + Houston) to the corresponding Row 9 cell per the month-to-column map in `references/comp2-sheet-layout.md` (January -> C9, February -> D9, and so on through the current month).
 
 Use `mcp__Excel__By_Anthropic___set_cell_value` for each cell.
 
@@ -255,14 +147,7 @@ Use `mcp__Excel__By_Anthropic___set_cell_value` for each cell.
 
 ### 8. Write monthly Regional Cost to Row 10
 
-For each month with current-year data, write the cost (Revenue − Gross Profit) to Row 10:
-
-```
-January cost   → C10
-February cost  → D10
-March cost     → E10
-April cost     → F10
-```
+For each month with current-year data, write the cost (Revenue − Gross Profit) to the corresponding Row 10 cell per the same month-to-column map in `references/comp2-sheet-layout.md`.
 
 **Do NOT write to Rows 11–14 or 17–18** — those are formula rows. They calculate automatically from Rows 9–10.
 

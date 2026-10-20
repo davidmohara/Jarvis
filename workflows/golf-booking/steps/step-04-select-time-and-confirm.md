@@ -32,30 +32,7 @@ model: sonnet
 
 ### Read Available Tee Times
 
-Wait 2 seconds for tee times to load.
-
-```bash
-osascript << 'EOF'
-tell application "Google Chrome"
-  tell active tab of front window
-    execute javascript "
-    var body = document.body.innerText;
-    var lines = body.split('\n').map(l => l.trim()).filter(l => l.length > 0);
-    var times = [];
-    for (var i = 0; i < lines.length; i++) {
-      if (lines[i] === 'Choose' || lines[i].includes('Choose')) {
-        var timeStr = lines[i-1];
-        if (timeStr && /^\d{1,2}:\d{2}/.test(timeStr)) {
-          times.push(timeStr);
-        }
-      }
-    }
-    times.length > 0 ? times.join(',') : 'no-times-found'
-    "
-  end tell
-end tell
-EOF
-```
+Wait 2 seconds for tee times to load, then run the read tee times script from `references/step-04-confirm-scripts.md` (read it in this step).
 
 Parse the comma-separated list of available times. Convert each to minutes-since-midnight for
 comparison with preferred windows.
@@ -76,116 +53,28 @@ Record the selected time for the confirmation message.
 
 ### Click Choose for Selected Time
 
-```bash
-osascript << 'EOF'
-tell application "Google Chrome"
-  tell active tab of front window
-    execute javascript "
-    var btns = Array.from(document.querySelectorAll('button'));
-    var choose = btns.filter(b => b.innerText.trim() === 'Choose');
-    if (choose[[INDEX]]) {
-      choose[[INDEX]].click();
-      'clicked-choose-[INDEX]'
-    } else {
-      'button-not-found-at-[INDEX]: ' + choose.length + ' buttons total'
-    }
-    "
-  end tell
-end tell
-EOF
-```
+Run the Choose click script from `references/step-04-confirm-scripts.md` with the target `[INDEX]`.
 
 Wait 1 second for booking summary screen to load, then click "Continue".
 
 ### Confirm Booking
 
-Verify the confirmation screen loaded (timer should be visible):
-
-```javascript
-osascript -e 'tell application "Google Chrome" to tell active tab of front window to execute javascript "
-document.body.innerText.includes(\"left to confirm\") ? \"confirmation-screen\" : \"not-there\"
-"'
-```
+Verify the confirmation screen loaded (timer should be visible) using the confirmation screen check script from `references/step-04-confirm-scripts.md`.
 
 If present, read the summary (date/time/cost/course), then **check the "I agree" checkbox**
-(required before Confirm Reservation becomes active):
+(required before Confirm Reservation becomes active) using the agree checkbox script (same file).
 
-```javascript
-osascript -e 'tell application "Google Chrome" to tell active tab of front window to execute javascript "
-var boxes = Array.from(document.querySelectorAll(\"input[type=checkbox]\"));
-var agree = boxes.find(function(b){ return !b.checked });
-if (agree) {
-  agree.click();
-  agree.dispatchEvent(new Event(\"change\", {bubbles:true}));
-  \"checked agree\";
-} else {
-  \"no unchecked checkbox found — may already be checked or missing\";
-}
-"'
-```
-
-Verify the checkbox is now checked:
-
-```javascript
-osascript -e 'tell application "Google Chrome" to tell active tab of front window to execute javascript "
-var boxes = Array.from(document.querySelectorAll(\"input[type=checkbox]\"));
-boxes.length > 0 ? (boxes[0].checked ? \"checkbox-confirmed-checked\" : \"CHECKBOX-STILL-UNCHECKED\") : \"no-checkbox-found\"
-"'
-```
+Verify the checkbox is now checked with the checkbox verify script (same file).
 
 If `CHECKBOX-STILL-UNCHECKED` — the `.click()` + `change` event didn't register with Angular.
-Force it through the framework:
+Force it through the framework with the force-check script (same file).
 
-```javascript
-osascript -e 'tell application "Google Chrome" to tell active tab of front window to execute javascript "
-var boxes = Array.from(document.querySelectorAll(\"input[type=checkbox]\"));
-var agree = boxes.find(function(b){ return !b.checked });
-if (agree) {
-  var nativeInputValueSetter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, \"checked\").set;
-  nativeInputValueSetter.call(agree, true);
-  agree.dispatchEvent(new Event(\"input\", {bubbles:true}));
-  agree.dispatchEvent(new Event(\"change\", {bubbles:true}));
-  agree.checked ? \"force-checked-success\" : \"FORCE-CHECKED-FAILED\";
-} else {
-  \"no unchecked checkbox found\";
-}
-"'
-```
-
-If still unchecked, try each checkbox on the page:
-
-```javascript
-osascript -e 'tell application "Google Chrome" to tell active tab of front window to execute javascript "
-var boxes = Array.from(document.querySelectorAll(\"input[type=checkbox]\"));
-boxes.forEach(function(b){
-  if (!b.checked) {
-    b.click();
-    b.dispatchEvent(new Event(\"change\", {bubbles:true}));
-  }
-});
-\"attempted all checkboxes: \" + boxes.length
-"'
-```
+If still unchecked, run the try-all-checkboxes script (same file).
 
 Wait 0.5 seconds, re-verify. Only proceed once `boxes[0].checked === true`.
 
-Wait 0.5 seconds, then click Confirm Reservation (force-enable if needed):
-
-```javascript
-osascript -e 'tell application "Google Chrome" to tell active tab of front window to execute javascript "
-var btns = Array.from(document.querySelectorAll(\"button\"));
-var confirm = btns.find(function(b){ return b.innerText.trim().toLowerCase().includes(\"confirm reservation\") });
-if (!confirm) { \"CONFIRM-BUTTON-NOT-FOUND\"; }
-else if (!confirm.disabled) { confirm.click(); \"clicked-confirm\"; }
-else {
-  confirm.disabled = false;
-  confirm.removeAttribute(\"disabled\");
-  confirm.dispatchEvent(new Event(\"change\", {bubbles:true}));
-  confirm.click();
-  \"force-enabled-and-clicked\";
-}
-"'
-```
+Wait 0.5 seconds, then click Confirm Reservation using the Confirm Reservation click script
+(same file), which force-enables the button if needed.
 
 If result is `CONFIRM-BUTTON-NOT-FOUND` → abort this option, send Slack failure alert. This is
 the only abort condition for the confirm click itself.

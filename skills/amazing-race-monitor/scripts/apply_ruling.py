@@ -12,6 +12,7 @@ durable record to data/amazing-race/confirmations.json. The live dashboard
 picks it up on its next auto-refresh.
 """
 
+import argparse
 import json
 import os
 import sys
@@ -268,13 +269,26 @@ def classify(post_id, team, quest):
 
 
 def main():
-    args = sys.argv[1:]
-    if not args:
-        print(__doc__)
-        sys.exit(2)
+    ap = argparse.ArgumentParser(
+        description="Apply David's ruling to a flag from the Amazing Race monitor. "
+                    "Writes the ruling into data/amazing-race/flags.json and appends "
+                    "the durable record to data/amazing-race/confirmations.json.",
+        epilog="Examples:\n"
+               "  python3 skills/amazing-race-monitor/scripts/apply_ruling.py --list\n"
+               "  python3 skills/amazing-race-monitor/scripts/apply_ruling.py FLG-12 ok\n"
+               "  python3 skills/amazing-race-monitor/scripts/apply_ruling.py FLG-12 override 5\n"
+               "  python3 skills/amazing-race-monitor/scripts/apply_ruling.py FLG-12 reject",
+        formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("flag_id", nargs="?", help="flag_id to rule on")
+    ap.add_argument("action", nargs="?", type=str.lower, choices=["ok", "override", "reject"],
+                    help="ok: accept verdict/points; override: accept post, set points; reject: no points")
+    ap.add_argument("points", nargs="?", type=int, default=None,
+                    help="points (required when action is override)")
+    ap.add_argument("--list", action="store_true", help="list flags awaiting ruling")
+    args = ap.parse_args()
 
     flags = load(FLAGS_PATH, [])
-    if args[0] == "--list":
+    if args.list:
         pending = [f for f in flags if not f.get("ruled_at")]
         for f in pending:
             print("%s\tT%s Q%s\t%s\t%s" % (f.get("flag_id"), f.get("team"), f.get("quest"),
@@ -282,21 +296,14 @@ def main():
         print("(%d flag(s) awaiting ruling)" % len(pending))
         return
 
-    if len(args) < 2:
-        print(__doc__)
+    if not args.flag_id or not args.action:
+        ap.print_help()
         sys.exit(2)
-    flag_id, action = args[0], args[1].lower()
-    if action not in ("ok", "override", "reject"):
-        print("action must be ok | override POINTS | reject", file=sys.stderr)
+    if args.action == "override" and args.points is None:
+        print("override requires POINTS", file=sys.stderr)
         sys.exit(2)
-    points = None
-    if action == "override":
-        if len(args) < 3 or not args[2].isdigit():
-            print("override requires POINTS", file=sys.stderr)
-            sys.exit(2)
-        points = int(args[2])
 
-    result = apply(flag_id, action, points)
+    result = apply(args.flag_id, args.action, args.points)
     if not result.get("ok"):
         print(result.get("error"), file=sys.stderr)
         sys.exit(1)

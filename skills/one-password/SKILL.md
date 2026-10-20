@@ -14,7 +14,7 @@ Follow the official CLI get-started steps. Don't guess install commands.
 ## References
 
 - Official docs: https://developer.1password.com/docs/cli/get-started/
-- `references/get-started.md` (install + app integration + sign-in flow)
+- `references/get-started.md`: read before any install, app-integration, or sign-in work; skip when `op` is already installed and signed in
 - `references/cli-examples.md` (real `op` examples, including safe item create/edit patterns)
 
 ## Workflow

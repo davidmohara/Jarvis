@@ -197,6 +197,3 @@ and set `current-step: step-01`.
 
 Read fully and follow: `step-01-read-preview-and-window-precheck.md`
 <!-- system:end -->
-
-<!-- personal:start -->
-<!-- personal:end -->

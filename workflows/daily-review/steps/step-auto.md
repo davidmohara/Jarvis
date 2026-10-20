@@ -54,20 +54,7 @@ model: sonnet
    If this returns events → use them. If it returns an auth error, empty result on a day that had meetings, or times out → proceed to Route B.
 
    **Route B — Desktop Commander osascript:**
-   ```applescript
-   tell application "Calendar"
-     set theDate to (current date) - 1 * days
-     set startOfDay to theDate - (time of theDate)
-     set endOfDay to startOfDay + (23 * hours) + (59 * minutes)
-     set output to ""
-     repeat with cal in calendars
-       repeat with ev in (every event of cal whose start date >= startOfDay and start date <= endOfDay)
-         set output to output & (summary of ev) & " | " & (start date of ev as string) & linefeed
-       end repeat
-     end repeat
-     return output
-   end tell
-   ```
+   the AppleScript in `references/calendar-route-b.applescript.md` (read it if Route A fails), run via `mcp__Control_your_Mac__osascript`.
    Use `mcp__Control_your_Mac__osascript` to run this.
 
    Only after **both routes fail** should calendar be declared unavailable. If both fail, note: "Calendar data was unavailable — both M365 MCP and osascript routes failed." and proceed with OmniFocus data only.
@@ -115,16 +102,7 @@ model: sonnet
 7. **Adversarial verification (Stage 5 Phase 4A).** After the narrative is written, spawn **Ralph** with `workflows/daily-review-verification/workflow.md` to cross-check the narrative's completion claims against recorded state (OmniFocus counts, calendar events, delegation tracker). This is a separate spawn with a distinct lens; do not self-verify.
 
    Pass Ralph:
-   ```
-   Agent: ralph
-   Workflow: workflows/daily-review-verification/workflow.md
-   Manifest:
-     review-file: "{narrative-path}"
-     omnifocus-data: data/omnifocus-unified.json
-     delegation-tracker: delegations/tracker.md
-     run-date: <YYYY-MM-DD>
-   Task: Cross-check the auto narrative's claims against recorded state and return your verdict table.
-   ```
+   the exact spawn manifest in `references/ralph-verification-manifest.md` (read it before spawning).
 
    Record the verdict via `guardrail-checkpoint.py` (checkpoint name `adversarial-verification`), mapping an all-clear verdict to `pass` and any unsupported claim to `flag`:
    ```bash
@@ -217,6 +195,3 @@ This is the only step for auto mode. No further steps to load.
 
 The auto narrative is a data baseline. The interactive daily review (`/chief-review` without arguments) is the definitive record when the controller runs it.
 <!-- system:end -->
-
-<!-- personal:start -->
-<!-- personal:end -->

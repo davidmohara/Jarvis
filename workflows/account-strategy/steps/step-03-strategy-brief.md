@@ -42,6 +42,8 @@ completed-at: ~
 
 ### Sequence
 
+Read `references/strategy-brief-structure.md` before writing the brief — it holds the exact section templates; each item below notes where its template moved.
+
 1. **Analyze account stage:**
    Classify the account using these four stages:
    - `new` — first engagement, limited history, no closed revenue
@@ -51,70 +53,21 @@ completed-at: ~
    Use tenure, revenue history, engagement activity, and relationship map data to classify.
 
 2. **Section 1: Account Profile**
-   ```
-   # Account Strategy Brief — [Account Name]
-
-   | Field | Value |
-   |-------|-------|
-   | Industry | [industry] |
-   | Account Stage | new / growing / mature / at-risk |
-   | Tenure | N years |
-   | Lifetime Revenue | $X |
-   | Active Engagements | N ([brief description]) |
-   | Account Owner | [name] |
-   | Prepared | YYYY-MM-DD by Chase |
-   ```
+   [template moved — see `references/strategy-brief-structure.md`]
 
 3. **Section 2: Relationship Map**
-   ```
-   ## Relationship Map
-
-   ### Executive Sponsors
-   [Name, title, buying role, relationship strength, last touchpoint, engagement level: active / passive / dormant]
-
-   ### Champions
-   [Name, title, buying role, relationship strength, last touchpoint, what they advocate for]
-
-   ### Blockers / Skeptics
-   [Name, title, buying role, relationship strength, last touchpoint, known concern or objection]
-
-   ### Whitespace (Contacts We Need)
-   [Title, department — contacts at this account with no current relationship]
-
-   ### Relationship Gaps
-   [Economic buyer access, missing executive relationships, dormant contacts]
-   ```
+   [template moved — see `references/strategy-brief-structure.md`]
 
 4. **Section 3: Open Opportunities**
-   ```
-   ## Open Opportunities
-
-   | Opportunity | Stage | Amount | Weighted | Close Date | At Risk |
-   |-------------|-------|--------|----------|------------|---------|
-   | [name] | [stage] | $X | $X | YYYY-MM-DD | Yes/No |
-   ```
+   [template moved — see `references/strategy-brief-structure.md`]
    If no open opportunities: "No active pipeline on this account. Recommend a prospecting or re-engagement conversation to identify new opportunities."
 
 5. **Section 4: Competitive Landscape**
-   ```
-   ## Competitive Landscape
-
-   | Competitor | Offering | Position | Notes |
-   |------------|----------|----------|-------|
-   | [name] | [offering] | incumbent / challenger / evaluation | [key intel] |
-   ```
+   [template moved — see `references/strategy-brief-structure.md`]
    If no known competitors: "No competitive intel available. Consider probing in next conversation."
 
 6. **Section 5: Recent Company Context**
-   ```
-   ## Recent Company Context (Last 90 Days)
-
-   ### News
-   - [Date] — [Headline]: [impact on our engagement]
-
-   ### Industry Trends
-   - [Trend]: [how it affects this account and our positioning]
-   ```
+   [template moved — see `references/strategy-brief-structure.md`]
 
 7. **Section 6: Recommended Playbook**
    Based on the account stage, generate a recommended playbook:
@@ -122,35 +75,14 @@ completed-at: ~
    - `growing`: focus on expansion, executive alignment, and advancing open opportunities
    - `mature`: focus on retention, executive sponsorship, and identifying new service lines
    - `at-risk`: focus on recovery — understand the issue, re-engage key contacts, address known concerns
-   ```
-   ## Recommended Playbook — [Account Stage]
-
-   **Strategic Priority:** [the single most important thing for this account right now]
-
-   **Key Plays:**
-   1. [Specific play with rationale]
-   2. [Specific play with rationale]
-   3. [Specific play with rationale]
-
-   **Expansion Opportunities:**
-   - [Specific service or opportunity that fits this account's current context]
-
-   **Relationship Priorities:**
-   - [Which relationships to deepen, which contacts to reach]
-   ```
+   [template moved — see `references/strategy-brief-structure.md`]
 
 8. **Identify expansion opportunities:**
    - Based on: whitespace contacts, account stage, active engagements, and competitive displacement potential
    - Each expansion opportunity should include: what it is, why now, and who to engage
 
 9. **Write "Here's the Play" — 3 specific next actions for the next 30 days:**
-   ```
-   ## Here's the Play (Next 30 Days)
-
-   1. [Specific action — who, what, when (within 30 days)]
-   2. [Specific action — who, what, when (within 30 days)]
-   3. [Specific action — who, what, when (within 30 days)]
-   ```
+   [template moved — see `references/strategy-brief-structure.md`]
    These must be specific: "Schedule a call with [name] to discuss [topic] before [date]" — not "reach out to the team."
 
 10. **Write strategy brief to knowledge layer:**

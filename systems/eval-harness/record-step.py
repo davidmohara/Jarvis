@@ -5,6 +5,7 @@ Called by workflow steps to record their completion status and timing.
 Lightweight script (~10-20ms overhead) that updates eval records directly.
 """
 
+import argparse
 import json
 import os
 import sys
@@ -105,36 +106,37 @@ def find_most_recent_eval_record(workflow_name: str, runs_dir=None) -> Path | No
     return records[0][2]
 
 def main():
-    if len(sys.argv) < 4:
-        print("Usage: record-step.py <workflow_name> <step_name> <status> [started_at] [completed_at] "
-              "[--tokens-in N] [--tokens-out N] [--model sonnet|haiku] "
-              "[--agent <agent>] [--step-id <id>] [--runs-dir <dir>]")
-        sys.exit(1)
+    ap = argparse.ArgumentParser(
+        description="Record a workflow step's status and token usage into the workflow's "
+                    "in-progress eval record. Fails loudly when no in-progress record exists.",
+        epilog="Example:\n"
+               "  python3 systems/eval-harness/record-step.py conventions-migration step-03-judgment complete \\\n"
+               "    2026-10-20T13:00:00Z 2026-10-20T14:00:00Z --tokens-in 12000 --tokens-out 3000 --model sonnet",
+        formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("workflow_name")
+    ap.add_argument("step_name")
+    ap.add_argument("status")
+    ap.add_argument("started_at", nargs="?", default=None)
+    ap.add_argument("completed_at", nargs="?", default=None)
+    ap.add_argument("--tokens-in", dest="tokens_in", type=int, default=None)
+    ap.add_argument("--tokens-out", dest="tokens_out", type=int, default=None)
+    ap.add_argument("--model", default=None)
+    ap.add_argument("--agent", default=None)
+    ap.add_argument("--step-id", dest="step_id", default=None)
+    ap.add_argument("--runs-dir", dest="runs_dir", default=None)
+    args = ap.parse_args()
 
-    workflow_name = sys.argv[1]
-    step_name = sys.argv[2]
-    status = sys.argv[3]
-    rest = sys.argv[4:]
-
-    # started_at/completed_at are the first two non-flag positional args in rest.
-    # Walk rest and skip flag+value pairs so a flag's value is never mistaken
-    # for a positional arg.
-    flags = parse_flag_args(rest)
-    positional = []
-    i = 0
-    while i < len(rest):
-        if rest[i] in _VALUE_FLAGS:
-            i += 2
-            continue
-        positional.append(rest[i])
-        i += 1
-    started_at = positional[0] if len(positional) > 0 else None
-    completed_at = positional[1] if len(positional) > 1 else None
-    tokens_in = flags["tokens_in"]
-    tokens_out = flags["tokens_out"]
-    model = flags["model"]
-    agent = flags["agent"]
-    step_id = flags["step_id"]
+    workflow_name = args.workflow_name
+    step_name = args.step_name
+    status = args.status
+    started_at = args.started_at
+    completed_at = args.completed_at
+    tokens_in = args.tokens_in
+    tokens_out = args.tokens_out
+    model = args.model
+    agent = args.agent
+    step_id = args.step_id
+    flags = {"runs_dir": args.runs_dir}
     cost_usd = compute_cost(model, tokens_in, tokens_out)
 
     # Find the most recent in-progress eval record for this workflow.

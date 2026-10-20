@@ -13,7 +13,7 @@ Usage:
   python3 render.py                      # latest runs/*.json -> dashboard.html
   python3 render.py runs/2026-06-20.json # specific run
 """
-import json, sys, html
+import argparse, json, sys, html
 from datetime import datetime
 from pathlib import Path
 
@@ -25,9 +25,9 @@ def esc(s):
     return html.escape(str(s or ""))
 
 
-def pick_run():
-    if len(sys.argv) > 1 and not sys.argv[1].startswith("--"):
-        p = Path(sys.argv[1])
+def pick_run(run_arg=None):
+    if run_arg:
+        p = Path(run_arg)
         return p if p.is_absolute() else ROOT / p
     runs = sorted(RUNS.glob("*.json"))
     if not runs:
@@ -189,7 +189,17 @@ def validate_run(d, run_path):
 
 
 def main():
-    run_path = pick_run()
+    ap = argparse.ArgumentParser(
+        description="Political news monitor dashboard renderer: read an analyzed run "
+                    "JSON (runs/YYYY-MM-DD.json) and emit a self-contained dashboard.html.",
+        epilog="Examples:\n"
+               "  python3 systems/political-monitor/render.py                      # latest runs/*.json\n"
+               "  python3 systems/political-monitor/render.py runs/2026-06-20.json # specific run",
+        formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("run", nargs="?", default=None,
+                    help="run JSON to render (default: latest in runs/)")
+    args = ap.parse_args()
+    run_path = pick_run(args.run)
     d = json.loads(run_path.read_text())
     validate_run(d, run_path)
     counts = d.get("counts", {})

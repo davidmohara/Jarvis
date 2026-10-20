@@ -21,6 +21,7 @@ Honors IES_ROOT env var (same convention as step-complete.py) so tests can
 point at a temp directory without touching the live harness.
 """
 
+import argparse
 import importlib.util
 import json
 import os
@@ -253,17 +254,27 @@ def sweep_stale():
 
 
 if __name__ == "__main__":
-    # Manual/testing entry point:
-    #   python3 skill-capture.py record <skill> <session_id>
-    #   python3 skill-capture.py finalize <session_id>
-    #   python3 skill-capture.py sweep
-    argv = sys.argv[1:]
-    if argv and argv[0] == "record" and len(argv) >= 3:
-        record_invoke(argv[1], argv[2])
-    elif argv and argv[0] == "finalize" and len(argv) >= 2:
-        finalize(argv[1])
-    elif argv and argv[0] == "sweep":
+    # Manual/testing entry point.
+    ap = argparse.ArgumentParser(
+        description="Skill-run capture: record, finalize, and sweep pending skill invocations.",
+        epilog="Examples:\n"
+               "  python3 systems/eval-harness/skill_capture.py record chief-morning sess-123\n"
+               "  python3 systems/eval-harness/skill_capture.py finalize sess-123\n"
+               "  python3 systems/eval-harness/skill_capture.py sweep",
+        formatter_class=argparse.RawDescriptionHelpFormatter)
+    sub = ap.add_subparsers(dest="command", required=True)
+    p_rec = sub.add_parser("record", help="record a skill invocation")
+    p_rec.add_argument("skill")
+    p_rec.add_argument("session_id")
+    p_fin = sub.add_parser("finalize", help="finalize a pending skill run")
+    p_fin.add_argument("session_id")
+    sub.add_parser("sweep", help="finalize stale pending runs as aborted")
+    args = ap.parse_args()
+
+    if args.command == "record":
+        record_invoke(args.skill, args.session_id)
+    elif args.command == "finalize":
+        finalize(args.session_id)
+    elif args.command == "sweep":
         swept = sweep_stale()
         print(f"swept {swept} stale pending skill run(s)")
-    else:
-        print(__doc__)

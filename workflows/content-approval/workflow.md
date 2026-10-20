@@ -35,7 +35,7 @@ fairness:
 
 ## SLACK INTEGRATION
 
-> **CRITICAL — Desktop Commander MUST be loaded before any Slack operations.** See `workflows/content-discovery/workflow.md`'s SLACK INTEGRATION section for the full initialization/retry protocol — it applies identically here.
+> **CRITICAL — Desktop Commander MUST be loaded before any Slack operations.** See `workflows/content-discovery/references/slack-integration.md` for the full initialization/retry protocol — it applies identically here.
 
 **Reading:** `systems/slack-bot/read.py` via Desktop Commander. **Writing:** `systems/slack-bot/post.py` via Desktop Commander (the `master-slack` skill). No Slack MCP connector is used.
 
@@ -43,7 +43,7 @@ fairness:
 
 ## GHOST BLOG CONVENTIONS RELEVANT TO PUBLISHING
 
-Full tag list and image conventions are documented in `workflows/content-discovery/workflow.md` (this workflow does not re-select tags or images on publish — it only validates what discovery already set, per GATE 4 below, unless an editorial edit or regeneration requires re-sourcing one).
+Full tag list and image conventions are documented in `workflows/content-discovery/references/ghost-conventions.md` (this workflow does not re-select tags or images on publish — it only validates what discovery already set, per GATE 4 below, unless an editorial edit or regeneration requires re-sourcing one).
 
 ### Author
 - Always: David O'Hara — ID `68a3465b9e3561027e745c51`
@@ -60,7 +60,7 @@ Get Admin API key: read `~/Library/Application Support/Claude/claude_desktop_con
 
 ## STATE TRACKING
 
-**`pending-drafts.json` lives in this directory: `workflows/content-approval/pending-drafts.json`.** It is the single shared file both `content-discovery` and this workflow read and write — see `workflows/content-discovery/workflow.md`'s STATE TRACKING section for the full reasoning on why it is shared rather than split, and why it lives here rather than in content-discovery.
+**`pending-drafts.json` lives in this directory: `workflows/content-approval/pending-drafts.json`.** It is the single shared file both `content-discovery` and this workflow read and write — see `workflows/content-discovery/references/pending-drafts-schema.md` for the full reasoning on why it is shared rather than split, and why it lives here rather than in content-discovery.
 
 This workflow owns the file's lifecycle: cleanup of stale `published`/`scheduled`/`rejected`/`deleted_externally` entries, Ghost-status resync, and all status transitions after David's decision.
 

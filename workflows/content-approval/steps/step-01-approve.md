@@ -37,7 +37,7 @@ Before executing, write `status: in-progress` and `started-at` to this file's ow
 
 ## CRITICAL: DESKTOP COMMANDER INITIALIZATION
 
-Desktop Commander MUST be loaded before any Slack read or write. See the SLACK INTEGRATION section of `workflows/content-discovery/workflow.md` for the full initialization and retry protocol; it applies identically here.
+Desktop Commander MUST be loaded before any Slack read or write. See `workflows/content-discovery/references/slack-integration.md` for the full initialization and retry protocol; it applies identically here.
 
 ---
 
@@ -163,61 +163,7 @@ Continue to the outcome-specific section below based on GATE 3's result:
 
 ## Obsidian Note Update Protocol (for all publish operations)
 
-**This protocol applies when publishing a post (Step 6a) or when manually updating a published post. Run this BEFORE Ghost publish to ensure vault sync on success.**
-
-> **Note for content-discovery:** When discovery creates a pending-drafts.json entry, it sets a `content_type` field on that entry — either `"post"` or `"article"`. Harper uses this field here to route to the correct vault folder. If `content_type` is absent, Harper defaults to `"post"`.
-
-### Obsidian Update Steps:
-
-1. **Determine the vault folder** from the `content_type` field on the pending-drafts.json entry:
-   - If `content_type == "article"`: vault folder is `Mind/Articles/`
-   - If `content_type == "post"`, is absent, or is null: vault folder is `Mind/Posts/`
-
-2. **Build the filename and find the note:**
-   - If the pending-drafts.json entry has an `obsidian_slug` field that is non-null and non-empty: use it as the filename slug.
-   - If `obsidian_slug` is absent or null: derive from the `title` field — lowercase, hyphens for spaces, strip punctuation.
-   - **Expected filename pattern:** `_{slug}.md` (with leading underscore, indicating draft status)
-   - Example: title "The Corrections Are the Leak" → expected filename `_the-corrections-are-the-leak.md`
-
-3. **Find the note** using `mcp__obsidian-mcp-tools__get_vault_file` with the path `{vault_folder}/_{slug}.md`. If not found, surface a hard failure to David.
-
-4. **If the note is NOT found:** Do NOT skip silently. Stop all processing immediately:
-   - Log the missing file
-   - Prepend this warning to any Slack notification:
-   ```
-   [WARNING] Obsidian note not found — expected {vault_folder}/_{slug}.md. Cannot proceed with publication.
-   ```
-   - Do NOT proceed to Ghost publish if the note is missing. This prevents publishing without vault sync.
-
-5. **If found, update the note in this exact order:**
-
-   **Step 5a: Update frontmatter fields:**
-   - Set `status: "Posted"` (changed from "Draft" or similar)
-   - Set `published_url: "{url from Ghost response}"` (add the live URL)
-   - Set `published_date: "{ISO 8601 timestamp from Ghost response}"` (when published)
-
-   **Step 5b: Update tags in frontmatter:**
-   - Add tag: `status: Posted` (indicates publication status)
-   - Remove tag: `status: Draft` (if present, old draft tag)
-   - Keep all other tags unchanged
-
-   **Step 5c: Rename the file:**
-   - Strip the leading `_` from the filename
-   - New filename pattern: `{slug}.md` (no leading underscore)
-   - Example: `_the-corrections-are-the-leak.md` → `the-corrections-are-the-leak.md`
-   - Use `mcp__obsidian-mcp-tools__rename_vault_file` for the rename
-
-6. **If any step in 5a/5b/5c fails:**
-   - Log the failure with specific error details
-   - Prepend a warning to the Slack notification: `[WARNING] Could not update Obsidian vault — {specific error}. Post is live but vault is out of sync. Update manually.`
-   - Continue to Ghost publish — the post must still be published even if vault sync fails
-   - But note that the vault is now out of sync and will need manual correction
-
-7. **Verify the update succeeded:**
-   - Re-fetch the file from Obsidian to confirm all changes: frontmatter updated, filename renamed, tags changed
-   - If verification fails, note it but continue — the important part (vault update) was attempted
-
----
+Follow `references/obsidian-note-update.md` (read it when publishing) for the Obsidian source-note update steps.
 
 ### 6a. If Approved — Publish
 
@@ -238,163 +184,11 @@ Continue to the outcome-specific section below based on GATE 3's result:
 
 ## QUALITY GATE 4 — Publishing Pre-flight (HARD, BLOCKING)
 
-Run immediately before the Ghost publish call. This formalizes the checks discovery's GATE 2 already ran at draft-creation time — re-run here because time has passed since drafting and an editorial edit (Section 6d) may have touched the post since, so the pre-publish state needs its own independent check rather than trusting the draft-time gate.
+Run the Gate 4 pre-flight checklist in `references/gate-4-preflight.md` (read it before any publish call).
 
-Fetch the current post via `mcp__ghost-blog__get_post(post_id="{ghost_post_id}", formats="lexical")`, then call `skills/schema-validator/SKILL.md`:
+## QUALITY GATE 5 — Delivery Verification (HARD, BLOCKING)
 
-```yaml
-data:
-  status: "{post.status}"
-  lexical_non_empty: <bool>          # your own check: does lexical have paragraph nodes
-  feature_image: "{post.feature_image}"
-  tags: {post.tags}                  # real tag objects as returned, not bare strings
-  slug: "{post.slug}"
-  obsidian_note_found: <bool>        # from the vault-sync protocol above
-schema_spec:
-  required_fields:
-    - "feature_image"
-    - "slug"
-  custom_checks:
-    - { field: "status", rule: "must_equal", value: "draft" }
-    - { field: "lexical_non_empty", rule: "must_be_true" }
-    - { field: "obsidian_note_found", rule: "must_be_true" }
-  tags: { field: "tags", allowed_list: [<locked-list tag ids from workflows/content-discovery/workflow.md>], format: "object_with_id" }
-```
-
-| Check | Expected | On failure |
-|-------|----------|------------|
-| `post.status == "draft"` | Confirmed still a draft, not already published/scheduled (re-confirms Step 1's Ghost Status Verification, since time has passed) | **STOP.** If status changed since Step 1, do not publish — re-run Step 1 sync and re-classify. |
-| `lexical` is non-empty | Has paragraph nodes | **STOP.** Do not publish a post with empty body content. Notify David and do not proceed. |
-| `feature_image` is set | Non-null, non-empty URL | **STOP.** Do not publish without a feature image. If an editorial edit removed it, re-run the Step 6 image protocol from content-discovery's step-01. |
-| `tags` show real tag names (not bare ID strings) and every tag is on the locked list | Cross-check against `workflows/content-discovery/workflow.md`'s LOCKED LIST table | **STOP.** If tags are malformed or off-list, fix via Ghost Admin API PUT before publishing. Never publish with a junk tag. |
-| `slug` is present and non-empty | Ghost auto-generates on creation; confirm it wasn't cleared by a prior edit | **STOP.** If missing, this indicates a corrupted post — notify David rather than guessing a slug. |
-| Obsidian note found (from the protocol above) or its failure was surfaced per Step 4 of that protocol | No silent skip | **STOP** if the note is missing and the warning wasn't prepended — do not publish without vault sync being at least attempted and reported. |
-
-Log the result (reading `errors` back from the skill's response for anything that failed):
-```
-[Gate 4] Post: "{title}" ({ghost_post_id})
-[Gate 4] Status: draft (confirmed) | lexical: non-empty | feature_image: set | tags: {names} (locked-list confirmed) | slug: {slug}
-[Gate 4] PASS — proceeding to publish.
-```
-
-If `schema-validator` returns `valid: false` (or the direct status check above fails), log
-`[Gate 4] FAIL — <errors list>` and remediate (or halt and notify David per FAILURE MODES)
-before calling the publish endpoint.
-
----
-
-**Step 2b: Publish Pre-Flight Guardrail Checkpoint (HARD, BLOCKING)**
-
-Publishing a post to driventodevelop.com is this workflow's one irreversible external action.
-After GATE 4 passes and before the publish call, record a guardrail checkpoint so the run's
-eval record carries the review result:
-
-```bash
-python3 systems/eval-harness/guardrail-checkpoint.py content-approval publish-preflight step-01-approve <pass|flag|escalate> "<one-line reason>"
-```
-
-- **No issue found** → `pass`. Proceed to publish.
-- **A minor issue you can point to that does not block the publish** (e.g., a warning carried
-  from the Obsidian sync) → `flag`, note it, and proceed. Surface the flag in the `[PUBLISHED]`
-  Slack message.
-- **A leaked secret in the post body, a wrong author, an off-list tag, a missing feature image,
-  or a publish that would bypass GATE 4** → `escalate`. Halt. Do NOT call the publish endpoint.
-  Surface to David: `[Harper]: Publishing pre-flight checkpoint flagged an issue for "{title}", [description]. Holding the publish until you confirm.` Wait for instruction.
-
-If `guardrail-checkpoint.py` cannot write (no in-progress eval record), note the gap in the
-`[PUBLISHED]` Slack message and proceed only if GATE 4 found nothing — otherwise escalate
-verbally. This is distinct from a step failure; do not mark step-01 failed because of an
-escalation here.
-
----
-
-**Step 3: Publish to Ghost, then verify — via `skills/delivery-router/SKILL.md`**
-
-Gate 5 (delivery verification) and the publish call itself are now one skill call, because
-"call the API" and "confirm it actually took" are exactly what `delivery-router`'s `ghost`
-backend already does as a single unit (call `update_post`, then re-fetch and check the result
-— see that skill's Process section) — keeping them as two separate manual steps here would
-just be re-implementing what the skill already owns.
-
-```yaml
-content: "{ghost_post_id}"          # ghost backend keys off config.post_id; content is informational here
-destinations:
-  - backend: "ghost"
-    required: true
-    config:
-      post_id: "{ghost_post_id}"
-      target_status: "published"
-      expected_host: "driventodevelop.com"
-```
-
-The skill's `ghost` backend handles the concurrent-edit wait/retry protocol internally (2s
-retry, then 5s retry, matching what this step used to do manually) before falling through to
-its general 3-attempt budget. Read `delivery_status[0]` for the outcome:
-
-- `success: true` → `.id` is `post.url` from the verified re-fetch. This **is** Gate 5 passing
-  — proceed straight to notifying David (Step 5 below). Do not re-run a separate verification
-  fetch; the skill already did it and only reports `success: true` if the re-fetch confirmed
-  `status == target_status`, `url` resolves to `expected_host`, and `published_at` is set.
-- `success: false` → treat as both the publish failing and Gate 5 failing (the skill does not
-  distinguish "the call failed" from "the call succeeded but didn't verify" in its retry
-  loop — by the time it reports failure, every attempt including verification has been
-  exhausted). Read `.error` for what to tell David. Keep `pending-drafts.json` status as
-  "approved" (not "pending") per the concurrent-edit handling this replaces, and follow
-  FAILURE MODES below.
-
----
-
-## QUALITY GATE 5 — Delivery Verification (HARD, BLOCKING, now folded into Step 3 above)
-
-This gate's checks are performed by `delivery-router`'s `ghost` backend as part of the Step 3
-call above, not as a separate manual re-fetch — kept here as documentation of exactly what
-"verified" means for this workflow, since that's still worth stating explicitly even though
-the mechanics moved into the skill:
-
-| Check | Expected | On failure |
-|-------|----------|------------|
-| Re-fetch via `mcp__ghost-blog__get_post(post_id="{ghost_post_id}")` | Call succeeds | **STOP.** If the re-fetch itself fails, treat as unverified — do not tell David it published. Notify with "publish call succeeded but verification fetch failed — check manually." |
-| `post.status == "published"` | Confirmed on the re-fetched object, not assumed from the update_post response | **STOP.** If still `"draft"` or `"scheduled"`, the publish did not actually take. Do not send the `[PUBLISHED]` Slack notification. Retry per the concurrent-edit protocol above, or escalate. |
-| `post.url` is present and resolves to `driventodevelop.com` | Non-null, correct host | **STOP.** A missing or wrong-host URL means something is off in the Ghost response — do not report a URL you haven't confirmed. |
-| `post.published_at` is set | Non-null timestamp | **STOP.** Missing timestamp is a signal the publish is incomplete — do not treat this as done. |
-
-Log the result:
-```
-[Gate 5] Re-fetch: succeeded
-[Gate 5] post.status: published (confirmed)
-[Gate 5] post.url: {url}
-[Gate 5] PASS — publication verified. Proceeding to notify David.
-```
-
-**Only after `delivery_status[0].success == true`** does the `[PUBLISHED]` Slack notification (Step 4 below) get sent. If it's `false`, do not claim success anywhere — follow FAILURE MODES instead.
-
----
-
-**Step 4: Update pending-drafts.json**
-
-Set `status: "published"` if GATE 5 confirmed the publish, or `status: "approved_pending_publish"` if retries are exhausted or GATE 5 failed.
-
----
-
-**Step 5: Notify David via Slack**
-
-Post to #content (reply in the same thread as the original draft notification):
-```
-[PUBLISHED]
-
-"{Post Title}" is live on driventodevelop.com
-{post url — from the GATE 5 re-fetch, not the raw update_post response}
-
-Obsidian vault updated: {vault_folder}/{slug}.md — renamed, status set to "Posted"
-```
-
-If Obsidian update had warnings, include them in the notification.
-
----
-
-**Step 6: Update reference docs**
-
-Update `reference/blog-ideas.md` — move the entry from Candidates to Published section.
+Run the Gate 5 delivery-verification protocol in `references/gate-5-delivery.md` (read it after publishing).
 
 ### 6b. If Rejected — Delete
 
@@ -447,68 +241,7 @@ Same commands: reply `approve` to publish, `reject` to discard, or give more fee
 
 **Read `identity/CONTENT-VOICE.md` before writing any new text.** If the edit requires writing prose (e.g., adding context around a link), it must match David's voice.
 
-#### Link Insertion
-
-1. Fetch the Ghost Admin API key from `~/Library/Application Support/Claude/claude_desktop_config.json` → server `ghost-blog` → `GHOST_ADMIN_API_KEY` (`{key_id}:{hex_secret}`).
-
-2. Generate JWT (same as content-discovery's Step 7):
-   - Header: `{"alg": "HS256", "kid": "{key_id}", "typ": "JWT"}`
-   - Payload: `{"exp": now + 300, "iat": now, "aud": "/admin/"}`
-   - Sign with `bytes.fromhex(hex_secret)` via PyJWT.
-
-3. Fetch the current post lexical via Ghost Admin API:
-   ```
-   GET https://driventodevelop.com/ghost/api/admin/posts/{ghost_post_id}/?formats=lexical
-   Authorization: Ghost {jwt}
-   ```
-   Capture `posts[0].lexical` (JSON string) and `posts[0].updated_at`.
-
-4. Parse the lexical JSON. Locate the target text node (the word/phrase David identified). Wrap it in a link node:
-   ```json
-   {
-     "type": "link",
-     "url": "{target_url}",
-     "children": [{"type": "text", "text": "{link text}", "format": 0, ...}]
-   }
-   ```
-   If David said to search for the link (e.g., "find a link for 'agentic arbitrage'"), run a WebSearch first. If no authoritative source is found, skip the link and note that in the Slack reply.
-
-5. PATCH the updated lexical back:
-   ```
-   PATCH https://driventodevelop.com/ghost/api/admin/posts/{ghost_post_id}/
-   Authorization: Ghost {jwt}
-   Content-Type: application/json
-
-   {"posts": [{"lexical": "{updated_lexical_string}", "updated_at": "{updated_at}"}]}
-   ```
-
-6. Verify with `mcp__ghost-blog__get_post` — confirm the link appears in the content.
-
-#### Image Swap
-
-1. Find a new Unsplash image following content-discovery's step-01 Step 6 protocol (WebSearch → fetch photo page → verify landscape orientation via PIL → upload to Ghost CDN).
-
-2. PATCH the post:
-   ```
-   PATCH https://driventodevelop.com/ghost/api/admin/posts/{ghost_post_id}/
-   Authorization: Ghost {jwt}
-   Content-Type: application/json
-
-   {"posts": [{"feature_image": "{new_ghost_cdn_url}", "twitter_image": "{new_ghost_cdn_url}", "updated_at": "{updated_at}"}]}
-   ```
-
-#### After any editorial edit
-
-Update pending-drafts.json — add a `notes` field summarizing the change and timestamp. Leave `status` as `"pending"` (the draft still needs approval).
-
-Reply in the Slack thread via post.py:
-```
-[UPDATED] "{Post Title}" — {brief description of what changed}.
-
-Reply `approve` to publish, `reject` to discard, or give more feedback.
-```
-
----
+Execute the link-insertion, image-swap, and post-edit protocols in `references/editorial-edits.md` (read it when performing an editorial edit).
 
 ## FAILURE MODES
 

@@ -26,8 +26,9 @@ in command of every ruling.
    NEVER posts, replies, or reacts in the Teams channel. All output goes to David
    (dashboard + Slack) and Dawn (via David).
 2. **Base points only.** Score fixed quest points and per-item counts per
-   `references/quests.json`. Never score Power, Fortune, or Dawn's creativity
-   bonuses. Bonus candidates are surfaced, never scored.
+   `references/quests.json` (read it before scoring any post; it holds point
+   values and verified item lists). Never score Power, Fortune, or Dawn's
+   creativity bonuses. Bonus candidates are surfaced, never scored.
 3. **Judge only what is visible.** Vision review compares what is actually in the
    frame against the verified item lists in `references/quests.json`. Never assert
    venue or location facts that are not both (a) in the quest reference and (b)
@@ -65,8 +66,8 @@ Data:       data/amazing-race/ (gitignored) — config.json, auth.json, state.js
      admin-consent URL into a short IT request. Meanwhile continue setup — the
      full pipeline rehearses against a test team/channel in any tenant David
      controls.
-2. **Config** — copy `references/config.example.json` to `data/amazing-race/config.json`
-   and fill tenant_id + client_id.
+2. **Config** — on first setup, copy `references/config.example.json` to
+   `data/amazing-race/config.json` and fill tenant_id + client_id.
 3. **Authenticate** — `python3 skills/amazing-race-monitor/scripts/poll_channel.py --setup`
    (device-code flow; follow the printed URL + code).
 4. **Resolve the channel** — `--list-teams`, then `--list-channels <TEAM_ID>`;

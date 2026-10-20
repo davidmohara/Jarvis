@@ -10,6 +10,7 @@ deletes the consumed shard files. Print a one-line summary.
 Usage: merge_shards.py [--dry-run]
 """
 
+import argparse
 import glob
 import json
 import os
@@ -29,7 +30,15 @@ def load(path, default):
 
 
 def main():
-    dry = "--dry-run" in sys.argv
+    ap = argparse.ArgumentParser(
+        description="Merge shard review files into data/amazing-race/flags.json "
+                    "(single-writer merge, dedupes by post_id, deletes consumed shards).",
+        epilog="Example:\n  python3 skills/amazing-race-monitor/scripts/merge_shards.py --dry-run",
+        formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("--dry-run", action="store_true",
+                    help="merge and print the summary without writing flags.json or deleting shards")
+    args = ap.parse_args()
+    dry = args.dry_run
     flags = load(FLAGS_PATH, [])
     by_post = {f.get("post_id"): f for f in flags if f.get("post_id")}
     taken_ids = {f.get("flag_id") for f in flags}

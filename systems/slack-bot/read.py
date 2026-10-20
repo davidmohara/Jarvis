@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Jarvis Slack Bot — read channels and threads via the Slack Web API."""
 
+import argparse
 import os
 import sys
 import json
@@ -119,27 +120,24 @@ def read_thread(channel, thread_ts):
 
 
 if __name__ == "__main__":
-    if len(sys.argv) < 3:
-        print("Usage:")
-        print("  channel  <channel_id> [hours_ago]   — read recent top-level messages")
-        print("  thread   <channel_id> <thread_ts>   — read replies in a thread")
-        sys.exit(1)
+    ap = argparse.ArgumentParser(
+        description="Read Slack messages as the Jarvis bot (JSON to stdout).",
+        epilog="Examples:\n"
+               "  python3 systems/slack-bot/read.py channel C0AN2PQNXBR 48\n"
+               "  python3 systems/slack-bot/read.py thread C0AN2PQNXBR 1729.1234",
+        formatter_class=argparse.RawDescriptionHelpFormatter)
+    sub = ap.add_subparsers(dest="command", required=True)
+    p_ch = sub.add_parser("channel", help="read recent top-level messages")
+    p_ch.add_argument("channel_id")
+    p_ch.add_argument("hours_ago", nargs="?", type=int, default=24,
+                      help="lookback window in hours (default: 24)")
+    p_th = sub.add_parser("thread", help="read replies in a thread")
+    p_th.add_argument("channel_id")
+    p_th.add_argument("thread_ts")
+    args = ap.parse_args()
 
-    command = sys.argv[1]
+    if args.command == "channel":
+        read_channel(args.channel_id, args.hours_ago)
 
-    if command == "channel":
-        channel = sys.argv[2]
-        hours_ago = int(sys.argv[3]) if len(sys.argv) > 3 else 24
-        read_channel(channel, hours_ago)
-
-    elif command == "thread":
-        channel = sys.argv[2]
-        thread_ts = sys.argv[3] if len(sys.argv) > 3 else None
-        if not thread_ts:
-            print(json.dumps({"ok": False, "error": "thread_ts required"}))
-            sys.exit(1)
-        read_thread(channel, thread_ts)
-
-    else:
-        print(json.dumps({"ok": False, "error": f"Unknown command '{command}'. Use: channel, thread"}))
-        sys.exit(1)
+    elif args.command == "thread":
+        read_thread(args.channel_id, args.thread_ts)

@@ -43,6 +43,7 @@ OPERATIONAL NOTES (from 2026-03-26 Marathon session):
    but still active — some offers linger 5-10 minutes.
 """
 
+import argparse
 import json
 import os
 import re
@@ -516,14 +517,28 @@ def daemon_loop(profile: dict):
 # ── Main ─────────────────────────────────────────────────────────────────────
 
 def main():
+    ap = argparse.ArgumentParser(
+        description="Last Bottle Wines monitor: poll the homepage for the active flash "
+                    "offer, score it against David's taste profile, send Slack alerts on a buy.",
+        epilog="Examples:\n"
+               "  python3 systems/wine-monitor/monitor.py           # single poll\n"
+               "  python3 systems/wine-monitor/monitor.py --test    # score active offer without alerting\n"
+               "  python3 systems/wine-monitor/monitor.py --daemon  # poll on the daemon schedule",
+        formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("--test", action="store_true",
+                    help="score the active offer without alerting")
+    ap.add_argument("--daemon", action="store_true",
+                    help="run the daemon poll loop instead of a single poll")
+    args = ap.parse_args()
+
     profile = load_profile()
 
-    if "--test" in sys.argv:
+    if args.test:
         log("Test mode — scoring active offer without alerting")
         run_poll(profile, {}, dry_run=True)
         return
 
-    if "--daemon" in sys.argv:
+    if args.daemon:
         daemon_loop(profile)
         return
 

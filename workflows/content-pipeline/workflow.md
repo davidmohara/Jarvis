@@ -26,7 +26,7 @@ Both sub-workflows also run standalone on their own schedules (`config/scheduled
 
 **Shared state:** `workflows/content-approval/pending-drafts.json`. Single shared file; discovery appends entries, approval owns the entry lifecycle. Format is documented in content-discovery's STATE TRACKING section.
 
-**Conventions:** Channel, digest format, Slack integration, Ghost blog conventions, voice, and dedup rules are owned by `workflows/content-discovery/workflow.md`. Read that file before executing this pipeline; do not duplicate its conventions here.
+**Conventions:** Channel, digest format, Slack integration, Ghost blog conventions, voice, and dedup rules are owned by `workflows/content-discovery/workflow.md` and its `references/` files. Read that file before executing this pipeline; do not duplicate its conventions here.
 
 ---
 

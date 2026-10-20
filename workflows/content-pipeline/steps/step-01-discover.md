@@ -41,7 +41,7 @@ model: sonnet
 ## CONTEXT BOUNDARIES
 
 - The gated step's CONTEXT BOUNDARIES apply in full.
-- The Ghost blog conventions, voice rules, digest format, and dedup rules are owned by `workflows/content-discovery/workflow.md`. Read it before executing; do not rely on memory.
+- The Ghost blog conventions, voice rules, digest format, and dedup rules are owned by `workflows/content-discovery/workflow.md` and its `references/` files. Read it before executing; do not rely on memory.
 
 ---
 

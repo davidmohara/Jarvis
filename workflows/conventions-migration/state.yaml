@@ -1,18 +1,76 @@
 workflow: conventions-migration
 agent: rigby
-status: in-progress
+status: complete
 session-started: 2026-10-18
 session-id: null
-current-step: step-03-judgment
+current-step: step-05-close
 original-request: description-rewrite batch, approved by David 2026-10-18
 accumulated-context:
   baseline_findings_path: workflows/conventions-migration/state-baseline-findings.json
   census_baseline: null
+  resume_notes: >-
+    Resumed 2026-10-20 on explicit controller instruction (was missed by boot
+    step-06 because the workflow was absent from workflows/_active.yaml; index
+    entry restored this session). Original baseline findings file was never
+    committed and was lost; re-ran linter in report mode to reconstruct:
+    0 FAIL, 80 WARN, 9 acknowledged (state had recorded 79 WARN after the
+    2026-10-18 batch; the +1 is contact-targeting's description, a skill built
+    after the batch — its verb "Drill" is missing from the linter heuristic).
+    census_baseline was never captured; close will report current census only.
   buckets:
     mechanical: []
     judgment:
-      - description_imperative
-    size: []
+      - rule: skill.description_imperative
+        count: 1
+        paths: [.claude/skills/contact-targeting/SKILL.md]
+        note: >-
+          Description starts with "Drill" — genuinely imperative, verb missing
+          from VERB_START heuristic. Same false-positive shape as the 10 verbs
+          David approved adding on 2026-10-18.
+      - rule: skill.pointer_when_to_load
+        count: 2
+        paths: [skills/one-password/SKILL.md, skills/amazing-race-monitor/SKILL.md]
+      - rule: skill.gotchas
+        count: 1
+        paths: [skills/git/SKILL.md]
+        note: >-
+          One error entry (err-20261018T232304-NI2NH8): rebase --continue false
+          conflict refusal via ies-git wrapper on OneDrive/FUSE mount;
+          workaround = manual commit + rebase --skip.
+      - rule: script.help_flag
+        count: 19
+        note: >-
+          sys.argv hand-parsers needing argparse retrofit. Includes 3 hook test
+          files (.claude/hooks/tests/) where argparse may not fit — flagged as
+          a sub-decision for David (retrofit vs exception).
+    judgment_resolution_2026-10-20: >-
+      All four groups approved by David via controller and applied: (1) "drill"
+      added to VERB_START (contact-targeting description kept as-is);
+      (2) when-to-load phrasing added to one-password get-started pointer and
+      both amazing-race-monitor pointers (quests.json per approved draft, plus
+      config.example.json under the same approved fix shape — linter reports
+      one pointer per file per pass); (3) Gotchas section appended verbatim to
+      skills/git/SKILL.md; (4) argparse retrofits applied to 16 operator
+      scripts, all verified with --help exit 0, and 3 test-harness exceptions
+      recorded. Linter also wired to honor script.help_flag exceptions (it
+      previously only checked them for script.interactive_input). Result:
+      WARN 80 -> 58; remaining are all size.*. Side effect: the git Gotchas
+      append pushed skills/git/SKILL.md over the 5000-token guide (~5022) —
+      added to the size bucket for step-04 triage.
+    size:
+      - rule: size.step_file
+        count: 28
+      - rule: size.script
+        count: 25
+      - rule: size.workflow_md
+        count: 3
+      - rule: size.agent_file
+        count: 1
+        paths: [agents/master.md]
+      - rule: size.skill_body
+        count: 1
+        paths: [skills/git/SKILL.md]
+        note: introduced 2026-10-20 by the approved Gotchas append (~5022 > 5000)
   fixes_applied:
     - batch: description_imperative rewrites
       date: 2026-10-18
@@ -26,7 +84,131 @@ accumulated-context:
         heuristic (get/identify/query/trigger/scrape/fire/link/receive/enroll/
         activate); extended VERB_START rather than contorting descriptions.
         Result: description_imperative WARNs 93 -> 0; total WARNs 172 -> 79.
-  exceptions_recorded: []
+    - batch: step-03 judgment groups (D1-D4)
+      date: 2026-10-20
+      applied: 20
+      details: >-
+        All approved by David via controller. D1: "drill" added to VERB_START
+        in systems/eval-harness/validate-conventions.py. D2: when-to-load
+        phrasing in skills/one-password/SKILL.md and
+        skills/amazing-race-monitor/SKILL.md (quests.json per approved draft;
+        config.example.json under the same fix shape). D3: Gotchas section
+        appended verbatim to skills/git/SKILL.md (from err-20261018T232304-NI2NH8).
+        D4: argparse retrofits on 16 operator scripts (plaud fetch_plaud,
+        amazing-race merge_shards + apply_ruling, ies-channel,
+        guardrail-checkpoint, version-trend, record-step, enrich-assertions,
+        skill_capture, boot measure, slack post + read, wine monitor,
+        political render + cluster, check-scheduled-cadence); every script
+        verified --help exit 0. Linter wired to honor script.help_flag
+        exceptions. Known tradeoff: argparse exits 2 on usage errors where a
+        few of these scripts previously exited 1; all recorded-failure paths
+        and their exit codes are unchanged.
+  exceptions_recorded:
+    - date: 2026-10-20
+      rule: script.help_flag
+      approval: approved (David, via controller, 2026-10-20)
+      review_after: 2027-01-20
+      paths:
+        - .claude/hooks/tests/test_step_token_capture.py
+        - .claude/hooks/tests/test_ies_git.py
+        - .claude/hooks/tests/test_secret_scanner.py
+      reason: test harness entry point, not operator-facing
+    - date: 2026-10-20
+      rule: size.workflow_md
+      approval: approved (David, via controller, 2026-10-20)
+      review_after: 2027-01-20
+      paths:
+        - workflows/comp-tracker/workflow.md
+        - workflows/evolution-deployment/workflow.md
+      reason: borderline over guide; orchestrator is cohesive
+    - date: 2026-10-20
+      rule: size.script
+      approval: approved (David, via controller, 2026-10-20, Group E)
+      review_after: 2027-01-20
+      count: 25
+      reason: >-
+        Per 2026-10-17 precedent: cohesive modules, refactor risk for no
+        operator gain. Includes .claude/hooks/tests/test_step_token_capture.py
+        (test harness). Full path list in conventions-exceptions.json.
+    - date: 2026-10-20
+      rule: size.step_file
+      approval: approved (David, via controller, 2026-10-20, final ruling)
+      review_after: 2027-01-20
+      count: 8
+      reason: >-
+        Procedure-dense steps with reference bulk already extracted. The two
+        content-pipeline files (content-discovery step-01, content-approval
+        step-01) carry structural-split follow-ups in their exception reasons.
+        Full path list in conventions-exceptions.json.
+  step04_progress:
+    B: >-
+      content-discovery/workflow.md split applied (279 -> 99 lines): digest
+      format, ghost conventions, slack integration, and pending-drafts schema
+      moved to workflows/content-discovery/references/ (4 files, content
+      verbatim, personal blocks preserved). Inbound pointers updated in
+      content-approval workflow.md + step-01-approve.md, content-discovery
+      step-01-discover.md, and content-pipeline workflow.md +
+      step-01-discover.md. comp-tracker and evolution-deployment workflow.md
+      excepted (borderline-cohesive).
+    C: >-
+      skills/git/SKILL.md trimmed ~30 tokens in the Gotchas bullet; now under
+      the 5000-token guide. Re-lint clean.
+    A: pending — split plans drafted for comp-tracker (phase 1), awaiting David
+    D: pending — master.md split plan drafted, awaiting David
   exceptions_retired: []
   rejected_drafts: []
-  close_findings: null
+  close_findings: workflows/conventions-migration/state-close-findings.json
+  close_summary:
+    date: 2026-10-20
+    lint: "0 FAIL | 8 WARN | 40 acknowledged"
+    trajectory: "172 WARN baseline -> 79 after 2026-10-18 description batch -> 80 on resume -> 58 after step-03 -> 29 after step-04 exceptions/trim/B-split -> 8 at close"
+    regressions: none (no rule count went up; description_imperative 93->0, help_flag 19->0+3ack, pointer 2->0, gotchas 1->0, size.script 25->0, size.workflow_md 3->0, size.agent_file 1->0ack, size.step_file 28->8)
+    census: "current-only (no baseline captured 2026-10-18): 306 step files p50 111 lines p95 198; 249 scripts p50 136; 183 skills p50 105; 76 workflows p50 71; 19 agents p50 143"
+    residual_warns: 8 size.step_file, all procedure-dense steps with reference bulk already extracted
+    final_lint: "0 FAIL | 0 WARN | 48 acknowledged (2026-10-20)"
+    final_disposition: >-
+      David ruled 2026-10-20: all 8 residual size.step_file findings EXCEPTED
+      (review_after 2027-01-20). Structural splits of content-discovery step-01
+      (338) and content-approval step-01 (306) recorded as follow-up work in the
+      exception reasons, not executed in this sweep. fetch_plaud dead doc
+      struck: --list-all/--out removed from fetch_plaud.py help block and from
+      skills/plaud-transcripts/SKILL.md step 7 (which commanded them); step 7's
+      reconciliation rules kept, interim mechanism noted inline, real list-all
+      mode queued as follow-up.
+    residual_paths:
+      - workflows/content-discovery/steps/step-01-discover.md (338; needs structural multi-step split or exception)
+      - workflows/content-approval/steps/step-01-approve.md (306; same)
+      - workflows/comp-tracker/steps/step-05-sync-leads.md (255)
+      - workflows/comp-tracker/steps/step-06-match-commissions.md (245)
+      - workflows/comp-tracker/steps/step-04-extract-update-comp2.md (238)
+      - workflows/client-meeting-prep/steps/step-03-research-company-and-attendee.md (211)
+      - workflows/plaud-ingest/steps/step-03-identify-speakers.md (208)
+      - workflows/boot/steps/step-01.2-unified-data-pull.md (208)
+    awaiting: David ruling on the 8 residuals (except vs accept-as-warn vs structural split for the two content files)
+  fixes_applied_step04:
+    splits_applied: 21 step files + content-discovery workflow.md + agents/master.md
+    references_created:
+      - workflows/content-discovery/references/ (7 new + 4 from B split = 11)
+      - workflows/content-approval/references/ (4)
+      - workflows/comp-tracker/references/ (8)
+      - workflows/golf-booking/references/ (2)
+      - workflows/evolution-deployment/references/ (3)
+      - workflows/plaud-ingest/references/ (3)
+      - workflows/system-eval/references/ (2)
+      - workflows/boot/references/ (2)
+      - workflows/watchtower/references/ (1)
+      - workflows/daily-review/references/ (2)
+      - workflows/partner-meeting-prep/references/ (1)
+      - workflows/one-on-one-prep/references/ (1)
+      - workflows/galen-monthly-health-review/references/ (1)
+      - workflows/client-meeting-prep/references/ (1)
+      - workflows/account-strategy/references/ (1)
+      - workflows/episode-prep-generator/references/ (1)
+      - agents/references/ (2)
+    note: >-
+      Every split moved content verbatim into references/ with a when-to-load
+      pointer left at the site; fence-balance audited on every touched file;
+      per-file re-lint after each change. Three stray-fence artifacts from
+      template extractions were caught and fixed same-session (step-08 close,
+      system-eval step-05, evolution-deployment step-07, galen step-05,
+      partner/1on1 steps).

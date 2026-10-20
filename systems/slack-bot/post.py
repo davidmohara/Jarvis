@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Jarvis Slack Bot — posts messages as Jarvis to Slack."""
 
+import argparse
 import os
 import sys
 import json
@@ -61,9 +62,18 @@ def post_message(channel, text, thread_ts=None):
         print(json.dumps({"ok": False, "error": str(e)}))
 
 if __name__ == "__main__":
-    channel = sys.argv[1] if len(sys.argv) > 1 else DEFAULT_CHANNEL
-    text = sys.argv[2] if len(sys.argv) > 2 else "Jarvis online."
+    ap = argparse.ArgumentParser(
+        description="Post a message to Slack as the Jarvis bot (JSON result to stdout).",
+        epilog="Example:\n"
+               "  python3 systems/slack-bot/post.py C0AN2PQNXBR \"Daily briefing ready.\"",
+        formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("channel", nargs="?", default=DEFAULT_CHANNEL,
+                    help="Slack channel ID (default: SLACK_DEFAULT_CHANNEL from config/.env)")
+    ap.add_argument("text", nargs="?", default="Jarvis online.",
+                    help="message text; literal \\n becomes a newline")
+    ap.add_argument("thread_ts", nargs="?", default=None,
+                    help="thread timestamp to reply in-thread")
+    args = ap.parse_args()
     # Replace literal \n strings with actual newlines
-    text = text.replace('\\n', '\n')
-    thread_ts = sys.argv[3] if len(sys.argv) > 3 else None
-    post_message(channel, text, thread_ts)
+    text = args.text.replace('\\n', '\n')
+    post_message(args.channel, text, args.thread_ts)

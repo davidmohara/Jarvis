@@ -22,9 +22,9 @@ model: sonnet
 
 ## MANDATORY EXECUTION RULES
 
-0. You MUST use `mcp__Desktop_Commander__start_process` for read.py/post.py, never a sandboxed bash/shell tool. See the SLACK INTEGRATION section of `workflows/content-discovery/workflow.md` for the full initialization and retry protocol.
-1. You MUST read the full workflow.md before executing — it contains Ghost conventions, tag IDs, voice rules, and channel IDs.
-2. You MUST check pending-drafts.json (at `workflows/content-approval/pending-drafts.json` — see STATE TRACKING in workflow.md) and dedup against existing posts before drafting anything.
+0. You MUST use `mcp__Desktop_Commander__start_process` for read.py/post.py, never a sandboxed bash/shell tool. See `workflows/content-discovery/references/slack-integration.md` for the full initialization and retry protocol.
+1. You MUST read the full workflow.md before executing — it contains voice rules and channel IDs, and it points to `references/ghost-conventions.md` (Ghost conventions, tag IDs), which you MUST also read before any Ghost API call.
+2. You MUST check pending-drafts.json (at `workflows/content-approval/pending-drafts.json` — see `workflows/content-discovery/references/pending-drafts-schema.md`) and dedup against existing posts before drafting anything.
 3. You MUST NOT create new Ghost tags. Only use tags from the locked list in workflow.md.
 4. You MUST set status: draft on Ghost — never published.
 5. You MUST upload the image to Ghost CDN before setting it on the post.
@@ -71,28 +71,7 @@ Timeout: 15000
 
 Run immediately after the read.py call above, before parsing or routing any message.
 
-**Purpose:** Everything downstream — routing, drafting, dedup — depends on this pull actually having reached the right channel and returned real data. A silent tunnel failure or wrong-channel response must not be treated as "no new content."
-
-| Check | Expected | On failure |
-|-------|----------|------------|
-| Command exit / stdout is non-empty | Non-empty JSON string returned | **STOP.** Do not conclude "no messages" — this looks like a tool/network failure. Retry via `mcp__Desktop_Commander__start_process` per MANDATORY EXECUTION RULE 0 before reporting. |
-| Response parses as valid JSON | `json.loads` succeeds | **STOP.** Report the raw response and abort this run. Do not attempt to draft from unparseable output. |
-| `ok` field is `true` | `{"ok": true, ...}` | **STOP.** If `ok: false`, capture the `error` field verbatim and report failure per FAILURE MODES below. Do not retry blindly more than once. |
-| `messages` field is present and is a list (possibly empty) | `isinstance(messages, list)` | **STOP.** A missing or non-list `messages` field means the API contract broke or the wrong endpoint/channel was hit. |
-| Channel ID in the request matches C0B160MA3EK | Literal string match against the command issued | **STOP.** If the channel ID was altered anywhere upstream, abort — do not draft from the wrong channel's content. |
-| No garbage/binary payload in message `text` fields | Spot-check: at least the first message's `text` is printable UTF-8 | **STOP.** A garbled payload indicates a transport-layer problem (see err-20260715T182916-FSMOJK class of failures); do not attempt to parse it as content. |
-
-An empty `messages` array (`{"ok": true, "messages": []}`) is a legitimate PASS — it means no new content in the last 24 hours, not a failure. Proceed to exit cleanly per the MESSAGE ROUTER's "no messages route" rule.
-
-Log the result:
-```
-[Gate 1] Channel: C0B160MA3EK
-[Gate 1] Response ok: true|false
-[Gate 1] Messages returned: N
-[Gate 1] PASS — proceeding to message routing.
-```
-
-If it fails, log `[Gate 1] FAIL — <check name>` and follow FAILURE MODES ("read.py fails") before any further processing.
+Run the Gate 1 source-integrity checklist in `references/gates.md` (read it now, before parsing or routing any message). An empty `messages` array is a legitimate PASS — no new content, not a failure.
 
 Parse the JSON response — `{"ok": true, "messages": [...]}`. Each message has `ts`, `user`, `text`, `thread_ts`, and optionally `bot_id`.
 
@@ -126,165 +105,11 @@ If a reply has already been acted on, skip it. Track handled replies by adding a
 
 ### DRAFT EDIT PATH
 
-Execute this section when a pending draft thread contains editorial feedback.
-
-**A. Fetch the current post from Ghost and verify draft status**
-
-Use `mcp__ghost-blog__get_post(post_id="{ghost_post_id}")` to retrieve the post. Extract the `status`, `lexical` content, and `updated_at` timestamp.
-
-If `status` is not `"draft"` (i.e., the post is published or scheduled), do NOT apply any edits. Reply in the thread:
-
-```
-"_Skipped — '{Post Title}' is already published. Edit it directly in Ghost._"
-```
-
-Then move on to the next pending draft. Only proceed with the edit if `status == "draft"`.
-
-**B. Read the editorial instruction**
-
-Parse what the reply is asking for. Categories:
-
-| Instruction type | Action |
-|-----------------|--------|
-| Rewrite a specific section | Rewrite that section in David's voice (CONTENT-VOICE.md) |
-| Change tone, length, or focus | Apply the change across the affected paragraphs |
-| Add or remove specific content | Insert or delete the relevant text |
-| Image swap | Follow the Step 6 image protocol, then update `feature_image` and `twitter_image` |
-| Other structural change | Apply using best judgment; note what changed in the thread reply |
-
-**C. Apply the edit**
-
-Before writing: read `identity/CONTENT-VOICE.md` if the edit touches post body content.
-
-Rebuild the affected lexical nodes. For full rewrites, rebuild the entire lexical body. For targeted edits, locate and replace only the affected paragraph nodes.
-
-Use the Ghost Admin API PUT (same JWT pattern as Step 7) to update the post. Use PUT with no trailing slash — PATCH returns 404:
-
-```
-PUT https://driventodevelop.com/ghost/api/admin/posts/{ghost_post_id}
-Authorization: Ghost {jwt}
-Content-Type: application/json
-
-{
-  "posts": [{
-    "lexical": "{updated_lexical_json_string}",
-    "updated_at": "{current_updated_at}"
-  }]
-}
-```
-
-For image-only updates, PATCH `feature_image` and `twitter_image` (and `updated_at`) without touching `lexical`.
-
-**D. Verify**
-
-Call `mcp__ghost-blog__get_post` to confirm the edit landed. Check that `lexical` reflects the change and `updated_at` advanced.
-
-**E. Reply in the thread**
-
-Post a confirmation reply to the same Slack thread via post.py:
-
-```
-python3 "$(mdfind -name 'post.py' | grep 'systems/slack-bot/post.py' | head -1)" C0B160MA3EK "_Done — {brief description of what changed}. Draft updated._" {slack_thread_ts} 2>&1
-```
-
-**F. Update pending-drafts.json**
-
-Add or append to the `editorial_edits` array on the entry:
-
-```json
-"editorial_edits": [
-  {
-    "reply_ts": "{ts of the feedback reply}",
-    "instruction": "{brief summary of what was requested}",
-    "applied_at": "{ISO timestamp}",
-    "summary": "{brief description of what changed}"
-  }
-]
-```
-
-This prevents the same reply from being re-processed on the next run.
-
----
+Follow `references/draft-edit-path.md` (read it when 1b surfaces editorial feedback on a pending draft thread): the full draft-edit and re-review protocol.
 
 ### MESSAGE ROUTER — apply in priority order
 
-Evaluate each message against the following rules in sequence. Stop at the first match.
-
-```
-1. Bot message WITHOUT digest signal AND WITHOUT Watchtower section keywords  →  SKIP (operational noise)
-2. Bot message WITH digest signal (# + ##) OR Watchtower section keywords (*Hook*, *Story Angle*/*Core Insight*, *Challenge*/*CTA*)  →  DIGEST PATH
-   NOTE: Watchtower drafts ALWAYS route to DIGEST PATH. They use *bold* headers, not ## markdown. Never skip them. (err-20260727T201106-MOE539)
-3. User message WITH routing keywords    →  OBSIDIAN ROUTE
-   (keywords: "save to obsidian", "save as a note", "for a talk", "reference",
-    "do not draft a post", "don't draft a post")
-4. User message WITH (# + ##) headers   →  DIGEST PATH
-4.5. User message WITH "article" keyword (case-insensitive) AND URL  →  URL PATH (content_type: "article")
-4.6. User message WITH Improving blog keywords AND URL  →  IMPROVING BLOG PATH
-   (keywords: "improving thoughts", "improving blog", "improving's blog", "improving thought leadership",
-    "not one for my blog", "not my blog")
-5. User message WITH URL, no routing keywords  →  URL PATH
-6. User message with deck/slides/presentation/PowerPoint  →  MANUAL FLAG
-7. User message referencing an existing post with editorial instructions (no URL, no digest signal)  →  EDITORIAL EDIT PATH
-   (keywords: "change the image", "update the image", "add the link", "add a link", "change image",
-    "swap image", "replace image", "fix the image", "update the post", "edit the post")
-```
-
-**Detection rule for digest signal:** A message matches ANY of these patterns:
-- Has `# ` AND `## ` — an H1 title line and at least one H2 section header (standard markdown digest)
-- Is a bot message containing all four Watchtower section keywords in bold: `*Hook*` (or `*Hook*\n`), `*Story Angle*` or `*Core Insight*`, and `*Challenge*` or `*CTA*` — these are Watchtower drafts and are ALWAYS processed, never skipped
-
-> **CRITICAL — err-20260727T201106-MOE539:** Watchtower bot messages use `*Bold*` section headers, not `## ` markdown. The old detection rule missed them entirely and skipped them as "operational noise." This is wrong. Watchtower drafts are NEVER noise. If a bot message contains Hook + Story/Insight + Challenge in any header format, it is a digest and must be drafted.
-
-**For SKIP:** Do nothing. Move to next message.
-
-**For OBSIDIAN ROUTE:** Execute `skills/obsidian-source-note/SKILL.md` inline. Read the full skill before acting. Use Spotify extraction (Step 3d in podcast-transcript-extract) for Spotify URLs. After saving the note, notify David in #content:
-```
-"_Saved to Obsidian: [{Note Title}] — {vault_path}_"
-```
-
-**For MANUAL FLAG:** Post to #content:
-```
-"_@david — [{source title}] needs manual handling: {brief reason}. I can't process this automatically._"
-```
-
-**For IMPROVING BLOG PATH:** Draft an Improving thought-leadership post from the URL and save it locally. Do NOT post to Ghost. Do NOT add to pending-drafts.json. Execute the IMPROVING BLOG PATH section below.
-
-**Prior-post linking (DIGEST PATH and URL PATH):** After drafting, scan the post body for references to prior posts, recurring themes, or named figures/numbers that appeared in a recent post. Check `pending-drafts.json` titles and Ghost published post slugs for thematic matches. If a clear callback exists, insert an inline hyperlink on the most natural anchor text before submitting to Ghost. Do not wait for David to ask. This is mandatory when the digest itself signals a "step two" or "prior week" relationship. (err-20260727T201700-2H2GW4)
-
-> **CRITICAL — err-20260820T191921-BLD5R9:** Never strip or drop links. If a referenced post is published, resolve it to a real URL using the Ghost post list (url field, not tag URLs) and build a proper lexical link node. Only skip linking if the referenced post is still in draft status. Dropping a link and leaving plain text is always wrong. Use the `url` field from `get_posts` results — not the slug — as the canonical URL.
-
-> **CRITICAL — err-20260915T154324-VTPMUJ:** Internal links are a required output, not optional. If the post references or clearly relates to a published post, the link MUST be inserted as a lexical link node — not deferred to a later step. After building the lexical body in Step 7, scan for any named prior posts. For each match, resolve its URL via `mcp__ghost-blog__get_posts` and insert a lexical link node wrapping the anchor text. Use this node structure:
-> ```json
-> {
->   "type": "link",
->   "url": "{resolved_url}",
->   "rel": null,
->   "target": null,
->   "title": null,
->   "children": [{"detail": 0, "format": 0, "mode": "normal", "style": "", "text": "{anchor text}", "type": "text", "version": 1}],
->   "direction": "ltr",
->   "format": "",
->   "indent": 0,
->   "version": 1
-> }
-> ```
-> The parent paragraph node's `children` array contains this link node in place of the text node that would have held the anchor text. Build this into the lexical before the Step 7 POST call — do not POST first and patch later. Gate 2 checks for this (see `has_internal_link_if_required`). Only omit if the referenced post is still in draft status (not published).
-
-**For EDITORIAL EDIT PATH:** Execute the edit inline. Do not defer to Jarvis Master. Do not flag to #content. Handle it directly:
-
-1. **Identify the target post.** Match the post name from the message to a Ghost draft or published post. Use `mcp__ghost-blog__get_posts` or search by slug if needed.
-2. **Image swap:** If the instruction is to change the image, find a new Unsplash image following the Step 6 protocol (WebSearch → fetch photo page → extract ID → construct CDN URL). Upload via `mcp__ghost-blog__upload_image_from_url` if available; fall back to direct Unsplash URL if upload fails. Update the post via Ghost Admin API (same JWT pattern as Step 7) — PATCH to `/ghost/api/admin/posts/{id}/` with `{"posts": [{"feature_image": "{new_url}", "twitter_image": "{new_url}", "updated_at": "{current_updated_at}"}]}`.
-3. **Link insertion:** If the instruction is to add a hyperlink to specific text, fetch the current post's `lexical` from Ghost, locate the target text node, wrap it in a link node, and PATCH the updated lexical back via Ghost Admin API.
-4. **Confirm silently** by verifying the post via `mcp__ghost-blog__get_post` after the update. No Slack notification needed unless the edit fails.
-5. **If the edit also includes a workflow update instruction** ("encode this in the workflow", "update the workflow"): apply the change to this file (step-01-discover.md) or workflow.md as appropriate, then confirm with a brief #content reply: `"_Workflow updated: {what changed}._"`
-
-**For URL PATH and DIGEST PATH:** Continue to the relevant section below.
-
-Do NOT treat non-blog messages as failed pipeline items. Route them correctly or flag them.
-
-If no messages route to URL PATH or DIGEST PATH after evaluating all messages: exit cleanly. Do NOT post anything to #content.
-
----
+Apply the router in `references/message-router.md` (read it before classifying any message) to each remaining message, in its priority order.
 
 ### DIGEST PATH
 
@@ -347,142 +172,7 @@ In the Slack notification teaser (Step 9), append `_(drafted from digest)_` on a
 
 ### IMPROVING BLOG PATH
 
-Execute this section when a message matched the IMPROVING BLOG PATH route (URL + Improving blog keywords).
-
-This path runs the full improving-thought-leadership plugin workflow autonomously: topic-exploration logic → narrative-definition logic → blog-draft → smell-test → improving-guidance. The interactive steps (topic-exploration, narrative-definition) are executed inline by making autonomous choices from the source material — no clarifying questions are asked. The output is a publication-ready markdown file saved locally.
-
-**Before any writing: read these three files in full:**
-1. `/Users/davidohara/Library/Application Support/Claude/local-agent-mode-sessions/1f133084-7506-49f1-9119-507fb3342862/800e566d-bfe4-4a01-b24f-821196b81496/rpm/plugin_01LZNKsPzYFfeUaSpHEhXvAE/skills/blog-draft/references/voice.md` — Improving's credentialed authority voice (institutional "we", declarative, no personal "I")
-2. `identity/CONTENT-VOICE.md` — David's personal blog voice (cadence, specificity, consulting vantage point, parenthetical asides, challenge-close structure)
-3. The smell-test criteria from `skills/improving-thought-leadership:smell-test` — apply these actively while writing, not just as a later pass
-
-**Voice synthesis rule:** The Improving institutional voice governs attribution ("we," "our teams," "across our engagements" — not "I"). David's CONTENT-VOICE.md governs everything else: sentence rhythm (short declarative kickers, longer builds), parenthetical asides, the consulting vantage point ("my teams build these things"), scene-setting specificity, warmth, and the challenge-close. The result should sound like David wrote it on behalf of Improving — not like a corporate press release and not like his personal diary. The clearest test: if you swapped the "we" to "I," would it read like one of his driventodevelop.com posts? If yes, the blend is right.
-
----
-
-**A. Fetch and research the source (topic-exploration logic)**
-
-1. Fetch the URL: `mcp__workspace__web_fetch(url="{url}")`. If it's a Spotify URL, run a WebSearch for the episode title to gather context — podcast pages don't yield transcripts via fetch.
-2. Extract: core argument, key insight, memorable quote or verified stat, the "so what" for Improving's audience (technology leaders, engineering leaders, enterprise decision-makers).
-3. Run a WebSearch for additional context if the source is thin — look for corroborating data, enterprise adoption patterns, or real-world consequences of the topic.
-4. **Topic Brief (autonomous):** Derive the sharpest, most specific arguable claim from the source. Not "AI costs are rising" — something like "Organizations that skip human review in production agentic systems are treating a trust problem as a cost problem." This is the technical crux. Also determine: intended reader (enterprise tech or engineering leader), structural archetype (default: Problem → Diagnosis → Framework), and whether any Improving published case studies are relevant (check improving.com if the topic maps to a service line).
-
-**B. Narrative Spec (narrative-definition logic)**
-
-Derive autonomously — do not ask questions:
-
-- **Locked thesis:** One declarative sentence that a smart, reasonable person could disagree with. Derived from the Topic Brief above.
-- **Structural archetype:** Default to Problem → Diagnosis → Framework unless the source material clearly fits a different shape (postmortem, decision framework, pattern naming, false dichotomy correction).
-- **H2 sequence:** 3-4 H2s that read as real questions or decisions the reader faces — never "Introduction" or "Conclusion." Derive from the thesis and source.
-- **Real example:** Search Improving's published case studies (improving.com/case-studies or SharePoint if accessible) for a real anchor. If nothing matches, frame the illustrative scenario explicitly as illustrative — never dress up a hypothetical as real.
-- **Closing action:** A concrete question or check the reader can bring to their own team. Derived from the thesis's implications.
-- **Length:** 1,500-2,000 words.
-
-**C. Write the draft (blog-draft)**
-
-Write the full post to the locked Narrative Spec. Apply the blended voice throughout:
-
-**From Improving's voice.md (non-negotiable):**
-- Institutional first-person plural: "we," "our teams," "across our engagements" — never personal "I"
-- Lead with the point, then support it. Short declarative kickers bracket longer builds.
-- One idea per paragraph, fully landed (2-4 sentences). Let the real example breathe.
-- H2s as real questions or decisions — not "Introduction" / "Conclusion"
-- Include an executive bridge in every major technical section (what decision does this affect, what risk does it reduce, what does it cost if ignored)
-- Numbers are precise and sourced. If a stat can't be verified, cut it or flag it as an estimate.
-
-**From David's CONTENT-VOICE.md (applied to rhythm, texture, and structure):**
-- Use David's Hook → Story/Observation → Insight → Challenge arc as the structural spine — even in a longer post, the opening earns the next sentence, the body carries the consulting vantage point, and the close asks something real of the reader.
-- The consulting vantage point is the differentiator: "our teams build this" / "we see this in client environments" / "what the invoice doesn't say" — use it wherever the topic connects to Improving's delivery work. Not as a credential drop, as the ground the observation stands on.
-- Parenthetical asides are natural and earned: "(and we've seen this kill timelines)" "(not the clean answer, but the honest one)" "(this one still stings a little)". They carry warmth and inner-voice texture. Don't force them, but don't scrub them.
-- The close is a challenge or a direct question — never a summary, never "we hope this resonates." Ask something real of the reader.
-- Warmth is present. Write to people, not at them. This is a senior colleague sharing something worth knowing, not a vendor white paper.
-
-**Universal prohibitions (both voices):**
-- No em-dashes. No contrast-negation scaffolding ("X is not Y. It is Z."). No filler transitions. No hollow affirmations. No mechanical parallel structure. No "y'all" in the Improving institutional voice (that's David's personal blog only).
-
-Also write: `meta_title` (max 70 chars) and `meta_description` (max 155 chars).
-
-**D. Self-check (smell-test logic)**
-
-Before saving, scan the full draft against all ten smell-test categories:
-1. Negation-template tic ("X is not Y. It is Z." and all variants) — highest priority
-2. Mechanical parallel structure (3+ consecutive sentences/headers with identical shape)
-3. Hollow affirmations
-4. Over-qualification / throat-clearing ("It's worth noting that...")
-5. Filler transitions ("Furthermore," "Moreover," "In conclusion")
-6. Em dashes
-7. Banned SEO clichés ("game-changer," "revolutionary," "unlocking," "delving into")
-8. Fake-specific numbers (unverifiable statistics)
-9. Generic triadic structures
-10. Synonym sprawl
-
-Grade the draft (A through F). If below B, remediate directly — rewrite flagged passages in Improving's voice, preserving the actual argument. Re-scan until B or better. Never pass a sub-B draft to the save step.
-
-**E. Improving-guidance pass**
-
-Attempt to fetch Improving's SharePoint framework docs via `mcp__b8c41a14-7a9b-4ea5-ab12-933ee04bc52f__sharepoint_search` (search for "Blog Writing Framework" and "SEO Writing Standards"). If accessible, apply the full checklist:
-- Claims, Proof & Anonymization Rules
-- Closing paragraph present and concrete
-- Internal linking (one Improving service page, one sibling post if available)
-- SEO / editorial structure (H1 present, stakes in first 250 words, no banned phrases)
-- Voice attribution consistent (no stray personal "I")
-
-If SharePoint is unreachable, apply the baseline checklist from memory (same rules) and note in frontmatter that improving-guidance SharePoint pass was skipped.
-
-**F. Save locally**
-
-Save the post-smell-test, post-guidance draft as a markdown file at:
-```
-/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/content/improving-blog/{YYYY-MM-DD}-{slug}.md
-```
-(This is the canonical location for unpublished Improving-blog drafts. Do not use or recreate any other drafts/ path.)
-
-Use `mcp__Desktop_Commander__write_file`. Frontmatter:
-```yaml
----
-title: "{Post Title}"
-status: draft
-audience: "Technology and engineering leaders in enterprise organizations"
-source: "{source_url}"
-meta_title: "{meta_title}"
-meta_description: "{meta_description}"
-created: {YYYY-MM-DD}
-author: "Improving"
-smell_test_grade: "{A/B/C...}"
-pipeline_notes: |
-  Drafted by Harper (content-discovery) from: {source_url}
-  David's note: "{David's original message text}"
-  Topic Brief: {one-sentence crux and intended reader}
-  Narrative Spec: {thesis, structural archetype, real example note, closing action}
-  Smell test: {grade} — {brief findings summary}
-  Improving-guidance: {applied / SharePoint unavailable — baseline applied}
----
-```
-
-**G. Notify David in #content**
-
-Post via post.py as a reply to the original message thread (use message `ts` as `thread_ts`):
-
-```
-*Improving Thoughts draft ready* ✍️
-
-*"{Post Title}"*
-_Smell test grade: {grade}_
-
-{First 2-3 sentences of the draft as a teaser}
-
-*Saved to:* {file_path}
-
-_This ran through topic-exploration, narrative-definition, blog-draft, smell-test, and improving-guidance automatically. Review and publish when ready._
-```
-
-**H. Do NOT:**
-- Create a Ghost draft
-- Add to pending-drafts.json
-- Post to driventodevelop.com
-- Use David's personal blog voice (first-person "I")
-
----
+Follow `references/improving-blog-path.md` (read it when the router sends a message down this path): the full Improving-blog drafting protocol.
 
 ### 2. Fetch and research each URL
 
@@ -537,141 +227,11 @@ Choose 1-3 tags from the locked list in workflow.md. Match to the post's core th
 
 ### 6. Source the feature image
 
-Identify the single most important high-level keyword from the post (e.g., "leadership", "resilience", "cost", "writing" — conceptual, not literal). Search Unsplash:
-
-> **IMPORTANT:** `mcp__workspace__web_fetch` has a provenance restriction — it only fetches URLs that appeared in a prior user message or web_fetch result. Direct fetches to `unsplash.com/s/photos/...` will fail. Always use the two-step process below.
-
-1. **Run a WebSearch** for: `unsplash {keyword} landscape photo site:unsplash.com/photos`
-2. From the search results, pick a free (non-Unsplash+) photo URL — look for results where the title says "Free ... Image on Unsplash". Avoid results that mention "Unsplash+" or "premium".
-3. **Fetch the photo page** with `mcp__workspace__web_fetch` using the exact URL returned by the search — this unlocks it for the provenance check.
-4. From the fetched page, extract the photo ID from the `og:image` or `twitter:image` meta tag. The ID appears as `photo-{PHOTO_ID}` in the URL.
-5. Construct the Unsplash CDN URL:
-```
-https://images.unsplash.com/photo-{PHOTO_ID}?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid={IXID}&ixlib=rb-4.1.0&q=80&w=2000
-```
-Use the ixid from the meta tag URL if available; omit the ixid parameter if not — it's optional.
-
-**Image selection rules:**
-- Must be landscape-oriented (wider than tall). No portrait-oriented images. Ever.
-- Must be thematically aligned with the post's core concept — not just generically "professional." A post about auditing should show paperwork, spreadsheets, or financial review. A post about purpose/fulfillment should show open space, horizon, or journey imagery. A post about AI governance should show systems/infrastructure. Match the metaphor, not just the industry.
-- **If the post is geographically specific (names a city, region, or country in the title or hook), the image search query MUST include that location name.** A generic city skyline is not acceptable for a post about Dallas or DFW — search for "unsplash dallas skyline landscape photo site:unsplash.com/photos" or equivalent. After selecting a candidate, inspect the photo's title and description on the fetched Unsplash page to confirm the location matches before accepting. (err-20260915T154324-4DLWA4)
-- Avoid portraits of people as the primary subject
-- Must be free (no Unsplash+ license required)
-- If the first candidate is premium (Unsplash+), portrait, or geographically wrong, discard it and try the next search result — do not settle
-
-> **MANDATORY — verify orientation from the actual pixels, never from the title, alt text, or search category.** Unsplash titles like "a long road with a mountain in the background" or category tags do not reliably indicate orientation — the same photo can be a portrait crop. (See err-20260715T195437-E6MUV6: a "long road / mountain" photo was used and turned out to be 2000x3000, portrait, because the title was trusted instead of the image.)
->
-> Before accepting any candidate, fetch it and check real width vs. height via Desktop Commander:
-> ```python
-> import requests
-> from io import BytesIO
-> from PIL import Image
-> r = requests.get(candidate_url, timeout=20)
-> w, h = Image.open(BytesIO(r.content)).size
-> assert w > h, f"portrait ({w}x{h}) — discard and try next candidate"
-> ```
-> If `w <= h`, discard the candidate and move to the next search result. Do not construct the final CDN URL or use the image in Ghost until this check passes.
-
-Upload to Ghost CDN:
-```
-mcp__ghost-blog__upload_image_from_url(
-  url="{unsplash_url}",
-  filename="{post-slug}",
-  purpose="image"
-)
-```
-
-Use the returned Ghost CDN URL for both `feature_image` and `twitter_image`.
-
----
+Follow `references/image-sourcing.md` (read it in this step): the two-step Unsplash search/fetch protocol, the image selection rules (landscape, thematic, geography-matching), the mandatory pixel-level orientation check, and the Ghost CDN upload call.
 
 ## QUALITY GATE 2 — Content Schema Validation (HARD, BLOCKING)
 
-Run after Step 6 (image sourced) and before Step 7 (Ghost draft creation). This formalizes the DIGEST FORMAT / BLOG VOICE & FORMAT rules in workflow.md into an explicit checklist rather than leaving them as inline prose that's easy to skip under time pressure.
-
-Applies to both the URL PATH and the DIGEST PATH (per DIGEST PATH Step E, the digest path merges in here).
-
-**Two of these checks require judgment this gate does not delegate away:** whether the four
-post-arc elements are actually present in the prose, and whether the draft reads as David's
-own angle rather than a source recap. Make those calls yourself by reading the draft, set them
-as plain booleans (`has_hook`, `has_story`, `has_insight`, `has_challenge`, `is_source_recap`),
-then call `skills/schema-validator/SKILL.md` to mechanically check everything else against
-those booleans plus the objective fields:
-
-```yaml
-data:
-  word_count: <int>
-  has_hook: <bool>
-  has_story: <bool>
-  has_insight: <bool>
-  has_challenge: <bool>
-  is_source_recap: <bool>          # your own read — true means FAIL
-  body: "<full draft text>"
-  tags: [{"id": "..."}, ...]
-  meta_title: "<...>"
-  meta_description: "<...>"
-  feature_image_landscape: <bool>  # from Step 6's w > h check
-  feature_image_set: <bool>
-  feature_image_geo_confirmed: <bool>  # true if post is not geo-specific, OR if geo-specific and image location verified
-  has_internal_link_if_required: <bool>  # true if no published related post exists, OR if one exists and a lexical link node was inserted
-  is_voice_original: <bool>  # your own read — true means the post makes a distinct argument in David's voice, not a paraphrase of the digest
-schema_spec:
-  word_count: { min: 300, max: 500 }   # or {min: 1500, max: 2000} for IMPROVING BLOG PATH only
-  tags: { field: "tags", allowed_list: [<locked-list tag ids from workflow.md>], format: "object_with_id" }
-  em_dash_check: { field: "body", enabled: true }
-  custom_checks:
-    - { field: "has_hook", rule: "must_be_true" }
-    - { field: "has_story", rule: "must_be_true" }
-    - { field: "has_insight", rule: "must_be_true" }
-    - { field: "has_challenge", rule: "must_be_true" }
-    - { field: "is_source_recap", rule: "must_be_false" }
-    - { field: "is_voice_original", rule: "must_be_true" }
-    - { field: "meta_title", rule: "max_length", value: 70 }
-    - { field: "meta_description", rule: "max_length", value: 155 }
-    - { field: "feature_image_landscape", rule: "must_be_true" }
-    - { field: "feature_image_set", rule: "must_be_true" }
-    - { field: "feature_image_geo_confirmed", rule: "must_be_true" }
-    - { field: "has_internal_link_if_required", rule: "must_be_true" }
-```
-
-The "no bullet points / no headers in body" check for sub-500-word posts is a structural scan
-of `body` this skill's generic rule set doesn't cover directly — run it yourself (or add it as
-`format_rules`/`custom_checks` on a future edit if it recurs elsewhere) and fold the result
-into `errors` manually if it fails, same STOP treatment as any other Gate 2 failure below.
-
-| Check | Expected | On failure |
-|-------|----------|------------|
-| Word count | 300-500 words (URL/digest post path) or 1,500-2,000 words (IMPROVING BLOG PATH only) | **STOP.** Trim or expand before proceeding. Do not send an out-of-range draft to Ghost. |
-| Four post-arc elements present | Hook, Story/Observation, Insight, Challenge/Takeaway all identifiable in the draft | **STOP.** If any is missing, write it now per DIGEST FORMAT's "Missing sections" rule (using CONTENT-VOICE.md), then re-check. |
-| No em-dashes | Zero occurrences of `—`, `–` used as a dash, or `--` | **STOP.** Replace with commas, periods, or parentheses. Re-scan the full draft, not just the flagged sentence. |
-| No bullet points / no headers in body (post under 500 words) | Prose only | **STOP.** Convert to prose. |
-| Not a source recap / not a paraphrase | Draft reads as David's reaction/angle, not "According to [source]..." AND does not simply restate the digest's argument in different words. Put the post and the digest side by side — if they make the same points in the same order with the same framing, `is_voice_original` is false. (`is_source_recap` false + `is_voice_original` true both required.) (err-20260915T154324-LFMX48) | **STOP.** Rewrite from David's own angle. The digest is the stimulus, not the script. Change the framing, not just the words. |
-| Tags are from the locked list | Every tag id in the draft's tag selection appears in workflow.md's LOCKED LIST table | **STOP.** Do not proceed with an off-list tag. Re-select from the locked list. |
-| Tag format is object-with-id | Selected tags represented as `[{"id": "..."}]`, never bare strings | **STOP.** Fix format before the Ghost API call — bare strings create junk tags (see workflow.md's CRITICAL note). |
-| meta_title ≤ 70 chars, meta_description ≤ 155 chars | Character counts checked | **STOP.** Trim before proceeding. |
-| Feature image is landscape and CDN-uploaded (or verified fallback per FAILURE MODES) | `w > h` confirmed in Step 6; `feature_image` is set | **STOP.** Do not create the Ghost post without a validated image or an explicit, logged fallback. |
-| Feature image geography matches post (if geo-specific) | If the post names a city/region, the image is confirmed to depict that location (checked via photo title/description on the Unsplash page). If the post is not geo-specific, this check auto-passes. | **STOP.** Discard the candidate and re-run Step 6 with a location-specific search query. (err-20260915T154324-4DLWA4) |
-| Internal links present (if related published post exists) | If the post references or clearly relates to a published Ghost post, a lexical link node is built into the lexical body before this gate. If no related published post exists, this check auto-passes. | **STOP.** Resolve the referenced post URL from `get_posts` and insert the lexical link node now, before calling the Ghost API. Plain-text references are not acceptable. (err-20260915T154324-VTPMUJ) |
-
-Log the result (reading `errors`/`warnings` back from the skill's response):
-```
-[Gate 2] Word count: N (limit: 300-500 or 1500-2000)
-[Gate 2] Post-arc elements present: Hook ✓ Story ✓ Insight ✓ Challenge ✓
-[Gate 2] Em-dash scan: clean
-[Gate 2] Voice original (not source paraphrase): ✓
-[Gate 2] Tags: {tag names} — all on locked list, object format confirmed
-[Gate 2] Image: landscape confirmed, CDN url set
-[Gate 2] Image geography: {confirmed match to {city} | n/a — post not geo-specific}
-[Gate 2] Internal links: {lexical link node inserted for "{prior post title}" | n/a — no related published post}
-[Gate 2] PASS — proceeding to Ghost draft creation.
-```
-
-If `schema-validator` returns `valid: false`, log `[Gate 2] FAIL — <errors list>` and remediate
-(fix the draft, or correct the boolean you fed in if your own judgment call was wrong on
-re-read) before re-running the gate. Do not call the Ghost API with a draft that hasn't passed
-Gate 2 (`valid: true`).
-
----
+Run after Step 6 (image sourced) and before Step 7 (Ghost draft creation). Run the Gate 2 checklist in `references/gates.md` (read it at this point): it formalizes the digest-format and voice rules into an explicit pass/fail checklist. Applies to both the URL PATH and the DIGEST PATH (per DIGEST PATH Step E, the digest path merges in here).
 
 ### 6b. Record the run's draft-quality manifest (Gate 2 evidence)
 
@@ -681,101 +241,11 @@ Gate 2's voice/image/link checks are only as trustworthy as the evidence they le
 memory/working/content-discovery-drafts-{YYYY-MM-DD}.json
 ```
 
-One JSON object, one entry in `posts` per post drafted this run (URL PATH, DIGEST PATH, and IMPROVING BLOG PATH alike). Write the file even when zero posts were drafted — an empty `posts` list is a valid, passing record:
-
-```json
-{
-  "run_date": "YYYY-MM-DD",
-  "posts": [
-    {
-      "title": "{Post Title}",
-      "body": "{full draft text}",
-      "source_text": "{the feeder digest/article text this draft was built from}",
-      "is_voice_original": true,
-      "feature_image": "{feature_image URL}",
-      "image_landscape": true,
-      "image_search_query": "{the Unsplash search query used in Step 6}",
-      "geo_specific": false,
-      "post_city": null,
-      "image_geo_confirmed": true,
-      "related_published_post": null,
-      "internal_links": []
-    }
-  ]
-}
-```
-
-Field rules (these are what the eval-harness `draft_quality` assertions read — a missing or non-compliant field FAILS the run):
-
-- `body` and `source_text` are both required — they are the evidence for the voice check. `source_text` is the digest section text or the fetched article's prose the draft was built from.
-- `is_voice_original` — your Gate 2 judgment, recorded as a plain boolean. `false` fails the run.
-- `image_landscape` — the Step 6 `w > h` pixel check result. `false` fails the run.
-- `image_search_query` — the exact query used. When `geo_specific` is `true`, `post_city` is required and the query must contain the city name (err-20260915T154324-4DLWA4).
-- `image_geo_confirmed` — `true` when the post is not geo-specific, OR when a geo-specific post's image location was verified. `false` on a geo-specific post fails the run.
-- `related_published_post` — the canonical URL of a related published Ghost post, or `null` when none exists.
-- `internal_links` — every hyperlink URL built into the draft's lexical body. When `related_published_post` is set, its URL must appear here (err-20260915T154324-VTPMUJ).
-
-Use `mcp__Desktop_Commander__write_file`. This manifest is the machine-readable counterpart to the `[Gate 2]` log lines above; both are required.
-
----
+Write the manifest using the schema in `references/draft-quality-manifest.md` (read it before writing) — one JSON object, one `posts` entry per drafted post, written even when zero posts were drafted.
 
 ### 7. Create Ghost draft
 
-> **CONFIRMED MCP LIMITATIONS (verified 2026-05-19):** The Ghost MCP silently drops `feature_image`, `twitter_image`, and `lexical` content on both `create_post` and `update_post`. Tags passed as bare ID strings create junk tags. **Do not use the Ghost MCP for post creation.** Use a single Admin API POST instead.
-
-**Step 7 — Create post via Ghost Admin API (single call, replaces the old 7a/7b two-step):**
-
-Use `mcp__Control_your_Mac__osascript` to run a Python script that:
-
-1. **Get Admin API key:** Read `~/Library/Application Support/Claude/claude_desktop_config.json`. Find the server named `ghost-blog`. Read `GHOST_ADMIN_API_KEY` from its env block. The format is `{key_id}:{hex_secret}`.
-
-2. **Generate JWT:**
-   - Header: `{"alg": "HS256", "kid": "{key_id}", "typ": "JWT"}`
-   - Payload: `{"exp": now + 300, "iat": now, "aud": "/admin/"}`
-   - Sign using `hex_secret` decoded from hex to bytes (not base64)
-   - Use PyJWT: `jwt.encode(payload, bytes.fromhex(hex_secret), algorithm="HS256", headers={"kid": key_id})`
-
-3. **Build Lexical JSON** from the drafted post body. Structure: `{"root": {"children": [{paragraph nodes}], "direction": "ltr", "format": "", "indent": 0, "type": "root", "version": 1}}`. Each paragraph: `{"children": [{"detail": 0, "format": 0, "mode": "normal", "style": "", "text": "{paragraph text}", "type": "text", "version": 1}], "direction": "ltr", "format": "", "indent": 0, "type": "paragraph", "version": 1}`.
-
-4. **POST to Ghost Admin API:**
-   ```
-   POST https://driventodevelop.com/ghost/api/admin/posts/
-   Authorization: Ghost {jwt}
-   Content-Type: application/json
-
-   {
-     "posts": [{
-       "title": "{Post Title}",
-       "status": "draft",
-       "authors": [{"id": "68a3465b9e3561027e745c51"}],
-       "feature_image": "{ghost_cdn_url}",
-       "twitter_image": "{ghost_cdn_url}",
-       "tags": [{"id": "{tag_id}"}, ...],
-       "lexical": "{lexical_json_string}",
-       "meta_title": "{meta_title}",
-       "meta_description": "{meta_description}",
-       "twitter_title": "{twitter_title}",
-       "twitter_description": "{twitter_description}"
-     }]
-   }
-   ```
-
-5. **Capture returned post ID** from the response (`posts[0].id`).
-
-**Step 7 verify — `mcp__ghost-blog__get_post`:**
-- `lexical` is non-empty (has paragraph nodes)
-- `feature_image` is set
-- `tags` show real tag names (e.g., "leadership", "trust") not bare ID strings
-- `excerpt` is populated (Ghost auto-generates from content)
-
-**Do not send the Slack notification until ALL verification checks pass.** Report specific failures accurately — do not claim partial success:
-- `lexical` empty or null: the POST failed to write content. Check the API response for errors and retry.
-- Tags show ID strings: tag format was wrong. Retry with correct `{"id": "..."}` object format.
-- `feature_image` null: the image upload failed. Retry Step 6 before proceeding.
-
-Only a clean `get_post` response with content, image, and real tag names unlocks the Slack notification in Step 9.
-
-Capture the returned `id` — this is the Ghost post ID needed for approval.
+Follow `references/ghost-draft-creation.md` (read it in this step): the confirmed Ghost MCP limitations, the Admin API key read, JWT generation, Lexical JSON construction, and the single POST that creates the draft.
 
 ### 8. Write to pending-drafts.json
 

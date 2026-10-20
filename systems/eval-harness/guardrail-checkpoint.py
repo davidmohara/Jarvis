@@ -17,6 +17,7 @@ Usage:
                 to the controller. This is NOT a failure status.
 """
 
+import argparse
 import json
 import sys
 import time
@@ -95,22 +96,32 @@ def find_eval_record_with_retry(workflow_name: str) -> Path | None:
 
 
 def main():
-    if len(sys.argv) < 6:
-        print("Usage: guardrail-checkpoint.py <workflow_name> <checkpoint_name> <after_step> <result:pass|flag|escalate> <reason>")
-        sys.exit(1)
+    ap = argparse.ArgumentParser(
+        description="Record a guardrail checkpoint result into the workflow's "
+                    "in-progress eval record (with retry while the record is being written).",
+        epilog="Example:\n"
+               "  python3 systems/eval-harness/guardrail-checkpoint.py \\\n"
+               "    conventions-migration guardrail step-03-judgment pass \"all checks green\"",
+        formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("workflow_name")
+    ap.add_argument("checkpoint_name")
+    ap.add_argument("after_step")
+    ap.add_argument("result", help="pass | flag | escalate")
+    ap.add_argument("reason", nargs="+", help="free-text reason (multiple words ok)")
+    args = ap.parse_args()
 
-    workflow_name = sys.argv[1]
-    checkpoint_name = sys.argv[2]
-    after_step = sys.argv[3]
+    workflow_name = args.workflow_name
+    checkpoint_name = args.checkpoint_name
+    after_step = args.after_step
     # Normalize before membership: a case-variant or padded value ("Escalate",
     # "escalate ") used to be recorded anyway while escalated_to_human stayed
     # False — a genuine escalation misrecorded as a non-escalation (BT-02,
     # err-20261008T202241-D5ZP2O). Invalid values are now rejected, not recorded.
-    result = sys.argv[4].strip().lower()
-    reason = " ".join(sys.argv[5:])
+    result = args.result.strip().lower()
+    reason = " ".join(args.reason)
 
     if result not in VALID_RESULTS:
-        print(f"Error: result '{sys.argv[4]}' not in {VALID_RESULTS} — refusing to record (normalize to pass/flag/escalate and retry)", file=sys.stderr)
+        print(f"Error: result '{args.result}' not in {VALID_RESULTS} — refusing to record (normalize to pass/flag/escalate and retry)", file=sys.stderr)
         sys.exit(1)
 
     eval_path = find_eval_record_with_retry(workflow_name)

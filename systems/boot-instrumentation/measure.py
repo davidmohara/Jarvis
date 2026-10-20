@@ -4,6 +4,7 @@ Boot Workflow Instrumentation
 Measures context window usage, data pull sizes, and identifies bloat sources.
 """
 
+import argparse
 import json
 import os
 import sys
@@ -133,34 +134,35 @@ class BootInstrument:
 
 def main():
     """CLI for boot instrumentation."""
-    if len(sys.argv) < 2:
-        print("Usage: measure.py <command> [args]")
-        print("Commands:")
-        print("  measure-state <path/to/state.yaml>  — Measure a single boot state")
-        print("  compare <before-state> <after-state> — Compare two boot runs")
-        sys.exit(1)
+    ap = argparse.ArgumentParser(
+        description="Boot instrumentation: measure boot state token usage and compare boot runs.",
+        epilog="Examples:\n"
+               "  python3 systems/boot-instrumentation/measure.py measure-state workflows/boot/state.yaml\n"
+               "  python3 systems/boot-instrumentation/measure.py compare before.json after.json",
+        formatter_class=argparse.RawDescriptionHelpFormatter)
+    sub = ap.add_subparsers(dest="command", required=True)
+    p_state = sub.add_parser("measure-state", help="measure a single boot state")
+    p_state.add_argument("state_path", help="path to state.yaml")
+    p_cmp = sub.add_parser("compare", help="compare two boot runs")
+    p_cmp.add_argument("before", help="before-state JSON")
+    p_cmp.add_argument("after", help="after-state JSON")
+    args = ap.parse_args()
 
     project_root = os.getenv("IES_ROOT", "/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES")
     instrument = BootInstrument(project_root)
 
-    command = sys.argv[1]
-
-    if command == "measure-state" and len(sys.argv) > 2:
-        state_path = Path(sys.argv[2])
+    if args.command == "measure-state":
+        state_path = Path(args.state_path)
         measurement = instrument.measure_boot_state(state_path)
         instrument.write_measurement("state", measurement)
         print(json.dumps(measurement, indent=2))
 
-    elif command == "compare" and len(sys.argv) > 3:
-        before = Path(sys.argv[2])
-        after = Path(sys.argv[3])
+    elif args.command == "compare":
+        before = Path(args.before)
+        after = Path(args.after)
         comparison = instrument.measure_workflow_comparison(before, after)
         instrument.write_measurement("comparison", comparison)
         print(json.dumps(comparison, indent=2))
-
-    else:
-        print("Invalid command or missing arguments")
-        sys.exit(1)
 
 
 if __name__ == "__main__":

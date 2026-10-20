@@ -31,6 +31,7 @@ Authentication:
   at web.plaud.ai.
 """
 
+import argparse
 import requests
 import json
 import os
@@ -870,7 +871,6 @@ Other modes:
   --share <file_id>      request share-token transcript for one recording
   --rename <file_id> <new_title>
                           rename a recording and refetch its transcript
-  --list-all --out <json> write all recordings to a JSON file
 """)
         sys.exit(0)
 
@@ -1467,32 +1467,43 @@ def check_single(file_id):
 
 
 if __name__ == "__main__":
-    if "--rename" in sys.argv:
-        idx = sys.argv.index("--rename")
-        if len(sys.argv) < idx + 3:
-            print("Usage: python3 fetch_plaud.py --rename <file_id> '<json_mapping>'")
-            print('  Example: --rename abc123 \'{"Speaker 1": "David O\'Hara"}\'')
-            sys.exit(1)
-        rename_and_refetch(sys.argv[idx + 1], sys.argv[idx + 2])
-    elif "--check" in sys.argv:
-        idx = sys.argv.index("--check")
-        if len(sys.argv) < idx + 2:
-            print("Usage: python3 fetch_plaud.py --check <file_id>")
-            sys.exit(1)
-        check_single(sys.argv[idx + 1])
-    elif "--share" in sys.argv:
-        idx = sys.argv.index("--share")
-        if len(sys.argv) < idx + 2:
-            print("Usage: python3 fetch_plaud.py --share <file_id>")
-            sys.exit(1)
-        _file_id = sys.argv[idx + 1]
+    ap = argparse.ArgumentParser(
+        description="Fetch Plaud recordings and transcripts into the staging folder. "
+                    "Default mode fetches a target date's recordings (default: yesterday).",
+        epilog="Examples:\n"
+               "  python3 fetch_plaud.py                        # yesterday's recordings\n"
+               "  python3 fetch_plaud.py 2026-10-19             # specific date\n"
+               "  python3 fetch_plaud.py --all                  # all recordings\n"
+               "  python3 fetch_plaud.py --login                # force re-authentication\n"
+               "  python3 fetch_plaud.py --check abc123         # poll one recording's transcription status\n"
+               "  python3 fetch_plaud.py --share abc123         # request share-token transcript\n"
+               "  python3 fetch_plaud.py --rename abc123 '{\"Speaker 1\": \"David O'Hara\"}'",
+        formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("date", nargs="?", default=None,
+                    help="target date YYYY-MM-DD (default: yesterday); see also --all")
+    ap.add_argument("--all", action="store_true", help="fetch recordings for all dates")
+    ap.add_argument("--login", "--force-login", dest="force_login", action="store_true",
+                    help="force re-authentication")
+    ap.add_argument("--rename", nargs=2, metavar=("FILE_ID", "JSON_MAPPING"),
+                    help="rename a recording's speakers and refetch its transcript")
+    ap.add_argument("--check", metavar="FILE_ID",
+                    help="poll one recording's transcription status")
+    ap.add_argument("--share", metavar="FILE_ID",
+                    help="request share-token transcript for one recording")
+    args = ap.parse_args()
+
+    if args.rename:
+        rename_and_refetch(args.rename[0], args.rename[1])
+    elif args.check:
+        check_single(args.check)
+    elif args.share:
         _token = get_token()
         if not _token:
             print("NO_TOKEN")
             sys.exit(2)
-        print(f"Sharing recording: {_file_id}")
-        _detail = get_recording_detail(_token, _file_id)
-        _url = share_recording(_token, _file_id, detail=_detail)
+        print(f"Sharing recording: {args.share}")
+        _detail = get_recording_detail(_token, args.share)
+        _url = share_recording(_token, args.share, detail=_detail)
         if _url:
             print(f"SHARE_URL={_url}")
             sys.exit(0)

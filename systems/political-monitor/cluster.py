@@ -25,14 +25,19 @@ harvest.json schema (written by the run workflow):
   ]
 }
 """
-import json, re, sys
+import argparse, json, re, sys
 from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
-WINDOW_HOURS = 72
-if "--hours" in sys.argv:
-    WINDOW_HOURS = int(sys.argv[sys.argv.index("--hours") + 1])
+_ap = argparse.ArgumentParser(
+    description="Political news monitor clustering stage: group harvest.json items "
+                "into candidate topic clusters by keyword overlap; writes clusters.json.",
+    epilog="Example:\n  python3 systems/political-monitor/cluster.py --hours 48",
+    formatter_class=argparse.RawDescriptionHelpFormatter)
+_ap.add_argument("--hours", type=int, default=72, help="lookback window in hours (default: 72)")
+_args = _ap.parse_args()
+WINDOW_HOURS = _args.hours
 
 THRESH = 0.10  # Jaccard keyword-overlap threshold for grouping two items.
 # NOTE: short headlines share few literal tokens, so this is a LOOSE first pass

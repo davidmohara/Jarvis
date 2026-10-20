@@ -66,11 +66,7 @@ Write to `systems/eval-harness/skill-runs/rigby-eval-dashboard-latest.json`.
 
 Run this sed replacement on the generated file before pushing to the artifact (this sed step is a safety net if an older script version generated the file):
 
-```bash
-sed -i '' \
-  's|chart\.js@4\.4\.0/dist/chart\.umd\.min\.js|chart.js@4.5.0/dist/chart.umd.js" integrity="sha384-iU8HYtnGQ8Cy4zl7gbNMOhsDTTKX02BTXptVP/vqAWIaTfM7isw76iyZCsjL2eVi" crossorigin="anonymous|' \
-  systems/eval-harness/dashboard.html
-```
+the pinned sed command in `references/step-06-assets.md`
 
 #### 2b. Push to the pinned Cowork artifact
 
@@ -174,32 +170,11 @@ After delivering the summary, surface up to 3 eval records from the past 7 days 
 
 Sort by score ascending (lowest first — most in need of feedback).
 
-Output this prompt to the controller:
-
-```
-[Rigby]: Quick feedback request — {N} recent runs could use a rating.
-For each, reply "positive", "negative", or "skip":
-
-1. {eval_id} — {name} on {date}, score {score}, grade {grade}
-   "{grader_notes truncated to 80 chars}"
-
-2. {eval_id} — ...
-
-3. {eval_id} — ...
-
-(Or reply "skip all" to defer.)
-```
+Output the prompt from `references/step-06-assets.md` (read it before surfacing).
 
 **If this is a scheduled (headless) run:** omit this prompt entirely. The controller is not present. Write a note to state.yaml under `feedback_prompt: skipped (headless)` and stop.
 
-**If this is a manual/interactive run:** wait for the controller's reply. For each rating received, write it back to the eval record immediately:
-
-```python
-# For each rated record:
-record["assessment"]["controller_feedback"]["rating"] = "{positive|negative}"
-record["assessment"]["controller_feedback"]["timestamp"] = "{ISO-8601 now}"
-# Write back to systems/eval-harness/runs/{eval_id}.json
-```
+**If this is a manual/interactive run:** wait for the controller's reply. For each rating received, write it back to the eval record immediately using the write-back snippet in `references/step-06-assets.md`.
 
 Write `feedback_prompt: complete` to state.yaml after collecting ratings. If the controller replies "skip all" or gives no reply within the same turn, write `feedback_prompt: deferred`.
 

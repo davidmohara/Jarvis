@@ -135,9 +135,17 @@ def enrich_assertion_file(assertion_file: Path, additions: list):
 
 def main():
     """Analyze and enrich all assertion files."""
-    import sys
-    
-    dry_run = "--dry-run" in sys.argv
+    import argparse
+
+    ap = argparse.ArgumentParser(
+        description="Analyze assertion files and enrich them with missing "
+                    "file_exists, file_min_bytes, and file_contains checks.",
+        epilog="Example:\n  python3 systems/eval-harness/enrich-assertions.py --dry-run",
+        formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("--dry-run", action="store_true",
+                    help="report proposed additions without writing files")
+    args = ap.parse_args()
+    dry_run = args.dry_run
     
     print("Analyzing assertion files...\n")
     

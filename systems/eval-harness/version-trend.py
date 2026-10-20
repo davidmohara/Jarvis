@@ -22,6 +22,7 @@ Usage:
   python3 version-trend.py <workflow-name> --json
 """
 
+import argparse
 import json
 import sys
 import subprocess
@@ -179,12 +180,16 @@ def print_report(workflow_name: str, summaries: list[dict]):
 
 
 def main():
-    if len(sys.argv) < 2:
-        print("Usage: version-trend.py <workflow-name> [--json]")
-        sys.exit(1)
+    ap = argparse.ArgumentParser(
+        description="Report score and pass-rate trend across versions of a workflow's eval records.",
+        epilog="Example:\n  python3 systems/eval-harness/version-trend.py conventions-migration --json",
+        formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("workflow_name", help="workflow whose eval records to trend")
+    ap.add_argument("--json", action="store_true", help="emit JSON instead of the text report")
+    args = ap.parse_args()
 
-    workflow_name = sys.argv[1]
-    as_json = "--json" in sys.argv[2:]
+    workflow_name = args.workflow_name
+    as_json = args.json
 
     records = load_records(workflow_name)
     buckets = group_by_version(records)

@@ -52,7 +52,7 @@ VERB_START = re.compile(
     r"polish|refine|improve|optimize|compact|archive|restore|revert|rollback|register|"
     r"authenticate|connect|disconnect|configure|setup|deploy|publish|post|notify|alert|"
     r"prompt|remind|brief|prep|review|cross-reference|cross reference|"
-    r"get|identify|query|trigger|scrape|fire|link|receive|enroll|activate)", re.I)
+    r"get|identify|query|trigger|scrape|fire|link|receive|enroll|activate|drill)", re.I)
 IMPORT_RE = re.compile(r"^(?:from\s+([\w.]+)\s+import\s+[\w.(]|import\s+([\w.]+(?:\s*,\s*[\w.]+)*))", re.M)
 # local packages inside IES never need a PEP 723 dependency declaration
 LOCAL_PACKAGES = {"scripts", "systems", "skills", "agents", "utils", "hook_utils", "step_outputs", "step_audit", "scoring", "score_eval", "assertion_checks", "token_usage", "apply_ruling", "mcp_client"}
@@ -299,8 +299,14 @@ def check_script(path, text, exceptions, findings):
                                 f"non-stdlib imports ({', '.join(sorted(mods))}) without a PEP 723 "
                                 f"'# /// script' dependency block"))
     if "argparse" not in text and "sys.argv" in text:
-        findings.append(finding("warn", "script.help_flag", path,
-                                "script parses sys.argv manually with no argparse --help handling"))
+        status, entry = exception_for(exceptions, path, "script.help_flag")
+        if status == "acknowledged":
+            findings.append(finding("acknowledged", "script.help_flag", path,
+                                    "manual sys.argv parsing — exception recorded, "
+                                    f"review after {entry.get('review_after', 'unknown')}"))
+        else:
+            findings.append(finding("warn", "script.help_flag", path,
+                                    "script parses sys.argv manually with no argparse --help handling"))
 
 
 def classify_and_check(path, exceptions, manifest, error_skills):

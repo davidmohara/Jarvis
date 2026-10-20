@@ -49,33 +49,9 @@ Fire all pulls simultaneously. Each pull writes to disk and reports status.
 - Messages with explicit deadline or time-sensitive subject line
 - Do NOT pull full inbox — only actionable items
 
-**File format:**
-```json
-{
-  "pulled_at": "ISO-8601",
-  "message_count": N,
-  "messages": [
-    {
-      "id": "...",
-      "subject": "...",
-      "from": "...",
-      "received_at": "...",
-      "is_flagged": true,
-      "importance": "high",
-      "snippet": "..."
-    }
-  ]
-}
-```
+**File format:** use the exact schema in `references/pull-file-formats.md` (read it before writing the output file).
 
-**Status reporting:**
-```yaml
-# state.yaml -> accumulated-context
-email_pull: "completed" | "nothing-to-surface" | "failed — [reason]"
-email_file: "data/email-unified.json"
-message_count: N
-file_size_kb: N
-```
+**Status reporting:** use the yaml shape in `references/pull-file-formats.md` for this pull.
 
 ---
 
@@ -93,48 +69,20 @@ That command writes `data/omnifocus-unified.json` and is the single writer for i
 
 For ad-hoc reads inside this step, use the same skill: `list --kind inbox`, `list --kind due`, `counts`. Prefer the script over the MCP for every read here, because it does not depend on MCP session state and boot runs unattended. If the MCP does happen to be connected, the two agree on counts, tags and projects — and note that its `query_omnifocus` returns a display rendering that omits notes, so it cannot stand in for the pull.
 
-Why this is delegated rather than inlined here: the filter and the `status` contract live in code. See `skills/omnifocus-data/SKILL.md`.
-
+(Why delegated: see `references/pull-file-formats.md`.)
 **Output file:** `data/omnifocus-unified.json`
 **What to pull:**
 - All active (non-completed) tasks in inbox
 - Due today, overdue, or flagged
 - Include: task name, due date, project, tags, flags
 
-**File format:**
-```json
-{
-  "pulled_at": "ISO-8601",
-  "status": "available" | "failed",
-  "task_count": N,
-  "tasks": [
-    {
-      "id": "...",
-      "name": "...",
-      "completed": false,
-      "due_date": "local date string or null",
-      "project": "project name or null",
-      "tags": "comma-joined tag names or null",
-      "is_flagged": true,
-      "note": "..."
-    }
-  ],
-  "error": "reason, only when status is failed"
-}
-```
+**File format:** use the exact schema in `references/pull-file-formats.md` (read it before writing the output file).
 
 This shape is produced by `skills/omnifocus-data/scripts/omnifocus_data.py`; treat that script as the definition of record if the two ever disagree.
 
 **`completed` MUST be present and false on every task.** The inbox holds roughly 247 completed tasks alongside the ~8 incomplete ones, and OmniFocus "Clean Up" does NOT remove them. Filtering is part of the query, never a cleanup step. Recording the field is what lets the eval harness assert that no completed task leaked into the pull.
 
-**Status reporting:**
-```yaml
-# state.yaml -> accumulated-context
-omnifocus_pull: "completed — N tasks" | "nothing-to-surface" | "failed — [reason]"
-omnifocus_file: "data/omnifocus-unified.json"
-task_count: N
-file_size_kb: N
-```
+**Status reporting:** use the yaml shape in `references/pull-file-formats.md` for this pull.
 
 `status: available` with `task_count: 0` is a real empty result (nothing in the inbox, nothing due, nothing flagged). Report it as `nothing-to-surface`, not as a failure. `status: failed` is a degraded source and must be surfaced as such.
 
@@ -151,35 +99,9 @@ file_size_kb: N
 - Upcoming birthdays (next 7 days)
 - Include: date, description, attendee/contact, relationship context
 
-**File format:**
-```json
-{
-  "pulled_at": "ISO-8601",
-  "status": "available" | "unavailable" | "error",
-  "reminders": [
-    {
-      "type": "reminder" | "birthday",
-      "date": "YYYY-MM-DD",
-      "description": "...",
-      "contact_name": "...",
-      "relationship": "..."
-    }
-  ],
-  "reminder_count": N,
-  "birthday_count": M
-}
-```
+**File format:** use the exact schema in `references/pull-file-formats.md` (read it before writing the output file).
 
-**Status reporting:**
-```yaml
-# state.yaml -> accumulated-context
-clay_pull: "completed — N reminders, M birthdays" | "nothing-to-surface — Clay returned empty" | "failed — [reason], but attempted anyway"
-clay_file: "data/clay-reminders-unified.json"
-reminder_count: N
-birthday_count: M
-file_size_kb: N
-attempted: true (always)
-```
+**Status reporting:** use the yaml shape in `references/pull-file-formats.md` for this pull.
 
 **Note:** Even if Clay appears unavailable, the attempt itself is valuable — it confirms current state and ensures we're not using stale cached assumptions.
 
@@ -194,31 +116,9 @@ attempted: true (always)
 - Emails requiring David's direct attention
 - Include: sender, subject, received date, summary
 
-**File format:**
-```json
-{
-  "pulled_at": "ISO-8601",
-  "message_count": N,
-  "messages": [
-    {
-      "id": "...",
-      "from": "...",
-      "subject": "...",
-      "received_at": "...",
-      "summary": "..."
-    }
-  ]
-}
-```
+**File format:** use the exact schema in `references/pull-file-formats.md` (read it before writing the output file).
 
-**Status reporting:**
-```yaml
-# state.yaml -> accumulated-context
-jarvis_inbox_pull: "completed" | "nothing-to-surface" | "failed — [reason]"
-jarvis_inbox_file: "data/jarvis-inbox-unified.json"
-message_count: N
-file_size_kb: N
-```
+**Status reporting:** use the yaml shape in `references/pull-file-formats.md` for this pull.
 
 ### Pull E: YNAB Spend
 
@@ -233,8 +133,7 @@ python3 skills/ynab-data/scripts/ynab_data.py pull
 
 That command writes `data/ynab-unified.json` and is the single writer for it. Read the file back and report `status` and the payee counts. A `status` other than `available` is a degraded source to surface (dead token, API error), never something to pass over as a quiet month.
 
-Why delegated rather than inlined: the transfer/spend filter, the 12-month window, and the `status` contract live in code. See `skills/ynab-data/SKILL.md`.
-
+(Why delegated: see `references/pull-file-formats.md`.)
 **Output file:** `data/ynab-unified.json`
 
 **Consumers:** card-offer filtering (`chase-card-offers-*`, `card-walkthrough` step-02), spend reviews, budget questions.
@@ -267,37 +166,7 @@ accumulated-context:
 
 ## Execution Guidelines
 
-### Parallel Execution (Fire All Simultaneously)
-
-```
-Step 01.2 begins
-  ↓
-Fire all 4 pulls simultaneously:
-  ├─ Pull A: Email (M365 API call)
-  ├─ Pull B: OmniFocus
-  ├─ Pull C: Clay reminders
-  ├─ Pull D: Jarvis inbox
-  └─ Pull E: YNAB spend
-  
-Wait for all to complete
-  ↓
-Record status for each pull
-  ↓
-Proceed to step 02
-```
-
-Do NOT wait for one pull to finish before starting the next. They should all run concurrently.
-
-### Status Reporting
-
-Each pull MUST report one of three outcomes:
-- **completed** — Pull succeeded, file written, N items found
-- **nothing-to-surface** — Pull succeeded but no items (empty result)
-- **failed — [reason]** — Pull failed (API unavailable, permissions, etc.)
-
-Silence is not an option. Every pull must report status.
-
----
+Read `references/execution-guidelines.md` before firing the pulls: parallel-execution rules (fire all pulls simultaneously) and the status-reporting format.
 
 ## Success Metrics
 
@@ -337,6 +206,3 @@ Read fully and follow: `step-01.5-unified-calendar-pull.md`
 All downstream steps (phase 2 through phase 5) will read from these consolidated files instead of calling APIs.
 
 <!-- system:end -->
-
-<!-- personal:start -->
-<!-- personal:end -->

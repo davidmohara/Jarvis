@@ -85,74 +85,7 @@ If issues found:
 
 ### 3. Benchmark Snapshot (capture post-deployment baseline)
 
-**Critical:** This captures the eval harness baseline AFTER the evolution is applied, not before. This ensures regression detection compares future runs against the post-deployment state.
-
-1. **Check for eval harness presence**
-   - Verify `systems/eval-harness/` directory exists
-   - If not present, skip benchmarking and proceed to step 4
-   - Log to state.yaml: `benchmark_snapshot: skipped (no eval harness)`
-
-2. **Grade recent ungraded eval records**
-   - List all eval records in `systems/eval-harness/runs/*.json`
-   - Filter for records where `assessment.grading` is null or missing
-   - Read and grade each ungraded record inline (Rigby reviews output quality directly)
-   - Assign grades based on output files and grader rubric in `systems/eval-harness/schema.md`
-   - Update each record's `assessment.grading` block with grade and grader_notes
-   - Log count of newly graded records to state.yaml: `benchmark_snapshot.records_graded: N`
-   - **Note:** If no ungraded records exist, skip this sub-step
-
-3. **Create benchmark snapshot**
-   - Generate benchmark ID: `bench-{evolution_id}-{timestamp}`
-   - Copy entire `systems/eval-harness/runs/` directory to benchmark location
-   - Destination: `systems/eval-harness/benchmarks/{benchmark_id}/`
-   - Preserve all JSON files with their grading data
-   - Log benchmark path to state.yaml: `benchmark_snapshot.benchmark_path: systems/eval-harness/benchmarks/{benchmark_id}/`
-
-4. **Calculate baseline metrics**
-   - Compute success rate across all eval records (Tier 1 mechanical pass/fail)
-   - Compute average duration seconds
-   - Compute average assertion pass rate
-   - Count records by grade (A-F) for graded records
-   - Store metrics in benchmark metadata file:
-     ```
-     systems/eval-harness/benchmarks/{benchmark_id}/metadata.json:
-     {
-       "benchmark_id": "bench-{evolution_id}-{timestamp}",
-       "evolution_id": "{evolution_id}",
-       "created": "ISO timestamp",
-       "metrics": {
-         "total_records": N,
-         "success_rate": X%,
-         "avg_duration_seconds": Y,
-         "avg_assertion_pass_rate": Z%,
-         "grade_distribution": {A: N, B: N, C: N, D: N, F: N}
-       }
-     }
-     ```
-
-5. **Cleanup old benchmarks (keep only prior 2)**
-   - List all benchmarks in `systems/eval-harness/benchmarks/`
-   - Sort by creation date (newest first)
-   - Keep: current (just created) + prior 2
-   - Delete all older benchmarks
-   - Log cleanup action to state.yaml: `benchmark_snapshot.benchmarks_cleaned: N`
-
-6. **Log benchmark snapshot to state.yaml**
-   - Store in `accumulated-context`:
-     ```
-     benchmark_snapshot:
-       skipped: false
-       benchmark_path: systems/eval-harness/benchmarks/{benchmark_id}/
-       benchmark_id: {benchmark_id}
-       records_graded: N
-       benchmarks_cleaned: N
-       baseline_metrics:
-         total_records: N
-         success_rate: X%
-         avg_duration_seconds: Y
-         avg_assertion_pass_rate: Z%
-         grade_distribution: {A: N, B: N, C: N, D: N, F: N}
-     ```
+Run the benchmark snapshot protocol in `references/benchmark-snapshot.md` (read it in this step): grade ungraded eval records, snapshot `systems/eval-harness/runs/` to a benchmark directory, compute baseline metrics, clean old benchmarks (keep current + prior 2), and log to state.yaml. Captures the baseline AFTER the evolution is applied so regression detection compares future runs against the post-deployment state.
 
 ### 4. Comparative Eval Grading (if benchmark snapshot exists)
 
@@ -194,62 +127,7 @@ If `benchmark_snapshot.skipped` is true (no eval harness):
 
 Append entry to `{project-root}/evolutions/history.md`:
 
-**Format:**
-
-```markdown
-## {evolution_name} ({evolution_version}) — Applied {date}
-
-**Evolution ID:** {evolution_id}
-**Applied:** {ISO timestamp}
-**Snapshot:** {snapshot_id}
-**Applied by:** {user or system}
-
-### Files Changed
-
-{for each file in file_list:}
-- `{file.path}` — {action}{if merged: " ({personal_blocks_count} personal blocks preserved)"}
-{end for}
-
-### Conflicts
-
-{if conflicts encountered:}
-{list each conflict and resolution}
-{else:}
-None.
-{end if}
-
-### Personal Blocks Preserved
-
-{if personal blocks:}
-{for each file with personal blocks:}
-- `{file.path}`: {list sections where blocks preserved}
-{end for}
-{else:}
-No personal blocks in target files.
-{end if}
-
-### Status
-
-{if no errors:}
-✓ Deployment successful
-{else:}
-⚠️  Deployment completed with warnings (see errors below)
-{list errors}
-{end if}
-
-### Eval Comparison (if benchmark snapshot exists)
-
-{if eval_comparison was performed:}
-**Trend:** {trend} (success rate: {success_rate_delta}, composite score: {avg_composite_score_delta})
-**Baseline:** {baseline_metrics}
-**Post-deployment:** {post_deployment_metrics}
-{else:}
-Eval comparison skipped (no baseline available)
-{end if}
-
----
-
-```
+**Format:** append the entry using the exact template in `references/history-entry-template.md` (read it before writing).
 
 ### 6. Update System Version
 
@@ -265,25 +143,7 @@ This tracks the current IES system version.
 
 ### 7. Surface Changelog to User
 
-Present the evolution's changelog from manifest:
-
-```
-🎉 Evolution Applied: {evolution_name}
-
-What's New:
-{for each changelog entry:}
-• {entry}
-{end for}
-```
-
-If manifest includes `training_prompts`, mention them:
-
-```
-New capabilities unlocked! Try these:
-{for each prompt:}
-• {prompt.agent}: {prompt.prompt}
-{end for}
-```
+Present the changelog and (if present) training-prompts announcement using the exact formats in `references/output-templates.md` (read it in this step).
 
 ### 8. Queue Training Prompts (if present)
 
@@ -295,45 +155,7 @@ If manifest includes `training_prompts`:
 
 ### 9. Output Final Summary
 
-**If deployment fully successful:**
-
-```
-✅ Evolution deployment complete
-
-Evolution: {evolution_name} ({evolution_version})
-Applied: {timestamp}
-Files changed: {count}
-Personal blocks preserved: {count}
-Snapshot: {snapshot_id}
-Rollback available: yes
-
-History logged to: evolutions/history.md
-
-{display changelog}
-```
-
-**If deployment had warnings/errors:**
-
-```
-⚠️  Evolution deployment completed with warnings
-
-Evolution: {evolution_name} ({evolution_version})
-Applied: {timestamp}
-Files changed: {success_count}/{total_count}
-Errors: {error_count}
-Personal blocks preserved: {count}
-Snapshot: {snapshot_id}
-
-Issues encountered:
-{list errors}
-
-Recommendations:
-- Review errors above
-- Verify system functionality
-- Rollback available if needed: rigby rollback {snapshot_id}
-
-History logged to: evolutions/history.md
-```
+Output the success or warnings summary using the exact templates in `references/output-templates.md`.
 
 ## Outputs
 
@@ -353,6 +175,3 @@ This is the final step. Evolution deployment workflow terminates here.
 - Rollback if needed: `rigby rollback {snapshot_id}`
 - Test new capabilities mentioned in training prompts
 <!-- system:end -->
-
-<!-- personal:start -->
-<!-- personal:end -->

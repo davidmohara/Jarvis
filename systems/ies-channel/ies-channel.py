@@ -34,6 +34,7 @@ Usage:
 
 from __future__ import annotations
 
+import argparse
 import json
 import os
 import shutil
@@ -418,7 +419,17 @@ def run_daemon(dry_run: bool = False):
 
 
 def main():
-    dry_run = "--test" in sys.argv
+    ap = argparse.ArgumentParser(
+        description="IES channel daemon: monitor a Slack channel for owner messages, "
+                    "route each to a headless Claude Code session, post the response back as the bot.",
+        epilog="Examples:\n"
+               "  python3 systems/ies-channel/ies-channel.py          # run daemon\n"
+               "  python3 systems/ies-channel/ies-channel.py --test   # single poll, no Claude calls or Slack posts",
+        formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("--test", action="store_true",
+                    help="test mode: single poll, Slack reads only, no Claude invocations or posts")
+    args = ap.parse_args()
+    dry_run = args.test
     if dry_run:
         log("Test mode — Slack reads only, no Claude invocations or posts")
     run_daemon(dry_run=dry_run)

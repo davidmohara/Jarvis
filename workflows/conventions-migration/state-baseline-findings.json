@@ -1,0 +1,89 @@
+{"severity": "warn", "rule": "skill.pointer_when_to_load", "path": "skills/one-password/SKILL.md", "message": "pointer to references/get-started.md lacks when-to-load phrasing"}
+{"severity": "warn", "rule": "skill.pointer_when_to_load", "path": "skills/amazing-race-monitor/SKILL.md", "message": "pointer to references/quests.json lacks when-to-load phrasing"}
+{"severity": "acknowledged", "rule": "size.skill_body", "path": "skills/plaud-speaker-id/SKILL.md", "message": "over size guide (~6661 tokens > 5000) \u2014 exception recorded, review after 2027-01-17"}
+{"severity": "warn", "rule": "skill.gotchas", "path": "skills/git/SKILL.md", "message": "error history exists for this skill (error-log related_skill) but no Gotchas section"}
+{"severity": "acknowledged", "rule": "size.script", "path": "skills/rigby-skill-audit/scripts/audit.py", "message": "over size guide (894 lines > 300) \u2014 exception recorded, review after 2027-01-17"}
+{"severity": "warn", "rule": "script.help_flag", "path": "skills/plaud-transcripts/scripts/fetch_plaud.py", "message": "script parses sys.argv manually with no argparse --help handling"}
+{"severity": "warn", "rule": "size.script", "path": "skills/plaud-transcripts/scripts/fetch_plaud.py", "message": "over size guide: 1503 lines > 300"}
+{"severity": "warn", "rule": "script.help_flag", "path": "skills/amazing-race-monitor/scripts/merge_shards.py", "message": "script parses sys.argv manually with no argparse --help handling"}
+{"severity": "warn", "rule": "size.script", "path": "skills/amazing-race-monitor/scripts/poll_channel.py", "message": "over size guide: 559 lines > 300"}
+{"severity": "warn", "rule": "size.script", "path": "skills/amazing-race-monitor/scripts/dashboard_server.py", "message": "over size guide: 303 lines > 300"}
+{"severity": "warn", "rule": "script.help_flag", "path": "skills/amazing-race-monitor/scripts/apply_ruling.py", "message": "script parses sys.argv manually with no argparse --help handling"}
+{"severity": "warn", "rule": "size.script", "path": "skills/amazing-race-monitor/scripts/apply_ruling.py", "message": "over size guide: 307 lines > 300"}
+{"severity": "warn", "rule": "size.script", "path": "skills/omnifocus-data/scripts/omnifocus_data.py", "message": "over size guide: 557 lines > 300"}
+{"severity": "acknowledged", "rule": "size.skill_body", "path": ".claude/skills/rigby-package-create/SKILL.md", "message": "over size guide (~5020 tokens > 5000) \u2014 exception recorded, review after 2027-01-17"}
+{"severity": "warn", "rule": "skill.description_imperative", "path": ".claude/skills/contact-targeting/SKILL.md", "message": "description does not start with a verb (intent, not mechanics)"}
+{"severity": "acknowledged", "rule": "size.script", "path": ".claude/skills/rigby-capability-build/scripts/run_eval.py", "message": "over size guide (504 lines > 300) \u2014 exception recorded, review after 2027-01-17"}
+{"severity": "acknowledged", "rule": "size.script", "path": ".claude/skills/rigby-capability-build/scripts/generate_review.py", "message": "over size guide (471 lines > 300) \u2014 exception recorded, review after 2027-01-17"}
+{"severity": "acknowledged", "rule": "size.script", "path": ".claude/skills/rigby-capability-build/scripts/aggregate_benchmark.py", "message": "over size guide (493 lines > 300) \u2014 exception recorded, review after 2027-01-17"}
+{"severity": "acknowledged", "rule": "size.script", "path": ".claude/skills/rigby-capability-build/scripts/run_loop.py", "message": "over size guide (331 lines > 300) \u2014 exception recorded, review after 2027-01-17"}
+{"severity": "acknowledged", "rule": "size.script", "path": ".claude/skills/rigby-capability-build/scripts/generate_report.py", "message": "over size guide (326 lines > 300) \u2014 exception recorded, review after 2027-01-17"}
+{"severity": "warn", "rule": "size.script", "path": "workflows/dream-cycle/orchestrate.py", "message": "over size guide: 732 lines > 300"}
+{"severity": "warn", "rule": "size.workflow_md", "path": "workflows/comp-tracker/workflow.md", "message": "over size guide: 181 lines > 150"}
+{"severity": "warn", "rule": "size.workflow_md", "path": "workflows/content-discovery/workflow.md", "message": "over size guide: 279 lines > 150"}
+{"severity": "warn", "rule": "size.workflow_md", "path": "workflows/evolution-deployment/workflow.md", "message": "over size guide: 151 lines > 150"}
+{"severity": "warn", "rule": "size.step_file", "path": "workflows/episode-prep-generator/steps/step-03-generate-prep.md", "message": "over size guide: 205 lines > 200"}
+{"severity": "warn", "rule": "size.step_file", "path": "workflows/golf-booking/steps/step-04-select-time-and-confirm.md", "message": "over size guide: 267 lines > 200"}
+{"severity": "warn", "rule": "size.step_file", "path": "workflows/golf-booking/steps/step-03-navigate-select-players.md", "message": "over size guide: 212 lines > 200"}
+{"severity": "warn", "rule": "size.step_file", "path": "workflows/golf-booking/steps/step-00-cancel-prior-booking.md", "message": "over size guide: 202 lines > 200"}
+{"severity": "warn", "rule": "size.step_file", "path": "workflows/partner-meeting-prep/steps/step-04-build-document.md", "message": "over size guide: 269 lines > 200"}
+{"severity": "warn", "rule": "size.step_file", "path": "workflows/account-pursuit-map/steps/step-04-icp-account-9box.md", "message": "over size guide: 258 lines > 200"}
+{"severity": "warn", "rule": "size.step_file", "path": "workflows/system-eval/steps/step-05-analyze.md", "message": "over size guide: 210 lines > 200"}
+{"severity": "warn", "rule": "size.step_file", "path": "workflows/system-eval/steps/step-06-dashboard.md", "message": "over size guide: 223 lines > 200"}
+{"severity": "warn", "rule": "size.step_file", "path": "workflows/account-strategy/steps/step-03-strategy-brief.md", "message": "over size guide: 210 lines > 200"}
+{"severity": "warn", "rule": "size.step_file", "path": "workflows/daily-review/steps/step-auto.md", "message": "over size guide: 222 lines > 200"}
+{"severity": "warn", "rule": "size.step_file", "path": "workflows/plaud-ingest/steps/step-01-discover.md", "message": "over size guide: 226 lines > 200"}
+{"severity": "warn", "rule": "size.step_file", "path": "workflows/plaud-ingest/steps/step-03-identify-speakers.md", "message": "over size guide: 331 lines > 200"}
+{"severity": "warn", "rule": "size.step_file", "path": "workflows/content-approval/steps/step-01-approve.md", "message": "over size guide: 573 lines > 200"}
+{"severity": "warn", "rule": "size.step_file", "path": "workflows/watchtower/steps/weekly-step-06-publish-drafts.md", "message": "over size guide: 222 lines > 200"}
+{"severity": "warn", "rule": "size.step_file", "path": "workflows/evolution-deployment/steps/step-07-verify-and-log.md", "message": "over size guide: 358 lines > 200"}
+{"severity": "warn", "rule": "size.step_file", "path": "workflows/evolution-deployment/steps/step-06-apply-evolution.md", "message": "over size guide: 238 lines > 200"}
+{"severity": "warn", "rule": "size.step_file", "path": "workflows/content-discovery/steps/step-01-discover.md", "message": "over size guide: 868 lines > 200"}
+{"severity": "warn", "rule": "size.step_file", "path": "workflows/galen-monthly-health-review/steps/step-05-synthesize.md", "message": "over size guide: 251 lines > 200"}
+{"severity": "warn", "rule": "size.step_file", "path": "workflows/comp-tracker/steps/step-04-extract-update-comp2.md", "message": "over size guide: 353 lines > 200"}
+{"severity": "warn", "rule": "size.step_file", "path": "workflows/comp-tracker/steps/step-06-match-commissions.md", "message": "over size guide: 300 lines > 200"}
+{"severity": "warn", "rule": "size.step_file", "path": "workflows/comp-tracker/steps/step-01-extract-powerbi-revenue.md", "message": "over size guide: 293 lines > 200"}
+{"severity": "warn", "rule": "size.step_file", "path": "workflows/comp-tracker/steps/step-05-sync-leads.md", "message": "over size guide: 283 lines > 200"}
+{"severity": "warn", "rule": "size.step_file", "path": "workflows/comp-tracker/steps/step-03-update-comp1.md", "message": "over size guide: 276 lines > 200"}
+{"severity": "warn", "rule": "size.step_file", "path": "workflows/comp-tracker/steps/step-08-close.md", "message": "over size guide: 267 lines > 200"}
+{"severity": "warn", "rule": "size.step_file", "path": "workflows/comp-tracker/steps/step-07-prompt-comp3.md", "message": "over size guide: 210 lines > 200"}
+{"severity": "warn", "rule": "size.step_file", "path": "workflows/boot/steps/step-01.2-unified-data-pull.md", "message": "over size guide: 342 lines > 200"}
+{"severity": "warn", "rule": "size.step_file", "path": "workflows/one-on-one-prep/steps/step-04-assemble-brief.md", "message": "over size guide: 221 lines > 200"}
+{"severity": "warn", "rule": "size.step_file", "path": "workflows/client-meeting-prep/steps/step-03-research-company-and-attendee.md", "message": "over size guide: 216 lines > 200"}
+{"severity": "warn", "rule": "size.agent_file", "path": "agents/master.md", "message": "over size guide: 627 lines > 400"}
+{"severity": "warn", "rule": "size.script", "path": ".claude/hooks/step-complete.py", "message": "over size guide: 743 lines > 300"}
+{"severity": "warn", "rule": "size.script", "path": ".claude/hooks/post-tool-use.py", "message": "over size guide: 1158 lines > 300"}
+{"severity": "warn", "rule": "size.script", "path": ".claude/hooks/eval-turn-stop.py", "message": "over size guide: 884 lines > 300"}
+{"severity": "warn", "rule": "size.script", "path": ".claude/hooks/eval-agent-start.py", "message": "over size guide: 373 lines > 300"}
+{"severity": "warn", "rule": "size.script", "path": ".claude/hooks/eval-turn-start.py", "message": "over size guide: 382 lines > 300"}
+{"severity": "warn", "rule": "size.script", "path": ".claude/hooks/eval-agent-stop.py", "message": "over size guide: 614 lines > 300"}
+{"severity": "warn", "rule": "script.help_flag", "path": ".claude/hooks/tests/test_step_token_capture.py", "message": "script parses sys.argv manually with no argparse --help handling"}
+{"severity": "warn", "rule": "size.script", "path": ".claude/hooks/tests/test_step_token_capture.py", "message": "over size guide: 452 lines > 300"}
+{"severity": "warn", "rule": "script.help_flag", "path": ".claude/hooks/tests/test_ies_git.py", "message": "script parses sys.argv manually with no argparse --help handling"}
+{"severity": "warn", "rule": "script.help_flag", "path": ".claude/hooks/tests/test_secret_scanner.py", "message": "script parses sys.argv manually with no argparse --help handling"}
+{"severity": "warn", "rule": "size.script", "path": "systems/dream-cycle/backfill-episodic-tags.py", "message": "over size guide: 370 lines > 300"}
+{"severity": "warn", "rule": "script.help_flag", "path": "systems/ies-channel/ies-channel.py", "message": "script parses sys.argv manually with no argparse --help handling"}
+{"severity": "warn", "rule": "size.script", "path": "systems/ies-channel/ies-channel.py", "message": "over size guide: 428 lines > 300"}
+{"severity": "warn", "rule": "size.script", "path": "systems/eval-harness/step_audit.py", "message": "over size guide: 396 lines > 300"}
+{"severity": "warn", "rule": "script.help_flag", "path": "systems/eval-harness/guardrail-checkpoint.py", "message": "script parses sys.argv manually with no argparse --help handling"}
+{"severity": "warn", "rule": "script.help_flag", "path": "systems/eval-harness/version-trend.py", "message": "script parses sys.argv manually with no argparse --help handling"}
+{"severity": "acknowledged", "rule": "size.script", "path": "systems/eval-harness/validate-conventions.py", "message": "over size guide (391 lines > 300) \u2014 exception recorded, review after 2027-01-17"}
+{"severity": "warn", "rule": "size.script", "path": "systems/eval-harness/assertion_checks.py", "message": "over size guide: 1208 lines > 300"}
+{"severity": "warn", "rule": "size.script", "path": "systems/eval-harness/hook_utils.py", "message": "over size guide: 801 lines > 300"}
+{"severity": "warn", "rule": "size.script", "path": "systems/eval-harness/generate-dashboard.py", "message": "over size guide: 598 lines > 300"}
+{"severity": "warn", "rule": "script.help_flag", "path": "systems/eval-harness/record-step.py", "message": "script parses sys.argv manually with no argparse --help handling"}
+{"severity": "warn", "rule": "script.help_flag", "path": "systems/eval-harness/enrich-assertions.py", "message": "script parses sys.argv manually with no argparse --help handling"}
+{"severity": "warn", "rule": "script.help_flag", "path": "systems/eval-harness/skill_capture.py", "message": "script parses sys.argv manually with no argparse --help handling"}
+{"severity": "warn", "rule": "size.script", "path": "systems/eval-harness/close-eval-record.py", "message": "over size guide: 479 lines > 300"}
+{"severity": "warn", "rule": "script.help_flag", "path": "systems/boot-instrumentation/measure.py", "message": "script parses sys.argv manually with no argparse --help handling"}
+{"severity": "warn", "rule": "script.help_flag", "path": "systems/slack-bot/post.py", "message": "script parses sys.argv manually with no argparse --help handling"}
+{"severity": "warn", "rule": "script.help_flag", "path": "systems/slack-bot/read.py", "message": "script parses sys.argv manually with no argparse --help handling"}
+{"severity": "warn", "rule": "script.help_flag", "path": "systems/wine-monitor/monitor.py", "message": "script parses sys.argv manually with no argparse --help handling"}
+{"severity": "warn", "rule": "size.script", "path": "systems/wine-monitor/monitor.py", "message": "over size guide: 536 lines > 300"}
+{"severity": "warn", "rule": "size.script", "path": "systems/error-tracking/new-entry.py", "message": "over size guide: 305 lines > 300"}
+{"severity": "warn", "rule": "size.script", "path": "systems/error-tracking/compact.py", "message": "over size guide: 412 lines > 300"}
+{"severity": "warn", "rule": "script.help_flag", "path": "systems/political-monitor/render.py", "message": "script parses sys.argv manually with no argparse --help handling"}
+{"severity": "warn", "rule": "size.script", "path": "systems/political-monitor/render.py", "message": "over size guide: 377 lines > 300"}
+{"severity": "warn", "rule": "script.help_flag", "path": "systems/political-monitor/cluster.py", "message": "script parses sys.argv manually with no argparse --help handling"}
+{"severity": "warn", "rule": "script.help_flag", "path": "systems/integrity/check-scheduled-cadence.py", "message": "script parses sys.argv manually with no argparse --help handling"}
+{"severity": "warn", "rule": "size.script", "path": "systems/eval-harness/scoring/score_eval.py", "message": "over size guide: 447 lines > 300"}

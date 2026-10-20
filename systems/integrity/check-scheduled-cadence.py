@@ -14,6 +14,7 @@ Usage:
 
 If IES_ROOT is omitted, it is derived from this file's location.
 """
+import argparse
 import json
 import re
 import sys
@@ -33,9 +34,9 @@ TRIGGER_LINE = re.compile(r"^\*\*Trigger:\*\*\s*(.+)$", re.MULTILINE)
 SCHEDULED_BULLET = re.compile(r"^\s*[-*]\s*Scheduled:\s*(.+)$", re.MULTILINE)
 
 
-def resolve_root(argv):
-    if len(argv) > 1:
-        return Path(argv[1]).resolve()
+def resolve_root(root_arg):
+    if root_arg:
+        return Path(root_arg).resolve()
     return Path(__file__).resolve().parents[2]
 
 
@@ -75,7 +76,16 @@ def skill_workflow(root, skill):
 
 
 def main():
-    root = resolve_root(sys.argv)
+    ap = argparse.ArgumentParser(
+        description="Check that every workflow documenting a recurring cadence has a "
+                    "matching entry in config/scheduled-tasks.json. Read-only; exits 1 "
+                    "when a gap exists.",
+        epilog="Example:\n  python3 systems/integrity/check-scheduled-cadence.py",
+        formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("ies_root", nargs="?", default=None,
+                    help="IES root (default: derived from this file's location)")
+    args = ap.parse_args()
+    root = resolve_root(args.ies_root)
     config_path = root / "config" / "scheduled-tasks.json"
     if not config_path.exists():
         print(f"ERROR: {config_path} not found", file=sys.stderr)

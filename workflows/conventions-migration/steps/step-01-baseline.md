@@ -1,7 +1,7 @@
 ---
-status: not-started
-started-at: ~
-completed-at: ~
+status: complete
+started-at: 2026-10-18
+completed-at: 2026-10-18
 ---
 
 <!-- system:start -->
