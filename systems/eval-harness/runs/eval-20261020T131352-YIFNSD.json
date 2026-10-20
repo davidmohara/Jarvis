@@ -1,0 +1,59 @@
+{
+  "id": "eval-20261020T131352-YIFNSD",
+  "agent_id": "adf27ec11b8ed6d54",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": "daily-review",
+  "agent": "chief",
+  "owning_agent": "chief",
+  "subagent_type": "general-purpose",
+  "session_id": "14665b00-c08f-4954-b92c-1e7a20e135fb",
+  "trigger": "workflow-dispatch",
+  "started": "2026-10-20T13:13:52.583348Z",
+  "completed": null,
+  "duration_seconds": null,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "total_cost_usd": 0.09,
+  "cost_estimation_note": "estimated based on general-purpose workflow type",
+  "model": "sonnet"
+}

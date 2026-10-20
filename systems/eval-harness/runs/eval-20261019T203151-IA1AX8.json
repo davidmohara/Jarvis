@@ -6,9 +6,9 @@
   "session_id": "14665b00-c08f-4954-b92c-1e7a20e135fb",
   "trigger": "boot",
   "started": "2026-10-19T20:31:51.736367Z",
-  "completed": null,
-  "duration_seconds": null,
-  "status": "in-progress",
+  "completed": "2026-10-19T21:32:39.672379Z",
+  "duration_seconds": 3647.94,
+  "status": "success",
   "steps": [
     {
       "name": "step-01.2-unified-data-pull.md",
@@ -105,6 +105,86 @@
       "token_source": "windowed",
       "turns_matched": 18,
       "duration_seconds": 300.0
+    },
+    {
+      "name": "step-05-synthesize-briefing.md",
+      "agent": "master",
+      "step_id": "step-05-synthesize-briefing.md",
+      "owning_agent": "master",
+      "started": "2026-10-19T21:10:00Z",
+      "completed": "2026-10-19T21:22:00Z",
+      "status": "complete",
+      "tokens_input": 418613,
+      "tokens_output": 1768,
+      "cost_usd": 0.025738,
+      "model": "glm-5p3-flash",
+      "token_source": "lenient_fallback",
+      "turns_matched": 8,
+      "duration_seconds": 720.0
+    },
+    {
+      "name": "step-06-scan-workflows.md",
+      "agent": "master",
+      "step_id": "step-06-scan-workflows.md",
+      "owning_agent": "master",
+      "started": "2026-10-19T21:24:00Z",
+      "completed": "2026-10-19T21:26:00Z",
+      "status": "complete",
+      "tokens_input": 418613,
+      "tokens_output": 1768,
+      "cost_usd": 0.025738,
+      "model": "glm-5p3-flash",
+      "token_source": "lenient_fallback",
+      "turns_matched": 8,
+      "duration_seconds": 120.0
+    },
+    {
+      "name": "step-06.5-guardrail-checkpoint.md",
+      "agent": "master",
+      "step_id": "step-06.5-guardrail-checkpoint.md",
+      "owning_agent": "master",
+      "started": "2026-10-19T21:27:00Z",
+      "completed": "2026-10-19T21:29:00Z",
+      "status": "complete",
+      "tokens_input": 418613,
+      "tokens_output": 1768,
+      "cost_usd": 0.025738,
+      "model": "glm-5p3-flash",
+      "token_source": "lenient_fallback",
+      "turns_matched": 8,
+      "duration_seconds": 120.0
+    },
+    {
+      "name": "step-07-verify-completion.md",
+      "agent": "master",
+      "step_id": "step-07-verify-completion.md",
+      "owning_agent": "master",
+      "started": "2026-10-19T21:29:30Z",
+      "completed": "2026-10-19T21:31:00Z",
+      "status": "complete",
+      "tokens_input": 418613,
+      "tokens_output": 1768,
+      "cost_usd": 0.025738,
+      "model": "glm-5p3-flash",
+      "token_source": "lenient_fallback",
+      "turns_matched": 8,
+      "duration_seconds": 90.0
+    },
+    {
+      "name": "step-08-knox-completion-check.md",
+      "agent": "master",
+      "step_id": "step-08-knox-completion-check.md",
+      "owning_agent": "master",
+      "started": "2026-10-19T21:31:00Z",
+      "completed": "2026-10-19T21:32:00Z",
+      "status": "complete",
+      "tokens_input": 418613,
+      "tokens_output": 1768,
+      "cost_usd": 0.025738,
+      "model": "glm-5p3-flash",
+      "token_source": "lenient_fallback",
+      "turns_matched": 8,
+      "duration_seconds": 60.0
     }
   ],
   "subagents": [
@@ -135,10 +215,11 @@
       "agent_type": "general-purpose",
       "started": "2026-10-19T20:37:46.391100Z",
       "completed": null,
-      "model": null,
+      "model": "sonnet",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": 0.09,
+      "duration_seconds": null
     },
     {
       "agent_id": "aaaf4c38695684919",
@@ -177,12 +258,12 @@
       "agent_id": "aa940ac542af232c7",
       "agent_type": "general-purpose",
       "started": "2026-10-19T21:10:30.526710Z",
-      "completed": "2026-10-19T21:17:43.381275Z",
-      "model": "accounts/fireworks/models/kimi-k3",
-      "tokens_input": 53008,
-      "tokens_output": 87,
-      "cost_usd": 0.017915,
-      "duration_seconds": 31.01
+      "completed": null,
+      "model": "sonnet",
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": 0.09,
+      "duration_seconds": null
     },
     {
       "agent_id": "ac192359ce0b01705",
@@ -214,27 +295,108 @@
       "tokens_input": null,
       "tokens_output": null,
       "cost_usd": null
+    },
+    {
+      "agent_id": "aa940ac542af232c7",
+      "agent_type": "general-purpose",
+      "started": "2026-10-19T21:22:13.528817Z",
+      "completed": null,
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "agent_id": "aa940ac542af232c7",
+      "agent_type": "general-purpose",
+      "started": "2026-10-19T21:22:25.129350Z",
+      "completed": null,
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "agent_id": "aa940ac542af232c7",
+      "agent_type": "general-purpose",
+      "started": "2026-10-19T21:24:33.113241Z",
+      "completed": null,
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "agent_id": "aa940ac542af232c7",
+      "agent_type": "general-purpose",
+      "started": "2026-10-19T21:27:37.619047Z",
+      "completed": null,
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
     }
   ],
   "monitoring": {
-    "active": true,
+    "active": false,
     "state_yaml_path": "workflows/boot/state.yaml",
     "opened_by": "eval-turn-start.py",
     "trigger_evidence": "run the morning boot workflow"
   },
   "assessment": {
     "mechanical": {
-      "completed": null,
-      "all_steps_finished": null,
+      "completed": true,
+      "all_steps_finished": true,
       "tool_failures": 0,
       "error_ids": []
     },
     "structural": {
       "expected_outputs_written": null,
       "outputs_non_empty": null,
-      "assertions_checked": 0,
-      "assertions_passed": 0,
-      "assertion_results": []
+      "assertions_checked": 8,
+      "assertions_passed": 7,
+      "assertion_results": [
+        {
+          "assertion": "boot-001-state-complete",
+          "description": "Boot workflow state.yaml shows status: complete",
+          "passed": true
+        },
+        {
+          "assertion": "boot-002-session-index-exists",
+          "description": "Session index file exists \u2014 boot's Session Index Boot step must have created/appended it",
+          "passed": true
+        },
+        {
+          "assertion": "boot-003-session-index-substantive",
+          "description": "Session index is a real record, not an empty stub",
+          "passed": true
+        },
+        {
+          "assertion": "boot-005-omnifocus-data-file-exists",
+          "description": "OmniFocus pull (step-01.2 Pull B) wrote its consolidated data file",
+          "passed": true
+        },
+        {
+          "assertion": "boot-007-omnifocus-no-completed-tasks-leaked",
+          "description": "No completed task leaked into the OmniFocus pull. The inbox permanently holds ~247 completed tasks alongside ~8 incomplete ones, and Clean Up does NOT remove them, so the query itself must carry `completed is false`. Any `completed: true` in the output means the filter was dropped from the call.",
+          "passed": true
+        },
+        {
+          "assertion": "boot-008-omnifocus-filter-documented",
+          "description": "Regression guard: the boot pull instructions still mandate the completed=false filter on the inbox query. Matches both the prose form (`completed is false`) and the JSON field form (`\"completed\": false`) \u2014 step-01.2 was rewritten to express the filter as the JSON field, which the old literal `completed is false` string-match false-fired on. If someone strips the filter entirely, this trips before the leak reaches a briefing.",
+          "passed": true
+        },
+        {
+          "assertion": "boot-009-step-owner-manifest",
+          "description": "Master J2 (routing correctness): no step on this run that belongs to a specialist workflow (per workflows/<name>/workflow.md's agent frontmatter) or to a specialist's boot-step range (per agents/manifest.md) may carry owning_agent: master. Fails if the coordinator is recorded as owning a specialist's step \u2014 e.g. a plaud-ingest step (owned by knox) stamped master. A step whose own workflow is master-owned (boot's own steps) or that the manifest assigns to master is not flagged. This is the routing-assertion hook J2's A/B evidence requires; it reads the manifest ownership table and the workflow step definitions, not self-reported claims.",
+          "passed": true
+        },
+        {
+          "assertion": "boot-010-j4-grade-threshold",
+          "description": "Master J4 (Tier 3 grade >= B on >= 80% of graded coordination runs): voice/quality of a coordination run can only be judged by Tier 3 grading, so this assertion defers (skipped, not failed) until the record carries a grade, then requires grade B or better. The >= 80% pass-rate threshold across runs is applied by the Stage 3 rollup, not by this per-record check.",
+          "passed": null
+        }
+      ]
     },
     "grading": {
       "last_graded": null,
@@ -258,7 +420,7 @@
       "remediation_status": "none"
     }
   },
-  "version_hash": null,
+  "version_hash": "f82e3148e8b1defeed38af864c0318df897560c533acf076242633d936b73b56",
   "prior_baseline_id": null,
   "tags": [
     "turn-level"
@@ -369,6 +531,156 @@
         "clay_cross_reference_available": true,
         "clay_items_checked": 0
       }
+    },
+    {
+      "name": "step-05-checkpoint",
+      "after_step": "step-05-synthesize-briefing.md",
+      "result": "pass",
+      "reason": "Briefing delivered with 2 sections (491 chars)",
+      "escalated_to_human": false,
+      "timestamp": "2026-10-19T21:24:07.442910Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "briefing_delivered": true,
+        "briefing_sections": 2,
+        "briefing_section_labels": [
+          "HASC AI Automation proposal 11",
+          "Tasks"
+        ],
+        "briefing_content_length": 491,
+        "last_run_status": "partial"
+      }
+    },
+    {
+      "name": "step-06-checkpoint",
+      "after_step": "step-06-scan-workflows.md",
+      "result": "retry",
+      "reason": "Step incomplete: missing required field 'in_flight_list'",
+      "escalated_to_human": false,
+      "timestamp": "2026-10-19T21:25:50.086547Z",
+      "validation_errors": [
+        "missing_field: in_flight_list"
+      ]
+    },
+    {
+      "name": "step-06-checkpoint",
+      "after_step": "step-06-scan-workflows.md",
+      "result": "pass",
+      "reason": "Step completed with 13 output fields recorded",
+      "escalated_to_human": false,
+      "timestamp": "2026-10-19T21:26:36.612968Z",
+      "validation_errors": []
+    },
+    {
+      "name": "pre-completion-review",
+      "after_step": "step-06-scan-workflows",
+      "result": "flag",
+      "reason": "Briefing faithful to fresh pulls (Ralph 39/44, minor overstatements only); workflow scan sound (caught conventions-migration stale in-progress missed by empty _active.yaml index \u2014 index drift); no credential leakage; session index clean. Quirks: M365/Clay/OmniFocus MCPs all down (Superhuman + skill fallbacks used), step-03b/adversarial checkpoint eval-recording failed (known gap dream-004/boot-004), GoTogether reminder deleted mid-run by another live session.",
+      "escalated_to_human": false,
+      "timestamp": "2026-10-19T21:27:12.966580+00:00"
+    },
+    {
+      "name": "pre-completion-review",
+      "after_step": "step-06.5-guardrail-checkpoint.md",
+      "result": "pass",
+      "reason": "1 stale source(s): golf-outing-attendees.json (checkpoint recorded: flag)",
+      "escalated_to_human": false,
+      "timestamp": "2026-10-19T21:27:46.104940Z",
+      "validation_errors": [
+        "stale_source: golf-outing-attendees.json"
+      ],
+      "computed_fields": {
+        "stale_sources": [
+          {
+            "file": "golf-outing-attendees.json",
+            "age_hours": 2159.8
+          }
+        ],
+        "fresh_sources": [
+          {
+            "file": "calendar-unified.json",
+            "age_hours": 0.7
+          },
+          {
+            "file": "clay-reminders-unified.json",
+            "age_hours": 0.8
+          },
+          {
+            "file": "email-unified.json",
+            "age_hours": 0.8
+          },
+          {
+            "file": "jarvis-inbox-unified.json",
+            "age_hours": 0.8
+          },
+          {
+            "file": "omnifocus-unified.json",
+            "age_hours": 0.8
+          },
+          {
+            "file": "reminders.json",
+            "age_hours": 0.3
+          },
+          {
+            "file": "ynab-unified.json",
+            "age_hours": 0.8
+          }
+        ],
+        "stale_threshold_hours": 24,
+        "briefing_current": true,
+        "briefing_last_run_date": "2026-10-19",
+        "run_date": "2026-10-19",
+        "checkpoint_recorded": true,
+        "recorded_checkpoint_result": "flag",
+        "boot_eval_record": "eval-20261019T203151-IA1AX8.json",
+        "boot_eval_record_is_current": true,
+        "leakage_hits": [],
+        "data_freshness_report": "1 stale source(s) found"
+      }
+    },
+    {
+      "name": "step-07-checkpoint",
+      "after_step": "step-07-verify-completion.md",
+      "result": "pass",
+      "reason": "All 10 prior steps complete, state.yaml status=complete, session index present",
+      "escalated_to_human": false,
+      "timestamp": "2026-10-19T21:28:31.133143Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "state_status": "complete",
+        "steps_verified": 10,
+        "failed_steps": [],
+        "session_index_path": "memory/sessions/index.json",
+        "session_index_exists": true
+      }
+    },
+    {
+      "name": "step-08-knox-completion-check-checkpoint",
+      "after_step": "step-08-knox-completion-check.md",
+      "result": "pass",
+      "reason": "Knox eval record found (eval-20261019T203750-08ZSAP): status=success",
+      "escalated_to_human": false,
+      "timestamp": "2026-10-19T21:29:08.436909Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "knox_status": "success",
+        "knox_eval_id": "eval-20261019T203750-08ZSAP",
+        "knox_raw_status": "success",
+        "knox_duration_seconds": 258.7
+      }
     }
-  ]
+  ],
+  "retry_signal": {
+    "step": "step-06-scan-workflows.md",
+    "checkpoint": "step-06-checkpoint",
+    "reason": "Step incomplete: missing required field 'in_flight_list'",
+    "feedback": "Missing field: in_flight_list. Should identify in-flight workflows (retry if missing)",
+    "instruction": "The 'in_flight_list' field is missing. Re-execute step-06 to identify in-flight workflows (status not 'complete') and populate this field with the list of active workflows.",
+    "attempt_number": 1,
+    "timestamp": "2026-10-19T21:25:50.086853Z",
+    "max_attempts": 2
+  },
+  "total_tokens_input": 16954420,
+  "total_tokens_output": 87061,
+  "total_cost_usd": 7.759334
 }

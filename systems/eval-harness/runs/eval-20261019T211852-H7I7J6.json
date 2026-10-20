@@ -12,8 +12,88 @@
   "started": "2026-10-19T21:18:52.498494Z",
   "completed": null,
   "duration_seconds": null,
-  "status": "in-progress",
+  "status": "success",
   "steps": [
+    {
+      "name": "step-01-gather-calendar.md",
+      "agent": "chief",
+      "step_id": "step-01-gather-calendar.md",
+      "owning_agent": "chief",
+      "started": "2026-10-19T20:52:19Z",
+      "completed": "2026-10-19T20:53:33Z",
+      "status": "complete",
+      "tokens_input": 381489,
+      "tokens_output": 1212,
+      "cost_usd": 0.144323,
+      "model": "accounts/fireworks/models/kimi-k3",
+      "token_source": "lenient_fallback",
+      "turns_matched": 29,
+      "duration_seconds": 74.0
+    },
+    {
+      "name": "step-02-gather-tasks.md",
+      "agent": "chief",
+      "step_id": "step-02-gather-tasks.md",
+      "owning_agent": "chief",
+      "started": "2026-10-19T20:53:33Z",
+      "completed": "2026-10-19T20:55:40Z",
+      "status": "complete",
+      "tokens_input": 381489,
+      "tokens_output": 1212,
+      "cost_usd": 0.144323,
+      "model": "accounts/fireworks/models/kimi-k3",
+      "token_source": "lenient_fallback",
+      "turns_matched": 29,
+      "duration_seconds": 127.0
+    },
+    {
+      "name": "step-03-gather-context.md",
+      "agent": "chief",
+      "step_id": "step-03-gather-context.md",
+      "owning_agent": "chief",
+      "started": "2026-10-19T20:56:00Z",
+      "completed": "2026-10-19T21:06:14Z",
+      "status": "complete",
+      "tokens_input": 381489,
+      "tokens_output": 1212,
+      "cost_usd": 0.144323,
+      "model": "accounts/fireworks/models/kimi-k3",
+      "token_source": "lenient_fallback",
+      "turns_matched": 29,
+      "duration_seconds": 614.0
+    },
+    {
+      "name": "step-03b-guardrail-checkpoint.md",
+      "agent": "chief",
+      "step_id": "step-03b-guardrail-checkpoint.md",
+      "owning_agent": "chief",
+      "started": "2026-09-29T02:27:00Z",
+      "completed": "2026-09-29T02:28:00Z",
+      "status": "complete",
+      "tokens_input": 381489,
+      "tokens_output": 1212,
+      "cost_usd": 0.144323,
+      "model": "accounts/fireworks/models/kimi-k3",
+      "token_source": "lenient_fallback",
+      "turns_matched": 29,
+      "duration_seconds": 60.0
+    },
+    {
+      "name": "step-04-synthesize-briefing.md",
+      "agent": "chief",
+      "step_id": "step-04-synthesize-briefing.md",
+      "owning_agent": "chief",
+      "started": "2026-10-19T21:08:00Z",
+      "completed": "2026-10-19T21:14:28Z",
+      "status": "complete",
+      "tokens_input": 46369,
+      "tokens_output": 181,
+      "cost_usd": 0.017941,
+      "model": "accounts/fireworks/models/kimi-k3",
+      "token_source": "windowed",
+      "turns_matched": 6,
+      "duration_seconds": 388.0
+    },
     {
       "name": "step-05-verify-briefing.md",
       "step_id": "step-05-verify-briefing.md",
@@ -25,16 +105,17 @@
       "status": "complete",
       "data_sources_used": [],
       "data_source_failures": [],
-      "model": "kimi-k3",
-      "tokens_input": null,
-      "tokens_output": null,
-      "cost_usd": null,
-      "token_source": null
+      "model": "accounts/fireworks/models/kimi-k3",
+      "tokens_input": 287687,
+      "tokens_output": 556,
+      "cost_usd": 0.102841,
+      "token_source": "windowed",
+      "turns_matched": 19
     }
   ],
   "assessment": {
     "mechanical": {
-      "completed": null,
+      "completed": true,
       "all_steps_finished": true,
       "tool_failures": 0,
       "error_ids": []
@@ -70,5 +151,117 @@
   },
   "version_hash": null,
   "prior_baseline_id": null,
-  "tags": []
+  "tags": [],
+  "guardrails": [
+    {
+      "name": "step-01-gather-calendar-checkpoint",
+      "after_step": "step-01-gather-calendar.md",
+      "result": "pass",
+      "reason": "Calendar data present: 13 event(s) today, 47 total in range",
+      "escalated_to_human": false,
+      "timestamp": "2026-10-19T21:22:12.390943Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "events_today": 13,
+        "total_events": 47,
+        "date_range": {
+          "start": "2026-10-19",
+          "end": "2026-10-22"
+        },
+        "file_age_hours": 0.1
+      }
+    },
+    {
+      "name": "step-02-gather-tasks-checkpoint",
+      "after_step": "step-02-gather-tasks.md",
+      "result": "pass",
+      "reason": "Task sources present: 12 inbox, 0 due today, 1 overdue, 0 flagged; 1 active delegation row(s)",
+      "escalated_to_human": false,
+      "timestamp": "2026-10-19T21:22:12.484381Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "omnifocus_status": "available",
+        "task_count": 34,
+        "inbox_count": 12,
+        "due_today": 0,
+        "overdue": 1,
+        "flagged": 0,
+        "unparsed_due_dates": 0,
+        "file_age_hours": 0.3,
+        "active_delegation_rows": 1,
+        "omnifocus_source_present": true,
+        "objectives_present": true
+      }
+    },
+    {
+      "name": "step-03-gather-context-checkpoint",
+      "after_step": "step-03-gather-context.md",
+      "result": "pass",
+      "reason": "Identity context loaded; yesterday's review is missing",
+      "escalated_to_human": false,
+      "timestamp": "2026-10-19T21:22:12.583693Z",
+      "validation_errors": [
+        "yesterday_review_missing"
+      ],
+      "computed_fields": {
+        "identity_files_present": 3,
+        "missing_identity_files": [],
+        "yesterday_review_status": "missing",
+        "yesterday_review_file": null,
+        "yesterday_date_checked": "2026-10-18"
+      }
+    },
+    {
+      "name": "step-03b-guardrail-checkpoint-checkpoint",
+      "after_step": "step-03b-guardrail-checkpoint.md",
+      "result": "pass",
+      "reason": "Guardrail checkpoint recorded with result 'flag': Calendar is correct-day (2026-10-15) and meeting context is current; two minor quirks noted: (1) HASC 11:00 client meeting shows needs-prep but no prep artifact found in project or vault despite yesterday's review claiming prep done; (2) Susie Staff Retreat all-day entry overlaps bootcamp/hotel (showAs free) - data anomaly only. Watchtower not run this boot, no synthesis to validate.",
+      "escalated_to_human": false,
+      "timestamp": "2026-10-19T21:22:12.902247Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "checkpoint_found": true,
+        "checkpoint_result": "flag",
+        "checkpoint_reason": "Calendar is correct-day (2026-10-15) and meeting context is current; two minor quirks noted: (1) HASC 11:00 client meeting shows needs-prep but no prep artifact found in project or vault despite yesterday's review claiming prep done; (2) Susie Staff Retreat all-day entry overlaps bootcamp/hotel (showAs free) - data anomaly only. Watchtower not run this boot, no synthesis to validate.",
+        "eval_record_started": "2026-10-15T14:22:39.626350Z",
+        "eval_records_scanned": 22
+      }
+    },
+    {
+      "name": "step-04-synthesize-briefing-checkpoint",
+      "after_step": "step-04-synthesize-briefing.md",
+      "result": "pass",
+      "reason": "Briefing delivered (491 chars) and working memory file morning-briefing-2026-10-19-161051.md written",
+      "escalated_to_human": false,
+      "timestamp": "2026-10-19T21:22:13.028407Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "briefing_delivered": true,
+        "briefing_content_length": 491,
+        "state_status": "complete",
+        "state_current_step": "step-05-verify-briefing",
+        "working_memory_written": true,
+        "working_memory_file": "morning-briefing-2026-10-19-161051.md",
+        "working_memory_age_hours": 0.0
+      }
+    },
+    {
+      "name": "adversarial-verification",
+      "after_step": "step-05-verify-briefing.md",
+      "result": "pass",
+      "reason": "Adversarial verification recorded with result 'flag' (5 finding(s)) (note: no guardrail entry found in eval record)",
+      "escalated_to_human": false,
+      "timestamp": "2026-10-19T21:22:13.241073Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "adversarial_verification_recorded": true,
+        "verification_result": "flag",
+        "findings_count": 5,
+        "guardrail_entry_present": false
+      }
+    }
+  ],
+  "total_cost_usd": 0.09,
+  "cost_estimation_note": "estimated based on general-purpose workflow type",
+  "model": "sonnet"
 }

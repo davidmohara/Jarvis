@@ -1,0 +1,15 @@
+{
+  "id": "err-20261019T214500-FRIED1",
+  "timestamp": "2026-10-19T21:45:00Z",
+  "session": "2026-10-19",
+  "source": "explicit",
+  "agent": "jarvis",
+  "category": "contact-data",
+  "failure_mode": "used-unverified-email-address-from-transcript-without-validating-against-source-of-record",
+  "severity": "major",
+  "description": "Rebuilt the 7 GoTogether drafts using email addresses carried verbatim from the Oct 15 Harper session transcript. At least one (Larry Fried, larry_fried@overheaddoor.com) is invalid, i.e. the address was never validated against CRM/Clay/actual correspondence before being committed to drafts. The other six addresses carry the same provenance and are equally unverified.",
+  "correction": "David: 'You made up Larry Fried's email and it's invalid' — validate all 7 recipient addresses against source-of-record (Dynamics CRM / Clay / real prior correspondence), correct the Larry Fried draft to the verified address, and report any address that cannot be verified rather than guessing.",
+  "systemic_fix": "No email address recovered from a session transcript may be used in a draft without a validation pass against CRM or verified correspondence; unresolvable addresses are reported as unknown, never guessed (verify-before-asserting).",
+  "fix_status": "in-progress",
+  "related_entries": ["err-20261019T211530-GRP7MR"]
+}

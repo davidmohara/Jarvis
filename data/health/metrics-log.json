@@ -1,7 +1,7 @@
 {
   "_version": "1.0",
-  "_description": "Galen longitudinal health metrics log. Append-only. Written by Galen after each skill execution that produces real metric values. Never manually edited \u2014 always written by Galen via skills.",
-  "_instructions": "Append new entries to the entries array. Never delete or modify existing entries. Each entry represents one data event (a bloodwork draw, a monthly WHOOP summary, a DEXA scan, a body composition update, a protocol change). Read this file for trend analysis \u2014 filter by category and sort by date.",
+  "_description": "Galen longitudinal health metrics log. Append-only. Written by Galen after each skill execution that produces real metric values. Never manually edited — always written by Galen via skills.",
+  "_instructions": "Append new entries to the entries array. Never delete or modify existing entries. Each entry represents one data event (a bloodwork draw, a monthly WHOOP summary, a DEXA scan, a body composition update, a protocol change). Read this file for trend analysis — filter by category and sort by date.",
   "_schema_ref": "data/health/schema.md",
   "entries": [
     {
@@ -86,101 +86,101 @@
           "value": 48,
           "ref": "65-99",
           "direction": "LOW",
-          "flag": "CRITICAL \u2014 hypoglycemic reading; likely artifact of prolonged fast or lab timing error; retest needed"
+          "flag": "CRITICAL — hypoglycemic reading; likely artifact of prolonged fast or lab timing error; retest needed"
         },
         {
           "marker": "total_testosterone_ng_dl",
           "value": 1498,
           "ref": "250-1100",
           "direction": "HIGH",
-          "flag": "Markedly elevated \u2014 likely driven by DHEA-S 535 (also HIGH); discuss with Dr. Randol; LH/FSH suppressed suggesting exogenous or DHEA-driven elevation"
+          "flag": "Markedly elevated — likely driven by DHEA-S 535 (also HIGH); discuss with Dr. Randol; LH/FSH suppressed suggesting exogenous or DHEA-driven elevation"
         },
         {
           "marker": "free_testosterone_pg_ml",
           "value": 543.4,
           "ref": "35-155",
           "direction": "HIGH",
-          "flag": "Markedly elevated \u2014 consistent with high total T; SHBG low-normal (16) amplifies free fraction"
+          "flag": "Markedly elevated — consistent with high total T; SHBG low-normal (16) amplifies free fraction"
         },
         {
           "marker": "estradiol_e2_pg_ml",
           "value": 69,
           "ref": "<39",
           "direction": "HIGH",
-          "flag": "Significantly elevated \u2014 up from 45 (Jun 2025); aromatization from elevated T + DHEA; discuss AI or DHEA dose reduction with Dr. Randol"
+          "flag": "Significantly elevated — up from 45 (Jun 2025); aromatization from elevated T + DHEA; discuss AI or DHEA dose reduction with Dr. Randol"
         },
         {
           "marker": "dhea_s_ug_dl",
           "value": 535,
           "ref": "32-279",
           "direction": "HIGH",
-          "flag": "Markedly elevated \u2014 up from 111 (Jun 2025); DHEA 50mg supplementation driving this + testosterone elevation; consider reducing DHEA or pausing"
+          "flag": "Markedly elevated — up from 111 (Jun 2025); DHEA 50mg supplementation driving this + testosterone elevation; consider reducing DHEA or pausing"
         },
         {
           "marker": "homocysteine_umol_l",
           "value": 19.5,
           "ref": "<=15.2",
           "direction": "HIGH",
-          "flag": "Elevated \u2014 up from 12.0 (Jun 2025); cardiovascular risk marker; increase methylated B12, methylfolate, B6"
+          "flag": "Elevated — up from 12.0 (Jun 2025); cardiovascular risk marker; increase methylated B12, methylfolate, B6"
         },
         {
           "marker": "hscrp_mg_l",
           "value": 2.2,
           "ref": "<1.0 optimal",
           "direction": "HIGH",
-          "flag": "Average cardiovascular risk range (AHA); up from 1.6 (Dec 2025); Retatrutide active \u2014 monitor post-Reta"
+          "flag": "Average cardiovascular risk range (AHA); up from 1.6 (Dec 2025); Retatrutide active — monitor post-Reta"
         },
         {
           "marker": "mch_pg",
           "value": 35.4,
           "ref": "27-33",
           "direction": "HIGH",
-          "flag": "Persistently elevated \u2014 same as Dec 2025; macrocytic pattern; consistent with prior MCV elevation; functional B12 adequate (MMA 138 \u2014 normal range)"
+          "flag": "Persistently elevated — same as Dec 2025; macrocytic pattern; consistent with prior MCV elevation; functional B12 adequate (MMA 138 — normal range)"
         },
         {
           "marker": "mcv_fl",
           "value": 107.6,
           "ref": "81.4-101.7",
           "direction": "HIGH",
-          "flag": "Worsening macrocytosis \u2014 was 103.6 Dec 2025, now 107.6; elevated MMA was 230 Jun 2025 now 138 \u2014 improving; but MCV still rising; discuss with Dr. Randol"
+          "flag": "Worsening macrocytosis — was 103.6 Dec 2025, now 107.6; elevated MMA was 230 Jun 2025 now 138 — improving; but MCV still rising; discuss with Dr. Randol"
         },
         {
           "marker": "platelets_k_ul",
           "value": 114,
           "ref": "140-400",
           "direction": "LOW",
-          "flag": "Persistently low \u2014 was 102 Dec 2025; slightly up; discuss with physician; Retatrutide may be contributing"
+          "flag": "Persistently low — was 102 Dec 2025; slightly up; discuss with physician; Retatrutide may be contributing"
         },
         {
           "marker": "alp_u_l",
           "value": 12,
           "ref": "35-144",
           "direction": "LOW",
-          "flag": "Persistently very low \u2014 was 13 Dec 2025; chronically below range; zinc/magnesium deficiency can cause low ALP; check zinc"
+          "flag": "Persistently very low — was 13 Dec 2025; chronically below range; zinc/magnesium deficiency can cause low ALP; check zinc"
         },
         {
           "marker": "ast_u_l",
           "value": 42,
           "ref": "10-35",
           "direction": "HIGH",
-          "flag": "Mildly elevated \u2014 was 29 Dec 2025; could reflect training load, Retatrutide, or DHEA; monitor trend"
+          "flag": "Mildly elevated — was 29 Dec 2025; could reflect training load, Retatrutide, or DHEA; monitor trend"
         },
         {
           "marker": "ldl_pattern",
           "value": "B",
           "ref": "Pattern A optimal",
           "direction": "HIGH",
-          "flag": "Small dense LDL pattern \u2014 cardiovascular risk; LDL small 274 (high), LDL medium 292 (high); HDL large 5239 (low); address with diet, Berberine restart"
+          "flag": "Small dense LDL pattern — cardiovascular risk; LDL small 274 (high), LDL medium 292 (high); HDL large 5239 (low); address with diet, Berberine restart"
         },
         {
           "marker": "hdl_large_nmol_l",
           "value": 5239,
           "ref": ">6729",
           "direction": "LOW",
-          "flag": "Low large HDL \u2014 cardiovascular risk; consistent with Pattern B; target with exercise, omega-3"
+          "flag": "Low large HDL — cardiovascular risk; consistent with Pattern B; target with exercise, omega-3"
         }
       ],
-      "notes": "IGF-1 NOT on this panel \u2014 not ordered. Critical gap for Tesamorelin dosing decision. Must order separately or request on next draw. Glucose 48 mg/dL is almost certainly a lab artifact (fasting too long / sample timing) \u2014 HbA1c 4.9% and insulin 3.4 uIU/mL are both excellent and inconsistent with hypoglycemia; do not act on glucose value alone. Testosterone elevation driven by DHEA 50mg supplementation \u2014 LH <0.2 and FSH <0.7 confirm HPG axis suppression. E2 at 69 is a significant flag requiring Dr. Randol discussion before starting GH axis peptides. Retatrutide active during this draw."
+      "notes": "IGF-1 NOT on this panel — not ordered. Critical gap for Tesamorelin dosing decision. Must order separately or request on next draw. Glucose 48 mg/dL is almost certainly a lab artifact (fasting too long / sample timing) — HbA1c 4.9% and insulin 3.4 uIU/mL are both excellent and inconsistent with hypoglycemia; do not act on glucose value alone. Testosterone elevation driven by DHEA 50mg supplementation — LH <0.2 and FSH <0.7 confirm HPG axis suppression. E2 at 69 is a significant flag requiring Dr. Randol discussion before starting GH axis peptides. Retatrutide active during this draw."
     },
     {
       "entry_id": "bloodwork-2025-12-05",
@@ -249,7 +249,7 @@
           "value": 1.32,
           "ref": "0.70-1.30",
           "direction": "HIGH",
-          "flag": "Mildly elevated \u2014 could reflect muscle mass or dehydration; improved to 1.22 by Jun 2026"
+          "flag": "Mildly elevated — could reflect muscle mass or dehydration; improved to 1.22 by Jun 2026"
         },
         {
           "marker": "mch_pg",
@@ -263,14 +263,14 @@
           "value": 103.6,
           "ref": "81.4-101.7",
           "direction": "HIGH",
-          "flag": "Elevated \u2014 worsened to 107.6 by Jun 2026"
+          "flag": "Elevated — worsened to 107.6 by Jun 2026"
         },
         {
           "marker": "platelets_k_ul",
           "value": 102,
           "ref": "140-400",
           "direction": "LOW",
-          "flag": "Low \u2014 slightly improved to 114 by Jun 2026"
+          "flag": "Low — slightly improved to 114 by Jun 2026"
         },
         {
           "marker": "alp_u_l",
@@ -280,7 +280,7 @@
           "flag": "Chronically low ALP"
         }
       ],
-      "notes": "Partial panel \u2014 lipids, hormone panel, Vitamin D not included in this draw. No IGF-1 on this panel. Metabolic markers excellent: HbA1c 4.8%, insulin 5.6, glucose 96. Cholesterol significantly improved vs prior draws."
+      "notes": "Partial panel — lipids, hormone panel, Vitamin D not included in this draw. No IGF-1 on this panel. Metabolic markers excellent: HbA1c 4.8%, insulin 5.6, glucose 96. Cholesterol significantly improved vs prior draws."
     },
     {
       "entry_id": "bloodwork-2025-06-16",
@@ -344,17 +344,17 @@
           "value": 45,
           "ref": "<39",
           "direction": "HIGH",
-          "flag": "Elevated E2 \u2014 worsened to 69 by Jun 2026; trend is upward and concerning"
+          "flag": "Elevated E2 — worsened to 69 by Jun 2026; trend is upward and concerning"
         },
         {
           "marker": "methylmalonic_acid_nmol_l",
           "value": 230,
           "ref": "55-335",
           "direction": "NOTE",
-          "flag": "High-normal MMA \u2014 improved to 138 by Jun 2026; functional B12 was borderline, now better"
+          "flag": "High-normal MMA — improved to 138 by Jun 2026; functional B12 was borderline, now better"
         }
       ],
-      "notes": "Specialty panel \u2014 hormone, omega fatty acid, immunology markers. No metabolic panel, no IGF-1. This is a comparison draw, not a comprehensive panel. LH and FSH suppressed at this draw too \u2014 HPG axis suppression predates DHEA supplementation increase."
+      "notes": "Specialty panel — hormone, omega fatty acid, immunology markers. No metabolic panel, no IGF-1. This is a comparison draw, not a comprehensive panel. LH and FSH suppressed at this draw too — HPG axis suppression predates DHEA supplementation increase."
     },
     {
       "entry_id": "dexa-2026-06",
@@ -396,7 +396,7 @@
           "gynoid_lean_lbs": 28.4
         }
       },
-      "notes": "Scan date 6/25/2026. Exceptional results \u2014 3.1% BF drop from March 2026 (19.6% \u2192 16.5%). Total weight loss 17.9 lbs since March. VAT 42.39 in\u00b3 \u2014 largest single-scan VAT reduction in history (down from 76.32; -44.4%). A/G ratio 1.06 \u2014 significantly improved from 1.51, approaching target <1.0. Fat mass down 10.4 lbs. Lean mass down 7.4 lbs (significant \u2014 protocol must address lean mass preservation). Bone density improved: T-score 3.9 / Z-score 3.9 (up from 3.7). Retatrutide 3mg weekly was active during this period. Tesamorelin/MOTS-C/Ipamorelin stack was NOT yet started (pending as of this scan). VAT improvement is primarily Reta-driven."
+      "notes": "Scan date 6/25/2026. Exceptional results — 3.1% BF drop from March 2026 (19.6% → 16.5%). Total weight loss 17.9 lbs since March. VAT 42.39 in³ — largest single-scan VAT reduction in history (down from 76.32; -44.4%). A/G ratio 1.06 — significantly improved from 1.51, approaching target <1.0. Fat mass down 10.4 lbs. Lean mass down 7.4 lbs (significant — protocol must address lean mass preservation). Bone density improved: T-score 3.9 / Z-score 3.9 (up from 3.7). Retatrutide 3mg weekly was active during this period. Tesamorelin/MOTS-C/Ipamorelin stack was NOT yet started (pending as of this scan). VAT improvement is primarily Reta-driven."
     },
     {
       "entry_id": "dexa-2026-03",
@@ -421,7 +421,7 @@
         "bone_density_z_score": 3.7,
         "rmr_cal_day": 2122
       },
-      "notes": "Most recent DEXA. Scan date 3/24/2026. VAT 76.32 in\u00b3 \u2014 elevated (target <60). A/G ratio 1.51 \u2014 elevated (target <1.0). This is the primary Tesamorelin/MOTS-C treatment target. Lean mass 182.0 lbs \u2014 up 8.4 lbs vs Nov 2025. BF% flat vs prior scans. Bone density excellent: T-score 3.7, Z-score 3.7 (93rd+ percentile)."
+      "notes": "Most recent DEXA. Scan date 3/24/2026. VAT 76.32 in³ — elevated (target <60). A/G ratio 1.51 — elevated (target <1.0). This is the primary Tesamorelin/MOTS-C treatment target. Lean mass 182.0 lbs — up 8.4 lbs vs Nov 2025. BF% flat vs prior scans. Bone density excellent: T-score 3.7, Z-score 3.7 (93rd+ percentile)."
     },
     {
       "entry_id": "dexa-2025-08",
@@ -446,7 +446,7 @@
         "bone_density_z_score": 3.0,
         "rmr_cal_day": 2144
       },
-      "notes": "Scan date 8/5/2025. Peak lean mass in recent history at 184.6 lbs. VAT 71.60 in\u00b3. A/G ratio 1.43."
+      "notes": "Scan date 8/5/2025. Peak lean mass in recent history at 184.6 lbs. VAT 71.60 in³. A/G ratio 1.43."
     },
     {
       "entry_id": "dexa-2025-04",
@@ -471,13 +471,13 @@
         "bone_density_z_score": 2.7,
         "rmr_cal_day": 2111
       },
-      "notes": "Scan date 4/15/2025. Best VAT reading in recent history at 57.35 in\u00b3. A/G ratio 1.33 \u2014 best recent reading."
+      "notes": "Scan date 4/15/2025. Best VAT reading in recent history at 57.35 in³. A/G ratio 1.33 — best recent reading."
     },
     {
       "entry_id": "protocol-change-2026-06-14-semax",
       "date": "2026-06-14",
       "category": "protocol_change",
-      "source": "manual \u2014 David confirmed (inventory arrived)",
+      "source": "manual — David confirmed (inventory arrived)",
       "changes": [
         {
           "item": "Semax",
@@ -488,32 +488,32 @@
           "vial_size": "10mg",
           "dose_per_nostril": "100mcg",
           "dose_per_session": "200mcg (both nostrils)",
-          "frequency": "daily Mon\u2013Fri (5 on / 2 off); optional PM dose (100mcg/nostril) on high-demand days \u2014 start AM only",
+          "frequency": "daily Mon–Fri (5 on / 2 off); optional PM dose (100mcg/nostril) on high-demand days — start AM only",
           "timing": "morning, immediately upon waking",
           "cycle_structure": "30 days on / 14 days off",
           "cycle_start": null,
           "cycle_end_expected": null,
-          "mechanism": "ACTH(4-7)PGP analog \u2014 BDNF/NGF upregulation (Dolotov et al. 2006, J Neurochemistry), MC4R modulation, dopaminergic/serotonergic enhancement in prefrontal cortex. BDNF effects persist 20\u201324 hours post-dose despite short peptide half-life.",
-          "confidence": "emerging evidence \u2014 Russian clinical data (stroke, cognitive dysfunction); limited Western RCT data; protocol based on established peptide community consensus",
+          "mechanism": "ACTH(4-7)PGP analog — BDNF/NGF upregulation (Dolotov et al. 2006, J Neurochemistry), MC4R modulation, dopaminergic/serotonergic enhancement in prefrontal cortex. BDNF effects persist 20–24 hours post-dose despite short peptide half-life.",
+          "confidence": "emerging evidence — Russian clinical data (stroke, cognitive dysfunction); limited Western RCT data; protocol based on established peptide community consensus",
           "stacking_conflicts": "none identified with current stack (Retatrutide, MOTS-C, Tesamorelin, Ipamorelin)",
-          "stacking_synergies": "Tesamorelin/Ipamorelin GH-axis \u2192 IGF-1 \u2192 neuroplasticity support; MOTS-C mitochondrial \u2014 orthogonal, no conflict; Retatrutide GLP-1 CNS expression \u2014 no adverse interaction expected",
-          "cautions": "Activating \u2014 avoid in acute anxiety states. If anxiety increases, reduce to 100mcg/nostril 1x/day or drop to 3x/week.",
-          "rationale": "Cognitive optimization \u2014 BDNF-driven neuroplasticity, focus, executive function. No conflicts with current peptide stack. Mechanistically orthogonal to all active/pending peptides."
+          "stacking_synergies": "Tesamorelin/Ipamorelin GH-axis → IGF-1 → neuroplasticity support; MOTS-C mitochondrial — orthogonal, no conflict; Retatrutide GLP-1 CNS expression — no adverse interaction expected",
+          "cautions": "Activating — avoid in acute anxiety states. If anxiety increases, reduce to 100mcg/nostril 1x/day or drop to 3x/week.",
+          "rationale": "Cognitive optimization — BDNF-driven neuroplasticity, focus, executive function. No conflicts with current peptide stack. Mechanistically orthogonal to all active/pending peptides."
         }
       ],
-      "notes": "Semax 10mg nasal spray added to inventory June 14, 2026. Start pending \u2014 no conflict with current stack or the upcoming MOTS-C/Tesamorelin/Ipamorelin stack start. Can begin anytime. Recommend starting with AM dose only for first 5\u20137 days before considering PM addition."
+      "notes": "Semax 10mg nasal spray added to inventory June 14, 2026. Start pending — no conflict with current stack or the upcoming MOTS-C/Tesamorelin/Ipamorelin stack start. Can begin anytime. Recommend starting with AM dose only for first 5–7 days before considering PM addition."
     },
     {
       "entry_id": "protocol-change-2026-06-14",
       "date": "2026-06-14",
       "category": "protocol_change",
-      "source": "manual \u2014 David confirmed",
+      "source": "manual — David confirmed",
       "changes": [
         {
           "item": "MOTS-C",
           "type": "peptide",
           "action": "started",
-          "dose": "5mg per injection (50 units @ 10mg/ml \u2014 40mg vial + 4ml BW)",
+          "dose": "5mg per injection (50 units @ 10mg/ml — 40mg vial + 4ml BW)",
           "frequency": "every 5 days, morning fasted",
           "cycle_length_weeks": 8,
           "cycle_end_expected": "2026-08-09",
@@ -522,14 +522,14 @@
           "last_cycle_ended": "2026-03-14",
           "rest_period_weeks": 13,
           "rest_period_adequate": true,
-          "rationale": "Metabolic optimization \u2014 AMPK activation, visceral fat reduction, insulin sensitivity. DEXA March 2026: 19.6% BF, VAT 76.3 in\u00b3, A/G ratio 1.51. Goal: 17% BF / 210 lbs."
+          "rationale": "Metabolic optimization — AMPK activation, visceral fat reduction, insulin sensitivity. DEXA March 2026: 19.6% BF, VAT 76.3 in³, A/G ratio 1.51. Goal: 17% BF / 210 lbs."
         },
         {
           "item": "Tesamorelin",
           "type": "peptide",
           "action": "started",
-          "dose": "2mg per injection (50 units @ 4mg/ml \u2014 10mg vial + 2.5ml BW)",
-          "frequency": "5 nights/week (Mon\u2013Fri), 90 min post-meal",
+          "dose": "2mg per injection (50 units @ 4mg/ml — 10mg vial + 2.5ml BW)",
+          "frequency": "5 nights/week (Mon–Fri), 90 min post-meal",
           "cycle_length_weeks": 9,
           "cycle_end_expected": "2026-08-16",
           "vials_this_cycle": 9,
@@ -537,14 +537,14 @@
           "last_cycle_ended": "2026-03-14",
           "rest_period_weeks": 13,
           "rest_period_adequate": true,
-          "rationale": "GHRH analog \u2014 stimulates pituitary GH/IGF-1 for visceral fat reduction. Primary target: VAT 76.3 in\u00b3 and A/G ratio 1.51 (elevated). FDA-approved mechanism for visceral adipose reduction."
+          "rationale": "GHRH analog — stimulates pituitary GH/IGF-1 for visceral fat reduction. Primary target: VAT 76.3 in³ and A/G ratio 1.51 (elevated). FDA-approved mechanism for visceral adipose reduction."
         },
         {
           "item": "Ipamorelin",
           "type": "peptide",
           "action": "started",
-          "dose": "333mcg per injection (10 units @ 3,333mcg/ml \u2014 10mg vial + 3ml BW)",
-          "frequency": "5 nights/week (Mon\u2013Fri), same window as Tesamorelin",
+          "dose": "333mcg per injection (10 units @ 3,333mcg/ml — 10mg vial + 3ml BW)",
+          "frequency": "5 nights/week (Mon–Fri), same window as Tesamorelin",
           "cycle_length_weeks": 9,
           "cycle_end_expected": "2026-08-16",
           "vials_this_cycle": 1.5,
@@ -552,54 +552,54 @@
           "last_cycle_ended": "2026-03-14",
           "rest_period_weeks": 13,
           "rest_period_adequate": true,
-          "rationale": "GH secretagogue \u2014 pulsatile GH release without cortisol/prolactin elevation. Synergistic with Tesamorelin (upstream GHRH + direct pituitary). Supports lean mass, collagen, GH axis amplification."
+          "rationale": "GH secretagogue — pulsatile GH release without cortisol/prolactin elevation. Synergistic with Tesamorelin (upstream GHRH + direct pituitary). Supports lean mass, collagen, GH axis amplification."
         }
       ],
-      "notes": "REST PERIOD CORRECTION: Stack start date is NOT confirmed as June 14. David is holding off at least 1 week before starting new stack. Awaiting confirmed start date. Last cycle ended ~Mar 14, 2026. Reta (Retatrutide) cycle overlapping \u2014 see separate entry. MOTS-C morning + Tesamorelin/Ipamorelin night stack protocol documented but start pending. Book DEXA mid-August for post-cycle comparison vs. March 2026 baseline."
+      "notes": "REST PERIOD CORRECTION: Stack start date is NOT confirmed as June 14. David is holding off at least 1 week before starting new stack. Awaiting confirmed start date. Last cycle ended ~Mar 14, 2026. Reta (Retatrutide) cycle overlapping — see separate entry. MOTS-C morning + Tesamorelin/Ipamorelin night stack protocol documented but start pending. Book DEXA mid-August for post-cycle comparison vs. March 2026 baseline."
     },
     {
       "entry_id": "protocol-change-2026-06-14-randol-clearance",
       "date": "2026-06-14",
       "category": "protocol_change",
-      "source": "physician \u2014 Dr. Julli Randol verbal clearance",
+      "source": "physician — Dr. Julli Randol verbal clearance",
       "changes": [
         {
           "item": "Tesamorelin",
           "type": "peptide",
           "action": "cleared",
-          "dose": "1mg per injection (25 units @ 4mg/ml \u2014 10mg vial + 2.5ml BW)",
-          "frequency": "5 nights/week (Mon\u2013Fri), 2+ hours post-meal, 30-60 min pre-sleep",
-          "status": "PENDING START \u2014 target July 7\u201314, 2026 (1\u20132 weeks post-Reta end ~July 5)",
-          "previous_status": "HOLD pending Dr. Randol clearance \u2014 E2 flag",
+          "dose": "1mg per injection (25 units @ 4mg/ml — 10mg vial + 2.5ml BW)",
+          "frequency": "5 nights/week (Mon–Fri), 2+ hours post-meal, 30-60 min pre-sleep",
+          "status": "PENDING START — target July 7–14, 2026 (1–2 weeks post-Reta end ~July 5)",
+          "previous_status": "HOLD pending Dr. Randol clearance — E2 flag",
           "rationale": "Dr. Randol reviewed E2 (69 pg/mL) and IGF-1 history (not yet ordered). E2 hold lifted June 14, 2026. Cleared to proceed per planned stack start target."
         },
         {
           "item": "Ipamorelin",
           "type": "peptide",
           "action": "cleared",
-          "dose": "300mcg per injection (9 units @ 3,333mcg/ml \u2014 10mg vial + 3ml BW)",
-          "frequency": "5 nights/week (Mon\u2013Fri), 15-20 min before Tesamorelin",
-          "status": "PENDING START \u2014 target July 7\u201314, 2026",
-          "previous_status": "HOLD pending Dr. Randol clearance \u2014 E2 flag",
+          "dose": "300mcg per injection (9 units @ 3,333mcg/ml — 10mg vial + 3ml BW)",
+          "frequency": "5 nights/week (Mon–Fri), 15-20 min before Tesamorelin",
+          "status": "PENDING START — target July 7–14, 2026",
+          "previous_status": "HOLD pending Dr. Randol clearance — E2 flag",
           "rationale": "Dr. Randol clearance June 14, 2026. E2 hold lifted. Cleared to proceed."
         },
         {
           "item": "MOTS-C",
           "type": "peptide",
           "action": "status_confirmed",
-          "dose": "5mg per injection (50 units @ 10mg/ml \u2014 40mg vial + 4ml BW)",
+          "dose": "5mg per injection (50 units @ 10mg/ml — 40mg vial + 4ml BW)",
           "frequency": "every 4 days, morning fasted",
-          "status": "PENDING START \u2014 target July 7\u201314, 2026",
-          "rationale": "No E2 hold applied to MOTS-C. Stack start target confirmed July 7\u201314, 2026 per Reta transition protocol."
+          "status": "PENDING START — target July 7–14, 2026",
+          "rationale": "No E2 hold applied to MOTS-C. Stack start target confirmed July 7–14, 2026 per Reta transition protocol."
         },
         {
           "item": "Semax",
           "type": "peptide",
           "action": "status_confirmed",
           "dose": "200mcg per nostril (400mcg total) AM; 100mcg/nostril PM optional on high-demand days",
-          "frequency": "5 days on / 2 days off (Mon\u2013Fri), 6 weeks on / 2 weeks off cycle",
-          "status": "PENDING START \u2014 target July 7\u201314, 2026 (concurrent with full stack)",
-          "rationale": "No E2 hold applied. Stack start target confirmed July 7\u201314, 2026."
+          "frequency": "5 days on / 2 days off (Mon–Fri), 6 weeks on / 2 weeks off cycle",
+          "status": "PENDING START — target July 7–14, 2026 (concurrent with full stack)",
+          "rationale": "No E2 hold applied. Stack start target confirmed July 7–14, 2026."
         },
         {
           "item": "DHEA",
@@ -608,16 +608,16 @@
           "dose_previous": "50mg daily",
           "dose_new": "25mg daily",
           "frequency": "daily",
-          "rationale": "Dr. Randol recommendation to reduce DHEA from 50mg to 25mg in response to DHEA-S 535 mcg/dL (HIGH) and E2 69 pg/mL (HIGH). Reduction may lower aromatization load. Confirm timing of reduction with David \u2014 not yet confirmed as actioned."
+          "rationale": "Dr. Randol recommendation to reduce DHEA from 50mg to 25mg in response to DHEA-S 535 mcg/dL (HIGH) and E2 69 pg/mL (HIGH). Reduction may lower aromatization load. Confirm timing of reduction with David — not yet confirmed as actioned."
         }
       ],
-      "notes": "Dr. Julli Randol reviewed David's E2 (69 pg/mL) and IGF-1 history (not yet ordered but context known) on June 14, 2026. E2 hold lifted \u2014 Tesamorelin and Ipamorelin cleared to proceed. Full peptide stack (Tesamorelin 1mg, Ipamorelin 300mcg, MOTS-C 5mg, Semax 400mcg) remains PENDING START pending Reta cycle completion (~July 5, 2026). Stack start target: July 7\u201314, 2026. IGF-1 ordering remains advisable before or shortly after stack start for baseline tracking \u2014 not a blocker. DHEA reduction 50mg \u2192 25mg is an active recommendation per Dr. Randol; David to confirm when actioned. Methylated B-complex for homocysteine (19.5 umol/L) and Berberine 500mg BID for LDL Pattern B remain active protocol recommendations."
+      "notes": "Dr. Julli Randol reviewed David's E2 (69 pg/mL) and IGF-1 history (not yet ordered but context known) on June 14, 2026. E2 hold lifted — Tesamorelin and Ipamorelin cleared to proceed. Full peptide stack (Tesamorelin 1mg, Ipamorelin 300mcg, MOTS-C 5mg, Semax 400mcg) remains PENDING START pending Reta cycle completion (~July 5, 2026). Stack start target: July 7–14, 2026. IGF-1 ordering remains advisable before or shortly after stack start for baseline tracking — not a blocker. DHEA reduction 50mg → 25mg is an active recommendation per Dr. Randol; David to confirm when actioned. Methylated B-complex for homocysteine (19.5 umol/L) and Berberine 500mg BID for LDL Pattern B remain active protocol recommendations."
     },
     {
       "entry_id": "protocol-change-2026-03-28",
       "date": "2026-03-28",
       "category": "protocol_change",
-      "source": "manual \u2014 David confirmed",
+      "source": "manual — David confirmed",
       "changes": [
         {
           "item": "Retatrutide (Reta)",
@@ -634,16 +634,16 @@
           "rest_period_adequate": null,
           "rationale": "GLP-1/GIP/glucagon triple agonist. Weight loss, metabolic health, visceral fat reduction. Ramped from 2mg to 5mg over first weeks. Currently at 5mg maintenance. 3 weeks remaining as of June 14, 2026.",
           "mechanism": "Triple agonist: GLP-1 (appetite suppression, insulin), GIP (metabolic efficiency), glucagon (energy expenditure). Emerging evidence for superior weight loss vs. dual agonists.",
-          "confidence": "emerging evidence \u2014 phase II/III trial data (Lilly pipeline; Jastreboff et al. NEJM 2023)"
+          "confidence": "emerging evidence — phase II/III trial data (Lilly pipeline; Jastreboff et al. NEJM 2023)"
         }
       ],
-      "notes": "Reta started ~2 weeks after last peptide stack ended (Mar 14 \u2192 Mar 28). Currently in week 11 of cycle at 5mg. 3 weeks remaining as of June 14, 2026. Expected end: ~July 5, 2026. Running concurrently with upcoming MOTS-C/Tesamorelin/Ipamorelin stack (different mechanism \u2014 no known conflict)."
+      "notes": "Reta started ~2 weeks after last peptide stack ended (Mar 14 → Mar 28). Currently in week 11 of cycle at 5mg. 3 weeks remaining as of June 14, 2026. Expected end: ~July 5, 2026. Running concurrently with upcoming MOTS-C/Tesamorelin/Ipamorelin stack (different mechanism — no known conflict)."
     },
     {
       "entry_id": "protocol-change-2026-06-15-reta-dose",
       "date": "2026-06-15",
       "category": "protocol_change",
-      "source": "manual \u2014 David confirmed",
+      "source": "manual — David confirmed",
       "changes": [
         {
           "item": "Retatrutide (Reta)",
@@ -652,10 +652,10 @@
           "dose_previous": "5mg (ramped up from 2mg)",
           "dose_new": "3mg",
           "frequency": "weekly subcutaneous injection",
-          "rationale": "David elected to continue Reta at 3mg through next stack cycle rather than maintaining 5mg or tapering off. Recomp phase \u2014 reducing dose supports body composition goals (appetite modulation, metabolic) while tempering side effect profile and allowing room for upcoming MOTS-C/Tesamorelin/Ipamorelin stack. Consistent with GLP-1 recomp maintenance dosing strategy."
+          "rationale": "David elected to continue Reta at 3mg through next stack cycle rather than maintaining 5mg or tapering off. Recomp phase — reducing dose supports body composition goals (appetite modulation, metabolic) while tempering side effect profile and allowing room for upcoming MOTS-C/Tesamorelin/Ipamorelin stack. Consistent with GLP-1 recomp maintenance dosing strategy."
         }
       ],
-      "notes": "Dose reduction confirmed June 15, 2026. Reta continues at 3mg weekly, ongoing. Next stack target (MOTS-C/Tesamorelin/Ipamorelin/Semax) still July 7\u201314, 2026. Reta will run concurrently with that stack at 3mg."
+      "notes": "Dose reduction confirmed June 15, 2026. Reta continues at 3mg weekly, ongoing. Next stack target (MOTS-C/Tesamorelin/Ipamorelin/Semax) still July 7–14, 2026. Reta will run concurrently with that stack at 3mg."
     },
     {
       "entry_id": "protocol-change-2026-06-28-mots-c-started",
@@ -669,7 +669,7 @@
           "action": "started",
           "cycle_start": "2026-06-28",
           "cycle_end_expected": "2026-08-23",
-          "dose": "5mg per injection (50 units @ 10mg/ml \u2014 40mg vial + 4ml BW)",
+          "dose": "5mg per injection (50 units @ 10mg/ml — 40mg vial + 4ml BW)",
           "frequency": "every 5 days, morning fasted",
           "cycle_length_weeks": 8,
           "vials_this_cycle": 1.5,
@@ -677,10 +677,10 @@
           "last_cycle_ended": "2026-03-14",
           "rest_period_weeks": 13,
           "rest_period_adequate": true,
-          "rationale": "Metabolic optimization \u2014 AMPK activation, visceral fat reduction, insulin sensitivity. DEXA June 2026: 16.5% BF, VAT 42.39 in\u00b3, A/G ratio 1.06 \u2014 excellent progress from March baseline (19.6% BF, VAT 76.3 in\u00b3, A/G 1.51). Stack continuation targets further lean mass optimization and metabolic sustainment."
+          "rationale": "Metabolic optimization — AMPK activation, visceral fat reduction, insulin sensitivity. DEXA June 2026: 16.5% BF, VAT 42.39 in³, A/G ratio 1.06 — excellent progress from March baseline (19.6% BF, VAT 76.3 in³, A/G 1.51). Stack continuation targets further lean mass optimization and metabolic sustainment."
         }
       ],
-      "notes": "MOTS-C cycle 2 initiated. Start date 2026-06-28 confirmed by David. Rest period since last cycle (Mar 14 \u2192 Jun 28) = 13 weeks \u2014 adequate. Running concurrently with Retatrutide 3mg weekly and preparation for Tesamorelin/Ipamorelin stack start same date."
+      "notes": "MOTS-C cycle 2 initiated. Start date 2026-06-28 confirmed by David. Rest period since last cycle (Mar 14 → Jun 28) = 13 weeks — adequate. Running concurrently with Retatrutide 3mg weekly and preparation for Tesamorelin/Ipamorelin stack start same date."
     },
     {
       "entry_id": "protocol-change-2026-06-28-tesamorelin-ipamorelin-started",
@@ -694,15 +694,15 @@
           "action": "started",
           "cycle_start": "2026-06-28",
           "cycle_end_expected": "2026-08-30",
-          "dose": "2mg per injection (50 units @ 4mg/ml \u2014 10mg vial + 2.5ml BW)",
-          "frequency": "5 nights/week (Mon\u2013Fri), 90 min post-meal",
+          "dose": "2mg per injection (50 units @ 4mg/ml — 10mg vial + 2.5ml BW)",
+          "frequency": "5 nights/week (Mon–Fri), 90 min post-meal",
           "cycle_length_weeks": 9,
           "vials_this_cycle": 9,
           "inventory_remaining_after_cycle": 0,
           "last_cycle_ended": "2026-03-14",
           "rest_period_weeks": 13,
           "rest_period_adequate": true,
-          "rationale": "GHRH analog \u2014 GH/IGF-1 stimulation for visceral fat reduction and lean mass preservation. Dr. Randol clearance provided June 14, 2026 (E2 hold lifted). Primary targets: VAT <60 in\u00b3 (from Jun 2026 DEXA: 42.39 in\u00b3 \u2014 substantial progress), A/G ratio <1.0 (from Jun 2026: 1.06 \u2014 near target), lean mass preservation at 174.6 lbs."
+          "rationale": "GHRH analog — GH/IGF-1 stimulation for visceral fat reduction and lean mass preservation. Dr. Randol clearance provided June 14, 2026 (E2 hold lifted). Primary targets: VAT <60 in³ (from Jun 2026 DEXA: 42.39 in³ — substantial progress), A/G ratio <1.0 (from Jun 2026: 1.06 — near target), lean mass preservation at 174.6 lbs."
         },
         {
           "item": "Ipamorelin",
@@ -710,18 +710,18 @@
           "action": "started",
           "cycle_start": "2026-06-28",
           "cycle_end_expected": "2026-08-30",
-          "dose": "333mcg per injection (10 units @ 3,333mcg/ml \u2014 10mg vial + 3ml BW)",
-          "frequency": "5 nights/week (Mon\u2013Fri), same window as Tesamorelin",
+          "dose": "333mcg per injection (10 units @ 3,333mcg/ml — 10mg vial + 3ml BW)",
+          "frequency": "5 nights/week (Mon–Fri), same window as Tesamorelin",
           "cycle_length_weeks": 9,
           "vials_this_cycle": 1.5,
           "inventory_remaining_after_cycle": "~4.5 vials (10mg each)",
           "last_cycle_ended": "2026-03-14",
           "rest_period_weeks": 13,
           "rest_period_adequate": true,
-          "rationale": "GH secretagogue \u2014 pulsatile GH without cortisol/prolactin spike. Synergistic with Tesamorelin (GHRH upstream + direct pituitary gland stimulation). Supports lean mass preservation, collagen synthesis, connective tissue integrity. Stacks orthogonally with MOTS-C (AMPK/mitochondrial) and Retatrutide (GLP-1/GIP/glucagon)."
+          "rationale": "GH secretagogue — pulsatile GH without cortisol/prolactin spike. Synergistic with Tesamorelin (GHRH upstream + direct pituitary gland stimulation). Supports lean mass preservation, collagen synthesis, connective tissue integrity. Stacks orthogonally with MOTS-C (AMPK/mitochondrial) and Retatrutide (GLP-1/GIP/glucagon)."
         }
       ],
-      "notes": "Tesamorelin/Ipamorelin cycle 2 initiated. Start date 2026-06-28 confirmed by David. Rest period since last cycle (Mar 14 \u2192 Jun 28) = 13 weeks \u2014 adequate. Dr. Randol E2 hold lifted June 14, 2026 \u2014 clearance active. Both peptides share 9-week cycle \u2192 common end date Aug 30, 2026. Concurrent with MOTS-C (8-week cycle, ends Aug 23) and Retatrutide 3mg maintenance. Post-cycle DEXA recommended mid-to-late September 2026 for efficacy assessment vs. June 2026 baseline."
+      "notes": "Tesamorelin/Ipamorelin cycle 2 initiated. Start date 2026-06-28 confirmed by David. Rest period since last cycle (Mar 14 → Jun 28) = 13 weeks — adequate. Dr. Randol E2 hold lifted June 14, 2026 — clearance active. Both peptides share 9-week cycle → common end date Aug 30, 2026. Concurrent with MOTS-C (8-week cycle, ends Aug 23) and Retatrutide 3mg maintenance. Post-cycle DEXA recommended mid-to-late September 2026 for efficacy assessment vs. June 2026 baseline."
     },
     {
       "entry_id": "protocol-change-2026-10-19-tesamorelin-ipamorelin-mots-c-restart",
@@ -781,6 +781,57 @@
         }
       ],
       "notes": "David confirmed the Q4 cycle plan on 2026-10-16. Tesamorelin and Ipamorelin start Monday 2026-10-19 (weekdays, through EOY); MOTS-C starts 2026-11-02 (every 5 days, through EOY). DSIP and Epithalon planned before EOY with no dates yet. Prior cycles (Tesamorelin/Ipamorelin/MOTS-C, ended Aug 23-30 2026) closed as completed. Data-quality note: tracking.json's Tesamorelin cycle 1 entry records '1mg (25u)' while this log's 2026-06-28 entry records '2mg (50u)'; the two disagree and the 2026-06-28 detail is the more specific record. Flagged for reconciliation; historical entries left unedited per append-only rule."
+    },
+    {
+      "entry_id": "protocol-change-2026-10-19-epithalon-cycle-2-start",
+      "date": "2026-10-19",
+      "category": "protocol_change",
+      "source": "manual — David reported Epithalon start (2026-10-19, first shot 2026-10-18)",
+      "changes": [
+        {
+          "item": "Epithalon",
+          "type": "peptide",
+          "action": "started",
+          "dose": "10mg per injection",
+          "frequency": "every 4 days, 6 total injections",
+          "cycle_start": "2026-10-18",
+          "cycle_end_expected": "2026-11-07",
+          "dose_dates": [
+            "2026-10-18",
+            "2026-10-22",
+            "2026-10-26",
+            "2026-10-30",
+            "2026-11-03",
+            "2026-11-07"
+          ],
+          "total_cycle_dose_mg": 60,
+          "last_cycle_ended": "2025-12",
+          "rest_period_weeks": 42,
+          "rest_period_adequate": true,
+          "rationale": "Telomerase activation, sleep, longevity. Second cycle; constraint satisfied (>4-month pause, max 2x/year). Extended-interval schedule (every 4 days x 6) instead of classic 10-consecutive-day protocol."
+        },
+        {
+          "item": "Tesamorelin",
+          "type": "peptide",
+          "action": "started",
+          "dose": "2mg per injection (50 units)",
+          "frequency": "weekdays (Mon-Fri) daily",
+          "cycle_start": "2026-10-19",
+          "cycle_end_expected": "2026-12-31",
+          "rationale": "Cycle 2 began as planned (planned_start logged 2026-10-16). GHRH analog — GH/IGF-1, visceral fat, lean mass."
+        },
+        {
+          "item": "Ipamorelin",
+          "type": "peptide",
+          "action": "started",
+          "dose": "~333mcg per injection (10 units)",
+          "frequency": "weekdays (Mon-Fri) daily",
+          "cycle_start": "2026-10-19",
+          "cycle_end_expected": "2026-12-31",
+          "rationale": "Cycle 2 began as planned, same window as Tesamorelin. GH secretagogue."
+        }
+      ],
+      "notes": "Epithalon cycle 2 runs entirely inside the Tesamorelin/Ipamorelin cycle 2 window (Oct 19 - Dec 31) and overlaps the MOTS-C cycle 3 start (Nov 2) for its final two doses. No known pharmacokinetic conflicts: Epithalon acts on the pineal/telomerase axis, orthogonal to GH secretagogue and AMPK pathways (emerging evidence / peptide community consensus; Khavinson et al. telomerase studies). Shared injection days with Tesa/Ipam: Oct 26, Oct 30, Nov 3 — rotate injection sites. Epithalon may modestly improve sleep via pineal/melatonin modulation — watch WHOOP sleep metrics; no conflict with sedating stack since DSIP not yet active. Deviation flag: 21-day extended schedule vs. 10-day constraint convention recorded in tracking.json."
     }
   ]
 }

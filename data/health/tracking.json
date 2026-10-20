@@ -1,7 +1,7 @@
 {
   "_version": "2.0",
   "_description": "Longitudinal body composition tracking and health goal state. DEXA history, bloodwork history, supplement history, peptide history. Galen reads and writes this file. supplement-stack.json is the parallel file for supplement/peptide current state.",
-  "_last_updated": "2026-10-16",
+  "_last_updated": "2026-10-19",
   "_updated_by": "galen",
   "goals": {
     "body_fat_pct": 15.0,
@@ -3372,7 +3372,7 @@
     {
       "peptide": "Tesamorelin",
       "cycle_number": 2,
-      "status": "planned",
+      "status": "active",
       "start_date": "2026-10-19",
       "duration_days": 75,
       "end_date": "2026-12-31",
@@ -3384,7 +3384,7 @@
     {
       "peptide": "Ipamorelin",
       "cycle_number": 2,
-      "status": "planned",
+      "status": "active",
       "start_date": "2026-10-19",
       "duration_days": 75,
       "end_date": "2026-12-31",
@@ -3408,14 +3408,16 @@
     {
       "peptide": "Epithalon",
       "cycle_number": 2,
-      "status": "planned",
-      "start_date": null,
-      "duration_days": 10,
-      "end_date": null,
-      "dose": null,
-      "frequency": null,
+      "status": "active",
+      "start_date": "2026-10-18",
+      "duration_days": 21,
+      "end_date": "2026-11-07",
+      "dose": "10mg per injection",
+      "frequency": "every 4 days, 6 total injections",
+      "dose_dates": ["2026-10-18", "2026-10-22", "2026-10-26", "2026-10-30", "2026-11-03", "2026-11-07"],
+      "total_cycle_dose_mg": 60,
       "purpose": "Telomerase activation, sleep, longevity",
-      "notes": "Planned before end of year (David, 2026-10-16). Eligible since 2026-08 per constraint (4-month pause, max 2x/year). Dates not yet set."
+      "notes": "Started 2026-10-18 (confirmed by David 2026-10-19). Extended-interval schedule: 10mg every 4 days x 6 shots (Oct 18, 22, 26, 30, Nov 3, Nov 7) instead of the classic 10-consecutive-day protocol. Constraint check: last cycle completed 2025-12, well past the 4-month pause (eligible since 2026-08); this is cycle 1 of 2 allowed for calendar 2026. Runs concurrent with Tesamorelin/Ipamorelin cycle 2 (started 2026-10-19) and overlaps MOTS-C cycle 3 start (2026-11-02) for the final two doses. No known pharmacokinetic conflicts — Epithalon acts on pineal/telomerase axis, orthogonal to GH secretagogue and AMPK pathways (emerging evidence / community consensus). Shared injection days with Tesa/Ipam: Oct 26, Oct 30, Nov 3 — rotate sites."
     }
   ],
   "peptide_constraints": {
@@ -3425,6 +3427,7 @@
       "cycle_duration_days": 10,
       "last_cycle_completed": "2025-12",
       "next_eligible_date": "2026-08",
+      "cycle_in_progress": "Cycle 2 active 2026-10-18 to 2026-11-07 (10mg every 4 days x 6). Note: this cycle deviates from the 10-day convention — extended-interval schedule over 21 days. Update cycle_duration_days guidance if this becomes the standard.",
       "notes": "4-month pause required between cycles. Max 2x/year."
     },
     "dsip": {
