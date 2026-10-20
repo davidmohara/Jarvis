@@ -8,13 +8,13 @@ model: sonnet
 <!-- personal:start -->
 # Content Pipeline Verification Workflow
 
-**Goal:** Confirm that every item the content pipeline touched is accounted for end to end: discovered items reach `pending-drafts.json`, approved items reach a published or explicitly-explained terminal state, and no item is silently dropped between stages.
+**Goal:** Confirm that every item the content pipeline touched is accounted for end to end: discovered items reach `pending-drafts.json`, tracker entries match live Ghost state (publishing is external — David publishes directly in Ghost), and no item is silently dropped between stages.
 
 **Agent:** Ralph, Verification Agent
 
 **Architecture:** Single-step adversarial pass. Ralph receives the pipeline manifest (step outputs, `pending-drafts.json`, state.yaml) and returns a verdict table. The caller acts on the results; Ralph never fixes anything.
 
-**Adversarial lens (content-pipeline):** End-to-end accounting. The producing agent (Harper) reports what it believes it discovered, approved, and published; Ralph re-derives each item's journey from the recorded state: the #content Slack pull, the shared `workflows/content-approval/pending-drafts.json`, and the live Ghost post records. Any item that enters one stage and does not appear in the next, with no recorded explanation, is a silent drop. This is the content-pipeline lens in `agents/adversarial-isolation.md`.
+**Adversarial lens (content-pipeline):** End-to-end accounting. The producing agent (Harper) reports what it believes it discovered, drafted, resynced, and edited; Ralph re-derives each item's journey from the recorded state: the #content Slack pull, the shared `workflows/content-approval/pending-drafts.json`, and the live Ghost post records. Any item that enters one stage and does not appear in the next, with no recorded explanation, is a silent drop. This is the content-pipeline lens in `agents/adversarial-isolation.md`.
 <!-- personal:end -->
 
 ---

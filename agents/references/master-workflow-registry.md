@@ -16,8 +16,8 @@ This table maps workflow name → assigned agent → trigger context. Master use
 | comp-tracker | Chase | Monthly compensation tracking update from PowerBI |
 | content-calendar | Harper | Content calendar review, deadline management, publishing schedule |
 | content-discovery | Harper | Content discovery from #content Slack, drafting in David's voice, Ghost draft submission (scheduled daily 6am) |
-| content-approval | Harper | Content approval decisions, publishing to Ghost, delivery verification (scheduled hourly) |
-| content-pipeline | Harper | End-to-end content pipeline: discovery, approval, and git-finalized publishing |
+| content-approval | Harper | Tracker resync with Ghost, stale-entry cleanup, surgical editorial edits on drafts (on demand; publishing is external — David publishes directly in Ghost) |
+| content-pipeline | Harper | End-to-end content pipeline: discovery, tracker resync/cleanup, editorial edits, git finalize |
 | daily-review | Chief | End-of-day shutdown, capture completions and tomorrow's priorities |
 | dream-cycle | Master | Nightly memory consolidation: compress working memory, promote to semantic, episodic archiving (scheduled nightly) |
 | delegation-tracker | Shep | View all delegations, check status, flag overdue items |

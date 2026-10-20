@@ -3,7 +3,7 @@
 
 **Pending drafts are tracked in a single shared file: `workflows/content-approval/pending-drafts.json`.**
 
-**Design rule:** `pending-drafts.json` is a single shared file, owned by `content-approval/` because most of its mutation logic (status transitions, 30-day cleanup, Ghost-status resync) runs there. Discovery (content-discovery) reads and appends to `workflows/content-approval/pending-drafts.json` directly — do not create a local copy in the content-discovery directory.
+**Design rule:** `pending-drafts.json` is a single shared file, kept at `workflows/content-approval/pending-drafts.json` (its historical home — do not move it; verify scripts and pipeline steps reference this path). Custodianship sits with `content-discovery`: its step-01 runs the Ghost-status resync and cleanup (Step 1a) on every scheduled daily run, which is what keeps the tracker in sync with Ghost now that publishing is external (David publishes, schedules, and deletes drafts directly in Ghost). `content-approval` runs the same resync and cleanup when invoked on demand. Discovery reads and appends to the file directly — do not create a local copy in either workflow directory.
 
 Format:
 ```json

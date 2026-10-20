@@ -17,9 +17,9 @@ fairness:
 
 **Trigger:** Scheduled daily at 6:00 AM (`config/scheduled-tasks.json`, task id `content-discovery`).
 
-**Relationship:** This workflow is the drafting half of the content pipeline. `workflows/content-approval/workflow.md` is the approval/publish half and runs on its own cadence. `workflows/content-pipeline/workflow.md` orchestrates both halves end to end when a full cycle is needed; all three run on their own schedules and share one state file.
+**Relationship:** This workflow is the drafting half of the content pipeline, and the custodian of the shared `pending-drafts.json` tracker (its step-01 runs a Ghost-status resync and cleanup on every daily run). Publishing is external — David publishes, schedules, and deletes drafts directly in Ghost. `workflows/content-approval/workflow.md` is an on-demand resync/cleanup/editorial-edit pass over the same tracker. `workflows/content-pipeline/workflow.md` orchestrates both end to end when a full cycle is needed; both read and write the same shared state file.
 
-**Companion workflow:** `workflows/content-approval/workflow.md` scans for approval replies and publishes. It runs independently on its own cadence. Both workflows read and write the same shared `pending-drafts.json` — see `references/pending-drafts-schema.md` for its location and the reasoning for keeping it shared.
+**Companion workflow:** `workflows/content-approval/workflow.md` resyncs the tracker with live Ghost state and executes surgical editorial edits from thread replies when run on demand. Both workflows read and write the same shared `pending-drafts.json` — see `references/pending-drafts-schema.md` for its location and the reasoning for keeping it shared.
 <!-- personal:end -->
 
 ---
@@ -29,7 +29,7 @@ fairness:
 
 | Channel | ID | Purpose |
 |---------|-----|---------|
-| #content | C0B160MA3EK | Drop URLs here. David replies here to approve/reject drafts (handled by content-approval). |
+| #content | C0B160MA3EK | Drop URLs here. David replies here with editorial feedback on drafts (handled at step-01 Step 1b). Approve/reject replies need no action — David publishes and deletes directly in Ghost. |
 
 > **Note:** If the channel ID is wrong, David must correct it manually in this file. The channel ID for #content is C0B160MA3EK.
 

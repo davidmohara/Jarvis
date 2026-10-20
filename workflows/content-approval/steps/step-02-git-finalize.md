@@ -6,15 +6,14 @@ model: haiku
 ---
 
 <!-- personal:start -->
-# Step 02: Git Finalize — Commit Approval/Publish State
+# Step 02: Git Finalize — Commit Resync/Edit State
 
 ## EXECUTION PROTOCOL
 
 **Agent:** Rigby, spawned by the coordinator, never executed inline. All git operations run through `skills/git/SKILL.md` and the `ies-git` wrapper.
 
-This workflow owns `pending-drafts.json`'s lifecycle (cleanup, status transitions, publish records), so this finalize step is the primary home for committing that file. See
-`workflows/content-discovery/steps/step-02-git-finalize.md` for discovery's counterpart, which
-also commits this same shared file when it appends new entries.
+This workflow runs resync, cleanup, and editorial edits against `pending-drafts.json`, so this finalize step commits that file after an on-demand run. See
+`workflows/content-discovery/steps/step-02-git-finalize.md` for discovery's counterpart — discovery is the tracker's scheduled custodian and also commits this same shared file after its daily run.
 
 Before executing, write `status: in-progress` and `started-at` to this file's own frontmatter.
 
@@ -28,7 +27,6 @@ the skill.
 
 1. **Diff check.** Identify changed files under:
    - `workflows/content-approval/` (pending-drafts.json, this workflow's own state.yaml, step frontmatter)
-   - `reference/blog-ideas.md` (Published section move from step-01 Section 6a)
 
 2. **Stage** the changed files above via the git skill.
 
@@ -36,8 +34,8 @@ the skill.
    ```
    chore(harper): content-approval cycle {ISO timestamp}
    ```
-   Summarize in the body what happened this run (published/rejected/regenerated/edited counts,
-   or "no new signals" if nothing changed).
+   Summarize in the body what happened this run (resynced/removed/edited counts,
+   or "no changes" if nothing changed).
 
 4. **Push** per the git skill's standard flow.
 

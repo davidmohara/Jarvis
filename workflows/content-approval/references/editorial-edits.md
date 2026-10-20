@@ -1,7 +1,7 @@
 <!-- system:start -->
-# Editorial Edit Protocols (content-approval step-01, task 6d)
+# Editorial Edit Protocols (content-approval step-01, Editorial Edit Path)
 
-Used when the routed action is an editorial edit. Execute directly.
+Used when a thread reply is classified as a surgical editorial edit. Execute directly.
 
 #### Link Insertion
 
@@ -55,13 +55,11 @@ Used when the routed action is an editorial edit. Execute directly.
 
 #### After any editorial edit
 
-Update pending-drafts.json — add a `notes` field summarizing the change and timestamp. Leave `status` as `"pending"` (the draft still needs approval).
+Update pending-drafts.json — append to the entry's `editorial_edits` array with `reply_ts`, `instruction`, `applied_at`, and `summary`. Leave `status` as `"pending"` (publishing is external — David publishes directly in Ghost when he is ready).
 
 Reply in the Slack thread via post.py:
 ```
 [UPDATED] "{Post Title}" — {brief description of what changed}.
-
-Reply `approve` to publish, `reject` to discard, or give more feedback.
 ```
 
 ---

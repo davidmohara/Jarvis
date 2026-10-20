@@ -1,6 +1,6 @@
 ---
 name: content-approval
-description: Scans #content Slack thread replies for approve/reject/revision signals on pending Ghost drafts, publishes on approval, deletes on rejection, executes editorial edits and regenerations, and syncs Obsidian. Runs on-demand / multiple times daily. Approval half of the content pipeline; workflows/content-pipeline orchestrates content-discovery and this workflow end to end.
+description: Resyncs the shared pending-drafts tracker with live Ghost state, cleans stale entries, and executes surgical editorial edits from #content thread replies. Publishing is external — David publishes, schedules, and deletes drafts directly in Ghost; no workflow publishes on his behalf. Runs on demand. workflows/content-pipeline orchestrates content-discovery and this workflow end to end.
 agent: harper
 model: sonnet
 fairness:
@@ -11,15 +11,15 @@ fairness:
 <!-- personal:start -->
 # Content Approval Workflow
 
-**Goal:** Watch #content thread replies on pending Ghost drafts and turn David's decision (approve / reject / request revisions) into the right action: publish to driventodevelop.com, delete the draft, or execute an editorial edit or regeneration, with Obsidian and reference docs kept in sync.
+**Goal:** Keep `pending-drafts.json` in sync with Ghost reality and turn David's #content thread feedback into surgical editorial edits on pending drafts. Nothing more. The approve-keyword publish flow is retired: David publishes (or schedules, or deletes) drafts directly in Ghost, and this workflow's resync picks the new state up from Ghost rather than acting on Slack approval signals.
 
 **Agent:** Harper — Storyteller, Communication & Thought Leadership
 
-**Trigger:** Scheduled multiple times daily (`config/scheduled-tasks.json`, task id `content-approval`, currently 9 AM / 11 AM / 1 PM / 3 PM).
+**Trigger:** On demand. The former 9 AM / 11 AM / 1 PM / 3 PM scheduled sweep is retired — it never executed reliably, and `workflows/content-discovery` (scheduled daily 6 AM) is now the primary tracker custodian via its step-01 Step 1a, which runs the same resync and cleanup. This workflow remains the on-demand pass when an immediate resync or editorial edit is needed between discovery runs.
 
-**Relationship:** This workflow is the approval/publish half of the content pipeline. `workflows/content-discovery/workflow.md` is the drafting half and runs on its own cadence. `workflows/content-pipeline/workflow.md` orchestrates both halves end to end when a full cycle is needed; all three run on their own schedules and share one state file.
+**Relationship:** `workflows/content-discovery/workflow.md` is the drafting half of the content pipeline and the custodian of the shared tracker. `workflows/content-pipeline/workflow.md` orchestrates both halves end to end when a full cycle is needed; all read and write one shared state file.
 
-**Companion workflow:** `workflows/content-discovery/workflow.md` drafts new posts and appends to the same shared `pending-drafts.json` this workflow owns (see STATE TRACKING below).
+**Companion workflow:** `workflows/content-discovery/workflow.md` drafts new posts, appends to the shared `pending-drafts.json`, and runs the daily resync/cleanup (see STATE TRACKING below).
 <!-- personal:end -->
 
 ---
@@ -29,7 +29,7 @@ fairness:
 
 | Channel | ID | Purpose |
 |---------|-----|---------|
-| #content | C0B160MA3EK | David replies here to approve/reject drafts or give feedback. |
+| #content | C0B160MA3EK | David replies here with editorial feedback on drafts. Approve/reject replies need no action — publishing is external. |
 
 ---
 
@@ -41,28 +41,26 @@ fairness:
 
 ---
 
-## GHOST BLOG CONVENTIONS RELEVANT TO PUBLISHING
+## GHOST BLOG CONVENTIONS
 
-Full tag list and image conventions are documented in `workflows/content-discovery/references/ghost-conventions.md` (this workflow does not re-select tags or images on publish — it only validates what discovery already set, per GATE 4 below, unless an editorial edit or regeneration requires re-sourcing one).
-
-### Author
-- Always: David O'Hara — ID `68a3465b9e3561027e745c51`
+This workflow never publishes. It needs Ghost Admin API access for exactly two things: reading post state (`mcp__ghost-blog__get_post`) during resync, and PATCHing drafts during editorial edits.
 
 ### Post Status Flow
 1. `workflows/content-discovery/workflow.md` creates the post with `status: draft`.
-2. This workflow updates it to `status: published` only after David's explicit approval in Slack, gated by GATE 3 (approval decision), GATE 4 (publishing pre-flight), and GATE 5 (delivery verification) below.
+2. David publishes, schedules, or deletes it directly in Ghost — external to all workflows.
+3. This workflow (and content-discovery's Step 1a) resyncs `pending-drafts.json` against live Ghost state and cleans out entries whose Ghost lifecycle is complete.
 
 ### Ghost Admin API access
 
-Get Admin API key: read `~/Library/Application Support/Claude/claude_desktop_config.json`, find server `ghost-blog`, read `GHOST_ADMIN_API_KEY` (`{key_id}:{hex_secret}`). Generate JWT: header `{"alg": "HS256", "kid": "{key_id}", "typ": "JWT"}`, payload `{"exp": now+300, "iat": now, "aud": "/admin/"}`, signed with `bytes.fromhex(hex_secret)` via PyJWT. Full detail and worked examples are in `steps/step-01-approve.md`.
+Get Admin API key: read `~/Library/Application Support/Claude/claude_desktop_config.json`, find server `ghost-blog`, read `GHOST_ADMIN_API_KEY` (`{key_id}:{hex_secret}`). Generate JWT: header `{"alg": "HS256", "kid": "{key_id}", "typ": "JWT"}`, payload `{"exp": now+300, "iat": now, "aud": "/admin/"}`, signed with `bytes.fromhex(hex_secret)` via PyJWT. The editorial-edit protocols in `references/editorial-edits.md` use this.
 
 ---
 
 ## STATE TRACKING
 
-**`pending-drafts.json` lives in this directory: `workflows/content-approval/pending-drafts.json`.** It is the single shared file both `content-discovery` and this workflow read and write — see `workflows/content-discovery/references/pending-drafts-schema.md` for the full reasoning on why it is shared rather than split, and why it lives here rather than in content-discovery.
+**`pending-drafts.json` lives in this directory: `workflows/content-approval/pending-drafts.json`.** It is the single shared file both `content-discovery` and this workflow read and write — see `workflows/content-discovery/references/pending-drafts-schema.md` for the full reasoning on why it is shared, and why it stays at this path even though custodianship moved.
 
-This workflow owns the file's lifecycle: cleanup of stale `published`/`scheduled`/`rejected`/`deleted_externally` entries, Ghost-status resync, and all status transitions after David's decision.
+Custodianship sits with content-discovery (daily scheduled resync + cleanup). This workflow runs the same resync + cleanup when invoked on demand, plus editorial-edit execution. Neither workflow publishes.
 
 Format:
 ```json
@@ -70,7 +68,7 @@ Format:
   {
     "ghost_post_id": "abc123",
     "slack_thread_ts": "1234567890.123456",
-    "slack_channel": "C08UZMA7EGV",
+    "slack_channel": "C0B160MA3EK",
     "title": "Post title",
     "source_url": "https://...",
     "created_at": "2026-05-04T06:00:00Z",
@@ -83,15 +81,9 @@ Format:
 
 ---
 
-## GATES — OVERVIEW
+## GATES
 
-This workflow enforces three deterministic gates, all in `steps/step-01-approve.md`:
-
-3. **GATE 3 — Approval Decision (HARD)** — classifies David's Slack reply into exactly one of three outcomes: **approve**, **reject**, or **request revisions**. "Request revisions" covers both the "editorial edit" sub-path (surgical, keyword-detected edit) and the "regenerate" sub-path (substantive rewrite); step-01-approve.md routes each after the decision.
-4. **GATE 4 — Publishing Pre-flight (HARD)** — before calling Ghost's publish endpoint, re-verifies tags (locked list, object format), feature_image presence, non-empty lexical, and slug — the same checks discovery's GATE 2 ran at draft time, re-checked here because time may have passed and editorial edits may have touched the post since.
-5. **GATE 5 — Delivery Verification (HARD)** — after the publish call returns success, confirms via `mcp__ghost-blog__get_post` that `status == "published"` and a real, resolvable post URL is present — not just that the API call didn't error.
-
-See step-01-approve.md for full pass/fail criteria, logging format, and escalation instructions for each.
+None remain. The publish flow this workflow used to gate (GATE 3 approval decision, GATE 4 publishing pre-flight, GATE 5 delivery verification, and the `publish-preflight` guardrail checkpoint) was retired with the approve-keyword flow — this workflow has no irreversible external action. Editorial edits are PATCHes to unpublished drafts and are verified by re-reading the post after the edit.
 
 ---
 
@@ -103,13 +95,13 @@ See step-01-approve.md for full pass/fail criteria, logging format, and escalati
 
 | # | File | Executed by | Produces |
 |---|------|-------------|----------|
-| 1 | `steps/step-01-approve.md` (includes GATE 3, GATE 4, GATE 5, and the `publish-preflight` guardrail checkpoint) | spawned subagent (Harper) | Published/rejected/edited Ghost posts + updated pending-drafts.json |
-| 2 | `steps/step-02-git-finalize.md` | spawned subagent (Rigby, git via `skills/git/SKILL.md`) | Committed approval state |
+| 1 | `steps/step-01-approve.md` (resync + cleanup + editorial edits) | spawned subagent (Harper) | Resynced/cleaned pending-drafts.json + edited Ghost drafts |
+| 2 | `steps/step-02-git-finalize.md` | spawned subagent (Rigby, git via `skills/git/SKILL.md`) | Committed tracker state |
 | 3 | `steps/step-03-adversarial-verify.md` | spawned subagent (Harper) spawning **Ralph** | `adversarial-verification` guardrail result + verdict |
 
-1. Read and follow `steps/step-01-approve.md` (includes GATE 3, GATE 4, GATE 5). After GATE 4 passes and before the publish call, step-01 records a `publish-preflight` guardrail checkpoint (the workflow's one irreversible external action).
+1. Read and follow `steps/step-01-approve.md`.
 2. After completion, run `steps/step-02-git-finalize.md` to commit all changes.
-3. Then run `steps/step-03-adversarial-verify.md`, which spawns **Ralph** with `workflows/content-approval-verification/workflow.md` (the approval-state-vs-Ghost-reality lens). Ralph re-derives every publish/reject/edit claim from the live Ghost post state and the Slack approval replies and returns a verdict table; the result is recorded as an `adversarial-verification` guardrail checkpoint.
+3. Then run `steps/step-03-adversarial-verify.md`, which spawns **Ralph** with `workflows/content-approval-verification/workflow.md` (the tracker-state-vs-Ghost-reality lens). Ralph re-derives every resync/cleanup/edit claim from the live Ghost post state and the Slack thread replies and returns a verdict table; the result is recorded as an `adversarial-verification` guardrail checkpoint.
 
 **Deterministic step guardrails:** Every step transition is machine-checked. The verifiers in `workflows/content-approval/verify/` run at each step's completion (dispatched by `.claude/hooks/step-complete.py`) and record a pass/retry/fail verdict with derived fields on the run's eval record. Manual review is not the gate.
 <!-- personal:end -->

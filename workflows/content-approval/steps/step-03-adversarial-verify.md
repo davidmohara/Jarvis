@@ -6,7 +6,7 @@ model: sonnet
 ---
 
 <!-- personal:start -->
-# Step 03: Adversarial Verification: Cross-Check Approval State Against Ghost Reality
+# Step 03: Adversarial Verification: Cross-Check Tracker State Against Ghost Reality
 
 > Read and follow `reference/adversarial-verify-protocol.md` in full, then apply the parameters below.
 
@@ -19,11 +19,11 @@ model: sonnet
 | Verification workflow | `workflows/content-approval-verification/workflow.md` |
 | Previous step | step-02-git-finalize |
 | Checkpoint name | adversarial-verification |
-| Lens | approval state vs Ghost reality; every 'published' status claim matched to the live Ghost post record |
-| Scope | this run's approval cycle: every publish claimed, every reject claimed, every edit/regeneration claimed, and the resulting `pending-drafts.json` status transitions |
-| Ralph task | Cross-check every publish/reject/edit status claim against the live Ghost post state and the Slack approval replies, and return your verdict table |
-| Verdict columns | Item, Approval claim, Ghost/recorded state, Verdict |
-| Escalate conditions | any claim that a draft is `published` while Ghost still shows `draft`, a publish with no `[PUBLISHED]` Slack confirmation, a publish without a matching David approval reply, or a `published` entry not removed from `pending-drafts.json` |
+| Lens | tracker state vs Ghost reality; every `pending-drafts.json` status matched to the live Ghost post record, every claimed editorial edit traced to the post |
+| Scope | this run's resync/edit cycle: every resync status transition claimed, every cleanup removal claimed, every editorial edit claimed, and the resulting `pending-drafts.json` state |
+| Ralph task | Cross-check every resync/cleanup/edit claim against the live Ghost post state and the Slack thread replies, and return your verdict table |
+| Verdict columns | Item, Run claim, Ghost/recorded state, Verdict |
+| Escalate conditions | any entry tracked as `pending` that Ghost shows as `published` or `scheduled`-past, any `published` entry not removed from `pending-drafts.json`, or any claimed editorial edit not present in the live post |
 | Escalate message | `[Harper]: Content approval verification found [N] issue(s): [summary]. Holding for your review.` |
 | Workflow-specific failure mode | Ghost API unreachable during verification: Ralph marks Ghost-dependent rows Unverified with note "Ghost unreadable"; record the partial result. Do not suppress it. |
 

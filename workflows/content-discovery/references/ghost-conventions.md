@@ -67,5 +67,5 @@ Select 1-3 that best match the post content. IDs are required for the Ghost API.
 
 ## Post Status Flow
 1. This workflow (content-discovery) creates the post with `status: draft` — never published on creation.
-2. `workflows/content-approval/workflow.md` updates it to `status: published` only after David's explicit approval in Slack.
+2. Publishing is external: David publishes, schedules, or deletes drafts directly in Ghost. Content-discovery (step-01 Step 1a, daily) and content-approval (on demand) resync `pending-drafts.json` against live Ghost state to reflect it — no workflow publishes on his behalf.
 <!-- personal:end -->

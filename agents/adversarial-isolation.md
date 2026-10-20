@@ -34,8 +34,8 @@ Adversarial verification is additionally wired, with per-workflow lenses, for th
 | system-eval | Eval-record analysis claims vs the records themselves: counts, grades, findings traced to files |
 | watchtower (weekly) | Standing-intelligence accounting: drafts approved/posted vs source digests, no unpublished claims of publishing |
 | content-discovery | Draft claims vs the Slack/digest source: every draft traced to a real digest item, no invented angles |
-| content-approval | Approval state vs Ghost reality: approved drafts actually published, status claims vs Ghost post records |
-| content-pipeline | End-to-end accounting: discovered to approved to published, zero silent drops |
+| content-approval | Tracker state vs Ghost reality: every tracked status matches the live Ghost post, claimed editorial edits actually landed |
+| content-pipeline | End-to-end accounting: discovered to drafted to tracker-reconciled, zero silent drops |
 | error-improvement | Fix claims vs the error log entries: every applied fix traces to a real entry, no fabricated corrections |
 | golf-booking | Booking claims vs confirmation evidence: window correct, no double-booking, confirmation recorded before any success claim |
 | golf-preview | Preview claims vs weather/course source data |

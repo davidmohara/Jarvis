@@ -26,7 +26,7 @@ completed-at: ~
 
 ## CONTEXT BOUNDARIES
 
-- Scope is exactly this run's pipeline accounting: discovered, approved, and published items.
+- Scope is exactly this run's pipeline accounting: discovered, drafted, and tracker-reconciled items. Publishing is external (David publishes directly in Ghost) — external publishes are accounted for via the tracker's resync, not claimed by the pipeline.
 - Ralph does not re-run the pipeline. He checks whether each item is accounted for.
 
 ---
@@ -43,9 +43,9 @@ completed-at: ~
    |---|----------------|---------------------|---------|
    | 1 | Every discovered item is in `pending-drafts.json` | Slack pull items vs entries | Unverified if a discovered item has no entry |
    | 2 | Every `pending-drafts.json` entry has a Ghost post | `mcp__ghost-blog__get_post` per `ghost_post_id` | Unverified if an entry points at a non-existent post |
-   | 3 | Every approved item is published or explained | Ghost status + `pending-drafts.json` `status`/notes | Unverified if approved but neither published nor explained |
-   | 4 | Every terminal status is legitimate | `published`/`rejected`/`stalled` vs the recorded reason | Unverified if a status has no supporting evidence |
-   | 5 | Stage counts reconcile | discovered >= approved >= published, no gaps without a reason | Unverified if a stage count exceeds its predecessor |
+   | 3 | Every entry tracked as `pending` is actually a draft | Ghost `post.status == "draft"` per entry | Unverified if a `pending` entry is published/scheduled in Ghost (resync missed it) |
+   | 4 | Every terminal status is legitimate | `published`/`scheduled`/`rejected`/`deleted_externally` rows match the live Ghost state, and cleanup-eligible rows were removed | Unverified if a status contradicts Ghost or a stale row remains |
+   | 5 | Stage counts reconcile | discovered >= drafted, no gaps without a reason | Unverified if a stage count exceeds its predecessor |
    | 6 | No entry silently dropped | Every entry has a terminal or pending status | Unverified if an entry is neither pending nor terminal |
    | 7 | Right-run check | Entry timestamps vs run-date | Unverified if entries are from a different run |
 

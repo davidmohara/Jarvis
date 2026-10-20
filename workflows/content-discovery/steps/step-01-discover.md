@@ -31,7 +31,7 @@ model: sonnet
 6. You MUST write the pending draft entry to pending-drafts.json after successful Ghost creation.
 7. You MUST notify David via post.py (Jarvis bot) — not the Slack MCP connector.
 8. You MUST set content_type on every pending-drafts.json entry — "post" or "article". Never omit it.
-9. You MUST scan pending draft threads for editorial feedback before processing new content (Step 1b).
+9. You MUST run the tracker resync and cleanup (Step 1a) and scan pending draft threads for editorial feedback (Step 1b) before processing new content. Discovery is the custodian of the shared tracker — publishing is external (David publishes directly in Ghost), so Step 1a's resync is the only thing keeping pending-drafts.json in sync with reality.
 10. You MUST NOT proceed past GATE 1 or GATE 2 below if either fails its HARD criteria.
 
 Before executing, write `status: in-progress` and `started-at` to this file's own frontmatter.
@@ -75,11 +75,33 @@ Run the Gate 1 source-integrity checklist in `references/gates.md` (read it now,
 
 Parse the JSON response — `{"ok": true, "messages": [...]}`. Each message has `ts`, `user`, `text`, `thread_ts`, and optionally `bot_id`.
 
-Skip messages where `thread_ts != ts` — those are thread replies handled by content-approval.
+Skip messages where `thread_ts != ts` — those are thread replies. Editorial feedback on pending drafts is handled at Step 1b; approve/reject replies need no action (publishing is external — David publishes directly in Ghost, and Step 1a's resync picks the new state up).
 
 For all remaining messages, apply the router below to each one before doing anything else.
 
 ---
+
+### 1a. Resync and clean pending-drafts.json (tracker custodianship)
+
+Run this on every execution, before scanning threads. This is the step that keeps the shared tracker honest — David publishes, schedules, and deletes drafts directly in Ghost, so the tracker only learns about it here.
+
+**Resync against live Ghost state.** Read `workflows/content-approval/pending-drafts.json`. For each entry with `status: "pending"`, call `mcp__ghost-blog__get_post(id="{ghost_post_id}")`:
+
+- `post.status == "published"`: published externally. Update the entry: set `status: "published"`, add `published_at: {post.published_at}`. It will be removed by the cleanup pass below.
+- `post.status == "scheduled"`: update the entry: set `status: "scheduled"`, add `scheduled_at: {post.published_at}` (Ghost stores the scheduled time in `published_at` for scheduled posts).
+- `post.status == "draft"`: still a draft (expected). Leave as `status: "pending"`.
+- Not found (404): deleted externally. Update the entry: set `status: "deleted_externally"`.
+
+**Cleanup.** After resync, remove from the array:
+
+- All entries with `status: "published"` — they are done.
+- All entries with `status: "scheduled"` AND `scheduled_at` in the past (before current UTC time) — Ghost has already published them.
+- All entries with `status: "rejected"` AND `created_at` older than 30 days.
+- All entries with `status: "deleted_externally"` AND `created_at` older than 30 days.
+
+If any entries changed or were removed, write the updated array back to `workflows/content-approval/pending-drafts.json` immediately. An empty array `[]` is a valid and healthy state.
+
+Record `tracker_resynced` (count of status changes) and `tracker_entries_removed` (count removed) in this step's frontmatter outputs and in `state.yaml` `accumulated-context`.
 
 ### 1b. Scan pending draft threads for editorial feedback
 
@@ -93,7 +115,7 @@ Timeout: 15000
 
 For each thread, examine the replies from human users (skip bot messages). Apply this router to each human reply:
 
-**APPROVE/REJECT → skip** (keywords: "approve", "approved", "reject", "rejected", "looks good", "publish"). These are handled by content-approval. Do not process here.
+**APPROVE/REJECT → skip** (keywords: "approve", "approved", "reject", "rejected", "looks good", "publish"). No action needed — David publishes and deletes drafts directly in Ghost, and Step 1a's resync picks the new state up from Ghost on the next run. Do not process here.
 
 **EDITORIAL FEEDBACK → execute the DRAFT EDIT PATH** (any reply that describes a change to make: "change X", "update X", "rewrite X", "fix X", "make it X", "add X", "remove X", "too long", "too short", "wrong tone", etc.)
 
@@ -334,5 +356,5 @@ After discovery completes:
 1. Draft notification is posted to #content
 2. Run `steps/step-02-git-finalize.md` to commit pending-drafts.json and state.yaml
 
-`workflows/content-approval/steps/step-01-approve.md` runs independently on its own schedule, also followed by its own git-finalize step.
+`workflows/content-approval/steps/step-01-approve.md` (the same resync + cleanup, plus on-demand editorial edits) can also be run on demand, followed by its own git-finalize step. Discovery's Step 1a is the primary, scheduled custodian of the shared tracker.
 <!-- personal:end -->
