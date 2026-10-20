@@ -153,6 +153,7 @@ Core themes:
 2. **Talking points are specific.** Not "talk about AI" — instead "reference your experience building the Jarvis multi-agent system." Concrete, personal, usable.
 3. **Flag everything uncertain.** Missing SharePoint doc? Flag it. Guest background thin? Flag it. Date unconfirmed? Flag it. Better to over-flag than to let David walk in unprepared.
 4. **Keep it scannable.** Tables, bullets, bold headers. David reads this quickly before filming — it's not a novel.
+5. **No em-dashes anywhere in the prep sheet.** Use periods, commas, or colons instead. This is a standing rule that has been violated before (Episode 17 prep sheet, twice in one document). Before saving the file, scan the entire document for `—` and replace every occurrence. Treat the pre-save scan as mandatory, not optional — do not rely on drafting discipline alone.
 
 ---
 

@@ -104,6 +104,21 @@ No references found. Safe to modify or delete without cascading effects.
 Note: confirm the file is also removed from evolution.manifest.json if deleting.
 ```
 
+### 4a. Persist the Report (MANDATORY)
+
+Every impact analysis is written to disk as well as displayed — the report is
+the eval-harness output contract for this skill. Write the full report to:
+
+```
+memory/working/rigby-impact-YYYY-MM-DD-<target-slug>.md
+```
+
+(`YYYY-MM-DD` = today's date; `<target-slug>` = the target's directory or
+file stem, slashes to hyphens.) The persisted file must carry: the target
+path, the full categorized reference list (or the no-references finding),
+and the date. A run that only displays the report and exits has not
+completed this skill.
+
 ### 5. On Deletion
 
 If the intent is deletion (inferred from context or explicit `--delete` flag), also check:
