@@ -1,19 +1,21 @@
 workflow: content-pipeline
 agent: harper
-status: complete
-started-at: 2026-10-15T22:00:00Z
-completed-at: 2026-10-15T22:05:00Z
-session-id: harper-content-pipeline-20261015-2200
-original-request: user-triggered re-run to pick up new drafts with reference links
-current-step: step-01
+status: in-progress
+started-at: 2026-10-20T00:00:00Z
+session-started: 2026-10-20
+session-id: harper-content-pipeline-20261020-discovery
+original-request: scheduled content-discovery run (step-01-discover only), then David asked to draft the four out-of-band #content drafts
+current-step: step-02
 accumulated-context:
   messages_scanned: 4
   new_urls: 0
   new_digests: 4
   posts_drafted: 4
   improving_blog_drafts: 0
-  pending_threads_checked: 0
+  pending_threads_checked: 36
   editorial_feedback_found: 0
   editorial_edits_applied: 0
-  outcome: "4 Ghost drafts created with images and reference link nodes. 4 Slack notifications sent."
+  gate_1_result: "PASS"
+  gate_2_result: "PASS x4"
+  outcome: "4 Ghost drafts created from David's hand-edited #content text, with images, links, tags; Slack notifications sent."
 model: sonnet

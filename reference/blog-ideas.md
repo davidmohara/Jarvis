@@ -10,10 +10,10 @@ Running list of potential blog topics. Jarvis captures these proactively from co
 
 | Idea | Source | Tags | Notes |
 |------|--------|------|-------|
-| "Leadership by Self Differentiation" | Content brief (2026-10-20) | leadership, personal-development, self-awareness | Draft at `Mind/Posts/_leadership-by-self-differentiation.md`. Friedman/Bowen theory, non-anxious presence, relationship triangles. |
-| "What Happens When You Stop" | Content brief (2026-10-20) | leadership, personal-development, solitude | Draft at `Mind/Posts/_what-happens-when-you-stop.md`. Quarterly retreat practice, deliberate solitude as a leadership discipline. |
-| "Goals Don't Change You" | Content brief (2026-10-20) | goal-setting, personal-development, identity | Draft at `Mind/Posts/_goals-dont-change-you.md`. Identity mechanism vs outcome goals. Contrarian. |
-| "Your January Goals Are a Procrastination Ritual" | Content brief (2026-10-20) | goal-setting, leadership, decision-making | Draft at `Mind/Posts/_your-january-goals-are-a-procrastination-ritual.md`. Goals defer, decisions commit. Contrarian. |
+| "Leadership by Self Differentiation" | Content brief (2026-10-20) | leadership, personal-development, self-awareness | Ghost draft, pending approval (2026-10-20). Friedman/Bowen theory, non-anxious presence, relationship triangles. Vault draft: `Mind/Posts/_leadership-by-self-differentiation.md`. |
+| "What Happens When You Stop" | Content brief (2026-10-20) | leadership, personal-development, solitude | Ghost draft, pending approval (2026-10-20). Quarterly retreat practice, deliberate solitude as a leadership discipline. Internal link: Work and Rest Aren't Opposites. Vault draft: `Mind/Posts/_what-happens-when-you-stop.md`. |
+| "Goals Don't Change You" | Content brief (2026-10-20) | goal-setting, personal-development, identity | Ghost draft, pending approval (2026-10-20). Identity mechanism vs outcome goals. Contrarian. Vault draft: `Mind/Posts/_goals-dont-change-you.md`. |
+| "Your January Goals Are a Procrastination Ritual" | Content brief (2026-10-20) | goal-setting, leadership, decision-making | Ghost draft, pending approval (2026-10-20). Goals defer, decisions commit. Contrarian. Vault draft: `Mind/Posts/_your-january-goals-are-a-procrastination-ritual.md`. |
 | "Microsoft Just Picked a Side in the Agent Identity War" | Watchtower (2026-10-19) [watchtower] | AI, technology, leadership | Draft at `Mind/Posts/_microsoft-picked-a-side-agent-identity-war.md` |
 | "The Agent Inventory You Don't Know You Have" | Watchtower (2026-10-19) [watchtower] | AI, technology, business | Draft at `Mind/Posts/_the-agent-inventory-you-dont-know-you-have.md` |
 | "Your Manager Is Worth More Than Your AI Budget" | Watchtower (2026-10-19) [watchtower] | leadership, AI, business | Draft at `Mind/Posts/_your-manager-is-worth-more-than-your-ai-budget.md` |

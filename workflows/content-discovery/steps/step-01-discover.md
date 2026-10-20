@@ -5,10 +5,10 @@ completed-at: "2026-10-17T19:05:00Z"
 outputs:
   messages_scanned: 8
   new_urls: 0
-  new_digests: 0
-  posts_drafted: 0
+  new_digests: 4
+  posts_drafted: 4
   improving_blog_drafts: 0
-  pending_threads_checked: 2
+  pending_threads_checked: 36
   editorial_feedback_found: 0
   editorial_edits_applied: 0
   gate_1_result: "PASS — ok: true, 8 bot messages (48h retry) from C0B160MA3EK. All without digest signal — SKIP."

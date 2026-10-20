@@ -1,19 +1,19 @@
 ---
 status: complete
-started-at: "2026-10-17T19:00:00Z"
-completed-at: "2026-10-17T19:05:00Z"
+started-at: "2026-10-20T15:26:00Z"
+completed-at: "2026-10-20T15:30:00Z"
 outputs:
-  messages_scanned: 8
+  messages_scanned: 4
   new_urls: 0
-  new_digests: 0
-  posts_drafted: 0
+  new_digests: 4
+  posts_drafted: 4
   improving_blog_drafts: 0
-  pending_threads_checked: 2
+  pending_threads_checked: 36
   editorial_feedback_found: 0
   editorial_edits_applied: 0
-  gate_1_result: "PASS — ok: true, 8 bot messages (48h retry) from C0B160MA3EK. All without digest signal — SKIP."
-  gate_2_result: "n/a — no new drafts"
-  outcome: "No new content. 2 pending threads checked (Your Business Has a Dashboard, Love With Your Presence). Both fully actioned in prior run — replies outside 24h window, nothing new to process. Clean exit."
+  gate_1_result: "PASS: ok true, 4 bot messages from C0B160MA3EK"
+  gate_2_result: "PASS x4 (word counts 379-463, no em-dashes, tags on locked list, images landscape and CDN-uploaded)"
+  outcome: "4 'Content draft N of 4' bot messages had no digest signal, then David instructed in-session to draft them from his hand-edited text. 4 Ghost drafts created with images, links and tags; 4 Slack notifications sent; pending-drafts.json updated (source_type manual). No pending thread feedback in 24h."
 model: sonnet
 ---
 
