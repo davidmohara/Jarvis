@@ -1,0 +1,272 @@
+{
+  "workflow": "boot",
+  "total_size_bytes": 10664,
+  "accumulated_context": {
+    "name": "accumulated-context",
+    "size_bytes": 10664,
+    "size_kb": 10.41,
+    "estimated_tokens": 2666,
+    "type": "dict"
+  },
+  "field_breakdown": [
+    {
+      "name": "phase2.task-g-72hr-lookahead",
+      "size_bytes": 1052,
+      "size_kb": 0,
+      "estimated_tokens": 262,
+      "type": "str"
+    },
+    {
+      "name": "briefing_delivered",
+      "size_bytes": 1029,
+      "size_kb": 0,
+      "estimated_tokens": 256,
+      "type": "str"
+    },
+    {
+      "name": "phase2.morning-briefing-steps-01-02",
+      "size_bytes": 956,
+      "size_kb": 0,
+      "estimated_tokens": 237,
+      "type": "str"
+    },
+    {
+      "name": "phase3.morning-briefing-step-03",
+      "size_bytes": 793,
+      "size_kb": 0,
+      "estimated_tokens": 196,
+      "type": "str"
+    },
+    {
+      "name": "phase2.task-h-email-triage",
+      "size_bytes": 792,
+      "size_kb": 0,
+      "estimated_tokens": 197,
+      "type": "str"
+    },
+    {
+      "name": "workflows_scanned",
+      "size_bytes": 577,
+      "size_kb": 0,
+      "estimated_tokens": 143,
+      "type": "str"
+    },
+    {
+      "name": "data_freshness_report",
+      "size_bytes": 566,
+      "size_kb": 0,
+      "estimated_tokens": 141,
+      "type": "str"
+    },
+    {
+      "name": "verification_results",
+      "size_bytes": 440,
+      "size_kb": 0,
+      "estimated_tokens": 109,
+      "type": "str"
+    },
+    {
+      "name": "phase1-point5.unified-data-pulls.email",
+      "size_bytes": 439,
+      "size_kb": 0,
+      "estimated_tokens": 108,
+      "type": "str"
+    },
+    {
+      "name": "phase2.task-j-reminders",
+      "size_bytes": 379,
+      "size_kb": 0,
+      "estimated_tokens": 94,
+      "type": "str"
+    },
+    {
+      "name": "state_status",
+      "size_bytes": 377,
+      "size_kb": 0,
+      "estimated_tokens": 93,
+      "type": "str"
+    },
+    {
+      "name": "in_flight_list",
+      "size_bytes": 333,
+      "size_kb": 0.33,
+      "estimated_tokens": 83,
+      "type": "list"
+    },
+    {
+      "name": "status_summary",
+      "size_bytes": 244,
+      "size_kb": 0,
+      "estimated_tokens": 61,
+      "type": "str"
+    },
+    {
+      "name": "phase2.task-i-jarvis-inbox",
+      "size_bytes": 176,
+      "size_kb": 0,
+      "estimated_tokens": 43,
+      "type": "str"
+    },
+    {
+      "name": "knox_reason",
+      "size_bytes": 160,
+      "size_kb": 0,
+      "estimated_tokens": 40,
+      "type": "str"
+    },
+    {
+      "name": "phase1-point5.unified-data-pulls.jarvis-inbox",
+      "size_bytes": 159,
+      "size_kb": 0,
+      "estimated_tokens": 39,
+      "type": "str"
+    },
+    {
+      "name": "phase1-point5.files-created",
+      "size_bytes": 154,
+      "size_kb": 0.15,
+      "estimated_tokens": 38,
+      "type": "list"
+    },
+    {
+      "name": "phase1-point5.unified-data-pulls.clay",
+      "size_bytes": 144,
+      "size_kb": 0,
+      "estimated_tokens": 35,
+      "type": "str"
+    },
+    {
+      "name": "phase1",
+      "size_bytes": 140,
+      "size_kb": 0,
+      "estimated_tokens": 35,
+      "type": "str"
+    },
+    {
+      "name": "calendar.source",
+      "size_bytes": 140,
+      "size_kb": 0,
+      "estimated_tokens": 34,
+      "type": "str"
+    },
+    {
+      "name": "phase3.meetings_found",
+      "size_bytes": 131,
+      "size_kb": 0,
+      "estimated_tokens": 32,
+      "type": "str"
+    },
+    {
+      "name": "phase3.clay-reminders",
+      "size_bytes": 99,
+      "size_kb": 0,
+      "estimated_tokens": 24,
+      "type": "str"
+    },
+    {
+      "name": "phase2.phase2_status",
+      "size_bytes": 92,
+      "size_kb": 0,
+      "estimated_tokens": 22,
+      "type": "str"
+    },
+    {
+      "name": "phase2_measurement_file",
+      "size_bytes": 80,
+      "size_kb": 0,
+      "estimated_tokens": 20,
+      "type": "str"
+    },
+    {
+      "name": "phase1-point5.unified-data-pulls.ynab",
+      "size_bytes": 62,
+      "size_kb": 0,
+      "estimated_tokens": 15,
+      "type": "str"
+    },
+    {
+      "name": "phase3.clay-birthdays",
+      "size_bytes": 56,
+      "size_kb": 0,
+      "estimated_tokens": 13,
+      "type": "str"
+    },
+    {
+      "name": "knox_eval_id",
+      "size_bytes": 27,
+      "size_kb": 0,
+      "estimated_tokens": 6,
+      "type": "str"
+    },
+    {
+      "name": "calendar.calendar_file",
+      "size_bytes": 26,
+      "size_kb": 0,
+      "estimated_tokens": 6,
+      "type": "str"
+    },
+    {
+      "name": "calendar.date_range",
+      "size_bytes": 24,
+      "size_kb": 0,
+      "estimated_tokens": 6,
+      "type": "str"
+    },
+    {
+      "name": "phase1-point5.unified-data-pulls.omnifocus",
+      "size_bytes": 22,
+      "size_kb": 0,
+      "estimated_tokens": 5,
+      "type": "str"
+    },
+    {
+      "name": "calendar.status",
+      "size_bytes": 7,
+      "size_kb": 0,
+      "estimated_tokens": 1,
+      "type": "str"
+    },
+    {
+      "name": "knox_status",
+      "size_bytes": 7,
+      "size_kb": 0,
+      "estimated_tokens": 1,
+      "type": "str"
+    },
+    {
+      "name": "phase1-point5.total_data_on_disk_kb",
+      "size_bytes": 5,
+      "size_kb": 0,
+      "estimated_tokens": 1,
+      "type": "float"
+    },
+    {
+      "name": "calendar.file_size_kb",
+      "size_bytes": 4,
+      "size_kb": 0,
+      "estimated_tokens": 1,
+      "type": "float"
+    },
+    {
+      "name": "total_kb",
+      "size_bytes": 4,
+      "size_kb": 0,
+      "estimated_tokens": 1,
+      "type": "float"
+    },
+    {
+      "name": "total_tokens",
+      "size_bytes": 4,
+      "size_kb": 0,
+      "estimated_tokens": 1,
+      "type": "int"
+    },
+    {
+      "name": "calendar.event_count",
+      "size_bytes": 2,
+      "size_kb": 0,
+      "estimated_tokens": 0,
+      "type": "int"
+    }
+  ]
+}

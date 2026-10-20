@@ -8,13 +8,20 @@ model: sonnet
 <!-- system:start -->
 # Boot Workflow
 
-9 sequential steps with per-step token extraction and guardrail checkpoints.
+7 sequential steps with per-step token extraction and guardrail checkpoints.
 
 ## STATE CHECK
 
 Read and follow `reference/state-check-protocol.md` before any execution. Workflow: `boot`; agent: `master`.
 
 **Variant:** if `status: in-progress` but `session-started` is more than 4 hours old, treat the run as stale and start fresh.
+
+**Delta mode:** if `status: complete` and `completed-at` is today, boot already ran. Run delta boot instead of a full boot:
+1. Execute step-01 (identity load) normally; skip its Knox spawn entirely.
+2. Execute step-01.2 (unified data pull) and step-01.5 (calendar pull) to refresh `data/`.
+3. Skip steps 02, 03, 04, 06, 08.
+4. Produce a short delta briefing: what changed since this morning's boot (new flagged email, new inbox items, calendar changes, newly due/overdue tasks). No re-synthesis of unchanged sections.
+5. Run step-07 to close. Delta boot target cost is under 20% of a full boot.
 
 ## DATA SOURCES
 
@@ -36,7 +43,7 @@ So Master executes step-01 directly, in the main session, exactly as written in 
 This is a permanent structural exception, not a shortcut.
 The same exception applies to the equivalent first step of `shutdown-cleanup` and `weekly-review` (the only other `agent: master` workflows).
 
-**Everything else — steps 2 through 12 — runs as one spawned sub-agent**, not fire-and-forget. Immediately after step-01 completes:
+**Everything else — steps 2 through 10 — runs as one spawned sub-agent**, not fire-and-forget. Immediately after step-01 completes:
 
 1. Spawn a subagent (general-purpose, persona `agents/master.md`) with instructions to: run STATE CHECK, then execute steps 01.2 through 08 below in order, following each step's own frontmatter/state.yaml update protocol exactly as written, including the guardrail-checkpoint/retry/punch-out behavior described below.
 2. Wait for it (block on the result) — Master needs the synthesized briefing this turn, so this is not a background spawn.
@@ -51,14 +58,14 @@ The same exception applies to the equivalent first step of `shutdown-cleanup` an
 | 2 | `step-01.2-unified-data-pull.md` | — | spawned subagent |
 | 3 | `step-01.5-unified-calendar-pull.md` | step-01.5-checkpoint | spawned subagent |
 | 4 | `step-02-gather-data.md` | step-02-checkpoint | spawned subagent |
-| 5 | `step-02.5-measure-phase2.md` | — | spawned subagent |
-| 6 | `step-03-verify-phase2.md` | step-03-checkpoint | spawned subagent |
-| 7 | `step-04-gather-meeting-context.md` | step-04-checkpoint | spawned subagent |
-| 8 | `step-05-synthesize-briefing.md` | step-05-checkpoint | spawned subagent |
-| 9 | `step-06-scan-workflows.md` | step-06-checkpoint | spawned subagent |
-| 10 | `step-06.5-guardrail-checkpoint.md` | step-06.5-checkpoint | spawned subagent |
-| 11 | `step-07-verify-completion.md` | step-07-checkpoint | spawned subagent |
-| 12 | `step-08-knox-completion-check.md` | — | spawned subagent |
+| 5 | `step-03-verify-phase2.md` (measure + verify, script-first via `verify/boot-verify.py phase2`; Ralph only on anomaly) | step-03-checkpoint | spawned subagent |
+| 6 | `step-04-gather-meeting-context.md` | step-04-checkpoint | spawned subagent |
+| 7 | `step-05-synthesize-briefing.md` | step-05-checkpoint | spawned subagent |
+| 8 | `step-06-scan-workflows.md` | step-06-checkpoint | spawned subagent |
+| 9 | `step-07-verify-completion.md` (guardrail review + completion gate, script-first via `verify/boot-verify.py completion`) | step-07-checkpoint | spawned subagent |
+| 10 | `step-08-knox-completion-check.md` | — | spawned subagent |
+
+Former step-02.5 (measure) and step-06.5 (guardrail checkpoint) were merged into step-03 and step-07 on 2026-10-20; their mechanics now run as `verify/boot-verify.py` subprocesses instead of LLM subagent work.
 
 After each step: (1) step-complete.py hook extracts per-step tokens, (2) guardrail checkpoint validates output, (3) if escalate: punch out to controller per the resume protocol above, (4) if retry: re-execute step (max 2 attempts per step-complete.py's retry_signal), (5) else: continue to next step.
 

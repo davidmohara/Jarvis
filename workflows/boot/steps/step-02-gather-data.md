@@ -96,7 +96,7 @@ accumulated-context:
 Update step frontmatter: Set `status: complete` and `completed-at` (current timestamp). Record `phase2_status` in `state.yaml` `accumulated-context` with a summary line (e.g. "complete — all 5 tasks executed, 0 failures" or "complete — 4 tasks completed, 1 skipped, 0 failures").
 
 Update state.yaml: 
-- Set `current-step: step-02.5-measure-phase2.md` (proceed to instrumentation/measurement step).
+- Set `current-step: step-03-verify-phase2.md` (measurement is folded into step-03).
 - Append Phase 2 outcomes to `accumulated-context.phase2`.
 
 ---

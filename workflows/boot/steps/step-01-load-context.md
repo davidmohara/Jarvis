@@ -21,9 +21,13 @@ Read in order:
 
 Record files_loaded and missing_files in outputs.
 
-Spawn Knox immediately (fire-and-forget):
+Spawn Knox (fire-and-forget), gated on a once-daily marker:
+
+1. Check `data/.knox-last-run`. If the file exists and its contents are today's date (YYYY-MM-DD), skip the spawn: Knox already ran today. Record `knox_spawn: skipped-already-ran-today` and continue.
+2. Otherwise spawn:
 ```
 Agent: Knox — run workflows/plaud-ingest/workflow.md. Background, don't wait.
 ```
+3. Write today's date to `data/.knox-last-run` when spawning.
 
 Record knox_spawn status. Continue to step-01.5.

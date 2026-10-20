@@ -2,110 +2,82 @@
 status: complete
 started-at: '2026-10-19T21:29:30Z'
 completed-at: '2026-10-19T21:31:00Z'
+guardrail-result: flag
 ---
 
 <!-- system:start -->
-# Step 07: Verify Boot Completion
+# Step 07: Guardrail Review & Verify Completion
 
 ## MANDATORY EXECUTION RULES
 
-1. You MUST check every prior step's frontmatter status. No step is exempt — including step-01.
-2. This step is a hard gate. Boot is NOT complete until this step passes.
-3. If any step failed verification, boot status MUST remain `in-progress`. Do NOT mark complete.
-4. Do NOT skip this step for any reason — not for time, not because boot "felt complete."
+1. You MUST run the consolidated verifier script. It performs the pre-completion guardrail mechanics (formerly step-06.5: freshness, briefing currency, leakage scan) AND the completion gate (frontmatter status of every prior step) in one deterministic pass.
+2. You MUST record the guardrail result via `guardrail-checkpoint.py`. Recording is not optional.
+3. This step is a hard gate. Boot is NOT complete until this step passes.
+4. LLM judgment is only exercised when the script flags anomalies, or when reviewing whether the synthesized briefing misrepresents the gathered data. Do not redo the script's mechanical checks by hand.
+
 ---
 
 ## EXECUTION PROTOCOL
 
-**Agent:** boot subagent (Master persona), spawned by the coordinator at boot start, never executed inline in the coordinator's session (see `workflow.md`).
-**Input:** Frontmatter status of steps 01–06
-**Output:** Verification report surfaced to controller; boot marked complete only if all steps pass
-
----
-
-## CONTEXT BOUNDARIES
-
-- This step reads step frontmatter only. It does not re-execute any prior step.
-- A step with `status: complete` passes. All other statuses fail.
-- A missing step file is a failure — surface it as such.
+**Agent:** boot subagent (Master persona), spawned by the coordinator at boot start (see `workflow.md`).
+**Input:** `accumulated-context` from all prior steps; step frontmatter on disk
+**Output:** Guardrail result recorded; verification report; boot marked complete only if clean
 
 ---
 
 ## YOUR TASK
 
-1. **Read the frontmatter of every prior step file in order:**
-   - `steps/step-01-load-context.md`
-   - `steps/step-02-gather-data.md`
-   - `steps/step-03-verify-phase2.md`
-   - `steps/step-04-gather-meeting-context.md`
-   - `steps/step-05-synthesize-briefing.md`
-   - `steps/step-06-scan-workflows.md`
-   - `steps/step-06.5-guardrail-checkpoint.md`
+1. **Run the consolidated verifier** from IES root:
 
-2. **For each step, record:**
-   - `status` field value
-   - `completed-at` timestamp (if present)
-   - PASS if `status: complete` — FAIL otherwise. **Exception: step-06.5 also passes on `status: complete` with a recorded `escalate` guardrail result** — an escalation is a deliberate halt-for-human-decision, not a step failure (see `guardrail-checkpoint.py`); if step-06.5 escalated, note it in the report but do not treat it as a FAIL on its own — surface it as its own line, distinct from a failed step.
+   ```bash
+   python3 workflows/boot/verify/boot-verify.py completion
+   ```
 
-3. **Compute the overall result:**
-   - **PASS** — all 7 steps show `status: complete`
-   - **FAIL** — one or more steps are not complete
+   This checks: pull-file freshness and health, morning-briefing currency,
+   credential-shaped-string leakage scan, and the frontmatter status of every
+   prior step (PASS = `status: complete`).
 
-4. **Surface the verification report to the controller:**
+2. **Content judgment (brief, only what the script can't see):**
+   - Does the step-05 briefing plausibly reflect the gathered data? (Stale context presented as live is an `escalate`.)
+   - Did step-06's workflow scan produce a sane result (not everything-in-progress, not nothing-at-all when `_active.yaml` has entries)?
 
-   If PASS:
-   > ✓ Boot verification passed. All 7 steps completed.
-   > | Step | Status | Completed At |
-   > |------|--------|--------------|
-   > | step-01-load-context | complete | {timestamp} |
-   > | step-02-gather-data | complete | {timestamp} |
-   > | ... | ... | ... |
-   > | step-06.5-guardrail-checkpoint | complete | {timestamp} |
+3. **Record the guardrail result:**
+   - Script clean + judgment clean → `pass`
+   - Minor data quirk → `flag` with a one-line note
+   - Briefing misrepresents data or scan clearly broken → `escalate`
 
-   If PASS but step-06.5 escalated:
-   > ✓ Boot verification passed (7/7 steps complete). Note: the guardrail checkpoint escalated — [reason from the checkpoint]. This needs your attention but did not block boot.
+   ```bash
+   python3 systems/eval-harness/guardrail-checkpoint.py boot pre-completion-review step-06-scan-workflows <pass|flag|escalate> "<one-line reason>"
+   ```
 
-   If FAIL:
-   > ✗ Boot verification FAILED. The following steps did not complete:
-   > | Step | Status | Action Required |
-   > |------|--------|-----------------|
-   > | step-03-verify-phase2 | not-started | Re-execute this step before boot can be marked complete |
-   >
-   > Boot is NOT complete. Say `resume boot` to continue from the failed step.
+   On `escalate`: surface the finding to David, but still complete the gate so the session isn't blocked. The risk here is bad context shaping the session, not an irreversible write.
 
-5. **If PASS (including the escalated-but-complete case):** Update step frontmatter and boot state:
-   - Set this step's `status: complete` and `completed-at` with current timestamp
-   - Record `state_status` in `state.yaml` `accumulated-context` with a summary (e.g. "complete — all 7 prior steps verified, boot state.yaml updated with completion timestamp")
-   - Set `outputs: { verification: passed, steps_verified: 7, failed_steps: [] }`
-   - **Update `workflows/boot/state.yaml`: `status: complete`, `current-step: null`, record `completed-at`. This write is mandatory — it's the only event that closes out boot's eval-harness record. Do not defer it, do not skip it because the session is ending anyway.**
+4. **Apply the gate:**
+   - **PASS** (script exit 0, no escalation): surface the report, then:
+     - Set this step's `status: complete`, `completed-at` now
+     - Record `state_status` in state.yaml `accumulated-context`
+     - **Update `workflows/boot/state.yaml`: `status: complete`, `current-step: null`, `completed-at` now. This write is mandatory; it closes boot's eval-harness record.**
+   - **FAIL** (any step frontmatter not complete): leave boot `status: in-progress`, set `current-step` to the first failed step, surface the failure table, await instruction.
 
-6. **If FAIL:** Do NOT update boot state.yaml to complete. Leave `status: in-progress` and set `current-step` to the first failed step. Surface the failure and await controller instruction.
+5. **Report format (PASS):**
+   > ✓ Boot verification passed. All steps completed. Guardrail: {pass|flag|escalate} — {reason}
 
 ---
-
-## SUCCESS METRICS
-
-- All 7 prior step files read
-- Each step's status evaluated against the pass criteria
-- Verification report surfaced to the controller
-- Boot marked complete if and only if all steps passed
-- Boot left in-progress if any step failed, with failed steps identified
 
 ## FAILURE MODES
 
 | Failure | Action |
 |---------|--------|
-| A step file is missing | Treat as FAIL. Surface: "step-0N file not found — cannot verify." |
-| A step shows `status: in-progress` | Treat as FAIL. The step was interrupted. Surface it for re-execution. |
-| A step shows `status: not-started` | Treat as FAIL. The step was skipped. Surface it for execution. |
-| A step shows `status: skipped` | Treat as FAIL unless the step's own instructions explicitly authorize skipping. Surface for review. |
-| This step's own frontmatter shows in-progress on resume | Re-execute from the top of YOUR TASK. Do not trust partial verification results. |
+| boot-verify.py crashes | Fall back to reading each step's frontmatter manually. Note the script failure as an error-log entry. |
+| A step file is missing | FAIL. Surface it. |
+| guardrail-checkpoint.py fails to write | Note the gap to David; proceed with the gate. |
+| Step shows in-progress/not-started/skipped | FAIL, surface for re-execution. |
 
 ---
 
 ## NEXT STEP
 
-None. If verification passed, boot workflow is complete.
+Read fully and follow: `step-08-knox-completion-check.md`
 <!-- system:end -->
 
 <!-- personal:start -->

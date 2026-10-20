@@ -5,82 +5,66 @@ completed-at: '2026-10-19T21:05:00Z'
 ---
 
 <!-- system:start -->
-# Step 03: Verify Phase 2 (Phase 2.5)
+# Step 03: Measure & Verify Phase 2
 
 ## MANDATORY EXECUTION RULES
 
-1. You MUST run `workflows/boot-verification/workflow.md` before proceeding. Do not skip or self-verify.
-2. You MUST wait for Ralph's verdict table before proceeding to step-04. This step is blocking.
-3. Any task marked ⚠️ Unverified or ❌ Skipped must be re-run before step-04 begins.
-4. Do NOT proceed to step-04 until all tasks are ✅ or ➖ (not applicable).
+1. You MUST run the consolidated verifier script. It performs the Phase 2 context measurement (formerly step-02.5) AND the mechanical manifest verification (formerly step-03's Ralph spawn) in one deterministic pass.
+2. If the script exits clean (exit 0), verification is DONE. Do NOT spawn Ralph. Record the result and proceed.
+3. If the script reports anomalies (exit 1), spawn Ralph (`workflows/boot-verification/workflow.md`) to judge the flagged items only. Ralph's role is judgment on degraded data, not re-running mechanics the script already checked.
+4. Any item Ralph marks as failed must be re-run once before step-04 begins.
 
 ---
 
 ## EXECUTION PROTOCOL
 
-**Agent:** boot subagent (Master persona), spawned by the coordinator at boot start, never executed inline in the coordinator's session (see `workflow.md`).
-**Input:** Phase 2 task outcomes from `accumulated-context` in state.yaml
-**Output:** Ralph's verification verdict; any re-runs completed
-
----
-
-## CONTEXT BOUNDARIES
-
-- Ralph verifies claims — he does not re-run tasks himself. Re-runs are Master's responsibility.
-- Task E (Plaud/Knox) is expected to be fire-and-forget — Ralph will mark it ➖ if Knox was spawned correctly.
-- If Ralph returns a verdict and then step-04 begins but Ralph's verdict has a failed task, that is a protocol violation. Do not proceed until clean.
+**Agent:** boot subagent (Master persona), spawned by the coordinator at boot start (see `workflow.md`).
+**Input:** Phase 2 outputs in `data/` and `accumulated-context` in state.yaml
+**Output:** Measurement snapshot + verification verdict
 
 ---
 
 ## YOUR TASK
 
-1. **Pass the Phase 2 task manifest to boot-verification.** Spawn **Ralph** with `workflows/boot-verification/workflow.md`. Provide Ralph with the accumulated-context from state.yaml as the task manifest. The manifest covers:
-   - Morning briefing steps 01-02
-   - Task E: Plaud ingest (Knox spawn)
-   - Task G: 72-hour look-ahead
-   - Task H: Email triage
-   - Task I: Jarvis inbox
-   - Task J: Boot reminders
+1. **Run the consolidated verifier** from IES root:
 
-2. **Wait for Ralph's verdict table.** Ralph will return a table in the format:
+   ```bash
+   python3 workflows/boot/verify/boot-verify.py phase2
+   ```
 
-   | Task | Status | Notes |
-   |------|--------|-------|
-   | Morning briefing 01-02 | ✅ Verified | ... |
-   | Task E: Plaud ingest | ➖ Fire-and-forget | Knox spawned |
-   | Task G: 72hr look-ahead | ✅ Verified | ... |
-   | Task H: Email triage | ⚠️ Unverified | No email data found in context |
-   | Task I: Jarvis inbox | ✅ Verified | ... |
-   | Task J: Boot reminders | ✅ Verified | 2 due, or "nothing-to-surface" with the file state named |
+   This captures the context-size measurement (snapshot written to
+   `systems/boot-instrumentation/measurements/`) and checks every Phase 2 pull
+   file for existence, freshness (<24h), non-emptiness, parseability, and
+   reported status.
 
-3. **Handle any flagged tasks:**
-   - For each task marked ⚠️ Unverified: re-run that task now. Update accumulated-context with the new result.
-   - For each task marked ❌ Skipped: re-run that task now. This is a protocol violation that must be corrected before proceeding.
-   - For tasks marked ✅ or ➖: no action needed.
+2. **On exit 0 (clean):** record in state.yaml `accumulated-context`:
+   ```yaml
+   verification_results: "pass — boot-verify phase2 clean (measurement + manifest, no LLM verification needed)"
+   ```
+   Proceed to step 4.
 
-4. **Confirm all tasks are ✅ or ➖** before proceeding.
+3. **On exit 1 (anomalies):** spawn Ralph with the flagged list. For each item:
+   - Degraded data source (pull failed/stale/empty): Ralph decides whether to accept as degraded or require re-pull.
+   - Re-run any task Ralph marks failed, once. Update accumulated-context.
+   - Record Ralph's verdict summary in `verification_results`.
+   - If Ralph is unavailable, self-verify the flagged items and note "self-verified" in the briefing.
 
-5. **Update step frontmatter:** Set `status: complete` and `completed-at` (current timestamp). Record `verification_results` in `state.yaml` `accumulated-context` with a summary (e.g. "pass — Ralph verified all X Phase 2 tasks (N checked, M failures, K rerun required)").
+4. **Surface the measurement** to David in compact form:
+   ```
+   [Instrumentation] Phase 2: {size_kb} KB (~{tokens} tokens) — verification: {clean | N anomalies}
+   ```
 
-6. **Update state.yaml:** Set `current-step: step-04-gather-meeting-context.md`.
+5. **Update step frontmatter:** `status: complete`, `completed-at` now.
+6. **Update state.yaml:** `current-step: step-04-gather-meeting-context.md`.
 
 ---
-
-## SUCCESS METRICS
-
-- boot-verification workflow was run (not skipped)
-- Ralph's verdict received and reviewed
-- All ⚠️ and ❌ tasks re-run before proceeding
-- No tasks remain unverified or skipped when step-04 begins
 
 ## FAILURE MODES
 
 | Failure | Action |
 |---------|--------|
-| boot-verification workflow unavailable | Self-verify using the accumulated-context: manually confirm each task reported a status. Note: "Boot verification unavailable — self-verified." Surface this in the briefing. |
-| Ralph spawn fails | Same as above — fall back to self-verification. |
-| A re-run task fails again | Record failure in accumulated-context. Surface in briefing as degraded data. Do not loop indefinitely — one re-run attempt per task. |
-| Ralph verdict is missing entries | Ask Ralph to re-check the manifest. If Ralph is unavailable, proceed with self-verification. |
+| boot-verify.py crashes | Fall back to manual check: confirm each pull reported a status in accumulated-context. Note the script failure as an error-log entry. Proceed. |
+| A re-run task fails again | Record as degraded data. Do not loop; one re-run per task. |
 
 ---
 

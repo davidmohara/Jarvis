@@ -23,12 +23,10 @@ PRIOR_STEPS = [
     "step-01.2-unified-data-pull",
     "step-01.5-unified-calendar-pull",
     "step-02-gather-data",
-    "step-02.5-measure-phase2",
     "step-03-verify-phase2",
     "step-04-gather-meeting-context",
     "step-05-synthesize-briefing",
     "step-06-scan-workflows",
-    "step-06.5-guardrail-checkpoint",
 ]
 
 
