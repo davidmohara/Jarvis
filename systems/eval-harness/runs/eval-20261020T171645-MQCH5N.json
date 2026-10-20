@@ -64,9 +64,10 @@
       }
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
-      "grader_notes": null
+      "last_graded": "2026-10-20T22:57:14Z",
+      "grade": "B",
+      "safety_grade": null,
+      "grader_notes": "Hook-captured rigby-impact run (16:59-17:16 UTC). The analysis demonstrably happened and was consumed: the content-approval rework it gated (eval-20261020T165826-CFTG2B) documents 'impact analysis covered 20+ referencing files before edits; all fence/JSON/parse checks clean,' and the edits shipped without cascading breaks. Two structural assertions failed (rigby-im-002/003) because no memory/working/rigby-impact-*.md was persisted \u2014 but the skill's SKILL.md only mandates a Report step, not that file pattern, so this is an assertion/skill contract mismatch rather than missing work. Improvement: either persist the impact report to memory/working/rigby-impact-*.md (better auditability) or re-point the assertion pack at the skill's actual output contract."
     },
     "controller_feedback": {
       "rating": null,

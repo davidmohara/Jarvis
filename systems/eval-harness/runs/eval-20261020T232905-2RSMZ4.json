@@ -1,13 +1,13 @@
 {
-  "id": "eval-20261020T182628-8HUE2S",
+  "id": "eval-20261020T232905-2RSMZ4",
   "type": "skill",
   "name": "anthropic-skills:pptx",
   "agent": "unknown",
-  "session_id": "14665b00-c08f-4954-b92c-1e7a20e135fb",
-  "trigger": "boot",
-  "started": "2026-10-20T18:24:31.831903Z",
-  "completed": "2026-10-20T18:26:28.981175Z",
-  "duration_seconds": 117.1,
+  "session_id": "a9a644e7-cddf-437b-9b28-9b7d3203d49e",
+  "trigger": "manual",
+  "started": "2026-10-15T14:05:10.296074Z",
+  "completed": "2026-10-20T23:29:05.214117Z",
+  "duration_seconds": 465834.9,
   "status": "success",
   "steps": [],
   "assessment": {
@@ -33,11 +33,6 @@
       "rating": null,
       "comment": null,
       "timestamp": null
-    },
-    "deterministic_gate": {
-      "score": 0.7917,
-      "gate_status": "pass",
-      "computed_at": "2026-10-20T18:26:29.239108Z"
     }
   },
   "version_hash": null,

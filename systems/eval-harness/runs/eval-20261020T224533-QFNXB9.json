@@ -4,30 +4,22 @@
   "type": "agent",
   "name": "general-purpose",
   "workflow": null,
-  "agent": "general-purpose",
-  "owning_agent": null,
+  "agent": "rigby",
+  "owning_agent": "rigby",
   "subagent_type": "general-purpose",
   "session_id": "a9a644e7-cddf-437b-9b28-9b7d3203d49e",
   "trigger": "unknown",
   "started": "2026-10-20T22:45:33.713591Z",
-  "completed": null,
-  "duration_seconds": null,
-  "status": "in-progress",
+  "completed": "2026-10-20T22:57:43.152315Z",
+  "duration_seconds": 729.44,
+  "status": "partial",
   "steps": [],
   "assessment": {
     "mechanical": {
-      "completed": null,
-      "all_steps_finished": null,
-      "tool_failures": 1,
-      "error_ids": [],
-      "tool_failure_log": [
-        {
-          "tool": "Bash",
-          "error": "Exit code 4\nrefused: changeset is not Class A; the session-commit fast lane only carries routine churn.\nGated (Class B, needs the standard path with --ack-gated):\n  systems/eval-harness/skill-runs/anthropic-skills:pptx-latest.json\nCommit Class B separately from Class A churn so the system-change audit trail stays isolated.",
-          "duration_ms": 234,
-          "timestamp": "2026-10-20T17:46:37.080780"
-        }
-      ]
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 5,
+      "error_ids": []
     },
     "structural": {
       "expected_outputs_written": null,
@@ -60,5 +52,11 @@
   },
   "version_hash": null,
   "prior_baseline_id": null,
-  "tags": []
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/a9a644e7-cddf-437b-9b28-9b7d3203d49e/subagents/agent-a80480a0df3d800a8.jsonl",
+  "last_assistant_message": "Sweep complete. Summary:\n\n## Graded: 9 eval records (since 2026-10-20)\n\n**A: 5 \u00b7 B: 3 \u00b7 C: 1 \u00b7 D: 0 \u00b7 F: 0**\n\n- **daily-review** (workflow): A \u2014 eval-20261020T132212-WDNUOD\n- **daily-review** (agent dispatch): A \u2014 eval-20261020T131352-YIFNSD\n- **conventions-migration**: A \u2014 eval-20261020T140105-K6BLSF\n- **conventions-migration** (close segment): A \u2014 eval-20261020T150859-MTFXLM\n- **content-approval**: A \u2014 eval-20261020T165826-CFTG2B\n- **podcast-prep** (agent dispatch): B \u2014 eval-20261020T154352-91HPIU\n- **harper-podcast-prep**: B \u2014 eval-20261020T151932-AJVO85\n- **rigby-impact**: B \u2014 eval-20261020T171645-MQCH5N\n- **boot** (turn-level): C \u2014 eval-20261020T153125-J42OVZ\n\n### Key findings\n\n1. **Repeat em-dash violation** in the Episode 17 prep sheet (`meetings/podcast-prep/2026-10-26-amber-robinson.md`, lines 1 and 23) \u2014 a style rule already corrected once (err-20260901T135033-NVNABQ). This is what held harper-podcast-prep at B; the prep sheet itself is otherwise excellent (full provenance honesty, Janine's questions mapped, voice well-calibrated). Recommendation in the record: move the em-dash check into the skill's pre-write lint.\n2. **Boot coordination run graded C** \u2014 boot-009 (Master J2 routing) failed because specialist work (chief/rigby/harper) ran inside the boot coordination record, and boot-008 found the `completed=false` filter mandate missing from the boot pull instructions (behavior was correct; the documentation drifted). Because the record now carries a sub-B grade, boot-010 (J4) will fail at the Stage 3 rollup \u2014 intended behavior.\n3. **rigby-impact assertion mismatch** \u2014 the assertion pack expects `memory/working/rigby-impact-*.md`, but the skill's SKILL.md never promises that file. The analysis itself was verifiably consumed by the content-approval rework. Either persist the report or re-point the assertions.\n\n### Excluded (18 records)\n\n- **eval-20261020T224533-QFNXB9** \u2014 in-progress stub, zero steps/subagents (rule exclusion)\n- **eval-20261020T132133-CR1YAB** \u2014 harness status `excluded`, zero-duration-no-execution (phantom-class)\n- **eval-20261020T182628-8HUE2S** (anthropic-skills:pptx) \u2014 cowork-hook capture with no verifiable artifact in any reachable workspace (checked IES, Desktop, Downloads, ~/develop; the only pptx modified today, `Bootcamp-Week-2.pptx` at 17:01 CT, falls outside the 13:24\u201313:26 CT run window). Recommend phantom-quarantine review rather than grading.\n- **13 anonymous dispatch stubs** (workflow=null, name=general-purpose, 0 steps/0 subagents): QXSPH9, KIB6Z0, BZ6O3P, CQVWV1, A71MO7, HK014K, INQ3PL, UDZY2S, U5ZG2V, O6Y9QC, W1S13K, FN0ESX, OUTDFO \u2014 unidentifiable, nothing to grade\n- **ITIJSR, B41D5P** \u2014 partial 0-step duplicate dispatches of the conventions-migration run already graded via its canonical records\n\n### Out-of-range observation\n\n`systems/eval-harness/runs/eval-20261017T004823-V7Z2BS.json` is corrupt (JSON \"Extra data\" at line 70) \u2014 outside the --since window so untouched, but it will crash any naive full-directory parse. Worth a Rigby integrity pass.\n\nNote: the OmniFocus MCP server failed to connect this session; it wasn't needed for grading, but flagged per protocol.",
+  "model": "accounts/fireworks/models/kimi-k3",
+  "total_tokens_input": 249406,
+  "total_tokens_output": 511,
+  "total_cost_usd": 0.132226
 }

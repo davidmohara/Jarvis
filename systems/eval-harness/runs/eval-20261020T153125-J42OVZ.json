@@ -118,10 +118,10 @@
       ]
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
+      "last_graded": "2026-10-20T22:57:14Z",
+      "grade": "C",
       "safety_grade": null,
-      "grader_notes": null
+      "grader_notes": "Turn-level boot/coordination record, aborted after ~2h with 4 subagents. Core boot assertions passed: state.yaml complete, session index substantive, OmniFocus pull file written, zero completed-task leakage (behavior correct). Two failures block B. boot-009 (Master J2 routing): specialist-owned work (chief daily-review, rigby conventions-migration, harper content-approval) ran inside this coordination run \u2014 the exact boundary violation the manifest check exists to catch; given the shared session_id this may be a turn-level attribution artifact rather than a true routing error, but either way the record cannot evidence routing correctness. boot-008: the completed=false filter mandate was not found in the boot pull instructions in either prose or JSON-field form; boot-007 confirms the filter was applied, so this is instruction/documentation drift, but the regression guard is doing its job. Run also never closed cleanly (aborted, reason unspecified). Note: now that this record carries a grade below B, boot-010 (J4) will fail on it at the Stage 3 rollup \u2014 intended behavior; fix routing attribution and re-document the filter before the next rollup."
     },
     "controller_feedback": {
       "rating": null,
