@@ -67,14 +67,32 @@ applies even when a controller has pre-approved a whole batch's content).
    ---
    Confirm send to this contact? (yes / no / skip)
    ```
-   Do not proceed without an explicit "yes" for this specific contact. "Skip"
-   moves to the next contact without sending; "no" halts the loop for
-   controller review.
+   This is a stop-and-wait gate: only an explicit "yes" for this specific
+   contact proceeds. Silence or a non-answer is not confirmation — re-present
+   the question; never infer confirmation from the absence of an objection,
+   and never proceed past an unanswered gate. "Skip" moves to the next contact
+   without sending; "no" halts the loop for controller review.
 
-5. **Trigger the send** via Chrome/Playwright automation against the live
+5. **Record the send confirmation as an approval artifact** — the same
+   record shape as `prospect-message-draft`'s content gate — before
+   triggering the send:
+
+   ```yaml
+   send_approval:
+     decision: "yes" | "no" | "skip"
+     operator: "..."
+     decided_at: "<ISO-8601 timestamp>"
+     contact: "..."
+     journey: "..."
+   ```
+
+   This record is written when the gate is answered, before the send fires —
+   a delayed or absent answer never backfills a "yes."
+
+6. **Trigger the send** via Chrome/Playwright automation against the live
    Dynamics UI, for this one contact only.
 
-6. **Verify the send registered** — check that the contact's Email insights
+7. **Verify the send registered** — check that the contact's Email insights
    show sent/delivered status tied to the correct Journey before moving to
    the next contact. If verification fails or is ambiguous, flag it rather
    than assuming success.
@@ -89,6 +107,7 @@ This skill's gated actions are the Email-asset write and the send trigger via Ch
 | Sending domain/email channel not configured or no longer verified at send time | Stop before any send. Report the gap. Do not send anyway. |
 | Contact record is ambiguous/duplicated | Stop, flag the duplicate, ask the controller which record is correct before sending. |
 | Controller says "no" or doesn't respond to a confirmation prompt | Do not send. Halt the loop and surface remaining unconfirmed contacts. |
+| Controller answer is ambiguous ("go ahead", "looks good") | Restate the three options (yes / no / skip) and require an explicit decision. Do not interpret enthusiasm or topic change as confirmation; do not send. |
 | Send appears to fail (UI error, timeout) | Do not retry silently — report the failure for that specific contact and move to the next only with controller direction. |
 | Email insights don't show the expected sent status after send | Flag as unverified — do not report success without confirmation. |
 

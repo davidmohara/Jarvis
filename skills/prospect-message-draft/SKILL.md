@@ -73,7 +73,18 @@ edit — that would silently break attribution for the whole system.
    "Content approval only — sending still requires the explicit per-contact
    confirmation at campaign-send time."
 
-6. **Return the approved content** (subject line + body) to the caller in a
+6. **Request an explicit operator approval or denial.** After presenting the
+   draft, ask the operator directly and wait for an answer:
+   "Approve this content for {contact_name}? (approve / reject / skip)"
+   This is a stop-and-wait gate, not a review invitation:
+   - Only an explicit `approve` from the operator counts as approval.
+   - Silence, a topic change, or a non-answer is NOT approval — re-present
+     the question. Never infer approval from the absence of an objection.
+   - `reject` iterates the draft; `skip` records the contact as skipped.
+   - No layer (subagent, coordinator, or this skill) may proceed to the next
+     contact or treat the content as approved before this gate is answered.
+
+7. **Return the approved content** (subject line + body) to the caller in a
    form `campaign-send` can use directly as the journey step's Email asset:
 
 ```yaml
@@ -85,6 +96,10 @@ message:
   offering_referenced: "..." | null
   tone_used: "cold-prospect-campaign-outreach"
   content_approved: true/false
+  approval:
+    decision: "approve" | "reject" | "skip"
+    operator: "..."
+    decided_at: "<ISO-8601 timestamp>"
 ```
 
 ## Failure Modes
@@ -94,6 +109,8 @@ message:
 | No tight offering match exists for this contact's pain point | Draft content that references the pain point/episode without forcing an offering pitch — a soft "we've been thinking about this too" outreach is valid; note in the presentation that no offering was cited. |
 | Contact has an existing CRM/Clay relationship history | Reference it naturally (warmer opener) rather than drafting as if this were a fully cold contact. |
 | Controller wants to reject the draft | Iterate per the same pattern as `workflows/email-drafting/steps/step-03-iterate.md` — do not proceed to campaign-send with unapproved content. |
+| Operator doesn't answer the approval question | No answer is not approval. Re-present the question and halt the loop for this contact; surface unanswered contacts rather than proceeding or marking them approved. |
+| Operator answer is ambiguous ("looks fine", "sure, whatever") | Restate the three options and ask for an explicit approve / reject / skip. Do not interpret enthusiasm as a decision. |
 | VOICE.md unavailable | Use the cached formatting rules already documented in `workflows/email-drafting/workflow.md`'s initialization section, and flag it. |
 
 <!-- system:end -->

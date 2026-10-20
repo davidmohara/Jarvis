@@ -28,7 +28,12 @@ model: sonnet
    with no batch shortcut, even if content was already batch-approved in
    step 03.
 5. Never send more than one contact per confirmation. Never infer "yes to
-   all" from a single "yes."
+   all" from a single "yes." Silence or a non-answer is not confirmation —
+   re-present the question; no layer may proceed past an unanswered gate.
+6. **Every gate answer is recorded as an approval artifact** (decision,
+   operator, decided_at, contact, journey — the same record shape as
+   step 03's content gate), written when the gate is answered and before the
+   send fires. A delayed or absent answer never backfills a "yes."
 
 ---
 
@@ -45,12 +50,16 @@ model: sonnet
 1. For each message in `approved_messages` not already in `contacts_sent`:
    a. Read and execute `skills/campaign-send/SKILL.md` in full for this one
       contact — including its live per-contact confirmation prompt.
-   b. On confirmed send: append the contact to
+   b. When the gate is answered, record the approval artifact (decision,
+      operator, decided_at, contact, journey) to
+      `accumulated-context.send_approvals` immediately — before the send
+      fires, never backfilled after.
+   c. On confirmed send: append the contact to
       `accumulated-context.contacts_sent` immediately (before moving to the
       next contact — this write must not be batched at the end, since an
       interruption between sends must not lose track of what already went out).
-   c. On "skip": record the skip, do not add to `contacts_sent`, move to the next contact.
-   d. On "no" or non-response: halt the loop. Do not process remaining
+   d. On "skip": record the skip, do not add to `contacts_sent`, move to the next contact.
+   e. On "no" or non-response: halt the loop. Do not process remaining
       contacts without controller direction. Set `state.yaml`
       `current-step: step-05` and `status: in-progress` (not aborted — this
       is a normal pause point, resumable).
@@ -79,6 +88,8 @@ model: sonnet
 ## SUCCESS METRICS
 
 - Zero contacts sent without an individual, explicit live confirmation
+- Every gate answer recorded as an approval artifact (decision, operator,
+  timestamp) written before the send fired — never backfilled
 - Zero double-sends on resume (verified against `contacts_sent`)
 - Every send verified against Email insights before being reported as successful
 
@@ -88,6 +99,7 @@ model: sonnet
 |---------|--------|
 | Send-readiness check (re-verified at send time) fails | Stop before that send. Report the gap. Do not send anyway even if setup confirmed readiness earlier. |
 | Ambiguous/duplicate Contact record | Stop, flag, ask the controller which record is correct before sending to that contact. |
+| Controller answer to the send gate is ambiguous | Restate the three options (yes / no / skip) and require an explicit decision. Do not send; do not interpret enthusiasm or topic change as confirmation. |
 | Send appears to fail or Email insights don't confirm it | Report as unverified for that contact specifically — do not mark it in `contacts_sent` until confirmed, but do not silently retry either; surface to controller. |
 | Workflow interrupted mid-loop | On resume, STATE CHECK loads `contacts_sent` and the loop continues only with unresolved contacts. |
 

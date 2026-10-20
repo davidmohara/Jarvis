@@ -29,9 +29,9 @@ runs as step 4, between drafting and sending.
 
 1. `account-targeting` — CRM-first, public/LinkedIn research → target accounts
 2. `contact-targeting` — drill to individual contacts matching the buyer role
-3. `prospect-message-draft` — looped per contact, content approval only
+3. `prospect-message-draft` — looped per contact, explicit operator approval gate (approve / reject / skip) per contact; silence is never approval
 4. `campaign-setup` — create/reuse the episode's Segment + Journey, add contacts
-5. `campaign-send` — looped per contact, explicit live send confirmation required
+5. `campaign-send` — looped per contact, explicit live send confirmation required, each answer recorded as an approval artifact before the send fires
 <!-- system:end -->
 
 <!-- personal:start -->
