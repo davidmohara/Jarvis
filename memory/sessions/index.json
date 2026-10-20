@@ -3169,7 +3169,7 @@
     "id": "session-2026-10-19-000000",
     "started": "2026-10-19T08:00:00-05:00",
     "closed": null,
-    "current_topic": "morning-boot",
+    "current_topic": null,
     "topics": [
       {
         "name": "morning-boot",
@@ -3199,8 +3199,56 @@
           "systems/error-tracking/entries/err-20261019T211530-GRP7MR.json",
           "workflows/morning-briefing-verification/state.yaml",
           "workflows/morning-briefing/steps/step-05-verify-briefing.md",
-          "meetings/podcast-prep/2026-10-26-amber-robinson.md"
+          "meetings/podcast-prep/2026-10-26-amber-robinson.md",
+          "workflows/podcast-prep/state.yaml",
+          "meetings/podcast-prep/Episode 17.md",
+          "/tmp/render_ep17.py"
         ]
+      },
+      {
+        "topic": "unattributed",
+        "files": [
+          "workflows/podcast-prep/state.yaml",
+          "/tmp/render_ep17_big.py",
+          "memory/working/2026-10-20-133000-harper-obsidian-ghost-reconciliation.md",
+          "systems/cost-attribution/attribute.py",
+          "systems/cost-attribution/reconcile.py",
+          "systems/cost-attribution/anthropic_usage.py",
+          "systems/cost-attribution/report.py",
+          "workflows/content-discovery/steps/step-01-discover.md",
+          "workflows/content-discovery/references/pending-drafts-schema.md",
+          "workflows/content-discovery/workflow.md",
+          "workflows/content-discovery/references/ghost-conventions.md",
+          "workflows/content-approval/workflow.md",
+          "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/memory/project_cost_attribution_system.md",
+          "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/memory/MEMORY.md",
+          "workflows/content-approval/steps/step-01-approve.md",
+          "workflows/content-approval/verify/step-01-approve.py",
+          "workflows/content-approval/references/editorial-edits.md",
+          "workflows/content-approval/steps/step-02-git-finalize.md",
+          "workflows/content-approval/steps/step-03-adversarial-verify.md",
+          "workflows/content-approval-verification/workflow.md",
+          "workflows/content-approval-verification/steps/step-01-verify.md",
+          "workflows/content-pipeline/workflow.md",
+          "workflows/content-pipeline/steps/step-02-approve.md",
+          "systems/cost-attribution/coach.py",
+          "workflows/content-pipeline-verification/steps/step-01-verify.md",
+          "workflows/content-pipeline-verification/workflow.md",
+          "skills/delivery-router/SKILL.md",
+          "skills/schema-validator/SKILL.md",
+          "agents/references/master-workflow-registry.md",
+          "agents/adversarial-isolation.md",
+          "config/scheduled-tasks.json",
+          "memory/working/2026-10-20-150000-rigby-content-approval-rework.md",
+          "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/memory/feedback_obsidian_post_conventions.md",
+          "workflows/boot/verify/boot-verify.py",
+          "workflows/boot/steps/step-03-verify-phase2.md",
+          "workflows/boot/steps/step-07-verify-completion.md",
+          "workflows/boot/workflow.md",
+          "workflows/boot/steps/step-01-load-context.md"
+        ],
+        "loops": [],
+        "flag": true
       }
     ]
   }
