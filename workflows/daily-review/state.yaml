@@ -1,19 +1,53 @@
 ---
 workflow: daily-review
 agent: chief
-status: complete
-session-started: "2026-10-16T10:30:00-05:00"
-session-id: "chief-2026-10-16-103000"
-current-step: step-auto
+status: in-progress
+session-started: "2026-10-20T08:00:00-05:00"
+session-id: "chief-2026-10-20-dailyreview-20261019"
+current-step: step-05-session-close
 session-closed: false
-original-request: "Run the daily-review workflow for 2026-10-16 (auto run) to produce the first windowed-token eval record for the newly-wired daily-review instrumentation."
+original-request: "Close out yesterday - run the daily review for Monday, 2026-10-19 (retroactive, run on 2026-10-20 morning)."
 accumulated-context:
-  review-date: "2026-10-16"
-  mode: "auto run — synthesized from the session record, memory/working, and the git log; no live controller"
-  narrative-path: "reviews/daily/auto-2026-10-16.md"
-  output-guard: "passed"
-  working-memory-path: "memory/working/daily-review-2026-10-16-104000.md"
-  working-memory-status: "written"
-  eval-record: "see the daily-review eval record for 2026-10-16 (opened turn-level, closed by close-eval-record.py)"
-  notes: "Chief C2/C4 remediation: phantom-success guard added to close-eval-record.py; step-auto working-memory write moved into the step body ahead of the terminal marker."
+  review-date: "2026-10-19"
+  mode: "retroactive review - controller supplied capture answers in the request context"
+  capture:
+    morning-priority-scorecard: "1/3 (bootcamp presence hit; Rock1/Rock2 status recording missed; Wednesday conflict decisions missed)"
+    inbox-count: 14
+    omnifocus: "140 uncompleted, 1 overdue, 0 flagged, 28 due within 7 days"
+    eval-health: "20 runs on 2026-10-19: 11 success, 5 partial, 1 no-op, 3 failure (55% strict success)"
+    errors-logged: "3 (all GoTogether draft rebuild: destructive-regeneration, voice-violation, contact-data)"
+    overdue-delegations: "1 (Derek Nwamadi / Steve Hall, 25 days, watch-only)"
+  outputs:
+    review-file: "reviews/daily/2026-10-19.md"
+    vault-narrative: "Daily Reviews/2026-10-19 The Immersion Day the Milestones Slipped.md"
+    working-memory: "memory/working/2026-10-20-091500-chief-daily-review-20261019.md"
+    session-index: "session-2026-10-19-000000 closed 2026-10-20T09:15:00-05:00"
+    delegation-tracker: "unchanged (no completions, no new delegations)"
+    daily-note-crosslink: "skipped - no Calendar/2026/10-October/2026-10-19.md exists (per convention)"
+  tomorrow-2026-10-20:
+    top-3-proposed:
+      - "Record Rock 1 KR1 milestone status (AT&T/McKesson/SLB) - 3 days late [Rock 1]"
+      - "Record Rock 2 South Texas gap decomposition status - 3 days late [Rock 2]"
+      - "Wednesday collision decisions (Huddle vs McClinton, GEHC vs yWhales, UTB Board)"
+    also-due: "Identify 5 Microsoft contacts (Reachout 5PM); Confluent Regional Sales Director (Reachout 5PM); Coherence breathing 10:00; Review prayer list 11:00"
+    calendar-flags: "Hosting Leadership Dallas 08:30 (hosting); GEHC AI Routing deeper dive 14:00 (client, Chase); DLP check-in 10:00 vs Sales Scrum 10:00 double-booked; bootcamp blocks repeat"
+  guardrail-checkpoint:
+    pre-commit-review: "pass (manual) - NOT recorded to eval harness: no in-progress record after 6 retries (known gap dream-004/boot-004)"
+  adversarial-verification:
+    verdict: "findings"
+    result: "flag"
+    lens: "output vs source data cross-check; completion claims vs recorded state"
+    findings:
+      - "OmniFocus 140 total lacked persisted backing - clarified as counts-command whole-database figure vs 42-task pull subset (corrected pre-commit)"
+      - "GEHC Tuesday time wrong vs cache - verified 14:00 via live M365 pull (meeting moved from 11:00; SAP overlap resolved); review corrected"
+      - "Bootcamp attendance unverifiable from state - marked controller-reported in review"
+      - "GoTogether 'confirmed sent' is controller-stated, not system-recorded; Fried invalid-address caveat added; Harper follow-up flagged"
+      - "Silent drops corrected: conventions-migration stale in-progress (step-03-judgment since 10-18) and boot checkpoint-recording gaps added to System State"
+      - "Capture outputs not persisted per step-01 schema - condensed capture block written to this state.yaml"
+    recording-gap: "adversarial-verification checkpoint NOT recorded to eval harness: no in-progress record after 6 retries (known gap dream-004/boot-004)"
+  root-audit: "clean - only standard files at root"
+  step-05-hold:
+    reason: "git commit/push held - auto-mode classifier blocked the push of personal health data (data/health/*) to origin main on the public repo; requires David's own confirmation. Local commits also not executed (same denied outcome chain)."
+    resume: "On David's confirmation, run step-05 phase 2 via Rigby: Class B commit (workflows/ state churn, --ack-gated), Class A commit, push origin main."
+  eval-record: "eval-20261020T132212-WDNUOD.json (partial, 1333s, 6 steps). Spurious sibling eval-20261020T132133-CR1YAB.json recorded as failure by the phantom-success guard after a bad --started timestamp on the first close attempt; mark-and-exclude correction left for David's approval."
 ---

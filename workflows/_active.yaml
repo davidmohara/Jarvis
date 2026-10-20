@@ -2,4 +2,8 @@
 # Maintained by workflow state transitions — added on in-progress, removed on complete/aborted.
 # Step-06 reads this first; if active is empty, per-directory scan is skipped entirely.
 
-active: []
+active:
+  - workflow: conventions-migration
+    status: in-progress
+    current-step: step-03-judgment
+    session-started: 2026-10-18

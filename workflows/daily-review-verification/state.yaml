@@ -1,19 +1,29 @@
 workflow: daily-review-verification
 agent: ralph
 status: complete
-session-started: '2026-10-09T17:14:00-05:00'
-session-id: ralph-2026-10-09-daily-review-verify
+session-started: '2026-10-20T08:13:19-05:00'
+session-id: ralph-2026-10-20-daily-review-verify
 current-step: step-01
-original-request: "Adversarial verification of reviews/daily/2026-10-09.md against recorded state"
+original-request: "Adversarial verification of reviews/daily/2026-10-19.md against recorded state"
 accumulated-context:
-  review-date: '2026-10-09'
-  review-file: reviews/daily/2026-10-09.md
+  review-date: '2026-10-19'
+  review-file: reviews/daily/2026-10-19.md
   verdict-summary: findings
   findings:
-    - "Capture outputs empty: step-01-capture/step-02/step-03/step-04 frontmatter outputs are all {} despite status: complete; no step-level capture data backs the review (daily-review state.yaml still status: in-progress, current-step: step-01)."
-    - "Monday double-books 'both stand per David (source: Master handoff)' has no traceable recorded state; no Master handoff artifact on disk and the morning briefing frames it as an open decision. Priority Scorecard 'hit' inherits this."
-    - "Knox plaud-ingest tasks attributed to OmniFocus; source working memory says 'Monday board' with numeric monday.com item IDs (13249050308/13249067036/13249067582) — platform misattribution."
-    - "System State OmniFocus numbers disagree with data/omnifocus-unified.json: inbox 14 vs 16; '138 uncompleted' vs file task_count 39; '24 due within 7 days' vs 21 in file. '0 flagged' and '2 overdue' match. '5 completed today' has no persisted backing (pull excludes completed)."
-    - "Boot step count '11' unsupported: boot workflow.md header says 9 sequential steps and its table enumerates 12 step files; substantive claim (clean boot, Ralph PASS, zero degraded) is supported by boot state.yaml."
+    - "No persisted capture outputs: workflows/daily-review/state.yaml accumulated-context contains only review-date and mode (status still in-progress, current-step step-01-capture); no completed/not_completed/blockers arrays. Capture exists only in Chief's own working memory (memory/working/2026-10-20-091500-chief-daily-review-20261019.md), which is same-session narrative, not independent evidence."
+    - "GoTogether: review claims 7 drafts 'confirmed sent by David' and boot reminder 'acknowledged and closed.' The reminder (rem-20261015T182852-JDP76U) is gone from data/reminders.json, but workflows/boot/state.yaml records it was 'deleted ... by another live session mid-run (likely acknowledged elsewhere)' and says 'restore from git HEAD if David has NOT answered it.' No sent record exists, and err-20261019T214500-FRIED1 records at least one draft address as invalid. Unverified."
+    - "OmniFocus total contradicts recorded state: review says 140 total uncompleted; data/omnifocus-unified.json has task_count 42 and all 42 are uncompleted. Monday morning briefing records 34 active / 12 inbox. No persisted artifact shows 140."
+    - "GEHC Tuesday time wrong: review's Calendar Prep and Handoffs put the GEHC AI Routing technical deeper dive at 14:00-15:00; data/calendar-unified.json records 11:00-12:00 (Justin Holder attendee). Review also drops the real 11:00 SAP Group vs GEHC collision that boot state flags."
+    - "Bootcamp attendance unverified: calendar blocks exist (Houston 08:30-17:30; Dallas Lockhart 10:00-16:50), but no attendance/acceptance record backs 'attended' or the scorecard's 'bootcamp presence: hit.'"
+    - "Silent drops: workflows/boot/state.yaml records (a) workflows/conventions-migration in-progress since 2026-10-18 at step-03-judgment, surfaced by the boot scan, and (b) step-03b + adversarial checkpoint eval-recording failures. Neither appears in the review's System State."
   verified:
-    - "Alice Mburu brief file exists; Alice scorecard 18/18 (up from 12/18) exists in vault; Steve Hall delegation In Progress in tracker; bootcamp doc fixes (14 PDFs, 2 PPTX 51/47) in master working memory; Houston dining shortlist re-verified; 9 error entries (5 explicit + 4 self-detected) match; eval health 26 as of synthesis (28 records on disk now); thp-slide-preview.png at root; 11-day gap since 2026-09-28; right-day check passes."
+    - "Boot complete, briefing delivered, degraded MCPs (M365/Clay/OmniFocus down) and fallbacks held: workflows/boot/state.yaml complete; morning-briefing eval D5DPY3 success. '12 steps' matches the 12-row step table (workflow header itself says '9 sequential steps')."
+    - "Peptide cycles: data/health/tracking.json shows Epithalon cycle 2 active start 2026-10-18 and Tesamorelin/Ipamorelin cycle 2 active start 2026-10-19; data/health/metrics-log.json has the 2026-10-19 protocol-change entries; peptide reminder removed."
+    - "Amex reminder snoozed to 2026-10-22: data/reminders.json rem-20261017T005503-CRBRYQ trigger_date 2026-10-22."
+    - "Plaud-ingest: workflows/plaud-ingest/state.yaml outcome no-new-recordings; notes state 'Newest recording remains 2026-10-08'; eval DEHON9 no-op."
+    - "Rock 1 KR1 and Rock 2 both due 2026-10-17 with no post-17 status record (memory/personal/quarterly-objectives.md, morning briefing); 3-days-late is accurate as of the 10-20 write time (2 days as of 10-19)."
+    - "Steve Hall / Derek Nwamadi In Progress, due 2026-09-25, watch-only per 2026-10-09 in delegations/tracker.md; 25 days overdue as of 10-20."
+    - "OmniFocus inbox 14 (morning briefing 12), 1 overdue (Fix media room lights, due 2026-10-17), 0 flagged, 28 tasks with due dates (27 future + the 1 overdue) all match data/omnifocus-unified.json."
+    - "3 error entries on 2026-10-19 match exactly: destructive-regeneration major, voice-violation minor, contact-data major."
+    - "Eval health matches exactly: 20 runs on 2026-10-19, 11 success, 5 partial, 1 no-op, 3 failure, 55% strict success."
+    - "Overdue delegations 1, delegations due tomorrow 0, Tuesday OmniFocus due items (5 Microsoft contacts, Confluent, Coherence breathing, review prayer list), DLP vs Sales Scrum 10:00 double-book, Tuesday bootcamp blocks, Sales & Recruiting 09:15, SAP Group 11:00 Dallas Trust room, root directory clean, and right-day check all verified."

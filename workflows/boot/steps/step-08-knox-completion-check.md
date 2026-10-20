@@ -1,10 +1,10 @@
 ---
 status: complete
-started-at: '2026-10-15T14:35:30Z'
-completed-at: '2026-10-15T14:37:00Z'
+started-at: '2026-10-19T21:31:00Z'
+completed-at: '2026-10-19T21:32:00Z'
 knox_status: success
-knox_reason: 'plaud-ingest pi-20261015-001 complete, outcome no-new-recordings (state.yaml evidence: API total 149 unchanged, vault enumerated via filesystem while Obsidian MCP down); eval record eval-20261015T140022-XQBT3L status success, no punch-out (filed under runs/_phantoms)'
-knox_eval_id: eval-20261015T140022-XQBT3L
+knox_reason: 'plaud-ingest pi-20261019-001 complete, outcome no-new-recordings (workflows/plaud-ingest/state.yaml evidence); eval record eval-20261019T203922-DEHON9 status no-op, completed 2026-10-19T20:39:22Z, no punch-out'
+knox_eval_id: eval-20261019T203922-DEHON9
 ---
 
 <!-- system:start -->
