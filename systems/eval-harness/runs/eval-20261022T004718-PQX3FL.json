@@ -1,0 +1,75 @@
+{
+  "id": "eval-20261022T004718-PQX3FL",
+  "type": "workflow",
+  "name": "daily-review",
+  "agent": "chief",
+  "session_id": "283fa4d0-6eab-4785-a626-d56ff248c574",
+  "trigger": "manual",
+  "started": "2026-10-22T00:47:18.819928Z",
+  "completed": "2026-10-22T00:55:24.106156+00:00",
+  "duration_seconds": null,
+  "status": "incomplete",
+  "steps": [],
+  "subagents": [
+    {
+      "agent_id": "afda51f1dfa47c2a5",
+      "agent_type": "general-purpose",
+      "started": "2026-10-22T00:47:24.435386Z",
+      "completed": "2026-10-22T00:57:25.591912Z",
+      "model": "accounts/fireworks/models/kimi-k3",
+      "tokens_input": 0,
+      "tokens_output": 0,
+      "cost_usd": 0.0,
+      "duration_seconds": 105.76,
+      "token_source": "subagent-transcript"
+    }
+  ],
+  "monitoring": {
+    "active": true,
+    "state_yaml_path": "workflows/daily-review/state.yaml",
+    "opened_by": "eval-turn-start.py",
+    "trigger_evidence": "wrap up the day"
+  },
+  "assessment": {
+    "mechanical": {
+      "completed": false,
+      "all_steps_finished": null,
+      "tool_failures": 0,
+      "error_ids": [],
+      "abort_reason": "session-exit-normal"
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [
+    "turn-level"
+  ]
+}

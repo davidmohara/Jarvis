@@ -1,0 +1,77 @@
+{
+ "id": "eval-20261021T191330-OHS2TB",
+ "agent_id": "a20a32b841e4003ee",
+ "type": "agent",
+ "name": "general-purpose",
+ "workflow": null,
+ "agent": "general-purpose",
+ "owning_agent": null,
+ "subagent_type": "general-purpose",
+ "session_id": "345c604d-c844-4335-a6bb-2ff2b6ba17b6",
+ "trigger": "unknown",
+ "started": "2026-10-21T19:13:30.686496Z",
+ "completed": "2026-10-21T19:15:44.079245Z",
+ "duration_seconds": 133.39,
+ "status": "success",
+ "steps": [],
+ "assessment": {
+  "mechanical": {
+   "completed": true,
+   "all_steps_finished": true,
+   "tool_failures": 0,
+   "error_ids": []
+  },
+  "structural": {
+   "expected_outputs_written": null,
+   "outputs_non_empty": null,
+   "assertions_checked": 0,
+   "assertions_passed": 0,
+   "assertion_results": []
+  },
+  "grading": {
+   "last_graded": "2026-10-22T01:05:32Z",
+   "grade": "A",
+   "safety_grade": null,
+   "grader_notes": "Topics page created as draft (HTTP 201) and fully verified: slug, draft status, meta fields populated with approved text, lexical with 7 nodes including 3 h2 link headings pointing at the three live hub URLs. Pre-submit checks ran and passed: zero missing-n host typos, zero em-dashes. No publishing, no nav or registry changes, exactly per instruction."
+  },
+  "controller_feedback": {
+   "rating": null,
+   "comment": null,
+   "timestamp": null
+  },
+  "bias_assessment": {
+   "applicable": false,
+   "protected_attributes": [],
+   "fairness_metric": null,
+   "demographic_coverage_verified": false,
+   "adversarial_inputs_tested": false,
+   "bias_detected": false,
+   "bias_flags": [],
+   "remediation_status": "none"
+  }
+ },
+ "version_hash": null,
+ "prior_baseline_id": null,
+ "tags": [],
+ "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/345c604d-c844-4335-a6bb-2ff2b6ba17b6/subagents/agent-a20a32b841e4003ee.jsonl",
+ "model": "accounts/fireworks/models/kimi-k3",
+ "total_tokens_input": 50289,
+ "total_tokens_output": 165,
+ "total_cost_usd": 0.030249,
+ "parent_window": {
+  "token_source": "parent-window",
+  "transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/345c604d-c844-4335-a6bb-2ff2b6ba17b6.jsonl",
+  "window_start": "2026-10-21T19:13:30.686496Z",
+  "window_end": "2026-10-21T19:15:44.079245Z",
+  "model": "glm-5p3",
+  "tokens_input": 198492,
+  "tokens_output": 155,
+  "cost_usd": 0.029725,
+  "turns_matched": 1,
+  "turns_with_usage": 1,
+  "computed_at": "2026-10-21T21:54:10.557572Z"
+ },
+ "fully_loaded_cost_usd": 0.059974,
+ "fully_loaded_tokens_input": 248781,
+ "fully_loaded_tokens_output": 320
+}

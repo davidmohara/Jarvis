@@ -3275,5 +3275,111 @@
         "flag": true
       }
     ]
+  },
+  {
+    "started": "2026-10-21T10:14:02.808781",
+    "closed": "2026-10-21T19:59:52.696371",
+    "current_topic": null,
+    "topics": [
+      {
+        "topic": "morning-briefing-boot-workflows",
+        "flag": false,
+        "files": [
+          "workflows/plaud-ingest/state.yaml",
+          "workflows/boot/state.yaml",
+          "workflows/plaud-ingest/steps/step-01-discover.md",
+          "workflows/boot/steps/step-01.2-unified-data-pull.md",
+          "workflows/boot/steps/step-01.5-unified-calendar-pull.md",
+          "workflows/morning-briefing/state.yaml",
+          "workflows/morning-briefing/steps/step-01-gather-calendar.md",
+          "workflows/morning-briefing/steps/step-02-gather-tasks.md",
+          "workflows/boot/steps/step-02-gather-data.md",
+          "workflows/morning-briefing/steps/step-03-gather-context.md",
+          "workflows/morning-briefing/steps/step-03b-guardrail-checkpoint.md",
+          "memory/working/morning-briefing-2026-10-21-102000.md",
+          "workflows/morning-briefing/steps/step-04-synthesize-briefing.md"
+        ]
+      },
+      {
+        "topic": "executive-presence-planning",
+        "flag": false,
+        "files": [
+          "projects/executive-presence-development-program.md",
+          "projects/social-presence-remediation-plan.md"
+        ]
+      },
+      {
+        "topic": "session-data-churn",
+        "flag": false,
+        "files": [
+          "systems/error-tracking/entries/err-20261021T164914-CQJZVM.json",
+          "systems/error-tracking/entries/err-20261021T184826-MPNI04.json",
+          "skills/schema-validator/SKILL.md",
+          "systems/error-tracking/entries/err-20261021T201533-209PMT.json",
+          "systems/cost-attribution/reconcile-workflows.py",
+          "systems/cost-attribution/report.py"
+        ]
+      },
+      {
+        "topic": "meta-backfill-run",
+        "flag": false,
+        "files": [
+          "/tmp/meta_backfill_enum.py",
+          "/tmp/meta_backfill_fetch.py",
+          "/tmp/meta-backfill-descriptions.json",
+          "/tmp/meta_backfill_apply.py",
+          "/tmp/meta_backfill_apply2.py",
+          "memory/working/2026-10-21-meta-backfill-run.md"
+        ]
+      },
+      {
+        "topic": "hub-drafts-ghost-content",
+        "flag": false,
+        "files": [
+          "workflows/content-discovery/references/gates.md",
+          "workflows/content-discovery/references/ghost-draft-creation.md",
+          "workflows/content-discovery/references/pending-drafts-schema.md",
+          "workflows/content-discovery/references/digest-format.md",
+          "workflows/content-discovery/steps/step-01-discover.md",
+          "workflows/content-discovery/workflow.md",
+          "workflows/content-discovery/references/draft-edit-path.md",
+          "workflows/content-discovery/references/hub-registry.md",
+          "workflows/content-discovery/references/draft-quality-manifest.md",
+          "projects/hub-drafts/agent-governance-guide.md",
+          "projects/hub-drafts/ai-consulting-business-model.md",
+          "projects/hub-drafts/ai-economics.md",
+          "/tmp/create_ghost_pages.py",
+          "projects/hub-drafts/topics.md",
+          "/tmp/create_topics_page.py",
+          "projects/hub-drafts/publications.md",
+          "/tmp/ghost_pub_update.py",
+          "projects/hub-drafts/speaking.md",
+          "/tmp/ghost_speaking_update.py"
+        ]
+      },
+      {
+        "topic": "hooks-eval-harness",
+        "flag": false,
+        "files": [
+          "systems/eval-harness/token_usage.py",
+          ".claude/hooks/step-complete.py",
+          ".claude/hooks/eval-agent-stop.py",
+          ".claude/hooks/post-tool-use.py",
+          ".claude/hooks/eval-turn-stop.py",
+          ".claude/hooks/tests/test_step_token_capture.py",
+          "systems/eval-harness/schema.md",
+          "systems/eval-harness/fully_loaded_cost.py",
+          ".claude/hooks/tests/test_fully_loaded_cost.py"
+        ]
+      },
+      {
+        "topic": "unattributed",
+        "files": [
+          "data/reminders.json"
+        ],
+        "loops": [],
+        "flag": true
+      }
+    ]
   }
 ]

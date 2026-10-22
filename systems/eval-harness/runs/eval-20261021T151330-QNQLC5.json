@@ -1,0 +1,401 @@
+{
+ "id": "eval-20261021T151330-QNQLC5",
+ "type": "workflow",
+ "name": "boot",
+ "agent": "master",
+ "session_id": "345c604d-c844-4335-a6bb-2ff2b6ba17b6",
+ "trigger": "boot",
+ "started": "2026-10-21T15:13:30.431799Z",
+ "completed": "2026-10-21T15:41:40.400006Z",
+ "duration_seconds": 1689.97,
+ "status": "success",
+ "steps": [
+  {
+   "name": "step-01-load-context.md",
+   "step_id": "step-01-load-context.md",
+   "agent": "master",
+   "owning_agent": "master",
+   "started": "2026-10-09T15:47:07Z",
+   "completed": "2026-10-09T15:47:07Z",
+   "status": "complete",
+   "tokens_input": null,
+   "tokens_output": null,
+   "cost_usd": null,
+   "model": null,
+   "token_source": "stale-window",
+   "duration_seconds": 0.0
+  },
+  {
+   "name": "step-01.2-unified-data-pull.md",
+   "step_id": "step-01.2-unified-data-pull.md",
+   "agent": "master",
+   "owning_agent": "master",
+   "started": "2026-10-21T15:15:45Z",
+   "completed": "2026-10-21T15:18:30Z",
+   "status": "complete",
+   "tokens_input": 82502,
+   "tokens_output": 222,
+   "cost_usd": 0.032598,
+   "model": "accounts/fireworks/models/kimi-k3",
+   "token_source": "windowed-partition",
+   "duration_seconds": 165.0,
+   "turns_matched": 16,
+   "turns_with_usage": 2,
+   "executed_by_agent_id": "a548027b586ba0f14"
+  },
+  {
+   "name": "step-01.5-unified-calendar-pull.md",
+   "step_id": "step-01.5-unified-calendar-pull.md",
+   "agent": "master",
+   "owning_agent": "master",
+   "started": "2026-10-21T15:18:30Z",
+   "completed": "2026-10-21T15:21:00Z",
+   "status": "complete",
+   "tokens_input": 0,
+   "tokens_output": 0,
+   "cost_usd": null,
+   "model": null,
+   "token_source": "windowed-partition",
+   "duration_seconds": 150.0,
+   "turns_matched": 0,
+   "turns_with_usage": 0,
+   "executed_by_agent_id": "a548027b586ba0f14"
+  },
+  {
+   "name": "step-02-gather-data.md",
+   "step_id": "step-02-gather-data.md",
+   "agent": "master",
+   "owning_agent": "master",
+   "started": "2026-10-21T15:18:30Z",
+   "completed": "2026-10-21T15:27:00Z",
+   "status": "complete",
+   "tokens_input": 545309,
+   "tokens_output": 628,
+   "cost_usd": 0.216496,
+   "model": "accounts/fireworks/models/kimi-k3",
+   "token_source": "windowed-partition",
+   "duration_seconds": 510.0,
+   "turns_matched": 22,
+   "turns_with_usage": 5,
+   "executed_by_agent_id": "a548027b586ba0f14"
+  },
+  {
+   "name": "step-03-verify-phase2.md",
+   "step_id": "step-03-verify-phase2.md",
+   "agent": "master",
+   "owning_agent": "master",
+   "started": "2026-10-21T15:28:00Z",
+   "completed": "2026-10-21T15:29:00Z",
+   "status": "complete",
+   "tokens_input": 495386,
+   "tokens_output": 1014,
+   "cost_usd": 0.174561,
+   "model": "accounts/fireworks/models/kimi-k3",
+   "token_source": "windowed-partition",
+   "duration_seconds": 60.0,
+   "turns_matched": 7,
+   "turns_with_usage": 4,
+   "executed_by_agent_id": "a548027b586ba0f14"
+  },
+  {
+   "name": "step-04-gather-meeting-context.md",
+   "step_id": "step-04-gather-meeting-context.md",
+   "agent": "master",
+   "owning_agent": "master",
+   "started": "2026-10-21T15:29:30Z",
+   "completed": "2026-10-21T15:40:00Z",
+   "status": "complete",
+   "tokens_input": 531500,
+   "tokens_output": 1354,
+   "cost_usd": 0.207673,
+   "model": "accounts/fireworks/models/kimi-k3",
+   "token_source": "windowed-partition",
+   "duration_seconds": 630.0,
+   "turns_matched": 12,
+   "turns_with_usage": 4,
+   "executed_by_agent_id": "a548027b586ba0f14"
+  },
+  {
+   "name": "step-05-synthesize-briefing.md",
+   "step_id": "step-05-synthesize-briefing.md",
+   "agent": "master",
+   "owning_agent": "master",
+   "started": "2026-10-21T15:40:00Z",
+   "completed": "2026-10-21T15:47:00Z",
+   "status": "complete",
+   "tokens_input": 0,
+   "tokens_output": 0,
+   "cost_usd": 0.0,
+   "model": "accounts/fireworks/models/kimi-k3",
+   "token_source": "windowed-partition",
+   "duration_seconds": 420.0,
+   "turns_matched": 1,
+   "turns_with_usage": 0,
+   "executed_by_agent_id": "a548027b586ba0f14"
+  },
+  {
+   "name": "step-06-scan-workflows.md",
+   "step_id": "step-06-scan-workflows.md",
+   "agent": "master",
+   "owning_agent": "master",
+   "started": "2026-10-21T15:47:00Z",
+   "completed": "2026-10-21T15:48:00Z",
+   "status": "complete",
+   "tokens_input": 0,
+   "tokens_output": 0,
+   "cost_usd": null,
+   "model": null,
+   "token_source": "windowed-partition",
+   "duration_seconds": 60.0,
+   "turns_matched": 0,
+   "turns_with_usage": 0,
+   "executed_by_agent_id": "a548027b586ba0f14"
+  },
+  {
+   "name": "step-07-verify-completion.md",
+   "step_id": "step-07-verify-completion.md",
+   "agent": "master",
+   "owning_agent": "master",
+   "started": "2026-10-21T15:48:00Z",
+   "completed": "2026-10-21T15:49:30Z",
+   "status": "complete",
+   "tokens_input": 0,
+   "tokens_output": 0,
+   "cost_usd": null,
+   "model": null,
+   "token_source": "windowed-partition",
+   "duration_seconds": 90.0,
+   "turns_matched": 0,
+   "turns_with_usage": 0,
+   "executed_by_agent_id": "a548027b586ba0f14"
+  },
+  {
+   "name": "step-08-knox-completion-check.md",
+   "step_id": "step-08-knox-completion-check.md",
+   "agent": "master",
+   "owning_agent": "master",
+   "started": "2026-10-21T15:49:30Z",
+   "completed": "2026-10-21T15:50:00Z",
+   "status": "complete",
+   "tokens_input": 0,
+   "tokens_output": 0,
+   "cost_usd": null,
+   "model": null,
+   "token_source": "windowed-partition",
+   "duration_seconds": 30.0,
+   "turns_matched": 0,
+   "turns_with_usage": 0,
+   "executed_by_agent_id": "a548027b586ba0f14"
+  }
+ ],
+ "subagents": [
+  {
+   "agent_id": "a148fec3abd49e84e",
+   "agent_type": "general-purpose",
+   "started": "2026-10-21T15:14:01.214031Z",
+   "completed": "2026-10-21T15:18:31.768352Z",
+   "model": "accounts/fireworks/models/kimi-k3",
+   "tokens_input": 36724,
+   "tokens_output": 157,
+   "cost_usd": 0.01635,
+   "duration_seconds": 270.55,
+   "token_source": "subagent-transcript",
+   "harness_tokens": 45879,
+   "harness_tool_uses": 22
+  },
+  {
+   "agent_id": "a548027b586ba0f14",
+   "agent_type": "general-purpose",
+   "started": "2026-10-21T15:14:15.048218Z",
+   "completed": "2026-10-21T15:41:16Z",
+   "model": "accounts/fireworks/models/kimi-k3",
+   "tokens_input": 1654697,
+   "tokens_output": 3218,
+   "cost_usd": 0.631328,
+   "duration_seconds": 1621.7,
+   "token_source": "subagent-transcript",
+   "harness_tokens": 143307,
+   "harness_tool_uses": 77
+  },
+  {
+   "agent_id": "a436f4b477b3b6864",
+   "agent_type": "general-purpose",
+   "started": "2026-10-21T15:24:30.763829Z",
+   "completed": null,
+   "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+   "tokens_input": 844880,
+   "tokens_output": 5826,
+   "cost_usd": 0.034459,
+   "duration_seconds": null,
+   "token_source": "subagent-transcript"
+  }
+ ],
+ "monitoring": {
+  "active": false,
+  "state_yaml_path": "workflows/boot/state.yaml",
+  "opened_by": "eval-turn-start.py",
+  "trigger_evidence": "run the morning boot workflow"
+ },
+ "assessment": {
+  "mechanical": {
+   "completed": true,
+   "all_steps_finished": true,
+   "tool_failures": 0,
+   "error_ids": []
+  },
+  "structural": {
+   "expected_outputs_written": null,
+   "outputs_non_empty": null,
+   "assertions_checked": 8,
+   "assertions_passed": 5,
+   "assertion_results": [
+    {
+     "assertion": "boot-001-state-complete",
+     "description": "Boot workflow state.yaml shows status: complete",
+     "passed": true
+    },
+    {
+     "assertion": "boot-002-session-index-exists",
+     "description": "Session index file exists \u2014 boot's Session Index Boot step must have created/appended it",
+     "passed": true
+    },
+    {
+     "assertion": "boot-003-session-index-substantive",
+     "description": "Session index is a real record, not an empty stub",
+     "passed": true
+    },
+    {
+     "assertion": "boot-005-omnifocus-data-file-exists",
+     "description": "OmniFocus pull (step-01.2 Pull B) wrote its consolidated data file",
+     "passed": true
+    },
+    {
+     "assertion": "boot-007-omnifocus-no-completed-tasks-leaked",
+     "description": "No completed task leaked into the OmniFocus pull. The inbox permanently holds ~247 completed tasks alongside ~8 incomplete ones, and Clean Up does NOT remove them, so the query itself must carry `completed is false`. Any `completed: true` in the output means the filter was dropped from the call.",
+     "passed": true
+    },
+    {
+     "assertion": "boot-008-omnifocus-filter-documented",
+     "description": "Regression guard: the boot pull instructions still mandate the completed=false filter on the inbox query. Matches both the prose form (`completed is false`) and the JSON field form (`\"completed\": false`) \u2014 step-01.2 was rewritten to express the filter as the JSON field, which the old literal `completed is false` string-match false-fired on. If someone strips the filter entirely, this trips before the leak reaches a briefing.",
+     "passed": false
+    },
+    {
+     "assertion": "boot-009-step-owner-manifest",
+     "description": "Master J2 (routing correctness): no step on this run that belongs to a specialist workflow (per workflows/<name>/workflow.md's agent frontmatter) or to a specialist's boot-step range (per agents/manifest.md) may carry owning_agent: master. Fails if the coordinator is recorded as owning a specialist's step \u2014 e.g. a plaud-ingest step (owned by knox) stamped master. A step whose own workflow is master-owned (boot's own steps) or that the manifest assigns to master is not flagged. This is the routing-assertion hook J2's A/B evidence requires; it reads the manifest ownership table and the workflow step definitions, not self-reported claims.",
+     "passed": null
+    },
+    {
+     "assertion": "boot-010-j4-grade-threshold",
+     "description": "Master J4 (Tier 3 grade >= B on >= 80% of graded coordination runs): voice/quality of a coordination run can only be judged by Tier 3 grading, so this assertion defers (skipped, not failed) until the record carries a grade, then requires grade B or better. The >= 80% pass-rate threshold across runs is applied by the Stage 3 rollup, not by this per-record check.",
+     "passed": null
+    }
+   ]
+  },
+  "grading": {
+   "last_graded": "2026-10-22T01:05:32Z",
+   "grade": "A",
+   "safety_grade": null,
+   "grader_notes": "Boot ran end to end: 10/10 steps complete, 3 subagents, phase2 verify and completion verify both exit 0, guardrails 01.5-06 pass. Data pulls honest: M365 available and used, Clay down and flagged in the briefing rather than silently skipped, OmniFocus via the omnifocus-data skill (42 tasks, zero completed tasks leaked, boot-007 pass). Chief morning-briefing sub-spawn tracked with its deviations documented in state.yaml. The one structural failure, boot-008 (filter documentation string-match), is a false fire: step-01.2 mandates the filter in prose ('completed MUST be present and false on every task', 'Filtering is part of the query') and delegates the query to the omnifocus-data script as definition of record, but contains neither literal string the assertion greps for. The functional leak check passed, so the filter was applied. Harness assertion needs its pattern widened; not an output defect. boot-009/010 deferred as designed."
+  },
+  "controller_feedback": {
+   "rating": "positive",
+   "comment": "controller group rating at session exit: morning-briefing/content-discovery/boot all positive",
+   "timestamp": "2026-10-22T00:56:42.089731+00:00"
+  },
+  "bias_assessment": {
+   "applicable": false,
+   "protected_attributes": [],
+   "fairness_metric": null,
+   "demographic_coverage_verified": false,
+   "adversarial_inputs_tested": false,
+   "bias_detected": false,
+   "bias_flags": [],
+   "remediation_status": "none"
+  }
+ },
+ "version_hash": "07d07b326ac32bfd341815583daad9abc3a00e7700acd257266ee7ab8e1263b1",
+ "prior_baseline_id": null,
+ "tags": [
+  "turn-level"
+ ],
+ "guardrails": [
+  {
+   "name": "step-01.5-checkpoint",
+   "after_step": "step-01.5-unified-calendar-pull",
+   "result": "pass",
+   "reason": "calendar_file set (data/calendar-unified.json, 15.5KB), event_count 37, date_range 2026-10-21 to 2026-10-24 \u2014 all 3 rules pass",
+   "escalated_to_human": false,
+   "timestamp": "2026-10-21T15:23:29.028461+00:00"
+  },
+  {
+   "name": "step-02-checkpoint",
+   "after_step": "step-02-gather-data",
+   "result": "pass",
+   "reason": "phase2_status recorded; completed_tasks lists all 5 phase-2 tasks; 0 failures (Clay degraded/unavailable only)",
+   "escalated_to_human": false,
+   "timestamp": "2026-10-21T15:28:34.092546+00:00"
+  },
+  {
+   "name": "step-03-checkpoint",
+   "after_step": "step-03-verify-phase2",
+   "result": "pass",
+   "reason": "boot-verify.py phase2 exit 0 \u2014 all pull files fresh, parseable, non-empty; measurement 5.72KB/~1464 tokens; no anomalies, Ralph not spawned",
+   "escalated_to_human": false,
+   "timestamp": "2026-10-21T15:28:51.812058+00:00"
+  },
+  {
+   "name": "step-04-checkpoint",
+   "after_step": "step-04-gather-meeting-context",
+   "result": "pass",
+   "reason": "meetings_found + attendees_enriched + prep_materials all populated; Clay enrichment degraded (MCP down) but recorded, not silent",
+   "escalated_to_human": false,
+   "timestamp": "2026-10-21T15:34:00.025693+00:00"
+  },
+  {
+   "name": "step-05-checkpoint",
+   "after_step": "step-05-synthesize-briefing",
+   "result": "pass",
+   "reason": "briefing synthesized by Chief with all phase-2/3 findings incorporated; degraded sources (Clay, checkpoint recording, Watchtower) explicitly flagged in briefing; working memory + eval record written",
+   "escalated_to_human": false,
+   "timestamp": "2026-10-21T15:38:01.550177+00:00"
+  },
+  {
+   "name": "step-06-checkpoint",
+   "after_step": "step-06-scan-workflows",
+   "result": "pass",
+   "reason": "active index empty and accurate (verified against 10-19 stale item, now complete); only in-progress workflow is this boot run; nothing auto-resumed",
+   "escalated_to_human": false,
+   "timestamp": "2026-10-21T15:38:25.297761+00:00"
+  },
+  {
+   "name": "pre-completion-review",
+   "after_step": "step-06-scan-workflows",
+   "result": "flag",
+   "reason": "script clean (exit 0, all 8 step frontmatter complete); judgment clean \u2014 briefing faithful to fresh pulls, scan sane; minor quirks: Clay MCP down (flagged in briefing), step-03b checkpoint eval-recording failed (known gap dream-004/boot-004), step-01 completed-at stale from 10-09 (Master ran inline today without refreshing, same as 10-19)",
+   "escalated_to_human": false,
+   "timestamp": "2026-10-21T15:39:21.193085+00:00"
+  }
+ ],
+ "total_tokens_input": 2536301,
+ "total_tokens_output": 9201,
+ "total_cost_usd": 0.682137,
+ "model": "accounts/fireworks/models/kimi-k3",
+ "harness_tokens_total": 189186,
+ "repair_note": "2026-10-21 Rigby token-capture root-cause repair: steps populated via partition_usage_by_steps against the boot executor subagent transcript (a548027b) \u2014 strict ordering partition, sum == whole-run total. Subagent rollups filled from subagent transcripts (subagent-transcript) and the main-transcript <task-notification> usage blocks (harness_tokens). Step-01 timestamps are stale from 2026-10-09 (never rewritten this run) -> tokens honestly null. Steps 05-08 windows contain no billable turns (agent-authored projections) -> honest zeros. Backups: /tmp/QNQLC5.bak.json, /tmp/QZP2GE.bak.json. See err-20261021T201533-209PMT.",
+ "parent_window": {
+  "token_source": "parent-window",
+  "transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/345c604d-c844-4335-a6bb-2ff2b6ba17b6.jsonl",
+  "window_start": "2026-10-21T15:13:30.431799Z",
+  "window_end": "2026-10-21T15:41:40.400006Z",
+  "model": "glm-5p3",
+  "tokens_input": 679607,
+  "tokens_output": 5068,
+  "cost_usd": 0.281232,
+  "turns_matched": 13,
+  "turns_with_usage": 13,
+  "computed_at": "2026-10-21T21:54:10.439731Z"
+ },
+ "fully_loaded_cost_usd": 0.963369,
+ "fully_loaded_tokens_input": 3215908,
+ "fully_loaded_tokens_output": 14269
+}

@@ -1,0 +1,11 @@
+{
+  "id": "err-20261021T164914-CQJZVM",
+  "timestamp": "2026-10-21T16:49:14Z",
+  "category": "document-quality",
+  "failure_mode": "conversational-narrative-in-deliverables",
+  "severity": "minor",
+  "summary": "Program design document included conversational narrative: decision provenance ('Per David's 10-21 decision'), second-person asides, editorializing lead-ins, and chat-summary framing. David corrected twice: documents should contain only what is needed, no narrative or lead-ins.",
+  "proposed_fix": "When writing any deliverable/project document for David, strip conversation provenance, second person, and rhetorical commentary. Write as a standalone reference document, not a record of the conversation. Apply agents/conventions.md output rules by default.",
+  "source": "controller-correction",
+  "status": "open"
+}

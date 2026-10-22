@@ -1,15 +1,15 @@
 {
-  "pulled_at": "2026-10-19T20:39:54.454617Z",
+  "pulled_at": "2026-10-21T15:16:17.746514Z",
   "status": "available",
   "window_months": 12,
-  "since": "2025-10-24",
+  "since": "2025-10-26",
   "account_count": 30,
   "accounts": {
     "chase-checking": {
       "account_id": "0beb7ac4-3396-4aa6-a743-fc511a6d878b",
       "account_name": "Chase Checking",
       "type": "checking",
-      "payee_count": 87,
+      "payee_count": 86,
       "payees": [
         {
           "name": "Fidelity Charitable",
@@ -210,12 +210,6 @@
           "last": "2025-12-04"
         },
         {
-          "name": "Online Payment 26332301458 To PCR Community Association 10/24",
-          "total": 233.0,
-          "count": 1,
-          "last": "2025-10-24"
-        },
-        {
           "name": "Online Payment 26696962014 To PCR Community Association 11/21",
           "total": 233.0,
           "count": 1,
@@ -414,22 +408,16 @@
           "last": "2026-05-04"
         },
         {
-          "name": "Zelle payment to Declan O'Hara 29446261169",
-          "total": 50.0,
-          "count": 1,
-          "last": "2026-06-01"
-        },
-        {
           "name": "Zelle payment to Declan O'Hara 29033198731",
           "total": 50.0,
           "count": 1,
           "last": "2026-06-01"
         },
         {
-          "name": "Zelle payment to Declan O'Hara 29829221183",
+          "name": "Zelle payment to Declan O'Hara 29446261169",
           "total": 50.0,
           "count": 1,
-          "last": "2026-07-01"
+          "last": "2026-06-01"
         },
         {
           "name": "Zelle payment to Declan O'Hara 29437619688",
@@ -438,13 +426,19 @@
           "last": "2026-07-01"
         },
         {
-          "name": "ZELLE PAYMENT TO DECLAN O'HARA 30249342488",
+          "name": "Zelle payment to Declan O'Hara 29829221183",
+          "total": 50.0,
+          "count": 1,
+          "last": "2026-07-01"
+        },
+        {
+          "name": "ZELLE PAYMENT TO DECLAN O'HARA 29828101592",
           "total": 50.0,
           "count": 1,
           "last": "2026-08-03"
         },
         {
-          "name": "ZELLE PAYMENT TO DECLAN O'HARA 29828101592",
+          "name": "ZELLE PAYMENT TO DECLAN O'HARA 30249342488",
           "total": 50.0,
           "count": 1,
           "last": "2026-08-03"
@@ -546,7 +540,7 @@
       "account_id": "c95b51b9-5d5b-4aff-8c67-9c54589ff016",
       "account_name": "Citi",
       "type": "creditCard",
-      "payee_count": 273,
+      "payee_count": 274,
       "payees": [
         {
           "name": "Farmers Insurance",
@@ -598,9 +592,9 @@
         },
         {
           "name": "Amazon",
-          "total": 4421.42,
-          "count": 102,
-          "last": "2026-10-09"
+          "total": 4470.12,
+          "count": 103,
+          "last": "2026-10-17"
         },
         {
           "name": "Moon Valley",
@@ -681,6 +675,12 @@
           "last": "2026-09-05"
         },
         {
+          "name": "CLASSIC WINE STORAGE",
+          "total": 2277.0,
+          "count": 1,
+          "last": "2026-10-16"
+        },
+        {
           "name": "Intervention Al Spine",
           "total": 2273.45,
           "count": 2,
@@ -720,7 +720,7 @@
           "name": "Ntta",
           "total": 2000.0,
           "count": 50,
-          "last": "2026-10-12"
+          "last": "2026-10-18"
         },
         {
           "name": "Podsednik & Co",
@@ -729,16 +729,16 @@
           "last": "2026-04-29"
         },
         {
-          "name": "Boardroom Salon",
-          "total": 1647.44,
-          "count": 16,
-          "last": "2026-08-14"
+          "name": "Augment Frisco",
+          "total": 1702.75,
+          "count": 50,
+          "last": "2026-10-19"
         },
         {
-          "name": "Augment Frisco",
-          "total": 1634.64,
-          "count": 48,
-          "last": "2026-10-12"
+          "name": "Boardroom Salon",
+          "total": 1659.56,
+          "count": 17,
+          "last": "2026-10-19"
         },
         {
           "name": "Phillips Cre",
@@ -766,9 +766,9 @@
         },
         {
           "name": "H-E-B Gas & Carwash",
-          "total": 1349.89,
-          "count": 24,
-          "last": "2026-10-15"
+          "total": 1404.94,
+          "count": 25,
+          "last": "2026-10-16"
         },
         {
           "name": "Monday.com",
@@ -790,9 +790,9 @@
         },
         {
           "name": "Frisco Lakes Golf Club",
-          "total": 1113.85,
-          "count": 22,
-          "last": "2026-09-06"
+          "total": 1159.32,
+          "count": 23,
+          "last": "2026-10-17"
         },
         {
           "name": "Pine Mountain Vine",
@@ -889,6 +889,12 @@
           "total": 677.0,
           "count": 1,
           "last": "2026-03-31"
+        },
+        {
+          "name": "H-E-B",
+          "total": 667.62,
+          "count": 5,
+          "last": "2026-10-16"
         },
         {
           "name": "Crystal River Inn",
@@ -1003,12 +1009,6 @@
           "total": 440.18,
           "count": 1,
           "last": "2026-06-06"
-        },
-        {
-          "name": "H-E-B",
-          "total": 439.86,
-          "count": 4,
-          "last": "2026-10-13"
         },
         {
           "name": "Conrad Orlando Papaya",
@@ -1129,12 +1129,6 @@
           "total": 330.17,
           "count": 2,
           "last": "2026-08-04"
-        },
-        {
-          "name": "Jones Road Beauty",
-          "total": 324.04,
-          "count": 3,
-          "last": "2026-05-11"
         },
         {
           "name": "Dry Cleaners",
@@ -1261,6 +1255,12 @@
           "total": 216.5,
           "count": 1,
           "last": "2026-01-15"
+        },
+        {
+          "name": "Jones Road Beauty",
+          "total": 207.38,
+          "count": 2,
+          "last": "2026-05-11"
         },
         {
           "name": "Summer House On",
@@ -1639,6 +1639,12 @@
           "total": 84.75,
           "count": 1,
           "last": "2026-10-01"
+        },
+        {
+          "name": "Flower Child",
+          "total": 82.43,
+          "count": 2,
+          "last": "2026-10-18"
         },
         {
           "name": "Club",
@@ -2085,12 +2091,6 @@
           "last": "2026-10-07"
         },
         {
-          "name": "Flower Child",
-          "total": 17.05,
-          "count": 1,
-          "last": "2026-08-04"
-        },
-        {
           "name": "FedEx Office",
           "total": 16.24,
           "count": 1,
@@ -2226,8 +2226,8 @@
         },
         {
           "name": "Thorne Research",
-          "total": 1819.2,
-          "count": 21,
+          "total": 1775.2,
+          "count": 20,
           "last": "2026-10-02"
         },
         {
@@ -2676,8 +2676,8 @@
         },
         {
           "name": "Welink Communications",
-          "total": 12.0,
-          "count": 12,
+          "total": 11.0,
+          "count": 11,
           "last": "2026-09-25"
         },
         {
@@ -2750,8 +2750,8 @@
         },
         {
           "name": "Amazon",
-          "total": 1078.3,
-          "count": 10,
+          "total": 1070.73,
+          "count": 9,
           "last": "2025-11-20"
         },
         {
@@ -3390,7 +3390,7 @@
       "account_id": "bd7a4478-a655-4e19-a92c-a4a8753e0e55",
       "account_name": "Susie Apple Card",
       "type": "creditCard",
-      "payee_count": 69,
+      "payee_count": 68,
       "payees": [
         {
           "name": "Ntta",
@@ -3519,12 +3519,6 @@
           "last": "2026-04-07"
         },
         {
-          "name": "Willow Nail Lounge",
-          "total": 197.64,
-          "count": 2,
-          "last": "2026-04-07"
-        },
-        {
           "name": "Bedjet",
           "total": 182.52,
           "count": 1,
@@ -3601,6 +3595,12 @@
           "total": 107.84,
           "count": 3,
           "last": "2026-04-09"
+        },
+        {
+          "name": "Willow Nail Lounge",
+          "total": 106.14,
+          "count": 1,
+          "last": "2026-04-07"
         },
         {
           "name": "The George W Bush Presidential Library & Museum",
@@ -3795,12 +3795,6 @@
           "last": "2026-05-04"
         },
         {
-          "name": "CVS Pharmacy",
-          "total": 3.24,
-          "count": 1,
-          "last": "2025-10-25"
-        },
-        {
           "name": "Tom Thumb",
           "total": 1.43,
           "count": 1,
@@ -3905,6 +3899,12 @@
           "last": "2025-12-21"
         },
         {
+          "name": "Inspire Health",
+          "total": 67.5,
+          "count": 1,
+          "last": "2026-10-19"
+        },
+        {
           "name": "Cvs/Pharmacy #, Frisco, TX (Card Transaction ID: t6w5b35)",
           "total": 55.66,
           "count": 1,
@@ -3915,12 +3915,6 @@
           "total": 44.34,
           "count": 1,
           "last": "2026-07-06"
-        },
-        {
-          "name": "Cvs/Pharmacy #, Frisco, TX (Card Transaction ID: g0cijff)",
-          "total": 33.1,
-          "count": 1,
-          "last": "2025-10-25"
         },
         {
           "name": "Med*texashealth Resource, 682-236-3000, TX (Card Transaction ID: ywrjs90)",
@@ -4036,9 +4030,9 @@
       "payees": [
         {
           "name": "Rydex Monthly Nasdaq",
-          "total": 740908.61,
-          "count": 71,
-          "last": "2026-10-16"
+          "total": 740957.05,
+          "count": 72,
+          "last": "2026-10-20"
         },
         {
           "name": "Rydex Inverse Nasdaq Strategy",
@@ -4192,8 +4186,8 @@
       },
       {
         "name": "H-E-B",
-        "total": 8353.93,
-        "count": 113,
+        "total": 8581.69,
+        "count": 114,
         "last": "2026-10-17"
       },
       {
@@ -4240,9 +4234,9 @@
       },
       {
         "name": "Amazon",
-        "total": 5499.72,
+        "total": 5540.85,
         "count": 112,
-        "last": "2026-10-09"
+        "last": "2026-10-17"
       },
       {
         "name": "Berkley One",
@@ -4332,7 +4326,7 @@
         "name": "Ntta",
         "total": 3664.0,
         "count": 71,
-        "last": "2026-10-12"
+        "last": "2026-10-18"
       },
       {
         "name": "Integrity Golf Performance",
@@ -4467,6 +4461,12 @@
         "last": "2026-06-28"
       },
       {
+        "name": "CLASSIC WINE STORAGE",
+        "total": 2277.0,
+        "count": 1,
+        "last": "2026-10-16"
+      },
+      {
         "name": "Intervention Al Spine",
         "total": 2273.45,
         "count": 2,
@@ -4552,21 +4552,21 @@
       },
       {
         "name": "Thorne Research",
-        "total": 1819.2,
-        "count": 21,
+        "total": 1775.2,
+        "count": 20,
         "last": "2026-10-02"
       },
       {
-        "name": "Boardroom Salon",
-        "total": 1647.44,
-        "count": 16,
-        "last": "2026-08-14"
+        "name": "Augment Frisco",
+        "total": 1702.75,
+        "count": 50,
+        "last": "2026-10-19"
       },
       {
-        "name": "Augment Frisco",
-        "total": 1634.64,
-        "count": 48,
-        "last": "2026-10-12"
+        "name": "Boardroom Salon",
+        "total": 1659.56,
+        "count": 17,
+        "last": "2026-10-19"
       },
       {
         "name": "Phillips Cre",
@@ -4575,16 +4575,16 @@
         "last": "2026-04-03"
       },
       {
+        "name": "H-E-B Gas & Carwash",
+        "total": 1589.21,
+        "count": 28,
+        "last": "2026-10-16"
+      },
+      {
         "name": "Kids Matter International",
         "total": 1560.56,
         "count": 1,
         "last": "2026-09-15"
-      },
-      {
-        "name": "H-E-B Gas & Carwash",
-        "total": 1534.16,
-        "count": 27,
-        "last": "2026-10-15"
       },
       {
         "name": "Augment",
@@ -4641,16 +4641,16 @@
         "last": "2026-03-18"
       },
       {
+        "name": "Frisco Lakes Golf Club",
+        "total": 1159.32,
+        "count": 23,
+        "last": "2026-10-17"
+      },
+      {
         "name": "World Vision",
         "total": 1155.0,
         "count": 11,
         "last": "2026-09-21"
-      },
-      {
-        "name": "Frisco Lakes Golf Club",
-        "total": 1113.85,
-        "count": 22,
-        "last": "2026-09-06"
       },
       {
         "name": "Pine Mountain Vine",
@@ -5337,12 +5337,6 @@
         "last": "2026-05-31"
       },
       {
-        "name": "Jones Road Beauty",
-        "total": 324.04,
-        "count": 3,
-        "last": "2026-05-11"
-      },
-      {
         "name": "MindBodyGreen",
         "total": 323.0,
         "count": 5,
@@ -5535,12 +5529,6 @@
         "last": "2026-02-13"
       },
       {
-        "name": "Online Payment 26332301458 To PCR Community Association 10/24",
-        "total": 233.0,
-        "count": 1,
-        "last": "2025-10-24"
-      },
-      {
         "name": "Online Payment 26696962014 To PCR Community Association 11/21",
         "total": 233.0,
         "count": 1,
@@ -5679,6 +5667,12 @@
         "last": "2026-05-13"
       },
       {
+        "name": "Jones Road Beauty",
+        "total": 207.38,
+        "count": 2,
+        "last": "2026-05-11"
+      },
+      {
         "name": "Delugs",
         "total": 205.0,
         "count": 1,
@@ -5719,12 +5713,6 @@
         "total": 198.0,
         "count": 1,
         "last": "2025-12-21"
-      },
-      {
-        "name": "Willow Nail Lounge",
-        "total": 197.64,
-        "count": 2,
-        "last": "2026-04-07"
       },
       {
         "name": "Kasa Inc.",
@@ -5991,12 +5979,6 @@
         "last": "2026-08-24"
       },
       {
-        "name": "CVS Pharmacy",
-        "total": 143.34,
-        "count": 4,
-        "last": "2026-04-01"
-      },
-      {
         "name": "AthSport",
         "total": 141.11,
         "count": 1,
@@ -6019,6 +6001,12 @@
         "total": 140.12,
         "count": 2,
         "last": "2026-07-21"
+      },
+      {
+        "name": "CVS Pharmacy",
+        "total": 140.1,
+        "count": 3,
+        "last": "2026-04-01"
       },
       {
         "name": "Gentlemansgazet",
@@ -6249,6 +6237,12 @@
         "last": "2026-09-23"
       },
       {
+        "name": "Willow Nail Lounge",
+        "total": 106.14,
+        "count": 1,
+        "last": "2026-04-07"
+      },
+      {
         "name": "The Adolphus Hotel",
         "total": 105.92,
         "count": 1,
@@ -6399,6 +6393,12 @@
         "last": "2026-09-25"
       },
       {
+        "name": "Flower Child",
+        "total": 82.43,
+        "count": 2,
+        "last": "2026-10-18"
+      },
+      {
         "name": "Club",
         "total": 81.27,
         "count": 1,
@@ -6541,6 +6541,12 @@
         "total": 67.8,
         "count": 2,
         "last": "2026-04-14"
+      },
+      {
+        "name": "Inspire Health",
+        "total": 67.5,
+        "count": 1,
+        "last": "2026-10-19"
       },
       {
         "name": "Jackson County Abc Sto",
@@ -6771,22 +6777,16 @@
         "last": "2026-05-04"
       },
       {
-        "name": "Zelle payment to Declan O'Hara 29446261169",
-        "total": 50.0,
-        "count": 1,
-        "last": "2026-06-01"
-      },
-      {
         "name": "Zelle payment to Declan O'Hara 29033198731",
         "total": 50.0,
         "count": 1,
         "last": "2026-06-01"
       },
       {
-        "name": "Zelle payment to Declan O'Hara 29829221183",
+        "name": "Zelle payment to Declan O'Hara 29446261169",
         "total": 50.0,
         "count": 1,
-        "last": "2026-07-01"
+        "last": "2026-06-01"
       },
       {
         "name": "Zelle payment to Declan O'Hara 29437619688",
@@ -6795,13 +6795,19 @@
         "last": "2026-07-01"
       },
       {
-        "name": "ZELLE PAYMENT TO DECLAN O'HARA 30249342488",
+        "name": "Zelle payment to Declan O'Hara 29829221183",
+        "total": 50.0,
+        "count": 1,
+        "last": "2026-07-01"
+      },
+      {
+        "name": "ZELLE PAYMENT TO DECLAN O'HARA 29828101592",
         "total": 50.0,
         "count": 1,
         "last": "2026-08-03"
       },
       {
-        "name": "ZELLE PAYMENT TO DECLAN O'HARA 29828101592",
+        "name": "ZELLE PAYMENT TO DECLAN O'HARA 30249342488",
         "total": 50.0,
         "count": 1,
         "last": "2026-08-03"
@@ -7113,12 +7119,6 @@
         "last": "2026-04-30"
       },
       {
-        "name": "Cvs/Pharmacy #, Frisco, TX (Card Transaction ID: g0cijff)",
-        "total": 33.1,
-        "count": 1,
-        "last": "2025-10-25"
-      },
-      {
         "name": "Cuppa Coffee",
         "total": 33.0,
         "count": 1,
@@ -7371,12 +7371,6 @@
         "last": "2026-10-07"
       },
       {
-        "name": "Flower Child",
-        "total": 17.05,
-        "count": 1,
-        "last": "2026-08-04"
-      },
-      {
         "name": "AMERICAN EXPRESS ACH PMT M8132 WEB ID: 2005032111",
         "total": 16.9,
         "count": 1,
@@ -7419,16 +7413,16 @@
         "last": "2026-05-15"
       },
       {
-        "name": "Welink Communications",
-        "total": 12.0,
-        "count": 12,
-        "last": "2026-09-25"
-      },
-      {
         "name": "Starbucks",
         "total": 11.26,
         "count": 1,
         "last": "2025-11-24"
+      },
+      {
+        "name": "Welink Communications",
+        "total": 11.0,
+        "count": 11,
+        "last": "2026-09-25"
       },
       {
         "name": "Txdps Ltc",

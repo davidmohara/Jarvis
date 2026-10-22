@@ -1,126 +1,35 @@
 {
-  "pulled_at": "2026-10-19T20:42:00Z",
-  "source": "superhuman-mail (M365 MCP unavailable - auth stubs only this session)",
-  "message_count": 72,
-  "accounts": {
-    "improving": {
-      "unread_since_2026-10-18": 50,
-      "starred": 0
-    },
-    "personal": {
-      "unread_since_2026-10-18": 22,
-      "actionable": 0
-    }
-  },
+  "pulled_at": "2026-10-21T15:16:30Z",
+  "source": "m365-outlook_email_search",
+  "query_window": "since 2026-10-19, newest first, 27 total",
+  "message_count": 27,
   "messages": [
-    {
-      "subject": "Booking October Performance MTD-9.3M",
-      "from": "Curtis.Hite@Improving.com",
-      "received_at": "2026-10-19T14:52Z",
-      "is_flagged": false,
-      "importance": "normal",
-      "snippet": "Company-wide October booking performance, MTD $9.3M, sent to Presidents@",
-      "account": "improving"
-    },
-    {
-      "subject": "WEEK of October 19 - 23 Thought Leadership: Blogs and Webinars",
-      "from": "Curtis.Hite@Improving.com / Marketing@improving.com",
-      "received_at": "2026-10-19T14:00Z",
-      "is_flagged": false,
-      "importance": "normal",
-      "snippet": "Weekly thought leadership lineup: blogs and webinars for Oct 19-23",
-      "account": "improving"
-    },
-    {
-      "subject": "October GoTogether Starts Today!",
-      "from": "SPARC@improving.com",
-      "received_at": "2026-10-19T13:01Z",
-      "is_flagged": false,
-      "importance": "normal",
-      "snippet": "October GoTogether kicks off today; Nov 5 webinar 12-1 PM CST previously noted",
-      "account": "improving"
-    },
-    {
-      "subject": "UTB Meeting Schedule - Week of 10/19/2026-10/23/2026",
-      "from": "alerts@boardvantage.com",
-      "received_at": "2026-10-19T13:00Z",
-      "is_flagged": false,
-      "importance": "normal",
-      "snippet": "BoardVantage: UTB board meeting schedule for this week",
-      "account": "improving"
-    },
-    {
-      "subject": "Improving at an upcoming SME&C East Partner Showcase",
-      "from": "Lowell.Messner@improving.com",
-      "received_at": "2026-10-19T16:36Z",
-      "is_flagged": false,
-      "importance": "normal",
-      "snippet": "Microsoft partner showcase thread (Geoff Rigsby, Saurabh Vijay); Lowell confirms Improving onsite 11/12 with West team; labeled Respond",
-      "account": "improving"
-    },
-    {
-      "subject": "Upcoming Webinar invite - October 6th",
-      "from": "alice.mburu@improving.com",
-      "received_at": "2026-10-19T02:17Z",
-      "is_flagged": false,
-      "importance": "normal",
-      "snippet": "Tracked to Dynamics 365; Capital One contacts (Deena McCool, Howard Dierking) on thread",
-      "account": "improving"
-    },
-    {
-      "subject": "Budget increase approved",
-      "from": "no-reply@compliance.improving.ai",
-      "received_at": "2026-10-18T14:15Z",
-      "is_flagged": false,
-      "importance": "normal",
-      "snippet": "AI budget increase approved",
-      "account": "improving"
-    },
-    {
-      "subject": "Ticket Resolved - AI budget increase - David O'Hara ($500/mo -> $1,000/mo)",
-      "from": "helpdesk@improving.com",
-      "received_at": "2026-10-18T14:15Z",
-      "is_flagged": false,
-      "importance": "normal",
-      "snippet": "Helpdesk confirms AI budget increase resolved: $500/mo to $1,000/mo",
-      "account": "improving"
-    },
-    {
-      "subject": "You've been added to Improving on Claude",
-      "from": "no-reply@mail.anthropic.com",
-      "received_at": "2026-10-18T16:13Z",
-      "is_flagged": false,
-      "importance": "normal",
-      "snippet": "Added to Improving org on Claude",
-      "account": "improving"
-    },
-    {
-      "subject": "Weekly Sales Digest",
-      "from": "no-reply-powerbi@microsoft.com",
-      "received_at": "2026-10-19T11:33Z",
-      "is_flagged": false,
-      "importance": "normal",
-      "snippet": "PowerBI weekly sales digest",
-      "account": "improving"
-    },
-    {
-      "subject": "[GitHub] Your organization Improving has received personal access token requests",
-      "from": "noreply@github.com",
-      "received_at": "2026-10-18T21:15Z",
-      "is_flagged": false,
-      "importance": "normal",
-      "snippet": "GitHub admin: org members requested PAT access approvals",
-      "account": "personal"
-    },
-    {
-      "subject": "New Post: GBS 2026 + ICWs: The Right Connections Begin in Istanbul",
-      "from": "noreply@ypo.org",
-      "received_at": "2026-10-19T13:05Z",
-      "is_flagged": false,
-      "importance": "normal",
-      "snippet": "YPO GBS 2026 Istanbul post",
-      "account": "improving"
-    }
-  ],
-  "notes": "0 flagged/starred messages on either account. Remainder of 72 unread are newsletters, YPO digests, LinkedIn invitations, wine/marketing promotions. No explicit-deadline or high-priority items found."
+    {"id": "AAMkADAy...bxBAAA=", "subject": "Your homework for the AI Leadership Summit — 5 minutes, one idea", "from": "Tim.Rayburn@Improving.com", "received_at": "2026-10-21T15:04:16Z", "is_flagged": false, "is_read": false, "importance": "normal", "snippet": "AI Leadership Summit Nov 5-6 homework: Day 2 opens with TED talks, five minutes per person, standing."},
+    {"id": "AAMkADAy...bxAAAA=", "subject": "What's the best way to share the Gospel with 5.5 billion people?", "from": "team@solving.org", "received_at": "2026-10-21T15:01:40Z", "is_flagged": false, "is_read": false, "importance": "normal", "snippet": "Solving the Evangelism Gap course promo (duplicate send)."},
+    {"id": "AAMkADAy...bxAAAA2=", "subject": "What's the best way to share the Gospel with 5.5 billion people?", "from": "team@solving.org", "received_at": "2026-10-21T15:01:37Z", "is_flagged": false, "is_read": false, "importance": "normal", "snippet": "Duplicate of above."},
+    {"id": "AAMkADAy...bw-AAA=", "subject": "(AI Mastermind) From Tool to Master: How AI is changing us and Society", "from": "notifications@app.basecamp.com", "received_at": "2026-10-21T15:00:43Z", "is_flagged": false, "is_read": false, "importance": "normal", "snippet": "Basecamp event reminder: Thu Oct 22, 10:00-11:30am CDT, AI Mastermind session."},
+    {"id": "AAMkADAy...bw9AAA=", "subject": "Trusted Insights for Leaders Like You", "from": "replydallas@engaged.bizjournals.com", "received_at": "2026-10-21T14:58:57Z", "is_flagged": false, "is_read": false, "importance": "normal", "snippet": "Dallas Business Journal subscription marketing."},
+    {"id": "AAMkADAy...bw8AAA=", "subject": "Re: Strategic session with C-suite Leaders", "from": "Don.McGreal@Improving.com", "received_at": "2026-10-21T14:54:17Z", "is_flagged": false, "is_read": false, "importance": "normal", "snippet": "Don McGreal declines Thursday evening C-suite strategic session (conflict)."},
+    {"id": "AAMkADAy...bw7AAA=", "subject": "View and pay your balance online today. It's fast and easy.", "from": "noreply@patient-message.com", "received_at": "2026-10-21T14:50:28Z", "is_flagged": false, "is_read": false, "importance": "normal", "snippet": "New balance due at TX - Interventional Spine and Pain LLP."},
+    {"id": "AAMkADAy...bw6AAA=", "subject": "RE: YPO Forum Dinner Introduction for John Koryl", "from": "SIdoux@lockton.com", "received_at": "2026-10-21T14:35:58Z", "is_flagged": false, "is_read": true, "importance": "normal", "snippet": "Asks to push next Forum meeting start back one hour; attending Global Growth Forum virtually."},
+    {"id": "AAMkADAy...bw5AAA=", "subject": "RE: YPO Forum Dinner Introduction for John Koryl", "from": "Luisa.McDaniel@hazels.com", "received_at": "2026-10-21T14:31:48Z", "is_flagged": false, "is_read": true, "importance": "normal", "snippet": "Supports extending forum meeting idea."},
+    {"id": "AAMkADAy...bw4AAA=", "subject": "RE: YPO Forum Dinner Introduction for John Koryl", "from": "dustin@hazels.com", "received_at": "2026-10-21T14:29:53Z", "is_flagged": false, "is_read": true, "importance": "normal", "snippet": "Suggests extending Nov 3 forum meeting to include drinks/dinner after, if it works for Koryl."},
+    {"id": "AAMkADAy...bw3AAA=", "subject": "CFO expertise minus the full-time cost", "from": "alex.elliott@marketing.nowcfo.com", "received_at": "2026-10-21T14:28:48Z", "is_flagged": false, "is_read": false, "importance": "normal", "snippet": "NOW CFO marketing email."},
+    {"id": "AAMkADAy...bw2AAA=", "subject": "RE: YPO Forum Dinner Introduction for John Koryl", "from": "Luisa.McDaniel@hazels.com", "received_at": "2026-10-21T14:27:46Z", "is_flagged": false, "is_read": true, "importance": "normal", "snippet": "New date options for forum dinner: Oct 26; Nov 2,3,4,9,11,16,20,23,30. Reply with availability."},
+    {"id": "AAMkADAy...bw1AAA=", "subject": "PLEASE REGISTER: Power of the Room-Leadership Through Inflection Points", "from": "mail@lonestarypo.com", "received_at": "2026-10-21T14:03:08Z", "is_flagged": false, "is_read": false, "importance": "normal", "snippet": "YPO Lone Star member panel at Granada Theater; registration requested."},
+    {"id": "AAMkADAy...bw0AAA=", "subject": "Re: Hello", "from": "ajai.shankar@gmail.com", "received_at": "2026-10-21T13:55:10Z", "is_flagged": false, "is_read": true, "importance": "normal", "snippet": "Ajai Shankar personal reply; following Sanjay to providio.ai startup; meeting Craig today."},
+    {"id": "AAMkADAy...bwzAAA=", "subject": "Public Speaking Without Fear webinar", "from": "trainings@live.grctutors.com", "received_at": "2026-10-21T13:49:58Z", "is_flagged": false, "is_read": false, "importance": "normal", "snippet": "Webinar marketing."},
+    {"id": "AAMkADAy...bwyAAA=", "subject": "[Online Event] Threats move forward. Keep security ahead.", "from": "googlecloud@google.com", "received_at": "2026-10-21T13:11:09Z", "is_flagged": false, "is_read": false, "importance": "normal", "snippet": "Google Cloud Security Summit invite."},
+    {"id": "AAMkADAy...bwxAAA=", "subject": "Don't Lose Your Progress! Schedule Your Next Appointment Now", "from": "info@recoverwithpurpose.com", "received_at": "2026-10-21T13:10:21Z", "is_flagged": false, "is_read": false, "importance": "normal", "snippet": "Health/recovery clinic marketing."},
+    {"id": "AAMkADAy...bwwAAA=", "subject": "RE: Health Hub", "from": "David.OHara@improving.com", "received_at": "2026-10-21T13:00:10Z", "is_flagged": false, "is_read": false, "importance": "normal", "snippet": "Self-sent: Health Hub personal health data platform login details set up."},
+    {"id": "AAMkADAy...bwuAAA=", "subject": "Re: Strategic session with C-suite Leaders", "from": "jorge.pliego@improving.com", "received_at": "2026-10-21T12:57:53Z", "is_flagged": false, "is_read": false, "importance": "normal", "snippet": "Jorge Pliego declines Thursday event (dinner with BMO)."},
+    {"id": "AAMkADAy...bweAAA=", "subject": "Fw: Strategic session with C-suite Leaders", "from": "Bethany.Hilton@Improving.com", "received_at": "2026-10-21T01:30:00Z", "is_flagged": false, "is_read": true, "importance": "high", "snippet": "Curtis invited to C-suite networking event Thursday evening hosted via Becky Caleb (BofA Global Technology Exec); asks who is available."},
+    {"id": "AAMkADAy...bwdAAA=", "subject": "Fw: AI Leadership Event Discussion (ASEI/bank of america event at Improving)", "from": "Bethany.Hilton@Improving.com", "received_at": "2026-10-21T01:23:08Z", "is_flagged": false, "is_read": false, "importance": "normal", "snippet": "Asks if the ASEI/BofA AI workshop at Improving can be broadcast online (hybrid); told them probably, checking first."},
+    {"id": "AAMkADAy...bwaAAA=", "subject": "DRC's Executive Circle - join us on Oct. 28 at the Forest Theater", "from": "btamasi@dallaschamber.org", "received_at": "2026-10-20T22:42:16Z", "is_flagged": false, "is_read": false, "importance": "normal", "snippet": "Dallas Regional Chamber Executive Circle Oct 28, 3:30-5pm, Forest Theater; registration link."},
+    {"id": "AAMkADAy...TWslAAA=", "subject": "Improving AI Policy- initial draft", "from": "Amber.Robinson@improving.com", "received_at": "2026-10-20T19:17:42Z", "is_flagged": false, "is_read": true, "importance": "normal", "snippet": "Working draft of proposed Improving AI Policy attached for review/input (to David, Curtis Hite, Devlin Liles)."},
+    {"id": "AAMkADAy...qNzuQAAA=", "subject": "RE: ACTION: Confirm 2027 - 2029 YPO Gold Regional Officers", "from": "smeyer@ypo.org", "received_at": "2026-10-20T14:58:27Z", "is_flagged": false, "is_read": false, "importance": "normal", "snippet": "Reminder: confirm candidate list by October 23rd."},
+    {"id": "AAMkADAy...qNzt7AAA=", "subject": "Info: October OnPoint and Western Region Updates", "from": "smeyer@ypo.org", "received_at": "2026-10-20T11:53:50Z", "is_flagged": false, "is_read": true, "importance": "normal", "snippet": "YPO/YPO-Gold Western chapter chairs Q2 updates."},
+    {"id": "AAMkADAy...qNztKAAA=", "subject": "INVITE: Power of the Room-Leadership Through Inflection Points", "from": "mail@lonestarypo.com", "received_at": "2026-10-19T14:46:07Z", "is_flagged": false, "is_read": true, "importance": "normal", "snippet": "Original invite to the YPO panel event."},
+    {"id": "AAMkADAy...qNztEAAA=", "subject": "RE: YPO Forum Dinner Introduction for John Koryl", "from": "dustin@hazels.com", "received_at": "2026-10-19T13:25:40Z", "is_flagged": false, "is_read": true, "importance": "normal", "snippet": "RSVP reminder for the (Oct 20) forum dinner."}
+  ]
 }

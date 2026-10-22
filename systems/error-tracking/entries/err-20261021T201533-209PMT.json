@@ -1,0 +1,51 @@
+{
+  "id": "err-20261021T201533-209PMT",
+  "timestamp": "2026-10-21T20:15:33Z",
+  "category": "recurring-failure",
+  "failure_mode": "repeated-instrumentation-fixes-that-dont-hold",
+  "severity": "major",
+  "summary": "Per-step token cost extraction for eval records has been 'fixed' at least 6 times (commits 1a7a9778, 157e969d, 1eec357b, ce317449, c6d7ae78, 4e5d7124) and still fails in practice: most boot eval records show $0 per step with token_source lenient_fallback, and populated ones show implausible counts (3.8M input tokens). David asked for boot cost comparison and the data could not answer it. Threshold exceeded.",
+  "proposed_fix": "Stop patching. Root-cause first: read each prior fix commit, determine why each failed, then either implement a fix that passes a live end-to-end test (today's boot eval populated with plausible per-step costs) or declare the transcript-matching approach architecturally broken and propose the alternative design. Acceptance is measured data, not a merged change.",
+  "source": "controller-correction",
+  "status": "resolved",
+  "resolution": {
+    "resolved_at": "2026-10-21T21:30:00Z",
+    "verdict": "The transcript time-window matching design is architecturally unsound for per-step attribution AS IMPLEMENTED, because its window inputs (step frontmatter started-at/completed-at) are agent-authored and provably unreliable, and its record routing was by recency. The fix replaces independent per-step window queries with (a) strict-only matching (no fabrication fallback), (b) workflow-keyed record routing, and (c) a partition of the executing subagent's own transcript across the run's steps with a checkable sum integrity invariant, plus (d) capture of the harness's authoritative task-notification usage block.",
+    "why_each_prior_fix_failed": {
+      "1a7a9778": "Fixed real plumbing bugs (step-name key mismatch, status vocabulary) but validated against synthetic temp dirs with inline steps; never addressed recency record routing or stale agent-authored timestamps, so real subagent-executed boots kept failing.",
+      "157e969d": "Backfill assumed windowed slicing of the MAIN transcript maps to steps; subagent-run steps have no main-transcript turns, so it zero-filled or fell back; provenance labels documented the wrongness without fixing it.",
+      "1eec357b": "Recovered agent attribution/completion from subagent transcripts and explicitly flagged the loose record-matching fallback as 'not fixed'; the per-step window path was untouched.",
+      "ce317449": "Fixed sibling-spawn misattribution and the parent-closed rollup race for subagents[] totals only; per-step extraction and step-write routing were out of scope.",
+      "c6d7ae78": "Made session_id consistent across hooks, which actually WORSENED recency misrouting: all subagent stubs now share one session_id, so find_active_eval_record sees every concurrent stub.",
+      "4e5d7124": "Fixed chief-owned workflow detection and pricing-table gaps; token windowing logic untouched."
+    },
+    "root_cause": "Four compounding layers, proven from the 2026-10-21 live run (session 345c604d, /tmp/ies-hook-errors.log): (1) post-tool-use.py routed step writes to the most-recent in-progress record for the session, so Knox's plaud-ingest steps landed on the boot executor's stub (eval-20261021T151415-QZP2GE) and corrupted its workflow stamp to 'plaud-ingest'; (2) eval-agent-stop.py resolved the workflow from that corrupted stamp and ran plaud-ingest step-complete against the BOOT EXECUTOR's transcript; (3) step frontmatter timestamps are agent-authored fiction — plaud steps 02-06 still carried 2026-10-09 windows, boot steps 06-08 carry 15:47-15:50 windows for a subagent that ended 15:41:15, and boot step-01.2's started-at was ~45s late so its window caught only zero-usage thinking turns; (4) usage_between's lenient_fallback converted every window miss into a whole-transcript sum, stamping 1,654,697 tokens ($0.6313) onto EACH of six stale steps. Amplifiers: an f-string crash on cost_usd=None discarded successful extractions (6x at 10:37 for morning-briefing), inline extraction read the main transcript for subagent-written steps (concurrent-turn noise labeled 'windowed'), and the executor's own record lost its final write (completed/totals null, later flat $0.09 estimate over a real $0.63 run).",
+    "fix_applied": [
+      "systems/eval-harness/token_usage.py: new partition_usage_by_steps (attributes every billable turn of one agent's transcript to exactly one step by started-at ordering; stale steps excluded; sum == whole-run invariant), extract_task_notifications/latest_task_usage (parse <task-notification> usage blocks from the main transcript), turns_with_usage count, deepseek-v4p1-flash-1017 pricing alias",
+      ".claude/hooks/step-complete.py: lenient fallback retired (strict window only, honest nulls), fixed f-string crash that discarded extracted tokens when cost was None, records turns_with_usage",
+      ".claude/hooks/eval-agent-stop.py: crash-safe ordering (core completion fields persisted BEFORE step-hook fan-out), task-notification fallback for whole-run totals (harness_tokens), parent-record partition backfill of per-step tokens (token_source windowed-partition, executed_by_agent_id), stale-step guard (skip steps completed before this run started), rollup carries harness_tokens/token_source",
+      ".claude/hooks/post-tool-use.py: step writes route by the step's own workflow (name/workflow match), never by recency; completed records within 6h grace accept late step writes; no match = honest skip",
+      ".claude/hooks/eval-turn-stop.py: double-count guard (partition-filled steps excluded from step sums when their subagent's rollup carries tokens), harness_tokens_total surfaced",
+      "systems/eval-harness/schema.md: token_source values, turns_with_usage, executed_by_agent_id, harness_tokens documented; subagent capture path rewritten",
+      ".claude/hooks/tests/test_step_token_capture.py: inline-extraction test updated to the workflow-routing contract; new regression tests for cross-workflow routing refusal and closed-record grace window"
+    ],
+    "acceptance_test": {
+      "record": "systems/eval-harness/runs/eval-20261021T151330-QNQLC5.json",
+      "method": "Repaired with the new code paths against today's real data (executor transcript agent-a548027b586ba0f14.jsonl, main transcript task-notifications); backups at /tmp/QNQLC5.bak.json and /tmp/QZP2GE.bak.json",
+      "results": {
+        "executor_whole_run_transcript": "1,654,697 in / 3,218 out / $0.631328 (kimi-k3, cache-inclusive)",
+        "executor_harness_reported": "143,307 tokens / 77 tool uses / 1,621,653 ms — exactly the figures David was shown at task completion",
+        "partition_integrity": "per-step token sum 1,654,697 == whole-run 1,654,697 (OK)",
+        "per_step": "step-01.2 $0.0326 (82,502 in), step-02 $0.2165 (545,309), step-03 $0.1746 (495,386), step-04 $0.2077 (531,500); steps 01.5/05/06/07/08 honest zeros (windows contain no billable turns — 01.5 overlapped by 02, 05-08 agent-projected); step-01 stale-window null (frontmatter from 10-09, never rewritten)",
+        "record_totals": "boot run: $0.682137 total, 2,536,301 transcript-measured input tokens, 189,186 harness-reported tokens across 3 subagents (Knox 45,879 harness / 36,724 transcript / $0.016; executor 143,307 / 1,654,697 / $0.631; chief morning-briefing 844,880 / $0.034)",
+        "executor_record_repair": "eval-20261021T151415-QZP2GE: 10 misrouted/fabricated step entries removed (documented in repair_note), completed/totals/harness_tokens filled from real sources, phantom $0.09 estimate replaced by real $0.631328"
+      },
+      "test_suites": "all 5 hook suites green (test_step_token_capture incl. end-to-end agent-stop wiring, test_detect_workflow 32/32, test_noop_records, test_eval_session_end, test_skill_capture)"
+    },
+    "known_residual_risks": [
+      "post-tool-use.py inline extraction still reads the main transcript for subagent-written steps (hook payload carries no agent identity), so a concurrent main-session turn can be labeled 'windowed' on a subagent step; partition backfill only fills null tokens and will not overwrite such values",
+      "step frontmatter timestamps remain agent-authored; the partition makes the damage transparent (integrity-checked) but per-step granularity for steps with fictional windows is honestly zero, not estimated",
+      "SubagentStop does not reliably fire/find stubs for every background agent (5 'No eval record found' events today); the task-notification path in eval-turn-stop sweeps are the fallback but were only wired into eval-agent-stop in this pass"
+    ]
+  }
+}

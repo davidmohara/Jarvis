@@ -41,6 +41,63 @@
       },
       "auto_remove_on": "acknowledged",
       "notes": "Created by Chase at the end of the 2026-10-16 card-review run to flag Amex Platinum year-end credit deadlines for the morning briefing. Related OmniFocus tasks already created in the Credit Cards project for Resy Q4, lululemon Q4, and CLEAR+."
+    },
+    {
+      "id": "rem-20261022T010059-Z5SG97",
+      "created": "2026-10-21T20:02:02-05:00",
+      "created_by": "master",
+      "trigger_date": "2026-10-22",
+      "trigger_prompt": "Thursday 10:00 is still triple-booked: Sales Scrum, DLP check-in, and AI Mastermind Basecamp. Which one do you keep?",
+      "routing": {
+        "agent": "chief",
+        "action_prompt": "David answered the Thursday 2026-10-22 10:00 triple-booking question and named which meeting he keeps. Execute the decision now, in this order. (1) Pull the three events from the calendar: call mcp__claude_ai_Microsoft_365__outlook_calendar_search for 2026-10-22 and isolate every event overlapping 10:00-11:00 CT. The three expected are 'Sales Scrum', 'DLP check-in', and 'AI Mastermind Basecamp'. Capture each event's subject, organizer, attendee list, event id, and whether it is recurring (a recurring meeting that David owns must be moved, not declined). (2) If the search returns fewer or more than those three, stop and report the discrepancy to David before changing anything. (3) For the two David is dropping: show him the exact decline message text (one short line, honest reason: 'conflict, will catch up async' or a reason he gives) and get his approval before sending. Use mcp__claude_ai_Microsoft_365__outlook_respond_to_event to decline. If an event is one David organizes, do NOT decline it: instead use mcp__claude_ai_Microsoft_365__outlook_update_event to move it, proposing a new slot from mcp__claude_ai_Microsoft_365__find_meeting_availability so the other attendees are free, and confirm the new time with David before saving. (4) Confirm the kept event is accepted (respond accept if David has not already). (5) Report back: what was kept, what was declined or moved, the exact new time if anything moved, and any attendee who will be surprised. Do not claim a calendar change succeeded unless the API call returned success. (6) Append a short decision line to /Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/memory/working/2026-10-22-thursday-1000-conflict.md recording the ruling and the actions taken."
+      },
+      "on_yes": "execute_action_prompt",
+      "on_no": {
+        "action": "snooze",
+        "snooze_days": 1,
+        "message": "Understood. I will ask again in the morning, but the 10:00 slot arrives Thursday either way."
+      },
+      "auto_remove_on": "acknowledged",
+      "notes": "Created by Master on 2026-10-21 for the Thursday 2026-10-22 morning boot. The triple-booking was live as of the 2026-10-21 boot and was not resolved during that session. Time-critical: the slot lands the morning after this reminder triggers."
+    },
+    {
+      "id": "rem-20261022T010202-TJK8N4",
+      "created": "2026-10-21T20:02:02-05:00",
+      "created_by": "master",
+      "trigger_date": "2026-10-22",
+      "trigger_prompt": "Rock 1 KR1 (dated milestones for AT&T, McKesson, SLB) and Rock 2 KR1 (South Texas gap decomposition, Chase) were due Oct 17 and still have no OmniFocus tasks. Create them or drop them?",
+      "routing": {
+        "agent": "quinn",
+        "action_prompt": "David ruled on two overdue Q4 rock key results that have no OmniFocus tasks behind them. Context: the Q4 rocks were signed 2026-10-10 and live in /Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/memory/personal/quarterly-objectives.md. Rock 1 (Solace Co-Sell Motions to Milestones and Won-Dollars) KR1 requires each of AT&T, McKesson, and SLB to carry a dated next milestone with a named Improving owner and a named Solace counterpart by 2026-10-17. Rock 2 (South Texas Revenue Recovery) KR1 requires the South Texas gap decomposition (roll-off vs new-business shortfall vs delivery-start lag, plus pipeline-per-seller and win-rate coverage vs Dallas), commissioned to Chase, due 2026-10-17. Both were confirmed still absent from OmniFocus on 2026-10-21 via mcp__omnifocus__query_omnifocus searches for 'AT&T', 'McKesson', 'Solace', 'South Texas', and 'decomposition' (all returned zero results). Active projects as of 2026-10-21 include P: Next, P: Sales, P: Growth, P: Executive Elevation, P: UTB, P: Credit Cards, and P: Personal folder projects; there is no dedicated rocks project. IF DAVID SAYS CREATE: read /Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/skills/omnifocus-tasks/SKILL.md first and follow its gate exactly; it is the only authorized path for task creation. Create one task per play for Rock 1 (three tasks: 'AT&T - set dated next milestone with named Improving owner and Solace counterpart', 'McKesson - same', 'SLB - same'), each with due date 2026-10-24 and flagged, and one task for Rock 2 ('South Texas gap decomposition - Chase: roll-off vs new-business shortfall vs delivery-start lag, pipeline-per-seller, win-rate vs Dallas'), due 2026-10-24 and flagged. If no suitable project exists, create 'Q4 Rocks 2026' via mcp__omnifocus__add_project and confirm the choice with David rather than guessing silently. Tag each task 'Improving' to match the existing tag convention, and add a note naming the KR and the Oct 17 original due date. IF DAVID SAYS DROP: do not edit the signed quarterly-objectives.md. Record the drop ruling in /Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/memory/working/2026-10-22-rock-kr-disposition.md with the KR, the ruling, David's stated reason, and the date, and state that the KR is now formally at risk in the next rock review. Report back the exact task names, project, due dates, and tags created, or the drop record written."
+      },
+      "on_yes": "execute_action_prompt",
+      "on_no": {
+        "action": "snooze",
+        "snooze_days": 1,
+        "message": "Leaving it for now. These KRs stay unworked and will show up in the next rock review as at-risk."
+      },
+      "auto_remove_on": "acknowledged",
+      "notes": "Created by Master on 2026-10-21 for the Thursday 2026-10-22 morning boot. Both KRs passed their Oct 17 due date with zero OmniFocus backing, verified by direct query on 2026-10-21. The request is binary: create the tasks through the gate-enforced omnifocus-tasks skill, or record an explicit drop."
+    },
+    {
+      "id": "rem-20261022T010202-M64JFN",
+      "created": "2026-10-21T20:02:02-05:00",
+      "created_by": "master",
+      "trigger_date": "2026-10-22",
+      "trigger_prompt": "Did the UTB Board item, the GEHC sync capture, and the Thursday 10:00 conflict all get resolved yesterday?",
+      "routing": {
+        "agent": "chief",
+        "action_prompt": "David answered whether three open items from 2026-10-21 were resolved. Take his answer for each item and close the loop on the ones he says are done, then record all three outcomes. ITEM 1 - UTB Board: the OmniFocus project 'UTB' exists with 3 active tasks. Query it via mcp__omnifocus__query_omnifocus with projectName 'UTB' and includeCompleted false. If David says the board item moved, identify the matching task, complete it using mcp__omnifocus__edit_item with markComplete (never delete it), and create a follow-up task through /Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/skills/omnifocus-tasks/SKILL.md if there is a next action. If he says it did not move, say so plainly and ask what the next action is. ITEM 2 - GEHC sync capture: 'capture' means a GEHC meeting recording or sync that needed to land in the knowledge base. Check (a) /Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/systems/eval-harness/skill-runs/plaud-discover-ledger-latest.json for unprocessed GEHC recordings, and (b) the Obsidian vault via the obsidian MCP search_query for 'GEHC' to see whether a note exists dated 2026-10-20 or 2026-10-21. Report what you actually find. If no note exists and David says the sync happened, route the capture through the plaud-transcripts or teams-transcripts skill rather than hand-writing a note. Do not claim a capture exists without a file path to prove it. ITEM 3 - Thursday 10:00 conflict: this is tracked by a separate reminder (rem-20261022T010059-Z5SG97). Do not duplicate the calendar work here. Just record David's answer and, if he says it is resolved, note which meeting he kept so the two records agree. FINALLY: write all three outcomes to /Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/memory/working/2026-10-22-yesterday-resolutions.md with one line per item: item, resolved yes/no, what was done, what remains. Report the three outcomes back in plain language."
+      },
+      "on_yes": "execute_action_prompt",
+      "on_no": {
+        "action": "snooze",
+        "snooze_days": 1,
+        "message": "Then they carry. I will ask again tomorrow, and they will keep showing up until they are closed."
+      },
+      "auto_remove_on": "acknowledged",
+      "notes": "Created by Master on 2026-10-21 for the Thursday 2026-10-22 morning boot. These three items were open at the end of the 2026-10-21 session with no recorded outcome. Item 3 overlaps rem-20261022T010059-Z5SG97 deliberately: that reminder forces the calendar decision, this one captures whether it happened."
     }
   ]
 }

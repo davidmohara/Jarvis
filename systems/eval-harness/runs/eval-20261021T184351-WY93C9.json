@@ -1,0 +1,77 @@
+{
+ "id": "eval-20261021T184351-WY93C9",
+ "agent_id": "ae2bedf53a228ba06",
+ "type": "agent",
+ "name": "general-purpose",
+ "workflow": null,
+ "agent": "general-purpose",
+ "owning_agent": null,
+ "subagent_type": "general-purpose",
+ "session_id": "345c604d-c844-4335-a6bb-2ff2b6ba17b6",
+ "trigger": "unknown",
+ "started": "2026-10-21T18:43:51.247678Z",
+ "completed": "2026-10-21T18:46:42.279504Z",
+ "duration_seconds": 171.03,
+ "status": "success",
+ "steps": [],
+ "assessment": {
+  "mechanical": {
+   "completed": true,
+   "all_steps_finished": true,
+   "tool_failures": 0,
+   "error_ids": []
+  },
+  "structural": {
+   "expected_outputs_written": null,
+   "outputs_non_empty": null,
+   "assertions_checked": 0,
+   "assertions_passed": 0,
+   "assertion_results": []
+  },
+  "grading": {
+   "last_graded": "2026-10-22T01:05:32Z",
+   "grade": "A",
+   "safety_grade": null,
+   "grader_notes": "Three Ghost hub pages created as drafts, all HTTP 201 first attempt, auth per the documented JWT path. Per-page verification via get_page_by_slug: correct title/slug/draft status, meta_title and meta_description populated from approved sources, lexical intact with H2 structure and hub cross-links (5 h2/14 links, 4 h2/14 links). No publishing, no scope creep. Clean one-shot execution of an approved irreversible-adjacent task."
+  },
+  "controller_feedback": {
+   "rating": null,
+   "comment": null,
+   "timestamp": null
+  },
+  "bias_assessment": {
+   "applicable": false,
+   "protected_attributes": [],
+   "fairness_metric": null,
+   "demographic_coverage_verified": false,
+   "adversarial_inputs_tested": false,
+   "bias_detected": false,
+   "bias_flags": [],
+   "remediation_status": "none"
+  }
+ },
+ "version_hash": null,
+ "prior_baseline_id": null,
+ "tags": [],
+ "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/345c604d-c844-4335-a6bb-2ff2b6ba17b6/subagents/agent-ae2bedf53a228ba06.jsonl",
+ "model": "accounts/fireworks/models/kimi-k3",
+ "total_tokens_input": 61553,
+ "total_tokens_output": 315,
+ "total_cost_usd": 0.061536,
+ "parent_window": {
+  "token_source": "parent-window",
+  "transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/345c604d-c844-4335-a6bb-2ff2b6ba17b6.jsonl",
+  "window_start": "2026-10-21T18:43:51.247678Z",
+  "window_end": "2026-10-21T18:46:42.279504Z",
+  "model": "glm-5p3",
+  "tokens_input": 175382,
+  "tokens_output": 110,
+  "cost_usd": 0.02675,
+  "turns_matched": 1,
+  "turns_with_usage": 1,
+  "computed_at": "2026-10-21T21:54:10.526272Z"
+ },
+ "fully_loaded_cost_usd": 0.088286,
+ "fully_loaded_tokens_input": 236935,
+ "fully_loaded_tokens_output": 425
+}

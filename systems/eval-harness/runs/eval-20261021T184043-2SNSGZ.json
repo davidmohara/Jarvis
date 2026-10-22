@@ -1,0 +1,77 @@
+{
+ "id": "eval-20261021T184043-2SNSGZ",
+ "agent_id": "a4b2f3f3e5c1b5b7d",
+ "type": "agent",
+ "name": "general-purpose",
+ "workflow": null,
+ "agent": "rigby",
+ "owning_agent": "rigby",
+ "subagent_type": "general-purpose",
+ "session_id": "345c604d-c844-4335-a6bb-2ff2b6ba17b6",
+ "trigger": "unknown",
+ "started": "2026-10-21T18:40:43.130133Z",
+ "completed": "2026-10-21T18:41:34.475281Z",
+ "duration_seconds": 51.35,
+ "status": "success",
+ "steps": [],
+ "assessment": {
+  "mechanical": {
+   "completed": true,
+   "all_steps_finished": true,
+   "tool_failures": 0,
+   "error_ids": []
+  },
+  "structural": {
+   "expected_outputs_written": null,
+   "outputs_non_empty": null,
+   "assertions_checked": 0,
+   "assertions_passed": 0,
+   "assertion_results": []
+  },
+  "grading": {
+   "last_graded": "2026-10-22T01:05:32Z",
+   "grade": "A",
+   "safety_grade": null,
+   "grader_notes": "Hub registry flipped all three entries (agent-governance-guide, ai-consulting-business-model, ai-economics) to live with verified Ghost page IDs, closing paragraph rewritten to record the 2026-10-21 publish and the now-active Gate 2 hub-link check and Step 1c backfill. Sanity grep confirms 3 live, 0 pending. Correctly made no Ghost API calls, taking IDs from the coordinator's verified message. Note: LUV6ZD is a second eval record pointing at this same subagent transcript; duplicate capture."
+  },
+  "controller_feedback": {
+   "rating": null,
+   "comment": null,
+   "timestamp": null
+  },
+  "bias_assessment": {
+   "applicable": false,
+   "protected_attributes": [],
+   "fairness_metric": null,
+   "demographic_coverage_verified": false,
+   "adversarial_inputs_tested": false,
+   "bias_detected": false,
+   "bias_flags": [],
+   "remediation_status": "none"
+  }
+ },
+ "version_hash": null,
+ "prior_baseline_id": null,
+ "tags": [],
+ "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/345c604d-c844-4335-a6bb-2ff2b6ba17b6/subagents/agent-a4b2f3f3e5c1b5b7d.jsonl",
+ "model": "accounts/fireworks/models/kimi-k3",
+ "total_tokens_input": 68807,
+ "total_tokens_output": 789,
+ "total_cost_usd": 0.034691,
+ "parent_window": {
+  "token_source": "parent-window",
+  "transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/345c604d-c844-4335-a6bb-2ff2b6ba17b6.jsonl",
+  "window_start": "2026-10-21T18:40:43.130133Z",
+  "window_end": "2026-10-21T18:41:34.475281Z",
+  "model": "glm-5p3",
+  "tokens_input": 171508,
+  "tokens_output": 460,
+  "cost_usd": 0.026637,
+  "turns_matched": 1,
+  "turns_with_usage": 1,
+  "computed_at": "2026-10-21T21:54:10.515867Z"
+ },
+ "fully_loaded_cost_usd": 0.061328,
+ "fully_loaded_tokens_input": 240315,
+ "fully_loaded_tokens_output": 1249
+}

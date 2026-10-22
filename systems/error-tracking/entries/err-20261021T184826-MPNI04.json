@@ -1,0 +1,11 @@
+{
+  "id": "err-20261021T184826-MPNI04",
+  "timestamp": "2026-10-21T18:48:26Z",
+  "category": "content-quality",
+  "failure_mode": "unverified-output-submitted-for-approval",
+  "severity": "minor",
+  "summary": "Drafted three hub page bodies containing 24 internal links with a malformed host (drivetodevelop.com, missing the n; correct is driventodevelop.com) and 2 em-dashes, despite having just helped build a pipeline gate enforcing exactly these rules. The creating subagent flagged it; initial denial ('that doesn't match what I wrote') was wrong. First fix attempt was a no-op (identical strings on both sides of the replace, unverified). Second attempt fixed all 24 occurrences and verified zero remaining.",
+  "proposed_fix": "Before presenting any deliverable for approval: run a programmatic check (grep) for banned patterns (em-dashes) and verify link hosts against the live domain, rather than trusting self-perception of what was written. After any bulk string replace, verify the change landed by grepping for the old pattern. Source drafts now clean; created Ghost draft pages being updated with corrected bodies.",
+  "source": "self-detected",
+  "status": "open"
+}

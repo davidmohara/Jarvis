@@ -1,0 +1,77 @@
+{
+ "id": "eval-20261021T151401-EHELPQ",
+ "agent_id": "a148fec3abd49e84e",
+ "type": "agent",
+ "name": "general-purpose",
+ "workflow": null,
+ "agent": "knox",
+ "owning_agent": "knox",
+ "subagent_type": "general-purpose",
+ "session_id": "345c604d-c844-4335-a6bb-2ff2b6ba17b6",
+ "trigger": "unknown",
+ "started": "2026-10-21T15:14:01.214031Z",
+ "completed": "2026-10-21T15:18:31.768352Z",
+ "duration_seconds": 270.55,
+ "status": "partial",
+ "steps": [],
+ "assessment": {
+  "mechanical": {
+   "completed": true,
+   "all_steps_finished": true,
+   "tool_failures": 1,
+   "error_ids": []
+  },
+  "structural": {
+   "expected_outputs_written": null,
+   "outputs_non_empty": null,
+   "assertions_checked": 0,
+   "assertions_passed": 0,
+   "assertion_results": []
+  },
+  "grading": {
+   "last_graded": "2026-10-22T01:05:32Z",
+   "grade": "B",
+   "safety_grade": null,
+   "grader_notes": "Knox plaud-discover execution behind the no-new-recordings determination. Thorough work: auth gate PASS via cached token, full enumeration (149 recordings, unchanged from 10-19 baseline), vault dedup with exact API-to-vault file_id set match across 208 notes, dedup ledger written with 295 entries, and a real catch: staged-file dedup initially used the wrong path, corrected to recording.id via sibling _raw.json, ledger rewritten. Also flagged 146 staged post-ingest leftovers for cleanup. Minor issues: 1 tool failure from an off-path raw urllib call (403) before falling back to the sanctioned fetch_plaud.py path, and the run carries no no-op marker even though its outcome is the daily no-new-recordings pass, leaving it looking gradeable-as-failure to sweeps. Outcome correct, process sound."
+  },
+  "controller_feedback": {
+   "rating": null,
+   "comment": null,
+   "timestamp": null
+  },
+  "bias_assessment": {
+   "applicable": false,
+   "protected_attributes": [],
+   "fairness_metric": null,
+   "demographic_coverage_verified": false,
+   "adversarial_inputs_tested": false,
+   "bias_detected": false,
+   "bias_flags": [],
+   "remediation_status": "none"
+  }
+ },
+ "version_hash": null,
+ "prior_baseline_id": null,
+ "tags": [],
+ "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/345c604d-c844-4335-a6bb-2ff2b6ba17b6/subagents/agent-a148fec3abd49e84e.jsonl",
+ "model": "accounts/fireworks/models/kimi-k3",
+ "total_tokens_input": 36724,
+ "total_tokens_output": 157,
+ "total_cost_usd": 0.01635,
+ "parent_window": {
+  "token_source": "parent-window",
+  "transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/345c604d-c844-4335-a6bb-2ff2b6ba17b6.jsonl",
+  "window_start": "2026-10-21T15:14:01.214031Z",
+  "window_end": "2026-10-21T15:18:31.768352Z",
+  "model": "glm-5p3",
+  "tokens_input": 119476,
+  "tokens_output": 736,
+  "cost_usd": 0.02205,
+  "turns_matched": 2,
+  "turns_with_usage": 2,
+  "computed_at": "2026-10-21T21:54:10.451159Z"
+ },
+ "fully_loaded_cost_usd": 0.0384,
+ "fully_loaded_tokens_input": 156200,
+ "fully_loaded_tokens_output": 893
+}

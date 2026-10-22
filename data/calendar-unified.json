@@ -1,746 +1,562 @@
 {
-  "pulled_at": "2026-10-19T20:46:00Z",
-  "source": "superhuman-mail query_email_and_calendar (M365 MCP unavailable - auth stubs only this session); times already in America/Chicago CDT",
+  "pulled_at": "2026-10-21T15:20:00Z",
+  "source": "m365-outlook_calendar_search",
   "date_range": {
-    "start": "2026-10-19",
-    "end": "2026-10-22"
+    "start": "2026-10-21",
+    "end": "2026-10-24"
   },
-  "event_count": 47,
+  "event_count": 37,
+  "note": "Times are wall-clock Central (CDT). Default Outlook calendar only; personal Google-calendar all-day items (e.g. peptide cycle reminders) not included in this pull.",
   "events": [
     {
-      "subject": "Hot 26",
-      "start": "2026-10-19T06:00:00-05:00",
-      "end": "2026-10-19T07:00:00-05:00",
-      "location": "7151 Preston Road Suite 221 B, Frisco, Texas 75034, USA",
-      "attendees": [],
-      "is_all_day": false,
-      "status": "confirmed",
-      "account": "improving"
-    },
-    {
-      "subject": "Improving Prayer Call",
-      "start": "2026-10-19T08:00:00-05:00",
-      "end": "2026-10-19T08:15:00-05:00",
-      "location": "Microsoft Teams Meeting",
-      "attendees": [
-        "Richard Kang",
-        "Curtis Hite",
-        "Ric DeAnda",
-        "David O'Hara",
-        "Devlin Liles"
-      ],
-      "is_all_day": false,
-      "status": "confirmed",
-      "account": "improving"
-    },
-    {
-      "subject": "Timesheet",
-      "start": "2026-10-19T08:30:00-05:00",
-      "end": "2026-10-19T08:35:00-05:00",
-      "location": null,
-      "attendees": [],
-      "is_all_day": false,
-      "status": "confirmed",
-      "account": "improving"
-    },
-    {
-      "subject": "Houston Bootcamp (main)",
-      "start": "2026-10-19T08:30:00-05:00",
-      "end": "2026-10-19T17:30:00-05:00",
-      "location": "Microsoft Teams Meeting",
-      "attendees": [
-        "Stephen Lashinski",
-        "Jonathan Camara",
-        "Charles Kiser",
-        "Hemakumar Gokulakannan",
-        "Matt Nihiser",
-        "Matt Spicer",
-        "Erik Shafer",
-        "Nathaniel Short",
-        "David Schwartz",
-        "Preston Mesarvey",
-        "Robyn Fuentes",
-        "Devlin Liles"
-      ],
-      "is_all_day": false,
-      "status": "confirmed",
-      "account": "improving"
-    },
-    {
+      "id": "A1",
       "subject": "Drive To",
-      "start": "2026-10-19T08:40:00-05:00",
-      "end": "2026-10-19T09:00:00-05:00",
+      "organizer": "David.OHara@improving.com",
+      "start": "2026-10-21T08:00:00",
+      "end": "2026-10-21T08:30:00",
+      "tz": "Central Standard Time",
       "location": null,
-      "attendees": [],
-      "is_all_day": false,
-      "status": "confirmed",
-      "account": "improving"
-    },
-    {
-      "subject": "Haircut",
-      "start": "2026-10-19T09:15:00-05:00",
-      "end": "2026-10-19T10:15:00-05:00",
-      "location": "boardroom salon for men lakeside market plano",
-      "attendees": [],
-      "is_all_day": false,
-      "status": "confirmed",
-      "account": "improving"
-    },
-    {
-      "subject": "Bootcamp",
-      "start": "2026-10-19T10:00:00-05:00",
-      "end": "2026-10-19T16:50:00-05:00",
-      "location": "Dallas - Conference Room Lockhart",
-      "attendees": [],
-      "is_all_day": false,
-      "status": "confirmed",
-      "account": "improving"
-    },
-    {
-      "subject": "Drive From",
-      "start": "2026-10-19T10:30:00-05:00",
-      "end": "2026-10-19T10:50:00-05:00",
-      "location": null,
-      "attendees": [],
-      "is_all_day": false,
-      "status": "confirmed",
-      "account": "improving"
-    },
-    {
-      "subject": "Lunch with Imran",
-      "start": "2026-10-19T11:45:00-05:00",
-      "end": "2026-10-19T12:45:00-05:00",
-      "location": "Mexican Sugar - Plano",
-      "attendees": [],
-      "is_all_day": false,
-      "status": "confirmed",
-      "account": "improving"
-    },
-    {
-      "subject": "GEHC Twice Weekly Internal Check-In",
-      "start": "2026-10-19T14:00:00-05:00",
-      "end": "2026-10-19T14:30:00-05:00",
-      "location": "Microsoft Teams Meeting",
-      "attendees": [
-        "Lisa Barnes",
-        "Vladimir Avila",
-        "Tim Rayburn",
-        "David O'Hara",
-        "Lisa Kimbrel"
+      "isAllDay": false,
+      "showAs": "busy",
+      "categories": [
+        "Travel"
       ],
-      "is_all_day": false,
-      "status": "confirmed",
-      "account": "improving"
+      "attendees": []
     },
     {
-      "subject": "Tre Wilcox: Chef Smackdown",
-      "start": "2026-10-19T17:00:00-05:00",
-      "end": "2026-10-19T20:30:00-05:00",
-      "location": null,
-      "attendees": [],
-      "is_all_day": false,
-      "status": "confirmed",
-      "account": "improving"
-    },
-    {
-      "subject": "Houston Bootcamp (main)",
-      "start": "2026-10-20T08:30:00-05:00",
-      "end": "2026-10-20T17:30:00-05:00",
-      "location": "Microsoft Teams Meeting",
-      "attendees": [
-        "Stephen Lashinski",
-        "Jonathan Camara",
-        "Charles Kiser",
-        "Hemakumar Gokulakannan",
-        "Matt Nihiser",
-        "Matt Spicer",
-        "Erik Shafer",
-        "Nathaniel Short",
-        "David Schwartz",
-        "Preston Mesarvey",
-        "Robyn Fuentes",
-        "Devlin Liles"
-      ],
-      "is_all_day": false,
-      "status": "confirmed",
-      "account": "improving"
-    },
-    {
-      "subject": "Hosting Leadership Dallas at Improving",
-      "start": "2026-10-20T08:30:00-05:00",
-      "end": "2026-10-20T09:00:00-05:00",
-      "location": null,
-      "attendees": [
-        "Bethany Hilton",
-        "Don McGreal",
-        "David O'Hara",
-        "Diana Stevens",
-        "Derek Nwamadi",
-        "Alexander Powell",
-        "Lyn Barrett",
-        "Kevin Baker",
-        "Susan Fojtasek"
-      ],
-      "is_all_day": false,
-      "status": "confirmed",
-      "account": "improving"
-    },
-    {
-      "subject": "Sales & Recruiting Meeting",
-      "start": "2026-10-20T09:15:00-05:00",
-      "end": "2026-10-20T09:30:00-05:00",
-      "location": "Microsoft Teams Meeting; Dallas - Longhorn Cavern",
-      "attendees": [
-        "Dallas Sales",
-        "Bryan Crawford",
-        "Don McGreal",
-        "Kevin Baker",
-        "Gabriela Garza-Ramos",
-        "Diana Stevens",
-        "Mark Miesner",
-        "Tim Rayburn",
-        "Jenn Massey",
-        "Derek Nwamadi",
-        "Roderic Patane",
-        "Steve Pfiffner",
-        "David Belcher",
-        "David O'Hara",
-        "Blake McMillan",
-        "Brielle Dave-Turner"
-      ],
-      "is_all_day": false,
-      "status": "confirmed",
-      "account": "improving"
-    },
-    {
-      "subject": "Sales Scrum",
-      "start": "2026-10-20T10:00:00-05:00",
-      "end": "2026-10-20T10:30:00-05:00",
-      "location": "Microsoft Teams Meeting; Houston - Conference Room Trust",
-      "attendees": [
-        "Stephen Johnson",
-        "Devlin Liles",
-        "Oscar Velazquez Loyola",
-        "Shalini Arora",
-        "Jenn Massey",
-        "Jake Stevenson",
-        "Victoria Ochoa Landeros",
-        "Scott Mai",
-        "David O'Hara",
-        "Robyn Fuentes",
-        "Juan Bernal Villalobos"
-      ],
-      "is_all_day": false,
-      "status": "confirmed",
-      "account": "improving"
-    },
-    {
-      "subject": "DLP self-learning check-in",
-      "start": "2026-10-20T10:00:00-05:00",
-      "end": "2026-10-20T10:30:00-05:00",
-      "location": "Microsoft Teams Meeting",
-      "attendees": [
-        "Stephen Lashinski",
-        "Matt Nihiser",
-        "Matthew Cramer",
-        "Preston Mesarvey",
-        "Robyn Fuentes",
-        "Tim Rayburn",
-        "David O'Hara"
-      ],
-      "is_all_day": false,
-      "status": "confirmed",
-      "account": "improving"
-    },
-    {
-      "subject": "Bootcamp",
-      "start": "2026-10-20T10:00:00-05:00",
-      "end": "2026-10-20T16:50:00-05:00",
-      "location": "Dallas - Conference Room Lockhart",
-      "attendees": [],
-      "is_all_day": false,
-      "status": "confirmed",
-      "account": "improving"
-    },
-    {
-      "subject": "SAP Group Meeting",
-      "start": "2026-10-20T11:00:00-05:00",
-      "end": "2026-10-20T11:30:00-05:00",
-      "location": "Dallas - Conference Room Trust",
-      "attendees": [
-        "Derek Nwamadi",
-        "Kevin Baker",
-        "Don McGreal",
-        "Gabriela Garza-Ramos",
-        "David O'Hara",
-        "Alexander Powell",
-        "Sean Antonello",
-        "Jordan Vukanovich",
-        "David Schwartz"
-      ],
-      "is_all_day": false,
-      "status": "confirmed",
-      "account": "improving"
-    },
-    {
-      "subject": "GEHC Improving - AI Routing technical deeper dive (weekly)",
-      "start": "2026-10-20T11:00:00-05:00",
-      "end": "2026-10-20T12:00:00-05:00",
-      "location": "Microsoft Teams Meeting",
-      "attendees": [
-        "Justin Holder",
-        "Michael Braunstein",
-        "Sandeep Kaushik",
-        "Vladimir Avila (Consultant)",
-        "Vladimir Avila",
-        "David O'Hara",
-        "Anthony Pezet",
-        "Lisa Barnes"
-      ],
-      "is_all_day": false,
-      "status": "confirmed",
-      "account": "improving"
-    },
-    {
-      "subject": "Drive To",
-      "start": "2026-10-21T08:00:00-05:00",
-      "end": "2026-10-21T08:30:00-05:00",
-      "location": null,
-      "attendees": [],
-      "is_all_day": false,
-      "status": "confirmed",
-      "account": "improving"
-    },
-    {
-      "subject": "Houston Bootcamp (main)",
-      "start": "2026-10-21T08:30:00-05:00",
-      "end": "2026-10-21T17:30:00-05:00",
-      "location": "Microsoft Teams Meeting",
-      "attendees": [
-        "Stephen Lashinski",
-        "Jonathan Camara",
-        "Charles Kiser",
-        "Hemakumar Gokulakannan",
-        "Matt Nihiser",
-        "Matt Spicer",
-        "Erik Shafer",
-        "Nathaniel Short",
-        "David Schwartz",
-        "Preston Mesarvey",
-        "Devlin Liles",
-        "Robyn Fuentes"
-      ],
-      "is_all_day": false,
-      "status": "confirmed",
-      "account": "improving"
-    },
-    {
+      "id": "A2",
       "subject": "Dallas Executive Huddle",
-      "start": "2026-10-21T08:30:00-05:00",
-      "end": "2026-10-21T09:00:00-05:00",
+      "organizer": "Dallas-Leadership@improving.com",
+      "start": "2026-10-21T08:30:00",
+      "end": "2026-10-21T09:00:00",
+      "tz": "Central Standard Time",
       "location": "Dallas - Conference Room Trust",
+      "isAllDay": false,
+      "showAs": "tentative",
       "attendees": [
-        "Dallas Executive Team",
-        "Kevin Baker",
-        "Diana Stevens",
-        "Ralph Nicosia",
-        "Tonya Guadiz",
-        "Michael Perry",
-        "Tim Rayburn",
-        "Gabriela Garza-Ramos",
-        "David Belcher",
-        "Lyn Barrett",
-        "Tony Brown",
-        "David Vibbert",
-        "Don McGreal",
-        "Randall Dunigan",
-        "Blake McMillan",
-        "Eric Sowell",
-        "Peter Karaganis",
-        "Josh Fryer",
-        "David Schwartz"
-      ],
-      "is_all_day": false,
-      "status": "confirmed",
-      "account": "improving"
+        "Dallas leadership group + Don McGreal, Tim Rayburn, David Belcher, et al (20)"
+      ]
     },
     {
-      "subject": "Eye Appointment with Dr Tom McClinton",
-      "start": "2026-10-21T08:40:00-05:00",
-      "end": "2026-10-21T09:40:00-05:00",
-      "location": "Clarkson Eyecare, 7638 Stonebrook Pkwy, Frisco, TX 75034",
-      "attendees": [],
-      "is_all_day": false,
-      "status": "confirmed",
-      "account": "improving"
-    },
-    {
-      "subject": "AI Leaders Weekly",
-      "start": "2026-10-21T09:30:00-05:00",
-      "end": "2026-10-21T10:00:00-05:00",
-      "location": "Microsoft Teams Meeting",
-      "attendees": [
-        "Devlin Liles",
-        "Scott Poulin",
-        "Michael Slater",
-        "Bill Curry",
-        "Michael Ell",
-        "Tim Rayburn",
-        "Keylor Arroyo Villegas",
-        "Federico German",
-        "Luis Guzm\u00e1n",
-        "Hernan Berroja Albiz",
-        "Kyle Porter",
-        "Nicolas Celico",
-        "Luis Gerardo Hernandez",
-        "David O'Hara",
-        "Vishal Biyani"
-      ],
-      "is_all_day": false,
-      "status": "confirmed",
-      "account": "improving"
-    },
-    {
-      "subject": "Drive From",
-      "start": "2026-10-21T10:00:00-05:00",
-      "end": "2026-10-21T10:30:00-05:00",
-      "location": null,
-      "attendees": [],
-      "is_all_day": false,
-      "status": "confirmed",
-      "account": "improving"
-    },
-    {
-      "subject": "GEHC Improving - AI Routing weekly sync",
-      "start": "2026-10-21T10:30:00-05:00",
-      "end": "2026-10-21T11:00:00-05:00",
-      "location": "Microsoft Teams Meeting",
-      "attendees": [
-        "Justin Holder",
-        "David O'Hara",
-        "Lisa Barnes",
-        "Vladimir Avila (Consultant)",
-        "Tim Rayburn (Consultant)",
-        "Sandeep Kaushik",
-        "Michael Braunstein",
-        "Anthony Pezet",
-        "Lisa Kimbrel",
-        "Vladimir Avila",
-        "Tim Rayburn"
-      ],
-      "is_all_day": false,
-      "status": "confirmed",
-      "account": "improving"
-    },
-    {
-      "subject": "GEHC Improving - AI Routing weekly sync (2)",
-      "start": "2026-10-21T10:30:00-05:00",
-      "end": "2026-10-21T11:00:00-05:00",
-      "location": "Microsoft Teams Meeting",
-      "attendees": [
-        "Justin Holder",
-        "Lisa Barnes",
-        "Vladimir Avila (Consultant)",
-        "Sandeep Kaushik",
-        "Michael Braunstein",
-        "Anthony Pezet",
-        "Lisa Kimbrel",
-        "Vladimir Avila",
-        "David O'Hara"
-      ],
-      "is_all_day": false,
-      "status": "confirmed",
-      "account": "improving"
-    },
-    {
-      "subject": "yWhales: yDeep Dive",
-      "start": "2026-10-21T10:30:00-05:00",
-      "end": "2026-10-21T12:00:00-05:00",
-      "location": "https://us02web.zoom.us/j/84113387787",
-      "attendees": [
-        "mia.ywhales@gmail.com",
-        "David O'Hara"
-      ],
-      "is_all_day": false,
-      "status": "confirmed",
-      "account": "improving"
-    },
-    {
-      "subject": "Lunch Break",
-      "start": "2026-10-21T12:00:00-05:00",
-      "end": "2026-10-21T13:00:00-05:00",
-      "location": null,
-      "attendees": [],
-      "is_all_day": false,
-      "status": "confirmed",
-      "account": "improving"
-    },
-    {
-      "subject": "VIRTUAL (due to OCC Exam) UTB Board of Directors Meeting",
-      "start": "2026-10-21T13:30:00-05:00",
-      "end": "2026-10-21T16:30:00-05:00",
-      "location": "UTB Boardroom; / Zoom",
-      "attendees": [
-        "Scott Beck",
-        "Linda King",
-        "Jeff Gorsuch",
-        "David O'Hara",
-        "James Huggins Jr.",
-        "Teresa Saffold",
-        "Jacob Spigelman",
-        "Karen Blaha",
-        "Marco Prado",
-        "Nick Hahn",
-        "Martin Jaundoo",
-        "Michael Patterson",
-        "Beth Wheeler",
-        "Harry Goulding",
-        "Sarah Kaiser-Cross",
-        "John Levinski",
-        "Kyle Steed",
-        "Alex Holmes",
-        "Jamie Green",
-        "Jarrod Beck",
-        "Kenny Presley Jr.",
-        "Reuben Robin",
-        "Avishek Banerjee",
-        "Kevin Whittemore",
-        "Jordan Licht",
-        "Kim Samuel",
-        "Alice Mburu"
-      ],
-      "is_all_day": false,
-      "status": "confirmed",
-      "account": "improving"
-    },
-    {
-      "subject": "Drive To",
-      "start": "2026-10-21T16:30:00-05:00",
-      "end": "2026-10-21T17:00:00-05:00",
-      "location": null,
-      "attendees": [],
-      "is_all_day": false,
-      "status": "confirmed",
-      "account": "improving"
-    },
-    {
-      "subject": "Shield's 35th Anniversary Dinner",
-      "start": "2026-10-21T17:00:00-05:00",
-      "end": "2026-10-21T20:30:00-05:00",
-      "location": "La Stella Steakhouse & Lounge, 14655 Dallas Pkwy, Dallas, TX 75254",
-      "attendees": [],
-      "is_all_day": false,
-      "status": "confirmed",
-      "account": "improving"
-    },
-    {
-      "subject": "DFW Prayer Breakfast",
-      "start": "2026-10-22T06:30:00-05:00",
-      "end": "2026-10-22T09:30:00-05:00",
-      "location": null,
-      "attendees": [],
-      "is_all_day": false,
-      "status": "confirmed",
-      "account": "improving"
-    },
-    {
+      "id": "A3",
       "subject": "Houston Bootcamp (main)",
-      "start": "2026-10-22T08:30:00-05:00",
-      "end": "2026-10-22T17:30:00-05:00",
+      "organizer": "David.OHara@improving.com",
+      "start": "2026-10-21T08:30:00",
+      "end": "2026-10-21T17:30:00",
+      "tz": "Central Standard Time",
       "location": "Microsoft Teams Meeting",
+      "isAllDay": false,
+      "showAs": "busy",
       "attendees": [
-        "Stephen Lashinski",
-        "Jonathan Camara",
-        "Charles Kiser",
-        "Hemakumar Gokulakannan",
-        "Matt Nihiser",
-        "Matt Spicer",
-        "Erik Shafer",
-        "Nathaniel Short",
-        "David Schwartz",
-        "Preston Mesarvey",
-        "Devlin Liles",
-        "Robyn Fuentes"
-      ],
-      "is_all_day": false,
-      "status": "confirmed",
-      "account": "improving"
+        "stephen.lashinski",
+        "Jonathan.Camara",
+        "charles.kiser",
+        "hemakumar.gokulakannan",
+        "matt.spicer",
+        "erik.shafer",
+        "nate.short",
+        "David.Schwartz",
+        "preston.mesarvey",
+        "Devlin.Liles",
+        "Robyn.Fuentes",
+        "matt.nihiser"
+      ]
     },
     {
-      "subject": "Sales & Recruiting Meeting",
-      "start": "2026-10-22T09:15:00-05:00",
-      "end": "2026-10-22T09:30:00-05:00",
-      "location": "Microsoft Teams Meeting; Dallas - Longhorn Cavern",
-      "attendees": [
-        "Dallas Sales",
-        "Bryan Crawford",
-        "Don McGreal",
-        "Kevin Baker",
-        "Gabriela Garza-Ramos",
-        "Diana Stevens",
-        "Mark Miesner",
-        "Tim Rayburn",
-        "Jenn Massey",
-        "Derek Nwamadi",
-        "Roderic Patane",
-        "Steve Pfiffner",
-        "David Belcher",
-        "David O'Hara",
-        "Blake McMillan",
-        "Brielle Dave-Turner"
+      "id": "A4",
+      "subject": "Eye Appointment with Dr Tom McClinton",
+      "organizer": "David.OHara@improving.com",
+      "start": "2026-10-21T08:40:00",
+      "end": "2026-10-21T09:40:00",
+      "tz": "Central Standard Time",
+      "location": "Clarkson Eyecare, 7638 Stonebrook Pkwy, Frisco, TX 75034",
+      "isAllDay": false,
+      "showAs": "busy",
+      "categories": [
+        "Personal"
       ],
-      "is_all_day": false,
-      "status": "confirmed",
-      "account": "improving"
+      "attendees": []
     },
     {
-      "subject": "DLP self-learning check-in",
-      "start": "2026-10-22T10:00:00-05:00",
-      "end": "2026-10-22T10:30:00-05:00",
+      "id": "A5",
+      "subject": "AI Leaders Weekly",
+      "organizer": "Devlin.Liles@Improving.com",
+      "start": "2026-10-21T09:30:00",
+      "end": "2026-10-21T10:00:00",
+      "tz": "Central Standard Time",
       "location": "Microsoft Teams Meeting",
+      "isAllDay": false,
+      "showAs": "tentative",
       "attendees": [
-        "Stephen Lashinski",
-        "Matt Nihiser",
-        "Matthew Cramer",
-        "Preston Mesarvey",
-        "Robyn Fuentes",
-        "Tim Rayburn",
-        "David O'Hara"
-      ],
-      "is_all_day": false,
-      "status": "confirmed",
-      "account": "improving"
+        "Devlin.Liles",
+        "scott.poulin",
+        "michael.slater",
+        "Bill.Curry",
+        "michael.ell",
+        "Tim.Rayburn",
+        "Keylor.Arroyo",
+        "et al (15)"
+      ]
     },
     {
-      "subject": "Sales Scrum",
-      "start": "2026-10-22T10:00:00-05:00",
-      "end": "2026-10-22T10:30:00-05:00",
-      "location": "Microsoft Teams Meeting; Houston - Conference Room Trust",
-      "attendees": [
-        "Stephen Johnson",
-        "Devlin Liles",
-        "Oscar Velazquez Loyola",
-        "Shalini Arora",
-        "Jenn Massey",
-        "Jake Stevenson",
-        "Victoria Ochoa Landeros",
-        "Scott Mai",
-        "David O'Hara",
-        "Robyn Fuentes",
-        "Juan Bernal Villalobos"
-      ],
-      "is_all_day": false,
-      "status": "confirmed",
-      "account": "improving"
-    },
-    {
-      "subject": "Drive To",
-      "start": "2026-10-22T10:30:00-05:00",
-      "end": "2026-10-22T11:00:00-05:00",
-      "location": null,
-      "attendees": [],
-      "is_all_day": false,
-      "status": "confirmed",
-      "account": "improving"
-    },
-    {
-      "subject": "Appointment with Dr. Jeremy Denning, MD @ Dallas Neurosurgical & Spine",
-      "start": "2026-10-22T11:00:00-05:00",
-      "end": "2026-10-22T12:00:00-05:00",
-      "location": "6101 W Plano Pkwy, Suite 100, Plano, TX 75093-8201",
-      "attendees": [],
-      "is_all_day": false,
-      "status": "confirmed",
-      "account": "improving"
-    },
-    {
-      "subject": "Drive Block",
-      "start": "2026-10-22T12:20:00-05:00",
-      "end": "2026-10-22T12:50:00-05:00",
-      "location": null,
-      "attendees": [],
-      "is_all_day": false,
-      "status": "confirmed",
-      "account": "improving"
-    },
-    {
-      "subject": "one-on-one Scott McMichael",
-      "start": "2026-10-22T14:00:00-05:00",
-      "end": "2026-10-22T14:30:00-05:00",
-      "location": "Microsoft Teams Meeting",
-      "attendees": [
-        "Scott McMichael"
-      ],
-      "is_all_day": false,
-      "status": "confirmed",
-      "account": "improving"
-    },
-    {
+      "id": "A6",
       "subject": "Drive From",
-      "start": "2026-10-22T14:30:00-05:00",
-      "end": "2026-10-22T15:00:00-05:00",
+      "organizer": "David.OHara@improving.com",
+      "start": "2026-10-21T10:00:00",
+      "end": "2026-10-21T10:30:00",
+      "tz": "Central Standard Time",
       "location": null,
-      "attendees": [],
-      "is_all_day": false,
-      "status": "confirmed",
-      "account": "improving"
-    },
-    {
-      "subject": "Discuss how to see the real business value of (AI Routing)",
-      "start": "2026-10-22T15:00:00-05:00",
-      "end": "2026-10-22T15:40:00-05:00",
-      "location": "Microsoft Teams Meeting",
-      "attendees": [
-        "Justin Holder",
-        "Sujatha Ramkumar",
-        "Sandeep Kaushik",
-        "Lisa Barnes",
-        "David O'Hara",
-        "Lisa Kimbrel"
+      "isAllDay": false,
+      "showAs": "busy",
+      "categories": [
+        "Travel"
       ],
-      "is_all_day": false,
-      "status": "confirmed",
-      "account": "improving"
+      "attendees": []
     },
     {
+      "id": "A7",
+      "subject": "GEHC Improving - AI Routing weekly sync",
+      "organizer": "justin.holder@gehealthcare.com",
+      "start": "2026-10-21T10:30:00",
+      "end": "2026-10-21T11:00:00",
+      "tz": "Central Standard Time",
+      "location": "Microsoft Teams Meeting",
+      "isAllDay": false,
+      "showAs": "tentative",
+      "attendees": [
+        "justin.holder@gehealthcare.com",
+        "lisa.barnes",
+        "Vladimir.Avila",
+        "Tim.Rayburn",
+        "Sandeep.Kaushik",
+        "Michael.Braunstein",
+        "Anthony.PEZET",
+        "lisa.kimbrel"
+      ]
+    },
+    {
+      "id": "A8",
+      "subject": "GEHC Improving - AI Routing weekly sync (2)",
+      "organizer": "justin.holder@gehealthcare.com",
+      "start": "2026-10-21T10:30:00",
+      "end": "2026-10-21T11:00:00",
+      "tz": "Central Standard Time",
+      "location": "Microsoft Teams Meeting",
+      "isAllDay": false,
+      "showAs": "tentative",
+      "categories": [
+        "Tracked To Dynamics 365"
+      ],
+      "attendees": [
+        "duplicate invite - Holder recreated series due to corrupted Copilot/Facilitator"
+      ]
+    },
+    {
+      "id": "A9",
+      "subject": "Lunch Break",
+      "organizer": "David.OHara@improving.com",
+      "start": "2026-10-21T11:30:00",
+      "end": "2026-10-21T12:30:00",
+      "tz": "Central Standard Time",
+      "location": null,
+      "isAllDay": false,
+      "showAs": "busy",
+      "attendees": []
+    },
+    {
+      "id": "A10",
+      "subject": "VIRTUAL (due to OCC Exam) UTB Board of Directors Meeting",
+      "organizer": "boardroomschedule@utb.com",
+      "start": "2026-10-21T13:30:00",
+      "end": "2026-10-21T16:30:00",
+      "tz": "Central Standard Time",
+      "location": "UTB Boardroom / Zoom",
+      "isAllDay": false,
+      "showAs": "busy",
+      "attendees": [
+        "UTB board + sbeck@beckventures.com, alice.mburu@improving.com, et al (~35)"
+      ]
+    },
+    {
+      "id": "A11",
+      "subject": "Drive To",
+      "organizer": "David.OHara@improving.com",
+      "start": "2026-10-21T16:30:00",
+      "end": "2026-10-21T17:00:00",
+      "tz": "Central Standard Time",
+      "location": null,
+      "isAllDay": false,
+      "showAs": "busy",
+      "categories": [
+        "Travel"
+      ],
+      "attendees": []
+    },
+    {
+      "id": "A12",
+      "subject": "Shield's 35th Anniversary Dinner",
+      "organizer": "David.OHara@improving.com",
+      "start": "2026-10-21T17:00:00",
+      "end": "2026-10-21T20:30:00",
+      "tz": "Central Standard Time",
+      "location": "La Stella Steakhouse & Lounge, 14655 Dallas Pkwy, Dallas, TX 75254",
+      "isAllDay": false,
+      "showAs": "busy",
+      "attendees": []
+    },
+    {
+      "id": "A13",
+      "subject": "DFW Prayer Breakfast",
+      "organizer": "David.O'Hara@improving.com",
+      "start": "2026-10-22T06:30:00",
+      "end": "2026-10-22T09:30:00",
+      "tz": "Central Standard Time",
+      "location": null,
+      "isAllDay": false,
+      "showAs": "busy",
+      "categories": [
+        "Tracked To Dynamics 365"
+      ],
+      "attendees": []
+    },
+    {
+      "id": "A14",
+      "subject": "Houston Bootcamp (main)",
+      "organizer": "David.OHara@improving.com",
+      "start": "2026-10-22T08:30:00",
+      "end": "2026-10-22T17:30:00",
+      "tz": "Central Standard Time",
+      "location": "Microsoft Teams Meeting",
+      "isAllDay": false,
+      "showAs": "busy",
+      "attendees": [
+        "same bootcamp cohort (12)"
+      ]
+    },
+    {
+      "id": "A15",
+      "subject": "Sales & Recruiting Meeting",
+      "organizer": "DallasSales@improving.com",
+      "start": "2026-10-22T09:15:00",
+      "end": "2026-10-22T09:30:00",
+      "tz": "Central Standard Time",
+      "location": "Microsoft Teams Meeting; Dallas - Longhorn Cavern",
+      "isAllDay": false,
+      "showAs": "tentative",
+      "attendees": [
+        "Dallas sales team (17)"
+      ]
+    },
+    {
+      "id": "A16",
+      "subject": "DLP self-learning check-in",
+      "organizer": "stephen.lashinski@improving.com",
+      "start": "2026-10-22T10:00:00",
+      "end": "2026-10-22T10:30:00",
+      "tz": "Central Standard Time",
+      "location": "Microsoft Teams Meeting",
+      "isAllDay": false,
+      "showAs": "tentative",
+      "attendees": [
+        "stephen.lashinski",
+        "matt.nihiser",
+        "matthew.cramer",
+        "preston.mesarvey",
+        "Robyn.Fuentes",
+        "Tim.Rayburn"
+      ]
+    },
+    {
+      "id": "A17",
+      "subject": "Sales Scrum",
+      "organizer": "stephen.johnson@improving.com",
+      "start": "2026-10-22T10:00:00",
+      "end": "2026-10-22T10:30:00",
+      "tz": "Central Standard Time",
+      "location": "Microsoft Teams Meeting; Houston - Conference Room Trust",
+      "isAllDay": false,
+      "showAs": "tentative",
+      "attendees": [
+        "Houston sales scrum group (13)"
+      ]
+    },
+    {
+      "id": "A18",
+      "subject": "Drive To",
+      "organizer": "David.OHara@improving.com",
+      "start": "2026-10-22T10:30:00",
+      "end": "2026-10-22T11:00:00",
+      "tz": "Central Standard Time",
+      "location": null,
+      "isAllDay": false,
+      "showAs": "busy",
+      "categories": [
+        "Travel"
+      ],
+      "attendees": []
+    },
+    {
+      "id": "A19",
+      "subject": "Appointment with Dr. Jeremy Denning, MD @ Dallas Neurosurgical & Spine",
+      "organizer": "David.OHara@improving.com",
+      "start": "2026-10-22T11:00:00",
+      "end": "2026-10-22T12:00:00",
+      "tz": "Central Standard Time",
+      "location": "6101 W Plano Pkwy, Suite 100, Plano, TX 75093-8201",
+      "isAllDay": false,
+      "showAs": "busy",
+      "categories": [
+        "Personal"
+      ],
+      "attendees": []
+    },
+    {
+      "id": "A20",
+      "subject": "Drive Block",
+      "organizer": "David.OHara@improving.com",
+      "start": "2026-10-22T12:20:00",
+      "end": "2026-10-22T12:50:00",
+      "tz": "Central Standard Time",
+      "location": null,
+      "isAllDay": false,
+      "showAs": "busy",
+      "categories": [
+        "Travel"
+      ],
+      "attendees": []
+    },
+    {
+      "id": "A21",
+      "subject": "one-on-one Scott McMichael",
+      "organizer": "David.O'Hara@improving.com",
+      "start": "2026-10-22T14:00:00",
+      "end": "2026-10-22T14:30:00",
+      "tz": "Central Standard Time",
+      "location": "Microsoft Teams Meeting",
+      "isAllDay": false,
+      "showAs": "busy",
+      "attendees": [
+        "scott.mcmichael@improving.com"
+      ]
+    },
+    {
+      "id": "A22",
+      "subject": "Discuss how to see the real business value of (AI Routing)",
+      "organizer": "justin.holder@gehealthcare.com",
+      "start": "2026-10-22T15:00:00",
+      "end": "2026-10-22T15:40:00",
+      "tz": "Central Standard Time",
+      "location": "Microsoft Teams Meeting",
+      "isAllDay": false,
+      "showAs": "busy",
+      "categories": [
+        "Tracked To Dynamics 365"
+      ],
+      "attendees": [
+        "justin.holder",
+        "Sujatha.Ramkumar",
+        "Sandeep.Kaushik",
+        "lisa.barnes",
+        "lisa.kimbrel"
+      ]
+    },
+    {
+      "id": "A23",
       "subject": "Meet Makena",
-      "start": "2026-10-22T18:30:00-05:00",
-      "end": "2026-10-22T20:30:00-05:00",
-      "location": "Selda Mediterranean Kitchen- Frisco",
-      "attendees": [],
-      "is_all_day": false,
-      "status": "confirmed",
-      "account": "improving"
+      "organizer": "David.OHara@improving.com",
+      "start": "2026-10-22T18:30:00",
+      "end": "2026-10-22T20:30:00",
+      "tz": "Central Standard Time",
+      "location": "Selda Mediterranean Kitchen - Frisco",
+      "isAllDay": false,
+      "showAs": "busy",
+      "attendees": []
     },
     {
-      "subject": "Ipamorelin 10IU/PM (AM training days)",
-      "start": "2026-10-19T00:00:00-05:00",
-      "end": "2026-10-24T23:59:59-05:00",
+      "id": "A24",
+      "subject": "Eric - PTO",
+      "organizer": "eric.sowell@improving.com",
+      "start": "2026-10-23T00:00:00",
+      "end": "2026-10-24T00:00:00",
+      "tz": "Central Standard Time",
       "location": null,
-      "attendees": [],
-      "is_all_day": true,
-      "status": "confirmed",
-      "account": "personal"
+      "isAllDay": true,
+      "showAs": "free",
+      "attendees": [
+        "FYI to TexasLeaders"
+      ]
     },
     {
-      "subject": "Tesamorelin 50IU/PM",
-      "start": "2026-10-19T00:00:00-05:00",
-      "end": "2026-10-24T23:59:59-05:00",
-      "location": null,
-      "attendees": [],
-      "is_all_day": true,
-      "status": "confirmed",
-      "account": "personal"
+      "id": "A25",
+      "subject": "IGP Bible Study",
+      "organizer": "David.OHara@improving.com",
+      "start": "2026-10-23T06:30:00",
+      "end": "2026-10-23T07:30:00",
+      "tz": "Central Standard Time",
+      "location": "Integrity Golf Performance, 6363 Dallas Pkwy, Unit 115, Frisco, TX 75034",
+      "isAllDay": false,
+      "showAs": "busy",
+      "attendees": []
     },
     {
-      "subject": "Epithalon",
-      "start": "2026-10-22T00:00:00-05:00",
-      "end": "2026-10-23T23:59:59-05:00",
+      "id": "A26",
+      "subject": "Dallas Virtual Coffee Chat",
+      "organizer": "Anthony.Marrical@Improving.com",
+      "start": "2026-10-23T08:00:00",
+      "end": "2026-10-23T09:00:00",
+      "tz": "Central Standard Time",
+      "location": "Microsoft Teams Meeting",
+      "isAllDay": false,
+      "showAs": "tentative",
+      "attendees": [
+        "Enterprise-Dallas (large group)"
+      ]
+    },
+    {
+      "id": "A27",
+      "subject": "Houston Bootcamp (main)",
+      "organizer": "David.OHara@improving.com",
+      "start": "2026-10-23T08:30:00",
+      "end": "2026-10-23T17:30:00",
+      "tz": "Central Standard Time",
+      "location": "Microsoft Teams Meeting",
+      "isAllDay": false,
+      "showAs": "busy",
+      "attendees": [
+        "same bootcamp cohort (12)"
+      ]
+    },
+    {
+      "id": "A28",
+      "subject": "Sales & Recruiting Meeting",
+      "organizer": "DallasSales@improving.com",
+      "start": "2026-10-23T09:15:00",
+      "end": "2026-10-23T09:30:00",
+      "tz": "Central Standard Time",
+      "location": "Microsoft Teams Meeting; Dallas - Longhorn Cavern",
+      "isAllDay": false,
+      "showAs": "tentative",
+      "attendees": [
+        "Dallas sales team (17)"
+      ]
+    },
+    {
+      "id": "A29",
+      "subject": "4th Friday Executive Meeting",
+      "organizer": "Mark.Kovacevich@Improving.com",
+      "start": "2026-10-23T09:30:00",
+      "end": "2026-10-23T10:00:00",
+      "tz": "Central Standard Time",
+      "location": "Microsoft Teams Meeting",
+      "isAllDay": false,
+      "showAs": "busy",
+      "attendees": [
+        "executivemeeting@improving.com (large)"
+      ]
+    },
+    {
+      "id": "A30",
+      "subject": "Presidents Pipeline Roundtable 2026 (4th Fridays)",
+      "organizer": "scott.mcmichael@improving.com",
+      "start": "2026-10-23T10:00:00",
+      "end": "2026-10-23T11:00:00",
+      "tz": "Central Standard Time",
+      "location": "Microsoft Teams Meeting",
+      "isAllDay": false,
+      "showAs": "busy",
+      "attendees": [
+        "Presidents/MDs/Sr Exec Sales (32)"
+      ]
+    },
+    {
+      "id": "A31",
+      "subject": "Q4 2026 Cyber Security Awareness Training",
+      "organizer": "David.OHara@improving.com",
+      "start": "2026-10-23T13:00:00",
+      "end": "2026-10-23T13:30:00",
+      "tz": "Central Standard Time",
       "location": null,
-      "attendees": [],
-      "is_all_day": true,
-      "status": "confirmed",
-      "account": "personal"
+      "isAllDay": false,
+      "showAs": "busy",
+      "attendees": []
+    },
+    {
+      "id": "A32",
+      "subject": "Friday Week Wrap-Up",
+      "organizer": "David.OHara@improving.com",
+      "start": "2026-10-23T15:00:00",
+      "end": "2026-10-23T15:30:00",
+      "tz": "Central Standard Time",
+      "location": "Microsoft Teams Meeting",
+      "isAllDay": false,
+      "showAs": "busy",
+      "attendees": [
+        "David.OHara@improving.com"
+      ]
+    },
+    {
+      "id": "A33",
+      "subject": "Wine Tasting",
+      "organizer": "David.OHara@improving.com",
+      "start": "2026-10-23T18:30:00",
+      "end": "2026-10-23T20:00:00",
+      "tz": "Central Standard Time",
+      "location": "Total Wine & More, 8700 Preston Rd, Plano, TX 75024",
+      "isAllDay": false,
+      "showAs": "busy",
+      "attendees": []
+    },
+    {
+      "id": "A34",
+      "subject": "LMB - OOO",
+      "organizer": "lisa.barnes@improving.com",
+      "start": "2026-10-24T00:00:00",
+      "end": "2026-10-25T00:00:00",
+      "tz": "Central Standard Time",
+      "location": null,
+      "isAllDay": true,
+      "showAs": "free",
+      "attendees": [
+        "FYI: Lisa Barnes OOO"
+      ]
+    },
+    {
+      "id": "A35",
+      "subject": "Surprise party for Erin",
+      "organizer": "David.OHara@improving.com",
+      "start": "2026-10-24T18:00:00",
+      "end": "2026-10-24T21:00:00",
+      "tz": "Central Standard Time",
+      "location": "Didi's",
+      "isAllDay": false,
+      "showAs": "busy",
+      "attendees": []
+    },
+    {
+      "id": "A36",
+      "subject": "LMB - OOO",
+      "organizer": "lisa.barnes@improving.com",
+      "start": "2026-10-25T00:00:00",
+      "end": "2026-10-26T00:00:00",
+      "tz": "Central Standard Time",
+      "location": null,
+      "isAllDay": true,
+      "showAs": "free",
+      "attendees": [
+        "FYI: Lisa Barnes OOO"
+      ]
+    },
+    {
+      "id": "A37",
+      "subject": "Golf",
+      "organizer": "David.OHara@improving.com",
+      "start": "2026-10-25T14:00:00",
+      "end": "2026-10-25T18:00:00",
+      "tz": "Central Standard Time",
+      "location": null,
+      "isAllDay": false,
+      "showAs": "busy",
+      "attendees": []
     }
   ]
 }

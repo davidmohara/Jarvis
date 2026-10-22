@@ -1,0 +1,11 @@
+{
+  "id": "err-20261021T192142-JLBGKA",
+  "timestamp": "2026-10-21T19:21:42Z",
+  "category": "content-quality",
+  "failure_mode": "data-loss-on-rebuild",
+  "severity": "minor",
+  "summary": "Rebuilt the Writing page as Publications and dropped the five outbound article links (4 Forbes Council posts + Improving blockchain post), converting them to plain text, because URL probes failed instead of recovering the original links. David caught it. All five original URLs recovered from the Wayback Machine snapshot of the page and restored.",
+  "proposed_fix": "When rebuilding or migrating any page/post, extract ALL existing outbound links from the current version (live page, lexical, or archive) and carry them forward before replacing content. A rebuild must be a superset of the old content unless deletion is explicitly requested. Failed URL probes on known-existing links mean recover the source, not unlink.",
+  "source": "controller-correction",
+  "status": "resolved"
+}

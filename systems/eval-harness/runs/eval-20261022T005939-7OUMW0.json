@@ -1,0 +1,101 @@
+{
+  "id": "eval-20261022T005939-7OUMW0",
+  "type": "workflow",
+  "name": "boot",
+  "agent": "master",
+  "session_id": "283fa4d0-6eab-4785-a626-d56ff248c574",
+  "trigger": "boot",
+  "started": "2026-10-22T00:59:39.837047Z",
+  "completed": "2026-10-22T03:02:12.854585+00:00",
+  "duration_seconds": null,
+  "status": "incomplete",
+  "steps": [],
+  "subagents": [
+    {
+      "agent_id": "a479a0202e544ab38",
+      "agent_type": "general-purpose",
+      "started": "2026-10-22T01:00:39.984336Z",
+      "completed": "2026-10-22T01:02:51.547312Z",
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 38389,
+      "tokens_output": 193,
+      "cost_usd": 0.001701,
+      "duration_seconds": 131.56,
+      "token_source": "subagent-transcript"
+    },
+    {
+      "agent_id": "a16ca8cf50c8c3d9c",
+      "agent_type": "general-purpose",
+      "started": "2026-10-22T01:00:50.777018Z",
+      "completed": "2026-10-22T01:03:19.774704Z",
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 324805,
+      "tokens_output": 4702,
+      "cost_usd": 0.016534,
+      "duration_seconds": 149.0,
+      "token_source": "subagent-transcript"
+    }
+  ],
+  "monitoring": {
+    "active": true,
+    "state_yaml_path": "workflows/boot/state.yaml",
+    "opened_by": "eval-turn-start.py",
+    "trigger_evidence": "boot-first-prompt-of-session"
+  },
+  "assessment": {
+    "mechanical": {
+      "completed": false,
+      "all_steps_finished": null,
+      "tool_failures": 2,
+      "error_ids": [],
+      "tool_failure_log": [
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\nworkflow: morning-briefing\nagent: chief\nstatus: complete\nsession-id: chief-2026-10-21-152000\nsession-started: '2026-10-21T15:20:00Z'\ncompleted: '2026-10-21T15:45:00Z'\noriginal-request: 'Morning briefing 2026-10-21 \u2014 full run steps 01-04 per boot coordinator; adversarial verification (step-05) not executed in this spawn'\ncurrent-step: step-05-verify-briefing\nverification-pending: true\naccumulated-context:\n  step-01-gather-calendar:\n    calendar_data:\n      date: '2026-10-21'\n      source: 'data/calendar-unified.json (pulled 2026-10-21T15:20:00Z via m365-outlook_calendar_search; 37 events 10-21 to 10-24; times wall-clock Central)'\n      meeting_count: 12\n      timed_events: 12\n      all_day_events: 0\n      meetings:\n        - time: '08:00-08:30'\n          subject: 'Drive To'\n          type: personal\n          attendees: 0\n          location: null\n          needs_prep: false\n          flags: ['travel block', 'passed as of briefing time']\n        - time: '08:30-09:00'\n          subject: 'Dallas Executive Huddle'\n          type: team\n          attendees: '20 (Dallas leadership + Don McGreal, Tim Rayburn, David Belcher, et al)'\n          location: 'Dallas - Conference Room Trust'\n          needs_prep: false\n          flags: ['tentative', 'in-person Dallas office \u2014 conflicts with 08:40 Frisco eye appointment', 'inside Houston Bootcamp block', 'passed as of briefing time']\n        - time: '08:30-17:30'\n          subject: 'Houston Bootcamp (main)'\n          type: team\n          attendees: '12 (Stephen Lashinski, Jonathan Camara, Charles Kiser, Hemakumar Gokulakannan, Matt Spicer, Erik Shafer, Nate Short, David Schwartz, Preston Mesarvey, Devlin Liles, Robyn Fuentes, Matt Nihiser)'\n          location: 'Microsoft Teams Meeting'\n          needs_prep: false\n          flags: ['day anchor \u2014 9h block', 'overlaps every daytime event today', 'in progress as of briefing time']\n        - time: '08:40-09:40'\n          subject: 'Eye Appointment with Dr Tom McClinton'\n          type: personal\n          attendees: 0\n          location: 'Clarkson Eyecare, 7638 Stonebrook Pkwy, Frisco, TX 75034'\n          needs_prep: false\n          flags: ['hard overlap 08:40-09:00 with Dallas Executive Huddle (Dallas office)', 'hard overlap 09:30-09:40 with AI Leaders Weekly', 'passed as of briefing time']\n        - time: '09:30-10:00'\n          subject: 'AI Leaders Weekly'\n          type: team\n          attendees: '15 (Devlin Liles, Scott Poulin, Michael Slater, Bill Curry, Michael Ell, Tim Rayburn, Keylor Arroyo, et al)'\n          location: 'Microsoft Teams Meeting'\n          needs_prep: false\n          flags: ['tentative', 'overlaps eye appointment 09:30-09:40', 'passed as of briefing time']\n        - time: '10:00-10:30'\n          subject: 'Drive From'\n          type: personal\n          attendees: 0\n          location: null\n          needs_prep: false\n          flags: ['travel block', 'zero buffer into GEHC call at 10:30']\n(eval):1: ==CD-STATE=== not found",
+          "duration_ms": 25,
+          "timestamp": "2026-10-21T19:59:55.692655"
+        },
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\n**Source:** OmniFocus.\n\n**Run the `omnifocus-data` skill.** Do NOT hand-write OmniFocus queries in this step:\n\n```bash\npython3 skills/omnifocus-data/scripts/omnifocus_data.py pull\n```\n\nThat command writes `data/omnifocus-unified.json` and is the single writer for it. Read the file back and report `status` and `task_count`. A `status: failed` pull is a degraded source to surface, never something to pass over as an empty day.\n\nFor ad-hoc reads inside this step, use the same skill: `list --kind inbox`, `list --kind due`, `counts`. Prefer the script over the MCP for every read here, because it does not depend on MCP session state and boot runs unattended. If the MCP does happen to be connected, the two agree on counts, tags and projects \u2014 and note that its `query_omnifocus` returns a display rendering that omits notes, so it cannot stand in for the pull.\n\n(Why delegated: see `references/pull-file-formats.md`.)\n**Output file:** `data/omnifocus-unified.json`\n**What to pull:**\n- All active (non-completed) tasks in inbox\n- Due today, overdue, or flagged\n- Include: task name, due date, project, tags, flags\n\n**File format:** use the exact schema in `references/pull-file-formats.md` (read it before writing the output file).\n\nThis shape is produced by `skills/omnifocus-data/scripts/omnifocus_data.py`; treat that script as the definition of record if the two ever disagree.\n\n**`completed` MUST be present and false on every task.** The inbox holds roughly 247 completed tasks alongside the ~8 incomplete ones, and OmniFocus \"Clean Up\" does NOT remove them. Filtering is part of the query, never a cleanup step. Recording the field is what lets the eval harness assert that no completed task leaked into the pull.\n\n**Status reporting:** use the yaml shape in `references/pull-file-formats.md` for this pull.\n\n`status: available` with `task_count: 0` is a real empty result (nothing in the inbox, nothing due, nothing flagged). Report it as `nothing-to-surface`, not as a failure. `status: failed` is a degraded source and must be surfaced as such.\n\n---\n\n### Pull C: Clay Reminders (Next 7 Days) \u2014 MANDATORY ALWAYS\n\n**Source:** Clay MCP\n**Output file:** `data/clay-reminders-unified.json`\n**MANDATORY:** This pull MUST ALWAYS attempt to fetch from Clay, even if Clay MCP is previously marked unavailable. This checks current state rather than assuming stale data.\n\n**What to pull:**\n- Upcoming reminders (next 7 days)\n- Upcoming birthdays (next 7 days)\n- Include: date, description, attendee/contact, relationship context\n(eval):1: == not found",
+          "duration_ms": 30,
+          "timestamp": "2026-10-21T20:03:25.663972"
+        }
+      ],
+      "abort_reason": "session-exit-normal"
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [
+    "turn-level"
+  ]
+}

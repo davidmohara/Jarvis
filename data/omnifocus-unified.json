@@ -1,5 +1,5 @@
 {
-  "pulled_at": "2026-10-20T13:03:20Z",
+  "pulled_at": "2026-10-21T15:16:15Z",
   "status": "available",
   "task_count": 42,
   "tasks": [
@@ -144,6 +144,16 @@
       "note": ""
     },
     {
+      "id": "pCC7RnLBfwK",
+      "name": "Return glasses",
+      "completed": false,
+      "due_date": null,
+      "project": null,
+      "tags": null,
+      "is_flagged": false,
+      "note": ""
+    },
+    {
       "id": "hmSOAxJUMj8",
       "name": "Fix leather bench",
       "completed": false,
@@ -152,26 +162,6 @@
       "tags": "Errands",
       "is_flagged": false,
       "note": ""
-    },
-    {
-      "id": "hYsBF0IAOw-",
-      "name": "Identify 5 Microsoft contacts to grow relationships",
-      "completed": false,
-      "due_date": "Tuesday, October 20, 2026 at 5:00:00 PM",
-      "project": "Reachout",
-      "tags": "Improving",
-      "is_flagged": false,
-      "note": "Ben Holm Wade Graham (now CTO) Greg Betz Chase Busby Jonathan Swartz Ryan McKinney \u2014 New Brandon Ash"
-    },
-    {
-      "id": "e5tgSv3ccWM",
-      "name": "Confluent Regional Sales Director",
-      "completed": false,
-      "due_date": "Tuesday, October 20, 2026 at 5:00:00 PM",
-      "project": "Reachout",
-      "tags": "Improving",
-      "is_flagged": false,
-      "note": "Alex Baird - Austin Max Marcyes - Austin Ariel Gan - Austin (Sr RD) Dante Lanza - TOLA (in CA) Tommy Tang - STL (Chicago) Luke Jensen - Dallas (fin svcs) Reagan Haisler - Houston"
     },
     {
       "id": "agFhQkHoO2w",
@@ -257,7 +247,7 @@
       "id": "km9hG5ixbP2",
       "name": "Review prayer list",
       "completed": false,
-      "due_date": "Tuesday, October 20, 2026 at 11:00:00 AM",
+      "due_date": "Thursday, October 22, 2026 at 11:00:00 AM",
       "project": "Deliberate Practices",
       "tags": "Reflection",
       "is_flagged": false,
@@ -267,7 +257,7 @@
       "id": "cQbtk1HDOKq",
       "name": "Coherence breathing",
       "completed": false,
-      "due_date": "Tuesday, October 20, 2026 at 10:00:00 AM",
+      "due_date": "Wednesday, October 21, 2026 at 10:00:00 AM",
       "project": "Deliberate Practices",
       "tags": "Reflection",
       "is_flagged": false,
@@ -282,6 +272,16 @@
       "tags": "ImprovingWriting",
       "is_flagged": false,
       "note": "(Obsidian Link)"
+    },
+    {
+      "id": "fNlFsc7rxR7",
+      "name": "Check humidor",
+      "completed": false,
+      "due_date": "Tuesday, October 27, 2026 at 5:00:00 PM",
+      "project": "Maintenance",
+      "tags": "Home Office",
+      "is_flagged": false,
+      "note": ""
     },
     {
       "id": "inYg3vslhL8",
