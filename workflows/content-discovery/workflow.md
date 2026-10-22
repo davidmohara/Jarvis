@@ -41,6 +41,7 @@ fairness:
 - Read `references/ghost-conventions.md` before any Ghost API call — it holds the author ID, image rules, and the locked tag list (tags must be passed as objects, never bare strings).
 - Read `references/slack-integration.md` before any Slack read or write — it holds the Desktop Commander requirements and the read.py/post.py commands.
 - Read `references/pending-drafts-schema.md` before writing any pending-drafts.json entry — it holds the shared-file design rule and the entry schema.
+- Read `references/hub-registry.md` when selecting tags (hub link check) or running step-01 Step 1c. It holds the hub registry, the tag-to-hub match rules, and the hub page sync protocol.
 
 ---
 
@@ -48,8 +49,8 @@ fairness:
 
 Read `identity/VOICE.md` for full voice configuration. For blog posts specifically:
 
-- **Length:** 300-500 words. Short. 1-3 minute read.
-- **Structure:** Hook → Story/Observation → Insight → Challenge or takeaway
+- **Length:** 300-700 words. Short. 2-4 minute read.
+- **Structure (citation-friendly, approved 2026-10-21):** Open with a one-sentence bottom line (the governing claim) → body under 2-4 H2 subheadings (Story/Observation → Insight) → close with a brief "What to do" takeaway (the Challenge). When the post cites a stat, study, or firm, include at least one outbound link to the primary source.
 - **Tone:** Personal, reflective, direct. First person. David is writing to peers, not students.
 - **Style:** Conversational. No jargon unless it earns its place. Parenthetical asides are natural. Exclamation marks when energized.
 - **Not a summary:** The source URL is a spark, not the article to rewrite. David's reaction, angle, or insight is the post — not a recap of what he read.
@@ -65,6 +66,12 @@ Before drafting, check:
 3. `pending-drafts.json` (shared file — see `references/pending-drafts-schema.md`) — normalized URL and, for digests, title match
 
 If the source URL or its core topic already has a published post, skip it and notify: "Skipped [URL] — topic already covered in '[existing post title]'."
+
+---
+
+## HUB PAGES
+
+The blog has undated hub pages that collect clusters of dated posts around a theme. `references/hub-registry.md` is the source of truth: it maps tag combinations (from the locked tag list) to hubs and drives both directions of linking. Drafted posts link out to their hub (checked at GATE 2), and hub pages pick up newly published posts (step-01 Step 1c, which runs with the daily resync). Adding a new hub is a registry entry plus a David-approved Ghost page, never a workflow edit. Hub updates only ever touch `published`/`scheduled` posts, never drafts.
 
 ---
 

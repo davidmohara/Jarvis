@@ -17,7 +17,9 @@ Format:
     "created_at": "2026-05-04T06:00:00Z",
     "status": "pending",
     "source_type": "url",
-    "content_type": "post"
+    "content_type": "post",
+    "meta_title": "Post title",
+    "meta_description": "1-2 sentence summary of the post's core insight"
   }
 ]
 ```
@@ -25,4 +27,6 @@ Format:
 **`source_type` field:** String. Values: `"url"` (standard URL path), `"digest"` (drafted from a Slack digest message), or `"manual"` (legacy entries). Optional for backward compatibility — existing entries without this field are treated as `"url"`.
 
 **`content_type` field:** String, `"post"` or `"article"`. Mandatory on every new entry content-discovery writes (MANDATORY EXECUTION RULE 8 in step-01-discover.md).
+
+**`meta_title` / `meta_description` fields:** Strings. Mandatory on every new entry content-discovery writes, captured from the exact values sent to Ghost at draft creation. The content-approval resync compares them against live Ghost state (`get_post`): a draft whose meta differs from the tracker entry surfaces as drift and gets flagged for review. Older entries without these fields are treated as unknown, not as drift.
 <!-- personal:end -->

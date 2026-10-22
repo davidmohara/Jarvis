@@ -231,8 +231,9 @@ def extract_step_tokens(transcript_path: str, step_started: str, step_completed:
         "tokens_output": None,
         "cost_usd": None,
         "model": None,
-        "token_source": None,   # "windowed" (real per-step slice) or "lenient_fallback"
+        "token_source": None,   # "windowed" (real per-step slice); None when unmatched — lenient_fallback is retired
         "turns_matched": None,
+        "turns_with_usage": None,
         "extraction_error": None
     }
 
@@ -257,27 +258,34 @@ def extract_step_tokens(transcript_path: str, step_started: str, step_completed:
     try:
         log_info(f"Attempting token extraction for {step_name} from {transcript_path}")
         log_info(f"Step time window: {step_started} to {step_completed}")
-        usage = usage_between(transcript_path, step_started, step_completed, exclude_sidechain=False, lenient_fallback=True)
+        # STRICT ONLY. The old lenient_fallback=True converted every miss into
+        # whole-transcript fabrication: on 2026-10-21 six plaud-ingest steps
+        # whose frontmatter still carried 2026-10-09 windows each got stamped
+        # with the entire 1,654,697-token boot-executor transcript. A step
+        # whose window matches no turns gets honest nulls, not invented
+        # numbers. Per-step attribution for subagent-run steps now happens via
+        # partition backfill in eval-agent-stop.py (windowed-partition), not
+        # here.
+        usage = usage_between(transcript_path, step_started, step_completed, exclude_sidechain=False, lenient_fallback=False)
 
         if usage:
             result["tokens_input"] = usage.get("tokens_input")
             result["tokens_output"] = usage.get("tokens_output")
             result["cost_usd"] = usage.get("cost_usd")
             result["model"] = usage.get("model")
-            used_lenient = usage.get("used_lenient_fallback", False)
-            # Provenance: "windowed" means the tokens were sliced to this step's
-            # real [started-at, completed-at] window; "lenient_fallback" means no
-            # turns fell in that window and the whole transcript was used, which
-            # inflates and duplicates per-step numbers. Recording it keeps the
-            # audit trail honest (a grader can tell real per-step attribution
-            # from a fallback).
-            result["token_source"] = "lenient_fallback" if used_lenient else "windowed"
+            result["token_source"] = "windowed"
             result["turns_matched"] = usage.get("turns_matched")
-            fallback_note = " (lenient fallback)" if used_lenient else " (strict time window)"
-            log_info(f"SUCCESS: Extracted tokens for {step_name}: {result['tokens_input']} input, {result['tokens_output']} output, model={result['model']}, cost=${result['cost_usd']:.4f}{fallback_note}")
+            result["turns_with_usage"] = usage.get("turns_with_usage")
+            # cost_usd is None when the model is absent from the pricing table
+            # (e.g. glm-5p3 before 2026-10-21). The old log line formatted it
+            # with :.4f unconditionally, raising TypeError AFTER the usage had
+            # been computed — the except clause then discarded the extracted
+            # tokens entirely. Never let logging destroy data.
+            cost_str = f"${result['cost_usd']:.4f}" if result["cost_usd"] is not None else "unpriced"
+            log_info(f"SUCCESS: Extracted tokens for {step_name}: {result['tokens_input']} input, {result['tokens_output']} output, model={result['model']}, cost={cost_str} (strict time window)")
         else:
-            result["extraction_error"] = "usage_between_no_data"
-            log_info(f"Token extraction completed for {step_name} but no usage data found (no transcript or empty)")
+            result["extraction_error"] = "no_turns_in_window"
+            log_info(f"Token extraction completed for {step_name} but no usage data found (no turns in window, stale timestamps, or empty transcript)")
     except Exception as e:
         result["extraction_error"] = str(e)
         log_error(f"EXCEPTION during token extraction for {step_name}: {e}")
@@ -563,6 +571,8 @@ def update_eval_record_with_step_completion(eval_path: Path, step_name: str, fro
             step_entry["token_source"] = token_data["token_source"]
         if token_data.get("turns_matched") is not None:
             step_entry["turns_matched"] = token_data["turns_matched"]
+        if token_data.get("turns_with_usage") is not None:
+            step_entry["turns_with_usage"] = token_data["turns_with_usage"]
 
         # Calculate duration
         if step_entry.get("started") and step_entry.get("completed"):

@@ -33,9 +33,15 @@ sys.path.insert(0, str(IES_ROOT / "systems" / "eval-harness" / "vendor"))
 sys.path.insert(0, str(IES_ROOT / "systems" / "eval-harness"))
 import yaml
 try:
-    from token_usage import usage_between
+    from token_usage import usage_between, latest_task_usage, partition_usage_by_steps
 except Exception:
     usage_between = None
+    latest_task_usage = None
+    partition_usage_by_steps = None
+try:
+    import fully_loaded_cost as _flc
+except Exception:
+    _flc = None
 try:
     from hook_utils import find_parent_record_with_subagent, transcript_indicates_completion
 except Exception:
@@ -87,6 +93,19 @@ def atomic_write_json(path: Path, data: dict):
 def invoke_step_complete_hooks(eval_record: dict, transcript_path: str, ies_root: Path, workflow_name: str = None):
     import subprocess
 
+    # Stale-step guard: step files keep `status: complete` FOREVER unless the
+    # next run rewrites them, so this loop otherwise re-processes steps from
+    # previous runs. On 2026-10-21 the boot executor's stop re-processed six
+    # plaud-ingest steps still carrying 2026-10-09 windows. A step whose
+    # completed-at predates this subagent's own start cannot have been
+    # executed by this subagent — skip it.
+    run_started_dt = None
+    try:
+        run_started_dt = datetime.fromisoformat(
+            (eval_record.get("started") or "").replace("Z", "+00:00"))
+    except Exception:
+        pass
+
     # Determine which workflow's steps to process
     workflow_to_process = workflow_name or eval_record.get("name") or "boot"
     steps_dir = ies_root / "workflows" / workflow_to_process / "steps"
@@ -122,6 +141,16 @@ def invoke_step_complete_hooks(eval_record: dict, transcript_path: str, ies_root
             step_data = yaml.safe_load(frontmatter) or {}
             if step_data.get("status") not in ("complete", "completed"):
                 continue
+
+            if run_started_dt is not None:
+                try:
+                    sc = step_data.get("completed-at")
+                    step_completed_dt = datetime.fromisoformat(str(sc).replace("Z", "+00:00")) if sc else None
+                except Exception:
+                    step_completed_dt = None
+                if step_completed_dt is not None and step_completed_dt < run_started_dt:
+                    log_info(f"Skipping stale step {step_file.name}: completed-at {sc} predates this run's start {eval_record.get('started')}")
+                    continue
 
             payload = {
                 "step_file_path": str(step_file),
@@ -395,8 +424,97 @@ def main():
                 eval_record["total_tokens_input"] = usage["tokens_input"]
                 eval_record["total_tokens_output"] = usage["tokens_output"]
                 eval_record["total_cost_usd"] = usage["cost_usd"]
+                eval_record["token_source"] = "subagent-transcript"
         except Exception as e:
             log_error(f"Failed to compute agent token usage: {e}")
+
+    # Authoritative fallback: the harness's own task-notification usage block.
+    # Background/async subagents report completion via a <task-notification>
+    # enqueued into the MAIN session transcript carrying
+    # <usage><subagent_tokens>N</subagent_tokens>... — the same total the
+    # harness shows the user. When the subagent transcript is missing or
+    # unreadable (the whole-run slice above returned nothing), record this
+    # reported aggregate as harness_tokens (it carries no input/output split,
+    # so it must NOT be written into tokens_input/tokens_output).
+    main_transcript_path = payload.get("transcript_path")
+    if latest_task_usage and main_transcript_path:
+        try:
+            note_usage = latest_task_usage(main_transcript_path, agent_id)
+        except Exception as e:
+            note_usage = None
+            log_error(f"task-notification parse failed for {agent_id}: {e}")
+        if note_usage:
+            eval_record["harness_tokens"] = note_usage.get("harness_tokens")
+            eval_record["harness_tool_uses"] = note_usage.get("harness_tool_uses")
+            eval_record["harness_duration_ms"] = note_usage.get("harness_duration_ms")
+            if eval_record.get("total_tokens_input") is None:
+                eval_record["token_source"] = "task-notification"
+                log_info(f"Whole-run tokens for {agent_id} from task-notification: "
+                         f"{note_usage.get('harness_tokens')} harness tokens "
+                         f"({note_usage.get('harness_tool_uses')} tool uses)")
+
+    # CRASH-SAFE ORDERING: persist the core completion fields NOW, before the
+    # step-complete subprocess fan-out and the assessment tail. On 2026-10-21
+    # the boot executor's stop ran its step hooks (they wrote to disk) but the
+    # record's completed/totals never landed — the tail never completed its
+    # final write — leaving the record with completed=None, tokens=None and a
+    # later flat $0.09 estimate over a run whose real cost was $0.63. Core
+    # data first, enrichment second.
+    atomic_write_json(eval_record_path, eval_record)
+
+    # Per-step attribution for the PARENT workflow record. This is the
+    # replacement for the retired lenient-fallback approach: partition THIS
+    # subagent's own transcript across the parent record's steps (ordered by
+    # started-at, clamped to this run) so every billable turn lands on exactly
+    # one step and the per-step sums equal the whole-run total. Only steps
+    # still missing tokens are filled; steps the parent already sliced inline
+    # from the main session are left alone. Works on open OR closed parents
+    # (find_parent_record_with_subagent) — today's boot parent was closed by
+    # eval-turn-stop 25s after this subagent stopped.
+    if partition_usage_by_steps and agent_transcript_path and find_parent_record_with_subagent:
+        try:
+            parent_path = find_parent_record_with_subagent(eval_record.get("session_id", ""), agent_id)
+            if parent_path and parent_path != eval_record_path:
+                with open(parent_path, "r") as f:
+                    parent = json.load(f)
+                parent_steps = parent.get("steps") or []
+                needs = [s for s in parent_steps
+                         if isinstance(s, dict) and s.get("tokens_input") is None and s.get("started")]
+                if needs:
+                    partition = partition_usage_by_steps(
+                        agent_transcript_path, needs,
+                        eval_record.get("started"), eval_record.get("completed"))
+                    filled = 0
+                    part_sum = 0
+                    for s in parent_steps:
+                        if not isinstance(s, dict):
+                            continue
+                        u = partition.get(s.get("name"))
+                        if u is None:
+                            continue
+                        if u.get("tokens_input") is not None:
+                            s["tokens_input"] = u["tokens_input"]
+                            s["tokens_output"] = u["tokens_output"]
+                            s["cost_usd"] = u["cost_usd"]
+                            if u.get("model"):
+                                s["model"] = u["model"]
+                            s["turns_matched"] = u["turns_matched"]
+                            s["turns_with_usage"] = u["turns_with_usage"]
+                            s["executed_by_agent_id"] = agent_id
+                            filled += 1
+                            part_sum += u["tokens_input"] or 0
+                        # Provenance is written even when tokens stay null
+                        # (stale-window): the audit trail records WHY.
+                        if u.get("token_source"):
+                            s["token_source"] = u["token_source"]
+                    if filled:
+                        atomic_write_json(parent_path, parent)
+                    whole = eval_record.get("total_tokens_input")
+                    log_info(f"partition backfill for {agent_id} into {parent_path.name}: "
+                             f"{filled} steps filled, partition sum={part_sum}, "
+                             f"whole-run={whole} (integrity: {'OK' if whole == part_sum else 'MISMATCH'})")
+        except Exception as e:
+            log_error(f"partition backfill failed for {agent_id}: {e}")
 
     # Invoke step-complete hooks for all workflows/agents that have steps
     # This populates per-step token data from the agent transcript
@@ -568,6 +686,18 @@ def main():
     # Compute version hash from workflow.md or SKILL.md
     eval_record["version_hash"] = compute_version_hash_for_record(eval_record)
 
+    # Fully-loaded cost (2026-10-21): stamp the parent session's own turns
+    # during this subagent's window as the labeled parent_window component,
+    # so a dispatched run's recorded cost includes the orchestration around
+    # it (spawn turn, result handling), not just the subagent transcript.
+    # payload transcript_path is the MAIN session transcript; the subagent's
+    # own usage above came from agent_transcript_path — the two never mix.
+    if _flc is not None:
+        try:
+            _flc.apply_to_record(eval_record, transcript_path=payload.get("transcript_path"))
+        except Exception as e:
+            log_error(f"parent-window cost computation failed for {agent_id}: {e}")
+
     # Attribution (Stage 3 Phase 0): stamp owning_agent and, when the record is
     # still carrying a Claude Code subagent-type label ("general-purpose"),
     # upgrade `agent` to the resolved IES owner. By this point the record's
@@ -605,6 +735,11 @@ def main():
                         entry["tokens_output"] = eval_record.get("total_tokens_output")
                         entry["cost_usd"] = eval_record.get("total_cost_usd")
                         entry["duration_seconds"] = eval_record.get("duration_seconds")
+                        if eval_record.get("harness_tokens") is not None:
+                            entry["harness_tokens"] = eval_record.get("harness_tokens")
+                            entry["harness_tool_uses"] = eval_record.get("harness_tool_uses")
+                        if eval_record.get("token_source"):
+                            entry["token_source"] = eval_record.get("token_source")
                         break
                 atomic_write_json(parent_path, parent)
         except Exception as e:

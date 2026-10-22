@@ -112,7 +112,23 @@ Example: `eval-20260523T133045-a1b2c3.json`
   ],
   "total_tokens_input": 12000,
   "total_tokens_output": 4300,
-  "total_cost_usd": 0.081
+  "total_cost_usd": 0.081,
+  "parent_window": {
+    "token_source": "parent-window",
+    "transcript_path": "/Users/.../.claude/projects/<proj>/<session_id>.jsonl",
+    "window_start": "2026-05-23T13:30:00Z",
+    "window_end": "2026-05-23T13:45:12Z",
+    "model": "glm-5p3",
+    "tokens_input": 900000,
+    "tokens_output": 2100,
+    "cost_usd": 0.135,
+    "turns_matched": 11,
+    "turns_with_usage": 11,
+    "computed_at": "2026-05-23T13:45:13Z"
+  },
+  "fully_loaded_cost_usd": 0.216,
+  "fully_loaded_tokens_input": 912000,
+  "fully_loaded_tokens_output": 6400
 }
 ```
 
@@ -152,14 +168,17 @@ Example: `eval-20260523T133045-a1b2c3.json`
 | `cost_usd` | number\|null | **Required audit-trail field.** Dollar cost for this step, computed from real token counts × the pricing table in `model-pricing.json`. |
 | `step_id` | string | Stable step identifier (defaults to `name`). |
 | `owning_agent` | string\|null | The IES agent that owns the workflow this step belongs to, resolved from `workflows/<name>/workflow.md`'s `agent:` frontmatter (e.g. `plaud-ingest` → `knox`, `boot-verification` → `ralph`). **This is the field attribution should read.** The sibling `agent` field preserves whatever the harness recorded on the run and is frequently a Claude Code subagent type label (`general-purpose`, `fork`, `Explore`) rather than an IES agent, so it is not reliable for attribution. |
-| `token_source` | string\|null | Provenance of the token numbers: `windowed` means they were sliced to this step's real `started-at`→`completed-at` window; `lenient_fallback` means no turns fell in that window and the whole transcript was used (inflated/duplicated across steps). A grader can use this to separate true per-step attribution from fallback. |
+| `token_source` | string\|null | Provenance of the token numbers: `windowed` = sliced to this step's real `started-at`→`completed-at` window in the correct transcript; `windowed-partition` = filled by `partition_usage_by_steps`, which partitions the executing subagent's whole transcript across the run's steps by started-at ordering (sum over steps == whole-run total; used because step frontmatter timestamps are agent-authored and provably unreliable); `stale-window` = tokens left null because the step's timestamps predate this run (frontmatter never rewritten); `subagent-transcript` = whole-run totals from the subagent's own transcript; `task-notification` = whole-run aggregate from the harness's `<task-notification>` usage block (no input/output split — see `harness_tokens`). `lenient_fallback` is retired (2026-10-21): it stamped whole-transcript fabrications onto steps whose windows matched nothing. |
+| `turns_with_usage` | number\|null | Of `turns_matched`, how many carried non-zero usage (thinking-only transcript entries log all-zero usage and must not make a window look populated). |
+| `executed_by_agent_id` | string\|null | The subagent whose transcript this step's tokens were partitioned from. Steps carrying this are excluded from record-total step sums when that subagent's own `subagents[]` entry has tokens (double-count guard in `eval-turn-stop.py`). |
+| `harness_tokens` | number\|null | Harness-reported aggregate tokens for a subagent run from the `<task-notification>` usage block in the main transcript (the number Claude Code shows at task completion). Single aggregate — never write it into `tokens_input`/`tokens_output`. |
 
 **Tokens in/out and dollar cost are both required audit-trail evidence.** Stage 4's audit-trail requirement asks "which prompt produced which output, how many input/output tokens, what did it cost" — all three parts are graded. A null `cost_usd` is a gap, exactly like a null `tokens_input`/`tokens_output`. `cost_usd` is derived (tokens × the rate table in `model-pricing.json`, with real cache-read/cache-write multipliers, not a flat rate), and the rate table needs to be kept current as pricing changes — but "derived" does not mean "optional." Every step/record with real token counts must carry a computed `cost_usd` figure.
 
 Token fields are populated automatically, not by manual estimation. `systems/eval-harness/token_usage.py` reads the real Claude Code session transcript (JSONL — every assistant turn logs `message.usage` with exact `input_tokens`/`output_tokens`/cache token counts) and slices it to a time window:
 
 - **Steps that run inline in the main session**: `.claude/hooks/post-tool-use.py` fires on every Write/Edit to a `*/steps/*.md` file (this is what actually populates the `steps` array in the first place) and also pulls usage for that step's `started-at`→`completed-at` window from the main session's `transcript_path` (a field Claude Code passes to every `PostToolUse` hook call). It uses a strict window (no lenient fallback), so a step whose turns are not in the main transcript (i.e. a subagent-run step) writes no tokens here rather than a fabricated number.
-- **Steps that are spawned as a subagent** (e.g. Knox handling Watchtower, `rigby-eval-grade`): `.claude/hooks/eval-agent-stop.py` pulls usage for the whole subagent run from its own `agent_transcript_path` (passed to `SubagentStop`) and writes it as top-level `model`, `total_tokens_input`, `total_tokens_output`, `total_cost_usd` fields on that eval record, then invokes `.claude/hooks/step-complete.py` once per completed step of the workflow the subagent ran, which slices the subagent transcript to each step's window and writes the per-step `model`/`tokens_input`/`tokens_output`/`cost_usd`/`token_source` onto the matching step entry.
+- **Steps that are spawned as a subagent** (e.g. Knox handling Watchtower, `rigby-eval-grade`, the boot executor): `.claude/hooks/eval-agent-stop.py` pulls usage for the whole subagent run from its own `agent_transcript_path` (passed to `SubagentStop`) and writes it as top-level `model`, `total_tokens_input`, `total_tokens_output`, `total_cost_usd` on that subagent's eval record with `token_source: subagent-transcript`. If the transcript yields nothing (missing/unflushed — common for background async agents), it falls back to the harness's own `<task-notification>` usage block parsed from the main session transcript (`harness_tokens`, `token_source: task-notification`). Per-step attribution onto the parent workflow record is done by `partition_usage_by_steps` (see `token_source: windowed-partition` above) at the same stop event. `step-complete.py` still runs per completed step for guardrails/verifiers, but its token extraction is strict-window only (no fallback): a step whose window matches no turns keeps null tokens.
 
 Two implementation contracts keep the two writers from stepping on each other: (1) the **record key** for a step is `Path(step_file).name`, the file name *including* `.md`, in both writers, so `step-complete.py` updates the skeleton `post-tool-use.py` wrote instead of appending a duplicate un-suffixed entry; the `.stem` form is used only for guardrail/verifier file lookups. (2) A step is treated as done when its frontmatter `status` is either `complete` or `completed` (both spellings are live in the workflow library: boot uses `complete`, plaud-ingest uses `completed`). `eval-agent-stop.py` resolves which workflow a subagent ran from the record's `workflow` field (stamped by `post-tool-use.py` from the step file's path, or set by `eval-agent-start.py` from the spawn prompt), falling back to `name`, because for a dispatched workflow `name` is the Claude Code subagent type (`general-purpose`), not the workflow.
 
@@ -298,6 +317,20 @@ Present only on records opened by `.claude/hooks/eval-turn-start.py` on `UserPro
 | `subagents` | array | Any subagent spawned by Master while this record was open (e.g. Knox fired during boot's step-01). Each entry: `agent_id`, `agent_type`, `started`, `completed`, `model`, `tokens_input`, `tokens_output`, `cost_usd`, `duration_seconds`. Populated by `eval-agent-start.py` (on spawn) and completed by `eval-agent-stop.py` (on return) — both check for an open turn-level record for the same `session_id` and link into it in addition to writing that subagent's own standalone record. |
 | `total_tokens_input` / `total_tokens_output` | number\|null | Sum across this record's `steps[]` and `subagents[]`, written once at finalization. |
 | `total_cost_usd` | number\|null | Sum across `steps[]` and `subagents[]` cost, written once at finalization. |
+
+### Fully-Loaded Cost Fields (`parent_window`, `fully_loaded_*`)
+
+Added 2026-10-21 after David rejected subagent-only totals as "the boot's cost": a workflow run's recorded cost must correlate across the WHOLE run, including the parent session's own full-context turns while orchestrating it (spawn prompts, result handling, checkpoint work — often the expensive part). `systems/eval-harness/fully_loaded_cost.py` computes the component; written by `eval-turn-stop.py` at workflow finalize, by `eval-agent-stop.py` at subagent stop, and backfillable via `python3 systems/eval-harness/fully_loaded_cost.py --date YYYY-MM-DD`.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `parent_window` | object | The parent session's OWN non-sidechain assistant turns in the main session transcript within the record's `[started, completed]` window, priced per-turn (mixed-model windows price each turn at its own model's rate). Fields: `token_source`, `transcript_path`, `window_start`, `window_end`, `model`, `tokens_input`, `tokens_output`, `cost_usd`, `turns_matched`, `turns_with_usage`, `computed_at`, optional `unpriced_models`. |
+| `parent_window.token_source` | enum | `parent-window` = real slice (a window with no parent turns is a true `0.0`, never fabricated); `no-session-transcript` = no local transcript for the session (Cowork/VM-hosted run), nulls; `transcript-unreadable`; `invalid-window` = completed predates started, nulls. |
+| `fully_loaded_cost_usd` | number\|null | `parent_window.cost_usd` + the subagent component. For workflow records the subagent component is `subagents[]` plus steps whose `executed_by_agent_id` rollup lost its tokens (inline `windowed` steps are a SUBSET of the parent window and are never added again — same double-count guard as finalization). For `type: "agent"` records it is the record's own `total_cost_usd`. Null when neither side is known. |
+| `fully_loaded_tokens_input` / `fully_loaded_tokens_output` | number\|null | Same combination for token counts. |
+| `fully_loaded_note` | string | Present when a component is degraded (no transcript, unpriced model in the window, invalid window) — says exactly which component the figure covers. |
+
+Subagent turns never appear in the main transcript (verified 2026-10-21: zero `isSidechain` assistant turns in a main session transcript; subagents live in `<session>/subagents/agent-<id>.jsonl`), so the parent window cannot double count `subagents[]`. When records' windows overlap within a session (a nested morning-briefing inside boot, or a workflow record plus its executor's own agent record), summing per-record `parent_window` values double counts the overlap — day-level reconciliation must union the windows first. `systems/cost-attribution/reconcile-workflows.py` does exactly that and checks the invariant: for each session-day, attributed (union of record windows + linked subagent transcripts) + remainder (interactive main-transcript turns outside every window + unlinked subagent transcripts) == the session's transcript-metered total, within tolerance.
 
 **Lifecycle:** `eval-turn-start.py` opens the record when a `UserPromptSubmit` prompt matches a master-owned workflow (by slash command, an explicit `workflows/<name>/workflow.md` reference, the workflow's name/slug appearing in the prompt, or — for boot specifically, since CLAUDE.md mandates it unconditionally on session start — simply being the first prompt of a new session while `workflows/boot/state.yaml` isn't already `in-progress`). The existing `.claude/hooks/post-tool-use.py` state.yaml/step-frontmatter handling (unchanged) then populates `steps[]` as it always has, because it finds this record via the same `find_active_eval_record(session_id)` lookup it already used. `eval-turn-stop.py` fires on every `Stop` event, checks `monitoring.state_yaml_path` for a terminal status (`complete`/`aborted`/`blocked`), and only then finalizes — a multi-turn workflow (e.g. one paused on a controller question) is left `in-progress` and re-checked on the next turn's `Stop`. If no turn-level record was ever opened for the session, `eval-turn-stop.py` does nothing — no stub, no partial record.
 

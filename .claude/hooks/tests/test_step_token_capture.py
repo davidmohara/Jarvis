@@ -168,10 +168,15 @@ def steps_named(steps, name):
 
 
 def test_post_tool_use_inline_extraction(tmp):
-    """post-tool-use.py fills windowed tokens for a main-session step."""
+    """post-tool-use.py fills windowed tokens for a main-session step.
+
+    The target record must belong to the step's workflow (name or workflow
+    field == "demo-wf"): since 2026-10-21 step writes route by workflow, not
+    by "most recent in-progress record" (recency routed plaud-ingest steps
+    onto the boot executor's stub, eval-20261021T151415-QZP2GE)."""
     runs, step_file, transcript = build_temp_ies(tmp / "a")
     sid = "sid-post-tool-use"
-    rec_path = write_record(runs, make_record("eval-TESTPOSTTOOL01", sid))
+    rec_path = write_record(runs, make_record("eval-TESTPOSTTOOL01", sid, name="demo-wf", type="workflow"))
 
     mod = load_module("ptu", "post-tool-use.py")
     mod.EVAL_RUNS_DIR = runs
@@ -196,6 +201,68 @@ def test_post_tool_use_inline_extraction(tmp):
     assert entry.get("cost_usd") is not None, "cost_usd must be computed"
     assert entry.get("token_source") == "windowed", f"token_source: {entry.get('token_source')}"
     assert entry.get("owning_agent"), "owning_agent must be set"
+
+
+def test_step_write_never_routes_to_other_workflow(tmp):
+    """A step write for workflow B must NOT land on workflow A's record.
+
+    Regression for 2026-10-21: Knox's plaud-ingest step writes landed on the
+    boot executor's stub (most-recent-in-progress routing), corrupted its
+    `workflow` stamp to "plaud-ingest", and diverted that subagent's entire
+    stop-time step processing to the wrong workflow. New contract: no
+    workflow-matched record means an honest skip, not a misattributed write.
+    """
+    runs, step_file, transcript = build_temp_ies(tmp / "a2")
+    sid = "sid-routing-guard"
+    # Only record open belongs to a DIFFERENT workflow (a subagent stub
+    # stamped with workflow="boot").
+    rec_path = write_record(runs, make_record("eval-TESTROUTEGUARD", sid,
+                                              name="general-purpose", workflow="boot"))
+
+    mod = load_module("ptu", "post-tool-use.py")
+    mod.EVAL_RUNS_DIR = runs
+    mod.INDEX_PATH = tmp / "a2" / "no-such-index.json"
+
+    run_main(mod, {
+        "tool_name": "Edit",
+        "tool_input": {"file_path": str(step_file)},  # workflows/demo-wf/steps/...
+        "session_id": sid,
+        "transcript_path": str(transcript),
+    })
+
+    assert read_steps(rec_path) == [], (
+        f"demo-wf step must not be written to a boot-stamped record: {read_steps(rec_path)}")
+    # And the record's workflow stamp must survive untouched.
+    rec = json.loads(rec_path.read_text())
+    assert rec.get("workflow") == "boot", f"workflow stamp corrupted: {rec.get('workflow')}"
+
+
+def test_step_write_lands_on_closed_record_within_grace(tmp):
+    """Late step writes still land on the workflow's record after it closed.
+
+    2026-10-21 boot: eval-turn-stop closed the boot record at 15:41:40 but
+    steps 06-08 were written at 15:47-15:50 — under an in-progress-only rule
+    those steps had nowhere to go."""
+    runs, step_file, transcript = build_temp_ies(tmp / "a3")
+    sid = "sid-closed-grace"
+    rec_path = write_record(runs, make_record(
+        "eval-TESTCLOSEDGRACE", sid, name="demo-wf", type="workflow",
+        status="success",
+        completed=datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")))
+
+    mod = load_module("ptu", "post-tool-use.py")
+    mod.EVAL_RUNS_DIR = runs
+    mod.INDEX_PATH = tmp / "a3" / "no-such-index.json"
+
+    run_main(mod, {
+        "tool_name": "Edit",
+        "tool_input": {"file_path": str(step_file)},
+        "session_id": sid,
+        "transcript_path": str(transcript),
+    })
+
+    entries = steps_named(read_steps(rec_path), "step-01-demo.md")
+    assert len(entries) == 1, f"step must land on the closed-within-grace record: {read_steps(rec_path)}"
 
 
 def test_step_complete_updates_same_key(tmp):

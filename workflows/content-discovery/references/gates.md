@@ -58,9 +58,10 @@ data:
   feature_image_set: <bool>
   feature_image_geo_confirmed: <bool>  # true if post is not geo-specific, OR if geo-specific and image location verified
   has_internal_link_if_required: <bool>  # true if no published related post exists, OR if one exists and a lexical link node was inserted
+  has_hub_link_if_mapped: <bool>  # true if no live hub in references/hub-registry.md matches the draft's tags, OR a lexical link node to the hub page URL was inserted
   is_voice_original: <bool>  # your own read — true means the post makes a distinct argument in David's voice, not a paraphrase of the digest
 schema_spec:
-  word_count: { min: 300, max: 500 }   # or {min: 1500, max: 2000} for IMPROVING BLOG PATH only
+  word_count: { min: 300, max: 700 }   # or {min: 1500, max: 2000} for IMPROVING BLOG PATH only
   tags: { field: "tags", allowed_list: [<locked-list tag ids from workflow.md>], format: "object_with_id" }
   em_dash_check: { field: "body", enabled: true }
   custom_checks:
@@ -70,43 +71,50 @@ schema_spec:
     - { field: "has_challenge", rule: "must_be_true" }
     - { field: "is_source_recap", rule: "must_be_false" }
     - { field: "is_voice_original", rule: "must_be_true" }
+    - { field: "meta_title", rule: "must_be_non_empty" }
     - { field: "meta_title", rule: "max_length", value: 70 }
+    - { field: "meta_description", rule: "must_be_non_empty" }
     - { field: "meta_description", rule: "max_length", value: 155 }
     - { field: "feature_image_landscape", rule: "must_be_true" }
     - { field: "feature_image_set", rule: "must_be_true" }
     - { field: "feature_image_geo_confirmed", rule: "must_be_true" }
     - { field: "has_internal_link_if_required", rule: "must_be_true" }
+    - { field: "has_hub_link_if_mapped", rule: "must_be_true" }
 ```
 
-The "no bullet points / no headers in body" check for sub-500-word posts is a structural scan
-of `body` this skill's generic rule set doesn't cover directly — run it yourself (or add it as
-`format_rules`/`custom_checks` on a future edit if it recurs elsewhere) and fold the result
-into `errors` manually if it fails, same STOP treatment as any other Gate 2 failure below.
+Two notes on the spec above:
+
+- The `must_be_non_empty` custom_checks entries are natively enforced by the schema-validator skill (added 2026-10-21; it aliases the `format_rules` `non_empty_string` check and fails on missing, null, empty, or whitespace-only values). No `format_rules` pairing is needed. This check matters: an empty string passes `max_length`, so without the non-empty check a dropped meta sails through Gate 2.
+- The citation-friendly structure check (opening paragraph is a single sentence stating the bottom line, the governing claim; body carries 2-4 H2 subheadings; post closes with a brief "What to do" takeaway) is a structural scan of `body` this skill's generic rule set doesn't cover directly. Run it yourself and fold the result into `errors` manually if it fails, same STOP treatment as any other Gate 2 failure below.
 
 | Check | Expected | On failure |
 |-------|----------|------------|
-| Word count | 300-500 words (URL/digest post path) or 1,500-2,000 words (IMPROVING BLOG PATH only) | **STOP.** Trim or expand before proceeding. Do not send an out-of-range draft to Ghost. |
+| Word count | 300-700 words (URL/digest post path) or 1,500-2,000 words (IMPROVING BLOG PATH only) | **STOP.** Trim or expand before proceeding. Do not send an out-of-range draft to Ghost. |
 | Four post-arc elements present | Hook, Story/Observation, Insight, Challenge/Takeaway all identifiable in the draft | **STOP.** If any is missing, write it now per the "Missing sections" rule in `workflows/content-discovery/references/digest-format.md` (using CONTENT-VOICE.md), then re-check. |
 | No em-dashes | Zero occurrences of `—`, `–` used as a dash, or `--` | **STOP.** Replace with commas, periods, or parentheses. Re-scan the full draft, not just the flagged sentence. |
-| No bullet points / no headers in body (post under 500 words) | Prose only | **STOP.** Convert to prose. |
+| Citation-friendly structure | Opening paragraph is a single sentence stating the bottom line (the governing claim); body carries 2-4 H2 subheadings; post closes with a brief "What to do" takeaway | **STOP.** Restructure the draft to match before proceeding. |
 | Not a source recap / not a paraphrase | Draft reads as David's reaction/angle, not "According to [source]..." AND does not simply restate the digest's argument in different words. Put the post and the digest side by side — if they make the same points in the same order with the same framing, `is_voice_original` is false. (`is_source_recap` false + `is_voice_original` true both required.) (err-20260915T154324-LFMX48) | **STOP.** Rewrite from David's own angle. The digest is the stimulus, not the script. Change the framing, not just the words. |
 | Tags are from the locked list | Every tag id in the draft's tag selection appears in workflow.md's LOCKED LIST table | **STOP.** Do not proceed with an off-list tag. Re-select from the locked list. |
 | Tag format is object-with-id | Selected tags represented as `[{"id": "..."}]`, never bare strings | **STOP.** Fix format before the Ghost API call — bare strings create junk tags (see workflow.md's CRITICAL note). |
-| meta_title ≤ 70 chars, meta_description ≤ 155 chars | Character counts checked | **STOP.** Trim before proceeding. |
+| meta_title and meta_description present and within limits | Both non-empty; meta_title ≤ 70 chars, meta_description ≤ 155 chars | **STOP.** Write or trim the meta before proceeding. An empty meta fails the same as an over-limit one. |
 | Feature image is landscape and CDN-uploaded (or verified fallback per FAILURE MODES) | `w > h` confirmed in Step 6; `feature_image` is set | **STOP.** Do not create the Ghost post without a validated image or an explicit, logged fallback. |
 | Feature image geography matches post (if geo-specific) | If the post names a city/region, the image is confirmed to depict that location (checked via photo title/description on the Unsplash page). If the post is not geo-specific, this check auto-passes. | **STOP.** Discard the candidate and re-run Step 6 with a location-specific search query. (err-20260915T154324-4DLWA4) |
 | Internal links present (if related published post exists) | If the post references or clearly relates to a published Ghost post, a lexical link node is built into the lexical body before this gate. If no related published post exists, this check auto-passes. | **STOP.** Resolve the referenced post URL from `get_posts` and insert the lexical link node now, before calling the Ghost API. Plain-text references are not acceptable. (err-20260915T154324-VTPMUJ) |
+| Hub link present (if post maps to a live hub) | Read `references/hub-registry.md`. If the draft's selected tags satisfy a hub's match rule AND that hub's `page_status` is `live`, the lexical body contains a link node to the hub page URL. Auto-passes when no hub matches or every matching hub is still `pending`. | **STOP.** Insert the lexical link node to the hub page now, before calling the Ghost API. Do not link to a `pending` hub; the page does not exist yet. |
 
 Log the result (reading `errors`/`warnings` back from the skill's response):
 ```
-[Gate 2] Word count: N (limit: 300-500 or 1500-2000)
+[Gate 2] Word count: N (limit: 300-700 or 1500-2000)
 [Gate 2] Post-arc elements present: Hook ✓ Story ✓ Insight ✓ Challenge ✓
+[Gate 2] Structure: bottom-line opening ✓ H2 subheads (N, 2-4) ✓ What-to-do takeaway ✓
+[Gate 2] Metas: meta_title (N/70, non-empty) ✓ meta_description (N/155, non-empty) ✓
 [Gate 2] Em-dash scan: clean
 [Gate 2] Voice original (not source paraphrase): ✓
 [Gate 2] Tags: {tag names} — all on locked list, object format confirmed
 [Gate 2] Image: landscape confirmed, CDN url set
 [Gate 2] Image geography: {confirmed match to {city} | n/a — post not geo-specific}
 [Gate 2] Internal links: {lexical link node inserted for "{prior post title}" | n/a — no related published post}
+[Gate 2] Hub link: {lexical link node to hub "{hub title}" | n/a — no live hub match}
 [Gate 2] PASS — proceeding to Ghost draft creation.
 ```
 

@@ -300,6 +300,71 @@ def find_active_eval_record(session_id: str) -> Path | None:
     return None
 
 
+# A completed record remains a valid target for step writes this long after its
+# completion: a workflow's final steps are routinely written AFTER the turn-level
+# Stop hook has already closed the record (2026-10-21 boot: eval-turn-stop closed
+# the boot record at 15:41:40, steps 06-08 were written at 15:47-15:50).
+STEP_WRITE_CLOSED_RECORD_GRACE_SECONDS = 6 * 3600
+
+
+def find_step_target_record(session_id: str, workflow_name: str | None) -> Path | None:
+    """Route a step-frontmatter write to the record that actually belongs to
+    the step's workflow — never to "the most recent in-progress record".
+
+    The old recency rule is the root of the 2026-10-21 misattribution: with
+    several background subagents holding open stubs under one session_id,
+    Knox's plaud-ingest step writes landed on the boot executor's stub
+    (eval-20261021T151415-QZP2GE), stamped its `workflow` field
+    "plaud-ingest", and diverted that subagent's entire stop-time step
+    processing to the wrong workflow. Boot's own record got zero steps.
+
+    Rule: the step's workflow (parsed from its file path) must match the
+    record's `name` or `workflow` field. In-progress matches win; a record
+    completed within the grace window is accepted so late step writes still
+    land. If nothing matches, return None — an honest skip beats a write to
+    the wrong record.
+    """
+    if not session_id or not workflow_name:
+        return find_active_eval_record(session_id) if session_id else None
+    try:
+        if not EVAL_RUNS_DIR.exists():
+            return None
+        now = datetime.now(timezone.utc)
+        open_matches = []
+        closed_matches = []
+        for f in EVAL_RUNS_DIR.glob("eval-*.json"):
+            try:
+                with open(f, "r") as file:
+                    data = json.load(file)
+                if data.get("session_id") != session_id:
+                    continue
+                if data.get("name") != workflow_name and data.get("workflow") != workflow_name:
+                    continue
+                started = data.get("started", "")
+                if data.get("status") == "in-progress":
+                    open_matches.append((f, started))
+                else:
+                    completed_dt = parse_ts_assume_utc(data.get("completed"))
+                    if completed_dt is not None and (now - completed_dt).total_seconds() <= STEP_WRITE_CLOSED_RECORD_GRACE_SECONDS:
+                        closed_matches.append((f, started))
+            except Exception:
+                continue
+        if open_matches:
+            open_matches.sort(key=lambda x: x[1], reverse=True)
+            return open_matches[0][0]
+        if closed_matches:
+            closed_matches.sort(key=lambda x: x[1], reverse=True)
+            return closed_matches[0][0]
+        log_error(
+            f"[EVAL-HARNESS] No eval record for workflow '{workflow_name}' in session "
+            f"{session_id} — step write skipped rather than routed by recency "
+            f"(the old behavior misattributed steps to whatever record was freshest)"
+        )
+    except Exception as e:
+        log_error(f"Failed to find step target record: {e}")
+    return None
+
+
 def find_completed_eval_record(workflow_name: str, session_id: str,
                                run_started: "datetime | None" = None,
                                alt_session_id: str | None = None) -> Path | None:
@@ -1073,7 +1138,11 @@ def process_eval_harness(rel_path: str, file_path: str, session_id: str, transcr
 
     # Check if this is a step frontmatter write
     elif "/steps/" in rel_path and rel_path.endswith(".md"):
-        eval_path = find_active_eval_record(session_id)
+        # Route by the step's own workflow (from its path), not by recency —
+        # see find_step_target_record for why recency misattributes steps when
+        # concurrent background subagents hold open records for one session.
+        step_wf_match = re.search(r"workflows/([^/]+)/steps/", rel_path.replace("\\", "/"))
+        eval_path = find_step_target_record(session_id, step_wf_match.group(1) if step_wf_match else None)
         if eval_path:
             try:
                 with open(file_path, "r") as f:

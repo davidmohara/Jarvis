@@ -2,14 +2,14 @@ workflow: plaud-ingest
 agent: knox
 status: complete
 outcome: no-new-recordings
-session-id: pi-20261019-001
-session-started: '2026-10-19T00:00:00Z'
-completed-at: '2026-10-19T20:40:00Z'
+session-id: pi-20261021-001
+session-started: '2026-10-21T15:20:00Z'
+completed-at: '2026-10-21T15:30:00Z'
 current-step: step-01
-original-request: "Knox — run workflows/plaud-ingest/workflow.md in full. Background task. Today's date is 2026-10-19."
+original-request: "Knox — run workflows/plaud-ingest/workflow.md in full. Background task. Today's date is 2026-10-21."
 blocker: null
 accumulated-context:
-  target-date: 2026-10-19
+  target-date: 2026-10-21
   new-recordings: []
   transcription-triggered: []
   pending-recordings: []
@@ -20,12 +20,11 @@ accumulated-context:
   staged-files: []
   ingested-notes: []
   unresolved_speakers: []
-  escalation-evidence: null
   gate_1_auth_method: cached-token
   gate_2_result: pass
   gate_2_flagged_recordings: []
 notes:
-  - "pi-20261019-001: FULL ENUMERATION (catch-up, target-date ignored per step-01 rule 6 — set for reporting only). Gate 1 PASS (cached-token, /user/me authenticated as David O'Hara). Canonical fetch params required (sort_by=start_time, is_desc=true); create_time/is_desc=1 returned an empty list. API total 149, unchanged from 10-15 baseline. Newest recording remains 2026-10-08."
-  - "Vault enumerated via direct filesystem walk of iCloud vault zzPlaud/ (exhaustive by construction): 208 .md notes, 149 unique file_ids. API id set == vault id set exactly (0 missing either direction)."
-  - "Tier1/2/3 dedup via ledger (295 entries: 149 API + 146 staged), every entry has a checked tier: 149 API recordings all matched (0 new); 146 top-level staged files all resolve to vault file_ids via sibling _raw.json (0 orphans, 0 stale). All staged files are post-ingest leftovers flagged for cleanup."
-  - "Circuit breaker clear (0 new vs 0 baseline). Gate 2: 0 recordings to validate. Workflow terminated at step-01 per step-01 NO-OP EXIT (new-recordings: [], outcome: no-new-recordings, status: complete). Steps 02-06 not run."
+  - "pi-20261021-001: FULL ENUMERATION (catch-up, target-date set for reporting only). Gate 1 PASS (cached-token, /user/me authenticated as David O'Hara). Enumerated via fetch_plaud.py list_recordings (sort_by=start_time, is_desc=true). API total 149, unchanged from 10-19 baseline. Newest recording remains 2026-10-08."
+  - "Vault enumerated via direct filesystem walk of iCloud vault zzPlaud/ (exhaustive): 208 .md notes, 149 unique file_ids. API id set == vault id set exactly (0 missing either direction)."
+  - "Tier1/2/3 dedup via ledger (295 entries: 149 API + 146 staged), every entry has a checked tier: 149 API recordings all Tier-1 file_id matches (0 new); 146 top-level staged files all resolve to vault file_ids via sibling _raw.json recording.id (0 orphans, 0 stale, 0 in-progress). All 146 staged files are post-ingest leftovers flagged for cleanup."
+  - "Circuit breaker clear (0 new vs 0 baseline). Gate 2: 0 recordings to validate. Workflow terminated at step-01 per NO-OP EXIT (new-recordings: [], outcome: no-new-recordings, status: complete). Steps 02-06 not run."

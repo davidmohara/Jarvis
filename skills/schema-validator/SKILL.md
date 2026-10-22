@@ -90,6 +90,7 @@ em_dash_check:
 
 custom_checks:
   # Anything not covered above — mechanical checks only, no free-text judgment.
+  - { field: "meta_title", rule: "must_be_non_empty", severity: "error" }  # alias of format_rules type: "non_empty_string"; fails on missing/null/empty/whitespace
   - { field: "meta_title", rule: "max_length", value: 70, severity: "error" }
   - { field: "meta_description", rule: "max_length", value: 155, severity: "error" }
   - { field: "feature_image_landscape", rule: "must_be_true", severity: "error" }
@@ -148,6 +149,14 @@ severity is configurable per rule in `schema_spec` rather than fixed by this ski
    - `must_be_true`: `data[field]` is truthy.
    - `must_be_false`: `data[field]` is falsy.
    - `must_equal`: `data[field] == value`.
+   - `must_be_non_empty`: `data[field]` is present, not `None`, and not an empty or
+     whitespace-only string (after trimming). This is the same check as
+     `format_rules` `type: "non_empty_string"` — the two spellings are aliases, so a spec can
+     express non-emptiness in whichever section fits. **Exception to the `field_absent`
+     rule:** unlike every other `custom_checks`/`format_rules` entry, a missing field is a
+     FAILURE of this rule (recorded as
+     `{field, rule: "must_be_non_empty", actual_value: null}`), not a skipped `field_absent`
+     warning — enforcing presence is the entire point of the rule.
    - Any other `rule` name not listed here: treat as unsupported, record a warning
      `{field, rule: "unsupported_custom_check", actual_value: rule_name}` rather than silently
      skipping it or guessing at behavior — this makes a schema_spec typo visible instead of a
@@ -162,7 +171,7 @@ severity is configurable per rule in `schema_spec` rather than fixed by this ski
 
 | Situation | Response |
 |-----------|----------|
-| `schema_spec` references a field not present anywhere in `data` | Not itself an error unless a `required_fields` entry names it — a `format_rules`/`custom_checks` entry on an absent field is skipped and noted in `warnings` as `{field, rule: "field_absent", actual_value: null}`, since checking a rule against nothing that exists is not the same as that field failing its rule. |
+| `schema_spec` references a field not present anywhere in `data` | Not itself an error unless a `required_fields` entry names it — a `format_rules`/`custom_checks` entry on an absent field is skipped and noted in `warnings` as `{field, rule: "field_absent", actual_value: null}`, since checking a rule against nothing that exists is not the same as that field failing its rule. **Exception:** `must_be_non_empty` custom checks FAIL on an absent field (see Process step 6) — presence enforcement is the rule's purpose. |
 | `data` is not a dict/object | Return `valid: false`, single error `{field: null, rule: "invalid_input", actual_value: type(data)}`. Do not attempt partial validation. |
 | `schema_spec` is empty/missing all sections | Return `valid: true`, empty `errors`/`warnings` — an empty spec validates everything, by design; the caller decides whether that's the right spec to be passing. |
 <!-- system:end -->

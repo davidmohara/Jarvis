@@ -1,10 +1,10 @@
 ---
 status: complete
-started-at: '2026-10-19T21:31:00Z'
-completed-at: '2026-10-19T21:32:00Z'
+started-at: '2026-10-21T15:49:30Z'
+completed-at: '2026-10-21T15:50:00Z'
 knox_status: success
-knox_reason: 'plaud-ingest pi-20261019-001 complete, outcome no-new-recordings (workflows/plaud-ingest/state.yaml evidence); eval record eval-20261019T203922-DEHON9 status no-op, completed 2026-10-19T20:39:22Z, no punch-out'
-knox_eval_id: eval-20261019T203922-DEHON9
+knox_reason: 'plaud-ingest pi-20261021-001 complete, outcome no-new-recordings (workflows/plaud-ingest/state.yaml evidence); eval record eval-20261021T151813-348IAN status no-op, started 2026-10-21T15:20:00Z, no punch-out'
+knox_eval_id: eval-20261021T151813-348IAN
 ---
 
 <!-- system:start -->

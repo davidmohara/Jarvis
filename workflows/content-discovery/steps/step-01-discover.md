@@ -33,6 +33,7 @@ model: sonnet
 8. You MUST set content_type on every pending-drafts.json entry — "post" or "article". Never omit it.
 9. You MUST run the tracker resync and cleanup (Step 1a) and scan pending draft threads for editorial feedback (Step 1b) before processing new content. Discovery is the custodian of the shared tracker — publishing is external (David publishes directly in Ghost), so Step 1a's resync is the only thing keeping pending-drafts.json in sync with reality.
 10. You MUST NOT proceed past GATE 1 or GATE 2 below if either fails its HARD criteria.
+11. Hub page updates (Step 1c) MUST only add posts whose Ghost status is `published` or `scheduled`, never drafts. Hub page PUTs MUST send the page's current server-issued `updated_at`, fetched via a GET immediately before the PUT, and MUST target the pages API (`/ghost/api/admin/pages/{id}`). See `references/hub-registry.md`. Hub pages themselves are never created by this workflow; page bodies are David-approved before the page exists.
 
 Before executing, write `status: in-progress` and `started-at` to this file's own frontmatter.
 
@@ -89,7 +90,7 @@ Run this on every execution, before scanning threads. This is the step that keep
 
 - `post.status == "published"`: published externally. Update the entry: set `status: "published"`, add `published_at: {post.published_at}`. It will be removed by the cleanup pass below.
 - `post.status == "scheduled"`: update the entry: set `status: "scheduled"`, add `scheduled_at: {post.published_at}` (Ghost stores the scheduled time in `published_at` for scheduled posts).
-- `post.status == "draft"`: still a draft (expected). Leave as `status: "pending"`.
+- `post.status == "draft"`: still a draft (expected). Leave as `status: "pending"`. Also compare `meta_title` and `meta_description` against the tracker entry: if either differs from live Ghost state, update the entry to the live values, log it as meta drift, and count it in `tracker_resynced`. (Entries predating the meta fields are treated as unknown, not drift.)
 - Not found (404): deleted externally. Update the entry: set `status: "deleted_externally"`.
 
 **Cleanup.** After resync, remove from the array:
@@ -122,6 +123,12 @@ For each thread, examine the replies from human users (skip bot messages). Apply
 Only process replies that arrived in the last 24 hours (compare reply `ts` to now). Skip older replies — they were either already handled or are stale.
 
 If a reply has already been acted on, skip it. Track handled replies by adding an `editorial_edits` array to the pending-drafts.json entry (see DRAFT EDIT PATH below).
+
+### 1c. Sync hub pages with newly published posts
+
+Run after 1a/1b on every execution, before processing new content. Read `references/hub-registry.md` and run its Hub Page Sync protocol: for each hub with `page_status: live`, reconcile published/scheduled Ghost posts matching the hub's rule against the page body and append entries for any that are missing, including posts that transitioned to `published` or `scheduled` in this run's Step 1a resync. Drafts are never added. Page updates go through the Admin API pages PUT with the server-issued `updated_at` rule. If no live hubs exist or nothing is missing, this is a clean no-op.
+
+Record `hub_synced` (count of post entries appended across all hubs) in this step's frontmatter outputs and in `state.yaml` `accumulated-context`.
 
 ---
 
@@ -172,10 +179,10 @@ Map the parsed digest sections to the post arc:
 For any section that is missing from the digest, Harper writes it from scratch using CONTENT-VOICE.md as the voice guide. The four post-arc elements (Hook, Story, Insight, Challenge) must all appear in the final post — no exceptions. **GATE 2 below checks this before Ghost creation.**
 
 Apply all standard drafting rules from the URL PATH section:
-- 300-500 words. No headers. No bullet points in body. Prose only.
+- 300-700 words, in the citation-friendly structure from `references/digest-format.md`: a one-sentence bottom-line opening paragraph, 2-4 H2 subheadings in the body, and a closing "What to do" takeaway that lands the Challenge/CTA as a direct question or provocation for the reader.
 - No em-dashes. Use commas, periods, or parentheses.
-- The post must be David's voice and reaction — not a restatement of the digest content.
-- End with a direct challenge or question to the reader.
+- The post must be David's voice and reaction, not a restatement of the digest content.
+- If the post cites a stat, study, or firm (e.g., McKinsey State of AI, PwC surveys), include at least one outbound link to the primary source, in addition to the internal-link rule.
 
 Also draft at this stage: `meta_title`, `meta_description`, `twitter_title`, `twitter_description` (same rules as URL PATH).
 
@@ -224,7 +231,13 @@ After reading CONTENT-VOICE.md, write a blog post in David's voice following the
 - **Insight:** The distilled truth. One clean line of reasoning that arrives somewhere. Not a list of takeaways.
 - **Challenge/Takeaway:** A direct question or provocation in the final paragraph. This is non-negotiable. It must appear in every post. It asks something of the reader.
 
-**Length:** 300-500 words. No headers in posts under 500 words. Prose only. No bullet points in the body.
+**Length:** 300-700 words.
+
+**Structure (citation-friendly, approved 2026-10-21, replacing the old prose-only rule):**
+- Open with a one-sentence "bottom line": the governing claim of the post, as the first paragraph.
+- Organize the body under 2-4 H2 subheadings.
+- Close with a brief "What to do" takeaway that lands the Challenge/Takeaway arc element.
+- When the post cites a stat, study, or firm (e.g., McKinsey State of AI, PwC surveys), include at least one outbound link to the primary source. This is in addition to the internal-link rule (a lexical link to a related published Ghost post when one exists, checked at Gate 2).
 
 > ❌ **NO EM-DASHES. EVER.** Not `—`, not `–`, not `--`. Use commas, periods, or parentheses. No exceptions.
 
@@ -246,6 +259,8 @@ Choose 1-3 tags from the locked list in workflow.md. Match to the post's core th
 > ❌ Wrong: `tags=["637ea17e92f3300211b1b23a", "68fbc4d89e3561027e745c91"]`
 >
 > **If the Ghost MCP rejects tag objects (returns an error about tag format):** Omit `tags` from the `create_post` call entirely. Apply tags via the Ghost Admin API PUT in Step 7b instead — the Admin API handles the object format correctly. Do NOT fall back to bare strings — that creates junk tags in the database.
+
+> **Hub link check:** After selecting tags, read `references/hub-registry.md`. If the tag selection satisfies the match rule of a hub whose `page_status` is `live`, plan a lexical link node to that hub's page URL in the post body: a natural sentence near the close, under or beside the "What to do" takeaway. Gate 2 checks this as `has_hub_link_if_mapped`. Hubs with `page_status: pending` are ignored; the rule activates automatically once the page exists.
 
 ### 6. Source the feature image
 
@@ -283,7 +298,9 @@ Read the current `workflows/content-approval/pending-drafts.json`, append the ne
   "created_at": "{ISO timestamp}",
   "status": "pending",
   "source_type": "url",
-  "content_type": "post"
+  "content_type": "post",
+  "meta_title": "{meta_title}",
+  "meta_description": "{meta_description}"
 }
 ```
 
@@ -339,6 +356,7 @@ Add the new post to the Candidates table in `reference/blog-ideas.md`:
 | Ghost API fails on post creation | Log error. Notify David in #content: "Draft creation failed for {url} — will retry tomorrow." |
 | Image upload fails | Use a fallback Unsplash URL directly (without uploading) — Ghost accepts external URLs for feature_image. Note in Slack message: "(image not uploaded to CDN — using external URL)" |
 | pending-drafts.json is malformed | Reset to `[]` and log the error. Do not halt. |
+| Hub page sync fails (page 404 on a `live` registry entry, PUT rejected, JWT error) | Log the hub and error in the run outputs and continue; hub sync never blocks drafting. If a registry entry is `live` but its page 404s, surface it in the outcome line: the page was deleted or never created, and the entry needs correcting. |
 
 ---
 
@@ -346,7 +364,7 @@ Add the new post to the Candidates table in `reference/blog-ideas.md`:
 
 After Step 10 completes (or after an early clean exit with no new content):
 
-1. Write `status: complete`, `completed-at`, and populated `outputs` (at minimum: `messages_scanned`, `new_urls`, `new_digests`, `posts_drafted`, `gate_1_result`, `gate_2_result`) to this file's own frontmatter.
+1. Write `status: complete`, `completed-at`, and populated `outputs` (at minimum: `messages_scanned`, `new_urls`, `new_digests`, `posts_drafted`, `hub_synced`, `gate_1_result`, `gate_2_result`) to this file's own frontmatter.
 2. Write those same output keys into `state.yaml`'s `accumulated-context`.
 3. Set `state.yaml`'s `current-step: step-02`.
 

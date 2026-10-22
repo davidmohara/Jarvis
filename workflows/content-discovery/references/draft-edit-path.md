@@ -35,6 +35,8 @@ Rebuild the affected lexical nodes. For full rewrites, rebuild the entire lexica
 
 Use the Ghost Admin API PUT (same JWT pattern as Step 7) to update the post. Use PUT with no trailing slash — PATCH returns 404:
 
+`updated_at` is **required** on every PUT and must be the post's current **server-issued** value, taken verbatim from the `get_post` response in section A. It is not a client timestamp: generating one fails the optimistic lock ("Someone else is editing this post"), and omitting it fails with 422 `must have required property 'updated_at'`. If any meaningful time has passed since section A (image work, a slow rebuild), re-run `get_post` immediately before the PUT and use the fresh `updated_at` from that response.
+
 ```
 PUT https://driventodevelop.com/ghost/api/admin/posts/{ghost_post_id}
 Authorization: Ghost {jwt}
@@ -48,7 +50,9 @@ Content-Type: application/json
 }
 ```
 
-For image-only updates, PATCH `feature_image` and `twitter_image` (and `updated_at`) without touching `lexical`.
+In that body, `current_updated_at` means the exact string returned as `updated_at` by the section A `get_post` call (re-fetched immediately before the PUT if stale). It is never a timestamp you generated.
+
+For image-only updates, PATCH `feature_image` and `twitter_image` (and `updated_at`) without touching `lexical`. The same server-issued `updated_at` rule applies.
 
 **D. Verify**
 

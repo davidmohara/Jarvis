@@ -8,6 +8,24 @@ Combines:
 
 Outputs a single per-day table with both sources, plus a totals block.
 
+METER SCOPE (why these numbers differ from attribute.py and from
+reconcile-workflows.py — measured 2026-10-21, $41.13 Fireworks vs $13.72
+attribute.py vs $8.80 local-truth):
+  - The Fireworks column here is ACCOUNT-scoped /billingUsage: every request
+    authed with the X-Fireworks-Api-Key in ~/.claude/settings.json, from any
+    client (this Mac's Claude Code, Cowork's bundled CLI running scheduled
+    tasks inside its VM, anything else on the key), whether or not a local
+    transcript exists. Most of today's gap was kimi-k3: 52.4M tokens metered
+    vs 5.1M in local transcripts — Cowork/scheduled runs whose transcripts
+    never land under ~/.claude/projects.
+  - attribute.py is LOCAL transcript-derived but under-scans: it globs only
+    top-level <project>/*.jsonl (missing <session>/subagents/*.jsonl), never
+    dedupes repeated message.id lines (~1.75x inflation on a busy session),
+    and substring-matches models (glm-5p3-flash prices at glm-5p3 rates).
+  - reconcile-workflows.py is the local-truth reconciliation: deduped,
+    per-turn-priced, subagent transcripts included, workflow fully-loaded
+    costs checked against the session metered total.
+
 Usage:
     python3 report.py --since 2026-10-01 --until 2026-10-21
     ANTHROPIC_ADMIN_KEY=... python3 report.py ...   # or config/.env
@@ -91,7 +109,8 @@ def main():
     print(f"\n{'TOTAL':<12} ${tf:>9.2f} {('$'+format(ta,'.2f')) if an_ok else 'n/a':>10} ${tf+ta:>9.2f}")
     print("\nNote: Fireworks column is account-scoped metered usage priced at configured rates")
     print("(cached tokens at 11.5% of input rate, calibrated 2026-10-20). Anthropic column")
-    print("is rated dollars from the org cost report. See attribute.py for session/skill detail.")
+    print("is rated dollars from the org cost report. See attribute.py for session/skill detail")
+    print("and reconcile-workflows.py for the workflow/day-level local reconciliation")
 
 
 if __name__ == "__main__":

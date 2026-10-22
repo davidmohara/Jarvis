@@ -1,67 +1,70 @@
 agent: master
 status: complete
 current-step: null
-session-id: boot-2026-10-19
-session-started: '2026-10-19T20:31:51Z'
+session-id: boot-2026-10-21
+session-started: '2026-10-21T15:15:28Z'
 original-request: Run the morning boot up workflow
 accumulated-context:
-  phase1: completed inline by Master (context load, identity files, routing); Knox plaud-ingest spawned fire-and-forget; session index record appended
+  phase1: completed inline by Master (context load, identity files, routing); Knox plaud-ingest spawned fire-and-forget by Master before handoff; session index record appended by Master
   phase1-point5:
     unified-data-pulls:
-      email: 'completed — 72 unread across 2 accounts via Superhuman (M365 MCP unavailable — auth stubs only); 0 flagged/starred; notable: Booking October Performance MTD-9.3M (Curtis Hite), UTB Meeting Schedule week of 10/19 (BoardVantage), October GoTogether starts today (SPARC), Thought Leadership week of Oct 19-23 (Marketing), SME&C East Partner Showcase thread (Lowell Messner/Microsoft), AI budget increase approved $500->$1000/mo (helpdesk)'
-      omnifocus: completed — 34 tasks
+      email: 'completed — 27 messages since 2026-10-19 via M365 outlook_email_search (M365 MCP AVAILABLE this session, unlike 10-19); 0 flagged filter available, 1 high-importance (Bethany Hilton Fw: Strategic session with C-suite Leaders — Thursday evening BofA-hosted event); notable: AI Leadership Summit homework (Tim Rayburn, Nov 5-6 TED talks), Improving AI Policy initial draft (Amber Robinson, attachment, to David/Curtis/Devlin), ASEI/BofA AI workshop hybrid-broadcast question (Bethany Hilton), YPO forum dinner date poll (Oct 26 / Nov dates), YPO Gold Regional Officers confirm by Oct 23, AI Mastermind Thu Oct 22 10:00-11:30 reminder'
+      omnifocus: completed — 42 tasks
       clay: failed — Clay MCP not connected (only authenticate/complete_authentication stubs registered this session); attempted anyway per mandatory rule
-      jarvis-inbox: nothing-to-surface — 0 unread in Jarvis folder (Apple Mail per reference memory; M365 path unavailable); jarvis-inbox skill ran success at 20:32:48Z pre-boot
-      ynab: completed — 30 accounts, 648 payees (11 accounts with spend)
+      jarvis-inbox: nothing-to-surface — 0 unread in Jarvis folder (Apple Mail AppleScript, mailbox exists and reachable)
+      ynab: completed — 30 accounts, 647 payees (11 accounts with spend)
     files-created:
     - data/email-unified.json
     - data/omnifocus-unified.json
     - data/clay-reminders-unified.json
     - data/jarvis-inbox-unified.json
     - data/ynab-unified.json
-    total_data_on_disk_kb: 186.6
+    total_data_on_disk_kb: 193
   calendar:
     calendar_file: data/calendar-unified.json
-    event_count: 47
-    date_range: 2026-10-19 to 2026-10-22
-    file_size_kb: 20.6
+    event_count: 37
+    date_range: 2026-10-21 to 2026-10-24
+    file_size_kb: 15.5
     status: written
-    source: superhuman-mail (M365 MCP unavailable — auth stubs only); 44 Improving events + 3 personal all-day (peptide cycle reminders), times in CDT
+    source: m365-outlook_calendar_search (M365 MCP available this session); default Outlook calendar only — personal Google-calendar all-day items (peptide reminders) not included; yWhales yDeep Dive no longer on Wed calendar (declined/removed since 10-19 pull)
   phase2:
-    morning-briefing-steps-01-02: 'completed — Chief (chief-2026-10-19-205219): 13 events today (11 timed + 2 all-day peptide reminders). Houston Bootcamp (main) 08:30-17:30 Teams + Dallas "Bootcamp" Lockhart 10:00-16:50 overlap; haircut 09:15 Plano, Lunch with Imran 11:45 Mexican Sugar, GEHC Twice Weekly Internal Check-In 14:00 (only work call outside bootcamp), Tre Wilcox Chef Smackdown 17:00-20:30. No client meetings, no 1:1s — no Chase/Shep prep triggers. Tasks: 34 active, 12 inbox, 0 due today, 1 overdue (Fix media room lights, Family, 2d), 0 flagged; tomorrow: Identify 5 Microsoft contacts + Confluent Regional Sales Director (Reachout). Delegations: 1 overdue (Steve Hall follow-up, Derek Nwamadi, 24d, watch-only per David 10-09). ROCKS FLAG: Rock 1 KR1 (Solace milestones AT&T/McKesson/SLB) and Rock 2 (South Texas Chase decomposition) both due Oct 17 — dates PASSED, no IES status update recorded. morning-briefing state.yaml at step-03, ready for boot step-04 resume.'
-    phase2_status: complete — all 5 tasks executed, 0 failures (email via Superhuman fallback; Clay degraded)
-    task-g-72hr-lookahead: 'completed — Tue Oct 20: Houston Bootcamp 08:30-17:30 + Hosting Leadership Dallas at Improving 08:30-09:00 (David hosting; Don McGreal, Diana Stevens, Derek Nwamadi, et al), Sales & Recruiting 09:15, Sales Scrum 10:00 DOUBLE-BOOKED with DLP self-learning check-in 10:00-10:30, SAP Group 11:00-11:30 OVERLAPS GEHC AI Routing technical deeper dive 11:00-12:00 (client). Wed Oct 21: Dallas Executive Huddle 08:30 vs Eye Appointment Dr McClinton 08:40-09:40 Frisco (conflict), AI Leaders Weekly 09:30, GEHC weekly sync 10:30 (duplicated invite) vs yWhales yDeep Dive 10:30-12:00 (conflict), UTB Board of Directors VIRTUAL 13:30-16:30 (OCC exam; BoardVantage schedule email arrived today), Shield 35th Anniversary Dinner 17:00-20:30 La Stella. Thu Oct 22: DFW Prayer Breakfast 06:30-09:30 (overlaps bootcamp start), Sales Scrum vs DLP check-in double-booked again 10:00, Dr Jeremy Denning appt 11:00-12:00 Plano, 1:1 Scott McMichael 14:00, GEHC business-value review 15:00-15:40 (client), Meet Makena dinner 18:30 Selda. Epithalon all-day cycle starts Thu.'
-    task-h-email-triage: 'completed — 72 unread across 2 accounts (Superhuman; M365 down), 0 flagged/starred. Actionable/notable: Booking October Performance MTD $9.3M (Curtis Hite to Presidents@, 09:52 CDT); UTB Meeting Schedule week of 10/19-10/23 (BoardVantage, corroborates Wed board meeting); October GoTogether starts TODAY (SPARC — ties to due reminder re: registration link); Thought Leadership week of Oct 19-23 lineup (Marketing); Lowell Messner/Microsoft SME&C East Partner Showcase thread labeled Respond (Improving onsite 11/12); AI budget increase approved $500/mo to $1,000/mo (helpdesk + compliance.improving.ai); added to Improving org on Claude; Weekly Sales Digest (PowerBI); GitHub PAT requests pending for Improving org (admin action). Rest: newsletters, YPO digests, LinkedIn, wine/marketing.'
-    task-i-jarvis-inbox: nothing-to-surface — 0 unread in Jarvis folder; jarvis-inbox skill ran success at 2026-10-19T20:32:48Z (7 min pre-boot, 0 tool failures), Apple Mail spot-check confirms empty
-    task-j-reminders: 'completed — 3 due: (1) rem-20261015T182852-JDP76U GoTogether registration link into 7 webinar drafts -> harper (snooze 1d); (2) rem-20261016T190130-VD2YAP peptide cycle start confirm Tesamorelin 50IU + Ipamorelin 10IU -> galen (snooze 2d); (3) rem-20261017T005503-CRBRYQ ~$992 Amex Platinum credits expiring 12/31 -> chase (snooze 3d). MOTS-C reminder not due until 2026-11-02.'
-  verification_results: 'pass — Ralph (bv-20261019-001) verified all 6 Phase 2 tasks: 5 Verified, 1 Not applicable (Task E fire-and-forget, eval-20261019T203922-DEHON9 + plaud-ingest pi-20261019-001 no-new-recordings), 0 Unverified, 0 Skipped, 0 re-runs. Notes: reminders.json mtime 10-18 but content ground-truth matches (3 due, 1 future); OmniFocus due_date format now human-readable strings (parsed fine); M365-unavailable claim corroborated (auth stubs only).'
+    morning-briefing-steps-01-02: 'completed — Chief (chief-2026-10-21-152000): 12 events today (11 unique; GEHC sync invite duplicated). Conflicts: Dallas Exec Huddle 08:30 Trust room vs Eye Appt 08:40 Frisco (impossible overlap, already past); Bootcamp 08:30-17:30 anchors the day and overlaps GEHC client call 10:30 and UTB Board 13:30-16:30; 3 zero-buffer handoffs; 1.5h unbooked in 12.5h window. OmniFocus: 42 active, 15 inbox (3 new since 10-19: Team Day at Augment, Same as Ever Morganhouse, Return glasses), 1 due today (Coherence breathing 10:00, time passed), 1 overdue (Fix media room lights, Family, 4d), 0 flagged. Tomorrow due: Review prayer list 11:00; Fri 6 due incl DRC Talent Labs content deadline 5pm; Kare Devices heaviest workstream (5 due Fri, 6 more Mon). Delegations: 1 overdue watch-only (Steve Hall follow-up, Derek Nwamadi, 26d, David confirmed 10-09 no nudge). ROCKS: Rock 1 KR1 + Rock 2 decomposition both due Oct 17 PASSED with no IES status update; Rock 3 Sep close validation due Oct 24 (3d); Rock 4 Talent Labs content deadline Oct 23. morning-briefing state.yaml at step-03, ready for boot step-04 resume.'
+    phase2_status: complete — all 5 tasks executed, 0 failures (Clay degraded, unavailable)
+    completed_tasks:
+    - morning-briefing-steps-01-02
+    - task-g-72hr-lookahead
+    - task-h-email-triage
+    - task-i-jarvis-inbox
+    - task-j-reminders
+    task-g-72hr-lookahead: 'completed — Thu Oct 22: DFW Prayer Breakfast 06:30-09:30 (overlaps bootcamp start), Houston Bootcamp 08:30-17:30, Sales & Recruiting 09:15, Sales Scrum 10:00 DOUBLE-BOOKED with DLP self-learning check-in 10:00-10:30, Dr Jeremy Denning appt 11:00-12:00 Plano (also collides with AI Mastermind Basecamp session 10:00-11:30 per email), 1:1 Scott McMichael 14:00 (Shep trigger), GEHC AI Routing business-value discussion 15:00-15:40 (CLIENT), Meet Makena dinner 18:30 Selda Frisco; Bethany Hilton email asks who can attend a Thursday-evening C-suite strategic session (BofA-hosted, Becky Caleb) — McGreal and Pliego already declined. Fri Oct 23: Eric Sowell PTO (FYI), IGP Bible Study 06:30, Dallas Virtual Coffee 08:00, Bootcamp 08:30-17:30, Sales & Recruiting 09:15, 4th Friday Executive Meeting 09:30, Presidents Pipeline Roundtable 10:00-11:00, Q4 Cyber Security Awareness Training 13:00 (self), Friday Week Wrap-Up 15:00, Wine Tasting 18:30 Total Wine Plano. Sat Oct 24: Lisa Barnes OOO (FYI), Surprise party for Erin 18:00-21:00 at Didi''s.'
+    task-h-email-triage: 'completed — 27 messages since 10-19 via M365, 0 flagged, 1 high-importance: Bethany Hilton Fw: Strategic session with C-suite Leaders (Thursday evening, BofA Becky Caleb connection; needs David availability call — Don + Jorge out). Actionable/time-sensitive: YPO Gold Regional Officers candidate confirmation due FRI OCT 23 (smeyer@ypo.org); Bethany Hilton ASEI/BofA AI workshop hybrid-broadcast question (needs yes/no); Amber Robinson Improving AI Policy initial draft for review (attachment, with Curtis + Devlin); Tim Rayburn AI Leadership Summit homework (5-min TED talk, Nov 5-6); YPO forum dinner availability poll (Oct 26 or Nov dates; Koryl intro thread); YPO Power of the Room registration (Granada Theater panel); DRC Executive Circle Oct 28 registration; TX Interventional Spine and Pain balance due (personal bill); Basecamp AI Mastermind session tomorrow 10:00-11:30 (conflicts with Denning appt). Rest: newsletters/marketing.'
+    task-i-jarvis-inbox: nothing-to-surface — 0 unread in Jarvis folder (verified via Apple Mail AppleScript at step-01.2 Pull D, 15:17Z; mailbox exists and reachable; Chief spawn skipped as redundant with zero items)
+    task-j-reminders: 'completed (0 due) — nothing triggers today; next: rem-20261017T005503-CRBRYQ ~$992 Amex Platinum credits expiring 12/31 (due TOMORROW 10-22 -> chase); rem-20261016T190151-9CFK0X MOTS-C cycle check (due 2026-11-02 -> galen)'
   phase3:
-    morning-briefing-step-03: 'completed — 0 meetings flagged needs_prep. GEHC Twice Weekly Internal Check-In 14:00 classified ready (recurring internal; last vault note 2026-09-14 ~5w stale; open thread: Braunstein self-tuning routing question + DICOM fan-out confirmation from 09-18; real issue is attendance inside bootcamp block). Lunch with Imran 11:45 low-context — ZERO vault hits for Imran (MCP + grep), surface as UNKNOWN. Houston Bootcamp main ready. Yesterday review MISSING (no 10-18 or 10-17; latest auto-2026-10-16, no live controller) — accountability gap flag. Step-03b checkpoint: FLAG (Imran identity unresolvable, weekend reviews missing) — checkpoint RECORDING FAILED (no in-progress morning-briefing eval record after 6 retries; known gap dream-004/boot-004); step-04 must note in briefing text.'
+    morning-briefing-step-03: 'completed — Chief (chief-2026-10-21-152000, resumed): PAST: Dallas Huddle, Eye Appt (Dr McClintock per identity), AI Leaders, GEHC weekly sync (duplicate invite same meeting). REMAINING TODAY: UTB Board 13:30-16:30 LOW-CONTEXT (last board note 2026-03-18, 7mo stale, no Oct packet; OCC exam live — Dec 2025 ROE: composite 3, mgmt 4, BSA Not Adequate, IT downgraded 3->2 with 2 MRAs; Alice Mburu on invite); Shield 35th Anniversary Dinner 17:00 LOW-CONTEXT (zero vault hits for Shield/venue — identity UNKNOWN, not guessed). BEYOND TODAY: Thu GEHC business-value call 15:00 NEEDS-PREP client (Oct 8 POC mid-point demo outcomes never captured; Sujatha Ramkumar UNKNOWN; recommend Chase prep today); Thu 1:1 Scott McMichael 14:00 NEEDS-PREP (latest vault artifacts May 2026; cadence-enforcement theme; recommend Shep). GEHC open threads: Braunstein endpoint-compatibility question from 09-18 still unanswered; Vladimir dispatcher-design alignment status unknown; newest GEHC note 09-24 (27d stale). YESTERDAY REVIEW MISSING — no 10-20 review; 10-19 review (scorecard 1/3) deferred today''s collision decisions to Tuesday with no evidence they landed. step-03b checkpoint: FLAG (no Watchtower output, UTB context stale, no 10-20 review, Shield unknown) — eval RECORDING FAILED again (known gap dream-004/boot-004); verdict held in morning-briefing state.yaml.'
     clay-reminders: unavailable — Clay MCP not connected (auth stubs only); attempted at step-01.2 per mandatory rule
     clay-birthdays: unavailable — Clay MCP not connected (auth stubs only)
-    meetings_found: 11 timed + 2 all-day events today; 0 client-facing, 0 direct-report 1:1s; GEHC internal check-in the only non-bootcamp work meeting
-  briefing_delivered: 'yes — Chief synthesized full briefing (3 paragraphs + calendar table + Watchtower weekly themes + 3 due reminders) per morning-briefing step-04; working memory memory/working/morning-briefing-2026-10-19-161051.md; morning-briefing eval eval-20261019T211406-D5DPY3 closed success; state.yaml complete; commit d1b91b58 via git skill. Step-05 adversarial verification: FLAG (39/44 claims verified, 5 minor overstatements: bootcamp-collision phrasing excludes Hot 26/Prayer Call, 08:15-08:30 gap missed, Rock 5 Dec 15 soft-confirmed stated as due, SPARC package inference) — no fabrications, no silent drops. Step-03b + adversarial checkpoint recording to eval harness failed both times (no in-progress record; known gap dream-004/boot-004), verdicts recorded in state.yaml per failure mode. NOTE: rem-20261015T182852-JDP76U (GoTogether) was deleted from data/reminders.json by another live session mid-run (likely acknowledged elsewhere); briefing still surfaces the question; restore from git HEAD if David has NOT answered it.'
-  phase2_measurement_file: systems/boot-instrumentation/measurements/measurement-state-20261019T205843.json
-  total_kb: 5.17
-  total_tokens: 1323
-  workflows_scanned: 'complete — _active.yaml read (active: []), fast path taken; integrity cross-check of all workflows/*/state.yaml found ONE non-indexed in-progress workflow: conventions-migration (current-step step-03-judgment, session-started 2026-10-18 — stale Sunday session, surface only, NOT auto-resumed). golf-booking awaiting-window (standing, since 10-16); several report idle (non-standard, not in-progress); 8 multi-doc-looking state files verified readable and complete/not-started. morning-briefing child run closed complete during this boot; boot itself in-progress (this run).'
+    meetings_found: 12 events today (11 unique); 4 past, 2 remaining (UTB Board low-context, Shield dinner low-context); 2 beyond-today needs-prep flags (GEHC Thu 15:00 client, 1:1 McMichael Thu 14:00)
+    attendees_enriched: partial — UTB board roster + GEHC attendee list captured from calendar; Clay enrichment unavailable (MCP not connected); Sujatha Ramkumar and Shield dinner identity unresolvable (UNKNOWN, flagged not guessed)
+    prep_materials: 'context bundles in morning-briefing accumulated-context (meeting_context, beyond_today_flags, open_threads); recommendation: Chase preps Thu GEHC business-value call, Shep preps Thu McMichael 1:1'
+  briefing_delivered: 'yes — Chief (chief-2026-10-21-152000, resumed) synthesized full briefing per morning-briefing step-04: 3-paragraph narrative + today calendar table + Next 72 Hours table + Waiting on You decision queue (deliberate format deviation: step-04 prose-only rule could not carry 20 scheduled items + 10 pending decisions; deviation documented in morning-briefing state.yaml). All phase-2 findings woven in; Clay unavailability + unrecorded step-03b checkpoint flagged inline. Working memory memory/working/morning-briefing-2026-10-21-102000.md; eval eval-20261021T153611-1LX6L0 (status partial — Clay unavailable, checkpoint unrecordable, Watchtower not run; Chief corrected close-eval-record.py fabricated step entries so record reflects reality); morning-briefing state complete at step-05 with verification-pending: true (adversarial verification not run); git commit deferred to Rigby per post-run convention. Verifier step-04-synthesize-briefing.py: pass.'
+  workflows_scanned: 'complete — _active.yaml read (active: []), fast path taken; continuity spot-check: conventions-migration now COMPLETE (step-05-close; the 10-19 stale in-progress item has resolved), golf-booking still awaiting-window (standing since 10-16); no index drift this run'
   in_flight_list:
   - workflow: boot
-    current-step: step-06.5-guardrail-checkpoint.md
-    session-started: '2026-10-19T20:31:51Z'
+    current-step: step-06-scan-workflows.md
+    session-started: '2026-10-21T15:15:28Z'
     note: this run
-  - workflow: conventions-migration
-    current-step: step-03-judgment
-    session-started: '2026-10-18'
-    note: stale Sunday session, NOT in _active.yaml index; surfaced, not auto-resumed
-  status_summary: scanned 80 workflow state files; 2 in-progress (boot = this run; conventions-migration stale from 10-18); golf-booking awaiting-window (standing); 8 idle; remainder complete/not-started; _active.yaml index empty (drift vs conventions-migration)
-  data_freshness_report: 'flag — briefing faithful to fresh pulls (Ralph 39/44 verified, 5 minor overstatements, no fabrications); workflow scan sound (caught conventions-migration stale in-progress missed by empty _active.yaml index); no credential leakage (only filename matches for secret-allowlist/test scanner); session index clean (1 record today). Quirks: M365/Clay/OmniFocus MCPs all down (fallbacks used), step-03b + adversarial checkpoint eval-recording failed (known gap dream-004/boot-004), GoTogether reminder rem-20261015T182852-JDP76U deleted mid-run by another live session.'
-  state_status: complete — all 7 gated steps verified (01, 02, 03, 04, 05, 06, 06.5) plus 01.2, 01.5, 02.5; step-06.5 result flag (not escalate); step-01 completed-at stale from 10-09 (Master ran inline today without refreshing timestamp; status complete, passes the gate — same as 10-15 run). Boot state.yaml closing at 2026-10-19T21:31:00Z; step-08 Knox check follows per mandated order.
+  status_summary: _active.yaml index empty and accurate; 0 in-progress workflows other than this boot run; conventions-migration completed since 10-19; golf-booking awaiting-window (standing)
+  state_status: complete — boot-verify completion exit 0, all 8 prior step frontmatter complete; guardrail pre-completion-review flag (not escalate) for Clay-down/checkpoint-recording/stale-step-01-timestamp quirks
   knox_status: success
-  knox_reason: plaud-ingest pi-20261019-001 complete, outcome no-new-recordings; eval eval-20261019T203922-DEHON9 (agent knox, status no-op, completed 20:39:22Z, no punch-out)
-  knox_eval_id: eval-20261019T203922-DEHON9
+  knox_reason: plaud-ingest pi-20261021-001 complete, outcome no-new-recordings; eval eval-20261021T151813-348IAN (agent knox, status no-op, started 2026-10-21T15:20:00Z, no punch-out)
+  knox_eval_id: eval-20261021T151813-348IAN
+  verification_results: 'pass — boot-verify phase2 clean exit 0 (measurement + manifest, no LLM verification needed); measurement-state-20261021T152834.json: 5.72 KB (~1464 tokens) accumulated-context; all pulls fresh <24h, parseable, non-empty'
+  phase2_measurement_file: systems/boot-instrumentation/measurements/measurement-state-20261021T152834.json
+  total_kb: 5.72
+  total_tokens: 1464
 outputs:
   verification: passed
-  steps_verified: 7
+  steps_verified: 8
   failed_steps: []
-completed-at: '2026-10-19T21:31:00Z'
+completed-at: '2026-10-21T15:50:00Z'

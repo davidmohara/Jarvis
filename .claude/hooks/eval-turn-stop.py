@@ -39,6 +39,10 @@ try:
 except Exception:
     usage_between = None
 try:
+    import fully_loaded_cost as _flc
+except Exception:
+    _flc = None
+try:
     from step_audit import steps_all_terminal
 except Exception:
     steps_all_terminal = None
@@ -606,7 +610,7 @@ def run_assertions(name: str, eval_record: dict) -> dict:
     return structural
 
 
-def finalize(eval_path: Path, eval_record: dict, state_data: dict, force_status: str | None = None, reason: str | None = None):
+def finalize(eval_path: Path, eval_record: dict, state_data: dict, force_status: str | None = None, reason: str | None = None, transcript_path: str | None = None):
     now = datetime.now(timezone.utc)
     started = datetime.fromisoformat(eval_record["started"].replace("Z", "+00:00"))
     duration = round((now - started).total_seconds(), 2)
@@ -616,18 +620,51 @@ def finalize(eval_path: Path, eval_record: dict, state_data: dict, force_status:
     # Aggregate totals from steps[] (populated by the existing post-tool-use.py
     # inline-step path) and subagents[] (populated by eval-agent-start/stop.py
     # when a subagent ran while this record was open).
-    total_in = sum(s.get("tokens_input") or 0 for s in eval_record.get("steps", []))
+    # Double-count guard: a step stamped with executed_by_agent_id was filled
+    # by eval-agent-stop.py's partition backfill from that subagent's own
+    # transcript, so its tokens are the SAME tokens the subagents[] rollup
+    # carries. Count such steps only when the corresponding subagents[] entry
+    # has no tokens (e.g. its stop hook was lost), never both.
+    sub_ids_with_tokens = {
+        s.get("agent_id") for s in eval_record.get("subagents", [])
+        if s.get("tokens_input") is not None
+    }
+    def _step_counts(s):
+        ex = s.get("executed_by_agent_id")
+        return not (ex and ex in sub_ids_with_tokens)
+    total_in = sum(s.get("tokens_input") or 0 for s in eval_record.get("steps", []) if _step_counts(s))
     total_in += sum(s.get("tokens_input") or 0 for s in eval_record.get("subagents", []))
-    total_out = sum(s.get("tokens_output") or 0 for s in eval_record.get("steps", []))
+    total_out = sum(s.get("tokens_output") or 0 for s in eval_record.get("steps", []) if _step_counts(s))
     total_out += sum(s.get("tokens_output") or 0 for s in eval_record.get("subagents", []))
-    total_cost = sum(s.get("cost_usd") or 0 for s in eval_record.get("steps", []))
+    total_cost = sum(s.get("cost_usd") or 0 for s in eval_record.get("steps", []) if _step_counts(s))
     total_cost += sum(s.get("cost_usd") or 0 for s in eval_record.get("subagents", []))
+
+    # Harness-reported subagent totals (from <task-notification> usage blocks)
+    # ride alongside, never inside, the input/output sums — they are a
+    # single aggregate with no input/output split.
+    harness_total = sum(s.get("harness_tokens") or 0 for s in eval_record.get("subagents", []))
+    if harness_total:
+        eval_record["harness_tokens_total"] = harness_total
 
     eval_record["completed"] = now.isoformat().replace("+00:00", "Z")
     eval_record["duration_seconds"] = duration
     eval_record["total_tokens_input"] = total_in or None
     eval_record["total_tokens_output"] = total_out or None
     eval_record["total_cost_usd"] = round(total_cost, 6) if total_cost else None
+
+    # Fully-loaded cost (2026-10-21, David's ruling): the record's cost must
+    # include the PARENT session's own turns during the run window — the
+    # orchestration cost, often the expensive part — as a labeled
+    # parent_window component alongside the subagent components. Computed at
+    # finalize because the window [started, completed] closes exactly here;
+    # the transcript slice is stable afterwards. transcript_path comes from
+    # the Stop payload when available; otherwise the module locates the
+    # session transcript by the record's session_id.
+    if _flc is not None:
+        try:
+            _flc.apply_to_record(eval_record, transcript_path=transcript_path)
+        except Exception as e:
+            log_error(f"parent-window cost computation failed: {e}", TAG)
 
     tool_failures = eval_record.get("assessment", {}).get("mechanical", {}).get("tool_failures", 0)
     error_ids = eval_record.get("assessment", {}).get("mechanical", {}).get("error_ids", [])
@@ -729,12 +766,17 @@ def _state_genuinely_completed_after(state_data: dict, opened_at: "datetime | No
     return True
 
 
-def try_finalize(eval_path: Path) -> bool:
+def try_finalize(eval_path: Path, transcript_path: str | None = None) -> bool:
     """Read one turn-level record, finalize it if its monitored state.yaml
     is terminal AND that terminal status was actually reached during this
     record's own open window (see _state_genuinely_completed_after).
     Returns True if it finalized (success or stale-abort), False if it's
-    genuinely still in-progress and should stay open."""
+    genuinely still in-progress and should stay open.
+
+    transcript_path (the Stop payload's main-session transcript) is threaded
+    through to finalize() for the parent-window cost component; the orphan
+    sweep calls this without one and the module falls back to locating the
+    transcript by the record's own session_id."""
     import json
     try:
         with open(eval_path, "r") as f:
@@ -781,12 +823,13 @@ def try_finalize(eval_path: Path) -> bool:
                     log_error(f"Failed to delete phantom eval record {eval_path}: {e}", TAG)
                 return True
             finalize(eval_path, eval_record, state_data, force_status="aborted",
-                     reason=f"state.yaml's own completion timestamp predates this record's open time by {age_hours:.1f}h — likely a spurious open, not a real run")
+                     reason=f"state.yaml's own completion timestamp predates this record's open time by {age_hours:.1f}h — likely a spurious open, not a real run",
+                     transcript_path=transcript_path)
             return True
         log_info(f"'{eval_record['name']}' state.yaml is terminal but its completion timestamp predates this record's open — treating as stale, leaving open (age={age_hours:.1f}h)", TAG)
         return False
 
-    finalize(eval_path, eval_record, state_data)
+    finalize(eval_path, eval_record, state_data, transcript_path=transcript_path)
     return True
 
 
@@ -860,7 +903,7 @@ def main():
 
     eval_path = find_open_turn_record(session_id)
     if eval_path:
-        try_finalize(eval_path)
+        try_finalize(eval_path, transcript_path=payload.get("transcript_path"))
 
     sweep_orphaned_records(exclude=eval_path)
 

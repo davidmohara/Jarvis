@@ -47,6 +47,17 @@ Watchtower bot messages sometimes use `*Bold*` section headers instead of `## ` 
 
 Match sections by keyword presence in the header, not exact string match.
 
+## Draft output structure (citation-friendly)
+
+Every post drafted from a digest follows the citation-friendly structure (approved 2026-10-21, replacing the old prose-only rule):
+
+- **Opening:** one sentence stating the bottom line, the governing claim of the post. This is the first paragraph and carries the Hook.
+- **Body:** 2-4 H2 subheadings organizing the Story/Insight material.
+- **Closing:** a brief "What to do" takeaway. This carries the Challenge/CTA.
+- **Length:** 300-700 words.
+- **Outbound link:** when the post cites a stat, study, or firm (e.g., McKinsey State of AI, PwC surveys), include at least one outbound link to the primary source. This is in addition to the internal-link rule (a lexical link to a related published Ghost post when one exists).
+- **Still banned:** em-dashes. All other voice rules in step-01 and workflow.md are unchanged.
+
 ## Missing sections
 
 If a digest is missing any of the four post-arc sections (Hook, Story, Insight, Challenge), Harper fills them using `identity/CONTENT-VOICE.md`. Sources are always optional. QUALITY GATE 2 (Content Schema Validation) in step-01-discover.md checks the four-arc requirement before Ghost draft creation.
