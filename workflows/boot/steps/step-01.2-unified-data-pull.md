@@ -1,7 +1,7 @@
 ---
 status: complete
-started-at: '2026-10-21T15:15:45Z'
-completed-at: '2026-10-21T15:18:30Z'
+started-at: '2026-10-22T11:45:58Z'
+completed-at: '2026-10-22T11:45:58Z'
 ---
 
 <!-- system:start -->
@@ -20,7 +20,7 @@ completed-at: '2026-10-21T15:18:30Z'
 
 ## EXECUTION PROTOCOL
 
-**Agent:** boot subagent (Master persona), spawned by the coordinator at boot start, never executed inline in the coordinator's session (see `workflow.md`).
+**Agent:** dedicated unified-data-pull subagent, spawned by the coordinator (Master) with a tight single-purpose brief (see `workflow.md`). This step is a plain data-pull phase: it never loads the master persona (`agents/master.md`) or `SYSTEM.md`, never runs STATE CHECK, and never walks other steps.
 **Input:** M365 MCP, Clay MCP, OmniFocus access, Jarvis folder
 **Output:** Consolidated data files written to `data/` directory
 
@@ -194,15 +194,15 @@ Read `references/execution-guidelines.md` before firing the pulls: parallel-exec
 
 ## Update State
 
-1. **Update step frontmatter:** Set `status: complete` and `completed-at` with current timestamp.
+1. **Update step frontmatter:** Set `status: complete` and `completed-at` with current timestamp — with the Edit tool, never Bash (the eval harness's per-step attribution keys on Edit/Write tool calls).
 2. **Update state.yaml:** Set `current-step: step-02-gather-data.md`.
 
 ---
 
-## NEXT STEP
+## RETURN TO COORDINATOR
 
-Read fully and follow: `step-01.5-unified-calendar-pull.md`
+This is the END of your mandate. Do not read `step-02-gather-data.md` or any other step file — the coordinator spawns the dedicated gather subagent for step-02 after you return. The calendar pull (step-01.5) already ran as its own dedicated subagent before this one — never re-pull the calendar here. All downstream steps (phase 2 through phase 5) read from these consolidated files instead of calling APIs.
 
-All downstream steps (phase 2 through phase 5) will read from these consolidated files instead of calling APIs.
+Your final message is a short status report: one line per pull (A through E) with its outcome, files written, and any failure. Then stop.
 
 <!-- system:end -->

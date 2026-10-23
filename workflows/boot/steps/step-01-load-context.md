@@ -30,4 +30,4 @@ Agent: Knox — run workflows/plaud-ingest/workflow.md. Background, don't wait.
 ```
 3. Write today's date to `data/.knox-last-run` when spawning.
 
-Record knox_spawn status. Continue to step-01.5.
+Record knox_spawn status. Dispatch then follows `workflow.md`'s EXECUTION section: spawn the dedicated calendar subagent (step-01.5, tight brief, block on it), then spawn the main boot subagent (steps 01.2 through 08).

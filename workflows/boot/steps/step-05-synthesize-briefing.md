@@ -1,7 +1,7 @@
 ---
 status: complete
-started-at: '2026-10-21T15:40:00Z'
-completed-at: '2026-10-21T15:47:00Z'
+started-at: '2026-10-22T11:47:10Z'
+completed-at: '2026-10-22T11:47:10Z'
 ---
 
 <!-- system:start -->
@@ -17,7 +17,7 @@ completed-at: '2026-10-21T15:47:00Z'
 
 ## EXECUTION PROTOCOL
 
-**Agent:** boot subagent (Master persona), spawned by the coordinator at boot start, never executed inline in the coordinator's session (see `workflow.md`).
+**Agent:** briefing subagent (Master persona), spawned by the coordinator after step-04 completes, never executed inline in the coordinator's session (see `workflow.md`).
 **Input:** All accumulated-context from steps 01-04
 **Output:** Completed morning briefing delivered to the controller
 
@@ -46,7 +46,7 @@ completed-at: '2026-10-21T15:47:00Z'
 3. **Flag any degraded data** — if a Phase 2 task failed, note it in the briefing:
    > ⚠️ [Task name] unavailable — data not included.
 
-4. **Hold the finished briefing** — this step runs inside the subagent Master spawned for steps 2-12 (see `workflow.md` EXECUTION section), so "deliver to the controller" here means: carry the complete, verbatim briefing text forward through steps 06-08, then include it in full in this subagent's final message. Master relays it to the controller unabridged — it is the primary output of the entire boot sequence. Do not stop early to message the controller directly; continue to step-06.
+4. **Hold the finished briefing** — this step runs inside the briefing subagent Master spawned for steps 05 through 08 (see `workflow.md` EXECUTION section), so "deliver to the controller" here means: carry the complete, verbatim briefing text forward through steps 06-08, then include it in full in this subagent's final message. Master relays it to the controller unabridged — it is the primary output of the entire boot sequence. Do not stop early to message the controller directly; continue to step-06.
 
 5. **Update step frontmatter:** Set `status: complete` and `completed-at` (current timestamp). Record `briefing_delivered` in `state.yaml` `accumulated-context` with a summary (e.g. "yes — morning briefing synthesized and surfaced to controller").
 

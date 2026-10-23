@@ -1,7 +1,7 @@
 ---
 status: complete
-started-at: '2026-10-21T15:18:30Z'
-completed-at: '2026-10-21T15:27:00Z'
+started-at: '2026-10-22T11:46:03Z'
+completed-at: '2026-10-22T11:46:03Z'
 ---
 
 <!-- system:start -->
@@ -9,120 +9,145 @@ completed-at: '2026-10-21T15:27:00Z'
 
 ## MANDATORY EXECUTION RULES
 
-1. Fire ALL tasks simultaneously — this is a parallel phase. Do not run them sequentially.
+1. You are a single bounded gather pass: read the data files listed below, filter them, record compact results, exit. Nothing else.
 2. Every task must report one of three outcomes: **completed**, **nothing to surface**, or **failed — [reason]**. Silence is not an option.
-3. Do NOT proceed to step-03 until all tasks have returned a status.
-4. Task J (Boot Reminders) always runs — even if `data/reminders.json` is empty, record `nothing-to-surface`.
+3. Record results in `state.yaml` `accumulated-context` via the **Edit tool, never Bash** — the eval harness's per-step attribution keys on Edit/Write tool calls (this is exactly how the 2026-10-22 run lost its per-step records).
+4. Record **compact summaries only** — counts, itemized lists, one-line-per-item status. Never paste raw JSON payloads into accumulated-context.
+5. Do NOT call M365, OmniFocus, or Clay. Every data source was already pulled to `data/` by step-01.5 and step-01.2. Re-pulling here is the recorded failure mode, not thoroughness.
+6. When all six tasks have a status and the state is updated, your mandate is DONE. Exit and return to the coordinator. Do NOT read, follow, or execute any other step file — the next-step chains were removed from steps 02-04 on 2026-10-22 because they let one long-lived boot subagent accumulate 500-720k input tokens per step for outputs of a few hundred tokens (eval-20261021T151330-QNQLC5: step-02 545,309 in / 628 out; eval-20261013T114019-Q5UJLE: 719,033 in / 4,291 out attributed across steps).
 
 ---
 
 ## EXECUTION PROTOCOL
 
-**Agent:** boot subagent (Master persona), spawned by the coordinator at boot start, never executed inline in the coordinator's session (see `workflow.md`).
-**Input:** Session context loaded in step-01, live data sources
-**Output:** Gathered data from all Phase 2 tasks, recorded in accumulated-context
+**Agent:** dedicated gather subagent, spawned by the coordinator (Master) with a tight single-purpose brief. This step is a plain file-read-and-filter pass: it never loads the master persona (`agents/master.md`) or `SYSTEM.md`, never runs STATE CHECK, and never walks other steps.
+**Input:** the unified data files in `data/` (written by step-01.5 and step-01.2), `delegations/tracker.md`, `memory/personal/quarterly-objectives.md`
+**Output:** compact Phase 2 gather results in `state.yaml` `accumulated-context`
 
 ---
 
 ## CONTEXT BOUNDARIES
 
-- Pull only what each task specifies. Do not expand scope mid-task.
-- Task H (email triage) pulls flagged and time-sensitive messages only — not full inbox.
-- Task G (72-hour look-ahead) covers the next 3 calendar days — not today (today is covered by morning briefing step-01).
+- Pull once, share many: all reads go to the unified files on disk. Zero API calls in this step.
+- Morning-briefing steps 01-02 are borrowed here as **mechanical file reads** — their classification and filter rules are fully written in their step files, so this executor applies them directly to the unified data files. This is NOT a morning-briefing workflow run: no Watchtower invocation, no step-03b guardrail, no Ralph verification. Those belong to a standalone morning-briefing run, never to boot.
+- The morning-briefing steps say "store results in working memory" — that instruction is overridden here: your working memory evaporates when you exit, so the structured results go into `state.yaml` `accumulated-context` (compact form) for step-05's synthesis.
+- Task H pulls flagged and time-sensitive messages only — not full inbox.
+- Task G covers days+1 to day+3 — not today (today is covered by the morning-briefing step-01 borrow).
 
 ---
 
 ## YOUR TASK
 
-Fire all of the following simultaneously:
+### Task A: Morning Briefing Steps 01-02 (today's calendar + tasks)
 
-### Morning Briefing Steps 01-02
+Read `workflows/morning-briefing/steps/step-01-gather-calendar.md` and `workflows/morning-briefing/steps/step-02-gather-tasks.md`, then apply their rules directly:
 
-Spawn **Chief** with `workflows/morning-briefing/workflow.md` (through step-02: calendar gather + task gather). These two steps provide today's calendar data and task inbox status for the briefing synthesized in step-05.
+- **Calendar (mb step-01):** filter `data/calendar-unified.json` (written by step-01.5) to today's events; classify each by type; flag `needs_prep` meetings, back-to-back blocks, zero-buffer clusters. Do not call M365.
+- **Tasks (mb step-02):** read `data/omnifocus-unified.json` (written by step-01.2) — inbox items, due today, overdue, flagged; read `delegations/tracker.md` for overdue/due-today/due-this-week delegations; read `memory/personal/quarterly-objectives.md` for rock names and one-line status.
+
+Record the combined result compactly under `accumulated-context.phase2.morning-briefing-steps-01-02` as:
+
+```yaml
+calendar_data:
+  date: YYYY-MM-DD
+  meeting_count: N
+  meetings:
+    - time: HH:MM-HH:MM
+      subject: ...
+      type: client | 1:1 | team | partner | external | personal | recurring-skip
+      attendees: [names] (count only, if 5+)
+      needs_prep: true/false
+      flags: [...]
+  open_blocks: [...]
+  warnings: [...]
+task_data:
+  inbox_count: N
+  due_today: [{task, project}, ...]
+  overdue: [{task, project, due_date}, ...]
+  flagged: [{task, project}, ...]
+delegation_data:
+  overdue: [{task, owner, due_date}, ...]
+  due_today: [{task, owner}, ...]
+rocks:
+  - name: ... status: ...
+```
 
 ### Task G: 72-Hour Look-Ahead
 
-Read calendar data from `data/calendar-unified.json` (already pulled in step-01.5). Filter for days+1 to day+3. Capture:
-- Meeting subjects, times, attendees
-- Any client or partner meetings that will need prep
-- Back-to-back blocks or heavy meeting days
-
-**NOTE:** Do NOT call M365 directly. The unified pull in step-01.5 provides all calendar data for the 4-day window.
+Filter `data/calendar-unified.json` for day+1 through day+3 (already in the 4-day window). Capture meeting subjects, times, attendees (counts for 5+), any client or partner meetings that will need prep, and back-to-back or heavy meeting days. Record under `task-g-72hr-lookahead`.
 
 ### Task H: Email Triage (flagged/time-sensitive only)
 
-Read email from `data/email-unified.json` (already pulled by step-01.2). Filter for:
-- Flagged messages
-- Unread messages from the last 24 hours marked high priority
-- Any message with an explicit deadline or time-sensitive subject line
-
-Do NOT call M365 directly. The unified pull in step-01.2 provides all flagged/time-sensitive data.
+Read `data/email-unified.json` (written by step-01.2 Pull A). Surface flagged messages, unread high-priority from the last 24 hours, and anything with an explicit deadline. Record under `task-h-email-triage` with sender, subject, and why it is time-sensitive — one line each.
 
 ### Task I: Jarvis Inbox
 
-Spawn **Chief** with `skills/jarvis-inbox/SKILL.md`; the /Jarvis inbox is Chief's domain. Surface any items requiring David's attention.
+Read `data/jarvis-inbox-unified.json` (written by step-01.2 Pull D).
+- Zero unread items → record `task-i-jarvis-inbox: nothing-to-surface`. Do not spawn anything.
+- N > 0 unread items → spawn ONE subagent with a tight brief: `Process only the items listed in data/jarvis-inbox-unified.json per skills/jarvis-inbox/SKILL.md; return a compact list of items requiring David's attention (sender, subject, routing). Do not expand scope beyond those items.` Its return is what you record under `task-i-jarvis-inbox`.
 
 ### Task J: Boot Reminders
 
-Read `data/reminders.json`. Filter for entries where `trigger_date <= today`.
+Read `data/reminders.json`. Filter for entries where `trigger_date <= today`. For each due reminder, capture `id`, `trigger_prompt`, `routing.agent`, `routing.action_prompt`, and `on_no` (snooze_days, message).
 
-For each due reminder, capture:
-- `id`
-- `trigger_prompt` — the question to surface to David
-- `routing.agent` — who handles the yes response
-- `routing.action_prompt` — the self-contained execution prompt (store, don't execute yet)
-- `on_no.snooze_days` and `on_no.message`
+**Do NOT execute any action_prompt during data gather.** Just load the due reminders into accumulated-context. Execution happens after David responds.
 
-**Do NOT execute any action_prompt during data gather.** Just load the due reminders into accumulated-context. Execution happens in step-04 after David responds.
-
-If the file is missing or empty: record `nothing-to-surface`.
+If the file is missing or empty: record `nothing-to-surface`. If it is malformed JSON: record `failed — JSON parse error`.
 
 ---
 
 ## RECORDING RESULTS
 
-After all tasks complete, record outcomes in state.yaml `accumulated-context`:
+After all tasks complete, record outcomes in state.yaml `accumulated-context` (Edit tool):
 
 ```yaml
 accumulated-context:
   phase2:
-    morning-briefing-steps-01-02: completed | nothing-to-surface | failed — [reason]
-    task-g-72hr-lookahead: completed | nothing-to-surface | failed — [reason]
-    task-h-email-triage: completed | nothing-to-surface | failed — [reason]
-    task-i-jarvis-inbox: completed | nothing-to-surface | failed — [reason]
-    task-j-reminders: completed ([N] due) | nothing-to-surface | failed — [reason]
+    morning-briefing-steps-01-02: completed (N meetings, M tasks) | nothing-to-surface | failed — [reason]
+    task-g-72hr-lookahead: completed — [N events daterange] | nothing-to-surface | failed — [reason]
+    task-h-email-triage: completed — [N flagged, M time-sensitive] | nothing-to-surface | failed — [reason]
+    task-i-jarvis-inbox: [items or "nothing-to-surface"] | failed — [reason]
+    task-j-reminders: completed ([N] due: [one-line list]) | nothing-to-surface | failed — [reason]
+  phase2_status: "complete — all 6 tasks executed, 0 failures" (or the degraded variant)
 ```
 
-Update step frontmatter: Set `status: complete` and `completed-at` (current timestamp). Record `phase2_status` in `state.yaml` `accumulated-context` with a summary line (e.g. "complete — all 5 tasks executed, 0 failures" or "complete — 4 tasks completed, 1 skipped, 0 failures").
-
-Update state.yaml: 
-- Set `current-step: step-03-verify-phase2.md` (measurement is folded into step-03).
-- Append Phase 2 outcomes to `accumulated-context.phase2`.
+Then:
+- **Update step frontmatter:** Set `status: complete` and `completed-at` (current timestamp) — Edit tool.
+- **Update state.yaml:** Set `current-step: step-03-verify-phase2.md`.
 
 ---
 
+## TOOL DISCIPLINE
+
+- File reads go through the Read tool; state and frontmatter updates go through Edit/Write — never Bash redirection or heredocs.
+- The only authorized spawn is Task I's conditional jarvis-inbox processing, and only when the unified file shows unread items.
+- A missing data file is a recorded failure for that task, never a reason to call the API yourself: record `failed — backing file missing (degraded source carried from step-01.2)` and move on.
+
 ## SUCCESS METRICS
 
-- All tasks fired simultaneously (not sequentially)
-- Every task returned a status — no silent failures
-- Results recorded in accumulated-context
+- Zero M365 / OmniFocus / Clay API calls (all data from unified files)
+- All 6 tasks returned a status — no silent failures
+- Compact results recorded in accumulated-context (no raw payloads)
+- Subagent exited immediately after the state update — zero other step files read
+- Expected input cost: tens of thousands of tokens, not hundreds of thousands
 
 ## FAILURE MODES
 
 | Failure | Action |
 |---------|--------|
-| Morning briefing steps unavailable | Record failure. Proceed — briefing will be degraded but boot continues. |
-| M365 calendar unavailable (Task G) | Record: "Task G: failed — M365 unavailable". Surface in briefing as "72-hour look-ahead unavailable." |
-| M365 email unavailable (Task H) | Record: "Task H: failed — M365 unavailable". Note in briefing. |
-| Jarvis inbox fails | Record: "Task I: failed — [reason]". Continue. |
+| `data/calendar-unified.json` missing (Task A/G) | Record: "failed — calendar file missing (step-01.5 degraded)". Briefing surfaces "72-hour look-ahead unavailable." |
+| `data/email-unified.json` missing (Task H) | Record: "Task H: failed — email file missing (step-01.2 degraded)". Note in briefing. |
+| OmniFocus file missing or `status: failed` | Record: "Task A (tasks): degraded — OmniFocus pull failed". Not a quiet empty task day. |
+| Jarvis inbox file missing | Record: "Task I: failed — file not found". Continue. |
 | `data/reminders.json` missing | Record: "Task J: nothing-to-surface — file not found". Continue. Do not halt boot. |
 | Reminders file malformed JSON | Record: "Task J: failed — JSON parse error". Continue. Do not halt boot. |
+| Delegation tracker / quarterly objectives missing | Record the absence in `delegation_data`/`rocks`. Continue. |
 
 ---
 
-## NEXT STEP
+## RETURN TO COORDINATOR
 
-Read fully and follow: `step-03-verify-phase2.md`
+This is the END of your mandate. Do not read `step-03-verify-phase2.md` or any other step file — the coordinator spawns the dedicated verify subagent for step-03 after you return. Your final message is a short status report: one line per task (A, G, H, I, J) with its outcome, plus any failure worth surfacing. Then stop.
 <!-- system:end -->
 
 <!-- personal:start -->

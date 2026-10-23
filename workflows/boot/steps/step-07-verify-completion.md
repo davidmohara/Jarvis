@@ -1,7 +1,7 @@
 ---
 status: complete
-started-at: '2026-10-21T15:48:00Z'
-completed-at: '2026-10-21T15:49:30Z'
+started-at: '2026-10-22T11:47:22Z'
+completed-at: '2026-10-22T11:47:22Z'
 guardrail-result: flag
 ---
 
@@ -19,7 +19,7 @@ guardrail-result: flag
 
 ## EXECUTION PROTOCOL
 
-**Agent:** boot subagent (Master persona), spawned by the coordinator at boot start (see `workflow.md`).
+**Agent:** briefing subagent (Master persona), spawned by the coordinator after step-04 completes (see `workflow.md`).
 **Input:** `accumulated-context` from all prior steps; step frontmatter on disk
 **Output:** Guardrail result recorded; verification report; boot marked complete only if clean
 

@@ -334,6 +334,113 @@ def test_agent_stop_wiring_end_to_end(tmp):
         f"token_source: {entry.get('token_source')}"
 
 
+def test_agent_stop_recovers_workflow_from_spawn_prompt(tmp):
+    """eval-agent-stop.py recovers the workflow from the spawn prompt when
+    SubagentStart could not, then runs the per-step fan-out against it.
+
+    Regression for eval-20261022T114429-OCSJIC (2026-10-22 boot executor):
+    the record carried name='general-purpose', workflow=None — SubagentStart
+    had no spawn text (no prompt in its payload, .meta.json not yet written)
+    — so the stop-time fan-out resolved the workflow to 'general-purpose',
+    found no steps directory, and silently dropped per-step attribution for
+    a 3.1M-token run. The fix: at stop time the spawn prompt is recoverable,
+    so mine it for an explicit workflows/<name>/workflow.md reference."""
+    root = tmp / "c2"
+    runs, step_file, transcript = build_temp_ies(root)
+    # The recovery validates the candidate workflow against workflow.md
+    # under the module's IES_ROOT; build_temp_ies only creates the step.
+    (root / "workflows" / "demo-wf" / "workflow.md").write_text(
+        "---\nname: demo-wf\nagent: demo\n---\n\n# demo workflow\n")
+
+    # Subagent transcript: first user message IS the spawn prompt naming the
+    # workflow.md path, then the in-window assistant turns with usage.
+    spawn_transcript = tmp / "spawn-transcript.jsonl"
+    with open(spawn_transcript, "w") as f:
+        f.write(json.dumps({
+            "type": "user",
+            "message": {"content": "Calendar pull for step-01.5 of "
+                                    "workflows/demo-wf/workflow.md. One call, "
+                                    "write the file, then exit."},
+        }) + "\n")
+        for line in TRANSCRIPT_LINES:
+            f.write(json.dumps(line) + "\n")
+
+    sid = "sid-wf-recovery"
+    rec = make_record("eval-TESTWFRECOVER01", sid,
+                      agent_id="AID_WFREC",
+                      name="general-purpose",  # subagent-type label
+                      workflow=None)           # NOT recovered at start time
+    rec_path = write_record(runs, rec)
+
+    mod = load_module("eas_wf", "eval-agent-stop.py")
+    mod.EVAL_RUNS_DIR = runs
+    mod.IES_ROOT = root
+
+    # No subagents/ meta.json exists next to the main transcript, so
+    # resolve_spawn_text falls through to the subagent transcript's first
+    # user message — the recovery's own fallback path.
+    run_main(mod, {
+        "agent_id": "AID_WFREC",
+        "agent_type": "general-purpose",
+        "agent_transcript_path": str(spawn_transcript),
+        "transcript_path": str(transcript),
+        "session_id": sid,
+    })
+
+    rec = json.loads(rec_path.read_text())
+    assert rec.get("workflow") == "demo-wf", \
+        f"workflow not recovered from spawn prompt: {rec.get('workflow')!r}"
+    entries = steps_named(rec.get("steps") or [], "step-01-demo.md")
+    assert len(entries) == 1, \
+        f"per-step capture missing after workflow recovery: {rec.get('steps')}"
+    entry = entries[0]
+    assert entry.get("tokens_input") == 6800, f"input tokens: {entry.get('tokens_input')}"
+    assert entry.get("tokens_output") == 300, f"output tokens: {entry.get('tokens_output')}"
+    assert entry.get("cost_usd") is not None, "cost_usd must be computed"
+    assert entry.get("token_source") == "windowed", f"token_source: {entry.get('token_source')}"
+
+
+def test_agent_stop_no_false_workflow_from_unrelated_prompt(tmp):
+    """A spawn prompt with NO workflows/<name>/workflow.md reference must not
+    get a workflow stamped — Rigby's own prose dispatches (and any ad-hoc
+    subagent) must stay untagged rather than borrowing a workflow."""
+    root = tmp / "c3"
+    runs, step_file, transcript = build_temp_ies(root)
+    (root / "workflows" / "demo-wf" / "workflow.md").write_text(
+        "---\nname: demo-wf\nagent: demo\n---\n\n# demo workflow\n")
+
+    spawn_transcript = tmp / "spawn-transcript-2.jsonl"
+    with open(spawn_transcript, "w") as f:
+        f.write(json.dumps({
+            "type": "user",
+            "message": {"content": "Research the calendar conventions and report "
+                                    "back. Do not modify files."},
+        }) + "\n")
+        for line in TRANSCRIPT_LINES:
+            f.write(json.dumps(line) + "\n")
+
+    sid = "sid-wf-norecovery"
+    rec = make_record("eval-TESTWFNOREC01", sid,
+                      agent_id="AID_WFNOREC", name="general-purpose", workflow=None)
+    rec_path = write_record(runs, rec)
+
+    mod = load_module("eas_nr", "eval-agent-stop.py")
+    mod.EVAL_RUNS_DIR = runs
+    mod.IES_ROOT = root
+
+    run_main(mod, {
+        "agent_id": "AID_WFNOREC",
+        "agent_type": "general-purpose",
+        "agent_transcript_path": str(spawn_transcript),
+        "transcript_path": str(transcript),
+        "session_id": sid,
+    })
+
+    rec = json.loads(rec_path.read_text())
+    assert rec.get("workflow") is None, \
+        f"workflow stamped on an untagged spawn: {rec.get('workflow')!r}"
+
+
 def test_close_merge_does_not_shadow_captured_step(tmp):
     """close-eval-record.py's --steps merge must not append a null skeleton
     next to a captured '.md' entry (the '.md' vs bare-name key mismatch)."""
@@ -507,6 +614,8 @@ def main():
     test_post_tool_use_inline_extraction(tmp)
     test_step_complete_updates_same_key(tmp)
     test_agent_stop_wiring_end_to_end(tmp)
+    test_agent_stop_recovers_workflow_from_spawn_prompt(tmp)
+    test_agent_stop_no_false_workflow_from_unrelated_prompt(tmp)
     test_close_merge_does_not_shadow_captured_step(tmp)
     test_daily_review_subagent_capture(tmp)
     test_daily_review_step_files_conform()

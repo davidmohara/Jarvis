@@ -1,7 +1,7 @@
 ---
 status: complete
-started-at: '2026-10-21T15:47:00Z'
-completed-at: '2026-10-21T15:48:00Z'
+started-at: '2026-10-22T11:47:10Z'
+completed-at: '2026-10-22T11:47:10Z'
 ---
 
 <!-- system:start -->
@@ -17,7 +17,7 @@ completed-at: '2026-10-21T15:48:00Z'
 
 ## EXECUTION PROTOCOL
 
-**Agent:** boot subagent (Master persona), spawned by the coordinator at boot start, never executed inline in the coordinator's session (see `workflow.md`).
+**Agent:** briefing subagent (Master persona), spawned by the coordinator after step-04 completes, never executed inline in the coordinator's session (see `workflow.md`).
 **Input:** `workflows/_active.yaml` (index); individual `state.yaml` files only when index has entries
 **Output:** List of any in-progress workflows surfaced to the controller; boot marked complete
 

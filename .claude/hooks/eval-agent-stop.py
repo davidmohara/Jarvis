@@ -43,10 +43,17 @@ try:
 except Exception:
     _flc = None
 try:
-    from hook_utils import find_parent_record_with_subagent, transcript_indicates_completion
+    from hook_utils import (
+        find_parent_record_with_subagent, transcript_indicates_completion,
+        resolve_spawn_text, extract_workflow_path_reference,
+        _read_first_user_message_text,
+    )
 except Exception:
     find_parent_record_with_subagent = None
     transcript_indicates_completion = None
+    resolve_spawn_text = None
+    extract_workflow_path_reference = None
+    _read_first_user_message_text = None
 try:
     import assertion_checks as _assertion_checks
 except Exception:
@@ -452,6 +459,37 @@ def main():
                 log_info(f"Whole-run tokens for {agent_id} from task-notification: "
                          f"{note_usage.get('harness_tokens')} harness tokens "
                          f"({note_usage.get('harness_tool_uses')} tool uses)")
+
+    # Workflow recovery (2026-10-22): a dispatched workflow's subagent record
+    # usually carries name="general-purpose" and workflow=None — SubagentStart
+    # could not recover the spawn prompt at start time (its payload carries no
+    # prompt text and the .meta.json is not yet written), so the step fan-out
+    # below resolved the workflow to "general-purpose" and skipped per-step
+    # attribution entirely. Root cause of eval-20261022T114429-OCSJIC (the
+    # 2026-10-22 boot executor, 3.1M tokens, zero per-step records). At stop
+    # time the spawn prompt IS recoverable — the meta.json exists now, and the
+    # subagent transcript's first user message is the prompt — so mine it for
+    # an explicit workflows/<name>/workflow.md reference and stamp the record's
+    # `workflow` field before the crash-safe write and the fan-out read it.
+    if not eval_record.get("workflow"):
+        try:
+            spawn_text = None
+            if resolve_spawn_text:
+                spawn_text = resolve_spawn_text(payload)
+            if not spawn_text and _read_first_user_message_text:
+                spawn_text = _read_first_user_message_text(agent_transcript_path)
+            if spawn_text and extract_workflow_path_reference:
+                # must_exist=False: the existence check inside hook_utils
+                # resolves against the real repo root, which a redirected
+                # IES_ROOT (tests) does not move — validate here against
+                # this module's own IES_ROOT instead.
+                wf = extract_workflow_path_reference(spawn_text, must_exist=False)
+                if wf and (IES_ROOT / "workflows" / wf / "workflow.md").is_file():
+                    eval_record["workflow"] = wf
+                    log_info(f"Recovered workflow={wf!r} for {agent_id} from the "
+                             f"spawn prompt; step fan-out and attribution will use it")
+        except Exception as e:
+            log_error(f"Workflow recovery failed for {agent_id}: {e}")
 
     # CRASH-SAFE ORDERING: persist the core completion fields NOW, before the
     # step-complete subprocess fan-out and the assessment tail. On 2026-10-21

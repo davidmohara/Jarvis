@@ -1,7 +1,7 @@
 ---
 status: complete
-started-at: '2026-10-21T15:18:30Z'
-completed-at: '2026-10-21T15:21:00Z'
+started-at: '2026-10-22T11:45:58Z'
+completed-at: '2026-10-22T11:45:58Z'
 ---
 
 <!-- system:start -->
@@ -13,13 +13,13 @@ completed-at: '2026-10-21T15:21:00Z'
 2. You MUST pull 4 days (today + next 3) in a single M365 call to minimize API overhead.
 3. You MUST write the raw response to disk for all downstream steps to consume.
 4. Do NOT parse or filter yet — that happens in consuming steps.
-5. You MUST NOT proceed to phase-02 until the file is written and verified.
+5. When the file is written and verified, your mandate is DONE. Exit and return to the coordinator. Do NOT read, follow, or execute any other step file — the next-step handoff chains were removed from this step on 2026-10-22 because they let the calendar subagent walk the entire boot workflow (eval-20261022T114429-OCSJIC: 57 turns, 42 Bash calls, 6.27M tokens, for what should have been one API call).
 
 ---
 
 ## EXECUTION PROTOCOL
 
-**Agent:** boot subagent (Master persona), spawned by the coordinator at boot start, never executed inline in the coordinator's session (see `workflow.md`).
+**Agent:** dedicated calendar subagent, spawned by the coordinator (Master) with a tight single-purpose brief. This step is a plain data pull: it never loads the master persona (`agents/master.md`) or `SYSTEM.md`, never runs STATE CHECK, and never walks other steps.
 **Input:** M365 MCP access, today's date + next 3 days
 **Output:** Raw calendar response written to `data/calendar-unified.json`
 
@@ -40,11 +40,11 @@ completed-at: '2026-10-21T15:21:00Z'
 1. **Check if calendar file exists and is fresh:**
    ```
    File: data/calendar-unified.json
-   If exists AND created within last 12 hours: reuse it (skip to step 2)
+   If exists AND pulled_at within last 12 hours: reuse it (skip to step 4)
    If missing OR stale: proceed to pull
    ```
 
-2. **Pull calendar via M365 MCP** (`outlook_calendar_search`):
+2. **Pull calendar via M365 MCP** (`outlook_calendar_search`) — this is the ONLY calendar call you make:
    ```
    Query: all events from [today] to [today + 3 days]
    Date range: Today 00:00 to Day+3 23:59
@@ -54,7 +54,7 @@ completed-at: '2026-10-21T15:21:00Z'
 3. **Write raw response to disk:**
    ```
    File: data/calendar-unified.json
-   
+
    {
      "pulled_at": "ISO-8601 timestamp",
      "date_range": {
@@ -73,7 +73,7 @@ completed-at: '2026-10-21T15:21:00Z'
    - Check size > 100 bytes (not empty)
    - Check valid JSON
 
-5. **Log to `state.yaml` `accumulated-context`:**
+5. **Log to `state.yaml` `accumulated-context`** (use the Edit tool, never Bash):
    ```yaml
    # state.yaml -> accumulated-context
    calendar_file: "data/calendar-unified.json"
@@ -83,17 +83,24 @@ completed-at: '2026-10-21T15:21:00Z'
    status: "written"
    ```
 
-6. **Update step frontmatter:** Set `status: complete` and `completed-at` with current timestamp.
+6. **Update step frontmatter:** Set `status: complete` and `completed-at` with current timestamp (Edit tool).
 
-7. **Update state.yaml:** Set `current-step: step-02-gather-data.md`.
+7. **Set `current-step: step-01.2-unified-data-pull.md`** in state.yaml — the coordinator dispatches the main boot subagent for steps 01.2 through 08 next.
 
 ---
+
+## TOOL DISCIPLINE
+
+- M365 MCP is the only authorized calendar source. Never substitute AppleScript/Outlook (err-20260625T113803-6UZ8W4), and never declare the calendar unavailable without attempting the connector (err-20260730T133200-V5IGNY).
+- If the M365 connector is unreachable (ToolSearch returns no calendar tool after one retry), report that failure explicitly in your final message and write the empty-file fallback per Failure Modes. A silent "calendar unavailable" is the recorded failure mode, not an acceptable shortcut.
+- Use the file tools (Read/Edit/Write) for the output file, the state.yaml update, and the step frontmatter update — never Bash redirection or heredocs. The eval harness's per-step attribution keys on Edit/Write tool calls; a Bash-written state update is invisible to it (this is exactly how the 2026-10-22 run lost its per-step records).
 
 ## SUCCESS METRICS
 
 - Single M365 calendar API call made (not multiple)
 - Raw response written to data/calendar-unified.json
 - File contains all events for 4-day window
+- Subagent exited immediately after the file was verified — zero other step files read
 - All downstream steps will read from this file (no additional calls)
 - Estimated context savings: 70-80% by eliminating duplicate API responses
 
@@ -101,18 +108,15 @@ completed-at: '2026-10-21T15:21:00Z'
 
 | Failure | Action |
 |---------|--------|
-| M365 calendar unavailable | Record: "Calendar pull failed — M365 unavailable". Write empty file `{"events": []}`. Continue. |
-| File write fails | Log error. Continue. Steps will handle missing file gracefully. |
+| M365 calendar unavailable | Record: "Calendar pull failed — M365 unavailable". Write empty file `{"events": []}`. Report the failure in your final message. Continue to exit. |
+| File write fails | Log error. Report in final message. Steps will handle missing file gracefully. |
 | Partial data returned | Write what was returned. Steps will process it. |
 
 ---
 
-## NEXT STEP
+## RETURN TO COORDINATOR
 
-Read fully and follow: `step-02-gather-data.md`
-
-Note: All consolidated data files (calendar, email, tasks, reminders, inbox) are now available on disk for consuming steps to read from.
-
+This is the END of your mandate. Do not read `step-02-gather-data.md` or any other step file — the coordinator spawns the main boot subagent for steps 01.2 through 08 after you return. Your final message is a short status report: reused-or-pulled, event_count, date_range, and any failure. Then stop.
 <!-- system:end -->
 
 <!-- personal:start -->

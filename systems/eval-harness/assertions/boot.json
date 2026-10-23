@@ -54,8 +54,8 @@
       "id": "boot-008-omnifocus-filter-documented",
       "check": "file_contains",
       "path": "workflows/boot/steps/step-01.2-unified-data-pull.md",
-      "pattern": "completed\"?\\s*(?::|is)\\s*false",
-      "description": "Regression guard: the boot pull instructions still mandate the completed=false filter on the inbox query. Matches both the prose form (`completed is false`) and the JSON field form (`\"completed\": false`) — step-01.2 was rewritten to express the filter as the JSON field, which the old literal `completed is false` string-match false-fired on. If someone strips the filter entirely, this trips before the leak reaches a briefing."
+      "pattern": "\"completed\"\\s*:\\s*false|completed is false|completed` MUST be present and false",
+      "description": "Regression guard: the boot pull instructions still mandate the completed=false filter on the inbox query. Matches the JSON field form (\"completed\": false), the old prose form (`completed is false`), and the current canonical phrasing (`completed` MUST be present and false on every task) — the guard previously false-fired on the 2026-10-22 rewrite because the pattern had not been widened with it. If someone strips the filter entirely, this trips before the leak reaches a briefing."
     },
     {
       "id": "boot-009-step-owner-manifest",
@@ -69,6 +69,89 @@
       "min_grade": "B",
       "category": "quality",
       "description": "Master J4 (Tier 3 grade >= B on >= 80% of graded coordination runs): voice/quality of a coordination run can only be judged by Tier 3 grading, so this assertion defers (skipped, not failed) until the record carries a grade, then requires grade B or better. The >= 80% pass-rate threshold across runs is applied by the Stage 3 rollup, not by this per-record check."
+    },
+    {
+      "id": "boot-011-calendar-file-exists",
+      "check": "file_exists",
+      "path": "data/calendar-unified.json",
+      "description": "The step-01.5 calendar pull (dedicated calendar subagent) wrote the unified calendar file that every downstream consumer (step-02 Task G, meeting prep, morning briefing) reads from disk instead of calling M365."
+    },
+    {
+      "id": "boot-012-calendar-step-returns-to-coordinator",
+      "check": "file_contains",
+      "path": "workflows/boot/steps/step-01.5-unified-calendar-pull.md",
+      "pattern": "RETURN TO COORDINATOR",
+      "description": "Regression guard: step-01.5 must end with the return-to-coordinator handoff, not a read-and-follow chain into step-02. The next-step chain is what let the 2026-10-22 calendar subagent walk the whole boot workflow (eval-20261022T114429-OCSJIC, 6.27M tokens) instead of exiting after one M365 call. If this trips, someone reintroduced the chain."
+    },
+    {
+      "id": "boot-013-calendar-dedicated-dispatch",
+      "check": "file_contains",
+      "path": "workflows/boot/workflow.md",
+      "pattern": "dedicated calendar subagent",
+      "description": "Regression guard: workflow.md must keep step-01.5 dispatched as its own tightly-briefed single-purpose subagent (one M365 call, no persona load, explicit workflows/boot/workflow.md reference for eval attribution). If this trips, the dispatch collapsed back into the walk-everything boot subagent."
+    },
+    {
+      "id": "boot-014-datapull-step-returns-to-coordinator",
+      "check": "file_contains",
+      "path": "workflows/boot/steps/step-01.2-unified-data-pull.md",
+      "pattern": "RETURN TO COORDINATOR",
+      "description": "Regression guard: step-01.2 must end with the return-to-coordinator handoff, not a read-and-follow chain into step-02. Part of the 2026-10-22 steps-02-04 context-tax fix (work-20261022-182004): one long-lived boot subagent walking steps 01.2-08 carried 500-720k input tokens per step for outputs of a few hundred tokens (eval-20261021T151330-QNQLC5, eval-20261013T114019-Q5UJLE). If this trips, someone reintroduced the chain."
+    },
+    {
+      "id": "boot-015-datapull-no-next-step-chain",
+      "check": "file_not_contains",
+      "path": "workflows/boot/steps/step-01.2-unified-data-pull.md",
+      "pattern": "Read fully and follow",
+      "description": "Regression guard: step-01.2 must not contain a 'Read fully and follow' next-step chain. The chain is what let subagents walk the whole boot workflow instead of exiting after their single-purpose mandate."
+    },
+    {
+      "id": "boot-016-gather-step-returns-to-coordinator",
+      "check": "file_contains",
+      "path": "workflows/boot/steps/step-02-gather-data.md",
+      "pattern": "RETURN TO COORDINATOR",
+      "description": "Regression guard: step-02 must end with the return-to-coordinator handoff, not a read-and-follow chain into step-03. Eval evidence for the fix: eval-20261021T151330-QNQLC5 step-02 carried 545,309 input tokens for a 628-token output; eval-20261013T114019-Q5UJLE attributed 719,033 in / 4,291 out across the same steps. If this trips, someone reintroduced the chain."
+    },
+    {
+      "id": "boot-017-gather-no-next-step-chain",
+      "check": "file_not_contains",
+      "path": "workflows/boot/steps/step-02-gather-data.md",
+      "pattern": "Read fully and follow",
+      "description": "Regression guard: step-02 must not contain a 'Read fully and follow' next-step chain."
+    },
+    {
+      "id": "boot-018-verify-step-returns-to-coordinator",
+      "check": "file_contains",
+      "path": "workflows/boot/steps/step-03-verify-phase2.md",
+      "pattern": "RETURN TO COORDINATOR",
+      "description": "Regression guard: step-03 must end with the return-to-coordinator handoff, not a read-and-follow chain into step-04. Eval evidence: eval-20261021T151330-QNQLC5 step-03 carried 495,386 input tokens for a 1,014-token output. If this trips, someone reintroduced the chain."
+    },
+    {
+      "id": "boot-019-verify-no-next-step-chain",
+      "check": "file_not_contains",
+      "path": "workflows/boot/steps/step-03-verify-phase2.md",
+      "pattern": "Read fully and follow",
+      "description": "Regression guard: step-03 must not contain a 'Read fully and follow' next-step chain."
+    },
+    {
+      "id": "boot-020-meetingcontext-step-returns-to-coordinator",
+      "check": "file_contains",
+      "path": "workflows/boot/steps/step-04-gather-meeting-context.md",
+      "pattern": "RETURN TO COORDINATOR",
+      "description": "Regression guard: step-04 must end with the return-to-coordinator handoff, not a read-and-follow chain into step-05. Eval evidence: eval-20261021T151330-QNQLC5 step-04 carried 531,500 input tokens for a 1,354-token output. If this trips, someone reintroduced the chain."
+    },
+    {
+      "id": "boot-021-meetingcontext-no-next-step-chain",
+      "check": "file_not_contains",
+      "path": "workflows/boot/steps/step-04-gather-meeting-context.md",
+      "pattern": "Read fully and follow",
+      "description": "Regression guard: step-04 must not contain a 'Read fully and follow' next-step chain."
+    },
+    {
+      "id": "boot-022-gather-steps-dedicated-dispatch",
+      "check": "file_contains",
+      "path": "workflows/boot/workflow.md",
+      "pattern": "dedicated single-purpose subagents",
+      "description": "Regression guard: workflow.md must keep steps 01.2, 02, 03, and 04 dispatched as their own tightly-briefed single-purpose subagents (no persona/SYSTEM.md load, explicit workflows/boot/workflow.md reference for eval attribution, Edit-not-Bash state updates), with the briefing subagent covering only steps 05-08. If this trips, the dispatch collapsed back into one long-lived walk-everything boot subagent."
     }
   ]
 }

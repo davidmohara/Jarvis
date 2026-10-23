@@ -1,10 +1,13 @@
 ---
 status: complete
-started-at: '2026-10-21T15:49:30Z'
-completed-at: '2026-10-21T15:50:00Z'
+started-at: '2026-10-22T11:47:22Z'
+completed-at: '2026-10-22T11:47:22Z'
 knox_status: success
-knox_reason: 'plaud-ingest pi-20261021-001 complete, outcome no-new-recordings (workflows/plaud-ingest/state.yaml evidence); eval record eval-20261021T151813-348IAN status no-op, started 2026-10-21T15:20:00Z, no punch-out'
-knox_eval_id: eval-20261021T151813-348IAN
+knox_reason: 'eval record eval-20261022T114256-ZTEZGO (agent knox) status success;
+  workflow plaud-ingest pi-20261022-001 is awaiting-input: 1 new recording (4e6af011,
+  2026-10-21 12:44) staged but held pre-ingest for PHI/PII confirmation; David must
+  choose ingest-as-Personal (skip step-05b) or discard'
+knox_eval_id: eval-20261022T114256-ZTEZGO
 ---
 
 <!-- system:start -->
@@ -20,7 +23,7 @@ knox_eval_id: eval-20261021T151813-348IAN
 
 ## EXECUTION PROTOCOL
 
-**Agent:** boot subagent (Master persona), spawned by the coordinator at boot start, never executed inline in the coordinator's session (see `workflow.md`).
+**Agent:** briefing subagent (Master persona), spawned by the coordinator after step-04 completes, never executed inline in the coordinator's session (see `workflow.md`).
 **Input:** Knox eval record (if it exists in runs directory)
 **Output:** Knox completion status recorded in frontmatter
 
