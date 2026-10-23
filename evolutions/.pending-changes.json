@@ -5824,6 +5824,168 @@
      "description": "9-case regression suite: strict windows, sidechain exclusion, message.id dedupe, per-turn pricing, honest zeros/nulls, double-count guards, day invariant with overlapping windows, unmatched-record listing, eval-turn-stop finalize wiring"
     }
    ]
+  },
+  {
+   "id": "work-20261022-143802",
+   "description": "Boot step-01.5 calendar-pull scoping and per-step eval attribution recovery, per controller directive with root-cause analysis of eval-20261022T114429-OCSJIC (boot subagent walked steps 01.2-06+ in 57 turns / 42 Bash calls / 6.27M tokens instead of one M365 call): (1) step-01.5 now runs as a dedicated calendar subagent with a tight single-purpose brief (one outlook_calendar_search call, write data/calendar-unified.json, update state, exit) - no master persona or SYSTEM.md load; (2) step-01.5's read-and-follow next-step chain replaced with an explicit RETURN TO COORDINATOR handoff so the subagent stops walking the whole boot workflow (step-01.2 now chains directly to step-02); (3) per-step eval attribution recovered: eval-agent-stop.py mines the spawn prompt at stop time (meta.json toolUseId, else the subagent transcript's first user message) for a workflows/<name>/workflow.md reference and stamps record.workflow before the step fan-out, so subagent-run steps get windowed per-step tokens and correct owning_agent instead of silently dropping (root cause: SubagentStart cannot recover spawn text, and the 42-Bash-call executor never touched Edit/Write, so no workflow stamp ever landed). Spawn prompts in workflow.md now name the workflow path explicitly and mandate Edit/Write (never Bash) for state/frontmatter updates.",
+   "started": "2026-10-22T19:38:02Z",
+   "classification": "system",
+   "files": [
+    {
+     "path": "workflows/boot/steps/step-01.5-unified-calendar-pull.md",
+     "action": "merge",
+     "type": "system",
+     "description": "Rewrote as dedicated-subagent step: single M365 call mandate, tool discipline (M365-only, Edit-not-Bash), RETURN TO COORDINATOR replacing the next-step chain, current-step now points to step-01.2 (the next coordinator dispatch)"
+    },
+    {
+     "path": "workflows/boot/workflow.md",
+     "action": "merge",
+     "type": "system",
+     "description": "New dispatch model: dedicated calendar subagent spawned first with verbatim tight brief (names workflows/boot/workflow.md for eval attribution), then one main boot subagent for steps 01.2 + 02-08; file-tool rule for all spawned executors; fairness frontmatter added"
+    },
+    {
+     "path": "workflows/boot/steps/step-01.2-unified-data-pull.md",
+     "action": "merge",
+     "type": "system",
+     "description": "Next-step chain now goes directly to step-02 (calendar pull already ran as its own spawn); Edit-not-Bash note on frontmatter updates"
+    },
+    {
+     "path": "workflows/boot/steps/step-01-load-context.md",
+     "action": "merge",
+     "type": "system",
+     "description": "Handoff line now points at workflow.md's dispatch sequence (calendar spawn, then main boot subagent) instead of 'continue to step-01.5'"
+    },
+    {
+     "path": "workflows/boot/MASTER-ORCHESTRATION.md",
+     "action": "merge",
+     "type": "system",
+     "description": "Dispatch-mechanics intro updated for the dedicated calendar spawn + main boot subagent split"
+    },
+    {
+     "path": ".claude/hooks/eval-agent-stop.py",
+     "action": "merge",
+     "type": "system",
+     "description": "Workflow recovery at stop time: when record.workflow is null, mine the spawn prompt (resolve_spawn_text, else the subagent transcript's first user message) for a workflows/<name>/workflow.md reference, validate it under IES_ROOT, and stamp it before the crash-safe write and step fan-out - fixes silent per-step attribution loss and the knox misattribution on boot executor records"
+    },
+    {
+     "path": ".claude/hooks/tests/test_step_token_capture.py",
+     "action": "merge",
+     "type": "system",
+     "description": "Two regression tests: workflow recovered from spawn prompt yields windowed per-step capture (negative-checked against the pre-fix module), and unrelated prose prompts stay untagged"
+    },
+    {
+     "path": "systems/eval-harness/assertions/boot.json",
+     "action": "merge",
+     "type": "system",
+     "description": "Added boot-011 (calendar file exists), boot-012 (return-to-coordinator regression guard), boot-013 (dedicated dispatch regression guard); fixed boot-008's false-firing pattern drift (pre-existing failure since the step-01.2 rewrite)"
+    },
+    {
+     "path": "systems/evals/work-20261022-143802/evals/evals.json",
+     "action": "add",
+     "type": "system",
+     "description": "Eval workspace for this build: two validation prompts with assertions; paired full-boot executor runs deliberately skipped (each config is a 4-6M-token live boot - the exact cost profile being fixed), validation done via hook regression tests + live runtime assertions + lint gate"
+    }
+   ],
+   "validation": {
+    "evals_run": false,
+    "validation_note": "Workflow optimization validated via: hook regression suite (test_step_token_capture.py, 2 new cases, all pass, negative-checked), boot runtime assertions 011-013 passing against current repo state, conventions linter build-gate clean on all 8 changed artifacts (0 FAIL; pre-existing acknowledged size exceptions only). Paired with_skill/old_skill executor runs skipped: each config is a full live boot (~4-6M input tokens), and the build's purpose is removing that cost profile. The next scheduled live boot run exercises evals 0 end-to-end and self-grades via the boot assertion suite.",
+    "iterations": 0,
+    "stopped_at_cap": false,
+    "final_pass_rate": 1.0,
+    "description_optimized": false,
+    "description_optimization_note": "Skipped - workflow step optimization, not a phrase-triggered skill; invoked by explicit controller directive",
+    "eval_artifacts_path": "systems/evals/work-20261022-143802/"
+   }
+  },
+  {
+   "id": "work-20261022-182004",
+   "description": "Boot steps 01.2 + 02-04 context-tax reduction, extending the step-01.5 fix (work-20261022-143802) per controller directive with root-cause evidence from eval-20261021T151330-QNQLC5 (steps 02/03/04 at 545,309/495,386/531,500 input tokens for 628/1,014/1,354 output) and eval-20261013T114019-Q5UJLE (719,033 in / 4,291 out attributed across steps 01.2-04): (1) steps 01.2, 02, 03, and 04 now dispatch as dedicated single-purpose subagents spawned by the coordinator in sequence, each with a fresh bounded context \u2014 no master persona or SYSTEM.md load, no STATE CHECK, literal workflows/boot/workflow.md reference for eval subagent attribution; (2) all read-and-follow next-step chains removed from steps 01.2-04, replaced with explicit RETURN TO COORDINATOR handoffs \u2014 the one long-lived boot subagent that walked steps 01.2-08 was the entire 500-720k-per-step cost profile; (3) state.yaml and step-frontmatter updates mandated via Edit/Write, never Bash (per-step eval attribution keys on Edit/Write tool calls); (4) pull-once-share-many enforced end to end: step-02 reads only data/*-unified.json (zero M365/OmniFocus/Clay calls; morning-briefing steps 01-02 borrowed as mechanical file reads, not a morning-briefing workflow run \u2014 no Watchtower/Ralph), step-04 reads Clay from data/clay-reminders-unified.json instead of re-calling Clay MCP, jarvis-inbox processing spawns only when data/jarvis-inbox-unified.json shows unread items; (5) compact-results discipline: accumulated-context carries counts and itemized summaries, never raw payloads, so step-05's synthesis reads from state.yaml; (6) briefing subagent (persona master, steps 05-08 only) replaces the old main-boot-subagent range, spawned after step-04 returns; (7) runtime assertions boot-014 through boot-022 added to systems/eval-harness/assertions/boot.json guarding every step file's return-to-coordinator handoff, the absence of next-step chains, and the dedicated-dispatch model in workflow.md. Target: 1-1.5M input tokens per boot. Not committed per standing rule \u2014 held for controller review.",
+   "started": "2026-10-22T18:20:04Z",
+   "classification": "system",
+   "files": [
+    {
+     "path": "workflows/boot/steps/step-02-gather-data.md",
+     "action": "replace",
+     "type": "system",
+     "description": "Rewrote as dedicated gather subagent: six bounded tasks over unified data files (A: morning-briefing steps 01-02 borrowed as mechanical file reads, G: 72h look-ahead filter, H: email triage, I: jarvis-inbox with conditional spawn only, J: reminders), zero API calls, compact results to accumulated-context via Edit, RETURN TO COORDINATOR replacing the step-03 chain, eval evidence cited in the mandatory rules"
+    },
+    {
+     "path": "workflows/boot/steps/step-03-verify-phase2.md",
+     "action": "replace",
+     "type": "system",
+     "description": "Rewrote as dedicated verify subagent: one boot-verify.py phase2 run, Ralph only on exit-1 anomalies with a tight flagged-items-only brief, Edit-not-Bash state writes, RETURN TO COORDINATOR replacing the step-04 chain"
+    },
+    {
+     "path": "workflows/boot/steps/step-04-gather-meeting-context.md",
+     "action": "replace",
+     "type": "system",
+     "description": "Rewrote as dedicated meeting-context subagent: reads needs_prep flags from state.yaml, applies morning-briefing step-03 gather rules directly (identity files, knowledge-base searches, delegation tracker, yesterday review), Clay from data/clay-reminders-unified.json (no Clay MCP call), compact phase3 recording, RETURN TO COORDINATOR replacing the step-05 chain"
+    },
+    {
+     "path": "workflows/boot/steps/step-01.2-unified-data-pull.md",
+     "action": "merge",
+     "type": "system",
+     "description": "EXECUTION PROTOCOL changed to dedicated unified-data-pull subagent (no persona/SYSTEM.md, no STATE CHECK); NEXT STEP chain replaced with RETURN TO COORDINATOR handoff; pull content unchanged (assertion boot-008's completed-false filter guard still passes)"
+    },
+    {
+     "path": "workflows/boot/workflow.md",
+     "action": "merge",
+     "type": "system",
+     "description": "Dispatch model extended: dedicated single-purpose subagent briefs (verbatim spawn prompts) for steps 01.2, 02, 03, 04 in sequence, each with literal workflow.md reference and no-other-step-file line; briefing subagent (steps 05-08) replaces the 01.2+02-08 main boot subagent range; Steps table Executed-by column updated; delta-boot line names 01.2's dedicated brief"
+    },
+    {
+     "path": "workflows/boot/MASTER-ORCHESTRATION.md",
+     "action": "merge",
+     "type": "system",
+     "description": "Dispatch-mechanics intro updated: calendar spawn, then dedicated 01.2/02/03/04 spawns in sequence, then the briefing subagent runs the spawn_step loop for steps 05-08"
+    },
+    {
+     "path": "workflows/boot/steps/step-05-synthesize-briefing.md",
+     "action": "merge",
+     "type": "system",
+     "description": "Protocol line updated to briefing subagent spawned after step-04; hold-the-briefing parenthetical updated from stale 'steps 2-12' reference to steps 05-08"
+    },
+    {
+     "path": "workflows/boot/steps/step-06-scan-workflows.md",
+     "action": "merge",
+     "type": "system",
+     "description": "Protocol line updated to briefing subagent spawned after step-04"
+    },
+    {
+     "path": "workflows/boot/steps/step-07-verify-completion.md",
+     "action": "merge",
+     "type": "system",
+     "description": "Protocol line updated to briefing subagent spawned after step-04"
+    },
+    {
+     "path": "workflows/boot/steps/step-08-knox-completion-check.md",
+     "action": "merge",
+     "type": "system",
+     "description": "Protocol line updated to briefing subagent spawned after step-04"
+    },
+    {
+     "path": "systems/eval-harness/assertions/boot.json",
+     "action": "merge",
+     "type": "system",
+     "description": "Added runtime assertions boot-014 through boot-022: RETURN TO COORDINATOR present and no 'Read fully and follow' chain in each of steps 01.2/02/03/04, plus dedicated-dispatch guard on workflow.md. All 9 verified passing against current repo state; existing assertions 001-013 re-verified unregressed"
+    },
+    {
+     "path": "systems/evals/work-20261022-182004/evals/evals.json",
+     "action": "add",
+     "type": "system",
+     "description": "Eval definitions for the optimization: dedicated-gather-subagent-scope, compact-context-handoff, degraded-source-propagation. Paired executor runs deliberately skipped (same rationale as work-20261022-143802: each config is a full live boot); the next scheduled live boot is the with_skill measurement"
+    }
+   ],
+   "validation": {
+    "evals_run": false,
+    "validation_note": "Workflow optimization validated via: conventions linter build-gate clean on all 11 changed workflow artifacts (0 FAIL, 0 WARN; two pre-existing acknowledged size exceptions on step-01.2 unchanged), runtime assertions boot-014 through boot-022 passing against current repo state, existing boot assertions 001-013 re-verified unregressed, and per-step guardrail verify scripts (step-02/03/04) confirmed to key on data files and state.yaml accumulated-context contracts the rewrite preserves. Paired with_skill/old_skill executor runs skipped, same rationale as work-20261022-143802: each config is a full live boot, and the build's purpose is removing that cost profile. The next scheduled live boot run exercises the evals end-to-end; its per-step token attribution (recoverable via the eval-agent-stop.py spawn-prompt mining) is the with_skill measurement against the 500-720k baseline.",
+    "iterations": 0,
+    "stopped_at_cap": false,
+    "final_pass_rate": 1.0,
+    "description_optimized": false,
+    "description_optimization_note": "Skipped \u2014 workflow step optimization, not a phrase-triggered skill; invoked by explicit controller directive",
+    "eval_artifacts_path": "systems/evals/work-20261022-182004/"
+   }
   }
  ]
 }

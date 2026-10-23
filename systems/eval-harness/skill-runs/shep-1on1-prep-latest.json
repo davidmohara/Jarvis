@@ -1,12 +1,11 @@
 {
   "skill": "shep-1on1-prep",
-  "agent": "shep",
-  "trigger": "Build a call prep sheet for my weekly review with Alice",
-  "started": "2026-10-09T11:30:00-05:00",
-  "completed": "2026-10-09T11:58:00-05:00",
+  "agent": "general-purpose",
+  "trigger": "boot",
+  "started": "2026-10-22T18:03:35.452795Z",
+  "completed": "2026-10-22T18:03:49.888865Z",
   "status": "success",
   "tool_failures": 0,
   "error_ids": [],
-  "person": "Alice Mburu",
-  "output_file": "meetings/Alice Mburu - 2026-10-09.md"
+  "captured_via": "hook"
 }
