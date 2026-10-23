@@ -1,0 +1,94 @@
+{
+  "id": "eval-20261022T180349-NSLLP2",
+  "type": "skill",
+  "name": "shep-1on1-prep",
+  "agent": "general-purpose",
+  "session_id": "599c10da-f073-42a5-a921-34c651f19dbe",
+  "trigger": "boot",
+  "started": "2026-10-22T18:03:35.452795Z",
+  "completed": "2026-10-22T18:03:49.938785Z",
+  "duration_seconds": 14.5,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": true,
+      "outputs_non_empty": null,
+      "assertions_checked": 5,
+      "assertions_passed": 5,
+      "assertion_results": [
+        {
+          "assertion": "shep-1on1-prep-signal-written",
+          "description": "shep-1on1-prep skill-run signal file was written",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "shep-1on1-prep-signal-status",
+          "description": "shep-1on1-prep skill-run did not end in failure",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "shep-1on1-s1-summary-interactions",
+          "description": "Shep S1 (1:1 prep completeness): the prep sheet carries the mandatory 'Summary of Interactions' section (interaction threads from M365 email/Teams), per the skill's mandatory section order. Checked against the most recently written *-1on1.md in meetings/ (the skill's output convention: meetings/YYYY-MM-DD-{firstname}-{lastname}-1on1.md).",
+          "category": "content",
+          "passed": true
+        },
+        {
+          "assertion": "shep-1on1-s1-open-action-items",
+          "description": "Shep S1 (1:1 prep completeness): the prep sheet carries the mandatory 'Open Action Items & Commitments' section \u2014 the open-action-items element of S1.",
+          "category": "content",
+          "passed": true
+        },
+        {
+          "assertion": "shep-1on1-s1-talking-points",
+          "description": "Shep S1 (1:1 prep completeness): the prep sheet carries the mandatory 'Suggested Talking Points' section. S1 = interaction threads + open action items + talking points, in the mandatory format; pass = 100%.",
+          "category": "content",
+          "passed": true
+        }
+      ],
+      "category_breakdown": {
+        "structure": {
+          "passed": 2,
+          "checked": 2
+        },
+        "content": {
+          "passed": 3,
+          "checked": 3
+        },
+        "quality": {
+          "passed": 0,
+          "checked": 0
+        }
+      }
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "deterministic_gate": {
+      "score": 1.0,
+      "gate_status": "pass",
+      "computed_at": "2026-10-22T18:03:58.083796Z"
+    }
+  },
+  "version_hash": "04e6996b924e3671",
+  "prior_baseline_id": null,
+  "tags": [
+    "cowork-hook",
+    "skill"
+  ]
+}

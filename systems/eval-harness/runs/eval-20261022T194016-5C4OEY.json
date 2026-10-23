@@ -1,0 +1,289 @@
+{
+  "id": "eval-20261022T194016-5C4OEY",
+  "type": "workflow",
+  "name": "boot",
+  "agent": "master",
+  "session_id": "599c10da-f073-42a5-a921-34c651f19dbe",
+  "trigger": "boot",
+  "started": "2026-10-22T19:40:16.318494Z",
+  "completed": "2026-10-22T23:13:21.327071Z",
+  "duration_seconds": 12785.01,
+  "status": "aborted",
+  "steps": [
+    {
+      "name": "step-02-gather-data.md",
+      "step_id": "step-02-gather-data.md",
+      "agent": "master",
+      "owning_agent": "master",
+      "started": "2026-10-22T11:46:03Z",
+      "completed": "2026-10-22T11:46:03Z",
+      "duration_seconds": 0.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null,
+      "token_source": null
+    },
+    {
+      "name": "step-03-verify-phase2.md",
+      "step_id": "step-03-verify-phase2.md",
+      "agent": "master",
+      "owning_agent": "master",
+      "started": "2026-10-22T11:46:08Z",
+      "completed": "2026-10-22T11:46:08Z",
+      "duration_seconds": 0.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null,
+      "token_source": null
+    },
+    {
+      "name": "step-04-gather-meeting-context.md",
+      "step_id": "step-04-gather-meeting-context.md",
+      "agent": "master",
+      "owning_agent": "master",
+      "started": "2026-10-22T11:46:08Z",
+      "completed": "2026-10-22T11:46:08Z",
+      "duration_seconds": 0.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null,
+      "token_source": null
+    },
+    {
+      "name": "step-01.2-unified-data-pull.md",
+      "step_id": "step-01.2-unified-data-pull.md",
+      "agent": "master",
+      "owning_agent": "master",
+      "started": "2026-10-22T11:45:58Z",
+      "completed": "2026-10-22T11:45:58Z",
+      "duration_seconds": 0.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null,
+      "token_source": null
+    },
+    {
+      "name": "step-05-synthesize-briefing.md",
+      "step_id": "step-05-synthesize-briefing.md",
+      "agent": "master",
+      "owning_agent": "master",
+      "started": "2026-10-22T11:47:10Z",
+      "completed": "2026-10-22T11:47:10Z",
+      "duration_seconds": 0.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null,
+      "token_source": null
+    },
+    {
+      "name": "step-06-scan-workflows.md",
+      "step_id": "step-06-scan-workflows.md",
+      "agent": "master",
+      "owning_agent": "master",
+      "started": "2026-10-22T11:47:10Z",
+      "completed": "2026-10-22T11:47:10Z",
+      "duration_seconds": 0.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null,
+      "token_source": null
+    },
+    {
+      "name": "step-07-verify-completion.md",
+      "step_id": "step-07-verify-completion.md",
+      "agent": "master",
+      "owning_agent": "master",
+      "started": "2026-10-22T11:47:22Z",
+      "completed": "2026-10-22T11:47:22Z",
+      "duration_seconds": 0.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null,
+      "token_source": null
+    },
+    {
+      "name": "step-08-knox-completion-check.md",
+      "step_id": "step-08-knox-completion-check.md",
+      "agent": "master",
+      "owning_agent": "master",
+      "started": "2026-10-22T11:47:22Z",
+      "completed": "2026-10-22T11:47:22Z",
+      "duration_seconds": 0.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null,
+      "token_source": null
+    }
+  ],
+  "subagents": [
+    {
+      "agent_id": "a7e4e8b255c2f5dd2",
+      "agent_type": "general-purpose",
+      "started": "2026-10-22T23:13:16.282248Z",
+      "completed": "2026-10-22T23:38:35.783004Z",
+      "model": "accounts/fireworks/models/glm-5p3",
+      "tokens_input": 3893686,
+      "tokens_output": 44642,
+      "cost_usd": 0.874691,
+      "duration_seconds": 1519.5,
+      "token_source": "subagent-transcript"
+    }
+  ],
+  "monitoring": {
+    "active": false,
+    "state_yaml_path": "workflows/boot/state.yaml",
+    "opened_by": "eval-turn-start.py",
+    "trigger_evidence": "<task-notification>",
+    "close_reason": "state.yaml's own completion timestamp predates this record's open time by 3.6h \u2014 likely a spurious open, not a real run"
+  },
+  "assessment": {
+    "mechanical": {
+      "completed": false,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": [],
+      "abort_reason": "unspecified"
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 11,
+      "assertions_passed": 9,
+      "assertion_results": [
+        {
+          "assertion": "boot-001-state-complete",
+          "description": "Boot workflow state.yaml shows status: complete",
+          "passed": true
+        },
+        {
+          "assertion": "boot-002-session-index-exists",
+          "description": "Session index file exists \u2014 boot's Session Index Boot step must have created/appended it",
+          "passed": true
+        },
+        {
+          "assertion": "boot-003-session-index-substantive",
+          "description": "Session index is a real record, not an empty stub",
+          "passed": true
+        },
+        {
+          "assertion": "boot-005-omnifocus-data-file-exists",
+          "description": "OmniFocus pull (step-01.2 Pull B) wrote its consolidated data file",
+          "passed": true
+        },
+        {
+          "assertion": "boot-007-omnifocus-no-completed-tasks-leaked",
+          "description": "No completed task leaked into the OmniFocus pull. The inbox permanently holds ~247 completed tasks alongside ~8 incomplete ones, and Clean Up does NOT remove them, so the query itself must carry `completed is false`. Any `completed: true` in the output means the filter was dropped from the call.",
+          "passed": true
+        },
+        {
+          "assertion": "boot-008-omnifocus-filter-documented",
+          "description": "Regression guard: the boot pull instructions still mandate the completed=false filter on the inbox query. Matches the JSON field form (\"completed\": false), the old prose form (`completed is false`), and the current canonical phrasing (`completed` MUST be present and false on every task) \u2014 the guard previously false-fired on the 2026-10-22 rewrite because the pattern had not been widened with it. If someone strips the filter entirely, this trips before the leak reaches a briefing.",
+          "passed": true
+        },
+        {
+          "assertion": "boot-009-step-owner-manifest",
+          "description": "Master J2 (routing correctness): no step on this run that belongs to a specialist workflow (per workflows/<name>/workflow.md's agent frontmatter) or to a specialist's boot-step range (per agents/manifest.md) may carry owning_agent: master. Fails if the coordinator is recorded as owning a specialist's step \u2014 e.g. a plaud-ingest step (owned by knox) stamped master. A step whose own workflow is master-owned (boot's own steps) or that the manifest assigns to master is not flagged. This is the routing-assertion hook J2's A/B evidence requires; it reads the manifest ownership table and the workflow step definitions, not self-reported claims.",
+          "passed": null
+        },
+        {
+          "assertion": "boot-010-j4-grade-threshold",
+          "description": "Master J4 (Tier 3 grade >= B on >= 80% of graded coordination runs): voice/quality of a coordination run can only be judged by Tier 3 grading, so this assertion defers (skipped, not failed) until the record carries a grade, then requires grade B or better. The >= 80% pass-rate threshold across runs is applied by the Stage 3 rollup, not by this per-record check.",
+          "passed": null
+        },
+        {
+          "assertion": "boot-011-calendar-file-exists",
+          "description": "The step-01.5 calendar pull (dedicated calendar subagent) wrote the unified calendar file that every downstream consumer (step-02 Task G, meeting prep, morning briefing) reads from disk instead of calling M365.",
+          "passed": true
+        },
+        {
+          "assertion": "boot-012-calendar-step-returns-to-coordinator",
+          "description": "Regression guard: step-01.5 must end with the return-to-coordinator handoff, not a read-and-follow chain into step-02. The next-step chain is what let the 2026-10-22 calendar subagent walk the whole boot workflow (eval-20261022T114429-OCSJIC, 6.27M tokens) instead of exiting after one M365 call. If this trips, someone reintroduced the chain.",
+          "passed": true
+        },
+        {
+          "assertion": "boot-013-calendar-dedicated-dispatch",
+          "description": "Regression guard: workflow.md must keep step-01.5 dispatched as its own tightly-briefed single-purpose subagent (one M365 call, no persona load, explicit workflows/boot/workflow.md reference for eval attribution). If this trips, the dispatch collapsed back into the walk-everything boot subagent.",
+          "passed": true
+        }
+      ]
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": "2d8b1c0d4154094eee0c03294b690de32dac8e20a68609975db9c996d7b0c12c",
+  "prior_baseline_id": null,
+  "tags": [
+    "turn-level"
+  ],
+  "total_tokens_input": null,
+  "total_tokens_output": null,
+  "total_cost_usd": null,
+  "parent_window": {
+    "token_source": "parent-window",
+    "transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/599c10da-f073-42a5-a921-34c651f19dbe.jsonl",
+    "window_start": "2026-10-22T19:40:16.318494Z",
+    "window_end": "2026-10-22T23:13:21.327071Z",
+    "model": "glm-5p3",
+    "tokens_input": 280672,
+    "tokens_output": 2196,
+    "cost_usd": 0.179322,
+    "turns_matched": 5,
+    "turns_with_usage": 5,
+    "computed_at": "2026-10-22T23:13:21.334976Z"
+  },
+  "fully_loaded_cost_usd": 0.179322,
+  "fully_loaded_tokens_input": 280672,
+  "fully_loaded_tokens_output": 2196,
+  "workflow": "boot"
+}

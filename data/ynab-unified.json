@@ -1,8 +1,8 @@
 {
-  "pulled_at": "2026-10-21T15:16:17.746514Z",
+  "pulled_at": "2026-10-22T11:44:46.311314Z",
   "status": "available",
   "window_months": 12,
-  "since": "2025-10-26",
+  "since": "2025-10-27",
   "account_count": 30,
   "accounts": {
     "chase-checking": {
@@ -592,8 +592,8 @@
         },
         {
           "name": "Amazon",
-          "total": 4470.12,
-          "count": 103,
+          "total": 4420.34,
+          "count": 102,
           "last": "2026-10-17"
         },
         {
@@ -1335,12 +1335,6 @@
           "last": "2025-11-05"
         },
         {
-          "name": "AUGMENT FR* AUGMENT FR FRISCO TX",
-          "total": 181.63,
-          "count": 5,
-          "last": "2026-07-20"
-        },
-        {
           "name": "Burton's Grill",
           "total": 177.62,
           "count": 1,
@@ -1549,6 +1543,12 @@
           "total": 115.0,
           "count": 1,
           "last": "2026-08-28"
+        },
+        {
+          "name": "AUGMENT FR* AUGMENT FR FRISCO TX",
+          "total": 113.52,
+          "count": 3,
+          "last": "2026-07-20"
         },
         {
           "name": "Target",
@@ -2192,7 +2192,7 @@
       "account_id": "b4b7a7c8-32f5-4503-baf5-207d87050813",
       "account_name": "Amex - Blue",
       "type": "creditCard",
-      "payee_count": 86,
+      "payee_count": 85,
       "payees": [
         {
           "name": "H-E-B",
@@ -2202,8 +2202,8 @@
         },
         {
           "name": "Market Street",
-          "total": 3564.79,
-          "count": 70,
+          "total": 3550.63,
+          "count": 69,
           "last": "2026-10-18"
         },
         {
@@ -2226,8 +2226,8 @@
         },
         {
           "name": "Thorne Research",
-          "total": 1775.2,
-          "count": 20,
+          "total": 1689.6,
+          "count": 19,
           "last": "2026-10-02"
         },
         {
@@ -2267,12 +2267,6 @@
           "last": "2026-02-24"
         },
         {
-          "name": "Tom Thumb",
-          "total": 670.4,
-          "count": 21,
-          "last": "2026-09-13"
-        },
-        {
           "name": "Alpha",
           "total": 654.65,
           "count": 1,
@@ -2283,6 +2277,12 @@
           "total": 642.65,
           "count": 1,
           "last": "2026-03-14"
+        },
+        {
+          "name": "Tom Thumb",
+          "total": 637.4,
+          "count": 20,
+          "last": "2026-09-13"
         },
         {
           "name": "Benchmark Wine Group",
@@ -2507,12 +2507,6 @@
           "last": "2026-09-23"
         },
         {
-          "name": "Brookshire's",
-          "total": 101.21,
-          "count": 1,
-          "last": "2025-10-26"
-        },
-        {
           "name": "Invintory Vaughan",
           "total": 99.99,
           "count": 1,
@@ -2579,16 +2573,16 @@
           "last": "2025-12-25"
         },
         {
+          "name": "Kiva",
+          "total": 72.49,
+          "count": 3,
+          "last": "2026-10-20"
+        },
+        {
           "name": "TICKET PURCHASE CHICAGO IL",
           "total": 71.0,
           "count": 1,
           "last": "2026-09-01"
-        },
-        {
-          "name": "Kiva",
-          "total": 66.35,
-          "count": 2,
-          "last": "2026-03-18"
         },
         {
           "name": "Target",
@@ -4110,7 +4104,7 @@
     }
   },
   "all_accounts": {
-    "payee_count": 570,
+    "payee_count": 569,
     "payees": [
       {
         "name": "Fidelity Charitable",
@@ -4234,8 +4228,8 @@
       },
       {
         "name": "Amazon",
-        "total": 5540.85,
-        "count": 112,
+        "total": 5491.07,
+        "count": 111,
         "last": "2026-10-17"
       },
       {
@@ -4288,8 +4282,8 @@
       },
       {
         "name": "Market Street",
-        "total": 4284.18,
-        "count": 86,
+        "total": 4270.02,
+        "count": 85,
         "last": "2026-10-18"
       },
       {
@@ -4551,16 +4545,16 @@
         "last": "2026-04-29"
       },
       {
-        "name": "Thorne Research",
-        "total": 1775.2,
-        "count": 20,
-        "last": "2026-10-02"
-      },
-      {
         "name": "Augment Frisco",
         "total": 1702.75,
         "count": 50,
         "last": "2026-10-19"
+      },
+      {
+        "name": "Thorne Research",
+        "total": 1689.6,
+        "count": 19,
+        "last": "2026-10-02"
       },
       {
         "name": "Boardroom Salon",
@@ -4731,12 +4725,6 @@
         "last": "2025-12-22"
       },
       {
-        "name": "Tom Thumb",
-        "total": 999.19,
-        "count": 27,
-        "last": "2026-09-13"
-      },
-      {
         "name": "FSP*THEOREM VINEYARDS CALISTOGA CA",
         "total": 995.91,
         "count": 1,
@@ -4753,6 +4741,12 @@
         "total": 979.79,
         "count": 3,
         "last": "2026-04-24"
+      },
+      {
+        "name": "Tom Thumb",
+        "total": 966.19,
+        "count": 26,
+        "last": "2026-09-13"
       },
       {
         "name": "Athletic Greens",
@@ -5775,12 +5769,6 @@
         "last": "2026-06-12"
       },
       {
-        "name": "AUGMENT FR* AUGMENT FR FRISCO TX",
-        "total": 181.63,
-        "count": 5,
-        "last": "2026-07-20"
-      },
-      {
         "name": "Labcorp",
         "total": 180.58,
         "count": 1,
@@ -6153,6 +6141,12 @@
         "last": "2026-07-21"
       },
       {
+        "name": "Kiva",
+        "total": 122.29,
+        "count": 5,
+        "last": "2026-10-20"
+      },
+      {
         "name": "Acetaia Giusti Milano Ita",
         "total": 121.59,
         "count": 2,
@@ -6177,12 +6171,6 @@
         "last": "2026-06-27"
       },
       {
-        "name": "Kiva",
-        "total": 116.15,
-        "count": 4,
-        "last": "2026-07-17"
-      },
-      {
         "name": "Addison Pain Regenerative",
         "total": 115.95,
         "count": 1,
@@ -6199,6 +6187,12 @@
         "total": 114.0,
         "count": 1,
         "last": "2026-08-14"
+      },
+      {
+        "name": "AUGMENT FR* AUGMENT FR FRISCO TX",
+        "total": 113.52,
+        "count": 3,
+        "last": "2026-07-20"
       },
       {
         "name": "Blade Hq",
@@ -6265,12 +6259,6 @@
         "total": 104.0,
         "count": 1,
         "last": "2026-07-14"
-      },
-      {
-        "name": "Brookshire's",
-        "total": 101.21,
-        "count": 1,
-        "last": "2025-10-26"
       },
       {
         "name": "Buc-Ee's",

@@ -3375,7 +3375,42 @@
       {
         "topic": "unattributed",
         "files": [
-          "data/reminders.json"
+          "data/reminders.json",
+          "workflows/boot/state.yaml"
+        ],
+        "loops": [],
+        "flag": true
+      }
+    ]
+  },
+  {
+    "started": "2026-10-22T06:43:07.388718",
+    "closed": null,
+    "current_topic": null,
+    "topics": [
+      {
+        "topic": "unattributed",
+        "files": [
+          "workflows/plaud-ingest/state.yaml",
+          "meetings/2026-10-22-scott-mcmichael-1on1.md",
+          "memory/working/shep-1on1-prep-scott-mcmichael-2026-10-22.md",
+          "workflows/boot/steps/step-01.5-unified-calendar-pull.md",
+          "workflows/boot/workflow.md",
+          "workflows/boot/steps/step-01.2-unified-data-pull.md",
+          "workflows/boot/steps/step-01-load-context.md",
+          ".claude/hooks/eval-agent-stop.py",
+          ".claude/hooks/tests/test_step_token_capture.py",
+          "systems/eval-harness/assertions/boot.json",
+          "systems/evals/work-20261022-143802/evals/evals.json",
+          "workflows/boot/MASTER-ORCHESTRATION.md",
+          "workflows/boot/steps/step-02-gather-data.md",
+          "workflows/boot/steps/step-03-verify-phase2.md",
+          "workflows/boot/steps/step-04-gather-meeting-context.md",
+          "workflows/boot/steps/step-05-synthesize-briefing.md",
+          "workflows/boot/steps/step-06-scan-workflows.md",
+          "workflows/boot/steps/step-07-verify-completion.md",
+          "workflows/boot/steps/step-08-knox-completion-check.md",
+          "systems/evals/work-20261022-182004/evals/evals.json"
         ],
         "loops": [],
         "flag": true

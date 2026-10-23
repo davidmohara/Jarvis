@@ -1,0 +1,16 @@
+{
+  "id": "err-20261022T151835-WSVERL",
+  "timestamp": "2026-10-22T15:18:35.368125Z",
+  "session": "",
+  "source": "explicit",
+  "agent": "master",
+  "category": "data-accuracy",
+  "description": "Recorded Speaker 2 as David O'Hara in the Plaud ingest run and in the filed note's speaker summary, as if David had stated it. The controller never stated that mapping. The controller then corrected the speaker names (Rex Miller is Speaker 1, not Speaker 2). Mislabeled speakers in a personal note.",
+  "correction": "Speaker 1 is Rex Miller (per controller). Note labels and run state updated to Rex Miller as Speaker 1. Speaker 2 mapping to David remains as recorded; only the controller's statements should be used as the source for speaker names.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "When a speaker name is inferred rather than stated by the controller, record it as inferred and ask before writing it into a note or state file.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": [],
+  "related_skill": "plaud-ingest"
+}

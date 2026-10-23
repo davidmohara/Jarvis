@@ -1,0 +1,22 @@
+{
+ "id": "err-20261022T191052-8UCZPD",
+ "timestamp": "2026-10-22T19:10:52.442065+00:00",
+ "session": "",
+ "source": "explicit",
+ "agent": "master",
+ "category": "environment-breakage",
+ "description": "Repeatedly cd-ed into subdirectories (systems/eval-harness/runs, systems) via the Bash tool and left the session working directory there, breaking the relative-path stop hook eval-turn-stop.py. Hook fired with exit 2 (file not found) because it resolved .claude/hooks/eval-turn-stop.py against the stray working directory. Controller surfaced the repeated hook errors.",
+ "correction": "Stop using bare cd in Bash commands. Invoke python3/osascript with absolute paths and pass data file paths as absolute arguments, or use (cd dir && cmd) subshells so the session working directory never moves.",
+ "failure_mode": "working-directory-drift",
+ "severity": "minor",
+ "steps": [
+  {
+   "step": "acknowledge-and-log",
+   "status": "logged"
+  },
+  {
+   "step": "behavior-change",
+   "status": "absolute-paths-or-subshell-cd-from-now-on"
+  }
+ ]
+}

@@ -1,8 +1,9 @@
 {
-  "pulled_at": "2026-10-21T15:16:30Z",
-  "status": "unavailable",
-  "reminders": [],
-  "reminder_count": 0,
-  "birthday_count": 0,
-  "note": "Clay MCP not connected this session (only authenticate/complete_authentication stubs registered); attempted anyway per mandatory rule"
+ "pulled_at": "2026-10-22T11:45:21.434672Z",
+ "status": "unavailable",
+ "reminders": [],
+ "reminder_count": 0,
+ "birthday_count": 0,
+ "error": "Clay MCP exposes only authenticate/complete_authentication stubs (mcp__claude_ai_Clay__*); OAuth not completed; retried via ToolSearch once",
+ "attempted": true
 }

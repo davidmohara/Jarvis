@@ -1,7 +1,7 @@
 {
-  "pulled_at": "2026-10-21T15:16:15Z",
+  "pulled_at": "2026-10-22T11:44:46Z",
   "status": "available",
-  "task_count": 42,
+  "task_count": 46,
   "tasks": [
     {
       "id": "o-RwvzTMiSj",
@@ -134,24 +134,14 @@
       "note": ""
     },
     {
-      "id": "iNX7SItKv1k",
-      "name": "Same as Ever Morganhouse",
+      "id": "aWOi0FSQM5B",
+      "name": "Podcast",
       "completed": false,
       "due_date": null,
       "project": null,
       "tags": null,
       "is_flagged": false,
-      "note": ""
-    },
-    {
-      "id": "pCC7RnLBfwK",
-      "name": "Return glasses",
-      "completed": false,
-      "due_date": null,
-      "project": null,
-      "tags": null,
-      "is_flagged": false,
-      "note": ""
+      "note": "https://open.spotify.com/episode/5HzJrbUCLUBB7vz9z6wbma?si=eqi_IYaMRTKWeXL8pb1IiQ&utm_source=copy-link"
     },
     {
       "id": "hmSOAxJUMj8",
@@ -172,6 +162,56 @@
       "tags": "Improving",
       "is_flagged": false,
       "note": "CONFIRMED: Nov 4, 2026 \u2014 DRC Talent Labs Session 4: AI & Workforce Capacity AUDIENCE: ~40 senior HR/Talent leaders from board-level DRC members (Baylor Scott & White, Children's, Jacobs, Hillwood, McKesson). ~500K employees represented. SHRM-CP certified. FORMAT: 'Talent in Action' slot \u2014 case study/workshop within a full class day. Not a keynote \u2014 interactive, toolkit-focused. LEARNING OUTCOMES: - Tangible AI tools and implementation strategies (not just discussion) - Measurable action plans with KPIs (DRC tracks at 3/6/12 months) - Practical workflow optimization for HR operations - Fits arc: culture \u2192 engagement \u2192 pipelines \u2192 AI & workforce capacity NEXT MILESTONES: - May 21: AI Executive follow-on workshop at DRC (Bethany running \u2014 observe what resonates) - June/July: Reconnect with Tyler Files + Jarrad Toussant to scope content (cohort will be finalized) - Oct 23: Content deadline (2 weeks before delivery) VAULT: zzPlaud/Speaking/2026-03-26 DRC Talent Labs Planning Call.md (full transcript with learning outcomes) Intro by Meghan Kelley Wehner (DRC EVP). Bethany Hilton managing DRC relationship."
+    },
+    {
+      "id": "pNlny8Z3J-3",
+      "name": "Draft buy-in note to Devlin on Boardroom Ready program",
+      "completed": false,
+      "due_date": "Friday, October 23, 2026 at 5:00:00 PM",
+      "project": "Executive Elevation",
+      "tags": "Improving",
+      "is_flagged": false,
+      "note": "Program design at IES/projects/executive-presence-development-program.md. Cover: independent program, OJT/live-fire primary, ladder + rubric, drills (2 modes), capture system, podcast integration, incentive wiring. Devlin co-owns and is incented."
+    },
+    {
+      "id": "pmoCADuD-wG",
+      "name": "Circulate presence-note format guidance to note writers",
+      "completed": false,
+      "due_date": "Friday, October 23, 2026 at 5:00:00 PM",
+      "project": "Executive Elevation",
+      "tags": "Improving",
+      "is_flagged": false,
+      "note": "Writers: David, Devlin, Curtis Hite, Susan Fojtasek, Scott McMichael. Format template is in section 5 of IES/projects/executive-presence-development-program.md (2 notes, anchored to quoted moments, <150 words, 24h). Contingency: guidance must be circulated before their first note."
+    },
+    {
+      "id": "d0hFPp6PM6M",
+      "name": "Collect cohort 0 nominations and select first 4-6 participants",
+      "completed": false,
+      "due_date": "Friday, October 23, 2026 at 5:00:00 PM",
+      "project": "Executive Elevation",
+      "tags": "Improving",
+      "is_flagged": false,
+      "note": "Engagement leads nominate; David + Devlin select. Selection gate criteria (5 criteria + exclusion signals) in section 2 of IES/projects/executive-presence-development-program.md. Non-selected candidates get a development note."
+    },
+    {
+      "id": "mCJpIxHhIOY",
+      "name": "Lock Q4 client meetings as guaranteed airtime venues",
+      "completed": false,
+      "due_date": "Friday, October 23, 2026 at 5:00:00 PM",
+      "project": "Executive Elevation",
+      "tags": "Improving",
+      "is_flagged": false,
+      "note": "QBR calendar is the constraint. Each venue gets a named participant + rung assignment per the airtime ladder (section 3 of IES/projects/executive-presence-development-program.md)."
+    },
+    {
+      "id": "cOgySgnLS5H",
+      "name": "Decide airtime-on-the-invite mechanic (invite convention vs template)",
+      "completed": false,
+      "due_date": "Friday, October 23, 2026 at 5:00:00 PM",
+      "project": "Executive Elevation",
+      "tags": "Improving",
+      "is_flagged": false,
+      "note": "Decide how assignments ride on client meeting invites ('Section owner: intro + findings, 8 min') per section 8.1 of IES/projects/executive-presence-development-program.md. Calendar invite convention vs lightweight template; no bespoke tooling at launch."
     },
     {
       "id": "b_xAop_Ytf5",
