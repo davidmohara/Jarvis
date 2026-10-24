@@ -1,0 +1,16 @@
+{
+  "id": "err-20261024T164928-M4FT4E",
+  "timestamp": "2026-10-24T16:49:28Z",
+  "session": "2026-10-23-pursuit-refresh",
+  "source": "explicit",
+  "agent": "master",
+  "category": "process-skip",
+  "description": "During the 'commit everything' sweep, two generated PDFs were committed to the repo: projects/Improving Edge Monday Shorts - Scripts.pdf and projects/Improving Edge Short-Form Strategy.pdf. Both have a matching markdown source file in the same directory (projects/improving-edge-monday-shorts-scripts.md and projects/improving-edge-short-form-clip-plan.md respectively, plus the Short-Form Strategy pair). The standing convention (also in memory as feedback_commit_working_docs) is that generated PDFs are transient render artifacts of their markdown source and are never kept in the repo. The git skill's Staging Rules and the ies-git wrapper's commit-time artifact gates have no rule for generated-PDF-with-matching-source, so nothing caught it mechanically, and the standing convention was not applied manually either.",
+  "correction": "Remove the two generated PDFs from the repo (their markdown sources remain the canonical files). Encode the rule so it is enforced, not remembered: a staged PDF whose same-basename .md exists in the same directory is a generated artifact and is refused at commit time by the ies-git wrapper, with the guidance to keep the markdown source only. The git skill's Staging Rules and pre-flight gate text must state the same rule.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "Applied 2026-10-24: (1) deleted the two committed PDFs from projects/; (2) added a generated-PDF gate to skills/git/scripts/ies-git — staged PDFs with a same-basename .md sibling in the same directory are refused (new exit code) on both the standard commit path and session-commit pre-flight, with the pdf excluded from staging rather than committed; (3) added the rule to skills/git/SKILL.md Staging Rules ('Never stage these') and the pre-flight gate description. PDFs with no matching markdown source remain committable (true standalone deliverables).",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": [],
+  "related_skill": "git"
+}

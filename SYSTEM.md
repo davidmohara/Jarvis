@@ -313,11 +313,12 @@ Delete files matching these patterns:
 
 ### 2. Organize deliverables
 
-For any generated deliverable (PDF, Word, PPTX):
+For any generated deliverable (PDF, Word, PPTX), apply the build-artifact rule first (`workflows/shutdown-cleanup/steps/step-02-organize-deliverables.md` is authoritative):
 
-- **Verify location** — deliverables belong next to their source markdown, or in `meetings/` if standalone
+- **Delete build artifacts** — a deliverable with a corresponding markdown source covering the same content (matched on subject matter, not filename, anywhere in the repo) is a build artifact, not a deliverable. The markdown is canonical; the deliverable file is deleted before staging and never committed
+- **Verify location** — only standalone deliverables (no markdown source anywhere) get location checks; they belong in `meetings/` or their proper deliverable folder
 - **Verify naming** — follows the human-readable convention (no `YYYY-MM-DD-` prefix on deliverables)
-- **Move misplaced files** — if a deliverable landed in the wrong directory, move it
+- **Move misplaced files** — if a standalone deliverable landed in the wrong directory, move it
 
 ### 3. Verify source files
 

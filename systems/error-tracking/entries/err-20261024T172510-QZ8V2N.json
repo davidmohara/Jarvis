@@ -1,0 +1,16 @@
+{
+  "id": "err-20261024T172510-QZ8V2N",
+  "timestamp": "2026-10-24T17:25:10Z",
+  "session": "2026-10-23-pursuit-refresh",
+  "source": "explicit",
+  "agent": "master",
+  "category": "over-engineering",
+  "description": "In response to err-20261024T164928-M4FT4E (generated PDFs committed), the fix was implemented as new enforcement inside the git workflow: a generated_pdfs() function in skills/git/scripts/commit_classifier.py, a new exit-10 commit gate and session-commit pre-flight check in skills/git/scripts/ies-git, and a new Never-stage rule in skills/git/SKILL.md. David corrected the approach: the cleanup workflow should handle generated PDFs; do not create duplication in the git workflow. The git skill's job is to commit what the cleanup pass has already decided is keep-worthy, not to re-implement content-lifecycle rules the cleanup workflow owns.",
+  "correction": "Revert the git-workflow additions (classifier function, wrapper gates, SKILL.md rule). Implement the generated-PDF rule once, in the shutdown cleanup workflow's purge step: a PDF with a matching markdown source in the same directory is a render artifact and is deleted during cleanup before staging, so it never reaches a commit.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "Applied 2026-10-24: reverted all git-skill/wrapper/classifier additions; added the generated-PDF rule (PDF + same-named .md sibling in the same directory, excluding deliverable folders) to the shutdown cleanup workflow's purge step. err-20261024T164928-M4FT4E's systemic_fix description is superseded by this entry.",
+  "fix_status": "applied",
+  "severity": "minor",
+  "related_entries": ["err-20261024T164928-M4FT4E"],
+  "related_skill": null
+}
