@@ -1,0 +1,16 @@
+{
+  "id": "err-20261023T212412-1HVXSQ",
+  "timestamp": "2026-10-23T21:24:12.295297Z",
+  "session": "2026-10-23-crm-sweep",
+  "source": "explicit",
+  "agent": "chase",
+  "category": "data-accuracy",
+  "description": "During the 2026-10-23 Dynamics CRM sweep, resolved the Marriott pursuit to the wrong account record. The name search surfaced 'Marriott International, Inc.' as inactive with zero history, and rather than stopping there, the sweep asked David and then acted on an interim pointer to 'Marriott Vacations Worldwide Corporation' (605e166d-8db8-f011-bbd3-000d3a11da87) as the Marriott CRM record. David corrected: Marriott International is correct, and its GUID is 7230b423-4afb-ee11-a1fe-7c1e5214715a, a record that did not surface in the contains('Marriott') query results.",
+  "correction": "Use account GUID 7230b423-4afb-ee11-a1fe-7c1e5214715a for Marriott International in all CRM pulls. Re-pull opportunities against that GUID, update data/crm-pursuit-account-ids.json, and re-run the Marriott plan/dashboard update from the corrected data.",
+  "failure_mode": "wrong-source-record",
+  "systemic_fix": "data/crm-pursuit-account-ids.json now records the David-confirmed GUID per account so name-search resolution never repeats this; added a note that substring name search can miss the correct record entirely (the confirmed Marriott GUID never appeared in a contains('Marriott') top-30 result), so ambiguous or empty results should be escalated to David with the specific candidate GUIDs rather than assumed.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": [],
+  "related_skill": null
+}

@@ -1,0 +1,16 @@
+{
+  "id": "err-20261023T215756-0X7I4Z",
+  "timestamp": "2026-10-23T21:57:56.429851Z",
+  "session": "2026-10-23-pursuit-refresh",
+  "source": "explicit",
+  "agent": "chase",
+  "category": "hallucination",
+  "description": "David challenged the entry plays in the AT&T pursuit map: most are not grounded in what Improving actually does. Root cause verified: the account-pursuit-map workflow has no offering-grounding step. Its agents (both the August 2026 build and the 2026-10-23 refresh) synthesized the Improving half of each play from generic capability language they generated themselves (application rationalization, embedded pods, integration delivery) rather than from Improving's real service offerings. The offering-match skill, which pulls live offerings from the SharePoint Sales Offerings folder and SPARC, exists in IES but belongs to the Podcast-to-Pipeline pipeline and was never invoked in any pursuit-map run. This defect likely spans all 12 pursuit accounts refreshed 2026-10-23, not just AT&T: target-side facts are well-sourced, Improving-side capability claims are unvalidated.",
+  "correction": "Every entry play and capability-mapping claim across the pursuit plans must be validated against Improving's real offerings (SharePoint Sales Offerings folder + SPARC via the offering-match skill's live-pull pattern) before being presented as plays David can run. Plays that do not map to a real offering must be cut or rewritten as explicitly aspirational.",
+  "failure_mode": "wrong-assumption",
+  "systemic_fix": "Applied (workflow part) 2026-10-23: added an offering-grounding gate to workflows/account-pursuit-map — step 03 mandatory rule 1a requires a live SharePoint offering pull (offering-match skill's grounding sources) before any capability is named, with schema fields improving_offering/offering_evidence/source_doc/match_status and an unreachable-FAIL path; step 06 mandatory rule 2a requires every entry play to map to a real offering from that pull, with cut-or-label-aspirational for unmatched plays and a grounded-only lead-play recommendation; workflow.md architecture descriptions and Key Metrics updated. Remaining: the 12 existing account plans still carry ungrounded plays until the audit pass runs.",
+  "fix_status": "proposed",
+  "severity": "major",
+  "related_entries": [],
+  "related_skill": "offering-match"
+}

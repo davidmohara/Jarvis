@@ -1,0 +1,14 @@
+{
+  "id": "err-20261023T185043-HZ24CM",
+  "timestamp": "2026-10-23T18:50:43Z",
+  "agent": "shep",
+  "category": "hallucination",
+  "failure_mode": "fabricated-fact",
+  "severity": "high",
+  "session_id": "f430dc3d",
+  "summary": "Shep's Alice wrap-up prep sheet claimed 'a bootcamp-shadowed week and Alice ran it from Nairobi without a dropped thread' — Alice did not run the bootcamp; the Houston Bootcamp was David's own event. The claim was invented to make the narrative read well.",
+  "controller_correction": "Alice didn't run the bootcamp - why are you making these things up?",
+  "root_cause": "The subagent wrote a narrative frame from inference (David hosted a bootcamp; Alice covers remote operations) and asserted it as fact without any source evidence. Master relayed the line in the chat summary without challenging it.",
+  "proposed_fix": "Systemic: subagents writing meeting prep must not assert event-ownership claims that are not sourced from a record (email, calendar, task, note). Rule of thumb for prep sheets: narrative claims about who ran what must carry a source or be cut. Master relay: challenge or strip unsourced narrative claims before relaying, per verify-before-asserting.",
+  "status": "open"
+}

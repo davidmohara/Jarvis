@@ -1,0 +1,76 @@
+{
+  "_comment": "Dynamics CRM account GUIDs for the 12 strategic pursuit accounts, resolved 2026-10-23. Use with the Dataverse Web API: GET /api/data/v9.2/opportunities?$filter=_customerid_value eq {accountid}. Auth: az account get-access-token --resource https://improving.crm.dynamics.com. Refreshed by the CRM sweep of 2026-10-23.",
+  "environment": "https://improving.crm.dynamics.com/api/data/v9.2",
+  "auth": "az account get-access-token --resource https://improving.crm.dynamics.com --query accessToken -o tsv",
+  "accounts": {
+    "Constellation Energy": {
+      "accountid": "62b9755a-073a-e411-b893-6c3be5a8f660",
+      "crm_name": "Constellation Energy Group",
+      "statecode": 0
+    },
+    "AT&T": {
+      "accountid": "78d821e4-9fc8-ec11-a7b5-000d3a565bba",
+      "crm_name": "AT&T Services, Inc.",
+      "statecode": 0
+    },
+    "PriceSmart": {
+      "accountid": "9fb0e91c-7d7a-ef11-a671-00224827e01c",
+      "crm_name": "PriceSmart",
+      "statecode": 0
+    },
+    "Marriott": {
+      "accountid": "7230b423-4afb-ee11-a1fe-7c1e5214715a",
+      "crm_name": "Marriott International",
+      "statecode": 0,
+      "note": "David-confirmed GUID 2026-10-23. CAUTION: this record did NOT surface in a contains('Marriott') name search (top-30); several look-alike and inactive Marriott records did. 'Marriott International, Inc.' (0517c430-8db8-f011-bbd3-000d3a11da87, inactive, zero history) and 'Marriott Vacations Worldwide Corporation' (605e166d-8db8-f011-bbd3-000d3a11da87) are NOT the right records."
+    },
+    "Charles Schwab": {
+      "accountid": "3558854e-073a-e411-b893-6c3be5a8f660",
+      "crm_name": "Charles Schwab & Co",
+      "statecode": 0
+    },
+    "CBRE": {
+      "accountid": "eb07c430-8db8-f011-bbd3-000d3a11da87",
+      "crm_name": "CBRE, Inc.",
+      "statecode": 0,
+      "note": "Separate record CBRE Global Workplace Solutions (GWS) 693de5ea-ee5f-ef11-bfe2-00224833a58e has zero opportunities."
+    },
+    "7-Eleven": {
+      "accountid": "bf53854e-073a-e411-b893-6c3be5a8f660",
+      "crm_name": "7-Eleven",
+      "statecode": 0
+    },
+    "Builders FirstSource": {
+      "accountid": "af2a6922-4cef-e411-80f7-fc15b428f6ec",
+      "crm_name": "Builders FirstSource",
+      "statecode": 0
+    },
+    "Texas Instruments": {
+      "accountid": "5353854e-073a-e411-b893-6c3be5a8f660",
+      "crm_name": "Texas Instruments",
+      "statecode": 0
+    },
+    "ORIX Corporation USA": {
+      "accountid": "7caba11b-5f13-e811-8140-e0071b66df41",
+      "crm_name": "ORIX Corporation USA",
+      "statecode": 0
+    },
+    "McKesson": {
+      "accountid": "74827d54-073a-e411-b893-6c3be5a8f660",
+      "crm_name": "McKesson Corporation",
+      "statecode": 0
+    },
+    "Expedia Group": {
+      "accountid": "bdcc351c-d24f-ed11-bba1-002248280df0",
+      "crm_name": "Expedia Group",
+      "statecode": 0,
+      "note": "Zero opportunities of any state as of 2026-10-23."
+    }
+  },
+  "traps": [
+    "Constellation Brands (d811f190-27ce-ef11-b8ea-0022481fcc8d), Constellation Software (6ca4db44-8416-ee11-8f6d-00224820f685) and Constellation Network (edc25314-523f-f111-88b3-7c1e521c092e) are NOT Constellation Energy.",
+    "Substring contains() on 'att', 'Seven', 'Builders', 'Matt' matches huge numbers of unrelated records; always filter on the exact GUID.",
+    "Correct opportunity field is estimatedclosedate, not closedate.",
+    "The Marriott pursuit uses account 7230b423-4afb-ee11-a1fe-7c1e5214715a (Marriott International, David-confirmed 2026-10-23). That GUID did not appear in contains('Marriott') search results at all — name search is unreliable for this account; always use the GUID. 'Marriott International, Inc.' (0517c430, inactive, zero history) and Marriott Vacations Worldwide (605e166d) are wrong records.",
+  ]
+}
