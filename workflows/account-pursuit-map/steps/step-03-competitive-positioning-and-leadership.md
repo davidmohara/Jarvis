@@ -10,7 +10,8 @@ model: sonnet
 
 ## MANDATORY EXECUTION RULES
 
-1. You MUST map Improving's actual capabilities to the stated priority themes from step 02 — not a generic capabilities pitch. Each mapping should tie a named Improving strength to a specific stated priority.
+1. You MUST map Improving's actual capabilities to the stated priority themes from step 02 — not a generic capabilities pitch. Each mapping should tie a **named, real Improving offering** to a specific stated priority, per the offering-grounding gate in Task 1 (below): Improving's offerings must be pulled live from SharePoint before any capability is named. Inventing, recalling, or paraphrasing a capability from general knowledge is prohibited.
+1a. **Offering-grounding gate (added 2026-10-23 after err-20261023T215756-0X7I4Z).** Before Task 1, you MUST query Improving's live offering sources — the same grounding sources as the `offering-match` skill (`skills/offering-match/SKILL.md`): primary, the SharePoint `OfficeoftheChiefConsultingOfficer/Shared Documents/General/Sales Support/Sales Offerings/` folder; secondary, the Central Sales/SPARC site (`https://improving.sharepoint.com/sites/Sales`). Use the M365 SharePoint search tools. Every capability you name in Task 1 must cite the offering document it comes from (name, category, Duration/Price/Summary as stated, source path). If SharePoint is unreachable, the capability mapping FAILS — do not fall back to memory or invention; record `offering_pull: unreachable` and mark every downstream play ungrounded (step 06 rule 2a) for the controller to resolve.
 2. You MUST name a specific win-wire proof story (a past Improving engagement that is a direct analog to the target's situation) to prepare for technical/leadership conversations.
 3. You MUST include an honest competitive note: who else is likely already in the account (large SIs, incumbents), and where Improving realistically wins vs. loses. Do not oversell — name the specific dimensions (senior talent density, delivery speed, lower-ego partnership) versus what Improving concedes (scale, brand recognition).
 4. You MUST build a complete org chart covering the full C-suite (CEO and every C-level executive, not just technology-relevant ones) plus one level down (SVPs/VPs reporting to the C-suite), sourced from the company's leadership/investor-relations pages, LinkedIn, and news. This is broader than "who's relevant to the pitch" — it's the full leadership structure.
@@ -45,14 +46,20 @@ model: sonnet
 
 ### 1. Map Improving's capabilities to stated priorities
 
-- For each priority theme from step 02, identify the specific Improving capability area that addresses it (e.g., Data/AI engineering, Application Modernization, Cloud/Azure, Instructional Design/enablement).
-- Note any structural advantage relevant to the specific target (e.g., existing Azure-native stack alignment if the target is Azure-based; an existing contract vehicle if active-but-underleveraged).
+- **Run the offering-grounding gate (mandatory rule 1a) first**: pull Improving's live offerings from the SharePoint sources before naming any capability.
+- For each priority theme from step 02, identify the real Improving offering that addresses it, drawn from the live pull. A priority with no matching real offering gets `match_status: no_match` — that is a valid, expected output, not a failure; never force-fit or invent.
+- Note any structural advantage relevant to the specific target (e.g., existing Azure-native stack alignment if the target is Azure-based; an existing contract vehicle if active-but-underleveraged). Structural advantages must be facts (contract vehicles, prior wins, partner relationships) — not invented capability claims.
 - Record:
   ```yaml
+  offering_pull: "completed {date} against {SharePoint source paths}" | "unreachable"
   capability_mapping:
     - priority_theme: "{Theme name from step 02}"
-      improving_capability: "{Specific capability area}"
+      improving_offering: "{Real offering name, verbatim from the SharePoint offering doc}"
+      offering_category: "{AI Offerings | DevOps Enablement | Data Enablement | Platform Engineering | Business Agility | ...}"
+      offering_evidence: "{Duration / Price / Summary as stated in the source doc}"
+      source_doc: "{SharePoint path or URL to the exact document}"
       why_it_fits: "{1-2 sentences}"
+      match_status: "matched" | "no_match"
   structural_advantages:
     - "{e.g., 'Azure-native stack alignment' or 'Existing MSA eliminates procurement friction'}"
   ```
@@ -126,7 +133,8 @@ model: sonnet
 
 ## SUCCESS METRICS
 
-- Every stated priority theme mapped to a specific Improving capability
+- Every stated priority theme either mapped to a real Improving offering (with offering name, evidence, and source doc from the live SharePoint pull) or explicitly marked `no_match` — never an invented or ungrounded capability
+- Offering pull status recorded (`completed` with source paths, or `unreachable`)
 - One win-wire story named with a clear parallel to the target's situation
 - Competitive note is honest — names specific dimensions won and conceded, not generic confidence
 - Org chart is complete for C-suite (full, not just tech-relevant) + one level down, sourced and cited
@@ -139,6 +147,8 @@ model: sonnet
 
 | Failure | Action |
 |---------|--------|
+| SharePoint offering sources unreachable | Set `offering_pull: unreachable`, do NOT map capabilities from memory or general knowledge, and carry the flag forward so step 06 marks every entry play ungrounded. Surface to the controller. |
+| No real offering matches a priority theme | Record `match_status: no_match` and state the gap plainly. An unmatched priority is a valid output — never invent a service to fill it (per the `offering-match` skill's hard rule). |
 | No clear analog win-wire story exists | Say so plainly rather than stretching a weak parallel. Note: "No strong direct analog identified — closest comparable is {X}, but the fit is partial." |
 | Incumbent vendor relationships unknown | State "Likely incumbents unknown — no public signal found" rather than guessing at named competitors. |
 | Leadership page doesn't list one level down completely | Supplement with LinkedIn org search and news; state plainly if the one-level-down list is likely incomplete rather than presenting it as exhaustive. |

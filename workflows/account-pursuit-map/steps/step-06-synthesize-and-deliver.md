@@ -12,6 +12,7 @@ model: sonnet
 
 1. You MUST synthesize step 03's leadership map and step 05's referral network into a single **Contact Prioritization & Sequencing** table — priority rank, contact name/role, entry point (the actual mechanism to reach them), goal of that specific touch.
 2. You MUST produce 2-3 named, mutually exclusive **entry plays / opportunity scenarios**, each with a specific entry pitch written as an actual quote, and end with an explicit recommendation of which to lead with and why.
+2a. **Offering-grounding rule for plays (added 2026-10-23 after err-20261023T215756-0X7I4Z).** Every entry play MUST map to a real Improving offering from step 03's offering-grounded capability mapping (a live SharePoint pull, per step 03's mandatory rule 1a). A play is grounded when it names the real offering, its category, and its source document. If step 03's pull was `unreachable`, or a desired play has no matching real offering, you MUST either cut the play or label it explicitly: "**Aspirational — no current Improving offering matches this play; validate with the Chief Consulting Officer's office before pursuing.**" Never present an invented or ungrounded capability as a runnable play. The target-side facts of a play (the account's priorities, budget, timing) may come from step 02 research; the Improving-side of a play may not come from invention.
 3. You MUST branch the **phased strategic path** on step 01's engagement-shape determination: a 30/60/90-day plan for cold/lost re-entry, or a multi-year phased table (Access → Prove → Expand → Partner, with month ranges) for active-but-underleveraged. Do not produce both — produce the one that matches the determination, and do not default to the multi-year shape if the determination was cold/lost-re-entry.
 4. You MUST order the **immediate next actions** list so that any gating action comes first — e.g., "pull the CRM loss record first, before any outreach" for cold/lost re-entry cases with an undocumented loss reason (per step 01).
 5. You MUST state every genuine unknown explicitly in an **Open Items to Confirm** section. Never silently assume or assert an unconfirmed fact.
@@ -53,15 +54,18 @@ model: sonnet
 
 ### 2. Draft 2-3 entry plays / opportunity scenarios
 
-- Each play should be named, grounded in a specific stated priority (step 02) and a specific Improving capability (step 03), and include a quotable entry pitch.
+- Each play should be named, grounded in a specific stated priority (step 02) AND a real Improving offering from step 03's offering-grounded capability mapping (mandatory rule 2a), and include a quotable entry pitch.
 - Format per play:
   ```
   ### Option {A/B/C} — {Play name}
 
   {1-2 sentence description of the opportunity and why it fits}
 
+  **Grounding:** {Real offering name + category + SharePoint source doc from step 03's offering pull} — or — "Aspirational: no current offering matches; validate before pursuing."
+
   **Entry pitch:** "{Actual quotable pitch}"
   ```
+- A recommended lead play must be a grounded play. If every candidate play is aspirational, say so plainly in the recommendation and surface it to the controller rather than recommending an ungrounded play.
 - Close with an explicit recommendation: "**Recommendation:** Lead with Option {X} because {reasoning}."
 
 ### 3. Build the phased strategic path — branch on engagement shape
@@ -168,6 +172,7 @@ Full document structure, in order:
 
 - Contact Prioritization & Sequencing table synthesizes both the leadership map and referral network into one sequenced view
 - 2-3 mutually exclusive entry plays produced, each with a quotable pitch, ending in an explicit recommendation
+- Every entry play either grounded in a real offering (named, with SharePoint source doc) or explicitly labeled aspirational — no invented capability presented as a runnable play; the recommended lead play is grounded
 - Phased strategic path shape matches step 01's engagement-shape determination (30/60/90 for cold/lost re-entry, multi-year phased table for active-but-underleveraged) — never both, never mismatched
 - Immediate next actions ordered with any gating action first
 - Every unresolved item from steps 01-05 surfaced in Open Items — nothing silently dropped
@@ -179,6 +184,7 @@ Full document structure, in order:
 
 | Failure | Action |
 |---------|--------|
+| Step 03's offering pull was `unreachable`, or a candidate play has no matching real offering | Do not present the play as grounded. Either cut it or label it "Aspirational — no current Improving offering matches; validate before pursuing." Surface to the controller if the would-be lead play is ungrounded. |
 | Engagement shape from step 01 is ambiguous/unconfirmed | Do not guess a phased-path shape. Surface to the controller: "Engagement shape unclear — confirm active-but-underleveraged vs. cold/lost re-entry before finalizing the phased path." Draft the rest of the document and flag this section as pending. |
 | Accounts folder for this company doesn't exist yet | Create `accounts/{Company}/` and write the file fresh. |
 | Prior plan exists and this run found materially different facts (e.g., a title changed, an opportunity closed) | Update those facts in place; do not leave stale info standing alongside new info without reconciling. |
