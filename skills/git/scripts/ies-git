@@ -261,7 +261,9 @@ def die(msg: str, code: int = 1) -> "None":
 def git(args, capture=False):
     """Run one git command via argv list, never a shell."""
     if capture:
-        return subprocess.run(["git", *args], capture_output=True, text=True)
+        # errors=replace: staged diffs may contain binary bytes (e.g. PDFs git
+        # has not classified as binary); decode must not crash the wrapper.
+        return subprocess.run(["git", *args], capture_output=True, text=True, encoding="utf-8", errors="replace")
     return subprocess.run(["git", *args])
 
 
