@@ -1,8 +1,8 @@
 {
-  "pulled_at": "2026-10-22T11:44:46.311314Z",
+  "pulled_at": "2026-10-23T13:26:10.125055Z",
   "status": "available",
   "window_months": 12,
-  "since": "2025-10-27",
+  "since": "2025-10-28",
   "account_count": 30,
   "accounts": {
     "chase-checking": {
@@ -31,8 +31,8 @@
         },
         {
           "name": "Venmo",
-          "total": 15345.32,
-          "count": 26,
+          "total": 15080.32,
+          "count": 25,
           "last": "2026-10-05"
         },
         {
@@ -67,8 +67,8 @@
         },
         {
           "name": "ATM Withdrawal",
-          "total": 8204.0,
-          "count": 19,
+          "total": 7904.0,
+          "count": 18,
           "last": "2026-09-09"
         },
         {
@@ -115,9 +115,9 @@
         },
         {
           "name": "T-Mobile",
-          "total": 3409.29,
-          "count": 11,
-          "last": "2026-09-21"
+          "total": 3754.0,
+          "count": 12,
+          "last": "2026-10-21"
         },
         {
           "name": "Denton County",
@@ -408,13 +408,13 @@
           "last": "2026-05-04"
         },
         {
-          "name": "Zelle payment to Declan O'Hara 29033198731",
+          "name": "Zelle payment to Declan O'Hara 29446261169",
           "total": 50.0,
           "count": 1,
           "last": "2026-06-01"
         },
         {
-          "name": "Zelle payment to Declan O'Hara 29446261169",
+          "name": "Zelle payment to Declan O'Hara 29033198731",
           "total": 50.0,
           "count": 1,
           "last": "2026-06-01"
@@ -432,13 +432,13 @@
           "last": "2026-07-01"
         },
         {
-          "name": "ZELLE PAYMENT TO DECLAN O'HARA 29828101592",
+          "name": "ZELLE PAYMENT TO DECLAN O'HARA 30249342488",
           "total": 50.0,
           "count": 1,
           "last": "2026-08-03"
         },
         {
-          "name": "ZELLE PAYMENT TO DECLAN O'HARA 30249342488",
+          "name": "ZELLE PAYMENT TO DECLAN O'HARA 29828101592",
           "total": 50.0,
           "count": 1,
           "last": "2026-08-03"
@@ -591,6 +591,12 @@
           "last": "2026-03-25"
         },
         {
+          "name": "Theorem Vineyards",
+          "total": 4713.21,
+          "count": 4,
+          "last": "2026-10-21"
+        },
+        {
           "name": "Amazon",
           "total": 4420.34,
           "count": 102,
@@ -655,12 +661,6 @@
           "total": 2755.99,
           "count": 3,
           "last": "2026-10-15"
-        },
-        {
-          "name": "Theorem Vineyards",
-          "total": 2716.0,
-          "count": 3,
-          "last": "2026-04-22"
         },
         {
           "name": "Grand Hotel Fasano Fro",
@@ -1047,6 +1047,12 @@
           "last": "2026-05-21"
         },
         {
+          "name": "Amazon Return",
+          "total": 378.89,
+          "count": 12,
+          "last": "2026-10-21"
+        },
+        {
           "name": "Knee Deep Plumbing",
           "total": 378.1,
           "count": 1,
@@ -1063,12 +1069,6 @@
           "total": 365.0,
           "count": 1,
           "last": "2026-04-03"
-        },
-        {
-          "name": "Amazon Return",
-          "total": 363.79,
-          "count": 11,
-          "last": "2026-10-10"
         },
         {
           "name": "ABC Liquor",
@@ -2202,9 +2202,9 @@
         },
         {
           "name": "Market Street",
-          "total": 3550.63,
-          "count": 69,
-          "last": "2026-10-18"
+          "total": 3614.59,
+          "count": 70,
+          "last": "2026-10-21"
         },
         {
           "name": "Precision Watch Tbunkyouku To",
@@ -2357,6 +2357,12 @@
           "last": "2026-08-08"
         },
         {
+          "name": "Apple",
+          "total": 263.03,
+          "count": 34,
+          "last": "2026-10-21"
+        },
+        {
           "name": "Fly.io",
           "total": 260.69,
           "count": 9,
@@ -2367,12 +2373,6 @@
           "total": 250.89,
           "count": 1,
           "last": "2025-12-13"
-        },
-        {
-          "name": "Apple",
-          "total": 250.05,
-          "count": 33,
-          "last": "2026-10-10"
         },
         {
           "name": "S.k.i",
@@ -2710,7 +2710,7 @@
       "account_id": "0ff3092d-c9ea-4f56-b558-c760e6da7b04",
       "account_name": "Discover",
       "type": "creditCard",
-      "payee_count": 70,
+      "payee_count": 71,
       "payees": [
         {
           "name": "Last Bottle Wines",
@@ -3131,6 +3131,12 @@
           "total": 21.63,
           "count": 1,
           "last": "2026-09-26"
+        },
+        {
+          "name": "Kotta Sushi Lounge",
+          "total": 18.24,
+          "count": 1,
+          "last": "2026-10-22"
         }
       ]
     },
@@ -3394,8 +3400,8 @@
         },
         {
           "name": "Daily Look",
-          "total": 1287.62,
-          "count": 8,
+          "total": 1247.62,
+          "count": 7,
           "last": "2026-05-06"
         },
         {
@@ -4104,7 +4110,7 @@
     }
   },
   "all_accounts": {
-    "payee_count": 569,
+    "payee_count": 570,
     "payees": [
       {
         "name": "Fidelity Charitable",
@@ -4132,8 +4138,8 @@
       },
       {
         "name": "Venmo",
-        "total": 15345.32,
-        "count": 26,
+        "total": 15080.32,
+        "count": 25,
         "last": "2026-10-05"
       },
       {
@@ -4186,8 +4192,8 @@
       },
       {
         "name": "ATM Withdrawal",
-        "total": 8204.0,
-        "count": 19,
+        "total": 7904.0,
+        "count": 18,
         "last": "2026-09-09"
       },
       {
@@ -4269,22 +4275,28 @@
         "last": "2026-03-25"
       },
       {
+        "name": "Theorem Vineyards",
+        "total": 4713.21,
+        "count": 4,
+        "last": "2026-10-21"
+      },
+      {
         "name": "CoServ",
         "total": 4465.0,
         "count": 11,
         "last": "2026-09-24"
       },
       {
+        "name": "Market Street",
+        "total": 4333.98,
+        "count": 86,
+        "last": "2026-10-21"
+      },
+      {
         "name": "Moon Valley",
         "total": 4313.17,
         "count": 2,
         "last": "2026-07-17"
-      },
-      {
-        "name": "Market Street",
-        "total": 4270.02,
-        "count": 85,
-        "last": "2026-10-18"
       },
       {
         "name": "Total Wine & More",
@@ -4309,6 +4321,12 @@
         "total": 3754.99,
         "count": 1,
         "last": "2026-07-20"
+      },
+      {
+        "name": "T-Mobile",
+        "total": 3754.0,
+        "count": 12,
+        "last": "2026-10-21"
       },
       {
         "name": "Nebraska Furniture Mart",
@@ -4339,12 +4357,6 @@
         "total": 3437.74,
         "count": 17,
         "last": "2026-09-27"
-      },
-      {
-        "name": "T-Mobile",
-        "total": 3409.29,
-        "count": 11,
-        "last": "2026-09-21"
       },
       {
         "name": "Lakeside Paws",
@@ -4399,12 +4411,6 @@
         "total": 2800.0,
         "count": 1,
         "last": "2026-04-15"
-      },
-      {
-        "name": "Theorem Vineyards",
-        "total": 2716.0,
-        "count": 3,
-        "last": "2026-04-22"
       },
       {
         "name": "Precision Watch Tbunkyouku To",
@@ -4612,8 +4618,8 @@
       },
       {
         "name": "Daily Look",
-        "total": 1287.62,
-        "count": 8,
+        "total": 1247.62,
+        "count": 7,
         "last": "2026-05-06"
       },
       {
@@ -5211,10 +5217,22 @@
         "last": "2026-06-18"
       },
       {
+        "name": "Amazon Return",
+        "total": 378.89,
+        "count": 12,
+        "last": "2026-10-21"
+      },
+      {
         "name": "Knee Deep Plumbing",
         "total": 378.1,
         "count": 1,
         "last": "2026-10-14"
+      },
+      {
+        "name": "Apple",
+        "total": 370.87,
+        "count": 37,
+        "last": "2026-10-21"
       },
       {
         "name": "Hertz",
@@ -5229,12 +5247,6 @@
         "last": "2026-01-01"
       },
       {
-        "name": "Amazon Return",
-        "total": 363.79,
-        "count": 11,
-        "last": "2026-10-10"
-      },
-      {
         "name": "ABC Liquor",
         "total": 361.45,
         "count": 1,
@@ -5245,12 +5257,6 @@
         "total": 359.4,
         "count": 1,
         "last": "2026-02-03"
-      },
-      {
-        "name": "Apple",
-        "total": 357.89,
-        "count": 36,
-        "last": "2026-10-10"
       },
       {
         "name": "Dfw Airport Parking",
@@ -6765,13 +6771,13 @@
         "last": "2026-05-04"
       },
       {
-        "name": "Zelle payment to Declan O'Hara 29033198731",
+        "name": "Zelle payment to Declan O'Hara 29446261169",
         "total": 50.0,
         "count": 1,
         "last": "2026-06-01"
       },
       {
-        "name": "Zelle payment to Declan O'Hara 29446261169",
+        "name": "Zelle payment to Declan O'Hara 29033198731",
         "total": 50.0,
         "count": 1,
         "last": "2026-06-01"
@@ -6789,13 +6795,13 @@
         "last": "2026-07-01"
       },
       {
-        "name": "ZELLE PAYMENT TO DECLAN O'HARA 29828101592",
+        "name": "ZELLE PAYMENT TO DECLAN O'HARA 30249342488",
         "total": 50.0,
         "count": 1,
         "last": "2026-08-03"
       },
       {
-        "name": "ZELLE PAYMENT TO DECLAN O'HARA 30249342488",
+        "name": "ZELLE PAYMENT TO DECLAN O'HARA 29828101592",
         "total": 50.0,
         "count": 1,
         "last": "2026-08-03"
@@ -7321,6 +7327,12 @@
         "total": 18.63,
         "count": 1,
         "last": "2026-06-06"
+      },
+      {
+        "name": "Kotta Sushi Lounge",
+        "total": 18.24,
+        "count": 1,
+        "last": "2026-10-22"
       },
       {
         "name": "Hotel Booking Service Fee",

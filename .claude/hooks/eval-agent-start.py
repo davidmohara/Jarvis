@@ -253,6 +253,14 @@ def main():
         "subagent_type": agent_type,
         "session_id": session_id,
         "trigger": "workflow-dispatch" if spawn_workflow else "unknown",  # refined by post-tool-use.py when state.yaml written
+        # The serving model is not knowable at spawn time (the SubagentStart
+        # payload carries no model field, and no transcript exists yet), so
+        # the field is present-but-null here; eval-agent-stop.py fills it
+        # from the subagent's own transcript (model_source tells you which
+        # path supplied the value). Never pre-fill with the parent's model —
+        # that would be a guess.
+        "model": None,
+        "model_source": None,
         "started": now.isoformat().replace("+00:00", "Z"),
         "completed": None,
         "duration_seconds": None,

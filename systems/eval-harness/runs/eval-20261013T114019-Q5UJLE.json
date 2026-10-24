@@ -214,20 +214,22 @@
       "agent_type": "general-purpose",
       "started": "2026-10-13T12:06:14.141994Z",
       "completed": null,
-      "model": null,
+      "model": "accounts/fireworks/models/kimi-k3",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "model_source": "child-record-backfill"
     },
     {
       "agent_id": "adbd32a74f0f3668e",
       "agent_type": "general-purpose",
       "started": "2026-10-13T13:00:53.362100Z",
       "completed": null,
-      "model": null,
+      "model": "accounts/fireworks/models/kimi-k3",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "model_source": "child-record-backfill"
     },
     {
       "agent_id": "abb11ad462be4a824",
@@ -570,5 +572,7 @@
   "completed": "2026-10-13T15:25:22.079577Z",
   "total_tokens_input": 11772962,
   "total_tokens_output": 72646,
-  "total_cost_usd": 0.27
+  "total_cost_usd": 0.27,
+  "model": "accounts/fireworks/models/glm-5p3",
+  "model_source": "session-transcript-window-backfill"
 }

@@ -37,6 +37,10 @@ from hook_utils import (
     read_stdin, new_eval_id, infer_session_id, extract_workflow_path_reference,
     open_turn_level_record_exists,
 )
+try:
+    from token_usage import latest_turn_model
+except Exception:
+    latest_turn_model = None
 
 WORKFLOWS_DIR = IES_ROOT / "workflows"
 TAG = "TURN-START"
@@ -295,11 +299,28 @@ def boot_is_fresh() -> bool:
         return True
 
 
-def open_eval_record(workflow_name: str, fm: dict, session_id: str, trigger: str, evidence: str = ""):
+def open_eval_record(workflow_name: str, fm: dict, session_id: str, trigger: str, evidence: str = "",
+                     transcript_path: str | None = None):
     EVAL_RUNS_DIR.mkdir(parents=True, exist_ok=True)
     eval_id = new_eval_id()
     now = datetime.now(timezone.utc)
     state_yaml_path = str((WORKFLOWS_DIR / workflow_name / "state.yaml").relative_to(IES_ROOT))
+
+    # Model capture at creation (2026-10-23): a master-owned workflow runs
+    # inline in the parent session, so the session transcript's latest
+    # assistant turn is the model currently serving the run. This is the
+    # model at OPEN time; eval-turn-stop.py's finalize re-derives the
+    # window's dominant model into parent_window.model and backstops this
+    # field from it, so a mid-run /model switch is still reflected.
+    model = None
+    model_source = None
+    if latest_turn_model and transcript_path:
+        try:
+            model = latest_turn_model(transcript_path)
+            if model:
+                model_source = "session-transcript-latest"
+        except Exception:
+            model = None
 
     record = {
         "id": eval_id,
@@ -308,6 +329,8 @@ def open_eval_record(workflow_name: str, fm: dict, session_id: str, trigger: str
         "agent": fm.get("agent", "master"),
         "session_id": session_id,
         "trigger": trigger,
+        "model": model,
+        "model_source": model_source,
         "started": now.isoformat().replace("+00:00", "Z"),
         "completed": None,
         "duration_seconds": None,
@@ -375,7 +398,8 @@ def main():
         log_info(f"Eval already open for '{workflow_name}' this session, skipping (evidence={evidence[:120]!r})", TAG)
         return
 
-    open_eval_record(workflow_name, master_workflows[workflow_name], session_id, trigger="boot" if workflow_name == "boot" else "manual", evidence=evidence)
+    open_eval_record(workflow_name, master_workflows[workflow_name], session_id, trigger="boot" if workflow_name == "boot" else "manual", evidence=evidence,
+                     transcript_path=payload.get("transcript_path"))
 
 
 if __name__ == "__main__":

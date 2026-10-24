@@ -1,0 +1,90 @@
+{
+  "id": "eval-20261023T202739-GMCGOU",
+  "type": "skill",
+  "name": "harper-deck",
+  "agent": "general-purpose",
+  "session_id": "f430dc3d-53c9-4886-8710-ff645649ce64",
+  "trigger": "manual",
+  "model": "accounts/fireworks/models/kimi-k3",
+  "model_source": "session-transcript-window",
+  "started": "2026-10-23T20:27:30.499175Z",
+  "completed": "2026-10-23T20:27:39.074316Z",
+  "duration_seconds": 8.6,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": true,
+      "outputs_non_empty": false,
+      "assertions_checked": 4,
+      "assertions_passed": 2,
+      "assertion_results": [
+        {
+          "assertion": "harper-deck-signal-written",
+          "description": "harper-deck skill-run signal file was written",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "harper-deck-signal-status",
+          "description": "harper-deck skill-run did not end in failure",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "harper-d-002-substantive",
+          "description": "harper-deck output is substantive (>200 bytes)",
+          "category": "structure",
+          "passed": false
+        },
+        {
+          "assertion": "harper-d-003-content",
+          "description": "harper-deck output contains expected content",
+          "category": "structure",
+          "passed": false
+        }
+      ],
+      "category_breakdown": {
+        "structure": {
+          "passed": 2,
+          "checked": 4
+        },
+        "content": {
+          "passed": 0,
+          "checked": 0
+        },
+        "quality": {
+          "passed": 0,
+          "checked": 0
+        }
+      }
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "deterministic_gate": {
+      "score": 0.7917,
+      "gate_status": "pass",
+      "computed_at": "2026-10-23T20:27:39.484158Z"
+    }
+  },
+  "version_hash": "55d89f05ff23c7fe",
+  "prior_baseline_id": null,
+  "tags": [
+    "cowork-hook",
+    "skill"
+  ]
+}

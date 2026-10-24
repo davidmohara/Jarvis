@@ -1,0 +1,79 @@
+{
+  "id": "eval-20261023T142628-MP2GI0",
+  "agent_id": "ab38dd2f1d17ad438",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "general-purpose",
+  "owning_agent": null,
+  "subagent_type": "general-purpose",
+  "session_id": "f430dc3d-53c9-4886-8710-ff645649ce64",
+  "trigger": "unknown",
+  "started": "2026-10-23T14:26:28.084159Z",
+  "completed": "2026-10-23T14:27:24.456934Z",
+  "duration_seconds": 56.37,
+  "status": "partial",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 1,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/f430dc3d-53c9-4886-8710-ff645649ce64/subagents/agent-ab38dd2f1d17ad438.jsonl",
+  "last_assistant_message": "Search complete. Nothing modified.\n\n## Quantitative sources (the two that matter)\n\n**1. `/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/reports/alice-mburu-roi-analysis-2026-10-10.md`** \u2014 THE quantitative work-category breakdown. 176 lines, full ROI analysis of Jul 5\u2013Oct 10, 2026 (14 weeks). Contains: 583 assigned / 552 completed items (82% of 707 tracked), ~1,500 Teams messages, ~874 from Alice, ~65 daily recaps, ~90 of ~180 emails addressed to her directly, 10+ itineraries, 6+ events, 12+ podcast guests, 81 published posts, 9 boards, monthly volume (Jul 245 / Aug 161 / Sep 121 / Oct 1\u20139: 25). 13 numbered work categories each with tracked-item counts AND modeled hour ranges, plus a total effort table (446\u2013603 hrs / 32\u201343 hrs per week), a cost section ($3,350/mo, $40,200/yr, ~$19.40/hr), 3 alternatives (absorb / redistribute / stop) and multiplier effects.\n\n**2. `/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/reports/alice-mburu-roi-onepager-2026-10-10.md`** \u2014 39-line condensed version of the same numbers (552 items, 32\u201343 hrs/wk, $19.40/hr, 9\u201312x return). Quantified summary, not new data.\n\n## The scorecard (quantified, 6-dimension rubric) \u2014 lives in Obsidian, only pointed at from IES\n\n**`/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/Projects/Assistant/Alice Mburu Scorecard - 2026-10-09.md`** \u2014 VERIFIED EXISTS. Title matches \"Alice Mburu Scorecard 2026-10-09\", period Jul 13\u2013Oct 9 (~13 weeks). 6 dimensions scored -1/+1/+3: Reliability +1\u2192+3, Proactivity +3, Organization +3, Judgment +1\u2192+3, Communication +1\u2192+3, Cultural Fit +3. **Total 18/18, up from 12/18.** Contains 6 graded prior priorities (Met / Met / Not confirmed / Not met as specified / Closed by evidence / Partially met), 6 new growth priorities with measurable targets, and 4 David follow-ups. Sibling notes exist: `- 2026-06-08.md`, `- 2026-07-01.md`, `- 2026-07-13.md` (the 12/18 baseline).\n\n**IES pointers to that note (5):**\n- `workflows/boot/state.yaml:113` \u2014 boot context line, labels it \"13-week, Senior-track live\"\n- `memory/working/2026-10-09-shep-alice-1on1-prep.md:11,15` \u2014 how it was produced (Shep rerun on Jul 13 rubric), scores, corrections applied\n- `memory/sessions/index.json:2478,2483` \u2014 session `alice-scorecard-rerun` record\n- `reviews/daily/2026-10-09.md:12,72` \u2014 daily review entry; also next checkpoint 11/6\n- `systems/error-tracking/entries/err-20261009T190205-SXRR02.json` \u2014 correction log (Texans suite / Nairobi-remote fabrication)\n\n## Supporting files (narrative, small amounts of quantified scoring)\n\n| Path | Contents | Quantified? |\n|---|---|---|\n| `meetings/Alice Mburu - O3 Prep Sheet - 2026-07-13.md` | July 13 1:1 prep; full 6-dimension table 12/18 flat, prior-vs-current trend, Senior-level horizon | Yes, the 12/18 baseline rubric |\n| `meetings/Alice Mburu - 2026-10-09.md` | Oct 9 wrap-up prep brief; recaps July scorecard history and gaps | Narrative + score refs |\n| `meetings/2026-10-16-alice-mburu-1on1.md` | Oct 16 1:1 brief (scorecard refs absent; thread-based) | No |\n| `memory/working/2026-10-09-shep-alice-1on1-prep.md` | Shep working notes: 18/18 detail, July gap grading, 5 corrections | Yes (score deltas) |\n| `memory/working/2026-10-16-shep-alice-1on1-prep.md` | Oct 16 research window: travel, expenses, podcast, YPO, medical, CRM ticket | No (narrative) |\n| `people/alice-mburu.md` | Thin people file: role, started 2026-04-21, two Apr 21 calibration items | No \u2014 notably stale, no scorecard link |\n| `context/Alice_Mburu_EA_Feedback_2026-06-08.docx` | June 8 feedback doc (binary, not read) | Unknown |\n| `people/Alice-Relationship-Map.docx` | Relationship map (binary, not read) | Unknown |\n| `memory/semantic/relationships/2026-06-25-alice-mburu-pattern.md` | Auto-generated dream-cycle pattern note, confidence low, 6 episodic refs | No \u2014 low-value boilerplate |\n| `identity/MEMORY.md:10` | Identity line: Athena Executive Partner (XP), matched April 2026, kickoff Apr 13, Nairobi remote, Athena contact Crystal Foran | No |\n| `identity/INTEGRATIONS.md:79-83` | Human-integration section on Alice, Jarvis role = draft priorities for her | No |\n| `reviews/daily/2026-10-09.md`, `reviews/daily/auto-2026-07-13.md`, `reviews/daily/auto-2026-07-21/22/23.md` | Daily reviews with Alice mentions; the July auto-reviews complain the 1:1 rhythm hadn't taken hold | No |\n| `memory/episodic/projects/2026-10-09-174500-rock-review-Q4-2026.md`, `memory/episodic/rock-review-2026-10-09-174500.md` | Q4 rock review: EA hire complete, \"18/18 scorecard Oct 9\", 12/18 in July | Yes (single line) |\n| `memory/episodic/projects/2026-10-16-goal-alignment-check.md` | Goal alignment: EA scorecard 18/18 noted | Minimal |\n| `memory/working/morning-briefing-2026-10-23-084700.md` | Today's briefing: 2:00 Week Wrap-Up is \"her scorecard cadence\", open items | No |\n| `memory/personal/quarterly-objectives.md:35` | Q4 objective naming Alice as scorecard/ops pull-hygiene owner | No |\n| `workflows/plaud-ingest/steps/step-05b-share-with-alice.md` + `verify/step-05b-share-with-alice.py` | Transcript-sharing workflow to Alice | N/A |\n\nKey gap: `people/alice-mburu.md` is the canonical person file but holds no evaluation history and no pointer to either the scorecard or the ROI analysis. The quantified analysis is split across two locations \u2014 ROI in the repo (`reports/`), scorecard in Obsidian \u2014 and nothing indexes them together outside `memory/sessions/index.json`.",
+  "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+  "total_tokens_input": 480460,
+  "total_tokens_output": 4617,
+  "total_cost_usd": 0.061095,
+  "token_source": "subagent-transcript",
+  "parent_window": {
+    "token_source": "parent-window",
+    "transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/f430dc3d-53c9-4886-8710-ff645649ce64.jsonl",
+    "window_start": "2026-10-23T14:26:28.084159Z",
+    "window_end": "2026-10-23T14:27:24.456934Z",
+    "model": "accounts/fireworks/models/glm-5p3",
+    "tokens_input": 111969,
+    "tokens_output": 602,
+    "cost_usd": 0.020317,
+    "turns_matched": 1,
+    "turns_with_usage": 1,
+    "computed_at": "2026-10-23T14:27:24.654157Z"
+  },
+  "fully_loaded_cost_usd": 0.081412,
+  "fully_loaded_tokens_input": 592429,
+  "fully_loaded_tokens_output": 5219
+}

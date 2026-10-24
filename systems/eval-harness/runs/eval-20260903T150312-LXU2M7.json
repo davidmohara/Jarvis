@@ -60,10 +60,11 @@
       "agent_type": "general-purpose",
       "started": "2026-09-03T15:08:53.789386Z",
       "completed": null,
-      "model": null,
+      "model": "haiku",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "model_source": "child-record-backfill"
     }
   ],
   "monitoring": {

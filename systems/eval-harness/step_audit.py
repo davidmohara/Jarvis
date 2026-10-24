@@ -285,6 +285,13 @@ def compute_cost(model, tokens_in, tokens_out):
     """Flat-rate cost in USD from token counts. Returns None if inputs are
     incomplete or the model isn't in the pricing table.
 
+    Lookup is alias-aware (token_usage.rates_for_model): provider-prefixed ids
+    ('accounts/fireworks/models/glm-5p3'), dated variants, the configured
+    '-latest' routing aliases, and context-window-tagged spellings
+    ('kimi-k3[1m]') all resolve to their priced table entries instead of
+    silently returning None. Falls back to the bare lowercase lookup when
+    token_usage is unavailable.
+
     This is the simple flat-rate math used by record-step.py (no cache
     multipliers). token_usage.py's _compute_accurate_cost is the cache-aware
     variant used when pricing a whole transcript slice; both are valid for
@@ -292,7 +299,14 @@ def compute_cost(model, tokens_in, tokens_out):
     """
     if not model or tokens_in is None or tokens_out is None:
         return None
-    rates = load_pricing().get(str(model).lower())
+    rates = None
+    try:
+        from token_usage import rates_for_model
+        rates = rates_for_model(str(model))
+    except Exception:
+        rates = None
+    if not rates:
+        rates = load_pricing().get(str(model).lower())
     if not rates:
         return None
     cost = (tokens_in / 1_000_000) * rates["input_per_mtok"] + \

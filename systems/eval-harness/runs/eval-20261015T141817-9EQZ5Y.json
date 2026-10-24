@@ -46,5 +46,7 @@
   "tags": [
     "cowork-hook",
     "skill"
-  ]
+  ],
+  "model": "glm-5p3",
+  "model_source": "session-transcript-window-backfill"
 }

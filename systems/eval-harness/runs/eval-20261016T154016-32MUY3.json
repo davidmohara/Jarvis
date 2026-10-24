@@ -144,5 +144,7 @@
   "prior_baseline_id": null,
   "tags": [],
   "workflow": "daily-review",
-  "owning_agent": "chief"
+  "owning_agent": "chief",
+  "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+  "model_source": "session-transcript-latest-backfill"
 }

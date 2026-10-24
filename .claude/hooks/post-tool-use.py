@@ -40,9 +40,14 @@ sys.path.insert(0, str(IES_ROOT / "systems" / "eval-harness" / "vendor"))
 sys.path.insert(0, str(IES_ROOT / "systems" / "eval-harness"))
 import yaml
 try:
-    from token_usage import usage_between
+    from token_usage import usage_between, latest_turn_model
 except Exception:
     usage_between = None
+    latest_turn_model = None
+try:
+    from fully_loaded_cost import find_session_transcript as _find_session_transcript
+except Exception:
+    _find_session_transcript = None
 try:
     from hook_utils import infer_session_id as _shared_infer_session_id
 except Exception:
@@ -501,6 +506,38 @@ def run_assertions(name: str, eval_record: dict) -> dict:
     )
 
 
+def derive_session_model(session_id: str, started_iso: str, completed_iso: str):
+    """Best-effort model for a record created at completion time (skill-run
+    signal / state.yaml Cowork path), where no hook captured the model live.
+
+    Skills execute inline in the main session, so the session transcript's
+    own (non-sidechain) turns in the run window carry the serving model.
+    Returns (model, model_source) or (None, None); never a default guess."""
+    if not (session_id and usage_between and _find_session_transcript):
+        return None, None
+    try:
+        tp = _find_session_transcript(session_id)
+    except Exception:
+        tp = None
+    if not tp:
+        return None, None
+    try:
+        u = usage_between(tp, started_iso, completed_iso,
+                          exclude_sidechain=True, lenient_fallback=False)
+        if u and u.get("model"):
+            return u["model"], "session-transcript-window"
+    except Exception:
+        pass
+    if latest_turn_model:
+        try:
+            m = latest_turn_model(tp)
+            if m:
+                return m, "session-transcript-latest"
+        except Exception:
+            pass
+    return None, None
+
+
 def create_eval_record_from_skill_run(skill_run_data: dict, session_id: str):
     """Create a complete eval record when a skill writes its skill-runs JSON signal file."""
     try:
@@ -535,6 +572,7 @@ def create_eval_record_from_skill_run(skill_run_data: dict, session_id: str):
         duration = max(0, round((now - started_dt).total_seconds(), 1))
         eval_id = new_eval_id()
         vhash = skill_version_hash(skill_name)
+        model, model_source = derive_session_model(session_id, started_iso, completed_iso)
 
         record = {
             "id": eval_id,
@@ -543,6 +581,8 @@ def create_eval_record_from_skill_run(skill_run_data: dict, session_id: str):
             "agent": agent,
             "session_id": session_id,
             "trigger": trigger,
+            "model": model,
+            "model_source": model_source,
             "started": started_iso,
             "completed": completed_iso,
             "duration_seconds": duration,
@@ -698,6 +738,7 @@ def create_eval_record_from_state(state_data: dict, session_id: str, rel_path: s
         duration = max(0, round((now - started_dt).total_seconds(), 1))
         eval_id = new_eval_id()
         vhash = workflow_version_hash(workflow_name)
+        model, model_source = derive_session_model(session_id, started_iso, completed_iso)
 
         record = {
             "id": eval_id,
@@ -713,6 +754,8 @@ def create_eval_record_from_state(state_data: dict, session_id: str, rel_path: s
             ),
             "session_id": session_id,
             "trigger": trigger,
+            "model": model,
+            "model_source": model_source,
             "started": started_iso,
             "completed": completed_iso,
             "duration_seconds": duration,

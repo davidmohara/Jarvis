@@ -212,5 +212,7 @@
   ],
   "total_tokens_input": 829155,
   "total_tokens_output": 5010,
-  "total_cost_usd": 0.36
+  "total_cost_usd": 0.36,
+  "model": "accounts/fireworks/models/kimi-k3",
+  "model_source": "session-transcript-window-backfill"
 }

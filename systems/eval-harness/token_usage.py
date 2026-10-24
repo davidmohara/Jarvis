@@ -53,7 +53,51 @@ MODEL_ALIASES = {
     # (deepseek-v4p1-flash-1017 left the 2026-10-21 morning-briefing subagent
     # unpriced). Map the dated variants onto the table's keys.
     "accounts/fireworks/models/deepseek-v4p1-flash-1017": "accounts/fireworks/models/deepseek-v4p1-flash",
+    # "-latest" routing aliases configured in ~/.claude/settings.json
+    # (ANTHROPIC_DEFAULT_*_MODEL, 2026-10-23). The pricing table's own notes
+    # declare these equivalences ("Opus tier -> glm-5p3 / glm-latest",
+    # "Fable tier -> glm-5p3-flash / glm-flash-latest",
+    # "Haiku tier -> deepseek-v4p1-flash", settings name
+    # "DeepSeek V4.1 Flash 1017 (Latest)"), so mapping them onto the priced
+    # ids applies a documented equivalence, not a guess. Picker-only ids with
+    # no declared equivalence (ember-1, kimi-fast-latest, glm-fast-latest)
+    # stay unmapped — they price null rather than wrong.
+    "glm-latest": "glm-5p3",
+    "glm-flash-latest": "glm-5p3-flash",
+    "deepseek-flash-latest": "accounts/fireworks/models/deepseek-v4p1-flash",
+    # Claude Code appends a context-window tag to configured ids
+    # ("kimi-k3[1m]"); transcripts can carry that spelling. Strip the bracket
+    # suffix at lookup time (see _base_model_id) — these entries cover the
+    # spellings already seen in records.
+    "kimi-k3[1m]": "kimi-k3",
 }
+
+
+def _base_model_id(model: str | None) -> str | None:
+    """Strip a trailing context-window tag ('kimi-k3[1m]' -> 'kimi-k3') so
+    alias/pricing lookups see the bare model id. The raw id is still what
+    gets recorded on the record; this only affects table lookups."""
+    if not model:
+        return model
+    return str(model).split("[", 1)[0]
+
+
+def latest_turn_model(transcript_path: str, exclude_sidechain: bool = True) -> str | None:
+    """The model id of the most recent assistant turn in a transcript,
+    alias-mapped to the pricing-table spelling (same convention as
+    usage_between's `model` field). None when the transcript is missing,
+    unreadable, or carries no model ids.
+
+    Used at record-creation time (eval-turn-start.py, close-eval-record.py,
+    post-tool-use.py) when a windowed slice is not yet possible but the
+    session's current serving model is — capture what is available and mark
+    the source on the record (model_source), never guess."""
+    turns = extract_assistant_turns(transcript_path, exclude_sidechain=exclude_sidechain)
+    for t in reversed(turns):
+        m = t.get("model")
+        if m:
+            return MODEL_ALIASES.get(m, MODEL_ALIASES.get(_base_model_id(m), m))
+    return None
 
 
 def _load_pricing() -> dict:
@@ -202,7 +246,9 @@ def usage_between(transcript_path: str, start_iso: str | None, end_iso: str | No
         if m:
             model_counts[m] = model_counts.get(m, 0) + 1
     model_raw = max(model_counts, key=model_counts.get) if model_counts else None
-    model_short = MODEL_ALIASES.get(model_raw, model_raw)
+    model_short = (MODEL_ALIASES.get(model_raw)
+                   or MODEL_ALIASES.get(_base_model_id(model_raw))
+                   or model_raw)
 
     cost_usd = _compute_accurate_cost(model_short, matched)
 
@@ -325,7 +371,9 @@ def partition_usage_by_steps(transcript_path: str, steps: list[dict],
             if m:
                 model_counts[m] = model_counts.get(m, 0) + 1
         model_raw = max(model_counts, key=model_counts.get) if model_counts else None
-        model_short = MODEL_ALIASES.get(model_raw, model_raw)
+        model_short = (MODEL_ALIASES.get(model_raw)
+                       or MODEL_ALIASES.get(_base_model_id(model_raw))
+                       or model_raw)
         result[name] = {
             "model": model_short,
             "model_raw": model_raw,
@@ -443,10 +491,15 @@ def rates_for_model(model_raw: str | None) -> dict | None:
     if not model_raw:
         return None
     pricing = _load_pricing()
+    base = _base_model_id(model_raw)
+    bare = str(base).rsplit("/", 1)[-1]
     candidates = [
         model_raw,
+        base,
         MODEL_ALIASES.get(model_raw),
-        str(model_raw).rsplit("/", 1)[-1],
+        MODEL_ALIASES.get(base),
+        bare,
+        MODEL_ALIASES.get(bare),
     ]
     for cand in candidates:
         if cand and cand.lower() in pricing:
@@ -561,7 +614,9 @@ def parent_window_usage(main_transcript_path: str, start_iso: str | None,
 
     result = {
         "token_source": "parent-window",
-        "model": MODEL_ALIASES.get(model_raw, model_raw),
+        "model": (MODEL_ALIASES.get(model_raw)
+                  or MODEL_ALIASES.get(_base_model_id(model_raw))
+                  or model_raw),
         "model_raw": model_raw,
         "tokens_input": tokens_input,
         "tokens_output": tokens_output,

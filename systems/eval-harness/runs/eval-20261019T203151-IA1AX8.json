@@ -281,60 +281,66 @@
       "agent_type": "general-purpose",
       "started": "2026-10-19T21:17:12.370378Z",
       "completed": null,
-      "model": null,
+      "model": "accounts/fireworks/models/kimi-k3",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "model_source": "child-record-backfill"
     },
     {
       "agent_id": "aa940ac542af232c7",
       "agent_type": "general-purpose",
       "started": "2026-10-19T21:18:52.498494Z",
       "completed": null,
-      "model": null,
+      "model": "accounts/fireworks/models/kimi-k3",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "model_source": "child-record-backfill"
     },
     {
       "agent_id": "aa940ac542af232c7",
       "agent_type": "general-purpose",
       "started": "2026-10-19T21:22:13.528817Z",
       "completed": null,
-      "model": null,
+      "model": "accounts/fireworks/models/kimi-k3",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "model_source": "child-record-backfill"
     },
     {
       "agent_id": "aa940ac542af232c7",
       "agent_type": "general-purpose",
       "started": "2026-10-19T21:22:25.129350Z",
       "completed": null,
-      "model": null,
+      "model": "accounts/fireworks/models/kimi-k3",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "model_source": "child-record-backfill"
     },
     {
       "agent_id": "aa940ac542af232c7",
       "agent_type": "general-purpose",
       "started": "2026-10-19T21:24:33.113241Z",
       "completed": null,
-      "model": null,
+      "model": "accounts/fireworks/models/kimi-k3",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "model_source": "child-record-backfill"
     },
     {
       "agent_id": "aa940ac542af232c7",
       "agent_type": "general-purpose",
       "started": "2026-10-19T21:27:37.619047Z",
       "completed": null,
-      "model": null,
+      "model": "accounts/fireworks/models/kimi-k3",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "model_source": "child-record-backfill"
     }
   ],
   "monitoring": {
@@ -682,5 +688,7 @@
   },
   "total_tokens_input": 16954420,
   "total_tokens_output": 87061,
-  "total_cost_usd": 7.759334
+  "total_cost_usd": 7.759334,
+  "model": "glm-5p3-flash",
+  "model_source": "session-transcript-window-backfill"
 }

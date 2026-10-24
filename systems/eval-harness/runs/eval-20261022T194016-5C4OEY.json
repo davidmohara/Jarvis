@@ -285,5 +285,7 @@
   "fully_loaded_cost_usd": 0.179322,
   "fully_loaded_tokens_input": 280672,
   "fully_loaded_tokens_output": 2196,
-  "workflow": "boot"
+  "workflow": "boot",
+  "model": "glm-5p3",
+  "model_source": "parent-window-backfill"
 }

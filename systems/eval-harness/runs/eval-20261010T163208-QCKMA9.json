@@ -428,5 +428,7 @@
   "tags": [
     "turn-level"
   ],
-  "workflow": "client-meeting-prep"
+  "workflow": "client-meeting-prep",
+  "model": "accounts/fireworks/models/glm-5p3",
+  "model_source": "session-transcript-window-backfill"
 }

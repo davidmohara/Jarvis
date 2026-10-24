@@ -1,49 +1,161 @@
 agent: master
 status: complete
-current-step: null
-session-id: boot-2026-10-22
-session-started: '2026-10-22T11:43:01Z'
+session-id: boot-2026-10-23
+session-started: '2026-10-23T00:00:00Z'
 original-request: Run morning boot workflow
 accumulated-context:
-  phase1: "in-progress \u2014 identity and routing files loaded inline by Master; Knox plaud-ingest spawned fire-and-forget (marker data/.knox-last-run set to 2026-10-22); session index record appended"
-  prior-run: boot-2026-10-21 completed 2026-10-21T15:50:00Z; this is a fresh run, prior accumulated-context discarded
+  prior-run: boot-2026-10-22 completed 2026-10-22T11:47:22Z; this is a fresh run, prior accumulated-context discarded
+  phase1: "complete — identity and routing files loaded inline by Master; Knox plaud-ingest spawned fire-and-forget (marker data/.knox-last-run set to 2026-10-23); session index record appended"
+  calendar_file: "data/calendar-unified.json"
+  event_count: 31
+  date_range: "2026-10-23 to 2026-10-26"
+  file_size_kb: 92.6
+  calendar_status: "written"
   phase1-point5:
     unified-data-pulls:
-      email: "completed \u2014 7 time-sensitive messages (0 flagged; 17 recent inbox items scanned)"
-      omnifocus: "completed \u2014 46 tasks"
-      clay: "nothing-to-surface \u2014 Clay unavailable (only authenticate stubs after ToolSearch retry)"
-      jarvis-inbox: "nothing-to-surface \u2014 Jarvis folder returned 0 messages"
-      ynab: "completed \u2014 status available"
+      email: "completed — 9 messages"
+      omnifocus: "completed — 38 tasks"
+      clay: "nothing-to-surface — Clay MCP unavailable (not authenticated), attempted anyway"
+      jarvis-inbox: "nothing-to-surface — 0 unread in /Jarvis"
+      ynab: "completed — 570 payees"
     files-created:
-    - data/email-unified.json
-    - data/omnifocus-unified.json
-    - data/clay-reminders-unified.json
-    - data/jarvis-inbox-unified.json
-    - data/ynab-unified.json
-    total_data_on_disk_kb: 193
-  calendar_file: data/calendar-unified.json
-  event_count: 27
-  date_range: 2026-10-22 to 2026-10-25
-  file_size_kb: 77
-  status: written
+      - "data/email-unified.json"
+      - "data/omnifocus-unified.json"
+      - "data/clay-reminders-unified.json"
+      - "data/jarvis-inbox-unified.json"
+      - "data/ynab-unified.json"
+    total_data_on_disk_kb: 188.4
   phase2:
-    morning-briefing-steps-01-02: completed (executed inline by boot subagent from unified data files)
-    task-g-72hr-lookahead: "completed \u2014 27 events 10-22..10-25"
-    task-h-email-triage: "completed \u2014 0 flagged, 7 time-sensitive"
-    task-i-jarvis-inbox: "nothing-to-surface \u2014 folder empty"
-    task-j-reminders: 'completed (4 due: Amex credits, 10:00 triple-book, Rock 1/2 KR tasks, GEHC/UTB follow-up)'
-  phase2_status: "complete \u2014 all 5 tasks executed, 0 failures (Clay unavailable, carried from 01.2)"
-  verification_results: "pass \u2014 boot-verify phase2 clean (measurement + manifest, no LLM verification needed)"
+    morning-briefing-steps-01-02: "completed — 9 timed events today (Fri 2026-10-23), 12 inbox, 7 due today, 1 overdue, 0 flagged"
+    calendar_data:
+      date: 2026-10-23
+      meeting_count: 9
+      meetings:
+        - {time: "06:30-07:30", subject: "IGP Bible Study", type: personal, needs_prep: false, flags: []}
+        - {time: "08:00-09:00", subject: "Dallas Virtual Coffee Chat", type: recurring-skip, attendees: 62, needs_prep: false, flags: [tentative, overlaps-bootcamp]}
+        - {time: "08:30-17:30", subject: "Houston Bootcamp (main)", type: team, attendees: 12, needs_prep: false, flags: [all-day-commitment, David-organized]}
+        - {time: "09:15-09:30", subject: "Sales & Recruiting Meeting", type: recurring-skip, attendees: 17, needs_prep: false, flags: [tentative, overlaps-bootcamp]}
+        - {time: "09:30-10:00", subject: "4th Friday Executive Meeting", type: recurring-skip, attendees: 148, needs_prep: false, flags: [overlaps-bootcamp]}
+        - {time: "10:00-11:00", subject: "Presidents Pipeline Roundtable 2026 (4th Fridays)", type: team, attendees: 32, needs_prep: true, flags: [overlaps-bootcamp]}
+        - {time: "13:00-13:30", subject: "Q4 2026 Cyber Security Awareness Training", type: personal, needs_prep: false, flags: [overlaps-bootcamp]}
+        - {time: "14:00-14:30", subject: "Friday Week Wrap-Up", type: "1:1", attendees: 1, needs_prep: true, flags: [overlaps-bootcamp]}
+        - {time: "18:30-20:00", subject: "Wine Tasting (Total Wine, Plano)", type: personal, needs_prep: false, flags: []}
+      all_day: ["Eric Sowell PTO"]
+      open_blocks: ["07:30-08:00", "11:00-13:00 (inside bootcamp window)", "17:30-18:30"]
+      warnings: ["Houston Bootcamp 08:30-17:30 conflicts with 4 standing Friday meetings (Coffee Chat, Sales & Recruiting, Exec Meeting, Pipeline Roundtable) — presume skipped for bootcamp", "zero-buffer chain 08:00-11:00", "3+ video-call cluster"]
+    task_data:
+      source: "data/omnifocus-unified.json (status available, 38 tasks)"
+      inbox_count: 12
+      inbox_items: ["Higgsfield - video", "Movies", "Take hanger for jacket to work", "Clint ARK", "Bible Study: predestination", "Bible Study: handling the poor today", "Join BMW club of America", "Talk", "Size watches", "Team Day at Augment", "Podcast", "Modo follow up"]
+      due_today:
+        - {task: "Coherence breathing (10:00 AM)", project: "Deliberate Practices"}
+        - {task: "Review prayer list (11:00 AM)", project: "Deliberate Practices"}
+        - {task: "Draft buy-in note to Devlin on Boardroom Ready program", project: "Executive Elevation"}
+        - {task: "Circulate presence-note format guidance to note writers", project: "Executive Elevation"}
+        - {task: "Collect cohort 0 nominations and select first 4-6 participants", project: "Executive Elevation"}
+        - {task: "Lock Q4 client meetings as guaranteed airtime venues", project: "Executive Elevation"}
+        - {task: "Decide airtime-on-the-invite mechanic", project: "Executive Elevation"}
+      overdue:
+        - {task: "Fix media room lights", project: "Family", due_date: 2026-10-17, days_late: 6}
+      flagged: []
+    delegation_data:
+      overdue:
+        - {task: "Steve Hall follow up", owner: "Derek Nwamadi", due_date: 2026-09-25, days_late: 28, note: "2026-10-09 David confirmed Derek actively handling; no nudge needed"}
+      due_today: []
+      due_this_week: []
+    rocks:
+      - {name: "Rock 1: Solace Co-Sell Motions (AT&T, McKesson, SLB)", status: "KR1 overdue — dated milestones due Oct 17, no OmniFocus backing (due reminder)"}
+      - {name: "Rock 2: South Texas Revenue Recovery", status: "KR1 decomposition (Chase) due Oct 17, overdue (due reminder)"}
+      - {name: "Rock 3: Scorecard Truth", status: "Sept close live validation due Oct 24 (tomorrow); account-increase tracking due Oct 31"}
+      - {name: "Rock 4: Thought Leadership", status: "Sustaining; Becoming AI Native panel Oct 29, Talent Labs Nov 4 on calendar"}
+      - {name: "Rock 5: AI Practice Leadership Plan (2027, with Curtis)", status: "Plan defined by Dec 15 (soft-confirmed)"}
+    task-g-72hr-lookahead: "completed — 19 events across 2026-10-24..26; Monday heavy (13 events, zero-buffer 10:00-17:00)"
+    lookahead:
+      sat_2026-10-24: ["Strength Flow 08:00-09:00", "Core Session 09:00-09:30 (back-to-back with Strength Flow)", "Surprise party for Erin 18:00-21:00 (Didi's)", "LMB OOO (all-day)"]
+      sun_2026-10-25: ["Golf 14:00-18:00", "LMB OOO (all-day)"]
+      mon_2026-10-26:
+        events: ["Improving Prayer Call 08:00-08:15", "Timesheet 08:30-08:35", "Sales & Recruiting 09:15-09:30 (tentative)", "Sales Scrum 09:30-10:00 (tentative)", "Whiteboard Session: App Discussion 10:00-11:00", "Overflow 11:00-11:30", "Drive To 11:30-12:00", "Podcast Filming w Amber 12:00-14:00 (offsite, 5 attendees)", "GEHC Twice Weekly Internal Check-In 14:00-14:30 (CLIENT, tentative)", "Drive From 14:30-15:00", "Lance Clevinger Intro Call 15:30-16:00", "Sync: The Improving Edge 16:00-16:30", "Connect: David & Russell (Improving/Henricksen — partner) 16:30-17:00"]
+        warnings: ["13 events, zero-buffer chain 10:00-17:00", "GEHC client check-in 14:00 conflicts with Drive From 14:30 (tight after offsite podcast filming)", "David Schwartz PTO begins 10/26 (through 11/06)"]
+        needs_prep: ["GEHC Twice Weekly Internal Check-In (client)", "Connect: David & Russell (Henricksen partner)", "Whiteboard Session (David-organized)"]
+    task-h-email-triage: "completed — 0 flagged (flag status not exposed by M365 search), 9 actionable/time-sensitive"
+    email_triage:
+      - "BoardVantage (Teresa Saffold): UTB Audit Committee BDO Engagement approval — response requested, received today, unread"
+      - "Jen Jensen (YPO): Chapters missing Core Officer ID commitment — Nov 1 deadline, asked to nudge chapter chairs"
+      - "Ryan O'Connor: still identifying ALO ahead of Nov 1 chapter-commitment deadline"
+      - "Bethany Hilton: ASEI/Bank of America AI workshop — needs David's answer on virtual broadcast option"
+      - "Shelby Meyer (YPO): Oct OnPoint + Western Region updates — Nov 1 funding deadline for strategic pillar focus"
+      - "Paul Forbing: Security alert, Priority Urgent — spam wave and IT impersonation calls (awareness)"
+      - "Shelby Meyer (YPO): confirm 2027-2029 Gold Regional Officers thread"
+      - "Tim Rayburn: AI Leadership Summit homework — 5-min TED-talk idea for Nov 5-6 Day 2"
+      - "Tiffany Geib (YPO): RSVP Six Flags Holiday in the Park, Dec 6 joint-chapter family event"
+    task-i-jarvis-inbox: "nothing-to-surface — 0 unread in data/jarvis-inbox-unified.json; no subagent spawned"
+    task-j-reminders: "completed — 4 due (trigger_date <= 2026-10-23)"
+    reminders_due:
+      - {id: "rem-20261017T005503-CRBRYQ", trigger_prompt: "Amex Platinum ~$992 unused credits reset 12/31 (Resy Q4, lululemon Q4, hotel H2, CLEAR+, Uber Cash) — help schedule usage?", agent: chase, on_no: "snooze 3 days"}
+      - {id: "rem-20261022T010059-Z5SG97", trigger_prompt: "Thursday 10:00 triple-booking (Sales Scrum / DLP check-in / AI Mastermind Basecamp) — which do you keep?", agent: chief, on_no: "snooze 1 day", note: "dated 10/22 — may be stale, was not acknowledged yesterday"}
+      - {id: "rem-20261022T010202-TJK8N4", trigger_prompt: "Rock 1 KR1 + Rock 2 KR1 due Oct 17 with no OmniFocus tasks — create or drop?", agent: quinn, on_no: "snooze 1 day"}
+      - {id: "rem-20261022T010202-M64JFN", trigger_prompt: "Did UTB Board item, GEHC sync capture, and Thursday 10:00 conflict get resolved yesterday?", agent: chief, on_no: "snooze 1 day"}
+    reminders_not_due: ["rem-20261016T190151-9CFK0X (MOTS-C cycle start, triggers 2026-11-02)"]
+  phase2_status: "complete — all 5 tasked groups (A, G, H, I, J) executed, 0 failures, 0 API calls"
   phase3:
-    morning-briefing-step-03: "completed inline \u2014 reviews/daily has no 2026-10-21 entry (latest auto-2026-10-16); GEHC 15:00 meeting has context in memory/working"
-    clay-reminders: "none \u2014 Clay unavailable"
-    clay-birthdays: "none \u2014 Clay unavailable"
-  meetings_found: 13 events today; context gathered for GEHC AI Routing and Scott McMichael 1:1
-  briefing_delivered: "yes \u2014 synthesized inline by boot subagent; held for relay in final message; working memory memory/working/morning-briefing-2026-10-22-065000.md"
-  workflows_scanned: "complete \u2014 _active.yaml read, active: [] so 0 in-progress per index; plaud-ingest state.yaml (not indexed) is awaiting-input, surfaced"
-  state_status: complete
+    meeting_context:
+      - meeting: "Presidents Pipeline Roundtable 2026 (4th Fridays) 10:00-11:00"
+        attendees: ["Scott McMichael (organizer)", "Texas presidents incl. Robyn Fuentes", "Devlin Liles", "Don McGreal", "Susan Fojtasek", "30 total — all presidents/MDs/senior exec sales"]
+        context_found:
+          - "Scott-organized bi-weekly (2nd & 4th Fridays) sales-headlines session, all presidents + MDs (Obsidian: Scott McMichael notes 2026-02-12, 2026-05-21)"
+          - "David's lane per RESPONSIBILITIES: Friday President's Pipeline is a standing weekly cadence he participates in"
+          - "Current pipeline context from phase2 rocks: Rock 1 Solace co-sell KR1 overdue (Oct 17), Rock 2 South Texas revenue recovery KR1 overdue, Rock 3 Scorecard Truth Sept-close validation due tomorrow Oct 24"
+        open_items: ["none in delegations/tracker.md involving attendees"]
+        prep_status: ready
+      - meeting: "Friday Week Wrap-Up 14:00-14:30"
+        attendees: ["Alice Mburu (Athena EA)"]
+        context_found:
+          - "Standing weekly 1:1 cadence Alice built herself; she runs it (Obsidian: Alice Mburu Scorecard 2026-10-09)"
+          - "Oct 9 scorecard (13-week, Senior-track live): open verification items — Stevenson dupe + CRM helpdesk ticket 69244 (due by 10/16 wrap-up), live-meeting participation goal (2-3 recurring calls), strategic calendar rep per week, year-end coverage plan (Thanksgiving/Christmas dates requested 10/9)"
+          - "David follow-up owed: decide fate of weekly routed-draft ask (retire or re-scope)"
+        open_items: ["Stevenson dupe + ticket 69244 status", "year-end coverage plan dates", "routed-draft ask decision (David)"]
+        prep_status: ready
+    system_status:
+      yesterday_review: "missing — no reviews/daily/2026-10-22.md (latest: 2026-10-19.md; auto-2026-10-16.md)"
+      yesterday_top_3: null
+    morning-briefing-step-03: "completed (2 meetings with context)"
+    clay-reminders: "Clay unavailable — carried from step-01.2 (MCP not authenticated; no reminders/birthdays checked)"
+    clay-birthdays: "Clay unavailable — carried from step-01.2"
+    meetings_found: "9 events today — context gathered for Presidents Pipeline Roundtable 2026 (4th Fridays), Friday Week Wrap-Up"
+  verification_results: "pass — boot-verify phase2 clean (measurement + manifest, no LLM verification needed); note: state.yaml had malformed indentation on reminders_not_due that broke the measurement's YAML parse — fixed in place during step-03"
+  phase4:
+    briefing_delivered: true
+    briefing_sections: "3 narrative paragraphs, today's calendar table (9 timed events + Eric Sowell PTO all-day), next-72-hours table, email triage list (9 items), reminders section (4 due, 1 stale)"
+    today_summary: "Houston Bootcamp final day anchors 08:30-17:30; Presidents Pipeline Roundtable 10:00 (attend visibly, Rock 1/2 KR subtext) and Week Wrap-Up with Alice Mburu 14:00 (ticket 69244, year-end coverage, routed-draft decision) are the two events that matter; 5 Executive Elevation tasks due today fit the 11:00-13:00 gap"
+    action_items:
+      - "Rule on Rock 1 KR1 + Rock 2 KR1 (create tasks or drop; 6 days overdue, reminder pending)"
+      - "Clear 5 Executive Elevation tasks due today (Devlin buy-in note, presence-note guidance, cohort 0 nominations, Q4 airtime venues, invite mechanic)"
+      - "Respond to BoardVantage/Teresa Saffold: UTB Audit Committee BDO engagement approval (unread, response requested)"
+      - "Answer Bethany Hilton on ASEI/BoA AI workshop virtual broadcast option"
+      - "YPO Nov 1 deadlines: chapter-chair nudges (Jen Jensen), ALO (Ryan O'Connor), funding + Gold Regional Officers (Shelby Meyer)"
+      - "Decide 10:00 hour: roundtable vs bootcamp vs coherence breathing/prayer list collisions"
+      - "Recommend Chase prep for Monday GEHC client check-in and Henricksen partner connect"
+      - "Complete Q4 Cyber Security Awareness Training 13:00 block"
+    degraded_sources:
+      - "Clay MCP not authenticated — reminders/birthdays not checked"
+      - "Watchtower not run — no signals section"
+      - "Daily review 2026-10-22 missing — yesterday's outcomes unrecorded"
+      - "OmniFocus MCP disconnected mid-session — no live task calls needed or made this phase"
+    briefing_memory: "memory/working/morning-briefing-2026-10-23-084700.md"
+  phase5:
+    workflows_scanned: "complete — workflows/_active.yaml read, active: [] (fast path, per-directory scan skipped)"
+    in_flight_list: []
+    status_summary: "0 in-progress workflows besides this boot run; nothing aborted surfaced; nothing auto-resumed"
+  phase6:
+    steps_verified: "boot-verify.py completion exit 0 — all 8 step files status: complete (step-01 frontmatter timestamp stale from 2026-10-09, status field correct)"
+    failed_steps: []
+    state_status: "complete — state.yaml closed at 2026-10-23T13:48:30Z"
+    session_index_path: "memory/sessions/index.json (session record appended in step-01)"
+    escalation_count: 0
+    guardrail_result: "flag — script clean, briefing faithful; recurring degradations: Clay MCP unauthenticated 3rd consecutive boot, no 2026-10-22 daily review"
   knox_status: success
-  knox_reason: 'eval record eval-20261022T114256-ZTEZGO (agent knox) status success; workflow plaud-ingest pi-20261022-001 is awaiting-input: 1 new recording (4e6af011, 2026-10-21 12:44) staged but held pre-ingest for PHI/PII confirmation; David must choose ingest-as-Personal (skip step-05b) or discard'
-  knox_eval_id: eval-20261022T114256-ZTEZGO
+  knox_reason: "plaud-ingest pi-20261023-001 complete, outcome no-new-recordings (0 new recordings, nothing staged); eval eval-20261023T132604-XE81TS status no-op"
+  knox_eval_id: eval-20261023T132604-XE81TS
 outputs: {}
-completed-at: '2026-10-22T11:47:22Z'
+current-step: null
+completed-at: '2026-10-23T13:48:30Z'

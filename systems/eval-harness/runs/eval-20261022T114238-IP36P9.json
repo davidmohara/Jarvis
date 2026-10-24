@@ -174,5 +174,7 @@
   "fully_loaded_cost_usd": 0.18,
   "fully_loaded_tokens_input": 5565310,
   "fully_loaded_tokens_output": 41209,
-  "fully_loaded_note": "parent window contains unpriced model(s) ['claude-haiku-5-5']; their tokens are in the token sums but not in cost_usd"
+  "fully_loaded_note": "parent window contains unpriced model(s) ['claude-haiku-5-5']; their tokens are in the token sums but not in cost_usd",
+  "model": "claude-haiku-5-5",
+  "model_source": "parent-window-backfill"
 }

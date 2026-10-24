@@ -1,0 +1,116 @@
+{
+  "id": "eval-20261023T132142-LSR4DE",
+  "agent_id": "a7fb5d3c9ea6d3aa1",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": "boot",
+  "agent": "master",
+  "owning_agent": "master",
+  "subagent_type": "general-purpose",
+  "session_id": "f430dc3d-53c9-4886-8710-ff645649ce64",
+  "trigger": "unknown",
+  "started": "2026-10-23T13:21:42.676928Z",
+  "completed": "2026-10-23T13:24:48.538280Z",
+  "duration_seconds": 185.86,
+  "status": "success",
+  "steps": [
+    {
+      "name": "step-01.5-unified-calendar-pull.md",
+      "agent": "general-purpose",
+      "step_id": "step-01.5-unified-calendar-pull.md",
+      "owning_agent": "general-purpose",
+      "started": "2026-10-23T13:21:00Z",
+      "completed": "2026-10-23T13:24:18Z",
+      "status": "complete",
+      "tokens_input": 242221,
+      "tokens_output": 6226,
+      "cost_usd": 0.24613,
+      "model": "accounts/fireworks/models/kimi-k3",
+      "token_source": "windowed",
+      "turns_matched": 7,
+      "turns_with_usage": 7,
+      "duration_seconds": 198.0
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/f430dc3d-53c9-4886-8710-ff645649ce64/subagents/agent-a7fb5d3c9ea6d3aa1.jsonl",
+  "model": "accounts/fireworks/models/kimi-k3",
+  "total_tokens_input": 371940,
+  "total_tokens_output": 7419,
+  "total_cost_usd": 0.308376,
+  "token_source": "subagent-transcript",
+  "guardrails": [
+    {
+      "name": "step-01.5-checkpoint",
+      "after_step": "step-01.5-unified-calendar-pull.md",
+      "result": "pass",
+      "reason": "calendar-unified.json exists with 31 events",
+      "escalated_to_human": false,
+      "timestamp": "2026-10-23T13:24:48.803323Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "calendar_file": "/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/data/calendar-unified.json",
+        "event_count": 31,
+        "date_range": {
+          "start": "2026-10-23",
+          "end": "2026-10-26"
+        },
+        "pulled_at": "2026-10-23T13:24:18.737758+00:00"
+      }
+    }
+  ],
+  "parent_window": {
+    "token_source": "parent-window",
+    "transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/f430dc3d-53c9-4886-8710-ff645649ce64.jsonl",
+    "window_start": "2026-10-23T13:21:42.676928Z",
+    "window_end": "2026-10-23T13:24:48.538280Z",
+    "model": "glm-5p3",
+    "tokens_input": 71048,
+    "tokens_output": 197,
+    "cost_usd": 0.011518,
+    "turns_matched": 1,
+    "turns_with_usage": 1,
+    "computed_at": "2026-10-23T13:24:48.971353Z"
+  },
+  "fully_loaded_cost_usd": 0.319894,
+  "fully_loaded_tokens_input": 442988,
+  "fully_loaded_tokens_output": 7616
+}

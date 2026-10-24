@@ -123,5 +123,7 @@
     "no-op",
     "cowork-hook"
   ],
-  "no_op": true
+  "no_op": true,
+  "model": "glm-5p3-flash",
+  "model_source": "session-transcript-window-backfill"
 }

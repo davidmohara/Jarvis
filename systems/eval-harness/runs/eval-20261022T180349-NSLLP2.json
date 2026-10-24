@@ -90,5 +90,7 @@
   "tags": [
     "cowork-hook",
     "skill"
-  ]
+  ],
+  "model": "glm-5p3-flash",
+  "model_source": "session-transcript-window-backfill"
 }

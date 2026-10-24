@@ -11,6 +11,7 @@ Usage:
     python3 new-eval.py            # print id + write skeleton file
     python3 new-eval.py --id-only  # print id only, do not create file
     python3 new-eval.py --name <name> [--agent <agent>] [--session-id <id>]
+                                   [--model <model>]
                                    # populate identity fields at creation time
 
 Setting --name/--agent/--session-id at creation avoids the follow-up edit step
@@ -38,7 +39,7 @@ def new_id(now: datetime | None = None) -> str:
 
 
 def skeleton(entry_id: str, name: str | None = None, agent: str | None = None,
-             session_id: str | None = None) -> dict:
+             session_id: str | None = None, model: str | None = None) -> dict:
     return {
         "id": entry_id,
         "type": "agent",
@@ -46,6 +47,12 @@ def skeleton(entry_id: str, name: str | None = None, agent: str | None = None,
         "agent": agent or "unknown",
         "session_id": session_id or "",
         "trigger": "manual",
+        # Present at creation on every record (2026-10-23): null when the
+        # caller doesn't know the model — the close path (close-eval-record.py)
+        # derives it from the session transcript where possible. Never a
+        # default guess.
+        "model": model,
+        "model_source": "cli-arg" if model else None,
         "started": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
         "completed": None,
         "duration_seconds": None,
@@ -100,6 +107,9 @@ def main():
     ap.add_argument("--agent", default=None, help="Set the record's agent field at creation time")
     ap.add_argument("--session-id", dest="session_id", default=None,
                     help="Set the record's session_id field at creation time")
+    ap.add_argument("--model", default=None,
+                    help="Set the record's model field at creation time (recorded with "
+                         "model_source 'cli-arg')")
     args = ap.parse_args()
 
     entry_id = new_id()
@@ -112,7 +122,7 @@ def main():
         print(f"Collision: {path} already exists", file=sys.stderr)
         sys.exit(1)
     path.write_text(json.dumps(skeleton(entry_id, name=args.name, agent=args.agent,
-                                        session_id=args.session_id), indent=2) + "\n")
+                                        session_id=args.session_id, model=args.model), indent=2) + "\n")
     print(str(path))
 
 

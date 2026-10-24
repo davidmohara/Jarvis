@@ -158,10 +158,11 @@
       "agent_type": "Explore",
       "started": "2026-10-10T12:57:44.797282Z",
       "completed": null,
-      "model": null,
+      "model": "accounts/fireworks/models/glm-5p3",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "model_source": "child-record-backfill"
     },
     {
       "agent_id": "a0280ab54f2daa298",
@@ -256,5 +257,7 @@
   "tags": [
     "turn-level"
   ],
-  "workflow": "content-pipeline"
+  "workflow": "content-pipeline",
+  "model": "accounts/fireworks/models/glm-5p3",
+  "model_source": "session-transcript-latest-backfill"
 }

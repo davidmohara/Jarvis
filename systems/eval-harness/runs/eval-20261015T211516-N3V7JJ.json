@@ -78,5 +78,7 @@
   "tags": [
     "cowork-hook",
     "skill"
-  ]
+  ],
+  "model": "sonnet",
+  "model_source": "session-transcript-window-backfill"
 }

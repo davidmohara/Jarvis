@@ -31,3 +31,5 @@ Agent: Knox — run workflows/plaud-ingest/workflow.md. Background, don't wait.
 3. Write today's date to `data/.knox-last-run` when spawning.
 
 Record knox_spawn status. Dispatch then follows `workflow.md`'s EXECUTION section: spawn the dedicated calendar subagent (step-01.5, tight brief, block on it), then spawn the main boot subagent (steps 01.2 through 08).
+
+**Frontmatter stamping is Master's responsibility for this step.** Because step-01 runs inline with no subagent to stamp it, Master applies the standard write sequence from `reference/workflow-conventions.md` itself: before executing, set `status: in-progress` and `started-at` (current timestamp); after completing, set `status: complete` and `completed-at` — Edit tool, never Bash, so the eval harness attributes the step correctly.

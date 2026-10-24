@@ -1,6 +1,6 @@
 # Executive Presence Development Program (Working Title: "Boardroom Ready")
 
-**Owner**: David O'Hara + Devlin Liles
+**Owner**: David O'Hara
 **Status**: Design draft v2, October 2026
 
 ## Design Constraints
@@ -20,7 +20,7 @@ Grow younger consultants into leaders who show up well in the C-suite, via an as
 ### Answer-First / Pyramid Principle (Minto)
 
 - Answer first: every communication opens with the governing claim.
-- Three supports, MECE, each a claim (not a topic), never a chronology.
+- Three supports, MECE (mutually exclusive, collectively exhaustive), each a claim (not a topic), NEVER a chronology.
 - Recursive: every slide, section, and verbal update has its own mini-pyramid.
 - Slide titles are claims, not topics.
 - Coaching heuristic: the 30-second test. Can the presenter stop at any point and deliver the whole story in 30 seconds?
@@ -58,7 +58,7 @@ Room time is assigned, never left to chance. Each rung is a gate, not a time per
 | Rung | Assignment | Requirements | Gate to advance |
 |---|---|---|---|
 | **1. Observer** | Sits in C-suite/QBR meetings with a senior; owns the observation debrief | Post-meeting: answers "what did you see the exec react to, and why?" (oral, 5 min, to the senior) | 3 debriefs rated "sees the room" by the senior |
-| **2. Section Owner** | Presents one section (5-10 min) of a client meeting; senior beside them | Preps pyramid-style; passes 30-second test in rehearsal; handles Q&A on own section | 2 sections rated 4+/5 on structure + composure; written presence note after each |
+| **2. Section Owner** | Presents one section (5-10 min) of a client meeting; senior beside them | Preps pyramid-style; passes 30-second test in rehearsal; handles Q&A on own section | 2 sections rated 4+ on structure + composure; written presence note after each |
 | **3. Module Owner** | Owns a full module or workstream conversation (20-30 min) | Writes the module's governing message; handles challenge without the senior rescuing; adjusts altitude on the fly | 1 module where the senior stayed silent through Q&A |
 | **4. Room Owner** | Runs the meeting; owns exec relationship for a workstream | Opens with the answer; manages the clock and the politics; closes with decisions captured | 2 meetings run solo with senior debrief only after |
 

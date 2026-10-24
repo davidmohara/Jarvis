@@ -38,20 +38,22 @@
       "agent_type": "general-purpose",
       "started": "2026-09-14T16:11:52.355366Z",
       "completed": null,
-      "model": null,
+      "model": "haiku",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "model_source": "child-record-backfill"
     },
     {
       "agent_id": "adba24725a3fe937d",
       "agent_type": "general-purpose",
       "started": "2026-09-14T16:12:04.413913Z",
       "completed": null,
-      "model": null,
+      "model": "sonnet",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "model_source": "child-record-backfill"
     },
     {
       "agent_id": "a4c4ccc23bdf6f0ce",

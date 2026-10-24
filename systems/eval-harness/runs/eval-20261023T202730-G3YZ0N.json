@@ -1,0 +1,80 @@
+{
+  "id": "eval-20261023T202730-G3YZ0N",
+  "agent_id": "a49ba3bff40c5a449",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "harper",
+  "owning_agent": "harper",
+  "subagent_type": "general-purpose",
+  "session_id": "f430dc3d-53c9-4886-8710-ff645649ce64",
+  "trigger": "unknown",
+  "model": "accounts/fireworks/models/kimi-k3",
+  "model_source": "subagent-transcript",
+  "started": "2026-10-23T20:27:30.495395Z",
+  "completed": "2026-10-23T20:46:57.381521Z",
+  "duration_seconds": 1166.89,
+  "status": "partial",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 8,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/f430dc3d-53c9-4886-8710-ff645649ce64/subagents/agent-a49ba3bff40c5a449.jsonl",
+  "last_assistant_message": "Done. The deck is built, branded, and verified.\n\n**Deliverable:** `/Users/davidohara/Library/CloudStorage/OneDrive-Improving/Presentations/AI/What AI Makes Possible in Banking.pptx` \u2014 32 slides, 16:9, 2.0 MB, full speaker notes on every slide.\n\n**How it was built**\n- Base: Improving brand template (`Starter - Original.potx` via the OneDrive `Presentations/Starter/` sync, since the Group Containers path is sandbox-blocked). Example slides stripped with the pptx skill's clean.py, keeping masters/layouts and the brand theme (Calibri Light headings, Calibri body, brand palette 005596/4597D3/FF9300/5BC2A7/F5BB41).\n- Slide 1 uses the branded Principal Title layout (logo, presenter name); the five concept dividers plus slides 30 and 32 use the gradient Titlte Page layout with a gold-ring numeral motif that repeats as concept chips on content slides; content slides sit on the brand Text Slide layout.\n- One native chart (slide 21, MIT Sloan 85/94/73 success-rate columns, full-autonomy bar in orange). Slide 20's invest-ahead vs retrofit curves are drawn as labeled illustrative lines, marked \"Illustrative cost profile\" since they carry no data.\n\n**Guardrails \u2014 all verified programmatically on the final file**\n- No bank/platform/customer/person names, no \"charter,\" no legislation names, no year-like numbers on any slide. UBPR report dates (6/30/2026) live only in speaker notes as data-vintage citations, per the resolved open question 1.\n- Slide 18 carries David's generic payback claim (\"under 20 months of operation on an 18-month build, est.\"); the honesty note about deposit funding value being the business case is in the speaker notes. No private timeline facts anywhere.\n- All case figures labeled \"est.\"; assumption arithmetic included in the notes for slides 6, 7, 9, 11, 18 exactly as resolved.\n- No em-dashes or en-dashes in slides or notes (per standing feedback rule).\n- Slide 32's dual-perspective line \"I've seen this built.\" is in the speaker notes only, not on the slide.\n\n**QA performed:** schema validation passed; text dump confirmed all 32 slides in correct order with no missing content; full visual QA via PowerPoint PDF export (true brand fonts) with every slide inspected. Five defects found and fixed: mid-word node labels on the six-component ring (slide 29), a marker dot colliding with text (slide 23), a missing rotated axis label (slide 28), a redundant \"legacy\" in the slide 7 comparison rows, and a curve label touching its line (slide 20). Fixed slides re-rendered and confirmed clean.",
+  "total_tokens_input": 6926765,
+  "total_tokens_output": 55776,
+  "total_cost_usd": 3.754086,
+  "token_source": "subagent-transcript",
+  "parent_window": {
+    "token_source": "parent-window",
+    "transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/f430dc3d-53c9-4886-8710-ff645649ce64.jsonl",
+    "window_start": "2026-10-23T20:27:30.495395Z",
+    "window_end": "2026-10-23T20:46:57.381521Z",
+    "model": "accounts/fireworks/models/kimi-k3",
+    "tokens_input": 957032,
+    "tokens_output": 6225,
+    "cost_usd": 0.401801,
+    "turns_matched": 8,
+    "turns_with_usage": 8,
+    "computed_at": "2026-10-23T20:46:57.692816Z"
+  },
+  "fully_loaded_cost_usd": 4.155887,
+  "fully_loaded_tokens_input": 7883797,
+  "fully_loaded_tokens_output": 62001
+}

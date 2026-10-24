@@ -1,0 +1,618 @@
+{
+  "id": "eval-20261023T202035-L9PFZ9",
+  "type": "workflow",
+  "name": "boot",
+  "agent": "master",
+  "session_id": "348dc94e-7650-4c8c-ab4f-4f188ba0d59d",
+  "trigger": "boot",
+  "model": "glm-5p3",
+  "model_source": "parent-window",
+  "started": "2026-10-23T20:20:35.365611Z",
+  "completed": "2026-10-23T22:24:58.431391Z",
+  "duration_seconds": 7463.07,
+  "status": "aborted",
+  "steps": [],
+  "subagents": [
+    {
+      "agent_id": "a113479626790970f",
+      "agent_type": "general-purpose",
+      "started": "2026-10-23T20:23:23.062502Z",
+      "completed": "2026-10-23T20:58:43.752343Z",
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 14895379,
+      "tokens_output": 73560,
+      "cost_usd": 0.666879,
+      "duration_seconds": 2120.69,
+      "token_source": "subagent-transcript"
+    },
+    {
+      "agent_id": "ac4e144cd9da32a1c",
+      "agent_type": "general-purpose",
+      "started": "2026-10-23T20:23:39.861083Z",
+      "completed": "2026-10-23T21:02:15.068154Z",
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 10941491,
+      "tokens_output": 60109,
+      "cost_usd": 0.450218,
+      "duration_seconds": 1348.63,
+      "token_source": "subagent-transcript"
+    },
+    {
+      "agent_id": "a58883b5a7b6f9315",
+      "agent_type": "general-purpose",
+      "started": "2026-10-23T20:24:21.771930Z",
+      "completed": "2026-10-23T21:07:40.736418Z",
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 21460307,
+      "tokens_output": 82306,
+      "cost_usd": 0.873239,
+      "duration_seconds": 2598.96,
+      "token_source": "subagent-transcript"
+    },
+    {
+      "agent_id": "af9663a88fa081eef",
+      "agent_type": "general-purpose",
+      "started": "2026-10-23T20:24:43.499037Z",
+      "completed": "2026-10-23T21:00:23.835049Z",
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 15570394,
+      "tokens_output": 72023,
+      "cost_usd": 0.666155,
+      "duration_seconds": 2140.34,
+      "token_source": "subagent-transcript"
+    },
+    {
+      "agent_id": "a4f368ee7e2838d14",
+      "agent_type": "general-purpose",
+      "started": "2026-10-23T20:25:04.180129Z",
+      "completed": "2026-10-23T20:57:47.252537Z",
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 10650317,
+      "tokens_output": 55043,
+      "cost_usd": 0.471321,
+      "duration_seconds": 1963.07,
+      "token_source": "subagent-transcript"
+    },
+    {
+      "agent_id": "a0e16f33f1d20e0f2",
+      "agent_type": "general-purpose",
+      "started": "2026-10-23T20:25:18.178668Z",
+      "completed": "2026-10-23T21:10:34.648989Z",
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 23083340,
+      "tokens_output": 74763,
+      "cost_usd": 0.849743,
+      "duration_seconds": 1078.9,
+      "token_source": "subagent-transcript"
+    },
+    {
+      "agent_id": "a882cdcfb27b022de",
+      "agent_type": "general-purpose",
+      "started": "2026-10-23T20:25:37.599308Z",
+      "completed": "2026-10-23T20:57:21.089283Z",
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 3307516,
+      "tokens_output": 22983,
+      "cost_usd": 0.201738,
+      "duration_seconds": 1903.49,
+      "token_source": "subagent-transcript"
+    },
+    {
+      "agent_id": "a7fdc02e34d1a656e",
+      "agent_type": "general-purpose",
+      "started": "2026-10-23T20:25:39.342578Z",
+      "completed": "2026-10-23T20:52:35.802534Z",
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 3854048,
+      "tokens_output": 21095,
+      "cost_usd": 0.200075,
+      "duration_seconds": 1616.46,
+      "token_source": "subagent-transcript"
+    },
+    {
+      "agent_id": "a074eb750849de686",
+      "agent_type": "general-purpose",
+      "started": "2026-10-23T20:25:43.010688Z",
+      "completed": "2026-10-23T21:04:23.777483Z",
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 17398690,
+      "tokens_output": 68060,
+      "cost_usd": 0.692256,
+      "duration_seconds": 985.15,
+      "token_source": "subagent-transcript"
+    },
+    {
+      "agent_id": "a65d8e590782e7f1f",
+      "agent_type": "general-purpose",
+      "started": "2026-10-23T20:25:44.249015Z",
+      "completed": "2026-10-23T21:00:35.872607Z",
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 9487238,
+      "tokens_output": 61650,
+      "cost_usd": 0.451304,
+      "duration_seconds": 2091.62,
+      "token_source": "subagent-transcript"
+    },
+    {
+      "agent_id": "a4de56e871378d8ae",
+      "agent_type": "general-purpose",
+      "started": "2026-10-23T20:25:46.328682Z",
+      "completed": "2026-10-23T21:00:15.815510Z",
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 12363163,
+      "tokens_output": 61495,
+      "cost_usd": 0.553764,
+      "duration_seconds": 2069.49,
+      "token_source": "subagent-transcript"
+    },
+    {
+      "agent_id": "a5c37184c92b2e1d2",
+      "agent_type": "general-purpose",
+      "started": "2026-10-23T20:26:02.030578Z",
+      "completed": "2026-10-23T20:56:41.262064Z",
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 6000048,
+      "tokens_output": 38783,
+      "cost_usd": 0.306095,
+      "duration_seconds": 1839.23,
+      "token_source": "subagent-transcript"
+    },
+    {
+      "agent_id": "a61b162fd37cd3492",
+      "agent_type": "general-purpose",
+      "started": "2026-10-23T20:26:03.479343Z",
+      "completed": "2026-10-23T20:56:33.328122Z",
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 10244652,
+      "tokens_output": 54224,
+      "cost_usd": 0.465855,
+      "duration_seconds": 1829.85,
+      "token_source": "subagent-transcript"
+    },
+    {
+      "agent_id": "af805f6a79b7b0f70",
+      "agent_type": "general-purpose",
+      "started": "2026-10-23T20:26:04.866308Z",
+      "completed": "2026-10-23T20:59:05.799348Z",
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 13475170,
+      "tokens_output": 63490,
+      "cost_usd": 0.613912,
+      "duration_seconds": 1980.93,
+      "token_source": "subagent-transcript"
+    },
+    {
+      "agent_id": "a5f20f9f00cc344dc",
+      "agent_type": "general-purpose",
+      "started": "2026-10-23T20:26:31.625599Z",
+      "completed": "2026-10-23T20:54:04.286423Z",
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 3061678,
+      "tokens_output": 35953,
+      "cost_usd": 0.220822,
+      "duration_seconds": 1652.66,
+      "token_source": "subagent-transcript"
+    },
+    {
+      "agent_id": "ab9c8538303b3bcfa",
+      "agent_type": "general-purpose",
+      "started": "2026-10-23T20:26:39.778291Z",
+      "completed": "2026-10-23T20:56:20.894395Z",
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 127780,
+      "tokens_output": 350,
+      "cost_usd": 0.009376,
+      "duration_seconds": 21.86,
+      "token_source": "subagent-transcript"
+    },
+    {
+      "agent_id": "a177bd5f25e2a372b",
+      "agent_type": "general-purpose",
+      "started": "2026-10-23T20:28:00.865503Z",
+      "completed": "2026-10-23T20:57:54.328957Z",
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 5265487,
+      "tokens_output": 33046,
+      "cost_usd": 0.292115,
+      "duration_seconds": 1793.46,
+      "token_source": "subagent-transcript"
+    },
+    {
+      "agent_id": "a263a12300f51504a",
+      "agent_type": "general-purpose",
+      "started": "2026-10-23T20:28:02.622788Z",
+      "completed": null,
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "agent_id": "a8022a5eb365cb7b7",
+      "agent_type": "general-purpose",
+      "started": "2026-10-23T20:28:03.796240Z",
+      "completed": null,
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "agent_id": "aa4433872a5bab907",
+      "agent_type": "general-purpose",
+      "started": "2026-10-23T20:28:04.190794Z",
+      "completed": "2026-10-23T21:01:44.676537Z",
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 3546821,
+      "tokens_output": 32914,
+      "cost_usd": 0.194997,
+      "duration_seconds": 2020.49,
+      "token_source": "subagent-transcript"
+    },
+    {
+      "agent_id": "a3d83432840da6b60",
+      "agent_type": "general-purpose",
+      "started": "2026-10-23T20:28:06.336648Z",
+      "completed": null,
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "agent_id": "a564856d686568f85",
+      "agent_type": "general-purpose",
+      "started": "2026-10-23T20:30:59.457485Z",
+      "completed": "2026-10-23T20:55:34.176683Z",
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 2707673,
+      "tokens_output": 22378,
+      "cost_usd": 0.148969,
+      "duration_seconds": 1474.72,
+      "token_source": "subagent-transcript"
+    },
+    {
+      "agent_id": "a027470e5d1668392",
+      "agent_type": "general-purpose",
+      "started": "2026-10-23T20:42:46.602129Z",
+      "completed": "2026-10-23T20:47:58.717573Z",
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 1288114,
+      "tokens_output": 14291,
+      "cost_usd": 0.087929,
+      "duration_seconds": 312.12,
+      "token_source": "subagent-transcript"
+    },
+    {
+      "agent_id": "a395071b3f14cb607",
+      "agent_type": "general-purpose",
+      "started": "2026-10-23T20:51:11.239637Z",
+      "completed": "2026-10-23T21:01:37.978513Z",
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 1316102,
+      "tokens_output": 19392,
+      "cost_usd": 0.109396,
+      "duration_seconds": 626.74,
+      "token_source": "subagent-transcript"
+    },
+    {
+      "agent_id": "af54a59e13d009c58",
+      "agent_type": "general-purpose",
+      "started": "2026-10-23T20:51:12.996150Z",
+      "completed": "2026-10-23T20:58:20.357599Z",
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 1105703,
+      "tokens_output": 9001,
+      "cost_usd": 0.088216,
+      "duration_seconds": 427.36,
+      "token_source": "subagent-transcript"
+    },
+    {
+      "agent_id": "ab9c8538303b3bcfa",
+      "agent_type": "general-purpose",
+      "started": "2026-10-23T20:55:49.243016Z",
+      "completed": null,
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "agent_id": "ab9c8538303b3bcfa",
+      "agent_type": "general-purpose",
+      "started": "2026-10-23T20:55:59.038686Z",
+      "completed": null,
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "agent_id": "a3de1fb9cdcbadcfa",
+      "agent_type": "general-purpose",
+      "started": "2026-10-23T21:19:00.521669Z",
+      "completed": "2026-10-23T21:44:12.567409Z",
+      "model": "accounts/fireworks/models/kimi-k3",
+      "tokens_input": 11117309,
+      "tokens_output": 62697,
+      "cost_usd": 5.113498,
+      "duration_seconds": 4569.94,
+      "token_source": "subagent-transcript"
+    },
+    {
+      "agent_id": "ab00c87545e1c78c0",
+      "agent_type": "general-purpose",
+      "started": "2026-10-23T21:19:02.387013Z",
+      "completed": "2026-10-23T21:37:01.326277Z",
+      "model": "accounts/fireworks/models/kimi-k3",
+      "tokens_input": 5233845,
+      "tokens_output": 46522,
+      "cost_usd": 3.055827,
+      "duration_seconds": 4137.53,
+      "token_source": "subagent-transcript"
+    },
+    {
+      "agent_id": "aa76864f3a9ea5479",
+      "agent_type": "general-purpose",
+      "started": "2026-10-23T21:19:04.173541Z",
+      "completed": "2026-10-23T21:27:15.745434Z",
+      "model": "accounts/fireworks/models/kimi-k3",
+      "tokens_input": 907136,
+      "tokens_output": 2610,
+      "cost_usd": 0.431506,
+      "duration_seconds": 82.82,
+      "token_source": "subagent-transcript"
+    },
+    {
+      "agent_id": "aae17b8a12154293a",
+      "agent_type": "general-purpose",
+      "started": "2026-10-23T21:19:36.846445Z",
+      "completed": null,
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "agent_id": "af576dc9a2b97d52b",
+      "agent_type": "general-purpose",
+      "started": "2026-10-23T21:25:52.925580Z",
+      "completed": "2026-10-23T21:35:58.181764Z",
+      "model": "accounts/fireworks/models/kimi-k3",
+      "tokens_input": 2224654,
+      "tokens_output": 24293,
+      "cost_usd": 1.504729,
+      "duration_seconds": 4071.85,
+      "token_source": "subagent-transcript"
+    },
+    {
+      "agent_id": "a22206681e36b9f18",
+      "agent_type": "general-purpose",
+      "started": "2026-10-23T21:55:22.903860Z",
+      "completed": "2026-10-23T22:03:40.113770Z",
+      "model": "accounts/fireworks/models/kimi-k3",
+      "tokens_input": 1408669,
+      "tokens_output": 22105,
+      "cost_usd": 0.981629,
+      "duration_seconds": 497.21,
+      "token_source": "subagent-transcript"
+    },
+    {
+      "agent_id": "a1dd34657de71aadf",
+      "agent_type": "general-purpose",
+      "started": "2026-10-23T22:04:46.734475Z",
+      "completed": "2026-10-23T22:24:54.119788Z",
+      "model": "accounts/fireworks/models/kimi-k3",
+      "tokens_input": 6636699,
+      "tokens_output": 44973,
+      "cost_usd": 3.402308,
+      "duration_seconds": 1207.39,
+      "token_source": "subagent-transcript"
+    },
+    {
+      "agent_id": "a99e8d1fd8b091f95",
+      "agent_type": "general-purpose",
+      "started": "2026-10-23T22:04:48.802071Z",
+      "completed": "2026-10-23T22:30:19.296535Z",
+      "model": "accounts/fireworks/models/kimi-k3",
+      "tokens_input": 12443734,
+      "tokens_output": 60075,
+      "cost_usd": 5.334215,
+      "duration_seconds": 1530.49,
+      "token_source": "subagent-transcript"
+    },
+    {
+      "agent_id": "a14a74d597b266a78",
+      "agent_type": "general-purpose",
+      "started": "2026-10-23T22:04:51.252806Z",
+      "completed": "2026-10-23T22:29:09.333356Z",
+      "model": "accounts/fireworks/models/kimi-k3",
+      "tokens_input": 13904764,
+      "tokens_output": 53153,
+      "cost_usd": 5.730181,
+      "duration_seconds": 1458.08,
+      "token_source": "subagent-transcript"
+    },
+    {
+      "agent_id": "ad0f4d6214008347d",
+      "agent_type": "general-purpose",
+      "started": "2026-10-23T22:04:53.031175Z",
+      "completed": "2026-10-23T22:24:45.184108Z",
+      "model": "accounts/fireworks/models/kimi-k3",
+      "tokens_input": 7532636,
+      "tokens_output": 45666,
+      "cost_usd": 3.775222,
+      "duration_seconds": 1192.15,
+      "token_source": "subagent-transcript"
+    }
+  ],
+  "monitoring": {
+    "active": false,
+    "state_yaml_path": "workflows/boot/state.yaml",
+    "opened_by": "eval-turn-start.py",
+    "trigger_evidence": "boot-first-prompt-of-session",
+    "close_reason": "state.yaml's own completion timestamp predates this record's open time by 2.1h \u2014 likely a spurious open, not a real run"
+  },
+  "assessment": {
+    "mechanical": {
+      "completed": false,
+      "all_steps_finished": false,
+      "tool_failures": 0,
+      "error_ids": [],
+      "abort_reason": "unspecified"
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 20,
+      "assertions_passed": 18,
+      "assertion_results": [
+        {
+          "assertion": "boot-001-state-complete",
+          "description": "Boot workflow state.yaml shows status: complete",
+          "passed": true
+        },
+        {
+          "assertion": "boot-002-session-index-exists",
+          "description": "Session index file exists \u2014 boot's Session Index Boot step must have created/appended it",
+          "passed": true
+        },
+        {
+          "assertion": "boot-003-session-index-substantive",
+          "description": "Session index is a real record, not an empty stub",
+          "passed": true
+        },
+        {
+          "assertion": "boot-005-omnifocus-data-file-exists",
+          "description": "OmniFocus pull (step-01.2 Pull B) wrote its consolidated data file",
+          "passed": true
+        },
+        {
+          "assertion": "boot-007-omnifocus-no-completed-tasks-leaked",
+          "description": "No completed task leaked into the OmniFocus pull. The inbox permanently holds ~247 completed tasks alongside ~8 incomplete ones, and Clean Up does NOT remove them, so the query itself must carry `completed is false`. Any `completed: true` in the output means the filter was dropped from the call.",
+          "passed": true
+        },
+        {
+          "assertion": "boot-008-omnifocus-filter-documented",
+          "description": "Regression guard: the boot pull instructions still mandate the completed=false filter on the inbox query. Matches the JSON field form (\"completed\": false), the old prose form (`completed is false`), and the current canonical phrasing (`completed` MUST be present and false on every task) \u2014 the guard previously false-fired on the 2026-10-22 rewrite because the pattern had not been widened with it. If someone strips the filter entirely, this trips before the leak reaches a briefing.",
+          "passed": true
+        },
+        {
+          "assertion": "boot-009-step-owner-manifest",
+          "description": "Master J2 (routing correctness): no step on this run that belongs to a specialist workflow (per workflows/<name>/workflow.md's agent frontmatter) or to a specialist's boot-step range (per agents/manifest.md) may carry owning_agent: master. Fails if the coordinator is recorded as owning a specialist's step \u2014 e.g. a plaud-ingest step (owned by knox) stamped master. A step whose own workflow is master-owned (boot's own steps) or that the manifest assigns to master is not flagged. This is the routing-assertion hook J2's A/B evidence requires; it reads the manifest ownership table and the workflow step definitions, not self-reported claims.",
+          "passed": null
+        },
+        {
+          "assertion": "boot-010-j4-grade-threshold",
+          "description": "Master J4 (Tier 3 grade >= B on >= 80% of graded coordination runs): voice/quality of a coordination run can only be judged by Tier 3 grading, so this assertion defers (skipped, not failed) until the record carries a grade, then requires grade B or better. The >= 80% pass-rate threshold across runs is applied by the Stage 3 rollup, not by this per-record check.",
+          "passed": null
+        },
+        {
+          "assertion": "boot-011-calendar-file-exists",
+          "description": "The step-01.5 calendar pull (dedicated calendar subagent) wrote the unified calendar file that every downstream consumer (step-02 Task G, meeting prep, morning briefing) reads from disk instead of calling M365.",
+          "passed": true
+        },
+        {
+          "assertion": "boot-012-calendar-step-returns-to-coordinator",
+          "description": "Regression guard: step-01.5 must end with the return-to-coordinator handoff, not a read-and-follow chain into step-02. The next-step chain is what let the 2026-10-22 calendar subagent walk the whole boot workflow (eval-20261022T114429-OCSJIC, 6.27M tokens) instead of exiting after one M365 call. If this trips, someone reintroduced the chain.",
+          "passed": true
+        },
+        {
+          "assertion": "boot-013-calendar-dedicated-dispatch",
+          "description": "Regression guard: workflow.md must keep step-01.5 dispatched as its own tightly-briefed single-purpose subagent (one M365 call, no persona load, explicit workflows/boot/workflow.md reference for eval attribution). If this trips, the dispatch collapsed back into the walk-everything boot subagent.",
+          "passed": true
+        },
+        {
+          "assertion": "boot-014-datapull-step-returns-to-coordinator",
+          "description": "Regression guard: step-01.2 must end with the return-to-coordinator handoff, not a read-and-follow chain into step-02. Part of the 2026-10-22 steps-02-04 context-tax fix (work-20261022-182004): one long-lived boot subagent walking steps 01.2-08 carried 500-720k input tokens per step for outputs of a few hundred tokens (eval-20261021T151330-QNQLC5, eval-20261013T114019-Q5UJLE). If this trips, someone reintroduced the chain.",
+          "passed": true
+        },
+        {
+          "assertion": "boot-015-datapull-no-next-step-chain",
+          "description": "Regression guard: step-01.2 must not contain a 'Read fully and follow' next-step chain. The chain is what let subagents walk the whole boot workflow instead of exiting after their single-purpose mandate.",
+          "passed": true
+        },
+        {
+          "assertion": "boot-016-gather-step-returns-to-coordinator",
+          "description": "Regression guard: step-02 must end with the return-to-coordinator handoff, not a read-and-follow chain into step-03. Eval evidence for the fix: eval-20261021T151330-QNQLC5 step-02 carried 545,309 input tokens for a 628-token output; eval-20261013T114019-Q5UJLE attributed 719,033 in / 4,291 out across the same steps. If this trips, someone reintroduced the chain.",
+          "passed": true
+        },
+        {
+          "assertion": "boot-017-gather-no-next-step-chain",
+          "description": "Regression guard: step-02 must not contain a 'Read fully and follow' next-step chain.",
+          "passed": true
+        },
+        {
+          "assertion": "boot-018-verify-step-returns-to-coordinator",
+          "description": "Regression guard: step-03 must end with the return-to-coordinator handoff, not a read-and-follow chain into step-04. Eval evidence: eval-20261021T151330-QNQLC5 step-03 carried 495,386 input tokens for a 1,014-token output. If this trips, someone reintroduced the chain.",
+          "passed": true
+        },
+        {
+          "assertion": "boot-019-verify-no-next-step-chain",
+          "description": "Regression guard: step-03 must not contain a 'Read fully and follow' next-step chain.",
+          "passed": true
+        },
+        {
+          "assertion": "boot-020-meetingcontext-step-returns-to-coordinator",
+          "description": "Regression guard: step-04 must end with the return-to-coordinator handoff, not a read-and-follow chain into step-05. Eval evidence: eval-20261021T151330-QNQLC5 step-04 carried 531,500 input tokens for a 1,354-token output. If this trips, someone reintroduced the chain.",
+          "passed": true
+        },
+        {
+          "assertion": "boot-021-meetingcontext-no-next-step-chain",
+          "description": "Regression guard: step-04 must not contain a 'Read fully and follow' next-step chain.",
+          "passed": true
+        },
+        {
+          "assertion": "boot-022-gather-steps-dedicated-dispatch",
+          "description": "Regression guard: workflow.md must keep steps 01.2, 02, 03, and 04 dispatched as their own tightly-briefed single-purpose subagents (no persona/SYSTEM.md load, explicit workflows/boot/workflow.md reference for eval attribution, Edit-not-Bash state updates), with the briefing subagent covering only steps 05-08. If this trips, the dispatch collapsed back into one long-lived walk-everything boot subagent.",
+          "passed": true
+        }
+      ]
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": "dbce83160042fdec43938dd8e53ddc7ed6b6361f796b3a32612443ecaa869504",
+  "prior_baseline_id": null,
+  "tags": [
+    "turn-level"
+  ],
+  "total_tokens_input": 226212059,
+  "total_tokens_output": 1225775,
+  "total_cost_usd": 26.879093,
+  "parent_window": {
+    "token_source": "parent-window",
+    "transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/348dc94e-7650-4c8c-ab4f-4f188ba0d59d.jsonl",
+    "window_start": "2026-10-23T20:20:35.365611Z",
+    "window_end": "2026-10-23T22:24:58.431391Z",
+    "model": "glm-5p3",
+    "tokens_input": 13650232,
+    "tokens_output": 53407,
+    "cost_usd": 2.309448,
+    "turns_matched": 108,
+    "turns_with_usage": 108,
+    "computed_at": "2026-10-23T22:24:58.445451Z"
+  },
+  "fully_loaded_cost_usd": 29.188541,
+  "fully_loaded_tokens_input": 239862291,
+  "fully_loaded_tokens_output": 1279182
+}

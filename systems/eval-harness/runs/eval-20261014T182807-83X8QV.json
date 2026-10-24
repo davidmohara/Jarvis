@@ -170,60 +170,66 @@
       "agent_type": "general-purpose",
       "started": "2026-10-14T19:16:18.578306Z",
       "completed": null,
-      "model": null,
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "model_source": "child-record-backfill"
     },
     {
       "agent_id": "ae6b5867f4018feae",
       "agent_type": "general-purpose",
       "started": "2026-10-14T19:18:23.097632Z",
       "completed": null,
-      "model": null,
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "model_source": "child-record-backfill"
     },
     {
       "agent_id": "ae6b5867f4018feae",
       "agent_type": "general-purpose",
       "started": "2026-10-14T19:24:41.766576Z",
       "completed": null,
-      "model": null,
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "model_source": "child-record-backfill"
     },
     {
       "agent_id": "ae6b5867f4018feae",
       "agent_type": "general-purpose",
       "started": "2026-10-14T19:25:10.203957Z",
       "completed": null,
-      "model": null,
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "model_source": "child-record-backfill"
     },
     {
       "agent_id": "ae6b5867f4018feae",
       "agent_type": "general-purpose",
       "started": "2026-10-14T19:28:32.069723Z",
       "completed": null,
-      "model": null,
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "model_source": "child-record-backfill"
     },
     {
       "agent_id": "a6e95ec9a828ce61e",
       "agent_type": "general-purpose",
       "started": "2026-10-14T19:32:21.067106Z",
       "completed": null,
-      "model": null,
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "model_source": "child-record-backfill"
     }
   ],
   "monitoring": {
@@ -328,5 +334,7 @@
   ],
   "total_tokens_input": 2220700,
   "total_tokens_output": 3350,
-  "total_cost_usd": 1.26
+  "total_cost_usd": 1.26,
+  "model": "kimi-k3",
+  "model_source": "session-transcript-window-backfill"
 }

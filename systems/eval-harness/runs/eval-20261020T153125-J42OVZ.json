@@ -37,10 +37,11 @@
       "agent_type": "general-purpose",
       "started": "2026-10-20T16:44:33.093338Z",
       "completed": null,
-      "model": null,
+      "model": "accounts/fireworks/models/kimi-k3",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "model_source": "child-record-backfill"
     },
     {
       "agent_id": "ad903d2938871bdd6",
@@ -146,5 +147,7 @@
   ],
   "total_tokens_input": null,
   "total_tokens_output": null,
-  "total_cost_usd": 0.09
+  "total_cost_usd": 0.09,
+  "model": "glm-5p3",
+  "model_source": "session-transcript-window-backfill"
 }

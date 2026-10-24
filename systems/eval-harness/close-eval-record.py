@@ -65,6 +65,50 @@ except Exception:
     workflow_owner_agent = None
     normalize_agent_label = None
     apply_record_attribution = None
+try:
+    from token_usage import usage_between as _usage_between, latest_turn_model as _latest_turn_model
+except Exception:
+    _usage_between = None
+    _latest_turn_model = None
+try:
+    from fully_loaded_cost import find_session_transcript as _find_session_transcript
+except Exception:
+    _find_session_transcript = None
+
+
+def derive_record_model(session_id: str, started_iso: str, completed_iso: str):
+    """Best-effort model for a record closed without hook transcript capture.
+
+    Returns (model, model_source) or (None, None). Derivation order:
+    1. dominant model of the session transcript's own turns inside the
+       record's [started, completed] window (strict — no lenient fallback)
+    2. the session transcript's latest assistant-turn model (the window may
+       be empty for a near-zero-duration close)
+    Never guesses: no transcript or no model ids -> (None, None), and the
+    record's model field stays absent rather than carrying a default."""
+    if not session_id or not (_find_session_transcript and _usage_between):
+        return None, None
+    try:
+        tp = _find_session_transcript(session_id)
+    except Exception:
+        tp = None
+    if not tp:
+        return None, None
+    try:
+        u = _usage_between(tp, started_iso, completed_iso,
+                           exclude_sidechain=True, lenient_fallback=False)
+        if u and u.get("model"):
+            return u["model"], "session-transcript-window"
+    except Exception:
+        pass
+    if _latest_turn_model:
+        try:
+            m = _latest_turn_model(tp)
+            if m:
+                return m, "session-transcript-latest"
+        except Exception:
+            pass
+    return None, None
 
 
 def new_id() -> str:
@@ -269,6 +313,10 @@ def main():
     ap.add_argument("--steps-json", default=None,
                     help="Path to a JSON file (or inline JSON array) of canonical step dicts "
                          "carrying per-step model/tokens/cost. Merged by name into --steps.")
+    ap.add_argument("--model", default=None,
+                    help="Model that executed the run, when known to the caller. "
+                         "Recorded with model_source 'cli-arg'. When omitted, the "
+                         "model is derived from the session transcript where possible.")
     ap.add_argument("--abort-reason", default=None,
                     help="Machine-readable abort cause (e.g. api-error, session-ended, tool-failure, "
                          "outage-suspected). Written to assessment.mechanical.abort_reason. "
@@ -390,12 +438,27 @@ def main():
     completed_flag = status in ("success", "partial")
     all_steps = bool(step_names) and status in ("success", "partial")
 
+    # Model capture (2026-10-23): every record this script touches gets a
+    # model when one is available. Priority: the stub's existing value (hook
+    # capture wins) > --model (caller's knowledge) > session-transcript
+    # derivation. Absent stays absent — never a default guess.
+    if stub is not None and stub.get("model"):
+        model, model_source = stub["model"], stub.get("model_source")
+    elif args.model:
+        model, model_source = args.model, "cli-arg"
+    else:
+        model, model_source = derive_record_model(session_id, started_iso, completed_iso)
+
     if stub is not None:
         # Close the existing stub
         stub["name"] = args.name  # may have been "unknown" in hook
         stub["type"] = args.eval_type
         stub["agent"] = resolved_agent
         stub["trigger"] = args.trigger
+        if model:
+            stub["model"] = model
+            if model_source:
+                stub["model_source"] = model_source
         stub["completed"] = completed_iso
         stub["duration_seconds"] = round(duration, 1)
         stub["status"] = status
@@ -424,6 +487,8 @@ def main():
             "owning_agent": owner or resolved_agent,
             "session_id": session_id,
             "trigger": args.trigger,
+            "model": model,
+            "model_source": model_source,
             "started": started_iso,
             "completed": completed_iso,
             "duration_seconds": round(duration, 1),

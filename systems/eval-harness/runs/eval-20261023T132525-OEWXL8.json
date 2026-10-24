@@ -1,0 +1,123 @@
+{
+  "id": "eval-20261023T132525-OEWXL8",
+  "agent_id": "addc408b68105c0d6",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": "boot",
+  "agent": "master",
+  "owning_agent": "master",
+  "subagent_type": "general-purpose",
+  "session_id": "f430dc3d-53c9-4886-8710-ff645649ce64",
+  "trigger": "unknown",
+  "started": "2026-10-23T13:25:25.580607Z",
+  "completed": "2026-10-23T13:31:13.750777Z",
+  "duration_seconds": 348.17,
+  "status": "partial",
+  "steps": [
+    {
+      "name": "step-01.2-unified-data-pull.md",
+      "agent": "general-purpose",
+      "step_id": "step-01.2-unified-data-pull.md",
+      "owning_agent": "general-purpose",
+      "started": "2026-10-23T13:26:00Z",
+      "completed": "2026-10-23T13:29:29Z",
+      "status": "complete",
+      "tokens_input": 271997,
+      "tokens_output": 5929,
+      "cost_usd": 0.244115,
+      "model": "accounts/fireworks/models/kimi-k3",
+      "token_source": "windowed",
+      "turns_matched": 5,
+      "turns_with_usage": 5,
+      "duration_seconds": 209.0
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 1,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/f430dc3d-53c9-4886-8710-ff645649ce64/subagents/agent-addc408b68105c0d6.jsonl",
+  "model": "accounts/fireworks/models/kimi-k3",
+  "total_tokens_input": 590599,
+  "total_tokens_output": 11148,
+  "total_cost_usd": 0.493,
+  "token_source": "subagent-transcript",
+  "guardrails": [
+    {
+      "name": "step-01.2-unified-data-pull-checkpoint",
+      "after_step": "step-01.2-unified-data-pull.md",
+      "result": "pass",
+      "reason": "All 4 unified data files present and fresh",
+      "escalated_to_human": false,
+      "timestamp": "2026-10-23T13:31:14.067675Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "files_created": [
+          "data/email-unified.json",
+          "data/omnifocus-unified.json",
+          "data/clay-reminders-unified.json",
+          "data/jarvis-inbox-unified.json"
+        ],
+        "files_missing": [],
+        "files_stale": [],
+        "file_status": {
+          "data/email-unified.json": "fresh (-0.0h old)",
+          "data/omnifocus-unified.json": "fresh (0.1h old)",
+          "data/clay-reminders-unified.json": "fresh (-0.0h old)",
+          "data/jarvis-inbox-unified.json": "fresh (-0.0h old)"
+        }
+      }
+    }
+  ],
+  "parent_window": {
+    "token_source": "parent-window",
+    "transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/f430dc3d-53c9-4886-8710-ff645649ce64.jsonl",
+    "window_start": "2026-10-23T13:25:25.580607Z",
+    "window_end": "2026-10-23T13:31:13.750777Z",
+    "model": "glm-5p3",
+    "tokens_input": 450163,
+    "tokens_output": 382,
+    "cost_usd": 0.069214,
+    "turns_matched": 6,
+    "turns_with_usage": 6,
+    "computed_at": "2026-10-23T13:31:14.215691Z"
+  },
+  "fully_loaded_cost_usd": 0.562214,
+  "fully_loaded_tokens_input": 1040762,
+  "fully_loaded_tokens_output": 11530
+}

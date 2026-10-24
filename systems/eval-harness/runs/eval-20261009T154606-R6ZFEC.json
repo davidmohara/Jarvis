@@ -194,30 +194,33 @@
       "agent_type": "general-purpose",
       "started": "2026-10-09T15:59:45.456914Z",
       "completed": null,
-      "model": null,
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "model_source": "child-record-backfill"
     },
     {
       "agent_id": "a4320af46fb1d05ff",
       "agent_type": "general-purpose",
       "started": "2026-10-09T16:07:42.619892Z",
       "completed": null,
-      "model": null,
+      "model": "accounts/fireworks/models/kimi-k3",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "model_source": "child-record-backfill"
     },
     {
       "agent_id": "ac3d35f649e50da1f",
       "agent_type": "general-purpose",
       "started": "2026-10-09T16:20:36.932014Z",
       "completed": null,
-      "model": null,
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "model_source": "child-record-backfill"
     }
   ],
   "monitoring": {
@@ -290,5 +293,7 @@
       "escalated_to_human": false,
       "timestamp": "2026-10-09T16:05:49.935778+00:00"
     }
-  ]
+  ],
+  "model": "accounts/fireworks/models/kimi-k3",
+  "model_source": "session-transcript-window-backfill"
 }

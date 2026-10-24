@@ -1,0 +1,83 @@
+{
+  "id": "eval-20261023T210951-KGIXQZ",
+  "agent_id": "a49ba3bff40c5a449",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "harper",
+  "owning_agent": "harper",
+  "subagent_type": "general-purpose",
+  "session_id": "f430dc3d-53c9-4886-8710-ff645649ce64",
+  "trigger": "unknown",
+  "model": "accounts/fireworks/models/kimi-k3",
+  "model_source": "subagent-transcript",
+  "started": "2026-10-23T21:09:51.690654Z",
+  "completed": "2026-10-23T21:21:49.464148Z",
+  "duration_seconds": 717.77,
+  "status": "partial",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 3,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/f430dc3d-53c9-4886-8710-ff645649ce64/subagents/agent-a49ba3bff40c5a449.jsonl",
+  "last_assistant_message": "Everything is in place. The `...copy.pptx` file is a pre-existing duplicate of the Starter-skin build (created 16:08, before my overwrite) \u2014 left untouched as a fallback.",
+  "total_tokens_input": 7950125,
+  "total_tokens_output": 43346,
+  "total_cost_usd": 3.319016,
+  "token_source": "subagent-transcript",
+  "harness_tokens": 178614,
+  "harness_tool_uses": 102,
+  "harness_duration_ms": 1167404,
+  "parent_window": {
+    "token_source": "parent-window",
+    "transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/f430dc3d-53c9-4886-8710-ff645649ce64.jsonl",
+    "window_start": "2026-10-23T21:09:51.690654Z",
+    "window_end": "2026-10-23T21:21:49.464148Z",
+    "model": "accounts/fireworks/models/kimi-k3",
+    "tokens_input": 141730,
+    "tokens_output": 127,
+    "cost_usd": 0.046136,
+    "turns_matched": 1,
+    "turns_with_usage": 1,
+    "computed_at": "2026-10-23T21:21:49.927469Z"
+  },
+  "fully_loaded_cost_usd": 3.365152,
+  "fully_loaded_tokens_input": 8091855,
+  "fully_loaded_tokens_output": 43473
+}

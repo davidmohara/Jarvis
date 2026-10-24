@@ -1,71 +1,89 @@
 {
- "pulled_at": "2026-10-22T11:45:21.434672Z",
- "message_count": 7,
- "flagged_count": 0,
- "note": "No messages carry the flag in the last 24h search; list is time-sensitive/high-priority/deadline subset of 17 recent inbox items. Newsletters, YPO forum digests and receipts excluded.",
- "messages": [
-  {
-   "id": null,
-   "subject": "Chapters not meeting Core Officer Identification commitment",
-   "from": "Jen Jensen <jjensen@ypo.org>",
-   "received_at": "2026-10-21T22:49:02Z",
-   "is_flagged": false,
-   "importance": "normal",
-   "snippet": "Request to reach out to chapter chairs; Nov 1 Core Officer ID deadline."
-  },
-  {
-   "id": null,
-   "subject": "Breakthrough Builders Dinner, Wednesday October 28",
-   "from": "Chad Thevenot <chad@athosed.com>",
-   "received_at": "2026-10-21T22:58:19Z",
-   "is_flagged": false,
-   "importance": "normal",
-   "snippet": "Dinner Wed Oct 28 7:30 PM, 612 Brazos St Austin, business casual; kicks off Principled Business Summit."
-  },
-  {
-   "id": null,
-   "subject": "Lone Star Gold October 2026 Board Meeting Minutes and Action Items",
-   "from": "Tiffany Geib <tiffany@lonestargold.org>",
-   "received_at": "2026-10-21T17:53:52Z",
-   "is_flagged": false,
-   "importance": "normal",
-   "snippet": "Minutes + action items; next board meeting Mon Nov 16 1:30pm."
-  },
-  {
-   "id": null,
-   "subject": "Your homework for the AI Leadership Summit",
-   "from": "Tim Rayburn <Tim.Rayburn@Improving.com>",
-   "received_at": "2026-10-21T15:04:16Z",
-   "is_flagged": false,
-   "importance": "normal",
-   "snippet": "AI Leadership Summit Nov 5-6; 5-minute TED-style talk homework per attendee for Day 2."
-  },
-  {
-   "id": null,
-   "subject": "21 Days Out: 2026 CodeLaunch WC Ticket Pace Report",
-   "from": "Ashlyn Weathers <ashlyn.weathers@improving.com>",
-   "received_at": "2026-10-21T17:00:11Z",
-   "is_flagged": false,
-   "importance": "high",
-   "snippet": "CodeLaunch World Championship at Gilley's in 21 days; Dallas ticket pace report."
-  },
-  {
-   "id": null,
-   "subject": "TOMORROW | Fall Exhibition | 6-9 PM",
-   "from": "Christopher Martin Gallery",
-   "received_at": "2026-10-22T08:05:45Z",
-   "is_flagged": false,
-   "importance": "normal",
-   "snippet": "Fall Exhibition tonight 6-9 PM (personal/social)."
-  },
-  {
-   "id": null,
-   "subject": "Lone Star Gold RSVP: Power of the Room",
-   "from": "Tiffany Geib",
-   "received_at": "2026-10-21T17:38:35Z",
-   "is_flagged": false,
-   "importance": "normal",
-   "snippet": "RSVP confirmed: David attending."
-  }
- ]
+  "pulled_at": "2026-10-23T13:29:29Z",
+  "message_count": 9,
+  "flagged_count": 0,
+  "note": "Flag status not exposed by M365 search tool; list is the actionable subset (deadline/response-requested/urgent) of 13 recent inbox items plus an urgent/deadline search. Newsletters, marketing, YPO forum digests, and Superhuman self-sync duplicates excluded.",
+  "messages": [
+    {
+      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA_CRO_WAAA=",
+      "subject": "Please respond to the Approval - Approval Requested - BDO Engagement",
+      "from": "Teresa Saffold <alerts@boardvantage.com>",
+      "received_at": "2026-10-23T12:42:15Z",
+      "is_flagged": false,
+      "importance": "normal",
+      "snippet": "United Texas Bank Audit Committee: response requested on BDO Engagement approval. Unread."
+    },
+    {
+      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA_CRO_ZAAA=",
+      "subject": "RE: Chapters not meeting Core Officer Identification commitment",
+      "from": "Jen Jensen <jjensen@ypo.org>",
+      "received_at": "2026-10-21T22:49:02Z",
+      "is_flagged": false,
+      "importance": "normal",
+      "snippet": "Nov 1 deadline approaching for Core Officer ID commitment; request to reach out to chapter chairs of chapters not yet compliant. Unread copy resurfaced today."
+    },
+    {
+      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA_CRO_bAAA=",
+      "subject": "Fw: AI Leadership Event Discussion (ASEI/bank of america event at Improving)",
+      "from": "Bethany Hilton <Bethany.Hilton@Improving.com>",
+      "received_at": "2026-10-21T01:23:08Z",
+      "is_flagged": false,
+      "importance": "normal",
+      "snippet": "Asks whether the AI workshop for ASEI/Bank of America can be broadcast online (virtual + in person); told them probably but checking first. Unread copy resurfaced today."
+    },
+    {
+      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA_CRO_HAAA=",
+      "subject": "RE: Touching base on upcoming Chapter Commitments",
+      "from": "Ryan O'Connor <roconnor@oconnordistributing.com>",
+      "received_at": "2026-10-22T21:59:50Z",
+      "is_flagged": false,
+      "importance": "normal",
+      "snippet": "Still working on identifying the right person to serve as ALO ahead of the Nov 1 deadline; wants someone willing and able to commit the time."
+    },
+    {
+      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA_CRO_XAAA=",
+      "subject": "Info: October OnPoint and Western Region Updates",
+      "from": "Shelby Meyer <smeyer@ypo.org>",
+      "received_at": "2026-10-20T11:53:50Z",
+      "is_flagged": false,
+      "importance": "normal",
+      "snippet": "Q2 Western Region updates; includes upcoming Nov 1 funding deadline for strategic pillar focus (attachment). Unread copy resurfaced today."
+    },
+    {
+      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwAicd0_np8VS5h8yLEYWS-AAAB5N7u6AABAtd68aKbhTanh4UbLkkAvAA93SzfMAAA=",
+      "subject": "Security Alert Update: Ongoing Spam Wave and IT Impersonation Calls",
+      "from": "Paul Forbing <paul.forbing@improving.com>",
+      "received_at": "2026-10-21T18:52:20Z",
+      "is_flagged": false,
+      "importance": "normal",
+      "snippet": "All Employees | Priority: Urgent. Ongoing spam wave and IT impersonation calls; guidance to read even if not targeted."
+    },
+    {
+      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwAicd0_np8VS5h8yLEYWS-AAAB5N7u6AABAtd68aKbhTanh4UbLkkAvAA93SzfKAAA=",
+      "subject": "RE: ACTION: Confirm 2027 - 2029 YPO Gold Regional Officers",
+      "from": "Shelby Meyer <smeyer@ypo.org>",
+      "received_at": "2026-10-21T18:54:20Z",
+      "is_flagged": false,
+      "importance": "normal",
+      "snippet": "Thread on confirming 2027-2029 YPO Gold Regional Officers; nomination deadline was Sept 4, requirements detailed at end of note."
+    },
+    {
+      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA93abxBAAA=",
+      "subject": "Your homework for the AI Leadership Summit — 5 minutes, one idea",
+      "from": "Tim Rayburn <Tim.Rayburn@Improving.com>",
+      "received_at": "2026-10-21T15:04:16Z",
+      "is_flagged": false,
+      "importance": "normal",
+      "snippet": "Homework for Nov 5-6 AI Leadership Summit: Day 2 opens with 5-minute standing TED talks, one idea per person."
+    },
+    {
+      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA9adrYPAAA=",
+      "subject": "PLEASE RSVP: Six Flags Holiday in the Park - Joint Chapter Family Event on 12-06-2026",
+      "from": "Tiffany Geib <tiffany@lonestargold.org>",
+      "received_at": "2026-10-16T19:42:07Z",
+      "is_flagged": false,
+      "importance": "normal",
+      "snippet": "RSVP requested for YPO joint-chapter family event at Six Flags Over Texas, Dec 6 2026 (user-pay, private park experience)."
+    }
+  ]
 }

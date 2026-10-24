@@ -666,6 +666,18 @@ def finalize(eval_path: Path, eval_record: dict, state_data: dict, force_status:
         except Exception as e:
             log_error(f"parent-window cost computation failed: {e}", TAG)
 
+    # Top-level model backstop (2026-10-23): the workflow record's model is
+    # the orchestrating session's dominant model over the run window. If
+    # eval-turn-start.py didn't capture one at open (or the run pre-dates
+    # that capture), take it from the freshly computed parent_window. Never
+    # overwrite an existing value — an open-time capture or a prior writer
+    # wins over a re-derivation.
+    if not eval_record.get("model"):
+        pw_model = (eval_record.get("parent_window") or {}).get("model")
+        if pw_model:
+            eval_record["model"] = pw_model
+            eval_record["model_source"] = "parent-window"
+
     tool_failures = eval_record.get("assessment", {}).get("mechanical", {}).get("tool_failures", 0)
     error_ids = eval_record.get("assessment", {}).get("mechanical", {}).get("error_ids", [])
     # mechanical.completed derivation (Stage 3 Phase 0): a run is mechanically

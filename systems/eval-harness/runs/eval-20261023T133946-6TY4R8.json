@@ -1,0 +1,113 @@
+{
+  "id": "eval-20261023T133946-6TY4R8",
+  "agent_id": "a6438ca2fea85835c",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": "boot",
+  "agent": "master",
+  "owning_agent": "master",
+  "subagent_type": "general-purpose",
+  "session_id": "f430dc3d-53c9-4886-8710-ff645649ce64",
+  "trigger": "unknown",
+  "started": "2026-10-23T13:39:46.340722Z",
+  "completed": "2026-10-23T13:42:36.123855Z",
+  "duration_seconds": 169.78,
+  "status": "partial",
+  "steps": [
+    {
+      "name": "step-04-gather-meeting-context.md",
+      "agent": "general-purpose",
+      "step_id": "step-04-gather-meeting-context.md",
+      "owning_agent": "general-purpose",
+      "started": "2026-10-23T13:39:00Z",
+      "completed": "2026-10-23T13:41:47Z",
+      "status": "complete",
+      "tokens_input": 482923,
+      "tokens_output": 3347,
+      "cost_usd": 0.315874,
+      "model": "accounts/fireworks/models/kimi-k3",
+      "token_source": "windowed",
+      "turns_matched": 11,
+      "turns_with_usage": 11,
+      "duration_seconds": 167.0
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 1,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/f430dc3d-53c9-4886-8710-ff645649ce64/subagents/agent-a6438ca2fea85835c.jsonl",
+  "model": "accounts/fireworks/models/kimi-k3",
+  "total_tokens_input": 656267,
+  "total_tokens_output": 4973,
+  "total_cost_usd": 0.396958,
+  "token_source": "subagent-transcript",
+  "guardrails": [
+    {
+      "name": "step-04-checkpoint",
+      "after_step": "step-04-gather-meeting-context.md",
+      "result": "pass",
+      "reason": "31 meetings found, 245 unique attendees identified for enrichment",
+      "escalated_to_human": false,
+      "timestamp": "2026-10-23T13:42:36.403868Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "meetings_found": 31,
+        "attendees_enriched": 245,
+        "clay_cross_reference_available": true,
+        "clay_items_checked": 0
+      }
+    }
+  ],
+  "parent_window": {
+    "token_source": "parent-window",
+    "transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/f430dc3d-53c9-4886-8710-ff645649ce64.jsonl",
+    "window_start": "2026-10-23T13:39:46.340722Z",
+    "window_end": "2026-10-23T13:42:36.123855Z",
+    "model": "glm-5p3",
+    "tokens_input": 82130,
+    "tokens_output": 78,
+    "cost_usd": 0.013017,
+    "turns_matched": 1,
+    "turns_with_usage": 1,
+    "computed_at": "2026-10-23T13:42:36.559967Z"
+  },
+  "fully_loaded_cost_usd": 0.409975,
+  "fully_loaded_tokens_input": 738397,
+  "fully_loaded_tokens_output": 5051
+}

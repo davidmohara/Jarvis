@@ -26,9 +26,10 @@ PRICING_PATH = IES_ROOT / "systems" / "eval-harness" / "model-pricing.json"
 
 sys.path.insert(0, str(IES_ROOT / "systems" / "eval-harness"))
 try:
-    from token_usage import usage_between
+    from token_usage import usage_between, rates_for_model
 except ImportError:
     usage_between = None
+    rates_for_model = None
 
 
 def load_pricing() -> dict:
@@ -62,12 +63,32 @@ WORKFLOW_ESTIMATES = {
 }
 
 
-def estimate_cost_for_workflow(workflow_name: str, model: str, pricing: dict) -> float:
-    """Estimate cost based on workflow type."""
-    if model not in pricing:
-        model = "sonnet"
+def estimate_cost_for_workflow(workflow_name: str, model: str, pricing: dict):
+    """Estimate cost based on workflow type. Returns (cost, pricing_note).
 
-    rates = pricing.get(model, {"input_per_mtok": 3.00, "output_per_mtok": 15.00})
+    Model-aware (2026-10-23): the record's own model sets the rate when the
+    pricing table (via token_usage.rates_for_model's alias-aware lookup) can
+    price it. When the model is absent or unpriced, the estimate falls back
+    to sonnet-tier rates and the returned note says so explicitly — the
+    caller records the note, so a fallback-priced estimate is never
+    indistinguishable from a model-priced one.
+    """
+    rates = None
+    if model and rates_for_model is not None:
+        try:
+            rates = rates_for_model(model)
+        except Exception:
+            rates = None
+    if rates is None and model:
+        rates = pricing.get(str(model).lower())
+
+    if rates is not None:
+        note = None
+    else:
+        rates = pricing.get("sonnet", {"input_per_mtok": 3.00, "output_per_mtok": 15.00})
+        note = (f"model '{model}' unpriced — estimated at sonnet-tier rates"
+                if model else
+                "model unknown — estimated at sonnet-tier rates")
 
     # Get workflow-specific estimate, fall back to default
     estimate = WORKFLOW_ESTIMATES.get(workflow_name, WORKFLOW_ESTIMATES["fork"])
@@ -77,7 +98,7 @@ def estimate_cost_for_workflow(workflow_name: str, model: str, pricing: dict) ->
     input_cost = (input_tokens / 1_000_000) * rates.get("input_per_mtok", 3.00)
     output_cost = (output_tokens / 1_000_000) * rates.get("output_per_mtok", 15.00)
 
-    return round(input_cost + output_cost, 6)
+    return round(input_cost + output_cost, 6), note
 
 
 def backfill_record(record_path: Path, pricing: dict) -> bool:
@@ -90,7 +111,7 @@ def backfill_record(record_path: Path, pricing: dict) -> bool:
         if record.get("total_cost_usd") is not None:
             return False
 
-        model = record.get("model", "sonnet")
+        model = record.get("model")  # None when never captured — no silent default
         workflow = record.get("name", "unknown")
 
         # Try to compute from transcript if available
@@ -108,17 +129,23 @@ def backfill_record(record_path: Path, pricing: dict) -> bool:
                         record["total_cost_usd"] = usage["cost_usd"]
                         record["total_tokens_input"] = usage.get("tokens_input")
                         record["total_tokens_output"] = usage.get("tokens_output")
-                        record["model"] = usage.get("model", model)
+                        if usage.get("model"):
+                            record["model"] = usage["model"]
+                            record.setdefault("model_source", "subagent-transcript-backfill")
                         with open(record_path, "w") as f:
                             json.dump(record, f, indent=2)
                         return True
                 except Exception as e:
                     pass  # Fall through to estimation
 
-        # Fallback: estimate based on workflow type
-        estimated_cost = estimate_cost_for_workflow(workflow, model, pricing)
+        # Fallback: estimate based on workflow type, priced at the record's own
+        # model where the rate table covers it (sonnet-tier fallback is noted).
+        estimated_cost, pricing_note = estimate_cost_for_workflow(workflow, model, pricing)
         record["total_cost_usd"] = estimated_cost
-        record["cost_estimation_note"] = f"estimated based on {workflow} workflow type"
+        note = f"estimated based on {workflow} workflow type"
+        if pricing_note:
+            note = f"{note}; {pricing_note}"
+        record["cost_estimation_note"] = note
 
         with open(record_path, "w") as f:
             json.dump(record, f, indent=2)

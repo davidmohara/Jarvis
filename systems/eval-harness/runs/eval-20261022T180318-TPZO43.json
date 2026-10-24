@@ -172,5 +172,7 @@
   "tags": [
     "turn-level"
   ],
-  "workflow": "boot"
+  "workflow": "boot",
+  "model": "glm-5p3",
+  "model_source": "session-transcript-window-backfill"
 }

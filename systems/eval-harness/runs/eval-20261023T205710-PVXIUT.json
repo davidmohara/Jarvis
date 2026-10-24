@@ -1,0 +1,117 @@
+{
+  "id": "eval-20261023T205710-PVXIUT",
+  "agent_id": "a113479626790970f",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": "account-pursuit-map",
+  "agent": "chase",
+  "owning_agent": "chase",
+  "subagent_type": "general-purpose",
+  "session_id": "348dc94e-7650-4c8c-ab4f-4f188ba0d59d",
+  "trigger": "workflow-dispatch",
+  "model": "accounts/fireworks/models/kimi-k3",
+  "model_source": "subagent-transcript",
+  "started": "2026-10-23T20:57:10.754551Z",
+  "completed": "2026-10-23T21:24:04.452909Z",
+  "duration_seconds": 1613.7,
+  "status": "aborted",
+  "steps": [
+    {
+      "name": "step-03-competitive-positioning-and-leadership.md",
+      "step_id": "step-03-competitive-positioning-and-leadership.md",
+      "agent": "chase",
+      "owning_agent": "chase",
+      "started": null,
+      "completed": null,
+      "duration_seconds": null,
+      "status": "not-started",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "sonnet",
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null,
+      "token_source": null
+    },
+    {
+      "name": "step-06-synthesize-and-deliver.md",
+      "step_id": "step-06-synthesize-and-deliver.md",
+      "agent": "chase",
+      "owning_agent": "chase",
+      "started": null,
+      "completed": null,
+      "duration_seconds": null,
+      "status": "not-started",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "sonnet",
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null,
+      "token_source": null
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": false,
+      "all_steps_finished": true,
+      "tool_failures": 6,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/f430dc3d-53c9-4886-8710-ff645649ce64/subagents/agent-a49ba3bff40c5a449.jsonl",
+  "total_tokens_input": 10217865,
+  "total_tokens_output": 50932,
+  "total_cost_usd": 4.130327,
+  "token_source": "subagent-transcript",
+  "harness_tokens": 284405,
+  "harness_tool_uses": 66,
+  "harness_duration_ms": 781319,
+  "parent_window": {
+    "token_source": "parent-window",
+    "transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/f430dc3d-53c9-4886-8710-ff645649ce64.jsonl",
+    "window_start": "2026-10-23T20:57:10.754551Z",
+    "window_end": "2026-10-23T21:24:04.452909Z",
+    "model": "accounts/fireworks/models/kimi-k3",
+    "tokens_input": 1271019,
+    "tokens_output": 2027,
+    "cost_usd": 0.433905,
+    "turns_matched": 9,
+    "turns_with_usage": 9,
+    "computed_at": "2026-10-23T21:24:04.871162Z"
+  },
+  "fully_loaded_cost_usd": 4.564232,
+  "fully_loaded_tokens_input": 11488884,
+  "fully_loaded_tokens_output": 52959
+}

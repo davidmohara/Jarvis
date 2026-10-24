@@ -60,10 +60,11 @@
       "agent_type": "general-purpose",
       "started": "2026-10-14T13:10:09.536020Z",
       "completed": null,
-      "model": null,
+      "model": "sonnet",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "model_source": "child-record-backfill"
     },
     {
       "agent_id": "ab70e53a022cf59b9",
@@ -178,5 +179,7 @@
   ],
   "total_tokens_input": 117753,
   "total_tokens_output": 578,
-  "total_cost_usd": 0.54
+  "total_cost_usd": 0.54,
+  "model": "accounts/fireworks/models/glm-5p3",
+  "model_source": "session-transcript-window-backfill"
 }

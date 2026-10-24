@@ -1,0 +1,78 @@
+{
+  "id": "eval-20261023T182959-OG6YT3",
+  "type": "skill",
+  "name": "harper-presentation",
+  "agent": "general-purpose",
+  "session_id": "f430dc3d-53c9-4886-8710-ff645649ce64",
+  "trigger": "manual",
+  "model": "accounts/fireworks/models/kimi-k3",
+  "model_source": "session-transcript-window",
+  "started": "2026-10-23T18:24:12.066339Z",
+  "completed": "2026-10-23T18:29:59.893824Z",
+  "duration_seconds": 347.8,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": true,
+      "outputs_non_empty": null,
+      "assertions_checked": 2,
+      "assertions_passed": 2,
+      "assertion_results": [
+        {
+          "assertion": "harper-presentation-signal-written",
+          "description": "harper-presentation skill-run signal file was written",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "harper-presentation-signal-status",
+          "description": "harper-presentation skill-run did not end in failure",
+          "category": "structure",
+          "passed": true
+        }
+      ],
+      "category_breakdown": {
+        "structure": {
+          "passed": 2,
+          "checked": 2
+        },
+        "content": {
+          "passed": 0,
+          "checked": 0
+        },
+        "quality": {
+          "passed": 0,
+          "checked": 0
+        }
+      }
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "deterministic_gate": {
+      "score": 1.0,
+      "gate_status": "pass",
+      "computed_at": "2026-10-23T18:30:00.181256Z"
+    }
+  },
+  "version_hash": "5ddfe90867542b99",
+  "prior_baseline_id": null,
+  "tags": [
+    "cowork-hook",
+    "skill"
+  ]
+}

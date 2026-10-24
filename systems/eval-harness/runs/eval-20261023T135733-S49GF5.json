@@ -1,0 +1,78 @@
+{
+  "id": "eval-20261023T135733-S49GF5",
+  "agent_id": "a90d1665abffee935",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "rigby",
+  "owning_agent": "rigby",
+  "subagent_type": "general-purpose",
+  "session_id": "f430dc3d-53c9-4886-8710-ff645649ce64",
+  "trigger": "unknown",
+  "started": "2026-10-23T13:57:33.278995Z",
+  "completed": "2026-10-23T13:59:27.873956Z",
+  "duration_seconds": 114.59,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/f430dc3d-53c9-4886-8710-ff645649ce64/subagents/agent-a90d1665abffee935.jsonl",
+  "model": "accounts/fireworks/models/kimi-k3",
+  "total_tokens_input": 293530,
+  "total_tokens_output": 3488,
+  "total_cost_usd": 0.245109,
+  "token_source": "subagent-transcript",
+  "parent_window": {
+    "token_source": "parent-window",
+    "transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/f430dc3d-53c9-4886-8710-ff645649ce64.jsonl",
+    "window_start": "2026-10-23T13:57:33.278995Z",
+    "window_end": "2026-10-23T13:59:27.873956Z",
+    "model": "accounts/fireworks/models/glm-5p3",
+    "tokens_input": 93197,
+    "tokens_output": 137,
+    "cost_usd": 0.016422,
+    "turns_matched": 1,
+    "turns_with_usage": 1,
+    "computed_at": "2026-10-23T13:59:28.155340Z"
+  },
+  "fully_loaded_cost_usd": 0.261531,
+  "fully_loaded_tokens_input": 386727,
+  "fully_loaded_tokens_output": 3625
+}

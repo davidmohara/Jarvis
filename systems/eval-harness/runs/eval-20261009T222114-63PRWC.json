@@ -124,5 +124,7 @@
   "prior_baseline_id": null,
   "tags": [
     "cowork-instrumented"
-  ]
+  ],
+  "model": "accounts/fireworks/models/kimi-k3",
+  "model_source": "session-transcript-window-backfill"
 }

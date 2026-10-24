@@ -82,40 +82,44 @@
       "agent_type": "general-purpose",
       "started": "2026-09-04T15:27:05.776434Z",
       "completed": null,
-      "model": null,
+      "model": "sonnet",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "model_source": "child-record-backfill"
     },
     {
       "agent_id": "a8b1b014889efe7f3",
       "agent_type": "general-purpose",
       "started": "2026-09-04T15:30:25.503370Z",
       "completed": null,
-      "model": null,
+      "model": "haiku",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "model_source": "child-record-backfill"
     },
     {
       "agent_id": "adc86587132183878",
       "agent_type": "general-purpose",
       "started": "2026-09-04T15:30:35.604538Z",
       "completed": null,
-      "model": null,
+      "model": "sonnet",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "model_source": "child-record-backfill"
     },
     {
       "agent_id": "a8b1b014889efe7f3",
       "agent_type": "general-purpose",
       "started": "2026-09-04T15:31:10.765163Z",
       "completed": null,
-      "model": null,
+      "model": "haiku",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "model_source": "child-record-backfill"
     }
   ],
   "monitoring": {

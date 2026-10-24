@@ -428,6 +428,7 @@ def main():
             )
             if usage:
                 eval_record["model"] = usage["model"]
+                eval_record["model_source"] = "subagent-transcript"
                 eval_record["total_tokens_input"] = usage["tokens_input"]
                 eval_record["total_tokens_output"] = usage["tokens_output"]
                 eval_record["total_cost_usd"] = usage["cost_usd"]
@@ -603,11 +604,27 @@ def main():
                     pricing = json.load(f).get("models", {})
 
             if pricing:
-                model = eval_record.get("model", "sonnet")
-                if model not in pricing:
-                    model = "sonnet"
-
-                rates = pricing.get(model, {"input_per_mtok": 3.00, "output_per_mtok": 15.00})
+                model = eval_record.get("model")
+                rates = None
+                if model:
+                    # Alias-aware lookup (provider prefixes, -latest spellings,
+                    # [1m] tags) so a glm-5p3 record isn't silently priced at
+                    # sonnet-tier rates.
+                    try:
+                        from token_usage import rates_for_model
+                        rates = rates_for_model(model)
+                    except Exception:
+                        rates = None
+                    if rates is None:
+                        rates = pricing.get(str(model).lower())
+                rate_fallback_note = None
+                if rates is None:
+                    # Model absent or unpriced: price the estimate at the
+                    # sonnet-tier default and SAY so on the record.
+                    rate_fallback_note = (f"model '{model}' unpriced — estimated at sonnet-tier rates"
+                                          if model else "model unknown — estimated at sonnet-tier rates")
+                    model = model or "sonnet"
+                    rates = pricing.get("sonnet", {"input_per_mtok": 3.00, "output_per_mtok": 15.00})
                 workflow = eval_record.get("name", "fork")
                 estimate = workflow_estimates.get(workflow, workflow_estimates["fork"])
 
@@ -615,9 +632,17 @@ def main():
                 output_cost = (estimate["output"] / 1_000_000) * rates.get("output_per_mtok", 15.00)
 
                 eval_record["total_cost_usd"] = round(input_cost + output_cost, 6)
-                eval_record["cost_estimation_note"] = f"estimated based on {workflow} workflow type"
+                note = f"estimated based on {workflow} workflow type"
+                if rate_fallback_note:
+                    note = f"{note}; {rate_fallback_note}"
+                eval_record["cost_estimation_note"] = note
                 if not eval_record.get("model"):
+                    # No transcript evidence for the model; the estimate had to
+                    # price at SOME rate, so the pricing-default model is
+                    # recorded explicitly labeled as an assumption — never as
+                    # observed fact (verify-before-asserting).
                     eval_record["model"] = model
+                    eval_record["model_source"] = "assumed-pricing-default"
         except Exception as e:
             log_error(f"Failed to estimate eval cost: {e}")
 

@@ -71,20 +71,22 @@
       "agent_type": "general-purpose",
       "started": "2026-09-11T14:16:34.222760Z",
       "completed": null,
-      "model": null,
+      "model": "haiku",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "model_source": "child-record-backfill"
     },
     {
       "agent_id": "a65037a1d228e4a2d",
       "agent_type": "general-purpose",
       "started": "2026-09-11T14:19:45.289285Z",
       "completed": null,
-      "model": null,
+      "model": "haiku",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "model_source": "child-record-backfill"
     },
     {
       "agent_id": "aa145e77a1586e1ae",
@@ -102,10 +104,11 @@
       "agent_type": "general-purpose",
       "started": "2026-09-11T14:20:11.517922Z",
       "completed": null,
-      "model": null,
+      "model": "sonnet",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "model_source": "child-record-backfill"
     }
   ],
   "monitoring": {

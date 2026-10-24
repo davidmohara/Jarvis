@@ -49,10 +49,11 @@
       "agent_type": "general-purpose",
       "started": "2026-09-18T17:02:05.571441Z",
       "completed": null,
-      "model": null,
+      "model": "accounts/fireworks/models/kimi-k3",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "model_source": "child-record-backfill"
     }
   ],
   "monitoring": {

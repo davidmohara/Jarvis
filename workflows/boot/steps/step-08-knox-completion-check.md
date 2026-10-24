@@ -1,13 +1,13 @@
 ---
 status: complete
-started-at: '2026-10-22T11:47:22Z'
-completed-at: '2026-10-22T11:47:22Z'
+started-at: '2026-10-23T13:49:00Z'
+completed-at: '2026-10-23T13:49:00Z'
 knox_status: success
-knox_reason: 'eval record eval-20261022T114256-ZTEZGO (agent knox) status success;
-  workflow plaud-ingest pi-20261022-001 is awaiting-input: 1 new recording (4e6af011,
-  2026-10-21 12:44) staged but held pre-ingest for PHI/PII confirmation; David must
-  choose ingest-as-Personal (skip step-05b) or discard'
-knox_eval_id: eval-20261022T114256-ZTEZGO
+knox_reason: 'eval record eval-20261023T132604-XE81TS (agent knox, plaud-ingest)
+  status no-op; workflow plaud-ingest pi-20261023-001 completed 2026-10-23T13:28:00Z
+  with outcome no-new-recordings — 0 new recordings, nothing staged, no
+  awaiting-input items'
+knox_eval_id: eval-20261023T132604-XE81TS
 ---
 
 <!-- system:start -->

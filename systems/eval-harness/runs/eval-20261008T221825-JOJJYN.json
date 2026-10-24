@@ -67,5 +67,7 @@
   "tags": [
     "cowork-hook",
     "skill"
-  ]
+  ],
+  "model": "accounts/fireworks/models/glm-5p3",
+  "model_source": "session-transcript-window-backfill"
 }

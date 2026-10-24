@@ -1,0 +1,51 @@
+{
+  "id": "eval-20261023T150943-OLA361",
+  "type": "skill",
+  "name": "anthropic-skills:pdf",
+  "agent": "unknown",
+  "session_id": "f430dc3d-53c9-4886-8710-ff645649ce64",
+  "trigger": "manual",
+  "started": "2026-10-23T15:08:59.269048Z",
+  "completed": "2026-10-23T15:09:43.042236Z",
+  "duration_seconds": 43.8,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "deterministic_gate": {
+      "score": 0.7917,
+      "gate_status": "pass",
+      "computed_at": "2026-10-23T15:09:43.311466Z"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [
+    "cowork-hook",
+    "skill"
+  ],
+  "model": "glm-5p3-flash",
+  "model_source": "session-transcript-window-backfill"
+}

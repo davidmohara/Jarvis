@@ -49,10 +49,11 @@
       "agent_type": "general-purpose",
       "started": "2026-08-31T14:45:11.887989Z",
       "completed": null,
-      "model": null,
+      "model": "sonnet",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "model_source": "child-record-backfill"
     }
   ],
   "monitoring": {

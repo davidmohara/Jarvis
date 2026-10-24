@@ -45,7 +45,7 @@ class BootInstrument:
             field_name = f"{prefix}.{key}" if prefix else key
 
             # Skip deeply nested objects
-            if isinstance(value, (dict, list)) and len(json.dumps(value)) > 10000:
+            if isinstance(value, (dict, list)) and len(json.dumps(value, default=str)) > 10000:
                 measurement = self.measure_object_size(value, field_name)
                 results.append(measurement)
             elif isinstance(value, dict):
@@ -79,7 +79,7 @@ class BootInstrument:
 
             measurement = {
                 "workflow": "boot",
-                "total_size_bytes": len(json.dumps(accumulated).encode('utf-8')),
+                "total_size_bytes": len(json.dumps(accumulated, default=str).encode('utf-8')),
                 "accumulated_context": self.measure_object_size(accumulated, "accumulated-context"),
                 "field_breakdown": self.measure_dict_fields(accumulated)
             }

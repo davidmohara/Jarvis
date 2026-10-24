@@ -1,0 +1,78 @@
+{
+  "id": "eval-20261023T172804-U907W6",
+  "agent_id": "a02b84f45d6890435",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "general-purpose",
+  "owning_agent": null,
+  "subagent_type": "general-purpose",
+  "session_id": "f430dc3d-53c9-4886-8710-ff645649ce64",
+  "trigger": "unknown",
+  "started": "2026-10-23T17:28:04.199895Z",
+  "completed": "2026-10-23T17:28:08.570806Z",
+  "duration_seconds": 4.37,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/f430dc3d-53c9-4886-8710-ff645649ce64/subagents/agent-a02b84f45d6890435.jsonl",
+  "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+  "total_tokens_input": 30811,
+  "total_tokens_output": 267,
+  "total_cost_usd": 0.009564,
+  "token_source": "subagent-transcript",
+  "parent_window": {
+    "token_source": "parent-window",
+    "transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/f430dc3d-53c9-4886-8710-ff645649ce64.jsonl",
+    "window_start": "2026-10-23T17:28:04.199895Z",
+    "window_end": "2026-10-23T17:28:08.570806Z",
+    "model": null,
+    "tokens_input": 0,
+    "tokens_output": 0,
+    "cost_usd": 0.0,
+    "turns_matched": 0,
+    "turns_with_usage": 0,
+    "computed_at": "2026-10-23T17:28:10.274343Z"
+  },
+  "fully_loaded_cost_usd": 0.009564,
+  "fully_loaded_tokens_input": 30811,
+  "fully_loaded_tokens_output": 267
+}
