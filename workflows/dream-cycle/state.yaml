@@ -8,6 +8,9 @@ current-step: ~
 original-request: "Execute dream-cycle workflow for today (scheduled task)"
 last-successful-run: 2026-10-26T19:50:00Z
 accumulated-context:
+  pr_status: created
+  pr_number: 7
+  pr_url: "https://github.com/davidmohara/Jarvis/pull/7"
   step-2026-10-26-summary:
     working_archived: 16
     episodic_scanned: 364
