@@ -1,0 +1,27 @@
+{
+  "elevation_required": true,
+  "reason": [
+    "two or more peripheral workflows: boot, daily-review, morning-briefing, plaud-ingest, shutdown-cleanup"
+  ],
+  "decision_covered": true,
+  "decision": {
+    "id": "elev-20261026T223306-8F3B",
+    "recorded_at": "2026-10-26T22:33:06.516236+00:00",
+    "reviewer": "David O'Hara",
+    "reviewer_role": "human operator",
+    "decision": "continue",
+    "elevation_reasons": [
+      "two or more peripheral workflows: boot, daily-review, morning-briefing, plaud-ingest, shutdown-cleanup",
+      "classifications not yet confirmed by a human: boot, daily-review, morning-briefing, plaud-ingest, shutdown-cleanup"
+    ],
+    "workflows_ruled_on": {
+      "boot": "peripheral",
+      "morning-briefing": "peripheral",
+      "daily-review": "peripheral",
+      "plaud-ingest": "peripheral",
+      "shutdown-cleanup": "peripheral"
+    },
+    "report_path": null,
+    "note": "All-peripheral classification accepted"
+  }
+}

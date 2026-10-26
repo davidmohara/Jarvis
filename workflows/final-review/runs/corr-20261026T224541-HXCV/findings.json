@@ -1,0 +1,61 @@
+{
+  "title": "Final Review - boot run eval-20261019T203151-IA1AX8",
+  "correlation_id": "corr-20261026T224541-HXCV",
+  "artifacts": [
+    {
+      "artifact": "step-01.2-unified-data-pull",
+      "verdict": "pass",
+      "summary_line": "status=complete, owner=master, token-attributed, cost=$3.4641"
+    },
+    {
+      "artifact": "step-01.5-unified-calendar-pull",
+      "verdict": "pass",
+      "summary_line": "status=complete, owner=master, token-attributed, cost=$3.4641"
+    },
+    {
+      "artifact": "step-02-gather-data",
+      "verdict": "pass",
+      "summary_line": "status=complete, owner=master, token-attributed, cost=$0.0257"
+    },
+    {
+      "artifact": "step-02.5-measure-phase2",
+      "verdict": "pass",
+      "summary_line": "status=complete, owner=master, token-attributed, cost=$0.0257"
+    },
+    {
+      "artifact": "step-03-verify-phase2",
+      "verdict": "pass",
+      "summary_line": "status=complete, owner=master, token-attributed, cost=$0.0257"
+    },
+    {
+      "artifact": "step-04-gather-meeting-context",
+      "verdict": "pass",
+      "summary_line": "status=complete, owner=master, token-attributed, cost=$0.0656"
+    },
+    {
+      "artifact": "step-05-synthesize-briefing",
+      "verdict": "pass",
+      "summary_line": "status=complete, owner=master, token-attributed, cost=$0.0257"
+    },
+    {
+      "artifact": "step-06-scan-workflows",
+      "verdict": "pass",
+      "summary_line": "status=complete, owner=master, token-attributed, cost=$0.0257"
+    },
+    {
+      "artifact": "step-06.5-guardrail-checkpoint",
+      "verdict": "pass",
+      "summary_line": "status=complete, owner=master, token-attributed, cost=$0.0257"
+    },
+    {
+      "artifact": "step-07-verify-completion",
+      "verdict": "pass",
+      "summary_line": "status=complete, owner=master, token-attributed, cost=$0.0257"
+    },
+    {
+      "artifact": "step-08-knox-completion-check",
+      "verdict": "pass",
+      "summary_line": "status=complete, owner=master, token-attributed, cost=$0.0257"
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "id": "eval-20261026T224741-KA7R10",
+  "type": "agent",
+  "name": "final-review",
+  "agent": "harper",
+  "session_id": "",
+  "trigger": "manual",
+  "model": null,
+  "model_source": null,
+  "started": "2026-10-26T22:47:41.286162Z",
+  "completed": "2026-10-26T22:54:00Z",
+  "duration_seconds": null,
+  "status": "success",
+  "steps": [
+    {
+      "name": "step-02-write-prose",
+      "step_id": "step-02-write-prose",
+      "agent": "harper",
+      "owning_agent": "harper",
+      "started": "2026-10-26T22:50:00Z",
+      "completed": "2026-10-26T22:52:00Z",
+      "duration_seconds": 120.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224541-HXCV"
+    },
+    {
+      "name": "step-03-assemble-report",
+      "step_id": "step-03-assemble-report",
+      "agent": "harper",
+      "owning_agent": "harper",
+      "started": "2026-10-26T22:52:00Z",
+      "completed": "2026-10-26T22:53:00Z",
+      "duration_seconds": 60.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224541-HXCV"
+    },
+    {
+      "name": "step-04-substance-gate",
+      "step_id": "step-04-substance-gate",
+      "agent": "harper",
+      "owning_agent": "harper",
+      "started": "2026-10-26T22:53:00Z",
+      "completed": "2026-10-26T22:54:00Z",
+      "duration_seconds": 60.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224541-HXCV"
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": null,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "correlation_id": "corr-20261026T224541-HXCV"
+}
