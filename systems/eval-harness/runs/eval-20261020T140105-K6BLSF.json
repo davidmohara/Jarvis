@@ -29,7 +29,8 @@
       "tokens_input": null,
       "tokens_output": null,
       "cost_usd": null,
-      "token_source": null
+      "token_source": null,
+      "correlation_id": "corr-20261026T224541-LP0K"
     },
     {
       "name": "step-01-discover.md",
@@ -46,7 +47,8 @@
       "tokens_input": null,
       "tokens_output": null,
       "cost_usd": null,
-      "token_source": null
+      "token_source": null,
+      "correlation_id": "corr-20261026T224541-LP0K"
     }
   ],
   "assessment": {
@@ -92,5 +94,6 @@
   "model": "accounts/fireworks/models/kimi-k3",
   "total_tokens_input": 377616,
   "total_tokens_output": 1497,
-  "total_cost_usd": 0.142906
+  "total_cost_usd": 0.142906,
+  "correlation_id": "corr-20261026T224541-LP0K"
 }

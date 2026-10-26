@@ -19,7 +19,8 @@
       "duration_seconds": 1080.0,
       "status": "completed",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224541-B1CV"
     },
     {
       "name": "step-05b-share-with-alice.md",
@@ -28,7 +29,8 @@
       "duration_seconds": 240.0,
       "status": "completed",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224541-B1CV"
     }
   ],
   "assessment": {
@@ -76,5 +78,6 @@
   "total_tokens_input": 291839,
   "total_tokens_output": 4116,
   "total_cost_usd": 0.09,
-  "cost_estimation_note": "estimated based on general-purpose workflow type"
+  "cost_estimation_note": "estimated based on general-purpose workflow type",
+  "correlation_id": "corr-20261026T224541-B1CV"
 }

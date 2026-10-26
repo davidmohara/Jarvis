@@ -22,7 +22,8 @@
       "model": "haiku",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-IBRC"
     },
     {
       "name": "step-04-fetch-staging.md",
@@ -35,7 +36,8 @@
       "model": "haiku",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-IBRC"
     },
     {
       "name": "step-05b-share-with-alice.md",
@@ -48,7 +50,8 @@
       "model": "sonnet",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-IBRC"
     }
   ],
   "assessment": {
@@ -99,5 +102,6 @@
   },
   "version_hash": null,
   "prior_baseline_id": null,
-  "tags": []
+  "tags": [],
+  "correlation_id": "corr-20261026T224540-IBRC"
 }

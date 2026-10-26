@@ -16,7 +16,8 @@
       "completed": "2026-07-08T20:37:00Z",
       "status": "complete",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224540-TS3M"
     },
     {
       "name": "step-02-assert",
@@ -24,7 +25,8 @@
       "completed": "2026-07-08T20:38:00Z",
       "status": "complete",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224540-TS3M"
     },
     {
       "name": "step-03-grade",
@@ -32,7 +34,8 @@
       "completed": "2026-07-08T20:39:30Z",
       "status": "complete",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224540-TS3M"
     },
     {
       "name": "step-04-score",
@@ -40,7 +43,8 @@
       "completed": "2026-07-08T20:40:00Z",
       "status": "complete",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224540-TS3M"
     },
     {
       "name": "step-05-analyze",
@@ -48,7 +52,8 @@
       "completed": "2026-07-08T20:42:00Z",
       "status": "complete",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224540-TS3M"
     },
     {
       "name": "step-06-dashboard",
@@ -56,7 +61,8 @@
       "completed": "2026-07-08T20:44:00Z",
       "status": "complete",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224540-TS3M"
     }
   ],
   "assessment": {
@@ -136,5 +142,6 @@
   "prior_baseline_id": null,
   "tags": [],
   "total_cost_usd": 0.024,
-  "cost_estimation_note": "estimated based on system-eval workflow type"
+  "cost_estimation_note": "estimated based on system-eval workflow type",
+  "correlation_id": "corr-20261026T224540-TS3M"
 }

@@ -19,7 +19,8 @@
       "duration_seconds": 1800.0,
       "status": "completed",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224540-4BQS"
     }
   ],
   "assessment": {
@@ -66,5 +67,6 @@
   "model": "sonnet",
   "total_tokens_input": 1446298,
   "total_tokens_output": 356,
-  "total_cost_usd": 0.66525
+  "total_cost_usd": 0.66525,
+  "correlation_id": "corr-20261026T224540-4BQS"
 }

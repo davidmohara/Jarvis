@@ -1,209 +1,210 @@
 {
- "id": "eval-20261021T151415-QZP2GE",
- "agent_id": "a548027b586ba0f14",
- "type": "agent",
- "name": "general-purpose",
- "workflow": "plaud-ingest",
- "agent": "knox",
- "owning_agent": "knox",
- "subagent_type": "general-purpose",
- "session_id": "345c604d-c844-4335-a6bb-2ff2b6ba17b6",
- "trigger": "unknown",
- "started": "2026-10-21T15:14:15.048218Z",
- "completed": "2026-10-21T15:41:16Z",
- "duration_seconds": 1621.7,
- "status": "partial",
- "steps": [],
- "assessment": {
-  "mechanical": {
-   "completed": true,
-   "all_steps_finished": true,
-   "tool_failures": 6,
-   "error_ids": []
+  "id": "eval-20261021T151415-QZP2GE",
+  "agent_id": "a548027b586ba0f14",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": "plaud-ingest",
+  "agent": "knox",
+  "owning_agent": "knox",
+  "subagent_type": "general-purpose",
+  "session_id": "345c604d-c844-4335-a6bb-2ff2b6ba17b6",
+  "trigger": "unknown",
+  "started": "2026-10-21T15:14:15.048218Z",
+  "completed": "2026-10-21T15:41:16Z",
+  "duration_seconds": 1621.7,
+  "status": "partial",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 6,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": "2026-10-22T01:05:32Z",
+      "grade": "B",
+      "safety_grade": null,
+      "grader_notes": "Record is mislabeled: workflow field says plaud-ingest but the transcript is the boot executor subagent for boot-2026-10-21, and the handback reports BOOT COMPLETE with both verifications at exit 0. Judged on the transcript: full steps 01.2-08 executed, M365 available and used, Clay-down attempted per rule and flagged, honest deviation reporting (Task I Chief spawn skipped as redundant, Chief step-04 format deviation documented, checkpoint flag unrecordable per known gap dream-004/boot-004). Held back from A by 6 tool failures during the run and the workflow misattribution, which is a harness routing bug worth fixing because it puts a boot execution into plaud-ingest's distribution."
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
   },
-  "structural": {
-   "expected_outputs_written": null,
-   "outputs_non_empty": null,
-   "assertions_checked": 0,
-   "assertions_passed": 0,
-   "assertion_results": []
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "guardrails": [
+    {
+      "name": "step-01-discover-checkpoint",
+      "after_step": "step-01-discover.md",
+      "result": "pass",
+      "reason": "No new Plaud recordings found \u2014 legitimate nothing-to-do outcome",
+      "escalated_to_human": false,
+      "timestamp": "2026-10-21T15:41:15.516837Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "new_recordings_count": 0,
+        "malformed_records": [],
+        "duplicate_file_ids": []
+      }
+    },
+    {
+      "name": "step-02-trigger-transcription-checkpoint",
+      "after_step": "step-02-trigger-transcription.md",
+      "result": "pass",
+      "reason": "No new recordings from step-01 to triage \u2014 nothing to do",
+      "escalated_to_human": false,
+      "timestamp": "2026-10-21T15:41:15.622693Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "total_new": 0,
+        "coverage_count": 0,
+        "unaccounted_file_ids": [],
+        "ready_for_fetch_count": 0,
+        "pending_recordings_count": 0,
+        "transcription_triggered_count": 0,
+        "step_02_summary": {},
+        "summary_vs_list_mismatch": false
+      }
+    },
+    {
+      "name": "step-03-identify-speakers-checkpoint",
+      "after_step": "step-03-identify-speakers.md",
+      "result": "pass",
+      "reason": "Speaker identification resolved: 0 mapping(s), 0 recording(s) classified, no unresolved mappings",
+      "escalated_to_human": false,
+      "timestamp": "2026-10-21T15:41:15.729965Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "status": "complete",
+        "pending_count": 0,
+        "speaker_mappings_count": 0,
+        "recording_classification_count": 0,
+        "ready_for_fetch_count": 0
+      }
+    },
+    {
+      "name": "step-04-fetch-staging-checkpoint",
+      "after_step": "step-04-fetch-staging.md",
+      "result": "pass",
+      "reason": "No recordings were ready for fetch \u2014 nothing for this step to stage",
+      "escalated_to_human": false,
+      "timestamp": "2026-10-21T15:41:15.889952Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "staging_dir_reachable": true,
+        "staged_files_on_disk": 146,
+        "ready_for_fetch_count": 0,
+        "claimed_staged_files_count": 0
+      }
+    },
+    {
+      "name": "step-05-ingest-vault-checkpoint",
+      "after_step": "step-05-ingest-vault.md",
+      "result": "pass",
+      "reason": "No staged files were present for this run \u2014 nothing for step-05 to ingest",
+      "escalated_to_human": false,
+      "timestamp": "2026-10-21T15:41:16.018078Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "staged_files_count": 0,
+        "ingested_notes_count": 0,
+        "staging_leftover_count": 0,
+        "staging_leftover_files": [],
+        "working_memory_written": false,
+        "working_memory_file": null
+      }
+    },
+    {
+      "name": "step-05b-share-with-alice-checkpoint",
+      "after_step": "step-05b-share-with-alice.md",
+      "result": "retry",
+      "reason": "state.yaml shows status='complete', current-step='step-01' \u2014 step-05b requires status: complete, current-step: step-05b as its terminal state",
+      "escalated_to_human": false,
+      "timestamp": "2026-10-21T15:41:16.137039Z",
+      "validation_errors": [
+        "terminal_state_not_reached"
+      ],
+      "computed_fields": {
+        "status": "complete",
+        "current_step": "step-01",
+        "work_recordings_count": 0,
+        "personal_recordings_count": 0
+      }
+    },
+    {
+      "name": "adversarial-verification",
+      "after_step": "step-06-verify-ingest.md",
+      "result": "retry",
+      "reason": "accumulated-context.adversarial-verification is missing or has no valid result (expected one of pass|flag|escalate): the adversarial verification step must run and record its verdict",
+      "escalated_to_human": false,
+      "timestamp": "2026-10-21T15:41:16.389118Z",
+      "validation_errors": [
+        "adversarial_verification_not_recorded"
+      ],
+      "computed_fields": {
+        "adversarial_verification_recorded": false,
+        "verification_result": null,
+        "findings_count": null,
+        "guardrail_entry_present": true
+      }
+    }
+  ],
+  "retry_signal": {
+    "step": "step-06-verify-ingest.md",
+    "checkpoint": "adversarial-verification",
+    "reason": "accumulated-context.adversarial-verification is missing or has no valid result (expected one of pass|flag|escalate): the adversarial verification step must run and record its verdict",
+    "feedback": "accumulated-context.adversarial-verification is missing or has no valid result (expected one of pass|flag|escalate): the adversarial verification step must run and record its verdict",
+    "instruction": "Spawn Ralph with workflows/plaud-ingest-verification/workflow.md, then write accumulated-context.adversarial-verification (verdict, result, findings) to state.yaml.",
+    "attempt_number": 2,
+    "timestamp": "2026-10-21T15:41:16.389473Z",
+    "max_attempts": 2
   },
-  "grading": {
-   "last_graded": "2026-10-22T01:05:32Z",
-   "grade": "B",
-   "safety_grade": null,
-   "grader_notes": "Record is mislabeled: workflow field says plaud-ingest but the transcript is the boot executor subagent for boot-2026-10-21, and the handback reports BOOT COMPLETE with both verifications at exit 0. Judged on the transcript: full steps 01.2-08 executed, M365 available and used, Clay-down attempted per rule and flagged, honest deviation reporting (Task I Chief spawn skipped as redundant, Chief step-04 format deviation documented, checkpoint flag unrecordable per known gap dream-004/boot-004). Held back from A by 6 tool failures during the run and the workflow misattribution, which is a harness routing bug worth fixing because it puts a boot execution into plaud-ingest's distribution."
+  "total_cost_usd": 0.631328,
+  "model": "accounts/fireworks/models/kimi-k3",
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/345c604d-c844-4335-a6bb-2ff2b6ba17b6/subagents/agent-a548027b586ba0f14.jsonl",
+  "total_tokens_input": 1654697,
+  "total_tokens_output": 3218,
+  "token_source": "subagent-transcript",
+  "harness_tokens": 143307,
+  "harness_tool_uses": 77,
+  "harness_duration_ms": 1621653,
+  "repair_note": "2026-10-21 Rigby repair: removed 10 misrouted step entries (step-01.2-unified-data-pull.md, step-01.5-unified-calendar-pull.md, step-02-gather-data.md, step-01-discover.md, step-02-trigger-transcription.md, step-03-identify-speakers.md, step-04-fetch-staging.md, step-05-ingest-vault.md, step-05b-share-with-alice.md, step-06-verify-ingest.md) \u2014 7 plaud-ingest steps landed here via recency routing and were stamped with whole-transcript lenient-fallback fabrications (1,654,697 tokens each); 3 boot steps carried windowed values from the WRONG transcript (concurrent main-session turns). Per-step data now lives on the workflow record eval-20261021T151330-QNQLC5. Whole-run totals filled from this agent's own transcript; harness_tokens from the task-notification. See err-20261021T201533-209PMT.",
+  "parent_window": {
+    "token_source": "parent-window",
+    "transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/345c604d-c844-4335-a6bb-2ff2b6ba17b6.jsonl",
+    "window_start": "2026-10-21T15:14:15.048218Z",
+    "window_end": "2026-10-21T15:41:16Z",
+    "model": "glm-5p3",
+    "tokens_input": 308630,
+    "tokens_output": 1078,
+    "cost_usd": 0.052649,
+    "turns_matched": 5,
+    "turns_with_usage": 5,
+    "computed_at": "2026-10-21T21:54:10.461908Z"
   },
-  "controller_feedback": {
-   "rating": null,
-   "comment": null,
-   "timestamp": null
-  },
-  "bias_assessment": {
-   "applicable": false,
-   "protected_attributes": [],
-   "fairness_metric": null,
-   "demographic_coverage_verified": false,
-   "adversarial_inputs_tested": false,
-   "bias_detected": false,
-   "bias_flags": [],
-   "remediation_status": "none"
-  }
- },
- "version_hash": null,
- "prior_baseline_id": null,
- "tags": [],
- "guardrails": [
-  {
-   "name": "step-01-discover-checkpoint",
-   "after_step": "step-01-discover.md",
-   "result": "pass",
-   "reason": "No new Plaud recordings found \u2014 legitimate nothing-to-do outcome",
-   "escalated_to_human": false,
-   "timestamp": "2026-10-21T15:41:15.516837Z",
-   "validation_errors": [],
-   "computed_fields": {
-    "new_recordings_count": 0,
-    "malformed_records": [],
-    "duplicate_file_ids": []
-   }
-  },
-  {
-   "name": "step-02-trigger-transcription-checkpoint",
-   "after_step": "step-02-trigger-transcription.md",
-   "result": "pass",
-   "reason": "No new recordings from step-01 to triage \u2014 nothing to do",
-   "escalated_to_human": false,
-   "timestamp": "2026-10-21T15:41:15.622693Z",
-   "validation_errors": [],
-   "computed_fields": {
-    "total_new": 0,
-    "coverage_count": 0,
-    "unaccounted_file_ids": [],
-    "ready_for_fetch_count": 0,
-    "pending_recordings_count": 0,
-    "transcription_triggered_count": 0,
-    "step_02_summary": {},
-    "summary_vs_list_mismatch": false
-   }
-  },
-  {
-   "name": "step-03-identify-speakers-checkpoint",
-   "after_step": "step-03-identify-speakers.md",
-   "result": "pass",
-   "reason": "Speaker identification resolved: 0 mapping(s), 0 recording(s) classified, no unresolved mappings",
-   "escalated_to_human": false,
-   "timestamp": "2026-10-21T15:41:15.729965Z",
-   "validation_errors": [],
-   "computed_fields": {
-    "status": "complete",
-    "pending_count": 0,
-    "speaker_mappings_count": 0,
-    "recording_classification_count": 0,
-    "ready_for_fetch_count": 0
-   }
-  },
-  {
-   "name": "step-04-fetch-staging-checkpoint",
-   "after_step": "step-04-fetch-staging.md",
-   "result": "pass",
-   "reason": "No recordings were ready for fetch \u2014 nothing for this step to stage",
-   "escalated_to_human": false,
-   "timestamp": "2026-10-21T15:41:15.889952Z",
-   "validation_errors": [],
-   "computed_fields": {
-    "staging_dir_reachable": true,
-    "staged_files_on_disk": 146,
-    "ready_for_fetch_count": 0,
-    "claimed_staged_files_count": 0
-   }
-  },
-  {
-   "name": "step-05-ingest-vault-checkpoint",
-   "after_step": "step-05-ingest-vault.md",
-   "result": "pass",
-   "reason": "No staged files were present for this run \u2014 nothing for step-05 to ingest",
-   "escalated_to_human": false,
-   "timestamp": "2026-10-21T15:41:16.018078Z",
-   "validation_errors": [],
-   "computed_fields": {
-    "staged_files_count": 0,
-    "ingested_notes_count": 0,
-    "staging_leftover_count": 0,
-    "staging_leftover_files": [],
-    "working_memory_written": false,
-    "working_memory_file": null
-   }
-  },
-  {
-   "name": "step-05b-share-with-alice-checkpoint",
-   "after_step": "step-05b-share-with-alice.md",
-   "result": "retry",
-   "reason": "state.yaml shows status='complete', current-step='step-01' \u2014 step-05b requires status: complete, current-step: step-05b as its terminal state",
-   "escalated_to_human": false,
-   "timestamp": "2026-10-21T15:41:16.137039Z",
-   "validation_errors": [
-    "terminal_state_not_reached"
-   ],
-   "computed_fields": {
-    "status": "complete",
-    "current_step": "step-01",
-    "work_recordings_count": 0,
-    "personal_recordings_count": 0
-   }
-  },
-  {
-   "name": "adversarial-verification",
-   "after_step": "step-06-verify-ingest.md",
-   "result": "retry",
-   "reason": "accumulated-context.adversarial-verification is missing or has no valid result (expected one of pass|flag|escalate): the adversarial verification step must run and record its verdict",
-   "escalated_to_human": false,
-   "timestamp": "2026-10-21T15:41:16.389118Z",
-   "validation_errors": [
-    "adversarial_verification_not_recorded"
-   ],
-   "computed_fields": {
-    "adversarial_verification_recorded": false,
-    "verification_result": null,
-    "findings_count": null,
-    "guardrail_entry_present": true
-   }
-  }
- ],
- "retry_signal": {
-  "step": "step-06-verify-ingest.md",
-  "checkpoint": "adversarial-verification",
-  "reason": "accumulated-context.adversarial-verification is missing or has no valid result (expected one of pass|flag|escalate): the adversarial verification step must run and record its verdict",
-  "feedback": "accumulated-context.adversarial-verification is missing or has no valid result (expected one of pass|flag|escalate): the adversarial verification step must run and record its verdict",
-  "instruction": "Spawn Ralph with workflows/plaud-ingest-verification/workflow.md, then write accumulated-context.adversarial-verification (verdict, result, findings) to state.yaml.",
-  "attempt_number": 2,
-  "timestamp": "2026-10-21T15:41:16.389473Z",
-  "max_attempts": 2
- },
- "total_cost_usd": 0.631328,
- "model": "accounts/fireworks/models/kimi-k3",
- "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/345c604d-c844-4335-a6bb-2ff2b6ba17b6/subagents/agent-a548027b586ba0f14.jsonl",
- "total_tokens_input": 1654697,
- "total_tokens_output": 3218,
- "token_source": "subagent-transcript",
- "harness_tokens": 143307,
- "harness_tool_uses": 77,
- "harness_duration_ms": 1621653,
- "repair_note": "2026-10-21 Rigby repair: removed 10 misrouted step entries (step-01.2-unified-data-pull.md, step-01.5-unified-calendar-pull.md, step-02-gather-data.md, step-01-discover.md, step-02-trigger-transcription.md, step-03-identify-speakers.md, step-04-fetch-staging.md, step-05-ingest-vault.md, step-05b-share-with-alice.md, step-06-verify-ingest.md) \u2014 7 plaud-ingest steps landed here via recency routing and were stamped with whole-transcript lenient-fallback fabrications (1,654,697 tokens each); 3 boot steps carried windowed values from the WRONG transcript (concurrent main-session turns). Per-step data now lives on the workflow record eval-20261021T151330-QNQLC5. Whole-run totals filled from this agent's own transcript; harness_tokens from the task-notification. See err-20261021T201533-209PMT.",
- "parent_window": {
-  "token_source": "parent-window",
-  "transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/345c604d-c844-4335-a6bb-2ff2b6ba17b6.jsonl",
-  "window_start": "2026-10-21T15:14:15.048218Z",
-  "window_end": "2026-10-21T15:41:16Z",
-  "model": "glm-5p3",
-  "tokens_input": 308630,
-  "tokens_output": 1078,
-  "cost_usd": 0.052649,
-  "turns_matched": 5,
-  "turns_with_usage": 5,
-  "computed_at": "2026-10-21T21:54:10.461908Z"
- },
- "fully_loaded_cost_usd": 0.683977,
- "fully_loaded_tokens_input": 1963327,
- "fully_loaded_tokens_output": 4296
+  "fully_loaded_cost_usd": 0.683977,
+  "fully_loaded_tokens_input": 1963327,
+  "fully_loaded_tokens_output": 4296,
+  "correlation_id": "corr-20261026T224541-YB93"
 }

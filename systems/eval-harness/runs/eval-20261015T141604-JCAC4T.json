@@ -25,7 +25,8 @@
       "model": "accounts/fireworks/models/deepseek-v4p1-flash",
       "token_source": "lenient_fallback",
       "turns_matched": 12,
-      "duration_seconds": 120.0
+      "duration_seconds": 120.0,
+      "correlation_id": "corr-20261026T224541-7TVF"
     },
     {
       "name": "step-02-gather-tasks.md",
@@ -40,7 +41,8 @@
       "model": "accounts/fireworks/models/deepseek-v4p1-flash",
       "token_source": "lenient_fallback",
       "turns_matched": 12,
-      "duration_seconds": 90.0
+      "duration_seconds": 90.0,
+      "correlation_id": "corr-20261026T224541-7TVF"
     },
     {
       "name": "step-03-gather-context.md",
@@ -58,7 +60,8 @@
       "tokens_output": 0,
       "cost_usd": null,
       "token_source": "windowed",
-      "turns_matched": 12
+      "turns_matched": 12,
+      "correlation_id": "corr-20261026T224541-7TVF"
     },
     {
       "name": "step-03b-guardrail-checkpoint.md",
@@ -73,7 +76,8 @@
       "model": "accounts/fireworks/models/deepseek-v4p1-flash",
       "token_source": "lenient_fallback",
       "turns_matched": 12,
-      "duration_seconds": 60.0
+      "duration_seconds": 60.0,
+      "correlation_id": "corr-20261026T224541-7TVF"
     },
     {
       "name": "step-04-synthesize-briefing.md",
@@ -88,7 +92,8 @@
       "model": "accounts/fireworks/models/deepseek-v4p1-flash",
       "token_source": "lenient_fallback",
       "turns_matched": 12,
-      "duration_seconds": 120.0
+      "duration_seconds": 120.0,
+      "correlation_id": "corr-20261026T224541-7TVF"
     },
     {
       "name": "step-04-gather-meeting-context.md",
@@ -103,7 +108,8 @@
       "model": "glm-5p3-flash",
       "token_source": "lenient_fallback",
       "turns_matched": 32,
-      "duration_seconds": 390.0
+      "duration_seconds": 390.0,
+      "correlation_id": "corr-20261026T224541-7TVF"
     }
   ],
   "assessment": {
@@ -257,5 +263,6 @@
   },
   "total_cost_usd": 0.09,
   "cost_estimation_note": "estimated based on general-purpose workflow type",
-  "model": "sonnet"
+  "model": "sonnet",
+  "correlation_id": "corr-20261026T224541-7TVF"
 }

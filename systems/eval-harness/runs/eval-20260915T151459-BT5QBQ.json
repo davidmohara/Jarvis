@@ -23,7 +23,8 @@
       "tokens_output": 621,
       "cost_usd": 0.213482,
       "turns_matched": 3,
-      "token_source": "backfilled-windowed"
+      "token_source": "backfilled-windowed",
+      "correlation_id": "corr-20261026T224540-TA83"
     },
     {
       "name": "step-01-purge-artifacts",
@@ -32,7 +33,8 @@
       "duration_seconds": 61.0,
       "status": "complete",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224540-TA83"
     },
     {
       "name": "step-02-organize-deliverables",
@@ -41,7 +43,8 @@
       "duration_seconds": 30.0,
       "status": "complete",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224540-TA83"
     },
     {
       "name": "step-03-gitignore-check",
@@ -50,7 +53,8 @@
       "duration_seconds": 20.0,
       "status": "complete",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224540-TA83"
     }
   ],
   "assessment": {
@@ -122,5 +126,6 @@
   "tags": [
     "cowork-hook",
     "phantom-candidate"
-  ]
+  ],
+  "correlation_id": "corr-20261026T224540-TA83"
 }

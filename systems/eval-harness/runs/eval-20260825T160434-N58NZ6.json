@@ -20,7 +20,8 @@
       "tokens_output": 431,
       "cost_usd": 0.305989,
       "model": "haiku",
-      "duration_seconds": 75.0
+      "duration_seconds": 75.0,
+      "correlation_id": "corr-20261026T224540-RNFM"
     },
     {
       "name": "step-01.2-unified-data-pull",
@@ -31,7 +32,8 @@
       "tokens_output": 431,
       "cost_usd": 0.305989,
       "model": "haiku",
-      "duration_seconds": 480.0
+      "duration_seconds": 480.0,
+      "correlation_id": "corr-20261026T224540-RNFM"
     },
     {
       "name": "step-01.5-unified-calendar-pull",
@@ -42,7 +44,8 @@
       "tokens_output": 431,
       "cost_usd": 0.305989,
       "model": "haiku",
-      "duration_seconds": 75.0
+      "duration_seconds": 75.0,
+      "correlation_id": "corr-20261026T224540-RNFM"
     },
     {
       "name": "step-02-gather-data",
@@ -53,7 +56,8 @@
       "tokens_output": 431,
       "cost_usd": 0.305989,
       "model": "haiku",
-      "duration_seconds": 35.0
+      "duration_seconds": 35.0,
+      "correlation_id": "corr-20261026T224540-RNFM"
     },
     {
       "name": "step-02.5-measure-phase2",
@@ -64,7 +68,8 @@
       "tokens_output": 431,
       "cost_usd": 0.305989,
       "model": "haiku",
-      "duration_seconds": 60.0
+      "duration_seconds": 60.0,
+      "correlation_id": "corr-20261026T224540-RNFM"
     },
     {
       "name": "step-03-verify-phase2",
@@ -75,7 +80,8 @@
       "tokens_output": 431,
       "cost_usd": 0.305989,
       "model": "haiku",
-      "duration_seconds": 30.0
+      "duration_seconds": 30.0,
+      "correlation_id": "corr-20261026T224540-RNFM"
     },
     {
       "name": "step-04-gather-meeting-context",
@@ -86,7 +92,8 @@
       "tokens_output": 431,
       "cost_usd": 0.305989,
       "model": "haiku",
-      "duration_seconds": 45.0
+      "duration_seconds": 45.0,
+      "correlation_id": "corr-20261026T224540-RNFM"
     },
     {
       "name": "step-05-synthesize-briefing",
@@ -97,7 +104,8 @@
       "tokens_output": 431,
       "cost_usd": 0.305989,
       "model": "haiku",
-      "duration_seconds": 85.0
+      "duration_seconds": 85.0,
+      "correlation_id": "corr-20261026T224540-RNFM"
     },
     {
       "name": "step-06-scan-workflows",
@@ -108,7 +116,8 @@
       "tokens_output": 431,
       "cost_usd": 0.305989,
       "model": "haiku",
-      "duration_seconds": 15.0
+      "duration_seconds": 15.0,
+      "correlation_id": "corr-20261026T224540-RNFM"
     },
     {
       "name": "step-06.5-guardrail-checkpoint",
@@ -119,7 +128,8 @@
       "tokens_output": 431,
       "cost_usd": 0.305989,
       "model": "haiku",
-      "duration_seconds": 20.0
+      "duration_seconds": 20.0,
+      "correlation_id": "corr-20261026T224540-RNFM"
     },
     {
       "name": "step-07-verify-completion",
@@ -130,7 +140,8 @@
       "tokens_output": 431,
       "cost_usd": 0.305989,
       "model": "haiku",
-      "duration_seconds": 15.0
+      "duration_seconds": 15.0,
+      "correlation_id": "corr-20261026T224540-RNFM"
     },
     {
       "name": "step-08-knox-completion-check",
@@ -141,7 +152,8 @@
       "tokens_output": 431,
       "cost_usd": 0.305989,
       "model": "haiku",
-      "duration_seconds": 5.0
+      "duration_seconds": 5.0,
+      "correlation_id": "corr-20261026T224540-RNFM"
     }
   ],
   "assessment": {
@@ -339,5 +351,6 @@
   "retry_signal": null,
   "total_cost_usd": 0.0555,
   "cost_estimation_note": "estimated based on boot workflow type",
-  "model": "sonnet"
+  "model": "sonnet",
+  "correlation_id": "corr-20261026T224540-RNFM"
 }

@@ -22,7 +22,8 @@
       "model": null,
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-G1LC"
     },
     {
       "name": "step-01.5-unified-calendar-pull.md",
@@ -35,7 +36,8 @@
       "model": null,
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-G1LC"
     }
   ],
   "assessment": {
@@ -82,5 +84,6 @@
   "model": "haiku",
   "total_tokens_input": 327653,
   "total_tokens_output": 128,
-  "total_cost_usd": 0.085666
+  "total_cost_usd": 0.085666,
+  "correlation_id": "corr-20261026T224540-G1LC"
 }

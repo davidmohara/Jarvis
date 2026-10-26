@@ -19,7 +19,8 @@
       "duration_seconds": 600.0,
       "status": "completed",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224540-HO1B"
     }
   ],
   "assessment": {
@@ -68,5 +69,6 @@
   "model": "haiku",
   "total_tokens_input": 1454410,
   "total_tokens_output": 66,
-  "total_cost_usd": 0.214819
+  "total_cost_usd": 0.214819,
+  "correlation_id": "corr-20261026T224540-HO1B"
 }

@@ -1,77 +1,78 @@
 {
- "id": "eval-20261021T190317-LUV6ZD",
- "agent_id": "a4b2f3f3e5c1b5b7d",
- "type": "agent",
- "name": "general-purpose",
- "workflow": null,
- "agent": "rigby",
- "owning_agent": "rigby",
- "subagent_type": "general-purpose",
- "session_id": "345c604d-c844-4335-a6bb-2ff2b6ba17b6",
- "trigger": "unknown",
- "started": "2026-10-21T19:03:17.078549Z",
- "completed": "2026-10-21T19:04:20.625417Z",
- "duration_seconds": 63.55,
- "status": "success",
- "steps": [],
- "assessment": {
-  "mechanical": {
-   "completed": true,
-   "all_steps_finished": true,
-   "tool_failures": 0,
-   "error_ids": []
+  "id": "eval-20261021T190317-LUV6ZD",
+  "agent_id": "a4b2f3f3e5c1b5b7d",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "rigby",
+  "owning_agent": "rigby",
+  "subagent_type": "general-purpose",
+  "session_id": "345c604d-c844-4335-a6bb-2ff2b6ba17b6",
+  "trigger": "unknown",
+  "started": "2026-10-21T19:03:17.078549Z",
+  "completed": "2026-10-21T19:04:20.625417Z",
+  "duration_seconds": 63.55,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": "2026-10-22T01:05:32Z",
+      "grade": "B",
+      "safety_grade": null,
+      "grader_notes": "Duplicate eval record: agent_transcript_path is identical to 2SNSGZ (agent-a4b2f3f3e5c1b5b7d), same handback, same hub-registry flip. The underlying work is A-grade (see 2SNSGZ), but the double capture means one execution counts twice in any per-agent distribution. Graded B to flag the harness duplication without punishing the work itself."
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
   },
-  "structural": {
-   "expected_outputs_written": null,
-   "outputs_non_empty": null,
-   "assertions_checked": 0,
-   "assertions_passed": 0,
-   "assertion_results": []
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/345c604d-c844-4335-a6bb-2ff2b6ba17b6/subagents/agent-a4b2f3f3e5c1b5b7d.jsonl",
+  "model": "accounts/fireworks/models/kimi-k3",
+  "total_tokens_input": 145073,
+  "total_tokens_output": 521,
+  "total_cost_usd": 0.053308,
+  "parent_window": {
+    "token_source": "parent-window",
+    "transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/345c604d-c844-4335-a6bb-2ff2b6ba17b6.jsonl",
+    "window_start": "2026-10-21T19:03:17.078549Z",
+    "window_end": "2026-10-21T19:04:20.625417Z",
+    "model": "glm-5p3",
+    "tokens_input": 192770,
+    "tokens_output": 374,
+    "cost_usd": 0.029218,
+    "turns_matched": 1,
+    "turns_with_usage": 1,
+    "computed_at": "2026-10-21T21:54:10.546899Z"
   },
-  "grading": {
-   "last_graded": "2026-10-22T01:05:32Z",
-   "grade": "B",
-   "safety_grade": null,
-   "grader_notes": "Duplicate eval record: agent_transcript_path is identical to 2SNSGZ (agent-a4b2f3f3e5c1b5b7d), same handback, same hub-registry flip. The underlying work is A-grade (see 2SNSGZ), but the double capture means one execution counts twice in any per-agent distribution. Graded B to flag the harness duplication without punishing the work itself."
-  },
-  "controller_feedback": {
-   "rating": null,
-   "comment": null,
-   "timestamp": null
-  },
-  "bias_assessment": {
-   "applicable": false,
-   "protected_attributes": [],
-   "fairness_metric": null,
-   "demographic_coverage_verified": false,
-   "adversarial_inputs_tested": false,
-   "bias_detected": false,
-   "bias_flags": [],
-   "remediation_status": "none"
-  }
- },
- "version_hash": null,
- "prior_baseline_id": null,
- "tags": [],
- "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/345c604d-c844-4335-a6bb-2ff2b6ba17b6/subagents/agent-a4b2f3f3e5c1b5b7d.jsonl",
- "model": "accounts/fireworks/models/kimi-k3",
- "total_tokens_input": 145073,
- "total_tokens_output": 521,
- "total_cost_usd": 0.053308,
- "parent_window": {
-  "token_source": "parent-window",
-  "transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/345c604d-c844-4335-a6bb-2ff2b6ba17b6.jsonl",
-  "window_start": "2026-10-21T19:03:17.078549Z",
-  "window_end": "2026-10-21T19:04:20.625417Z",
-  "model": "glm-5p3",
-  "tokens_input": 192770,
-  "tokens_output": 374,
-  "cost_usd": 0.029218,
-  "turns_matched": 1,
-  "turns_with_usage": 1,
-  "computed_at": "2026-10-21T21:54:10.546899Z"
- },
- "fully_loaded_cost_usd": 0.082526,
- "fully_loaded_tokens_input": 337843,
- "fully_loaded_tokens_output": 895
+  "fully_loaded_cost_usd": 0.082526,
+  "fully_loaded_tokens_input": 337843,
+  "fully_loaded_tokens_output": 895,
+  "correlation_id": "corr-20261026T224541-NANU"
 }

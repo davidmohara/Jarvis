@@ -23,7 +23,8 @@
       "model": null,
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-4VWK"
     },
     {
       "name": "step-01.5-unified-calendar-pull.md",
@@ -36,7 +37,8 @@
       "model": null,
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-4VWK"
     },
     {
       "name": "step-02-gather-data.md",
@@ -49,7 +51,8 @@
       "model": null,
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-4VWK"
     },
     {
       "name": "step-02.5-measure-phase2.md",
@@ -62,7 +65,8 @@
       "model": null,
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-4VWK"
     },
     {
       "name": "step-03-verify-phase2.md",
@@ -75,7 +79,8 @@
       "model": null,
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-4VWK"
     },
     {
       "name": "step-04-gather-meeting-context.md",
@@ -88,7 +93,8 @@
       "model": null,
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-4VWK"
     },
     {
       "name": "step-05-synthesize-briefing.md",
@@ -101,7 +107,8 @@
       "model": null,
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-4VWK"
     },
     {
       "name": "step-06-scan-workflows.md",
@@ -114,7 +121,8 @@
       "model": null,
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-4VWK"
     },
     {
       "name": "step-06.5-guardrail-checkpoint.md",
@@ -127,7 +135,8 @@
       "model": "sonnet",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-4VWK"
     },
     {
       "name": "step-07-verify-completion.md",
@@ -140,7 +149,8 @@
       "model": null,
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-4VWK"
     },
     {
       "name": "step-08-knox-completion-check.md",
@@ -153,7 +163,8 @@
       "model": null,
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-4VWK"
     },
     {
       "name": "step-01-discover.md",
@@ -166,7 +177,8 @@
       "model": "haiku",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-4VWK"
     },
     {
       "name": "step-02-trigger-transcription.md",
@@ -179,7 +191,8 @@
       "model": "haiku",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-4VWK"
     }
   ],
   "assessment": {
@@ -226,5 +239,6 @@
   "model": "sonnet",
   "total_tokens_input": 3049773,
   "total_tokens_output": 646,
-  "total_cost_usd": 1.302905
+  "total_cost_usd": 1.302905,
+  "correlation_id": "corr-20261026T224540-4VWK"
 }

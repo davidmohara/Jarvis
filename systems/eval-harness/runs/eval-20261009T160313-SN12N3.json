@@ -20,7 +20,8 @@
       "duration_seconds": 120.0,
       "status": "complete",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224541-JHSG"
     },
     {
       "name": "step-02-gather-tasks",
@@ -32,7 +33,8 @@
       "duration_seconds": 120.0,
       "status": "complete",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224541-JHSG"
     },
     {
       "name": "step-03-gather-context",
@@ -50,7 +52,8 @@
       "tokens_output": 1163,
       "cost_usd": null,
       "turns_matched": 1,
-      "token_source": "backfilled-windowed"
+      "token_source": "backfilled-windowed",
+      "correlation_id": "corr-20261026T224541-JHSG"
     },
     {
       "name": "step-04-synthesize-briefing",
@@ -68,7 +71,8 @@
       "tokens_output": 1281,
       "cost_usd": null,
       "turns_matched": 3,
-      "token_source": "backfilled-windowed"
+      "token_source": "backfilled-windowed",
+      "correlation_id": "corr-20261026T224541-JHSG"
     }
   ],
   "assessment": {
@@ -109,5 +113,6 @@
   },
   "version_hash": null,
   "prior_baseline_id": null,
-  "tags": []
+  "tags": [],
+  "correlation_id": "corr-20261026T224541-JHSG"
 }

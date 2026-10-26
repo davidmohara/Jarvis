@@ -29,7 +29,8 @@
       "tokens_input": null,
       "tokens_output": null,
       "cost_usd": null,
-      "token_source": null
+      "token_source": null,
+      "correlation_id": "corr-20261026T224541-0PEA"
     },
     {
       "name": "step-01-approve.md",
@@ -46,7 +47,8 @@
       "tokens_input": null,
       "tokens_output": null,
       "cost_usd": null,
-      "token_source": null
+      "token_source": null,
+      "correlation_id": "corr-20261026T224541-0PEA"
     },
     {
       "name": "step-02-git-finalize.md",
@@ -63,7 +65,8 @@
       "tokens_input": null,
       "tokens_output": null,
       "cost_usd": null,
-      "token_source": null
+      "token_source": null,
+      "correlation_id": "corr-20261026T224541-0PEA"
     },
     {
       "name": "step-03-adversarial-verify.md",
@@ -80,7 +83,8 @@
       "tokens_input": null,
       "tokens_output": null,
       "cost_usd": null,
-      "token_source": null
+      "token_source": null,
+      "correlation_id": "corr-20261026T224541-0PEA"
     },
     {
       "name": "step-02-approve.md",
@@ -97,7 +101,8 @@
       "tokens_input": null,
       "tokens_output": null,
       "cost_usd": null,
-      "token_source": null
+      "token_source": null,
+      "correlation_id": "corr-20261026T224541-0PEA"
     },
     {
       "name": "step-01-verify.md",
@@ -114,7 +119,8 @@
       "tokens_input": null,
       "tokens_output": null,
       "cost_usd": null,
-      "token_source": null
+      "token_source": null,
+      "correlation_id": "corr-20261026T224541-0PEA"
     }
   ],
   "assessment": {
@@ -158,5 +164,6 @@
   "tags": [],
   "total_cost_usd": 0.09,
   "cost_estimation_note": "estimated based on general-purpose workflow type",
-  "model": "sonnet"
+  "model": "sonnet",
+  "correlation_id": "corr-20261026T224541-0PEA"
 }

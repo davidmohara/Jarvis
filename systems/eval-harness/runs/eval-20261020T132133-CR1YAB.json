@@ -21,7 +21,8 @@
       "duration_seconds": 0.0,
       "status": "success",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224541-07QC"
     },
     {
       "name": "step-02-set-tomorrow",
@@ -33,7 +34,8 @@
       "duration_seconds": 0.0,
       "status": "success",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224541-07QC"
     },
     {
       "name": "step-03-update-system",
@@ -45,7 +47,8 @@
       "duration_seconds": 0.0,
       "status": "success",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224541-07QC"
     },
     {
       "name": "step-03c-adversarial-verify",
@@ -57,7 +60,8 @@
       "duration_seconds": 0.0,
       "status": "success",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224541-07QC"
     },
     {
       "name": "step-04-root-audit",
@@ -69,7 +73,8 @@
       "duration_seconds": 0.0,
       "status": "success",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224541-07QC"
     },
     {
       "name": "step-05-session-close",
@@ -81,7 +86,8 @@
       "duration_seconds": 0.0,
       "status": "success",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224541-07QC"
     }
   ],
   "assessment": {
@@ -131,5 +137,6 @@
     "detail": "Phantom success/failure record from aborted eval-close attempt with bad start timestamp; superseded by eval-20261020T132212-WDNUOD. Controller approved mark-and-exclude 2026-10-20.",
     "excluded_by": "david-ohara",
     "excluded_at": "2026-10-20T14:00:00Z"
-  }
+  },
+  "correlation_id": "corr-20261026T224541-07QC"
 }

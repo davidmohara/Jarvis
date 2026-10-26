@@ -20,7 +20,8 @@
       "duration_seconds": 0.0,
       "status": "complete",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224541-VXFO"
     },
     {
       "name": "step-01-build-manifest.md",
@@ -32,7 +33,8 @@
       "duration_seconds": 60.0,
       "status": "complete",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224541-VXFO"
     },
     {
       "name": "step-02-verify.md",
@@ -44,7 +46,8 @@
       "duration_seconds": 120.0,
       "status": "complete",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224541-VXFO"
     },
     {
       "name": "step-03-verify-phase2.md",
@@ -56,7 +59,8 @@
       "duration_seconds": 450.0,
       "status": "complete",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224541-VXFO"
     },
     {
       "name": "step-03-gather-context.md",
@@ -68,7 +72,8 @@
       "duration_seconds": 120.0,
       "status": "complete",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224541-VXFO"
     },
     {
       "name": "step-04-gather-meeting-context.md",
@@ -80,7 +85,8 @@
       "duration_seconds": 120.0,
       "status": "complete",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224541-VXFO"
     },
     {
       "name": "step-04-synthesize-briefing.md",
@@ -92,7 +98,8 @@
       "duration_seconds": 120.0,
       "status": "complete",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224541-VXFO"
     },
     {
       "name": "step-05-synthesize-briefing.md",
@@ -104,7 +111,8 @@
       "duration_seconds": 120.0,
       "status": "complete",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224541-VXFO"
     },
     {
       "name": "step-06-scan-workflows.md",
@@ -116,7 +124,8 @@
       "duration_seconds": 120.0,
       "status": "complete",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224541-VXFO"
     },
     {
       "name": "step-06.5-guardrail-checkpoint.md",
@@ -128,7 +137,8 @@
       "duration_seconds": 90.0,
       "status": "complete",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224541-VXFO"
     },
     {
       "name": "step-07-verify-completion.md",
@@ -140,7 +150,8 @@
       "duration_seconds": 60.0,
       "status": "complete",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224541-VXFO"
     },
     {
       "name": "step-08-knox-completion-check.md",
@@ -152,7 +163,8 @@
       "duration_seconds": 30.0,
       "status": "complete",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224541-VXFO"
     }
   ],
   "subagents": [
@@ -295,5 +307,6 @@
     }
   ],
   "model": "accounts/fireworks/models/kimi-k3",
-  "model_source": "session-transcript-window-backfill"
+  "model_source": "session-transcript-window-backfill",
+  "correlation_id": "corr-20261026T224541-VXFO"
 }

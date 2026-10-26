@@ -21,7 +21,8 @@
       "duration_seconds": 161.9,
       "status": "success",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224541-UWDI"
     },
     {
       "name": "step-02-gather-tasks",
@@ -33,7 +34,8 @@
       "duration_seconds": 161.9,
       "status": "success",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224541-UWDI"
     },
     {
       "name": "step-03-meeting-context",
@@ -45,7 +47,8 @@
       "duration_seconds": 161.9,
       "status": "success",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224541-UWDI"
     },
     {
       "name": "step-04-synthesize-briefing",
@@ -57,7 +60,8 @@
       "duration_seconds": 161.9,
       "status": "success",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224541-UWDI"
     }
   ],
   "assessment": {
@@ -120,5 +124,6 @@
   "fully_loaded_tokens_input": 187267,
   "fully_loaded_tokens_output": 788,
   "model": "glm-5p3",
-  "model_source": "parent-window-backfill"
+  "model_source": "parent-window-backfill",
+  "correlation_id": "corr-20261026T224541-UWDI"
 }

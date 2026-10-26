@@ -23,7 +23,8 @@
       "model": null,
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-2IUX"
     }
   ],
   "assessment": {
@@ -70,5 +71,6 @@
   "model": "haiku",
   "total_tokens_input": 838063,
   "total_tokens_output": 115,
-  "total_cost_usd": 0.147797
+  "total_cost_usd": 0.147797,
+  "correlation_id": "corr-20261026T224540-2IUX"
 }

@@ -1,0 +1,139 @@
+{
+  "id": "eval-20261026T194126-MV41XA",
+  "type": "skill",
+  "name": "chase-client-prep",
+  "agent": "general-purpose",
+  "session_id": "64d08eb2-39a5-46c1-8a7b-b45e89362d2e",
+  "trigger": "boot",
+  "model": "glm-5p3",
+  "model_source": "session-transcript-window",
+  "started": "2026-10-26T19:41:23.083689Z",
+  "completed": "2026-10-26T19:41:26.877600Z",
+  "duration_seconds": 3.8,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": true,
+      "outputs_non_empty": true,
+      "assertions_checked": 12,
+      "assertions_passed": 9,
+      "assertion_results": [
+        {
+          "assertion": "chase-client-prep-signal-written",
+          "description": "chase-client-prep skill-run signal file was written",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "chase-client-prep-signal-status",
+          "description": "chase-client-prep skill-run did not end in failure",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "chase-client-prep-pdf-exists",
+          "description": "prep sheet PDF was generated in meetings/ (naming convention: {Attendee Name} - {Company}.pdf, no dates/underscores)",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "chase-client-prep-pdf-substantive",
+          "description": "prep sheet PDF is a real rendered document (checked against the most recently written PDF in meetings/, since this skill's naming convention has no skill/date prefix to glob-scope by)",
+          "category": "quality",
+          "passed": true
+        },
+        {
+          "assertion": "chase-client-prep-md-substantive",
+          "description": "prep sheet markdown has real research depth, not a thin stub (most recently written .md in meetings/)",
+          "category": "content",
+          "passed": true
+        },
+        {
+          "assertion": "chase-client-prep-no-banned-phrases",
+          "description": "no em-dashes or placeholder text in the prep sheet markdown (most recently written .md in meetings/)",
+          "category": "quality",
+          "passed": true
+        },
+        {
+          "assertion": "chase-client-prep-h1-who-they-are",
+          "description": "Chase H1 (prep-sheet completeness \u2014 account context): 'Who They Are' company-context section present on the produced prep sheet (most recently written .md in meetings/).",
+          "category": "content",
+          "passed": false
+        },
+        {
+          "assertion": "chase-client-prep-h1-attendee-bio",
+          "description": "Chase H1 (prep-sheet completeness \u2014 attendee research): attendee-bio section present. Attendee research present is a required part of H1.",
+          "category": "content",
+          "passed": false
+        },
+        {
+          "assertion": "chase-client-prep-h1-talking-points",
+          "description": "Chase H1 (prep-sheet completeness \u2014 talking points): calibrated talking-points section present.",
+          "category": "content",
+          "passed": true
+        },
+        {
+          "assertion": "chase-client-prep-h2-reason-for-call",
+          "description": "Chase H2 (reason-for-call verification): the mandatory 'Reason for the Call' section is present (email-derived, per the skill's format). Pass = 100% of client preps.",
+          "category": "content",
+          "passed": false
+        },
+        {
+          "assertion": "chase-client-prep-h2-reason-cites-evidence",
+          "description": "Chase H2: the reason for the call cites its email evidence (thread/subject/introduction reference, or an explicit 'none found'). Presence proxy \u2014 the semantic verification is the adversarial-verification layer.",
+          "category": "content",
+          "passed": true
+        },
+        {
+          "assertion": "chase-client-prep-h3-source-grounding",
+          "description": "Chase H3 (data-grounding): the prep sheet references at least one live source. Grounding-marker presence check; per-fact traceability is the adversarial-verification layer.",
+          "category": "content",
+          "passed": true
+        }
+      ],
+      "category_breakdown": {
+        "structure": {
+          "passed": 3,
+          "checked": 3
+        },
+        "content": {
+          "passed": 4,
+          "checked": 7
+        },
+        "quality": {
+          "passed": 2,
+          "checked": 2
+        }
+      }
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "deterministic_gate": {
+      "score": 0.8958,
+      "gate_status": "pass",
+      "computed_at": "2026-10-26T19:41:28.732907Z"
+    }
+  },
+  "version_hash": "73ed186d88ba816d",
+  "prior_baseline_id": null,
+  "tags": [
+    "cowork-hook",
+    "skill"
+  ],
+  "correlation_id": "corr-20261026T224541-5ICD"
+}

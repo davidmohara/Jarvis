@@ -17,7 +17,8 @@
       "duration_seconds": 0.0,
       "status": "success",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224540-OGE3"
     },
     {
       "name": "step-02-gather-tasks",
@@ -26,7 +27,8 @@
       "duration_seconds": 0.0,
       "status": "success",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224540-OGE3"
     },
     {
       "name": "step-03-gather-context",
@@ -35,7 +37,8 @@
       "duration_seconds": 0.0,
       "status": "success",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224540-OGE3"
     },
     {
       "name": "step-04-synthesize-briefing",
@@ -44,7 +47,8 @@
       "duration_seconds": 0.0,
       "status": "success",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224540-OGE3"
     }
   ],
   "assessment": {
@@ -91,5 +95,6 @@
   ],
   "abort_reason": "session-exit-normal",
   "total_cost_usd": 0.069,
-  "cost_estimation_note": "estimated based on morning-briefing workflow type"
+  "cost_estimation_note": "estimated based on morning-briefing workflow type",
+  "correlation_id": "corr-20261026T224540-OGE3"
 }

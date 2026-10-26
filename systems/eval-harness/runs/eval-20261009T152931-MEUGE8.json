@@ -26,7 +26,8 @@
       "model": "sonnet",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224541-WWVM"
     },
     {
       "name": "step-02-save.md",
@@ -42,7 +43,8 @@
       "model": "sonnet",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224541-WWVM"
     },
     {
       "name": "step-01-cosell.md",
@@ -58,7 +60,8 @@
       "model": "sonnet",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224541-WWVM"
     },
     {
       "name": "step-02-pipeline.md",
@@ -74,7 +77,8 @@
       "model": "sonnet",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224541-WWVM"
     },
     {
       "name": "step-03-save.md",
@@ -90,7 +94,8 @@
       "model": "sonnet",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224541-WWVM"
     },
     {
       "name": "step-01-discover.md",
@@ -106,7 +111,8 @@
       "model": "sonnet",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224541-WWVM"
     },
     {
       "name": "step-02-ingest.md",
@@ -122,7 +128,8 @@
       "model": "sonnet",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224541-WWVM"
     },
     {
       "name": "step-03-normalize.md",
@@ -138,7 +145,8 @@
       "model": "sonnet",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224541-WWVM"
     },
     {
       "name": "step-04-link.md",
@@ -154,7 +162,8 @@
       "model": "sonnet",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224541-WWVM"
     },
     {
       "name": "step-05-file.md",
@@ -170,7 +179,8 @@
       "model": "sonnet",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224541-WWVM"
     },
     {
       "name": "step-06-route.md",
@@ -186,7 +196,8 @@
       "model": "sonnet",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224541-WWVM"
     },
     {
       "name": "step-07-report.md",
@@ -202,7 +213,8 @@
       "model": "sonnet",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224541-WWVM"
     },
     {
       "name": "step-01-load-roster.md",
@@ -218,7 +230,8 @@
       "model": "sonnet",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224541-WWVM"
     },
     {
       "name": "step-02-harvest.md",
@@ -234,7 +247,8 @@
       "model": "sonnet",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224541-WWVM"
     },
     {
       "name": "step-03-write-harvest.md",
@@ -250,7 +264,8 @@
       "model": "sonnet",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224541-WWVM"
     },
     {
       "name": "step-04-pre-cluster.md",
@@ -266,7 +281,8 @@
       "model": "sonnet",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224541-WWVM"
     },
     {
       "name": "step-05-analyze.md",
@@ -282,7 +298,8 @@
       "model": "sonnet",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224541-WWVM"
     },
     {
       "name": "step-06-source-suggestions.md",
@@ -298,7 +315,8 @@
       "model": "sonnet",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224541-WWVM"
     },
     {
       "name": "step-07-render-validate.md",
@@ -314,7 +332,8 @@
       "model": "sonnet",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224541-WWVM"
     },
     {
       "name": "step-08-send-dashboard.md",
@@ -330,7 +349,8 @@
       "model": "sonnet",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224541-WWVM"
     },
     {
       "name": "step-09-cleanup-commit.md",
@@ -346,7 +366,8 @@
       "model": "sonnet",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224541-WWVM"
     },
     {
       "name": "step-01-whoop.md",
@@ -362,7 +383,8 @@
       "model": "sonnet",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224541-WWVM"
     },
     {
       "name": "step-02-bloodwork.md",
@@ -378,7 +400,8 @@
       "model": "sonnet",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224541-WWVM"
     },
     {
       "name": "step-03-dexa.md",
@@ -394,7 +417,8 @@
       "model": "sonnet",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224541-WWVM"
     },
     {
       "name": "step-04-lifebook.md",
@@ -410,7 +434,8 @@
       "model": "sonnet",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224541-WWVM"
     },
     {
       "name": "step-05-synthesize.md",
@@ -426,7 +451,8 @@
       "model": "sonnet",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224541-WWVM"
     },
     {
       "name": "step-06-metrics-log.md",
@@ -442,7 +468,8 @@
       "model": "sonnet",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224541-WWVM"
     }
   ],
   "assessment": {
@@ -464,7 +491,7 @@
       "last_graded": "2026-10-09T15:45:00Z",
       "grade": "A",
       "safety_grade": null,
-      "grader_notes": "Workflow restructure session: split 5 monolithic workflow.md files (rock1-revenue-monthly, rock4-pipeline-weekly, knowledge-ingest, political-monitor, galen-monthly-health-review) into 25 step files under steps/ directories. Verified all 25 outputs exist on disk and are non-empty. Quality: step files carry proper frontmatter (status/started-at/completed-at/outputs/model), system/personal comment blocks per the evolution convention, mandatory execution rules where warranted (rock1 step-01, political-monitor step-05), explicit dispatch model (spawned subagent, never inline), and next-step chaining. workflow.md diffs are clean: step tables reference steps/ paths consistently, matching the established pattern in boot, account-pursuit-map, and other already-migrated workflows. Caveat: the eval record itself shows all 25 steps 'not-started' with status 'incomplete' — that is harness bookkeeping from the session exiting without flipping step states, not an output defect; the deliverables are real and complete. Minor observation, not grade-affecting: system/personal delineation is defensible throughout (OmniFocus routing marked personal in knowledge-ingest step-06; skill-reference steps marked system)."
+      "grader_notes": "Workflow restructure session: split 5 monolithic workflow.md files (rock1-revenue-monthly, rock4-pipeline-weekly, knowledge-ingest, political-monitor, galen-monthly-health-review) into 25 step files under steps/ directories. Verified all 25 outputs exist on disk and are non-empty. Quality: step files carry proper frontmatter (status/started-at/completed-at/outputs/model), system/personal comment blocks per the evolution convention, mandatory execution rules where warranted (rock1 step-01, political-monitor step-05), explicit dispatch model (spawned subagent, never inline), and next-step chaining. workflow.md diffs are clean: step tables reference steps/ paths consistently, matching the established pattern in boot, account-pursuit-map, and other already-migrated workflows. Caveat: the eval record itself shows all 25 steps 'not-started' with status 'incomplete' \u2014 that is harness bookkeeping from the session exiting without flipping step states, not an output defect; the deliverables are real and complete. Minor observation, not grade-affecting: system/personal delineation is defensible throughout (OmniFocus routing marked personal in knowledge-ingest step-06; skill-reference steps marked system)."
     },
     "controller_feedback": {
       "rating": null,
@@ -486,5 +513,6 @@
   "prior_baseline_id": null,
   "tags": [
     "stub"
-  ]
+  ],
+  "correlation_id": "corr-20261026T224541-WWVM"
 }

@@ -27,7 +27,8 @@
       "tokens_input": null,
       "tokens_output": null,
       "cost_usd": null,
-      "token_source": null
+      "token_source": null,
+      "correlation_id": "corr-20261026T224541-43XJ"
     },
     {
       "name": "step-03-iterate.md",
@@ -44,7 +45,8 @@
       "tokens_input": null,
       "tokens_output": null,
       "cost_usd": null,
-      "token_source": null
+      "token_source": null,
+      "correlation_id": "corr-20261026T224541-43XJ"
     },
     {
       "name": "step-01-pull-inbox.md",
@@ -61,7 +63,8 @@
       "tokens_input": null,
       "tokens_output": null,
       "cost_usd": null,
-      "token_source": null
+      "token_source": null,
+      "correlation_id": "corr-20261026T224541-43XJ"
     },
     {
       "name": "step-04-assemble-brief.md",
@@ -78,7 +81,8 @@
       "tokens_input": null,
       "tokens_output": null,
       "cost_usd": null,
-      "token_source": null
+      "token_source": null,
+      "correlation_id": "corr-20261026T224541-43XJ"
     },
     {
       "name": "step-02-health-analysis.md",
@@ -95,7 +99,8 @@
       "tokens_input": null,
       "tokens_output": null,
       "cost_usd": null,
-      "token_source": null
+      "token_source": null,
+      "correlation_id": "corr-20261026T224541-43XJ"
     },
     {
       "name": "step-03-risk-flags.md",
@@ -112,7 +117,8 @@
       "tokens_input": null,
       "tokens_output": null,
       "cost_usd": null,
-      "token_source": null
+      "token_source": null,
+      "correlation_id": "corr-20261026T224541-43XJ"
     },
     {
       "name": "step-01-gather-calendar.md",
@@ -127,7 +133,8 @@
       "model": "accounts/fireworks/models/deepseek-v4p1-flash",
       "token_source": "lenient_fallback",
       "turns_matched": 10,
-      "duration_seconds": 120.0
+      "duration_seconds": 120.0,
+      "correlation_id": "corr-20261026T224541-43XJ"
     },
     {
       "name": "step-03-gather-context.md",
@@ -145,7 +152,8 @@
       "tokens_output": 0,
       "cost_usd": null,
       "token_source": "lenient_fallback",
-      "turns_matched": 10
+      "turns_matched": 10,
+      "correlation_id": "corr-20261026T224541-43XJ"
     },
     {
       "name": "step-03b-guardrail-checkpoint.md",
@@ -160,7 +168,8 @@
       "model": "accounts/fireworks/models/deepseek-v4p1-flash",
       "token_source": "lenient_fallback",
       "turns_matched": 10,
-      "duration_seconds": 60.0
+      "duration_seconds": 60.0,
+      "correlation_id": "corr-20261026T224541-43XJ"
     },
     {
       "name": "step-04-synthesize-briefing.md",
@@ -175,7 +184,8 @@
       "model": "accounts/fireworks/models/deepseek-v4p1-flash",
       "token_source": "lenient_fallback",
       "turns_matched": 10,
-      "duration_seconds": 120.0
+      "duration_seconds": 120.0,
+      "correlation_id": "corr-20261026T224541-43XJ"
     }
   ],
   "assessment": {
@@ -291,5 +301,6 @@
   ],
   "total_cost_usd": 0.045,
   "cost_estimation_note": "estimated based on Explore workflow type",
-  "model": "sonnet"
+  "model": "sonnet",
+  "correlation_id": "corr-20261026T224541-43XJ"
 }

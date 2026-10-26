@@ -22,7 +22,8 @@
       "model": "haiku",
       "tokens_input": 5374701,
       "tokens_output": 20778,
-      "cost_usd": 0.866346
+      "cost_usd": 0.866346,
+      "correlation_id": "corr-20261026T224540-JCA0"
     },
     {
       "name": "step-06.5-guardrail-checkpoint.md",
@@ -35,7 +36,8 @@
       "model": "haiku",
       "tokens_input": 5374701,
       "tokens_output": 20778,
-      "cost_usd": 0.866346
+      "cost_usd": 0.866346,
+      "correlation_id": "corr-20261026T224540-JCA0"
     },
     {
       "name": "step-06-scan-workflows.md",
@@ -48,7 +50,8 @@
       "model": "haiku",
       "tokens_input": 5374701,
       "tokens_output": 20778,
-      "cost_usd": 0.866346
+      "cost_usd": 0.866346,
+      "correlation_id": "corr-20261026T224540-JCA0"
     },
     {
       "name": "step-05-synthesize-briefing.md",
@@ -61,7 +64,8 @@
       "model": "haiku",
       "tokens_input": 5374701,
       "tokens_output": 20778,
-      "cost_usd": 0.866346
+      "cost_usd": 0.866346,
+      "correlation_id": "corr-20261026T224540-JCA0"
     },
     {
       "name": "step-04-gather-meeting-context.md",
@@ -74,7 +78,8 @@
       "model": "haiku",
       "tokens_input": 5374701,
       "tokens_output": 20778,
-      "cost_usd": 0.866346
+      "cost_usd": 0.866346,
+      "correlation_id": "corr-20261026T224540-JCA0"
     },
     {
       "name": "step-03-verify-phase2.md",
@@ -87,7 +92,8 @@
       "model": "haiku",
       "tokens_input": 5374701,
       "tokens_output": 20778,
-      "cost_usd": 0.866346
+      "cost_usd": 0.866346,
+      "correlation_id": "corr-20261026T224540-JCA0"
     },
     {
       "name": "step-02-gather-data.md",
@@ -100,7 +106,8 @@
       "model": "haiku",
       "tokens_input": 5374701,
       "tokens_output": 20778,
-      "cost_usd": 0.866346
+      "cost_usd": 0.866346,
+      "correlation_id": "corr-20261026T224540-JCA0"
     },
     {
       "name": "step-01.5-unified-calendar-pull.md",
@@ -113,7 +120,8 @@
       "model": "haiku",
       "tokens_input": 5374701,
       "tokens_output": 20778,
-      "cost_usd": 0.866346
+      "cost_usd": 0.866346,
+      "correlation_id": "corr-20261026T224540-JCA0"
     },
     {
       "name": "step-01-load-context.md",
@@ -126,7 +134,8 @@
       "model": "haiku",
       "tokens_input": 5374701,
       "tokens_output": 20778,
-      "cost_usd": 0.866346
+      "cost_usd": 0.866346,
+      "correlation_id": "corr-20261026T224540-JCA0"
     }
   ],
   "assessment": {
@@ -175,5 +184,6 @@
   "model": "haiku",
   "total_tokens_input": 4536354,
   "total_tokens_output": 501,
-  "total_cost_usd": 0.571213
+  "total_cost_usd": 0.571213,
+  "correlation_id": "corr-20261026T224540-JCA0"
 }

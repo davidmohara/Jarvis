@@ -26,7 +26,8 @@
       "tokens_output": 624,
       "cost_usd": 0.015279,
       "token_source": "windowed",
-      "turns_matched": 4
+      "turns_matched": 4,
+      "correlation_id": "corr-20261026T224541-9JCF"
     }
   ],
   "assessment": {
@@ -146,5 +147,6 @@
   "workflow": "daily-review",
   "owning_agent": "chief",
   "model": "accounts/fireworks/models/deepseek-v4p1-flash",
-  "model_source": "session-transcript-latest-backfill"
+  "model_source": "session-transcript-latest-backfill",
+  "correlation_id": "corr-20261026T224541-9JCF"
 }

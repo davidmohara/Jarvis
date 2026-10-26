@@ -27,7 +27,8 @@
       "tokens_input": null,
       "tokens_output": null,
       "cost_usd": null,
-      "token_source": null
+      "token_source": null,
+      "correlation_id": "corr-20261026T224541-9X5X"
     }
   ],
   "assessment": {
@@ -77,5 +78,6 @@
   },
   "version_hash": null,
   "prior_baseline_id": null,
-  "tags": []
+  "tags": [],
+  "correlation_id": "corr-20261026T224541-9X5X"
 }

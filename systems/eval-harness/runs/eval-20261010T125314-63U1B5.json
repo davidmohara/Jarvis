@@ -25,7 +25,8 @@
       "tokens_input": null,
       "tokens_output": null,
       "cost_usd": null,
-      "token_source": null
+      "token_source": null,
+      "correlation_id": "corr-20261026T224541-PD2P"
     },
     {
       "name": "step-03-git-finalize.md",
@@ -42,7 +43,8 @@
       "tokens_input": null,
       "tokens_output": null,
       "cost_usd": null,
-      "token_source": null
+      "token_source": null,
+      "correlation_id": "corr-20261026T224541-PD2P"
     },
     {
       "name": "step-04-adversarial-verify.md",
@@ -59,7 +61,8 @@
       "tokens_input": null,
       "tokens_output": null,
       "cost_usd": null,
-      "token_source": null
+      "token_source": null,
+      "correlation_id": "corr-20261026T224541-PD2P"
     },
     {
       "name": "step-01-discover.md",
@@ -76,7 +79,8 @@
       "tokens_input": null,
       "tokens_output": null,
       "cost_usd": null,
-      "token_source": null
+      "token_source": null,
+      "correlation_id": "corr-20261026T224541-PD2P"
     },
     {
       "name": "step-02-git-finalize.md",
@@ -93,7 +97,8 @@
       "tokens_input": null,
       "tokens_output": null,
       "cost_usd": null,
-      "token_source": null
+      "token_source": null,
+      "correlation_id": "corr-20261026T224541-PD2P"
     },
     {
       "name": "step-01-approve.md",
@@ -110,7 +115,8 @@
       "tokens_input": null,
       "tokens_output": null,
       "cost_usd": null,
-      "token_source": null
+      "token_source": null,
+      "correlation_id": "corr-20261026T224541-PD2P"
     },
     {
       "name": "step-01-verify.md",
@@ -127,7 +133,8 @@
       "tokens_input": null,
       "tokens_output": null,
       "cost_usd": null,
-      "token_source": null
+      "token_source": null,
+      "correlation_id": "corr-20261026T224541-PD2P"
     }
   ],
   "subagents": [
@@ -259,5 +266,6 @@
   ],
   "workflow": "content-pipeline",
   "model": "accounts/fireworks/models/glm-5p3",
-  "model_source": "session-transcript-latest-backfill"
+  "model_source": "session-transcript-latest-backfill",
+  "correlation_id": "corr-20261026T224541-PD2P"
 }

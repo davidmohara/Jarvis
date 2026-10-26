@@ -1,0 +1,52 @@
+{
+  "id": "eval-20261026T223650-HR0MKM",
+  "type": "skill",
+  "name": "anthropic-skills:pptx",
+  "agent": "unknown",
+  "session_id": "49343183-7915-472e-a8e3-7b5a8a1ff311",
+  "trigger": "manual",
+  "model": "glm-5p3",
+  "model_source": "session-transcript-window",
+  "started": "2026-10-26T22:28:58.874113Z",
+  "completed": "2026-10-26T22:36:50.419061Z",
+  "duration_seconds": 471.5,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "deterministic_gate": {
+      "score": 0.7917,
+      "gate_status": "pass",
+      "computed_at": "2026-10-26T22:36:52.450030Z"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [
+    "cowork-hook",
+    "skill"
+  ],
+  "correlation_id": "corr-20261026T224541-S5ON"
+}

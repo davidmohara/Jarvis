@@ -176,5 +176,6 @@
   "fully_loaded_tokens_output": 41209,
   "fully_loaded_note": "parent window contains unpriced model(s) ['claude-haiku-5-5']; their tokens are in the token sums but not in cost_usd",
   "model": "claude-haiku-5-5",
-  "model_source": "parent-window-backfill"
+  "model_source": "parent-window-backfill",
+  "correlation_id": "corr-20261026T224541-IM3G"
 }

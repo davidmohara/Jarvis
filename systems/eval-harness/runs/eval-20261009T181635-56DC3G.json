@@ -24,7 +24,8 @@
       "model": null,
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224541-J98F"
     },
     {
       "name": "step-02-gather-communications",
@@ -40,7 +41,8 @@
       "model": null,
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224541-J98F"
     },
     {
       "name": "step-03-gather-tasks",
@@ -56,7 +58,8 @@
       "model": null,
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224541-J98F"
     },
     {
       "name": "step-04-assemble-brief",
@@ -72,7 +75,8 @@
       "model": null,
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224541-J98F"
     },
     {
       "name": "step-05-quality-check-and-save",
@@ -88,7 +92,8 @@
       "model": null,
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224541-J98F"
     }
   ],
   "assessment": {
@@ -140,5 +145,6 @@
       "escalated_to_human": false,
       "timestamp": "2026-10-09T18:25:25.694053+00:00"
     }
-  ]
+  ],
+  "correlation_id": "corr-20261026T224541-J98F"
 }

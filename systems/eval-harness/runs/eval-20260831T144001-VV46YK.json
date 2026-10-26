@@ -23,7 +23,8 @@
       "model": null,
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-B6NP"
     },
     {
       "name": "step-01.5-unified-calendar-pull.md",
@@ -36,7 +37,8 @@
       "model": null,
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-B6NP"
     },
     {
       "name": "step-02-gather-data.md",
@@ -49,7 +51,8 @@
       "model": null,
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-B6NP"
     },
     {
       "name": "step-02.5-measure-phase2.md",
@@ -62,7 +65,8 @@
       "model": null,
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-B6NP"
     },
     {
       "name": "step-03-verify-phase2.md",
@@ -75,7 +79,8 @@
       "model": null,
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-B6NP"
     },
     {
       "name": "step-04-gather-meeting-context.md",
@@ -88,7 +93,8 @@
       "model": null,
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-B6NP"
     }
   ],
   "assessment": {
@@ -135,5 +141,6 @@
   "model": "haiku",
   "total_tokens_input": 2171420,
   "total_tokens_output": 1477,
-  "total_cost_usd": 0.309635
+  "total_cost_usd": 0.309635,
+  "correlation_id": "corr-20261026T224540-B6NP"
 }

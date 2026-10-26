@@ -23,7 +23,8 @@
       "tokens_output": 2637,
       "cost_usd": null,
       "turns_matched": 5,
-      "token_source": "backfilled-windowed"
+      "token_source": "backfilled-windowed",
+      "correlation_id": "corr-20261026T224541-X7WA"
     }
   ],
   "assessment": {
@@ -95,5 +96,6 @@
   "tags": [
     "cowork-hook",
     "phantom-candidate"
-  ]
+  ],
+  "correlation_id": "corr-20261026T224541-X7WA"
 }

@@ -25,7 +25,8 @@
       "tokens_output": 621,
       "cost_usd": 0.213482,
       "turns_matched": 3,
-      "token_source": "backfilled-windowed"
+      "token_source": "backfilled-windowed",
+      "correlation_id": "corr-20261026T224540-XY3K"
     }
   ],
   "assessment": {
@@ -72,5 +73,6 @@
   "model": "sonnet",
   "total_tokens_input": 1950701,
   "total_tokens_output": 1384,
-  "total_cost_usd": 0.945581
+  "total_cost_usd": 0.945581,
+  "correlation_id": "corr-20261026T224540-XY3K"
 }

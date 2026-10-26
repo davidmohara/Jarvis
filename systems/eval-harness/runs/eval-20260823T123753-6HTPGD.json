@@ -22,7 +22,8 @@
       "model": "haiku",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-QWPR"
     },
     {
       "name": "step-03-identify-speakers",
@@ -35,7 +36,8 @@
       "model": null,
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-QWPR"
     },
     {
       "name": "step-04-fetch-staging.md",
@@ -48,7 +50,8 @@
       "model": "haiku",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-QWPR"
     }
   ],
   "assessment": {
@@ -116,5 +119,6 @@
   "model": "sonnet",
   "total_tokens_input": 1527639,
   "total_tokens_output": 1830,
-  "total_cost_usd": 1.027949
+  "total_cost_usd": 1.027949,
+  "correlation_id": "corr-20261026T224540-QWPR"
 }

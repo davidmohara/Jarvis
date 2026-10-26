@@ -23,7 +23,8 @@
       "model": "haiku",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-1POE"
     },
     {
       "name": "step-02-calendar-conflict-check.md",
@@ -36,7 +37,8 @@
       "model": "haiku",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-1POE"
     },
     {
       "name": "step-06-calendar-block.md",
@@ -49,7 +51,8 @@
       "model": "sonnet",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-1POE"
     }
   ],
   "assessment": {
@@ -96,5 +99,6 @@
   "model": "sonnet",
   "total_tokens_input": 2225236,
   "total_tokens_output": 3792,
-  "total_cost_usd": 1.045278
+  "total_cost_usd": 1.045278,
+  "correlation_id": "corr-20261026T224540-1POE"
 }

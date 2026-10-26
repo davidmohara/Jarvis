@@ -20,7 +20,8 @@
         "vicinityventures.co"
       ],
       "data_source_failures": [],
-      "notes": "Fetched GeniusSpark offering via Chrome. Investor assessment delivered."
+      "notes": "Fetched GeniusSpark offering via Chrome. Investor assessment delivered.",
+      "correlation_id": "corr-20261026T224540-PCOL"
     },
     {
       "name": "step-02-meeting-prep-doc",
@@ -30,7 +31,8 @@
       "status": "complete",
       "data_sources_used": [],
       "data_source_failures": [],
-      "notes": "Created .docx then rebuilt as .md per user correction. Format choice not pre-clarified."
+      "notes": "Created .docx then rebuilt as .md per user correction. Format choice not pre-clarified.",
+      "correlation_id": "corr-20261026T224540-PCOL"
     },
     {
       "name": "step-03-remarkable-push",
@@ -43,7 +45,8 @@
         "reportlab"
       ],
       "data_source_failures": [],
-      "notes": "Multiple failures: (1) attempted rmapi discovery without delegating to agent; (2) named file with underscores instead of human-readable convention; (3) argued when corrected on naming rather than reading conventions.md immediately; (4) used improving-pdf producing 7-page branded output for a personal doc. Required 4+ correction cycles before correct 2-page PDF delivered."
+      "notes": "Multiple failures: (1) attempted rmapi discovery without delegating to agent; (2) named file with underscores instead of human-readable convention; (3) argued when corrected on naming rather than reading conventions.md immediately; (4) used improving-pdf producing 7-page branded output for a personal doc. Required 4+ correction cycles before correct 2-page PDF delivered.",
+      "correlation_id": "corr-20261026T224540-PCOL"
     }
   ],
   "assessment": {
@@ -95,5 +98,6 @@
     "routing-error"
   ],
   "total_cost_usd": 0.066,
-  "cost_estimation_note": "estimated based on genius-spark-meeting-prep workflow type"
+  "cost_estimation_note": "estimated based on genius-spark-meeting-prep workflow type",
+  "correlation_id": "corr-20261026T224540-PCOL"
 }

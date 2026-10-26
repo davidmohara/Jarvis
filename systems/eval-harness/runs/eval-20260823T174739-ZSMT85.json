@@ -15,84 +15,96 @@
       "started": "2026-08-23T14:30:00Z",
       "completed": "2026-08-23T14:31:15Z",
       "status": "complete",
-      "duration_seconds": 75.0
+      "duration_seconds": 75.0,
+      "correlation_id": "corr-20261026T224540-J63S"
     },
     {
       "name": "step-01.2-unified-data-pull",
       "started": "2026-08-23T15:00:15-05:00",
       "completed": "2026-08-23T15:01:15-05:00",
       "status": "complete",
-      "duration_seconds": 60.0
+      "duration_seconds": 60.0,
+      "correlation_id": "corr-20261026T224540-J63S"
     },
     {
       "name": "step-01.5-unified-calendar-pull",
       "started": "2026-08-23T14:31:30Z",
       "completed": "2026-08-23T14:32:45Z",
       "status": "complete",
-      "duration_seconds": 75.0
+      "duration_seconds": 75.0,
+      "correlation_id": "corr-20261026T224540-J63S"
     },
     {
       "name": "step-02-gather-data",
       "started": "2026-08-23T14:32:45Z",
       "completed": "2026-08-23T14:33:20Z",
       "status": "complete",
-      "duration_seconds": 35.0
+      "duration_seconds": 35.0,
+      "correlation_id": "corr-20261026T224540-J63S"
     },
     {
       "name": "step-02.5-measure-phase2",
       "started": "2026-08-21T12:39:00-05:00",
       "completed": "2026-08-21T12:40:00-05:00",
       "status": "complete",
-      "duration_seconds": 60.0
+      "duration_seconds": 60.0,
+      "correlation_id": "corr-20261026T224540-J63S"
     },
     {
       "name": "step-03-verify-phase2",
       "started": "2026-08-23T12:17:15-05:00",
       "completed": "2026-08-23T12:17:45-05:00",
       "status": "complete",
-      "duration_seconds": 30.0
+      "duration_seconds": 30.0,
+      "correlation_id": "corr-20261026T224540-J63S"
     },
     {
       "name": "step-04-gather-meeting-context",
       "started": "2026-08-23T14:33:20Z",
       "completed": "2026-08-23T14:34:05Z",
       "status": "complete",
-      "duration_seconds": 45.0
+      "duration_seconds": 45.0,
+      "correlation_id": "corr-20261026T224540-J63S"
     },
     {
       "name": "step-05-synthesize-briefing",
       "started": "2026-08-23T14:34:05Z",
       "completed": "2026-08-23T14:35:30Z",
       "status": "complete",
-      "duration_seconds": 85.0
+      "duration_seconds": 85.0,
+      "correlation_id": "corr-20261026T224540-J63S"
     },
     {
       "name": "step-06-scan-workflows",
       "started": "2026-08-23T14:35:30Z",
       "completed": "2026-08-23T14:35:45Z",
       "status": "complete",
-      "duration_seconds": 15.0
+      "duration_seconds": 15.0,
+      "correlation_id": "corr-20261026T224540-J63S"
     },
     {
       "name": "step-06.5-guardrail-checkpoint",
       "started": "2026-08-23T14:35:45Z",
       "completed": "2026-08-23T14:36:05Z",
       "status": "complete",
-      "duration_seconds": 20.0
+      "duration_seconds": 20.0,
+      "correlation_id": "corr-20261026T224540-J63S"
     },
     {
       "name": "step-07-verify-completion",
       "started": "2026-08-23T14:36:05Z",
       "completed": "2026-08-23T14:36:20Z",
       "status": "complete",
-      "duration_seconds": 15.0
+      "duration_seconds": 15.0,
+      "correlation_id": "corr-20261026T224540-J63S"
     },
     {
       "name": "step-08-knox-completion-check",
       "started": "2026-08-23T15:03:50-05:00",
       "completed": "2026-08-23T15:03:55-05:00",
       "status": "complete",
-      "duration_seconds": 5.0
+      "duration_seconds": 5.0,
+      "correlation_id": "corr-20261026T224540-J63S"
     }
   ],
   "assessment": {
@@ -834,5 +846,6 @@
     "feedback": "Re-execute step. Field 'briefing_delivered' is empty, must be populated.",
     "attempt_number": 6,
     "timestamp": "2026-08-23T18:08:53.584380Z"
-  }
+  },
+  "correlation_id": "corr-20261026T224540-J63S"
 }

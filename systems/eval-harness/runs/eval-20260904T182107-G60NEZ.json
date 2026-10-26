@@ -23,7 +23,8 @@
       "model": "sonnet",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-2RHM"
     },
     {
       "name": "step-02-generate-prep-sheet.md",
@@ -36,7 +37,8 @@
       "model": "sonnet",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-2RHM"
     },
     {
       "name": "step-03-assemble-output.md",
@@ -49,7 +51,8 @@
       "model": "sonnet",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-2RHM"
     }
   ],
   "assessment": {
@@ -96,5 +99,6 @@
   "model": "sonnet",
   "total_tokens_input": 2889751,
   "total_tokens_output": 10631,
-  "total_cost_usd": 1.339133
+  "total_cost_usd": 1.339133,
+  "correlation_id": "corr-20261026T224540-2RHM"
 }

@@ -17,7 +17,8 @@
       "duration_seconds": 0.0,
       "status": "success",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224541-0BH1"
     },
     {
       "name": "step-02-set-tomorrow",
@@ -26,7 +27,8 @@
       "duration_seconds": 0.0,
       "status": "success",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224541-0BH1"
     },
     {
       "name": "step-03-update-system",
@@ -35,7 +37,8 @@
       "duration_seconds": 0.0,
       "status": "success",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224541-0BH1"
     },
     {
       "name": "step-04-root-audit",
@@ -44,7 +47,8 @@
       "duration_seconds": 0.0,
       "status": "success",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224541-0BH1"
     },
     {
       "name": "step-05-session-close",
@@ -53,7 +57,8 @@
       "duration_seconds": 0.0,
       "status": "success",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224541-0BH1"
     }
   ],
   "assessment": {
@@ -99,5 +104,6 @@
     "cowork-instrumented"
   ],
   "model": "accounts/fireworks/models/kimi-k3",
-  "model_source": "session-transcript-latest-backfill"
+  "model_source": "session-transcript-latest-backfill",
+  "correlation_id": "corr-20261026T224541-0BH1"
 }

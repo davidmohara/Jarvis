@@ -23,7 +23,8 @@
       "model": "sonnet",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224541-T5Z2"
     },
     {
       "name": "step-01-read-preview-and-window-precheck.md",
@@ -36,7 +37,8 @@
       "model": "sonnet",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224541-T5Z2"
     }
   ],
   "assessment": {
@@ -79,5 +81,6 @@
   },
   "version_hash": null,
   "prior_baseline_id": null,
-  "tags": []
+  "tags": [],
+  "correlation_id": "corr-20261026T224541-T5Z2"
 }

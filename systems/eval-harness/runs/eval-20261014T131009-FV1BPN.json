@@ -25,7 +25,8 @@
       "model": "accounts/fireworks/models/kimi-k3",
       "token_source": "lenient_fallback",
       "turns_matched": 55,
-      "duration_seconds": 0.0
+      "duration_seconds": 0.0,
+      "correlation_id": "corr-20261026T224541-IEVN"
     },
     {
       "name": "step-01.2-unified-data-pull.md",
@@ -40,7 +41,8 @@
       "model": "accounts/fireworks/models/kimi-k3",
       "token_source": "windowed",
       "turns_matched": 9,
-      "duration_seconds": 360.0
+      "duration_seconds": 360.0,
+      "correlation_id": "corr-20261026T224541-IEVN"
     },
     {
       "name": "step-01.5-unified-calendar-pull.md",
@@ -55,7 +57,8 @@
       "model": "accounts/fireworks/models/kimi-k3",
       "token_source": "windowed",
       "turns_matched": 5,
-      "duration_seconds": 120.0
+      "duration_seconds": 120.0,
+      "correlation_id": "corr-20261026T224541-IEVN"
     },
     {
       "name": "step-02-gather-data.md",
@@ -70,7 +73,8 @@
       "model": "accounts/fireworks/models/kimi-k3",
       "token_source": "windowed",
       "turns_matched": 12,
-      "duration_seconds": 300.0
+      "duration_seconds": 300.0,
+      "correlation_id": "corr-20261026T224541-IEVN"
     },
     {
       "name": "step-02.5-measure-phase2.md",
@@ -85,7 +89,8 @@
       "model": "accounts/fireworks/models/kimi-k3",
       "token_source": "windowed",
       "turns_matched": 8,
-      "duration_seconds": 120.0
+      "duration_seconds": 120.0,
+      "correlation_id": "corr-20261026T224541-IEVN"
     },
     {
       "name": "step-03-verify-phase2.md",
@@ -103,7 +108,8 @@
       "tokens_output": 194,
       "cost_usd": null,
       "token_source": "windowed",
-      "turns_matched": 6
+      "turns_matched": 6,
+      "correlation_id": "corr-20261026T224541-IEVN"
     },
     {
       "name": "step-04-gather-meeting-context.md",
@@ -121,7 +127,8 @@
       "tokens_output": 0,
       "cost_usd": null,
       "token_source": "windowed",
-      "turns_matched": 12
+      "turns_matched": 12,
+      "correlation_id": "corr-20261026T224541-IEVN"
     },
     {
       "name": "step-05-synthesize-briefing.md",
@@ -139,7 +146,8 @@
       "tokens_output": 0,
       "cost_usd": null,
       "token_source": "windowed",
-      "turns_matched": 7
+      "turns_matched": 7,
+      "correlation_id": "corr-20261026T224541-IEVN"
     },
     {
       "name": "step-06-scan-workflows.md",
@@ -154,7 +162,8 @@
       "model": "accounts/fireworks/models/kimi-k3",
       "token_source": "windowed",
       "turns_matched": 2,
-      "duration_seconds": 60.0
+      "duration_seconds": 60.0,
+      "correlation_id": "corr-20261026T224541-IEVN"
     },
     {
       "name": "step-06.5-guardrail-checkpoint.md",
@@ -172,7 +181,8 @@
       "tokens_output": 1040,
       "cost_usd": null,
       "token_source": "lenient_fallback",
-      "turns_matched": 55
+      "turns_matched": 55,
+      "correlation_id": "corr-20261026T224541-IEVN"
     },
     {
       "name": "step-07-verify-completion.md",
@@ -190,7 +200,8 @@
       "tokens_output": 1040,
       "cost_usd": null,
       "token_source": "lenient_fallback",
-      "turns_matched": 55
+      "turns_matched": 55,
+      "correlation_id": "corr-20261026T224541-IEVN"
     },
     {
       "name": "step-08-knox-completion-check.md",
@@ -205,7 +216,8 @@
       "model": "accounts/fireworks/models/kimi-k3",
       "token_source": "windowed",
       "turns_matched": 2,
-      "duration_seconds": 60.0
+      "duration_seconds": 60.0,
+      "correlation_id": "corr-20261026T224541-IEVN"
     }
   ],
   "assessment": {
@@ -492,5 +504,6 @@
   ],
   "total_cost_usd": 0.09,
   "cost_estimation_note": "estimated based on general-purpose workflow type",
-  "model": "sonnet"
+  "model": "sonnet",
+  "correlation_id": "corr-20261026T224541-IEVN"
 }

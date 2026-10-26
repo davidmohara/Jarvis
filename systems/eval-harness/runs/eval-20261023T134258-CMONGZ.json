@@ -22,7 +22,8 @@
       "started": "2026-10-23T13:47:00Z",
       "completed": "2026-10-23T13:47:00Z",
       "status": "complete",
-      "duration_seconds": 0.0
+      "duration_seconds": 0.0,
+      "correlation_id": "corr-20261026T224541-7GN8"
     },
     {
       "name": "step-06-scan-workflows.md",
@@ -32,7 +33,8 @@
       "started": "2026-10-23T13:47:30Z",
       "completed": "2026-10-23T13:47:30Z",
       "status": "complete",
-      "duration_seconds": 0.0
+      "duration_seconds": 0.0,
+      "correlation_id": "corr-20261026T224541-7GN8"
     },
     {
       "name": "step-07-verify-completion.md",
@@ -42,7 +44,8 @@
       "started": "2026-10-23T13:48:30Z",
       "completed": "2026-10-23T13:48:30Z",
       "status": "complete",
-      "duration_seconds": 0.0
+      "duration_seconds": 0.0,
+      "correlation_id": "corr-20261026T224541-7GN8"
     },
     {
       "name": "step-08-knox-completion-check.md",
@@ -52,7 +55,8 @@
       "started": "2026-10-23T13:49:00Z",
       "completed": "2026-10-23T13:49:00Z",
       "status": "complete",
-      "duration_seconds": 0.0
+      "duration_seconds": 0.0,
+      "correlation_id": "corr-20261026T224541-7GN8"
     },
     {
       "name": "step-01-load-context.md",
@@ -69,7 +73,8 @@
       "tokens_input": null,
       "tokens_output": null,
       "cost_usd": null,
-      "token_source": null
+      "token_source": null,
+      "correlation_id": "corr-20261026T224541-7GN8"
     }
   ],
   "assessment": {
@@ -202,5 +207,6 @@
   },
   "fully_loaded_cost_usd": 0.97069,
   "fully_loaded_tokens_input": 1612963,
-  "fully_loaded_tokens_output": 20102
+  "fully_loaded_tokens_output": 20102,
+  "correlation_id": "corr-20261026T224541-7GN8"
 }

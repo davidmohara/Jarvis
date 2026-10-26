@@ -21,7 +21,8 @@
         "obsidian-vault",
         "web-search"
       ],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224540-00PX"
     },
     {
       "name": "weekly-step-02-draft-angles",
@@ -33,7 +34,8 @@
         "obsidian-vault",
         "identity-voice"
       ],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224540-00PX"
     },
     {
       "name": "weekly-step-02b-draft-tweets",
@@ -44,7 +46,8 @@
       "data_sources_used": [
         "accumulated-context"
       ],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224540-00PX"
     },
     {
       "name": "weekly-step-03-suggest-sources",
@@ -54,7 +57,8 @@
       "status": "skipped",
       "data_sources_used": [],
       "data_source_failures": [],
-      "notes": "kill switch active: source_suggestions.enabled=false in config.yaml"
+      "notes": "kill switch active: source_suggestions.enabled=false in config.yaml",
+      "correlation_id": "corr-20261026T224540-00PX"
     },
     {
       "name": "weekly-step-04-weekly-note",
@@ -65,7 +69,8 @@
       "data_sources_used": [
         "obsidian-vault"
       ],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224540-00PX"
     },
     {
       "name": "weekly-step-05-report",
@@ -77,7 +82,8 @@
         "accumulated-context",
         "cowork-artifact"
       ],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224540-00PX"
     },
     {
       "name": "weekly-step-06-publish-drafts",
@@ -92,7 +98,8 @@
       "data_source_failures": [
         "shell-quoting-smart-quotes"
       ],
-      "notes": "Two drafts sent to #content (Agents, Accenture). Microsoft draft excluded per David. First send attempt on Accenture failed due to smart quote shell quoting error \u2014 fixed and retried successfully."
+      "notes": "Two drafts sent to #content (Agents, Accenture). Microsoft draft excluded per David. First send attempt on Accenture failed due to smart quote shell quoting error \u2014 fixed and retried successfully.",
+      "correlation_id": "corr-20261026T224540-00PX"
     }
   ],
   "assessment": {
@@ -252,5 +259,6 @@
     "content-pipeline"
   ],
   "total_cost_usd": 0.111,
-  "cost_estimation_note": "estimated based on watchtower-weekly workflow type"
+  "cost_estimation_note": "estimated based on watchtower-weekly workflow type",
+  "correlation_id": "corr-20261026T224540-00PX"
 }

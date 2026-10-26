@@ -21,7 +21,8 @@
         "obsidian-vault"
       ],
       "data_source_failures": [],
-      "notes": "64 recordings scanned. All confirmed in vault. No new recordings. Workflow terminated early per protocol."
+      "notes": "64 recordings scanned. All confirmed in vault. No new recordings. Workflow terminated early per protocol.",
+      "correlation_id": "corr-20261026T224540-0MUU"
     }
   ],
   "assessment": {
@@ -73,5 +74,6 @@
     "early-termination"
   ],
   "total_cost_usd": 0.066,
-  "cost_estimation_note": "estimated based on plaud-ingest workflow type"
+  "cost_estimation_note": "estimated based on plaud-ingest workflow type",
+  "correlation_id": "corr-20261026T224540-0MUU"
 }

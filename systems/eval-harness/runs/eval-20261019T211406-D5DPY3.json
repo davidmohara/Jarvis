@@ -21,7 +21,8 @@
       "duration_seconds": 217.9,
       "status": "success",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224541-E1AQ"
     },
     {
       "name": "step-01-gather-calendar",
@@ -33,7 +34,8 @@
       "duration_seconds": 217.9,
       "status": "success",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224541-E1AQ"
     },
     {
       "name": "step-02-gather-tasks",
@@ -45,7 +47,8 @@
       "duration_seconds": 217.9,
       "status": "success",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224541-E1AQ"
     },
     {
       "name": "step-03-meeting-context",
@@ -57,7 +60,8 @@
       "duration_seconds": 217.9,
       "status": "success",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224541-E1AQ"
     },
     {
       "name": "step-04-synthesize-briefing",
@@ -69,7 +73,8 @@
       "duration_seconds": 217.9,
       "status": "success",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224541-E1AQ"
     },
     {
       "name": "step-05-verify-briefing",
@@ -81,7 +86,8 @@
       "duration_seconds": 217.9,
       "status": "success",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224541-E1AQ"
     }
   ],
   "assessment": {
@@ -127,5 +133,6 @@
     "cowork-instrumented"
   ],
   "model": "glm-5p3",
-  "model_source": "session-transcript-latest-backfill"
+  "model_source": "session-transcript-latest-backfill",
+  "correlation_id": "corr-20261026T224541-E1AQ"
 }

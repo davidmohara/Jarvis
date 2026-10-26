@@ -14,37 +14,43 @@
       "name": "step-01-intake",
       "started": "2026-06-27T04:06:21Z",
       "completed": "2026-06-27T04:08:00Z",
-      "status": "success"
+      "status": "success",
+      "correlation_id": "corr-20261026T224540-N3IH"
     },
     {
       "name": "step-02-assert",
       "started": "2026-06-27T04:08:00Z",
       "completed": "2026-06-27T04:10:00Z",
-      "status": "success"
+      "status": "success",
+      "correlation_id": "corr-20261026T224540-N3IH"
     },
     {
       "name": "step-03-grade",
       "started": "2026-06-27T04:10:00Z",
       "completed": "2026-06-27T04:16:00Z",
-      "status": "success"
+      "status": "success",
+      "correlation_id": "corr-20261026T224540-N3IH"
     },
     {
       "name": "step-04-score",
       "started": "2026-06-27T04:16:00Z",
       "completed": "2026-06-27T04:18:00Z",
-      "status": "success"
+      "status": "success",
+      "correlation_id": "corr-20261026T224540-N3IH"
     },
     {
       "name": "step-05-analyze",
       "started": "2026-06-27T04:18:00Z",
       "completed": "2026-06-27T04:21:00Z",
-      "status": "success"
+      "status": "success",
+      "correlation_id": "corr-20261026T224540-N3IH"
     },
     {
       "name": "step-06-dashboard",
       "started": "2026-06-27T04:21:00Z",
       "completed": "2026-06-27T04:23:00Z",
-      "status": "success"
+      "status": "success",
+      "correlation_id": "corr-20261026T224540-N3IH"
     }
   ],
   "assessment": {
@@ -125,5 +131,6 @@
   "prior_baseline_id": null,
   "tags": [],
   "total_cost_usd": 0.024,
-  "cost_estimation_note": "estimated based on system-eval workflow type"
+  "cost_estimation_note": "estimated based on system-eval workflow type",
+  "correlation_id": "corr-20261026T224540-N3IH"
 }

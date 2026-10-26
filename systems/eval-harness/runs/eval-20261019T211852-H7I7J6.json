@@ -28,7 +28,8 @@
       "model": "accounts/fireworks/models/kimi-k3",
       "token_source": "lenient_fallback",
       "turns_matched": 29,
-      "duration_seconds": 74.0
+      "duration_seconds": 74.0,
+      "correlation_id": "corr-20261026T224541-RMW7"
     },
     {
       "name": "step-02-gather-tasks.md",
@@ -44,7 +45,8 @@
       "model": "accounts/fireworks/models/kimi-k3",
       "token_source": "lenient_fallback",
       "turns_matched": 29,
-      "duration_seconds": 127.0
+      "duration_seconds": 127.0,
+      "correlation_id": "corr-20261026T224541-RMW7"
     },
     {
       "name": "step-03-gather-context.md",
@@ -60,7 +62,8 @@
       "model": "accounts/fireworks/models/kimi-k3",
       "token_source": "lenient_fallback",
       "turns_matched": 29,
-      "duration_seconds": 614.0
+      "duration_seconds": 614.0,
+      "correlation_id": "corr-20261026T224541-RMW7"
     },
     {
       "name": "step-03b-guardrail-checkpoint.md",
@@ -76,7 +79,8 @@
       "model": "accounts/fireworks/models/kimi-k3",
       "token_source": "lenient_fallback",
       "turns_matched": 29,
-      "duration_seconds": 60.0
+      "duration_seconds": 60.0,
+      "correlation_id": "corr-20261026T224541-RMW7"
     },
     {
       "name": "step-04-synthesize-briefing.md",
@@ -92,7 +96,8 @@
       "model": "accounts/fireworks/models/kimi-k3",
       "token_source": "windowed",
       "turns_matched": 6,
-      "duration_seconds": 388.0
+      "duration_seconds": 388.0,
+      "correlation_id": "corr-20261026T224541-RMW7"
     },
     {
       "name": "step-05-verify-briefing.md",
@@ -110,7 +115,8 @@
       "tokens_output": 556,
       "cost_usd": 0.102841,
       "token_source": "windowed",
-      "turns_matched": 19
+      "turns_matched": 19,
+      "correlation_id": "corr-20261026T224541-RMW7"
     }
   ],
   "assessment": {
@@ -263,5 +269,6 @@
   ],
   "total_cost_usd": 0.09,
   "cost_estimation_note": "estimated based on general-purpose workflow type",
-  "model": "sonnet"
+  "model": "sonnet",
+  "correlation_id": "corr-20261026T224541-RMW7"
 }

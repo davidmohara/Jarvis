@@ -23,7 +23,8 @@
       "model": null,
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-9ERU"
     },
     {
       "name": "step-03-verify-phase2.md",
@@ -36,7 +37,8 @@
       "model": null,
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-9ERU"
     },
     {
       "name": "daily-step-03-score.md",
@@ -49,7 +51,8 @@
       "model": null,
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-9ERU"
     },
     {
       "name": "step-04-gather-meeting-context.md",
@@ -62,7 +65,8 @@
       "model": null,
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-9ERU"
     }
   ],
   "assessment": {
@@ -109,5 +113,6 @@
   "model": "sonnet",
   "total_tokens_input": 1112163,
   "total_tokens_output": 37,
-  "total_cost_usd": 0.918659
+  "total_cost_usd": 0.918659,
+  "correlation_id": "corr-20261026T224540-9ERU"
 }

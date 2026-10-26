@@ -30,7 +30,8 @@
       "tokens_output": 3682,
       "cost_usd": 0.058514,
       "token_source": "lenient_fallback",
-      "turns_matched": 58
+      "turns_matched": 58,
+      "correlation_id": "corr-20261026T224541-F0PS"
     },
     {
       "name": "step-02-trigger-transcription.md",
@@ -46,7 +47,8 @@
       "model": "accounts/fireworks/models/deepseek-v4p1-flash",
       "token_source": "lenient_fallback",
       "turns_matched": 58,
-      "duration_seconds": 1617.0
+      "duration_seconds": 1617.0,
+      "correlation_id": "corr-20261026T224541-F0PS"
     },
     {
       "name": "step-03-identify-speakers.md",
@@ -62,7 +64,8 @@
       "model": "accounts/fireworks/models/deepseek-v4p1-flash",
       "token_source": "lenient_fallback",
       "turns_matched": 58,
-      "duration_seconds": 1617.0
+      "duration_seconds": 1617.0,
+      "correlation_id": "corr-20261026T224541-F0PS"
     },
     {
       "name": "step-04-fetch-staging.md",
@@ -78,7 +81,8 @@
       "model": "accounts/fireworks/models/deepseek-v4p1-flash",
       "token_source": "lenient_fallback",
       "turns_matched": 58,
-      "duration_seconds": 1617.0
+      "duration_seconds": 1617.0,
+      "correlation_id": "corr-20261026T224541-F0PS"
     },
     {
       "name": "step-05-ingest-vault.md",
@@ -94,7 +98,8 @@
       "model": "accounts/fireworks/models/deepseek-v4p1-flash",
       "token_source": "lenient_fallback",
       "turns_matched": 58,
-      "duration_seconds": 1617.0
+      "duration_seconds": 1617.0,
+      "correlation_id": "corr-20261026T224541-F0PS"
     },
     {
       "name": "step-05b-share-with-alice.md",
@@ -110,7 +115,8 @@
       "model": "accounts/fireworks/models/deepseek-v4p1-flash",
       "token_source": "lenient_fallback",
       "turns_matched": 58,
-      "duration_seconds": 1617.0
+      "duration_seconds": 1617.0,
+      "correlation_id": "corr-20261026T224541-F0PS"
     },
     {
       "name": "step-06-verify-ingest.md",
@@ -126,7 +132,8 @@
       "model": "accounts/fireworks/models/deepseek-v4p1-flash",
       "token_source": "lenient_fallback",
       "turns_matched": 58,
-      "duration_seconds": 1617.0
+      "duration_seconds": 1617.0,
+      "correlation_id": "corr-20261026T224541-F0PS"
     }
   ],
   "assessment": {
@@ -297,5 +304,6 @@
   },
   "total_cost_usd": 0.09,
   "cost_estimation_note": "estimated based on general-purpose workflow type",
-  "model": "sonnet"
+  "model": "sonnet",
+  "correlation_id": "corr-20261026T224541-F0PS"
 }

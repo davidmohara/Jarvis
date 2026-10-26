@@ -17,7 +17,8 @@
       "duration_seconds": 7283.5,
       "status": "success",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224540-45XG"
     },
     {
       "name": "step-04-root-audit",
@@ -26,7 +27,8 @@
       "duration_seconds": 7283.5,
       "status": "success",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224540-45XG"
     },
     {
       "name": "step-05-session-close",
@@ -35,7 +37,8 @@
       "duration_seconds": 7283.5,
       "status": "success",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224540-45XG"
     },
     {
       "name": "step-01-capture",
@@ -48,7 +51,8 @@
       "model": null,
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-45XG"
     },
     {
       "name": "step-02-set-tomorrow",
@@ -61,7 +65,8 @@
       "model": null,
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-45XG"
     },
     {
       "name": "step-03-update-system",
@@ -74,7 +79,8 @@
       "model": null,
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-45XG"
     }
   ],
   "assessment": {
@@ -118,5 +124,6 @@
   "prior_baseline_id": null,
   "tags": [
     "cowork-instrumented"
-  ]
+  ],
+  "correlation_id": "corr-20261026T224540-45XG"
 }

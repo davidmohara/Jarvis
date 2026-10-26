@@ -23,7 +23,8 @@
       "model": "kimi-k3",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224541-PIGT"
     }
   ],
   "assessment": {
@@ -66,5 +67,6 @@
   },
   "version_hash": null,
   "prior_baseline_id": null,
-  "tags": []
+  "tags": [],
+  "correlation_id": "corr-20261026T224541-PIGT"
 }

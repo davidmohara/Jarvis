@@ -107,5 +107,6 @@
         "reason": "Knox's plaud-ingest speaker-ID follow-up agent (agent_id a574875944e9402dd), a separate sibling spawn from this session, not part of boot's own execution. Was misattributed into this record's subagents[] before the 2026-08-28 fix; removed during Task 1/2 cleanup."
       }
     ]
-  }
+  },
+  "correlation_id": "corr-20261026T224540-TR5F"
 }

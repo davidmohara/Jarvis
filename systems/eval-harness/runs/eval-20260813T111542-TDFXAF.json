@@ -17,7 +17,8 @@
       "duration_seconds": 85.6,
       "status": "success",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224540-XU6N"
     },
     {
       "name": "step-02-gather-tasks",
@@ -26,7 +27,8 @@
       "duration_seconds": 85.6,
       "status": "success",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224540-XU6N"
     },
     {
       "name": "step-03-meeting-context",
@@ -35,7 +37,8 @@
       "duration_seconds": 85.6,
       "status": "success",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224540-XU6N"
     },
     {
       "name": "step-04-synthesize-briefing",
@@ -44,7 +47,8 @@
       "duration_seconds": 85.6,
       "status": "success",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224540-XU6N"
     }
   ],
   "assessment": {
@@ -90,5 +94,6 @@
     "cowork-instrumented"
   ],
   "total_cost_usd": 0.069,
-  "cost_estimation_note": "estimated based on morning-briefing workflow type"
+  "cost_estimation_note": "estimated based on morning-briefing workflow type",
+  "correlation_id": "corr-20261026T224540-XU6N"
 }

@@ -23,7 +23,8 @@
       "model": "haiku",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-VGA7"
     },
     {
       "name": "step-04-fetch-staging.md",
@@ -36,7 +37,8 @@
       "model": "haiku",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-VGA7"
     },
     {
       "name": "step-05-ingest-vault.md",
@@ -49,7 +51,8 @@
       "model": "sonnet",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-VGA7"
     },
     {
       "name": "step-05b-share-with-alice.md",
@@ -62,7 +65,8 @@
       "model": "sonnet",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-VGA7"
     }
   ],
   "assessment": {
@@ -109,5 +113,6 @@
   "model": "sonnet",
   "total_tokens_input": 18220823,
   "total_tokens_output": 7405,
-  "total_cost_usd": 6.286241
+  "total_cost_usd": 6.286241,
+  "correlation_id": "corr-20261026T224540-VGA7"
 }

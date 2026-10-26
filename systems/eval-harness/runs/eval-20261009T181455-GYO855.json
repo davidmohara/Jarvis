@@ -28,7 +28,8 @@
       "tokens_output": 192,
       "cost_usd": null,
       "token_source": "lenient_fallback",
-      "turns_matched": 17
+      "turns_matched": 17,
+      "correlation_id": "corr-20261026T224541-28U5"
     },
     {
       "name": "step-02-gather-communications.md",
@@ -46,7 +47,8 @@
       "tokens_output": 192,
       "cost_usd": null,
       "token_source": "lenient_fallback",
-      "turns_matched": 17
+      "turns_matched": 17,
+      "correlation_id": "corr-20261026T224541-28U5"
     },
     {
       "name": "step-03-gather-tasks.md",
@@ -64,7 +66,8 @@
       "tokens_output": 192,
       "cost_usd": null,
       "token_source": "lenient_fallback",
-      "turns_matched": 17
+      "turns_matched": 17,
+      "correlation_id": "corr-20261026T224541-28U5"
     }
   ],
   "assessment": {
@@ -168,5 +171,6 @@
   ],
   "total_cost_usd": 0.09,
   "cost_estimation_note": "estimated based on general-purpose workflow type",
-  "model": "sonnet"
+  "model": "sonnet",
+  "correlation_id": "corr-20261026T224541-28U5"
 }

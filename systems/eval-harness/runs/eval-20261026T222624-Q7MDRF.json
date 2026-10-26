@@ -1,0 +1,111 @@
+{
+  "id": "eval-20261026T222624-Q7MDRF",
+  "type": "skill",
+  "name": "quinn-strategy",
+  "agent": "general-purpose",
+  "session_id": "64d08eb2-39a5-46c1-8a7b-b45e89362d2e",
+  "trigger": "boot",
+  "model": "glm-5p3",
+  "model_source": "session-transcript-window",
+  "started": "2026-10-26T22:26:19.848966Z",
+  "completed": "2026-10-26T22:26:24.582322Z",
+  "duration_seconds": 4.7,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": true,
+      "outputs_non_empty": true,
+      "assertions_checked": 6,
+      "assertions_passed": 6,
+      "assertion_results": [
+        {
+          "assertion": "quinn-strategy-signal-written",
+          "description": "quinn-strategy skill-run signal file was written",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "quinn-strategy-signal-status",
+          "description": "quinn-strategy skill-run did not end in failure",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "quinn-st-002-substantive",
+          "description": "quinn-strategy output is substantive (>200 bytes)",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "quinn-st-003-content",
+          "description": "quinn-strategy output contains expected content",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "quinn-st-q1-kernel",
+          "description": "Quinn Q1 (strategy-kernel presence): the strategy output names the kernel \u2014 a diagnosis, a guiding policy, and coherent actions (or the equivalent 2-minute format lines 'Our challenge / Our approach / First three moves'). Honest limit: this confirms the kernel vocabulary is present in the persisted strategy output, not that each element is well-formed; the semantic quality is covered by the Q4 Tier 3 grade.",
+          "category": "content",
+          "passed": true
+        },
+        {
+          "assertion": "quinn-st-q2-bad-strategy",
+          "description": "Quinn Q2 (bad-strategy detection): whether the output flags goals-as-strategy / fluff / template thinking is a conditional, semantic judgment (it only fires when a bad pattern is present) that cannot be mechanically asserted. Honest alternative \u2014 Tier 3 grade presence at B or better; defers (skipped) until graded.",
+          "category": "quality",
+          "passed": null,
+          "skipped": true,
+          "reason": "not graded yet \u2014 this criterion is only judgeable by Tier 3 grading; deferred (not failed) until a grade exists"
+        },
+        {
+          "assertion": "quinn-st-q3-objectives-file",
+          "description": "Quinn Q3 (goal-grounding): the authoritative quarterly objectives file that strategy/rock/alignment outputs must reference exists and is readable. Honest limit: this asserts the grounding source is present, not that a given output cited it; the citation itself is judged by the Q4 grade and by the rock/alignment working-memory checks in the sibling files.",
+          "category": "content",
+          "passed": true
+        }
+      ],
+      "category_breakdown": {
+        "structure": {
+          "passed": 4,
+          "checked": 4
+        },
+        "content": {
+          "passed": 2,
+          "checked": 2
+        },
+        "quality": {
+          "passed": 0,
+          "checked": 0
+        }
+      }
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "deterministic_gate": {
+      "score": 1.0,
+      "gate_status": "pass",
+      "computed_at": "2026-10-26T22:26:26.320993Z"
+    }
+  },
+  "version_hash": "2d26e1902ae70d71",
+  "prior_baseline_id": null,
+  "tags": [
+    "cowork-hook",
+    "skill"
+  ],
+  "correlation_id": "corr-20261026T224541-1P9C"
+}

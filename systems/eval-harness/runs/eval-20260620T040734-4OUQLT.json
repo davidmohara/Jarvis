@@ -14,37 +14,43 @@
       "name": "step-01-intake",
       "status": "success",
       "started": "2026-06-20T04:07:00Z",
-      "completed": "2026-06-20T04:09:00Z"
+      "completed": "2026-06-20T04:09:00Z",
+      "correlation_id": "corr-20261026T224540-LBOC"
     },
     {
       "name": "step-02-assert",
       "status": "success",
       "started": "2026-06-20T04:09:00Z",
-      "completed": "2026-06-20T04:12:00Z"
+      "completed": "2026-06-20T04:12:00Z",
+      "correlation_id": "corr-20261026T224540-LBOC"
     },
     {
       "name": "step-03-grade",
       "status": "success",
       "started": "2026-06-20T04:12:00Z",
-      "completed": "2026-06-20T04:18:00Z"
+      "completed": "2026-06-20T04:18:00Z",
+      "correlation_id": "corr-20261026T224540-LBOC"
     },
     {
       "name": "step-04-score",
       "status": "success",
       "started": "2026-06-20T04:18:00Z",
-      "completed": "2026-06-20T04:21:00Z"
+      "completed": "2026-06-20T04:21:00Z",
+      "correlation_id": "corr-20261026T224540-LBOC"
     },
     {
       "name": "step-05-analyze",
       "status": "success",
       "started": "2026-06-20T04:21:00Z",
-      "completed": "2026-06-20T04:25:00Z"
+      "completed": "2026-06-20T04:25:00Z",
+      "correlation_id": "corr-20261026T224540-LBOC"
     },
     {
       "name": "step-06-dashboard",
       "status": "success",
       "started": "2026-06-20T04:25:00Z",
-      "completed": "2026-06-20T04:12:00.258179Z"
+      "completed": "2026-06-20T04:12:00.258179Z",
+      "correlation_id": "corr-20261026T224540-LBOC"
     }
   ],
   "assessment": {
@@ -125,5 +131,6 @@
   "prior_baseline_id": null,
   "tags": [],
   "total_cost_usd": 0.024,
-  "cost_estimation_note": "estimated based on system-eval workflow type"
+  "cost_estimation_note": "estimated based on system-eval workflow type",
+  "correlation_id": "corr-20261026T224540-LBOC"
 }

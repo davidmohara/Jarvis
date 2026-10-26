@@ -25,7 +25,8 @@
       "tokens_output": 2318,
       "cost_usd": null,
       "turns_matched": 4,
-      "token_source": "backfilled-windowed"
+      "token_source": "backfilled-windowed",
+      "correlation_id": "corr-20261026T224541-1W4R"
     }
   ],
   "assessment": {
@@ -73,5 +74,6 @@
   "total_tokens_input": 238578,
   "total_tokens_output": 2986,
   "total_cost_usd": 0.09,
-  "cost_estimation_note": "estimated based on general-purpose workflow type"
+  "cost_estimation_note": "estimated based on general-purpose workflow type",
+  "correlation_id": "corr-20261026T224541-1W4R"
 }

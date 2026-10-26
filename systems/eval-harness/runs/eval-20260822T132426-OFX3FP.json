@@ -15,7 +15,8 @@
       "name": "Load Context",
       "status": "complete",
       "guardrail": "pass",
-      "duration_seconds": 0.001
+      "duration_seconds": 0.001,
+      "correlation_id": "corr-20261026T224540-LPLJ"
     },
     {
       "group": 2,
@@ -23,7 +24,8 @@
       "name": "Calendar Consolidation",
       "status": "complete",
       "guardrail": "pass",
-      "duration_seconds": 0.105
+      "duration_seconds": 0.105,
+      "correlation_id": "corr-20261026T224540-LPLJ"
     },
     {
       "group": 3,
@@ -31,7 +33,8 @@
       "name": "Phase 2 Data Gathering",
       "status": "complete",
       "guardrail": "pass",
-      "duration_seconds": 0.109
+      "duration_seconds": 0.109,
+      "correlation_id": "corr-20261026T224540-LPLJ"
     },
     {
       "group": 4,
@@ -39,7 +42,8 @@
       "name": "Phase 2 Verification",
       "status": "complete",
       "guardrail": "pass",
-      "duration_seconds": 0.104
+      "duration_seconds": 0.104,
+      "correlation_id": "corr-20261026T224540-LPLJ"
     },
     {
       "group": 5,
@@ -47,7 +51,8 @@
       "name": "Meeting Context",
       "status": "complete",
       "guardrail": "pass",
-      "duration_seconds": 0.104
+      "duration_seconds": 0.104,
+      "correlation_id": "corr-20261026T224540-LPLJ"
     },
     {
       "group": 6,
@@ -55,7 +60,8 @@
       "name": "Briefing Synthesis",
       "status": "complete",
       "guardrail": "pass",
-      "duration_seconds": 0.105
+      "duration_seconds": 0.105,
+      "correlation_id": "corr-20261026T224540-LPLJ"
     },
     {
       "group": 7,
@@ -63,7 +69,8 @@
       "name": "Workflow Scan",
       "status": "complete",
       "guardrail": "pass",
-      "duration_seconds": 0.1
+      "duration_seconds": 0.1,
+      "correlation_id": "corr-20261026T224540-LPLJ"
     },
     {
       "group": 8,
@@ -71,7 +78,8 @@
       "name": "Content Review Checkpoint",
       "status": "complete",
       "guardrail": "pass",
-      "duration_seconds": 0.103
+      "duration_seconds": 0.103,
+      "correlation_id": "corr-20261026T224540-LPLJ"
     },
     {
       "group": 9,
@@ -79,7 +87,8 @@
       "name": "Completion Verification",
       "status": "complete",
       "guardrail": "pass",
-      "duration_seconds": 0.101
+      "duration_seconds": 0.101,
+      "correlation_id": "corr-20261026T224540-LPLJ"
     }
   ],
   "guardrail_outcomes": {
@@ -116,5 +125,6 @@
     ],
     "context_size_tokens_estimated": 12500
   },
-  "notes": "Stage 4 compliance baseline boot execution. All 9 sequential groups completed successfully. All guardrail checkpoints passed. No escalations or blockers encountered."
+  "notes": "Stage 4 compliance baseline boot execution. All 9 sequential groups completed successfully. All guardrail checkpoints passed. No escalations or blockers encountered.",
+  "correlation_id": "corr-20261026T224540-LPLJ"
 }

@@ -23,7 +23,8 @@
       "model": "haiku",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-ZD79"
     },
     {
       "name": "step-03-identify-speakers.md",
@@ -36,7 +37,8 @@
       "model": "haiku",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-ZD79"
     },
     {
       "name": "step-05-ingest-vault.md",
@@ -49,7 +51,8 @@
       "model": "sonnet",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-ZD79"
     },
     {
       "name": "step-05b-share-with-alice.md",
@@ -62,7 +65,8 @@
       "model": "sonnet",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-ZD79"
     },
     {
       "name": "step-01-discover.md",
@@ -75,7 +79,8 @@
       "model": "sonnet",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-ZD79"
     },
     {
       "name": "step-01-approve.md",
@@ -88,7 +93,8 @@
       "model": "haiku",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-ZD79"
     },
     {
       "name": "step-02-git-finalize.md",
@@ -101,7 +107,8 @@
       "model": "haiku",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-ZD79"
     }
   ],
   "assessment": {
@@ -148,5 +155,6 @@
   "model": "sonnet",
   "total_tokens_input": 4188562,
   "total_tokens_output": 4022,
-  "total_cost_usd": 1.928588
+  "total_cost_usd": 1.928588,
+  "correlation_id": "corr-20261026T224540-ZD79"
 }

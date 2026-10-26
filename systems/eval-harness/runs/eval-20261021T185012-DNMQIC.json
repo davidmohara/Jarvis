@@ -1,77 +1,78 @@
 {
- "id": "eval-20261021T185012-DNMQIC",
- "agent_id": "a90ba56ee72d4b7d4",
- "type": "agent",
- "name": "general-purpose",
- "workflow": null,
- "agent": "general-purpose",
- "owning_agent": null,
- "subagent_type": "general-purpose",
- "session_id": "345c604d-c844-4335-a6bb-2ff2b6ba17b6",
- "trigger": "unknown",
- "started": "2026-10-21T18:50:12.921205Z",
- "completed": "2026-10-21T18:58:02.640127Z",
- "duration_seconds": 469.72,
- "status": "success",
- "steps": [],
- "assessment": {
-  "mechanical": {
-   "completed": true,
-   "all_steps_finished": true,
-   "tool_failures": 0,
-   "error_ids": []
+  "id": "eval-20261021T185012-DNMQIC",
+  "agent_id": "a90ba56ee72d4b7d4",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "general-purpose",
+  "owning_agent": null,
+  "subagent_type": "general-purpose",
+  "session_id": "345c604d-c844-4335-a6bb-2ff2b6ba17b6",
+  "trigger": "unknown",
+  "started": "2026-10-21T18:50:12.921205Z",
+  "completed": "2026-10-21T18:58:02.640127Z",
+  "duration_seconds": 469.72,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": "2026-10-22T01:05:32Z",
+      "grade": "A",
+      "safety_grade": null,
+      "grader_notes": "Feature images sourced, uploaded to the Ghost CDN, and attached to all three hub draft pages. Image rules followed: free non-Unsplash+ only (a premium first candidate was discarded), pixel-verified landscape (2000x1333), thematic fit, no people as primary subject. One disclosed deviation: WebSearch returned search_unauthorized, so sourcing used WebFetch against unsplash.com directly, which has no provenance restriction. Deviation disclosed in the handback and within the spirit of the sourcing rules. All PUTs succeeded first attempt with correct updated_at handling."
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
   },
-  "structural": {
-   "expected_outputs_written": null,
-   "outputs_non_empty": null,
-   "assertions_checked": 0,
-   "assertions_passed": 0,
-   "assertion_results": []
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/345c604d-c844-4335-a6bb-2ff2b6ba17b6/subagents/agent-a90ba56ee72d4b7d4.jsonl",
+  "model": "accounts/fireworks/models/kimi-k3",
+  "total_tokens_input": 150624,
+  "total_tokens_output": 991,
+  "total_cost_usd": 0.07525,
+  "parent_window": {
+    "token_source": "parent-window",
+    "transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/345c604d-c844-4335-a6bb-2ff2b6ba17b6.jsonl",
+    "window_start": "2026-10-21T18:50:12.921205Z",
+    "window_end": "2026-10-21T18:58:02.640127Z",
+    "model": "glm-5p3",
+    "tokens_input": 375880,
+    "tokens_output": 310,
+    "cost_usd": 0.056854,
+    "turns_matched": 2,
+    "turns_with_usage": 2,
+    "computed_at": "2026-10-21T21:54:10.536592Z"
   },
-  "grading": {
-   "last_graded": "2026-10-22T01:05:32Z",
-   "grade": "A",
-   "safety_grade": null,
-   "grader_notes": "Feature images sourced, uploaded to the Ghost CDN, and attached to all three hub draft pages. Image rules followed: free non-Unsplash+ only (a premium first candidate was discarded), pixel-verified landscape (2000x1333), thematic fit, no people as primary subject. One disclosed deviation: WebSearch returned search_unauthorized, so sourcing used WebFetch against unsplash.com directly, which has no provenance restriction. Deviation disclosed in the handback and within the spirit of the sourcing rules. All PUTs succeeded first attempt with correct updated_at handling."
-  },
-  "controller_feedback": {
-   "rating": null,
-   "comment": null,
-   "timestamp": null
-  },
-  "bias_assessment": {
-   "applicable": false,
-   "protected_attributes": [],
-   "fairness_metric": null,
-   "demographic_coverage_verified": false,
-   "adversarial_inputs_tested": false,
-   "bias_detected": false,
-   "bias_flags": [],
-   "remediation_status": "none"
-  }
- },
- "version_hash": null,
- "prior_baseline_id": null,
- "tags": [],
- "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/345c604d-c844-4335-a6bb-2ff2b6ba17b6/subagents/agent-a90ba56ee72d4b7d4.jsonl",
- "model": "accounts/fireworks/models/kimi-k3",
- "total_tokens_input": 150624,
- "total_tokens_output": 991,
- "total_cost_usd": 0.07525,
- "parent_window": {
-  "token_source": "parent-window",
-  "transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/345c604d-c844-4335-a6bb-2ff2b6ba17b6.jsonl",
-  "window_start": "2026-10-21T18:50:12.921205Z",
-  "window_end": "2026-10-21T18:58:02.640127Z",
-  "model": "glm-5p3",
-  "tokens_input": 375880,
-  "tokens_output": 310,
-  "cost_usd": 0.056854,
-  "turns_matched": 2,
-  "turns_with_usage": 2,
-  "computed_at": "2026-10-21T21:54:10.536592Z"
- },
- "fully_loaded_cost_usd": 0.132104,
- "fully_loaded_tokens_input": 526504,
- "fully_loaded_tokens_output": 1301
+  "fully_loaded_cost_usd": 0.132104,
+  "fully_loaded_tokens_input": 526504,
+  "fully_loaded_tokens_output": 1301,
+  "correlation_id": "corr-20261026T224541-E1M0"
 }

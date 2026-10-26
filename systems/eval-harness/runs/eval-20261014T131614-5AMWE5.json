@@ -25,7 +25,8 @@
       "model": "accounts/fireworks/models/deepseek-v4p1-flash",
       "token_source": "lenient_fallback",
       "turns_matched": 8,
-      "duration_seconds": 0.0
+      "duration_seconds": 0.0,
+      "correlation_id": "corr-20261026T224541-00QJ"
     },
     {
       "name": "step-01.2-unified-data-pull.md",
@@ -40,7 +41,8 @@
       "model": "accounts/fireworks/models/deepseek-v4p1-flash",
       "token_source": "lenient_fallback",
       "turns_matched": 8,
-      "duration_seconds": 360.0
+      "duration_seconds": 360.0,
+      "correlation_id": "corr-20261026T224541-00QJ"
     },
     {
       "name": "step-01.5-unified-calendar-pull.md",
@@ -55,7 +57,8 @@
       "model": "accounts/fireworks/models/deepseek-v4p1-flash",
       "token_source": "lenient_fallback",
       "turns_matched": 8,
-      "duration_seconds": 120.0
+      "duration_seconds": 120.0,
+      "correlation_id": "corr-20261026T224541-00QJ"
     },
     {
       "name": "step-02-gather-data.md",
@@ -70,7 +73,8 @@
       "model": "accounts/fireworks/models/deepseek-v4p1-flash",
       "token_source": "lenient_fallback",
       "turns_matched": 8,
-      "duration_seconds": 300.0
+      "duration_seconds": 300.0,
+      "correlation_id": "corr-20261026T224541-00QJ"
     },
     {
       "name": "step-02.5-measure-phase2.md",
@@ -85,7 +89,8 @@
       "model": "accounts/fireworks/models/deepseek-v4p1-flash",
       "token_source": "lenient_fallback",
       "turns_matched": 8,
-      "duration_seconds": 120.0
+      "duration_seconds": 120.0,
+      "correlation_id": "corr-20261026T224541-00QJ"
     },
     {
       "name": "step-03-verify-phase2.md",
@@ -100,7 +105,8 @@
       "model": "accounts/fireworks/models/deepseek-v4p1-flash",
       "token_source": "lenient_fallback",
       "turns_matched": 8,
-      "duration_seconds": 240.0
+      "duration_seconds": 240.0,
+      "correlation_id": "corr-20261026T224541-00QJ"
     },
     {
       "name": "step-04-gather-meeting-context.md",
@@ -115,7 +121,8 @@
       "model": "accounts/fireworks/models/deepseek-v4p1-flash",
       "token_source": "lenient_fallback",
       "turns_matched": 8,
-      "duration_seconds": 360.0
+      "duration_seconds": 360.0,
+      "correlation_id": "corr-20261026T224541-00QJ"
     },
     {
       "name": "step-05-synthesize-briefing.md",
@@ -130,7 +137,8 @@
       "model": "accounts/fireworks/models/deepseek-v4p1-flash",
       "token_source": "lenient_fallback",
       "turns_matched": 8,
-      "duration_seconds": 2040.0
+      "duration_seconds": 2040.0,
+      "correlation_id": "corr-20261026T224541-00QJ"
     },
     {
       "name": "step-06-scan-workflows.md",
@@ -148,7 +156,8 @@
       "tokens_output": 0,
       "cost_usd": null,
       "token_source": "windowed",
-      "turns_matched": 3
+      "turns_matched": 3,
+      "correlation_id": "corr-20261026T224541-00QJ"
     },
     {
       "name": "step-06.5-guardrail-checkpoint.md",
@@ -163,7 +172,8 @@
       "model": "accounts/fireworks/models/deepseek-v4p1-flash",
       "token_source": "lenient_fallback",
       "turns_matched": 8,
-      "duration_seconds": 120.0
+      "duration_seconds": 120.0,
+      "correlation_id": "corr-20261026T224541-00QJ"
     },
     {
       "name": "step-07-verify-completion.md",
@@ -178,7 +188,8 @@
       "model": "accounts/fireworks/models/deepseek-v4p1-flash",
       "token_source": "lenient_fallback",
       "turns_matched": 8,
-      "duration_seconds": 9506.0
+      "duration_seconds": 9506.0,
+      "correlation_id": "corr-20261026T224541-00QJ"
     },
     {
       "name": "step-08-knox-completion-check.md",
@@ -196,7 +207,8 @@
       "tokens_output": 0,
       "cost_usd": null,
       "token_source": "lenient_fallback",
-      "turns_matched": 8
+      "turns_matched": 8,
+      "correlation_id": "corr-20261026T224541-00QJ"
     }
   ],
   "assessment": {
@@ -499,5 +511,6 @@
   },
   "total_cost_usd": 0.09,
   "cost_estimation_note": "estimated based on general-purpose workflow type",
-  "model": "sonnet"
+  "model": "sonnet",
+  "correlation_id": "corr-20261026T224541-00QJ"
 }

@@ -25,7 +25,8 @@
       "model": "glm-5p3",
       "token_source": "windowed",
       "turns_matched": 13,
-      "duration_seconds": 270.0
+      "duration_seconds": 270.0,
+      "correlation_id": "corr-20261026T224541-GNX8"
     }
   ],
   "assessment": {
@@ -88,5 +89,6 @@
         "verification_results": "pass"
       }
     }
-  ]
+  ],
+  "correlation_id": "corr-20261026T224541-GNX8"
 }

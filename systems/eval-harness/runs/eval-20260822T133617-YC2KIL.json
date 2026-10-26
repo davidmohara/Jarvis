@@ -22,7 +22,8 @@
       "model": null,
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-RR8E"
     }
   ],
   "assessment": {
@@ -69,5 +70,6 @@
   "model": "sonnet",
   "total_tokens_input": 1033167,
   "total_tokens_output": 516,
-  "total_cost_usd": 0.555209
+  "total_cost_usd": 0.555209,
+  "correlation_id": "corr-20261026T224540-RR8E"
 }

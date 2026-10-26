@@ -22,7 +22,8 @@
       "model": "haiku",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-LKU6"
     },
     {
       "name": "step-02-trigger-transcription.md",
@@ -35,7 +36,8 @@
       "model": "haiku",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-LKU6"
     }
   ],
   "assessment": {
@@ -103,5 +105,6 @@
   "model": "haiku",
   "total_tokens_input": 655452,
   "total_tokens_output": 30,
-  "total_cost_usd": 0.110234
+  "total_cost_usd": 0.110234,
+  "correlation_id": "corr-20261026T224540-LKU6"
 }

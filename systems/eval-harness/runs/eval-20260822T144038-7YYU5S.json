@@ -22,7 +22,8 @@
       "model": "haiku",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-8F0Q"
     },
     {
       "name": "step-04-fetch-staging.md",
@@ -35,7 +36,8 @@
       "model": "haiku",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-8F0Q"
     }
   ],
   "assessment": {
@@ -103,5 +105,6 @@
   "model": "haiku",
   "total_tokens_input": 1276144,
   "total_tokens_output": 35,
-  "total_cost_usd": 0.211055
+  "total_cost_usd": 0.211055,
+  "correlation_id": "corr-20261026T224540-8F0Q"
 }

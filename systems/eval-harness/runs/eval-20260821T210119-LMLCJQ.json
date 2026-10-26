@@ -22,7 +22,8 @@
       "model": null,
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-NLHO"
     },
     {
       "name": "step-01.2-unified-data-pull.md",
@@ -35,7 +36,8 @@
       "model": null,
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-NLHO"
     }
   ],
   "assessment": {
@@ -105,5 +107,6 @@
   "model": "sonnet",
   "total_tokens_input": 130386,
   "total_tokens_output": 21,
-  "total_cost_usd": 0.20946
+  "total_cost_usd": 0.20946,
+  "correlation_id": "corr-20261026T224540-NLHO"
 }

@@ -26,7 +26,8 @@
       "tokens_output": 667,
       "cost_usd": 0.033769,
       "token_source": "windowed",
-      "turns_matched": 3
+      "turns_matched": 3,
+      "correlation_id": "corr-20261026T224541-PWTM"
     },
     {
       "name": "step-01.2-unified-data-pull.md",
@@ -44,7 +45,8 @@
       "tokens_output": 285,
       "cost_usd": 0.0467,
       "token_source": "windowed",
-      "turns_matched": 4
+      "turns_matched": 4,
+      "correlation_id": "corr-20261026T224541-PWTM"
     },
     {
       "name": "step-02-gather-data.md",
@@ -62,7 +64,8 @@
       "tokens_output": 398,
       "cost_usd": 0.026493,
       "token_source": "windowed",
-      "turns_matched": 2
+      "turns_matched": 2,
+      "correlation_id": "corr-20261026T224541-PWTM"
     },
     {
       "name": "step-03-verify-phase2.md",
@@ -80,7 +83,8 @@
       "tokens_output": 59,
       "cost_usd": 0.012605,
       "token_source": "windowed",
-      "turns_matched": 1
+      "turns_matched": 1,
+      "correlation_id": "corr-20261026T224541-PWTM"
     },
     {
       "name": "step-04-gather-meeting-context.md",
@@ -98,7 +102,8 @@
       "tokens_output": 350,
       "cost_usd": 0.026611,
       "token_source": "windowed",
-      "turns_matched": 2
+      "turns_matched": 2,
+      "correlation_id": "corr-20261026T224541-PWTM"
     },
     {
       "name": "step-05-synthesize-briefing.md",
@@ -118,7 +123,8 @@
       "token_source": "windowed-partition",
       "turns_matched": 12,
       "turns_with_usage": 12,
-      "executed_by_agent_id": "afd86d2cdb4c6a55d"
+      "executed_by_agent_id": "afd86d2cdb4c6a55d",
+      "correlation_id": "corr-20261026T224541-PWTM"
     },
     {
       "name": "step-06-scan-workflows.md",
@@ -138,7 +144,8 @@
       "token_source": "windowed-partition",
       "turns_matched": 1,
       "turns_with_usage": 1,
-      "executed_by_agent_id": "afd86d2cdb4c6a55d"
+      "executed_by_agent_id": "afd86d2cdb4c6a55d",
+      "correlation_id": "corr-20261026T224541-PWTM"
     },
     {
       "name": "step-07-verify-completion.md",
@@ -159,7 +166,8 @@
       "turns_matched": 0,
       "turns_with_usage": 0,
       "executed_by_agent_id": "afd86d2cdb4c6a55d",
-      "model_source": "child-record-backfill"
+      "model_source": "child-record-backfill",
+      "correlation_id": "corr-20261026T224541-PWTM"
     },
     {
       "name": "step-08-knox-completion-check.md",
@@ -179,7 +187,8 @@
       "token_source": "windowed-partition",
       "turns_matched": 10,
       "turns_with_usage": 10,
-      "executed_by_agent_id": "afd86d2cdb4c6a55d"
+      "executed_by_agent_id": "afd86d2cdb4c6a55d",
+      "correlation_id": "corr-20261026T224541-PWTM"
     }
   ],
   "subagents": [
@@ -476,5 +485,6 @@
   "fully_loaded_tokens_input": 7639504,
   "fully_loaded_tokens_output": 71074,
   "model": "glm-5p3",
-  "model_source": "parent-window-backfill"
+  "model_source": "parent-window-backfill",
+  "correlation_id": "corr-20261026T224541-PWTM"
 }

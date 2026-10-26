@@ -27,7 +27,8 @@
       "tokens_input": null,
       "tokens_output": null,
       "cost_usd": null,
-      "token_source": null
+      "token_source": null,
+      "correlation_id": "corr-20261026T224541-EK7Z"
     },
     {
       "name": "step-01-discover.md",
@@ -44,7 +45,8 @@
       "tokens_input": null,
       "tokens_output": null,
       "cost_usd": null,
-      "token_source": null
+      "token_source": null,
+      "correlation_id": "corr-20261026T224541-EK7Z"
     },
     {
       "name": "step-01-approve.md",
@@ -61,7 +63,8 @@
       "tokens_input": null,
       "tokens_output": null,
       "cost_usd": null,
-      "token_source": null
+      "token_source": null,
+      "correlation_id": "corr-20261026T224541-EK7Z"
     },
     {
       "name": "step-03-adversarial-verify.md",
@@ -78,7 +81,8 @@
       "tokens_input": null,
       "tokens_output": null,
       "cost_usd": null,
-      "token_source": null
+      "token_source": null,
+      "correlation_id": "corr-20261026T224541-EK7Z"
     },
     {
       "name": "step-04-adversarial-verify.md",
@@ -95,7 +99,8 @@
       "tokens_input": null,
       "tokens_output": null,
       "cost_usd": null,
-      "token_source": null
+      "token_source": null,
+      "correlation_id": "corr-20261026T224541-EK7Z"
     },
     {
       "name": "step-01-purge-artifacts.md",
@@ -110,7 +115,8 @@
       "model": "accounts/fireworks/models/deepseek-v4p1-flash",
       "token_source": "lenient_fallback",
       "turns_matched": 48,
-      "duration_seconds": 61.0
+      "duration_seconds": 61.0,
+      "correlation_id": "corr-20261026T224541-EK7Z"
     },
     {
       "name": "step-02-organize-deliverables.md",
@@ -128,7 +134,8 @@
       "tokens_output": 0,
       "cost_usd": null,
       "token_source": "lenient_fallback",
-      "turns_matched": 48
+      "turns_matched": 48,
+      "correlation_id": "corr-20261026T224541-EK7Z"
     },
     {
       "name": "step-03-gitignore-check.md",
@@ -143,7 +150,8 @@
       "model": "accounts/fireworks/models/deepseek-v4p1-flash",
       "token_source": "lenient_fallback",
       "turns_matched": 48,
-      "duration_seconds": 20.0
+      "duration_seconds": 20.0,
+      "correlation_id": "corr-20261026T224541-EK7Z"
     },
     {
       "name": "step-04-commit.md",
@@ -158,7 +166,8 @@
       "model": "accounts/fireworks/models/deepseek-v4p1-flash",
       "token_source": "lenient_fallback",
       "turns_matched": 48,
-      "duration_seconds": 80.0
+      "duration_seconds": 80.0,
+      "correlation_id": "corr-20261026T224541-EK7Z"
     }
   ],
   "assessment": {
@@ -302,5 +311,6 @@
   },
   "total_cost_usd": 0.045,
   "cost_estimation_note": "estimated based on claude workflow type",
-  "model": "sonnet"
+  "model": "sonnet",
+  "correlation_id": "corr-20261026T224541-EK7Z"
 }

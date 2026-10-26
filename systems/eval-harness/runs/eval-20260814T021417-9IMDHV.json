@@ -17,7 +17,8 @@
       "duration_seconds": 0.0,
       "status": "success",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224540-EZL3"
     }
   ],
   "assessment": {
@@ -73,5 +74,6 @@
       "escalated_to_human": false,
       "timestamp": "2026-09-03T17:07:37.117335+00:00"
     }
-  ]
+  ],
+  "correlation_id": "corr-20261026T224540-EZL3"
 }

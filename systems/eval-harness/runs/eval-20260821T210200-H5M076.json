@@ -22,7 +22,8 @@
       "model": null,
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-F731"
     },
     {
       "name": "step-01.5-unified-calendar-pull.md",
@@ -35,7 +36,8 @@
       "model": null,
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-F731"
     },
     {
       "name": "step-02-gather-data.md",
@@ -48,7 +50,8 @@
       "model": null,
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-F731"
     },
     {
       "name": "step-07-verify-completion.md",
@@ -61,7 +64,8 @@
       "model": null,
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-F731"
     }
   ],
   "assessment": {
@@ -129,5 +133,6 @@
   "model": "haiku",
   "total_tokens_input": 1993925,
   "total_tokens_output": 57,
-  "total_cost_usd": 0.299388
+  "total_cost_usd": 0.299388,
+  "correlation_id": "corr-20261026T224540-F731"
 }

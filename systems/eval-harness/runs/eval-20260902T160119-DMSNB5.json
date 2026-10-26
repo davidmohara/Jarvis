@@ -21,7 +21,8 @@
       "model": null,
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-FNIT"
     }
   ],
   "subagents": [
@@ -133,5 +134,6 @@
   ],
   "total_tokens_input": 147177,
   "total_tokens_output": 6,
-  "total_cost_usd": 0.235762
+  "total_cost_usd": 0.235762,
+  "correlation_id": "corr-20261026T224540-FNIT"
 }

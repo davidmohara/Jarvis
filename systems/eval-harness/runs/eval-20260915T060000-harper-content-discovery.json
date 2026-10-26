@@ -14,13 +14,15 @@
       "name": "step-01-discover",
       "started": "2026-09-15T06:00:00Z",
       "completed": "2026-09-15T11:15:00Z",
-      "status": "complete"
+      "status": "complete",
+      "correlation_id": "corr-20261026T224540-J449"
     },
     {
       "name": "step-02-git-finalize",
       "started": "2026-09-15T11:15:00Z",
       "completed": "2026-09-15T11:18:00Z",
-      "status": "complete"
+      "status": "complete",
+      "correlation_id": "corr-20261026T224540-J449"
     }
   ],
   "assessment": {
@@ -116,5 +118,6 @@
       "882c3798"
     ],
     "push_status": "success"
-  }
+  },
+  "correlation_id": "corr-20261026T224540-J449"
 }

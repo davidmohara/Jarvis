@@ -21,7 +21,8 @@
       "model": "sonnet",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-HGVN"
     },
     {
       "name": "step-02-salience-scoring",
@@ -34,7 +35,8 @@
       "model": "sonnet",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-HGVN"
     },
     {
       "name": "step-03-semantic-promotion",
@@ -47,7 +49,8 @@
       "model": "sonnet",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-HGVN"
     },
     {
       "name": "step-04-episodic-compression",
@@ -60,7 +63,8 @@
       "model": "sonnet",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-HGVN"
     },
     {
       "name": "step-05-logging",
@@ -73,7 +77,8 @@
       "model": "sonnet",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-HGVN"
     }
   ],
   "assessment": {
@@ -174,5 +179,6 @@
       "escalated_to_human": false,
       "timestamp": "2026-09-05T08:09:56.585040+00:00"
     }
-  ]
+  ],
+  "correlation_id": "corr-20261026T224540-HGVN"
 }

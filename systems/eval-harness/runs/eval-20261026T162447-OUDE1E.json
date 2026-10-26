@@ -1,0 +1,91 @@
+{
+  "id": "eval-20261026T162447-OUDE1E",
+  "type": "skill",
+  "name": "rigby-impact",
+  "agent": "unknown",
+  "session_id": "2872ee9b-a577-4153-b19d-215af4f9e343",
+  "trigger": "boot",
+  "model": "glm-5p3",
+  "model_source": "session-transcript-window",
+  "started": "2026-10-26T16:13:35.090217Z",
+  "completed": "2026-10-26T16:24:47.703390Z",
+  "duration_seconds": 672.6,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": true,
+      "outputs_non_empty": true,
+      "assertions_checked": 4,
+      "assertions_passed": 4,
+      "assertion_results": [
+        {
+          "assertion": "rigby-impact-signal-written",
+          "description": "rigby-impact skill-run signal file was written",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "rigby-impact-signal-status",
+          "description": "rigby-impact skill-run did not end in failure",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "rigby-im-002-substantive",
+          "description": "rigby-impact output is substantive (>200 bytes)",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "rigby-im-003-content",
+          "description": "rigby-impact output contains expected content",
+          "category": "structure",
+          "passed": true
+        }
+      ],
+      "category_breakdown": {
+        "structure": {
+          "passed": 4,
+          "checked": 4
+        },
+        "content": {
+          "passed": 0,
+          "checked": 0
+        },
+        "quality": {
+          "passed": 0,
+          "checked": 0
+        }
+      }
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "deterministic_gate": {
+      "score": 1.0,
+      "gate_status": "pass",
+      "computed_at": "2026-10-26T16:24:47.950644Z"
+    }
+  },
+  "version_hash": "b4df48f9aaa657b3",
+  "prior_baseline_id": null,
+  "tags": [
+    "cowork-hook",
+    "skill"
+  ],
+  "correlation_id": "corr-20261026T224541-CXCA"
+}

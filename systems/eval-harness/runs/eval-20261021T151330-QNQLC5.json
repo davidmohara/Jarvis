@@ -23,7 +23,8 @@
       "cost_usd": null,
       "model": null,
       "token_source": "stale-window",
-      "duration_seconds": 0.0
+      "duration_seconds": 0.0,
+      "correlation_id": "corr-20261026T224541-1I0O"
     },
     {
       "name": "step-01.2-unified-data-pull.md",
@@ -41,7 +42,8 @@
       "duration_seconds": 165.0,
       "turns_matched": 16,
       "turns_with_usage": 2,
-      "executed_by_agent_id": "a548027b586ba0f14"
+      "executed_by_agent_id": "a548027b586ba0f14",
+      "correlation_id": "corr-20261026T224541-1I0O"
     },
     {
       "name": "step-01.5-unified-calendar-pull.md",
@@ -60,7 +62,8 @@
       "turns_matched": 0,
       "turns_with_usage": 0,
       "executed_by_agent_id": "a548027b586ba0f14",
-      "model_source": "child-record-backfill"
+      "model_source": "child-record-backfill",
+      "correlation_id": "corr-20261026T224541-1I0O"
     },
     {
       "name": "step-02-gather-data.md",
@@ -78,7 +81,8 @@
       "duration_seconds": 510.0,
       "turns_matched": 22,
       "turns_with_usage": 5,
-      "executed_by_agent_id": "a548027b586ba0f14"
+      "executed_by_agent_id": "a548027b586ba0f14",
+      "correlation_id": "corr-20261026T224541-1I0O"
     },
     {
       "name": "step-03-verify-phase2.md",
@@ -96,7 +100,8 @@
       "duration_seconds": 60.0,
       "turns_matched": 7,
       "turns_with_usage": 4,
-      "executed_by_agent_id": "a548027b586ba0f14"
+      "executed_by_agent_id": "a548027b586ba0f14",
+      "correlation_id": "corr-20261026T224541-1I0O"
     },
     {
       "name": "step-04-gather-meeting-context.md",
@@ -114,7 +119,8 @@
       "duration_seconds": 630.0,
       "turns_matched": 12,
       "turns_with_usage": 4,
-      "executed_by_agent_id": "a548027b586ba0f14"
+      "executed_by_agent_id": "a548027b586ba0f14",
+      "correlation_id": "corr-20261026T224541-1I0O"
     },
     {
       "name": "step-05-synthesize-briefing.md",
@@ -132,7 +138,8 @@
       "duration_seconds": 420.0,
       "turns_matched": 1,
       "turns_with_usage": 0,
-      "executed_by_agent_id": "a548027b586ba0f14"
+      "executed_by_agent_id": "a548027b586ba0f14",
+      "correlation_id": "corr-20261026T224541-1I0O"
     },
     {
       "name": "step-06-scan-workflows.md",
@@ -151,7 +158,8 @@
       "turns_matched": 0,
       "turns_with_usage": 0,
       "executed_by_agent_id": "a548027b586ba0f14",
-      "model_source": "child-record-backfill"
+      "model_source": "child-record-backfill",
+      "correlation_id": "corr-20261026T224541-1I0O"
     },
     {
       "name": "step-07-verify-completion.md",
@@ -170,7 +178,8 @@
       "turns_matched": 0,
       "turns_with_usage": 0,
       "executed_by_agent_id": "a548027b586ba0f14",
-      "model_source": "child-record-backfill"
+      "model_source": "child-record-backfill",
+      "correlation_id": "corr-20261026T224541-1I0O"
     },
     {
       "name": "step-08-knox-completion-check.md",
@@ -189,7 +198,8 @@
       "turns_matched": 0,
       "turns_with_usage": 0,
       "executed_by_agent_id": "a548027b586ba0f14",
-      "model_source": "child-record-backfill"
+      "model_source": "child-record-backfill",
+      "correlation_id": "corr-20261026T224541-1I0O"
     }
   ],
   "subagents": [
@@ -401,5 +411,6 @@
   },
   "fully_loaded_cost_usd": 0.963369,
   "fully_loaded_tokens_input": 3215908,
-  "fully_loaded_tokens_output": 14269
+  "fully_loaded_tokens_output": 14269,
+  "correlation_id": "corr-20261026T224541-1I0O"
 }

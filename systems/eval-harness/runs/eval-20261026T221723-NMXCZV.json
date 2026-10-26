@@ -1,0 +1,103 @@
+{
+  "id": "eval-20261026T221723-NMXCZV",
+  "type": "workflow",
+  "name": "boot",
+  "agent": "master",
+  "session_id": "7de15d47-594d-43d0-a5e1-49bbf2132826",
+  "trigger": "boot",
+  "model": null,
+  "model_source": null,
+  "started": "2026-10-26T22:17:23.184454Z",
+  "completed": null,
+  "duration_seconds": null,
+  "status": "in-progress",
+  "steps": [],
+  "subagents": [
+    {
+      "agent_id": "a7ee1107fb6bfa116",
+      "agent_type": "general-purpose",
+      "started": "2026-10-26T22:46:33.135209Z",
+      "completed": "2026-10-26T22:46:52.079382Z",
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 140498,
+      "tokens_output": 2312,
+      "cost_usd": 0.017121,
+      "duration_seconds": 18.94,
+      "token_source": "subagent-transcript"
+    }
+  ],
+  "monitoring": {
+    "active": true,
+    "state_yaml_path": "workflows/boot/state.yaml",
+    "opened_by": "eval-turn-start.py",
+    "trigger_evidence": "boot-first-prompt-of-session"
+  },
+  "assessment": {
+    "mechanical": {
+      "completed": null,
+      "all_steps_finished": null,
+      "tool_failures": 4,
+      "error_ids": [],
+      "tool_failure_log": [
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\n#!/usr/bin/env python3\n# /// script\n# requires-python = \">=3.10\"\n# dependencies = [\"pyyaml\"]\n# ///\n\"\"\"\nRETIRED \u2014 no longer registered in .claude/settings.json as of the\neval-turn-lifecycle build (2026-08-26/27).\n\nWhy: this hook fired on every Write to workflows/*/state.yaml and created\nits own older-schema eval stub, independent of and competing with two other\nmechanisms that now cover the same ground: eval-agent-start.py/eval-agent-\nstop.py (workflows spawned as a real subagent, e.g. Knox running\nplaud-ingest) and eval-turn-start.py/eval-turn-stop.py (the three\n`agent: master` workflows \u2014 boot, shutdown-cleanup, weekly-review \u2014 that\nexecute inline and have no subagent lifecycle of their own). Because this\nhook had no close-out mechanism, any state.yaml write that didn't reach a\nclean finish left a permanently `status: in-progress` orphan stub behind\n(confirmed casualties: eval-20260826T191055-75A708.json and\neval-20260826T194142-QZAPOH.json, both plaud-ingest, removed). It also\ncarried the same infer_session_id() bug the other two hooks had (keyed off\na nonexistent \"id\" field in memory/sessions/index.json) \u2014 not patched here\nsince the file is dead code, not because the bug doesn't apply to it.\n\nLeft in place (not deleted) only so history/blame stays intact. Do not\nre-register this hook without giving it a real close-out path first, and\nwithout fixing infer_session_id() to key off \"started\" instead of \"id\".\n\nOriginal docstring follows.\n---\nWorkflowStart Hook: Eval Record Creation for All Workflows\nTriggered when any workflow begins execution.\nCreates an eval record with workflow name, agent, model, and started timestamp.\n\"\"\"\n\nimport json\nimport sys\nimport secrets\nimport string\nimport fcntl\nfrom pathlib import Path\nfrom datetime import datetime, timezone\nimport re\n\n# Vendored PyYAML (same as post-tool-use.py)\nIES_ROOT = Path(__file__).resolve().parents[2]\nsys.path.insert(0, str(IES_ROOT / \"systems\" / \"eval-harness\" / \"vendor\"))\nsys.path.insert(0, str(IES_ROOT / \"systems\" / \"eval-harness\"))\nimport yaml\n\n# Configuration\nEVAL_RUNS_DIR = IES_ROOT / \"systems\" / \"eval-harness\" / \"runs\"\nWORKFLOWS_DIR = IES_ROOT / \"workflows\"\nERROR_LOG = Path(\"/tmp/ies-hook-errors.log\")\nALPHABET = string.ascii_uppercase + string.digits\n\ndef log_error(msg: str):\n    \"\"\"Log error to /tmp/ies-hook-errors.log without blocking.\"\"\"\n    try:\n        with open(ERROR_LOG, \"a\") as f:\n(eval):1: == not found",
+          "duration_ms": 31,
+          "timestamp": "2026-10-26T17:21:47.726354"
+        },
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\n4:Called by workflow steps to record their completion status and timing.\n34:def parse_flag_args(argv: list[str]) -> dict:\n60:def parse_started(ts) -> \"datetime | None\":\n71:def find_most_recent_eval_record(workflow_name: str, runs_dir=None) -> Path | None:\n108:def main():\n200:        # tolerates legacy string entries in an existing steps[] list).\n205:            eval_record[\"assessment\"][\"mechanical\"][\"all_steps_finished\"] = True\n---SEP---\nTraceback (most recent call last):\n  File \"<string>\", line 3, in <module>\n    r=json.load(open('systems/eval-harness/runs/'))\n                ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nIsADirectoryError: [Errno 21] Is a directory: 'systems/eval-harness/runs/'",
+          "duration_ms": 112,
+          "timestamp": "2026-10-26T17:22:09.562254"
+        },
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\nError: [Errno 2] No such file or directory: 'soffice'",
+          "duration_ms": 557,
+          "timestamp": "2026-10-26T17:34:32.641661"
+        },
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\nnode:internal/modules/cjs/loader:1458\n  throw err;\n  ^\n\nError: Cannot find module 'pptxgenjs'\nRequire stack:\n- /private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/49343183-7915-472e-a8e3-7b5a8a1ff311/scratchpad/build-workshop.js\n    at Module._resolveFilename (node:internal/modules/cjs/loader:1455:15)\n    at defaultResolveImpl (node:internal/modules/cjs/loader:1065:19)\n    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1070:22)\n    at Module._load (node:internal/modules/cjs/loader:1241:25)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\n    at Module.require (node:internal/modules/cjs/loader:1555:12)\n    at require (node:internal/modules/helpers:152:16)\n    at Object.<anonymous> (/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/49343183-7915-472e-a8e3-7b5a8a1ff311/scratchpad/build-workshop.js:1:17)\n    at Module._compile (node:internal/modules/cjs/loader:1811:14)\n    at Object..js (node:internal/modules/cjs/loader:1942:10) {\n  code: 'MODULE_NOT_FOUND',\n  requireStack: [\n    '/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/49343183-7915-472e-a8e3-7b5a8a1ff311/scratchpad/build-workshop.js'\n  ]\n}\n\nNode.js v25.6.1",
+          "duration_ms": 157,
+          "timestamp": "2026-10-26T17:36:22.042988"
+        }
+      ]
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [
+    "turn-level"
+  ],
+  "correlation_id": "corr-20261026T224541-U6KH"
+}

@@ -21,7 +21,8 @@
       "model": null,
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224541-8QDJ"
     },
     {
       "name": "step-04-synthesize-briefing",
@@ -34,7 +35,8 @@
       "model": null,
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224541-8QDJ"
     }
   ],
   "assessment": {
@@ -89,5 +91,6 @@
   "completed_at": "2026-09-29T02:31:00Z",
   "notes": [
     "Closed manually by Master (boot resume run): close-eval-record.py created accidental stub eval-20260929T022920-UE7CLE instead of closing this in-progress record; stub removed, canonical record closed here. Briefing delivered: memory/working/morning-briefing-2026-09-28-212900.md"
-  ]
+  ],
+  "correlation_id": "corr-20261026T224541-8QDJ"
 }

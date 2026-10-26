@@ -30,7 +30,8 @@
       "tokens_output": 100,
       "cost_usd": 0.001211,
       "token_source": "windowed",
-      "turns_matched": 1
+      "turns_matched": 1,
+      "correlation_id": "corr-20261026T224541-7WM4"
     },
     {
       "name": "step-01.5-unified-calendar-pull.md",
@@ -47,7 +48,8 @@
       "tokens_input": null,
       "tokens_output": null,
       "cost_usd": null,
-      "token_source": null
+      "token_source": null,
+      "correlation_id": "corr-20261026T224541-7WM4"
     },
     {
       "name": "step-02-gather-data.md",
@@ -64,7 +66,8 @@
       "tokens_input": null,
       "tokens_output": null,
       "cost_usd": null,
-      "token_source": null
+      "token_source": null,
+      "correlation_id": "corr-20261026T224541-7WM4"
     },
     {
       "name": "step-02.5-measure-phase2.md",
@@ -81,7 +84,8 @@
       "tokens_input": null,
       "tokens_output": null,
       "cost_usd": null,
-      "token_source": null
+      "token_source": null,
+      "correlation_id": "corr-20261026T224541-7WM4"
     },
     {
       "name": "step-03-verify-phase2.md",
@@ -98,7 +102,8 @@
       "tokens_input": null,
       "tokens_output": null,
       "cost_usd": null,
-      "token_source": null
+      "token_source": null,
+      "correlation_id": "corr-20261026T224541-7WM4"
     },
     {
       "name": "step-04-gather-meeting-context.md",
@@ -115,7 +120,8 @@
       "tokens_input": null,
       "tokens_output": null,
       "cost_usd": null,
-      "token_source": null
+      "token_source": null,
+      "correlation_id": "corr-20261026T224541-7WM4"
     },
     {
       "name": "step-05-synthesize-briefing.md",
@@ -132,7 +138,8 @@
       "tokens_input": null,
       "tokens_output": null,
       "cost_usd": null,
-      "token_source": null
+      "token_source": null,
+      "correlation_id": "corr-20261026T224541-7WM4"
     },
     {
       "name": "step-06-scan-workflows.md",
@@ -149,7 +156,8 @@
       "tokens_input": null,
       "tokens_output": null,
       "cost_usd": null,
-      "token_source": null
+      "token_source": null,
+      "correlation_id": "corr-20261026T224541-7WM4"
     },
     {
       "name": "step-07-verify-completion.md",
@@ -166,7 +174,8 @@
       "tokens_input": null,
       "tokens_output": null,
       "cost_usd": null,
-      "token_source": null
+      "token_source": null,
+      "correlation_id": "corr-20261026T224541-7WM4"
     },
     {
       "name": "step-08-knox-completion-check.md",
@@ -183,7 +192,8 @@
       "tokens_input": null,
       "tokens_output": null,
       "cost_usd": null,
-      "token_source": null
+      "token_source": null,
+      "correlation_id": "corr-20261026T224541-7WM4"
     },
     {
       "name": "step-01-discover.md",
@@ -201,7 +211,8 @@
       "tokens_output": 380,
       "cost_usd": 0.04819,
       "token_source": "windowed",
-      "turns_matched": 7
+      "turns_matched": 7,
+      "correlation_id": "corr-20261026T224541-7WM4"
     },
     {
       "name": "step-02-trigger-transcription.md",
@@ -217,7 +228,8 @@
       "model": "accounts/fireworks/models/kimi-k3",
       "token_source": "lenient_fallback",
       "turns_matched": 92,
-      "duration_seconds": 1617.0
+      "duration_seconds": 1617.0,
+      "correlation_id": "corr-20261026T224541-7WM4"
     },
     {
       "name": "step-03-identify-speakers.md",
@@ -233,7 +245,8 @@
       "model": "accounts/fireworks/models/kimi-k3",
       "token_source": "lenient_fallback",
       "turns_matched": 92,
-      "duration_seconds": 1617.0
+      "duration_seconds": 1617.0,
+      "correlation_id": "corr-20261026T224541-7WM4"
     },
     {
       "name": "step-04-fetch-staging.md",
@@ -249,7 +262,8 @@
       "model": "accounts/fireworks/models/kimi-k3",
       "token_source": "lenient_fallback",
       "turns_matched": 92,
-      "duration_seconds": 1617.0
+      "duration_seconds": 1617.0,
+      "correlation_id": "corr-20261026T224541-7WM4"
     },
     {
       "name": "step-05-ingest-vault.md",
@@ -265,7 +279,8 @@
       "model": "accounts/fireworks/models/kimi-k3",
       "token_source": "lenient_fallback",
       "turns_matched": 92,
-      "duration_seconds": 1617.0
+      "duration_seconds": 1617.0,
+      "correlation_id": "corr-20261026T224541-7WM4"
     },
     {
       "name": "step-05b-share-with-alice.md",
@@ -281,7 +296,8 @@
       "model": "accounts/fireworks/models/kimi-k3",
       "token_source": "lenient_fallback",
       "turns_matched": 92,
-      "duration_seconds": 1617.0
+      "duration_seconds": 1617.0,
+      "correlation_id": "corr-20261026T224541-7WM4"
     },
     {
       "name": "step-06-verify-ingest.md",
@@ -297,7 +313,8 @@
       "model": "accounts/fireworks/models/kimi-k3",
       "token_source": "lenient_fallback",
       "turns_matched": 92,
-      "duration_seconds": 1617.0
+      "duration_seconds": 1617.0,
+      "correlation_id": "corr-20261026T224541-7WM4"
     }
   ],
   "assessment": {
@@ -468,5 +485,6 @@
   },
   "total_cost_usd": 0.09,
   "cost_estimation_note": "estimated based on general-purpose workflow type",
-  "model": "sonnet"
+  "model": "sonnet",
+  "correlation_id": "corr-20261026T224541-7WM4"
 }

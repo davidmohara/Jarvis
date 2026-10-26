@@ -19,7 +19,8 @@
       "duration_seconds": 100.2,
       "status": "success",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224540-DMXF"
     },
     {
       "name": "step-02-assert",
@@ -28,7 +29,8 @@
       "duration_seconds": 100.2,
       "status": "success",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224540-DMXF"
     },
     {
       "name": "step-03-grade",
@@ -37,7 +39,8 @@
       "duration_seconds": 100.2,
       "status": "success",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224540-DMXF"
     },
     {
       "name": "step-04-score",
@@ -46,7 +49,8 @@
       "duration_seconds": 100.2,
       "status": "success",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224540-DMXF"
     },
     {
       "name": "step-05-analyze",
@@ -55,7 +59,8 @@
       "duration_seconds": 100.2,
       "status": "success",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224540-DMXF"
     },
     {
       "name": "step-06-dashboard",
@@ -64,7 +69,8 @@
       "duration_seconds": 100.2,
       "status": "success",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224540-DMXF"
     }
   ],
   "assessment": {
@@ -147,5 +153,6 @@
     "cowork-instrumented"
   ],
   "total_cost_usd": 0.024,
-  "cost_estimation_note": "estimated based on system-eval workflow type"
+  "cost_estimation_note": "estimated based on system-eval workflow type",
+  "correlation_id": "corr-20261026T224540-DMXF"
 }

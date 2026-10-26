@@ -1,77 +1,78 @@
 {
- "id": "eval-20261021T174015-IPSW9J",
- "agent_id": "a73f4932cbded9c07",
- "type": "agent",
- "name": "general-purpose",
- "workflow": null,
- "agent": "rigby",
- "owning_agent": "rigby",
- "subagent_type": "general-purpose",
- "session_id": "345c604d-c844-4335-a6bb-2ff2b6ba17b6",
- "trigger": "unknown",
- "started": "2026-10-21T17:40:15.363902Z",
- "completed": "2026-10-21T17:48:52.772327Z",
- "duration_seconds": 517.41,
- "status": "success",
- "steps": [],
- "assessment": {
-  "mechanical": {
-   "completed": true,
-   "all_steps_finished": true,
-   "tool_failures": 0,
-   "error_ids": []
+  "id": "eval-20261021T174015-IPSW9J",
+  "agent_id": "a73f4932cbded9c07",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "rigby",
+  "owning_agent": "rigby",
+  "subagent_type": "general-purpose",
+  "session_id": "345c604d-c844-4335-a6bb-2ff2b6ba17b6",
+  "trigger": "unknown",
+  "started": "2026-10-21T17:40:15.363902Z",
+  "completed": "2026-10-21T17:48:52.772327Z",
+  "duration_seconds": 517.41,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": "2026-10-22T01:05:32Z",
+      "grade": "A",
+      "safety_grade": null,
+      "grader_notes": "Rigby capability build on content-discovery: 6 files changed, all confined to the workflow directory. Gates.md gained must_be_non_empty custom checks plus non_empty_string format rules for meta_title/meta_description, word count relaxed 500 to 700, and the structural scan replaced with an AI-citation-friendly structure row (bottom-line opening, 2-4 H2s, closing takeaway). ghost-draft-creation.md documents the H2 heading node. Changes verified present in the working tree. Scope discipline good: no git operations, pipeline not run, sanity greps pass."
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
   },
-  "structural": {
-   "expected_outputs_written": null,
-   "outputs_non_empty": null,
-   "assertions_checked": 0,
-   "assertions_passed": 0,
-   "assertion_results": []
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/345c604d-c844-4335-a6bb-2ff2b6ba17b6/subagents/agent-a73f4932cbded9c07.jsonl",
+  "model": "accounts/fireworks/models/kimi-k3",
+  "total_tokens_input": 167976,
+  "total_tokens_output": 1562,
+  "total_cost_usd": 0.086407,
+  "parent_window": {
+    "token_source": "parent-window",
+    "transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/345c604d-c844-4335-a6bb-2ff2b6ba17b6.jsonl",
+    "window_start": "2026-10-21T17:40:15.363902Z",
+    "window_end": "2026-10-21T17:48:52.772327Z",
+    "model": "glm-5p3",
+    "tokens_input": 450725,
+    "tokens_output": 944,
+    "cost_usd": 0.072047,
+    "turns_matched": 3,
+    "turns_with_usage": 3,
+    "computed_at": "2026-10-21T21:54:10.494687Z"
   },
-  "grading": {
-   "last_graded": "2026-10-22T01:05:32Z",
-   "grade": "A",
-   "safety_grade": null,
-   "grader_notes": "Rigby capability build on content-discovery: 6 files changed, all confined to the workflow directory. Gates.md gained must_be_non_empty custom checks plus non_empty_string format rules for meta_title/meta_description, word count relaxed 500 to 700, and the structural scan replaced with an AI-citation-friendly structure row (bottom-line opening, 2-4 H2s, closing takeaway). ghost-draft-creation.md documents the H2 heading node. Changes verified present in the working tree. Scope discipline good: no git operations, pipeline not run, sanity greps pass."
-  },
-  "controller_feedback": {
-   "rating": null,
-   "comment": null,
-   "timestamp": null
-  },
-  "bias_assessment": {
-   "applicable": false,
-   "protected_attributes": [],
-   "fairness_metric": null,
-   "demographic_coverage_verified": false,
-   "adversarial_inputs_tested": false,
-   "bias_detected": false,
-   "bias_flags": [],
-   "remediation_status": "none"
-  }
- },
- "version_hash": null,
- "prior_baseline_id": null,
- "tags": [],
- "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/345c604d-c844-4335-a6bb-2ff2b6ba17b6/subagents/agent-a73f4932cbded9c07.jsonl",
- "model": "accounts/fireworks/models/kimi-k3",
- "total_tokens_input": 167976,
- "total_tokens_output": 1562,
- "total_cost_usd": 0.086407,
- "parent_window": {
-  "token_source": "parent-window",
-  "transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/345c604d-c844-4335-a6bb-2ff2b6ba17b6.jsonl",
-  "window_start": "2026-10-21T17:40:15.363902Z",
-  "window_end": "2026-10-21T17:48:52.772327Z",
-  "model": "glm-5p3",
-  "tokens_input": 450725,
-  "tokens_output": 944,
-  "cost_usd": 0.072047,
-  "turns_matched": 3,
-  "turns_with_usage": 3,
-  "computed_at": "2026-10-21T21:54:10.494687Z"
- },
- "fully_loaded_cost_usd": 0.158454,
- "fully_loaded_tokens_input": 618701,
- "fully_loaded_tokens_output": 2506
+  "fully_loaded_cost_usd": 0.158454,
+  "fully_loaded_tokens_input": 618701,
+  "fully_loaded_tokens_output": 2506,
+  "correlation_id": "corr-20261026T224541-KVHW"
 }

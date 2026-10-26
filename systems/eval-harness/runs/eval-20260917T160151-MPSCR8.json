@@ -25,7 +25,8 @@
       "tokens_output": 602,
       "cost_usd": null,
       "turns_matched": 1,
-      "token_source": "backfilled-windowed"
+      "token_source": "backfilled-windowed",
+      "correlation_id": "corr-20261026T224541-Z0T0"
     },
     {
       "name": "step-05b-share-with-alice.md",
@@ -34,7 +35,8 @@
       "duration_seconds": 240.0,
       "status": "completed",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224541-Z0T0"
     },
     {
       "name": "step-05-ingest-vault.md",
@@ -43,7 +45,8 @@
       "duration_seconds": 1080.0,
       "status": "completed",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224541-Z0T0"
     }
   ],
   "assessment": {
@@ -91,5 +94,6 @@
   "total_tokens_input": 728678,
   "total_tokens_output": 993,
   "total_cost_usd": 0.09,
-  "cost_estimation_note": "estimated based on general-purpose workflow type"
+  "cost_estimation_note": "estimated based on general-purpose workflow type",
+  "correlation_id": "corr-20261026T224541-Z0T0"
 }

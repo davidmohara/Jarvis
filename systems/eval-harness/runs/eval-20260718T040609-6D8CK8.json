@@ -12,27 +12,33 @@
   "steps": [
     {
       "name": "step-01-intake",
-      "status": "complete"
+      "status": "complete",
+      "correlation_id": "corr-20261026T224540-RZIX"
     },
     {
       "name": "step-02-assert",
-      "status": "complete"
+      "status": "complete",
+      "correlation_id": "corr-20261026T224540-RZIX"
     },
     {
       "name": "step-03-grade",
-      "status": "complete"
+      "status": "complete",
+      "correlation_id": "corr-20261026T224540-RZIX"
     },
     {
       "name": "step-04-score",
-      "status": "complete"
+      "status": "complete",
+      "correlation_id": "corr-20261026T224540-RZIX"
     },
     {
       "name": "step-05-analyze",
-      "status": "complete"
+      "status": "complete",
+      "correlation_id": "corr-20261026T224540-RZIX"
     },
     {
       "name": "step-06-dashboard",
-      "status": "complete"
+      "status": "complete",
+      "correlation_id": "corr-20261026T224540-RZIX"
     }
   ],
   "assessment": {
@@ -112,5 +118,6 @@
   "prior_baseline_id": null,
   "tags": [],
   "total_cost_usd": 0.024,
-  "cost_estimation_note": "estimated based on system-eval workflow type"
+  "cost_estimation_note": "estimated based on system-eval workflow type",
+  "correlation_id": "corr-20261026T224540-RZIX"
 }

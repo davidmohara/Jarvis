@@ -1,77 +1,78 @@
 {
- "id": "eval-20261021T194026-9WPHOR",
- "agent_id": "a5017f738eced8f27",
- "type": "agent",
- "name": "general-purpose",
- "workflow": null,
- "agent": "general-purpose",
- "owning_agent": null,
- "subagent_type": "general-purpose",
- "session_id": "345c604d-c844-4335-a6bb-2ff2b6ba17b6",
- "trigger": "unknown",
- "started": "2026-10-21T19:40:26.370609Z",
- "completed": "2026-10-21T19:42:27.616946Z",
- "duration_seconds": 121.25,
- "status": "success",
- "steps": [],
- "assessment": {
-  "mechanical": {
-   "completed": true,
-   "all_steps_finished": true,
-   "tool_failures": 0,
-   "error_ids": []
+  "id": "eval-20261021T194026-9WPHOR",
+  "agent_id": "a5017f738eced8f27",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "general-purpose",
+  "owning_agent": null,
+  "subagent_type": "general-purpose",
+  "session_id": "345c604d-c844-4335-a6bb-2ff2b6ba17b6",
+  "trigger": "unknown",
+  "started": "2026-10-21T19:40:26.370609Z",
+  "completed": "2026-10-21T19:42:27.616946Z",
+  "duration_seconds": 121.25,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": "2026-10-22T01:05:32Z",
+      "grade": "A",
+      "safety_grade": null,
+      "grader_notes": "Speaking page rebuilt and verified end to end: GET found the page first attempt, fresh updated_at captured, lexical built per spec (2 h2, markers stripped, markdown links converted to link nodes), pre-submit checks clean, PUT 200 with only intended fields, post-PUT verification passed. Bonus catch: the task text itself contained the missing-n host typo (drivetodevelop.com) and the subagent called the correct host per the pre-submit rule instead of propagating the typo."
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
   },
-  "structural": {
-   "expected_outputs_written": null,
-   "outputs_non_empty": null,
-   "assertions_checked": 0,
-   "assertions_passed": 0,
-   "assertion_results": []
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/345c604d-c844-4335-a6bb-2ff2b6ba17b6/subagents/agent-a5017f738eced8f27.jsonl",
+  "model": "accounts/fireworks/models/kimi-k3",
+  "total_tokens_input": 56415,
+  "total_tokens_output": 675,
+  "total_cost_usd": 0.113085,
+  "parent_window": {
+    "token_source": "parent-window",
+    "transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/345c604d-c844-4335-a6bb-2ff2b6ba17b6.jsonl",
+    "window_start": "2026-10-21T19:40:26.370609Z",
+    "window_end": "2026-10-21T19:42:27.616946Z",
+    "model": "glm-5p3",
+    "tokens_input": 221632,
+    "tokens_output": 232,
+    "cost_usd": 0.034089,
+    "turns_matched": 1,
+    "turns_with_usage": 1,
+    "computed_at": "2026-10-21T21:54:10.624476Z"
   },
-  "grading": {
-   "last_graded": "2026-10-22T01:05:32Z",
-   "grade": "A",
-   "safety_grade": null,
-   "grader_notes": "Speaking page rebuilt and verified end to end: GET found the page first attempt, fresh updated_at captured, lexical built per spec (2 h2, markers stripped, markdown links converted to link nodes), pre-submit checks clean, PUT 200 with only intended fields, post-PUT verification passed. Bonus catch: the task text itself contained the missing-n host typo (drivetodevelop.com) and the subagent called the correct host per the pre-submit rule instead of propagating the typo."
-  },
-  "controller_feedback": {
-   "rating": null,
-   "comment": null,
-   "timestamp": null
-  },
-  "bias_assessment": {
-   "applicable": false,
-   "protected_attributes": [],
-   "fairness_metric": null,
-   "demographic_coverage_verified": false,
-   "adversarial_inputs_tested": false,
-   "bias_detected": false,
-   "bias_flags": [],
-   "remediation_status": "none"
-  }
- },
- "version_hash": null,
- "prior_baseline_id": null,
- "tags": [],
- "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/345c604d-c844-4335-a6bb-2ff2b6ba17b6/subagents/agent-a5017f738eced8f27.jsonl",
- "model": "accounts/fireworks/models/kimi-k3",
- "total_tokens_input": 56415,
- "total_tokens_output": 675,
- "total_cost_usd": 0.113085,
- "parent_window": {
-  "token_source": "parent-window",
-  "transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/345c604d-c844-4335-a6bb-2ff2b6ba17b6.jsonl",
-  "window_start": "2026-10-21T19:40:26.370609Z",
-  "window_end": "2026-10-21T19:42:27.616946Z",
-  "model": "glm-5p3",
-  "tokens_input": 221632,
-  "tokens_output": 232,
-  "cost_usd": 0.034089,
-  "turns_matched": 1,
-  "turns_with_usage": 1,
-  "computed_at": "2026-10-21T21:54:10.624476Z"
- },
- "fully_loaded_cost_usd": 0.147174,
- "fully_loaded_tokens_input": 278047,
- "fully_loaded_tokens_output": 907
+  "fully_loaded_cost_usd": 0.147174,
+  "fully_loaded_tokens_input": 278047,
+  "fully_loaded_tokens_output": 907,
+  "correlation_id": "corr-20261026T224541-QTIT"
 }

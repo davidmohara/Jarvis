@@ -22,7 +22,8 @@
       "model": "haiku",
       "tokens_input": 3292606,
       "tokens_output": 631,
-      "cost_usd": 0.520535
+      "cost_usd": 0.520535,
+      "correlation_id": "corr-20261026T224540-V9FS"
     }
   ],
   "assessment": {
@@ -97,5 +98,6 @@
   ],
   "total_cost_usd": 0.0555,
   "cost_estimation_note": "estimated based on boot workflow type",
-  "model": "sonnet"
+  "model": "sonnet",
+  "correlation_id": "corr-20261026T224540-V9FS"
 }

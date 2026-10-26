@@ -22,7 +22,8 @@
       "model": null,
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-KD2Q"
     },
     {
       "name": "step-06.5-guardrail-checkpoint.md",
@@ -35,7 +36,8 @@
       "model": "haiku",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-KD2Q"
     }
   ],
   "assessment": {
@@ -82,5 +84,6 @@
   "model": "haiku",
   "total_tokens_input": 173386,
   "total_tokens_output": 139,
-  "total_cost_usd": 0.041268
+  "total_cost_usd": 0.041268,
+  "correlation_id": "corr-20261026T224540-KD2Q"
 }

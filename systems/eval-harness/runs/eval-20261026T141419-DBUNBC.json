@@ -1,0 +1,119 @@
+{
+  "id": "eval-20261026T141419-DBUNBC",
+  "agent_id": "a2fbae3149514aae2",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": "boot",
+  "agent": "master",
+  "owning_agent": "master",
+  "subagent_type": "general-purpose",
+  "session_id": "2872ee9b-a577-4153-b19d-215af4f9e343",
+  "trigger": "unknown",
+  "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+  "model_source": "subagent-transcript",
+  "started": "2026-10-26T14:14:19.941604Z",
+  "completed": "2026-10-26T14:16:52.585848Z",
+  "duration_seconds": 152.64,
+  "status": "partial",
+  "steps": [
+    {
+      "name": "step-01.5-unified-calendar-pull.md",
+      "agent": "general-purpose",
+      "step_id": "step-01.5-unified-calendar-pull.md",
+      "owning_agent": "general-purpose",
+      "started": "2026-10-26T14:13:00Z",
+      "completed": "2026-10-26T14:16:00Z",
+      "status": "complete",
+      "tokens_input": 388045,
+      "tokens_output": 22759,
+      "cost_usd": 0.071079,
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "token_source": "windowed",
+      "turns_matched": 8,
+      "turns_with_usage": 8,
+      "duration_seconds": 180.0,
+      "correlation_id": "corr-20261026T224541-5J73"
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 1,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/2872ee9b-a577-4153-b19d-215af4f9e343/subagents/agent-a2fbae3149514aae2.jsonl",
+  "total_tokens_input": 1140826,
+  "total_tokens_output": 25454,
+  "total_cost_usd": 0.104634,
+  "token_source": "subagent-transcript",
+  "guardrails": [
+    {
+      "name": "step-01.5-checkpoint",
+      "after_step": "step-01.5-unified-calendar-pull.md",
+      "result": "pass",
+      "reason": "calendar-unified.json exists with 52 events",
+      "escalated_to_human": false,
+      "timestamp": "2026-10-26T14:16:52.855411Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "calendar_file": "/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/data/calendar-unified.json",
+        "event_count": 52,
+        "date_range": {
+          "start": "2026-10-26",
+          "end": "2026-10-29"
+        },
+        "pulled_at": "2026-10-26T14:14:58+00:00"
+      }
+    }
+  ],
+  "parent_window": {
+    "token_source": "parent-window",
+    "transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/2872ee9b-a577-4153-b19d-215af4f9e343.jsonl",
+    "window_start": "2026-10-26T14:14:19.941604Z",
+    "window_end": "2026-10-26T14:16:52.585848Z",
+    "model": "glm-5p3-flash",
+    "tokens_input": 298630,
+    "tokens_output": 741,
+    "cost_usd": 0.005058,
+    "turns_matched": 4,
+    "turns_with_usage": 4,
+    "computed_at": "2026-10-26T14:16:52.953381Z"
+  },
+  "fully_loaded_cost_usd": 0.109692,
+  "fully_loaded_tokens_input": 1439456,
+  "fully_loaded_tokens_output": 26195,
+  "correlation_id": "corr-20261026T224541-5J73"
+}

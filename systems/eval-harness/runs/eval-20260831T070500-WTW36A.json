@@ -28,7 +28,8 @@
       "model": "sonnet",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-5P9E"
     },
     {
       "name": "weekly-step-02-drafts",
@@ -45,7 +46,8 @@
       "model": "sonnet",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-5P9E"
     },
     {
       "name": "weekly-step-02b-tweets",
@@ -60,7 +62,8 @@
       "model": "sonnet",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-5P9E"
     },
     {
       "name": "weekly-step-03-suggest-sources",
@@ -77,7 +80,8 @@
       "model": "sonnet",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-5P9E"
     },
     {
       "name": "weekly-step-04-weekly-note",
@@ -93,7 +97,8 @@
       "model": "haiku",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-5P9E"
     },
     {
       "name": "weekly-step-05-report",
@@ -113,7 +118,8 @@
       "tokens_input": null,
       "tokens_output": null,
       "cost_usd": null,
-      "notes": "Artifact update completed after session resumption following context compaction. Error logged as err-20260831T215941-S03HMB. Gate block added to step-05 to prevent future skips."
+      "notes": "Artifact update completed after session resumption following context compaction. Error logged as err-20260831T215941-S03HMB. Gate block added to step-05 to prevent future skips.",
+      "correlation_id": "corr-20261026T224540-5P9E"
     }
   ],
   "assessment": {
@@ -203,5 +209,6 @@
   ],
   "total_tokens_input": null,
   "total_tokens_output": null,
-  "total_cost_usd": null
+  "total_cost_usd": null,
+  "correlation_id": "corr-20261026T224540-5P9E"
 }

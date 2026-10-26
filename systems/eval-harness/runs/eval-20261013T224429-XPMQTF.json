@@ -27,7 +27,8 @@
       "tokens_input": null,
       "tokens_output": null,
       "cost_usd": null,
-      "token_source": null
+      "token_source": null,
+      "correlation_id": "corr-20261026T224541-HTJ9"
     },
     {
       "name": "step-02-organize-deliverables.md",
@@ -44,7 +45,8 @@
       "tokens_input": null,
       "tokens_output": null,
       "cost_usd": null,
-      "token_source": null
+      "token_source": null,
+      "correlation_id": "corr-20261026T224541-HTJ9"
     },
     {
       "name": "step-03-gitignore-check.md",
@@ -61,7 +63,8 @@
       "tokens_input": null,
       "tokens_output": null,
       "cost_usd": null,
-      "token_source": null
+      "token_source": null,
+      "correlation_id": "corr-20261026T224541-HTJ9"
     },
     {
       "name": "step-04-commit.md",
@@ -78,7 +81,8 @@
       "tokens_input": null,
       "tokens_output": null,
       "cost_usd": null,
-      "token_source": null
+      "token_source": null,
+      "correlation_id": "corr-20261026T224541-HTJ9"
     },
     {
       "name": "step-05-verify-cleanup.md",
@@ -95,7 +99,8 @@
       "tokens_input": null,
       "tokens_output": null,
       "cost_usd": null,
-      "token_source": null
+      "token_source": null,
+      "correlation_id": "corr-20261026T224541-HTJ9"
     }
   ],
   "assessment": {
@@ -137,5 +142,6 @@
   },
   "version_hash": null,
   "prior_baseline_id": null,
-  "tags": []
+  "tags": [],
+  "correlation_id": "corr-20261026T224541-HTJ9"
 }

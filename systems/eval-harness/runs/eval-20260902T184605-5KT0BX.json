@@ -23,7 +23,8 @@
       "model": "haiku",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-8FOL"
     },
     {
       "name": "step-02-calendar-conflict-check.md",
@@ -36,7 +37,8 @@
       "model": "haiku",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-8FOL"
     },
     {
       "name": "step-03-drought-and-weather.md",
@@ -49,7 +51,8 @@
       "model": "haiku",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-8FOL"
     },
     {
       "name": "step-04-score-and-write-output.md",
@@ -62,7 +65,8 @@
       "model": "haiku",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-8FOL"
     },
     {
       "name": "step-05-notify-slack.md",
@@ -75,7 +79,8 @@
       "model": "haiku",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-8FOL"
     }
   ],
   "assessment": {
@@ -122,5 +127,6 @@
   "model": "sonnet",
   "total_tokens_input": 3361846,
   "total_tokens_output": 4727,
-  "total_cost_usd": 1.46933
+  "total_cost_usd": 1.46933,
+  "correlation_id": "corr-20261026T224540-8FOL"
 }

@@ -22,7 +22,8 @@
       "model": null,
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-2YWN"
     },
     {
       "name": "step-03-verify-phase2.md",
@@ -35,7 +36,8 @@
       "model": null,
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-2YWN"
     },
     {
       "name": "step-04-gather-meeting-context.md",
@@ -48,7 +50,8 @@
       "model": null,
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-2YWN"
     },
     {
       "name": "step-05-synthesize-briefing.md",
@@ -61,7 +64,8 @@
       "model": null,
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-2YWN"
     },
     {
       "name": "step-06-scan-workflows.md",
@@ -74,7 +78,8 @@
       "model": null,
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-2YWN"
     },
     {
       "name": "step-06.5-guardrail-checkpoint.md",
@@ -87,7 +92,8 @@
       "model": "sonnet",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-2YWN"
     },
     {
       "name": "step-07-verify-completion.md",
@@ -100,7 +106,8 @@
       "model": null,
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-2YWN"
     }
   ],
   "assessment": {
@@ -147,5 +154,6 @@
   "model": "haiku",
   "total_tokens_input": 850698,
   "total_tokens_output": 410,
-  "total_cost_usd": 0.127777
+  "total_cost_usd": 0.127777,
+  "correlation_id": "corr-20261026T224540-2YWN"
 }

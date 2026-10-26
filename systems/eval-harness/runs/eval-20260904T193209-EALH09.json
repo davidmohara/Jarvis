@@ -23,7 +23,8 @@
       "model": "sonnet",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-04E4"
     },
     {
       "name": "step-03-build-prep-sheet.md",
@@ -36,7 +37,8 @@
       "model": "sonnet",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-04E4"
     },
     {
       "name": "step-01-identify-episode.md",
@@ -49,7 +51,8 @@
       "model": "sonnet",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-04E4"
     }
   ],
   "assessment": {
@@ -96,5 +99,6 @@
   "model": "sonnet",
   "total_tokens_input": 4871587,
   "total_tokens_output": 1809,
-  "total_cost_usd": 2.072413
+  "total_cost_usd": 2.072413,
+  "correlation_id": "corr-20261026T224540-04E4"
 }

@@ -23,7 +23,8 @@
       "tokens_output": 211,
       "cost_usd": null,
       "turns_matched": 3,
-      "token_source": "backfilled-windowed"
+      "token_source": "backfilled-windowed",
+      "correlation_id": "corr-20261026T224541-5PU5"
     },
     {
       "name": "step-05-remarkable-delivery",
@@ -38,7 +39,8 @@
       "tokens_output": 157,
       "cost_usd": null,
       "turns_matched": 2,
-      "token_source": "backfilled-windowed"
+      "token_source": "backfilled-windowed",
+      "correlation_id": "corr-20261026T224541-5PU5"
     }
   ],
   "assessment": {
@@ -136,5 +138,6 @@
   },
   "version_hash": null,
   "prior_baseline_id": null,
-  "tags": []
+  "tags": [],
+  "correlation_id": "corr-20261026T224541-5PU5"
 }

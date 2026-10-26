@@ -68,7 +68,7 @@
         },
         {
           "assertion": "boot-002-session-index-exists",
-          "description": "Session index file exists — boot's Session Index Boot step must have created/appended it",
+          "description": "Session index file exists \u2014 boot's Session Index Boot step must have created/appended it",
           "passed": true
         },
         {
@@ -78,7 +78,7 @@
         },
         {
           "assertion": "boot-004-guardrail-checkpoint-ran",
-          "description": "step-06.5's guardrail checkpoint recorded a result (pass/flag/escalate) on this run — read from the eval record's own guardrails array, not self-reported by the workflow",
+          "description": "step-06.5's guardrail checkpoint recorded a result (pass/flag/escalate) on this run \u2014 read from the eval record's own guardrails array, not self-reported by the workflow",
           "passed": true
         }
       ]
@@ -120,33 +120,34 @@
       },
       {
         "eval_id": "eval-20260828T135908-MWOCUW",
-        "reason": "The real boot-execution subagent (agent_id a1fe36b3241840cf5, steps 01.2-08: unified data pull, calendar pull, briefing synthesis, workflow scan, completion verification) — orphaned as a standalone type:agent/name:general-purpose record because the session_id bug prevented it from linking to P00Y9T. Its full token/cost data is now this record's subagents[] entry and total_tokens_*/total_cost_usd."
+        "reason": "The real boot-execution subagent (agent_id a1fe36b3241840cf5, steps 01.2-08: unified data pull, calendar pull, briefing synthesis, workflow scan, completion verification) \u2014 orphaned as a standalone type:agent/name:general-purpose record because the session_id bug prevented it from linking to P00Y9T. Its full token/cost data is now this record's subagents[] entry and total_tokens_*/total_cost_usd."
       }
     ],
     "noted_not_merged": [
       {
         "eval_id": "eval-20260828T135851-0LKM88",
         "workflow": "plaud-ingest",
-        "reason": "Knox's plaud-discover fire-and-forget background spawn, kicked off from boot step-01 (agent_id af85867f9aad85f38). Genuinely a separate workflow with its own eval trail — not boot's own execution, so its cost is NOT included in this record's totals."
+        "reason": "Knox's plaud-discover fire-and-forget background spawn, kicked off from boot step-01 (agent_id af85867f9aad85f38). Genuinely a separate workflow with its own eval trail \u2014 not boot's own execution, so its cost is NOT included in this record's totals."
       },
       {
         "eval_id": "eval-20260828T135922-RW2RNP",
         "workflow": "plaud-ingest",
-        "reason": "The plaud-discover skill run itself (agent_id af97f32b7201eae94, model haiku), part of the same background plaud-ingest chain — not boot's own execution."
+        "reason": "The plaud-discover skill run itself (agent_id af97f32b7201eae94, model haiku), part of the same background plaud-ingest chain \u2014 not boot's own execution."
       },
       {
         "eval_id": "eval-20260828T140547-8SKFKO",
         "workflow": "plaud-ingest",
-        "reason": "Knox's continuation (agent_id af85867f9aad85f38) evaluating plaud-discover's output and blocking the plaud-ingest pipeline on a suspected false-positive — not boot's own execution."
+        "reason": "Knox's continuation (agent_id af85867f9aad85f38) evaluating plaud-discover's output and blocking the plaud-ingest pipeline on a suspected false-positive \u2014 not boot's own execution."
       },
       {
         "eval_id": "eval-20260828T142027-68E9WF",
         "workflow": "plaud-discover-false-positive-fix",
-        "reason": "Post-boot dispatch (agent_id a2043f931e0677ea5) fixing the plaud-discover false-positive bug (err-20260826T190948-QQMBTP / err-20260828T140747-814VN9) — unrelated to boot's own execution, started ~17 minutes after boot's own work was already done."
+        "reason": "Post-boot dispatch (agent_id a2043f931e0677ea5) fixing the plaud-discover false-positive bug (err-20260826T190948-QQMBTP / err-20260828T140747-814VN9) \u2014 unrelated to boot's own execution, started ~17 minutes after boot's own work was already done."
       }
     ]
   },
   "total_tokens_input": 3976036,
   "total_tokens_output": 1158,
-  "total_cost_usd": 1.697209
+  "total_cost_usd": 1.697209,
+  "correlation_id": "corr-20261026T224540-Z958"
 }

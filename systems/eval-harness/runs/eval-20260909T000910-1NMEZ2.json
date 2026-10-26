@@ -23,7 +23,8 @@
       "model": null,
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-PXZL"
     },
     {
       "name": "step-05-synthesize-briefing.md",
@@ -36,7 +37,8 @@
       "model": null,
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-PXZL"
     }
   ],
   "assessment": {
@@ -79,5 +81,6 @@
   },
   "version_hash": null,
   "prior_baseline_id": null,
-  "tags": []
+  "tags": [],
+  "correlation_id": "corr-20261026T224540-PXZL"
 }

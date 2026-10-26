@@ -25,7 +25,8 @@
       "model": "glm-5p3-flash",
       "token_source": "lenient_fallback",
       "turns_matched": 32,
-      "duration_seconds": 360.0
+      "duration_seconds": 360.0,
+      "correlation_id": "corr-20261026T224541-LTX8"
     },
     {
       "name": "step-06-scan-workflows.md",
@@ -40,7 +41,8 @@
       "model": "glm-5p3-flash",
       "token_source": "lenient_fallback",
       "turns_matched": 32,
-      "duration_seconds": 60.0
+      "duration_seconds": 60.0,
+      "correlation_id": "corr-20261026T224541-LTX8"
     },
     {
       "name": "step-06.5-guardrail-checkpoint.md",
@@ -55,7 +57,8 @@
       "model": "glm-5p3-flash",
       "token_source": "lenient_fallback",
       "turns_matched": 32,
-      "duration_seconds": 240.0
+      "duration_seconds": 240.0,
+      "correlation_id": "corr-20261026T224541-LTX8"
     },
     {
       "name": "step-07-verify-completion.md",
@@ -70,7 +73,8 @@
       "model": "glm-5p3-flash",
       "token_source": "lenient_fallback",
       "turns_matched": 32,
-      "duration_seconds": 90.0
+      "duration_seconds": 90.0,
+      "correlation_id": "corr-20261026T224541-LTX8"
     },
     {
       "name": "step-08-knox-completion-check.md",
@@ -85,7 +89,8 @@
       "model": "glm-5p3",
       "token_source": "lenient_fallback",
       "turns_matched": 64,
-      "duration_seconds": 90.0
+      "duration_seconds": 90.0,
+      "correlation_id": "corr-20261026T224541-LTX8"
     }
   ],
   "assessment": {
@@ -261,5 +266,6 @@
         "knox_eval_id": null
       }
     }
-  ]
+  ],
+  "correlation_id": "corr-20261026T224541-LTX8"
 }

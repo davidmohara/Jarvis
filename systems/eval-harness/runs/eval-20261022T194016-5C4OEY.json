@@ -25,7 +25,8 @@
       "tokens_input": null,
       "tokens_output": null,
       "cost_usd": null,
-      "token_source": null
+      "token_source": null,
+      "correlation_id": "corr-20261026T224541-84B9"
     },
     {
       "name": "step-03-verify-phase2.md",
@@ -42,7 +43,8 @@
       "tokens_input": null,
       "tokens_output": null,
       "cost_usd": null,
-      "token_source": null
+      "token_source": null,
+      "correlation_id": "corr-20261026T224541-84B9"
     },
     {
       "name": "step-04-gather-meeting-context.md",
@@ -59,7 +61,8 @@
       "tokens_input": null,
       "tokens_output": null,
       "cost_usd": null,
-      "token_source": null
+      "token_source": null,
+      "correlation_id": "corr-20261026T224541-84B9"
     },
     {
       "name": "step-01.2-unified-data-pull.md",
@@ -76,7 +79,8 @@
       "tokens_input": null,
       "tokens_output": null,
       "cost_usd": null,
-      "token_source": null
+      "token_source": null,
+      "correlation_id": "corr-20261026T224541-84B9"
     },
     {
       "name": "step-05-synthesize-briefing.md",
@@ -93,7 +97,8 @@
       "tokens_input": null,
       "tokens_output": null,
       "cost_usd": null,
-      "token_source": null
+      "token_source": null,
+      "correlation_id": "corr-20261026T224541-84B9"
     },
     {
       "name": "step-06-scan-workflows.md",
@@ -110,7 +115,8 @@
       "tokens_input": null,
       "tokens_output": null,
       "cost_usd": null,
-      "token_source": null
+      "token_source": null,
+      "correlation_id": "corr-20261026T224541-84B9"
     },
     {
       "name": "step-07-verify-completion.md",
@@ -127,7 +133,8 @@
       "tokens_input": null,
       "tokens_output": null,
       "cost_usd": null,
-      "token_source": null
+      "token_source": null,
+      "correlation_id": "corr-20261026T224541-84B9"
     },
     {
       "name": "step-08-knox-completion-check.md",
@@ -144,7 +151,8 @@
       "tokens_input": null,
       "tokens_output": null,
       "cost_usd": null,
-      "token_source": null
+      "token_source": null,
+      "correlation_id": "corr-20261026T224541-84B9"
     }
   ],
   "subagents": [
@@ -287,5 +295,6 @@
   "fully_loaded_tokens_output": 2196,
   "workflow": "boot",
   "model": "glm-5p3",
-  "model_source": "parent-window-backfill"
+  "model_source": "parent-window-backfill",
+  "correlation_id": "corr-20261026T224541-84B9"
 }

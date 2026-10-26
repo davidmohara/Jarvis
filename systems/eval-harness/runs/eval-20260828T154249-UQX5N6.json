@@ -115,5 +115,6 @@
         "reason": "Knox's plaud-discover fix-verification agent (agent_id af09289d8bc5930e1), a separate sibling spawn from this session, not part of boot's own execution. Was misattributed into this record's subagents[] before the 2026-08-28 fix; removed during Task 2 cleanup."
       }
     ]
-  }
+  },
+  "correlation_id": "corr-20261026T224540-U9ZJ"
 }

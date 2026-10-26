@@ -25,7 +25,8 @@
       "tokens_input": null,
       "tokens_output": null,
       "cost_usd": null,
-      "token_source": null
+      "token_source": null,
+      "correlation_id": "corr-20261026T224541-HV2G"
     },
     {
       "name": "step-01.2-unified-data-pull.md",
@@ -42,7 +43,8 @@
       "tokens_input": null,
       "tokens_output": null,
       "cost_usd": null,
-      "token_source": null
+      "token_source": null,
+      "correlation_id": "corr-20261026T224541-HV2G"
     },
     {
       "name": "step-01-load-context.md",
@@ -59,7 +61,8 @@
       "tokens_input": null,
       "tokens_output": null,
       "cost_usd": null,
-      "token_source": null
+      "token_source": null,
+      "correlation_id": "corr-20261026T224541-HV2G"
     }
   ],
   "subagents": [
@@ -174,5 +177,6 @@
   ],
   "workflow": "boot",
   "model": "glm-5p3",
-  "model_source": "session-transcript-window-backfill"
+  "model_source": "session-transcript-window-backfill",
+  "correlation_id": "corr-20261026T224541-HV2G"
 }

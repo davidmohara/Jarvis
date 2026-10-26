@@ -1,0 +1,115 @@
+{
+  "id": "eval-20261026T141400-VKOMMT",
+  "agent_id": "ac736b464aa5bbf6e",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": "plaud-ingest",
+  "agent": "knox",
+  "owning_agent": "knox",
+  "subagent_type": "general-purpose",
+  "session_id": "2872ee9b-a577-4153-b19d-215af4f9e343",
+  "trigger": "unknown",
+  "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+  "model_source": "subagent-transcript",
+  "started": "2026-10-26T14:14:00.724065Z",
+  "completed": "2026-10-26T14:18:24.516439Z",
+  "duration_seconds": 263.79,
+  "status": "partial",
+  "steps": [
+    {
+      "name": "step-01-discover.md",
+      "agent": "general-purpose",
+      "step_id": "step-01-discover.md",
+      "owning_agent": "general-purpose",
+      "started": "2026-10-26T14:15:00Z",
+      "completed": "2026-10-26T14:16:36Z",
+      "status": "completed",
+      "tokens_input": 395861,
+      "tokens_output": 4559,
+      "cost_usd": 0.019332,
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "token_source": "windowed",
+      "turns_matched": 7,
+      "turns_with_usage": 7,
+      "duration_seconds": 96.0,
+      "correlation_id": "corr-20261026T224541-G7KR"
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 1,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/2872ee9b-a577-4153-b19d-215af4f9e343/subagents/agent-ac736b464aa5bbf6e.jsonl",
+  "total_tokens_input": 1650896,
+  "total_tokens_output": 13806,
+  "total_cost_usd": 0.121089,
+  "token_source": "subagent-transcript",
+  "guardrails": [
+    {
+      "name": "step-01-discover-checkpoint",
+      "after_step": "step-01-discover.md",
+      "result": "pass",
+      "reason": "No new Plaud recordings found \u2014 legitimate nothing-to-do outcome",
+      "escalated_to_human": false,
+      "timestamp": "2026-10-26T14:18:24.932856Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "new_recordings_count": 0,
+        "malformed_records": [],
+        "duplicate_file_ids": []
+      }
+    }
+  ],
+  "parent_window": {
+    "token_source": "parent-window",
+    "transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/2872ee9b-a577-4153-b19d-215af4f9e343.jsonl",
+    "window_start": "2026-10-26T14:14:00.724065Z",
+    "window_end": "2026-10-26T14:18:24.516439Z",
+    "model": "glm-5p3-flash",
+    "tokens_input": 599650,
+    "tokens_output": 1446,
+    "cost_usd": 0.010365,
+    "turns_matched": 8,
+    "turns_with_usage": 8,
+    "computed_at": "2026-10-26T14:18:25.017154Z"
+  },
+  "fully_loaded_cost_usd": 0.131454,
+  "fully_loaded_tokens_input": 2250546,
+  "fully_loaded_tokens_output": 15252,
+  "correlation_id": "corr-20261026T224541-G7KR"
+}

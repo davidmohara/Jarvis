@@ -21,7 +21,8 @@
       "model": null,
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-NQ7U"
     },
     {
       "name": "step-02-organize-deliverables",
@@ -34,7 +35,8 @@
       "model": null,
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-NQ7U"
     },
     {
       "name": "step-03-gitignore-check",
@@ -47,7 +49,8 @@
       "model": null,
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-NQ7U"
     }
   ],
   "assessment": {
@@ -101,5 +104,6 @@
   "tags": [
     "phantom-candidate",
     "cowork-hook"
-  ]
+  ],
+  "correlation_id": "corr-20261026T224540-NQ7U"
 }

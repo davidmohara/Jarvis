@@ -23,7 +23,8 @@
       "model": "sonnet",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-IU0L"
     },
     {
       "name": "step-01-discover.md",
@@ -36,7 +37,8 @@
       "model": "sonnet",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-IU0L"
     },
     {
       "name": "step-01-approve.md",
@@ -49,7 +51,8 @@
       "model": "haiku",
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-IU0L"
     }
   ],
   "assessment": {
@@ -96,5 +99,6 @@
   "model": "sonnet",
   "total_tokens_input": 6785161,
   "total_tokens_output": 6653,
-  "total_cost_usd": 2.843575
+  "total_cost_usd": 2.843575,
+  "correlation_id": "corr-20261026T224540-IU0L"
 }

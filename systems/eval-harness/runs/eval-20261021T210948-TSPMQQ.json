@@ -1,78 +1,79 @@
 {
- "id": "eval-20261021T210948-TSPMQQ",
- "agent_id": "ac4c99352585e2251",
- "type": "agent",
- "name": "general-purpose",
- "workflow": null,
- "agent": "rigby",
- "owning_agent": "rigby",
- "subagent_type": "general-purpose",
- "session_id": "345c604d-c844-4335-a6bb-2ff2b6ba17b6",
- "trigger": "unknown",
- "started": "2026-10-21T21:09:48.013955Z",
- "completed": "2026-10-21T21:59:50.578186Z",
- "duration_seconds": 3002.56,
- "status": "partial",
- "steps": [],
- "assessment": {
-  "mechanical": {
-   "completed": true,
-   "all_steps_finished": true,
-   "tool_failures": 7,
-   "error_ids": []
+  "id": "eval-20261021T210948-TSPMQQ",
+  "agent_id": "ac4c99352585e2251",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "rigby",
+  "owning_agent": "rigby",
+  "subagent_type": "general-purpose",
+  "session_id": "345c604d-c844-4335-a6bb-2ff2b6ba17b6",
+  "trigger": "unknown",
+  "started": "2026-10-21T21:09:48.013955Z",
+  "completed": "2026-10-21T21:59:50.578186Z",
+  "duration_seconds": 3002.56,
+  "status": "partial",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 7,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": "2026-10-22T01:05:32Z",
+      "grade": "A",
+      "safety_grade": null,
+      "grader_notes": "Fully-loaded cost attribution built, tested, and live-backfilled: rates_for_model with alias/provider-prefix resolution, per-turn pricing so mixed-model windows price each turn at its own rate (the old dominant-model path would have 9x'd the glm-5p3-flash component), strict parent-window slicing with honest $0.00/None states and no lenient fallback, and a component model that avoids double-counting inline steps. Both test suites green plus a definitive day reconciliation. 50 minutes, 7 tool failures, status partial; changes verified in the working tree (token_usage.py, report.py). Completes the cost-attribution arc from LJFT5Q."
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
   },
-  "structural": {
-   "expected_outputs_written": null,
-   "outputs_non_empty": null,
-   "assertions_checked": 0,
-   "assertions_passed": 0,
-   "assertion_results": []
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/345c604d-c844-4335-a6bb-2ff2b6ba17b6/subagents/agent-ac4c99352585e2251.jsonl",
+  "model": "accounts/fireworks/models/kimi-k3",
+  "total_tokens_input": 1758290,
+  "total_tokens_output": 4886,
+  "total_cost_usd": 0.623387,
+  "token_source": "subagent-transcript",
+  "parent_window": {
+    "token_source": "parent-window",
+    "transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/345c604d-c844-4335-a6bb-2ff2b6ba17b6.jsonl",
+    "window_start": "2026-10-21T21:09:48.013955Z",
+    "window_end": "2026-10-21T21:59:50.578186Z",
+    "model": "accounts/fireworks/models/glm-5p3",
+    "tokens_input": 255927,
+    "tokens_output": 316,
+    "cost_usd": 0.038876,
+    "turns_matched": 1,
+    "turns_with_usage": 1,
+    "computed_at": "2026-10-21T21:59:50.849958Z"
   },
-  "grading": {
-   "last_graded": "2026-10-22T01:05:32Z",
-   "grade": "A",
-   "safety_grade": null,
-   "grader_notes": "Fully-loaded cost attribution built, tested, and live-backfilled: rates_for_model with alias/provider-prefix resolution, per-turn pricing so mixed-model windows price each turn at its own rate (the old dominant-model path would have 9x'd the glm-5p3-flash component), strict parent-window slicing with honest $0.00/None states and no lenient fallback, and a component model that avoids double-counting inline steps. Both test suites green plus a definitive day reconciliation. 50 minutes, 7 tool failures, status partial; changes verified in the working tree (token_usage.py, report.py). Completes the cost-attribution arc from LJFT5Q."
-  },
-  "controller_feedback": {
-   "rating": null,
-   "comment": null,
-   "timestamp": null
-  },
-  "bias_assessment": {
-   "applicable": false,
-   "protected_attributes": [],
-   "fairness_metric": null,
-   "demographic_coverage_verified": false,
-   "adversarial_inputs_tested": false,
-   "bias_detected": false,
-   "bias_flags": [],
-   "remediation_status": "none"
-  }
- },
- "version_hash": null,
- "prior_baseline_id": null,
- "tags": [],
- "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/345c604d-c844-4335-a6bb-2ff2b6ba17b6/subagents/agent-ac4c99352585e2251.jsonl",
- "model": "accounts/fireworks/models/kimi-k3",
- "total_tokens_input": 1758290,
- "total_tokens_output": 4886,
- "total_cost_usd": 0.623387,
- "token_source": "subagent-transcript",
- "parent_window": {
-  "token_source": "parent-window",
-  "transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/345c604d-c844-4335-a6bb-2ff2b6ba17b6.jsonl",
-  "window_start": "2026-10-21T21:09:48.013955Z",
-  "window_end": "2026-10-21T21:59:50.578186Z",
-  "model": "accounts/fireworks/models/glm-5p3",
-  "tokens_input": 255927,
-  "tokens_output": 316,
-  "cost_usd": 0.038876,
-  "turns_matched": 1,
-  "turns_with_usage": 1,
-  "computed_at": "2026-10-21T21:59:50.849958Z"
- },
- "fully_loaded_cost_usd": 0.662263,
- "fully_loaded_tokens_input": 2014217,
- "fully_loaded_tokens_output": 5202
+  "fully_loaded_cost_usd": 0.662263,
+  "fully_loaded_tokens_input": 2014217,
+  "fully_loaded_tokens_output": 5202,
+  "correlation_id": "corr-20261026T224541-S4VH"
 }

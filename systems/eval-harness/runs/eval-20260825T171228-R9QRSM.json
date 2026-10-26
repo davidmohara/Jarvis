@@ -20,7 +20,8 @@
       "tokens_output": 1023,
       "cost_usd": 1.74227,
       "model": "sonnet",
-      "duration_seconds": 75.0
+      "duration_seconds": 75.0,
+      "correlation_id": "corr-20261026T224540-9J96"
     },
     {
       "name": "step-01.2-unified-data-pull",
@@ -31,7 +32,8 @@
       "tokens_output": 1023,
       "cost_usd": 1.74227,
       "model": "sonnet",
-      "duration_seconds": 480.0
+      "duration_seconds": 480.0,
+      "correlation_id": "corr-20261026T224540-9J96"
     },
     {
       "name": "step-01.5-unified-calendar-pull",
@@ -42,7 +44,8 @@
       "tokens_output": 1023,
       "cost_usd": 1.74227,
       "model": "sonnet",
-      "duration_seconds": 15.0
+      "duration_seconds": 15.0,
+      "correlation_id": "corr-20261026T224540-9J96"
     },
     {
       "name": "step-02-gather-data",
@@ -53,7 +56,8 @@
       "tokens_output": 1023,
       "cost_usd": 1.74227,
       "model": "sonnet",
-      "duration_seconds": 75.0
+      "duration_seconds": 75.0,
+      "correlation_id": "corr-20261026T224540-9J96"
     },
     {
       "name": "step-02.5-measure-phase2",
@@ -64,7 +68,8 @@
       "tokens_output": 1023,
       "cost_usd": 1.74227,
       "model": "sonnet",
-      "duration_seconds": 60.0
+      "duration_seconds": 60.0,
+      "correlation_id": "corr-20261026T224540-9J96"
     },
     {
       "name": "step-03-verify-phase2",
@@ -75,7 +80,8 @@
       "tokens_output": 1023,
       "cost_usd": 1.74227,
       "model": "sonnet",
-      "duration_seconds": 15.0
+      "duration_seconds": 15.0,
+      "correlation_id": "corr-20261026T224540-9J96"
     },
     {
       "name": "step-04-gather-meeting-context",
@@ -86,7 +92,8 @@
       "tokens_output": 1023,
       "cost_usd": 1.74227,
       "model": "sonnet",
-      "duration_seconds": 15.0
+      "duration_seconds": 15.0,
+      "correlation_id": "corr-20261026T224540-9J96"
     },
     {
       "name": "step-05-synthesize-briefing",
@@ -97,7 +104,8 @@
       "tokens_output": 1023,
       "cost_usd": 1.74227,
       "model": "sonnet",
-      "duration_seconds": 30.0
+      "duration_seconds": 30.0,
+      "correlation_id": "corr-20261026T224540-9J96"
     },
     {
       "name": "step-06-scan-workflows",
@@ -108,7 +116,8 @@
       "tokens_output": 1023,
       "cost_usd": 1.74227,
       "model": "sonnet",
-      "duration_seconds": 10.0
+      "duration_seconds": 10.0,
+      "correlation_id": "corr-20261026T224540-9J96"
     },
     {
       "name": "step-06.5-guardrail-checkpoint",
@@ -119,7 +128,8 @@
       "tokens_output": 997,
       "cost_usd": 1.262785,
       "model": "sonnet",
-      "duration_seconds": 145.0
+      "duration_seconds": 145.0,
+      "correlation_id": "corr-20261026T224540-9J96"
     },
     {
       "name": "step-07-verify-completion",
@@ -130,7 +140,8 @@
       "tokens_output": 7,
       "cost_usd": 0.089019,
       "model": "sonnet",
-      "duration_seconds": 30.0
+      "duration_seconds": 30.0,
+      "correlation_id": "corr-20261026T224540-9J96"
     },
     {
       "name": "step-08-knox-completion-check",
@@ -141,7 +152,8 @@
       "tokens_output": 1023,
       "cost_usd": 1.74227,
       "model": "sonnet",
-      "duration_seconds": 5.0
+      "duration_seconds": 5.0,
+      "correlation_id": "corr-20261026T224540-9J96"
     },
     {
       "name": "step-01-gather-calendar",
@@ -154,7 +166,8 @@
       "model": null,
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-9J96"
     },
     {
       "name": "step-02-gather-tasks",
@@ -167,7 +180,8 @@
       "model": null,
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-9J96"
     },
     {
       "name": "step-03-gather-context",
@@ -180,7 +194,8 @@
       "model": null,
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-9J96"
     }
   ],
   "assessment": {
@@ -506,5 +521,6 @@
       "escalated_to_human": false,
       "timestamp": "2026-08-27T16:26:59.547936+00:00"
     }
-  ]
+  ],
+  "correlation_id": "corr-20261026T224540-9J96"
 }

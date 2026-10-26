@@ -29,7 +29,8 @@
       "token_source": "windowed",
       "turns_matched": 11,
       "turns_with_usage": 11,
-      "duration_seconds": 167.0
+      "duration_seconds": 167.0,
+      "correlation_id": "corr-20261026T224541-N731"
     }
   ],
   "assessment": {
@@ -109,5 +110,6 @@
   },
   "fully_loaded_cost_usd": 0.409975,
   "fully_loaded_tokens_input": 738397,
-  "fully_loaded_tokens_output": 5051
+  "fully_loaded_tokens_output": 5051,
+  "correlation_id": "corr-20261026T224541-N731"
 }

@@ -27,7 +27,8 @@
       "tokens_input": null,
       "tokens_output": null,
       "cost_usd": null,
-      "token_source": null
+      "token_source": null,
+      "correlation_id": "corr-20261026T224541-FEHM"
     }
   ],
   "assessment": {
@@ -71,5 +72,6 @@
   "tags": [],
   "total_cost_usd": 0.045,
   "cost_estimation_note": "estimated based on claude workflow type",
-  "model": "sonnet"
+  "model": "sonnet",
+  "correlation_id": "corr-20261026T224541-FEHM"
 }

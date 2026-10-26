@@ -26,7 +26,8 @@
       "tokens_output": 2868,
       "cost_usd": null,
       "turns_matched": 6,
-      "token_source": "backfilled-windowed"
+      "token_source": "backfilled-windowed",
+      "correlation_id": "corr-20261026T224541-EMM9"
     },
     {
       "name": "step-02-trigger-transcription",
@@ -44,7 +45,8 @@
       "tokens_output": 2868,
       "cost_usd": null,
       "turns_matched": 6,
-      "token_source": "backfilled-windowed"
+      "token_source": "backfilled-windowed",
+      "correlation_id": "corr-20261026T224541-EMM9"
     },
     {
       "name": "step-03-identify-speakers",
@@ -62,7 +64,8 @@
       "tokens_output": 2868,
       "cost_usd": null,
       "turns_matched": 6,
-      "token_source": "backfilled-windowed"
+      "token_source": "backfilled-windowed",
+      "correlation_id": "corr-20261026T224541-EMM9"
     },
     {
       "name": "step-04-fetch-staging",
@@ -80,7 +83,8 @@
       "tokens_output": 2868,
       "cost_usd": null,
       "turns_matched": 6,
-      "token_source": "backfilled-windowed"
+      "token_source": "backfilled-windowed",
+      "correlation_id": "corr-20261026T224541-EMM9"
     },
     {
       "name": "step-05-ingest-vault",
@@ -98,7 +102,8 @@
       "tokens_output": 2868,
       "cost_usd": null,
       "turns_matched": 6,
-      "token_source": "backfilled-windowed"
+      "token_source": "backfilled-windowed",
+      "correlation_id": "corr-20261026T224541-EMM9"
     },
     {
       "name": "step-05b-share-with-alice",
@@ -116,7 +121,8 @@
       "tokens_output": 2868,
       "cost_usd": null,
       "turns_matched": 6,
-      "token_source": "backfilled-windowed"
+      "token_source": "backfilled-windowed",
+      "correlation_id": "corr-20261026T224541-EMM9"
     }
   ],
   "assessment": {
@@ -169,5 +175,6 @@
       "escalated_to_human": false,
       "timestamp": "2026-10-09T16:14:02.354193+00:00"
     }
-  ]
+  ],
+  "correlation_id": "corr-20261026T224541-EMM9"
 }

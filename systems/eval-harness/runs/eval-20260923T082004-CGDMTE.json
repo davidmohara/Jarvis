@@ -17,7 +17,8 @@
       "duration_seconds": 271.1,
       "status": "success",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224541-0DJX"
     },
     {
       "name": "step-02-salience-scoring",
@@ -26,7 +27,8 @@
       "duration_seconds": 271.1,
       "status": "success",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224541-0DJX"
     },
     {
       "name": "step-03-semantic-promotion",
@@ -35,7 +37,8 @@
       "duration_seconds": 271.1,
       "status": "success",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224541-0DJX"
     },
     {
       "name": "step-04-episodic-compression",
@@ -44,7 +47,8 @@
       "duration_seconds": 271.1,
       "status": "success",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224541-0DJX"
     }
   ],
   "assessment": {
@@ -88,5 +92,6 @@
   "prior_baseline_id": null,
   "tags": [
     "cowork-instrumented"
-  ]
+  ],
+  "correlation_id": "corr-20261026T224541-0DJX"
 }

@@ -25,7 +25,8 @@
       "tokens_input": null,
       "tokens_output": null,
       "cost_usd": null,
-      "token_source": null
+      "token_source": null,
+      "correlation_id": "corr-20261026T224541-X365"
     },
     {
       "name": "step-03-research-company-and-attendee.md",
@@ -42,7 +43,8 @@
       "tokens_input": null,
       "tokens_output": null,
       "cost_usd": null,
-      "token_source": null
+      "token_source": null,
+      "correlation_id": "corr-20261026T224541-X365"
     },
     {
       "name": "step-04-build-prep-sheet.md",
@@ -59,7 +61,8 @@
       "tokens_input": null,
       "tokens_output": null,
       "cost_usd": null,
-      "token_source": null
+      "token_source": null,
+      "correlation_id": "corr-20261026T224541-X365"
     },
     {
       "name": "step-05-remarkable-delivery.md",
@@ -76,7 +79,8 @@
       "tokens_input": null,
       "tokens_output": null,
       "cost_usd": null,
-      "token_source": null
+      "token_source": null,
+      "correlation_id": "corr-20261026T224541-X365"
     },
     {
       "name": "step-01-identify-meeting.md",
@@ -93,7 +97,8 @@
       "tokens_input": null,
       "tokens_output": null,
       "cost_usd": null,
-      "token_source": null
+      "token_source": null,
+      "correlation_id": "corr-20261026T224541-X365"
     },
     {
       "name": "step-03-generate-prep.md",
@@ -110,7 +115,8 @@
       "tokens_input": null,
       "tokens_output": null,
       "cost_usd": null,
-      "token_source": null
+      "token_source": null,
+      "correlation_id": "corr-20261026T224541-X365"
     },
     {
       "name": "step-04-assemble-output.md",
@@ -127,7 +133,8 @@
       "tokens_input": null,
       "tokens_output": null,
       "cost_usd": null,
-      "token_source": null
+      "token_source": null,
+      "correlation_id": "corr-20261026T224541-X365"
     },
     {
       "name": "step-00-cancel-prior-booking.md",
@@ -144,7 +151,8 @@
       "tokens_input": null,
       "tokens_output": null,
       "cost_usd": null,
-      "token_source": null
+      "token_source": null,
+      "correlation_id": "corr-20261026T224541-X365"
     },
     {
       "name": "step-01-read-preview-and-window-precheck.md",
@@ -161,7 +169,8 @@
       "tokens_input": null,
       "tokens_output": null,
       "cost_usd": null,
-      "token_source": null
+      "token_source": null,
+      "correlation_id": "corr-20261026T224541-X365"
     },
     {
       "name": "step-04-select-time-and-confirm.md",
@@ -178,7 +187,8 @@
       "tokens_input": null,
       "tokens_output": null,
       "cost_usd": null,
-      "token_source": null
+      "token_source": null,
+      "correlation_id": "corr-20261026T224541-X365"
     },
     {
       "name": "step-05-visual-verification.md",
@@ -195,7 +205,8 @@
       "tokens_input": null,
       "tokens_output": null,
       "cost_usd": null,
-      "token_source": null
+      "token_source": null,
+      "correlation_id": "corr-20261026T224541-X365"
     },
     {
       "name": "step-06-calendar-block.md",
@@ -212,7 +223,8 @@
       "tokens_input": null,
       "tokens_output": null,
       "cost_usd": null,
-      "token_source": null
+      "token_source": null,
+      "correlation_id": "corr-20261026T224541-X365"
     },
     {
       "name": "step-03-update-comp1.md",
@@ -229,7 +241,8 @@
       "tokens_input": null,
       "tokens_output": null,
       "cost_usd": null,
-      "token_source": null
+      "token_source": null,
+      "correlation_id": "corr-20261026T224541-X365"
     },
     {
       "name": "step-06-dashboard.md",
@@ -246,7 +259,8 @@
       "tokens_input": null,
       "tokens_output": null,
       "cost_usd": null,
-      "token_source": null
+      "token_source": null,
+      "correlation_id": "corr-20261026T224541-X365"
     }
   ],
   "subagents": [
@@ -430,5 +444,6 @@
   ],
   "workflow": "client-meeting-prep",
   "model": "accounts/fireworks/models/glm-5p3",
-  "model_source": "session-transcript-window-backfill"
+  "model_source": "session-transcript-window-backfill",
+  "correlation_id": "corr-20261026T224541-X365"
 }

@@ -141,5 +141,6 @@
   "fully_loaded_tokens_output": null,
   "fully_loaded_note": "invalid execution window (completed predates started); fully_loaded covers the subagent component only",
   "model": "accounts/fireworks/models/glm-5p3",
-  "model_source": "session-transcript-latest-backfill"
+  "model_source": "session-transcript-latest-backfill",
+  "correlation_id": "corr-20261026T224541-2GYJ"
 }

@@ -28,7 +28,8 @@
       "tokens_output": 404,
       "cost_usd": null,
       "token_source": "windowed",
-      "turns_matched": 2
+      "turns_matched": 2,
+      "correlation_id": "corr-20261026T224541-O2TH"
     },
     {
       "name": "step-02-gather-tasks.md",
@@ -46,7 +47,8 @@
       "tokens_output": 0,
       "cost_usd": null,
       "token_source": "windowed",
-      "turns_matched": 6
+      "turns_matched": 6,
+      "correlation_id": "corr-20261026T224541-O2TH"
     },
     {
       "name": "step-03-gather-context.md",
@@ -61,7 +63,8 @@
       "model": "accounts/fireworks/models/deepseek-v4p1-flash",
       "token_source": "lenient_fallback",
       "turns_matched": 15,
-      "duration_seconds": 180.0
+      "duration_seconds": 180.0,
+      "correlation_id": "corr-20261026T224541-O2TH"
     },
     {
       "name": "step-03b-guardrail-checkpoint.md",
@@ -76,7 +79,8 @@
       "model": "accounts/fireworks/models/deepseek-v4p1-flash",
       "token_source": "lenient_fallback",
       "turns_matched": 15,
-      "duration_seconds": 60.0
+      "duration_seconds": 60.0,
+      "correlation_id": "corr-20261026T224541-O2TH"
     },
     {
       "name": "step-04-synthesize-briefing.md",
@@ -91,7 +95,8 @@
       "model": "accounts/fireworks/models/deepseek-v4p1-flash",
       "token_source": "lenient_fallback",
       "turns_matched": 15,
-      "duration_seconds": 120.0
+      "duration_seconds": 120.0,
+      "correlation_id": "corr-20261026T224541-O2TH"
     },
     {
       "name": "step-02-gather-data.md",
@@ -106,7 +111,8 @@
       "model": "glm-5p3",
       "token_source": "windowed",
       "turns_matched": 29,
-      "duration_seconds": 420.0
+      "duration_seconds": 420.0,
+      "correlation_id": "corr-20261026T224541-O2TH"
     },
     {
       "name": "step-02.5-measure-phase2.md",
@@ -121,7 +127,8 @@
       "model": "glm-5p3",
       "token_source": "windowed",
       "turns_matched": 10,
-      "duration_seconds": 90.0
+      "duration_seconds": 90.0,
+      "correlation_id": "corr-20261026T224541-O2TH"
     }
   ],
   "assessment": {
@@ -296,5 +303,6 @@
   },
   "total_cost_usd": 0.09,
   "cost_estimation_note": "estimated based on general-purpose workflow type",
-  "model": "sonnet"
+  "model": "sonnet",
+  "correlation_id": "corr-20261026T224541-O2TH"
 }

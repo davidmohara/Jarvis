@@ -25,7 +25,8 @@
       "tokens_output": 1670,
       "cost_usd": null,
       "turns_matched": 8,
-      "token_source": "backfilled-windowed"
+      "token_source": "backfilled-windowed",
+      "correlation_id": "corr-20261026T224540-LY1U"
     },
     {
       "name": "step-01.2-unified-data-pull.md",
@@ -34,7 +35,8 @@
       "duration_seconds": 96.0,
       "status": "complete",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224540-LY1U"
     },
     {
       "name": "step-01.5-unified-calendar-pull.md",
@@ -43,7 +45,8 @@
       "duration_seconds": 120.0,
       "status": "complete",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224540-LY1U"
     },
     {
       "name": "step-02-gather-data.md",
@@ -58,7 +61,8 @@
       "tokens_output": 156,
       "cost_usd": null,
       "turns_matched": 1,
-      "token_source": "backfilled-windowed"
+      "token_source": "backfilled-windowed",
+      "correlation_id": "corr-20261026T224540-LY1U"
     },
     {
       "name": "step-02.5-measure-phase2.md",
@@ -67,7 +71,8 @@
       "duration_seconds": 30.0,
       "status": "complete",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224540-LY1U"
     },
     {
       "name": "step-03-verify-phase2.md",
@@ -76,7 +81,8 @@
       "duration_seconds": 60.0,
       "status": "complete",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224540-LY1U"
     },
     {
       "name": "step-04-gather-meeting-context.md",
@@ -85,7 +91,8 @@
       "duration_seconds": 90.0,
       "status": "complete",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224540-LY1U"
     },
     {
       "name": "step-05-synthesize-briefing.md",
@@ -100,7 +107,8 @@
       "tokens_output": 1610,
       "cost_usd": null,
       "turns_matched": 1,
-      "token_source": "backfilled-windowed"
+      "token_source": "backfilled-windowed",
+      "correlation_id": "corr-20261026T224540-LY1U"
     },
     {
       "name": "step-06-scan-workflows.md",
@@ -109,7 +117,8 @@
       "duration_seconds": 60.0,
       "status": "complete",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224540-LY1U"
     },
     {
       "name": "step-06.5-guardrail-checkpoint.md",
@@ -124,7 +133,8 @@
       "tokens_output": 620,
       "cost_usd": null,
       "turns_matched": 1,
-      "token_source": "backfilled-windowed"
+      "token_source": "backfilled-windowed",
+      "correlation_id": "corr-20261026T224540-LY1U"
     },
     {
       "name": "step-07-verify-completion.md",
@@ -133,7 +143,8 @@
       "duration_seconds": 60.0,
       "status": "complete",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224540-LY1U"
     },
     {
       "name": "step-08-knox-completion-check.md",
@@ -142,7 +153,8 @@
       "duration_seconds": 60.0,
       "status": "complete",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224540-LY1U"
     }
   ],
   "assessment": {
@@ -190,5 +202,6 @@
   "total_tokens_input": 576124,
   "total_tokens_output": 3496,
   "total_cost_usd": 0.09,
-  "cost_estimation_note": "estimated based on general-purpose workflow type"
+  "cost_estimation_note": "estimated based on general-purpose workflow type",
+  "correlation_id": "corr-20261026T224540-LY1U"
 }

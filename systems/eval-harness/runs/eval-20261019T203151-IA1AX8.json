@@ -24,7 +24,8 @@
       "model": "kimi-k3",
       "token_source": "lenient_fallback",
       "turns_matched": 51,
-      "duration_seconds": 257.0
+      "duration_seconds": 257.0,
+      "correlation_id": "corr-20261026T224541-HXCV"
     },
     {
       "name": "step-01.5-unified-calendar-pull.md",
@@ -40,7 +41,8 @@
       "model": "kimi-k3",
       "token_source": "lenient_fallback",
       "turns_matched": 51,
-      "duration_seconds": 300.0
+      "duration_seconds": 300.0,
+      "correlation_id": "corr-20261026T224541-HXCV"
     },
     {
       "name": "step-02-gather-data.md",
@@ -56,7 +58,8 @@
       "model": "glm-5p3-flash",
       "token_source": "lenient_fallback",
       "turns_matched": 8,
-      "duration_seconds": 480.0
+      "duration_seconds": 480.0,
+      "correlation_id": "corr-20261026T224541-HXCV"
     },
     {
       "name": "step-02.5-measure-phase2.md",
@@ -72,7 +75,8 @@
       "model": "glm-5p3-flash",
       "token_source": "lenient_fallback",
       "turns_matched": 8,
-      "duration_seconds": 90.0
+      "duration_seconds": 90.0,
+      "correlation_id": "corr-20261026T224541-HXCV"
     },
     {
       "name": "step-03-verify-phase2.md",
@@ -88,7 +92,8 @@
       "model": "glm-5p3-flash",
       "token_source": "lenient_fallback",
       "turns_matched": 8,
-      "duration_seconds": 300.0
+      "duration_seconds": 300.0,
+      "correlation_id": "corr-20261026T224541-HXCV"
     },
     {
       "name": "step-04-gather-meeting-context.md",
@@ -104,7 +109,8 @@
       "model": "glm-5p3-flash",
       "token_source": "windowed",
       "turns_matched": 18,
-      "duration_seconds": 300.0
+      "duration_seconds": 300.0,
+      "correlation_id": "corr-20261026T224541-HXCV"
     },
     {
       "name": "step-05-synthesize-briefing.md",
@@ -120,7 +126,8 @@
       "model": "glm-5p3-flash",
       "token_source": "lenient_fallback",
       "turns_matched": 8,
-      "duration_seconds": 720.0
+      "duration_seconds": 720.0,
+      "correlation_id": "corr-20261026T224541-HXCV"
     },
     {
       "name": "step-06-scan-workflows.md",
@@ -136,7 +143,8 @@
       "model": "glm-5p3-flash",
       "token_source": "lenient_fallback",
       "turns_matched": 8,
-      "duration_seconds": 120.0
+      "duration_seconds": 120.0,
+      "correlation_id": "corr-20261026T224541-HXCV"
     },
     {
       "name": "step-06.5-guardrail-checkpoint.md",
@@ -152,7 +160,8 @@
       "model": "glm-5p3-flash",
       "token_source": "lenient_fallback",
       "turns_matched": 8,
-      "duration_seconds": 120.0
+      "duration_seconds": 120.0,
+      "correlation_id": "corr-20261026T224541-HXCV"
     },
     {
       "name": "step-07-verify-completion.md",
@@ -168,7 +177,8 @@
       "model": "glm-5p3-flash",
       "token_source": "lenient_fallback",
       "turns_matched": 8,
-      "duration_seconds": 90.0
+      "duration_seconds": 90.0,
+      "correlation_id": "corr-20261026T224541-HXCV"
     },
     {
       "name": "step-08-knox-completion-check.md",
@@ -184,7 +194,8 @@
       "model": "glm-5p3-flash",
       "token_source": "lenient_fallback",
       "turns_matched": 8,
-      "duration_seconds": 60.0
+      "duration_seconds": 60.0,
+      "correlation_id": "corr-20261026T224541-HXCV"
     }
   ],
   "subagents": [
@@ -690,5 +701,6 @@
   "total_tokens_output": 87061,
   "total_cost_usd": 7.759334,
   "model": "glm-5p3-flash",
-  "model_source": "session-transcript-window-backfill"
+  "model_source": "session-transcript-window-backfill",
+  "correlation_id": "corr-20261026T224541-HXCV"
 }

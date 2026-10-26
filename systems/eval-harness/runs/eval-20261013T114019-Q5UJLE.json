@@ -22,7 +22,8 @@
       "model": "accounts/fireworks/models/glm-5p3",
       "token_source": "lenient_fallback",
       "turns_matched": 14,
-      "duration_seconds": 120.0
+      "duration_seconds": 120.0,
+      "correlation_id": "corr-20261026T224541-8QC4"
     },
     {
       "name": "step-01.5-unified-calendar-pull.md",
@@ -37,7 +38,8 @@
       "model": "accounts/fireworks/models/glm-5p3",
       "token_source": "windowed",
       "turns_matched": 1,
-      "duration_seconds": 180.0
+      "duration_seconds": 180.0,
+      "correlation_id": "corr-20261026T224541-8QC4"
     },
     {
       "name": "step-02-gather-data.md",
@@ -52,7 +54,8 @@
       "model": "accounts/fireworks/models/glm-5p3",
       "token_source": "lenient_fallback",
       "turns_matched": 14,
-      "duration_seconds": 300.0
+      "duration_seconds": 300.0,
+      "correlation_id": "corr-20261026T224541-8QC4"
     },
     {
       "name": "step-02.5-measure-phase2.md",
@@ -67,7 +70,8 @@
       "model": "accounts/fireworks/models/glm-5p3",
       "token_source": "lenient_fallback",
       "turns_matched": 14,
-      "duration_seconds": 30.0
+      "duration_seconds": 30.0,
+      "correlation_id": "corr-20261026T224541-8QC4"
     },
     {
       "name": "step-03-verify-phase2.md",
@@ -82,7 +86,8 @@
       "model": "accounts/fireworks/models/glm-5p3",
       "token_source": "lenient_fallback",
       "turns_matched": 14,
-      "duration_seconds": 240.0
+      "duration_seconds": 240.0,
+      "correlation_id": "corr-20261026T224541-8QC4"
     },
     {
       "name": "step-04-gather-meeting-context.md",
@@ -97,7 +102,8 @@
       "model": "accounts/fireworks/models/glm-5p3",
       "token_source": "lenient_fallback",
       "turns_matched": 14,
-      "duration_seconds": 240.0
+      "duration_seconds": 240.0,
+      "correlation_id": "corr-20261026T224541-8QC4"
     },
     {
       "name": "step-05-synthesize-briefing.md",
@@ -112,7 +118,8 @@
       "model": "accounts/fireworks/models/glm-5p3",
       "token_source": "lenient_fallback",
       "turns_matched": 29,
-      "duration_seconds": 2040.0
+      "duration_seconds": 2040.0,
+      "correlation_id": "corr-20261026T224541-8QC4"
     },
     {
       "name": "step-06-scan-workflows.md",
@@ -127,7 +134,8 @@
       "model": "accounts/fireworks/models/glm-5p3",
       "token_source": "lenient_fallback",
       "turns_matched": 29,
-      "duration_seconds": 60.0
+      "duration_seconds": 60.0,
+      "correlation_id": "corr-20261026T224541-8QC4"
     },
     {
       "name": "step-06.5-guardrail-checkpoint.md",
@@ -142,7 +150,8 @@
       "model": "accounts/fireworks/models/glm-5p3",
       "token_source": "lenient_fallback",
       "turns_matched": 29,
-      "duration_seconds": 120.0
+      "duration_seconds": 120.0,
+      "correlation_id": "corr-20261026T224541-8QC4"
     },
     {
       "name": "step-07-verify-completion.md",
@@ -157,7 +166,8 @@
       "model": "accounts/fireworks/models/glm-5p3",
       "token_source": "windowed",
       "turns_matched": 15,
-      "duration_seconds": 9506.0
+      "duration_seconds": 9506.0,
+      "correlation_id": "corr-20261026T224541-8QC4"
     },
     {
       "name": "step-08-knox-completion-check.md",
@@ -172,7 +182,8 @@
       "model": "accounts/fireworks/models/glm-5p3",
       "token_source": "lenient_fallback",
       "turns_matched": 29,
-      "duration_seconds": 60.0
+      "duration_seconds": 60.0,
+      "correlation_id": "corr-20261026T224541-8QC4"
     }
   ],
   "subagents": [
@@ -574,5 +585,6 @@
   "total_tokens_output": 72646,
   "total_cost_usd": 0.27,
   "model": "accounts/fireworks/models/glm-5p3",
-  "model_source": "session-transcript-window-backfill"
+  "model_source": "session-transcript-window-backfill",
+  "correlation_id": "corr-20261026T224541-8QC4"
 }

@@ -25,7 +25,8 @@
       "tokens_output": 8672,
       "cost_usd": 0.571866,
       "turns_matched": 29,
-      "token_source": "backfilled-windowed"
+      "token_source": "backfilled-windowed",
+      "correlation_id": "corr-20261026T224540-LWFA"
     }
   ],
   "assessment": {
@@ -72,5 +73,6 @@
   "model": "haiku",
   "total_tokens_input": 659444,
   "total_tokens_output": 22,
-  "total_cost_usd": 0.11491
+  "total_cost_usd": 0.11491,
+  "correlation_id": "corr-20261026T224540-LWFA"
 }

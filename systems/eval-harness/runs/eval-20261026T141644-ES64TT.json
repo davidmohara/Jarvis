@@ -1,0 +1,151 @@
+{
+  "id": "eval-20261026T141644-ES64TT",
+  "type": "workflow",
+  "name": "plaud-ingest",
+  "agent": "knox",
+  "owning_agent": "knox",
+  "session_id": "2872ee9b-a577-4153-b19d-215af4f9e343",
+  "trigger": "manual",
+  "model": "glm-5p3-flash",
+  "model_source": "session-transcript-window",
+  "started": "2026-10-26T14:15:00Z",
+  "completed": "2026-10-26T14:16:44.473725Z",
+  "duration_seconds": 104.5,
+  "status": "no-op",
+  "steps": [
+    {
+      "name": "step-01-discover.md",
+      "step_id": "step-01-discover.md",
+      "agent": "knox",
+      "owning_agent": "knox",
+      "started": "2026-10-26T14:15:00Z",
+      "completed": "2026-10-26T14:16:36Z",
+      "duration_seconds": 96.0,
+      "status": "completed",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "glm-5p3-flash",
+      "tokens_input": 75043,
+      "tokens_output": 198,
+      "cost_usd": 0.001264,
+      "token_source": "windowed",
+      "turns_matched": 1,
+      "correlation_id": "corr-20261026T224541-X8KG"
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": false,
+      "outputs_non_empty": false,
+      "assertions_checked": 10,
+      "assertions_passed": 6,
+      "assertion_results": [
+        {
+          "assertion": "plaud-001-state-complete",
+          "description": "Plaud ingest workflow state.yaml shows status: complete",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "plaud_ingest-wm-written",
+          "description": "Plaud ingest working memory file was written to memory/working/",
+          "category": "structure",
+          "passed": false
+        },
+        {
+          "assertion": "plaud_ingest-wm-size",
+          "description": "Plaud ingest working memory file is substantive (>200 bytes)",
+          "category": "structure",
+          "passed": false
+        },
+        {
+          "assertion": "plaud_ingest-wm-content",
+          "description": "Plaud ingest working memory contains expected content",
+          "category": "structure",
+          "passed": false
+        },
+        {
+          "assertion": "plaud-002-adversarial-verification-ran",
+          "description": "Stage 5 Phase 4A: step-06 spawns Ralph (plaud-ingest-verification workflow) and records an 'adversarial-verification' guardrail result on this run. Read from the eval record's own guardrails array. This is the distinct-lens check Tim's Stage 5 finding requires: a separate agent performing ingestion accounting (zero silent drops).",
+          "category": "quality",
+          "passed": false
+        },
+        {
+          "assertion": "plaud-k1-ingestion-accounting",
+          "description": "Knox K1 (ingestion completeness, 0 silent drops): every staged recording is either converted to a note (accumulated-context.ingested-notes) or explicitly logged as skipped with a reason (accumulated-context.skipped-recordings) \u2014 len(ingested) + len(skipped) >= len(staged). Passes trivially when nothing was staged (the common no-new-recordings run).",
+          "category": "content",
+          "passed": true,
+          "source_count": 0,
+          "accounted_count": 0,
+          "skipped_count": 0
+        },
+        {
+          "assertion": "plaud-k2-routing",
+          "description": "Knox K2 (tag compliance / correct folder routing): produced notes are routed under the zzPlaud/ tree (zzPlaud/Personal|Client|Improving|YPO|Other), or the run ingested nothing (ingested-notes: [] \u2014 a no-op run is vacuously compliant). Honest limit: tag/frontmatter presence on each note is verified in-run by QUALITY GATE 5 (see plaud-k2-gate5) against the vault, which lives outside this repo and cannot be globbed from here; this assertion checks the routing half that the run records on disk.",
+          "category": "content",
+          "passed": true
+        },
+        {
+          "assertion": "plaud-k2-gate5",
+          "description": "Knox K2 (tag compliance): step-05's QUALITY GATE 5 verifies each written note's required frontmatter (source tag, file_id traceability) by re-reading it from the vault. A passing gate_5_result is the on-disk evidence that the tag/frontmatter check ran and passed; a no-op run (ingested-notes: []) is vacuously compliant. Honest limit: this asserts the gate passed, not that a human re-checked every tag; a note failing Gate 5 is moved to failed/ and excluded from ingested-notes, which plaud-k1's accounting then surfaces.",
+          "category": "content",
+          "passed": true
+        },
+        {
+          "assertion": "plaud-k4-escalation-evidence",
+          "description": "Knox K4 (err-20260929T024338-K3K074, lazy-search): when any speaker was left unresolved (accumulated-context.unresolved_speakers non-empty), step-03 must have cross-referenced the recording timestamp against calendar attendees BEFORE escalating to the controller, and must record that evidence in accumulated-context.escalation-evidence (naming the event time and the attendees checked, and why they were insufficient). An escalation whose evidence names no calendar lookup fails. Vacuously passes on a run that resolved every speaker without escalating. This is the machine-checkable form of the error entry's systemic fix, which was proposed but never applied \u2014 the two skill-level assertions meant to enforce it (plaud-sp-004/005) silently skipped because their check type 'yaml_field_pattern' was unimplemented.",
+          "category": "quality",
+          "passed": true,
+          "gate": "closed",
+          "reason": "gate condition not met (vacuous pass)"
+        },
+        {
+          "assertion": "plaud-k4-no-generic-speaker-labels",
+          "description": "Knox K4: accumulated-context.speaker-mappings must map every generic label to a real name \u2014 a residual generic label as a mapped VALUE (e.g. Speaker 2: \"Speaker 2\") means an identification that was possible was never emitted. Keys are not tested, only values, so a legitimate mapping key like 'Speaker 1' does not trip this. Speakers that genuinely cannot be resolved belong in unresolved_speakers/pending-speaker-mappings with calendar evidence, never in speaker-mappings. Vacuously passes when nothing was mapped (no-op run).",
+          "category": "quality",
+          "passed": true,
+          "leaf_count": 0
+        }
+      ],
+      "category_breakdown": {
+        "structure": {
+          "passed": 1,
+          "checked": 4
+        },
+        "content": {
+          "passed": 3,
+          "checked": 3
+        },
+        "quality": {
+          "passed": 2,
+          "checked": 3
+        }
+      }
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    }
+  },
+  "version_hash": "783fae138e930911",
+  "prior_baseline_id": null,
+  "tags": [
+    "no-op",
+    "cowork-hook"
+  ],
+  "no_op": true,
+  "workflow": "plaud-ingest",
+  "correlation_id": "corr-20261026T224541-X8KG"
+}

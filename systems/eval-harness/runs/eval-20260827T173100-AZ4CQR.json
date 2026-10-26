@@ -17,7 +17,8 @@
       "duration_seconds": 46.4,
       "status": "success",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224540-D7HV"
     },
     {
       "name": "step-02-gather-communications",
@@ -26,7 +27,8 @@
       "duration_seconds": 46.4,
       "status": "success",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224540-D7HV"
     },
     {
       "name": "step-03-gather-tasks",
@@ -35,7 +37,8 @@
       "duration_seconds": 46.4,
       "status": "success",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224540-D7HV"
     },
     {
       "name": "step-04-assemble-brief",
@@ -44,7 +47,8 @@
       "duration_seconds": 46.4,
       "status": "success",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224540-D7HV"
     },
     {
       "name": "step-05-quality-check-and-save",
@@ -53,7 +57,8 @@
       "duration_seconds": 46.4,
       "status": "success",
       "data_sources_used": [],
-      "data_source_failures": []
+      "data_source_failures": [],
+      "correlation_id": "corr-20261026T224540-D7HV"
     }
   ],
   "assessment": {
@@ -97,5 +102,6 @@
   "prior_baseline_id": null,
   "tags": [
     "cowork-instrumented"
-  ]
+  ],
+  "correlation_id": "corr-20261026T224540-D7HV"
 }

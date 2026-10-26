@@ -29,7 +29,8 @@
       "token_source": "windowed",
       "turns_matched": 7,
       "turns_with_usage": 7,
-      "duration_seconds": 198.0
+      "duration_seconds": 198.0,
+      "correlation_id": "corr-20261026T224541-RSFI"
     }
   ],
   "assessment": {
@@ -112,5 +113,6 @@
   },
   "fully_loaded_cost_usd": 0.319894,
   "fully_loaded_tokens_input": 442988,
-  "fully_loaded_tokens_output": 7616
+  "fully_loaded_tokens_output": 7616,
+  "correlation_id": "corr-20261026T224541-RSFI"
 }

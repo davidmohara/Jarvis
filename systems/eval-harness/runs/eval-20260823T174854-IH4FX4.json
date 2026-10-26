@@ -22,7 +22,8 @@
       "model": "haiku",
       "tokens_input": 414799,
       "tokens_output": 175,
-      "cost_usd": 0.090022
+      "cost_usd": 0.090022,
+      "correlation_id": "corr-20261026T224540-WB15"
     },
     {
       "name": "step-04-gather-meeting-context.md",
@@ -35,7 +36,8 @@
       "model": "haiku",
       "tokens_input": 414799,
       "tokens_output": 175,
-      "cost_usd": 0.090022
+      "cost_usd": 0.090022,
+      "correlation_id": "corr-20261026T224540-WB15"
     },
     {
       "name": "step-05-synthesize-briefing.md",
@@ -48,7 +50,8 @@
       "model": "haiku",
       "tokens_input": 414799,
       "tokens_output": 175,
-      "cost_usd": 0.090022
+      "cost_usd": 0.090022,
+      "correlation_id": "corr-20261026T224540-WB15"
     },
     {
       "name": "step-07-verify-completion.md",
@@ -61,7 +64,8 @@
       "model": "haiku",
       "tokens_input": 414799,
       "tokens_output": 175,
-      "cost_usd": 0.090022
+      "cost_usd": 0.090022,
+      "correlation_id": "corr-20261026T224540-WB15"
     },
     {
       "name": "step-08-knox-completion-check.md",
@@ -74,7 +78,8 @@
       "model": "haiku",
       "tokens_input": 414799,
       "tokens_output": 175,
-      "cost_usd": 0.090022
+      "cost_usd": 0.090022,
+      "correlation_id": "corr-20261026T224540-WB15"
     }
   ],
   "assessment": {
@@ -139,5 +144,6 @@
   "tags": [],
   "total_cost_usd": 0.0555,
   "cost_estimation_note": "estimated based on boot workflow type",
-  "model": "sonnet"
+  "model": "sonnet",
+  "correlation_id": "corr-20261026T224540-WB15"
 }

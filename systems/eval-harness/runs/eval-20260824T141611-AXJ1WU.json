@@ -22,7 +22,8 @@
       "model": null,
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-F1W3"
     },
     {
       "name": "step-05-remarkable-delivery",
@@ -35,7 +36,8 @@
       "model": null,
       "tokens_input": null,
       "tokens_output": null,
-      "cost_usd": null
+      "cost_usd": null,
+      "correlation_id": "corr-20261026T224540-F1W3"
     }
   ],
   "assessment": {
@@ -103,5 +105,6 @@
   "model": "sonnet",
   "total_tokens_input": 3457802,
   "total_tokens_output": 1992,
-  "total_cost_usd": 1.428875
+  "total_cost_usd": 1.428875,
+  "correlation_id": "corr-20261026T224540-F1W3"
 }
