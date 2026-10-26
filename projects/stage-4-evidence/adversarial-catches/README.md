@@ -1,7 +1,7 @@
 # Adversarial Catch Log
 
 **Created:** 2026-10-16 · **Maintained by:** Rigby
-**Closes:** Stage 5 finding #1 ("adversarial catch examples recorded structurally") · referenced from `agents/adversarial-isolation.md` and `projects/stage-5-submission/index.md` row 1.
+Referenced from `agents/adversarial-isolation.md` and `projects/stage-5-submission/index.md`.
 
 ## Purpose
 

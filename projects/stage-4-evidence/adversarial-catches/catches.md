@@ -3,8 +3,10 @@
 Human-readable rendering of `catches.jsonl` (the canonical machine-readable log).
 Format and the honesty bar are defined in `README.md`.
 
-**5 catches as of 2026-10-16.** Only real discrepancies are listed; see the README's
-"Honest status" for how thin this is.
+**8 catches as of 2026-10-26.** CATCH-01..05 are assertion-level catches (2026-10-16);
+CATCH-06..08 are lens-level catches by the verification sub-workflows themselves,
+recorded 2026-10-26 from the verification runs' own state. See the README's
+"Honest status" for the bar.
 
 ---
 
@@ -113,6 +115,70 @@ Format and the honesty bar are defined in `README.md`.
   `eval-20261009T160824-LCEFD5.json` (status complete, `plaud_ingest-wm-*` failed).
 - **Disposition:** recorded-sentinel / quarantined. step-06 now spawns Ralph and records
   the guardrail; phantom stubs are quarantined.
+
+---
+
+## CATCH-06: Morning briefing overstated calendar warnings and unconfirmed dates
+
+- **Date:** 2026-10-19 · **Workflow:** morning-briefing · **Status:** recorded
+- **Producing agent:** chief
+- **Claim:** delivered briefing stated calendar warnings, Teams-call placement, a
+  Rock 5 due date, a SPARC package-in-inbox note, and a GoTogether reminder as fact.
+- **Ground truth:** 41 of 46 claims verified; 5 did not hold. The calendar warning
+  overstates (the full-day bootcamp block does not collide with Hot 26 or Prayer
+  Call), is imprecise about open gaps, and the three Teams calls do not all sit inside
+  the bootcamp block. The Rock 5 Dec 15 date is proposed/soft-confirmed in source.
+  The SPARC package-in-inbox claim is not confirmed by the recorded email snippet.
+  The GoTogether reminder is gone from `data/reminders.json` though boot state
+  recorded it due.
+- **Caught by:** Ralph via `workflows/morning-briefing-verification/`
+  (briefing-vs-source lens). Verified 41, unverified 5.
+- **Evidence:** `workflows/morning-briefing-verification/state.yaml`
+  (findings, verified-count 41, unverified-count 5);
+  `memory/working/morning-briefing-2026-10-19-161051.md`.
+
+---
+
+## CATCH-07: Daily review claimed captures and numbers the source state contradicts
+
+- **Date:** 2026-10-20 · **Workflow:** daily-review · **Status:** recorded
+- **Producing agent:** chief
+- **Claim:** daily review recorded capture outputs, 7 GoTogether drafts confirmed
+  sent, 140 uncompleted OmniFocus tasks, GEHC deep-dive at 14:00-15:00, bootcamp
+  attendance, and a complete System State section.
+- **Ground truth:** no persisted capture outputs in `workflows/daily-review/state.yaml`
+  (same-session working memory only); no sent record for the 7 drafts and
+  `err-20261019T214500-FRIED1` records at least one draft address invalid;
+  `data/omnifocus-unified.json` shows 42 uncompleted, not 140; the GEHC deep-dive is
+  11:00-12:00 per `data/calendar-unified.json` (the review also drops the real 11:00
+  SAP Group collision); no attendance record backs "attended"; two boot-state items
+  (conventions-migration in-progress since 2026-10-18, step-03b eval-recording
+  failures) are silently absent from the review's System State.
+- **Caught by:** Ralph via `workflows/daily-review-verification/`
+  (output-vs-source-data lens). 10 verified blocks, 6 findings.
+- **Evidence:** `workflows/daily-review-verification/state.yaml` (findings, verified
+  list); `reviews/daily/2026-10-19.md`.
+
+---
+
+## CATCH-08: Plaud-ingest primary outcome verified; integrity findings around it
+
+- **Date:** 2026-10-09 · **Workflow:** plaud-ingest · **Status:** recorded
+  (integrity findings; primary outcome verified)
+- **Producing agent:** knox
+- **Claim:** 2026-10-09 run recorded complete with 2 recordings ingested-note +
+  shared + monday-review-task.
+- **Ground truth:** both recordings verified against the vault (note-verified true,
+  frontmatter file_id match true). The verification additionally found non-blocking
+  integrity issues: step frontmatter timestamps stale (2026-09-18/28, never
+  reflecting the 2026-10-09 run), the eval record `eval-20261009T160824-LCEFD5` left
+  in-progress while workflow state was complete, one recording carrying an unresolved
+  Speaker 5 (12 segments) plus a flagged mis-tag, and one orphan `plaud_pending.json`
+  entry no longer in the API.
+- **Caught by:** Ralph via `workflows/plaud-ingest-verification/`
+  (ingest-completeness lens).
+- **Evidence:** `workflows/plaud-ingest-verification/state.yaml` (recordings
+  verified, findings F1-F5).
 
 ---
 
