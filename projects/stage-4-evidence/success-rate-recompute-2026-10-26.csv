@@ -1,0 +1,9 @@
+workflow,scope,records,strict,degraded_completion,session_exit_aborts,other,mech_rate_pct,strict_rate_pct
+boot,all-records,64,21,11,5,27,54.2,32.8
+boot,instrumented,18,6,6,1,5,70.6,33.3
+morning-briefing,all-records,23,8,14,0,1,95.7,34.8
+morning-briefing,instrumented,2,2,0,0,0,100.0,100.0
+daily-review,all-records,64,48,13,2,1,98.4,75.0
+daily-review,instrumented,2,2,0,0,0,100.0,100.0
+plaud-ingest,all-records,36,16,1,2,17,50.0,44.4
+plaud-ingest,instrumented,4,2,0,1,1,66.7,50.0

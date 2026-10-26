@@ -8,7 +8,7 @@
 |---|-----------|-------------------|--------|
 | 1 | Deterministic guardrails at every step transition: per-step verifiers (`workflows/<wf>/verify/step-*.py`, dispatched by step-complete.py) for all 4 candidates, boot step-06.5 machine-checked, plus Layer 0 schema validation (`validate-subagent-output.py`) on declared sub-agent outputs before any coordinator-visible pass. 13 step schemas across boot, morning-briefing, plaud-ingest. Adversarial verification as a guardrail (assertions morning-008 / daily-007 / plaud-002), Ralph-spawned with lens checklists for all 4 (`workflows/*-verification/`); catches recorded structurally in `stage4-evidence/adversarial-catches/` (5 entries as of 2026-10-16) | Complete; catch log live but thin (see its README) |
 | 2 | Punch-out mechanisms bypass-tested | `stage4-evidence/bypass-tests/` (BT-01..BT-06 matrix + logs; BT-02 found 2 real escalation holes, both fixed same day with closed-loop re-test evidence in `BT-02-fix-verification-2026-10-08.md`; BT-05/BT-06 add git-redirect and command-position evidence) | Complete |
-| 3 | End-to-end success rate per workflow | `stage4-evidence/success-rate-baseline-2026-10-08.{md,csv}` plus the recompute tables below (strict and mechanical tiers, session-exit aborts counted separately, never hidden) | Current numbers below; instrumented-run recompute refreshes them |
+| 3 | End-to-end success rate per workflow | `stage4-evidence/success-rate-baseline-2026-10-08.{md,csv}` plus the 2026-10-26 recompute (`success-rate-recompute-2026-10-26.{md,csv}`, reproducible via `systems/eval-harness/success-rate.py`): strict and mechanical tiers, all-records and instrumented scopes, session-exit aborts counted separately, the "other" tier characterized record-by-record | Complete; recompute below |
 | 4 | Per-step model/tokens/cost audit trail | `audit-exports/<workflow>/step-audit.{csv,json}` (per-step model/tokens/cost/owning_agent/token_source, plus correlation_id for end-to-end tracing); instrumentation in `systems/eval-harness/step_audit.py` + `export-step-audit.py` + `correlation.py` | Complete |
 | 5 | Per-agent criteria artifacts: prompt, named criteria, measured results | `stage3/` (11 agents, 4 criteria each = 44); plan in `stage3-compliance-plan.md`; current verdicts below | Artifacts complete; measured verdicts below, disclosed as-is |
 | 6 | Coordinator is dispatch-only (spawn-first steps, Hard Stops, gated git) | Phase-1 purity refactor across 42 files; iteration history in `stage3/master.md`; bypass-test evidence BT-03/BT-04/BT-06 | Complete; procedural-only paths disclosed in the bypass-test README |
@@ -16,20 +16,20 @@
 | 8 | Adversarial review isolation | `agents/adversarial-isolation.md` (isolation mechanics, Ralph coverage) + `stage4-evidence/adversarial-catches/` | Complete; catch log accumulating |
 | 9 | Release history | `CHANGELOG.md` (v0.1.0 → v1.5.0 from 1,063 commits) + annotated tags; next tag at ship | Complete |
 | 10 | Substance assessment + human elevation gate | `systems/eval-harness/substance/` (assessment, gate, append-only decision log; the operator's Continue recorded with identity and timestamp, classifications confirmed through the gate's own path) | Complete |
-| 11 | Final review writer with deterministic headings | `workflows/final-review/` (Knox digest → prose-only writer → deterministic assembler → substance punch-out) | Complete; mechanism tested; dry run over a live run pending |
+| 11 | Final review writer with deterministic headings | `workflows/final-review/` (Knox digest → prose-only writer → deterministic assembler → substance punch-out) | Complete; dry run over a real boot run at `workflows/final-review/runs/corr-20261026T224541-HXCV/` (findings from the run's record, prose by the spawned writer, deterministic assembly, gate covered; the run is itself recorded as an eval record linked by correlation ID) |
 
-## Success rates (recompute 2026-10-15; current position)
+## Success rates (recompute 2026-10-26; full detail in `stage4-evidence/success-rate-recompute-2026-10-26.md`)
 
-Two methods, applied consistently. "Strict" = status `success` or `complete` only. "Mech" = strict + `partial` (ran to completion with degraded results), session-exit aborts excluded from the mech denominator. Both tiers are shown so no single number flatters the system.
+Two tiers, two scopes, applied consistently. "Strict" = status `success` or `complete` only. "Mech" = strict + `partial` (finished every step with degraded output), session-exit aborts excluded from the mech denominator. "Instrumented" = at least one step with real token attribution; thin n, directional. The "other" tier is characterized record-by-record in the recompute doc, not hidden in a bucket.
 
-| Workflow | Aug 2026 (recs) | Aug strict | Aug mech | Oct 8-15 (recs) | Oct strict | Oct mech | All-time mech |
-|---|---|---|---|---|---|---|---|
-| boot | 34 | 35.3% | 58.8% | 14 | 57.1% | 57.1% | 60.9% (64 recs) |
-| morning-briefing | 8 | 37.5% | 87.5% | 4 | 50.0% | 100.0% | 95.7% (23 recs) |
-| daily-review | 10 | 30.0% | 100.0% | 4 | 100.0% | 100.0% | 98.4% (62 recs) |
-| plaud-ingest | 20 | 30.0% | 35.0% | 6 | 100.0% | 100.0% | 60.5% (38 recs) |
+| Workflow | All-records: strict / mech | Instrumented: strict / mech (n) |
+|---|---|---|
+| boot | 32.8% / 54.2% (64 recs) | 33.3% / 70.6% (18) |
+| morning-briefing | 34.8% / 95.7% (23 recs) | 100.0% / 100.0% (2) |
+| daily-review | 75.0% / 98.4% (64 recs) | 100.0% / 100.0% (2) |
+| plaud-ingest | 44.4% / 50.0% (36 recs) | 50.0% / 66.7% (4) |
 
-Session-exit aborts by period: boot Aug=13, Oct=6; plaud-ingest Aug=11, Oct=0. These are records closed by the session-exit close-out path when a session ended before the workflow's own completion step ran; not mid-run crashes, and not hidden.
+Open characterization item: plaud-ingest's 11 no-reason aborts, consistent with no-op days but unverified; a verified no-op explanation would move its all-records mech to 62.1%. The distinct `no-op` terminal status now separates genuine no-ops going forward (4 records already closed that way).
 
 ## Per-agent criteria position (2026-10-16, attribution-aware recompute)
 
