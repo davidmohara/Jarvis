@@ -1,12 +1,29 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "master-2026-10-23-091858"
 agent-source: master
 created: 2026-10-23T09:18:58-05:00
 expires: 2026-10-25T09:18:58-05:00
-status: active
+status: archived
 context: "Boot token performance analysis (per-step, 10/13..10/23) — 2026-10-23"
+date: 2026-10-23
+source_file: memory/working/2026-10-23-091858-master-boot-token-analysis.md
+tags:
+  - master
+  - briefing
+  - morning-briefing
+  - calendar
+  - omnifocus
+  - plaud
+  - boot
+  - rigby
+  - knox
+related_people:
+salience:
+  score: 10
+  last-promoted-check: 2026-10-26
+  promoted: true
 ---
 
 # Boot Token Performance Analysis — 2026-10-23

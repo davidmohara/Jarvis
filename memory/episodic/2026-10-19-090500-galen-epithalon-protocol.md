@@ -1,12 +1,22 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "galen-2026-10-19-090500"
 agent-source: galen
 created: 2026-10-19T09:05:00-05:00
 expires: 2026-10-21T09:05:00-05:00
-status: active
+status: archived
 context: "Epithalon cycle 2 logged (started 2026-10-18) plus Tesamorelin/Ipamorelin cycle 2 activations — 2026-10-19"
+date: 2026-10-19
+source_file: memory/working/2026-10-19-090500-galen-epithalon-protocol.md
+tags:
+  - galen
+  - amex
+  - health
+related_people:
+salience:
+  score: 0
+  last-promoted-check: 2026-10-26
 ---
 
 **What was requested/produced:** David reported starting an Epithalon protocol 10-18 (10mg every 4 days x 6 shots) and confirmed the Tesamorelin/Ipamorelin weekday stack started 10-19. Galen logged both via galen-protocols.

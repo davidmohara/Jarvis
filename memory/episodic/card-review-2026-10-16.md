@@ -1,12 +1,30 @@
 ---
-type: working
+type: working-archive
 task_id: "card-review-2026-10-16-002"
 session_id: "chase-card-review-2026-10-16"
 agent-source: chase
 created: 2026-10-16T19:00:00
 expires: 2026-10-18T19:00:00
-status: active
+status: archived
 context: "card-review run on FRESH data. All three card files were refreshed today (2026-10-16) by a full live portal walkthrough, so the freshness gate passes. Analysis of captured data only, no portal access in this run."
+date: 2026-10-16
+source_file: memory/working/card-review-2026-10-16.md
+tags:
+  - chase
+  - briefing
+  - morning-briefing
+  - omnifocus
+  - flight
+  - ypo
+  - credit-cards
+  - rewards
+  - amex
+  - citi
+related_people:
+salience:
+  score: 10
+  last-promoted-check: 2026-10-26
+  promoted: true
 ---
 
 # Card Benefits Dashboard: October 2026

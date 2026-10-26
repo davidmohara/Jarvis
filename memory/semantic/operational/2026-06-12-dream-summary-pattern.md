@@ -3,9 +3,9 @@ type: semantic
 domain: operational
 primary-tag: dream-summary
 created: 2026-06-12
-last-updated: 2026-10-14
+last-updated: 2026-10-26
 confidence: high
-synthesized-from: 30
+synthesized-from: 31
   - dream-summary-2026-09-16.md
   - dream-summary-2026-09-13.md
   - dream-summary-2026-05-25.md
@@ -489,3 +489,8 @@ Re-checked delegation tracker: unchanged since 09-23 (Steve Hall/Derek Nwamadi, 
 ### Cycle 2026-10-14
 - 2026-10-14: dream-summary-2026-10-09.md (score 10) — the prior cycle's own summary, archived today after its one-cycle hold. Recorded a 16-day gap (09-23 to 10-09), 7 archives, 5 semantic updates, and a watch list: Steve Hall/Derek Nwamadi delegation overdue since 09-25 (close or kill), Q3 rocks closed unsigned, 11 Monday items on board 18420619069 needing manual deletion, and the Rock 4 co-sell gap at $5.14M against only $637K active pipeline.
 - Resolution signal from sibling entries this cycle: the Q3 rocks item on that watch list was resolved on 2026-10-09/10 (Quinn post-mortem, David signed a five-rock Q4 set on 10-10). The summary's "status unknown" flag therefore aged out within a day of being written, which is the intended behavior of the watch-list mechanism. Delegation and Monday-cleanup items not independently re-verified this cycle.
+
+### Cycle 2026-10-26
+- 2026-10-26: dream-summary-2026-10-14.md (score 6), the 10-14 cycle's own summary, archived after its one-cycle hold. It recorded 7 archives, 6 promotions into 5 patterns, the Q3-rocks flag cleared by David's 10-10 signing of the five-rock Q4 set, a new over-engineering/scope-creep lesson, and 6 compression candidates that crossed the 5-entry approval threshold.
+- Resolution signal: the compression-approval item resolved in-session the same day (6 entries compressed into the 2026-Q2 and 2026-Q3 digests), so the "needs David" line aged out within hours. The Steve Hall/Derek Nwamadi delegation remained on the watch list, watch-only, with David confirming Derek is handling it.
+- The unattended-cycle approval gate (Guardrail 7) is working as designed: it defers rather than deletes, and the controller clears it at the next interactive touch.

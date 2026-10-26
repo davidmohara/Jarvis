@@ -1,12 +1,22 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "harper-2026-10-20-133000"
 agent-source: harper
 created: 2026-10-20T13:30:00-05:00
 expires: 2026-10-22T13:30:00-05:00
-status: active
+status: archived
 context: "Obsidian draft/Ghost live-post reconciliation — 55 drafts flipped, metadata backfilled — 2026-10-20"
+date: 2026-10-20
+source_file: memory/working/2026-10-20-133000-harper-obsidian-ghost-reconciliation.md
+tags:
+  - harper
+  - rigby
+  - session
+related_people:
+salience:
+  score: 0
+  last-promoted-check: 2026-10-26
 ---
 
 **What was requested/produced:** David asked to reconcile Obsidian `_`-prefixed drafts against live Ghost posts. Harper scanned 128 underscore-prefixed files across Mind/, Mind/Posts/, Mind/Articles/ and matched against all 105 Ghost posts.

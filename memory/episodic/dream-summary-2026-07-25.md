@@ -20,8 +20,8 @@ tags:
   - compression
 related_people: []
 salience:
-  score: 6
-  last-promoted-check: 2026-10-16
+  score: 1
+  last-promoted-check: 2026-10-26
   promoted: true
 ---
 

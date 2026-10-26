@@ -19,8 +19,8 @@ related_people:
   - cole-estrate
   - alice-mburu
 salience:
-  score: 7
-  last-promoted-check: 2026-10-16
+  score: 1
+  last-promoted-check: 2026-10-26
   promoted: true
 ---
 

@@ -478,3 +478,11 @@ Failure mode: scope-creep
 Pattern: Work expands past what was asked or needed. Examples: a research request for a golf foursome triggering a retired prep skill that wrote extra deliverables; plaud-ingest creating 11 Monday items against explicit instruction; a multi-sentence postmortem embedded in workflow step files; step-file frontmatter used as a per-run outputs log duplicating state.yaml; a routine session-end commit requiring a subagent spawn, persona load, and skill read.
 Fix: Do exactly the requested scope and the cheapest path that satisfies it. Before adding a deliverable, side effect, or ceremony layer, ask whether the controller requested it or a written rule requires it. Put postmortems and run data in their canonical homes (error entries, state.yaml), not in instruction files. Routine low-risk operations use the fast lane.
 Status: active
+
+## 2026-10-26 — Hallucination / Wrong Assumption
+Detected: 3 occurrences over 30 days (window 2026-09-26 to 2026-10-26)
+Category: hallucination
+Failure mode: wrong-assumption
+Pattern: Plausible specifics presented as verified fact without a source: Las Vegas venues that do not exist (err-20260930T145444-71UE48), HR proof points for a talent-labs talk (err-20261014T184805-F5X3RU), and pursuit-map entry plays not grounded in what Improving actually offers (err-20261023T215756-0X7I4Z). The same shape recurs in related entries this window (an invented Amex Business Platinum, unsupported credit for travel recovery and an invented bootcamp narrative in 1:1 prep sheets).
+Fix: Every named venue, statistic, card, or attribution of who did what needs a source from the current session (a lookup, a file, a message). If no source exists, say it is unverified or leave it out. Narrative polish never justifies an unsourced claim.
+Status: active

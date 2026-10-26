@@ -4,8 +4,8 @@ domain: operational
 tags: [briefing, calendar, omnifocus, google-next, travel, overdue-tasks, leads]
 confidence: high
 created: 2026-04-24
-last-updated: 2026-09-20
-synthesized-from: 17
+last-updated: 2026-10-26
+synthesized-from: 22
   - memory/episodic/2026-04-20-morning-briefing.md
   - memory/episodic/2026-04-21-morning-briefing.md
   - memory/episodic/2026-04-20-afternoon-boot.md
@@ -570,3 +570,14 @@ Threshold patterns in the 30-day error log are unchanged from yesterday: process
 
 41. **The OmniFocus tooling-availability regression (Implication #39) was transient, not a new steady state.** It resolved within 24 hours of first being logged (Sept 16 absent from roster → Sept 17 LIVE with 42 tasks). Worth downgrading from "regression to track" to "recurring but self-resolving" unless it reappears on a subsequent boot.
 42. **Same-day stacking conflicts are now confirmed independent of travel context.** The Sept 17 entry's two double-books (GEHC/Sales Scrum, Steve Hall/golf) occurred on a routine in-office day, not a travel day — extending Implication #40's "cross-trip structural gap" finding to "not trip-dependent at all." The underlying gap is calendar-wide, not specific to travel-day scheduling.
+
+## Evidence (added 2026-10-26)
+
+Five briefings from 2026-10-15 to 2026-10-23 (morning-briefing-2026-10-15-090500, -10-21-102000, -10-22-065000, -10-23-084700, plus Rock-1/Rock-2 carry-forward language in each). Houston Bootcamp week: David ran, not attended, an all-day block that sat on top of every standing meeting.
+
+## Implications (added 2026-10-26)
+
+43. **An all-day hosted block is a placeholder that hides real conflicts.** The Houston Bootcamp block (08:30 to 17:30, 10-15 to 10-23) overlapped every standing meeting, so each briefing had to hand-sort real double-books (10:00 Sales Scrum vs DLP vs Basecamp vs a Plano appointment on 10-22; roundtable vs bootcamp on 10-23) from presumed-skipped noise. A calendar-side flag for host blocks would remove the sort.
+44. **Rock deadlines are now surfaced daily without moving.** Rock 1 KR1 and Rock 2 KR1 (due 10-17) were still without OmniFocus tasks on 10-22, five days of drift, repeated in consecutive briefings. Surfacing is working; conversion to tasks is not, which is the execution gap itself.
+45. **Source availability is a stable background condition.** Clay was unavailable in every briefing in the window (auth stubs only), and the step-03b guardrail checkpoint repeatedly could not record (no in-progress eval record, known gap dream-004/boot-004). Briefings degrade gracefully, so treat these as standing caveats, not new incidents.
+46. **Daily-review gaps propagate into briefings.** The 10-21 and 10-22 briefings each noted the prior day's daily review missing, reinforcing the daily-review pattern's finding that gaps, not quality, are the failure mode.

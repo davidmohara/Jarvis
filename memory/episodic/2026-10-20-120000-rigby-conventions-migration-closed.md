@@ -1,12 +1,24 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "rigby-2026-10-20-120000"
 agent-source: rigby
 created: 2026-10-20T12:00:00-05:00
 expires: 2026-10-22T12:00:00-05:00
-status: active
+status: archived
 context: "conventions-migration workflow closed — 172 WARN to 0, lint debt cleared — 2026-10-20"
+date: 2026-10-20
+source_file: memory/working/2026-10-20-120000-rigby-conventions-migration-closed.md
+tags:
+  - rigby
+  - omnifocus
+  - plaud
+  - git-issues
+related_people:
+salience:
+  score: 5
+  last-promoted-check: 2026-10-26
+  promoted: true
 ---
 
 **What was requested/produced:** David resumed the stalled conventions-migration workflow (in-progress at step-03-judgment since 10-18). Rigby ran steps 03-05 to completion across multiple approval rounds (D1-D4, A-E triage, two draft rounds).

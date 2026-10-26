@@ -22,8 +22,8 @@ tags:
 related_people:
   - dr-easton
 salience:
-  score: 10
-  last-promoted-check: 2026-10-16
+  score: 7
+  last-promoted-check: 2026-10-26
   promoted: true
 ---
 
