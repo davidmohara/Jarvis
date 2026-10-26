@@ -1,12 +1,23 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "rigby-2026-10-20-150000"
 agent-source: rigby
 created: 2026-10-20T15:00:00-05:00
 expires: 2026-10-22T15:00:00-05:00
-status: active
+status: archived
 context: "content-approval rebuilt (external publishing model), tracker custodianship moved to discovery — 2026-10-20"
+date: 2026-10-20
+source_file: memory/working/2026-10-20-150000-rigby-content-approval-rework.md
+tags:
+  - rigby
+  - omnifocus
+  - pipeline
+related_people:
+salience:
+  score: 4
+  last-promoted-check: 2026-10-26
+  promoted: true
 ---
 
 **What was requested/produced:** David approved Rigby's redesign of the content pipeline after diagnosing pending-drafts.json rot (cleanup never ran because the 9/11/13/15 content-approval sweep never executed — zero eval records ever, David's real pattern is Slack feedback + direct Ghost publish).

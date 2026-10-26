@@ -1,12 +1,30 @@
 ---
-type: working
+type: working-archive
 task_id: "card-optimizer-2026-10-17-001"
 session_id: "chase-card-optimizer-2026-10-17"
 agent-source: chase
 created: 2026-10-17
 expires: 2026-10-19
-status: active
+status: archived
 context: "Portfolio optimization run on captured data only. No portal access this run. Analyzes the three card data files, all last_updated 2026-10-16."
+date: 2026-10-17
+source_file: memory/working/card-optimizer-2026-10-17.md
+tags:
+  - chase
+  - calendar
+  - omnifocus
+  - travel
+  - flight
+  - ypo
+  - credit-cards
+  - rewards
+  - amex
+  - citi
+related_people:
+salience:
+  score: 10
+  last-promoted-check: 2026-10-26
+  promoted: true
 ---
 
 # Card Portfolio Optimizer: 2026-10-17

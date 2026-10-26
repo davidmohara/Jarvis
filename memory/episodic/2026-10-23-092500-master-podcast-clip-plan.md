@@ -1,12 +1,26 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "master-2026-10-23-092500"
 agent-source: master
 created: 2026-10-23T09:25:00-05:00
 expires: 2026-10-25T09:25:00-05:00
-status: active
+status: archived
 context: "Short-form clip content plan for Monday 10/26 extra studio time (The Improving Edge) — 2026-10-23"
+date: 2026-10-23
+source_file: memory/working/2026-10-23-092500-master-podcast-clip-plan.md
+tags:
+  - master
+  - briefing
+  - omnifocus
+  - pipeline
+  - podcast
+  - harper
+related_people:
+salience:
+  score: 7
+  last-promoted-check: 2026-10-26
+  promoted: true
 ---
 
 # Improving Edge Short-Form Clip Plan — Monday 2026-10-26

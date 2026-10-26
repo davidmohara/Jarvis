@@ -19,8 +19,8 @@ tags:
   - chief
 related_people: []
 salience:
-  score: 10
-  last-promoted-check: 2026-10-16
+  score: 8
+  last-promoted-check: 2026-10-26
   promoted: true
 ---
 

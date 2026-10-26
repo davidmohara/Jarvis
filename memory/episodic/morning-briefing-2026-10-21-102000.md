@@ -1,12 +1,36 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "chief-2026-10-21-102000"
 agent-source: chief
 created: 2026-10-21T10:45:00
 expires: 2026-10-23T10:45:00
-status: active
+status: archived
 context: "Morning briefing workflow, steps 01-04, calendar and task gather through synthesis — 2026-10-21"
+date: 2026-10-21
+source_file: memory/working/morning-briefing-2026-10-21-102000.md
+tags:
+  - briefing
+  - chief
+  - morning-briefing
+  - calendar
+  - omnifocus
+  - travel
+  - ypo
+  - drc-workshop
+  - utb-board
+  - rock2
+related_people:
+  - scott-mcmichael
+  - devlin
+  - tim-rayburn
+  - steve-hall
+  - curtis
+  - derek-nwamadi
+salience:
+  score: 10
+  last-promoted-check: 2026-10-26
+  promoted: true
 ---
 
 # Morning Briefing Run — 2026-10-21

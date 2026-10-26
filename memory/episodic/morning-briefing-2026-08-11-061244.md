@@ -30,7 +30,7 @@ related_people:
   - stephen-johnson
 salience:
   score: 10
-  last-promoted-check: 2026-10-16
+  last-promoted-check: 2026-10-26
   promoted: true
 ---
 

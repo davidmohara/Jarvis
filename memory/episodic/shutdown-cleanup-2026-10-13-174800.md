@@ -16,8 +16,8 @@ tags:
   - session-index
 related_people:
 salience:
-  score: 2
-  last-promoted-check: 2026-10-16
+  score: 0
+  last-promoted-check: 2026-10-26
 ---
 
 # Shutdown cleanup — 2026-10-13

@@ -1,12 +1,35 @@
 ---
-type: working
+type: working-archive
 task_id: session
 session_id: boot-2026-10-23
 agent-source: master
 created: 2026-10-23T08:47:00
 expires: 2026-10-25T08:47:00
-status: active
+status: archived
 context: "Boot 2026-10-23, step-05 briefing capture"
+date: 2026-10-23
+source_file: memory/working/morning-briefing-2026-10-23-084700.md
+tags:
+  - briefing
+  - master
+  - morning-briefing
+  - calendar
+  - omnifocus
+  - ypo
+  - utb-board
+  - rock2
+  - rock3
+  - quarterly-rocks
+related_people:
+  - alice-mburu
+  - scott-mcmichael
+  - devlin
+  - tim-rayburn
+  - steve-hall
+salience:
+  score: 10
+  last-promoted-check: 2026-10-26
+  promoted: true
 ---
 
 # Morning Briefing Run, 2026-10-23
