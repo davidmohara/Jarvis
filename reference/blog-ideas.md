@@ -131,6 +131,9 @@ Running list of potential blog topics. Jarvis captures these proactively from co
 | "Reversibility Is the Governing Criterion" | Watchtower W40 (2026-09-28) [watchtower] | AI, agentic, governance, leadership, technology | Draft at `workflows/watchtower/fallback/drafts/_reversibility-is-the-governing-criterion.md` |
 | "The Restructuring Is Not Coming. It's Here." | Watchtower W40 (2026-09-28) [watchtower] | consulting, AI, talent, leadership, business | Draft at `workflows/watchtower/fallback/drafts/_the-restructuring-is-not-coming-its-here.md` |
 | "DFW's Innovation Economy Is Wider Than You Think" | Watchtower W40 (2026-09-28) [watchtower] | texas, DFW, AI, business, leadership, innovation | Draft at `workflows/watchtower/fallback/drafts/_dfws-innovation-economy-is-wider-than-you-think.md` |
+| "Agents Are Insiders Now, So Stop Giving Them Standing Access" | Watchtower W44 (2026-10-26) [watchtower] | AI, agents, Entra, security, governance | Draft at `Mind/Posts/_agents-are-insiders-now-stop-giving-them-standing-access.md` |
+| "Give Every Agent a Manager" | Watchtower W44 (2026-10-26) [watchtower] | AI, agents, leadership, accountability | Draft at `Mind/Posts/_give-every-agent-a-manager.md` |
+| "The Airport Hired an AI Lead. What Did You Hire?" | Watchtower W44 (2026-10-26) [watchtower] | AI, leadership, DFW, adoption | Draft at `Mind/Posts/_the-airport-hired-an-ai-lead.md` |
 
 ## Published (for reference / avoid repeats)
 

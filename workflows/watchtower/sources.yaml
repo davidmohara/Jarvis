@@ -385,3 +385,15 @@ sources:
     added: 2026-08-31
     status: active
     notes: "Weekly newsletter on AI strategy for leaders — pragmatic adoption framing, change management, team upskilling. Directly relevant to leadership/human-side-of-AI lenses. Feed URL unverified — confirm on first run. Proposed W36 Batch 11 — approved 2026-08-31."
+
+  # ── Batch 16 (partial) — Approved 2026-09-28 (added by W44 registry reconciliation, 2026-10-26) ──
+
+  - name: DEC Network
+    url: https://thedec.co
+    rss: null
+    gather_method: search
+    topic: texas-regional
+    trust: med
+    added: 2026-10-26
+    status: active
+    notes: "Organizes DFW Startup Week and publishes DFW founder/investor ecosystem content. Approved by David 2026-09-28 (Batch 16) but was missing from this registry; added during W44 step-05 reconciliation. No RSS confirmed; step-01 uses site:thedec.co search."

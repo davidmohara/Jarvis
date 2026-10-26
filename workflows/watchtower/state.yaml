@@ -1,128 +1,129 @@
 workflow: watchtower
 agent: knox
 status: complete
-session-started: '2026-10-19T07:05:00Z'
-session-completed: '2026-10-19T08:15:00Z'
-session-id: wt-weekly-2026-W43
+session-started: '2026-10-26T07:05:00Z'
+session-completed: '2026-10-26T07:25:00Z'
+session-id: wt-weekly-2026-W44
 current-step: complete
-original-request: watchtower-weekly run (Knox) — scheduled Monday 7am, 2026-10-19 (W43)
+original-request: watchtower-weekly run (Knox) - scheduled Monday 2026-10-26 (W44)
 retirements_today: []
 accumulated-context:
   content_queue: []
+  iso_week: 2026-W44
+  items_in_queue: 0
+  themes_identified: 3
+  dropped_as_continuing: 1
   delta_check_applied: true
-  dropped_as_continuing: 0
   used_fallback: true
-  fallback_reason: seen.jsonl empty (daily runs not populating); used web searches
+  fallback_reason: seen.jsonl stale (last entries 2026-09-08; daily runs not populating); used web searches and direct article fetches
+  dropped_detail:
+  - 'Peer-effect and manager-perception data (Gartner 37%, FranklinCovey 71/41, Perceptyx 33%): same argument as the prior week''s manager theme and not dated this week; used as tweet signals only'
+  - 'Venture Dallas / Base Power regulation story: avoided per content_steering (state vs city patchwork already covered)'
   obsidian_unavailable: false
-  obsidian_write_method: desktop-commander-direct (MCP path encoding broken for subdirs)
+  obsidian_write_method: 'desktop-commander-direct (vault root: ~/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian; Obsidian MCP 404s on subdirectory GETs)'
   weekly_themes:
   - theme_id: 1
-    theme_title: Microsoft Just Picked a Side in the Agent Identity War
-    synthesis: "Microsoft shipped Copilot Studio agent accounts (Oct 15, 2026): agents
-      now get their own Entra ID rather than borrowing user credentials. Google shipped
-      agent Workspace identity on Oct 8. Both major enterprise stacks deployed competing
-      agent identity architectures in the same month. New argument vs W42's 'agents
-      getting identities' framing: W43 is about vendor choice — Microsoft and Google
-      have committed to architecturally different models, and clients running M365 or
-      Google Workspace must now evaluate whether their governance policies extend to
-      agent accounts (which are distinct from service principals in licensing and behavior)."
+    theme_title: Agents Are Your Newest Insiders
+    synthesis: 'Microsoft extended Project Perception on Oct 19, 2026 to treat internal AI agents as insiders: Dynamic Permissions (start with none, grant per task, expire, human review for high-impact actions), Dynamic Agent Risk (continuously updated score), Dynamic Conditional Access (reduce, read-only, require approval, isolate or halt), plus Guardian Agents and discovery of 60 local agent types. New argument vs the prior week''s agent-account story: giving an agent an Entra identity answers who it is, not what it may do right now. Recommended action changes from extending governance to agent accounts to designing task-scoped, expiring, risk-aware access. Vendor announcement; no pricing or availability date in the coverage found.'
     source_items:
-    - 'Microsoft Copilot Studio agent accounts preview — Windows Forum (2026-10-15)'
-    - 'Google Gemini agent Workspace identity — TechCrunch (2026-10-08)'
+    - Microsoft Targets Rogue AI Agents With Dynamic Permissions, Risk Scoring - SecurityWeek (2026-10-20) https://www.securityweek.com/microsoft-targets-rogue-ai-agents-with-dynamic-permissions-risk-scoring/
+    - Securing the Agentic Insider - Microsoft (2026-10-19) https://blogs.microsoft.com/blog/2026/10/19/securing-the-agentic-insider/
     content_angles:
-    - Microsoft Just Picked a Side in the Agent Identity War
+    - Agents Are Insiders Now, So Stop Giving Them Standing Access
   - theme_id: 2
-    theme_title: The Agent Inventory You Don't Know You Have
-    synthesis: "OutSystems surveyed 850+ IT DMs (Oct 15, 2026): 96% using agents,
-      94% report sprawl increasing complexity/security risk, only 26% prepared for
-      agent conflicts between systems. New argument vs prior shadow AI coverage: these
-      are authorized deployments IT sanctioned and then lost operational track of.
-      The governance failure is architectural — no accounting system was built before
-      the agents were. An agent registry is a prerequisite, not a follow-on."
+    theme_title: Give Every Agent a Manager
+    synthesis: 'ServiceNow''s AI Passport announcement (Q4 2026 availability) quotes LTM''s CISO: 1,500 AI agents, each with an employee ID and a manager, tracked in one system of record. SK Telecom''s first AI Governance Report reportedly records a supervisor per agent (secondary source only). New argument vs the prior week''s agent-inventory theme: a registry says what exists, not who answers for it. Action: assign a named human owner at provisioning and make that owner the approver for high-impact actions. Vendor press release, not independently verified.'
     source_items:
-    - 'OutSystems Agentic AI Enterprise Readiness research (2026-10-15) — SD Times coverage'
+    - ServiceNow advances its operational harness for enterprise AI with AI Passport and expanded governance capabilities - ServiceNow Newsroom (Oct 2026) https://newsroom.servicenow.com/press-releases/details/2026/ServiceNow-advances-its-operational-harness-for-enterprise-AI-with-AI-Passport-and-expanded-governance-capabilities/default.aspx
+    - Microsoft Targets Rogue AI Agents With Dynamic Permissions, Risk Scoring - SecurityWeek (2026-10-20) https://www.securityweek.com/microsoft-targets-rogue-ai-agents-with-dynamic-permissions-risk-scoring/
     content_angles:
-    - The Agent Inventory You Don't Know You Have
+    - Give Every Agent a Manager
   - theme_id: 3
-    theme_title: Your Manager Is Worth More Than Your AI Budget
-    synthesis: "Microsoft Work Trend Index 2026 (20,000 workers, 10 countries): organizational
-      factors — culture, manager support, talent practices — account for 67% of reported
-      AI productivity impact vs 32% for individual mindset (2:1 ratio). isolved HR
-      Leaders Report (Oct 14, 2026, 1,005 DMs): strategic AI expectations outpacing
-      capacity of people leaders. New argument vs W42 readiness benchmarks: the lever
-      is manager-level AI capability, not individual tools training. Investment implication
-      shifts."
+    theme_title: The Airport Hired an AI Lead
+    synthesis: 'DFW Airport created a principal AI lead role (posting reported Oct 13, 2026; posting no longer live) combining governance (guidelines against unauthorized AI use), capability (infrastructure, pilots, about $6.5M earmarked for AI tools this budget year) and people (HR training for 2,000+ employees, cultural shift). Love Field spreads AI duties across teams; Denver has at least four people on AI strategy. New argument: a non-tech organization gave AI governance, capability and culture one named owner instead of a committee. Fits steering toward human-side and regional stories beyond infrastructure.'
     source_items:
-    - 'Microsoft Work Trend Index 2026 — worklab.microsoft.com'
-    - 'isolved HR Leaders Report October 2026'
+    - DFW Airport Creates New Role to Lead AI Push - Dallas Innovates (2026-10-13) https://dallasinnovates.com/dfw-airport-creates-new-role-to-lead-ai-push/
     content_angles:
-    - Your Manager Is Worth More Than Your AI Budget
+    - The Airport Hired an AI Lead. What Did You Hire?
+  themes_processed: 3
+  drafts_created: 3
   draft_paths:
-  - Mind/Posts/_microsoft-picked-a-side-agent-identity-war.md
-  - Mind/Posts/_the-agent-inventory-you-dont-know-you-have.md
-  - Mind/Posts/_your-manager-is-worth-more-than-your-ai-budget.md
-  weekly_note_path: Watchtower/Weekly/2026-W43.md
-  source_proposals_batch: 19
-  source_proposals_count: 5
+  - Mind/Posts/_agents-are-insiders-now-stop-giving-them-standing-access.md
+  - Mind/Posts/_give-every-agent-a-manager.md
+  - Mind/Posts/_the-airport-hired-an-ai-lead.md
+  blog_ideas_appended: 3
+  weekly_signal_sources:
+  - https://www.gartner.com/en/newsroom/press-releases/2025-12-16-gartner-hr-survey-finds-65-percent-of-employees-are-excited-to-use-ai-at-work
+  - https://www.franklincovey.com/blog/embrace-ai-in-the-workplace/
+  - https://blog.perceptyx.com/ais-cultural-impact-new-data-reveals-leadership-makes-the-difference
+  - https://dallasinnovates.com/innovators-with-dfw-ties-claim-8-spots-on-times-list-of-best-inventions-for-2026/
+  - https://dallasinnovates.com/dfw-venture-capital-rebounds-in-q3-but-2026-total-still-trails-last-year/
   weekly_tweets:
-  - text: "Entra now has two kinds of identities: human and agent. Most IT teams have
-      governance policies for one of them."
-    supporting_url: https://windowsforum.com/news/microsoft-copilot-studio-agent-accounts-preview-entra-ids-shared-memory-triggers-and-licensing.448622/
-    intent_url: https://twitter.com/intent/tweet?text=Entra%20now%20has%20two%20kinds%20of%20identities%3A%20human%20and%20agent.%20Most%20IT%20teams%20have%20governance%20policies%20for%20one%20of%20them.&url=https%3A%2F%2Fwindowsforum.com%2Fnews%2Fmicrosoft-copilot-studio-agent-accounts-preview-entra-ids-shared-memory-triggers-and-licensing.448622%2F
+  - text: Microsoft's agent discovery now covers 60 types of local agents, including Claude Code, Codex and GitHub Copilot. If your endpoint inventory stops at installed apps, it is missing the newest category of software on the laptop.
+    supporting_url: https://www.securityweek.com/microsoft-targets-rogue-ai-agents-with-dynamic-permissions-risk-scoring/
+    intent_url: https://twitter.com/intent/tweet?text=Microsoft%27s%20agent%20discovery%20now%20covers%2060%20types%20of%20local%20agents%2C%20including%20Claude%20Code%2C%20Codex%20and%20GitHub%20Copilot.%20If%20your%20endpoint%20inventory%20stops%20at%20installed%20apps%2C%20it%20is%20missing%20the%20newest%20category%20of%20software%20on%20the%20laptop.&url=https%3A%2F%2Fwww.securityweek.com%2Fmicrosoft-targets-rogue-ai-agents-with-dynamic-permissions-risk-scoring%2F
+    angle_type: data
+  - text: ServiceNow's AI Passport is expected in Q4. Your agents are already in production. Governance roadmaps run on quarters. Agent adoption runs on weeks.
+    supporting_url: https://newsroom.servicenow.com/press-releases/details/2026/ServiceNow-advances-its-operational-harness-for-enterprise-AI-with-AI-Passport-and-expanded-governance-capabilities/default.aspx
+    intent_url: https://twitter.com/intent/tweet?text=ServiceNow%27s%20AI%20Passport%20is%20expected%20in%20Q4.%20Your%20agents%20are%20already%20in%20production.%20Governance%20roadmaps%20run%20on%20quarters.%20Agent%20adoption%20runs%20on%20weeks.&url=https%3A%2F%2Fnewsroom.servicenow.com%2Fpress-releases%2Fdetails%2F2026%2FServiceNow-advances-its-operational-harness-for-enterprise-AI-with-AI-Passport-and-expanded-governance-capabilities%2Fdefault.aspx
     angle_type: provocative
-  - text: "26% of enterprises feel prepared to handle conflicts between AI agents in
-      the same workflow. The other 74% are going to learn the hard way what happens
-      when two agents give contradictory instructions to the same system."
-    supporting_url: https://sdtimes.com/ai/agentic-ai-goes-mainstream-in-the-enterprise-but-94-raise-concern-about-sprawl-outsystems-research-finds/
-    intent_url: https://twitter.com/intent/tweet?text=26%25%20of%20enterprises%20feel%20prepared%20to%20handle%20conflicts%20between%20AI%20agents%20in%20the%20same%20workflow.%20The%20other%2074%25%20are%20going%20to%20learn%20the%20hard%20way%20what%20happens%20when%20two%20agents%20give%20contradictory%20instructions%20to%20the%20same%20system.&url=https%3A%2F%2Fsdtimes.com%2Fai%2Fagentic-ai-goes-mainstream-in-the-enterprise-but-94-raise-concern-about-sprawl-outsystems-research-finds%2F
+  - text: Which AI project at your company has a before-and-after number that someone outside the project team would believe? Not a pilot demo. A number.
+    supporting_url: null
+    intent_url: https://twitter.com/intent/tweet?text=Which%20AI%20project%20at%20your%20company%20has%20a%20before-and-after%20number%20that%20someone%20outside%20the%20project%20team%20would%20believe%3F%20Not%20a%20pilot%20demo.%20A%20number.
+    angle_type: question
+  - text: A Gartner survey found 37% of employees who can use AI don't, because their coworkers aren't. We keep treating adoption as a training problem. It behaves like a peer-pressure problem.
+    supporting_url: https://www.gartner.com/en/newsroom/press-releases/2025-12-16-gartner-hr-survey-finds-65-percent-of-employees-are-excited-to-use-ai-at-work
+    intent_url: https://twitter.com/intent/tweet?text=A%20Gartner%20survey%20found%2037%25%20of%20employees%20who%20can%20use%20AI%20don%27t%2C%20because%20their%20coworkers%20aren%27t.%20We%20keep%20treating%20adoption%20as%20a%20training%20problem.%20It%20behaves%20like%20a%20peer-pressure%20problem.&url=https%3A%2F%2Fwww.gartner.com%2Fen%2Fnewsroom%2Fpress-releases%2F2025-12-16-gartner-hr-survey-finds-65-percent-of-employees-are-excited-to-use-ai-at-work
     angle_type: data
-  - text: "NTT Data opened a Cyber Defense Center in Plano last week. When the third
-      major global cybersecurity operation plants a flag in your backyard, it stops
-      being a coincidence and starts being a market signal."
-    supporting_url: https://dallasinnovates.com/?p=293070
-    intent_url: https://twitter.com/intent/tweet?text=NTT%20Data%20opened%20a%20Cyber%20Defense%20Center%20in%20Plano%20last%20week.%20When%20the%20third%20major%20global%20cybersecurity%20operation%20plants%20a%20flag%20in%20your%20backyard%2C%20it%20stops%20being%20a%20coincidence%20and%20starts%20being%20a%20market%20signal.&url=https%3A%2F%2Fdallasinnovates.com%2F%3Fp%3D293070
-    angle_type: practitioner
-  - text: "The default AI adoption playbook: buy licenses. Run training. Measure seat
-      count. Then wonder why some teams are three times more productive than others
-      with the same tools. Nobody asks about the manager."
-    supporting_url: https://www.microsoft.com/en-us/worklab/work-trend-index/agents-human-agency-and-the-opportunity-for-every-organization
-    intent_url: https://twitter.com/intent/tweet?text=The%20default%20AI%20adoption%20playbook%3A%20buy%20licenses.%20Run%20training.%20Measure%20seat%20count.%20Then%20wonder%20why%20some%20teams%20are%20three%20times%20more%20productive%20than%20others%20with%20the%20same%20tools.%20Nobody%20asks%20about%20the%20manager.&url=https%3A%2F%2Fwww.microsoft.com%2Fen-us%2Fworklab%2Fwork-trend-index%2Fagents-human-agency-and-the-opportunity-for-every-organization
+  - text: 71% of managers say they clearly understand how their teams use AI. 41% of individual contributors say their managers don't know how, or if, they use it. Both groups think they are answering honestly.
+    supporting_url: https://www.franklincovey.com/blog/embrace-ai-in-the-workplace/
+    intent_url: https://twitter.com/intent/tweet?text=71%25%20of%20managers%20say%20they%20clearly%20understand%20how%20their%20teams%20use%20AI.%2041%25%20of%20individual%20contributors%20say%20their%20managers%20don%27t%20know%20how%2C%20or%20if%2C%20they%20use%20it.%20Both%20groups%20think%20they%20are%20answering%20honestly.&url=https%3A%2F%2Fwww.franklincovey.com%2Fblog%2Fembrace-ai-in-the-workplace%2F
     angle_type: provocative
-  - text: "If an AI agent in your Copilot environment makes a wrong call, who is accountable?
-      The employee who configured it? The team that owns the workflow? The vendor?
-      This is not a hypothetical anymore."
-    supporting_url: null
-    intent_url: https://twitter.com/intent/tweet?text=If%20an%20AI%20agent%20in%20your%20Copilot%20environment%20makes%20a%20wrong%20call%2C%20who%20is%20accountable%3F%20The%20employee%20who%20configured%20it%3F%20The%20team%20that%20owns%20the%20workflow%3F%20The%20vendor%3F%20This%20is%20not%20a%20hypothetical%20anymore.
+  - text: One in three employees in a Perceptyx survey say AI has created tension between teams. Is your rollout quietly creating insiders and outsiders, and would you know?
+    supporting_url: https://blog.perceptyx.com/ais-cultural-impact-new-data-reveals-leadership-makes-the-difference
+    intent_url: https://twitter.com/intent/tweet?text=One%20in%20three%20employees%20in%20a%20Perceptyx%20survey%20say%20AI%20has%20created%20tension%20between%20teams.%20Is%20your%20rollout%20quietly%20creating%20insiders%20and%20outsiders%2C%20and%20would%20you%20know%3F&url=https%3A%2F%2Fblog.perceptyx.com%2Fais-cultural-impact-new-data-reveals-leadership-makes-the-difference
     angle_type: question
-  - text: "88% of organizations report regular AI use in at least one business function.
-      37% can attribute any EBIT impact to it. That gap is not closing by buying more
-      tools."
-    supporting_url: https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai
-    intent_url: https://twitter.com/intent/tweet?text=88%25%20of%20organizations%20report%20regular%20AI%20use%20in%20at%20least%20one%20business%20function.%2037%25%20can%20attribute%20any%20EBIT%20impact%20to%20it.%20That%20gap%20is%20not%20closing%20by%20buying%20more%20tools.&url=https%3A%2F%2Fwww.mckinsey.com%2Fcapabilities%2Fquantumblack%2Four-insights%2Fthe-state-of-ai
+  - text: Aurora's CEO calls driverless trucks "novel, technically extraordinary, and yet all pretty boring." 500,000 driverless miles, no at-fault crash. Boring is what a good AI deployment sounds like.
+    supporting_url: https://dallasinnovates.com/innovators-with-dfw-ties-claim-8-spots-on-times-list-of-best-inventions-for-2026/
+    intent_url: https://twitter.com/intent/tweet?text=Aurora%27s%20CEO%20calls%20driverless%20trucks%20%22novel%2C%20technically%20extraordinary%2C%20and%20yet%20all%20pretty%20boring.%22%20500%2C000%20driverless%20miles%2C%20no%20at-fault%20crash.%20Boring%20is%20what%20a%20good%20AI%20deployment%20sounds%20like.&url=https%3A%2F%2Fdallasinnovates.com%2Finnovators-with-dfw-ties-claim-8-spots-on-times-list-of-best-inventions-for-2026%2F
+    angle_type: provocative
+  - text: 'DFW Q3 venture funding: $962.5M, fifth-best quarter since 2016. Year to date: $1.73B, almost 10% behind 2025. Both are true. The momentum is real, and so is the gap.'
+    supporting_url: https://dallasinnovates.com/dfw-venture-capital-rebounds-in-q3-but-2026-total-still-trails-last-year/
+    intent_url: https://twitter.com/intent/tweet?text=DFW%20Q3%20venture%20funding%3A%20%24962.5M%2C%20fifth-best%20quarter%20since%202016.%20Year%20to%20date%3A%20%241.73B%2C%20almost%2010%25%20behind%202025.%20Both%20are%20true.%20The%20momentum%20is%20real%2C%20and%20so%20is%20the%20gap.&url=https%3A%2F%2Fdallasinnovates.com%2Fdfw-venture-capital-rebounds-in-q3-but-2026-total-still-trails-last-year%2F
     angle_type: data
-  - text: "Every enterprise AI initiative hits the same wall eventually: the center
-      of excellence was built for coordination, not decision rights. You cannot govern
-      agent deployments with a newsletter and a champion program."
+  - text: 'Good AI adoption design: Dallas Market Center''s program for independent retailers tackles one real retail problem at a time, with ready-to-use prompts and no tech expertise required. Not a transformation. A Tuesday.'
     supporting_url: null
-    intent_url: https://twitter.com/intent/tweet?text=Every%20enterprise%20AI%20initiative%20hits%20the%20same%20wall%20eventually%3A%20the%20center%20of%20excellence%20was%20built%20for%20coordination%2C%20not%20decision%20rights.%20You%20cannot%20govern%20agent%20deployments%20with%20a%20newsletter%20and%20a%20champion%20program.
+    intent_url: https://twitter.com/intent/tweet?text=Good%20AI%20adoption%20design%3A%20Dallas%20Market%20Center%27s%20program%20for%20independent%20retailers%20tackles%20one%20real%20retail%20problem%20at%20a%20time%2C%20with%20ready-to-use%20prompts%20and%20no%20tech%20expertise%20required.%20Not%20a%20transformation.%20A%20Tuesday.
     angle_type: practitioner
-  - text: "Since July 2026, Copilot Studio automatically creates an Entra Agent ID
-      for every new agent. No opt-out. If you're running Copilot Studio without a
-      governance policy for agent accounts, that is not a gap in your security plan.
-      It is the security plan."
-    supporting_url: null
-    intent_url: https://twitter.com/intent/tweet?text=Since%20July%202026%2C%20Copilot%20Studio%20automatically%20creates%20an%20Entra%20Agent%20ID%20for%20every%20new%20agent.%20No%20opt-out.%20If%20you%27re%20running%20Copilot%20Studio%20without%20a%20governance%20policy%20for%20agent%20accounts%2C%20that%20is%20not%20a%20gap%20in%20your%20security%20plan.%20It%20is%20the%20security%20plan.
+  - text: Disruptive moved from Austin to Dallas in 2024 and is reportedly raising up to $10B, with $7.5B already committed. When a firm that size relocates, capital is following the talent, not leading it.
+    supporting_url: https://dallasinnovates.com/dfw-venture-capital-rebounds-in-q3-but-2026-total-still-trails-last-year/
+    intent_url: https://twitter.com/intent/tweet?text=Disruptive%20moved%20from%20Austin%20to%20Dallas%20in%202024%20and%20is%20reportedly%20raising%20up%20to%20%2410B%2C%20with%20%247.5B%20already%20committed.%20When%20a%20firm%20that%20size%20relocates%2C%20capital%20is%20following%20the%20talent%2C%20not%20leading%20it.&url=https%3A%2F%2Fdallasinnovates.com%2Fdfw-venture-capital-rebounds-in-q3-but-2026-total-still-trails-last-year%2F
     angle_type: practitioner
-  - text: "Two years ago the question was whether AI was ready for enterprise use.
-      Today, 96% of organizations are using agents in some capacity. The question
-      has flipped: is your enterprise ready for AI?"
-    supporting_url: https://www.outsystems.com/pt-br/news/outsystems-research-agentic-ai-enterprise-readiness
-    intent_url: https://twitter.com/intent/tweet?text=Two%20years%20ago%20the%20question%20was%20whether%20AI%20was%20ready%20for%20enterprise%20use.%20Today%2C%2096%25%20of%20organizations%20are%20using%20agents%20in%20some%20capacity.%20The%20question%20has%20flipped%3A%20is%20your%20enterprise%20ready%20for%20AI%3F&url=https%3A%2F%2Fwww.outsystems.com%2Fpt-br%2Fnews%2Foutsystems-research-agentic-ai-enterprise-readiness
-    angle_type: question
-  - text: "DFW had 24 expansion-stage exits worth $55.9B in the first half of 2026.
-      Added a $6.4B enterprise browser unicorn. Now a global cyber defense center.
-      The question is no longer whether DFW is a tier-one tech market."
-    supporting_url: https://dallasinnovates.com/?p=293070
-    intent_url: https://twitter.com/intent/tweet?text=DFW%20had%2024%20expansion-stage%20exits%20worth%20%2455.9B%20in%20the%20first%20half%20of%202026.%20Added%20a%20%246.4B%20enterprise%20browser%20unicorn.%20Now%20a%20global%20cyber%20defense%20center.%20The%20question%20is%20no%20longer%20whether%20DFW%20is%20a%20tier-one%20tech%20market.&url=https%3A%2F%2Fdallasinnovates.com%2F%3Fp%3D293070
-    angle_type: data
+  tweets_generated: 10
+  tweets_with_links: 8
+  angle_types:
+    provocative: 3
+    practitioner: 2
+    question: 2
+    data: 3
+  blog_angles_avoided: 3
+  proposed_count: 5
+  excluded_count: 0
+  batch_number: 20
+  source_proposals_batch: 20
+  source_proposals_count: 5
+  weekly_note_path: Watchtower/Weekly/2026-W44.md
+  correction_flag: Prior-week note claimed DFW Q3 2026 was the region's best VC quarter on record. PitchBook-NVCA via Dallas Innovates (2026-10-08) says fifth-best since 2016; YTD $1.73B trails 2025's $1.9B. Check any published or drafted material using the earlier claim.
   step_07_adversarial_verify: skipped-no-spawnable-agent-in-scheduled-context
+  themes_surfaced: 3
+  candidates_surfaced: 3
+  sources_proposed: 5
+  tweets_surfaced: 10
+  artifact_updated: true
+  themes_in_note: 3
+  candidates_listed: 3
+  tweets_in_note: 10
+  pending_batches:
+  - 20
+  sources_added_to_registry:
+  - DEC Network
