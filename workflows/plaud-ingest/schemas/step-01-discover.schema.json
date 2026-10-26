@@ -1,0 +1,7 @@
+{
+  "type": "object",
+  "required": ["new-recordings"],
+  "properties": {
+    "new-recordings": {"type": "list", "comment": "Recordings discovered this run. An empty list is a legitimate no-op day; absence means the discovery pass never recorded."}
+  }
+}

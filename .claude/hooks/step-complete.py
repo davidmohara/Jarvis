@@ -105,6 +105,58 @@ def run_workflow_verifier(verifier_path: Path, workflow_name: str, step_name: st
     return verdict
 
 
+def run_schema_validation(workflow_name: str, step_name: str, ies_root: Path,
+                           step_started: str, step_completed: str) -> dict | None:
+    """Layer 0 dispatcher: schema validation on the sub-agent's structured
+    output, BEFORE any ground-truth verification and before the coordinator
+    sees a pass. Schemas are opt-in per step at
+    workflows/<workflow>/schemas/<step>.schema.json; a step with no schema
+    passes through unchanged. Returns None only on harness-side misuse (the
+    validator's own contract failure), which falls through to Layer 1 —
+    a validation verdict of retry/escalate always wins the layer order.
+    """
+    schema = ies_root / "workflows" / workflow_name / "schemas" / f"{step_name}.schema.json"
+    if (not workflow_name
+            or not schema.is_file()
+            and not (step_name.endswith(".md")
+                     and (ies_root / "workflows" / workflow_name / "schemas"
+                          / f"{step_name[:-3]}.schema.json").is_file())):
+        return None
+    payload = {
+        "workflow": workflow_name,
+        "step": step_name,
+        "ies_root": str(ies_root),
+        "step_started": step_started,
+        "step_completed": step_completed,
+    }
+    validator = ies_root / "systems" / "eval-harness" / "validate-subagent-output.py"
+    try:
+        proc = subprocess.run(
+            ["python3", str(validator)],
+            input=json.dumps(payload),
+            capture_output=True,
+            text=True,
+            timeout=30,
+        )
+    except Exception as e:
+        log_error(f"Schema validator failed to execute for {step_name}: {e}")
+        return None
+    if proc.returncode != 0:
+        # exit 2 = validator misuse (harness-side); log and fall through.
+        log_error(f"Schema validator exited {proc.returncode} for {step_name}: {proc.stderr.strip()[:300]}")
+        return None
+    try:
+        verdict = json.loads((proc.stdout or "").strip().splitlines()[-1])
+    except Exception as e:
+        log_error(f"Schema validator produced invalid JSON for {step_name}: {e}")
+        return None
+    if verdict.get("result") not in ("pass", "retry"):
+        log_error(f"Schema validator returned invalid result '{verdict.get('result')}' for {step_name}")
+        return None
+    log_info(f"Schema validation for {step_name}: {verdict.get('result')} — {verdict.get('reason')}")
+    return verdict
+
+
 def get_guardrails_dir_for_workflow(workflow_name: str) -> Path:
     """Find the guardrails directory for a given workflow."""
     if not workflow_name:
@@ -403,6 +455,28 @@ def run_step_guardrail_checkpoint(step_name: str, step_frontmatter: dict, eval_r
         result["reason"] = "CRITICAL: Step missing started-at or completed-at timestamp"
         result["validation_errors"].append("missing_timestamps")
         return result
+
+    # LAYER 0 DISPATCHER: schema validation on the sub-agent's structured
+    # output (workflows/<workflow>/schemas/<step>.schema.json), BEFORE any
+    # ground-truth verification. The coordinator never sees an unvalidated
+    # structured output: a schema failure produces a structured retry with
+    # field-level errors, never garbage.
+    schema_verdict = run_schema_validation(
+        workflow_name, step_name, IES_ROOT,
+        step_frontmatter.get("started-at"), step_frontmatter.get("completed-at")
+    )
+    if schema_verdict is not None and schema_verdict.get("result") == "retry":
+        result["result"] = "retry"
+        result["reason"] = schema_verdict.get("reason", "Sub-agent output failed schema validation")
+        result["validation_errors"] = schema_verdict.get("validation_errors", [])
+        result["retry_feedback"] = schema_verdict.get("reason")
+        result["retry_instruction"] = (
+            "Sub-agent output failed schema validation on declared fields: "
+            + "; ".join(result["validation_errors"])
+            + ". Re-run the step and repopulate those fields."
+        )
+        return result
+    # pass (or no schema declared) falls through to Layer 1.
 
     # LAYER 1 DISPATCHER: a workflow-specific ground-truth verifier, if one
     # exists at workflows/<workflow>/verify/<step>.py, takes precedence over

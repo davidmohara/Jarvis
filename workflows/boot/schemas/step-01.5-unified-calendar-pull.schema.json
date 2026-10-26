@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "required": ["calendar_file", "calendar_status"],
+  "properties": {
+    "calendar_file": {
+      "type": "string",
+      "minLength": 1,
+      "comment": "Path of the unified calendar data file written by the pull."
+    },
+    "calendar_status": {
+      "type": "string",
+      "minLength": 1,
+      "comment": "Outcome of the pull (e.g. ok, degraded, failed)."
+    },
+    "event_count": {
+      "type": "number"
+    },
+    "date_range": {
+      "type": "string"
+    },
+    "calendar_pulled_at": {
+      "type": "string"
+    }
+  }
+}

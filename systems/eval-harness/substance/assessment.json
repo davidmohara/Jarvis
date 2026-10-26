@@ -1,0 +1,36 @@
+{
+  "comment": "Substance assessment: for each workflow in the system, its relevance to an IT consultant's real work. core = work a paying client would buy; peripheral = useful but not billable on its own; toy = hobby/game/demo. Any toy, or two or more peripheral, elevates for human review: the system's report is retained verbatim and a human records an append-only Continue/Reject decision with identity and timestamp. Classifications are proposed by the builder and confirmed by the human operator; confirmed=false rows still count toward elevation (an unconfirmed classification cannot self-approve).",
+  "scale": [
+    "core",
+    "peripheral",
+    "toy"
+  ],
+  "elevation_rule": "any toy OR two or more peripheral OR any unconfirmed classification",
+  "workflows": {
+    "boot": {
+      "classification": "peripheral",
+      "rationale": "Session startup and briefing assembly; improves operator effectiveness but is not client-billable work on its own.",
+      "confirmed": true
+    },
+    "morning-briefing": {
+      "classification": "peripheral",
+      "rationale": "Daily executive briefing; supports billable work but is not itself a client deliverable.",
+      "confirmed": true
+    },
+    "daily-review": {
+      "classification": "peripheral",
+      "rationale": "End-of-day review and capture; internal productivity, not client-billable.",
+      "confirmed": true
+    },
+    "plaud-ingest": {
+      "classification": "peripheral",
+      "rationale": "Meeting-recording ingestion to notes; useful, but the notes feed client work rather than being sold.",
+      "confirmed": true
+    },
+    "shutdown-cleanup": {
+      "classification": "peripheral",
+      "rationale": "Session-exit hygiene and audit closure; internal system maintenance.",
+      "confirmed": true
+    }
+  }
+}

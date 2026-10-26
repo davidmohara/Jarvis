@@ -1,0 +1,7 @@
+{
+  "type": "object",
+  "required": ["transcription-triggered"],
+  "properties": {
+    "transcription-triggered": {"type": "list", "comment": "Recordings whose transcription was kicked off this run."}
+  }
+}

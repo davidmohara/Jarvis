@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "required": ["correlation_id", "artifacts"],
+  "properties": {
+    "correlation_id": {
+      "type": "string",
+      "minLength": 1,
+      "comment": "The examined run's end-to-end trace ID, carried through unchanged."
+    },
+    "artifacts": {
+      "type": "list",
+      "minItems": 1,
+      "comment": "One entry per findings-file artifact; verdicts copied verbatim."
+    },
+    "open_challenges": {
+      "type": "list"
+    }
+  }
+}

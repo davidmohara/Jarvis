@@ -1,0 +1,7 @@
+{
+  "type": "object",
+  "required": ["unresolved_speakers"],
+  "properties": {
+    "unresolved_speakers": {"type": "list", "comment": "Speakers left unresolved at verification; the follow-up queue."}
+  }
+}

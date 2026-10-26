@@ -1,0 +1,10 @@
+{
+  "type": "object",
+  "required": ["step-04-synthesize-briefing"],
+  "properties": {
+    "step-04-synthesize-briefing": {
+      "type": "object",
+      "comment": "The step's structured output record, keyed by step name in accumulated-context. Presence proves the step recorded its output; inner fields are checked by the step's ground-truth verifier."
+    }
+  }
+}

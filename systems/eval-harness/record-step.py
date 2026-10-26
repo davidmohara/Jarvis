@@ -25,6 +25,7 @@ from step_audit import (  # noqa: E402
     compute_cost, upsert_step, workflow_owner_agent, normalize_agent_label,
     resolve_record_agent,
 )
+from correlation import attach_to_step  # noqa: E402
 
 # Flags this script understands; their values must never be read as the
 # positional started_at/completed_at args.
@@ -195,6 +196,11 @@ def main():
             "tokens_output": tokens_out,
             "cost_usd": cost_usd
         }
+
+        # End-to-end tracing: the record's correlation ID (minted on first
+        # step, stable thereafter) is attached to every step entry so exports
+        # and sub-records can trace one execution across the whole structure.
+        attach_to_step(eval_record, step_entry)
 
         # Add or update step in eval record (backward-compatible dedup that
         # tolerates legacy string entries in an existing steps[] list).

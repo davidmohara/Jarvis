@@ -1,0 +1,7 @@
+{
+  "type": "object",
+  "required": ["ingested-notes"],
+  "properties": {
+    "ingested-notes": {"type": "list", "comment": "Notes written to the vault this run."}
+  }
+}

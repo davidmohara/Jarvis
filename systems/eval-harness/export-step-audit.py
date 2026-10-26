@@ -45,7 +45,7 @@ from step_audit import (  # noqa: E402
 )
 
 CSV_COLUMNS = [
-    "run_id", "run_name", "run_agent", "run_owning_agent", "run_status",
+    "run_id", "correlation_id", "run_name", "run_agent", "run_owning_agent", "run_status",
     "run_started", "run_completed",
     "step_index", "step_name", "step_id", "step_agent", "step_owning_agent", "model",
     "tokens_input", "tokens_output", "cost_usd", "token_source",
@@ -118,6 +118,7 @@ def build_export(records: list[tuple[Path, dict]]) -> tuple[list[dict], list[dic
             step_owner = merge_reporting_agent(s.get("owning_agent") or run_owner)
             json_steps.append({
                 "index": idx,
+                "correlation_id": record.get("correlation_id"),
                 "name": s.get("name"),
                 "step_id": s.get("step_id", s.get("name")),
                 "agent": s.get("agent"),
@@ -134,6 +135,7 @@ def build_export(records: list[tuple[Path, dict]]) -> tuple[list[dict], list[dic
             })
             csv_rows.append({
                 "run_id": record.get("id", path.stem),
+                "correlation_id": record.get("correlation_id"),
                 "run_name": record.get("name"),
                 "run_agent": merge_reporting_agent(record.get("agent")),
                 "run_owning_agent": run_owner,
@@ -159,6 +161,7 @@ def build_export(records: list[tuple[Path, dict]]) -> tuple[list[dict], list[dic
         totals = step_totals(record)
         json_runs.append({
             "run_id": record.get("id", path.stem),
+            "correlation_id": record.get("correlation_id"),
             "run_name": record.get("name"),
             "run_agent": merge_reporting_agent(record.get("agent")),
             "run_owning_agent": run_owner,
