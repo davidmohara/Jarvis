@@ -1,19 +1,22 @@
 ---
 status: complete
-started-at: "2026-10-17T19:00:00Z"
-completed-at: "2026-10-17T19:05:00Z"
+started-at: "2026-10-26T16:25:00Z"
+completed-at: "2026-10-26T16:55:00Z"
 outputs:
-  messages_scanned: 8
-  new_urls: 0
-  new_digests: 4
-  posts_drafted: 4
+  messages_scanned: 15
+  new_urls: 1
+  new_digests: 6
+  posts_drafted: 7
   improving_blog_drafts: 0
-  pending_threads_checked: 36
+  pending_threads_checked: 2
   editorial_feedback_found: 0
   editorial_edits_applied: 0
-  gate_1_result: "PASS — ok: true, 8 bot messages (48h retry) from C0B160MA3EK. All without digest signal — SKIP."
-  gate_2_result: "n/a — no new drafts"
-  outcome: "No new content. 2 pending threads checked (Your Business Has a Dashboard, Love With Your Presence). Both threads fully actioned in prior run — latest replies at ts 1792149571 and 1792149573 (~30h ago) outside 24h window and already confirmed handled in editorial_edits. Clean exit."
+  tracker_resynced: 2
+  tracker_entries_removed: 2
+  hub_synced: 0
+  gate_1_result: "PASS: ok true, 15 messages from C0B160MA3EK over a 168h window (widened by David to cover the gap since the 2026-10-20 run); 6 Watchtower bold-header digests dated 10-26, 1 user Spotify URL dated 10-23, 8 already-processed 10-20 messages skipped."
+  gate_2_result: "PASS x7 (word counts 310-403, no em-dashes, 4 H2 with closing What to do, tags on locked list, images landscape, hub links on ai+leadership posts)"
+  outcome: "7 Ghost drafts created and verified, 7 Slack notifications sent, tracker resynced (both prior entries were published in Ghost, removed). Flags for David: Google outage cause conflicts with digest (reports say a power event in Google's own London zone, not a third-party facility, so the post hedges); unverified digest claims (Forrester, EO dates, DFW budget, SK Telecom) were dropped or hedged; Ghost MCP image upload is broken (Admin API used instead); hub sync skipped because the tag rules would append 35 off-topic posts to curated hub pages."
 model: sonnet
 ---
 

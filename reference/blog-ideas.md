@@ -10,6 +10,13 @@ Running list of potential blog topics. Jarvis captures these proactively from co
 
 | Idea | Source | Tags | Notes |
 |------|--------|------|-------|
+| "You Can't Rotate What You Haven't Inventoried" | Content pipeline (2026-10-26, digest) | technology, leadership | Ghost draft, pending approval |
+| "Your Resilience Plan Stops at Your Cloud Provider" | Content pipeline (2026-10-26, digest) | technology, business | Ghost draft, pending approval |
+| "The Vendor's Secret Is Your Breach" | Content pipeline (2026-10-26, digest) | technology, business | Ghost draft, pending approval |
+| "The Airport Hired an AI Lead. What Did You Hire?" | Content pipeline (2026-10-26, digest) | AI, leadership | Ghost draft, pending approval |
+| "Give Every Agent a Manager" | Content pipeline (2026-10-26, digest) | AI, leadership | Ghost draft, pending approval |
+| "Agents Are Insiders Now, So Stop Giving Them Standing Access" | Content pipeline (2026-10-26, digest) | AI, technology, leadership | Ghost draft, pending approval |
+| "Slow Agents Cost You More Than Time" | Content pipeline (2026-10-26, Spotify URL (Forty Tabs Open)) | AI, productivity | Ghost draft, pending approval |
 | "Leadership by Self Differentiation" | Content brief (2026-10-20) | leadership, personal-development, self-awareness | Ghost draft, pending approval (2026-10-20). Friedman/Bowen theory, non-anxious presence, relationship triangles. Vault draft: `Mind/Posts/_leadership-by-self-differentiation.md`. |
 | "What Happens When You Stop" | Content brief (2026-10-20) | leadership, personal-development, solitude | Ghost draft, pending approval (2026-10-20). Quarterly retreat practice, deliberate solitude as a leadership discipline. Internal link: Work and Rest Aren't Opposites. Vault draft: `Mind/Posts/_what-happens-when-you-stop.md`. |
 | "Goals Don't Change You" | Content brief (2026-10-20) | goal-setting, personal-development, identity | Ghost draft, pending approval (2026-10-20). Identity mechanism vs outcome goals. Contrarian. Vault draft: `Mind/Posts/_goals-dont-change-you.md`. |

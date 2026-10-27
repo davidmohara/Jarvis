@@ -2,25 +2,28 @@
 workflow: content-discovery
 agent: harper
 status: in-progress
-session-started: "2026-10-17T19:00:00Z"
-session-id: "harper-20261017-002"
-started-at: "2026-10-17T19:00:00Z"
+session-started: "2026-10-26T16:25:00Z"
+session-id: "harper-20261026-001"
+started-at: "2026-10-26T16:25:00Z"
 completed-at: ""
 current-step: step-02
-original-request: "Scheduled content-discovery run (2026-10-17 evening)"
+original-request: "Scheduled content-discovery run (2026-10-26), widened to a 168h lookback by David"
 accumulated-context:
   step-01:
-    completed-at: "2026-10-17T19:05:00Z"
-    messages_scanned: 8
-    new_urls: 0
-    new_digests: 0
-    posts_drafted: 0
+    completed-at: "2026-10-26T16:55:00Z"
+    messages_scanned: 15
+    new_urls: 1
+    new_digests: 6
+    posts_drafted: 7
     improving_blog_drafts: 0
     pending_threads_checked: 2
     editorial_feedback_found: 0
     editorial_edits_applied: 0
-    gate_1_result: "PASS — ok: true, 8 bot messages (48h retry) from C0B160MA3EK. All without digest signal — SKIP."
-    gate_2_result: "n/a — no new drafts"
-    outcome: "No new content. 2 pending threads checked (Your Business Has a Dashboard, Love With Your Presence). Both fully actioned in prior run. Clean exit."
+    tracker_resynced: 2
+    tracker_entries_removed: 2
+    hub_synced: 0
+    gate_1_result: "PASS: ok true, 15 messages, 168h window"
+    gate_2_result: "PASS x7"
+    outcome: "7 Ghost drafts created and verified, 7 Slack notifications sent, tracker cleaned."
 model: sonnet
 ---

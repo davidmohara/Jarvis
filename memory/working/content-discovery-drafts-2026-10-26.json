@@ -1,0 +1,113 @@
+{
+  "run_date": "2026-10-26",
+  "posts": [
+    {
+      "title": "You Can't Rotate What You Haven't Inventoried",
+      "body": "If a certificate authority you rely on were distrusted tomorrow, replacing its certificates would be the easy part and finding everything that trusts them would be the hard part.\n\nA key that was the number 4\n\nOne of eMudhra's private keys was the number 4. Not a number that starts with 4. The number 4. A researcher recovered all eight compromised intermediate keys from their public certificates, because every one was smaller than 256, which means anyone could find it by testing at most 256 values, as SecurityWeek reported. Chrome and Firefox blocked the intermediates on October 17, Apple followed on October 19, and Microsoft on October 20.\n\nThe browsers moved fast, and that is the easy part, because browser vendors control their own trust stores. What I keep thinking about is everything else: the application that bundles its own root certificates, the appliance nobody has patched since the last audit, the internal service that pins a certificate because someone did it in 2019. None of those get a push update from Mozilla or Microsoft. (Ask any engineer who has chased a pinned certificate at 2 a.m. how that goes.)\n\nOne capability, two deadlines\n\nThe same gap sits underneath a slower story. A June 2026 executive order reportedly pulls post-quantum deadlines forward for federal systems (check the order's text before you quote any dates to a client, I would). I expect vendor roadmaps and contract terms to follow those benchmarks even for firms that never touch federal work. Moving to new cryptography means finding where the old cryptography lives, so the emergency and the multi-year migration need the same thing: an inventory of certificates, keys, libraries, and protocols, including the ones inside vendor-managed services. It is the same problem I wrote about with agents you don't know you have.\n\nThree moves before the next one\n\nBuild the inventory first. Then test it with a fire drill: pick a certificate authority and ask how long it would take to find everything that trusts it and replace it. The eMudhra response is that drill, run live. Last, ask your vendors for what is being called a cryptographic bill of materials, the sequel to the SBOM. The story is still developing, so check current advisories before you act on specifics.\n\nWhat to do\n\nIf a certificate authority you rely on were distrusted tomorrow morning, how long would it take you to find every place it matters?",
+      "source_text": "Hook: One of eMudhra's private keys was the number 4. Story Angle: Oct 17 report; keys for eight intermediates compromised; Mozilla, Chrome, Apple distrust. Core Insight: gap under a slower story, June 2026 executive order, inventory, fire drill, cryptographic bill of materials. Challenge: If a certificate authority you rely on were distrusted tomorrow morning, how long would it take to find every place it matters?",
+      "is_voice_original": true,
+      "feature_image": "https://driventodevelop.com/content/images/2026/10/rotate-2026-10-26.jpg",
+      "image_landscape": true,
+      "image_search_query": "unsplash data center server racks landscape photo",
+      "geo_specific": false,
+      "post_city": null,
+      "image_geo_confirmed": true,
+      "related_published_post": "https://driventodevelop.com/2026/08/21/you-cant-govern-an-inventory-you-dont-know-you-have/",
+      "internal_links": [
+        "https://driventodevelop.com/2026/08/21/you-cant-govern-an-inventory-you-dont-know-you-have/"
+      ]
+    },
+    {
+      "title": "Your Resilience Plan Stops at Your Cloud Provider",
+      "body": "Your resilience plan probably ends at your cloud provider's front door, and regulators are starting to ask what sits behind it.\n\nWhat happened in London\n\nOn October 20, a power event in Google Cloud's London region disrupted Revolut, Lloyds, and HSBC customers along with UK court services, and most workloads were back by about 12:10 GMT, according to coverage of the outage. Reports say the European Banking Authority is contacting Google Cloud about the impact on EU financial firms, and that UK regulators and a parliamentary committee are asking questions of their own. Coverage framed it as an early test of the EU and UK rules for critical third-party technology providers. Google has promised a full incident report, and early accounts differ on exactly where the power failed, so treat the root cause as unsettled.\n\nLook below the provider\n\nThe question regulators are asking now is not \"did your cloud provider fail?\" It is \"did you know what your provider depends on?\" Under the provider sits a facility, a power supplier, a network carrier. Those are fourth parties to you, and regulators increasingly expect firms to have looked. A resilience slide that says \"multi-zone\" answers one failure mode. Whether it would have saved a particular workload on a particular morning depends on how the workload was built and what actually broke, which is exactly why you need to know before the morning arrives. (I have never met a leadership team that enjoyed discovering its dependency map during an incident.)\n\nWrite down the bad day\n\nWrite down what you would do if one region and one provider were unavailable for a working day. Then keep the evidence. Regulated firms are being asked to show their mapping and their exit or failover thinking, not just to assert resilience. None of this requires multi-cloud. It requires knowing which services fail together and having decided in advance what you will do about it.\n\nWhat to do\n\nPick your most important customer-facing service. Can you name everything it depends on below your cloud provider?",
+      "source_text": "Hook: A power failure at a facility Google doesn't own took down UK banks and courts; regulators ask if you knew what your provider depends on. Story Angle: Oct 20 Google Cloud London outage, Revolut, Lloyds, HSBC, courts; EBA, FCA, parliamentary committee. Core Insight: early test of EU and UK critical third party rules; stop treating provider as bottom of dependency map; write down a one day regional outage plan; keep evidence. Challenge: Pick your most important customer-facing service. Can you name everything it depends on below your cloud provider?",
+      "is_voice_original": true,
+      "feature_image": "https://driventodevelop.com/content/images/2026/10/resilience-2026-10-26.jpg",
+      "image_landscape": true,
+      "image_search_query": "unsplash electrical power control panel circuit breakers photo",
+      "geo_specific": false,
+      "post_city": null,
+      "image_geo_confirmed": true,
+      "related_published_post": null,
+      "internal_links": []
+    },
+    {
+      "title": "The Vendor's Secret Is Your Breach",
+      "body": "The most dangerous credential in your Microsoft 365 tenant may belong to a vendor instead of a user.\n\n173 tenants and no user passwords\n\nHuntress confirmed unauthorized sign-ins to 173 Microsoft 365 tenants after a credential belonging to ConnectWise Cloud Backup (formerly SkyKick) was compromised, as iTnews reported. MSPs install this kind of app to protect their clients' Microsoft 365 data, and to do its job it gets broad access to mailboxes, OneDrive, SharePoint, Teams, and directory data. Because the attacker signed in as the app, there was no user to challenge, so MFA and risky sign-in detection had nothing to evaluate. Nothing in those tenants was misconfigured by the customer.\n\nThe pattern matters more than the vendor\n\nA backup, migration, or management app gets consented once, often years ago, with permissions broad enough to read and write nearly everything. Nobody reviews that consent again, because the app works and the vendor is trusted. Then the vendor's credential is compromised, and every tenant that consented inherits the exposure. Huntress also observed a second ConnectWise app assign itself the Global Administrator role in at least one tenant and add secrets to other trusted apps, and ConnectWise has said that disabling its apps does not reverse changes already made inside a tenant. So \"revoke and move on\" is not a plan.\n\nDo the inventory\n\nList every enterprise application in your Entra tenant, who consented to it, what permissions it holds, and when anyone last reviewed it. Pay particular attention to anything with directory-wide write access. Then check service principal sign-ins for unrecognized IP addresses, and look for credentials added or roles assigned since mid October. The investigation is ongoing and sources differ slightly on timing, so check the current Microsoft and Huntress advisories before acting on specifics.\n\nWhat to do\n\nHow many third-party apps in your Entra tenant have permissions you could not justify in a sentence today?",
+      "source_text": "Hook: On October 15 someone signed into 173 Microsoft 365 tenants without a user password or MFA prompt using a credential that belonged to a backup vendor. Story Angle: ConnectWise Cloud Backup (formerly SkyKick), broad consent, customers inherit exposure. Core Insight: Huntress confirmed; Microsoft tracking supply chain attack; consent once, never reviewed; second ConnectWise app added itself to Global Administrator; inventory enterprise applications. Challenge: How many third-party apps in your Entra tenant have permissions you could not justify in a sentence today?",
+      "is_voice_original": true,
+      "feature_image": "https://driventodevelop.com/content/images/2026/10/vendor-2026-10-26.jpg",
+      "image_landscape": true,
+      "image_search_query": "unsplash padlock keys security landscape photo",
+      "geo_specific": false,
+      "post_city": null,
+      "image_geo_confirmed": true,
+      "related_published_post": null,
+      "internal_links": []
+    },
+    {
+      "title": "The Airport Hired an AI Lead. What Did You Hire?",
+      "body": "DFW Airport created a job whose purpose is to make AI adoption safe, governed, and cultural, and it gave that job to one person instead of a committee.\n\nOne name on the door\n\nDallas Innovates reported that DFW created a full-time principal AI lead to serve as the airport's authority on the technology. I like this story because the airport is not a tech company. It runs roads, runways, and maintenance crews, and it decided AI needed a single accountable owner, not a working group that meets monthly.\n\nThree jobs in one\n\nAs reported, the role bundles three things that usually live in three different places. The first is governance: setting guidelines to prevent unauthorized AI use and making sure adoption is safe, ethical, and business-aligned. The second is capability: managing AI infrastructure, evaluating new tools, and launching pilots. The third is people: working with HR on workforce training and supporting the cultural shift AI adoption requires. In most organizations those land with security, IT, and HR respectively, and nobody owns the seams between them. (The seams are where the incidents happen. They are also where the budget questions go to die.)\n\nWhy one name matters\n\nA committee is not wrong, and plenty of good governance work gets done in one. But one name on the door changes who gets the call when something breaks, which is the question I keep returning to in my own agent governance work. Accountability that belongs to a group has a way of belonging to nobody at 2 a.m. The airport's choice also sends a signal inside the organization: AI is an operational capability with an owner, not an experiment that happens in the margins of other people's jobs. You can make that choice without a new title, but you do have to make it on purpose. One caveat: the job posting is reportedly no longer live, so the role description comes from press reporting, and nobody has been named yet.\n\nWhat to do\n\nIf someone asked who owns AI at your company, would you give them a name or a committee?",
+      "source_text": "Hook: DFW Airport created a job whose purpose is to make AI adoption safe, governed and cultural. One person. Story Angle: the airport is not a tech company; single accountable owner, not a working group. Core Insight: governance, capability, people; one name on the door changes who gets the call; caveat: job posting no longer live. Challenge: If someone asked who owns AI at your company, would you give them a name or a committee?",
+      "is_voice_original": true,
+      "feature_image": "https://driventodevelop.com/content/images/2026/10/airport-2026-10-26.jpg",
+      "image_landscape": true,
+      "image_search_query": "unsplash Dallas Fort Worth airport terminal landscape photo",
+      "geo_specific": true,
+      "post_city": "Dallas",
+      "image_geo_confirmed": true,
+      "related_published_post": "https://driventodevelop.com/agent-governance-guide/",
+      "internal_links": [
+        "https://driventodevelop.com/agent-governance-guide/"
+      ]
+    },
+    {
+      "title": "Give Every Agent a Manager",
+      "body": "An agent registry tells you what exists, and it does not tell you who answers for it.\n\n1,500 agents and 1,500 managers\n\nLTM runs 1,500 AI agents, and its CISO said in ServiceNow's AI Passport announcement that each one has an employee ID and a manager, tracked in a single system of record. That is the most useful governance detail I read this week, and it has nothing to do with technology. Treat it as a vendor-supplied example, not an audit. AI Passport itself is expected in Q4, so the product is not generally available yet. The practice does not need the product.\n\nAn inventory is not accountability\n\nI have written about the inventory problem: you cannot govern what you do not know you have. Fine, but a list of agents with no named human beside each one is a list nobody is accountable for. The registry answers \"what.\" Somebody still has to answer \"who.\" (Shared service accounts taught us this lesson years ago. The account is in the inventory, the owner left two reorganizations ago, and the first person to ask who is responsible gets a long silence.) Agents will repeat that pattern at a much faster clip unless ownership is part of how they come into existence, not something you reconstruct after an incident.\n\nThree moves\n\nAssign the owner at provisioning, before the agent runs, and make it a named person instead of a team alias. Record the owner in the registry next to the agent so the inventory answers \"who\" as well as \"what.\" Then make the owner the approver for high-impact actions. Microsoft's new agent controls also route consequential actions to a human, and that human needs a name before the moment arrives. This is the kind of unglamorous step that sits at the center of my practical guide to agent governance.\n\nWhat to do\n\nPick one agent running in your environment today. Can you name the person who would get the call if it did something wrong?",
+      "source_text": "Hook: LTM runs 1,500 AI agents. Every one has an employee ID and a manager. Story Angle: an agent registry tells you what exists, not who answers for it. Core Insight: ServiceNow AI Passport announcement; vendor example; AI Passport expected Q4; assign owner at provisioning; record in registry; owner approves high-impact actions; SK Telecom report secondhand (omitted, unverified). Challenge: Pick one agent running in your environment today. Can you name the person who would get the call if it did something wrong?",
+      "is_voice_original": true,
+      "feature_image": "https://driventodevelop.com/content/images/2026/10/manager-2026-10-26.jpg",
+      "image_landscape": true,
+      "image_search_query": "unsplash team meeting conference table landscape photo",
+      "geo_specific": false,
+      "post_city": null,
+      "image_geo_confirmed": true,
+      "related_published_post": "https://driventodevelop.com/2026/08/21/you-cant-govern-an-inventory-you-dont-know-you-have/",
+      "internal_links": [
+        "https://driventodevelop.com/2026/08/21/you-cant-govern-an-inventory-you-dont-know-you-have/",
+        "https://driventodevelop.com/agent-governance-guide/"
+      ]
+    },
+    {
+      "title": "Agents Are Insiders Now, So Stop Giving Them Standing Access",
+      "body": "Microsoft is telling customers to treat AI agents as insiders, and that one word changes what a governance plan has to contain.\n\nIdentity answers one question\n\nGiving an agent its own Entra identity (the identity decision) answers one question: who is this? It says nothing about what the agent should be allowed to do right now, on this task, at this hour. Most governance plans I read stop at the first question and call it done. Microsoft's October 19 announcement, as eWeek covered it, extends Project Perception into the agents running inside your tenant, and the design is worth reading as a pattern, not a product. (The insider label is not an accusation. It means the agent has access and acts with it.)\n\nStart at zero, then let risk decide\n\nDynamic Permissions starts an agent with no authority, grants access per task, expires it when the task ends, and requires a human for high-impact actions. Dynamic Agent Risk keeps a running risk score built from activity plus identity, data, endpoint, cloud, network, and runtime signals. Dynamic Conditional Access lets that score change what the agent can do: reduce permissions, allow reads but block writes, require approval, or isolate and halt the agent if risk climbs. The shape is simple. Start with nothing, add what the task needs, and take it back when the task ends or the risk rises.\n\nTreat it as a design target\n\nThis is a vendor announcement. The coverage I found gave no pricing or availability date, so treat it as a design target for your Entra conditional access policies today, not a feature you can switch on. The principle belongs in the agent governance discipline I keep returning to in my practical guide, and it does not need a product launch to start.\n\nWhat to do\n\nLook at your last three agent deployments. How many have standing permissions that nobody has reviewed since launch day?",
+      "source_text": "Hook: Microsoft told its own customers to treat AI agents as insiders. Story Angle: giving an agent its own Entra identity answers who, not what it should be allowed to do right now. Core Insight: Oct 19 Project Perception announcement; Dynamic Permissions, Dynamic Agent Risk, Dynamic Conditional Access; vendor announcement, no pricing or availability. Challenge: Look at your last three agent deployments. How many have standing permissions that nobody has reviewed since launch day?",
+      "is_voice_original": true,
+      "feature_image": "https://driventodevelop.com/content/images/2026/10/insiders-2026-10-26.jpg",
+      "image_landscape": true,
+      "image_search_query": "unsplash security access restricted door landscape photo",
+      "geo_specific": false,
+      "post_city": null,
+      "image_geo_confirmed": true,
+      "related_published_post": "https://driventodevelop.com/2026/10/16/the-day-your-agent-got-its-own-email-address/",
+      "internal_links": [
+        "https://driventodevelop.com/2026/10/16/the-day-your-agent-got-its-own-email-address/",
+        "https://driventodevelop.com/agent-governance-guide/"
+      ]
+    },
+    {
+      "title": "Slow Agents Cost You More Than Time",
+      "body": "The cost of an AI agent is not the minutes it takes to run, it is what you do with your attention while you wait.\n\nForty tabs\n\nOn the YPO Technology Network AI Brief, Stephen Forte described a stretch where he was the busiest he had ever been and was getting almost nothing done. Agents that took one to three minutes per task left him with forty tabs open in his head, and the process he built to track them turned into a second job managing the first one. This is not a willpower problem. Usability research summarized by Nielsen Norman Group says that past about ten seconds of waiting, people go do something else and then have to reorient. A short wait is not a short wait.\n\nIt is not just one person\n\nAnthropic reported on October 16 that its agents sit idle around 80 percent of interactive session time waiting for a human, and that the share of time spent managing the work rose from 10 to 22 percent (Anthropic's research). I read that as the coordination tax showing up before the output does. (Anyone who has run a team of consultants knows the feeling. More threads rarely mean more finished work.)\n\nThe fix was speed\n\nForte's fix was faster tools, which meant answers came back while he was still thinking. Fewer threads, more clarity, more depth. That is a counterintuitive idea for those of us who talk about discipline first: fast tools are what let you be deliberate. It also separates two kinds of parallel work. Several agents on parts of one task can help. Parallel work across many unrelated tasks is the trap.\n\nWhat to do\n\nTime how long your team waits for an AI answer, and ask your leaders how many AI tasks they have open right now. Do you know the number for yourself?",
+      "source_text": "Spotify episode 'Forty Tabs Open', YPO Technology Network AI Brief, host Stephen Forte, released 2026-10-21. Summary: agents taking one to three minutes per task left him with forty tabs open; Nielsen ten seconds; Anthropic Oct 16 report, agents idle ~80% of interactive session time, managing share 10 to 22 percent; fix was speed; homework: time the waits, ask leaders how many AI tasks are open.",
+      "is_voice_original": true,
+      "feature_image": "https://driventodevelop.com/content/images/2026/10/tabs-2026-10-26.jpg",
+      "image_landscape": true,
+      "image_search_query": "unsplash multiple monitors desk landscape photo",
+      "geo_specific": false,
+      "post_city": null,
+      "image_geo_confirmed": true,
+      "related_published_post": null,
+      "internal_links": []
+    }
+  ]
+}
