@@ -1,15 +1,15 @@
 {
-  "pulled_at": "2026-10-23T13:26:10.125055Z",
+  "pulled_at": "2026-10-26T14:17:29.796260Z",
   "status": "available",
   "window_months": 12,
-  "since": "2025-10-28",
+  "since": "2025-10-31",
   "account_count": 30,
   "accounts": {
     "chase-checking": {
       "account_id": "0beb7ac4-3396-4aa6-a743-fc511a6d878b",
       "account_name": "Chase Checking",
       "type": "checking",
-      "payee_count": 86,
+      "payee_count": 88,
       "payees": [
         {
           "name": "Fidelity Charitable",
@@ -31,8 +31,8 @@
         },
         {
           "name": "Venmo",
-          "total": 15080.32,
-          "count": 25,
+          "total": 14715.59,
+          "count": 24,
           "last": "2026-10-05"
         },
         {
@@ -67,8 +67,8 @@
         },
         {
           "name": "ATM Withdrawal",
-          "total": 7904.0,
-          "count": 18,
+          "total": 7584.0,
+          "count": 17,
           "last": "2026-09-09"
         },
         {
@@ -97,9 +97,9 @@
         },
         {
           "name": "CoServ",
-          "total": 4465.0,
-          "count": 11,
-          "last": "2026-09-24"
+          "total": 4955.0,
+          "count": 12,
+          "last": "2026-10-22"
         },
         {
           "name": "City of Frisco",
@@ -132,16 +132,16 @@
           "last": "2025-12-01"
         },
         {
+          "name": "World Vision",
+          "total": 1260.0,
+          "count": 12,
+          "last": "2026-10-22"
+        },
+        {
           "name": "Timetorevive",
           "total": 1200.0,
           "count": 12,
           "last": "2026-10-13"
-        },
-        {
-          "name": "World Vision",
-          "total": 1155.0,
-          "count": 11,
-          "last": "2026-09-21"
         },
         {
           "name": "Online Transfer to SAV ...6375 transaction#: 27412383608 12/22",
@@ -276,6 +276,12 @@
           "last": "2026-09-24"
         },
         {
+          "name": "Online Payment 30936382697 To PCR Community Association 10/23",
+          "total": 233.0,
+          "count": 1,
+          "last": "2026-10-23"
+        },
+        {
           "name": "CHECK # 187 10/08",
           "total": 200.0,
           "count": 1,
@@ -408,13 +414,13 @@
           "last": "2026-05-04"
         },
         {
-          "name": "Zelle payment to Declan O'Hara 29446261169",
+          "name": "Zelle payment to Declan O'Hara 29033198731",
           "total": 50.0,
           "count": 1,
           "last": "2026-06-01"
         },
         {
-          "name": "Zelle payment to Declan O'Hara 29033198731",
+          "name": "Zelle payment to Declan O'Hara 29446261169",
           "total": 50.0,
           "count": 1,
           "last": "2026-06-01"
@@ -502,6 +508,12 @@
           "total": 40.0,
           "count": 1,
           "last": "2026-10-16"
+        },
+        {
+          "name": "ZELLE PAYMENT TO DECLAN O'HARA 31232815394",
+          "total": 40.0,
+          "count": 1,
+          "last": "2026-10-23"
         },
         {
           "name": "Zelle payment to Declan O'Hara 29235074032",
@@ -633,16 +645,16 @@
           "last": "2026-10-07"
         },
         {
+          "name": "Total Wine & More",
+          "total": 3167.16,
+          "count": 7,
+          "last": "2026-10-22"
+        },
+        {
           "name": "Eleven Eleven Winery",
           "total": 3023.87,
           "count": 2,
           "last": "2026-06-16"
-        },
-        {
-          "name": "Total Wine & More",
-          "total": 3001.56,
-          "count": 6,
-          "last": "2026-10-10"
         },
         {
           "name": "American Leather",
@@ -717,16 +729,16 @@
           "last": "2025-12-27"
         },
         {
-          "name": "Ntta",
-          "total": 2000.0,
-          "count": 50,
-          "last": "2026-10-18"
-        },
-        {
           "name": "Podsednik & Co",
           "total": 1990.0,
           "count": 1,
           "last": "2026-04-29"
+        },
+        {
+          "name": "Ntta",
+          "total": 1960.0,
+          "count": 49,
+          "last": "2026-10-18"
         },
         {
           "name": "Augment Frisco",
@@ -766,8 +778,8 @@
         },
         {
           "name": "H-E-B Gas & Carwash",
-          "total": 1404.94,
-          "count": 25,
+          "total": 1356.9,
+          "count": 24,
           "last": "2026-10-16"
         },
         {
@@ -1431,12 +1443,6 @@
           "last": "2026-07-25"
         },
         {
-          "name": "MindBodyGreen",
-          "total": 147.0,
-          "count": 3,
-          "last": "2026-02-26"
-        },
-        {
           "name": "Wild Thyme Gourmet",
           "total": 146.71,
           "count": 1,
@@ -1597,6 +1603,12 @@
           "total": 99.15,
           "count": 2,
           "last": "2026-08-18"
+        },
+        {
+          "name": "MindBodyGreen",
+          "total": 98.0,
+          "count": 2,
+          "last": "2026-02-26"
         },
         {
           "name": "7-Eleven",
@@ -2196,9 +2208,9 @@
       "payees": [
         {
           "name": "H-E-B",
-          "total": 6381.39,
+          "total": 6281.03,
           "count": 85,
-          "last": "2026-10-17"
+          "last": "2026-10-24"
         },
         {
           "name": "Market Street",
@@ -2237,12 +2249,6 @@
           "last": "2026-10-09"
         },
         {
-          "name": "Total Wine",
-          "total": 1086.12,
-          "count": 4,
-          "last": "2026-06-28"
-        },
-        {
           "name": "Magna Pest Solutplano",
           "total": 1071.7,
           "count": 10,
@@ -2259,6 +2265,12 @@
           "total": 797.09,
           "count": 15,
           "last": "2026-08-26"
+        },
+        {
+          "name": "Total Wine",
+          "total": 732.17,
+          "count": 3,
+          "last": "2026-06-28"
         },
         {
           "name": "Roots And Water Wine Room",
@@ -2315,6 +2327,12 @@
           "last": "2026-10-05"
         },
         {
+          "name": "Kroger Fuel",
+          "total": 389.25,
+          "count": 5,
+          "last": "2026-10-23"
+        },
+        {
           "name": "Function Health",
           "total": 365.0,
           "count": 1,
@@ -2337,12 +2355,6 @@
           "total": 299.0,
           "count": 4,
           "last": "2026-10-11"
-        },
-        {
-          "name": "Kroger Fuel",
-          "total": 297.75,
-          "count": 4,
-          "last": "2026-05-24"
         },
         {
           "name": "WeatherTech",
@@ -2397,6 +2409,12 @@
           "total": 224.54,
           "count": 3,
           "last": "2026-09-01"
+        },
+        {
+          "name": "Magna Pest Solutions",
+          "total": 214.34,
+          "count": 2,
+          "last": "2026-10-23"
         },
         {
           "name": "Circle K",
@@ -2499,12 +2517,6 @@
           "total": 107.17,
           "count": 1,
           "last": "2025-12-26"
-        },
-        {
-          "name": "Magna Pest Solutions",
-          "total": 107.17,
-          "count": 1,
-          "last": "2026-09-23"
         },
         {
           "name": "Invintory Vaughan",
@@ -2710,7 +2722,7 @@
       "account_id": "0ff3092d-c9ea-4f56-b558-c760e6da7b04",
       "account_name": "Discover",
       "type": "creditCard",
-      "payee_count": 71,
+      "payee_count": 72,
       "payees": [
         {
           "name": "Last Bottle Wines",
@@ -2723,12 +2735,6 @@
           "total": 2208.3,
           "count": 3,
           "last": "2026-08-13"
-        },
-        {
-          "name": "Undrgrndcellar W",
-          "total": 2152.01,
-          "count": 3,
-          "last": "2026-03-30"
         },
         {
           "name": "Ro Health",
@@ -2747,6 +2753,12 @@
           "total": 1070.73,
           "count": 9,
           "last": "2025-11-20"
+        },
+        {
+          "name": "Undrgrndcellar W",
+          "total": 930.95,
+          "count": 2,
+          "last": "2026-03-30"
         },
         {
           "name": "Market Street",
@@ -2963,6 +2975,12 @@
           "total": 64.82,
           "count": 1,
           "last": "2026-05-10"
+        },
+        {
+          "name": "Selda Frisco",
+          "total": 57.82,
+          "count": 1,
+          "last": "2026-10-23"
         },
         {
           "name": "TravisMathew",
@@ -3394,8 +3412,8 @@
       "payees": [
         {
           "name": "Ntta",
-          "total": 1664.0,
-          "count": 21,
+          "total": 1584.0,
+          "count": 20,
           "last": "2026-07-24"
         },
         {
@@ -3531,12 +3549,6 @@
           "last": "2026-01-07"
         },
         {
-          "name": "MindBodyGreen",
-          "total": 176.0,
-          "count": 2,
-          "last": "2026-02-28"
-        },
-        {
           "name": "Rho Nutrition",
           "total": 172.91,
           "count": 1,
@@ -3613,6 +3625,12 @@
           "total": 100.0,
           "count": 1,
           "last": "2026-05-10"
+        },
+        {
+          "name": "MindBodyGreen",
+          "total": 88.0,
+          "count": 1,
+          "last": "2026-02-28"
         },
         {
           "name": "Potterybarn.com",
@@ -4030,9 +4048,9 @@
       "payees": [
         {
           "name": "Rydex Monthly Nasdaq",
-          "total": 740957.05,
-          "count": 72,
-          "last": "2026-10-20"
+          "total": 741009.71,
+          "count": 73,
+          "last": "2026-10-26"
         },
         {
           "name": "Rydex Inverse Nasdaq Strategy",
@@ -4110,7 +4128,7 @@
     }
   },
   "all_accounts": {
-    "payee_count": 570,
+    "payee_count": 573,
     "payees": [
       {
         "name": "Fidelity Charitable",
@@ -4138,8 +4156,8 @@
       },
       {
         "name": "Venmo",
-        "total": 15080.32,
-        "count": 25,
+        "total": 14715.59,
+        "count": 24,
         "last": "2026-10-05"
       },
       {
@@ -4186,21 +4204,15 @@
       },
       {
         "name": "H-E-B",
-        "total": 8581.69,
+        "total": 8481.33,
         "count": 114,
-        "last": "2026-10-17"
+        "last": "2026-10-24"
       },
       {
         "name": "ATM Withdrawal",
-        "total": 7904.0,
-        "count": 18,
+        "total": 7584.0,
+        "count": 17,
         "last": "2026-09-09"
-      },
-      {
-        "name": "Undrgrndcellar W",
-        "total": 7176.98,
-        "count": 7,
-        "last": "2026-10-07"
       },
       {
         "name": "National General Insurance",
@@ -4233,6 +4245,12 @@
         "last": "2026-04-16"
       },
       {
+        "name": "Undrgrndcellar W",
+        "total": 5955.92,
+        "count": 6,
+        "last": "2026-10-07"
+      },
+      {
         "name": "Amazon",
         "total": 5491.07,
         "count": 111,
@@ -4255,6 +4273,12 @@
         "total": 5061.56,
         "count": 4,
         "last": "2026-10-14"
+      },
+      {
+        "name": "CoServ",
+        "total": 4955.0,
+        "count": 12,
+        "last": "2026-10-22"
       },
       {
         "name": "American Airlines",
@@ -4281,10 +4305,10 @@
         "last": "2026-10-21"
       },
       {
-        "name": "CoServ",
-        "total": 4465.0,
-        "count": 11,
-        "last": "2026-09-24"
+        "name": "Total Wine & More",
+        "total": 4384.91,
+        "count": 9,
+        "last": "2026-10-22"
       },
       {
         "name": "Market Street",
@@ -4297,12 +4321,6 @@
         "total": 4313.17,
         "count": 2,
         "last": "2026-07-17"
-      },
-      {
-        "name": "Total Wine & More",
-        "total": 4219.31,
-        "count": 8,
-        "last": "2026-10-10"
       },
       {
         "name": "Ls Roots And Water Win",
@@ -4335,16 +4353,16 @@
         "last": "2026-04-23"
       },
       {
-        "name": "Ntta",
-        "total": 3664.0,
-        "count": 71,
-        "last": "2026-10-18"
-      },
-      {
         "name": "Integrity Golf Performance",
         "total": 3600.0,
         "count": 3,
         "last": "2026-02-14"
+      },
+      {
+        "name": "Ntta",
+        "total": 3544.0,
+        "count": 69,
+        "last": "2026-10-18"
       },
       {
         "name": "Online Transfer to CHK ...7817 transaction#: 26784111280 10/31",
@@ -4455,12 +4473,6 @@
         "last": "2026-07-15"
       },
       {
-        "name": "Total Wine",
-        "total": 2286.02,
-        "count": 6,
-        "last": "2026-06-28"
-      },
-      {
         "name": "CLASSIC WINE STORAGE",
         "total": 2277.0,
         "count": 1,
@@ -4551,6 +4563,12 @@
         "last": "2026-04-29"
       },
       {
+        "name": "Total Wine",
+        "total": 1932.07,
+        "count": 5,
+        "last": "2026-06-28"
+      },
+      {
         "name": "Augment Frisco",
         "total": 1702.75,
         "count": 50,
@@ -4575,16 +4593,16 @@
         "last": "2026-04-03"
       },
       {
-        "name": "H-E-B Gas & Carwash",
-        "total": 1589.21,
-        "count": 28,
-        "last": "2026-10-16"
-      },
-      {
         "name": "Kids Matter International",
         "total": 1560.56,
         "count": 1,
         "last": "2026-09-15"
+      },
+      {
+        "name": "H-E-B Gas & Carwash",
+        "total": 1541.17,
+        "count": 27,
+        "last": "2026-10-16"
       },
       {
         "name": "Augment",
@@ -4617,6 +4635,12 @@
         "last": "2026-05-07"
       },
       {
+        "name": "World Vision",
+        "total": 1260.0,
+        "count": 12,
+        "last": "2026-10-22"
+      },
+      {
         "name": "Daily Look",
         "total": 1247.62,
         "count": 7,
@@ -4645,12 +4669,6 @@
         "total": 1159.32,
         "count": 23,
         "last": "2026-10-17"
-      },
-      {
-        "name": "World Vision",
-        "total": 1155.0,
-        "count": 11,
-        "last": "2026-09-21"
       },
       {
         "name": "Pine Mountain Vine",
@@ -4971,6 +4989,12 @@
         "last": "2026-08-15"
       },
       {
+        "name": "Kroger Fuel",
+        "total": 622.4,
+        "count": 8,
+        "last": "2026-10-23"
+      },
+      {
         "name": "Akhotmy Invest",
         "total": 600.0,
         "count": 4,
@@ -5011,12 +5035,6 @@
         "total": 533.01,
         "count": 4,
         "last": "2026-10-08"
-      },
-      {
-        "name": "Kroger Fuel",
-        "total": 530.9,
-        "count": 7,
-        "last": "2026-08-26"
       },
       {
         "name": "Racetrac",
@@ -5337,12 +5355,6 @@
         "last": "2026-05-31"
       },
       {
-        "name": "MindBodyGreen",
-        "total": 323.0,
-        "count": 5,
-        "last": "2026-02-28"
-      },
-      {
         "name": "CIRCE SKINCARE",
         "total": 319.88,
         "count": 2,
@@ -5595,6 +5607,12 @@
         "last": "2026-09-24"
       },
       {
+        "name": "Online Payment 30936382697 To PCR Community Association 10/23",
+        "total": 233.0,
+        "count": 1,
+        "last": "2026-10-23"
+      },
+      {
         "name": "Gofundme Griffin Beyer Me",
         "total": 233.0,
         "count": 1,
@@ -5659,6 +5677,12 @@
         "total": 216.0,
         "count": 1,
         "last": "2026-09-28"
+      },
+      {
+        "name": "Magna Pest Solutions",
+        "total": 214.34,
+        "count": 2,
+        "last": "2026-10-23"
       },
       {
         "name": "Plaud.ai",
@@ -5749,6 +5773,12 @@
         "total": 187.78,
         "count": 1,
         "last": "2026-02-13"
+      },
+      {
+        "name": "MindBodyGreen",
+        "total": 186.0,
+        "count": 3,
+        "last": "2026-02-28"
       },
       {
         "name": "Nike",
@@ -6231,12 +6261,6 @@
         "last": "2025-12-26"
       },
       {
-        "name": "Magna Pest Solutions",
-        "total": 107.17,
-        "count": 1,
-        "last": "2026-09-23"
-      },
-      {
         "name": "Willow Nail Lounge",
         "total": 106.14,
         "count": 1,
@@ -6597,6 +6621,12 @@
         "last": "2026-03-08"
       },
       {
+        "name": "Selda Frisco",
+        "total": 57.82,
+        "count": 1,
+        "last": "2026-10-23"
+      },
+      {
         "name": "Erenterplan.com",
         "total": 57.33,
         "count": 2,
@@ -6771,13 +6801,13 @@
         "last": "2026-05-04"
       },
       {
-        "name": "Zelle payment to Declan O'Hara 29446261169",
+        "name": "Zelle payment to Declan O'Hara 29033198731",
         "total": 50.0,
         "count": 1,
         "last": "2026-06-01"
       },
       {
-        "name": "Zelle payment to Declan O'Hara 29033198731",
+        "name": "Zelle payment to Declan O'Hara 29446261169",
         "total": 50.0,
         "count": 1,
         "last": "2026-06-01"
@@ -7009,6 +7039,12 @@
         "total": 40.0,
         "count": 1,
         "last": "2026-10-16"
+      },
+      {
+        "name": "ZELLE PAYMENT TO DECLAN O'HARA 31232815394",
+        "total": 40.0,
+        "count": 1,
+        "last": "2026-10-23"
       },
       {
         "name": "DiscountMags.com",

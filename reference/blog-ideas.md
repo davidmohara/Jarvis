@@ -134,6 +134,9 @@ Running list of potential blog topics. Jarvis captures these proactively from co
 | "Agents Are Insiders Now, So Stop Giving Them Standing Access" | Watchtower W44 (2026-10-26) [watchtower] | AI, agents, Entra, security, governance | Draft at `Mind/Posts/_agents-are-insiders-now-stop-giving-them-standing-access.md` |
 | "Give Every Agent a Manager" | Watchtower W44 (2026-10-26) [watchtower] | AI, agents, leadership, accountability | Draft at `Mind/Posts/_give-every-agent-a-manager.md` |
 | "The Airport Hired an AI Lead. What Did You Hire?" | Watchtower W44 (2026-10-26) [watchtower] | AI, leadership, DFW, adoption | Draft at `Mind/Posts/_the-airport-hired-an-ai-lead.md` |
+| "The Vendor's Secret Is Your Breach" | Watchtower W44 (2026-10-26) [watchtower] | security, Microsoft 365, Entra, supply chain | Draft at `Mind/Posts/_the-vendors-secret-is-your-breach.md` |
+| "Your Resilience Plan Stops at Your Cloud Provider" | Watchtower W44 (2026-10-26) [watchtower] | cloud, resilience, third-party risk, regulation | Draft at `Mind/Posts/_your-resilience-plan-stops-at-your-cloud-provider.md` |
+| "You Can't Rotate What You Haven't Inventoried" | Watchtower W44 (2026-10-26) [watchtower] | security, certificates, post-quantum | Draft at `Mind/Posts/_you-cant-rotate-what-you-havent-inventoried.md` |
 
 ## Published (for reference / avoid repeats)
 

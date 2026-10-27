@@ -1,89 +1,105 @@
 {
-  "pulled_at": "2026-10-23T13:29:29Z",
-  "message_count": 9,
-  "flagged_count": 0,
-  "note": "Flag status not exposed by M365 search tool; list is the actionable subset (deadline/response-requested/urgent) of 13 recent inbox items plus an urgent/deadline search. Newsletters, marketing, YPO forum digests, and Superhuman self-sync duplicates excluded.",
+  "pulled_at": "2026-10-26T14:20:00Z",
+  "message_count": 11,
   "messages": [
     {
-      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA_CRO_WAAA=",
-      "subject": "Please respond to the Approval - Approval Requested - BDO Engagement",
-      "from": "Teresa Saffold <alerts@boardvantage.com>",
-      "received_at": "2026-10-23T12:42:15Z",
+      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA_UQvVMAAA=",
+      "subject": "Security alert: new passkey added to your Claude account",
+      "from": "Anthropic <no-reply-3N7fQLNWO3w2hOxD-tFefA@mail.anthropic.com>",
+      "received_at": "2026-10-26T14:13:32Z",
       "is_flagged": false,
       "importance": "normal",
-      "snippet": "United Texas Bank Audit Committee: response requested on BDO Engagement approval. Unread."
+      "snippet": "A new passkey was added to your Claude account. Device: Electron on Mac OS X. Location: Irving, Texas, US. If this was not you, review your devices and secure your account now."
     },
     {
-      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA_CRO_ZAAA=",
-      "subject": "RE: Chapters not meeting Core Officer Identification commitment",
-      "from": "Jen Jensen <jjensen@ypo.org>",
-      "received_at": "2026-10-21T22:49:02Z",
+      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA_UQvVLAAA=",
+      "subject": "The Granada is closing. DFC Cyber still happens there.",
+      "from": "Michael Pratt <mike@digitalfightclub.co>",
+      "received_at": "2026-10-26T14:13:31Z",
       "is_flagged": false,
       "importance": "normal",
-      "snippet": "Nov 1 deadline approaching for Core Officer ID commitment; request to reach out to chapter chairs of chapters not yet compliant. Unread copy resurfaced today."
+      "snippet": "Feb 18 is one of the last shows before the doors close. The Granada Theater is shutting down; DFC started there 11 years ago. Share your favorite Granada memory."
     },
     {
-      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA_CRO_bAAA=",
-      "subject": "Fw: AI Leadership Event Discussion (ASEI/bank of america event at Improving)",
-      "from": "Bethany Hilton <Bethany.Hilton@Improving.com>",
-      "received_at": "2026-10-21T01:23:08Z",
+      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA_UQvVKAAA=",
+      "subject": "WEEK of October 26 - 30 Thought Leadership: Blogs and Webinars",
+      "from": "Kristin Johnson <Kristin.Johnson@Improving.com>",
+      "received_at": "2026-10-26T14:00:34Z",
       "is_flagged": false,
       "importance": "normal",
-      "snippet": "Asks whether the AI workshop for ASEI/Bank of America can be broadcast online (virtual + in person); told them probably but checking first. Unread copy resurfaced today."
+      "snippet": "November webinar speaker: Devlin Liles, details to come. Podcast The Improving Edge release Oct 20: How First United Bank Is Using AI to Free Bankers for Customer Relationships, guest Ryan Suchala."
     },
     {
-      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA_CRO_HAAA=",
-      "subject": "RE: Touching base on upcoming Chapter Commitments",
-      "from": "Ryan O'Connor <roconnor@oconnordistributing.com>",
-      "received_at": "2026-10-22T21:59:50Z",
+      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA_UQvVJAAA=",
+      "subject": "You have an invitation",
+      "from": "Keith Simpson <invitations@linkedin.com>",
+      "received_at": "2026-10-26T13:53:28Z",
       "is_flagged": false,
       "importance": "normal",
-      "snippet": "Still working on identifying the right person to serve as ALO ahead of the Nov 1 deadline; wants someone willing and able to commit the time."
+      "snippet": "Keith Simpson, Founder Claiming Victory / President KAS Consulting Inc., is waiting for your response to a LinkedIn connection invitation."
     },
     {
-      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA_CRO_XAAA=",
-      "subject": "Info: October OnPoint and Western Region Updates",
-      "from": "Shelby Meyer <smeyer@ypo.org>",
-      "received_at": "2026-10-20T11:53:50Z",
+      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA_UQvVCAAA=",
+      "subject": "\"The silence is getting a bit loud\": Inside UT's remarks on Bo French's racist post",
+      "from": "The Brief | Texas Tribune <thebrief@mail.texastribune.org>",
+      "received_at": "2026-10-26T11:17:25Z",
       "is_flagged": false,
       "importance": "normal",
-      "snippet": "Q2 Western Region updates; includes upcoming Nov 1 funding deadline for strategic pillar focus (attachment). Unread copy resurfaced today."
+      "snippet": "Newsletter: where do public universities stand within the crosshairs of Texas politics."
     },
     {
-      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwAicd0_np8VS5h8yLEYWS-AAAB5N7u6AABAtd68aKbhTanh4UbLkkAvAA93SzfMAAA=",
-      "subject": "Security Alert Update: Ongoing Spam Wave and IT Impersonation Calls",
-      "from": "Paul Forbing <paul.forbing@improving.com>",
-      "received_at": "2026-10-21T18:52:20Z",
+      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA_UQvU-AAA=",
+      "subject": "Canva Craft Tries to Fix AI Image Generation",
+      "from": "Daily Tech Insider <newsletters@nl.technologyadvice.com>",
+      "received_at": "2026-10-26T08:35:33Z",
       "is_flagged": false,
       "importance": "normal",
-      "snippet": "All Employees | Priority: Urgent. Ongoing spam wave and IT impersonation calls; guidance to read even if not targeted."
+      "snippet": "Newsletter: Canva AI plans, 1Password checkpoint before agent logins, tech layoff tally nears 200,000."
     },
     {
-      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwAicd0_np8VS5h8yLEYWS-AAAB5N7u6AABAtd68aKbhTanh4UbLkkAvAA93SzfKAAA=",
-      "subject": "RE: ACTION: Confirm 2027 - 2029 YPO Gold Regional Officers",
-      "from": "Shelby Meyer <smeyer@ypo.org>",
-      "received_at": "2026-10-21T18:54:20Z",
+      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA_UQvU_AAA=",
+      "subject": "Today's devo",
+      "from": "Wayne Gono <waynegono@gmail.com>",
+      "received_at": "2026-10-26T05:48:20Z",
       "is_flagged": false,
       "importance": "normal",
-      "snippet": "Thread on confirming 2027-2029 YPO Gold Regional Officers; nomination deadline was Sept 4, requirements detailed at end of note."
+      "snippet": "Colossians 4:2 devotional on prayer and gratitude."
     },
     {
-      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA93abxBAAA=",
-      "subject": "Your homework for the AI Leadership Summit — 5 minutes, one idea",
-      "from": "Tim Rayburn <Tim.Rayburn@Improving.com>",
-      "received_at": "2026-10-21T15:04:16Z",
+      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA_Sb7xWAAA=",
+      "subject": "You're a finalist for Executive of the Year at the PB Awards Dinner",
+      "from": "Michelle Bernier <michelle@libertyventures.xyz>",
+      "received_at": "2026-10-26T01:48:58Z",
       "is_flagged": false,
       "importance": "normal",
-      "snippet": "Homework for Nov 5-6 AI Leadership Summit: Day 2 opens with 5-minute standing TED talks, one idea per person."
+      "snippet": "You are a finalist for Executive of the Year at the Principled Business Awards Dinner. Winner announced live at the dinner."
     },
     {
-      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA9adrYPAAA=",
-      "subject": "PLEASE RSVP: Six Flags Holiday in the Park - Joint Chapter Family Event on 12-06-2026",
-      "from": "Tiffany Geib <tiffany@lonestargold.org>",
-      "received_at": "2026-10-16T19:42:07Z",
+      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA_MOq1OAAA=",
+      "subject": "Five things to know before you go: Principled Business Summit",
+      "from": "Michelle Bernier <michelle@libertyventures.xyz>",
+      "received_at": "2026-10-25T19:06:03Z",
       "is_flagged": false,
       "importance": "normal",
-      "snippet": "RSVP requested for YPO joint-chapter family event at Six Flags Over Texas, Dec 6 2026 (user-pay, private park experience)."
+      "snippet": "Summit is Oct 28-30 at Hilton Austin Downtown, 500 E 4th St, Austin. Logistics details for attendees."
+    },
+    {
+      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA_LcTZ5AAA=",
+      "subject": "We Did It!",
+      "from": "Rex Miller <rex@gomindshift.com>",
+      "received_at": "2026-10-24T15:26:28Z",
+      "is_flagged": false,
+      "importance": "normal",
+      "snippet": "The GeniusSpark offering is live. Asked recipients to review and share the link."
+    },
+    {
+      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBicd0_np8VS5h8yLEYWS-AAAB5N7u6AABAtd68aKbhTanh4UbLkkAvAA_DV5ggAAA=",
+      "subject": "Request for Approval - [#SR-70771] APEX SharePoint access: add prd-crm site (read/write)",
+      "from": "Improving Helpdesk <helpdesk@improving.com>",
+      "received_at": "2026-10-23T01:42:19Z",
+      "is_flagged": false,
+      "importance": "normal",
+      "snippet": "Action Required: Approval Request. A new Service Request (SR-70771) is awaiting your review - APEX SharePoint access, add prd-crm site (read/write)."
     }
   ]
 }

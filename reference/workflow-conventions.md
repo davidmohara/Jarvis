@@ -16,6 +16,21 @@ execution state across steps and sessions.
 - On workflow completion: set `status: complete`, clear `accumulated-context`
 - On explicit abort: set `status: aborted`
 
+### Fresh-run reset (no carry-over)
+A fresh run (`status` was `not-started` or `complete`) MUST reset
+`accumulated-context` to an empty map before writing this run's keys. It is not
+a log and it is not an archive.
+- Never rename a prior run's block to `*-superseded` and leave it in the file.
+  That is history in a state file; delete it. If a one-line handoff is useful,
+  keep a single `prior-run:` summary string and nothing else.
+- Never leave duplicate keys (`prior-run`, `phase1`, …) from a prior run. YAML
+  silently keeps the last duplicate, so the stale copy is invisible to readers
+  while still bloating every load.
+- **Carve-out:** a workflow whose STATE CHECK Variant declares persistent
+  `accumulated-context` keys (for example watchtower's append-only
+  `content_queue`, `obsidian_write_method`, `pending_batches`) keeps exactly
+  those declared keys and resets everything else.
+
 ### Schema reference
 See the state.yaml template in each workflow directory.
 
@@ -49,6 +64,26 @@ not run state.)
 2. After executing: write `status: complete`, `completed-at`, and record the
    step's outputs in `state.yaml` `accumulated-context` (keys defined in the
    step's YOUR TASK section)
+
+### Timestamp integrity (hard rule)
+`started-at` and `completed-at` must be the **real clock time** at the moment of
+the write. Obtain it from the shell, do not estimate it:
+
+```
+date -u +%Y-%m-%dT%H:%M:%SZ
+```
+
+Never round to a convenient minute, never backfill a plausible time, and never
+use a placeholder such as midnight (`T00:00:00Z`). The eval harness derives
+per-step attribution windows from these stamps; a fabricated stamp silently
+collapses attribution onto one step and nulls the rest (the 2026-10-26 boot is
+the reference failure: steps 04.5-08 were stamped 23-27 minutes later than the
+files were actually written).
+
+Enforcement: `workflows/boot/verify/boot-verify.py completion` hard-fails any
+step whose `completed-at` is later than the file's own write time (mtime) or
+later than the verifier's clock, beyond a 120-second tolerance. A stamp that is
+ahead of the write that produced it is a fabrication, full stop.
 
 ### Recovery behavior
 If a step's frontmatter shows `status: in-progress` at resume time, the step was

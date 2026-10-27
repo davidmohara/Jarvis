@@ -5986,6 +5986,236 @@
     "description_optimization_note": "Skipped \u2014 workflow step optimization, not a phrase-triggered skill; invoked by explicit controller directive",
     "eval_artifacts_path": "systems/evals/work-20261022-182004/"
    }
+  },
+  {
+   "id": "work-20261026-091900",
+   "description": "Wired the Watchtower daily run into boot. Root cause: the daily run was started only by morning-briefing's WATCHTOWER INVOCATION; boot replaced that workflow and borrows only its gather steps, so seen.jsonl and Watchtower/Daily stopped updating after 2026-09-08. Added boot step-04.5 (once-a-day, never-blocking hand-off with ran-today check, ledger verification, watchtower_output for the briefing), delta boot skips it. Hardened shared daily/weekly state handling, vault write method, and ledger append in the Watchtower daily steps.",
+   "started": "2026-10-26T09:19:00Z",
+   "classification": "system",
+   "files": [
+    {
+     "path": "workflows/boot/steps/step-04.5-watchtower-daily-handoff.md",
+     "action": "add",
+     "type": "system",
+     "description": "New boot step: Watchtower daily hand-off with ran-today check, ledger verification, and watchtower_output record"
+    },
+    {
+     "path": "workflows/boot/workflow.md",
+     "action": "replace",
+     "type": "system",
+     "description": "Delta skip list, step-04.5 spawn brief, steps table, briefing-spawn parenthetical"
+    },
+    {
+     "path": "workflows/boot/MASTER-ORCHESTRATION.md",
+     "action": "replace",
+     "type": "system",
+     "description": "Dispatch description includes step-04.5"
+    },
+    {
+     "path": "workflows/boot/steps/step-02-gather-data.md",
+     "action": "replace",
+     "type": "system",
+     "description": "Boundary wording: Watchtower owned by step-04.5"
+    },
+    {
+     "path": "workflows/boot/steps/step-04-gather-meeting-context.md",
+     "action": "replace",
+     "type": "system",
+     "description": "current-step points to step-04.5; return text and boundary wording"
+    },
+    {
+     "path": "workflows/boot/steps/step-05-synthesize-briefing.md",
+     "action": "replace",
+     "type": "system",
+     "description": "Pass watchtower_output to Chief; degraded-data flags for Watchtower"
+    },
+    {
+     "path": "workflows/watchtower/workflow.md",
+     "action": "replace",
+     "type": "system",
+     "description": "Entry modes, shared-state STATE CHECK Variant, integration row"
+    },
+    {
+     "path": "workflows/watchtower/config.yaml",
+     "action": "replace",
+     "type": "system",
+     "description": "Comment: daily invoked via boot step-04.5 and morning-briefing"
+    },
+    {
+     "path": "workflows/watchtower/steps/daily-step-02-dedupe.md",
+     "action": "replace",
+     "type": "system",
+     "description": "Append-only ledger rule with line-count verification"
+    },
+    {
+     "path": "workflows/watchtower/steps/daily-step-05-capture.md",
+     "action": "replace",
+     "type": "system",
+     "description": "Vault writes follow obsidian_write_method instead of Obsidian MCP"
+    },
+    {
+     "path": "memory/working/rigby-watchtower-daily-wiring-2026-10-26.md",
+     "action": "add",
+     "type": "system",
+     "description": "Working memory entry for this build"
+    }
+   ],
+   "validation": {
+    "evals_run": false,
+    "validation_note": "Read-only validation: YAML and system-block checks, boot-verify phase2 and Watchtower daily verifiers run without side effects, spawn path walked on paper. First live boot is the end-to-end test.",
+    "iterations": 0,
+    "stopped_at_cap": false,
+    "final_pass_rate": null,
+    "description_optimized": false
+   }
+  },
+  {
+   "id": "work-20261026-163000",
+   "description": "Boot token-performance fixes from the 2026-10-26 analysis (boot eval O84R10: 12.21M input, +108% vs 10/23). (1) Real timestamp stamping: every boot step now reads date -u, and boot-verify.py completion hard-fails any step whose completed-at is ahead of the file's write time, in the verifier's future, an exact-midnight placeholder, or later than the record's completed. Root cause of the attribution collapse: steps 04.5-08 were stamped 23-27 min after the files were written, so step-04.5 absorbed 1.66M and steps 05-08 got null. (2) Tightened the 05-08 briefing spawn into an explicit brief that forbids absorbing step-04.5; the 10/26 run merged 04.5-08 into one 4.65M agent (LHF7TO). (3) Watchtower daily now opens and closes its own eval record (new-eval + close-eval, close ordered before state complete so the cowork hook cannot create a zero-step phantom; 10/26's record was quarantined as _phantoms/SP53MK). (4) Purged boot state.yaml's phase2-2026-10-23-superseded block, duplicate prior-run/phase1, and stale 10/23 phase4-6/knox blocks; the state-check protocol now resets accumulated-context on a fresh run. (5) Knox plaud-ingest no-op preflight: one API peek vs a last-seen marker and the dedup ledger, so a zero-recording day costs about one turn instead of 1.65M input / ~24 turns.",
+   "started": "2026-10-26T16:30:00Z",
+   "classification": "system",
+   "files": [
+    {
+     "path": "reference/workflow-conventions.md",
+     "action": "replace",
+     "type": "system",
+     "description": "Timestamp integrity hard rule + fresh-run accumulated-context reset (no superseded blocks, no duplicate keys)"
+    },
+    {
+     "path": "reference/state-check-protocol.md",
+     "action": "replace",
+     "type": "system",
+     "description": "Fresh-run branch now resets accumulated-context, with a carve-out for Variant-declared persistent keys"
+    },
+    {
+     "path": "workflows/boot/verify/boot-verify.py",
+     "action": "replace",
+     "type": "system",
+     "description": "completion now hard-fails fabricated step stamps (future vs clock, future vs file mtime, midnight placeholder, stamp later than record completed); adds --record-completed; fixes step order"
+    },
+    {
+     "path": "workflows/boot/workflow.md",
+     "action": "replace",
+     "type": "system",
+     "description": "Tight 05-08 spawn brief (never absorbs step-04.5), timestamp rule for executors, fresh-run reset"
+    },
+    {
+     "path": "workflows/boot/state.yaml",
+     "action": "replace",
+     "type": "system",
+     "description": "Purged phase2-2026-10-23-superseded (7KB), duplicate prior-run/phase1, stale 10/23 phase4-6/knox blocks; corrected session-started/completed-at to the eval record's real values"
+    },
+    {
+     "path": "workflows/boot/steps/step-01-load-context.md",
+     "action": "replace",
+     "type": "system",
+     "description": "Master stamping requires real date -u UTC; documents the midnight-placeholder failure"
+    },
+    {
+     "path": "workflows/boot/steps/step-01.2-unified-data-pull.md",
+     "action": "replace",
+     "type": "system",
+     "description": "Real date -u completed-at"
+    },
+    {
+     "path": "workflows/boot/steps/step-01.5-unified-calendar-pull.md",
+     "action": "replace",
+     "type": "system",
+     "description": "Real date -u completed-at"
+    },
+    {
+     "path": "workflows/boot/steps/step-02-gather-data.md",
+     "action": "replace",
+     "type": "system",
+     "description": "Real date -u completed-at"
+    },
+    {
+     "path": "workflows/boot/steps/step-03-verify-phase2.md",
+     "action": "replace",
+     "type": "system",
+     "description": "Real date -u completed-at"
+    },
+    {
+     "path": "workflows/boot/steps/step-04-gather-meeting-context.md",
+     "action": "replace",
+     "type": "system",
+     "description": "Real date -u completed-at"
+    },
+    {
+     "path": "workflows/boot/steps/step-04.5-watchtower-daily-handoff.md",
+     "action": "replace",
+     "type": "system",
+     "description": "Dedicated single-purpose spawn (never folded into 05-08), real timestamps, watchtower eval_id in output, failure-path eval close"
+    },
+    {
+     "path": "workflows/boot/steps/step-05-synthesize-briefing.md",
+     "action": "replace",
+     "type": "system",
+     "description": "Real date -u completed-at"
+    },
+    {
+     "path": "workflows/boot/steps/step-06-scan-workflows.md",
+     "action": "replace",
+     "type": "system",
+     "description": "Real date -u completed-at"
+    },
+    {
+     "path": "workflows/boot/steps/step-07-verify-completion.md",
+     "action": "replace",
+     "type": "system",
+     "description": "Real date -u completed-at and record close timestamp"
+    },
+    {
+     "path": "workflows/boot/steps/step-08-knox-completion-check.md",
+     "action": "replace",
+     "type": "system",
+     "description": "Real date -u frontmatter stamp; no duplicate record close"
+    },
+    {
+     "path": "workflows/watchtower/workflow.md",
+     "action": "replace",
+     "type": "system",
+     "description": "EVAL RECORD section: open via new-eval.py at fresh daily start, close via close-eval-record.py in daily-step-06 before state complete"
+    },
+    {
+     "path": "workflows/watchtower/steps/daily-step-06-report.md",
+     "action": "replace",
+     "type": "system",
+     "description": "Close watchtower eval record before setting state complete (prevents zero-step phantom)"
+    },
+    {
+     "path": "workflows/plaud-ingest/workflow.md",
+     "action": "replace",
+     "type": "system",
+     "description": "NO-OP PREFLIGHT: one-call marker/ledger check before persona or vault work; NOOP/NEW/UNKNOWN/RESUME verdicts"
+    },
+    {
+     "path": "workflows/plaud-ingest/steps/step-01-discover.md",
+     "action": "replace",
+     "type": "system",
+     "description": "Refresh data/.plaud-last-seen.json after every full enumeration and no-op exit; real timestamp"
+    },
+    {
+     "path": "workflows/plaud-ingest/verify/noop-preflight.py",
+     "action": "add",
+     "type": "system",
+     "description": "Cheap preflight: newest-50 peek vs marker and dedup ledger; never aborts, never gates on a token file"
+    },
+    {
+     "path": "memory/working/rigby-impact-2026-10-26-boot-token-fixes.md",
+     "action": "add",
+     "type": "system",
+     "description": "Impact analysis for the seven edited targets"
+    }
+   ],
+   "validation": {
+    "evals_run": false,
+    "validation_note": "Static validation: boot-verify.py completion exercised against the 2026-10-26 stamps (it flags step-01's midnight placeholder and, before the instruction edits changed their mtimes, flagged the 198-1577s future stamps on steps 01.2/02/04.5/05/06); YAML parses for boot/watchtower/plaud state files; system/personal block balance checked; noop-preflight.py live-tested against the Plaud API (returned NEW for a genuinely new recording not in the ledger, correctly declining to no-op). Live boot on 2026-10-27 is the end-to-end test.",
+    "iterations": 0,
+    "stopped_at_cap": false,
+    "final_pass_rate": null,
+    "description_optimized": false
+   }
   }
  ]
 }

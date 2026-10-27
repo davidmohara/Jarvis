@@ -21,6 +21,8 @@ Substitute `<name>` and `<agent>` for the workflow referencing this protocol.
 
 3. If `status: not-started` or `status: complete`:
    - Fresh run. Initialize `state.yaml`: set `status: in-progress`, generate `session-id`, write `session-started` and `original-request`, set `current-step: step-01`.
+   - **Reset `accumulated-context` to an empty map** before writing this run's keys (see `reference/workflow-conventions.md` → "Fresh-run reset"). Do not carry a prior run's phase blocks forward, and do not rename them to `*-superseded` and leave them in the file — delete them. Keep a single `prior-run:` summary line if a handoff is useful.
+   - A workflow whose own STATE CHECK Variant declares persistent `accumulated-context` keys (watchtower's `content_queue`, `obsidian_write_method`, `pending_batches`) keeps only those declared keys; everything else resets.
    - Begin at step-01.
 
 4. If `status: aborted`:
