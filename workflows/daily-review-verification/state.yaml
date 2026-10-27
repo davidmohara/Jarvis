@@ -1,29 +1,38 @@
 workflow: daily-review-verification
 agent: ralph
 status: complete
-session-started: '2026-10-20T08:13:19-05:00'
-session-id: ralph-2026-10-20-daily-review-verify
+session-started: '2026-10-27T09:30:00-05:00'
+session-id: ralph-2026-10-27-daily-review-verify
 current-step: step-01
-original-request: "Adversarial verification of reviews/daily/2026-10-19.md against recorded state"
+original-request: "Adversarial verification of reviews/daily/2026-10-26.md against recorded state (retroactive 10-26 review, run 2026-10-27)"
 accumulated-context:
-  review-date: '2026-10-19'
-  review-file: reviews/daily/2026-10-19.md
+  prior-run: "ralph-2026-10-20-daily-review-verify (review of 2026-10-19) returned findings; superseded by this run."
+  review-date: '2026-10-26'
+  review-file: reviews/daily/2026-10-26.md
   verdict-summary: findings
   findings:
-    - "No persisted capture outputs: workflows/daily-review/state.yaml accumulated-context contains only review-date and mode (status still in-progress, current-step step-01-capture); no completed/not_completed/blockers arrays. Capture exists only in Chief's own working memory (memory/working/2026-10-20-091500-chief-daily-review-20261019.md), which is same-session narrative, not independent evidence."
-    - "GoTogether: review claims 7 drafts 'confirmed sent by David' and boot reminder 'acknowledged and closed.' The reminder (rem-20261015T182852-JDP76U) is gone from data/reminders.json, but workflows/boot/state.yaml records it was 'deleted ... by another live session mid-run (likely acknowledged elsewhere)' and says 'restore from git HEAD if David has NOT answered it.' No sent record exists, and err-20261019T214500-FRIED1 records at least one draft address as invalid. Unverified."
-    - "OmniFocus total contradicts recorded state: review says 140 total uncompleted; data/omnifocus-unified.json has task_count 42 and all 42 are uncompleted. Monday morning briefing records 34 active / 12 inbox. No persisted artifact shows 140."
-    - "GEHC Tuesday time wrong: review's Calendar Prep and Handoffs put the GEHC AI Routing technical deeper dive at 14:00-15:00; data/calendar-unified.json records 11:00-12:00 (Justin Holder attendee). Review also drops the real 11:00 SAP Group vs GEHC collision that boot state flags."
-    - "Bootcamp attendance unverified: calendar blocks exist (Houston 08:30-17:30; Dallas Lockhart 10:00-16:50), but no attendance/acceptance record backs 'attended' or the scorecard's 'bootcamp presence: hit.'"
-    - "Silent drops: workflows/boot/state.yaml records (a) workflows/conventions-migration in-progress since 2026-10-18 at step-03-judgment, surfaced by the boot scan, and (b) step-03b + adversarial checkpoint eval-recording failures. Neither appears in the review's System State."
+    - "Uncommitted-changeset claim is false as of the review's own write time. System State says a 'large staged changeset from a prior session (projects/stage-5-submission renamed to projects/submission, stage3 files deleted, new agent files)' is uncommitted. Commit 550f3ca0 (2026-10-27 09:34:52 -0500) is exactly that changeset and landed five minutes before the review's stated 09:40 completion; `git diff --staged` is empty and `git diff --name-only HEAD` contains no projects/ paths. Only 'this review's outputs' is still uncommitted."
+    - "OmniFocus '137 open' cannot be re-derived from the persisted artifact. data/omnifocus-unified.json has task_count 29 (the available-task subset); the same figure appears in state.yaml capture_data (total_uncompleted: 137) but no file on disk supports it, and the omnifocus MCP is not connected this session so it cannot be re-queried. Same pattern Ralph flagged on the 10-19 review (claimed 140 vs task_count 42)."
+    - "Eval health 10-27 is a stale snapshot. Review (completed 09:40) says '4 runs — 3 success, 1 in-progress'; that exactly matches the 09:24 capture. By 09:39 the record stood at 5 runs (4 success, 1 in-progress), and eval-20261027T143352-QRE4AZ has since closed as 'partial'. The 10-26 figures (26 runs, 13/7/3/2/1, 50% strict) reproduce exactly."
+    - "Silent drop in the forward plan: the Athena meeting (2026-10-27 10:30, client — attendees anne.mwelu@athena.com, subject 'Client: David O'hara | OM: Anne | MCI') is in capture_data.calendar_1027 but absent from the review's Calendar Prep Needed list, which otherwise carries every client meeting of the day."
+    - "Cross-artifact inconsistency: the Obsidian narrative 'Daily Reviews/2026-10-26 The Delivery Day the Task List Lost.md' presents the Peak Precision whiteboard as part of the day ('Around the filming, the Peak Precision whiteboard in the morning...'), while the review honestly marks it 'unknown — not in controller's answer, no outcome on disk.' There is in fact no Peak Precision outcome anywhere on disk. The publishable narrative is more confident than the verified record."
+    - "Minor: error-entry timestamps are impossible. The three 10-27 correction entries carry internal timestamps 11:17:52, 13:37:35 and 14:05:00 (-05:00) but their files were created at 06:22 and 09:19 CDT — all three post-date the 09:43 verification clock. The review's count of 3 is correct; the entries' own timestamps are not. err-20261027T1405XX-stage-refs.json also carries a placeholder 'XX' in its id."
+    - "Minor: the review lists GEHC 14:00 under 'What Got Done' without noting the calendar still marks it tentative."
   verified:
-    - "Boot complete, briefing delivered, degraded MCPs (M365/Clay/OmniFocus down) and fallbacks held: workflows/boot/state.yaml complete; morning-briefing eval D5DPY3 success. '12 steps' matches the 12-row step table (workflow header itself says '9 sequential steps')."
-    - "Peptide cycles: data/health/tracking.json shows Epithalon cycle 2 active start 2026-10-18 and Tesamorelin/Ipamorelin cycle 2 active start 2026-10-19; data/health/metrics-log.json has the 2026-10-19 protocol-change entries; peptide reminder removed."
-    - "Amex reminder snoozed to 2026-10-22: data/reminders.json rem-20261017T005503-CRBRYQ trigger_date 2026-10-22."
-    - "Plaud-ingest: workflows/plaud-ingest/state.yaml outcome no-new-recordings; notes state 'Newest recording remains 2026-10-08'; eval DEHON9 no-op."
-    - "Rock 1 KR1 and Rock 2 both due 2026-10-17 with no post-17 status record (memory/personal/quarterly-objectives.md, morning briefing); 3-days-late is accurate as of the 10-20 write time (2 days as of 10-19)."
-    - "Steve Hall / Derek Nwamadi In Progress, due 2026-09-25, watch-only per 2026-10-09 in delegations/tracker.md; 25 days overdue as of 10-20."
-    - "OmniFocus inbox 14 (morning briefing 12), 1 overdue (Fix media room lights, due 2026-10-17), 0 flagged, 28 tasks with due dates (27 future + the 1 overdue) all match data/omnifocus-unified.json."
-    - "3 error entries on 2026-10-19 match exactly: destructive-regeneration major, voice-violation minor, contact-data major."
-    - "Eval health matches exactly: 20 runs on 2026-10-19, 11 success, 5 partial, 1 no-op, 3 failure, 55% strict success."
-    - "Overdue delegations 1, delegations due tomorrow 0, Tuesday OmniFocus due items (5 Microsoft contacts, Confluent, Coherence breathing, review prayer list), DLP vs Sales Scrum 10:00 double-book, Tuesday bootcamp blocks, Sales & Recruiting 09:15, SAP Group 11:00 Dallas Trust room, root directory clean, and right-day check all verified."
+    - "What Got Done, controller-attested items (marked as such by the review, per manifest): Amber Robinson Ep 17 filming 12:00-14:00 + 'did awesome' + short-form clip idea; Clevinger/Helixor intro 15:30 producing a follow-up for Ehren; Frees/Henricksen connect 16:30 'good networking'. All three meetings exist in data/calendar-unified.json for 2026-10-26; outcomes are controller-attested only."
+    - "GEHC twice-weekly check-in 14:00 is on the 10-26 calendar; review correctly states outcome not recorded."
+    - "Chase preps: 2 successful client-meeting-prep eval records on 10-26 (K353NT, 6YP3S3) plus 1 successful chase-client-prep skill-run (MV41XA); meetings/Lance Clevinger - Helixor.pdf (29,761 B) and meetings/Russell Frees - Henricksen.pdf (31,182 B) both dated 10-26 14:51; K353NT's closing message reads 'Both prep sheets are done and on the tablet.' (2 client-meeting-prep runs also aborted, already counted in the day's 3 aborted.)"
+    - "6 Rigby commits on 2026-10-26 confirmed and each maps to a claimed item: 37164377 (delegation-boundary mechanisms), d3959465 (final-review dry run), 940d154e (success-rate recompute script), b68b5955 (correlation-id backfill), e5e79a25 (adversarial-catch records), 71aae3c7 (bundle docs rewrite)."
+    - "Watchtower daily ran: commit 81194f78 'Watchtower' 2026-10-26 09:09:13 -0500."
+    - "Boot token analysis working notes: memory/working/2026-10-26-boot-token-analysis.md exists (mtime 2026-10-26 11:11), plus 3 further untracked 10-26 Rigby working notes the review does not enumerate."
+    - "Carry-forward block re-derived from data/omnifocus-unified.json: exactly 8 tasks due 2026-10-26 (5 Kare + Coherence breathing + Review prayer list + Review Current Projects List) all still open, plus Fix media room lights due 2026-10-17. Rock 1 KR1 (AT&T/McKesson/SLB, due 10-17) and Rock 2 South Texas gap decomposition (Chase, due 10-17) are not OmniFocus tasks but are recorded commitments in memory/personal/quarterly-objectives.md and reviews/daily/2026-10-19.md. '10 days late' is correct on run-date arithmetic (10-27), not on review-date arithmetic (9 days as of 10-26)."
+    - "Delegations: delegations/tracker.md holds exactly one active delegation (Steve Hall / Derek Nwamadi, due 2026-09-25, In Progress, confirmed-handling 2026-10-09) = 32 days on 10-27; no delegation was completed or removed on 10-26, and the review claims none."
+    - "Task-state numbers re-derived from the file: inbox 9 (9 null-project tasks), 0 flagged, 9 overdue (8 Monday + media room lights), 20 due-dated tasks all inside 7 days, 0 completed in the pull, Friday 10-30 stack exactly 9 (talk outline, Answer Q&A, 2 Bible studies, 5 Kare)."
+    - "Morning Priority Scorecard matches the briefing verbatim: 'the three that actually matter ... the Peak Precision whiteboard at 10:00, the Amber Robinson podcast filming from 12:00 to 14:00, and the Henricksen partner connect at 16:30.' 2/3 verifiable + 1 unreported is arithmetically correct."
+    - "Tomorrow's Top 3 matches state.yaml tomorrow_data.top_3 exactly, including rock alignment (Rock 1, Rock 2, non-rock Ehren follow-up)."
+    - "Calendar Prep Needed: GEHC 11:00, Lockton 14:00, Tim 1:1 14:30, Ben 1:1 15:30, David Evans (Sentiero VC) 11:30, One Texas & Speaking w/ Alice 13:00 all present in data/calendar-unified.json for 2026-10-27; Derek Nwamadi is a Lockton attendee as claimed. Cache 'pulled Mon 14:14Z' matches pulled_at 2026-10-26T14:14:58+00:00."
+    - "Eval health 10-26 reproduces exactly from systems/eval-harness/runs/: 26 runs, 13 success, 7 partial, 3 aborted, 2 incomplete, 1 no-op, 50% strict."
+    - "Corrections: 0 entries dated 2026-10-26; 3 entries dated 2026-10-27, all master, all stage-5 submission packaging, matching the review's three descriptions."
+    - "Held push decision: state.yaml prior-run records the 10-19 review held at step-05 awaiting confirmation to push personal health data to origin main; 2026-10-20 to 2026-10-27 = 7 days."
+    - "Root: clean verified against the root scan (only CLAUDE.md, CHANGELOG.md, SETUP.md, evolution.manifest.json, .gitignore, .mcp.json, .DS_Store and directories); the producing run's own closing message also records 'Root audit clean.'"
+    - "Right-day: review file date 2026-10-26 equals manifest run-date; retroactive run on 10-27 is disclosed in the header, and all elapsed-day arithmetic is consistent with the 10-27 write date."

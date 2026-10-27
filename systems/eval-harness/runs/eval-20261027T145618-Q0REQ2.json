@@ -1,0 +1,148 @@
+{
+  "id": "eval-20261027T145618-Q0REQ2",
+  "type": "workflow",
+  "name": "boot",
+  "agent": "master",
+  "session_id": "c7f0fef9-0b56-4d6a-ab45-ba1d8b876872",
+  "trigger": "boot",
+  "model": null,
+  "model_source": null,
+  "started": "2026-10-27T14:56:18.031307Z",
+  "completed": null,
+  "duration_seconds": null,
+  "status": "in-progress",
+  "steps": [
+    {
+      "name": "step-01-load-context.md",
+      "step_id": "step-01-load-context.md",
+      "agent": "master",
+      "owning_agent": "master",
+      "started": "2026-10-27T14:56:38Z",
+      "completed": "2026-10-27T14:57:26Z",
+      "duration_seconds": 48.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "glm-5p3-flash",
+      "tokens_input": 948658,
+      "tokens_output": 1483,
+      "cost_usd": 0.019687,
+      "token_source": "windowed",
+      "turns_matched": 13
+    }
+  ],
+  "subagents": [
+    {
+      "agent_id": "aa324cc2ddcfefe97",
+      "agent_type": "general-purpose",
+      "started": "2026-10-27T14:57:14.394762Z",
+      "completed": "2026-10-27T15:18:34.606051Z",
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 2553375,
+      "tokens_output": 7759,
+      "cost_usd": 0.091572,
+      "duration_seconds": 299.57,
+      "token_source": "subagent-transcript"
+    },
+    {
+      "agent_id": "ac4871c16093e893e",
+      "agent_type": "general-purpose",
+      "started": "2026-10-27T14:57:36.911238Z",
+      "completed": null,
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "agent_id": "ac4871c16093e893e",
+      "agent_type": "general-purpose",
+      "started": "2026-10-27T15:08:55.355521Z",
+      "completed": null,
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "agent_id": "ae3364ac72f528d85",
+      "agent_type": "general-purpose",
+      "started": "2026-10-27T15:10:26.392740Z",
+      "completed": "2026-10-27T15:13:35.054249Z",
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 1156415,
+      "tokens_output": 18185,
+      "cost_usd": 0.099161,
+      "duration_seconds": 188.66,
+      "token_source": "subagent-transcript"
+    },
+    {
+      "agent_id": "a7e2efc1570841ce4",
+      "agent_type": "general-purpose",
+      "started": "2026-10-27T15:22:38.151983Z",
+      "completed": null,
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "agent_id": "a002c3dba8257093d",
+      "agent_type": "general-purpose",
+      "started": "2026-10-27T15:23:06.917577Z",
+      "completed": null,
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    }
+  ],
+  "monitoring": {
+    "active": true,
+    "state_yaml_path": "workflows/boot/state.yaml",
+    "opened_by": "eval-turn-start.py",
+    "trigger_evidence": "run the morning boot workflow"
+  },
+  "assessment": {
+    "mechanical": {
+      "completed": false,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [
+    "turn-level"
+  ],
+  "workflow": "boot"
+}

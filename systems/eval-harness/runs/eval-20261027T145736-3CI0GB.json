@@ -1,0 +1,72 @@
+{
+  "id": "eval-20261027T145736-3CI0GB",
+  "agent_id": "ac4871c16093e893e",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "general-purpose",
+  "owning_agent": null,
+  "subagent_type": "general-purpose",
+  "session_id": "c7f0fef9-0b56-4d6a-ab45-ba1d8b876872",
+  "trigger": "unknown",
+  "model": null,
+  "model_source": null,
+  "started": "2026-10-27T14:57:36.911238Z",
+  "completed": null,
+  "duration_seconds": null,
+  "status": "in-progress",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": null,
+      "all_steps_finished": null,
+      "tool_failures": 2,
+      "error_ids": [],
+      "tool_failure_log": [
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\n# CCAR-F study pack: a Stage 5 delegation system\n\nMark Holton. **Stage 5 submission.** Every requirement with its evidence is on [the progress page](docs/stage-5-progress.html) (open it in a browser) and in [the plan](docs/stage-5-plan.md); the history is in [docs/git-log.txt](docs/git-log.txt).\n\nSource: [github.com/holtonma/ai-workshop-improving](https://github.com/holtonma/ai-workshop-improving) (private; `main` holds Stage 5 work, with Stage 4 on the `stage-4-submission` branch).\n\n## For the examiner\n\n1. **The system:** [How it works](#how-it-works), below: one diagram and what each part does.\n2. **The six card artifacts:** [Where to find each card artifact](#where-to-find-each-card-artifact): the main files and the evidence for each.\n3. **Every requirement, card and detailed text (26):** the table under \"Progress\" in [the plan](docs/stage-5-plan.md#progress), each row with its status and the file, test, or results JSON that proves it. The same table, with charts of every eval's iterations, is [the progress page](docs/stage-5-progress.html).\n4. **Measured results:** [Evaluations](#evaluations): each workflow's named criteria and latest result, with its results JSON.\n5. **Evidence in real sessions:** [The four traces](#the-four-traces), and one rejected session under [Known limitations](#known-limitations). Each folder holds `session.json` (the audit trail), every artifact version, the final review, and `decisions.jsonl`.\n6. **The criteria as received:** [docs/stage-5-reference.md](docs/stage-5-reference.md). **History:** [docs/git-log.txt](docs/git-log.txt).\n7. **Check it yourself, offline, with no keys:** `.venv/bin/python -m unittest discover tests` (see [How to verify](#how-to-verify)).\n\nA dispatch-only coordinator over scoped sub-agents that produces certification preparation material for the Claude Certified Architect \u2013 Foundations exam (CCAR-F): grounded study notes and original practice questions for each exam objective. A consultancy delivers it to client engineering teams as part of a paid training or Claude-adoption engagement; a trainer reviews and signs off on the material before it reaches a client.\n\n## How it works\n\n```mermaid\nflowchart TB\n    person([Trainer]) -->|\"/study\"| tui[Study TUI]\n    tui --> coord\n\n    subgraph coord_box [\"Coordinator: an LLM with dispatch tools only\"]\n        coord[\"coordinator.py<br/>reads each result, decides the next dispatch\"]\n    end\n\n    coord -->|\"launch_* tools\"| harness\n    harness -->|\"validated result or structured error\"| coord\n\n    subgraph harness_box [\"Delegation harness (code, no model): delegation.py\"]\n        harness[\"validate output against its schema<br/>gates \u00b7 coverage \u00b7 budgets<br/>audit trail with correlation ID \u2192 session.json\"]\n    end\n\n    harness --> researcher[\"researcher<br/>tool: web_search\"]\n    harness --> notes[\"notes writer<br/>no tools\"]\n    harness --> questions[\"question writer<br/>no tools\"]\n    harness --> reviewer[\"adversarial reviewer<br/>tool: read_file \u00b7 own context\"]\n    harness --> final[\"final review writer<br/>no tools \u00b7 headings by the harness\"]\n\n    harness --> files[(\"session folder<br/>research \u00b7 notes \u00b7 questions \u00b7 study pack \u00b7 final review<br/>written by the harness\")]\n    reviewer -.->|reads| files\n\n    coord -->|\"disposition\"| checkpoint{{\"Human checkpoints<br/>substance decision, then sign-off\"}}\n    person -->|\"substance decision, then accept / reject, with identity\"| checkpoint\n```\n\n- **The coordinator governs; it does no work.** Its only tools launch sub-agents. It reads each result and decides what to dispatch next: on a critical challenge, it revises the challenged artifact and has it reviewed again.\n- **The harness enforces structure.** Every sub-agent returns a typed output (a Pydantic model). The harness checks it before the coordinator sees anything, writes the files itself, refuses out-of-order or stale work, and records every step with tokens, cost, and the session's correlation ID.\n- **Each sub-agent holds only the tools its workflow needs**, and the adversarial reviewer works in its own context, reading the files to verify claims against their sources.\n- **The deliverable is a study pack per task statement**, `study-pack.md` in the session folder: the notes under each bullet's exam wording, practice questions without answers, an answer key with an explanation for every option, and the sources. The harness assembles it from checked files; its first line says whether a trainer has signed it off.\n- **The final review is written for the trainer who signs off.** When every task statement is complete or blocked, the coordinator passes its disposition to the final review writer; the harness adds every challenge, the verdicts, and the original output. The harness decides each PASS / FAIL heading from the findings and writes the tables; the writer supplies only the prose, which may add no findings of its own. The reviewer then reviews the final review against its input (a fourth lens), and the coordinator revises it once on a major challenge.\n- **Substance is assessed on what was produced.** When a session closes, the harness writes a substance report: each workflow's rating (study notes and practice questions are core, client training a consultancy sells; research and the final review are peripheral, not billable on their own), why, and what it produced in that session. Any toy, or two or more peripheral, elevates the session for a person, so every session elevates by design. `/substance continue` or `/substance reject` is appended to the decision log with your identity; sign-off waits for it, and a reject is terminal.\n- **Measured end to end.** 3 of 3 live Domain 1 sessions reached the human checkpoint with all 7 task statements complete and a reviewed final review, with no manual correction ([results](evals/results/system_e2e_iter1.json)).\n- **A person decides at the checkpoints.** The coordinator cannot approve anything; sign-off is a person's command, recorded with their identity.\n\nThe dashed line is the reviewer reading the session's files. The criteria are in [docs/stage-5-reference.md](docs/stage-5-reference.md). The exam objectives the system covers are in [data/ccar-f-objectives.json](data/ccar-f-objectives.json), from the public exam guide.\n\n(eval):1: == not found",
+          "duration_ms": 38,
+          "timestamp": "2026-10-27T10:05:26.334531"
+        },
+        {
+          "tool": "mcp__obsidian__vault_read",
+          "error": "targetType and target must be provided together",
+          "duration_ms": 43,
+          "timestamp": "2026-10-27T10:07:24.059794"
+        }
+      ]
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": []
+}

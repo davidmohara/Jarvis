@@ -1,11 +1,19 @@
 {
   "skill": "plaud-discover",
-  "agent": "general-purpose",
+  "agent": "knox",
   "trigger": "boot",
-  "started": "2026-10-23T13:21:26.229027Z",
-  "completed": "2026-10-23T13:22:11.099096Z",
+  "started": "2026-10-27T14:57:30Z",
+  "completed": "2026-10-27T15:02:00Z",
   "status": "success",
   "tool_failures": 0,
   "error_ids": [],
-  "captured_via": "hook"
+  "captured_via": "agent",
+  "findings": {
+    "api_total": 154,
+    "vault_notes": 209,
+    "vault_file_ids": 150,
+    "staged_scanned": 146,
+    "ledger_entries": 300,
+    "new_recordings": 4
+  }
 }

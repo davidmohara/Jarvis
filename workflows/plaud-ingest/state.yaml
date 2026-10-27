@@ -1,34 +1,140 @@
 workflow: plaud-ingest
 agent: knox
 status: complete
-outcome: no-new-recordings
-session-id: pi-20261026-001
-session-started: '2026-10-26T14:15:00Z'
-completed-at: '2026-10-26T14:16:36Z'
-current-step: step-01
-original-request: "Knox — run workflows/plaud-ingest/workflow.md in full. Read the workflow file, run the STATE CHECK, and execute all steps as written. Background task. Today's date is 2026-10-26."
+outcome: ingested
+session-id: pi-20261027-001
+session-started: '2026-10-27T14:57:30Z'
+completed-at: "2026-10-27T15:17:44Z"
+current-step: step-06
+original-request: "Knox — run workflows/plaud-ingest/workflow.md in full. Read the workflow file, run the STATE CHECK, and execute all steps as written. Background task. Today's date is 2026-10-27."
 blocker: null
 accumulated-context:
   target-date: null
-  new-recordings: []
-  transcription-triggered: []
+  new-recordings:
+    - file_id: 6b390c51dbaee7752fbd8b58528fb039
+      name: "10-26 Casual Conversation: Leadership, Career Journeys, Faith, and AI Innovation"
+      date: '2026-10-26'
+      duration_seconds: 2081
+      has_transcript: true
+      transcript_status: ready
+    - file_id: 557cd83573baf9990f409316e95d0446
+      name: "10-26 Meeting: Content Strategy, Guest Pipeline, and Production Approach for AI-Themed Podcast"
+      date: '2026-10-26'
+      duration_seconds: 1602
+      has_transcript: true
+      transcript_status: ready
+    - file_id: 4313a4fa3142d5fe9770eb7aba2d0fa6
+      name: "10-26 Consultation: Helixor-Improving Partnership Strategy for Neurosymbolic AI Decision Engine in Regulated Enterprises"
+      date: '2026-10-26'
+      duration_seconds: 2096
+      has_transcript: true
+      transcript_status: ready
+    - file_id: 6b8c0787a341b2281895aad899ab219b
+      name: "2026-10-26 10:03:37"
+      date: '2026-10-26'
+      duration_seconds: 3474
+      has_transcript: true
+      transcript_status: ready
+      note: "Status corrected during step-06 verification: transcription triggered in step-02 completed in time for the step-04 fetch, so the recording was fetched and ingested in this same run. The earlier ready/missing snapshot was stale."
+  transcription-triggered:
+    - 6b8c0787a341b2281895aad899ab219b
   pending-recordings: []
-  speaker-mappings: {}
+  speaker-mappings:
+    6b390c51dbaee7752fbd8b58528fb039:
+      Speaker 1: David O'Hara
+      Speaker 2: Russell Frees
+    557cd83573baf9990f409316e95d0446:
+      Speaker 1: Janine Jeanson
+      Speaker 2: David O'Hara
+      Speaker 3: Kristin Johnson
+      Speaker 4: Alice Mburu
+      Speaker 5: Keylor Arroyo
+    4313a4fa3142d5fe9770eb7aba2d0fa6:
+      Speaker 1: Lance Clevinger
+      Speaker 2: David O'Hara
+      Speaker 3: Eric (Helixor)
   pending-speaker-mappings: []
-  recording-classification: {}
-  ready-for-fetch: []
-  staged-files: []
-  ingested-notes: []
-  unresolved_speakers: []
+  recording-classification:
+    6b390c51dbaee7752fbd8b58528fb039: work
+    557cd83573baf9990f409316e95d0446: work
+    4313a4fa3142d5fe9770eb7aba2d0fa6: work
+    6b8c0787a341b2281895aad899ab219b: work
+  gate_4_result: pass-with-unresolved
+  gate_4_unresolved_speakers:
+    - {file_id: 6b8c0787a341b2281895aad899ab219b, recording: "Peak Precision - App Business Framework Whiteboard", unresolved: ["Speaker 3"]}
+  unresolved_speakers:
+    - file_id: 6b8c0787a341b2281895aad899ab219b
+      recording: "Peak Precision - App Business Framework Whiteboard"
+      unresolved: ["Speaker 3"]
+      evidence: "Calendar: 2026-10-26 10:00-11:00 'Whiteboard Session: App Discussion & Next Steps' (organizer David O'Hara), attendees David O'Hara + nathan@peakprecisionsolutions.com only. Adjacent events checked (09:30 Sales Scrum, 11:00 Overflow). Transcript self-ID scan: Speaker 3 has 12 segments of near-filler ('Yeah', 'Right', 'Activities', 'How's school going?'); no self-identification and no participant addresses them by name. Speaker 1 resolved as David, Speaker 2 as Nathan; Speaker 3 is a third person physically in the room, not on the invite and not identifiable from available sources."
+  escalation-evidence: "Peak Precision 10:03 recording only. Calendar matched event 10:00-11:00 with invitees David O'Hara and nathan@peakprecisionsolutions.com; adjacent events and recurring-pattern checks produced nothing further. Transcript self-ID scan resolved David and Nathan but not Speaker 3. No registered Plaud voice profile beyond David O'Hara (embeddings endpoint returned empty for this recording)."
+  gate_5_result: pass
+  gate_5_verification_failures: []
+  ready-for-fetch:
+    - 6b390c51dbaee7752fbd8b58528fb039
+    - 557cd83573baf9990f409316e95d0446
+    - 4313a4fa3142d5fe9770eb7aba2d0fa6
+  gate_3_result: pass
+  gate_3_retry_counts: {}
+  gate_3_aborted_recordings: []
+  staged-files:
+    - plaud_10-26 Casual Conversation_ Leadership_ Career Journeys_ Faith_ and AI Innovation.md
+    - plaud_10-26 Meeting_ Content Strategy_ Guest Pipeline_ and Production Approach for AI-Themed Podcast.md
+    - plaud_10-26 Consultation_ Helixor_Improving Partnership Strategy for Neurosymbolic AI Decision Engine in Regulated Enterprises.md
+    - plaud_2026-10-26 10_03_37.md
+  ingested-notes:
+    - zzPlaud/Other/2026-10-26 Connect - Russell Frees (Henricksen).md
+    - zzPlaud/Improving/2026-10-26 The Improving Edge - Content Strategy and Guest Pipeline.md
+    - zzPlaud/Client/2026-10-26 Helixor Partnership Introduction - Lance Clevinger and Eric.md
+    - zzPlaud/Client/2026-10-26 Peak Precision - App Business Framework Whiteboard.md
+  shares-attempted: 4
+  shares-succeeded: 0
+  shares-failed: 4
+  share-failure-reason: "fetch_plaud.py --share blocked by permission classifier (public anyone-with-link publishing requires explicit review). Fallback note used on all four Monday review tasks."
+  tasks-created: 4
+  action-items-routed: 5
+  action-items-routed-detail:
+    - {file_id: 4313a4fa3142d5fe9770eb7aba2d0fa6, monday_id: 13396352674, item: "Intro Lance Clevinger and Eric (Helixor) to Ehren Syme for partnership conversation"}
+    - {file_id: 4313a4fa3142d5fe9770eb7aba2d0fa6, monday_id: 13396409415, item: "Line up Improving technical session with Helixor after partnership intro"}
+    - {file_id: 557cd83573baf9990f409316e95d0446, monday_id: 13396409516, item: "Share two talk abstracts with Janine as Improving Edge episode topics"}
+    - {file_id: 557cd83573baf9990f409316e95d0446, monday_id: 13396364640, item: "Settle Jason's Improving Edge episode angle during this week's catch-up"}
+    - {file_id: 6b8c0787a341b2281895aad899ab219b, monday_id: 13396353225, item: "Send Nathan (Peak Precision) business framework follow-up and Azure hosting recommendation"}
+  action-items-left-in-notes:
+    - {file_id: 6b390c51dbaee7752fbd8b58528fb039, owner: "David O'Hara", item: "follow up with Russell Frees to keep the relationship warm", reason: "soft relationship item, no concrete commitment made"}
+    - {file_id: 6b390c51dbaee7752fbd8b58528fb039, owner: "David O'Hara", item: "consider introducing Russell to Ashley Lawrence (GL Seaman)", reason: "opportunity, not a commitment"}
+    - {file_id: 557cd83573baf9990f409316e95d0446, owner: "David O'Hara", item: "define guest selection criteria and target segments for 2027", reason: "longer-horizon planning item"}
+    - {file_id: 6b8c0787a341b2281895aad899ab219b, owner: "David O'Hara", item: "review Nathan's architecture re ingestion cost and model routing", reason: "subsumed by the routed follow-up item"}
+    - {file_id: 6b8c0787a341b2281895aad899ab219b, owner: "David O'Hara", item: "check Leah's response and connect Mylon for YNG", reason: "personal matter, not routed to the work board"}
+  action-items-non-david:
+    - {file_id: 4313a4fa3142d5fe9770eb7aba2d0fa6, owner: "Lance Clevinger", item: "send follow-up material on licensing and target industry solutions"}
+    - {file_id: 557cd83573baf9990f409316e95d0446, owner: "Janine Jeanson", item: "coordinate next round of guest scheduling with Alice"}
+    - {file_id: 557cd83573baf9990f409316e95d0446, owner: "Alice Mburu", item: "confirm the four scheduled external guests and report dates"}
+    - {file_id: 6b8c0787a341b2281895aad899ab219b, owner: "Nathan", item: "complete the business framework sections on segment, channels, revenue"}
+  share-urls: []
+  gate_6_result: pass-with-soft-flags
+  gate_6_delivery_confirmations:
+    - {file_id: 6b390c51dbaee7752fbd8b58528fb039, task_id: 13396410217, assignee_omitted: true, share_url_present: false}
+    - {file_id: 557cd83573baf9990f409316e95d0446, task_id: 13396400293, assignee_omitted: true, share_url_present: false}
+    - {file_id: 4313a4fa3142d5fe9770eb7aba2d0fa6, task_id: 13396416147, assignee_omitted: true, share_url_present: false}
+    - {file_id: 6b8c0787a341b2281895aad899ab219b, task_id: 13396368566, assignee_omitted: true, share_url_present: false}
+  adversarial-verification:
+    verdict: findings
+    result: flag
+    lens: "ingestion accounting, zero silent drops"
+    findings:
+      - "F1 step-06 frontmatter was stale from the 2026-10-09 run; corrected as part of this step."
+      - "F2 6b8c0787 carried stale has_transcript false / missing / pending; corrected to ready, pending-recordings cleared."
+      - "F3 the 4 new ledger entries had tiers_checked empty; patched to [1,2,3] with per-tier detail, matching what the dedup pass actually evaluated."
+      - "F4 gate_4_result said pass while unresolved_speakers was non-empty; corrected to pass-with-unresolved with the list populated."
+      - "F5 action-items-routed 5 was not reconcilable; per-item routing record added."
+    confirmed: "4 discovered, 4 ingested. API id set 154 and vault file_id set 154 with empty symmetric difference. Zero silent drops."
+    guardrail-checkpoint: "NOT RECORDED — no in-progress eval record for plaud-ingest after 6 retries over 10s. Verdict written to state.yaml instead."
 gate_1_auth_method: cached-token
 gate_2_result: pass
 gate_2_flagged_recordings: []
 notes:
-  - "pi-20261021-001: FULL ENUMERATION (catch-up, target-date set for reporting only). Gate 1 PASS (cached-token, /user/me authenticated as David O'Hara). Enumerated via fetch_plaud.py list_recordings (sort_by=start_time, is_desc=true). API total 149, unchanged from 10-19 baseline. Newest recording remains 2026-10-08."
-  - "Vault enumerated via direct filesystem walk of iCloud vault zzPlaud/ (exhaustive): 208 .md notes, 149 unique file_ids. API id set == vault id set exactly (0 missing either direction)."
-  - "Tier1/2/3 dedup via ledger (295 entries: 149 API + 146 staged), every entry has a checked tier: 149 API recordings all Tier-1 file_id matches (0 new); 146 top-level staged files all resolve to vault file_ids via sibling _raw.json recording.id (0 orphans, 0 stale, 0 in-progress). All 146 staged files are post-ingest leftovers flagged for cleanup."
-  - "Circuit breaker clear (0 new vs 0 baseline). Gate 2: 0 recordings to validate. Workflow terminated at step-01 per NO-OP EXIT (new-recordings: [], outcome: no-new-recordings, status: complete). Steps 02-06 not run."
-  - "pi-20261022-001: 1 new recording (4e6af011..., 2026-10-21 12:44, 23 min). Transcription triggered and completed; staged. Content is a personal family/coaching conversation with named individuals' health details (third-party PHI/PII). Held before ingest: org policy requires confirmation before processing PHI/PII, and step-05b would publicly share + email it to Alice Mburu. Awaiting David's decision (ingest as Personal and skip 05b, or discard)."
-  - "pi-20261022-001 RESUMED 2026-10-22T15:16Z: David decided ingest as Personal, skip 05b, DPA stated by David (unverified). Filed to zzPlaud/Personal; daily note Calendar/2026/10-October/2026-10-21.md created and linked. Run complete."
-  - "pi-20261023-001: FULL ENUMERATION via forked plaud-discover skill. Gate 1 PASS (cached-token, live /file/simple/web enumeration). API total 150 (+1 vs 149 baseline = 2026-10-21 recording ingested yesterday). Vault zzPlaud/: 209 notes, 150 unique file_ids. Diff exactly 1:1 both directions. Ledger (296 entries: 150 API + 146 staged) all decision: skip with tiers checked; Knox independently verified vault walk (150 file_ids incl. 4e6af011). Circuit breaker clear (0 new vs 0 baseline). Newest recording remains 2026-10-21; nothing on 10-22 or 10-23. NO-OP EXIT: outcome no-new-recordings, steps 02-06 not run. 146 staged leftovers remain flagged for cleanup."
-  - "pi-20261026-001: STATE CHECK read 'status: complete' -> fresh run initialized. FULL ENUMERATION via fetch_plaud.py get_token/list_recordings (sort_by=start_time, is_desc=true, paginated to exhaustion). Gate 1 PASS (cached-token, 56 days remaining, /user/me authenticated as David O'Hara). API total 150, unchanged from 10-23 baseline. Newest recording remains 2026-10-21 12:44; nothing on 10-22 through 10-26. Vault zzPlaud/ direct filesystem walk: 209 .md notes, 150 unique file_ids (22 notes intentionally lack file_id, 209-150=59 includes those plus duplicates/medical). API id set == vault id set exactly, 0 missing either direction. Ledger written (296 entries: 150 API + 146 staged), every entry has tiers_checked; all API recordings Tier-1 file_id matched (0 new). 146 top-level staged files resolve to vault/recent files (0 stale, 0 orphan). Circuit breaker clear (0 new vs 0 baseline). Gate 2: 0 recordings to validate, pass. NO-OP EXIT per step-01: new-recordings [], outcome no-new-recordings, status complete, current-step step-01. Steps 02-06 not run. 146 staged post-ingest leftovers flagged for cleanup (no deletion performed, outside this workflow's scope)."
+  - "pi-20261027-001: FULL RUN, 4 recordings ingested. Gate 1 PASS (cached-token, 55 days remaining). API total 154 (+4 vs 150 baseline). Ledger 300 entries (154 API + 146 staged), all with tiers_checked. Gate 2 pass. Step-02 triggered transcription for 6b8c0787 (status=0 task processing); it completed before the step-04 fetch, so all 4 were fetched and ingested in one run. Speakers resolved via calendar + self-ID; Eric (Helixor) is off-invite but named by Lance. Speaker 3 in Peak Precision unresolved (12 filler segments, not on invite) -> gate_4_result pass-with-unresolved. Gate 5 pass: 4 notes verified on disk with matching file_id frontmatter. Vault now 213 notes / 154 unique file_ids, exact 1:1 with the API."
+  - "pi-20261027-001 step-05b DEGRADED: fetch_plaud.py --share was blocked by the permission classifier on all 4 recordings (public anyone-with-link publishing needs explicit review). Documented fallback used: 4 Monday review tasks created with 'Share link unavailable — check Plaud web app'. No share URLs exist for these recordings. David must approve/run the share step if Alice should receive links."
+  - "pi-20261027-001 step-06: Ralph adversarial verification returned flag with 5 findings, all state-integrity corrections (stale step-06 frontmatter, stale 6b8c0787 transcript status, empty tiers_checked on the 4 new ledger entries, gate_4_result understating an unresolved speaker, unreconcilable action-item count). All corrected. Zero silent drops confirmed: API id set 154 == vault file_id set 154, empty symmetric difference."
+  - "pi-20261027-001 guardrail-checkpoint.py did NOT record the adversarial-verification result (no in-progress eval record for plaud-ingest after 6 retries over 10s). Verdict written to state.yaml instead."
+  - "pi-20261026-001: NO-OP run. API total 150, newest 2026-10-21 12:44. Vault 150 file_ids, exact 1:1. 146 staged post-ingest leftovers flagged for cleanup (not deleted, outside workflow scope)."

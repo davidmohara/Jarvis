@@ -1,0 +1,13 @@
+{
+  "id": "err-20261027T1405XX-stage-refs",
+  "timestamp": "2026-10-27T14:05:00-05:00",
+  "source": "explicit",
+  "agent": "master",
+  "category": "packaging",
+  "failure_mode": "certification-litigation-framing",
+  "summary": "Stage references (Stage 3/4/5, remediation phases, 'requirement closed') throughout the evidence files make the package read like litigation for certification rather than a plain collection of what exists.",
+  "context": "David: 'Any stage reference in the system makes it seem like we're litigating for certification rather than just providing evidence to show it.'",
+  "correction": "Evidence and data files must not reference certification stages, remediation plans, requirements being 'closed', or grader expectations. Describe what was done and what the data shows, nothing about the certification process.",
+  "status": "resolved",
+  "resolution": "Source files in projects/stage-4-evidence (now moved) and the submission stripped of all stage/phase/remediation/certification references and advocacy wording ((honest) headers, 'requirement closed', 'net effect for the Stage 5 submission', 'the strongest available answer', 'No catch was fabricated'). Data moved to where it lives: bypass-tests, adversarial-catches, and success-rate exports moved into systems/eval-harness/; projects/stage-4-evidence removed; projects/stage-5-submission renamed projects/submission; stage5-certification-remediation.md renamed remediation-plan.md. Repo CHANGELOG de-staged and re-copied into the package. Package copies refreshed from cleaned sources. Left as-is: systems/eval-harness/stage3/ (deletion blocked by permission gate, flagged to David), projects/remediation-plan.md internal content (process-tracking doc, not in the package), and historical records (memory, error-tracking entries, eval run records, reviews)."
+}

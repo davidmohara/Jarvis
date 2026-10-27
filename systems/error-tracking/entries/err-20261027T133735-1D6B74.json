@@ -1,0 +1,13 @@
+{
+  "id": "err-20261027T133735-1D6B74",
+  "timestamp": "2026-10-27T13:37:35-05:00",
+  "source": "explicit",
+  "agent": "master",
+  "category": "packaging",
+  "failure_mode": "advocacy-framing",
+  "summary": "Submission package frames collected data as 'evidence' and inserts intent commentary (stage-5 references in README, argumentative framing), which makes genuinely-collected data look manufactured/falsified. Logging and eval data should sit with that data, described as what it is, with no commentary on intent.",
+  "context": "David on projects/stage-5-submission/: 'If it's logging and eval, it should be with that data and not appear to be manufactured like it looks now. Referencing it as \"evidence\" or inserting commentary about stage 5 in the README makes it look falsified. This effort should ONLY be to collect what actually exists, document WHAT it is, not comment on its intent, and then package it for grading.'",
+  "correction": "Evidence packaging = collect what exists, document what each item is, no editorializing about intent or grading outcomes. Logging/eval outputs go with the data they came from, not into a folder labeled as proof.",
+  "resolution": "Source files in projects/stage-4-evidence (now moved) and the submission stripped of all stage/phase/remediation/certification references and advocacy wording ((honest) headers, 'requirement closed', 'net effect for the Stage 5 submission', 'the strongest available answer', 'No catch was fabricated'). Data moved to where it lives: bypass-tests, adversarial-catches, and success-rate exports moved into systems/eval-harness/; projects/stage-4-evidence removed; projects/stage-5-submission renamed projects/submission; stage5-certification-remediation.md renamed remediation-plan.md. Repo CHANGELOG de-staged and re-copied into the package. Package copies refreshed from cleaned sources. Left as-is: systems/eval-harness/stage3/ (deletion blocked by permission gate, flagged to David), projects/remediation-plan.md internal content (process-tracking doc, not in the package), and historical records (memory, error-tracking entries, eval run records, reviews).",
+  "status": "resolved"
+}

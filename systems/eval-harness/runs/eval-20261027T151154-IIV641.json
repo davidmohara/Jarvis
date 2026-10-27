@@ -1,0 +1,85 @@
+{
+  "id": "eval-20261027T151154-IIV641",
+  "type": "skill",
+  "name": "plaud-discover",
+  "agent": "knox",
+  "session_id": "c7f0fef9-0b56-4d6a-ab45-ba1d8b876872",
+  "trigger": "boot",
+  "model": "glm-5p3-flash",
+  "model_source": "session-transcript-window",
+  "started": "2026-10-27T14:57:30Z",
+  "completed": "2026-10-27T15:11:54.770689Z",
+  "duration_seconds": 864.8,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": true,
+      "outputs_non_empty": true,
+      "assertions_checked": 4,
+      "assertions_passed": 4,
+      "assertion_results": [
+        {
+          "assertion": "plaud-discover-signal-written",
+          "description": "plaud-discover skill-run signal file was written",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "plaud-discover-signal-status",
+          "description": "plaud-discover skill-run did not end in failure",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "plaud-di-002-substantive",
+          "description": "plaud-discover output is substantive (>200 bytes)",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "plaud-di-003-content",
+          "description": "plaud-discover output contains expected content",
+          "category": "structure",
+          "passed": true
+        }
+      ],
+      "category_breakdown": {
+        "structure": {
+          "passed": 4,
+          "checked": 4
+        },
+        "content": {
+          "passed": 0,
+          "checked": 0
+        },
+        "quality": {
+          "passed": 0,
+          "checked": 0
+        }
+      }
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    }
+  },
+  "version_hash": "481a517bdaf604e9",
+  "prior_baseline_id": null,
+  "tags": [
+    "cowork-hook",
+    "skill"
+  ]
+}

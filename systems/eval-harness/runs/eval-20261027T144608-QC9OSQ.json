@@ -1,0 +1,82 @@
+{
+  "id": "eval-20261027T144608-QC9OSQ",
+  "agent_id": "a9efac9a5451a5500",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": "daily-review",
+  "agent": "chief",
+  "owning_agent": "chief",
+  "subagent_type": "general-purpose",
+  "session_id": "64d08eb2-39a5-46c1-8a7b-b45e89362d2e",
+  "trigger": "workflow-dispatch",
+  "model": "accounts/fireworks/models/kimi-k3",
+  "model_source": "subagent-transcript",
+  "started": "2026-10-27T14:46:08.945642Z",
+  "completed": "2026-10-27T14:50:52.351892Z",
+  "duration_seconds": 283.41,
+  "status": "aborted",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": false,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/64d08eb2-39a5-46c1-8a7b-b45e89362d2e/subagents/agent-a9efac9a5451a5500.jsonl",
+  "total_tokens_input": 837235,
+  "total_tokens_output": 7552,
+  "total_cost_usd": 0.39293,
+  "token_source": "subagent-transcript",
+  "harness_tokens": 67927,
+  "harness_tool_uses": 23,
+  "harness_duration_ms": 542140,
+  "parent_window": {
+    "token_source": "parent-window",
+    "transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/64d08eb2-39a5-46c1-8a7b-b45e89362d2e.jsonl",
+    "window_start": "2026-10-27T14:46:08.945642Z",
+    "window_end": "2026-10-27T14:50:52.351892Z",
+    "model": null,
+    "tokens_input": 0,
+    "tokens_output": 0,
+    "cost_usd": 0.0,
+    "turns_matched": 0,
+    "turns_with_usage": 0,
+    "computed_at": "2026-10-27T14:50:52.749096Z"
+  },
+  "fully_loaded_cost_usd": 0.39293,
+  "fully_loaded_tokens_input": 837235,
+  "fully_loaded_tokens_output": 7552
+}

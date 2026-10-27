@@ -1,0 +1,13 @@
+{
+  "id": "err-20261027T111752-YKAMWZ",
+  "timestamp": "2026-10-27T11:17:52-05:00",
+  "source": "explicit",
+  "agent": "master",
+  "category": "organization",
+  "failure_mode": "misplaced-artifacts",
+  "summary": "Submission package referenced manufactured per-agent criteria artifacts (stage3/, marked status: draft) instead of the real agent definition files from IES root agents/; David: the actual agent files must be in the submission's agents/ folder, the manufactured ones will fail the grader.",
+  "context": "Reviewing projects/stage-5-submission/: the stage3/ folder holds 11 manufactured criteria artifacts (status: draft in frontmatter), cited in index.md criterion 5 and submission-draft.md as agent evidence. The submission's agents/ folder only has manifest.md and adversarial-isolation.md, not the real per-agent definition files that live at IES root agents/.",
+  "correction": "Submission evidence for agent criteria must be the real agent files from agents/ copied into the submission's agents/ folder, not manufactured summaries. Never present draft/synthesized artifacts as the primary evidence when the real files exist.",
+  "resolution": "Copied the 11 real agent definition files from agents/ into projects/stage-5-submission/agents/ (staged via ies-git). Removed the manufactured stage3/ folder and stage3-compliance-plan.md / stage3-remediation-plan.md from the submission (git rm). Updated index.md, submission-draft.md, and README.md to cite agents/*.md as the evidence. The CHANGELOG line referencing systems/eval-harness/stage3/ is historical text pointing at the live repo path and was left as-is.",
+  "status": "resolved"
+}
