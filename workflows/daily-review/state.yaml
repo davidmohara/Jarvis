@@ -2,52 +2,36 @@
 workflow: daily-review
 agent: chief
 status: in-progress
-session-started: "2026-10-20T08:00:00-05:00"
-session-id: "chief-2026-10-20-dailyreview-20261019"
-current-step: step-05-session-close
+session-started: "2026-10-27T00:00:00-05:00"
+session-id: "chief-2026-10-27-dailyreview-20261027"
+current-step: step-01
 session-closed: false
-original-request: "Close out yesterday - run the daily review for Monday, 2026-10-19 (retroactive, run on 2026-10-20 morning)."
+original-request: "End of day review for 2026-10-27; David skipped last night's wrap-up, so capture what carried over from Oct 26 too if relevant"
 accumulated-context:
-  review-date: "2026-10-19"
-  mode: "retroactive review - controller supplied capture answers in the request context"
-  capture:
-    morning-priority-scorecard: "1/3 (bootcamp presence hit; Rock1/Rock2 status recording missed; Wednesday conflict decisions missed)"
-    inbox-count: 14
-    omnifocus: "140 uncompleted, 1 overdue, 0 flagged, 28 due within 7 days"
-    eval-health: "20 runs on 2026-10-19: 11 success, 5 partial, 1 no-op, 3 failure (55% strict success)"
-    errors-logged: "3 (all GoTogether draft rebuild: destructive-regeneration, voice-violation, contact-data)"
-    overdue-delegations: "1 (Derek Nwamadi / Steve Hall, 25 days, watch-only)"
-  outputs:
-    review-file: "reviews/daily/2026-10-19.md"
-    vault-narrative: "Daily Reviews/2026-10-19 The Immersion Day the Milestones Slipped.md"
-    working-memory: "memory/working/2026-10-20-091500-chief-daily-review-20261019.md"
-    session-index: "session-2026-10-19-000000 closed 2026-10-20T09:15:00-05:00"
-    delegation-tracker: "unchanged (no completions, no new delegations)"
-    daily-note-crosslink: "skipped - no Calendar/2026/10-October/2026-10-19.md exists (per convention)"
-  tomorrow-2026-10-20:
-    top-3-proposed:
-      - "Record Rock 1 KR1 milestone status (AT&T/McKesson/SLB) - 3 days late [Rock 1]"
-      - "Record Rock 2 South Texas gap decomposition status - 3 days late [Rock 2]"
-      - "Wednesday collision decisions (Huddle vs McClinton, GEHC vs yWhales, UTB Board)"
-    also-due: "Identify 5 Microsoft contacts (Reachout 5PM); Confluent Regional Sales Director (Reachout 5PM); Coherence breathing 10:00; Review prayer list 11:00"
-    calendar-flags: "Hosting Leadership Dallas 08:30 (hosting); GEHC AI Routing deeper dive 14:00 (client, Chase); DLP check-in 10:00 vs Sales Scrum 10:00 double-booked; bootcamp blocks repeat"
-  guardrail-checkpoint:
-    pre-commit-review: "pass (manual) - NOT recorded to eval harness: no in-progress record after 6 retries (known gap dream-004/boot-004)"
-  adversarial-verification:
-    verdict: "findings"
-    result: "flag"
-    lens: "output vs source data cross-check; completion claims vs recorded state"
-    findings:
-      - "OmniFocus 140 total lacked persisted backing - clarified as counts-command whole-database figure vs 42-task pull subset (corrected pre-commit)"
-      - "GEHC Tuesday time wrong vs cache - verified 14:00 via live M365 pull (meeting moved from 11:00; SAP overlap resolved); review corrected"
-      - "Bootcamp attendance unverifiable from state - marked controller-reported in review"
-      - "GoTogether 'confirmed sent' is controller-stated, not system-recorded; Fried invalid-address caveat added; Harper follow-up flagged"
-      - "Silent drops corrected: conventions-migration stale in-progress (step-03-judgment since 10-18) and boot checkpoint-recording gaps added to System State"
-      - "Capture outputs not persisted per step-01 schema - condensed capture block written to this state.yaml"
-    recording-gap: "adversarial-verification checkpoint NOT recorded to eval harness: no in-progress record after 6 retries (known gap dream-004/boot-004)"
-  root-audit: "clean - only standard files at root"
-  step-05-hold:
-    reason: "git commit/push held - auto-mode classifier blocked the push of personal health data (data/health/*) to origin main on the public repo; requires David's own confirmation. Local commits also not executed (same denied outcome chain)."
-    resume: "On David's confirmation, run step-05 phase 2 via Rigby: Class B commit (workflows/ state churn, --ack-gated), Class A commit, push origin main."
-  eval-record: "eval-20261020T132212-WDNUOD.json (partial, 1333s, 6 steps). Spurious sibling eval-20261020T132133-CR1YAB.json recorded as failure by the phantom-success guard after a bad --started timestamp on the first close attempt; mark-and-exclude correction left for David's approval."
+  prior-run: "chief-2026-10-20-dailyreview-20261019 (review of 2026-10-19) was held at step-05 awaiting David's confirmation to push personal health data to origin main; never resumed in 7 days. Superseded by this run - the held push decision remains David's."
+  capture_data:
+    date: "2026-10-26 (primary; skipped wrap-up) + 2026-10-27 (day-of, morning run at 09:24 CDT)"
+    timing-note: "Run fired 09:24 CDT Tuesday. Treated as the missed Oct 26 closeout plus today setup. David to correct scope if wrong."
+    omnifocus:
+      total_uncompleted: 137
+      inbox_count: 9
+      flagged: 0
+      overdue: 9
+      due_within_7: 20
+      completed_today_1027: 0
+      completed_1026: "not queryable via omnifocus-data skill (no completed-on-date command); controller-reported"
+      overdue_detail: "Fix media room lights (due Oct 17, 10 days); 8 tasks due Mon Oct 26 all slipped: Coherence breathing, Review prayer list, Review Current Projects List, Kare x5 (Reddit articles, Week 4 Instagram, Meta ads test, influencer outreach, Reddit profile-age note)"
+      due_today: "Check humidor (5:00 PM)"
+      due_fri_1030: "9 items: Presentations talk outline, Answer Q&A, Bible Study x2, Kare x5"
+    calendar_1026: "15 timed events, zero-buffer 09:15-14:30. Key: Peak Precision whiteboard 10:00, Podcast Filming w/ Amber Robinson (Ep 17) 12:00-14:00, GEHC check-in 14:00, Lance Clevinger (Helixor) intro 15:30, Improving Edge sync 16:00, Russell Frees (Henricksen) connect 16:30"
+    calendar_1027: "Sales & Recruiting 09:15, Sales Scrum 10:00, Athena (Alice/Anne) 10:30, GEHC AI Routing deeper dive 11:00, David Evans (Sentiero VC) 11:30, One Texas & Speaking w/ Alice 13:00, Lockton AI Deep Learning follow-up 14:00 (Derek Nwamadi attends), Tim 1:1 14:30, Ben 1:1 15:30, Don sync 16:00. Cache pulled Mon 14:14Z - new invites since may be missing"
+    morning_priorities_1026: "No explicit top-3; briefing named the three that matter: Peak Precision whiteboard, Amber podcast filming, Henricksen connect (all outward-facing; Rocks 1/2 absent from calendar - drift risk flagged)"
+    morning_priorities_1027: "No morning briefing found for today (no reviews/daily/2026-10-27.md, no working-memory briefing, no boot eval record this morning)"
+    eval_health_1026: "26 runs: 13 success, 7 partial, 3 aborted, 2 incomplete, 1 no-op (50% strict success)"
+    eval_health_1027: "4 runs so far (general-purpose subagents): 3 success, 1 in-progress"
+    ies_work_1026: "6 Rigby commits: delegation-boundary mechanisms (correlation ids, layer-0 schema validation, substance gate, final-review workflow), bundle readme rewrite, success-rate recompute script, correlation-id backfill, adversarial-catch records. Boot token analysis working notes. 2 Chase preps delivered (Clevinger, Frees)"
+    delegations: "1 active: Steve Hall follow-up / Derek Nwamadi, 32 days, watch-only (David confirmed Derek handling 10-09). Derek attends today's 14:00 Lockton meeting"
+    pending_commit: "Large staged changeset in git: projects/stage-5-submission renamed to projects/submission, stage3 files deleted, new agents/ files added - uncommitted from prior session"
+    reminders: "Next trigger 2026-10-28: boot token analysis redo (master, read-only)"
+    controller_answers: "PENDING - Q1/Q2/Q3 sent via coordinator"
 ---

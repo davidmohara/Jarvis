@@ -1,7 +1,7 @@
 ---
 status: complete
-started-at: '2026-10-23T13:47:30Z'
-completed-at: '2026-10-23T13:47:30Z'
+started-at: '2026-10-26T14:56:30Z'
+completed-at: '2026-10-26T14:57:00Z'
 ---
 
 <!-- system:start -->
@@ -57,7 +57,7 @@ completed-at: '2026-10-23T13:47:30Z'
 
    **If no in-progress workflows:** Surface a single line: "No in-flight workflows."
 
-5. **Update step frontmatter:** Set `status: complete` and `completed-at` (current timestamp). Record `workflows_scanned` in `state.yaml` `accumulated-context` with a summary (e.g. "complete — active.yaml read, N in-progress workflows found" or "complete — active.yaml read, 0 in-progress workflows found").
+5. **Update step frontmatter:** Set `status: complete` and `completed-at` to the real UTC clock time from `date -u +%Y-%m-%dT%H:%M:%SZ` (paste the exact output; never estimate or round). Record `workflows_scanned` in `state.yaml` `accumulated-context` with a summary (e.g. "complete — active.yaml read, N in-progress workflows found" or "complete — active.yaml read, 0 in-progress workflows found").
 
 ---
 

@@ -438,8 +438,7 @@ def check_numeric_field_in_range(a, eval_record, ies_root, transcript_path, yaml
 # ---------------------------------------------------------------------------
 # Stage 3 Phase 1 check types — routing attribution, Tier-3 deferral, and
 # YAML field/list checks. These close the measurement gaps for criteria that
-# had zero assertion coverage (see
-# projects/stage-5-submission/stage3-compliance-plan.md, Phase 1).
+# had zero assertion coverage.
 #
 # Mirror note: every function below is duplicated (kept in parity) in
 # .claude/hooks/eval-turn-stop.py's inline run_assertions(), which does not
@@ -743,7 +742,7 @@ def check_yaml_field_pattern(a, eval_record, ies_root, transcript_path, yaml_mod
     "required" assertions declare but which was never implemented — so those two
     assertions silently skipped with "unknown check type: yaml_field_pattern" and
     the escalation-without-a-calendar-lookup defect (err-20260929T024338-K3K074,
-    Knox K4) went unenforced. See projects/stage-5-submission/stage3-remediation-plan.md.
+    Knox K4) went unenforced.
 
     Fields:
       path          YAML file (glob-resolved, first match), frontmatter-stripped.

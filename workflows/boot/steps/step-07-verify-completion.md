@@ -1,7 +1,7 @@
 ---
 status: complete
-started-at: '2026-10-23T13:48:30Z'
-completed-at: '2026-10-23T13:48:30Z'
+started-at: '2026-10-26T14:57:10Z'
+completed-at: '2026-10-26T14:58:00Z'
 guardrail-result: flag
 ---
 
@@ -54,9 +54,9 @@ guardrail-result: flag
 
 4. **Apply the gate:**
    - **PASS** (script exit 0, no escalation): surface the report, then:
-     - Set this step's `status: complete`, `completed-at` now
+     - Set this step's `status: complete`, `completed-at` = the real UTC clock time from `date -u +%Y-%m-%dT%H:%M:%SZ`
      - Record `state_status` in state.yaml `accumulated-context`
-     - **Update `workflows/boot/state.yaml`: `status: complete`, `current-step: null`, `completed-at` now. This write is mandatory; it closes boot's eval-harness record.**
+     - **Update `workflows/boot/state.yaml`: `status: complete`, `current-step: null`, `completed-at` = the same real `date -u` reading. This write is mandatory; it closes boot's eval-harness record.** The step-07 guardrail verifier asserts this.
    - **FAIL** (any step frontmatter not complete): leave boot `status: in-progress`, set `current-step` to the first failed step, surface the failure table, await instruction.
 
 5. **Report format (PASS):**

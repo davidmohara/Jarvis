@@ -1,8 +1,8 @@
 ---
 status: completed
 model: kimi-k3
-started-at: "2026-10-23T13:19:00Z"
-completed-at: "2026-10-23T13:28:00Z"
+started-at: "2026-10-26T14:15:00Z"
+completed-at: "2026-10-26T14:16:36Z"
 outputs:
   previous-run-results:
     new-recordings: 0
@@ -78,7 +78,21 @@ Auth failure is only a valid abort reason if the skill's own Chrome login flow h
 4. **Update state.yaml:**
    - `accumulated-context.new-recordings` = list above
    - `current-step: step-02`
-   - Update this step's frontmatter: `status: completed`, `completed-at: <ISO timestamp>`
+   - Update this step's frontmatter: `status: completed`, and `completed-at` set to the real UTC clock time from `date -u +%Y-%m-%dT%H:%M:%SZ` (never estimate or round).
+   - **Refresh the no-op preflight marker** at `data/.plaud-last-seen.json` after
+     every successful full enumeration (both the new-recordings path and the
+     no-op exit below):
+     ```json
+     {
+       "newest_file_id": "<file_id of the newest recording returned by the API>",
+       "newest_create_time": "<its create/start time>",
+       "api_total": <total recordings enumerated>,
+       "checked_at": "<ISO timestamp>",
+       "outcome": "new-recordings | no-new-recordings"
+     }
+     ```
+     This marker is what lets `verify/noop-preflight.py` answer "anything new?"
+     in one API call. Without it every run pays the full discovery cost.
 
 5. **Report** (brief, inline — not a separate message):
    ```
@@ -167,9 +181,10 @@ intact:
    run's eval record is kept in `runs/` and marked `status: no-op` / `no_op: true`
    (excluded from success-rate metrics) instead of being quarantined as a phantom.
    Omitting it makes a legitimate no-op indistinguishable from a workflow that never ran.
-3. Set `state.yaml status: complete`, `current-step: step-01`, and stamp `completed-at`.
-4. Report: `[Knox/Discover]: No new Plaud recordings — no-op run (outcome: no-new-recordings).`
-5. Do **not** proceed to step-02. Do **not** delete or leave the run unrecorded.
+3. Set `state.yaml status: complete`, `current-step: step-01`, and stamp `completed-at` from `date -u`.
+4. **Refresh `data/.plaud-last-seen.json`** with the newest API recording's `file_id`, its create/start time, `api_total`, `checked_at`, and `outcome: "no-new-recordings"` (schema in YOUR TASK step 4 above). This is what makes the next run's preflight a single cheap call.
+5. Report: `[Knox/Discover]: No new Plaud recordings — no-op run (outcome: no-new-recordings).`
+6. Do **not** proceed to step-02. Do **not** delete or leave the run unrecorded.
 
 ---
 

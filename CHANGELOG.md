@@ -1,19 +1,19 @@
 # Changelog
 
-All notable changes to IES (Improving Executive System). Versions were established retroactively on 2026-10-08 from git history (1,063 commits since 2026-02-05) to give the Stage 5 certification submission a formal release record. Tags mark stable points; dated entries summarize the dominant work of each era with representative commits.
+All notable changes to IES (Improving Executive System). Versions were established retroactively on 2026-10-08 from git history (1,063 commits since 2026-02-05) to give the system a formal release record. Tags mark stable points; dated entries summarize the dominant work of each era with representative commits.
 
-## [Unreleased] — Stage 5 certification remediation (in flight, started 2026-10-08)
+## [Unreleased] — 2026-10 systemization (started 2026-10-08)
 
-- Remediation plan approved and tracked locally: `projects/stage5-certification-remediation.md` (Tim Rayburn's examination report returned FAIL 2026-10-07; 9 findings, all mapped to phases).
-- Phase 0 complete: workflow rationalization memo (`projects/workflow-rationalization-memo-2026-10-08.md`); Stage 4 candidate set rationalized to boot, morning-briefing, daily-review, plaud-ingest; weekly-review dropped.
-- Phase 1 in flight: coordinator purity refactor (spawn-first enforcement, no direct git/shell/domain execution by the coordinator).
-- Phase 2 in flight: per-step audit trail in the eval harness (per-step model, input tokens, output tokens, cost) with CSV/JSON export.
-- Phase 3 in flight: Stage 3 evaluation artifacts for all 11 agents (`systems/eval-harness/stage3/`).
-- Phase 5C (this file): CHANGELOG established, retroactive version tags created.
-- Eval-harness exit reliability (2026-10-10): SessionEnd hook re-engineered to spawn the canonical closer (`close-open-evals.py`) detached, so a standard exit can no longer cancel the sweep mid-run and leave eval records open; regression suite `test_eval_session_end.py` (40bc6ef4). Protects the Phase 4C success-rate data window from open-record distortion.
+- Remediation plan tracked locally: `projects/remediation-plan.md` (9 findings, all mapped to phases).
+- Workflow rationalization memo (`projects/workflow-rationalization-memo-2026-10-08.md`): candidate set rationalized to boot, morning-briefing, daily-review, plaud-ingest; weekly-review dropped.
+- Coordinator purity refactor (in flight) (spawn-first enforcement, no direct git/shell/domain execution by the coordinator).
+- Per-step audit trail (in flight) in the eval harness (per-step model, input tokens, output tokens, cost) with CSV/JSON export.
+- Per-agent evaluation artifacts for all 11 agents (draft set retired; agent definitions live in `agents/`).
+- CHANGELOG established, retroactive version tags created.
+- Eval-harness exit reliability (2026-10-10): SessionEnd hook re-engineered to spawn the canonical closer (`close-open-evals.py`) detached, so a standard exit can no longer cancel the sweep mid-run and leave eval records open; regression suite `test_eval_session_end.py` (40bc6ef4). Protects the success-rate data window from open-record distortion.
 - YAML hygiene (2026-10-10): colon-bearing values quoted in `plaud-ingest-verification` frontmatter and boot `state.yaml` after both became unparseable (turn-start frontmatter errors, `boot_is_fresh` fallback); quoting rule added to agent conventions so agent-written YAML cannot reintroduce the defect.
-- Git gate command-position coverage (2026-10-10): both gate layers anchored git detection to position zero, so `cd "<repo>" && git <write-verb>` reached raw git unaudited (found in production via the git-ops spool, bypass evidence `projects/stage-4-evidence/bypass-tests/BT-06-git-cmdpos-bypass-2026-10-10.md`); detection now matches git at any command position with quotes stripped, compound writes block, compound reads pass, 13 new regression cases including end-to-end through `pre-tool-use.sh`.
-- Planned: v2.0.0 tagged at the Stage 5 resubmission.
+- Git gate command-position coverage (2026-10-10): both gate layers anchored git detection to position zero, so `cd "<repo>" && git <write-verb>` reached raw git unaudited (found in production via the git-ops spool, bypass evidence `systems/eval-harness/bypass-tests/BT-06-git-cmdpos-bypass-2026-10-10.md`); detection now matches git at any command position with quotes stripped, compound writes block, compound reads pass, 13 new regression cases including end-to-end through `pre-tool-use.sh`.
+- Planned: v2.0.0 tagged at the next resubmission.
 
 ## [v1.5.0] — 2026-09-16: access consolidation and deterministic grading
 
@@ -22,9 +22,9 @@ All notable changes to IES (Improving Executive System). Versions were establish
 - Reusable skills: schema-validator, delivery-router (c6da964c); calendar-handler, visual-verification (eda9d815).
 - Golf skills converted to workflows with quality gates (628983a4).
 
-## [v1.0.0] — 2026-08-22: Stage 4 certification build
+## [v1.0.0] — 2026-08-22: delegation system build
 
-- Guardrail checkpoints with real audit trail and sentinel files across workflows (a3acd571); Stage 4 boot system complete and production ready (4ee4e3a6).
+- Guardrail checkpoints with real audit trail and sentinel files across workflows (a3acd571); Boot system complete and production ready (4ee4e3a6).
 - Eval-hook lifecycle rebuilt with intelligent retry behavior for guardrail checkpoints (2393b9a0, e9887470).
 - Ground-truth verifier scripts and workflow-specific verifier dispatcher across 13 workflows (a562eaeb, 53bc7d23); guardrail output-field contracts documented in boot step frontmatter (ce9b61d0).
 - Podcast-to-Pipeline campaign system (aedc13de); token efficiency optimizations, 8 consolidation improvements (2220912a).
@@ -45,4 +45,4 @@ All notable changes to IES (Improving Executive System). Versions were establish
 
 ---
 
-Tag map (annotated tags on the listed commits): v0.1.0 → 50cbe123 · v0.5.0 → 55452fdb · v1.0.0 → 4ee4e3a6 · v1.5.0 → 6aeb691d · v2.0.0 → planned at Stage 5 resubmission.
+Tag map (annotated tags on the listed commits): v0.1.0 → 50cbe123 · v0.5.0 → 55452fdb · v1.0.0 → 4ee4e3a6 · v1.5.0 → 6aeb691d · v2.0.0 → planned at next resubmission.

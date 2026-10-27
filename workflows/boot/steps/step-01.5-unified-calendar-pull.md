@@ -1,7 +1,7 @@
 ---
 status: complete
-started-at: '2026-10-23T13:21:00Z'
-completed-at: '2026-10-23T13:24:18Z'
+started-at: '2026-10-26T14:13:00Z'
+completed-at: '2026-10-26T14:16:00Z'
 ---
 
 <!-- system:start -->
@@ -83,7 +83,7 @@ completed-at: '2026-10-23T13:24:18Z'
    status: "written"
    ```
 
-6. **Update step frontmatter:** Set `status: complete` and `completed-at` with current timestamp (Edit tool).
+6. **Update step frontmatter:** Set `status: complete` and `completed-at` to the real UTC clock time from `date -u +%Y-%m-%dT%H:%M:%SZ` (paste the exact output; never estimate or round) — Edit tool.
 
 7. **Set `current-step: step-01.2-unified-data-pull.md`** in state.yaml — the coordinator dispatches the main boot subagent for steps 01.2 through 08 next.
 

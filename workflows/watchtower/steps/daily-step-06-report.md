@@ -1,7 +1,7 @@
 ---
 status: complete
-started-at: "2026-09-09T00:33:00Z"
-completed-at: "2026-09-09T00:38:00Z"
+started-at: "2026-10-26T14:50:30Z"
+completed-at: "2026-10-26T14:52:00Z"
 ---
 
 <!-- system:start -->
@@ -59,7 +59,9 @@ completed-at: "2026-09-09T00:38:00Z"
    obsidian_note_path: "Watchtower/Daily/YYYY-MM-DD.md"
    ```
 
-5. Set `state.yaml status: complete`.
+5. **Close the run's eval record first.** The run opened its record at start (its id is in `state.yaml` top-level `eval_id`). Run the `close-eval-record.py` command in `workflows/watchtower/workflow.md` → "EVAL RECORD (daily run)" with this run's real `session-started`, the status that matches the run, and the steps that actually completed. This must happen BEFORE the state.yaml write below so the cowork hook finds a completed record and does not create a zero-step phantom.
+
+6. Set `state.yaml status: complete`.
 
 ---
 

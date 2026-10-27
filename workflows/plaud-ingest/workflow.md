@@ -40,9 +40,35 @@ The only authorized auth check: let the skill run. If the skill's own auth flow 
 
 ---
 
+## NO-OP PREFLIGHT (run this before anything else)
+
+A nothing-to-do day must cost about one turn, not a persona load plus a full API
+pagination plus a vault walk. The 2026-10-26 run spent 1.65M input tokens and
+~24 turns to find zero new recordings. Do this first, before reading any step
+file, loading any identity/persona file, or walking the vault:
+
+```bash
+python3 workflows/plaud-ingest/verify/noop-preflight.py
+```
+
+Read the first token of its **stdout** (auth progress prints to stderr):
+
+| Verdict | Action |
+|---------|--------|
+| `NOOP` | Nothing new since the last full enumeration. Take the no-op exit now, in this turn: set `state.yaml` `outcome: no-new-recordings`, `status: complete`, `current-step: step-01`, and `completed-at` from `date -u +%Y-%m-%dT%H:%M:%SZ`; set step-01 frontmatter `status: completed`; report `[Knox/Discover]: No new Plaud recordings — no-op run`. Do NOT read step-01 or any other step file, do NOT load a persona, do NOT walk the vault, and do NOT run steps 02-06. |
+| `NEW` | Something new since the last enumeration. Run STATE CHECK, then step-01 normally. |
+| `UNKNOWN` | Cannot prove no-op (no marker, auth, network). Run STATE CHECK, then step-01 normally. Never abort because the preflight was uncertain. |
+| `RESUME` | `state.yaml` is in-progress. Ignore the preflight and follow STATE CHECK's resume branch. |
+
+The preflight never gates on a token file and never aborts; any doubt falls
+through to the full run, so the TOKEN PRE-CHECK PROHIBITION above is preserved.
+
+---
+
 ## EXECUTION
 
-Run STATE CHECK above, then begin at step-01.
+Run the NO-OP PREFLIGHT first. If it does not take the no-op exit, run STATE
+CHECK, then begin at step-01.
 
 ---
 

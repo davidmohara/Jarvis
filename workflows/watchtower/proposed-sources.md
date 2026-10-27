@@ -137,6 +137,13 @@ This file is the only path to `sources.yaml`. Watchtower's weekly run appends ne
 
 ## Approved — Moved to sources.yaml
 
+### Batch 20 (partial) — Approved 2026-10-26
+
+| Name | URL | Topic | Trust | Approved |
+|------|-----|-------|-------|---------|
+| InformationWeek | https://www.informationweek.com | it-consulting | med | 2026-10-26 |
+| D CEO (D Magazine) | https://www.dmagazine.com/publications/d-ceo/ | texas-regional | med | 2026-10-26 |
+
 ### Batch 11 (partial) — Approved 2026-08-31
 
 | Name | URL | Topic | Trust | Approved |
@@ -206,6 +213,14 @@ Also added by David as named sources (approved same session, 2026-06-19):
 ---
 
 ## Rejected
+
+### Batch 20 (partial) — 2026-10-26
+
+| Name | URL | Topic | Reason |
+|------|-----|-------|--------|
+| Microsoft Security Blog | https://www.microsoft.com/en-us/security/blog/ | ai-agentic | Rejected by David 2026-10-26 |
+| SecurityWeek | https://www.securityweek.com | ai-agentic | Rejected by David 2026-10-26 |
+| Perceptyx Blog | https://blog.perceptyx.com | leadership | Rejected by David 2026-10-26 |
 
 ### Batch 11 (partial) — 2026-08-31
 
@@ -380,8 +395,8 @@ Also added by David as named sources (approved same session, 2026-06-19):
 
 | Name | URL | RSS | Topic | Trust | Why Relevant | Status |
 |------|-----|-----|-------|-------|--------------|--------|
-| Microsoft Security Blog | https://www.microsoft.com/en-us/security/blog/ | https://www.microsoft.com/en-us/security/blog/feed/ | ai-agentic | high | Primary source for W44 Theme 1: Microsoft's Oct 19 "Agents are your newest insiders" post (Dynamic Permissions, Dynamic Agent Risk, Guardian Agents). Default-stack source for Entra, Defender and agent governance announcements, ahead of third-party coverage. Feed responds live; not parsed in full. | pending |
-| SecurityWeek | https://www.securityweek.com | https://www.securityweek.com/feed/ | ai-agentic | high | Independent reporting on the Microsoft agent-insider announcement (Oct 20) plus a steady stream of agent-security items (rogue agent incidents, agentic SecOps funding). Feed verified live 2026-10-26 with items from the past 24 hours. Fills the independent-trade gap between vendor blogs and analyst firms. | pending |
-| InformationWeek | https://www.informationweek.com | null | it-consulting | med | Published the "identity is only part of the answer" argument on agent governance this month, aimed at IT leaders. Practitioner-decision-maker angle on CIO and governance topics. RSS not confirmed; gather_method: search via site:informationweek.com. | pending |
-| Perceptyx Blog | https://blog.perceptyx.com | null | leadership | med | Publishes employee-survey data on AI and culture (2,800+ employee survey: 33% report AI-created tension between teams). Human-side-of-AI lens that matches the push_toward steering on culture, trust and adoption. No RSS confirmed; vendor-affiliated, so treat as data source, not editorial. | pending |
-| D CEO (D Magazine) | https://www.dmagazine.com/publications/d-ceo/ | null | texas-regional | med | Dallas business leadership magazine; October 2026 issue profiles a decade of Dallas Innovates. Adds DFW business and leadership stories beyond data centers and capital markets, per steering. No RSS confirmed; gather_method: search via site:dmagazine.com. | pending |
+| Microsoft Security Blog | https://www.microsoft.com/en-us/security/blog/ | https://www.microsoft.com/en-us/security/blog/feed/ | ai-agentic | high | Primary source for W44 Theme 1: Microsoft's Oct 19 "Agents are your newest insiders" post (Dynamic Permissions, Dynamic Agent Risk, Guardian Agents). Default-stack source for Entra, Defender and agent governance announcements, ahead of third-party coverage. Feed responds live; not parsed in full. | rejected 2026-10-26 |
+| SecurityWeek | https://www.securityweek.com | https://www.securityweek.com/feed/ | ai-agentic | high | Independent reporting on the Microsoft agent-insider announcement (Oct 20) plus a steady stream of agent-security items (rogue agent incidents, agentic SecOps funding). Feed verified live 2026-10-26 with items from the past 24 hours. Fills the independent-trade gap between vendor blogs and analyst firms. | rejected 2026-10-26 |
+| InformationWeek | https://www.informationweek.com | null | it-consulting | med | Published the "identity is only part of the answer" argument on agent governance this month, aimed at IT leaders. Practitioner-decision-maker angle on CIO and governance topics. RSS not confirmed; gather_method: search via site:informationweek.com. | approved 2026-10-26 |
+| Perceptyx Blog | https://blog.perceptyx.com | null | leadership | med | Publishes employee-survey data on AI and culture (2,800+ employee survey: 33% report AI-created tension between teams). Human-side-of-AI lens that matches the push_toward steering on culture, trust and adoption. No RSS confirmed; vendor-affiliated, so treat as data source, not editorial. | rejected 2026-10-26 |
+| D CEO (D Magazine) | https://www.dmagazine.com/publications/d-ceo/ | null | texas-regional | med | Dallas business leadership magazine; October 2026 issue profiles a decade of Dallas Innovates. Adds DFW business and leadership stories beyond data centers and capital markets, per steering. No RSS confirmed; gather_method: search via site:dmagazine.com. | approved 2026-10-26 |

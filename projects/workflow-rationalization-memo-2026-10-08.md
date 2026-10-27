@@ -37,4 +37,4 @@ Removal requires David's approval plus a `rigby-impact` reference scan before an
 
 - Eval records are the reliable usage signal; state.yaml is not (scheduled/cadence workflows don't always update it, and pre-harness completions show blank).
 - The skills library, not the workflow dirs, is where most occasional flows actually run today. Workflow dirs that never started and duplicate an existing skill are the cleanest removals.
-- This memo satisfies Phase 0 of `projects/stage5-certification-remediation.md`. Consolidations above are non-blocking to certification and queue behind Phases 1-6.
+- This memo satisfies Phase 0 of `projects/remediation-plan.md`. Consolidations above are non-blocking to certification and queue behind Phases 1-6.

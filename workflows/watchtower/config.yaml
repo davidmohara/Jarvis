@@ -6,7 +6,7 @@ cadence:
   daily:
     purpose: "Things David should be aware of. Scan sources, dedupe, one-paragraph summaries."
     schedule_cron: "0 6 * * *"   # reference only — daily does NOT run as a standalone scheduled task
-    enabled: false               # daily runs via workflows/morning-briefing/ — do NOT wire a separate scheduled task
+    enabled: false               # daily runs via workflows/boot/ step-04.5 and workflows/morning-briefing/ — do NOT wire a separate scheduled task
   weekly:
     purpose: "Content candidates + source suggestions for approval. Deeper synthesis of the week."
     schedule_cron: "0 7 * * 1"   # Monday 7am local — WIRED as scheduled task "watchtower-weekly" (runs 07:05 Mon as Knox)

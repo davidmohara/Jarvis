@@ -1,13 +1,12 @@
 ---
 status: complete
-started-at: '2026-10-23T13:49:00Z'
-completed-at: '2026-10-23T13:49:00Z'
+started-at: '2026-10-26T14:58:10Z'
+completed-at: '2026-10-26T14:58:40Z'
 knox_status: success
-knox_reason: 'eval record eval-20261023T132604-XE81TS (agent knox, plaud-ingest)
-  status no-op; workflow plaud-ingest pi-20261023-001 completed 2026-10-23T13:28:00Z
-  with outcome no-new-recordings — 0 new recordings, nothing staged, no
-  awaiting-input items'
-knox_eval_id: eval-20261023T132604-XE81TS
+knox_reason: 'eval record eval-20261026T141644-ES64TT (agent knox, plaud-ingest)
+  status no-op; completed 2026-10-26T14:16:44Z with no-new-recordings, 0 staged,
+  0 ingested, 0 skipped. plaud-discover eval-20261026T141650-CV37G4 also success.'
+knox_eval_id: eval-20261026T141644-ES64TT
 ---
 
 <!-- system:start -->
@@ -56,6 +55,8 @@ knox_eval_id: eval-20261023T132604-XE81TS
    knox_duration_seconds: N (if available)
    knox_eval_id: "[eval record ID]" (if found)
    ```
+
+5. **Stamp this step's frontmatter.** Read the real clock with `date -u +%Y-%m-%dT%H:%M:%SZ`, then set `status: complete` and `completed-at` to that exact value. Do not estimate or round. (Step-07 already closed `workflows/boot/state.yaml`; do not rewrite it here.)
 
 ---
 

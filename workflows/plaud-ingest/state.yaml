@@ -2,11 +2,11 @@ workflow: plaud-ingest
 agent: knox
 status: complete
 outcome: no-new-recordings
-session-id: pi-20261023-001
-session-started: '2026-10-23T13:25:00Z'
-completed-at: '2026-10-23T13:28:00Z'
+session-id: pi-20261026-001
+session-started: '2026-10-26T14:15:00Z'
+completed-at: '2026-10-26T14:16:36Z'
 current-step: step-01
-original-request: "Knox — run workflows/plaud-ingest/workflow.md in full. Background task. Today's date is 2026-10-23."
+original-request: "Knox — run workflows/plaud-ingest/workflow.md in full. Read the workflow file, run the STATE CHECK, and execute all steps as written. Background task. Today's date is 2026-10-26."
 blocker: null
 accumulated-context:
   target-date: null
@@ -31,3 +31,4 @@ notes:
   - "pi-20261022-001: 1 new recording (4e6af011..., 2026-10-21 12:44, 23 min). Transcription triggered and completed; staged. Content is a personal family/coaching conversation with named individuals' health details (third-party PHI/PII). Held before ingest: org policy requires confirmation before processing PHI/PII, and step-05b would publicly share + email it to Alice Mburu. Awaiting David's decision (ingest as Personal and skip 05b, or discard)."
   - "pi-20261022-001 RESUMED 2026-10-22T15:16Z: David decided ingest as Personal, skip 05b, DPA stated by David (unverified). Filed to zzPlaud/Personal; daily note Calendar/2026/10-October/2026-10-21.md created and linked. Run complete."
   - "pi-20261023-001: FULL ENUMERATION via forked plaud-discover skill. Gate 1 PASS (cached-token, live /file/simple/web enumeration). API total 150 (+1 vs 149 baseline = 2026-10-21 recording ingested yesterday). Vault zzPlaud/: 209 notes, 150 unique file_ids. Diff exactly 1:1 both directions. Ledger (296 entries: 150 API + 146 staged) all decision: skip with tiers checked; Knox independently verified vault walk (150 file_ids incl. 4e6af011). Circuit breaker clear (0 new vs 0 baseline). Newest recording remains 2026-10-21; nothing on 10-22 or 10-23. NO-OP EXIT: outcome no-new-recordings, steps 02-06 not run. 146 staged leftovers remain flagged for cleanup."
+  - "pi-20261026-001: STATE CHECK read 'status: complete' -> fresh run initialized. FULL ENUMERATION via fetch_plaud.py get_token/list_recordings (sort_by=start_time, is_desc=true, paginated to exhaustion). Gate 1 PASS (cached-token, 56 days remaining, /user/me authenticated as David O'Hara). API total 150, unchanged from 10-23 baseline. Newest recording remains 2026-10-21 12:44; nothing on 10-22 through 10-26. Vault zzPlaud/ direct filesystem walk: 209 .md notes, 150 unique file_ids (22 notes intentionally lack file_id, 209-150=59 includes those plus duplicates/medical). API id set == vault id set exactly, 0 missing either direction. Ledger written (296 entries: 150 API + 146 staged), every entry has tiers_checked; all API recordings Tier-1 file_id matched (0 new). 146 top-level staged files resolve to vault/recent files (0 stale, 0 orphan). Circuit breaker clear (0 new vs 0 baseline). Gate 2: 0 recordings to validate, pass. NO-OP EXIT per step-01: new-recordings [], outcome no-new-recordings, status complete, current-step step-01. Steps 02-06 not run. 146 staged post-ingest leftovers flagged for cleanup (no deletion performed, outside this workflow's scope)."

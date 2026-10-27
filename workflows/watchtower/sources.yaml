@@ -397,3 +397,25 @@ sources:
     added: 2026-10-26
     status: active
     notes: "Organizes DFW Startup Week and publishes DFW founder/investor ecosystem content. Approved by David 2026-09-28 (Batch 16) but was missing from this registry; added during W44 step-05 reconciliation. No RSS confirmed; step-01 uses site:thedec.co search."
+
+  # ── Batch 20 (partial) — Approved 2026-10-26 ───────────────────────────────
+
+  - name: InformationWeek
+    url: https://www.informationweek.com
+    rss: null
+    gather_method: search
+    topic: it-consulting
+    trust: med
+    added: 2026-10-26
+    status: active
+    notes: "IT-leader view on agent governance (published the 'identity is only part of the answer' argument, Oct 2026). RSS unconfirmed; step-01 uses site:informationweek.com search. Proposed W44 Batch 20, approved 2026-10-26."
+
+  - name: D CEO (D Magazine)
+    url: https://www.dmagazine.com/publications/d-ceo/
+    rss: null
+    gather_method: search
+    topic: texas-regional
+    trust: med
+    added: 2026-10-26
+    status: active
+    notes: "DFW business leadership coverage beyond data centers and capital markets, per content_steering. RSS unconfirmed; step-01 uses site:dmagazine.com search. Proposed W44 Batch 20, approved 2026-10-26."

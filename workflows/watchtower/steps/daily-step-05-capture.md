@@ -1,7 +1,7 @@
 ---
 status: complete
-started-at: "2026-09-09T00:24:00Z"
-completed-at: "2026-09-09T00:30:00Z"
+started-at: "2026-10-26T14:48:00Z"
+completed-at: "2026-10-26T14:50:00Z"
 ---
 
 <!-- system:start -->
@@ -10,7 +10,7 @@ completed-at: "2026-09-09T00:30:00Z"
 1. Write `status: in-progress` and `started-at` to this file's frontmatter before doing anything else.
 2. Read `config.yaml outputs` section before writing anything to confirm paths and tag names.
 3. Write the Obsidian daily note FIRST, then build the dashboard artifact.
-4. Use the Obsidian MCP server for all vault writes — do NOT write vault files via filesystem tools.
+4. Vault write method: follow `obsidian_write_method` in `state.yaml` (`accumulated-context`).
 5. Do NOT write content drafts here — that is the weekly run's job.
 6. Write `status: complete` and `completed-at` to this file's frontmatter when done; record run outputs in `state.yaml` `accumulated-context`.
 
@@ -61,7 +61,7 @@ completed-at: "2026-09-09T00:30:00Z"
    ```
    Only include topic sections that have items. Append `[content candidate]` after the score line for content-worthy items.
 
-4. Write the note to Obsidian via MCP. Overwrite if re-run on the same day.
+4. Write the note to the vault using the method in rule 4. Overwrite if re-run on the same day.
 
 5. Build the `watchtower_daily` dashboard artifact (HTML widget via `show_widget`):
    - **Through-line banner** at top (prominent — first thing eyes land on).
@@ -82,7 +82,7 @@ completed-at: "2026-09-09T00:30:00Z"
 
 ---
 
-**On failure:** `summarized_items` missing → abort with "[Knox]: Step-04 output missing. Re-run from step-04."; `through_line`/`consulting_read` missing → log, use fallbacks, continue; Obsidian MCP unavailable → write fallback to `workflows/watchtower/fallback/YYYY-MM-DD.md`; zero items → write minimal note (through-line + "No new items today.") and minimal dashboard; dashboard build fails → log, continue (Obsidian note is primary).
+**On failure:** `summarized_items` missing → abort with "[Knox]: Step-04 output missing. Re-run from step-04."; `through_line`/`consulting_read` missing → log, use fallbacks, continue; vault write fails → write fallback to `workflows/watchtower/fallback/YYYY-MM-DD.md`; zero items → write minimal note (through-line + "No new items today.") and minimal dashboard; dashboard build fails → log, continue (Obsidian note is primary).
 
 ---
 

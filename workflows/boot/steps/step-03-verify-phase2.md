@@ -1,7 +1,7 @@
 ---
 status: complete
-started-at: '2026-10-23T13:37:22Z'
-completed-at: '2026-10-23T13:38:25Z'
+started-at: '2026-10-26T14:20:50Z'
+completed-at: '2026-10-26T14:21:30Z'
 ---
 
 <!-- system:start -->
@@ -54,7 +54,7 @@ completed-at: '2026-10-23T13:38:25Z'
    [Instrumentation] Phase 2: {size_kb} KB (~{tokens} tokens) — verification: {clean | N anomalies}
    ```
 
-5. **Update step frontmatter:** `status: complete`, `completed-at` now — Edit tool.
+5. **Update step frontmatter:** `status: complete`, `completed-at` = the real UTC clock time from `date -u +%Y-%m-%dT%H:%M:%SZ` (paste the exact output; never estimate) — Edit tool.
 6. **Update state.yaml:** `current-step: step-04-gather-meeting-context.md` — Edit tool.
 
 ---

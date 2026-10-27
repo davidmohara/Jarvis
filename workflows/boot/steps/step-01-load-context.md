@@ -1,7 +1,7 @@
 ---
 status: complete
-started-at: '2026-10-09T15:47:07Z'
-completed-at: '2026-10-09T15:47:07Z'
+started-at: '2026-10-26T00:00:00Z'
+completed-at: '2026-10-26T00:00:00Z'
 ---
 
 # Step 01: Load Context
@@ -32,4 +32,6 @@ Agent: Knox — run workflows/plaud-ingest/workflow.md. Background, don't wait.
 
 Record knox_spawn status. Dispatch then follows `workflow.md`'s EXECUTION section: spawn the dedicated calendar subagent (step-01.5, tight brief, block on it), then spawn the main boot subagent (steps 01.2 through 08).
 
-**Frontmatter stamping is Master's responsibility for this step.** Because step-01 runs inline with no subagent to stamp it, Master applies the standard write sequence from `reference/workflow-conventions.md` itself: before executing, set `status: in-progress` and `started-at` (current timestamp); after completing, set `status: complete` and `completed-at` — Edit tool, never Bash, so the eval harness attributes the step correctly.
+**Frontmatter stamping is Master's responsibility for this step.** Because step-01 runs inline with no subagent to stamp it, Master applies the standard write sequence from `reference/workflow-conventions.md` itself: before executing, set `status: in-progress` and `started-at`; after completing, set `status: complete` and `completed-at` — Edit tool, never Bash, so the eval harness attributes the step correctly.
+
+For both timestamps, read the real clock first: `date -u +%Y-%m-%dT%H:%M:%SZ`, and paste that exact value. Do not estimate, round to a round minute, or use a midnight placeholder. The 2026-10-26 boot used `2026-10-26T00:00:00Z` here and the eval harness lost step-01 attribution; `boot-verify.py completion` now hard-fails an exact-midnight or future-vs-mtime stamp.

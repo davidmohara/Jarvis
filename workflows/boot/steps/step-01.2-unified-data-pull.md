@@ -1,7 +1,7 @@
 ---
 status: complete
-started-at: '2026-10-23T13:26:00Z'
-completed-at: '2026-10-23T13:29:29Z'
+started-at: '2026-10-26T14:17:00Z'
+completed-at: '2026-10-26T14:22:00Z'
 ---
 
 <!-- system:start -->
@@ -194,7 +194,7 @@ Read `references/execution-guidelines.md` before firing the pulls: parallel-exec
 
 ## Update State
 
-1. **Update step frontmatter:** Set `status: complete` and `completed-at` with current timestamp — with the Edit tool, never Bash (the eval harness's per-step attribution keys on Edit/Write tool calls).
+1. **Update step frontmatter:** Set `status: complete` and `completed-at` to the real UTC clock time from `date -u +%Y-%m-%dT%H:%M:%SZ` (paste the exact output; never estimate or round) — with the Edit tool, never Bash (the eval harness's per-step attribution keys on Edit/Write tool calls).
 2. **Update state.yaml:** Set `current-step: step-02-gather-data.md`.
 
 ---

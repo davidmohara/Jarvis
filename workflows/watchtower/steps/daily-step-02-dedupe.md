@@ -1,7 +1,7 @@
 ---
 status: complete
-started-at: "2026-09-09T00:05:00Z"
-completed-at: "2026-09-09T00:07:00Z"
+started-at: "2026-10-26T14:38:00Z"
+completed-at: "2026-10-26T14:39:00Z"
 ---
 
 <!-- system:start -->
@@ -12,6 +12,7 @@ completed-at: "2026-09-09T00:07:00Z"
 3. Match on BOTH `url` AND `normalized_title` per `config.yaml dedupe.match_on`. An item is a duplicate if EITHER field matches within the lookback window.
 4. Do NOT modify items — drop or keep only. Append NEW items to `seen.jsonl` after filtering, not before.
 5. Write `status: complete` and `completed-at` to this file's frontmatter when done; record run outputs in `state.yaml` `accumulated-context`.
+6. The ledger is append-only. Append with the Edit tool anchored on the last existing line, or Write the complete existing content plus the new lines. Never Write only the new lines (that truncates the ledger). After appending, Grep-count the lines and confirm the total equals the prior total plus `kept_count`; on mismatch, restore the prior lines and retry once.
 
 ---
 

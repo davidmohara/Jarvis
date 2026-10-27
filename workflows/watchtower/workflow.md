@@ -21,10 +21,10 @@ Standing intelligence system. Monitors AI/agentic systems, IT consulting, and Te
 
 | Mode | Trigger | Cadence | Steps |
 |------|---------|---------|-------|
-| **Daily / Awareness** | Invoked by `workflows/morning-briefing/` before step-01-gather-calendar | Every day (via morning briefing) | daily-step-01 through daily-step-07-prune, then daily-step-06 |
+| **Daily / Awareness** | Invoked by `workflows/boot/` step-04.5 (full boot) or by `workflows/morning-briefing/` (standalone briefing) | Once per day, via boot or the morning briefing | daily-step-01 through daily-step-07-prune, then daily-step-06 |
 | **Weekly / Content + Sources** | "run watchtower weekly" or scheduled Monday 7am (pending) | Every Monday | weekly-step-01 through weekly-step-05 |
 
-**Daily cadence note:** The daily run does NOT run as a standalone scheduled task. It is invoked by the morning-briefing workflow. See `config.yaml cadence.daily.enabled: false` and the WATCHTOWER INVOCATION section in `workflows/morning-briefing/workflow.md`.
+**Daily cadence note:** The daily run does NOT run as a standalone scheduled task. It is invoked by boot step-04.5 (`workflows/boot/steps/step-04.5-watchtower-daily-handoff.md`) or by the morning-briefing workflow. See `config.yaml cadence.daily.enabled: false` and the WATCHTOWER INVOCATION section in `workflows/morning-briefing/workflow.md`. The seen.jsonl ledger and `Watchtower/Daily/` notes are written only by this daily run.
 
 Both modes share `state.yaml` and `config.yaml`. Sources live in `sources.yaml`.
 
@@ -50,13 +50,43 @@ Both modes share `state.yaml` and `config.yaml`. Sources live in `sources.yaml`.
 
 Read and follow `reference/state-check-protocol.md` before any execution. Workflow: `watchtower`; agent: `knox`.
 
-**Variant:** on a fresh run, determine the entry mode from the trigger (daily vs weekly) and begin at step-01 for that mode. On abort, surface to David.
+**Variant:** daily and weekly share this `state.yaml`.
+- On a fresh run, determine the entry mode from the trigger (daily vs weekly) and begin at step-01 for that mode. A fresh run in either mode writes only the header fields (`status`, `session-id`, `session-started`, `original-request`, `current-step`) and never clears `accumulated-context`: `content_queue` is append-only until weekly-step-05 clears it, and `obsidian_write_method`, `pending_batches`, and `sources_added_to_registry` persist across runs.
+- `session-id` names the mode: `wt-daily-YYYY-MM-DD`, `wt-weekly-YYYY-Www`. A `status: complete` run whose `session-id` is `wt-daily-<today>` means the daily run already ran today; do not run it again.
+- An `in-progress` run is resumed only when its mode matches the requested mode and `session-started` is under 4 hours old. Otherwise treat it as stale and start fresh in the requested mode.
+- On abort, surface to David.
 
 ---
 
 ## EXECUTION
 
 Run STATE CHECK above, then begin at step-01 for the appropriate mode.
+
+---
+
+## EVAL RECORD (daily run)
+
+The daily run is invoked from inside another workflow (boot step-04.5 or morning-briefing), so it has no user prompt. Before 2026-10-26 that meant it produced no real eval record: its cost was invisible in the parent's totals and the only artifact was a zero-step record quarantined to `runs/_phantoms/` (eval-20261026T142940-SP53MK). Record the run explicitly, the way daily-review and dream-cycle do:
+
+1. **Open the record** at the start of a fresh daily run, after STATE CHECK decides fresh and before `daily-step-01`:
+   ```bash
+   python3 systems/eval-harness/new-eval.py --name watchtower --agent knox \
+     --session-id wt-daily-YYYY-MM-DD --model sonnet
+   ```
+   Write the printed eval id to `workflows/watchtower/state.yaml` top-level `eval_id` (not inside `accumulated-context`).
+
+2. **Close the record** in `daily-step-06`, BEFORE setting `state.yaml status: complete`:
+   ```bash
+   python3 systems/eval-harness/close-eval-record.py --name watchtower --type workflow \
+     --agent knox --status <success|partial|failure> --trigger boot \
+     --started "<session-started from state.yaml>" \
+     --steps "daily-step-01-gather,daily-step-02-dedupe,daily-step-03-score,daily-step-04-summarize,daily-step-04b-synthesize,daily-step-05-capture,daily-step-07-prune,daily-step-06-report"
+   ```
+   The order matters: `post-tool-use.py`'s cowork path creates a zero-step phantom when a state.yaml reaches `status: complete` and no completed record exists. Closing first makes GUARD 1 find the completed watchtower record and skip the phantom.
+
+3. **Failure before daily-step-06:** the invoking step's failure path (boot step-04.5, or morning-briefing's Watchtower call) closes the record with `--status failure --abort-reason <cause>` so it never lingers in-progress. If no record was opened yet, skip the close.
+
+A resumed run reuses the `eval_id` already in `state.yaml`; do not open a second record.
 
 ---
 
@@ -117,7 +147,7 @@ Dormancy rule: a source that surfaces no item clearing `awareness_floor` for 21 
 | `Mind/` (Obsidian) | Weekly step-02 writes `_<slug>.md` draft files |
 | `Watchtower/Daily/` (Obsidian) | Daily step-05 writes `YYYY-MM-DD.md` with `#watchtower` tag |
 | `Watchtower/Weekly/` (Obsidian) | Weekly step-04 writes `YYYY-Www.md` |
-| Morning briefing | Daily run is invoked by morning-briefing before its step-01; top 5 items by score rendered inline as a Watchtower section with link to full dashboard; content candidate count noted |
+| Boot briefing / morning briefing | Daily run is invoked by boot step-04.5 (or by morning-briefing before its step-01); top 5 items by score are returned as `watchtower_output.scored_items` and rendered inline as a Watchtower section with link to full dashboard; content candidate count noted |
 | Slack `#content` (`C0B160MA3EK`) | Weekly step-06 (optional) sends selected draft posts via master-slack skill after David approves them |
 
 Watchtower does NOT publish. It does NOT file vault notes outside its own folders. It feeds Harper's content pipeline and Knox's vault — it does not rebuild either.
