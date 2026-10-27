@@ -41,8 +41,7 @@ PULL_FILES = [
     "calendar-unified.json",
 ]
 
-# Status gate, in true execution order. step-04.5 is deliberately excluded:
-# delta boot skips it, so requiring it here would fail a legitimate delta run.
+# Status gate, in true execution order.
 PRIOR_STEPS = [
     "step-01-load-context",
     "step-01.5-unified-calendar-pull",
@@ -54,9 +53,7 @@ PRIOR_STEPS = [
     "step-06-scan-workflows",
 ]
 
-# Timestamp-integrity gate, in true execution order. Includes step-04.5: on a
-# full boot it must carry a real stamp; on a delta boot its stamp/mtime are from
-# the morning full run and still agree, so the check stays quiet.
+# Timestamp-integrity gate, in true execution order.
 STAMP_STEPS = [
     "step-01-load-context",
     "step-01.5-unified-calendar-pull",
@@ -64,7 +61,6 @@ STAMP_STEPS = [
     "step-02-gather-data",
     "step-03-verify-phase2",
     "step-04-gather-meeting-context",
-    "step-04.5-watchtower-daily-handoff",
     "step-05-synthesize-briefing",
     "step-06-scan-workflows",
 ]
@@ -150,9 +146,9 @@ def check_step_stamps(current_time, record_completed=None):
     """Hard-fail fabricated step timestamps.
 
     The eval harness derives per-step attribution windows from step frontmatter;
-    on the 2026-10-26 boot every step from 04.5 onward was stamped 23-27 minutes
-    later than the file was actually written, which collapsed attribution onto
-    step-04.5 and nulled steps 05-08. A stamp that is ahead of the write that
+    on the 2026-10-26 boot the later steps were stamped 23-27 minutes after the
+    files were actually written, which collapsed per-step attribution and nulled
+    steps 05-08. A stamp that is ahead of the write that
     produced it (the file mtime) cannot be real. Also rejects a stamp in the
     verifier's future and, when supplied, one later than the boot record's own
     completed timestamp.

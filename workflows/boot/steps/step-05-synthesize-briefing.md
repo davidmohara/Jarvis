@@ -1,7 +1,7 @@
 ---
 status: complete
-started-at: '2026-10-26T14:54:00Z'
-completed-at: '2026-10-26T14:56:00Z'
+started-at: '2026-10-27T18:45:10Z'
+completed-at: '2026-10-27T18:54:32Z'
 ---
 
 <!-- system:start -->
@@ -42,12 +42,12 @@ completed-at: '2026-10-26T14:56:00Z'
    - Email triage (Task H) — surface any flagged or time-sensitive messages
    - Jarvis inbox (Task I) — surface any items requiring attention
    - Clay reminders and birthdays from step-04 — include in the briefing
-   - Watchtower (step-04.5) — pass `watchtower_output` to Chief unchanged. Morning-briefing step-04 renders its Watchtower section from `watchtower_output.scored_items` (top 5) and omits the section when the list is empty. Status `ok` and `reused` render normally; `no-items` omits the section; `failed` omits it and is flagged below.
+   - Watchtower — no longer runs during boot (removed 2026-10-27 per err-20261027T184315-93PIYQ; it runs via the standalone morning-briefing workflow or on demand). Omit the briefing's Watchtower section unless a `watchtower_output` block from a same-day standalone run is present in accumulated-context; if present, pass it to Chief unchanged. Morning-briefing step-04 renders the section from `watchtower_output.scored_items` (top 5) and omits it when the list is empty. Status `ok` and `reused` render normally; `no-items` omits the section; `failed` omits it and is flagged below.
 
 3. **Flag any degraded data** — if a Phase 2 task failed, note it in the briefing:
    > ⚠️ [Task name] unavailable — data not included.
 
-   Watchtower counts as a task here: `watchtower_output.status: failed`, a missing `watchtower_output`, or `ledger_check: mismatch` each get one degraded-data line.
+   Watchtower counts as a task here only when a `watchtower_output` block exists in accumulated-context: `watchtower_output.status: failed` or `ledger_check: mismatch` each get one degraded-data line. A missing `watchtower_output` is the expected state and is never flagged.
 
 4. **Hold the finished briefing** — this step runs inside the briefing subagent Master spawned for steps 05 through 08 (see `workflow.md` EXECUTION section), so "deliver to the controller" here means: carry the complete, verbatim briefing text forward through steps 06-08, then include it in full in this subagent's final message. Master relays it to the controller unabridged — it is the primary output of the entire boot sequence. Do not stop early to message the controller directly; continue to step-06.
 

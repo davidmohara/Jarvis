@@ -24,7 +24,7 @@ Read and follow `reference/state-check-protocol.md` before any execution. Workfl
 **Delta mode:** if `status: complete` and `completed-at` is today, boot already ran. Run delta boot instead of a full boot:
 1. Execute step-01 (identity load) normally; skip its Knox spawn entirely.
 2. Execute step-01.5 (calendar pull, via the dedicated calendar subagent brief in the EXECUTION section below) and step-01.2 (unified data pull, via its dedicated data-pull subagent brief in the EXECUTION section below) to refresh `data/`.
-3. Skip steps 02, 03, 04, 04.5, 06, 08. Watchtower is a once-a-day run; delta boot never starts it.
+3. Skip steps 02, 03, 04, 06, 08.
 4. Produce a short delta briefing: what changed since this morning's boot (new flagged email, new inbox items, calendar changes, newly due/overdue tasks). No re-synthesis of unchanged sections.
 5. Run step-07 to close. Delta boot target cost is under 20% of a full boot.
 
@@ -41,7 +41,7 @@ Read and follow `reference/state-check-protocol.md` before any execution. Workfl
 
 ## EXECUTION
 
-**Dispatch model:** every workflow step below runs as a spawned sub-agent, never inline in Master's own session — the same rule that applies everywhere else in IES (e.g. Knox running `plaud-ingest`) applies here too, with exactly one deliberate exception (step-01, below) and a set of tightly-scoped single-purpose spawns covering every data/gather/verify step (01.5, 01.2, 02, 03, 04) and the Watchtower hand-off (04.5).
+**Dispatch model:** every workflow step below runs as a spawned sub-agent, never inline in Master's own session — the same rule that applies everywhere else in IES (e.g. Knox running `plaud-ingest`) applies here too, with exactly one deliberate exception (step-01, below) and a set of tightly-scoped single-purpose spawns covering every data/gather/verify step (01.5, 01.2, 02, 03, 04).
 
 **Exception — step-01 only.** Step-01 loads `agents/master.md`, `SYSTEM.md`, the identity files, and `agents/routing.md` into Master's own live context; a subagent's context evaporates when it stops and cannot be deposited into Master's session.
 So Master executes step-01 directly, in the main session, exactly as written in `steps/step-01-load-context.md`.
@@ -92,21 +92,13 @@ Two reasons this spawn prompt is shaped exactly this way. First, the literal `wo
 >
 > That step file is your entire mandate. Do not read or execute any other step file. Return to the coordinator with meetings-with-context, the Clay outcome, yesterday's review status, and any failure.
 
-**Step 04.5 — Watchtower daily hand-off** (spawn after step-04 returns; model `sonnet`, Knox executing the Watchtower daily steps). This is the only place a full boot starts the Watchtower daily run; the run feeds the briefing's Watchtower section and is the sole writer of `workflows/watchtower/seen.jsonl` and the Obsidian `Watchtower/Daily/` notes. It never blocks the briefing: every failure path completes the step with `watchtower_output.status: failed`.
-
-> Single-purpose Watchtower daily hand-off for step-04.5 of `workflows/boot/workflow.md`. You are NOT loading any persona file or `SYSTEM.md` beyond what the Watchtower daily steps name (`identity/VOICE.md`, `identity/MEMORY.md`) — your mandate is one ran-today check, then (only if it has not run today) the Watchtower daily run, then exit.
->
-> Read `workflows/boot/steps/step-04.5-watchtower-daily-handoff.md` and execute exactly its YOUR TASK section: the ran-today check first, then `workflows/watchtower/workflow.md` in daily mode (`daily-step-01` through `daily-step-05`, `daily-step-07`, `daily-step-06`), the ledger verification, and `watchtower_output` recorded in `workflows/boot/state.yaml` `accumulated-context`. State and frontmatter updates go through the Edit/Write tools, never Bash. Never block on failure: record it and complete the step.
->
-> That step file plus the Watchtower daily steps are your entire mandate. Do not read or execute any other boot step file, any morning-briefing file, or any Watchtower weekly step. Return to the coordinator with a one-line status: `watchtower_output.status`, items surfaced, content candidates, `ledger_check`, the eval id, the Obsidian note path, and any failure.
-
-**Steps 05 through 08 — exactly one briefing subagent.** Spawn it only after the step-04.5 subagent has returned and completed, not fire-and-forget. Its mandate is steps 05, 06, 07, and 08 and nothing else. Step-04.5 is never folded into this agent: the 2026-10-26 boot merged 04.5 through 08 into one agent (eval-20261026T142403-LHF7TO, 4.65M input, 38% of the run) because the spawn wording let the executor absorb 04.5.
+**Steps 05 through 08 — exactly one briefing subagent.** Spawn it only after the step-04 subagent has returned and completed, not fire-and-forget. Its mandate is steps 05, 06, 07, and 08 and nothing else.
 
 > Single-purpose briefing pass for steps 05 through 08 of `workflows/boot/workflow.md`. You are Master, running mid-boot: `state.yaml` is `in-progress`.
 >
 > Your mandate is exactly four steps, in order: `step-05-synthesize-briefing.md`, `step-06-scan-workflows.md`, `step-07-verify-completion.md`, `step-08-knox-completion-check.md`. Execute each per its own YOUR TASK section, including the guardrail-checkpoint/retry/punch-out behavior described in the workflow file.
 >
-> **Do NOT execute step-04.5 (Watchtower daily hand-off).** It already ran as its own dedicated subagent before you were spawned. Do not read `step-04.5-watchtower-daily-handoff.md`, do not run the Watchtower daily pipeline, and do not re-run or re-pull steps 01.5, 01.2, 02, 03, or 04. If `current-step` in `state.yaml` still points at step-04.5 or earlier, do not execute that step: return to the coordinator with a one-line mismatch report instead.
+> **Do NOT re-run or re-pull steps 01.5, 01.2, 02, 03, or 04.** They already ran as dedicated single-purpose subagents before you were spawned. Watchtower no longer runs as part of boot (removed 2026-10-27, err-20261027T184315-93PIYQ) — do not run the Watchtower daily pipeline. If `current-step` in `state.yaml` still points at step-04 or earlier, do not execute that step: return to the coordinator with a one-line mismatch report instead.
 >
 > Timestamps: read the real clock with `date -u +%Y-%m-%dT%H:%M:%SZ` at each write. Never estimate, round, or backfill.
 >
@@ -120,7 +112,7 @@ Additional rules:
 
 **File-tool rule for every spawned executor:** state.yaml and step-frontmatter updates go through the Edit/Write tools, never Bash redirection or heredocs. The eval harness's per-step attribution keys on Edit/Write tool calls; the 2026-10-22 boot executor did everything through 42 Bash calls and left zero per-step records.
 
-**Timestamp rule for every spawned executor:** `started-at` and `completed-at` are the real clock reading from `date -u +%Y-%m-%dT%H:%M:%SZ`, pasted exactly. Never estimate, round to a convenient minute, backfill after the fact, or use a midnight placeholder. Attribution windows are derived from these stamps: the 2026-10-26 run stamped steps 04.5-08 23-27 minutes later than the files were actually written, which collapsed attribution onto step-04.5 and nulled steps 05-08. `boot-verify.py completion` now treats a stamp ahead of the file's write time as a hard error.
+**Timestamp rule for every spawned executor:** `started-at` and `completed-at` are the real clock reading from `date -u +%Y-%m-%dT%H:%M:%SZ`, pasted exactly. Never estimate, round to a convenient minute, backfill after the fact, or use a midnight placeholder. Attribution windows are derived from these stamps: the 2026-10-26 run stamped its later steps 23-27 minutes after the files were actually written, which collapsed per-step attribution and nulled steps 05-08. `boot-verify.py completion` now treats a stamp ahead of the file's write time as a hard error.
 
 ### Steps
 
@@ -132,11 +124,10 @@ Additional rules:
 | 4 | `step-02-gather-data.md` | step-02-checkpoint | dedicated gather subagent (tight brief above) |
 | 5 | `step-03-verify-phase2.md` (measure + verify, script-first via `verify/boot-verify.py phase2`; Ralph only on anomaly) | step-03-checkpoint | dedicated verify subagent (tight brief above) |
 | 6 | `step-04-gather-meeting-context.md` | step-04-checkpoint | dedicated meeting-context subagent (tight brief above) |
-| 7 | `step-04.5-watchtower-daily-handoff.md` (once-a-day, never blocks the briefing) | — | dedicated Watchtower hand-off subagent (tight brief above) |
-| 8 | `step-05-synthesize-briefing.md` | step-05-checkpoint | briefing subagent (steps 05-08) |
-| 9 | `step-06-scan-workflows.md` | step-06-checkpoint | briefing subagent (steps 05-08) |
-| 10 | `step-07-verify-completion.md` (guardrail review + completion gate, script-first via `verify/boot-verify.py completion`) | step-07-checkpoint | briefing subagent (steps 05-08) |
-| 11 | `step-08-knox-completion-check.md` | — | briefing subagent (steps 05-08) |
+| 7 | `step-05-synthesize-briefing.md` | step-05-checkpoint | briefing subagent (steps 05-08) |
+| 8 | `step-06-scan-workflows.md` | step-06-checkpoint | briefing subagent (steps 05-08) |
+| 9 | `step-07-verify-completion.md` (guardrail review + completion gate, script-first via `verify/boot-verify.py completion`) | step-07-checkpoint | briefing subagent (steps 05-08) |
+| 10 | `step-08-knox-completion-check.md` | — | briefing subagent (steps 05-08) |
 
 Former step-02.5 (measure) and step-06.5 (guardrail checkpoint) were merged into step-03 and step-07 on 2026-10-20; their mechanics now run as `verify/boot-verify.py` subprocesses instead of LLM subagent work.
 

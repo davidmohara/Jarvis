@@ -1,12 +1,13 @@
 ---
 status: complete
-started-at: '2026-10-26T14:58:10Z'
-completed-at: '2026-10-26T14:58:40Z'
+started-at: '2026-10-27T18:56:50Z'
+completed-at: '2026-10-27T18:57:11Z'
 knox_status: success
-knox_reason: 'eval record eval-20261026T141644-ES64TT (agent knox, plaud-ingest)
-  status no-op; completed 2026-10-26T14:16:44Z with no-new-recordings, 0 staged,
-  0 ingested, 0 skipped. plaud-discover eval-20261026T141650-CV37G4 also success.'
-knox_eval_id: eval-20261026T141644-ES64TT
+knox_reason: 'eval record eval-20261027T145714-8SDUBS (agent knox, plaud-ingest)
+  status success; completed 2026-10-27T15:12:18Z — 4 recordings ingested to vault;
+  step-06 verify in eval-20261027T151335-U0RAKB success; plaud-discover
+  eval-20261027T151154-IIV641 also success.'
+knox_eval_id: eval-20261027T145714-8SDUBS
 ---
 
 <!-- system:start -->
