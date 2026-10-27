@@ -1,128 +1,128 @@
 {
-  "id": "eval-20261027T180953-05NF9D",
-  "agent_id": "a9e0d66ae92728bf7",
-  "type": "agent",
-  "name": "general-purpose",
-  "workflow": "boot",
-  "agent": "master",
-  "owning_agent": "master",
-  "subagent_type": "general-purpose",
-  "session_id": "c7f0fef9-0b56-4d6a-ab45-ba1d8b876872",
-  "trigger": "unknown",
-  "model": "accounts/fireworks/models/kimi-k3",
-  "model_source": "subagent-transcript",
-  "started": "2026-10-27T18:09:53.463239Z",
-  "completed": "2026-10-27T18:14:43.318780Z",
-  "duration_seconds": 289.86,
-  "status": "partial",
-  "steps": [
-    {
-      "name": "step-01.2-unified-data-pull.md",
-      "agent": "general-purpose",
-      "step_id": "step-01.2-unified-data-pull.md",
-      "owning_agent": "general-purpose",
-      "started": "2026-10-27T18:10:00Z",
-      "completed": "2026-10-27T18:13:46Z",
-      "status": "complete",
-      "tokens_input": 322130,
-      "tokens_output": 4734,
-      "cost_usd": 0.321487,
-      "model": "accounts/fireworks/models/kimi-k3",
-      "token_source": "windowed",
-      "turns_matched": 7,
-      "turns_with_usage": 7,
-      "duration_seconds": 226.0
-    }
-  ],
-  "assessment": {
-    "mechanical": {
-      "completed": true,
-      "all_steps_finished": true,
-      "tool_failures": 1,
-      "error_ids": []
-    },
-    "structural": {
-      "expected_outputs_written": null,
-      "outputs_non_empty": null,
-      "assertions_checked": 0,
-      "assertions_passed": 0,
-      "assertion_results": []
-    },
-    "grading": {
-      "last_graded": null,
-      "grade": null,
-      "safety_grade": null,
-      "grader_notes": null
-    },
-    "controller_feedback": {
-      "rating": null,
-      "comment": null,
-      "timestamp": null
-    },
-    "bias_assessment": {
-      "applicable": false,
-      "protected_attributes": [],
-      "fairness_metric": null,
-      "demographic_coverage_verified": false,
-      "adversarial_inputs_tested": false,
-      "bias_detected": false,
-      "bias_flags": [],
-      "remediation_status": "none"
-    }
+ "id": "eval-20261027T180953-05NF9D",
+ "agent_id": "a9e0d66ae92728bf7",
+ "type": "agent",
+ "name": "general-purpose",
+ "workflow": "boot",
+ "agent": "master",
+ "owning_agent": "master",
+ "subagent_type": "general-purpose",
+ "session_id": "c7f0fef9-0b56-4d6a-ab45-ba1d8b876872",
+ "trigger": "unknown",
+ "model": "accounts/fireworks/models/kimi-k3",
+ "model_source": "subagent-transcript",
+ "started": "2026-10-27T18:09:53.463239Z",
+ "completed": "2026-10-27T18:14:43.318780Z",
+ "duration_seconds": 289.86,
+ "status": "partial",
+ "steps": [
+  {
+   "name": "step-01.2-unified-data-pull.md",
+   "agent": "general-purpose",
+   "step_id": "step-01.2-unified-data-pull.md",
+   "owning_agent": "general-purpose",
+   "started": "2026-10-27T18:10:00Z",
+   "completed": "2026-10-27T18:13:46Z",
+   "status": "complete",
+   "tokens_input": 322130,
+   "tokens_output": 4734,
+   "cost_usd": 0.321487,
+   "model": "accounts/fireworks/models/kimi-k3",
+   "token_source": "windowed",
+   "turns_matched": 7,
+   "turns_with_usage": 7,
+   "duration_seconds": 226.0
+  }
+ ],
+ "assessment": {
+  "mechanical": {
+   "completed": true,
+   "all_steps_finished": true,
+   "tool_failures": 1,
+   "error_ids": []
   },
-  "version_hash": null,
-  "prior_baseline_id": null,
-  "tags": [],
-  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/c7f0fef9-0b56-4d6a-ab45-ba1d8b876872/subagents/agent-a9e0d66ae92728bf7.jsonl",
-  "total_tokens_input": 496400,
-  "total_tokens_output": 6016,
-  "total_cost_usd": 0.397742,
-  "token_source": "subagent-transcript",
-  "guardrails": [
-    {
-      "name": "step-01.2-unified-data-pull-checkpoint",
-      "after_step": "step-01.2-unified-data-pull.md",
-      "result": "pass",
-      "reason": "All 4 unified data files present and fresh",
-      "escalated_to_human": false,
-      "timestamp": "2026-10-27T18:14:43.629811Z",
-      "validation_errors": [],
-      "computed_fields": {
-        "files_created": [
-          "data/email-unified.json",
-          "data/omnifocus-unified.json",
-          "data/clay-reminders-unified.json",
-          "data/jarvis-inbox-unified.json"
-        ],
-        "files_missing": [],
-        "files_stale": [],
-        "file_status": {
-          "data/email-unified.json": "fresh (0.0h old)",
-          "data/omnifocus-unified.json": "fresh (0.1h old)",
-          "data/clay-reminders-unified.json": "fresh (0.0h old)",
-          "data/jarvis-inbox-unified.json": "fresh (0.0h old)"
-        }
-      }
-    }
-  ],
-  "parent_window": {
-    "token_source": "parent-window",
-    "transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/c7f0fef9-0b56-4d6a-ab45-ba1d8b876872.jsonl",
-    "window_start": "2026-10-27T18:09:53.463239Z",
-    "window_end": "2026-10-27T18:14:43.318780Z",
-    "model": "accounts/fireworks/models/ember-1",
-    "tokens_input": 171057,
-    "tokens_output": 93,
-    "cost_usd": null,
-    "turns_matched": 1,
-    "turns_with_usage": 1,
-    "computed_at": "2026-10-27T18:14:45.968150Z",
-    "unpriced_models": [
-      "accounts/fireworks/models/ember-1"
-    ]
+  "structural": {
+   "expected_outputs_written": null,
+   "outputs_non_empty": null,
+   "assertions_checked": 0,
+   "assertions_passed": 0,
+   "assertion_results": []
   },
-  "fully_loaded_cost_usd": 0.397742,
-  "fully_loaded_tokens_input": 667457,
-  "fully_loaded_tokens_output": 6109,
-  "fully_loaded_note": "parent window contains unpriced model(s) ['accounts/fireworks/models/ember-1']; their tokens are in the token sums but not in cost_usd"
+  "grading": {
+   "last_graded": "2026-10-27T23:09:18Z",
+   "grade": "B",
+   "safety_grade": null,
+   "grader_notes": "All five unified data pulls written and verified on disk. Partial status appears to be an attribution artifact; the output files fed a successful briefing."
+  },
+  "controller_feedback": {
+   "rating": null,
+   "comment": null,
+   "timestamp": null
+  },
+  "bias_assessment": {
+   "applicable": false,
+   "protected_attributes": [],
+   "fairness_metric": null,
+   "demographic_coverage_verified": false,
+   "adversarial_inputs_tested": false,
+   "bias_detected": false,
+   "bias_flags": [],
+   "remediation_status": "none"
+  }
+ },
+ "version_hash": null,
+ "prior_baseline_id": null,
+ "tags": [],
+ "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/c7f0fef9-0b56-4d6a-ab45-ba1d8b876872/subagents/agent-a9e0d66ae92728bf7.jsonl",
+ "total_tokens_input": 496400,
+ "total_tokens_output": 6016,
+ "total_cost_usd": 0.397742,
+ "token_source": "subagent-transcript",
+ "guardrails": [
+  {
+   "name": "step-01.2-unified-data-pull-checkpoint",
+   "after_step": "step-01.2-unified-data-pull.md",
+   "result": "pass",
+   "reason": "All 4 unified data files present and fresh",
+   "escalated_to_human": false,
+   "timestamp": "2026-10-27T18:14:43.629811Z",
+   "validation_errors": [],
+   "computed_fields": {
+    "files_created": [
+     "data/email-unified.json",
+     "data/omnifocus-unified.json",
+     "data/clay-reminders-unified.json",
+     "data/jarvis-inbox-unified.json"
+    ],
+    "files_missing": [],
+    "files_stale": [],
+    "file_status": {
+     "data/email-unified.json": "fresh (0.0h old)",
+     "data/omnifocus-unified.json": "fresh (0.1h old)",
+     "data/clay-reminders-unified.json": "fresh (0.0h old)",
+     "data/jarvis-inbox-unified.json": "fresh (0.0h old)"
+    }
+   }
+  }
+ ],
+ "parent_window": {
+  "token_source": "parent-window",
+  "transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/c7f0fef9-0b56-4d6a-ab45-ba1d8b876872.jsonl",
+  "window_start": "2026-10-27T18:09:53.463239Z",
+  "window_end": "2026-10-27T18:14:43.318780Z",
+  "model": "accounts/fireworks/models/ember-1",
+  "tokens_input": 171057,
+  "tokens_output": 93,
+  "cost_usd": null,
+  "turns_matched": 1,
+  "turns_with_usage": 1,
+  "computed_at": "2026-10-27T18:14:45.968150Z",
+  "unpriced_models": [
+   "accounts/fireworks/models/ember-1"
+  ]
+ },
+ "fully_loaded_cost_usd": 0.397742,
+ "fully_loaded_tokens_input": 667457,
+ "fully_loaded_tokens_output": 6109,
+ "fully_loaded_note": "parent window contains unpriced model(s) ['accounts/fireworks/models/ember-1']; their tokens are in the token sums but not in cost_usd"
 }

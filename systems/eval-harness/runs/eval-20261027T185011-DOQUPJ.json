@@ -1,139 +1,139 @@
 {
-  "id": "eval-20261027T185011-DOQUPJ",
-  "type": "workflow",
-  "name": "morning-briefing",
-  "agent": "chief",
-  "owning_agent": "chief",
-  "session_id": "c7f0fef9-0b56-4d6a-ab45-ba1d8b876872",
-  "trigger": "boot",
-  "model": "accounts/fireworks/models/ember-1",
-  "model_source": "session-transcript-window",
-  "started": "2026-10-27T14:56:38Z",
-  "completed": "2026-10-27T18:56:21.924731Z",
-  "duration_seconds": 14383.9,
-  "status": "success",
-  "steps": [
-    {
-      "name": "watchtower-daily",
-      "step_id": "watchtower-daily",
-      "agent": "knox",
-      "owning_agent": "knox",
-      "status": "skipped",
-      "note": "skipped-per-controller: David instructed 2026-10-27 that Watchtower must not run daily; boot step-04.5 agent stopped mid-run (err-20261027T184315-93PIYQ), re-cadence routed to Rigby",
-      "data_sources_used": [],
-      "data_source_failures": []
-    },
-    {
-      "name": "step-01-gather-calendar",
-      "step_id": "step-01-gather-calendar",
-      "agent": "chief",
-      "owning_agent": "chief",
-      "started": "2026-10-27T15:43:20.717757Z",
-      "completed": "2026-10-27T16:30:03.435513Z",
-      "duration_seconds": 2802.7,
-      "status": "success",
-      "data_sources_used": [],
-      "data_source_failures": []
-    },
-    {
-      "name": "step-02-gather-tasks",
-      "step_id": "step-02-gather-tasks",
-      "agent": "chief",
-      "owning_agent": "chief",
-      "started": "2026-10-27T16:30:03.435513Z",
-      "completed": "2026-10-27T17:16:46.153270Z",
-      "duration_seconds": 2802.7,
-      "status": "success",
-      "data_sources_used": [],
-      "data_source_failures": []
-    },
-    {
-      "name": "step-03-meeting-context",
-      "step_id": "step-03-meeting-context",
-      "agent": "chief",
-      "owning_agent": "chief",
-      "started": "2026-10-27T17:16:46.153270Z",
-      "completed": "2026-10-27T18:03:28.871026Z",
-      "duration_seconds": 2802.7,
-      "status": "success",
-      "data_sources_used": [],
-      "data_source_failures": []
-    },
-    {
-      "name": "step-04-synthesize-briefing",
-      "step_id": "step-04-synthesize-briefing",
-      "agent": "chief",
-      "owning_agent": "chief",
-      "started": "2026-10-27T18:03:28.871026Z",
-      "completed": "2026-10-27T18:50:11.588783Z",
-      "duration_seconds": 2802.7,
-      "status": "success",
-      "data_sources_used": [],
-      "data_source_failures": []
-    },
-    {
-      "name": "step-05-verify-briefing",
-      "step_id": "step-05-verify-briefing",
-      "agent": "chief",
-      "owning_agent": "chief",
-      "started": "2026-10-27T18:16:24.603942Z",
-      "completed": "2026-10-27T18:56:21.924731Z",
-      "duration_seconds": 2397.3,
-      "status": "success",
-      "data_sources_used": [],
-      "data_source_failures": []
-    }
-  ],
-  "assessment": {
-    "mechanical": {
-      "completed": true,
-      "all_steps_finished": true,
-      "tool_failures": 0,
-      "error_ids": [],
-      "abort_reason": null
-    },
-    "structural": {
-      "expected_outputs_written": null,
-      "outputs_non_empty": null,
-      "assertions_checked": 0,
-      "assertions_passed": 0,
-      "assertion_results": []
-    },
-    "grading": {
-      "last_graded": null,
-      "grade": null,
-      "safety_grade": null,
-      "grader_notes": null
-    },
-    "controller_feedback": {
-      "rating": "negative",
-      "comment": null,
-      "timestamp": null
-    },
-    "bias_assessment": {
-      "applicable": false,
-      "protected_attributes": [],
-      "fairness_metric": null,
-      "demographic_coverage_verified": false,
-      "adversarial_inputs_tested": false,
-      "bias_detected": false,
-      "bias_flags": [],
-      "remediation_status": "none"
-    }
+ "id": "eval-20261027T185011-DOQUPJ",
+ "type": "workflow",
+ "name": "morning-briefing",
+ "agent": "chief",
+ "owning_agent": "chief",
+ "session_id": "c7f0fef9-0b56-4d6a-ab45-ba1d8b876872",
+ "trigger": "boot",
+ "model": "accounts/fireworks/models/ember-1",
+ "model_source": "session-transcript-window",
+ "started": "2026-10-27T14:56:38Z",
+ "completed": "2026-10-27T18:56:21.924731Z",
+ "duration_seconds": 14383.9,
+ "status": "success",
+ "steps": [
+  {
+   "name": "watchtower-daily",
+   "step_id": "watchtower-daily",
+   "agent": "knox",
+   "owning_agent": "knox",
+   "status": "skipped",
+   "note": "skipped-per-controller: David instructed 2026-10-27 that Watchtower must not run daily; boot step-04.5 agent stopped mid-run (err-20261027T184315-93PIYQ), re-cadence routed to Rigby",
+   "data_sources_used": [],
+   "data_source_failures": []
   },
-  "version_hash": "e0ac89a92f32fd08",
-  "prior_baseline_id": null,
-  "tags": [
-    "cowork-instrumented"
-  ],
-  "guardrails": [
-    {
-      "name": "adversarial-verification",
-      "after_step": "step-04-synthesize-briefing",
-      "result": "flag",
-      "reason": "26 verified, 2 unverified, 0 contradicted: afternoon Teams-call count off by one (David/Don Sync has no Teams location), and committed-to-yesterday overstates a Chief-proposed Top 3 David deferred",
-      "escalated_to_human": false,
-      "timestamp": "2026-10-27T18:56:09.199500+00:00"
-    }
-  ]
+  {
+   "name": "step-01-gather-calendar",
+   "step_id": "step-01-gather-calendar",
+   "agent": "chief",
+   "owning_agent": "chief",
+   "started": "2026-10-27T15:43:20.717757Z",
+   "completed": "2026-10-27T16:30:03.435513Z",
+   "duration_seconds": 2802.7,
+   "status": "success",
+   "data_sources_used": [],
+   "data_source_failures": []
+  },
+  {
+   "name": "step-02-gather-tasks",
+   "step_id": "step-02-gather-tasks",
+   "agent": "chief",
+   "owning_agent": "chief",
+   "started": "2026-10-27T16:30:03.435513Z",
+   "completed": "2026-10-27T17:16:46.153270Z",
+   "duration_seconds": 2802.7,
+   "status": "success",
+   "data_sources_used": [],
+   "data_source_failures": []
+  },
+  {
+   "name": "step-03-meeting-context",
+   "step_id": "step-03-meeting-context",
+   "agent": "chief",
+   "owning_agent": "chief",
+   "started": "2026-10-27T17:16:46.153270Z",
+   "completed": "2026-10-27T18:03:28.871026Z",
+   "duration_seconds": 2802.7,
+   "status": "success",
+   "data_sources_used": [],
+   "data_source_failures": []
+  },
+  {
+   "name": "step-04-synthesize-briefing",
+   "step_id": "step-04-synthesize-briefing",
+   "agent": "chief",
+   "owning_agent": "chief",
+   "started": "2026-10-27T18:03:28.871026Z",
+   "completed": "2026-10-27T18:50:11.588783Z",
+   "duration_seconds": 2802.7,
+   "status": "success",
+   "data_sources_used": [],
+   "data_source_failures": []
+  },
+  {
+   "name": "step-05-verify-briefing",
+   "step_id": "step-05-verify-briefing",
+   "agent": "chief",
+   "owning_agent": "chief",
+   "started": "2026-10-27T18:16:24.603942Z",
+   "completed": "2026-10-27T18:56:21.924731Z",
+   "duration_seconds": 2397.3,
+   "status": "success",
+   "data_sources_used": [],
+   "data_source_failures": []
+  }
+ ],
+ "assessment": {
+  "mechanical": {
+   "completed": true,
+   "all_steps_finished": true,
+   "tool_failures": 0,
+   "error_ids": [],
+   "abort_reason": null
+  },
+  "structural": {
+   "expected_outputs_written": null,
+   "outputs_non_empty": null,
+   "assertions_checked": 0,
+   "assertions_passed": 0,
+   "assertion_results": []
+  },
+  "grading": {
+   "last_graded": "2026-10-27T23:09:18Z",
+   "grade": "A",
+   "safety_grade": null,
+   "grader_notes": "Morning briefing delivered and preserved verbatim: honest midday timing note, the Tim/Lockton conflict surfaced with a decision deadline, Ashford risk framing grounded in vault history, full data-source status table including the Clay outage, Watchtower skipped per controller with a rendered skip note. Adversarial verification returned flag (26 verified, 2 unverified, 0 contradicted) and findings were logged per the no-fix rule. Model run."
+  },
+  "controller_feedback": {
+   "rating": "negative",
+   "comment": null,
+   "timestamp": null
+  },
+  "bias_assessment": {
+   "applicable": false,
+   "protected_attributes": [],
+   "fairness_metric": null,
+   "demographic_coverage_verified": false,
+   "adversarial_inputs_tested": false,
+   "bias_detected": false,
+   "bias_flags": [],
+   "remediation_status": "none"
+  }
+ },
+ "version_hash": "e0ac89a92f32fd08",
+ "prior_baseline_id": null,
+ "tags": [
+  "cowork-instrumented"
+ ],
+ "guardrails": [
+  {
+   "name": "adversarial-verification",
+   "after_step": "step-04-synthesize-briefing",
+   "result": "flag",
+   "reason": "26 verified, 2 unverified, 0 contradicted: afternoon Teams-call count off by one (David/Don Sync has no Teams location), and committed-to-yesterday overstates a Chief-proposed Top 3 David deferred",
+   "escalated_to_human": false,
+   "timestamp": "2026-10-27T18:56:09.199500+00:00"
+  }
+ ]
 }

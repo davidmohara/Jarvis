@@ -1,79 +1,79 @@
 {
-  "id": "eval-20261027T152306-SHSCEE",
-  "agent_id": "a002c3dba8257093d",
-  "type": "agent",
-  "name": "general-purpose",
-  "workflow": null,
-  "agent": "general-purpose",
-  "owning_agent": null,
-  "subagent_type": "general-purpose",
-  "session_id": "c7f0fef9-0b56-4d6a-ab45-ba1d8b876872",
-  "trigger": "unknown",
-  "model": "accounts/fireworks/models/kimi-k3",
-  "model_source": "subagent-transcript",
-  "started": "2026-10-27T15:23:06.917577Z",
-  "completed": "2026-10-27T15:29:30.713704Z",
-  "duration_seconds": 383.8,
-  "status": "partial",
-  "steps": [],
-  "assessment": {
-    "mechanical": {
-      "completed": true,
-      "all_steps_finished": true,
-      "tool_failures": 6,
-      "error_ids": []
-    },
-    "structural": {
-      "expected_outputs_written": null,
-      "outputs_non_empty": null,
-      "assertions_checked": 0,
-      "assertions_passed": 0,
-      "assertion_results": []
-    },
-    "grading": {
-      "last_graded": null,
-      "grade": null,
-      "safety_grade": null,
-      "grader_notes": null
-    },
-    "controller_feedback": {
-      "rating": null,
-      "comment": null,
-      "timestamp": null
-    },
-    "bias_assessment": {
-      "applicable": false,
-      "protected_attributes": [],
-      "fairness_metric": null,
-      "demographic_coverage_verified": false,
-      "adversarial_inputs_tested": false,
-      "bias_detected": false,
-      "bias_flags": [],
-      "remediation_status": "none"
-    }
+ "id": "eval-20261027T152306-SHSCEE",
+ "agent_id": "a002c3dba8257093d",
+ "type": "agent",
+ "name": "general-purpose",
+ "workflow": null,
+ "agent": "general-purpose",
+ "owning_agent": null,
+ "subagent_type": "general-purpose",
+ "session_id": "c7f0fef9-0b56-4d6a-ab45-ba1d8b876872",
+ "trigger": "unknown",
+ "model": "accounts/fireworks/models/kimi-k3",
+ "model_source": "subagent-transcript",
+ "started": "2026-10-27T15:23:06.917577Z",
+ "completed": "2026-10-27T15:29:30.713704Z",
+ "duration_seconds": 383.8,
+ "status": "partial",
+ "steps": [],
+ "assessment": {
+  "mechanical": {
+   "completed": true,
+   "all_steps_finished": true,
+   "tool_failures": 6,
+   "error_ids": []
   },
-  "version_hash": null,
-  "prior_baseline_id": null,
-  "tags": [],
-  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/c7f0fef9-0b56-4d6a-ab45-ba1d8b876872/subagents/agent-a002c3dba8257093d.jsonl",
-  "total_tokens_input": 672055,
-  "total_tokens_output": 9408,
-  "total_cost_usd": 0.51653,
-  "token_source": "subagent-transcript",
-  "parent_window": {
-    "token_source": "parent-window",
-    "transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/c7f0fef9-0b56-4d6a-ab45-ba1d8b876872.jsonl",
-    "window_start": "2026-10-27T15:23:06.917577Z",
-    "window_end": "2026-10-27T15:29:30.713704Z",
-    "model": "glm-5p3",
-    "tokens_input": 291061,
-    "tokens_output": 972,
-    "cost_usd": 0.036919,
-    "turns_matched": 3,
-    "turns_with_usage": 3,
-    "computed_at": "2026-10-27T15:29:31.006166Z"
+  "structural": {
+   "expected_outputs_written": null,
+   "outputs_non_empty": null,
+   "assertions_checked": 0,
+   "assertions_passed": 0,
+   "assertion_results": []
   },
-  "fully_loaded_cost_usd": 0.553449,
-  "fully_loaded_tokens_input": 963116,
-  "fully_loaded_tokens_output": 10380
+  "grading": {
+   "last_graded": "2026-10-27T23:09:18Z",
+   "grade": "B",
+   "safety_grade": null,
+   "grader_notes": "The delivered prep sheet (meetings/2026-10-27-david-evans-sentiero-lunch.md) is excellent: full relationship timeline rebuilt from the email record, honest 'first one-on-one' framing, listen-don't-pitch guidance, day logistics with the 12:25 hard stop. Record status is partial with no documented gap; likely a handback/timing artifact. Output quality is A-grade."
+  },
+  "controller_feedback": {
+   "rating": null,
+   "comment": null,
+   "timestamp": null
+  },
+  "bias_assessment": {
+   "applicable": false,
+   "protected_attributes": [],
+   "fairness_metric": null,
+   "demographic_coverage_verified": false,
+   "adversarial_inputs_tested": false,
+   "bias_detected": false,
+   "bias_flags": [],
+   "remediation_status": "none"
+  }
+ },
+ "version_hash": null,
+ "prior_baseline_id": null,
+ "tags": [],
+ "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/c7f0fef9-0b56-4d6a-ab45-ba1d8b876872/subagents/agent-a002c3dba8257093d.jsonl",
+ "total_tokens_input": 672055,
+ "total_tokens_output": 9408,
+ "total_cost_usd": 0.51653,
+ "token_source": "subagent-transcript",
+ "parent_window": {
+  "token_source": "parent-window",
+  "transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/c7f0fef9-0b56-4d6a-ab45-ba1d8b876872.jsonl",
+  "window_start": "2026-10-27T15:23:06.917577Z",
+  "window_end": "2026-10-27T15:29:30.713704Z",
+  "model": "glm-5p3",
+  "tokens_input": 291061,
+  "tokens_output": 972,
+  "cost_usd": 0.036919,
+  "turns_matched": 3,
+  "turns_with_usage": 3,
+  "computed_at": "2026-10-27T15:29:31.006166Z"
+ },
+ "fully_loaded_cost_usd": 0.553449,
+ "fully_loaded_tokens_input": 963116,
+ "fully_loaded_tokens_output": 10380
 }

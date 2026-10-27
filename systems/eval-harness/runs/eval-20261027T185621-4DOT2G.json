@@ -1,90 +1,91 @@
 {
-  "id": "eval-20261027T185621-4DOT2G",
-  "type": "skill",
-  "name": "rigby-impact",
-  "agent": "unknown",
-  "session_id": "c7f0fef9-0b56-4d6a-ab45-ba1d8b876872",
-  "trigger": "boot",
-  "model": "accounts/fireworks/models/ember-1",
-  "model_source": "session-transcript-window",
-  "started": "2026-10-27T18:45:56.927006Z",
-  "completed": "2026-10-27T18:56:21.460631Z",
-  "duration_seconds": 624.5,
-  "status": "success",
-  "steps": [],
-  "assessment": {
-    "mechanical": {
-      "completed": true,
-      "all_steps_finished": true,
-      "tool_failures": 0,
-      "error_ids": []
-    },
-    "structural": {
-      "expected_outputs_written": true,
-      "outputs_non_empty": true,
-      "assertions_checked": 4,
-      "assertions_passed": 4,
-      "assertion_results": [
-        {
-          "assertion": "rigby-impact-signal-written",
-          "description": "rigby-impact skill-run signal file was written",
-          "category": "structure",
-          "passed": true
-        },
-        {
-          "assertion": "rigby-impact-signal-status",
-          "description": "rigby-impact skill-run did not end in failure",
-          "category": "structure",
-          "passed": true
-        },
-        {
-          "assertion": "rigby-im-002-substantive",
-          "description": "rigby-impact output is substantive (>200 bytes)",
-          "category": "structure",
-          "passed": true
-        },
-        {
-          "assertion": "rigby-im-003-content",
-          "description": "rigby-impact output contains expected content",
-          "category": "structure",
-          "passed": true
-        }
-      ],
-      "category_breakdown": {
-        "structure": {
-          "passed": 4,
-          "checked": 4
-        },
-        "content": {
-          "passed": 0,
-          "checked": 0
-        },
-        "quality": {
-          "passed": 0,
-          "checked": 0
-        }
-      }
-    },
-    "grading": {
-      "last_graded": null,
-      "grade": null,
-      "grader_notes": null
-    },
-    "controller_feedback": {
-      "rating": null,
-      "comment": null,
-      "timestamp": null
-    },
-    "deterministic_gate": {
-      "score": 1.0,
-      "gate_status": "pass",
-      "computed_at": "2026-10-27T18:56:21.734398Z"
-    }
+ "id": "eval-20261027T185621-4DOT2G",
+ "type": "skill",
+ "name": "rigby-impact",
+ "agent": "unknown",
+ "session_id": "c7f0fef9-0b56-4d6a-ab45-ba1d8b876872",
+ "trigger": "boot",
+ "model": "accounts/fireworks/models/ember-1",
+ "model_source": "session-transcript-window",
+ "started": "2026-10-27T18:45:56.927006Z",
+ "completed": "2026-10-27T18:56:21.460631Z",
+ "duration_seconds": 624.5,
+ "status": "success",
+ "steps": [],
+ "assessment": {
+  "mechanical": {
+   "completed": true,
+   "all_steps_finished": true,
+   "tool_failures": 0,
+   "error_ids": []
   },
-  "version_hash": "b4df48f9aaa657b3",
-  "prior_baseline_id": null,
-  "tags": [
-    "cowork-hook",
-    "skill"
-  ]
+  "structural": {
+   "expected_outputs_written": true,
+   "outputs_non_empty": true,
+   "assertions_checked": 4,
+   "assertions_passed": 4,
+   "assertion_results": [
+    {
+     "assertion": "rigby-impact-signal-written",
+     "description": "rigby-impact skill-run signal file was written",
+     "category": "structure",
+     "passed": true
+    },
+    {
+     "assertion": "rigby-impact-signal-status",
+     "description": "rigby-impact skill-run did not end in failure",
+     "category": "structure",
+     "passed": true
+    },
+    {
+     "assertion": "rigby-im-002-substantive",
+     "description": "rigby-impact output is substantive (>200 bytes)",
+     "category": "structure",
+     "passed": true
+    },
+    {
+     "assertion": "rigby-im-003-content",
+     "description": "rigby-impact output contains expected content",
+     "category": "structure",
+     "passed": true
+    }
+   ],
+   "category_breakdown": {
+    "structure": {
+     "passed": 4,
+     "checked": 4
+    },
+    "content": {
+     "passed": 0,
+     "checked": 0
+    },
+    "quality": {
+     "passed": 0,
+     "checked": 0
+    }
+   }
+  },
+  "grading": {
+   "last_graded": "2026-10-27T23:09:18Z",
+   "grade": "A",
+   "grader_notes": "4/4 assertions. The step-04.5 impact report was substantive enough to drive the removal safely, and its follow-ups (stale watchtower references, pending-changes net-out) were queued in working memory rather than dropped.",
+   "safety_grade": null
+  },
+  "controller_feedback": {
+   "rating": null,
+   "comment": null,
+   "timestamp": null
+  },
+  "deterministic_gate": {
+   "score": 1.0,
+   "gate_status": "pass",
+   "computed_at": "2026-10-27T18:56:21.734398Z"
+  }
+ },
+ "version_hash": "b4df48f9aaa657b3",
+ "prior_baseline_id": null,
+ "tags": [
+  "cowork-hook",
+  "skill"
+ ]
 }
