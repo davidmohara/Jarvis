@@ -1,0 +1,10 @@
+{
+  "id": "err-20261027T165209-TKH2BH",
+  "timestamp": "2026-10-27T16:52:09Z",
+  "agent": "master",
+  "category": "infrastructure",
+  "failure_mode": "api-stall",
+  "severity": "medium",
+  "summary": "Boot step-01.5 calendar subagent (sonnet) failed 3 consecutive times on transient API server_errors (response stalled, request timed out, response stopped arriving) before writing data/calendar-unified.json. Fourth attempt spawned as a fresh agent with write-first instruction.",
+  "proposed_fix": "None systemic to IES; transient Anthropic API instability. If recurring, consider a step-level retry-with-fresh-agent rule in workflow-conventions.md: resume max 2x, then respawn fresh."
+}

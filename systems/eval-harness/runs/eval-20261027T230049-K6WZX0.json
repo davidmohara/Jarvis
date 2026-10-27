@@ -1,0 +1,66 @@
+{
+  "id": "eval-20261027T230049-K6WZX0",
+  "agent_id": "aea086d5d9c4bf6d8",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "general-purpose",
+  "owning_agent": null,
+  "subagent_type": "general-purpose",
+  "session_id": "d02cdad9-df78-4fbe-be42-5cb15d33a1bc",
+  "trigger": "unknown",
+  "model": null,
+  "model_source": null,
+  "started": "2026-10-27T23:00:49.267384Z",
+  "completed": null,
+  "duration_seconds": null,
+  "status": "in-progress",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": null,
+      "all_steps_finished": null,
+      "tool_failures": 1,
+      "error_ids": [],
+      "tool_failure_log": [
+        {
+          "tool": "Bash",
+          "error": "Exit code 4\nrefused: changeset is not Class A; the session-commit fast lane only carries routine churn.\nGated (Class B, needs the standard path with --ack-gated):\n  systems/eval-harness/skill-runs/remarkable-upload-latest.json\n  systems/eval-harness/skill-runs/rigby-impact-latest.json\nCommit Class B separately from Class A churn so the system-change audit trail stays isolated.",
+          "duration_ms": 208,
+          "timestamp": "2026-10-27T18:01:36.934125"
+        }
+      ]
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": []
+}

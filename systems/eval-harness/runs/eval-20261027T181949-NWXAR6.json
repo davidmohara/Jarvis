@@ -1,0 +1,117 @@
+{
+  "id": "eval-20261027T181949-NWXAR6",
+  "agent_id": "aa933d46cd6b2deba",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": "boot",
+  "agent": "master",
+  "owning_agent": "master",
+  "subagent_type": "general-purpose",
+  "session_id": "c7f0fef9-0b56-4d6a-ab45-ba1d8b876872",
+  "trigger": "unknown",
+  "model": "accounts/fireworks/models/kimi-k3",
+  "model_source": "subagent-transcript",
+  "started": "2026-10-27T18:19:49.405954Z",
+  "completed": "2026-10-27T18:21:05.917853Z",
+  "duration_seconds": 76.51,
+  "status": "success",
+  "steps": [
+    {
+      "name": "step-03-verify-phase2.md",
+      "agent": "general-purpose",
+      "step_id": "step-03-verify-phase2.md",
+      "owning_agent": "general-purpose",
+      "started": "2026-10-27T18:20:00Z",
+      "completed": "2026-10-27T18:20:18Z",
+      "status": "complete",
+      "tokens_input": 63669,
+      "tokens_output": 288,
+      "cost_usd": 0.03141,
+      "model": "accounts/fireworks/models/kimi-k3",
+      "token_source": "windowed",
+      "turns_matched": 2,
+      "turns_with_usage": 2,
+      "duration_seconds": 18.0
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/c7f0fef9-0b56-4d6a-ab45-ba1d8b876872/subagents/agent-aa933d46cd6b2deba.jsonl",
+  "total_tokens_input": 163516,
+  "total_tokens_output": 1116,
+  "total_cost_usd": 0.129137,
+  "token_source": "subagent-transcript",
+  "guardrails": [
+    {
+      "name": "step-03-checkpoint",
+      "after_step": "step-03-verify-phase2.md",
+      "result": "pass",
+      "reason": "0 critical data source failures",
+      "escalated_to_human": false,
+      "timestamp": "2026-10-27T18:21:06.280589Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "critical_failures": [],
+        "critical_failure_count": 0,
+        "verification_results": "pass"
+      }
+    }
+  ],
+  "parent_window": {
+    "token_source": "parent-window",
+    "transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/c7f0fef9-0b56-4d6a-ab45-ba1d8b876872.jsonl",
+    "window_start": "2026-10-27T18:19:49.405954Z",
+    "window_end": "2026-10-27T18:21:05.917853Z",
+    "model": "accounts/fireworks/models/ember-1",
+    "tokens_input": 175515,
+    "tokens_output": 311,
+    "cost_usd": null,
+    "turns_matched": 1,
+    "turns_with_usage": 1,
+    "computed_at": "2026-10-27T18:21:06.432864Z",
+    "unpriced_models": [
+      "accounts/fireworks/models/ember-1"
+    ]
+  },
+  "fully_loaded_cost_usd": 0.129137,
+  "fully_loaded_tokens_input": 339031,
+  "fully_loaded_tokens_output": 1427,
+  "fully_loaded_note": "parent window contains unpriced model(s) ['accounts/fireworks/models/ember-1']; their tokens are in the token sums but not in cost_usd"
+}

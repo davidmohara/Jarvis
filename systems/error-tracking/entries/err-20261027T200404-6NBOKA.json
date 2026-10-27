@@ -1,0 +1,10 @@
+{
+  "id": "err-20261027T200404-6NBOKA",
+  "timestamp": "2026-10-27T20:04:04Z",
+  "agent": "master",
+  "category": "wrong-assertion",
+  "failure_mode": "unverified-claim",
+  "severity": "medium",
+  "summary": "Told David today's boot was non-comparable to prior runs partly because 'prior boots carried 04.5's cost.' False: step-04.5 was only added 2026-10-27 (commit 550f3ca0); only the 2026-10-26 run (uncommitted wiring present) and today's skipped attempt ever had it. Also overstated that ancillary runs couldn't be parsed out; the eval harness holds per-step attribution, so filtering is possible.",
+  "proposed_fix": "Before making historical-comparison claims about workflow steps, check git history / eval records for when the step existed. Verify before asserting."
+}

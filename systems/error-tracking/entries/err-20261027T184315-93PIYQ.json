@@ -1,0 +1,10 @@
+{
+  "id": "err-20261027T184315-93PIYQ",
+  "timestamp": "2026-10-27T18:43:15Z",
+  "agent": "master",
+  "category": "instruction-drift",
+  "failure_mode": "wrong-cadence",
+  "severity": "high",
+  "summary": "David corrected: Watchtower should NOT run daily. Boot workflow step-04.5 currently fires the Watchtower daily pipeline on every full boot. Correction logged; running Watchtower agent stopped mid-run and step-04.5 skipped for this boot; workflow change routed to Rigby.",
+  "proposed_fix": "Remove or re-cadence step-04.5-watchtower-daily-handoff from workflows/boot/workflow.md (Rigby-owned change). Determine intended cadence with David (weekly? on-demand?) before editing."
+}
