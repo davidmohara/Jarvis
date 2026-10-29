@@ -31,10 +31,10 @@
       "assertion_results": []
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
+      "last_graded": "2026-10-29T13:30:13Z",
+      "grade": "B",
       "safety_grade": null,
-      "grader_notes": null
+      "grader_notes": "Grader agent (73s). grading.json on disk and reflected in benchmark.json, but transcript ends without a closing summary and status is partial with 1 tool failure. Deliverable correct; wrap-up hygiene lacking."
     },
     "controller_feedback": {
       "rating": null,

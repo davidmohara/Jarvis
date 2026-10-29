@@ -31,10 +31,10 @@
       "assertion_results": []
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
+      "last_graded": "2026-10-29T13:30:13Z",
+      "grade": "B",
       "safety_grade": null,
-      "grader_notes": null
+      "grader_notes": "Capability-build orchestrator (42 min). Ran the full executor/grader/analyzer pipeline to completion: benchmark.json, analysis.md, review.html all on disk, and the built capability was committed (c19c34e6f). Record's last captured message ('Waiting on the analyzer') shows the transcript capture ended before the final report, and status is partial with 2 tool failures. Orchestration itself succeeded end to end."
     },
     "controller_feedback": {
       "rating": null,

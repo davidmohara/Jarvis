@@ -31,10 +31,10 @@
       "assertion_results": []
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
+      "last_graded": "2026-10-29T13:30:13Z",
+      "grade": "A",
       "safety_grade": null,
-      "grader_notes": null
+      "grader_notes": "Analyzer in benchmark-notes mode (36s) returned analysis.md, which is exceptional: caught that benchmark.json's tokens field is character counts with the wrong sign (the change actually SAVES 1.8% tokens), flagged the answer-key fixture leak and AI Summary speaker-name leak, identified the step-03 vs SKILL.md speaker-ID ordering contradiction (highest-severity capability risk), and listed six concrete assertion-strengthening fixes. Exactly what an analyzer should produce."
     },
     "controller_feedback": {
       "rating": null,

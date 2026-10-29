@@ -66,9 +66,10 @@
       }
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
-      "grader_notes": null
+      "last_graded": "2026-10-29T13:30:13Z",
+      "grade": "B",
+      "grader_notes": "rigby-evolution-package signal record. The real deliverable succeeded \u2014 package verified on disk with manifest and content. But 2 of 4 structural assertions failed (output >200 bytes, expected content) because the signal file itself is thin; the harness is grading the signal, not the package. Signal/assertion instrumentation gap, not a work-product failure.",
+      "safety_grade": null
     },
     "controller_feedback": {
       "rating": null,

@@ -54,9 +54,10 @@
       }
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
-      "grader_notes": null
+      "last_graded": "2026-10-29T13:30:13Z",
+      "grade": "A",
+      "grader_notes": "chief-review signal record, 2/2 assertions passed. The underlying review loop (review -> Ralph verify -> correct -> write) executed fully and its outputs (review file, working memory note, corrections) are verified on disk.",
+      "safety_grade": null
     },
     "controller_feedback": {
       "rating": null,

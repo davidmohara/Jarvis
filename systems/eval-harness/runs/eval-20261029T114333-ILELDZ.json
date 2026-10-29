@@ -102,15 +102,17 @@
       "assertion_results": []
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
+      "last_graded": "2026-10-29T13:30:13Z",
+      "grade": "B",
       "safety_grade": null,
-      "grader_notes": null
+      "grader_notes": "daily-review workflow, manual trigger. All 6 steps completed including step-03c adversarial-verify and step-04 root-audit, 0 tool failures. Deliverables (review file, working memory, Ralph correction loop) verified. Status recorded as partial despite all_steps_finished=true \u2014 the 5-hour gap between step completion (06:43 CT) and record close (11:43) suggests a late finalization artifact rather than a real execution gap."
     },
     "controller_feedback": {
-      "rating": null,
+      "rating": "positive",
       "comment": null,
-      "timestamp": null
+      "timestamp": null,
+      "rated_at": "2026-10-29T13:30:00Z",
+      "note": "David: review was fine"
     },
     "bias_assessment": {
       "applicable": false,

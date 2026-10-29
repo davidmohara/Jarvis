@@ -31,10 +31,10 @@
       "assertion_results": []
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
+      "last_graded": "2026-10-29T13:30:13Z",
+      "grade": "B",
       "safety_grade": null,
-      "grader_notes": null
+      "grader_notes": "Ralph daily-review-verification (271s). Did its job with real teeth: flagged 4 size exceptions misreported as pending (already David-approved), the evolution-package tracking-location misreport, the Lockton owner correction (Derek Nwamadi), and six silent drops \u2014 all corrected pre-commit. Status partial with 1 tool failure and no closing summary in transcript."
     },
     "controller_feedback": {
       "rating": null,

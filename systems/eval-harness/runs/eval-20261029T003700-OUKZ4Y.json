@@ -31,10 +31,10 @@
       "assertion_results": []
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
+      "last_graded": "2026-10-29T13:30:13Z",
+      "grade": "A",
       "safety_grade": null,
-      "grader_notes": null
+      "grader_notes": "Executor, eval-0 with_skill (88s, matches benchmark timing 88.5s). Full self-ID scan with 37/37 segment coverage via context_tools.py speaker-evidence, zero full staged-file reads, outputs written, grader passed 5/5 with fixture-grounded evidence. Clean run, 0 tool failures."
     },
     "controller_feedback": {
       "rating": null,
