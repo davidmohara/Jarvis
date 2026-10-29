@@ -1,13 +1,14 @@
 ---
 status: complete
-started-at: '2026-10-27T18:56:50Z'
-completed-at: '2026-10-27T18:57:11Z'
+started-at: '2026-10-28T17:30:35Z'
+completed-at: '2026-10-28T17:30:44Z'
 knox_status: success
-knox_reason: 'eval record eval-20261027T145714-8SDUBS (agent knox, plaud-ingest)
-  status success; completed 2026-10-27T15:12:18Z — 4 recordings ingested to vault;
-  step-06 verify in eval-20261027T151335-U0RAKB success; plaud-discover
-  eval-20261027T151154-IIV641 also success.'
-knox_eval_id: eval-20261027T145714-8SDUBS
+knox_reason: 'plaud-ingest pi-20261028-001 complete 2026-10-28T17:30:00Z — 2 recordings
+  ingested to vault, 5 action items routed, step-06 verify success (eval-20261028T172657-JYUC62,
+  zero silent drops). Main record eval-20261028T170236-1SI5VG partial on a step-04
+  checkpoint-timing artifact, not a lost recording; step-05b share degraded (HARD
+  permission block, fallback note used).'
+knox_eval_id: eval-20261028T170236-1SI5VG
 ---
 
 <!-- system:start -->

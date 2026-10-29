@@ -1,7 +1,7 @@
 ---
 status: completed
-started-at: "2026-10-27T14:57:30Z"
-completed-at: "2026-10-27T15:11:00Z"
+started-at: "2026-10-28T17:14:00Z"
+completed-at: "2026-10-28T17:19:00Z"
 model: sonnet
 ---
 
@@ -15,6 +15,7 @@ model: sonnet
 3. You MUST link every meeting note to the daily calendar note in the vault.
 4. You MUST clean up staging after all notes are successfully written.
 5. Do NOT mark this step complete until staging is clean and all notes are confirmed written to vault.
+6. You MUST NOT Read a staged `plaud_*.md` file or a vault note's transcript block into your context — transcript bodies move file-to-file via `skills/plaud-transcripts/scripts/context_tools.py`, and you judge from its bounded outputs. Read `references/context-budget-protocol.md` before this step if you have not this run; its fallback ladder applies if the broker fails.
 
 ---
 
@@ -31,30 +32,30 @@ model: sonnet
 
 ### Sequence
 
-1. **Process each staged file** per `skills/plaud-transcripts/SKILL.md` steps 2 onward (discovery already done):
-   - Parse the staged markdown (title, date, duration, summary, transcript)
-   - Match to calendar event for attendees and "real" meeting title
-   - Transform into vault note format with correct frontmatter tags
-   - Rewrite AI summary in vault's analytical style
-   - **Route to correct `zzPlaud/` subfolder based on classification:**
-     - **Personal recordings** → `zzPlaud/Personal/` (doctor appointments, personal lunch, wellness, etc.)
-     - **Work recordings** → `zzPlaud/Client/`, `zzPlaud/Improving/`, `zzPlaud/YPO/`, or `zzPlaud/Other/` based on meeting context
-   - Check for filename collisions
+Process recordings **one at a time** so no recording's evidence rides along with another's (per `skills/plaud-transcripts/SKILL.md` steps 2 onward — discovery already done):
 
-2. **Write notes to vault** via Obsidian MCP.
-   - Confirm each write succeeds before moving to the next file.
-   - On collision with a Teams-sourced note: append ` (Plaud)` suffix.
+1a. **Gather bounded inputs for this recording** (never the transcript body):
+   - `/usr/bin/python3 skills/plaud-transcripts/scripts/context_tools.py action-candidates <staged.md>`
+   - Match to calendar event for attendees and the "real" meeting title (metadata only)
+   - Step-03 `speaker-evidence` output for this file_id (re-run it on this file if not already run)
 
-2a. **Run QUALITY GATE 5 (see below) for each note just written**, before proceeding to the
-    daily-note linking step. Do not treat an Obsidian MCP write returning success as proof the
-    note actually landed correctly — verify it.
+1b. **Assemble the note on disk** via the broker:
+   - Route to the correct `zzPlaud/` subfolder based on classification: **Personal** → `zzPlaud/Personal/` (doctor appointments, personal lunch, wellness, etc.); **Work** → `zzPlaud/Client/`, `zzPlaud/Improving/`, `zzPlaud/YPO/`, or `zzPlaud/Other/` based on meeting context
+   - `/usr/bin/python3 skills/plaud-transcripts/scripts/context_tools.py assemble-note <staged.md> --target <vault-root>/<zzPlaud/...>"/YYYY-MM-DD <Title>.md" --file-id <id> --speakers '<this file_id's speaker-mappings JSON>' --tags '<1-2 contextual tags as JSON>'`
+   - The transcript block moves staged file → vault note verbatim with speaker renames applied; only the digest (stdout) enters your context
+   - Check the digest's `unrenamed_generic_labels` — if non-empty, the mappings you passed missed a label; re-run with the complete mapping before proceeding
+   - On collision with a Teams-sourced note: append ` (Plaud)` to the target filename and re-run with `--force`
+
+1c. **Fill the placeholders** via bounded Edits on the target note (`<!--FILL:attendees-->`, `<!--FILL:organizer-->`, `<!--FILL:summary-->`, `<!--FILL:key-points-->`, `<!--FILL:action-items-->`), judging from the digest, the calendar metadata, and the action candidates: Attendees (+organizer), Summary (rewrite the digest's AI summary excerpt in the vault's analytical style), Key Discussion Points (2-4 threads), Action Items (each with its owner). Each Edit's `old_str` is just the placeholder string. The Edit tool requires a prior Read of the file — when you hit that, Read only the note's head up to (not past) the `## Transcript` heading, never the transcript block itself; that head is the whole writable surface this step touches.
+
+2. **Run QUALITY GATE 5 (see below) for each note just written**, before the daily-note linking step — do not treat a successful write as proof the note landed. The Gate 5 re-read goes through `context_tools.py note-digest <note>`, which returns frontmatter and structure without the transcript block.
 
 3. **Link to daily calendar note** per `skills/plaud-transcripts/SKILL.md` step 6.
    - Find or create the daily note at `Calendar/YYYY/MM-MonthName/YYYY-MM-DD.md`
    - Append wikilink for each meeting note written today
 
 4. **Route action items to Monday** via `mcp__ae67c963-c9a1-4a47-9243-3f91556e1532__create_item`.
-   - Extract action items from each note's transcript and summary
+   - Owner-classify the action-candidates list gathered in 1a (transcript + summary candidates; one owner per candidate, per the HARD GATE below) — this replaces reading the note's transcript for action items
    - **OWNER FILTER (HARD GATE): route only action items whose owner is David O'Hara.**
      - Applies to WORK and PERSONAL recordings alike.
      - **Non-David action items are NOT routed to Monday.** They remain in the vault note and are surfaced in the run report as informational (owner + item text). Never create Monday tasks for client-side or colleague-owned items.
@@ -75,18 +76,20 @@ model: sonnet
    - Log count of David-owned items routed and non-David items left in notes separately in the final report
 
 5. **Cross-reference recent transcripts with today's calendar** (this is the intelligence payoff):
-   - Scan all notes ingested today AND the last 7 days of `zzPlaud/` notes
+   - Scan all notes ingested today AND the last 7 days of `zzPlaud/` notes **via `context_tools.py note-digest`** — vault notes carry full transcripts in their `<details>` blocks; never Read them raw (context-budget protocol)
    - Look for commitments keyed to today's date ("I'll follow up Friday", "send that by end of week")
    - Surface any matches in the final report — these are the lead items, not footnotes
 
 6. **Clean up staging** per `skills/plaud-transcripts/SKILL.md` step 7:
-   - Delete processed `plaud_*.md` files
+   - Delete processed `plaud_*.md` files (including regenerated `_ogg` variants)
    - Delete corresponding `plaud_*_raw.json` files
+   - Delete the run's `plaud_*_speakers.json` sidecars (they are per-run working files; leaving them accumulates stale speaker metadata in staging)
    - Leave scripts and config intact
 
 7. **Update state.yaml:**
    - `accumulated-context.ingested-notes` = list of vault paths written
-   - `status: complete`
+   - `accumulated-context.context-budget.evidence-extractions` += one per `action-candidates`/`assemble-note`/`note-digest` run this step; `transcript-body-reads` and `fallback-reasons` per `references/context-budget-protocol.md`
+   - `status: in-progress` (the workflow is NOT complete at this step — step-05b sets `status: complete` when it finishes)
    - `current-step: step-05`
    - Update this step's frontmatter: `status: completed`, `completed-at: <ISO timestamp>`
 
@@ -117,12 +120,12 @@ upstream (discovery, transcription, speaker ID, staging) exists to produce this 
 An Obsidian MCP write call returning success is not sufficient proof by itself; this gate
 independently re-reads what was written.
 
-For every note the sequence just wrote in step 2, before moving on to daily-note linking:
+For every note the sequence just assembled in 1b, before moving on to daily-note linking:
 
 | Check | How to verify | On failure |
 |-------|---------------|------------|
-| File exists at the expected vault path | Read it back via Obsidian MCP (`get_vault_file` or equivalent) using the exact path just written | **HARD FAIL for this note.** |
-| Required frontmatter fields present | Confirm the note's frontmatter includes at minimum: title/date, source tag identifying it as Plaud-sourced, and the `file_id` (or equivalent traceability field back to the recording) | **HARD FAIL for this note.** A note with no way to trace back to its source recording is a dead end for any future audit or cleanup. |
+| File exists at the expected vault path | Read it back via `context_tools.py note-digest <note path>` (returns frontmatter + structure without the transcript block). A missing file yields a broker error, not a digest | **HARD FAIL for this note.** |
+| Required frontmatter fields present | From the same `note-digest` output: confirm frontmatter includes at minimum: title/date, source tag identifying it as Plaud-sourced, and the `file_id` (or equivalent traceability field back to the recording) | **HARD FAIL for this note.** A note with no way to trace back to its source recording is a dead end for any future audit or cleanup. |
 | Expected wikilink connections were actually created, not just attempted | This note's link into the daily calendar note happens in step 3, which runs *after* this gate — so for this gate, check any links this step is itself responsible for (e.g. attendee references, related-project links the transform step adds). Confirm the link target exists and the link syntax is well-formed, not just that the writing step "ran". | **SOFT FAIL for this specific link** — log it, do not block the note's filing on a missing secondary link, but do not silently drop the flag either. |
 
 **On HARD FAIL for a note (missing file or missing required frontmatter):**
@@ -164,6 +167,7 @@ gate_5_verification_failures: [{expected_path, reason}, ...]
 |---------|--------|
 | Obsidian MCP write fails | Retry once. If still fails, report the file and skip — do NOT leave staging dirty. Move the staged file to `~/Downloads/transcript-staging/failed/` for manual recovery. |
 | Gate 5 hard fail (write reported success but file/frontmatter verification fails) | Same recovery as an outright write failure — move staged file to `failed/`, exclude from `ingested-notes`, escalate in final report. Continue with remaining notes. |
+| Broker command fails (`context_tools.py` error, exit 1/2) | Retry once. If it still fails, follow the fallback ladder in `references/context-budget-protocol.md`: full-read path for that single recording, logged to `context-budget.transcript-body-reads` + `fallback-reasons` + error log + final report. Never block ingestion on the broker. |
 | Monday task creation fails | Log the action item text in the report. User can manually create. Do not block vault write. |
 | Daily note path doesn't exist | Create the year/month folder structure and note from template. |
 | Staging cleanup fails | Report the files that couldn't be deleted. Do not re-process them on next run (check vault for duplicates first). |

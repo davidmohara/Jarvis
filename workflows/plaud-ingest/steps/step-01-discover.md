@@ -1,13 +1,13 @@
 ---
 status: completed
 model: kimi-k3
-started-at: "2026-10-27T14:57:30Z"
-completed-at: "2026-10-27T15:02:00Z"
+started-at: "2026-10-28T17:03:06Z"
+completed-at: "2026-10-28T17:06:00Z"
 outputs:
   previous-run-results:
-    new-recordings: 4
-    confirmed-in-vault: 150
-    api-total: 154
+    new-recordings: 2
+    confirmed-in-vault: 156
+    api-total: 156
 ---
 
 <!-- system:start -->
@@ -77,6 +77,7 @@ Auth failure is only a valid abort reason if the skill's own Chrome login flow h
 
 4. **Update state.yaml:**
    - `accumulated-context.new-recordings` = list above
+   - `accumulated-context.context-budget` = initialize `{evidence-extractions: 0, transcript-body-reads: 0, fallback-reasons: []}` (the CONTEXT BUDGET counters — see `workflow.md` and `references/context-budget-protocol.md`; steps 03/05 increment them)
    - `current-step: step-02`
    - Update this step's frontmatter: `status: completed`, and `completed-at` set to the real UTC clock time from `date -u +%Y-%m-%dT%H:%M:%SZ` (never estimate or round).
    - **Refresh the no-op preflight marker** at `data/.plaud-last-seen.json` after

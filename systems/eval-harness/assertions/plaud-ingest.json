@@ -83,6 +83,28 @@
       "pattern": "^Speaker\\s*\\d+$",
       "negate": true,
       "description": "Knox K4: accumulated-context.speaker-mappings must map every generic label to a real name — a residual generic label as a mapped VALUE (e.g. Speaker 2: \"Speaker 2\") means an identification that was possible was never emitted. Keys are not tested, only values, so a legitimate mapping key like 'Speaker 1' does not trip this. Speakers that genuinely cannot be resolved belong in unresolved_speakers/pending-speaker-mappings with calendar evidence, never in speaker-mappings. Vacuously passes when nothing was mapped (no-op run)."
+    },
+    {
+      "id": "plaud-cb-evidence-ran",
+      "check": "yaml_field_pattern",
+      "category": "content",
+      "path": "workflows/plaud-ingest/state.yaml",
+      "field": "accumulated-context.context-budget.evidence-extractions",
+      "pattern": "^[1-9][0-9]*$",
+      "when_field": "accumulated-context.staged-files[]",
+      "min_matches": 1,
+      "description": "Context budget (boot token follow-up 5): when a run staged recordings (gate field staged-files non-empty), at least one bounded evidence extraction (context_tools speaker-evidence / action-candidates) must have run — the run cannot claim to have processed recordings while never invoking the broker. Vacuously passes when nothing was staged (no-op or pending-only run)."
+    },
+    {
+      "id": "plaud-cb-zero-transcript-reads",
+      "check": "yaml_field_pattern",
+      "category": "quality",
+      "path": "workflows/plaud-ingest/state.yaml",
+      "field": "accumulated-context.context-budget.transcript-body-reads",
+      "pattern": "^0$",
+      "when_field": "accumulated-context.staged-files[]",
+      "min_matches": 1,
+      "description": "Context budget: on runs that staged recordings, accumulated-context.context-budget.transcript-body-reads must be 0 — no transcript body was read into the Knox conversation (the ~8.8M/ingest-day re-carriage driver, boot token analysis 2026-10-28 follow-up 5). A non-zero value means the fallback ladder in references/context-budget-protocol.md was used: the run report must carry the reason, and this assertion deliberately FAILS to force controller review of that fallback rather than letting it pass silently. Vacuously passes when nothing was staged."
     }
   ]
 }

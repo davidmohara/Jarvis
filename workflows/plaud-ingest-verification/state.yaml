@@ -1,32 +1,49 @@
 workflow: plaud-ingest-verification
 agent: ralph
 status: complete
-session-started: 2026-10-09T16:10:00-05:00
-completed-at: 2026-10-09T16:20:00-05:00
-session-id: pi-20261009-001
+session-started: 2026-10-28T17:21:00Z
+completed-at: 2026-10-28T17:30:00Z
+session-id: pi-20261028-001
 current-step: step-01
-original-request: "Adversarial verification of plaud-ingest run pi-20261009-001: ingestion accounting for 2 discovered recordings (6640d7dce6b89cf68439a08d965ba5a2, 35073a0ad4ca9d6e9a182ae2254402c5)."
+original-request: "Adversarial verification of plaud-ingest run pi-20261028-001: ingestion accounting for 2 discovered recordings (4bc3ab005e16f853fbf236a1e1ae90fc, ed58947c0e135c6f2c3da5d717518c7b)."
+prior-run:
+  session-id: pi-20261009-001
+  note: "This file was stale at 2026-10-09 when the 2026-10-28 run began. Reset and rewritten here; the 2026-10-09 findings (F1-F5) are preserved in that run's own record and are not restated."
 accumulated-context:
   discovered_count: 2
-  verdict-summary: all-accounted
+  verdict-summary: findings
+  result: flag
+  lens: "ingestion accounting, zero silent drops"
+  silent_drops: 0
   findings:
-    - "F1 (evidence-integrity, non-blocking): workflows/plaud-ingest/steps/step-*.md frontmatter is STALE — step-01/02/03 show 2026-09-28, step-04/05/05b show 2026-09-18. None reflect this run (2026-10-09). Per-run evidence lives only in state.yaml accumulated-context + eval record; step frontmatter was not updated. Not a recording drop."
-    - "F2 (non-blocking): eval record eval-20261009T160824-LCEFD5.json still status: in-progress / completed: null, though workflow state.yaml is status: complete. Eval record not closed."
-    - "F3 (logged, not silent): REC1 6640d7dce6b89cf68439a08d965ba5a2 carries unresolved Speaker 5 (12 segs) plus a flagged Robyn Fuentes mis-tag; logged under Gate 4 unresolved_speakers. plaud-speaker-id skill-run status: partial — consistent."
-    - "F4 (logged, out of scope): orphan plaud_pending.json entry a93aa078b699d69c62c4a2cef8dcf5b2 (2026-09-25 60s snippet) no longer in Plaud API and not in vault; flagged, left in place. Not part of discovered set."
-    - "F5 (unverifiable offline): share + Monday outcomes (2 share URLs, Monday tasks 13249044343/13249044362/13249050308/13249067036/13249067582) are recorded in step-05/05b notes but external systems are not independently reachable; accepted as recorded."
+    - "F1 (staging-leftover claim inaccurate): '146 leftovers from Jan-Aug 2026' — 146 counts only plaud_*.md; actual top-level inventory is 354 files including 208 json. mtimes are 49 x 2026-09 and 97 x 2026-10 (newest 2026-10-05), zero from Jan-Aug. Corrected in the ingest state file."
+    - "F2 (terminal-state fields unset when read): completed-at null, adversarial-verification null, notes line referenced a block that did not exist. Corrected."
+    - "F3 (stale step frontmatter): steps/step-06-verify-ingest.md still carried 2026-10-27T15:12-15:17Z from the prior run. Corrected."
+    - "F4 (undisclosed guardrail retry): eval-20261028T170236-1SI5VG status partial; step-04-fetch-staging-checkpoint result retry ('4 of 4 claimed staged-files are not actually present', retry_signal attempt 1 of 2); mechanical tool_failures 1. Cause is timing — checkpoints ran 17:22:53Z after step-05 cleanup deleted the staged files at ~17:19Z. Not a lost recording, but the hard guardrail did not clear and the ingest state never mentioned it."
+    - "F5 (minor, naming): Plaud regenerated AI titles after the failed rename. Live filenames are now '10-27 Enterprise AI Enablement and Workflow Optimization Consultation' and '10-27 Strategic Planning and Account Outreach Alignment Meeting'. file_ids and durations unchanged."
+    - "F6 (this file was stale): plaud-ingest-verification/state.yaml still read session-id pi-20261009-001 at run start, so no verification record existed for pi-20261028-001 until this write."
+    - "F7 (tool state, not a drop): plaud_pending.json's fresh mtime comes from fetch_plaud.py rewriting the retry queue. Its only entry is the already-logged orphan a93aa078b699d69c62c4a2cef8dcf5b2 (2026-09-25 60s snippet), which is F4 in the 2026-10-09 verification record."
+  confirmed:
+    - "2 discovered, 2 ingested; discovered set carries a terminal outcome for every file_id."
+    - "Vault unique file_id set (156) equals live API data_file_total (156); set difference empty in both directions."
+    - "action-items-routed 5 reconciles with 5 detail entries; all 5 Monday IDs resolve on board 18420619069 with project_owner null."
+    - "shares 2/0/2 and tasks-created 2 close arithmetically; both gate-6 task IDs resolve, unassigned, Not Started, fallback note present on both."
+    - "This run's 10 staging artifacts removed; zero remaining top-level matches for the run's identifiers."
+  observations-outside-accounting:
+    - "Routed items 13408823048 (keynote deck) and 13408873879 (Ehren Syme partner reps) were moved to the Completed group with status Done at 17:22-17:23Z, minutes after creation. Not done by the ingest workflow — David should confirm he closed them deliberately."
+    - "Ledger carries 103 stale-orphan entries and 43 skip entries keyed by filename rather than file_id, meaning some older vault notes sit outside file_id traceability."
   recordings:
-    - file_id: 6640d7dce6b89cf68439a08d965ba5a2
-      title: "10-08 Interview Panel Prep: Becoming AI Native (Principled Business Summit)"
-      outcome: "ingested-note + shared + monday-review-task"
-      note-path: "zzPlaud/Other/2026-10-08 Prep Call - Becoming AI Native (Principled Business Summit).md"
+    - file_id: 4bc3ab005e16f853fbf236a1e1ae90fc
+      title: "Lockton - AI Adoption and Enablement Roadmap"
+      outcome: "ingested-note + monday-review-task"
+      note-path: "zzPlaud/Client/2026-10-27 Lockton - AI Adoption and Enablement Roadmap.md"
       note-verified: true
       frontmatter-file-id-match: true
       verdict: verified
-    - file_id: 35073a0ad4ca9d6e9a182ae2254402c5
-      title: "10-08 Meeting: Talent Lab Session on AI in HR"
-      outcome: "ingested-note + shared + monday-review-task"
-      note-path: "zzPlaud/Other/2026-10-08 Dallas Chamber Talent Lab - AI in HR Session Prep.md"
+    - file_id: ed58947c0e135c6f2c3da5d717518c7b
+      title: "One Texas and 2027 Speaking Opportunities"
+      outcome: "ingested-note + monday-review-task"
+      note-path: "zzPlaud/Improving/2026-10-27 One Texas and 2027 Speaking Opportunities.md"
       note-verified: true
       frontmatter-file-id-match: true
       verdict: verified
@@ -36,4 +53,4 @@ accumulated-context:
     - {item: "3 every skip logged", verdict: pass}
     - {item: "4 staging cleaned up", verdict: pass}
     - {item: "5 deferred recordings explained", verdict: pass}
-    - {item: "6 terminal state reached", verdict: pass}
+    - {item: "6 terminal state reached", verdict: flag, note: "Fields were unset when first read; corrected during closure."}

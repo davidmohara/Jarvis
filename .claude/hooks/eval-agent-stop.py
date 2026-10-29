@@ -47,6 +47,8 @@ try:
         find_parent_record_with_subagent, transcript_indicates_completion,
         resolve_spawn_text, extract_workflow_path_reference,
         _read_first_user_message_text,
+        find_records_by_agent_id, make_agent_stub, first_transcript_timestamp,
+        infer_session_id as _shared_infer_session_id,
     )
 except Exception:
     find_parent_record_with_subagent = None
@@ -54,6 +56,10 @@ except Exception:
     resolve_spawn_text = None
     extract_workflow_path_reference = None
     _read_first_user_message_text = None
+    find_records_by_agent_id = None
+    make_agent_stub = None
+    first_transcript_timestamp = None
+    _shared_infer_session_id = None
 try:
     import assertion_checks as _assertion_checks
 except Exception:
@@ -215,21 +221,54 @@ def find_eval_record(agent_id: str, agent_type: str) -> Path | None:
         if not EVAL_RUNS_DIR.exists():
             return None
 
-        # Primary: match by agent_id (reliable, set by eval-agent-start.py)
+        # Primary: match by agent_id (reliable, set by eval-agent-start.py).
+        # Async background agents re-fire SubagentStart/Stop per resume
+        # segment, so a record may legitimately be mid-lifecycle in any
+        # status: prefer an in-progress match, but accept a closed record for
+        # the same agent_id over guessing at a sibling's record — the
+        # completion path recomputes cumulative tokens from the agent's own
+        # transcript, so re-completing it is idempotent, and a record closed
+        # early by the session-end sweep while the agent was still running
+        # (eval-20261028T172711-WLE85H, deleted out from under the boot 05-08
+        # briefing agent) gets its real data landed here instead of lost.
         if agent_id:
-            for f in EVAL_RUNS_DIR.glob("eval-*.json"):
+            if find_records_by_agent_id:
+                matches = find_records_by_agent_id(agent_id, runs_dir=EVAL_RUNS_DIR)
+            else:
+                matches = []
+                for f in EVAL_RUNS_DIR.glob("eval-*.json"):
+                    try:
+                        with open(f, "r") as file:
+                            data = json.load(file)
+                        if data.get("agent_id") == agent_id:
+                            matches.append(f)
+                    except Exception:
+                        continue
+            for f in matches:
                 try:
                     with open(f, "r") as file:
-                        data = json.load(file)
-                    if data.get("agent_id") == agent_id and data.get("status") == "in-progress":
-                        return f
+                        if json.load(file).get("status") == "in-progress":
+                            return f
                 except Exception:
                     continue
+            if matches:
+                log_info(f"find_eval_record: no in-progress record for {agent_id}; "
+                         f"re-using closed record {matches[0].name} (late/resumed async stop)")
+                return matches[0]
 
         # Fallback: match most recent in-progress record for this agent_type.
+        # ONLY safe when the payload carried no agent_id at all — with an
+        # agent_id present, "some in-progress record of the same subagent
+        # type" is a different agent's record, and completing it with THIS
+        # agent's data is the 2026-10-28 hijack cascade (the 05-08 briefing
+        # agent's stop stamped its tail-slice tokens onto M92BI5, whose own
+        # stop then hijacked 0XRNN0). A stop with an agent_id and no matching
+        # record gets a stop-origin record in main() instead.
         # Since Stage 3 Phase 0, eval-agent-start.py may have overwritten the
         # record's `agent` with the attributed IES agent, keeping the original
         # Claude Code subagent type in `subagent_type` — so match either field.
+        if agent_id:
+            return None
         records = []
         for f in EVAL_RUNS_DIR.glob("eval-*.json"):
             try:
@@ -245,10 +284,57 @@ def find_eval_record(agent_id: str, agent_type: str) -> Path | None:
 
         if records:
             records.sort(key=lambda x: x[1], reverse=True)
-            log_info(f"find_eval_record: agent_id match failed, used fallback for {agent_type}")
+            log_info(f"find_eval_record: no agent_id in payload, used agent_type fallback for {agent_type}")
             return records[0][0]
     except Exception as e:
         log_error(f"Failed to find eval record: {e}")
+    return None
+
+
+def create_stop_origin_record(payload: dict, agent_id: str, agent_type: str,
+                              agent_transcript_path: str | None) -> Path | None:
+    """Create a stub at SubagentStop time for an agent whose SubagentStart
+    record does not exist — the start hook never fired (observed for
+    short-lived nested background agents, six of them on 2026-10-28) or its
+    stub was swept while the agent was still running (the boot 05-08
+    briefing agent, unrecorded on both 2026-10-27 and 2026-10-28). The stop
+    payload plus the agent's own transcript are enough to reconstruct a
+    normal record: started from the transcript's first timestamp, workflow
+    from the recoverable spawn prompt, tokens from the whole-transcript
+    slice in main()'s normal completion path."""
+    if not make_agent_stub:
+        return None
+    try:
+        session_id = payload.get("session_id")
+        if not session_id and _shared_infer_session_id:
+            session_id = _shared_infer_session_id(payload)
+        session_id = session_id or "unknown"
+
+        started = None
+        if first_transcript_timestamp and agent_transcript_path:
+            started = first_transcript_timestamp(agent_transcript_path)
+
+        spawn_text = resolve_spawn_text(payload) if resolve_spawn_text else None
+        if not spawn_text and _read_first_user_message_text:
+            spawn_text = _read_first_user_message_text(agent_transcript_path)
+        spawn_workflow = None
+        if spawn_text and extract_workflow_path_reference:
+            wf = extract_workflow_path_reference(spawn_text, must_exist=False)
+            if wf and (IES_ROOT / "workflows" / wf / "workflow.md").is_file():
+                spawn_workflow = wf
+
+        stub = make_agent_stub(agent_id, agent_type or "unknown", session_id,
+                               spawn_workflow=spawn_workflow, started=started)
+        stub["tags"] = ["stop-origin"]
+        eval_path = EVAL_RUNS_DIR / f"{stub['id']}.json"
+        atomic_write_json(eval_path, stub)
+        if eval_path.exists():
+            log_info(f"Created stop-origin record {stub['id']} for {agent_id} "
+                     f"(no SubagentStart stub existed; started={stub['started']})")
+            return eval_path
+        log_error(f"Failed to write stop-origin record for {agent_id}")
+    except Exception as e:
+        log_error(f"create_stop_origin_record failed for {agent_id}: {e}")
     return None
 
 def compute_version_hash(file_path: Path) -> str | None:
@@ -390,6 +476,12 @@ def main():
 
     # Find the corresponding eval record stub
     eval_record_path = find_eval_record(agent_id, agent_type)
+    if not eval_record_path and agent_id:
+        # No stub (start hook never fired, or the stub was swept while the
+        # agent was still running) — build the record now from the stop
+        # payload and the agent's transcript rather than dropping the run.
+        eval_record_path = create_stop_origin_record(
+            payload, agent_id, agent_type, agent_transcript_path)
     if not eval_record_path:
         log_error(f"No eval record found for agent {agent_type} ({agent_id})")
         return
@@ -401,6 +493,21 @@ def main():
     except Exception as e:
         log_error(f"Failed to read eval record: {e}")
         return
+
+    # Adopted closed record (async agent whose stop arrived after a sweep or
+    # after an earlier segment's stop): the previous close's derived
+    # mechanical verdicts are stale — the sweep stamps completed=False on
+    # records whose agent was still running, which would otherwise freeze
+    # this stop's status at 'aborted'. Null the derived fields so they
+    # re-derive from this stop's evidence; the raw counters (tool_failures,
+    # error_ids) carry forward.
+    if eval_record.get("status") != "in-progress":
+        mech = (eval_record.get("assessment") or {}).get("mechanical")
+        if isinstance(mech, dict):
+            mech["completed"] = None
+            mech["all_steps_finished"] = None
+            mech.pop("abort_reason", None)
+        log_info(f"Adopted closed record {eval_record_path.name} for late/resumed stop of {agent_id}")
 
     # Complete the record
     now = datetime.now(timezone.utc)
@@ -418,6 +525,18 @@ def main():
 
     # Real token usage for the whole subagent run, pulled from its own transcript
     # (a subagent's transcript is entirely in-scope — no per-step slicing needed).
+    # usage_between substitutes the newest sibling transcript when the payload's
+    # path is missing — defensible for a stub-backed record (the stub proves the
+    # agent started in this session, so a sibling is at least contemporaneous),
+    # but for a stop-origin record (no start evidence, no transcript on disk —
+    # the ghost-stop class) that substitutes ANOTHER agent's tokens onto this
+    # record. Better no token data than wrong token data: skip attribution.
+    if (agent_transcript_path
+            and not Path(agent_transcript_path).exists()
+            and "stop-origin" in (eval_record.get("tags") or [])):
+        log_info(f"stop-origin record for {agent_id}: transcript {agent_transcript_path} "
+                 f"not on disk — skipping token attribution rather than substituting a sibling transcript")
+        agent_transcript_path = None
     if usage_between and agent_transcript_path:
         try:
             usage = usage_between(

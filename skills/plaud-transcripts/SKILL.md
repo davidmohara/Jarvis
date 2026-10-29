@@ -53,6 +53,15 @@ If the fetch script still returns nothing, the user may need to:
 1. Check that the `plaud-daily-fetch` scheduled task is running
 2. Or export recordings from the Plaud app and drop them in the staging folder
 
+## Bounded context tools (batch and workflow runs)
+
+`scripts/context_tools.py` (same directory as `fetch_plaud.py`) keeps transcript bodies out of conversation context — they move file-to-file, and the agent judges from bounded evidence. Required inside `workflows/plaud-ingest` (its `references/context-budget-protocol.md` carries the invariant and fallback ladder); recommended for any run processing more than one recording. A single interactive recording may still be read directly.
+
+- `speaker-evidence <staged.md>` — per-speaker self-ID candidates, opening/closing utterances, name mentions, full-scan stats (feeds `plaud-speaker-id` resolution)
+- `action-candidates <staged.md>` — bounded commitment-candidate lines from every speaker (feeds action-item extraction and owner classification)
+- `assemble-note <staged.md> --target <vault path> --file-id <id> [--speakers '<JSON>'] [--tags '<JSON>']` — writes the complete vault note (transcript verbatim, renames applied) and prints a transcript-free digest with `<!--FILL:...-->` placeholders to complete
+- `note-digest <note(s) or glob>` — a vault note minus its transcript block (verification re-reads and cross-references; vault notes carry full transcripts, so never Read one raw in a batch run)
+
 ## Execution
 
 ### 1. Scan the staging folder
@@ -69,7 +78,11 @@ on the next fetch run. Do not process pending entries as notes.
 
 ### 2. Parse each transcript file
 
-The fetch script produces markdown files with this structure:
+In a batch or workflow run, parse via `scripts/context_tools.py`
+(`action-candidates` / `assemble-note`) per the "Bounded context tools" section
+above — do not Read the staged file into context. A single interactive
+recording may be read directly. The fetch script produces markdown files with
+this structure:
 
 ```markdown
 # <Recording Title>
@@ -214,7 +227,8 @@ If reconciliation finds unprocessed transcripts: process them before cleanup. Do
 After reconciliation confirms a full run:
 1. Delete the processed `plaud_*.md` files from staging
 2. Delete the corresponding `plaud_*_raw.json` files
-3. Leave the `fetch_plaud.py` script and any config files intact
+3. Delete the run's `plaud_*_speakers.json` sidecars (per-run working files; leaving them accumulates stale speaker metadata)
+4. Leave the `fetch_plaud.py` script and any config files intact
 4. If the staging folder is now empty (except for scripts), leave it in place
 
 Report what was cleaned up.

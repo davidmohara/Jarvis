@@ -1,0 +1,110 @@
+{
+  "name": "plaud-ingest",
+  "type": "workflow",
+  "assertions": [
+    {
+      "id": "plaud-001-state-complete",
+      "check": "yaml_field_equals",
+      "path": "workflows/plaud-ingest/state.yaml",
+      "field": "status",
+      "value": "complete",
+      "description": "Plaud ingest workflow state.yaml shows status: complete"
+    },
+    {
+      "id": "plaud_ingest-wm-written",
+      "check": "file_exists",
+      "path": "memory/working/plaud-ingest-*.md",
+      "description": "Plaud ingest working memory file was written to memory/working/"
+    },
+    {
+      "id": "plaud_ingest-wm-size",
+      "check": "file_min_bytes",
+      "path": "memory/working/plaud-ingest-*.md",
+      "min_bytes": 200,
+      "description": "Plaud ingest working memory file is substantive (>200 bytes)"
+    },
+    {
+      "id": "plaud_ingest-wm-content",
+      "check": "file_contains",
+      "path": "memory/working/plaud-ingest-*.md",
+      "pattern": "(?i)(ingest|transcript|vault)",
+      "description": "Plaud ingest working memory contains expected content"
+    },
+    {
+      "id": "plaud-002-adversarial-verification-ran",
+      "check": "guardrail_checkpoint_ran",
+      "checkpoint_name": "adversarial-verification",
+      "category": "quality",
+      "description": "Stage 5 Phase 4A: step-06 spawns Ralph (plaud-ingest-verification workflow) and records an 'adversarial-verification' guardrail result on this run. Read from the eval record's own guardrails array. This is the distinct-lens check Tim's Stage 5 finding requires: a separate agent performing ingestion accounting (zero silent drops)."
+    },
+    {
+      "id": "plaud-k1-ingestion-accounting",
+      "check": "yaml_list_counts_gte",
+      "category": "content",
+      "path": "workflows/plaud-ingest/state.yaml",
+      "source_field": "accumulated-context.staged-files",
+      "accounted_field": "accumulated-context.ingested-notes",
+      "skipped_field": "accumulated-context.skipped-recordings",
+      "description": "Knox K1 (ingestion completeness, 0 silent drops): every staged recording is either converted to a note (accumulated-context.ingested-notes) or explicitly logged as skipped with a reason (accumulated-context.skipped-recordings) — len(ingested) + len(skipped) >= len(staged). Passes trivially when nothing was staged (the common no-new-recordings run)."
+    },
+    {
+      "id": "plaud-k2-routing",
+      "check": "file_contains",
+      "category": "content",
+      "path": "workflows/plaud-ingest/state.yaml",
+      "pattern": "(zzPlaud/|ingested-notes:\\s*\\[\\])",
+      "description": "Knox K2 (tag compliance / correct folder routing): produced notes are routed under the zzPlaud/ tree (zzPlaud/Personal|Client|Improving|YPO|Other), or the run ingested nothing (ingested-notes: [] — a no-op run is vacuously compliant). Honest limit: tag/frontmatter presence on each note is verified in-run by QUALITY GATE 5 (see plaud-k2-gate5) against the vault, which lives outside this repo and cannot be globbed from here; this assertion checks the routing half that the run records on disk."
+    },
+    {
+      "id": "plaud-k2-gate5",
+      "check": "file_contains",
+      "category": "content",
+      "path": "workflows/plaud-ingest/state.yaml",
+      "pattern": "(gate_5_result:\\s*\"?pass|ingested-notes:\\s*\\[\\])",
+      "description": "Knox K2 (tag compliance): step-05's QUALITY GATE 5 verifies each written note's required frontmatter (source tag, file_id traceability) by re-reading it from the vault. A passing gate_5_result is the on-disk evidence that the tag/frontmatter check ran and passed; a no-op run (ingested-notes: []) is vacuously compliant. Honest limit: this asserts the gate passed, not that a human re-checked every tag; a note failing Gate 5 is moved to failed/ and excluded from ingested-notes, which plaud-k1's accounting then surfaces."
+    },
+    {
+      "id": "plaud-k4-escalation-evidence",
+      "check": "yaml_field_pattern",
+      "category": "quality",
+      "path": "workflows/plaud-ingest/state.yaml",
+      "field": "accumulated-context.escalation-evidence",
+      "pattern": "(?i)(calendar|attendee|event)",
+      "when_field": "accumulated-context.unresolved_speakers",
+      "min_matches": 1,
+      "description": "Knox K4 (err-20260929T024338-K3K074, lazy-search): when any speaker was left unresolved (accumulated-context.unresolved_speakers non-empty), step-03 must have cross-referenced the recording timestamp against calendar attendees BEFORE escalating to the controller, and must record that evidence in accumulated-context.escalation-evidence (naming the event time and the attendees checked, and why they were insufficient). An escalation whose evidence names no calendar lookup fails. Vacuously passes on a run that resolved every speaker without escalating. This is the machine-checkable form of the error entry's systemic fix, which was proposed but never applied — the two skill-level assertions meant to enforce it (plaud-sp-004/005) silently skipped because their check type 'yaml_field_pattern' was unimplemented."
+    },
+    {
+      "id": "plaud-k4-no-generic-speaker-labels",
+      "check": "yaml_field_pattern",
+      "category": "quality",
+      "path": "workflows/plaud-ingest/state.yaml",
+      "field": "accumulated-context.speaker-mappings",
+      "pattern": "^Speaker\\s*\\d+$",
+      "negate": true,
+      "description": "Knox K4: accumulated-context.speaker-mappings must map every generic label to a real name — a residual generic label as a mapped VALUE (e.g. Speaker 2: \"Speaker 2\") means an identification that was possible was never emitted. Keys are not tested, only values, so a legitimate mapping key like 'Speaker 1' does not trip this. Speakers that genuinely cannot be resolved belong in unresolved_speakers/pending-speaker-mappings with calendar evidence, never in speaker-mappings. Vacuously passes when nothing was mapped (no-op run)."
+    },
+    {
+      "id": "plaud-cb-evidence-ran",
+      "check": "yaml_field_pattern",
+      "category": "content",
+      "path": "workflows/plaud-ingest/state.yaml",
+      "field": "accumulated-context.context-budget.evidence-extractions",
+      "pattern": "^[1-9][0-9]*$",
+      "when_field": "accumulated-context.staged-files[]",
+      "min_matches": 1,
+      "description": "Context budget (boot token follow-up 5): when a run staged recordings (gate field staged-files non-empty), at least one bounded evidence extraction (context_tools speaker-evidence / action-candidates) must have run — the run cannot claim to have processed recordings while never invoking the broker. Vacuously passes when nothing was staged (no-op or pending-only run)."
+    },
+    {
+      "id": "plaud-cb-zero-transcript-reads",
+      "check": "yaml_field_pattern",
+      "category": "quality",
+      "path": "workflows/plaud-ingest/state.yaml",
+      "field": "accumulated-context.context-budget.transcript-body-reads",
+      "pattern": "^0$",
+      "when_field": "accumulated-context.staged-files[]",
+      "min_matches": 1,
+      "description": "Context budget: on runs that staged recordings, accumulated-context.context-budget.transcript-body-reads must be 0 — no transcript body was read into the Knox conversation (the ~8.8M/ingest-day re-carriage driver, boot token analysis 2026-10-28 follow-up 5). A non-zero value means the fallback ladder in references/context-budget-protocol.md was used: the run report must carry the reason, and this assertion deliberately FAILS to force controller review of that fallback rather than letting it pass silently. Vacuously passes when nothing was staged."
+    }
+  ]
+}

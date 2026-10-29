@@ -1,8 +1,8 @@
 ---
 status: completed
 model: kimi-k3
-started-at: "2026-10-27T14:57:30Z"
-completed-at: "2026-10-27T15:11:00Z"
+started-at: "2026-10-28T17:07:00Z"
+completed-at: "2026-10-28T17:12:00Z"
 ---
 
 <!-- system:start -->
@@ -61,7 +61,7 @@ This is a hierarchy, not alternatives. Controller escalation only after 1 AND 2 
 ## MANDATORY EXECUTION RULES
 
 1. You MUST check for `_speakers.json` files in `~/Downloads/transcript-staging/` for every recording in `ready-for-fetch`.
-2. You MUST run the self-identification transcript scan for every unresolved speaker BEFORE calendar cross-reference. This is non-negotiable — see `skills/plaud-speaker-id/SKILL.md` step 0.
+2. You MUST run the self-identification transcript scan for every unresolved speaker BEFORE calendar cross-reference. This is non-negotiable — see `skills/plaud-speaker-id/SKILL.md` step 0. **Run the scan via `skills/plaud-transcripts/scripts/context_tools.py speaker-evidence` — never Read a staged `plaud_*.md` into your context.** The script mechanically scans every segment and returns bounded evidence (self-ID candidates, opening/closing utterances, addressed-name mentions); `scan.segments_scanned == scan.total_segments` in its output is the proof the full transcript was searched. See `references/context-budget-protocol.md` (load it now if you have not this run).
 3. You MUST attempt calendar cross-reference (including attendees and adjacent events, not just the single matched event's subject line) BEFORE asking the controller. This is non-negotiable.
 4. You MUST batch all unresolved speakers into a single consolidated question — never ask one recording at a time.
 5. If ALL speakers resolve via self-ID and/or calendar, proceed silently — no user interaction needed.
@@ -88,10 +88,17 @@ This is a hierarchy, not alternatives. Controller escalation only after 1 AND 2 
    - If no speaker file: no generic speakers — this recording needs no mapping. Mark as resolved.
 
 2. **For each `_speakers.json` found:** resolve per `skills/plaud-speaker-id/SKILL.md`, in this order:
-   - **Self-ID scan first (step 0):** read the full transcript (not just `sample_text`) for
-     every unresolved speaker and check for self-identification — check the end of the
-     recording first (sign-offs), then the beginning (introductions), then anywhere else.
-     A speaker who names themselves is resolved directly, no calendar needed.
+   - **Self-ID scan first (step 0):** for every unresolved speaker, run
+     `/usr/bin/python3 skills/plaud-transcripts/scripts/context_tools.py speaker-evidence <staged.md>`
+     and judge from its bounded output. The script checks the end of the recording
+     (closing utterances = sign-offs, the highest-yield zone), the beginning (opening
+     utterances = introductions), and every other segment (self-ID candidates carry
+     the matched lines). A speaker who names themselves in the evidence is resolved
+     directly, no calendar needed. A `self_id_candidates: []` result from a scan whose
+     `segments_scanned == total_segments` is a genuine full-scan no-match — treat it as
+     "self-ID exhausted" and move to calendar; do NOT re-read the staged file to
+     double-check (that re-read is the context overage this protocol exists to prevent,
+     and the mechanical scan is more exhaustive than an eyeball pass).
    - **Calendar auto-resolution (step 2a) for whatever's left:**
      - Pull the recording's date and approximate time from the JSON metadata
      - Search calendar via M365 MCP for events overlapping that time window (+/- 15 minutes)
@@ -151,6 +158,7 @@ This is a hierarchy, not alternatives. Controller escalation only after 1 AND 2 
 6. **Update state.yaml:**
    - `accumulated-context.speaker-mappings` = complete mapping
    - `accumulated-context.recording-classification` = personal/work labels for all recordings
+   - `accumulated-context.context-budget.evidence-extractions` += one per `speaker-evidence` run this step (and any fallback reads into `transcript-body-reads` per `references/context-budget-protocol.md`)
    - `current-step: step-04`
    - Update this step's frontmatter: `status: completed`, `completed-at: <ISO timestamp>`
 
@@ -197,7 +205,7 @@ Run the Gate 4 protocol in `references/gate-4-unresolved-speakers.md` (read it a
 | Controller provides partial answer | Apply what was given. Re-surface remaining unresolved speakers in the next interaction. |
 | David appears under two speaker labels | Map the generic label to "David O'Hara" in `--rename`. Do not surface as unknown. See Edge Case A above. |
 | Named speaker appears but wasn't on the call (voice mis-tag) | Flag to controller. Apply correction via `--rename` — the script handles renaming existing named labels, not only generic ones. |
-| Sample text is too short to be useful | Pull first 5 utterances from the `.md` transcript for that speaker before presenting to controller. |
+| Sample text is too short to be useful | Re-run `speaker-evidence` on that staged file — its `opening_utterances`/`closing_utterances` carry fuller context than `_speakers.json` `sample_text`. Do not Read the staged file itself (context-budget protocol). |
 
 ---
 

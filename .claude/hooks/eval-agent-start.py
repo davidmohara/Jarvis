@@ -25,6 +25,7 @@ try:
         find_unambiguous_open_turn_record, _read_session_index,
         extract_workflow_path_reference, infer_session_id as _shared_infer_session_id,
         detect_spawn_agent, resolve_spawn_text,
+        find_records_by_agent_id, make_agent_stub,
     )
 except Exception:
     find_unambiguous_open_turn_record = None
@@ -33,6 +34,8 @@ except Exception:
     _shared_infer_session_id = None
     detect_spawn_agent = None
     resolve_spawn_text = None
+    find_records_by_agent_id = None
+    make_agent_stub = None
 
 def log_error(msg: str):
     """Log error to /tmp/ies-hook-errors.log without blocking."""
@@ -225,95 +228,108 @@ def main():
     # Ensure eval runs directory exists
     EVAL_RUNS_DIR.mkdir(parents=True, exist_ok=True)
 
-    # Generate eval ID
-    eval_id = new_eval_id()
-
     # Infer session ID
     session_id = infer_session_id(payload)
 
-    # Infer type and name (will be refined by eval-agent-stop)
-    eval_type, eval_name = infer_workflow_or_skill_name(agent_type)
+    # Dedup (2026-10-28, async background agents): this harness fires
+    # SubagentStart once per resume segment of a background agent, not once
+    # per logical agent — one Knox plaud-ingest agent accrued five stubs in
+    # a single boot (1SI5VG/Q4RJKA/S5588B/JYUC62/0XRNN0), splitting its cost
+    # across five records and leaving orphan stubs for the session-end sweep
+    # to delete while the agent was still running (which is how the boot
+    # 05-08 briefing agent ended up with NO record at all two days running).
+    # One logical agent (one agent_id) gets one record: reuse the open one,
+    # reopen a closed one (a resume after a segment's stop), create only when
+    # none exists. Tokens stay correct because eval-agent-stop.py recomputes
+    # usage_between over the agent's cumulative transcript at every stop.
+    eval_path = None
+    stub = None
+    if find_records_by_agent_id and agent_id:
+        try:
+            existing = find_records_by_agent_id(agent_id, runs_dir=EVAL_RUNS_DIR)
+        except Exception as e:
+            existing = []
+            log_error(f"find_records_by_agent_id failed for {agent_id}: {e}")
+        for candidate in existing:
+            try:
+                with open(candidate, "r") as f:
+                    data = json.load(f)
+            except Exception:
+                continue
+            if data.get("status") == "in-progress":
+                eval_path = candidate
+                stub = data
+                break
+        if eval_path is None and existing:
+            # Resume after a segment stop closed the record: reopen the most
+            # recent one. Original `started` is kept so the record's window
+            # spans every segment.
+            eval_path = existing[0]
+            try:
+                with open(eval_path, "r") as f:
+                    stub = json.load(f)
+                stub["status"] = "in-progress"
+                stub["completed"] = None
+                stub["duration_seconds"] = None
+                mech = (stub.get("assessment") or {}).get("mechanical")
+                if isinstance(mech, dict):
+                    mech.pop("abort_reason", None)
+                if spawn_workflow and not stub.get("workflow"):
+                    stub["workflow"] = spawn_workflow
+                atomic_write_json(eval_path, stub)
+                log_info(f"Reopened {eval_path.name} for resumed background agent {agent_id}")
+            except Exception as e:
+                log_error(f"Failed to reopen record for {agent_id}: {e}")
+                eval_path = None
+                stub = None
 
-    # Create eval record stub
-    now = datetime.now(timezone.utc)
-    stub = {
-        "id": eval_id,
-        "agent_id": agent_id,  # stored for reliable stop-to-start correlation
-        "type": eval_type,
-        "name": eval_name,
-        "workflow": spawn_workflow,  # additive; None unless the spawn prompt named an
-                                      # explicit workflows/{name}/workflow.md path. Does
-                                      # not change the meaning of type/name above.
-        # `agent` is the attributed IES agent when the spawn resolved one
-        # (Stage 3 Phase 0), otherwise the raw Claude Code subagent type.
-        # `subagent_type` always preserves the latter for provenance and for
-        # eval-agent-stop.py's agent_id-fallback lookup.
-        "agent": spawn_agent or agent_type,
-        "owning_agent": spawn_agent,
-        "subagent_type": agent_type,
-        "session_id": session_id,
-        "trigger": "workflow-dispatch" if spawn_workflow else "unknown",  # refined by post-tool-use.py when state.yaml written
-        # The serving model is not knowable at spawn time (the SubagentStart
-        # payload carries no model field, and no transcript exists yet), so
-        # the field is present-but-null here; eval-agent-stop.py fills it
-        # from the subagent's own transcript (model_source tells you which
-        # path supplied the value). Never pre-fill with the parent's model —
-        # that would be a guess.
-        "model": None,
-        "model_source": None,
-        "started": now.isoformat().replace("+00:00", "Z"),
-        "completed": None,
-        "duration_seconds": None,
-        "status": "in-progress",
-        "steps": [],
-        "assessment": {
-            "mechanical": {
+    if eval_path is None:
+        # Infer type and name (will be refined by eval-agent-stop)
+        eval_type, eval_name = infer_workflow_or_skill_name(agent_type)
+
+        # Create eval record stub (shared schema: hook_utils.make_agent_stub,
+        # also used by eval-agent-stop.py for stop-origin records)
+        if make_agent_stub:
+            stub = make_agent_stub(agent_id, agent_type, session_id,
+                                   spawn_workflow=spawn_workflow,
+                                   spawn_agent=spawn_agent)
+            stub["type"] = eval_type
+            stub["name"] = eval_name
+        else:
+            # Import-failure fallback: minimal stub, same core fields.
+            now = datetime.now(timezone.utc)
+            stub = {
+                "id": new_eval_id(),
+                "agent_id": agent_id,
+                "type": eval_type,
+                "name": eval_name,
+                "workflow": spawn_workflow,
+                "agent": spawn_agent or agent_type,
+                "owning_agent": spawn_agent,
+                "subagent_type": agent_type,
+                "session_id": session_id,
+                "trigger": "workflow-dispatch" if spawn_workflow else "unknown",
+                "model": None,
+                "model_source": None,
+                "started": now.isoformat().replace("+00:00", "Z"),
                 "completed": None,
-                "all_steps_finished": None,
-                "tool_failures": 0,
-                "error_ids": []
-            },
-            "structural": {
-                "expected_outputs_written": None,
-                "outputs_non_empty": None,
-                "assertions_checked": 0,
-                "assertions_passed": 0,
-                "assertion_results": []
-            },
-            "grading": {
-                "last_graded": None,
-                "grade": None,
-                "safety_grade": None,
-                "grader_notes": None
-            },
-            "controller_feedback": {
-                "rating": None,
-                "comment": None,
-                "timestamp": None
-            },
-            "bias_assessment": {
-                "applicable": False,
-                "protected_attributes": [],
-                "fairness_metric": None,
-                "demographic_coverage_verified": False,
-                "adversarial_inputs_tested": False,
-                "bias_detected": False,
-                "bias_flags": [],
-                "remediation_status": "none"
+                "duration_seconds": None,
+                "status": "in-progress",
+                "steps": [],
+                "assessment": {"mechanical": {"completed": None, "all_steps_finished": None,
+                                              "tool_failures": 0, "error_ids": []}},
+                "version_hash": None,
+                "prior_baseline_id": None,
+                "tags": []
             }
-        },
-        "version_hash": None,
-        "prior_baseline_id": None,
-        "tags": []
-    }
 
-    # Write eval record stub
-    eval_path = EVAL_RUNS_DIR / f"{eval_id}.json"
-    atomic_write_json(eval_path, stub)
-    if not eval_path.exists():
-        log_error(f"Failed to write eval record stub for {agent_type} ({agent_id})")
-    elif spawn_workflow:
-        log_info(f"Tagged subagent {agent_id} ({agent_type}) with workflow={spawn_workflow!r} from spawn prompt")
+        # Write eval record stub
+        eval_path = EVAL_RUNS_DIR / f"{stub['id']}.json"
+        atomic_write_json(eval_path, stub)
+        if not eval_path.exists():
+            log_error(f"Failed to write eval record stub for {agent_type} ({agent_id})")
+        elif spawn_workflow:
+            log_info(f"Tagged subagent {agent_id} ({agent_type}) with workflow={spawn_workflow!r} from spawn prompt")
 
     # If a turn-level workflow eval is open for this session (opened by
     # eval-turn-start.py on UserPromptSubmit), also record this subagent as
@@ -363,17 +379,23 @@ def main():
             if parent_path and parent_path != eval_path:
                 with open(parent_path, "r") as f:
                     parent = json.load(f)
-                parent.setdefault("subagents", []).append({
-                    "agent_id": agent_id,
-                    "agent_type": agent_type,
-                    "started": stub["started"],
-                    "completed": None,
-                    "model": None,
-                    "tokens_input": None,
-                    "tokens_output": None,
-                    "cost_usd": None,
-                })
-                atomic_write_json(parent_path, parent)
+                # Dedup: a resumed background agent re-fires SubagentStart with
+                # the same agent_id; the link from its first segment still
+                # stands. Appending again would double-count it in the parent's
+                # rollup (26QC3W carried the 01.5 calendar agent twice this way).
+                if not any(s.get("agent_id") == agent_id
+                           for s in parent.get("subagents", []) if isinstance(s, dict)):
+                    parent.setdefault("subagents", []).append({
+                        "agent_id": agent_id,
+                        "agent_type": agent_type,
+                        "started": stub["started"],
+                        "completed": None,
+                        "model": None,
+                        "tokens_input": None,
+                        "tokens_output": None,
+                        "cost_usd": None,
+                    })
+                    atomic_write_json(parent_path, parent)
         except Exception as e:
             log_error(f"Failed to link subagent {agent_id} to open turn record: {e}")
 

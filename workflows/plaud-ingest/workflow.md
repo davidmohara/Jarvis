@@ -3,6 +3,9 @@ name: plaud-ingest
 description: Full Plaud recording ingestion pipeline — discover new recordings, trigger transcription, identify speakers via calendar, fetch to staging, and ingest to vault
 agent: knox
 model: haiku
+fairness:
+  applicable: false
+  reason: "Single-user personal assistant workflow (one executive's recordings, vault, and task routing). No population-level outputs, scoring, or differential treatment."
 ---
 
 <!-- system:start -->
@@ -12,7 +15,7 @@ model: haiku
 
 **Agent:** Knox — Knowledge Manager
 
-**Architecture:** Sequential 7-step pipeline with one interactive pause point at step-03 (speaker identification). Steps 01-02, 04-05, 05b, and 06 are fully autonomous. Step-03 may surface questions to the controller before proceeding. Step-06 is the adversarial verification pass (Ralph) that accounts for every discovered recording.
+**Architecture:** Sequential 7-step pipeline with one interactive pause point at step-03 (speaker identification). Steps 01-02, 04-05, 05b, and 06 are fully autonomous. Step-03 may surface questions to the controller before proceeding. Step-06 is the verification pass that accounts for every discovered recording — deterministic reconcile first (`verify/ingest-reconcile.py`), Ralph only on anomaly.
 
 **Parallelism:** This workflow is designed to run as a background Agent launched during boot. It completes autonomously except for the speaker identification step, where it will surface questions to the controller and then continue after receiving answers. Boot does not wait for this workflow to finish.
 
@@ -82,11 +85,17 @@ CHECK, then begin at step-01.
 | 04 | `steps/step-04-fetch-staging.md` | `skills/plaud-transcripts/scripts/fetch_plaud.py` | Run fetch script to pull all ready transcripts to staging |
 | 05 | `steps/step-05-ingest-vault.md` | `skills/plaud-transcripts/SKILL.md` | Transform staged files into Obsidian notes, route Monday, clean up |
 | 05b | `steps/step-05b-share-with-alice.md` | `skills/plaud-transcripts/scripts/fetch_plaud.py --share` | Share each ingested recording publicly (transcript + summary) and email link to Alice Mburu |
-| 06 | `steps/step-06-verify-ingest.md` | `workflows/plaud-ingest-verification/workflow.md` | Adversarial verification (Ralph): account for every discovered recording as a note or a logged skip, zero silent drops |
+| 06 | `steps/step-06-verify-ingest.md` | `verify/ingest-reconcile.py` (script-first; `workflows/plaud-ingest-verification/workflow.md` on anomaly) | Verification: account for every discovered recording as a note or a logged skip, zero silent drops — deterministic reconcile, Ralph judges anomalies only |
 
 ## Deterministic Step Guardrails
 
-Every step transition is machine-checked. The verifiers in `workflows/plaud-ingest/verify/` run at each step's completion (dispatched by `.claude/hooks/step-complete.py`) and record a pass/retry/fail verdict with derived fields on the run's eval record. Manual review is not the gate. Step-06 adds the adversarial layer: Ralph's ingestion-accounting verdict is recorded as an `adversarial-verification` guardrail checkpoint.
+Every step transition is machine-checked. The verifiers in `workflows/plaud-ingest/verify/` run at each step's completion (dispatched by `.claude/hooks/step-complete.py`) and record a pass/retry/fail verdict with derived fields on the run's eval record. Manual review is not the gate. Step-06 adds the accounting layer: `verify/ingest-reconcile.py` performs the ingestion-accounting diff deterministically (exit 0 = clean, exit 1 = anomalies), with Ralph spawned only to judge flagged anomalies; the verdict is recorded as an `adversarial-verification` guardrail checkpoint either way.
+
+---
+
+## CONTEXT BUDGET (non-no-op runs)
+
+Transcript bodies never enter the Knox conversation — they move file-to-file via `skills/plaud-transcripts/scripts/context_tools.py`, and the agent judges from bounded evidence (self-ID candidates, action candidates, note digests). This is why: ingest days re-carried ~8.8M input tokens through the late steps (boot token analysis 2026-10-28, follow-up 5). On any run where the no-op preflight does not exit early, Knox loads `references/context-budget-protocol.md` before step-03 and records `accumulated-context.context-budget` (`evidence-extractions`, `transcript-body-reads` — target 0, `fallback-reasons`). The protocol's fallback ladder keeps ingestion unblocked if the broker fails, with every fallback read surfaced, never silent.
 
 ---
 
@@ -110,6 +119,12 @@ accumulated-context:
                                      # embedding-match, self-ID, and calendar resolution —
                                      # tracked here even after the awaiting-input pause
                                      # resolves and pending-speaker-mappings is cleared
+  context-budget:                    # CONTEXT BUDGET (references/context-budget-protocol.md);
+                                     # initialized at step-01 on non-no-op runs
+    evidence-extractions: 0          # context_tools evidence/digest runs (speaker-evidence,
+                                     # action-candidates, assemble-note, note-digest)
+    transcript-body-reads: 0        # full transcript bodies read into conversation; target 0
+    fallback-reasons: []            # one logged reason per fallback read
 ```
 
 ## Quality Gates

@@ -1,0 +1,137 @@
+{
+  "id": "ies-3bb4b456-6ff8-4ed5-94fe-4484eb6904a7",
+  "version": "3bb4b456-6ff8-4ed5-94fe-4484eb6904a7",
+  "name": "Plaud Ingest Context Budget + Eval Harness Async Subagent Fixes",
+  "description": "Two capability batches from the 2026-10-28 boot token analysis. (1) Eval harness correctly records async background subagents: per-resume-segment SubagentStart dedup/reopen, stop-origin records for stubs that never existed or were swept mid-run, agent_type fallback restricted to agent_id-less payloads (kills the 10/28 hijack cascade), and close-open-evals never deletes agent stubs. (2) plaud-ingest gets a bounded context budget: context_tools.py broker keeps transcript bodies out of the conversation (speaker-evidence, action-candidates, assemble-note, note-digest), wired into steps 01/03/05 and both Plaud skills, with state counters, two new runtime assertions, and a fallback ladder that never blocks ingestion. Also: step-06 verification is script-first via ingest-reconcile.py (Ralph only on anomaly), and measure.py recursively stringifies mapping keys so unquoted YAML date keys no longer kill measurement snapshots.",
+  "released": "2026-10-29",
+  "type": "system",
+  "compatibility": {
+    "minimum_base_version": "2.0.0"
+  },
+  "files": [
+    {
+      "path": ".claude/hooks/eval-agent-start.py",
+      "type": "system",
+      "action": "replace",
+      "description": "One record per agent_id: reuse in-progress stub, reopen closed stub on resume-segment start, dedup parent subagents[] links"
+    },
+    {
+      "path": ".claude/hooks/eval-agent-stop.py",
+      "type": "system",
+      "action": "replace",
+      "description": "agent_id match accepts closed records; agent_type fallback only when payload has no agent_id; stop-origin record creation from subagent transcript; no sibling-transcript token substitution for ghost stops; stale mechanical verdicts reset on adopted records"
+    },
+    {
+      "path": ".claude/hooks/tests/test_async_agent_recording.py",
+      "type": "system",
+      "action": "add",
+      "description": "8-scenario regression suite for the async background subagent recording fix"
+    },
+    {
+      "path": "systems/eval-harness/hook_utils.py",
+      "type": "system",
+      "action": "replace",
+      "description": "Added make_agent_stub (shared stub schema), find_records_by_agent_id (explicit runs_dir), first_transcript_timestamp"
+    },
+    {
+      "path": "systems/eval-harness/close-open-evals.py",
+      "type": "system",
+      "action": "replace",
+      "description": "Phantom deletion restricted to records with no agent_id; agent stubs marked incomplete, never deleted (a background agent can still be running at sweep time)"
+    },
+    {
+      "path": "systems/eval-harness/conventions-exceptions.json",
+      "type": "system",
+      "action": "replace",
+      "description": "Pending-approval size.script exceptions: test_async_agent_recording.py (337/300), context_tools.py (422/300), plaud-ingest workflow.md (169/150), plaud-transcripts SKILL (~5316/5000 tokens)"
+    },
+    {
+      "path": "systems/eval-harness/assertions/plaud-ingest.json",
+      "type": "system",
+      "action": "replace",
+      "description": "Two new runtime assertions: plaud-cb-evidence-ran and plaud-cb-zero-transcript-reads (gated on staged-files; fallback reads deliberately fail to force controller review)"
+    },
+    {
+      "path": "systems/boot-instrumentation/measure.py",
+      "type": "system",
+      "action": "replace",
+      "description": "Recursive mapping-key stringification (_jsonable/_dumps) before json.dumps - fixes datetime.date keys from unquoted YAML date keys killing the 10/28 measurement snapshot"
+    },
+    {
+      "path": "workflows/plaud-ingest/workflow.md",
+      "type": "mixed",
+      "action": "merge",
+      "description": "Script-first step-06 (architecture line, step table row, guardrails) + CONTEXT BUDGET section, context-budget state schema keys, fairness frontmatter"
+    },
+    {
+      "path": "workflows/plaud-ingest/steps/step-01-discover.md",
+      "type": "mixed",
+      "action": "merge",
+      "description": "Initialize context-budget counters on non-no-op runs"
+    },
+    {
+      "path": "workflows/plaud-ingest/steps/step-03-identify-speakers.md",
+      "type": "system",
+      "action": "replace",
+      "description": "Self-ID scan runs via speaker-evidence broker (full-coverage proof via scan stats) instead of in-context full-transcript reads"
+    },
+    {
+      "path": "workflows/plaud-ingest/steps/step-05-ingest-vault.md",
+      "type": "mixed",
+      "action": "merge",
+      "description": "Per-recording broker loop (action-candidates, assemble-note, bounded placeholder fills), Gate 5 re-read via note-digest, 7-day cross-ref via note-digest, plus eval-surfaced fixes: step status stays in-progress until 05b, _speakers.json sidecar cleanup, bounded head-Read guidance for the Edit precondition"
+    },
+    {
+      "path": "workflows/plaud-ingest/steps/step-06-verify-ingest.md",
+      "type": "mixed",
+      "action": "merge",
+      "description": "Script-first verification: ingest-reconcile.py runs first, Ralph spawned only on exit 1 with a flagged-items-only brief; verdict + guardrail recording preserved on both paths"
+    },
+    {
+      "path": "workflows/plaud-ingest/verify/ingest-reconcile.py",
+      "type": "system",
+      "action": "add",
+      "description": "Deterministic ingestion-accounting reconcile (discovered file_ids vs outcome sets vs vault on disk vs staging); exit 0 clean / exit 1 anomalies"
+    },
+    {
+      "path": "workflows/plaud-ingest/references/context-budget-protocol.md",
+      "type": "system",
+      "action": "add",
+      "description": "Context budget invariant (with bounded metadata-header allowance above ## Transcript), broker commands, fallback ladder, state schema, gotchas (degraded rename mode, ms-duration bug, vault notes as transcript carriers)"
+    },
+    {
+      "path": "skills/plaud-transcripts/scripts/context_tools.py",
+      "type": "system",
+      "action": "add",
+      "description": "Bounded context broker: transcript bodies move file-to-file; agent judges from bounded evidence (speaker self-ID candidates, action candidates, note digests, note assembly with renames)"
+    },
+    {
+      "path": "skills/plaud-transcripts/SKILL.md",
+      "type": "mixed",
+      "action": "merge",
+      "description": "Bounded context tools section; batch/workflow parses route through the broker, single interactive recording may be read directly; staging cleanup now also deletes plaud_*_speakers.json sidecars (eval-surfaced gap)"
+    },
+    {
+      "path": "skills/plaud-speaker-id/SKILL.md",
+      "type": "mixed",
+      "action": "merge",
+      "description": "Step 0 self-ID scan mandated via the broker with full-coverage stats; direct full-read retained only as fallback when the broker is unavailable"
+    }
+  ],
+  "changelog": [
+    "Eval harness: one record per agent_id - SubagentStart reuses in-progress stubs and reopens closed stubs on resume segments; parent subagents[] links deduped",
+    "Eval harness: SubagentStop matches closed records by agent_id; agent_type fallback restricted to payloads with no agent_id; stop-origin records created from subagent transcripts for ghost stops; no sibling-transcript token substitution",
+    "close-open-evals: phantom deletion restricted to records with no agent_id; agent stubs are marked incomplete, never deleted",
+    "hook_utils.py: shared make_agent_stub schema, find_records_by_agent_id, first_transcript_timestamp",
+    "New regression suite: .claude/hooks/tests/test_async_agent_recording.py (8 scenarios)",
+    "plaud-ingest: bounded context budget - context_tools.py broker moves transcript bodies file-to-file (speaker-evidence, action-candidates, assemble-note, note-digest); cuts ~8.8M re-carried input on ingest days",
+    "plaud-ingest steps 01/03/05 and both Plaud skills wired to the broker, with full-coverage scan stats, fallback ladder, and context-budget state counters",
+    "New reference: workflows/plaud-ingest/references/context-budget-protocol.md (invariant, broker commands, fallback ladder, state schema, gotchas)",
+    "plaud-ingest step-06 verification is script-first via verify/ingest-reconcile.py (deterministic discovered-vs-outcome diff, vault-on-disk and staging checks); Ralph spawned only on anomaly",
+    "Runtime assertions: plaud-cb-evidence-ran and plaud-cb-zero-transcript-reads added to plaud-ingest.json",
+    "boot-instrumentation measure.py: recursive mapping-key stringification before json.dumps - unquoted YAML date keys no longer kill the measurement snapshot",
+    "conventions-exceptions.json: pending-approval size exceptions for test_async_agent_recording.py, context_tools.py, plaud-ingest workflow.md, plaud-transcripts SKILL.md",
+    "step-05 eval-surfaced fixes: step status stays in-progress until 05b; plaud_*_speakers.json sidecar cleanup; bounded head-Read guidance for the Edit precondition"
+  ],
+  "training_prompts": []
+}

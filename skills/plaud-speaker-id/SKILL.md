@@ -152,8 +152,24 @@ scoring closely with no clear winner) proceed to the self-ID scan below.
 
 For every speaker still labeled generically (`Speaker N`), scan that speaker's **full**
 set of transcript segments — not just the `sample_text` snippet in `_speakers.json` — for
-self-identification. If the staged markdown/full transcript isn't already loaded, fetch
-it before skipping this step; a truncated sample is not a substitute for the real scan.
+self-identification. Run the scan through the bounded context broker:
+
+```
+/usr/bin/python3 skills/plaud-transcripts/scripts/context_tools.py speaker-evidence <staged.md>
+```
+
+The script mechanically examines every segment of every speaker (opening utterances,
+closing/sign-off utterances — the highest-yield zone — and a self-ID pattern pass over
+the whole recording) and returns a bounded evidence JSON. `scan.segments_scanned ==
+scan.total_segments` in its output is the proof of full-coverage; judge resolutions from
+the candidates, not from `sample_text`. An empty `self_id_candidates` from a scan that
+reports full coverage is a genuine no-match — treat it as "self-ID exhausted" and move
+to the calendar; do not re-read the staged file to double-check.
+
+Fallback: if the broker script is genuinely unavailable (missing, crashes twice), the
+scan may be done by reading the full transcript directly — the mandate is full
+coverage of every segment, not the tool. A truncated sample is never a substitute for
+the real scan, by either path.
 
 Look specifically at:
 - **The end of the recording** — most people sign off by name ("Alright, this is Todd,

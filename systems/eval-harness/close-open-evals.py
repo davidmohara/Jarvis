@@ -5,12 +5,17 @@ Close any open eval records at session exit.
 Marks open evals with status: "incomplete" and abort_reason: "session-exit-normal"
 so they're not counted as system failures in the success-rate metric.
 
-A record with zero steps and zero subagents never represents a workflow
-that actually ran this session — most commonly a "boot-first-prompt-of-
-session" record eval-turn-start.py opened speculatively for a session that
-never invoked boot. Marking that "incomplete" still leaves a record for
-something that never happened. Those get deleted instead of closed — see
-err-20260829T161711-3IPMKR for the incident that surfaced this.
+A record with zero steps and zero subagents AND no agent_id never
+represents a workflow that actually ran this session — most commonly a
+"boot-first-prompt-of-session" record eval-turn-start.py opened
+speculatively for a session that never invoked boot. Marking that
+"incomplete" still leaves a record for something that never happened.
+Those get deleted instead of closed — see err-20260829T161711-3IPMKR for
+the incident that surfaced this. Records WITH an agent_id are
+SubagentStart stubs (a real agent spawned) and are never deleted here:
+an async background agent can still be running when the sweep fires, and
+its late SubagentStop needs the stub to land on (2026-10-28 boot 05-08
+briefing agent incident).
 
 Usage:
   python3 close-open-evals.py /path/to/eval-harness/runs/
@@ -50,10 +55,32 @@ def close_open_evals(eval_dir):
             # Only close if still in-progress
             if data.get("status") == "in-progress":
                 if not data.get("steps") and not data.get("subagents"):
-                    # Never accrued a single step or subagent — nothing
-                    # actually ran under this record. Delete it rather than
-                    # leaving a false trace of a workflow that never
-                    # happened, closed or otherwise.
+                    if data.get("agent_id"):
+                        # A record carrying an agent_id is a SubagentStart
+                        # stub: a real agent was spawned. With async
+                        # background agents the sweep can run while the agent
+                        # is STILL RUNNING (2026-10-28: the boot 05-08
+                        # briefing agent's stub was deleted at session end,
+                        # its SubagentStop fired 42s later with nothing to
+                        # land on, and a 3M-token run left no record at
+                        # all). Mark it incomplete like any other real
+                        # record; if the agent's stop is still in flight it
+                        # will adopt and complete this record (eval-agent-
+                        # stop.py matches closed records by agent_id).
+                        data["status"] = "incomplete"
+                        data["completed"] = now
+                        mech = data.setdefault("assessment", {}).setdefault("mechanical", {})
+                        mech["abort_reason"] = "session-exit-normal"
+                        mech["completed"] = False
+                        with open(f, "w") as file:
+                            json.dump(data, file, indent=2)
+                        closed += 1
+                        continue
+                    # Never accrued a single step or subagent and no agent
+                    # ever spawned under it — nothing actually ran under
+                    # this record. Delete it rather than leaving a false
+                    # trace of a workflow that never happened, closed or
+                    # otherwise.
                     f.unlink()
                     deleted += 1
                     continue

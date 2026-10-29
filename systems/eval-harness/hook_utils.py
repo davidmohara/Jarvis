@@ -799,3 +799,126 @@ def find_parent_record_with_subagent(session_id: str, agent_id: str) -> Path | N
         except Exception:
             continue
     return None
+
+
+def find_records_by_agent_id(agent_id: str, runs_dir: Path | None = None) -> list:
+    """Every eval record whose own agent_id matches, newest-started first.
+
+    Async/background subagents get their SubagentStart hook fired once per
+    resume segment, not once per logical agent (observed 2026-10-28: five
+    stubs for Knox's single plaud-ingest agent, two for the boot 01.5
+    calendar agent). This lookup powers eval-agent-start.py's dedup/reuse
+    and eval-agent-stop.py's stop-side matching, so one logical agent maps
+    to one eval record no matter how many times the harness re-fires the
+    start/stop pair for it.
+
+    runs_dir is explicit because callers redirect it (tests, IES_ROOT
+    overrides): the module default would silently search the live harness."""
+    runs_dir = runs_dir or EVAL_RUNS_DIR
+    if not agent_id or not runs_dir.exists():
+        return []
+    out = []
+    for f in runs_dir.glob("eval-*.json"):
+        try:
+            with open(f, "r") as file:
+                data = json.load(file)
+            if data.get("agent_id") == agent_id:
+                out.append((f, data.get("started", "")))
+        except Exception:
+            continue
+    out.sort(key=lambda x: x[1], reverse=True)
+    return [p for p, _ in out]
+
+
+def make_agent_stub(agent_id: str, agent_type: str, session_id: str,
+                    spawn_workflow: str | None = None,
+                    spawn_agent: str | None = None,
+                    started: str | None = None) -> dict:
+    """The eval-record stub schema for a subagent, shared by
+    eval-agent-start.py (SubagentStart) and eval-agent-stop.py (stop-origin
+    records for agents whose SubagentStart never fired or whose stub was
+    swept before their stop landed — both real async-background-agent
+    failure modes observed 2026-10-27/28). One schema, one builder, so the
+    two hook entry points can never drift into producing differently-shaped
+    records. `started` defaults to now; eval-agent-stop.py passes the
+    subagent transcript's first timestamp instead, so a stop-origin record
+    covers the agent's real run window rather than just the stop instant."""
+    now = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
+    return {
+        "id": new_eval_id(),
+        "agent_id": agent_id,  # stored for reliable stop-to-start correlation
+        "type": "agent",
+        "name": agent_type,
+        "workflow": spawn_workflow,  # additive; None unless the spawn prompt named an
+                                      # explicit workflows/{name}/workflow.md path.
+        "agent": spawn_agent or agent_type,
+        "owning_agent": spawn_agent,
+        "subagent_type": agent_type,
+        "session_id": session_id,
+        "trigger": "workflow-dispatch" if spawn_workflow else "unknown",
+        "model": None,
+        "model_source": None,
+        "started": started or now,
+        "completed": None,
+        "duration_seconds": None,
+        "status": "in-progress",
+        "steps": [],
+        "assessment": {
+            "mechanical": {
+                "completed": None,
+                "all_steps_finished": None,
+                "tool_failures": 0,
+                "error_ids": []
+            },
+            "structural": {
+                "expected_outputs_written": None,
+                "outputs_non_empty": None,
+                "assertions_checked": 0,
+                "assertions_passed": 0,
+                "assertion_results": []
+            },
+            "grading": {
+                "last_graded": None,
+                "grade": None,
+                "safety_grade": None,
+                "grader_notes": None
+            },
+            "controller_feedback": {
+                "rating": None,
+                "comment": None,
+                "timestamp": None
+            },
+            "bias_assessment": {
+                "applicable": False,
+                "protected_attributes": [],
+                "fairness_metric": None,
+                "demographic_coverage_verified": False,
+                "adversarial_inputs_tested": False,
+                "bias_detected": False,
+                "bias_flags": [],
+                "remediation_status": "none"
+            }
+        },
+        "version_hash": None,
+        "prior_baseline_id": None,
+        "tags": []
+    }
+
+
+def first_transcript_timestamp(transcript_path) -> str | None:
+    """First timestamp found in a subagent transcript (.jsonl), as an ISO
+    string, or None. Used by eval-agent-stop.py to give a stop-origin record
+    the agent's real start time rather than the stop instant."""
+    try:
+        with open(transcript_path, "r") as f:
+            for line in f:
+                try:
+                    d = json.loads(line)
+                except Exception:
+                    continue
+                ts = d.get("timestamp")
+                if ts:
+                    return ts
+    except Exception:
+        pass
+    return None

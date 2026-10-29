@@ -12,6 +12,33 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any, Dict, List
 
+
+def _jsonable(obj: Any) -> Any:
+    """Recursively coerce a YAML-loaded structure into something json.dumps
+    always accepts.
+
+    The 2026-10-23 `default=str` fix covers non-string VALUES. It does not
+    cover non-string KEYS: YAML 1.1 parses an unquoted date-like key (e.g.
+    `2026-10-29:` under boot state.yaml's task-g-72hr-lookahead block) into a
+    datetime.date KEY, and json.dumps rejects those outright ("keys must be
+    str, int, float, bool or None, not datetime.date") — the 2026-10-28
+    measurement snapshot contains only that error. Stringify mapping keys
+    here, recursively, before any dumps."""
+    if isinstance(obj, dict):
+        return {str(k): _jsonable(v) for k, v in obj.items()}
+    if isinstance(obj, (list, tuple)):
+        return [_jsonable(v) for v in obj]
+    return obj
+
+
+def _dumps(obj: Any, **kwargs) -> str:
+    """json.dumps with key-sanitizing always applied. `default=str` still
+    handles non-string leaf values (dates, datetimes) that _jsonable passes
+    through."""
+    kwargs.setdefault("default", str)
+    return json.dumps(_jsonable(obj), **kwargs)
+
+
 class BootInstrument:
     """Instruments boot workflow to measure context bloat."""
 
@@ -26,7 +53,7 @@ class BootInstrument:
     def measure_object_size(self, obj: Any, name: str) -> Dict[str, Any]:
         """Measure size of a Python object in tokens (approximate) and bytes."""
         # Approximate token count: ~4 chars per token
-        json_str = json.dumps(obj, default=str)
+        json_str = _dumps(obj)
         size_bytes = len(json_str.encode('utf-8'))
         estimated_tokens = len(json_str) // 4
 
@@ -42,10 +69,10 @@ class BootInstrument:
         """Recursively measure each field in a dict."""
         results = []
         for key, value in data.items():
-            field_name = f"{prefix}.{key}" if prefix else key
+            field_name = f"{prefix}.{key}" if prefix else str(key)
 
             # Skip deeply nested objects
-            if isinstance(value, (dict, list)) and len(json.dumps(value, default=str)) > 10000:
+            if isinstance(value, (dict, list)) and len(_dumps(value)) > 10000:
                 measurement = self.measure_object_size(value, field_name)
                 results.append(measurement)
             elif isinstance(value, dict):
@@ -79,7 +106,7 @@ class BootInstrument:
 
             measurement = {
                 "workflow": "boot",
-                "total_size_bytes": len(json.dumps(accumulated, default=str).encode('utf-8')),
+                "total_size_bytes": len(_dumps(accumulated).encode('utf-8')),
                 "accumulated_context": self.measure_object_size(accumulated, "accumulated-context"),
                 "field_breakdown": self.measure_dict_fields(accumulated)
             }

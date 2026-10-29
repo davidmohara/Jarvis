@@ -432,6 +432,42 @@
       "granted_on": "2026-10-20",
       "approval": "approved",
       "review_after": "2027-01-20"
+    },
+    {
+      "path": ".claude/hooks/tests/test_async_agent_recording.py",
+      "rule": "size.script",
+      "reason": "eight-scenario regression suite for the async background subagent recording fix (2026-10-28); each scenario carries its own fixture builder and incident documentation, splitting would scatter one incident's coverage",
+      "granted_by": "david",
+      "granted_on": "2026-10-29",
+      "approval": "approved",
+      "review_after": "2027-01-28"
+    },
+    {
+      "path": "skills/plaud-transcripts/scripts/context_tools.py",
+      "rule": "size.script",
+      "reason": "bounded context broker, four cohesive subcommands sharing one staged-file parser; splitting per subcommand duplicates the parser",
+      "granted_by": "david",
+      "granted_on": "2026-10-29",
+      "approval": "approved",
+      "review_after": "2027-01-29"
+    },
+    {
+      "path": "workflows/plaud-ingest/workflow.md",
+      "rule": "size.workflow_md",
+      "reason": "orchestrator; no-op preflight and context-budget sections are both load-bearing, step logic already lives in step files",
+      "granted_by": "david",
+      "granted_on": "2026-10-29",
+      "approval": "approved",
+      "review_after": "2027-01-29"
+    },
+    {
+      "path": "skills/plaud-transcripts/SKILL.md",
+      "rule": "size.skill_body",
+      "reason": "Plaud API reference + token lifecycle + bounded context tools; candidate for references/ split during the sweep",
+      "granted_by": "david",
+      "granted_on": "2026-10-29",
+      "approval": "approved",
+      "review_after": "2027-01-29"
     }
   ]
 }
