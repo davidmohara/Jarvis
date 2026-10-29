@@ -1,0 +1,107 @@
+{
+  "id": "eval-20261029T135711-SAKN92",
+  "agent_id": "aa07879ea827fcabd",
+  "type": "agent",
+  "name": "fork",
+  "workflow": "plaud-ingest",
+  "agent": "knox",
+  "owning_agent": "knox",
+  "subagent_type": "fork",
+  "session_id": "e8a34955-773e-4c6c-85fb-19b8cfe18e2e",
+  "trigger": "unknown",
+  "model": "glm-5p3-flash",
+  "model_source": "subagent-transcript",
+  "started": "2026-10-29T13:57:11.681259Z",
+  "completed": "2026-10-29T13:57:42.034830Z",
+  "duration_seconds": 30.35,
+  "status": "success",
+  "steps": [
+    {
+      "name": "step-01-discover.md",
+      "agent": "fork",
+      "step_id": "step-01-discover.md",
+      "owning_agent": "fork",
+      "started": "2026-10-29T13:57:26Z",
+      "completed": "2026-10-29T13:57:26Z",
+      "status": "completed",
+      "duration_seconds": 0.0
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/e8a34955-773e-4c6c-85fb-19b8cfe18e2e/subagents/agent-aa07879ea827fcabd.jsonl",
+  "last_assistant_message": "[Knox/Discover]: No new Plaud recordings \u2014 no-op run.\n\nDetails: `noop-preflight.py` returned NOOP (newest recording unchanged, 4bc3ab005e16f853fbf236a1e1ae90fc, cached token valid 53 days). No steps executed, no persona load, no vault walk. `state.yaml` closed as `outcome: no-new-recordings`, session pi-20261029-001, step-01 frontmatter stamped, prior-run pointer updated to pi-20261028-001.",
+  "total_tokens_input": 730232,
+  "total_tokens_output": 1298,
+  "total_cost_usd": 0.012985,
+  "token_source": "subagent-transcript",
+  "guardrails": [
+    {
+      "name": "step-01-discover-checkpoint",
+      "after_step": "step-01-discover.md",
+      "result": "pass",
+      "reason": "2 new recording(s) discovered and well-formed",
+      "escalated_to_human": false,
+      "timestamp": "2026-10-29T13:57:42.345458Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "new_recordings_count": 2,
+        "malformed_records": [],
+        "duplicate_file_ids": []
+      }
+    }
+  ],
+  "parent_window": {
+    "token_source": "parent-window",
+    "transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/e8a34955-773e-4c6c-85fb-19b8cfe18e2e.jsonl",
+    "window_start": "2026-10-29T13:57:11.681259Z",
+    "window_end": "2026-10-29T13:57:42.034830Z",
+    "model": "glm-5p3-flash",
+    "tokens_input": 300029,
+    "tokens_output": 811,
+    "cost_usd": 0.00512,
+    "turns_matched": 4,
+    "turns_with_usage": 4,
+    "computed_at": "2026-10-29T13:57:43.271621Z"
+  },
+  "fully_loaded_cost_usd": 0.018105,
+  "fully_loaded_tokens_input": 1030261,
+  "fully_loaded_tokens_output": 2109
+}
