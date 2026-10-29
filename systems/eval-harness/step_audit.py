@@ -186,19 +186,22 @@ def merge_reporting_agent(agent) -> str:
     return agent
 
 
-def resolve_record_agent(record: dict) -> str | None:
+def resolve_record_agent(record: dict, trust_stored: bool = True) -> str | None:
     """Best-effort canonical IES agent that owns an eval record.
 
     Priority (most authoritative first):
-      1. an explicit top-level `owning_agent` (already canonical)
+      1. an explicit top-level `owning_agent` (already canonical) — only when
+         trust_stored is True
       2. the workflow's own owner — workflows/<name>/workflow.md's `agent:`
          frontmatter — read from the record's `workflow` field, then its `name`
-      3. a canonical mapping of the record's raw `agent` label
+      3. a canonical mapping of the record's raw `agent` label — only when
+         trust_stored is True (apply_record_attribution may itself have
+         overwritten that label, so it is not independent evidence)
       4. reporting-time recovery for unattributable records: mine the record's
          own `agent_transcript_path` (a subagent transcript whose first user
-         message is the spawn prompt, "You are Shep ...") or, failing that, its
-         `agent_id` (locate the transcript/.meta.json under ~/.claude/projects)
-         for a manifest agent name.
+         message is the spawn prompt) or, failing that, its `agent_id` (locate
+         the transcript/.meta.json under ~/.claude/projects) for a manifest
+         agent name.
 
     Step 4 exists because the SubagentStart hook payload carries no prompt text
     (see hook_utils.resolve_spawn_text), so spawned specialists historically
@@ -207,21 +210,29 @@ def resolve_record_agent(record: dict) -> str | None:
     on disk is never rewritten. Best-effort — an unresolvable path is None, no
     crash.
 
+    trust_stored=False re-derives the owner from structural evidence only
+    (workflow owner, transcript, meta), ignoring the stored `owning_agent` and
+    `agent` labels. That is what backfill-attribution.py uses to detect and
+    correct labels stamped by an older, weaker heuristic (2026-10-29 knox
+    mislabel).
+
     Returns a canonical manifest agent name (e.g. "ralph", "knox", "master"),
     or None when nothing resolves.
     """
     if not isinstance(record, dict):
         return None
-    canon = normalize_agent_label(record.get("owning_agent"))
-    if canon:
-        return canon
+    if trust_stored:
+        canon = normalize_agent_label(record.get("owning_agent"))
+        if canon:
+            return canon
     for wf in (record.get("workflow"), record.get("name")):
         canon = normalize_agent_label(workflow_owner_agent(wf))
         if canon:
             return canon
-    canon = normalize_agent_label(record.get("agent"))
-    if canon:
-        return canon
+    if trust_stored:
+        canon = normalize_agent_label(record.get("agent"))
+        if canon:
+            return canon
     # Reporting-time recovery from the record's own spawn evidence. Imported
     # lazily: hook_utils imports THIS module at load time (for the roster), so
     # a top-level import here would be circular.
@@ -235,7 +246,7 @@ def resolve_record_agent(record: dict) -> str | None:
     return agent_from_meta(record.get("agent_id"))
 
 
-def apply_record_attribution(record: dict) -> str | None:
+def apply_record_attribution(record: dict, recheck: bool = False) -> str | None:
     """Stamp an eval record's attribution from the best available evidence.
 
     Always sets `owning_agent` to the resolved canonical owner. Additionally
@@ -244,10 +255,14 @@ def apply_record_attribution(record: dict) -> str | None:
     label ("general-purpose") is replaced with the owning IES agent, while an
     already-canonical `agent` (e.g. "chief") is left untouched. Returns the
     resolved owner, or None.
+
+    recheck=True ignores the record's stored owning_agent/agent labels and
+    re-derives from structural evidence (see resolve_record_agent). Used by the
+    attribution backfill, not by the live hooks.
     """
     if not isinstance(record, dict):
         return None
-    owner = resolve_record_agent(record)
+    owner = resolve_record_agent(record, trust_stored=not recheck)
     if owner:
         record["owning_agent"] = owner
         if normalize_agent_label(record.get("agent")) is None:

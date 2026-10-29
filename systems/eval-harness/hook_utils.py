@@ -64,26 +64,70 @@ _AGENT_NAME_CANDIDATES = tuple(
 _AMBIGUOUS_AGENT_WORDS = {"master", "chief", "chase"}
 
 # Phrases that mark "the next agent name is who this subagent is": e.g.
-# "spawn Ralph with ...", "You are Knox", "dispatch to Chief", "Agent: Shep".
+# "spawn Ralph with ...", "dispatch to Chief", "Agent: Shep".
+#
+# NOT attribution-grade on its own: only a cue-anchored name counts (see
+# _cue_anchored_agent). A bare name in prose ("... and Knox plaud-ingest runs
+# spawned from boot step-01 ...") is a mention, not an identity.
 _AGENT_SPAWN_CUE_RE = re.compile(
-    r"(?:you are|you're|spawn(?:ing)?|dispatch(?:ing)?|route(?:d)? to|"
-    r"hand(?:ing)? (?:this |it |off )?to|activate|agent\s*[:\-])\s*"
+    r"(?:spawn(?:ing|ed)?|dispatch(?:ing|ed)?|route(?:d)? to|"
+    r"hand(?:ing|ed)? (?:this |it |off )?to|activate|agent\s*[:\-])\s*"
     r"(?:the\s+)?([a-z]+)\b",
+    re.IGNORECASE,
+)
+
+# Longest text in which a cue-anchored mention is trusted as identity. Beyond
+# this the text is a task brief that discusses agents, not a dispatch line.
+_CUE_MAX_CHARS = 400
+
+# A prompt that opens by addressing its agent directly: "Knox — run ...",
+# "Rigby: build ...", "Shep, take this". The system's own dispatch briefs use
+# this shape constantly, and it is unambiguous (the first token is the
+# addressee, not a passing reference).
+_LEADING_ADDRESS_RE = re.compile(
+    r"^\s*(?:\*\*|__)?([a-z]+)(?:\*\*|__)?\s*(?:[—–:-]|\n)",
+    re.IGNORECASE,
+)
+
+# A persona file path: agents/knox.md. Read-side detection of a persona file
+# the subagent actually opened is strong structural evidence of identity.
+_PERSONA_FILE_RE = re.compile(r"agents[/\\]([a-z0-9_-]+)\.md", re.IGNORECASE)
+
+# "You are acting as Rigby ..." — an explicit instruction to BE that agent.
+# Checked near the top only: long architecture briefs discuss agents by name.
+_ACTING_AS_RE = re.compile(
+    r"acting\s+as\s+(?:the\s+)?(?:\*\*|__)?([a-z]+)", re.IGNORECASE
+)
+
+# A skill path whose name is prefixed with its owning agent:
+# skills/rigby-capability-build/... -> rigby. IES skill names carry the owner
+# as a prefix by convention, so a spawn brief that hands a subagent a skill
+# ("per .claude/skills/rigby-capability-build/subagents/grader.md") names the
+# owner structurally rather than in passing. Only ONE distinct owner may
+# appear, otherwise the signal is ambiguous and ignored.
+_SKILL_OWNER_RE = re.compile(
+    r"(?:\.claude[/\\])?skills[/\\]([a-z0-9_]+?)-[a-z0-9-]+[/\\]",
     re.IGNORECASE,
 )
 
 
 def resolve_agent_from_text(text: str) -> str | None:
-    """Best-effort IES agent named in a block of text (a subagent spawn prompt,
-    a description, etc.).
+    """Diagnostic ONLY — mention-count signal, NOT attribution-grade.
 
-    Unambiguous proper-noun agent names (knox, rigby, quinn, shep, sterling,
-    galen, harper, ralph; plus the system-name alias jarvis) are matched on any whole-word occurrence and
-    scored by count. Ambiguous names that double as English words (master,
-    chief, chase) only count when they follow an explicit spawn cue
-    ("spawn Chase", "You are Chief", "Agent: Master"), so prose like "chase
-    down the invoice" or "the master file" never mis-attributes. Returns the
-    canonical manifest name, or None."""
+    Kept because it is useful for explaining a past attribution after the
+    fact (the backfill script uses it to prove a stored label came from a bare
+    mention). Do not use it to attribute a spawn: on 2026-10-29 an analysis
+    agent whose prompt merely said "Knox plaud-ingest runs" was stamped
+    `agent: knox, owning_agent: knox` because this function counts any
+    whole-word occurrence of an unambiguous agent name. Spawn attribution goes
+    through resolve_spawn_agent_from_prompt / agent_from_transcript, which
+    require an opener, a leading address, a persona-file read, or a spawn cue.
+
+    Unambiguous proper-noun names (knox, rigby, quinn, shep, sterling, galen,
+    harper, ralph; plus the system-name alias jarvis) are matched on any
+    whole-word occurrence and scored by count. Ambiguous names that double as
+    English words (master, chief, chase) only count when they follow an
+    explicit spawn cue. Returns the canonical manifest name, or None."""
     if not text or normalize_agent_label is None:
         return None
 
@@ -132,24 +176,131 @@ def resolve_agent_from_text(text: str) -> str | None:
 CLAUDE_PROJECTS_DIR = Path.home() / ".claude" / "projects"
 
 # A spawn prompt almost always opens "You are <Agent> ...". That opener is a
-# stronger signal than resolve_agent_from_text's mention-count, so it is
-# checked first (a prompt that opens "You are Harper" but mentions "Knox"
-# twice in its body should still resolve to Harper).
-_SPAWN_OPENER_RE = re.compile(r"you\s+are\s+(?:the\s+)?([a-z]+)\b", re.IGNORECASE)
+# direct declaration of identity and outranks every other signal. Markdown
+# emphasis is tolerated because the skill-invocation prompts read
+# "You are **Master**, ...". A prompt that opens "You are NOT loading any
+# persona file" resolves to None (the captured word is "not", not an agent).
+_SPAWN_OPENER_RE = re.compile(
+    r"you\s+are\s+(?:the\s+)?(?:\*\*|__)?([a-z]+)(?:\*\*|__)?\b",
+    re.IGNORECASE,
+)
 
 
-def resolve_spawn_agent_from_prompt(text: str) -> str | None:
-    """Canonical IES agent for a spawn prompt: prefer a leading
-    'You are <Agent>' opener, else fall back to resolve_agent_from_text's
-    cue/count logic. Returns a canonical manifest name, or None."""
+def _opener_agent(text: str) -> str | None:
+    """Agent from a 'You are <Agent>' opener in the first 300 chars, or None."""
     if not text or normalize_agent_label is None:
         return None
     m = _SPAWN_OPENER_RE.search(text[:300])
-    if m:
+    return normalize_agent_label(m.group(1)) if m else None
+
+
+def _leading_address_agent(text: str) -> str | None:
+    """Agent a prompt opens by addressing ("Knox — run ...", "Rigby: ...")."""
+    if not text or normalize_agent_label is None:
+        return None
+    m = _LEADING_ADDRESS_RE.match(text)
+    return normalize_agent_label(m.group(1)) if m else None
+
+
+def _acting_as_agent(text: str) -> str | None:
+    """Agent from an 'acting as <Agent>' instruction near the start, or None."""
+    if not text or normalize_agent_label is None:
+        return None
+    m = _ACTING_AS_RE.search(text[:400])
+    return normalize_agent_label(m.group(1)) if m else None
+
+
+def _persona_reference_agent(text: str) -> str | None:
+    """Agent named by a persona-attributed `agents/<name>.md` reference.
+
+    Requires the word 'persona' within 60 chars before the path AND that the
+    text names exactly ONE agent persona file in total. A cleanup brief that
+    edits a dozen agents/*.md files, or an audit that cites them, is
+    documentation, not an identity — mining one of those paths was how two
+    boilerplate-cleanup agents resolved to chase/master on 2026-10-29.
+    """
+    if not text or normalize_agent_label is None:
+        return None
+    mentioned = {normalize_agent_label(m.group(1)) for m in _PERSONA_FILE_RE.finditer(text)}
+    mentioned.discard(None)
+    if len(mentioned) != 1:
+        return None
+    for m in _PERSONA_FILE_RE.finditer(text):
+        cand = normalize_agent_label(m.group(1))
+        if not cand:
+            continue
+        before = text[max(0, m.start() - 60):m.start()].lower()
+        if "persona" in before:
+            return cand
+    return None
+
+
+def _skill_owner_agent(text: str) -> str | None:
+    """Agent that owns the skill(s) a prompt hands the subagent, or None.
+
+    Reads the owner prefix off `skills/<owner>-<name>/` paths. Requires exactly
+    one distinct owner so a prompt that lists several agents' skills cannot
+    pick one arbitrarily.
+    """
+    if not text or normalize_agent_label is None:
+        return None
+    owners = set()
+    for m in _SKILL_OWNER_RE.finditer(text):
         cand = normalize_agent_label(m.group(1))
         if cand:
-            return cand
-    return resolve_agent_from_text(text)
+            owners.add(cand)
+    return owners.pop() if len(owners) == 1 else None
+
+
+def _cue_anchored_agent(text: str) -> str | None:
+    """Agent named after an explicit spawn cue ("spawn Ralph", "Agent: Shep").
+
+    Only cue-anchored occurrences count — for EVERY name, not just the
+    ambiguous ones. Highest count wins, ties break on earliest appearance.
+
+    Deliberately length-limited: a dispatch brief is short ("Spawn Ralph with
+    ..."), whereas a long task prompt that explains the agent architecture
+    contains phrases like "spawning knox" and "agent: master" that describe the
+    system, not the speaker. Cue mining a long brief was how four Rigby
+    remediation subagents resolved to knox/ralph instead of the persona they
+    were explicitly told to act as.
+    """
+    if not text or normalize_agent_label is None or len(text) > _CUE_MAX_CHARS:
+        return None
+    counts: dict[str, int] = {}
+    first: dict[str, int] = {}
+    for m in _AGENT_SPAWN_CUE_RE.finditer(text.lower()):
+        cand = normalize_agent_label(m.group(1))
+        if not cand:
+            continue
+        counts[cand] = counts.get(cand, 0) + 1
+        first.setdefault(cand, m.start())
+    if not counts:
+        return None
+    return max(counts, key=lambda n: (counts[n], -first[n]))
+
+
+def resolve_spawn_agent_from_prompt(text: str) -> str | None:
+    """Canonical IES agent for a spawn prompt, or None when the text does not
+    identify one.
+
+    Attribution-grade signals only, strongest first:
+      1. a 'You are <Agent>' opener (explicit identity declaration)
+      2. an 'acting as <Agent>' instruction near the top
+      3. a persona-attributed agents/<name>.md reference
+      4. a leading direct address ('Knox — ...', 'Rigby: ...')
+      5. a single skill-owner path ('skills/rigby-capability-build/...')
+      6. a spawn-cue-anchored mention in a SHORT brief ('spawn Ralph')
+
+    A bare name in prose is deliberately NOT a signal. Before 2026-10-29 the
+    fallback was resolve_agent_from_text, which counts any whole-word mention
+    of an unambiguous agent name; that stamped a boot-token-analysis agent
+    `knox` because its prompt said "... and Knox plaud-ingest runs spawned
+    from boot step-01 ...". Mentions name subjects, not identities.
+    """
+    return (_opener_agent(text) or _acting_as_agent(text)
+            or _persona_reference_agent(text) or _leading_address_agent(text)
+            or _skill_owner_agent(text) or _cue_anchored_agent(text))
 
 
 def _read_first_user_message_text(transcript_path) -> str | None:
@@ -185,10 +336,75 @@ def _read_first_user_message_text(transcript_path) -> str | None:
     return None
 
 
+def agent_from_persona_reads(transcript_path) -> str | None:
+    """Canonical IES agent whose persona file (agents/<name>.md) the subagent
+    actually READ, or None.
+
+    This is structural evidence of identity — the agent opened that persona
+    and adopted it — as opposed to a prompt that merely names an agent in
+    passing. Exactly one distinct persona must have been read; two or more is
+    ambiguous and returns None so the caller falls back to prompt signals.
+    Best-effort: missing transcript -> None, no crash.
+    """
+    names = set()
+    try:
+        p = Path(transcript_path)
+        if not p.is_file():
+            return None
+        with open(p, "r") as f:
+            for line in f:
+                try:
+                    rec = json.loads(line)
+                except Exception:
+                    continue
+                content = (rec.get("message") or {}).get("content")
+                if not isinstance(content, list):
+                    continue
+                for b in content:
+                    if not (isinstance(b, dict) and b.get("type") == "tool_use"):
+                        continue
+                    if b.get("name") not in ("Read", "read_file", "vault_read"):
+                        continue
+                    inp = b.get("input") or {}
+                    path = str(inp.get("file_path") or inp.get("path") or "")
+                    m = _PERSONA_FILE_RE.search(path)
+                    if not m:
+                        continue
+                    cand = normalize_agent_label(m.group(1))
+                    if cand:
+                        names.add(cand)
+    except Exception:
+        return None
+    return names.pop() if len(names) == 1 else None
+
+
 def agent_from_transcript(transcript_path) -> str | None:
-    """Canonical IES agent named in a transcript's first user message (the
-    spawn prompt). Best-effort: unresolvable/missing path -> None, no crash."""
-    return resolve_spawn_agent_from_prompt(_read_first_user_message_text(transcript_path))
+    """Canonical IES agent for a subagent transcript, or None.
+
+    Order, strongest first:
+      1. a 'You are <Agent>' opener in the spawn prompt (first user message)
+      2. an 'acting as <Agent>' instruction in the prompt
+      3. exactly one agents/<name>.md persona file read by the subagent
+      4. a persona-attributed agents/<name>.md reference in the prompt
+      5. a leading direct address in the prompt
+      6. a single skill-owner path in the prompt
+      7. a spawn-cue-anchored mention in a short prompt
+
+    A bare mention of an agent name elsewhere in the prompt is NOT used (see
+    resolve_spawn_agent_from_prompt). Best-effort: unresolvable/missing path
+    -> None, no crash."""
+    text = _read_first_user_message_text(transcript_path)
+    opener = _opener_agent(text)
+    if opener:
+        return opener
+    acting = _acting_as_agent(text)
+    if acting:
+        return acting
+    persona = agent_from_persona_reads(transcript_path)
+    if persona:
+        return persona
+    return (_persona_reference_agent(text) or _leading_address_agent(text)
+            or _skill_owner_agent(text) or _cue_anchored_agent(text))
 
 
 def _subagent_dir_from_payload(payload: dict):
