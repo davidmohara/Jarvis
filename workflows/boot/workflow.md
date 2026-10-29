@@ -90,6 +90,8 @@ Two reasons this spawn prompt is shaped exactly this way. First, the literal `wo
 >
 > Read `workflows/boot/steps/step-04-gather-meeting-context.md` and execute exactly its YOUR TASK section: read step-02's `calendar_data` from `state.yaml`, apply morning-briefing step-03's gather rules to the `needs_prep` meetings (identity files, knowledge-base searches, delegation tracker, yesterday's review), read Clay data from `data/clay-reminders-unified.json` (no Clay MCP call), record compact results in `state.yaml` `accumulated-context` with the Edit tool (never Bash).
 >
+> **Obey the step file's CONTEXT BUDGET section as a hard rule.** `vault_read` only with `target`/`targetType: heading` or `limit` ≤ 60 — never a full note body; `search_simple` `contextLength` ≤ 40; at most 2 notes per meeting; no duplicate reads of the same path; never read `systems/eval-harness/**`, `~/.claude/projects/**`, or any `.jsonl`. A 4x token spike in this step on 2026-10-29 traced entirely to full-body vault reads.
+>
 > That step file is your entire mandate. Do not read or execute any other step file. Return to the coordinator with meetings-with-context, the Clay outcome, yesterday's review status, and any failure.
 
 **Steps 05 through 08 — exactly one briefing subagent.** Spawn it only after the step-04 subagent has returned and completed, not fire-and-forget. Its mandate is steps 05, 06, 07, and 08 and nothing else.

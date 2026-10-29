@@ -48,8 +48,16 @@ def main():
                 data = json.loads(f.read_text())
             except Exception:
                 continue
-            name = str(data.get("name", ""))
-            if "plaud" not in name.lower() and "knox" not in name.lower():
+            # Knox evidence: a record named for plaud/knox, OR a record whose
+            # `workflow` is plaud-ingest (the authoritative tag stamped from the
+            # spawn prompt since 2026-10-22). A fresh (non-fork) Knox spawn is
+            # named "general-purpose", so name alone no longer proves the spawn
+            # (2026-10-29 item 2). Do NOT match on `agent`/`owning_agent`:
+            # apply_record_attribution can mislabel unrelated agents as knox
+            # (eval-20261029T143236-FU0JH4), so those fields false-positive.
+            haystack = " ".join(str(data.get(k, "") or "") for k in
+                                ("name", "workflow")).lower()
+            if not any(t in haystack for t in ("plaud", "knox")):
                 continue
             if not window_start:
                 knox_evidence = True

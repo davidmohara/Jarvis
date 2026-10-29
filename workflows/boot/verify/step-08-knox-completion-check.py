@@ -32,8 +32,13 @@ def main():
                 data = json.loads(f.read_text())
             except Exception:
                 continue
-            name = str(data.get("name", "")).lower()
-            if "plaud" not in name and "knox" not in name:
+            # Match on the authoritative workflow tag too: a fresh (non-fork)
+            # Knox spawn is named "general-purpose" with workflow=plaud-ingest,
+            # so name alone misses it (2026-10-29 item 2). Do NOT match on
+            # `agent`/`owning_agent` — mis-attribution makes those unreliable.
+            haystack = " ".join(str(data.get(k, "") or "") for k in
+                                ("name", "workflow")).lower()
+            if "plaud" not in haystack and "knox" not in haystack:
                 continue
             if window_start:
                 try:

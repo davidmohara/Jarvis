@@ -212,17 +212,21 @@ def test_no_fallback_hijack_when_agent_id_present():
     h.fire_start("agent-zed-1")
     zed_before = records_for(h.runs, "agent-zed-1")[0][1]
 
-    # Agent W's stop arrives: its stub is gone (swept) or never existed.
-    # Old behavior: complete Z's record with W's data. New behavior: a
-    # stop-origin record for W, Z untouched.
+    # Agent W's stop arrives with no transcript, no .meta.json and no
+    # task-notification: its stub is gone (swept) or never existed, and
+    # nothing on disk proves the run happened.
+    # Old behavior: complete Z's record with W's data (hijack).
+    # 2026-10-28 behavior: a zero-token stop-origin record for W.
+    # 2026-10-29 behavior (this gate): suppress the phantom stop entirely —
+    # 151 of the 175 records dated 10/29 were exactly this zero-token class.
     h.fire_stop("agent-doubleu-1", transcript=None)
 
     zed_after = records_for(h.runs, "agent-zed-1")[0][1]
     assert zed_after["status"] == "in-progress", "sibling record was hijacked by an orphaned stop"
     assert zed_after.get("completed") == zed_before.get("completed")
     w = records_for(h.runs, "agent-doubleu-1")
-    assert len(w) == 1 and "stop-origin" in w[0][1].get("tags", [])
-    print("PASS: orphaned stop with agent_id does not hijack a sibling's record")
+    assert w == [], f"phantom stop (no run evidence) must not create a record, got {w}"
+    print("PASS: orphaned stop with agent_id neither hijacks a sibling nor creates a phantom record")
 
 
 def test_sweep_never_deletes_agent_stubs():
@@ -277,29 +281,29 @@ def test_late_stop_adopts_swept_stub():
 
 
 def test_ghost_stop_no_sibling_transcript_substitution():
-    """Ghost stop (agent_id present, agent's transcript never landed on disk —
-    the six 2026-10-28 nested-background-agent stops): the stop-origin record
-    must carry NO token data rather than usage_between's same-dir fallback
-    substituting the newest sibling agent's transcript. Live instance:
-    eval-20261028T220545-VFF726 picked up 10.9M tokens belonging to a
-    different agent before this rule existed."""
+    """Stop-origin record with its own (small) transcript: it must carry ITS
+    token data, never usage_between's same-dir fallback substituting the newest
+    sibling agent's transcript. Live instance: eval-20261028T220545-VFF726
+    picked up 10.9M tokens belonging to a different agent before this rule
+    existed. (A stop whose own transcript is missing entirely is now suppressed
+    by the phantom gate — see test_no_fallback_hijack_when_agent_id_present.)"""
     h = Harness()
     sibling = h.tmp / "subagents"
     sibling.mkdir()
     other = sibling / "agent-someoneelse.jsonl"
     write_turn(other, datetime.now(timezone.utc), "s1", inp=999999, out=1)
+    own = sibling / "agent-ghost-2.jsonl"
+    write_turn(own, datetime.now(timezone.utc), "g1", inp=500, out=7)
 
-    h.fire_stop("agent-ghost-2", agent_type="",
-                transcript=sibling / "agent-ghost-2.jsonl")  # never written
+    h.fire_stop("agent-ghost-2", agent_type="", transcript=own)
 
     recs = records_for(h.runs, "agent-ghost-2")
     assert len(recs) == 1
     d = recs[0][1]
     assert "stop-origin" in d.get("tags", [])
-    assert d.get("total_tokens_input") is None, \
+    assert d.get("total_tokens_input") == 500, \
         f"ghost stop attributed sibling transcript tokens: {d.get('total_tokens_input')}"
-    assert d.get("token_source") != "subagent-transcript"
-    print("PASS: ghost stop with missing transcript records no tokens (no sibling substitution)")
+    print("PASS: ghost stop records its own tokens, never a sibling's")
 
 
 def test_parent_link_dedup():

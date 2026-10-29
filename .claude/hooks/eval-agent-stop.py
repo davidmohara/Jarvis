@@ -48,6 +48,7 @@ try:
         resolve_spawn_text, extract_workflow_path_reference,
         _read_first_user_message_text,
         find_records_by_agent_id, make_agent_stub, first_transcript_timestamp,
+        read_subagent_meta,
         infer_session_id as _shared_infer_session_id,
     )
 except Exception:
@@ -59,6 +60,7 @@ except Exception:
     find_records_by_agent_id = None
     make_agent_stub = None
     first_transcript_timestamp = None
+    read_subagent_meta = None
     _shared_infer_session_id = None
 try:
     import assertion_checks as _assertion_checks
@@ -291,6 +293,43 @@ def find_eval_record(agent_id: str, agent_type: str) -> Path | None:
     return None
 
 
+# Set by create_stop_origin_record when it declines to write a record because
+# the stop carried no evidence that any run happened. Read by main() so the
+# suppression logs at INFO instead of reporting a spurious ERROR.
+_STOP_ORIGIN_SUPPRESSED = False
+
+
+def _stop_origin_has_evidence(payload: dict, agent_id: str,
+                              agent_transcript_path: str | None,
+                              main_transcript_path: str | None) -> bool:
+    """True when there is positive evidence that this SubagentStop names a run
+    that actually happened. A SubagentStop with no SubagentStart stub is only
+    trustworthy if SOMETHING on disk proves the agent existed: its transcript,
+    its .meta.json, or a harness task-notification usage block keyed to its
+    agent_id. On 2026-10-29 the harness emitted ~150 such stops per session
+    whose agent ids appear nowhere — no transcript, no meta, no notification —
+    and each one produced a zero-token, 0.0s `stop-origin` record (151 of the
+    175 records dated that day, per the boot token analysis). They carry no
+    measurable run and only inflate record counts. Real stop-origin recoveries
+    (the 2026-10-27/28 boot briefing agents) always have a transcript."""
+    if agent_transcript_path and Path(agent_transcript_path).exists():
+        return True
+    if read_subagent_meta:
+        try:
+            if read_subagent_meta(payload):
+                return True
+        except Exception:
+            pass
+    if latest_task_usage and main_transcript_path:
+        try:
+            usage = latest_task_usage(main_transcript_path, agent_id)
+        except Exception:
+            usage = None
+        if usage and usage.get("harness_tokens") is not None:
+            return True
+    return False
+
+
 def create_stop_origin_record(payload: dict, agent_id: str, agent_type: str,
                               agent_transcript_path: str | None) -> Path | None:
     """Create a stub at SubagentStop time for an agent whose SubagentStart
@@ -301,10 +340,22 @@ def create_stop_origin_record(payload: dict, agent_id: str, agent_type: str,
     payload plus the agent's own transcript are enough to reconstruct a
     normal record: started from the transcript's first timestamp, workflow
     from the recoverable spawn prompt, tokens from the whole-transcript
-    slice in main()'s normal completion path."""
+    slice in main()'s normal completion path.
+
+    Declines (returns None) when the stop carries no evidence any run
+    happened — see _stop_origin_has_evidence."""
+    global _STOP_ORIGIN_SUPPRESSED
     if not make_agent_stub:
         return None
     try:
+        if not _stop_origin_has_evidence(
+                payload, agent_id, agent_transcript_path,
+                payload.get("transcript_path")):
+            _STOP_ORIGIN_SUPPRESSED = True
+            log_info(f"Suppressed phantom stop-origin record for {agent_id}: "
+                     f"no transcript on disk, no .meta.json, no task-notification "
+                     f"— no evidence any run happened")
+            return None
         session_id = payload.get("session_id")
         if not session_id and _shared_infer_session_id:
             session_id = _shared_infer_session_id(payload)
@@ -483,7 +534,12 @@ def main():
         eval_record_path = create_stop_origin_record(
             payload, agent_id, agent_type, agent_transcript_path)
     if not eval_record_path:
-        log_error(f"No eval record found for agent {agent_type} ({agent_id})")
+        if _STOP_ORIGIN_SUPPRESSED:
+            # A phantom stop (no evidence of a run) is normal harness noise,
+            # not a harness failure — do not spam the error log with it.
+            log_info(f"Phantom SubagentStop for {agent_id} suppressed (no run evidence)")
+        else:
+            log_error(f"No eval record found for agent {agent_type} ({agent_id})")
         return
 
     # Read the stub
@@ -610,6 +666,29 @@ def main():
                              f"spawn prompt; step fan-out and attribution will use it")
         except Exception as e:
             log_error(f"Workflow recovery failed for {agent_id}: {e}")
+
+    # Nested-spawn workflow inheritance (2026-10-29): a depth-2+ child's spawn
+    # prompt rarely names `workflows/<x>/workflow.md` — it reads something like
+    # "Chief: synthesize morning briefing" — so the reference-mining above
+    # leaves workflow=None and the child's tokens land in no workflow total.
+    # On 2026-10-29 that was JXHCGH (628,496 tokens, tagged None) under the
+    # boot 05-08 briefing agent, part of 888,530 unattributed tokens. Claude
+    # Code records the parent's agent id in the child's .meta.json, so inherit
+    # the parent record's workflow when no explicit reference was found.
+    if not eval_record.get("workflow"):
+        try:
+            parent_aid = (read_subagent_meta(payload) or {}).get("parentAgentId") if read_subagent_meta else None
+            if parent_aid and find_records_by_agent_id:
+                for pf in find_records_by_agent_id(parent_aid, runs_dir=EVAL_RUNS_DIR):
+                    with open(pf, "r") as f:
+                        parent_wf = json.load(f).get("workflow")
+                    if parent_wf:
+                        eval_record["workflow"] = parent_wf
+                        log_info(f"Inherited workflow={parent_wf!r} for nested agent "
+                                 f"{agent_id} from parent {parent_aid}")
+                        break
+        except Exception as e:
+            log_error(f"Nested workflow inheritance failed for {agent_id}: {e}")
 
     # CRASH-SAFE ORDERING: persist the core completion fields NOW, before the
     # step-complete subprocess fan-out and the assessment tail. On 2026-10-21
@@ -922,6 +1001,8 @@ def main():
                             entry["harness_tool_uses"] = eval_record.get("harness_tool_uses")
                         if eval_record.get("token_source"):
                             entry["token_source"] = eval_record.get("token_source")
+                        if eval_record.get("workflow"):
+                            entry["workflow"] = eval_record.get("workflow")
                         break
                 atomic_write_json(parent_path, parent)
         except Exception as e:

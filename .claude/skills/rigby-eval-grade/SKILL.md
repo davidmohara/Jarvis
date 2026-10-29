@@ -45,6 +45,13 @@ For each selected record:
 - Check that `assessment.grading.last_graded` is null or older than 7 days
 - Skip if already graded recently (graders should not re-grade the same run repeatedly)
 
+**`--since` catch-up window (boot records specifically).** `--since {today}` alone misses boot records, for two structural reasons found in the 2026-10-29 analysis:
+
+1. The exit protocol runs the sweep at session end, but a boot can run *after* the last sweep of the day (2026-10-29: sweep at 13:24, boot at 13:56) and a session does not always reach the exit protocol at all. Those boot records stay ungraded forever because the next day's `--since {today}` no longer matches them.
+2. Boot parent records and boot step-agent records are `type: workflow` / `type: agent` with a real `name` (`boot`, `general-purpose`) and real steps — they are gradeable and MUST be included. They are not excluded by any rule above. Do not skip them because their `name` looks generic; check `workflow: "boot"` on parent records and a `boot` workflow tag on step-agent records.
+
+So: when the sweep is invoked with `--since {date}`, extend the selection to any **ungraded** record (`assessment.grading.grade` null) whose `id` date is within 2 days before `{date}`, in addition to the exact date. This closes the orphan window without re-grading anything already scored. Apply the exclusions above to the extended set unchanged.
+
 ### 2. Review Outputs
 
 For each eval record to grade:
