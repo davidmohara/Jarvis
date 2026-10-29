@@ -1,0 +1,114 @@
+{
+  "id": "eval-20261028T172513-9W94RF",
+  "agent_id": "af22f14409b7699e2",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": "boot",
+  "agent": "master",
+  "owning_agent": "master",
+  "subagent_type": "general-purpose",
+  "session_id": "98fa4325-a3ce-4934-bf68-38acf4df5a0c",
+  "trigger": "unknown",
+  "model": "accounts/fireworks/models/kimi-k3",
+  "model_source": "subagent-transcript",
+  "started": "2026-10-28T17:25:13.489601Z",
+  "completed": "2026-10-28T17:26:53.478523Z",
+  "duration_seconds": 99.99,
+  "status": "partial",
+  "steps": [
+    {
+      "name": "step-04-gather-meeting-context.md",
+      "agent": "general-purpose",
+      "step_id": "step-04-gather-meeting-context.md",
+      "owning_agent": "general-purpose",
+      "started": "2026-10-28T17:19:30Z",
+      "completed": "2026-10-28T17:26:27Z",
+      "status": "complete",
+      "tokens_input": 411725,
+      "tokens_output": 2483,
+      "cost_usd": 0.351269,
+      "model": "accounts/fireworks/models/kimi-k3",
+      "token_source": "windowed",
+      "turns_matched": 10,
+      "turns_with_usage": 10,
+      "duration_seconds": 417.0
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 2,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/98fa4325-a3ce-4934-bf68-38acf4df5a0c/subagents/agent-af22f14409b7699e2.jsonl",
+  "total_tokens_input": 505639,
+  "total_tokens_output": 3844,
+  "total_cost_usd": 0.407764,
+  "token_source": "subagent-transcript",
+  "guardrails": [
+    {
+      "name": "step-04-checkpoint",
+      "after_step": "step-04-gather-meeting-context.md",
+      "result": "pass",
+      "reason": "33 meetings found, 132 unique attendees identified for enrichment",
+      "escalated_to_human": false,
+      "timestamp": "2026-10-28T17:26:53.721086Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "meetings_found": 33,
+        "attendees_enriched": 132,
+        "clay_cross_reference_available": true,
+        "clay_items_checked": 0
+      }
+    }
+  ],
+  "parent_window": {
+    "token_source": "parent-window",
+    "transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/98fa4325-a3ce-4934-bf68-38acf4df5a0c.jsonl",
+    "window_start": "2026-10-28T17:25:13.489601Z",
+    "window_end": "2026-10-28T17:26:53.478523Z",
+    "model": "glm-5p3-flash",
+    "tokens_input": 130556,
+    "tokens_output": 11,
+    "cost_usd": 0.002093,
+    "turns_matched": 1,
+    "turns_with_usage": 1,
+    "computed_at": "2026-10-28T17:26:53.847280Z"
+  },
+  "fully_loaded_cost_usd": 0.409857,
+  "fully_loaded_tokens_input": 636195,
+  "fully_loaded_tokens_output": 3855
+}

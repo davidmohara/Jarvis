@@ -1,8 +1,8 @@
 {
-  "pulled_at": "2026-10-27T18:10:50.563174Z",
+  "pulled_at": "2026-10-28T17:18:04.612949Z",
   "status": "available",
   "window_months": 12,
-  "since": "2025-11-01",
+  "since": "2025-11-02",
   "account_count": 30,
   "accounts": {
     "chase-checking": {
@@ -552,7 +552,7 @@
       "account_id": "c95b51b9-5d5b-4aff-8c67-9c54589ff016",
       "account_name": "Citi",
       "type": "creditCard",
-      "payee_count": 275,
+      "payee_count": 273,
       "payees": [
         {
           "name": "Farmers Insurance",
@@ -610,8 +610,8 @@
         },
         {
           "name": "Amazon",
-          "total": 4519.02,
-          "count": 105,
+          "total": 4453.38,
+          "count": 104,
           "last": "2026-10-26"
         },
         {
@@ -742,9 +742,9 @@
         },
         {
           "name": "Augment Frisco",
-          "total": 1725.45,
-          "count": 51,
-          "last": "2026-10-25"
+          "total": 1770.86,
+          "count": 52,
+          "last": "2026-10-26"
         },
         {
           "name": "Boardroom Salon",
@@ -847,12 +847,6 @@
           "total": 1022.96,
           "count": 1,
           "last": "2026-02-11"
-        },
-        {
-          "name": "FSP*THEOREM VINEYARDS CALISTOGA CA",
-          "total": 995.91,
-          "count": 1,
-          "last": "2025-11-01"
         },
         {
           "name": "The Compass School",
@@ -2019,12 +2013,6 @@
           "last": "2026-09-26"
         },
         {
-          "name": "MDAEMON TECHNOLOGIES L GRAPEVINE TX",
-          "total": 27.06,
-          "count": 1,
-          "last": "2025-11-01"
-        },
-        {
           "name": "Habana House",
           "total": 27.06,
           "count": 1,
@@ -2214,8 +2202,8 @@
       "payees": [
         {
           "name": "H-E-B",
-          "total": 6371.2,
-          "count": 86,
+          "total": 6228.74,
+          "count": 85,
           "last": "2026-10-26"
         },
         {
@@ -2297,16 +2285,16 @@
           "last": "2026-03-14"
         },
         {
-          "name": "Tom Thumb",
-          "total": 637.4,
-          "count": 20,
-          "last": "2026-09-13"
-        },
-        {
           "name": "Benchmark Wine Group",
           "total": 637.0,
           "count": 1,
           "last": "2026-01-19"
+        },
+        {
+          "name": "Tom Thumb",
+          "total": 579.25,
+          "count": 18,
+          "last": "2026-09-13"
         },
         {
           "name": "Hulu",
@@ -2423,16 +2411,16 @@
           "last": "2026-10-23"
         },
         {
+          "name": "Whole Foods",
+          "total": 210.7,
+          "count": 5,
+          "last": "2026-10-27"
+        },
+        {
           "name": "Circle K",
           "total": 188.75,
           "count": 2,
           "last": "2026-06-13"
-        },
-        {
-          "name": "Whole Foods",
-          "total": 175.36,
-          "count": 4,
-          "last": "2026-07-17"
         },
         {
           "name": "Gotkts",
@@ -3436,8 +3424,8 @@
         },
         {
           "name": "Chewy.com",
-          "total": 850.27,
-          "count": 14,
+          "total": 789.61,
+          "count": 13,
           "last": "2026-07-13"
         },
         {
@@ -4128,7 +4116,7 @@
     }
   },
   "all_accounts": {
-    "payee_count": 573,
+    "payee_count": 571,
     "payees": [
       {
         "name": "Fidelity Charitable",
@@ -4204,8 +4192,8 @@
       },
       {
         "name": "H-E-B",
-        "total": 8571.5,
-        "count": 115,
+        "total": 8429.04,
+        "count": 114,
         "last": "2026-10-26"
       },
       {
@@ -4252,8 +4240,8 @@
       },
       {
         "name": "Amazon",
-        "total": 5589.75,
-        "count": 114,
+        "total": 5524.11,
+        "count": 113,
         "last": "2026-10-26"
       },
       {
@@ -4564,9 +4552,9 @@
       },
       {
         "name": "Augment Frisco",
-        "total": 1725.45,
-        "count": 51,
-        "last": "2026-10-25"
+        "total": 1770.86,
+        "count": 52,
+        "last": "2026-10-26"
       },
       {
         "name": "Thorne Research",
@@ -4749,12 +4737,6 @@
         "last": "2025-12-22"
       },
       {
-        "name": "FSP*THEOREM VINEYARDS CALISTOGA CA",
-        "total": 995.91,
-        "count": 1,
-        "last": "2025-11-01"
-      },
-      {
         "name": "Alliance",
         "total": 982.36,
         "count": 1,
@@ -4765,12 +4747,6 @@
         "total": 979.79,
         "count": 3,
         "last": "2026-04-24"
-      },
-      {
-        "name": "Tom Thumb",
-        "total": 966.19,
-        "count": 26,
-        "last": "2026-09-13"
       },
       {
         "name": "Athletic Greens",
@@ -4803,6 +4779,12 @@
         "last": "2026-10-26"
       },
       {
+        "name": "Tom Thumb",
+        "total": 908.04,
+        "count": 24,
+        "last": "2026-09-13"
+      },
+      {
         "name": "B-21 Liquors",
         "total": 904.25,
         "count": 1,
@@ -4831,12 +4813,6 @@
         "total": 850.85,
         "count": 1,
         "last": "2026-03-09"
-      },
-      {
-        "name": "Chewy.com",
-        "total": 850.27,
-        "count": 14,
-        "last": "2026-07-13"
       },
       {
         "name": "Toniiq",
@@ -4873,6 +4849,12 @@
         "total": 794.06,
         "count": 1,
         "last": "2026-02-18"
+      },
+      {
+        "name": "Chewy.com",
+        "total": 789.61,
+        "count": 13,
+        "last": "2026-07-13"
       },
       {
         "name": "AMERICAN EXPRESS ACH PMT M5528 WEB ID: 2005032111",
@@ -5343,6 +5325,12 @@
         "last": "2026-09-05"
       },
       {
+        "name": "Whole Foods",
+        "total": 328.98,
+        "count": 10,
+        "last": "2026-10-27"
+      },
+      {
         "name": "Mizzen Main",
         "total": 326.81,
         "count": 2,
@@ -5395,12 +5383,6 @@
         "total": 294.5,
         "count": 1,
         "last": "2026-10-14"
-      },
-      {
-        "name": "Whole Foods",
-        "total": 293.64,
-        "count": 9,
-        "last": "2026-07-17"
       },
       {
         "name": "Elevated Wellness",
@@ -7207,12 +7189,6 @@
         "total": 28.0,
         "count": 1,
         "last": "2026-09-26"
-      },
-      {
-        "name": "MDAEMON TECHNOLOGIES L GRAPEVINE TX",
-        "total": 27.06,
-        "count": 1,
-        "last": "2025-11-01"
       },
       {
         "name": "Habana House",

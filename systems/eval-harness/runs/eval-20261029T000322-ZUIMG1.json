@@ -1,0 +1,199 @@
+{
+  "id": "eval-20261029T000322-ZUIMG1",
+  "type": "workflow",
+  "name": "boot",
+  "agent": "master",
+  "session_id": "46bc90d8-ee28-458f-856b-bdd114a69769",
+  "trigger": "boot",
+  "model": null,
+  "model_source": null,
+  "started": "2026-10-29T00:03:22.159972Z",
+  "completed": "2026-10-29T11:22:57.193852+00:00",
+  "duration_seconds": null,
+  "status": "incomplete",
+  "steps": [],
+  "subagents": [
+    {
+      "agent_id": "a7d2f6e178c10c53c",
+      "agent_type": "general-purpose",
+      "started": "2026-10-29T00:03:56.254564Z",
+      "completed": "2026-10-29T00:45:59.384685Z",
+      "model": "accounts/fireworks/models/glm-5p3",
+      "tokens_input": 14447821,
+      "tokens_output": 76481,
+      "cost_usd": 2.863022,
+      "duration_seconds": 2523.13,
+      "token_source": "subagent-transcript"
+    },
+    {
+      "agent_id": "a9659ef8461b9766c",
+      "agent_type": "general-purpose",
+      "started": "2026-10-29T00:37:00.454738Z",
+      "completed": "2026-10-29T00:38:28.390016Z",
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 1016584,
+      "tokens_output": 13070,
+      "cost_usd": 0.12434,
+      "duration_seconds": 87.94,
+      "token_source": "subagent-transcript"
+    },
+    {
+      "agent_id": "a415575614bbeb078",
+      "agent_type": "general-purpose",
+      "started": "2026-10-29T00:37:07.718054Z",
+      "completed": "2026-10-29T00:38:13.552943Z",
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 1010576,
+      "tokens_output": 10794,
+      "cost_usd": 0.083862,
+      "duration_seconds": 65.83,
+      "token_source": "subagent-transcript"
+    },
+    {
+      "agent_id": "ad5ece427c79768d4",
+      "agent_type": "general-purpose",
+      "started": "2026-10-29T00:37:17.618228Z",
+      "completed": "2026-10-29T00:40:43.287018Z",
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 2464116,
+      "tokens_output": 24763,
+      "cost_usd": 0.202077,
+      "duration_seconds": 205.67,
+      "token_source": "subagent-transcript"
+    },
+    {
+      "agent_id": "a96aa200e8a936a33",
+      "agent_type": "general-purpose",
+      "started": "2026-10-29T00:37:28.754280Z",
+      "completed": "2026-10-29T00:39:59.158963Z",
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 2064186,
+      "tokens_output": 22476,
+      "cost_usd": 0.145924,
+      "duration_seconds": 150.4,
+      "token_source": "subagent-transcript"
+    },
+    {
+      "agent_id": "a0e66f0dbef65ce17",
+      "agent_type": "general-purpose",
+      "started": "2026-10-29T00:38:33.426795Z",
+      "completed": "2026-10-29T00:39:21.394763Z",
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 392440,
+      "tokens_output": 7972,
+      "cost_usd": 0.058202,
+      "duration_seconds": 47.97,
+      "token_source": "subagent-transcript"
+    },
+    {
+      "agent_id": "a6fbba26cd34534ff",
+      "agent_type": "general-purpose",
+      "started": "2026-10-29T00:38:51.512061Z",
+      "completed": "2026-10-29T00:40:21.266526Z",
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 683980,
+      "tokens_output": 13896,
+      "cost_usd": 0.072599,
+      "duration_seconds": 89.75,
+      "token_source": "subagent-transcript"
+    },
+    {
+      "agent_id": "ac805ce3951a2c2bd",
+      "agent_type": "general-purpose",
+      "started": "2026-10-29T00:40:21.070574Z",
+      "completed": "2026-10-29T00:41:34.246032Z",
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 561449,
+      "tokens_output": 10237,
+      "cost_usd": 0.056011,
+      "duration_seconds": 73.18,
+      "token_source": "subagent-transcript"
+    },
+    {
+      "agent_id": "aed7afeaa93c0edd7",
+      "agent_type": "general-purpose",
+      "started": "2026-10-29T00:41:14.394888Z",
+      "completed": "2026-10-29T00:42:42.953381Z",
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 791007,
+      "tokens_output": 15037,
+      "cost_usd": 0.084681,
+      "duration_seconds": 88.56,
+      "token_source": "subagent-transcript"
+    },
+    {
+      "agent_id": "a1b32e2a9635c5423",
+      "agent_type": "general-purpose",
+      "started": "2026-10-29T00:43:13.368285Z",
+      "completed": "2026-10-29T00:43:49.753478Z",
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 231928,
+      "tokens_output": 5537,
+      "cost_usd": 0.035309,
+      "duration_seconds": 36.39,
+      "token_source": "subagent-transcript"
+    }
+  ],
+  "monitoring": {
+    "active": true,
+    "state_yaml_path": "workflows/boot/state.yaml",
+    "opened_by": "eval-turn-start.py",
+    "trigger_evidence": "boot-first-prompt-of-session"
+  },
+  "assessment": {
+    "mechanical": {
+      "completed": false,
+      "all_steps_finished": null,
+      "tool_failures": 2,
+      "error_ids": [],
+      "tool_failure_log": [
+        {
+          "tool": "Read",
+          "error": "File content (424.7KB) exceeds maximum allowed size (256KB). Use offset and limit parameters to read specific portions of the file, or search for specific content instead of reading the whole file. To read it anyway, up to what still fits in your context, call Read again with allow_large: true \u2014 only if you genuinely need all of it or the user asked for the whole file.",
+          "duration_ms": 4,
+          "timestamp": "2026-10-28T19:03:37.326895"
+        },
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\nusage: context_tools.py [-h]\n                        {speaker-evidence,action-candidates,assemble-note,note-digest} ...\n\nBounded context broker for Plaud transcripts: move transcript bodies file-to-\nfile, surface only bounded evidence. See example under each subcommand's\n--help.\n\npositional arguments:\n  {speaker-evidence,action-candidates,assemble-note,note-digest}\n    speaker-evidence    bounded per-speaker self-ID evidence + scan stats\n    action-candidates   bounded commitment-candidate lines per speaker\n    assemble-note       write full vault note (transcript verbatim, renames\n                        applied); print transcript-free digest\n    note-digest         print vault note(s) minus transcript block\n\noptions:\n  -h, --help            show this help message and exit\n\nExample: python3 context_tools.py speaker-evidence ~/Downloads/transcript-\nstaging/plaud_meeting.md --max-bytes 12000\n(eval):1: == not found",
+          "duration_ms": 120,
+          "timestamp": "2026-10-28T19:46:12.861339"
+        }
+      ],
+      "abort_reason": "session-exit-normal"
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [
+    "turn-level"
+  ]
+}

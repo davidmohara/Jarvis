@@ -1,0 +1,84 @@
+{
+  "id": "eval-20261029T000356-NY0U0D",
+  "agent_id": "a7d2f6e178c10c53c",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "rigby",
+  "owning_agent": "rigby",
+  "subagent_type": "general-purpose",
+  "session_id": "46bc90d8-ee28-458f-856b-bdd114a69769",
+  "trigger": "unknown",
+  "model": "accounts/fireworks/models/glm-5p3",
+  "model_source": "subagent-transcript",
+  "started": "2026-10-29T00:03:56.254564Z",
+  "completed": "2026-10-29T00:45:59.384685Z",
+  "duration_seconds": 2523.13,
+  "status": "partial",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 2,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/46bc90d8-ee28-458f-856b-bdd114a69769/subagents/agent-a7d2f6e178c10c53c.jsonl",
+  "last_assistant_message": "Runtime is Claude Code, so the review viewer will be opened directly. Waiting on the analyzer.",
+  "total_tokens_input": 14447821,
+  "total_tokens_output": 76481,
+  "total_cost_usd": 2.863022,
+  "token_source": "subagent-transcript",
+  "parent_window": {
+    "token_source": "parent-window",
+    "transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/46bc90d8-ee28-458f-856b-bdd114a69769.jsonl",
+    "window_start": "2026-10-29T00:03:56.254564Z",
+    "window_end": "2026-10-29T00:45:59.384685Z",
+    "model": "accounts/fireworks/models/ember-1",
+    "tokens_input": 235317,
+    "tokens_output": 519,
+    "cost_usd": null,
+    "turns_matched": 5,
+    "turns_with_usage": 5,
+    "computed_at": "2026-10-29T00:45:59.595451Z",
+    "unpriced_models": [
+      "accounts/fireworks/models/ember-1"
+    ]
+  },
+  "fully_loaded_cost_usd": 2.863022,
+  "fully_loaded_tokens_input": 14683138,
+  "fully_loaded_tokens_output": 77000,
+  "fully_loaded_note": "parent window contains unpriced model(s) ['accounts/fireworks/models/ember-1']; their tokens are in the token sums but not in cost_usd"
+}

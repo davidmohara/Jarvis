@@ -1,0 +1,80 @@
+{
+  "id": "eval-20261028T173137-0XRNN0",
+  "agent_id": "a5937a53aaccb772b",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": "plaud-ingest",
+  "agent": "knox",
+  "owning_agent": "knox",
+  "subagent_type": "general-purpose",
+  "session_id": "98fa4325-a3ce-4934-bf68-38acf4df5a0c",
+  "trigger": "workflow-dispatch",
+  "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+  "model_source": "subagent-transcript",
+  "started": "2026-10-28T17:31:37.622304Z",
+  "completed": "2026-10-28T17:31:42.611663Z",
+  "duration_seconds": 4.99,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/98fa4325-a3ce-4934-bf68-38acf4df5a0c/subagents/agent-acb68c129b811c4b8.jsonl",
+  "last_assistant_message": "Verification complete for pi-20261028-001. Report delivered to the caller via handback, plus an addendum covering two findings I turned up after the first send.\n\n**Verdict: flag \u2014 clean ingest, inaccurate self-reporting around the edges.**\n\nAll 2 discovered recordings are accounted for with zero silent drops:\n- `4bc3ab005e16f853fbf236a1e1ae90fc` \u2192 `zzPlaud/Client/2026-10-27 Lockton - AI Adoption and Enablement Roadmap.md` (51,096 B, frontmatter file_id matches)\n- `ed58947c0e135c6f2c3da5d717518c7b` \u2192 `zzPlaud/Improving/2026-10-27 One Texas and 2027 Speaking Opportunities.md` (31,523 B, file_id matches)\n\nIndependently confirmed against live systems: Plaud API returns 156 non-trash recordings and the vault's 156 unique file_ids match that set exactly in both directions; all 5 routed action-item Monday IDs and both gate-6 review-task IDs resolve on board 18420619069 as unassigned; the two review tasks carry the documented fallback share note.\n\nFour gaps, none of which lose a recording:\n1. The \"146 older staged leftovers from Jan-Aug 2026\" claim is wrong on both count and date \u2014 146 is only the `plaud_*.md` count (the guardrail's glob ignores 208 `plaud_*.json`), actual leftovers are 354 files, and mtimes are Sept\u2013Oct 2026.\n2. `state.yaml` says `status: complete` but `completed-at: null`, `adversarial-verification: null`, and the note claiming step-06 is \"recorded below\" is false; `step-06-verify-ingest.md` frontmatter is stale from 2026-10-27.\n3. The run's own deterministic guardrail did not pass: step-04 checkpoint = retry with an open retry_signal, and the eval record is `partial`. Cause is checkpoint timing after cleanup, but state never mentions it.\n4. The verification workflow's own `state.yaml` is stale from pi-20261009-001, so this session has no verification-state record.\n\nI wrote nothing \u2014 the manifest's read-only instruction overrides `step-01-verify.md`'s instruction to record the verdict into `state.yaml`, so `accumulated-context.adversarial-verification` remains null for the caller to fill.",
+  "total_tokens_input": 103945,
+  "total_tokens_output": 595,
+  "total_cost_usd": 0.004745,
+  "token_source": "subagent-transcript",
+  "parent_window": {
+    "token_source": "parent-window",
+    "transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/98fa4325-a3ce-4934-bf68-38acf4df5a0c.jsonl",
+    "window_start": "2026-10-28T17:31:37.622304Z",
+    "window_end": "2026-10-28T17:31:42.611663Z",
+    "model": null,
+    "tokens_input": 0,
+    "tokens_output": 0,
+    "cost_usd": 0.0,
+    "turns_matched": 0,
+    "turns_with_usage": 0,
+    "computed_at": "2026-10-28T17:31:42.828132Z"
+  },
+  "fully_loaded_cost_usd": 0.004745,
+  "fully_loaded_tokens_input": 103945,
+  "fully_loaded_tokens_output": 595
+}

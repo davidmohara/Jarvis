@@ -1,0 +1,84 @@
+{
+  "id": "eval-20261029T112305-MGZFB0",
+  "agent_id": "a4a49454900ad0c13",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "rigby",
+  "owning_agent": "rigby",
+  "subagent_type": "general-purpose",
+  "session_id": "46bc90d8-ee28-458f-856b-bdd114a69769",
+  "trigger": "unknown",
+  "model": "accounts/fireworks/models/kimi-k3",
+  "model_source": "subagent-transcript",
+  "started": "2026-10-29T11:23:05.191230Z",
+  "completed": "2026-10-29T11:25:51.365926Z",
+  "duration_seconds": 166.17,
+  "status": "partial",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 1,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/46bc90d8-ee28-458f-856b-bdd114a69769/subagents/agent-a4a49454900ad0c13.jsonl",
+  "last_assistant_message": "Packaging complete. Local assembly only, no upload, as instructed.\n\n**\"Plaud Ingest Context Budget + Eval Harness Async Subagent Fixes\" packaged**\n- Package: `/Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/evolutions/ies-plaud-context-budget-and-eval-harness-async-fixes/`\n- Version (UUID v4): `3bb4b456-6ff8-4ed5-94fe-4484eb6904a7`\n- minimum_base_version: `2.0.0`\n- Files included: 18 (4 added, 8 replaced, 6 merged)\n  - Added: `test_async_agent_recording.py`, `ingest-reconcile.py`, `context_tools.py`, `context-budget-protocol.md`\n  - Merged (personal blocks emptied, verified 0 non-empty): `workflow.md`, `step-01`, `step-05`, `step-06`, `plaud-transcripts/SKILL.md`, `plaud-speaker-id/SKILL.md`\n  - Replaced (markerless code/config): both eval hooks, `hook_utils.py`, `close-open-evals.py`, `measure.py`, `conventions-exceptions.json`, `assertions/plaud-ingest.json`, `step-03`\n\nKey decisions:\n- **Dropped** `systems/evals/work-20261029-000815/` (logged in work-20261029-000815 as an `add`) \u2014 it matches the eval-evidence exclusion globs and is personal by definition. Warning emitted to stderr during assembly.\n- **Deduped** `workflow.md` and `conventions-exceptions.json`, which appeared in both work items; descriptions merged.\n- **Reclassified** markerless files the pending log had stamped `merge` to `replace` (nothing to extract; full content ships). `step-03-identify-speakers.md` has system markers but no personal blocks, so it also went as `replace` per the classification rules.\n- Both work item IDs removed from `evolutions/.pending-changes.json` (77 \u2192 75 pending).\n\nNext step when David has reviewed the package directory:\n`/ies-rigby-evolution-upload --package evolutions/ies-plaud-context-budget-and-eval-harness-async-fixes/`\n\nOne caveat for review: the name and description were derived from the work-item descriptions rather than interactively confirmed, since this ran as an unattended assembly. Rename freely before upload; the directory slug follows the name.",
+  "total_tokens_input": 595918,
+  "total_tokens_output": 8587,
+  "total_cost_usd": 0.490136,
+  "token_source": "subagent-transcript",
+  "parent_window": {
+    "token_source": "parent-window",
+    "transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/46bc90d8-ee28-458f-856b-bdd114a69769.jsonl",
+    "window_start": "2026-10-29T11:23:05.191230Z",
+    "window_end": "2026-10-29T11:25:51.365926Z",
+    "model": "accounts/fireworks/models/ember-1",
+    "tokens_input": 110102,
+    "tokens_output": 272,
+    "cost_usd": null,
+    "turns_matched": 2,
+    "turns_with_usage": 2,
+    "computed_at": "2026-10-29T11:25:51.576086Z",
+    "unpriced_models": [
+      "accounts/fireworks/models/ember-1"
+    ]
+  },
+  "fully_loaded_cost_usd": 0.490136,
+  "fully_loaded_tokens_input": 706020,
+  "fully_loaded_tokens_output": 8859,
+  "fully_loaded_note": "parent window contains unpriced model(s) ['accounts/fireworks/models/ember-1']; their tokens are in the token sums but not in cost_usd"
+}

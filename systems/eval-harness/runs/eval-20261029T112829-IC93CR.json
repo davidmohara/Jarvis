@@ -1,0 +1,78 @@
+{
+  "id": "eval-20261029T112829-IC93CR",
+  "type": "skill",
+  "name": "chief-review",
+  "agent": "general-purpose",
+  "session_id": "46bc90d8-ee28-458f-856b-bdd114a69769",
+  "trigger": "boot",
+  "model": "accounts/fireworks/models/ember-1",
+  "model_source": "session-transcript-window",
+  "started": "2026-10-29T11:28:20.973367Z",
+  "completed": "2026-10-29T11:28:29.583079Z",
+  "duration_seconds": 8.6,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": true,
+      "outputs_non_empty": null,
+      "assertions_checked": 2,
+      "assertions_passed": 2,
+      "assertion_results": [
+        {
+          "assertion": "chief-review-signal-written",
+          "description": "chief-review skill-run signal file was written",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "chief-review-signal-status",
+          "description": "chief-review skill-run did not end in failure",
+          "category": "structure",
+          "passed": true
+        }
+      ],
+      "category_breakdown": {
+        "structure": {
+          "passed": 2,
+          "checked": 2
+        },
+        "content": {
+          "passed": 0,
+          "checked": 0
+        },
+        "quality": {
+          "passed": 0,
+          "checked": 0
+        }
+      }
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "deterministic_gate": {
+      "score": 1.0,
+      "gate_status": "pass",
+      "computed_at": "2026-10-29T11:28:29.876785Z"
+    }
+  },
+  "version_hash": "99f6230331c1151a",
+  "prior_baseline_id": null,
+  "tags": [
+    "cowork-hook",
+    "skill"
+  ]
+}

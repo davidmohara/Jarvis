@@ -1,8 +1,9 @@
 {
-  "pulled_at": "2026-10-27T18:11:00Z",
+  "pulled_at": "2026-10-28T17:19:13Z",
   "status": "unavailable",
   "reminders": [],
   "reminder_count": 0,
   "birthday_count": 0,
-  "note": "Clay MCP pull attempted per mandatory-always rule; no Clay MCP tools are connected in this session, so no live data could be fetched."
+  "attempted": true,
+  "error": "Clay MCP is installed but unauthenticated this session. Only mcp__claude_ai_Clay__authenticate and complete_authentication are exposed; no reminder, birthday, or contact data tools are available. Pull was attempted (tool discovery + auth surface check) and could not fetch data."
 }

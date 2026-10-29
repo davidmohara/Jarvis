@@ -1,0 +1,221 @@
+{
+  "id": "eval-20261028T164542-26QC3W",
+  "type": "workflow",
+  "name": "boot",
+  "agent": "master",
+  "session_id": "98fa4325-a3ce-4934-bf68-38acf4df5a0c",
+  "trigger": "boot",
+  "model": "glm-5p3-flash",
+  "model_source": "session-transcript-latest",
+  "started": "2026-10-28T16:45:42.172884Z",
+  "completed": "2026-10-28T17:30:51.103446+00:00",
+  "duration_seconds": null,
+  "status": "incomplete",
+  "steps": [
+    {
+      "name": "step-01-load-context.md",
+      "step_id": "step-01-load-context.md",
+      "agent": "master",
+      "owning_agent": "master",
+      "started": "2026-10-28T16:46:39Z",
+      "completed": "2026-10-28T16:48:05Z",
+      "duration_seconds": 86.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "glm-5p3-flash",
+      "tokens_input": 732666,
+      "tokens_output": 797,
+      "cost_usd": 0.014723,
+      "token_source": "windowed",
+      "turns_matched": 7
+    }
+  ],
+  "subagents": [
+    {
+      "agent_id": "a5937a53aaccb772b",
+      "agent_type": "general-purpose",
+      "started": "2026-10-28T16:48:37.149094Z",
+      "completed": "2026-10-28T17:28:17.121566Z",
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 1021189,
+      "tokens_output": 3311,
+      "cost_usd": 0.041202,
+      "duration_seconds": 79.99,
+      "token_source": "subagent-transcript"
+    },
+    {
+      "agent_id": "a97d67ee103a3efe8",
+      "agent_type": "general-purpose",
+      "started": "2026-10-28T16:48:39.855369Z",
+      "completed": "2026-10-28T17:12:18.131047Z",
+      "model": "accounts/fireworks/models/kimi-k3",
+      "tokens_input": 758545,
+      "tokens_output": 26463,
+      "cost_usd": 0.932354,
+      "duration_seconds": 1418.28,
+      "token_source": "subagent-transcript"
+    },
+    {
+      "agent_id": "a97d67ee103a3efe8",
+      "agent_type": "general-purpose",
+      "started": "2026-10-28T17:02:33.253045Z",
+      "completed": null,
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    },
+    {
+      "agent_id": "addf5d9f3ef400f15",
+      "agent_type": "general-purpose",
+      "started": "2026-10-28T17:17:31.300345Z",
+      "completed": "2026-10-28T17:21:01.415000Z",
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 1504692,
+      "tokens_output": 13221,
+      "cost_usd": 0.105162,
+      "duration_seconds": 210.11,
+      "token_source": "subagent-transcript"
+    },
+    {
+      "agent_id": "acb68c129b811c4b8",
+      "agent_type": "general-purpose",
+      "started": "2026-10-28T17:21:05.449168Z",
+      "completed": "2026-10-28T17:31:42.611663Z",
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 103945,
+      "tokens_output": 595,
+      "cost_usd": 0.004745,
+      "duration_seconds": 4.99,
+      "token_source": "subagent-transcript"
+    },
+    {
+      "agent_id": "acc8d5a50641525cc",
+      "agent_type": "general-purpose",
+      "started": "2026-10-28T17:21:13.635486Z",
+      "completed": "2026-10-28T17:23:48.083464Z",
+      "model": "accounts/fireworks/models/kimi-k3",
+      "tokens_input": 748815,
+      "tokens_output": 7981,
+      "cost_usd": 0.564169,
+      "duration_seconds": 154.45,
+      "token_source": "subagent-transcript"
+    },
+    {
+      "agent_id": "abf35901bf3525d47",
+      "agent_type": "general-purpose",
+      "started": "2026-10-28T17:23:59.409517Z",
+      "completed": "2026-10-28T17:24:56.879498Z",
+      "model": "accounts/fireworks/models/kimi-k3",
+      "tokens_input": 265405,
+      "tokens_output": 1671,
+      "cost_usd": 0.233099,
+      "duration_seconds": 57.47,
+      "token_source": "subagent-transcript"
+    },
+    {
+      "agent_id": "af22f14409b7699e2",
+      "agent_type": "general-purpose",
+      "started": "2026-10-28T17:25:13.489601Z",
+      "completed": "2026-10-28T17:26:53.478523Z",
+      "model": "accounts/fireworks/models/kimi-k3",
+      "tokens_input": 505639,
+      "tokens_output": 3844,
+      "cost_usd": 0.407764,
+      "duration_seconds": 99.99,
+      "token_source": "subagent-transcript"
+    },
+    {
+      "agent_id": "a9dd36be1739c27e3",
+      "agent_type": "general-purpose",
+      "started": "2026-10-28T17:27:11.644411Z",
+      "completed": "2026-10-28T17:31:33.382121Z",
+      "model": "accounts/fireworks/models/kimi-k3",
+      "tokens_input": 128993,
+      "tokens_output": 3149,
+      "cost_usd": 0.098715,
+      "duration_seconds": 39.13,
+      "token_source": "subagent-transcript"
+    },
+    {
+      "agent_id": "ae6d48ee769247ffb",
+      "agent_type": "general-purpose",
+      "started": "2026-10-28T17:28:25.210411Z",
+      "completed": "2026-10-28T17:29:35.106431Z",
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 203085,
+      "tokens_output": 12583,
+      "cost_usd": 0.030337,
+      "duration_seconds": 69.9,
+      "token_source": "subagent-transcript"
+    }
+  ],
+  "monitoring": {
+    "active": true,
+    "state_yaml_path": "workflows/boot/state.yaml",
+    "opened_by": "eval-turn-start.py",
+    "trigger_evidence": "run the morning boot workflow"
+  },
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 1,
+      "error_ids": [],
+      "tool_failure_log": [
+        {
+          "tool": "Read",
+          "error": "File does not exist. Note: your current working directory is /Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES.",
+          "duration_ms": 8,
+          "timestamp": "2026-10-28T11:46:16.326145"
+        }
+      ],
+      "abort_reason": "session-exit-normal"
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [
+    "turn-level"
+  ],
+  "workflow": "boot",
+  "guardrails": [
+    {
+      "name": "pre-completion-review",
+      "after_step": "step-06-scan-workflows",
+      "result": "pass",
+      "reason": "verifier exit 0; briefing matches accumulated-context (travel day, Loreta conflict, overdue items, Clay degraded flag all present); workflow scan sane (active index empty)",
+      "escalated_to_human": false,
+      "timestamp": "2026-10-28T17:30:25.492645+00:00"
+    }
+  ]
+}

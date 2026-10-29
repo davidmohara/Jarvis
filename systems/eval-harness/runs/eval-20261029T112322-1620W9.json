@@ -1,0 +1,90 @@
+{
+  "id": "eval-20261029T112322-1620W9",
+  "type": "skill",
+  "name": "rigby-evolution-package",
+  "agent": "general-purpose",
+  "session_id": "46bc90d8-ee28-458f-856b-bdd114a69769",
+  "trigger": "boot",
+  "model": "accounts/fireworks/models/ember-1",
+  "model_source": "session-transcript-window",
+  "started": "2026-10-29T11:23:05.024072Z",
+  "completed": "2026-10-29T11:23:22.445637Z",
+  "duration_seconds": 17.4,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": true,
+      "outputs_non_empty": false,
+      "assertions_checked": 4,
+      "assertions_passed": 2,
+      "assertion_results": [
+        {
+          "assertion": "rigby-evolution-package-signal-written",
+          "description": "rigby-evolution-package skill-run signal file was written",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "rigby-evolution-package-signal-status",
+          "description": "rigby-evolution-package skill-run did not end in failure",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "rigby-ev-002-substantive",
+          "description": "rigby-evolution-package output is substantive (>200 bytes)",
+          "category": "structure",
+          "passed": false
+        },
+        {
+          "assertion": "rigby-ev-003-content",
+          "description": "rigby-evolution-package output contains expected content",
+          "category": "structure",
+          "passed": false
+        }
+      ],
+      "category_breakdown": {
+        "structure": {
+          "passed": 2,
+          "checked": 4
+        },
+        "content": {
+          "passed": 0,
+          "checked": 0
+        },
+        "quality": {
+          "passed": 0,
+          "checked": 0
+        }
+      }
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "deterministic_gate": {
+      "score": 0.7917,
+      "gate_status": "pass",
+      "computed_at": "2026-10-29T11:23:23.665349Z"
+    }
+  },
+  "version_hash": "abcf67c6b272f781",
+  "prior_baseline_id": null,
+  "tags": [
+    "cowork-hook",
+    "skill"
+  ]
+}

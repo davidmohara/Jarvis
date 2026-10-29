@@ -1,0 +1,84 @@
+{
+  "id": "eval-20261028T192517-ANCBV0",
+  "agent_id": "a21f2d17cce6148a4",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "rigby",
+  "owning_agent": "rigby",
+  "subagent_type": "general-purpose",
+  "session_id": "25d047c9-bb1b-458b-8fb2-22f6c2f14270",
+  "trigger": "unknown",
+  "model": "accounts/fireworks/models/kimi-k3",
+  "model_source": "subagent-transcript",
+  "started": "2026-10-28T19:25:17.280457Z",
+  "completed": "2026-10-28T19:29:28.961787Z",
+  "duration_seconds": 251.68,
+  "status": "partial",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 1,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/25d047c9-bb1b-458b-8fb2-22f6c2f14270/subagents/agent-a21f2d17cce6148a4.jsonl",
+  "last_assistant_message": "The screen locked mid-task, so the bottom screenshot is unavailable \u2014 but I captured the top of the page earlier and, more importantly, extracted the complete manifest.yaml requirements text from the article. Here's the summary.\n\n## Stage 5 Certification page captured\n\nPage: `Onward to Stage 5 certification` \u2014 improving.sharepoint.com/sites/ImprovingExperience/SitePages/Stage-5-Certification.aspx, by Tim Rayburn, updated October 27, 2026.\n\n- Top-of-page screenshot: `/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/25d047c9-bb1b-458b-8fb2-22f6c2f14270/scratchpad/stage5-top.png`\n- Full article text (including the complete manifest.yaml spec and packaging prompt): `/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/25d047c9-bb1b-458b-8fb2-22f6c2f14270/scratchpad/stage5-full.txt`\n\nNote: the Chrome tab had been navigated away mid-session (to Global IT Services Home); I navigated it back to the Stage 5 page to complete the read. The bottom-of-page screenshot failed because the macOS GUI session locked \u2014 the text extraction was already complete, so nothing was lost.\n\n## manifest.yaml requirements (new as of Oct 27, 2026)\n\nEvery Stage 5 submission ZIP must include `manifest.yaml` at the zip root declaring exactly what is to be examined. Key structure (`schema_version: 2`):\n\n- **`submission:`** \u2014 title, `stage: 5`\n- **`coordinator:`** \u2014 `entry_point` (REQUIRED), `prompt_file` (optional, only if the coordinator itself is prompted), `dispatch: messages-api | subprocess | cli` (REQUIRED, cross-checked by the coordinator-purity scan)\n- **`agents:`** \u2014 absorbs `agents.json` verbatim; each entry has `name`, `role` (coordinator | subagent | adversarial), `workflows`, `allowed_tools`, `reviews`, `isolated_context`\n- **`workflows:`** \u2014 each with `name`, optional `sub_agent_entry_point`, and `steps` where every step has `prompt_file` (REQUIRED), `eval_files` (REQUIRED, at least 1), and `log_files` (optional only if the workflow declares a `log`); optional workflow-level `artifacts` (log, success_rate)\n- **`punch_outs:`** \u2014 every human evacuation point with REQUIRED `evidence` files that must ship in the zip\n- **`adversarial_review:`** \u2014 `reviewer_agent` must match an `agents[]` entry with `role: adversarial`, plus `evidence` (reviewer prompt, outputs, logs)\n- **`version_control:`** \u2014 REQUIRED for Stage 5; exported evidence only (git-log.tsv, bundle, patches) \u2014 never `.git/`\n- **`not_judged:`** \u2014 every unexamined file with a one-line reason; trailing-slash entries (e.g. `runs/`) bulk-exclude a directory\n\nPath rules: root-relative, forward slashes, case-sensitive, no absolute paths, no `..`, and paths must match the zip contents exactly (wrapper-directory prefix is stripped).\n\nHard rejection rules (R1\u2013R8): manifest at zip root; parseable with one coordinator and at least 1 workflow/step; every referenced path exists (cited-but-missing punch-out evidence is the most common failure); every file either referenced or in `not_judged`; no VCS directories; legacy agents.json must be folded into the manifest or excluded; shared log/eval files across steps are legal; `reviewer_agent` must name an adversarial agent; and every step needs log evidence (step `log_files` or workflow `log`).\n\nThe article also ships a ready-to-use packaging prompt (7 steps: inventory, classify, write manifest, validator rules, self-validate, zip, final report with SHA-256) \u2014 full text is in the extracted file above if you want it pasted anywhere.",
+  "total_tokens_input": 1098225,
+  "total_tokens_output": 6917,
+  "total_cost_usd": 0.614695,
+  "token_source": "subagent-transcript",
+  "parent_window": {
+    "token_source": "parent-window",
+    "transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/25d047c9-bb1b-458b-8fb2-22f6c2f14270.jsonl",
+    "window_start": "2026-10-28T19:25:17.280457Z",
+    "window_end": "2026-10-28T19:29:28.961787Z",
+    "model": "accounts/fireworks/models/ember-1",
+    "tokens_input": 2257404,
+    "tokens_output": 6289,
+    "cost_usd": null,
+    "turns_matched": 32,
+    "turns_with_usage": 32,
+    "computed_at": "2026-10-28T19:29:29.277369Z",
+    "unpriced_models": [
+      "accounts/fireworks/models/ember-1"
+    ]
+  },
+  "fully_loaded_cost_usd": 0.614695,
+  "fully_loaded_tokens_input": 3355629,
+  "fully_loaded_tokens_output": 13206,
+  "fully_loaded_note": "parent window contains unpriced model(s) ['accounts/fireworks/models/ember-1']; their tokens are in the token sums but not in cost_usd"
+}
