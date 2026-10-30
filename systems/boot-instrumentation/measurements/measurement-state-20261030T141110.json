@@ -1,0 +1,118 @@
+{
+  "workflow": "boot",
+  "total_size_bytes": 12070,
+  "accumulated_context": {
+    "name": "accumulated-context",
+    "size_bytes": 12070,
+    "size_kb": 11.79,
+    "estimated_tokens": 3017,
+    "type": "dict"
+  },
+  "field_breakdown": [
+    {
+      "name": "phase2",
+      "size_bytes": 10885,
+      "size_kb": 10.63,
+      "estimated_tokens": 2721,
+      "type": "dict"
+    },
+    {
+      "name": "step01",
+      "size_bytes": 193,
+      "size_kb": 0,
+      "estimated_tokens": 48,
+      "type": "str"
+    },
+    {
+      "name": "phase1-point5.files-created",
+      "size_bytes": 154,
+      "size_kb": 0.15,
+      "estimated_tokens": 38,
+      "type": "list"
+    },
+    {
+      "name": "phase1-point5.unified-data-pulls.clay",
+      "size_bytes": 151,
+      "size_kb": 0,
+      "estimated_tokens": 37,
+      "type": "str"
+    },
+    {
+      "name": "phase1-point5.unified-data-pulls.jarvis-inbox",
+      "size_bytes": 105,
+      "size_kb": 0,
+      "estimated_tokens": 25,
+      "type": "str"
+    },
+    {
+      "name": "prior-run",
+      "size_bytes": 94,
+      "size_kb": 0,
+      "estimated_tokens": 23,
+      "type": "str"
+    },
+    {
+      "name": "phase1-point5.unified-data-pulls.ynab",
+      "size_bytes": 50,
+      "size_kb": 0,
+      "estimated_tokens": 12,
+      "type": "str"
+    },
+    {
+      "name": "step01.5.calendar_file",
+      "size_bytes": 26,
+      "size_kb": 0,
+      "estimated_tokens": 6,
+      "type": "str"
+    },
+    {
+      "name": "phase1-point5.unified-data-pulls.email",
+      "size_bytes": 25,
+      "size_kb": 0,
+      "estimated_tokens": 5,
+      "type": "str"
+    },
+    {
+      "name": "step01.5.date_range",
+      "size_bytes": 24,
+      "size_kb": 0,
+      "estimated_tokens": 6,
+      "type": "str"
+    },
+    {
+      "name": "phase1-point5.unified-data-pulls.omnifocus",
+      "size_bytes": 22,
+      "size_kb": 0,
+      "estimated_tokens": 5,
+      "type": "str"
+    },
+    {
+      "name": "step01.5.status",
+      "size_bytes": 7,
+      "size_kb": 0,
+      "estimated_tokens": 1,
+      "type": "str"
+    },
+    {
+      "name": "phase1-point5.total_data_on_disk_kb",
+      "size_bytes": 5,
+      "size_kb": 0,
+      "estimated_tokens": 1,
+      "type": "float"
+    },
+    {
+      "name": "step01.5.file_size_kb",
+      "size_bytes": 4,
+      "size_kb": 0,
+      "estimated_tokens": 1,
+      "type": "float"
+    },
+    {
+      "name": "step01.5.event_count",
+      "size_bytes": 2,
+      "size_kb": 0,
+      "estimated_tokens": 0,
+      "type": "int"
+    }
+  ]
+}

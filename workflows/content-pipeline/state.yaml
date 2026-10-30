@@ -1,11 +1,13 @@
 workflow: content-pipeline
 agent: harper
-status: in-progress
+status: aborted
+aborted-reason: "Aborted per David's 2026-10-30 ruling on the boot scan's in-flight workflows"
+completed-at: 2026-10-30T14:19:54Z
 started-at: 2026-10-20T00:00:00Z
 session-started: 2026-10-20
 session-id: harper-content-pipeline-20261020-discovery
 original-request: scheduled content-discovery run (step-01-discover only), then David asked to draft the four out-of-band #content drafts
-current-step: step-02
+current-step: null
 accumulated-context:
   messages_scanned: 4
   new_urls: 0

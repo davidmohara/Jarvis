@@ -1,12 +1,13 @@
 ---
 workflow: content-discovery
 agent: harper
-status: in-progress
+status: aborted
+aborted-reason: "Aborted per David's 2026-10-30 ruling on the boot scan's in-flight workflows"
 session-started: "2026-10-26T16:25:00Z"
 session-id: "harper-20261026-001"
 started-at: "2026-10-26T16:25:00Z"
-completed-at: ""
-current-step: step-02
+completed-at: "2026-10-30T14:19:54Z"
+current-step: null
 original-request: "Scheduled content-discovery run (2026-10-26), widened to a 168h lookback by David"
 accumulated-context:
   step-01:

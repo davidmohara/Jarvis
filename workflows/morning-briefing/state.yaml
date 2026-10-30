@@ -1,108 +1,74 @@
 workflow: morning-briefing
 agent: chief
 status: complete
-session-id: boot-2026-10-27
-session-started: '2026-10-27T14:56:38Z'
-completed: '2026-10-27T18:52:00Z'
-original-request: 'Morning briefing 2026-10-27 — steps 01-03 completed during boot phases 2 and 3; this run executed step-04 synthesis and step-05 adversarial verification'
-current-step: step-05
+session-id: boot-2026-10-30
+session-started: '2026-10-30T14:03:24Z'
+completed: '2026-10-30T14:14:14Z'
+original-request: 'Morning briefing 2026-10-30 — steps 01-03 completed during boot phases 2 and 3; this run executed step-04 synthesis inside boot step-05'
+current-step: step-04-synthesize-briefing
 verification-pending: false
 accumulated-context:
   step-01-gather-calendar:
     calendar_data:
-      date: '2026-10-27'
-      source: 'data/calendar-unified.json (pulled 2026-10-27T18:01:49Z via mcp__claude_ai_Microsoft_365__outlook_calendar_search; 43 events 10-27 to 10-30; times wall-clock Central)'
-      meeting_count: 12
-      timed_events: 12
-      all_day_events: 1
-      all_day: 'LMB - OOO'
+      date: '2026-10-30'
+      source: 'data/calendar-unified.json (27 events, 2026-10-30 to 2026-11-02, pulled during boot step-01.5; times wall-clock Central)'
+      meeting_count: 10
+      timed_events: 2
+      all_day_events: 7
+      travel_events: 3
       meetings:
-        - {time: '09:15-09:30', subject: 'Sales & Recruiting Meeting', type: recurring, attendees: 6, needs_prep: false, flags: [tentative, 'already past at briefing time']}
-        - {time: '10:00-10:30', subject: 'Sales Scrum', type: recurring, attendees: 4, needs_prep: false, flags: [tentative, 'already past at briefing time']}
-        - {time: '10:30-11:00', subject: 'Athena Meeting (OM Anne re Alice Mburu)', type: external, attendees: 'Anne Mwelu', needs_prep: true, flags: ['organizer missed the check-in; apology email 10:58 CT; reschedule needed']}
-        - {time: '11:00-11:30', subject: 'Drive To', type: personal, attendees: 0, needs_prep: false, flags: [travel-block]}
-        - {time: '11:30-12:30', subject: "David O'Hara and David Evans", type: external, attendees: 'David Evans', location: 'Lunch - True Food Kitchen Preston Center', needs_prep: true, flags: ['prep ready: memory/working/2026-10-27-153000-chase-david-evans-prep.md', 'first 1:1, no-pitch, hard stop 12:25']}
-        - {time: '12:30-13:00', subject: 'Drive From', type: personal, attendees: 0, needs_prep: false, flags: [travel-block]}
-        - {time: '13:00-13:45', subject: 'One Texas & Speaking Engagements Overview', type: '1:1', attendees: 'Alice Mburu', needs_prep: false, flags: ['Rock 4 in motion', 'ending at briefing time']}
-        - {time: '14:00-15:00', subject: 'Follow-up Discussion: AI Deep Learning Program and Innovation Workshop (Lockton)', type: client, attendees: 5, needs_prep: true, flags: ['deck from Derek Nwamadi sent 12:52 CT; David owns slides 8-10', 'zero vault history for Lockton; Chase prep recommended']}
-        - {time: '14:30-15:00', subject: '1 on 1 : Tim & David', type: '1:1', attendees: 'Tim Rayburn', needs_prep: false, flags: [tentative, 'CONFLICT: overlaps Lockton 14:00-15:00']}
-        - {time: '15:00-15:30', subject: 'Discuss Ashford Engagement/Unhappy Customer', type: client, attendees: 'Diana Stevens, Don McGreal', needs_prep: true, flags: [tentative, 'engagement-risk discussion', 'vault context: 2026-09-18 exec walkout; 2026-09-25 reset proposal']}
-        - {time: '15:30-16:00', subject: 'Ben & David 1on1', type: '1:1', attendees: 'Ben (new Houston AE)', needs_prep: false, flags: [intro]}
-        - {time: '16:00-16:30', subject: 'David/Don Sync', type: '1:1', attendees: 'Don McGreal', needs_prep: false, flags: []}
-      open_blocks: ['13:45-14:00']
-      warnings: ['Tim 1:1 conflicts with Lockton 14:00-15:00', 'Anne Mwelu missed the 10:30 check-in; reschedule needed', 'near-zero buffer 13:45-16:30', 'video-call cluster: 6+ Teams calls', 'LMB OOO today; Schwartz PTO through 11/06; Lisa Barnes OOO through Friday']
+        - {time: 'all-day', subject: 'Schwartz - PTO (Oct 26-Nov 7)', type: recurring-skip, attendees: 10, needs_prep: false}
+        - {time: 'all-day', subject: 'Principled Business Summit 2026 (Hilton Austin)', type: external, attendees: 2, needs_prep: false, flags: ['closes 12:30 CDT; 07:00 AUS flight means the closing morning is missed']}
+        - {time: 'all-day', subject: 'Hilton Austin hotel (Travel)', type: personal, attendees: 0, needs_prep: false, flags: ['early checkout today; reservation held through Oct 31']}
+        - {time: 'all-day', subject: 'LMB - OOO (Lisa Barnes)', type: recurring-skip, attendees: 13, needs_prep: false}
+        - {time: 'all-day', subject: 'Eric - PTO (Eric Sowell)', type: recurring-skip, attendees: 8, needs_prep: false}
+        - {time: 'all-day', subject: 'Visit Libby & Patrick (Oct 30-Nov 2)', type: personal, attendees: 0, needs_prep: false, flags: ['overlaps the Birmingham trip Oct 30-Nov 1']}
+        - {time: '07:00-08:19', subject: 'AA 512 AUS to DFW (NYZXRL)', type: travel, attendees: 0, needs_prep: false}
+        - {time: '09:15-09:30', subject: 'Sales & Recruiting Meeting', type: team, attendees: 17, needs_prep: false, flags: [tentative, 'taken from DFW between flights']}
+        - {time: '10:00-11:00', subject: 'GEHC Improving - AI Routing technical deeper dive (weekly)', type: client, attendees: 8, needs_prep: true, flags: [tentative, 'Chase prep recommended', 'last client touch 2026-09-18']}
+        - {time: '14:42-16:32', subject: 'AA 5610 DFW to BHM (DWFVRO)', type: travel, attendees: 0, needs_prep: false}
+      open_blocks: ['08:19-09:15', '09:30-10:00', '11:00-14:42 (airport, not usable focus time)']
+      warnings:
+        - 'Travel day: both timed meetings taken from DFW between an 08:19 arrival and a 14:42 departure. Zero office or focus time.'
+        - 'Both timed meetings showAs tentative; neither accepted.'
+        - 'Conflict: Principled Business Summit closes 12:30 CDT but the AUS flight is 07:00.'
+        - 'Conflict: Hilton Austin booked through Oct 31 while checkout is today.'
+        - 'Buffers are 56 and 30 minutes; no back-to-back zero-buffer clusters today.'
   step-02-gather-tasks:
     task_data:
-      inbox_count: 9
-      inbox_items: ['Higgsfield - video', 'Movies', 'Join BMW club of America', 'Take hanger for jacket to work', 'Clint ARK', 'Size watches', 'Team Day at Augment', 'Buy Kaps cigars', 'Code Reviewer']
-      due_today: []
-      overdue: [{task: 'Fix media room lights', project: 'Family', due_date: '2026-10-17', days_late: 10}]
+      inbox_count: 16
+      due_today: 6
+      overdue: [{task: 'Fix media room lights', project: Family, due_date: '2026-10-17', days_late: 13}]
       flagged: []
-      source: 'data/omnifocus-unified.json via omnifocus-data skill script (OmniFocus MCP disconnected this session)'
-    delegation_data:
-      overdue: [{task: 'Steve Hall follow up', owner: 'Derek Nwamadi', due_date: '2026-09-25', days_late: 32, note: 'watch-only; David confirmed Derek actively handling on 2026-10-09'}]
-      due_today: []
-      due_this_week: []
-    rocks:
-      - {name: 'R1 Solace Co-Sell Motions (AT&T, McKesson, SLB)', status: 'committed; dated-milestones KR due Oct 17 (past, no status recorded)'}
-      - {name: 'R2 South Texas Revenue Recovery', status: 'committed; Chase gap decomposition due Oct 17 (past, no status recorded)'}
-      - {name: 'R3 Scorecard Truth', status: 'committed; Sept close validation due Oct 24 (past)'}
-      - {name: 'R4 Thought Leadership', status: 'committed; publishing via Alice performing; Becoming AI Native panel Oct 29'}
-      - {name: 'R5 AI Practice Leadership Plan 2027 (with Curtis)', status: 'committed; plan defined by Dec 15'}
+    delegation_data: {overdue: [], due_today: [], due_this_week: [], note: 'tracker has zero active rows'}
+    rocks: 'R1 Solace co-sell (no recorded progress since 2026-10-10); R2 South Texas recovery (gap decomposition due 2026-10-17, no completion); R3 Scorecard Truth (KR2 due 2026-10-31); R4 Thought Leadership (publishing via Alice performing); R5 AI Practice 2027 plan (Dec 15 signature, five decisions open)'
     lookahead_72h:
-      '2026-10-28': ['AA1167 DFW-AUS 07:26-08:33; Principled Business Summit all-day at Hilton Austin (opens 14:00)', 'Dallas Exec Huddle 08:30-09:00 tentative, conflicts with the flight', 'Loreta Tarozaite interview 10:00-10:45 needs prep, conflicts with MS Partner GTM Check-In and GEHC AI Routing sync', 'Breakthrough Builders Launch Dinner 19:30-21:30, Exec of the Year finalist']
-      '2026-10-29': ['GEHC AI Routing Internal Demo 09:00-09:30 needs prep, overlaps Sales & Recruiting', 'Becoming AI Native panel 16:20-16:50 on the PBS main stage, needs prep', 'Life Through the Generations 12:00-13:00 tentative']
-      '2026-10-30': ['AA512 AUS-DFW 07:00-08:19; Visit Libby & Patrick all-day personal through 11/02', 'APEX Overview for Presidents 11:00-12:00 tentative; Friday Week Wrap-Up 15:00-15:30']
-    email_triage: '9 messages, 0 flagged, 4 time-sensitive — Jax Zula (Mastercard) Bullhorn outage HIGH, BoardVantage UTB ACH Risk Assessment approval, Anne Mwelu reschedule, Derek Nwamadi Lockton deck'
-    jarvis_inbox: 'real empty result, 0 unread'
-    reminders: '0 due; 3 future (2026-10-28, 2026-10-29, 2026-11-02)'
+      '2026-10-31': '3 all-day only; no timed meetings. Rock 3 KR2 due. YPO officer identification and strategic focus pillar due.'
+      '2026-11-01': '3 all-day + AA 2493 BHM to DFW 12:12-14:27. Otherwise clear.'
+      '2026-11-02': 'Heaviest day of the window: 12 events, including two back-to-back zero-buffer clusters (09:15-10:30, 14:00-16:00).'
+    email_triage: '11 messages, 10 needing attention, 7 time-sensitive (YPO Nov 1 deadlines, 2027 open enrollment opens Nov 2, AI Leadership Summit homework, Lone Star Gold RSVP, Taylor Wimberly reply, YNG actions)'
+    jarvis_inbox: 'verified empty (totalCount 0, unreadCount 0; @Archive positive control 967)'
+    reminders: '1 due (rem-20261027T141945-KMD8KX, trigger 2026-10-29, 1 day overdue); rem-20261016T190151-9CFK0X not yet due (2026-11-02)'
   step-03-meeting-context:
     meetings:
-      - {meeting: 'Athena Meeting (Anne Mwelu)', prep_status: ready, context: 'prep sheet meetings/2026-10-27-athena-anne-mwelu.md; Alice scorecard 18/18 Oct 9; senior-track question; cadence slipped ~13 weeks; open decision on retiring the weekly routed-draft ask'}
-      - {meeting: 'David Evans lunch', prep_status: ready, context: 'prep sheet meetings/2026-10-27-david-evans-sentiero-lunch.md; first 1:1; Westcott intro; no-pitch landmine; no people file yet'}
-      - {meeting: 'Lockton AI Deep Learning follow-up', prep_status: needs-prep, context: 'zero vault history; deck sent 12:52 CT; David owns slides 8-10; Derek attending is a natural close-out for the Steve Hall delegation'}
-      - {meeting: 'Ashford engagement discussion', prep_status: needs-prep, context: 'vault: 2026-08-25 Remington workshop (~$30K/mo siloed token spend, no AI strategy owner); 2026-09-18 exec walkout after the Bergstrom demo; 2026-09-25 reset proposal'}
+      - {meeting: 'GEHC Improving - AI Routing technical deeper dive (weekly)', prep_status: needs-prep, context: 'four open items, last client touch 2026-09-18; open question whether Braunstein expects self-tuning routing has survived three notes; Braunstein owed environment access since 2026-09-18'}
     system_status:
-      yesterday_review: completed
-      yesterday_top_3: ['Record Rock 1 KR1 milestone status for AT&T/McKesson/SLB', 'Record Rock 2 South Texas gap decomposition status (Chase owns)', 'Route the Clevinger/Helixor follow-up to Ehren']
-  watchtower_output:
-    status: skipped-per-controller
-    date: '2026-10-27'
-    failure_reason: 'David instructed 2026-10-27 that Watchtower must not run daily. The step-04.5 agent was stopped mid-run (err-20261027T184315-93PIYQ); re-cadence routed to Rigby. No items rendered; a one-line skip note was shown instead.'
+      yesterday_review: missing
+      note: 'reviews/daily/ has no 2026-10-29.md (latest auto-2026-10-16.md); Obsidian Daily Reviews latest 2026-10-28'
   step-04-synthesize-briefing:
-    synthesized_at: '2026-10-27T18:51:00Z'
+    synthesized_at: '2026-10-30T14:13:58Z'
     delivered: true
     paragraphs: 3
     calendar_table: true
-    watchtower_section: 'one-line skip note per controller instruction (daily run skipped per David, no items shown)'
-    reminders_section: 'omitted — 0 reminders due'
-    working_memory: memory/working/morning-briefing-2026-10-27-135100.md
-    eval_record: 'closed via close-eval-record.py, name morning-briefing, agent chief, trigger boot; watchtower-daily carried as skipped-per-controller'
-    commit: 'routed through skills/git/SKILL.md'
-  step-05-verify-briefing:
-    verified_at: '2026-10-27T18:55:00Z'
-    agent: ralph
-    verification_workflow: workflows/morning-briefing-verification/workflow.md
-    lens: 'calendar / email / OmniFocus cross-check, re-derived from source files'
-    executed: true
-  adversarial-verification:
-    verdict: findings
-    result: flag
-    lens: 'morning-briefing calendar / email / OmniFocus cross-check, re-derived from data/calendar-unified.json, data/email-unified.json, data/omnifocus-unified.json, delegations/tracker.md, reviews/daily/2026-10-26.md, memory/personal/quarterly-objectives.md, plus declared Obsidian vault reads for the four vault-specific claims'
-    counts: {verified: 26, unverified: 2, contradicted: 0}
-    findings:
-      - 'UNVERIFIED: "the afternoon is six or more Teams calls" is off by one. Five afternoon meetings carry a Teams location; David/Don Sync 16:00 has location null. Seven Teams-labeled events exist across the whole day, so the sentence only holds if David/Don is assumed to be a call. The packed-afternoon point stands; the count does not re-derive.'
-      - 'UNVERIFIED: "the one you committed to yesterday" overstates provenance. reviews/daily/2026-10-26.md labels its Top 3 "Chief-proposed, controller confirmation deferred per coordinator" — David proposed nothing, the system proposed and he deferred.'
-      - 'EMBELLISHMENT: the Ashford context says Remington has "no AI strategy owner". The 2026-08-25 workshop note records leadership lacking "a coherent AI strategy and operating in silos" and recommends pinning a named owner; no source states there is no owner. "Roughly $30K a month" is also the top of the vault range "~$20-30K/month".'
-      - 'IMPRECISE WORDING: "flagged high importance at 10:59" for the Jax Zula email. importance is "high" and is_flagged is false; the run record itself says 0 flagged.'
-    re_run_required: false
-    recorded: true
-    recording_note: 'guardrail-checkpoint.py initially could not attach because the eval record had already been closed; the record was reopened, the checkpoint attached (guardrails[0] = adversarial-verification flag), and the record was re-closed with step-05 included.'
+    watchtower_section: 'omitted — no watchtower_output block in accumulated-context (expected state after the 2026-10-27 removal); not flagged'
+    reminders_section: 'rendered — 1 reminder, left pending for controller yes/no'
+    working_memory: memory/working/morning-briefing-2026-10-30-091358.md
+    eval_record: 'nested in boot record eval-20261030T140251-G668EK; no separate morning-briefing record this run'
+    commit: 'not run — no auto-commit per David standing instruction'
 degraded-sources:
-  - 'Clay MCP not connected this session — no reminders, birthdays, or relationship context'
-  - 'Watchtower daily skipped per controller instruction — no signals section'
-  - 'OmniFocus MCP disconnected — tasks pulled via the omnifocus-data skill script instead'
-  - 'Calendar pull required an inline Master pull after 5 subagent API stalls'
-last-run: '2026-10-27T18:52:00Z'
+  - 'Clay MCP disabled for this project (mcp.clay.earth) and claude.ai Clay needs auth — no reminders, birthdays, or relationship context'
+  - 'Watchtower daily not run (removed from boot 2026-10-27) — not rendered, not flagged'
+  - 'No daily review written for 2026-10-29'
+last-run: '2026-10-30T14:14:14Z'
 last-run-status: complete
-last-run-notes: '2026-10-27 midday run. 13 events (12 timed + 1 all-day LMB OOO), 23 tasks (9 inbox, 0 due, 1 overdue, 0 flagged), 1 delegation 32 days late (Steve Hall / Derek Nwamadi, watch-only), 9 emails with 4 time-sensitive. Briefing delivered at 13:51 CT acknowledging the day was half-lived: Lockton AI Deep Learning follow-up at 14:00 and Ashford unhappy-customer discussion at 15:00 carried the afternoon risk, Tim 1:1 at 14:30 conflicted with Lockton, and Rocks 1-3 had no calendar presence with all dated KRs past. Watchtower skipped per David instruction. Clay unavailable.'
+last-run-notes: '2026-10-30 travel-day run. 10 events (2 timed, 7 all-day, 3 travel segments), 28 tasks (16 inbox, 6 due today, 1 overdue 13 days, 0 flagged), 0 active delegations, 11 emails with 10 needing attention. Briefing delivered at 09:13 CDT: the day is a transit corridor between Austin and Birmingham with both timed meetings taken from DFW and both tentative, while the AI Practice 2027 five decisions and Rock 3 KR2 land inside hours with no desk. GEHC client session flagged for Chase prep. Clay unavailable. No daily review for yesterday.'

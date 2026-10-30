@@ -1,10 +1,12 @@
 workflow: watchtower
 agent: knox
-status: in-progress
+status: aborted
+aborted-reason: "Aborted per David's 2026-10-30 ruling; this is the daily run he stopped himself (err-20261027T184315-93PIYQ)"
 session-started: '2026-10-27T18:27:24Z'
 session-completed: ''
+completed-at: '2026-10-30T14:19:54Z'
 session-id: wt-daily-2026-10-27
-current-step: daily-step-01
+current-step: null
 original-request: watchtower-daily run (Knox) via workflows/boot step-04.5
 retirements_today: []
 eval_id: eval-20261027T182810-QV7YPU

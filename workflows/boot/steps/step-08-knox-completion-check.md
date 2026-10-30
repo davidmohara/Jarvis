@@ -1,14 +1,18 @@
 ---
 status: complete
-started-at: '2026-10-29T14:07:20Z'
-completed-at: '2026-10-29T14:07:32Z'
+started-at: '2026-10-30T14:16:16Z'
+completed-at: '2026-10-30T14:16:24Z'
 knox_status: success
-knox_reason: 'plaud-ingest eval-20261029T135729-Y2LB49 finished with status no-op in 3.4s
-  (trigger manual, spawned from step-01 at 13:57:11Z). Step-01-discover completed cleanly
-  with zero recordings to ingest this run; no action items needed routing and no punch-out
-  signal. Terminal and healthy, not a failure.'
-knox_eval_id: eval-20261029T135729-Y2LB49
-knox_duration_seconds: 3.4
+knox_reason: 'plaud-ingest eval-20261030T140346-2JX8RR finished with status no-op in 7.0s
+  (trigger manual, spawned from step-01 at 14:03:39Z, completed 14:03:46Z). Step-01-discover
+  completed cleanly; workflows/plaud-ingest/state.yaml records outcome: no-new-recordings,
+  status: complete. No action items needed routing and no punch-out signal. Terminal and
+  healthy, not a failure. Four structural assertions fail on this record (plaud-002,
+  plaud-k1, plaud-cb-evidence-ran, plaud-cb-zero-transcript-reads) but all four are
+  no-op-vacuous checks whose counters read stale prior-run file_ids carried in
+  accumulated-context; none indicates a silent drop.'
+knox_eval_id: eval-20261030T140346-2JX8RR
+knox_duration_seconds: 7.0
 ---
 
 <!-- system:start -->

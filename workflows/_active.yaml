@@ -2,4 +2,8 @@
 # Maintained by workflow state transitions — added on in-progress, removed on complete/aborted.
 # Step-06 reads this first; if active is empty, per-directory scan is skipped entirely.
 
+# 2026-10-30: content-discovery, content-pipeline, and watchtower removed here per
+# David's ruling — all three aborted in their own state.yaml (abort is a state change,
+# not a teardown; workflow and step files remain on disk).
+
 active: []
