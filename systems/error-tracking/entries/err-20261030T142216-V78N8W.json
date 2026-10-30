@@ -1,0 +1,11 @@
+{
+  "id": "err-20261030T142216-V78N8W",
+  "timestamp": "2026-10-30T14:22:16Z",
+  "category": "wrong-assumption",
+  "failure_mode": "unverified-claim",
+  "severity": "low",
+  "summary": "Rigby agent reported watchtower as a 'daily automation' with a daily schedule; David corrected: watchtower runs weekly on Monday only, never daily.",
+  "context": "During 2026-10-30 abort of three in-flight workflows, the Rigby subagent stated that aborting watchtower's stale state would not stop 'the watchtower daily automation' and offered to suppress a daily schedule. Watchtower's actual cadence is weekly (Monday).",
+  "proposed_fix": "Verify watchtower's scheduled-task cadence definition and correct any daily-language or daily-cadence config; agents must read the actual schedule definition before characterizing cadence.",
+  "status": "open"
+}

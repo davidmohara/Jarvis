@@ -1,16 +1,25 @@
 {
-  "pulled_at": "2026-10-29T13:59:43Z",
-  "message_count": 12,
-  "source_note": "M365 outlook_email_search. Inbox held 24 messages total (10 unread). MCP does not expose the Outlook flag/importance flag bit on search results (all returned importance 'normal'), so is_flagged reflects read-state + explicit deadline/RSVP markers in subject, not the server flag. Marketing newsletters and cold outreach excluded.",
+  "pulled_at": "2026-10-30T14:09:00Z",
+  "message_count": 11,
+  "source_note": "M365 outlook_email_search. Inbox held 30 messages total (10 unread); all 30 paged and reviewed. The connector exposes no Outlook flag/importance bit (every result returns importance 'normal'), so is_flagged reflects unread state plus explicit deadline/RSVP/reply-requested markers in the subject or body, not the server flag. Marketing newsletters, receipts, and past-event notices excluded.",
   "messages": [
     {
-      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA_f02G3AAA=",
-      "subject": "TODAY! Finishing Fund Partner Briefing | Thursday, October 29, 11 am Eastern",
-      "from": "davidc@finishingfund.org",
-      "received_at": "2026-10-29T12:39:52Z",
+      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA_f02HbAAA=",
+      "subject": "AI Policy- DRAFT",
+      "from": "Amber Robinson <Amber.Robinson@improving.com>",
+      "received_at": "2026-10-29T18:31:42Z",
       "is_flagged": true,
       "importance": "normal",
-      "snippet": "Unread. 30-minute Partner Briefing with Mark Haumschilt (The Finishing Fund) and Ray Vohn (E3 partners) today at 11 am Eastern / 10 am Central. Expires today."
+      "snippet": "Devlin, David, Curtis: attached is a working draft of the AI Policy for review and input. Asks for perspective and AI team feedback on additional considerations and business implications. Has attachment. Review requested, no stated deadline."
+    },
+    {
+      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA_f02HRAAA=",
+      "subject": "Re: Catch up offer",
+      "from": "Wimberly, Taylor <Taylor.Wimberly2@7-11.com>",
+      "received_at": "2026-10-29T16:30:43Z",
+      "is_flagged": true,
+      "importance": "normal",
+      "snippet": "Happy to catch up. Lives in far north Dallas, still goes to the Irving offices, flexible schedule. Asks David to name a time. Reply owed."
     },
     {
       "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA_f02G6AAA=",
@@ -19,52 +28,16 @@
       "received_at": "2026-10-29T13:17:44Z",
       "is_flagged": true,
       "importance": "normal",
-      "snippet": "Leah confirms she is happy to be connected to Milan and will find time to chat. Open action: send the intro to Milan and propose times."
+      "snippet": "Glad you connected with Nathan. Yes, please connect me with Milan, and I am happy to find a time for us to chat. Two actions: intro to Milan, schedule the call."
     },
     {
       "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA_f02G8AAA=",
       "subject": "RE: Automatic reply: Connecting for YNG",
       "from": "Lisa Burger <Lburger@ypo.org>",
       "received_at": "2026-10-29T13:46:28Z",
-      "is_flagged": false,
-      "importance": "normal",
-      "snippet": "Lisa loops in David for a YNG member intro: route to MiKayla Schatte (YNG Austin Chair) or Seth Kassanoff. Closes the YNG connection thread."
-    },
-    {
-      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA_LcTZ5AAA=",
-      "subject": "Today at the Summit: Becoming AI Native at 4:20 PM CT",
-      "from": "Michelle Bernier <michelle@libertyventures.xyz>",
-      "received_at": "2026-10-29T11:41:50Z",
       "is_flagged": true,
       "importance": "normal",
-      "snippet": "David is on the 'Becoming AI Native' panel today at 4:20 PM CT, Salon FG, Hilton Austin (Principled Business Summit). Same-day commitment."
-    },
-    {
-      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA_UQvYHAAA=",
-      "subject": "INFO & ACTION: November 1 deadlines officer identification and strategic focus pillar",
-      "from": "Shelby Meyer <smeyer@ypo.org>",
-      "received_at": "2026-10-28T16:43:05Z",
-      "is_flagged": true,
-      "importance": "normal",
-      "snippet": "Two YPO Western Chapter items due November 1: chapter commitment (officer identification) and strategic focus pillar."
-    },
-    {
-      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA_UQvVqAAA=",
-      "subject": "PLEASE RSVP: Lone Star Gold November 2026 Board Meeting",
-      "from": "Tiffany Geib <tiffany@lonestargold.org>",
-      "received_at": "2026-10-26T17:52:29Z",
-      "is_flagged": true,
-      "importance": "normal",
-      "snippet": "Unread. RSVP requested for the Lone Star Gold November Board Meeting, Monday Nov 16, 1:30-3:00 PM at Chris' office (Dart Interests)."
-    },
-    {
-      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA_UQvXDAAA=",
-      "subject": "2027 Open Enrollment - Communication #1",
-      "from": "Nicole Larson <nicole.larson@improving.com>",
-      "received_at": "2026-10-27T17:54:51Z",
-      "is_flagged": true,
-      "importance": "normal",
-      "snippet": "All full-time US employees must complete 2027 Open Enrollment in Workday starting Monday Nov 2, even if waiving benefits."
+      "snippet": "Introduces David to the YNG Austin contacts: MiKayla Schatte (YNG Austin Chair) and Seth Kassanoff as the member's path to reach out. Forward/intro action for the member."
     },
     {
       "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA_UQvXGAAA=",
@@ -73,7 +46,34 @@
       "received_at": "2026-10-27T18:06:16Z",
       "is_flagged": true,
       "importance": "normal",
-      "snippet": "Unread, personal. Ionut wants to catch up and share updates from Romania. No deadline; relationship follow-up."
+      "snippet": "Wants to catch up, asks about David and Susie, and wants to share updates from Romania. Personal relationship, reply owed."
+    },
+    {
+      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA_f02GwAAA=",
+      "subject": "Today at the Summit: Becoming AI Native at 4:20 PM CT",
+      "from": "Michelle Bernier <michelle@libertyventures.xyz>",
+      "received_at": "2026-10-29T11:41:50Z",
+      "is_flagged": true,
+      "importance": "normal",
+      "snippet": "Session reminder for the Principled Business Summit panel 'Becoming AI Native' on Thursday Oct 29 at 4:20 PM CT, Salon FG. Event has passed; retained for the session record and any follow-up with the panel."
+    },
+    {
+      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA_UQvYHAAA=",
+      "subject": "INFO & ACTION: November 1 deadlines officer identification and strategic focus pillar",
+      "from": "Shelby Meyer <smeyer@ypo.org>",
+      "received_at": "2026-10-28T16:43:05Z",
+      "is_flagged": true,
+      "importance": "normal",
+      "snippet": "YPO Western Chapter chairs: two items due November 1 - chapter commitment/officer identification and the strategic focus pillar submission."
+    },
+    {
+      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA_UQvXDAAA=",
+      "subject": "2027 Open Enrollment - Communication #1",
+      "from": "Nicole Larson <nicole.larson@improving.com>",
+      "received_at": "2026-10-27T17:54:51Z",
+      "is_flagged": true,
+      "importance": "normal",
+      "snippet": "2027 benefits open enrollment goes live Monday November 2. All full-time employees must complete it in Workday, even when waiving benefits."
     },
     {
       "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA93abxBAAA=",
@@ -82,34 +82,25 @@
       "received_at": "2026-10-21T15:04:16Z",
       "is_flagged": true,
       "importance": "normal",
-      "snippet": "Prep for the AI Leadership Summit Nov 5-6: each participant gives a 5-minute standing TED-style talk on Day 2. David needs to draft his one idea."
+      "snippet": "Pre-work for the AI Leadership Summit Nov 5-6: each attendee prepares one TED-style idea, five minutes, standing. Day 2 opens with these talks."
     },
     {
-      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA_UQvWAAAA=",
-      "subject": "Thank you",
-      "from": "Lance Clevinger <lance@helixor.ai>",
-      "received_at": "2026-10-26T21:15:39Z",
+      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA_UQvVqAAA=",
+      "subject": "PLEASE RSVP: Lone Star Gold November 2026 Board Meeting",
+      "from": "Tiffany Geib <tiffany@lonestargold.org>",
+      "received_at": "2026-10-26T17:52:29Z",
       "is_flagged": true,
       "importance": "normal",
-      "snippet": "Follow-up to a Helixor conversation: they want a meeting with Ehren Seim on their AI model for highly regulated spaces (banking). Needs an intro/scheduling decision."
+      "snippet": "RSVP requested for the Lone Star Gold November board meeting, Monday November 16, 1:30-3:00 PM at Chris' office (Dart Interests). Unread."
     },
     {
-      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA_CRO_XAAA=",
-      "subject": "Info: October OnPoint and Western Region Updates",
-      "from": "Shelby Meyer <smeyer@ypo.org>",
-      "received_at": "2026-10-20T11:53:50Z",
+      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA_f02IDAAA=",
+      "subject": "I want to connect",
+      "from": "Aman Sharma via LinkedIn <invitations@linkedin.com>",
+      "received_at": "2026-10-30T13:53:28Z",
       "is_flagged": false,
       "importance": "normal",
-      "snippet": "YPO Western Region Q2 update pack for chapter chairs, with attachment. Reference material unless a listed item applies."
-    },
-    {
-      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA_f02G4AAA=",
-      "subject": "David, 3 fixes before Black Friday",
-      "from": "Ed Keibler <hello@thecommerceshopsales.com>",
-      "received_at": "2026-10-29T12:51:46Z",
-      "is_flagged": false,
-      "importance": "normal",
-      "snippet": "Unread cold outreach offering a free 'Holiday Fix List' audit. Looks like vendor spam; no action unless David wants the audit."
+      "snippet": "LinkedIn connection request from Aman Sharma, Co-Founder and General Partner at Stack Asset Management. Unread. New-contact decision for David."
     }
   ]
 }

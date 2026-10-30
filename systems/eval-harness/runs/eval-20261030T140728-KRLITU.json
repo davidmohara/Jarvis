@@ -1,0 +1,124 @@
+{
+  "id": "eval-20261030T140728-KRLITU",
+  "agent_id": "a8ed5d435c2f19ff3",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": "boot",
+  "agent": "master",
+  "owning_agent": "master",
+  "subagent_type": "general-purpose",
+  "session_id": "e826819b-6c57-43f9-aad5-fafc650acc8a",
+  "trigger": "unknown",
+  "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+  "model_source": "subagent-transcript",
+  "started": "2026-10-30T14:07:28.323706Z",
+  "completed": "2026-10-30T14:09:35.439769Z",
+  "duration_seconds": 127.12,
+  "status": "success",
+  "steps": [
+    {
+      "name": "step-01.2-unified-data-pull.md",
+      "agent": "master",
+      "step_id": "step-01.2-unified-data-pull.md",
+      "owning_agent": "master",
+      "started": "2026-10-30T14:03:24Z",
+      "completed": "2026-10-30T14:09:20Z",
+      "status": "complete",
+      "tokens_input": 942478,
+      "tokens_output": 10171,
+      "cost_usd": 0.070984,
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "token_source": "windowed",
+      "turns_matched": 14,
+      "turns_with_usage": 14,
+      "duration_seconds": 356.0
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/e826819b-6c57-43f9-aad5-fafc650acc8a/subagents/agent-a8ed5d435c2f19ff3.jsonl",
+  "total_tokens_input": 1391134,
+  "total_tokens_output": 11906,
+  "total_cost_usd": 0.096234,
+  "token_source": "subagent-transcript",
+  "parent_window": {
+    "token_source": "parent-window",
+    "transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/e826819b-6c57-43f9-aad5-fafc650acc8a.jsonl",
+    "window_start": "2026-10-30T14:07:28.323706Z",
+    "window_end": "2026-10-30T14:09:35.439769Z",
+    "model": "glm-5p3-flash",
+    "tokens_input": 86930,
+    "tokens_output": 83,
+    "cost_usd": 0.001529,
+    "turns_matched": 1,
+    "turns_with_usage": 1,
+    "computed_at": "2026-10-30T14:09:35.771464Z"
+  },
+  "fully_loaded_cost_usd": 0.097763,
+  "fully_loaded_tokens_input": 1478064,
+  "fully_loaded_tokens_output": 11989,
+  "guardrails": [
+    {
+      "name": "step-01.2-unified-data-pull-checkpoint",
+      "after_step": "step-01.2-unified-data-pull.md",
+      "result": "pass",
+      "reason": "All 4 unified data files present and fresh",
+      "escalated_to_human": false,
+      "timestamp": "2026-10-30T14:09:35.688343Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "files_created": [
+          "data/email-unified.json",
+          "data/omnifocus-unified.json",
+          "data/clay-reminders-unified.json",
+          "data/jarvis-inbox-unified.json"
+        ],
+        "files_missing": [],
+        "files_stale": [],
+        "file_status": {
+          "data/email-unified.json": "fresh (0.0h old)",
+          "data/omnifocus-unified.json": "fresh (0.0h old)",
+          "data/clay-reminders-unified.json": "fresh (-0.0h old)",
+          "data/jarvis-inbox-unified.json": "fresh (0.0h old)"
+        }
+      }
+    }
+  ]
+}

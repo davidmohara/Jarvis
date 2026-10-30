@@ -1,8 +1,8 @@
 {
-  "pulled_at": "2026-10-29T13:58:58.593892Z",
+  "pulled_at": "2026-10-30T14:07:45.247555Z",
   "status": "available",
   "window_months": 12,
-  "since": "2025-11-03",
+  "since": "2025-11-04",
   "account_count": 31,
   "accounts": {
     "chase-checking": {
@@ -11,6 +11,12 @@
       "type": "checking",
       "payee_count": 88,
       "payees": [
+        {
+          "name": "Online Transfer 31386183698 to Santander Savings ######4121 transaction #: 31386183698 10/28",
+          "total": 25000.0,
+          "count": 1,
+          "last": "2026-10-28"
+        },
         {
           "name": "Fidelity Charitable",
           "total": 24900.0,
@@ -210,6 +216,12 @@
           "last": "2025-12-04"
         },
         {
+          "name": "ZELLE PAYMENT TO NURKA JPM99D1APVVW",
+          "total": 250.0,
+          "count": 1,
+          "last": "2026-10-28"
+        },
+        {
           "name": "Online Payment 26696962014 To PCR Community Association 11/21",
           "total": 233.0,
           "count": 1,
@@ -294,12 +306,6 @@
           "last": "2026-03-04"
         },
         {
-          "name": "Zelle payment to Darlene O'Hara 26416172943",
-          "total": 137.29,
-          "count": 1,
-          "last": "2025-11-03"
-        },
-        {
           "name": "Zelle payment to Darlene O'Hara 26796514367",
           "total": 137.29,
           "count": 1,
@@ -358,12 +364,6 @@
           "total": 65.91,
           "count": 1,
           "last": "2026-09-24"
-        },
-        {
-          "name": "Zelle payment to Declan O'Hara 26417079916",
-          "total": 50.0,
-          "count": 1,
-          "last": "2025-11-03"
         },
         {
           "name": "Zelle payment to Declan O'Hara 26796060085",
@@ -552,7 +552,7 @@
       "account_id": "c95b51b9-5d5b-4aff-8c67-9c54589ff016",
       "account_name": "Citi",
       "type": "creditCard",
-      "payee_count": 273,
+      "payee_count": 272,
       "payees": [
         {
           "name": "Farmers Insurance",
@@ -579,22 +579,28 @@
           "last": "2026-06-20"
         },
         {
+          "name": "Christian Fellowship",
+          "total": 5600.0,
+          "count": 2,
+          "last": "2026-10-28"
+        },
+        {
           "name": "Berkley One",
           "total": 5358.8,
           "count": 2,
           "last": "2026-02-02"
         },
         {
+          "name": "Amazon",
+          "total": 4972.35,
+          "count": 106,
+          "last": "2026-10-28"
+        },
+        {
           "name": "American Airlines",
           "total": 4930.06,
           "count": 7,
           "last": "2026-09-13"
-        },
-        {
-          "name": "Amazon",
-          "total": 4910.73,
-          "count": 105,
-          "last": "2026-10-27"
         },
         {
           "name": "Tusk Estates",
@@ -663,10 +669,10 @@
           "last": "2026-05-01"
         },
         {
-          "name": "Christian Fellowship",
-          "total": 2800.0,
-          "count": 1,
-          "last": "2026-04-15"
+          "name": "Horizon Hot Yoga",
+          "total": 2850.0,
+          "count": 8,
+          "last": "2026-10-27"
         },
         {
           "name": "Ls Roots And Water Win",
@@ -679,12 +685,6 @@
           "total": 2534.96,
           "count": 1,
           "last": "2026-06-05"
-        },
-        {
-          "name": "Horizon Hot Yoga",
-          "total": 2450.0,
-          "count": 7,
-          "last": "2026-09-05"
         },
         {
           "name": "CLASSIC WINE STORAGE",
@@ -897,16 +897,16 @@
           "last": "2026-09-28"
         },
         {
+          "name": "H-E-B",
+          "total": 697.78,
+          "count": 6,
+          "last": "2026-10-28"
+        },
+        {
           "name": "Asi Lloyds",
           "total": 677.0,
           "count": 1,
           "last": "2026-03-31"
-        },
-        {
-          "name": "H-E-B",
-          "total": 667.62,
-          "count": 5,
-          "last": "2026-10-16"
         },
         {
           "name": "Crystal River Inn",
@@ -1251,12 +1251,6 @@
           "last": "2026-05-16"
         },
         {
-          "name": "CREST CADILLAC FRISCO TX",
-          "total": 224.27,
-          "count": 1,
-          "last": "2025-11-03"
-        },
-        {
           "name": "Drug Crafters",
           "total": 219.42,
           "count": 2,
@@ -1359,16 +1353,16 @@
           "last": "2026-01-28"
         },
         {
+          "name": "The UPS Store",
+          "total": 174.01,
+          "count": 4,
+          "last": "2026-10-28"
+        },
+        {
           "name": "Dillard's",
           "total": 172.12,
           "count": 1,
           "last": "2025-12-04"
-        },
-        {
-          "name": "The UPS Store",
-          "total": 170.76,
-          "count": 3,
-          "last": "2026-03-13"
         },
         {
           "name": "Sewell Lexus Of",
@@ -1453,12 +1447,6 @@
           "total": 145.61,
           "count": 2,
           "last": "2026-09-12"
-        },
-        {
-          "name": "Life in Lilac",
-          "total": 145.6,
-          "count": 2,
-          "last": "2025-12-12"
         },
         {
           "name": "Fandango",
@@ -1723,6 +1711,12 @@
           "total": 62.57,
           "count": 1,
           "last": "2026-06-16"
+        },
+        {
+          "name": "Life in Lilac",
+          "total": 62.52,
+          "count": 1,
+          "last": "2025-12-12"
         },
         {
           "name": "Salute Italian Restaurant",
@@ -2363,16 +2357,16 @@
           "last": "2026-08-08"
         },
         {
-          "name": "Apple",
-          "total": 263.03,
-          "count": 34,
-          "last": "2026-10-21"
-        },
-        {
           "name": "Fly.io",
           "total": 260.69,
           "count": 9,
           "last": "2026-10-02"
+        },
+        {
+          "name": "Apple",
+          "total": 260.04,
+          "count": 33,
+          "last": "2026-10-21"
         },
         {
           "name": "Central Market - Plano",
@@ -4123,13 +4117,19 @@
     }
   },
   "all_accounts": {
-    "payee_count": 571,
+    "payee_count": 570,
     "payees": [
       {
         "name": "Fidelity Charitable",
         "total": 34900.0,
         "count": 36,
         "last": "2026-10-16"
+      },
+      {
+        "name": "Online Transfer 31386183698 to Santander Savings ######4121 transaction #: 31386183698 10/28",
+        "total": 25000.0,
+        "count": 1,
+        "last": "2026-10-28"
       },
       {
         "name": "BMW Financial Services",
@@ -4199,9 +4199,9 @@
       },
       {
         "name": "H-E-B",
-        "total": 8429.04,
-        "count": 114,
-        "last": "2026-10-26"
+        "total": 8459.2,
+        "count": 115,
+        "last": "2026-10-28"
       },
       {
         "name": "National General Insurance",
@@ -4222,6 +4222,12 @@
         "last": "2026-06-20"
       },
       {
+        "name": "Amazon",
+        "total": 6043.08,
+        "count": 115,
+        "last": "2026-10-28"
+      },
+      {
         "name": "CHECK # 184",
         "total": 6007.88,
         "count": 1,
@@ -4240,16 +4246,16 @@
         "last": "2026-04-16"
       },
       {
-        "name": "Amazon",
-        "total": 5981.46,
-        "count": 114,
-        "last": "2026-10-27"
-      },
-      {
         "name": "Undrgrndcellar W",
         "total": 5955.92,
         "count": 6,
         "last": "2026-10-07"
+      },
+      {
+        "name": "Christian Fellowship",
+        "total": 5600.0,
+        "count": 2,
+        "last": "2026-10-28"
       },
       {
         "name": "Berkley One",
@@ -4414,10 +4420,10 @@
         "last": "2025-12-16"
       },
       {
-        "name": "Christian Fellowship",
-        "total": 2800.0,
-        "count": 1,
-        "last": "2026-04-15"
+        "name": "Horizon Hot Yoga",
+        "total": 2850.0,
+        "count": 8,
+        "last": "2026-10-27"
       },
       {
         "name": "Precision Watch Tbunkyouku To",
@@ -4448,12 +4454,6 @@
         "total": 2478.91,
         "count": 6,
         "last": "2026-05-30"
-      },
-      {
-        "name": "Horizon Hot Yoga",
-        "total": 2450.0,
-        "count": 7,
-        "last": "2026-09-05"
       },
       {
         "name": "Online Transfer to CHK ...7817 transaction#: 30019302863 07/15",
@@ -5243,8 +5243,8 @@
       },
       {
         "name": "Apple",
-        "total": 370.87,
-        "count": 37,
+        "total": 367.88,
+        "count": 36,
         "last": "2026-10-21"
       },
       {
@@ -5500,6 +5500,12 @@
         "last": "2025-12-04"
       },
       {
+        "name": "ZELLE PAYMENT TO NURKA JPM99D1APVVW",
+        "total": 250.0,
+        "count": 1,
+        "last": "2026-10-28"
+      },
+      {
         "name": "Holdfast Hq",
         "total": 250.0,
         "count": 1,
@@ -5642,12 +5648,6 @@
         "total": 224.54,
         "count": 3,
         "last": "2026-09-01"
-      },
-      {
-        "name": "CREST CADILLAC FRISCO TX",
-        "total": 224.27,
-        "count": 1,
-        "last": "2025-11-03"
       },
       {
         "name": "Sun Auto Service",
@@ -5824,6 +5824,12 @@
         "last": "2026-01-28"
       },
       {
+        "name": "The UPS Store",
+        "total": 174.01,
+        "count": 4,
+        "last": "2026-10-28"
+      },
+      {
         "name": "Troubadour",
         "total": 174.0,
         "count": 1,
@@ -5846,12 +5852,6 @@
         "total": 172.12,
         "count": 1,
         "last": "2025-12-04"
-      },
-      {
-        "name": "The UPS Store",
-        "total": 170.76,
-        "count": 3,
-        "last": "2026-03-13"
       },
       {
         "name": "Sewell Lexus Of",
@@ -5980,12 +5980,6 @@
         "last": "2026-09-12"
       },
       {
-        "name": "Life in Lilac",
-        "total": 145.6,
-        "count": 2,
-        "last": "2025-12-12"
-      },
-      {
         "name": "CHECK # 183",
         "total": 145.0,
         "count": 1,
@@ -6050,12 +6044,6 @@
         "total": 137.39,
         "count": 2,
         "last": "2026-08-18"
-      },
-      {
-        "name": "Zelle payment to Darlene O'Hara 26416172943",
-        "total": 137.29,
-        "count": 1,
-        "last": "2025-11-03"
       },
       {
         "name": "Zelle payment to Darlene O'Hara 26796514367",
@@ -6592,6 +6580,12 @@
         "last": "2026-06-16"
       },
       {
+        "name": "Life in Lilac",
+        "total": 62.52,
+        "count": 1,
+        "last": "2025-12-12"
+      },
+      {
         "name": "Salute Italian Restaurant",
         "total": 60.88,
         "count": 1,
@@ -6728,12 +6722,6 @@
         "total": 50.02,
         "count": 1,
         "last": "2026-02-03"
-      },
-      {
-        "name": "Zelle payment to Declan O'Hara 26417079916",
-        "total": 50.0,
-        "count": 1,
-        "last": "2025-11-03"
       },
       {
         "name": "Zelle payment to Declan O'Hara 26796060085",

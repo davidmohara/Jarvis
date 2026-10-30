@@ -1,6 +1,6 @@
 {
-  "pulled_at": "2026-10-29T13:59:43Z",
+  "pulled_at": "2026-10-30T14:09:00Z",
   "message_count": 0,
   "messages": [],
-  "note": "Verified empty, not a lookup failure. A search with folderName 'Jarvis' returned no items, and mail:///folders/ enumerates a folder named 'Jarvis' with totalCount 0 and unreadCount 0. Positive control: folderName '@Archive' returned totalResultCount 967, so folder resolution works."
+  "note": "Verified empty, not a lookup failure. outlook_email_search with folderName 'Jarvis' returned no items (twice, including a query '*' pass), and mail:///folders/ enumerates a folder named 'Jarvis' with totalCount 0 and unreadCount 0. Positive control: folderName '@Archive' returned totalResultCount 967, so folder resolution works."
 }
