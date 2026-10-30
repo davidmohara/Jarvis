@@ -20,7 +20,7 @@ accumulated-context:
     lessons_appended: 0
     error_categories_30d: "assumption-error/wrong-assumption:7, data-accuracy/wrong-assumption:6, process-skip/protocol-skip:6, over-engineering/scope-creep:4, tool-misuse/tool-ignorance:3, hallucination/wrong-assumption:3"
     step_03b: "guardrail-checkpoint.py not run (no in-progress eval record); manual verdict pass"
-    step_04: "5 candidates (cutoff 2026-08-01) meets the 5-entry threshold; deferred, Guardrail 7 approval gate needs David (unattended run). Nothing deleted."
+    step_04: "5 candidates (cutoff 2026-08-01); deferred at run time, David approved in-session. entries_compressed 5, digests_updated 1 (2026-Q3)."
     step_06: "Ralph not spawned; inline conservation check passed (13 archived present in episodic and absent from working; 11 promoted flags)"
   step-2026-10-26-summary:
     working_archived: 16
