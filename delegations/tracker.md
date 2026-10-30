@@ -6,13 +6,5 @@ Single view of everything you've handed off. Review weekly.
 
 | Task | Delegated To | Date Assigned | Due Date | Status | Notes |
 |------|-------------|---------------|----------|--------|-------|
-| Steve Hall follow up (scheduled 2026-09-17, never happened) | Derek Nwamadi | 2026-09-17 | 2026-09-25 | In Progress | David's call 2026-09-17: Derek needs to own this, not David. Originally on David's calendar at 3:00 PM 09-17. OmniFocus mirror created during the daily review, then removed on David's instruction 2026-09-17 (id oAf8DvRd0_v). This tracker is the sole record. 2026-10-09: David confirmed Derek is actively handling; no nudge needed. |
 
-## Completed (move here when done, archive monthly)
-
-| Task | Delegated To | Date Assigned | Completed | Outcome |
-|------|-------------|---------------|-----------|---------|
-| Follow up on account overlap analysis | Nada Ungvarsky | 2026-02-06 | 2026-02-26 | Account overlap analysis delivered |
-| Ask for Build Our Brand powerpoint | Scott McMichael | 2026-02-06 | 2026-02-14 | Deck received |
-| Schedule breakfast roundtable | Bethany | 2026-02-06 | 2026-02-20 | Done |
-| Identify the date for DRC Tomorrow Fund Breakfast | Bethany | 2026-02-06 | 2026-02-20 | Done |
+## Completed (move to `delegations/archive-YYYY-MM.md` immediately when done — never leave rows here)

@@ -1,16 +1,16 @@
 workflow: plaud-ingest
 agent: knox
 status: complete
-outcome: ingested
-session-id: pi-20261028-001
-session-started: '2026-10-28T17:03:06Z'
-completed-at: "2026-10-28T17:30:00Z"
-current-step: step-06
+outcome: no-new-recordings
+session-id: pi-20261029-001
+session-started: '2026-10-29T13:57:26Z'
+completed-at: "2026-10-29T13:57:26Z"
+current-step: step-01
 original-request: "Knox — run workflows/plaud-ingest/workflow.md in full. Working directory: /Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES. Read the workflow file, run the STATE CHECK, and execute all steps as written. Background task. Today's date is 2026-10-28."
 blocker: null
 prior-run:
-  session-id: pi-20261027-001
-  result: "4 recordings ingested 2026-10-26; all 4 notes verified in vault."
+  session-id: pi-20261028-001
+  result: "2 recordings ingested 2026-10-28 (Lockton AI Adoption; One Texas/2027 Speaking). 2026-10-29 run: no-op preflight returned NOOP (newest unchanged, 4bc3ab005e16f853fbf236a1e1ae90fc) — accumulated-context below belongs to pi-20261028-001, retained for audit."
 accumulated-context:
   target-date: null
   new-recordings:

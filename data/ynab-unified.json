@@ -1,9 +1,9 @@
 {
-  "pulled_at": "2026-10-28T17:18:04.612949Z",
+  "pulled_at": "2026-10-29T13:58:58.593892Z",
   "status": "available",
   "window_months": 12,
-  "since": "2025-11-02",
-  "account_count": 30,
+  "since": "2025-11-03",
+  "account_count": 31,
   "accounts": {
     "chase-checking": {
       "account_id": "0beb7ac4-3396-4aa6-a743-fc511a6d878b",
@@ -591,6 +591,12 @@
           "last": "2026-09-13"
         },
         {
+          "name": "Amazon",
+          "total": 4910.73,
+          "count": 105,
+          "last": "2026-10-27"
+        },
+        {
           "name": "Tusk Estates",
           "total": 4873.23,
           "count": 2,
@@ -607,12 +613,6 @@
           "total": 4713.21,
           "count": 4,
           "last": "2026-10-21"
-        },
-        {
-          "name": "Amazon",
-          "total": 4453.38,
-          "count": 104,
-          "last": "2026-10-26"
         },
         {
           "name": "Moon Valley",
@@ -1089,12 +1089,6 @@
           "last": "2026-08-15"
         },
         {
-          "name": "Dfw Airport Parking",
-          "total": 357.5,
-          "count": 4,
-          "last": "2026-08-19"
-        },
-        {
           "name": "Bartlett Tree Experts",
           "total": 357.09,
           "count": 1,
@@ -1183,6 +1177,12 @@
           "total": 294.5,
           "count": 1,
           "last": "2026-10-14"
+        },
+        {
+          "name": "Dfw Airport Parking",
+          "total": 287.0,
+          "count": 3,
+          "last": "2026-08-19"
         },
         {
           "name": "Viatortripadvisoreu",
@@ -1551,12 +1551,6 @@
           "last": "2026-08-28"
         },
         {
-          "name": "AUGMENT FR* AUGMENT FR FRISCO TX",
-          "total": 113.52,
-          "count": 3,
-          "last": "2026-07-20"
-        },
-        {
           "name": "Target",
           "total": 108.25,
           "count": 1,
@@ -1881,6 +1875,12 @@
           "last": "2025-11-05"
         },
         {
+          "name": "AUGMENT FR* AUGMENT FR FRISCO TX",
+          "total": 45.41,
+          "count": 1,
+          "last": "2026-07-20"
+        },
+        {
           "name": "Cityvet Phillips",
           "total": 45.12,
           "count": 1,
@@ -2198,7 +2198,7 @@
       "account_id": "b4b7a7c8-32f5-4503-baf5-207d87050813",
       "account_name": "Amex - Blue",
       "type": "creditCard",
-      "payee_count": 85,
+      "payee_count": 84,
       "payees": [
         {
           "name": "H-E-B",
@@ -2607,12 +2607,6 @@
           "total": 56.34,
           "count": 1,
           "last": "2026-08-13"
-        },
-        {
-          "name": "NAME-CHEAP.COM* KBZSPHOENIX AZ",
-          "total": 56.04,
-          "count": 1,
-          "last": "2025-11-02"
         },
         {
           "name": "NAME-CHEAP.COM* PHFZPHOENIX AZ",
@@ -3152,6 +3146,13 @@
         }
       ]
     },
+    "savor": {
+      "account_id": "f53a2d07-4d80-4310-9a0b-a5631f8b8178",
+      "account_name": "Savor",
+      "type": "creditCard",
+      "payee_count": 0,
+      "payees": []
+    },
     "sapphire": {
       "account_id": "15694d56-fe61-4029-a526-b53fee53d1b6",
       "account_name": "Sapphire",
@@ -3160,8 +3161,8 @@
       "payees": [
         {
           "name": "Costco",
-          "total": 3662.27,
-          "count": 18,
+          "total": 3546.01,
+          "count": 17,
           "last": "2026-10-25"
         },
         {
@@ -3262,7 +3263,7 @@
       "account_id": "905c0c04-1ba6-4bf3-bde9-43119b7d828f",
       "account_name": "Everyday Entries",
       "type": "checking",
-      "payee_count": 21,
+      "payee_count": 22,
       "payees": [
         {
           "name": "Fidelity Charitable",
@@ -3389,6 +3390,12 @@
           "total": 400.0,
           "count": 1,
           "last": "2026-10-13"
+        },
+        {
+          "name": "Online Transfer 31193841914 to Santander Savings ######4121 transaction #: 31193841914 10/28",
+          "total": 400.0,
+          "count": 1,
+          "last": "2026-10-28"
         }
       ]
     },
@@ -4233,16 +4240,16 @@
         "last": "2026-04-16"
       },
       {
+        "name": "Amazon",
+        "total": 5981.46,
+        "count": 114,
+        "last": "2026-10-27"
+      },
+      {
         "name": "Undrgrndcellar W",
         "total": 5955.92,
         "count": 6,
         "last": "2026-10-07"
-      },
-      {
-        "name": "Amazon",
-        "total": 5524.11,
-        "count": 113,
-        "last": "2026-10-26"
       },
       {
         "name": "Berkley One",
@@ -4341,16 +4348,16 @@
         "last": "2026-04-23"
       },
       {
-        "name": "Costco",
-        "total": 3662.27,
-        "count": 18,
-        "last": "2026-10-25"
-      },
-      {
         "name": "Integrity Golf Performance",
         "total": 3600.0,
         "count": 3,
         "last": "2026-02-14"
+      },
+      {
+        "name": "Costco",
+        "total": 3546.01,
+        "count": 17,
+        "last": "2026-10-25"
       },
       {
         "name": "Ntta",
@@ -5187,6 +5194,12 @@
         "last": "2026-10-13"
       },
       {
+        "name": "Online Transfer 31193841914 to Santander Savings ######4121 transaction #: 31193841914 10/28",
+        "total": 400.0,
+        "count": 1,
+        "last": "2026-10-28"
+      },
+      {
         "name": "Zo Skin",
         "total": 396.2,
         "count": 2,
@@ -5257,12 +5270,6 @@
         "total": 359.4,
         "count": 1,
         "last": "2026-02-03"
-      },
-      {
-        "name": "Dfw Airport Parking",
-        "total": 357.5,
-        "count": 4,
-        "last": "2026-08-19"
       },
       {
         "name": "Bartlett Tree Experts",
@@ -5389,6 +5396,12 @@
         "total": 289.1,
         "count": 1,
         "last": "2026-04-03"
+      },
+      {
+        "name": "Dfw Airport Parking",
+        "total": 287.0,
+        "count": 3,
+        "last": "2026-08-19"
       },
       {
         "name": "Viatortripadvisoreu",
@@ -6213,12 +6226,6 @@
         "last": "2026-08-14"
       },
       {
-        "name": "AUGMENT FR* AUGMENT FR FRISCO TX",
-        "total": 113.52,
-        "count": 3,
-        "last": "2026-07-20"
-      },
-      {
         "name": "Blade Hq",
         "total": 112.14,
         "count": 1,
@@ -6639,12 +6646,6 @@
         "last": "2026-07-28"
       },
       {
-        "name": "NAME-CHEAP.COM* KBZSPHOENIX AZ",
-        "total": 56.04,
-        "count": 1,
-        "last": "2025-11-02"
-      },
-      {
         "name": "NAME-CHEAP.COM* PHFZPHOENIX AZ",
         "total": 56.04,
         "count": 1,
@@ -6883,6 +6884,12 @@
         "total": 46.48,
         "count": 1,
         "last": "2026-04-01"
+      },
+      {
+        "name": "AUGMENT FR* AUGMENT FR FRISCO TX",
+        "total": 45.41,
+        "count": 1,
+        "last": "2026-07-20"
       },
       {
         "name": "Cityvet Phillips",

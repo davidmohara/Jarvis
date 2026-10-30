@@ -1,0 +1,13 @@
+{
+  "id": "err-20261029T143320-N1R0O7",
+  "timestamp": "2026-10-29T14:33:20Z",
+  "category": "briefing-accuracy",
+  "failure_mode": "stale-data-surfacing",
+  "severity": "low",
+  "source": "david-correction",
+  "summary": "Boot briefings kept surfacing the Steve Hall follow-up delegation as overdue even after David cleared it as actively handled on 2026-10-09. The tracker note said 'no nudge needed' but the row stayed In Progress with a past due date, so every gather pass re-flagged it.",
+  "correction": "Stop bringing up the Steve Hall follow-up. It is handled. Follow-up correction same turn: closed means DELETED so I never hear about it again.",
+  "fix_applied": "Row deleted from the delegation tracker entirely (both active and completed sections). No OmniFocus mirror exists (removed 2026-09-17). Zero references remain.",
+  "systemic_rule": "When David says a delegation is handled, delete the tracker row outright, do not park it in a Completed section to be re-read later. 'Closed' for cleared delegations means removed from the file, not moved to a section that future gather passes still scan. Follow-up: the Completed section itself was also wrong — completed rows sat in tracker.md where every gather pass loads them into context, inviting accidental inclusion in briefings. Fixed 2026-10-29: all completed rows moved to `delegations/archive-2026-02.md` (a file no gather pass reads), Completed section emptied, and the section header now says archive immediately when done. Rule: completed delegations go to `delegations/archive-YYYY-MM.md`, never linger in tracker.md.",
+  "occurrence_count_of_pattern": 3
+}

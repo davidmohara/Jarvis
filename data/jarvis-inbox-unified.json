@@ -1,6 +1,6 @@
 {
-  "pulled_at": "2026-10-28T17:19:13Z",
+  "pulled_at": "2026-10-29T13:59:43Z",
   "message_count": 0,
   "messages": [],
-  "note": "M365 outlook_email_search returned no items for folderName 'Jarvis' on two attempts (with and without query '*'). Positive control against folderName '@Archive' returned 967 messages, so folder lookup itself works. Either the Jarvis folder is empty or the folder name does not resolve. Superhuman labels for David.OHara@improving.com do not list a Jarvis label either."
+  "note": "Verified empty, not a lookup failure. A search with folderName 'Jarvis' returned no items, and mail:///folders/ enumerates a folder named 'Jarvis' with totalCount 0 and unreadCount 0. Positive control: folderName '@Archive' returned totalResultCount 967, so folder resolution works."
 }

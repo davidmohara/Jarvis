@@ -1,0 +1,398 @@
+{
+  "workflow": "boot",
+  "total_size_bytes": 10112,
+  "accumulated_context": {
+    "name": "accumulated-context",
+    "size_bytes": 10112,
+    "size_kb": 9.88,
+    "estimated_tokens": 2528,
+    "type": "dict"
+  },
+  "field_breakdown": [
+    {
+      "name": "phase2.morning-briefing-steps-01-02.calendar_data.meetings",
+      "size_bytes": 1457,
+      "size_kb": 1.42,
+      "estimated_tokens": 364,
+      "type": "list"
+    },
+    {
+      "name": "phase2.task-g-detail.2026-10-30.timed",
+      "size_bytes": 988,
+      "size_kb": 0.96,
+      "estimated_tokens": 247,
+      "type": "list"
+    },
+    {
+      "name": "phase2.morning-briefing-steps-01-02.rocks",
+      "size_bytes": 812,
+      "size_kb": 0.79,
+      "estimated_tokens": 203,
+      "type": "list"
+    },
+    {
+      "name": "phase2.task-j-detail.due",
+      "size_bytes": 777,
+      "size_kb": 0.76,
+      "estimated_tokens": 194,
+      "type": "list"
+    },
+    {
+      "name": "phase2.task-h-detail.time_sensitive",
+      "size_bytes": 669,
+      "size_kb": 0.65,
+      "estimated_tokens": 167,
+      "type": "list"
+    },
+    {
+      "name": "phase2.task-h-detail.open_loops",
+      "size_bytes": 459,
+      "size_kb": 0.45,
+      "estimated_tokens": 114,
+      "type": "list"
+    },
+    {
+      "name": "phase2.task-h-detail.near_term",
+      "size_bytes": 315,
+      "size_kb": 0.31,
+      "estimated_tokens": 78,
+      "type": "list"
+    },
+    {
+      "name": "phase2.morning-briefing-steps-01-02.calendar_data.warnings",
+      "size_bytes": 290,
+      "size_kb": 0.28,
+      "estimated_tokens": 72,
+      "type": "list"
+    },
+    {
+      "name": "phase2.morning-briefing-steps-01-02.task_data.inbox_items",
+      "size_bytes": 268,
+      "size_kb": 0.26,
+      "estimated_tokens": 67,
+      "type": "list"
+    },
+    {
+      "name": "phase2.task-g-detail.warnings",
+      "size_bytes": 227,
+      "size_kb": 0.22,
+      "estimated_tokens": 56,
+      "type": "list"
+    },
+    {
+      "name": "phase2.morning-briefing-steps-01-02.calendar_data.all_day_spans",
+      "size_bytes": 198,
+      "size_kb": 0.19,
+      "estimated_tokens": 49,
+      "type": "list"
+    },
+    {
+      "name": "phase2.morning-briefing-steps-01-02.delegation_data.overdue",
+      "size_bytes": 185,
+      "size_kb": 0.18,
+      "estimated_tokens": 46,
+      "type": "list"
+    },
+    {
+      "name": "phase2.morning-briefing-steps-01-02.task_data.due_today",
+      "size_bytes": 167,
+      "size_kb": 0.16,
+      "estimated_tokens": 41,
+      "type": "list"
+    },
+    {
+      "name": "phase1-point5.files-created",
+      "size_bytes": 154,
+      "size_kb": 0.15,
+      "estimated_tokens": 38,
+      "type": "list"
+    },
+    {
+      "name": "phase2.morning-briefing-steps-01-02.rocks_note",
+      "size_bytes": 140,
+      "size_kb": 0,
+      "estimated_tokens": 35,
+      "type": "str"
+    },
+    {
+      "name": "step01",
+      "size_bytes": 125,
+      "size_kb": 0,
+      "estimated_tokens": 31,
+      "type": "str"
+    },
+    {
+      "name": "phase2.task-h-detail.not_time_sensitive",
+      "size_bytes": 120,
+      "size_kb": 0.12,
+      "estimated_tokens": 30,
+      "type": "list"
+    },
+    {
+      "name": "phase2.task-g-detail.2026-11-01.timed",
+      "size_bytes": 116,
+      "size_kb": 0.11,
+      "estimated_tokens": 29,
+      "type": "list"
+    },
+    {
+      "name": "phase2.task-i-jarvis-inbox",
+      "size_bytes": 105,
+      "size_kb": 0,
+      "estimated_tokens": 26,
+      "type": "str"
+    },
+    {
+      "name": "prior-run",
+      "size_bytes": 104,
+      "size_kb": 0,
+      "estimated_tokens": 26,
+      "type": "str"
+    },
+    {
+      "name": "phase2.task-j-reminders",
+      "size_bytes": 103,
+      "size_kb": 0,
+      "estimated_tokens": 25,
+      "type": "str"
+    },
+    {
+      "name": "phase2.morning-briefing-steps-01-02.task_data.overdue",
+      "size_bytes": 99,
+      "size_kb": 0.1,
+      "estimated_tokens": 24,
+      "type": "list"
+    },
+    {
+      "name": "phase1-point5.unified-data-pulls.clay",
+      "size_bytes": 94,
+      "size_kb": 0,
+      "estimated_tokens": 23,
+      "type": "str"
+    },
+    {
+      "name": "phase1-point5.unified-data-pulls.ynab",
+      "size_bytes": 75,
+      "size_kb": 0,
+      "estimated_tokens": 18,
+      "type": "str"
+    },
+    {
+      "name": "phase2.task-g-detail.2026-10-30.all_day",
+      "size_bytes": 75,
+      "size_kb": 0.07,
+      "estimated_tokens": 18,
+      "type": "list"
+    },
+    {
+      "name": "phase2.task-g-detail.2026-10-30.assessment",
+      "size_bytes": 73,
+      "size_kb": 0,
+      "estimated_tokens": 18,
+      "type": "str"
+    },
+    {
+      "name": "phase2.morning-briefing-steps-01-02.status",
+      "size_bytes": 72,
+      "size_kb": 0,
+      "estimated_tokens": 18,
+      "type": "str"
+    },
+    {
+      "name": "phase2.task-g-72hr-lookahead",
+      "size_bytes": 67,
+      "size_kb": 0,
+      "estimated_tokens": 16,
+      "type": "str"
+    },
+    {
+      "name": "phase2.task-j-detail.not_due",
+      "size_bytes": 67,
+      "size_kb": 0,
+      "estimated_tokens": 16,
+      "type": "str"
+    },
+    {
+      "name": "phase1-point5.unified-data-pulls.jarvis-inbox",
+      "size_bytes": 64,
+      "size_kb": 0,
+      "estimated_tokens": 16,
+      "type": "str"
+    },
+    {
+      "name": "phase1-point5.unified-data-pulls.email",
+      "size_bytes": 62,
+      "size_kb": 0,
+      "estimated_tokens": 15,
+      "type": "str"
+    },
+    {
+      "name": "phase2.morning-briefing-steps-01-02.calendar_data.open_blocks",
+      "size_bytes": 61,
+      "size_kb": 0.06,
+      "estimated_tokens": 15,
+      "type": "list"
+    },
+    {
+      "name": "phase2.morning-briefing-steps-01-02.task_data.flagged_note",
+      "size_bytes": 52,
+      "size_kb": 0,
+      "estimated_tokens": 13,
+      "type": "str"
+    },
+    {
+      "name": "phase2.task-j-detail.note",
+      "size_bytes": 52,
+      "size_kb": 0,
+      "estimated_tokens": 13,
+      "type": "str"
+    },
+    {
+      "name": "phase2_status",
+      "size_bytes": 43,
+      "size_kb": 0,
+      "estimated_tokens": 10,
+      "type": "str"
+    },
+    {
+      "name": "phase2.task-h-email-triage",
+      "size_bytes": 39,
+      "size_kb": 0,
+      "estimated_tokens": 9,
+      "type": "str"
+    },
+    {
+      "name": "calendar_file",
+      "size_bytes": 26,
+      "size_kb": 0,
+      "estimated_tokens": 6,
+      "type": "str"
+    },
+    {
+      "name": "phase2.task-g-detail.2026-10-31.all_day",
+      "size_bytes": 26,
+      "size_kb": 0.03,
+      "estimated_tokens": 6,
+      "type": "list"
+    },
+    {
+      "name": "date_range",
+      "size_bytes": 24,
+      "size_kb": 0,
+      "estimated_tokens": 6,
+      "type": "str"
+    },
+    {
+      "name": "phase1-point5.unified-data-pulls.omnifocus",
+      "size_bytes": 20,
+      "size_kb": 0,
+      "estimated_tokens": 5,
+      "type": "str"
+    },
+    {
+      "name": "phase2.task-g-detail.2026-11-01.assessment",
+      "size_bytes": 18,
+      "size_kb": 0,
+      "estimated_tokens": 4,
+      "type": "str"
+    },
+    {
+      "name": "phase2.task-g-detail.2026-11-01.all_day",
+      "size_bytes": 13,
+      "size_kb": 0.01,
+      "estimated_tokens": 3,
+      "type": "list"
+    },
+    {
+      "name": "phase2.morning-briefing-steps-01-02.calendar_data.date",
+      "size_bytes": 10,
+      "size_kb": 0,
+      "estimated_tokens": 2,
+      "type": "str"
+    },
+    {
+      "name": "status",
+      "size_bytes": 7,
+      "size_kb": 0,
+      "estimated_tokens": 1,
+      "type": "str"
+    },
+    {
+      "name": "phase1-point5.total_data_on_disk_kb",
+      "size_bytes": 5,
+      "size_kb": 0,
+      "estimated_tokens": 1,
+      "type": "float"
+    },
+    {
+      "name": "phase2.task-g-detail.2026-10-31.assessment",
+      "size_bytes": 5,
+      "size_kb": 0,
+      "estimated_tokens": 1,
+      "type": "str"
+    },
+    {
+      "name": "file_size_kb",
+      "size_bytes": 4,
+      "size_kb": 0,
+      "estimated_tokens": 1,
+      "type": "float"
+    },
+    {
+      "name": "event_count",
+      "size_bytes": 2,
+      "size_kb": 0,
+      "estimated_tokens": 0,
+      "type": "int"
+    },
+    {
+      "name": "phase2.morning-briefing-steps-01-02.task_data.inbox_count",
+      "size_bytes": 2,
+      "size_kb": 0,
+      "estimated_tokens": 0,
+      "type": "int"
+    },
+    {
+      "name": "phase2.morning-briefing-steps-01-02.task_data.flagged",
+      "size_bytes": 2,
+      "size_kb": 0.0,
+      "estimated_tokens": 0,
+      "type": "list"
+    },
+    {
+      "name": "phase2.morning-briefing-steps-01-02.delegation_data.due_today",
+      "size_bytes": 2,
+      "size_kb": 0.0,
+      "estimated_tokens": 0,
+      "type": "list"
+    },
+    {
+      "name": "phase2.morning-briefing-steps-01-02.delegation_data.due_this_week",
+      "size_bytes": 2,
+      "size_kb": 0.0,
+      "estimated_tokens": 0,
+      "type": "list"
+    },
+    {
+      "name": "phase2.task-g-detail.2026-10-31.timed",
+      "size_bytes": 2,
+      "size_kb": 0.0,
+      "estimated_tokens": 0,
+      "type": "list"
+    },
+    {
+      "name": "phase2.morning-briefing-steps-01-02.calendar_data.meeting_count",
+      "size_bytes": 1,
+      "size_kb": 0,
+      "estimated_tokens": 0,
+      "type": "int"
+    },
+    {
+      "name": "phase2.task-h-detail.flagged_count",
+      "size_bytes": 1,
+      "size_kb": 0,
+      "estimated_tokens": 0,
+      "type": "int"
+    }
+  ]
+}

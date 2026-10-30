@@ -1,9 +1,9 @@
 {
-  "pulled_at": "2026-10-28T17:19:13Z",
+  "pulled_at": "2026-10-29T13:59:43Z",
   "status": "unavailable",
   "reminders": [],
   "reminder_count": 0,
   "birthday_count": 0,
   "attempted": true,
-  "error": "Clay MCP is installed but unauthenticated this session. Only mcp__claude_ai_Clay__authenticate and complete_authentication are exposed; no reminder, birthday, or contact data tools are available. Pull was attempted (tool discovery + auth surface check) and could not fetch data."
+  "error": "Clay MCP requires OAuth this session. Only mcp__claude_ai_Clay__authenticate and mcp__claude_ai_Clay__complete_authentication are exposed; no reminder, birthday, or contact read tools exist to call. Attempted tool discovery and auth-surface check; OAuth not started because it needs an interactive browser step and this is an unattended boot run."
 }

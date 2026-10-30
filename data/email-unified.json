@@ -1,132 +1,115 @@
 {
-  "pulled_at": "2026-10-28T17:19:13Z",
-  "message_count": 14,
+  "pulled_at": "2026-10-29T13:59:43Z",
+  "message_count": 12,
+  "source_note": "M365 outlook_email_search. Inbox held 24 messages total (10 unread). MCP does not expose the Outlook flag/importance flag bit on search results (all returned importance 'normal'), so is_flagged reflects read-state + explicit deadline/RSVP markers in subject, not the server flag. Marketing newsletters and cold outreach excluded.",
   "messages": [
+    {
+      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA_f02G3AAA=",
+      "subject": "TODAY! Finishing Fund Partner Briefing | Thursday, October 29, 11 am Eastern",
+      "from": "davidc@finishingfund.org",
+      "received_at": "2026-10-29T12:39:52Z",
+      "is_flagged": true,
+      "importance": "normal",
+      "snippet": "Unread. 30-minute Partner Briefing with Mark Haumschilt (The Finishing Fund) and Ray Vohn (E3 partners) today at 11 am Eastern / 10 am Central. Expires today."
+    },
+    {
+      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA_f02G6AAA=",
+      "subject": "Re: Dallas YNG membership",
+      "from": "leah wilson <leahwilson171@gmail.com>",
+      "received_at": "2026-10-29T13:17:44Z",
+      "is_flagged": true,
+      "importance": "normal",
+      "snippet": "Leah confirms she is happy to be connected to Milan and will find time to chat. Open action: send the intro to Milan and propose times."
+    },
+    {
+      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA_f02G8AAA=",
+      "subject": "RE: Automatic reply: Connecting for YNG",
+      "from": "Lisa Burger <Lburger@ypo.org>",
+      "received_at": "2026-10-29T13:46:28Z",
+      "is_flagged": false,
+      "importance": "normal",
+      "snippet": "Lisa loops in David for a YNG member intro: route to MiKayla Schatte (YNG Austin Chair) or Seth Kassanoff. Closes the YNG connection thread."
+    },
+    {
+      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA_LcTZ5AAA=",
+      "subject": "Today at the Summit: Becoming AI Native at 4:20 PM CT",
+      "from": "Michelle Bernier <michelle@libertyventures.xyz>",
+      "received_at": "2026-10-29T11:41:50Z",
+      "is_flagged": true,
+      "importance": "normal",
+      "snippet": "David is on the 'Becoming AI Native' panel today at 4:20 PM CT, Salon FG, Hilton Austin (Principled Business Summit). Same-day commitment."
+    },
     {
       "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA_UQvYHAAA=",
       "subject": "INFO & ACTION: November 1 deadlines officer identification and strategic focus pillar",
       "from": "Shelby Meyer <smeyer@ypo.org>",
       "received_at": "2026-10-28T16:43:05Z",
-      "is_flagged": false,
+      "is_flagged": true,
       "importance": "normal",
-      "snippet": "Western Chapter chairs. Two items coming up for the November 1 deadline: Chapter Commitment - Officer identification and strategic focus pillar."
-    },
-    {
-      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwAicd0_np8VS5h8yLEYWS-AAAB5N7u6AABAtd68aKbhTanh4UbLkkAvAA_V7jdEAAA=",
-      "subject": "RE: ReMarkable skill?",
-      "from": "Jay Liles <Jay.Liles@firstunitedbank.com>",
-      "received_at": "2026-10-28T16:43:37Z",
-      "is_flagged": false,
-      "importance": "normal",
-      "snippet": "Thanks! Jay Liles | SVP, Director of AI Program Strategy & Execution | First United Bank"
-    },
-    {
-      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwAicd0_np8VS5h8yLEYWS-AAAB5N7u6AABAtd68aKbhTanh4UbLkkAvAA_V7jdDAAA=",
-      "subject": "RE: Automatic reply: Connecting for YNG",
-      "from": "Shelby Meyer <smeyer@ypo.org>",
-      "received_at": "2026-10-28T16:46:04Z",
-      "is_flagged": false,
-      "importance": "normal",
-      "snippet": "Kelsey, one of our members has been trying to get in touch. Can you respond please? I have copied him in. (Follow-up to David's question about whether Kelsey still works at YPO.)"
-    },
-    {
-      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwAicd0_np8VS5h8yLEYWS-AAAB5N7u6AABAtd68aKbhTanh4UbLkkAvAA_V7jcaAAA=",
-      "subject": "Action needed: firerouter model IDs retire on November 10th",
-      "from": "Fireworks Product <product@fireworks.ai>",
-      "received_at": "2026-10-28T05:34:00Z",
-      "is_flagged": false,
-      "importance": "normal",
-      "snippet": "Switch to auto before November 10th. Model IDs retiring; IES harness runs on Fireworks, so this touches the eval harness config."
-    },
-    {
-      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA_UQvWxAAA=",
-      "subject": "Please respond to the Approval - ACH Risk Assessment - Board Approval Requested",
-      "from": "Teresa Saffold <alerts@boardvantage.com>",
-      "received_at": "2026-10-27T15:34:26Z",
-      "is_flagged": false,
-      "importance": "normal",
-      "snippet": "United Texas Bank. The 2026 ACH & NACHA Audit identified an issue where the 2026 ACH Risk Assessment was not approved. Board approval requested."
-    },
-    {
-      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA_UQvWHAAA=",
-      "subject": "RE: Info: October OnPoint and Western Region Updates",
-      "from": "David O'Hara <David.OHara@improving.com>",
-      "received_at": "2026-10-23T13:00:02Z",
-      "is_flagged": false,
-      "importance": "normal",
-      "snippet": "YPO / YPO-Gold Western Chapter Chairs update thread. Superseded by the November 1 deadline action item."
+      "snippet": "Two YPO Western Chapter items due November 1: chapter commitment (officer identification) and strategic focus pillar."
     },
     {
       "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA_UQvVqAAA=",
       "subject": "PLEASE RSVP: Lone Star Gold November 2026 Board Meeting",
       "from": "Tiffany Geib <tiffany@lonestargold.org>",
       "received_at": "2026-10-26T17:52:29Z",
-      "is_flagged": false,
+      "is_flagged": true,
       "importance": "normal",
-      "snippet": "Monday, November 16, 2026, 1:30-3:00 PM at Chris' Office (Dart Interests), 4020. RSVP requested."
-    },
-    {
-      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA_UQvW0AAA=",
-      "subject": "Apologies for Missing Our Meeting",
-      "from": "Anne Mwelu <anne.mwelu@athena.com>",
-      "received_at": "2026-10-27T15:58:23Z",
-      "is_flagged": false,
-      "importance": "normal",
-      "snippet": "Apologies for missing our scheduled meeting due to an emergency. Would like to reschedule at a time that works for you."
-    },
-    {
-      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA_UQvXGAAA=",
-      "subject": "Catch up soon?",
-      "from": "Ionut Popescu <iancu.popescu@gmail.com>",
-      "received_at": "2026-10-27T18:06:16Z",
-      "is_flagged": false,
-      "importance": "normal",
-      "snippet": "Would love to catch up, hear how you and Susie are doing, and share updates about what God has been doing in Romania."
-    },
-    {
-      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA_UQvXmAAA=",
-      "subject": "Re: Dallas YNG membership",
-      "from": "leah wilson <leahwilson171@gmail.com>",
-      "received_at": "2026-10-28T09:21:34Z",
-      "is_flagged": false,
-      "importance": "normal",
-      "snippet": "Happy to hop on a call or meet for coffee to talk more about the Dallas chapter. Responding after returning from a YPO summit."
-    },
-    {
-      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA_UQvWAAAA=",
-      "subject": "Thank you",
-      "from": "Lance Clevinger <lance@helixor.ai>",
-      "received_at": "2026-10-26T21:15:39Z",
-      "is_flagged": false,
-      "importance": "normal",
-      "snippet": "Great catching up on Improving & Helixor. They want to meet Ehren Seim to discuss their AI model for highly regulated spaces, banking."
-    },
-    {
-      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA93abxBAAA=",
-      "subject": "Your homework for the AI Leadership Summit - 5 minutes, one idea",
-      "from": "Tim Rayburn <Tim.Rayburn@Improving.com>",
-      "received_at": "2026-10-21T15:04:16Z",
-      "is_flagged": false,
-      "importance": "normal",
-      "snippet": "AI Leadership Summit Nov 5-6. Day 2 opens with five-minute TED-style talks; one idea and five minutes of prep required from each attendee."
+      "snippet": "Unread. RSVP requested for the Lone Star Gold November Board Meeting, Monday Nov 16, 1:30-3:00 PM at Chris' office (Dart Interests)."
     },
     {
       "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA_UQvXDAAA=",
       "subject": "2027 Open Enrollment - Communication #1",
       "from": "Nicole Larson <nicole.larson@improving.com>",
       "received_at": "2026-10-27T17:54:51Z",
-      "is_flagged": false,
+      "is_flagged": true,
       "importance": "normal",
-      "snippet": "2027 Benefits Open Enrollment goes live Monday, November 2nd. All full-time employees must complete Open Enrollment in Workday even if waiving benefits."
+      "snippet": "All full-time US employees must complete 2027 Open Enrollment in Workday starting Monday Nov 2, even if waiving benefits."
     },
     {
-      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwAicd0_np8VS5h8yLEYWS-AAAB5N7u6AABAtd68aKbhTanh4UbLkkAvAA_V7jcZAAA=",
-      "subject": "Reminder: Loreta Today Show | Austin Interviews at 10:00am CT today (Wed Oct 28)",
-      "from": "Loreta Tarozaite <notifications@calendly.com>",
-      "received_at": "2026-10-28T13:00:23Z",
+      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA_UQvXGAAA=",
+      "subject": "Catch up soon?",
+      "from": "Ionut Popescu <iancu.popescu@gmail.com>",
+      "received_at": "2026-10-27T18:06:16Z",
+      "is_flagged": true,
+      "importance": "normal",
+      "snippet": "Unread, personal. Ionut wants to catch up and share updates from Romania. No deadline; relationship follow-up."
+    },
+    {
+      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA93abxBAAA=",
+      "subject": "Your homework for the AI Leadership Summit - 5 minutes, one idea",
+      "from": "Tim Rayburn <Tim.Rayburn@Improving.com>",
+      "received_at": "2026-10-21T15:04:16Z",
+      "is_flagged": true,
+      "importance": "normal",
+      "snippet": "Prep for the AI Leadership Summit Nov 5-6: each participant gives a 5-minute standing TED-style talk on Day 2. David needs to draft his one idea."
+    },
+    {
+      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA_UQvWAAAA=",
+      "subject": "Thank you",
+      "from": "Lance Clevinger <lance@helixor.ai>",
+      "received_at": "2026-10-26T21:15:39Z",
+      "is_flagged": true,
+      "importance": "normal",
+      "snippet": "Follow-up to a Helixor conversation: they want a meeting with Ehren Seim on their AI model for highly regulated spaces (banking). Needs an intro/scheduling decision."
+    },
+    {
+      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA_CRO_XAAA=",
+      "subject": "Info: October OnPoint and Western Region Updates",
+      "from": "Shelby Meyer <smeyer@ypo.org>",
+      "received_at": "2026-10-20T11:53:50Z",
       "is_flagged": false,
       "importance": "normal",
-      "snippet": "Reminder for the Loreta Today Show Austin interview at 10:00am Central today. Studio access link also sent separately."
+      "snippet": "YPO Western Region Q2 update pack for chapter chairs, with attachment. Reference material unless a listed item applies."
+    },
+    {
+      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA_f02G4AAA=",
+      "subject": "David, 3 fixes before Black Friday",
+      "from": "Ed Keibler <hello@thecommerceshopsales.com>",
+      "received_at": "2026-10-29T12:51:46Z",
+      "is_flagged": false,
+      "importance": "normal",
+      "snippet": "Unread cold outreach offering a free 'Holiday Fix List' audit. Looks like vendor spam; no action unless David wants the audit."
     }
   ]
 }
