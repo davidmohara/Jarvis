@@ -20,8 +20,8 @@ tags:
   - cost-tracking
 related_people: []
 salience:
-  score: 0
-  last-promoted-check: 2026-10-26
+  score: 2
+  last-promoted-check: 2026-10-30
 ---
 
 # Eval-Harness Hook Fix — August 21, 2026

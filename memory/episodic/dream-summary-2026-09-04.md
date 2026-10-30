@@ -20,8 +20,8 @@ tags:
   - omnifocus
 related_people: []
 salience:
-  score: 8
-  last-promoted-check: 2026-10-26
+  score: 9
+  last-promoted-check: 2026-10-30
   promoted: true
 ---
 

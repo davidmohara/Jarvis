@@ -1,12 +1,26 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "rigby-2026-10-26-boot-token-fixes"
 agent-source: rigby
 created: 2026-10-26T16:30:00Z
 expires: 2026-10-28T16:30:00Z
-status: active
+status: archived
 context: "Impact analysis for the five boot token-performance fixes — 2026-10-26"
+date: 2026-10-26
+source_file: memory/working/rigby-impact-2026-10-26-boot-token-fixes.md
+tags:
+  - rigby
+  - briefing
+  - plaud
+  - boot
+  - dream-cycle
+  - knox
+related_people:
+salience:
+  score: 9
+  last-promoted-check: 2026-10-30
+  promoted: true
 ---
 
 # Impact Analysis — Boot Token-Performance Fixes (2026-10-26)

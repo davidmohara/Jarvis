@@ -22,8 +22,8 @@ tags:
   - system-maintenance
 related_people: []
 salience:
-  score: 5
-  last-promoted-check: 2026-10-26
+  score: 7
+  last-promoted-check: 2026-10-30
   promoted: true
 ---
 

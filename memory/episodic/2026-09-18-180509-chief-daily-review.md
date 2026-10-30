@@ -21,8 +21,8 @@ related_people:
   - diana-stevens
   - derek-nwamadi
 salience:
-  score: 6
-  last-promoted-check: 2026-10-26
+  score: 5
+  last-promoted-check: 2026-10-30
   promoted: true
 ---
 

@@ -5,7 +5,7 @@ tag: master
 domain: operational
 confidence: low
 created: 2026-07-06
-last-updated: 2026-10-26
+last-updated: 2026-10-30
 synthesized-from: 1 episodic entries
 tags:
   - master
@@ -36,3 +36,13 @@ Initial pattern; observations will be added as more entries with this tag are pr
 
 - Master's ad-hoc analysis and planning requests are routinely delegated to read-only subagents and recorded as working memory, which is the intended hand-off pattern.
 - Boot cost is dominated by per-step executor subagents, not synthesis; outcome (success vs partial) does not track token spend, so cost is a tuning target separate from quality.
+
+## Evidence (added 2026-10-30)
+
+- 2026-10-26-boot-token-analysis.md (score 10): the analysis behind Rigby's five boot token fixes, the Master-side counterpart to the 10-23 token comparison.
+- 2026-10-09-154553-master-assessment-hunt.md (score 3): a hunt for the AI Adoption Maturity Assessment. The pointer page was mistaken for the instrument, then the Exercise-16 embedded instrument was also wrong (two errors logged the same day); the real assessment is a facilitator-provided document that is deliberately not in the repo. Exit-ticket references were then stripped from the bootcamp PDFs and decks.
+
+## Implications (added 2026-10-30)
+
+- Token analysis feeds directly into Rigby builds within a day, so the analysis-to-fix loop is short when the controller asks for it.
+- Two successive wrong answers on where an artifact lives suggests treating a document that says it is a reference page as a pointer, and asking whether the real artifact is intentionally external before searching further.

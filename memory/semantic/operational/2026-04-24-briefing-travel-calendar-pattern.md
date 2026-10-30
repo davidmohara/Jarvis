@@ -4,7 +4,7 @@ domain: operational
 tags: [briefing, calendar, omnifocus, google-next, travel, overdue-tasks, leads]
 confidence: high
 created: 2026-04-24
-last-updated: 2026-10-26
+last-updated: 2026-10-30
 synthesized-from: 22
   - memory/episodic/2026-04-20-morning-briefing.md
   - memory/episodic/2026-04-21-morning-briefing.md
@@ -581,3 +581,12 @@ Five briefings from 2026-10-15 to 2026-10-23 (morning-briefing-2026-10-15-090500
 44. **Rock deadlines are now surfaced daily without moving.** Rock 1 KR1 and Rock 2 KR1 (due 10-17) were still without OmniFocus tasks on 10-22, five days of drift, repeated in consecutive briefings. Surfacing is working; conversion to tasks is not, which is the execution gap itself.
 45. **Source availability is a stable background condition.** Clay was unavailable in every briefing in the window (auth stubs only), and the step-03b guardrail checkpoint repeatedly could not record (no in-progress eval record, known gap dream-004/boot-004). Briefings degrade gracefully, so treat these as standing caveats, not new incidents.
 46. **Daily-review gaps propagate into briefings.** The 10-21 and 10-22 briefings each noted the prior day's daily review missing, reinforcing the daily-review pattern's finding that gaps, not quality, are the failure mode.
+
+## Evidence (added 2026-10-30)
+
+Two briefings from 2026-10-26 and 2026-10-27 (morning-briefing-2026-10-26-145500, morning-briefing-2026-10-27-135100), both tagged rock2, rock3, rock4 and calendar, with the 10-26 run adding ypo, revenue and co-sell and the 10-27 run adding travel and utb-board. Both ran after the boot-token fixes and carried the same standing caveats as the prior window.
+
+## Implications (added 2026-10-30)
+
+47. **The briefing is now the main place rock status surfaces.** Rocks 2, 3 and 4 appear in both briefings back to back, and the Rock 4 co-sell gap rides along with revenue on 10-26. Surfacing is consistent; the open question remains conversion into tasks, as in implication 44.
+48. **Briefings were rebuilt mid-window.** Rigby's 10-26 boot-token fixes and the 10-27 removal of the Watchtower step from boot changed what feeds the briefing between these two runs. A briefing section that appears or vanishes in this window is a pipeline change, not a content change.
