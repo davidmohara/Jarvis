@@ -884,6 +884,74 @@ def find_records_for_session(session_id: str) -> list[Path]:
     return [r[0] for r in records]
 
 
+def _parse_iso_ts(value) -> "datetime | None":
+    """ISO-8601 string -> aware datetime (naive assumed UTC), or None."""
+    if not value or not isinstance(value, str):
+        return None
+    try:
+        dt = datetime.fromisoformat(value.replace("Z", "+00:00"))
+    except Exception:
+        return None
+    if dt.tzinfo is None:
+        dt = dt.replace(tzinfo=timezone.utc)
+    return dt
+
+
+# A turn-level record whose monitored workflow never reached a terminal
+# state.yaml status, and which is older than this, belongs to a session that
+# is gone: the CLI process ended (or the run was killed) without the workflow
+# ever completing. Two failures come from treating such a record as live,
+# both measured in the 2026-10-30 boot-token analysis:
+#   - it blocks a NEW session's record for the same workflow, because
+#     workflows/{name}/state.yaml is a single file and open_turn_level_record_exists
+#     dedupes across sessions by workflow name (an 11.3h record did exactly this);
+#   - it stays open indefinitely, so its window (and its parent_window cost
+#     slice) keeps growing over unrelated work.
+# Six hours is well past any real IES workflow run (the longest clean boot
+# in that window was 4.5h) and well under a working day, so a record this old
+# with a non-terminal state.yaml cannot be a live run.
+ABANDONED_RECORD_AFTER_HOURS = 6.0
+
+# How recently a workflow's state.yaml must have been touched for a
+# turn-level record from a DIFFERENT session to still count as blocking a new
+# record for that workflow. Single-controller usage means another session
+# cannot be actively running a workflow while this one submits a prompt, so a
+# cross-session record whose state.yaml has been untouched for this long is a
+# dead session's leftover — exactly the interrupted-boot case where a
+# non-terminal state.yaml would otherwise block the next boot's record for
+# hours (see open_turn_level_record_exists). A live workflow rewrites its
+# state.yaml at every step, so a running one is always well inside this.
+LIVE_STATE_MTIME_MINUTES = 45.0
+
+
+def is_turn_level_record(data: dict) -> bool:
+    """A turn-level workflow record that still claims to be monitored.
+    `monitoring.active` — not `status` — is the liveness flag: it is set only
+    by eval-turn-start.py and cleared only by a real finalize
+    (eval-turn-stop.py finalize / close-eval-record.py). `status` is written
+    by several other paths (the session-exit sweep, the cowork state.yaml
+    path) that do not complete a run, so keying "is this record live?" on it
+    silently orphans every later subagent of the run."""
+    return (data.get("type") == "workflow"
+            and bool((data.get("monitoring") or {}).get("active")))
+
+
+def record_age_hours(data: dict) -> "float | None":
+    started = _parse_iso_ts(data.get("started"))
+    if started is None:
+        return None
+    return (datetime.now(timezone.utc) - started).total_seconds() / 3600
+
+
+def record_is_abandoned(data: dict) -> bool:
+    """A turn-level record older than ABANDONED_RECORD_AFTER_HOURS that never
+    finished. See that constant for the failure it prevents."""
+    if not is_turn_level_record(data):
+        return False
+    age = record_age_hours(data)
+    return age is not None and age >= ABANDONED_RECORD_AFTER_HOURS
+
+
 def find_open_turn_records(session_id: str) -> list:
     """All in-progress, monitoring.active turn-level records for this
     session — identified by monitoring.active being true, not just by
@@ -895,6 +963,33 @@ def find_open_turn_records(session_id: str) -> list:
             with open(f, "r") as file:
                 data = json.load(file)
             if data.get("status") == "in-progress" and data.get("monitoring", {}).get("active"):
+                out.append(f)
+        except Exception:
+            continue
+    return out
+
+
+def find_live_turn_records(session_id: str) -> list:
+    """Every turn-level record for this session that still claims to be
+    monitored (monitoring.active), whatever its `status`.
+
+    Used for subagent LINKING, not finalization. Root cause it closes
+    (2026-10-30): eval-session-end.py fires close-open-evals.py on events that
+    are not session exit (two mid-boot firings that day), and the sweep
+    stamped the live boot record `status: incomplete` at 14:08:17 — 7 minutes
+    into a boot that ran to 14:16:42. From that moment find_open_turn_records
+    (and therefore find_unambiguous_open_turn_record) returned nothing for
+    this session, so the six executors spawned after it — steps 02, 03, 04,
+    05-08, and the knox check — were never linked into the parent, and their
+    per-step tokens never reached it. A record the sweep closed mid-run is
+    still the parent of that run's later spawns: `status` is mutable noise
+    here, `monitoring.active` is the real liveness flag."""
+    out = []
+    for f in find_records_for_session(session_id):
+        try:
+            with open(f, "r") as file:
+                data = json.load(file)
+            if is_turn_level_record(data):
                 out.append(f)
         except Exception:
             continue
@@ -928,12 +1023,33 @@ def find_unambiguous_open_turn_record(session_id: str) -> Path | None:
     misattribution. When ambiguous, skip linking rather than guess: the
     subagent's own standalone eval-agent record is unaffected either way,
     this only controls whether it ALSO gets rolled into a workflow's
-    subagents[] array."""
-    records = find_open_turn_records(session_id)
-    return records[0] if len(records) == 1 else None
+    subagents[] array.
+
+    Candidates are the session's LIVE turn-level records (find_live_turn_records
+    — monitoring.active, whatever their status), not strictly the in-progress
+    ones. An in-progress record is preferred when exactly one exists; a single
+    record the session-exit sweep closed mid-run is still the parent of that
+    run's later spawns (see find_live_turn_records for the 2026-10-30 incident
+    that produced six orphaned boot executors when this returned None)."""
+    live = find_live_turn_records(session_id)
+    if not live:
+        return None
+    in_progress = []
+    for f in live:
+        try:
+            with open(f, "r") as file:
+                if json.load(file).get("status") == "in-progress":
+                    in_progress.append(f)
+        except Exception:
+            continue
+    if len(in_progress) == 1:
+        return in_progress[0]
+    if not in_progress and len(live) == 1:
+        return live[0]
+    return None
 
 
-def open_turn_level_record_exists(workflow_name: str) -> bool:
+def open_turn_level_record_exists(workflow_name: str, session_id: str | None = None) -> bool:
     """Is there already an open (in-progress, monitoring.active) turn-level
     'workflow' record for this workflow name, anywhere in the runs dir?
 
@@ -970,16 +1086,84 @@ def open_turn_level_record_exists(workflow_name: str) -> bool:
         try:
             with open(f, "r") as file:
                 data = json.load(file)
-            if (
+            if not (
                 data.get("type") == "workflow"
                 and data.get("name") == workflow_name
                 and data.get("status") == "in-progress"
                 and data.get("monitoring", {}).get("active")
             ):
-                return True
+                continue
+            # An abandoned record (a dead session that never finished the
+            # workflow) must not block THIS session's record: that is how a
+            # stale 11.3h boot record from 2026-10-29 left the next run with
+            # no turn-level record at all. eval-turn-stop.py's sweep closes
+            # it; the new session's own record opens regardless.
+            if record_is_abandoned(data):
+                continue
+            # Same-session records always block (they are this run's own).
+            # A record from ANOTHER session blocks only while its workflow's
+            # state.yaml is still being written: an interrupted boot leaves
+            # state.yaml non-terminal forever, and close-open-evals.py now
+            # (correctly) refuses to close a record whose workflow looks live,
+            # so without this a killed boot would block every new session's
+            # record for ABANDONED_RECORD_AFTER_HOURS. Single-controller usage
+            # means nobody else can be running this workflow right now.
+            rec_session = data.get("session_id")
+            if session_id and rec_session and rec_session != session_id:
+                state_path = (data.get("monitoring") or {}).get("state_yaml_path")
+                if state_path:
+                    try:
+                        age_min = (datetime.now(timezone.utc).timestamp()
+                                   - (IES_ROOT / state_path).stat().st_mtime) / 60
+                    except Exception:
+                        age_min = None
+                    if age_min is not None and age_min > LIVE_STATE_MTIME_MINUTES:
+                        continue
+            return True
         except Exception:
             continue
     return False
+
+
+def find_turn_record_for_workflow(session_id: str, workflow_name: str,
+                                  child_started: "str | None" = None) -> Path | None:
+    """The turn-level record a subagent belongs to when the start-time link
+    was never written: same session, same workflow, and (when the child's
+    start is known) a record whose [started, completed] window contains it.
+
+    Root cause it closes (2026-10-30): eval-agent-start.py writes the
+    subagents[] link from the spawn payload, which carries no workflow, and it
+    backs off whenever it cannot pick exactly one open turn record. When that
+    happens the child's stop has nothing to roll up into and
+    partition_usage_by_steps has no parent to partition across — the child's
+    own step record keeps its tokens forever and the parent's totals stay null.
+    eval-agent-stop.py calls this at stop time, when the child's workflow IS
+    known (recovered from the spawn prompt / .meta.json / step paths), and
+    attaches the link then. Same session only: a previous session's record
+    must never adopt this session's work."""
+    if not session_id or not workflow_name:
+        return None
+    child_dt = _parse_iso_ts(child_started)
+    candidates = []
+    for f in find_records_for_session(session_id):
+        try:
+            with open(f, "r") as file:
+                data = json.load(file)
+        except Exception:
+            continue
+        if data.get("type") != "workflow" or data.get("name") != workflow_name:
+            continue
+        if child_dt is not None:
+            start_dt = _parse_iso_ts(data.get("started"))
+            end_dt = _parse_iso_ts(data.get("completed"))
+            if start_dt is not None and child_dt < start_dt:
+                continue
+            if end_dt is not None and child_dt > end_dt:
+                continue
+        candidates.append((f, data.get("started") or ""))
+    if len(candidates) != 1:
+        return None
+    return candidates[0][0]
 
 
 def find_parent_record_with_subagent(session_id: str, agent_id: str) -> Path | None:
@@ -1044,6 +1228,50 @@ def find_records_by_agent_id(agent_id: str, runs_dir: Path | None = None) -> lis
             continue
     out.sort(key=lambda x: x[1], reverse=True)
     return [p for p, _ in out]
+
+
+def aggregate_record_totals(record: dict) -> dict:
+    """Sum a turn-level record's steps[] and subagents[] into its
+    total_tokens_input / total_tokens_output / total_cost_usd (mutated in
+    place, returned for convenience). Same double-count guard as
+    eval-turn-stop.py's finalize: a step stamped with executed_by_agent_id was
+    filled from that subagent's transcript, so its tokens are the SAME tokens
+    the subagents[] rollup carries — count such a step only when its subagent
+    entry has no tokens (e.g. that stop hook was lost), never both.
+
+    Extracted 2026-10-30 so both closers aggregate identically:
+    close-eval-record.py (the workflow-final-step closer) previously wrote
+    status/completed/duration and left the totals null, which is how the
+    2026-10-30 boot record ended up `status: success` with 8.16M tokens of
+    work and no total_tokens_input at all."""
+    sub_ids_with_tokens = {
+        s.get("agent_id") for s in record.get("subagents", [])
+        if isinstance(s, dict) and s.get("tokens_input") is not None
+    }
+
+    def _step_counts(s):
+        ex = s.get("executed_by_agent_id")
+        return not (ex and ex in sub_ids_with_tokens)
+
+    steps = [s for s in (record.get("steps") or []) if isinstance(s, dict) and _step_counts(s)]
+    subs = [s for s in (record.get("subagents") or []) if isinstance(s, dict)]
+    total_in = sum(s.get("tokens_input") or 0 for s in steps) + \
+        sum(s.get("tokens_input") or 0 for s in subs)
+    total_out = sum(s.get("tokens_output") or 0 for s in steps) + \
+        sum(s.get("tokens_output") or 0 for s in subs)
+    total_cost = sum(s.get("cost_usd") or 0 for s in steps) + \
+        sum(s.get("cost_usd") or 0 for s in subs)
+    record["total_tokens_input"] = total_in or None
+    record["total_tokens_output"] = total_out or None
+    record["total_cost_usd"] = round(total_cost, 6) if total_cost else None
+
+    # Harness-reported subagent totals (from <task-notification> usage blocks)
+    # ride alongside, never inside, the input/output sums — they are a single
+    # aggregate with no input/output split.
+    harness_total = sum(s.get("harness_tokens") or 0 for s in subs)
+    if harness_total:
+        record["harness_tokens_total"] = harness_total
+    return record
 
 
 def make_agent_stub(agent_id: str, agent_type: str, session_id: str,

@@ -48,7 +48,7 @@ try:
         resolve_spawn_text, extract_workflow_path_reference,
         _read_first_user_message_text,
         find_records_by_agent_id, make_agent_stub, first_transcript_timestamp,
-        read_subagent_meta,
+        read_subagent_meta, find_turn_record_for_workflow,
         infer_session_id as _shared_infer_session_id,
     )
 except Exception:
@@ -61,16 +61,18 @@ except Exception:
     make_agent_stub = None
     first_transcript_timestamp = None
     read_subagent_meta = None
+    find_turn_record_for_workflow = None
     _shared_infer_session_id = None
 try:
     import assertion_checks as _assertion_checks
 except Exception:
     _assertion_checks = None
 try:
-    from step_audit import apply_record_attribution, steps_all_terminal
+    from step_audit import apply_record_attribution, steps_all_terminal, step_key as _step_key
 except Exception:
     apply_record_attribution = None
     steps_all_terminal = None
+    _step_key = None
 
 def log_error(msg: str):
     """Log error to /tmp/ies-hook-errors.log without blocking."""
@@ -699,6 +701,55 @@ def main():
     # data first, enrichment second.
     atomic_write_json(eval_record_path, eval_record)
 
+    # Orphan re-attach (2026-10-30). eval-agent-start.py writes the parent's
+    # subagents[] link from the SubagentStart payload, which carries no
+    # workflow, and backs off entirely whenever it cannot identify exactly one
+    # live turn record. When that happens this child's stop finds no parent
+    # (find_parent_record_with_subagent is a membership test on that link), so
+    # BOTH the rollup below and the partition backfill silently do nothing: the
+    # child keeps its step and its tokens forever and the parent's totals stay
+    # null. On 2026-10-30 that lost six boot executors (steps 02, 03, 04, 05-08,
+    # knox check) after the session-exit sweep closed the parent mid-run.
+    # At stop time the child's workflow IS known (recovered from the spawn
+    # prompt / .meta.json above), so resolve the parent by session + workflow +
+    # window containment and write the missing link here.
+    if find_parent_record_with_subagent and find_turn_record_for_workflow:
+        try:
+            existing_parent = find_parent_record_with_subagent(
+                eval_record.get("session_id", ""), agent_id)
+            if existing_parent is None and eval_record.get("workflow"):
+                adopted = find_turn_record_for_workflow(
+                    eval_record.get("session_id", ""), eval_record["workflow"],
+                    eval_record.get("started"))
+                if adopted and adopted != eval_record_path:
+                    with open(adopted, "r") as f:
+                        parent = json.load(f)
+                    entry = {
+                        "agent_id": agent_id,
+                        "agent_type": eval_record.get("subagent_type") or agent_type,
+                        "started": eval_record.get("started"),
+                        "completed": eval_record.get("completed"),
+                        "model": eval_record.get("model"),
+                        "tokens_input": eval_record.get("total_tokens_input"),
+                        "tokens_output": eval_record.get("total_tokens_output"),
+                        "cost_usd": eval_record.get("total_cost_usd"),
+                        "duration_seconds": eval_record.get("duration_seconds"),
+                    }
+                    for key in ("harness_tokens", "harness_tool_uses",
+                                "token_source", "workflow"):
+                        if eval_record.get(key) is not None:
+                            entry[key] = eval_record[key]
+                    subs = parent.setdefault("subagents", [])
+                    if not any(s.get("agent_id") == agent_id
+                               for s in subs if isinstance(s, dict)):
+                        subs.append(entry)
+                        atomic_write_json(adopted, parent)
+                        log_info(f"Re-attached orphaned subagent {agent_id} to "
+                                 f"{adopted.name} ('{eval_record['workflow']}') — "
+                                 f"no start-time link existed")
+        except Exception as e:
+            log_error(f"orphan re-attach failed for {agent_id}: {e}")
+
     # Per-step attribution for the PARENT workflow record. This is the
     # replacement for the retired lenient-fallback approach: partition THIS
     # subagent's own transcript across the parent record's steps (ordered by
@@ -715,14 +766,61 @@ def main():
                 with open(parent_path, "r") as f:
                     parent = json.load(f)
                 parent_steps = parent.get("steps") or []
+                # Step provenance, in order of authority:
+                #
+                # 1. ADOPT this subagent's own step entries onto the parent's
+                #    matching steps (by step_audit.step_key). The child ran the
+                #    step, and step-complete.py sliced its tokens against its
+                #    own transcript window — that is the most direct evidence
+                #    there is. This also covers the case the partition cannot:
+                #    a parent closed by close-eval-record.py carries synthetic,
+                #    evenly-sliced step windows (each `--steps` name given an
+                #    equal share of the run) that PREDATE every executor's real
+                #    start, so the partition classifies all of them as
+                #    stale-window and fills nothing. That is exactly how the
+                #    2026-10-30 boot record ended with eight empty steps while
+                #    its executors each held their own.
+                # 2. PARTITION this subagent's transcript across whatever steps
+                #    it ran but did not record a step entry for (ordered by
+                #    started-at, clamped to this run) — the retired
+                #    lenient-fallback replacement.
+                # Only steps still missing tokens are filled in either pass;
+                # steps the parent already sliced inline from the main session
+                # are left alone. Works on open OR closed parents
+                # (find_parent_record_with_subagent).
+                child_step_keys = set()
+                child_steps_by_key = {}
+                if _step_key:
+                    for cs in (eval_record.get("steps") or []):
+                        if isinstance(cs, dict) and cs.get("name"):
+                            k = _step_key(cs["name"])
+                            child_step_keys.add(k)
+                            child_steps_by_key[k] = cs
+
+                adopted = 0
+                for s in parent_steps:
+                    if not isinstance(s, dict) or s.get("tokens_input") is not None:
+                        continue
+                    cs = child_steps_by_key.get(_step_key(s.get("name"))) if _step_key else None
+                    if not cs or cs.get("tokens_input") is None:
+                        continue
+                    for key in ("tokens_input", "tokens_output", "cost_usd", "model",
+                                "turns_matched", "turns_with_usage", "token_source"):
+                        if cs.get(key) is not None:
+                            s[key] = cs[key]
+                    s["executed_by_agent_id"] = agent_id
+                    adopted += 1
+
                 needs = [s for s in parent_steps
                          if isinstance(s, dict) and s.get("tokens_input") is None and s.get("started")]
+                if child_step_keys:
+                    needs = [s for s in needs if _step_key(s.get("name")) in child_step_keys]
+                filled = adopted
+                part_sum = 0
                 if needs:
                     partition = partition_usage_by_steps(
                         agent_transcript_path, needs,
                         eval_record.get("started"), eval_record.get("completed"))
-                    filled = 0
-                    part_sum = 0
                     for s in parent_steps:
                         if not isinstance(s, dict):
                             continue
@@ -744,12 +842,39 @@ def main():
                         # (stale-window): the audit trail records WHY.
                         if u.get("token_source"):
                             s["token_source"] = u["token_source"]
-                    if filled:
-                        atomic_write_json(parent_path, parent)
+
+                # 3. Single-step agent: it ran exactly one step, so its whole
+                #    run belongs to that step — no ordering ambiguity, and no
+                #    reason to lose the attribution just because step-complete's
+                #    strict window matched nothing (the 2026-10-30 step-04
+                #    executor, 603,606 tokens recorded on the agent and none on
+                #    the step). Multi-step agents with no step entries stay
+                #    null: spreading a whole run across steps we cannot order
+                #    would be a guess.
+                if len(child_step_keys) == 1 and eval_record.get("total_tokens_input") is not None:
+                    only_key = next(iter(child_step_keys))
+                    for s in parent_steps:
+                        if not isinstance(s, dict) or s.get("tokens_input") is not None:
+                            continue
+                        if _step_key(s.get("name")) != only_key:
+                            continue
+                        s["tokens_input"] = eval_record.get("total_tokens_input")
+                        s["tokens_output"] = eval_record.get("total_tokens_output")
+                        s["cost_usd"] = eval_record.get("total_cost_usd")
+                        if eval_record.get("model"):
+                            s["model"] = eval_record["model"]
+                        s["executed_by_agent_id"] = agent_id
+                        s["token_source"] = "subagent-transcript"
+                        filled += 1
+
+                if filled:
+                    atomic_write_json(parent_path, parent)
                     whole = eval_record.get("total_tokens_input")
-                    log_info(f"partition backfill for {agent_id} into {parent_path.name}: "
-                             f"{filled} steps filled, partition sum={part_sum}, "
-                             f"whole-run={whole} (integrity: {'OK' if whole == part_sum else 'MISMATCH'})")
+                    log_info(f"step backfill for {agent_id} into {parent_path.name}: "
+                             f"{filled} steps filled ({adopted} adopted from the agent's own "
+                             f"step records), partition sum={part_sum}, whole-run={whole} "
+                             f"(partition integrity: "
+                             f"{'OK' if not part_sum or whole == part_sum else 'MISMATCH'})")
         except Exception as e:
             log_error(f"partition backfill failed for {agent_id}: {e}")
 

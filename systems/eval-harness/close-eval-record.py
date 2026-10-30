@@ -56,9 +56,10 @@ ALPHABET = string.ascii_uppercase + string.digits
 # guard while its authoritative sibling existed under the other flavor.
 sys.path.insert(0, str(IES_ROOT / "systems" / "eval-harness"))
 try:
-    from hook_utils import current_harness_session_id
+    from hook_utils import current_harness_session_id, aggregate_record_totals
 except Exception:
     current_harness_session_id = None
+    aggregate_record_totals = None
 try:
     from step_audit import workflow_owner_agent, normalize_agent_label, apply_record_attribution
 except Exception:
@@ -472,6 +473,20 @@ def main():
             stub["assessment"]["mechanical"]["abort_reason"] = abort_reason
         if vhash:
             stub["version_hash"] = vhash
+        # Totals + liveness (2026-10-30). Closing a run is not just a status
+        # write: the record's total_tokens_* / total_cost_usd are the sum of
+        # everything its steps and subagents did, and monitoring.active is the
+        # flag every linker queries to decide whether this record is still the
+        # parent of a spawn. A close that skips both leaves a record that reads
+        # `status: success` with no token total and no subagent rollup while
+        # still claiming to be monitored — exactly the 2026-10-30 boot record
+        # (eval-20261030T140251-G668EK: 8.16M tokens of work, totals null, six
+        # executors orphaned). Aggregation is shared with eval-turn-stop.py so
+        # the two closers cannot drift.
+        if aggregate_record_totals:
+            aggregate_record_totals(stub)
+        if isinstance(stub.get("monitoring"), dict):
+            stub["monitoring"]["active"] = False
         if apply_record_attribution:
             apply_record_attribution(stub)
         atomic_write(stub_path, stub)

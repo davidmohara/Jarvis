@@ -32,7 +32,8 @@ sys.path.insert(0, str(_IES_ROOT / "systems" / "eval-harness"))
 import yaml
 from hook_utils import (
     IES_ROOT, EVAL_RUNS_DIR, log_error, log_info, atomic_write_json, read_stdin,
-    infer_session_id, find_open_turn_record,
+    infer_session_id, find_open_turn_record, aggregate_record_totals,
+    ABANDONED_RECORD_AFTER_HOURS,
 )
 try:
     from token_usage import usage_between
@@ -610,7 +611,7 @@ def run_assertions(name: str, eval_record: dict) -> dict:
     return structural
 
 
-def finalize(eval_path: Path, eval_record: dict, state_data: dict, force_status: str | None = None, reason: str | None = None, transcript_path: str | None = None):
+def finalize(eval_path: Path, eval_record: dict, state_data: dict, force_status: str | None = None, reason: str | None = None, transcript_path: str | None = None, compute_parent_window: bool = True):
     now = datetime.now(timezone.utc)
     started = datetime.fromisoformat(eval_record["started"].replace("Z", "+00:00"))
     duration = round((now - started).total_seconds(), 2)
@@ -619,38 +620,14 @@ def finalize(eval_path: Path, eval_record: dict, state_data: dict, force_status:
 
     # Aggregate totals from steps[] (populated by the existing post-tool-use.py
     # inline-step path) and subagents[] (populated by eval-agent-start/stop.py
-    # when a subagent ran while this record was open).
-    # Double-count guard: a step stamped with executed_by_agent_id was filled
-    # by eval-agent-stop.py's partition backfill from that subagent's own
-    # transcript, so its tokens are the SAME tokens the subagents[] rollup
-    # carries. Count such steps only when the corresponding subagents[] entry
-    # has no tokens (e.g. its stop hook was lost), never both.
-    sub_ids_with_tokens = {
-        s.get("agent_id") for s in eval_record.get("subagents", [])
-        if s.get("tokens_input") is not None
-    }
-    def _step_counts(s):
-        ex = s.get("executed_by_agent_id")
-        return not (ex and ex in sub_ids_with_tokens)
-    total_in = sum(s.get("tokens_input") or 0 for s in eval_record.get("steps", []) if _step_counts(s))
-    total_in += sum(s.get("tokens_input") or 0 for s in eval_record.get("subagents", []))
-    total_out = sum(s.get("tokens_output") or 0 for s in eval_record.get("steps", []) if _step_counts(s))
-    total_out += sum(s.get("tokens_output") or 0 for s in eval_record.get("subagents", []))
-    total_cost = sum(s.get("cost_usd") or 0 for s in eval_record.get("steps", []) if _step_counts(s))
-    total_cost += sum(s.get("cost_usd") or 0 for s in eval_record.get("subagents", []))
-
-    # Harness-reported subagent totals (from <task-notification> usage blocks)
-    # ride alongside, never inside, the input/output sums — they are a
-    # single aggregate with no input/output split.
-    harness_total = sum(s.get("harness_tokens") or 0 for s in eval_record.get("subagents", []))
-    if harness_total:
-        eval_record["harness_tokens_total"] = harness_total
+    # when a subagent ran while this record was open). The double-count guard
+    # lives in hook_utils.aggregate_record_totals, shared with
+    # close-eval-record.py so the two closers can never disagree.
+    if aggregate_record_totals:
+        aggregate_record_totals(eval_record)
 
     eval_record["completed"] = now.isoformat().replace("+00:00", "Z")
     eval_record["duration_seconds"] = duration
-    eval_record["total_tokens_input"] = total_in or None
-    eval_record["total_tokens_output"] = total_out or None
-    eval_record["total_cost_usd"] = round(total_cost, 6) if total_cost else None
 
     # Fully-loaded cost (2026-10-21, David's ruling): the record's cost must
     # include the PARENT session's own turns during the run window — the
@@ -660,7 +637,13 @@ def finalize(eval_path: Path, eval_record: dict, state_data: dict, force_status:
     # the transcript slice is stable afterwards. transcript_path comes from
     # the Stop payload when available; otherwise the module locates the
     # session transcript by the record's session_id.
-    if _flc is not None:
+    #
+    # compute_parent_window=False is for records closed as ABANDONED (see
+    # try_finalize): their window is hours long because nothing ever closed
+    # them, so slicing the parent transcript across it would bill the whole
+    # session's unrelated interactive work to a workflow that never ran —
+    # the artifact that made one 11.3h record read as 23.6M tokens.
+    if _flc is not None and compute_parent_window:
         try:
             _flc.apply_to_record(eval_record, transcript_path=transcript_path)
         except Exception as e:
@@ -735,6 +718,12 @@ def finalize(eval_path: Path, eval_record: dict, state_data: dict, force_status:
 
 STATE_COMPLETION_FIELDS = ("completed-at", "session-completed", "completed_at", "session_completed")
 STALE_RECORD_ABORT_AFTER_HOURS = 2
+# A turn-level record whose workflow shows no steps and whose state.yaml
+# completion predates the record's open is a speculative open, not a run in
+# progress (a real run writes step-01 within seconds and flips state.yaml to
+# in-progress). Give it this long to prove otherwise, then close it — see the
+# cutoff computation in try_finalize.
+STALE_PHANTOM_GRACE_MINUTES = 10
 
 
 def _parse_ts(value) -> "datetime | None":
@@ -805,6 +794,27 @@ def try_finalize(eval_path: Path, transcript_path: str | None = None) -> bool:
     opened_at = _parse_ts(eval_record.get("started"))
 
     if state_data.get("status") not in TERMINAL_STATUSES:
+        # Non-terminal state.yaml + a session that is long gone = an ABANDONED
+        # run: the CLI process ended (or the workflow was killed) without ever
+        # writing a terminal status, so no future Stop event will ever finalize
+        # this record and no future run can reuse it (open_turn_level_record_exists
+        # dedupes by workflow name across sessions). Left alone it stays open
+        # forever and its window keeps growing — the 11.3h / 23.6M-token record
+        # in the 2026-10-30 boot-token analysis. Close it, without slicing the
+        # parent transcript across a window that only exists because nobody
+        # closed the record (compute_parent_window=False).
+        age_hours = (datetime.now(timezone.utc) - opened_at).total_seconds() / 3600 if opened_at else 0
+        if age_hours >= ABANDONED_RECORD_AFTER_HOURS:
+            finalize(eval_path, eval_record, state_data, force_status="aborted",
+                     reason=(f"abandoned: state.yaml stayed "
+                             f"{state_data.get('status')!r} for {age_hours:.1f}h — the session "
+                             f"ended without the workflow finishing"),
+                     transcript_path=transcript_path,
+                     compute_parent_window=False)
+            log_info(f"Closed abandoned eval record {eval_record.get('id')} for "
+                     f"'{eval_record['name']}' (age={age_hours:.1f}h, "
+                     f"state.yaml={state_data.get('status')!r})", TAG)
+            return True
         log_info(f"'{eval_record['name']}' state.yaml still {state_data.get('status')!r} — leaving eval record open", TAG)
         return False
 
@@ -816,7 +826,18 @@ def try_finalize(eval_path: Path, transcript_path: str | None = None) -> bool:
         # never see genuine new activity) — then close it as aborted, never
         # as a fabricated "success".
         age_hours = (datetime.now(timezone.utc) - opened_at).total_seconds() / 3600 if opened_at else 0
-        if age_hours >= STALE_RECORD_ABORT_AFTER_HOURS:
+        # Two thresholds, not one. A record that has accrued NO STEPS of its
+        # own is not a run waiting to happen — the workflow it guessed at never
+        # started (a real run writes its first step within seconds, and flips
+        # state.yaml to in-progress, so it never reaches this branch at all).
+        # Waiting the full STALE_RECORD_ABORT_AFTER_HOURS on those is what let
+        # the 2026-10-23 phantom absorb 37 unrelated subagents and 252.6M
+        # tokens over 2.1 hours. Give it a short grace, then close it. Records
+        # that DID record steps keep the longer window.
+        cutoff_hours = (STALE_PHANTOM_GRACE_MINUTES / 60
+                        if not eval_record.get("steps")
+                        else STALE_RECORD_ABORT_AFTER_HOURS)
+        if age_hours >= cutoff_hours:
             if not eval_record.get("steps") and not eval_record.get("subagents"):
                 # Never accrued a single step or subagent — the workflow this
                 # record guessed at (typically eval-turn-start.py's

@@ -70,6 +70,24 @@ SEEN_MARKER_DIR = Path("/tmp/ies-eval-session-seen")
 MAIN_SESSION_TRIGGER_WORKFLOWS = {"shutdown-cleanup", "daily-review"}
 
 
+# Prompts the harness injects into the main session that are NOT user turns:
+# a subagent's message to its parent ("<agent-message from=\"a1b2c3\">...")
+# and a background task's completion notice ("<task-notification>..."). These
+# arrive as UserPromptSubmit payloads and must never open a turn-level eval
+# record: on 2026-10-30 an <agent-message> 8 minutes after boot finished
+# matched "boot" + a run-verb and opened eval-20261030T142403-YWDWF6 — a
+# spurious second boot record for a session whose boot was already closed
+# (trigger_evidence '<agent-message from="ac26dd7e172dbc3b8">'). The same
+# class produced eval-20261022T194016-5C4OEY ('<task-notification>', 3.9M
+# tokens of unrelated work). A real user prompt never starts with one of
+# these tags.
+INJECTED_PROMPT_PREFIXES = ("<agent-message", "<task-notification")
+
+
+def is_injected_prompt(prompt: str) -> bool:
+    return (prompt or "").lstrip().lower().startswith(INJECTED_PROMPT_PREFIXES)
+
+
 def load_master_workflows() -> dict:
     """workflows/*/workflow.md with `agent: master` in frontmatter (the only
     workflows with no subagent lifecycle of their own to hang an eval on),
@@ -100,7 +118,7 @@ def load_master_workflows() -> dict:
 # thin local alias so this file's existing call sites/tests don't need to
 # change.
 def already_open_for_workflow(session_id: str, workflow_name: str) -> bool:
-    return open_turn_level_record_exists(workflow_name)
+    return open_turn_level_record_exists(workflow_name, session_id=session_id)
 
 
 RUN_VERBS = r"(?:run|start|kick off|kick-off|execute|launch|invoke|fire off|fire up|begin)"
@@ -375,6 +393,13 @@ def open_eval_record(workflow_name: str, fm: dict, session_id: str, trigger: str
 def main():
     payload = read_stdin()
     prompt = payload.get("prompt") or payload.get("user_prompt") or payload.get("message") or ""
+
+    # Only a real user prompt can start a workflow run. Injected agent/task
+    # messages are a subagent's traffic, not an invocation (see
+    # INJECTED_PROMPT_PREFIXES).
+    if is_injected_prompt(prompt):
+        log_info(f"Ignoring injected non-user prompt as a turn start (evidence={prompt.lstrip()[:80]!r})", TAG)
+        return
 
     master_workflows = load_master_workflows()
     if not master_workflows:
