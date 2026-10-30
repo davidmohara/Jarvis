@@ -1,11 +1,26 @@
 ---
-type: working
+type: working-archive
 task_id: "shep-1on1-prep-tim-rayburn"
 agent-source: shep
 created: 2026-10-27T19:00:00Z
 expires: 2026-10-29T19:00:00Z
-status: active
+status: archived
 context: "1:1 prep sheet for Tim Rayburn, Tue 2026-10-27 14:30 CT (tentative, conflicts with Lockton 14:00-15:00)"
+date: 2026-10-27
+source_file: memory/working/2026-10-27-190000-shep-tim-rayburn-prep.md
+tags:
+  - shep
+  - calendar
+  - omnifocus
+  - 1on1-prep
+  - email
+related_people:
+  - devlin
+  - tim-rayburn
+salience:
+  score: 10
+  last-promoted-check: 2026-10-30
+  promoted: true
 ---
 
 # Shep: 1:1 Prep, Tim Rayburn, 2026-10-27

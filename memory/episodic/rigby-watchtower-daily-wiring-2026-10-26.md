@@ -1,12 +1,25 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "rigby-2026-10-26-091900"
 agent-source: rigby
 created: 2026-10-26T09:19:00
 expires: 2026-10-28T09:19:00
-status: active
+status: archived
 context: "Rigby wired the Watchtower daily run into boot so seen.jsonl and Watchtower/Daily populate again — 2026-10-26"
+date: 2026-10-26
+source_file: memory/working/rigby-watchtower-daily-wiring-2026-10-26.md
+tags:
+  - rigby
+  - briefing
+  - omnifocus
+  - boot
+  - chief
+related_people:
+salience:
+  score: 10
+  last-promoted-check: 2026-10-30
+  promoted: true
 ---
 
 # Watchtower daily wiring (work-20261026-091900)

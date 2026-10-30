@@ -1,12 +1,24 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "shep-2026-10-27-152700"
 agent-source: shep
 created: 2026-10-27 15:27
 expires: 2026-10-29
-status: active
+status: archived
 context: "Shep prep sheet for Athena rep Anne call re Alice performance — 2026-10-27"
+date: 2026-10-27
+source_file: memory/working/2026-10-27-152700-shep-athena-anne-prep.md
+tags:
+  - shep
+  - omnifocus
+  - scorecard
+  - plaud
+related_people:
+salience:
+  score: 10
+  last-promoted-check: 2026-10-30
+  promoted: true
 ---
 
 # Shep — Athena/Anne prep sheet

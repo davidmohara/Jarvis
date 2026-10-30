@@ -24,8 +24,8 @@ related_people:
   - steve-hall
   - derek-nwamadi
 salience:
-  score: 6
-  last-promoted-check: 2026-10-26
+  score: 10
+  last-promoted-check: 2026-10-30
   promoted: true
 ---
 

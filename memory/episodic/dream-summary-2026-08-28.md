@@ -22,8 +22,8 @@ tags:
   - revenue
 related_people: []
 salience:
-  score: 3
-  last-promoted-check: 2026-10-26
+  score: 4
+  last-promoted-check: 2026-10-30
   promoted: true
 ---
 

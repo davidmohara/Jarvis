@@ -1,12 +1,34 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "chief-2026-10-27-135100"
 agent-source: chief
 created: 2026-10-27T13:51:00
 expires: 2026-10-29T13:51:00
-status: active
+status: archived
 context: "Morning briefing synthesized from boot steps 01-03 data, 2026-10-27"
+date: 2026-10-27
+source_file: memory/working/morning-briefing-2026-10-27-135100.md
+tags:
+  - briefing
+  - chief
+  - morning-briefing
+  - calendar
+  - omnifocus
+  - travel
+  - utb-board
+  - rock2
+  - rock3
+  - rock4
+related_people:
+  - alice-mburu
+  - don-mcgreal
+  - steve-hall
+  - derek-nwamadi
+salience:
+  score: 10
+  last-promoted-check: 2026-10-30
+  promoted: true
 ---
 
 # Morning Briefing Run, 2026-10-27

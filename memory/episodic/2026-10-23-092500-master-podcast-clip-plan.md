@@ -18,8 +18,8 @@ tags:
   - harper
 related_people:
 salience:
-  score: 7
-  last-promoted-check: 2026-10-26
+  score: 10
+  last-promoted-check: 2026-10-30
   promoted: true
 ---
 

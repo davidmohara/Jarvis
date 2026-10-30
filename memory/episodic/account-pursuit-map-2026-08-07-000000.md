@@ -23,7 +23,7 @@ related_people:
   - mohammad-yunus
 salience:
   score: 1
-  last-promoted-check: 2026-10-26
+  last-promoted-check: 2026-10-30
   promoted: true
 ---
 

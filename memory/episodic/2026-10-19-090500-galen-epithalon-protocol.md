@@ -16,7 +16,7 @@ tags:
 related_people:
 salience:
   score: 0
-  last-promoted-check: 2026-10-26
+  last-promoted-check: 2026-10-30
 ---
 
 **What was requested/produced:** David reported starting an Epithalon protocol 10-18 (10mg every 4 days x 6 shots) and confirmed the Tesamorelin/Ipamorelin weekday stack started 10-19. Galen logged both via galen-protocols.

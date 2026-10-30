@@ -18,7 +18,7 @@ tags:
 related_people: []
 salience:
   score: 0
-  last-promoted-check: 2026-10-26
+  last-promoted-check: 2026-10-30
 ---
 
 # Shutdown Cleanup — 2026-09-16

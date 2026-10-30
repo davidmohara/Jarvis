@@ -15,8 +15,8 @@ tags:
   - pipeline
 related_people:
 salience:
-  score: 4
-  last-promoted-check: 2026-10-26
+  score: 6
+  last-promoted-check: 2026-10-30
   promoted: true
 ---
 

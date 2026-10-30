@@ -1,12 +1,22 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "knox-2026-10-27-150500"
 agent-source: knox
 created: 2026-10-27 15:05
 expires: 2026-10-29
-status: active
+status: archived
 context: "Knox plaud-ingest run pi-20261027-001 — 4 new recordings ingested — 2026-10-27"
+date: 2026-10-27
+source_file: memory/working/2026-10-27-150500-knox-plaud-ingest.md
+tags:
+  - knox
+  - plaud
+  - session
+related_people:
+salience:
+  score: 2
+  last-promoted-check: 2026-10-30
 ---
 
 # Knox plaud-ingest — 2026-10-27

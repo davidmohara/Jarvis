@@ -1,16 +1,27 @@
 workflow: dream-cycle
 agent: jarvis
 status: complete
-session-started: 2026-10-26T19:40:00Z
-session-completed: 2026-10-26T19:50:00Z
-session-id: dream-cycle-2026-10-26-194000
+session-started: 2026-10-30T08:00:00Z
+session-completed: 2026-10-30T08:10:00Z
+session-id: dream-cycle-2026-10-30-080000
 current-step: ~
 original-request: "Execute dream-cycle workflow for today (scheduled task)"
-last-successful-run: 2026-10-26T19:50:00Z
+last-successful-run: 2026-10-30T08:10:00Z
 accumulated-context:
-  pr_status: created
-  pr_number: 7
-  pr_url: "https://github.com/davidmohara/Jarvis/pull/7"
+  pr_status: pending
+  step-2026-10-30-summary:
+    working_archived: 13
+    episodic_scanned: 377
+    score_distribution: "0:216,1:22,2:29,3:10,4:5,5:13,6:4,7:4,8:4,9:7,10:63"
+    clusters_found: 5
+    semantic_created: 1
+    semantic_updated: 4
+    promoted_entries: 11
+    lessons_appended: 0
+    error_categories_30d: "assumption-error/wrong-assumption:7, data-accuracy/wrong-assumption:6, process-skip/protocol-skip:6, over-engineering/scope-creep:4, tool-misuse/tool-ignorance:3, hallucination/wrong-assumption:3"
+    step_03b: "guardrail-checkpoint.py not run (no in-progress eval record); manual verdict pass"
+    step_04: "5 candidates (cutoff 2026-08-01); deferred at run time, David approved in-session. entries_compressed 5, digests_updated 1 (2026-Q3)."
+    step_06: "Ralph not spawned; inline conservation check passed (13 archived present in episodic and absent from working; 11 promoted flags)"
   step-2026-10-26-summary:
     working_archived: 16
     episodic_scanned: 364

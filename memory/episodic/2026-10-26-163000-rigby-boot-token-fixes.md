@@ -1,12 +1,26 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "rigby-2026-10-26-163000"
 agent-source: rigby
 created: 2026-10-26T16:30:00-05:00
 expires: 2026-10-28T16:30:00-05:00
-status: active
+status: archived
 context: "Implemented the five boot token-performance fixes from the 10-26 analysis — 2026-10-26"
+date: 2026-10-26
+source_file: memory/working/2026-10-26-163000-rigby-boot-token-fixes.md
+tags:
+  - rigby
+  - briefing
+  - omnifocus
+  - plaud
+  - boot
+  - knox
+related_people:
+salience:
+  score: 10
+  last-promoted-check: 2026-10-30
+  promoted: true
 ---
 
 # Rigby build: boot token-performance fixes (work-20261026-163000)

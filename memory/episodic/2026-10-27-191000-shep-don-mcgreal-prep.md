@@ -1,12 +1,23 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "shep-2026-10-27-191000"
 agent-source: shep
 created: 2026-10-27 19:10
 expires: 2026-10-29
-status: active
+status: archived
 context: "Shep prep sheet for Don McGreal 1:1 — 2026-10-27"
+date: 2026-10-27
+source_file: memory/working/2026-10-27-191000-shep-don-mcgreal-prep.md
+tags:
+  - shep
+  - travel
+  - 1on1-prep
+related_people:
+  - don-mcgreal
+salience:
+  score: 1
+  last-promoted-check: 2026-10-30
 ---
 
 # Shep — Don McGreal 1:1 prep

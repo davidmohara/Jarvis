@@ -1,12 +1,23 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "chase-2026-10-27-153000"
 agent-source: chase
 created: 2026-10-27 15:30
 expires: 2026-10-29
-status: active
+status: archived
 context: "Chase prep sheet for Sentiero VC lunch with David Evans — 2026-10-27"
+date: 2026-10-27
+source_file: memory/working/2026-10-27-153000-chase-david-evans-prep.md
+tags:
+  - chase
+  - one-texas
+  - email
+  - harper
+related_people:
+salience:
+  score: 0
+  last-promoted-check: 2026-10-30
 ---
 
 # Chase — David Evans / Sentiero lunch prep

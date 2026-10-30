@@ -23,7 +23,7 @@ related_people:
   - april
 salience:
   score: 5
-  last-promoted-check: 2026-10-26
+  last-promoted-check: 2026-10-30
   promoted: true
 ---
 
