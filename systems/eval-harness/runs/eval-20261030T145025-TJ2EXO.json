@@ -9,17 +9,17 @@
   "subagent_type": "general-purpose",
   "session_id": "e826819b-6c57-43f9-aad5-fafc650acc8a",
   "trigger": "unknown",
-  "model": null,
-  "model_source": null,
+  "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+  "model_source": "subagent-transcript",
   "started": "2026-10-30T14:50:25.073722Z",
-  "completed": null,
-  "duration_seconds": null,
-  "status": "in-progress",
+  "completed": "2026-10-30T14:51:51.325365Z",
+  "duration_seconds": 86.25,
+  "status": "success",
   "steps": [],
   "assessment": {
     "mechanical": {
-      "completed": null,
-      "all_steps_finished": null,
+      "completed": true,
+      "all_steps_finished": true,
       "tool_failures": 0,
       "error_ids": []
     },
@@ -54,5 +54,26 @@
   },
   "version_hash": null,
   "prior_baseline_id": null,
-  "tags": []
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/e826819b-6c57-43f9-aad5-fafc650acc8a/subagents/agent-a4630be5582e40b80.jsonl",
+  "total_tokens_input": 1070657,
+  "total_tokens_output": 7157,
+  "total_cost_usd": 0.086456,
+  "token_source": "subagent-transcript",
+  "parent_window": {
+    "token_source": "parent-window",
+    "transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/e826819b-6c57-43f9-aad5-fafc650acc8a.jsonl",
+    "window_start": "2026-10-30T14:50:25.073722Z",
+    "window_end": "2026-10-30T14:51:51.325365Z",
+    "model": "glm-5p3",
+    "tokens_input": 119099,
+    "tokens_output": 113,
+    "cost_usd": 0.018528,
+    "turns_matched": 1,
+    "turns_with_usage": 1,
+    "computed_at": "2026-10-30T14:51:55.459981Z"
+  },
+  "fully_loaded_cost_usd": 0.104984,
+  "fully_loaded_tokens_input": 1189756,
+  "fully_loaded_tokens_output": 7270
 }
