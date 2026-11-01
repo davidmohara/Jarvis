@@ -1,0 +1,80 @@
+{
+  "id": "eval-20261101T162625-19BL37",
+  "agent_id": "ad941a05a93e6289e",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "general-purpose",
+  "owning_agent": null,
+  "subagent_type": "general-purpose",
+  "session_id": "e826819b-6c57-43f9-aad5-fafc650acc8a",
+  "trigger": "unknown",
+  "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+  "model_source": "subagent-transcript",
+  "started": "2026-11-01T16:26:25.882430Z",
+  "completed": "2026-11-01T16:27:34.518653Z",
+  "duration_seconds": 68.64,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/e826819b-6c57-43f9-aad5-fafc650acc8a/subagents/agent-ad941a05a93e6289e.jsonl",
+  "last_assistant_message": "Read both voice files, plus the summit context in the Tim Rayburn 1:1 notes (confirms Day 2, five minutes, the no-status-report / no-offering rules, 18 to 19 attendees). Here is the draft.\n\n---\n\n# What Was Said in the Room\n\n**[0:00]**\n\nI want to start with a confession. I've sat in something like four thousand meetings in my career. I can remember maybe nine of them.\n\nNine. That's not modesty, and it's not a bad Memory. It's arithmetic. Something gets said in a room, a decision gets made, a promise gets made, and then everyone walks out and it's gone. We'll spend six figures on a data warehouse and then let the actual reasoning behind our decisions leave with the coffee cups.\n\nI think that's the biggest unforced error in how we work. And I want to show y'all what changed my mind.\n\n**[0:55]**\n\nA few weeks ago a question came up on an account. Somebody asked who first raised a concern about one of our technical assumptions, when they raised it, and what we said we'd do about it. Six months of history, thirty people involved, and nobody in the room could answer it. Including me.\n\nSo I opened my laptop and typed five words into a search box. The answer came back in about four seconds. A date in April, a name, and the exact sentence where it was first said. Then four more meetings where it came up again, in order, so you could watch a concern turn into a decision.\n\nI read it out loud, and the room got very quiet. Not because the technology was impressive. Because everybody at that table realized they had been operating on memory, and memory had been quietly lying to them.\n\n**[1:50]**\n\nSo what is it? I want to be honest about this, because the version people imagine is more impressive than the version that exists.\n\nThere's a recorder on my desk. It captures every meeting I'm in, whether that's a conference room or Teams. An API turns the audio into text. A model reads the text and tags it: who was in the room, what the meeting was about, what got decided, who promised what. The transcript and the tags land in a folder of plain markdown files, one per meeting, sitting next to my handwritten notes and searchable with everything else I know.\n\nAnd a small agent moves each one through those steps without me touching it. No platform, no dashboard, no vendor. Transcription, tagging, a folder, a script. That's the whole trick. The most sophisticated component in the entire system is a text file.\n\nA hundred and fifty six recordings in there so far. Action items get pulled out of the transcript and land in my task list before I've left the parking lot.\n\n**[2:50]**\n\nHere's what I got wrong the first three times I tried this. I tried to make it a discipline. Take notes after every call. Write the summary while it's fresh. Every version of that died in week three. Discipline is a terrible storage medium.\n\nThe only version that survives is the one where I don't decide anything. The recorder sits on the desk. The transcript shows up whether or not I feel like it. The tagging runs while I'm doing something else. If capture depends on my best day, you get eleven days of data and a graveyard of good intentions.\n\nAutomatic, or it didn't happen.\n\n**[3:30]**\n\nAnd once it's automatic, something shifts that I did not expect. Meetings stop being events and start being a record. You can answer \"when did we first start worrying about this\" with a date instead of a feeling. A consultant joining an account can read four months of rooms they were never in. A client asks why we chose an approach, and you can show them the conversation instead of your recollection of it.\n\nOrganizations don't usually forget because people leave. They forget because nobody wrote it down where the next person could find it. Right now most of our institutional memory is a handful of people with good recall who haven't left yet. That's not a strategy. That's a single point of failure.\n\n**[4:10]**\n\nSo here's the idea worth spreading. The most valuable unstructured data in a consulting company is not in the CRM. It's not in the repo, and it's not in the deck. It's what was said in the room. It is the thing we are best at, and the thing we throw away fastest.\n\nAnd it is buildable now. Not with something exotic. With boring, proven parts that already exist, and a willingness to stop treating capture as a personality trait.\n\nSo here's my challenge, and it's small. Pick one recurring meeting you already run. Turn capture on. Don't build a platform, don't form a committee, don't write a policy. Give it three weeks. Then take the pile and ask it a question you can't answer today. Something like \"what did we agree to stop doing.\"\n\nYou won't be impressed by the technology. You'll be impressed by how much you'd forgotten, and how much you'd been paying people to remember.\n\n---\n\n## For the organizer\n\n**Working title:** What Was Said in the Room\n(Alternate if he wants something more explicit on the agenda: The Room Is the Dataset)\n\n**One-sentence description:** Every consulting firm's most valuable unstructured data is what gets said in meetings, and it evaporates within the hour, so the fix is automatic capture rather than better note-taking discipline.\n\n**Reply you can send today:**\n\nTim,\n\nMy Day 2 talk is called \"What Was Said in the Room.\" The idea in one sentence: the most valuable dataset in a consulting firm is what gets said in meetings, and we throw it away every hour, so capture has to be automatic instead of a discipline.\n\nFive minutes, no slides, no offering talk. I'll show one live pull of a six-month-old decision out of the archive in a few seconds and leave the room with a small homework assignment.\n\nThanks,\n\n---\n\n## Where it gets attacked, and the defense\n\n1. **\"You're recording people.\"** This is the first thing 19 leaders will think, and one of them will say it. Defense: say the consent line on stage before anyone asks (\"everyone in the room knows it's on, and every client I do this with has agreed to it\"), and frame the output as a shared record, not surveillance. Do not let this become the subtext of the whole talk.\n\n2. **\"This is just Otter, Copilot, or Granola.\"** Defense: concede it immediately and out loud. The parts are commodity, and that is the thesis, not a weakness. What is not commodity is the routing layer: action items landing in the task system and months of meetings becoming one searchable corpus. Naming the boring parts first turns the attack into your argument.\n\n3. **\"It won't survive contact with a real firm.\"** Two flavors: hallucinated summaries you can't trust, and adoption that dies in week three. Defense: never show a generated summary on stage, quote the raw text with the date and the speaker; and point out the design requires zero behavior change, which is the entire answer to adoption. That is also the defense against the \"this is a status report about your setup\" objection, since the challenge at the end hands the room the work rather than the credit.",
+  "total_tokens_input": 271304,
+  "total_tokens_output": 8955,
+  "total_cost_usd": 0.041103,
+  "token_source": "subagent-transcript",
+  "parent_window": {
+    "token_source": "parent-window",
+    "transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/e826819b-6c57-43f9-aad5-fafc650acc8a.jsonl",
+    "window_start": "2026-11-01T16:26:25.882430Z",
+    "window_end": "2026-11-01T16:27:34.518653Z",
+    "model": null,
+    "tokens_input": 0,
+    "tokens_output": 0,
+    "cost_usd": 0.0,
+    "turns_matched": 0,
+    "turns_with_usage": 0,
+    "computed_at": "2026-11-01T16:27:34.880972Z"
+  },
+  "fully_loaded_cost_usd": 0.041103,
+  "fully_loaded_tokens_input": 271304,
+  "fully_loaded_tokens_output": 8955
+}
