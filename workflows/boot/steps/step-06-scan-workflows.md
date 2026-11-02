@@ -1,7 +1,7 @@
 ---
 status: complete
-started-at: '2026-10-30T14:14:30Z'
-completed-at: '2026-10-30T14:14:54Z'
+started-at: '2026-11-02T16:21:30Z'
+completed-at: '2026-11-02T16:21:51Z'
 ---
 
 <!-- system:start -->
@@ -33,14 +33,23 @@ completed-at: '2026-10-30T14:14:54Z'
 
 ## YOUR TASK
 
-1. **Read `workflows/_active.yaml`.**
-   If `active: []` → skip to step 4. No in-flight workflows.
+1. **Run the one deterministic index-plus-consistency command** from the IES root. It reads `_active.yaml` first and prints the ground truth in the same call:
 
-2. **For each entry in the active list**, read its `state.yaml` to verify current status and capture:
-   - `workflow` name
-   - `status`
-   - `current-step` (if in-progress)
-   - `session-started` (if available)
+   ```bash
+   python3 -I -c "
+   import glob,re
+   print('--- _active.yaml ---')
+   print(open('workflows/_active.yaml').read())
+   print('--- in-progress on disk ---')
+   for p in glob.glob('workflows/*/state.yaml'):
+       t=open(p).read()
+       if re.search(r'^status:\s*in-progress',t,re.M): print(p)
+   "
+   ```
+
+   `workflows/boot/state.yaml` is this run. It is always `in-progress` at this point and is **not** a disagreement. Ignore it when comparing the index to the ground truth.
+
+2. **Compare and report in one line, not a sweep.** If the two sides agree once boot's own state file is excluded, say so in one line and move on. If they disagree, surface only the disagreeing workflow and move on. Do not read each indexed `state.yaml` individually; the command already answered the question.
 
 3. **Filter for actionable states:**
    - `status: in-progress` — surface immediately.
@@ -57,7 +66,19 @@ completed-at: '2026-10-30T14:14:54Z'
 
    **If no in-progress workflows:** Surface a single line: "No in-flight workflows."
 
-5. **Update step frontmatter:** Set `status: complete` and `completed-at` to the real UTC clock time from `date -u +%Y-%m-%dT%H:%M:%SZ` (paste the exact output; never estimate or round). Record `workflows_scanned` in `state.yaml` `accumulated-context` with a summary (e.g. "complete — active.yaml read, N in-progress workflows found" or "complete — active.yaml read, 0 in-progress workflows found").
+5. **Write, following the WRITE PROTOCOL below.** Do not write state until the scan result exists.
+
+---
+
+## WRITE PROTOCOL (this block is the entire bookkeeping cost for this step)
+
+1. One clock read: `date -u +%Y-%m-%dT%H:%M:%SZ`. Reuse that exact value for both writes below.
+2. One Edit to `workflows/boot/state.yaml`, anchored on the literal `accumulated-context:` line: insert this step's key directly beneath it. No grep, no re-read. If the key already exists (a retry), edit that existing line instead of inserting a second copy. **Match the whole line including the line break**, because prose values in this file can contain the same substring, and the Edit tool refuses a non-unique `old_string`.
+3. One Edit to this step file's frontmatter. Do it last, in the same turn as the state edit.
+4. Issue the two Edits as parallel tool calls in one turn.
+5. Never `cat` state.yaml. Never Write state.yaml.
+
+**`workflows_scanned` value:** one line, 200 characters max, for example `"complete: 0 in-progress (index and disk agree, boot self excluded)"` or `"complete: 1 in-progress, morning-briefing at step-03"`.
 
 ---
 

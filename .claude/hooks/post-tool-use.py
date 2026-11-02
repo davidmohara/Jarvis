@@ -161,7 +161,11 @@ def update_session_index(rel_path: str):
         # Find or create unattributed bucket
         unattributed = None
         for t in topics:
-            if t.get("topic") == "unattributed":
+            # `topics` entries are normally dicts, but a plain string entry
+            # (hand-written or carried over from an older index shape) must
+            # not raise AttributeError here, because that aborted the whole
+            # index update and injected a traceback into every writing subagent.
+            if isinstance(t, dict) and t.get("topic") == "unattributed":
                 unattributed = t
                 break
         if not unattributed:
@@ -172,7 +176,7 @@ def update_session_index(rel_path: str):
     else:
         matching_topic = None
         for t in topics:
-            if t.get("topic") == current_topic or t.get("name") == current_topic:
+            if isinstance(t, dict) and (t.get("topic") == current_topic or t.get("name") == current_topic):
                 matching_topic = t
                 break
         if matching_topic:

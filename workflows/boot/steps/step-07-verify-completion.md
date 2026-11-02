@@ -1,7 +1,7 @@
 ---
 status: complete
-started-at: '2026-10-30T14:15:00Z'
-completed-at: '2026-10-30T14:16:13Z'
+started-at: '2026-11-02T16:21:55Z'
+completed-at: '2026-11-02T16:22:12Z'
 guardrail-result: flag
 ---
 
@@ -14,6 +14,8 @@ guardrail-result: flag
 2. You MUST record the guardrail result via `guardrail-checkpoint.py`. Recording is not optional.
 3. This step is a hard gate. Boot is NOT complete until this step passes.
 4. LLM judgment is only exercised when the script flags anomalies, or when reviewing whether the synthesized briefing misrepresents the gathered data. Do not redo the script's mechanical checks by hand.
+5. **Do NOT read `boot-verify.py` source.** Invoke it. It is the authority on what it checks.
+6. **If it exits 0, do NOT run it again** at the end of boot or before the handback. One invocation per gate.
 
 ---
 
@@ -53,14 +55,30 @@ guardrail-result: flag
    On `escalate`: surface the finding to David, but still complete the gate so the session isn't blocked. The risk here is bad context shaping the session, not an irreversible write.
 
 4. **Apply the gate:**
-   - **PASS** (script exit 0, no escalation): surface the report, then:
-     - Set this step's `status: complete`, `completed-at` = the real UTC clock time from `date -u +%Y-%m-%dT%H:%M:%SZ`
-     - Record `state_status` in state.yaml `accumulated-context`
-     - **Update `workflows/boot/state.yaml`: `status: complete`, `current-step: null`, `completed-at` = the same real `date -u` reading. This write is mandatory; it closes boot's eval-harness record.** The step-07 guardrail verifier asserts this.
+   - **PASS** (script exit 0, no escalation): surface the report, then write per the WRITE PROTOCOL below.
    - **FAIL** (any step frontmatter not complete): leave boot `status: in-progress`, set `current-step` to the first failed step, surface the failure table, await instruction.
 
 5. **Report format (PASS):**
    > ✓ Boot verification passed. All steps completed. Guardrail: {pass|flag|escalate} — {reason}
+
+---
+
+## WRITE PROTOCOL (this block is the entire bookkeeping cost for this step)
+
+The PASS branch closes boot. All three state writes and the frontmatter stamp land in ONE turn, carrying four values: `status: complete`, `current-step: null`, `completed-at`, and `state_status`.
+
+1. One clock read: `date -u +%Y-%m-%dT%H:%M:%SZ`. Reuse that exact value for state and frontmatter.
+2. **Edit 1**: `workflows/boot/state.yaml`, anchored on the `status: in-progress` line → `status: complete`. No grep, no re-read. **Match the whole line including its line break:** the string `status: in-progress` can also appear inside a prose value in a state file, and the Edit tool refuses a non-unique `old_string`.
+3. **Edit 2**: anchored on the line `current-step: step-06-scan-workflows.md`. Step-05 set it and step-06 does not advance it, so that is the value on disk at entry. Replace it with `completed-at: '<clock>'` on its own line followed by `current-step: null`. This adds the top-level `completed-at` key (absent on a fresh run) and nulls the pointer in one edit. If the line reads something else, anchor on whatever `current-step:` value is there rather than reading the file.
+4. **Edit 3**: anchored on the literal `accumulated-context:` line: insert `state_status` directly beneath it. Same anchor every step uses. Match the whole line including its line break.
+5. **Edit 4**: this step file's frontmatter: `status: complete`, `completed-at` = the same clock value. Issued last, in the same turn.
+6. Issue all four Edits as parallel tool calls in one turn. Never `cat` state.yaml. Never Write state.yaml.
+
+Why four Edits and not one: the four keys are not contiguous, and `session-id` / `session-started` / `original-request` sit between two of them with run-varying values, so no single literal `old_string` can span them without reintroducing a read. Turn count is the cost driver, not call count: one turn holds all four.
+
+**`state_status` value:** one line, 200 characters max, for example `"complete: gate passed, guardrail flag, all 8 steps complete; boot closed <clock>; record <eval-id>"`.
+
+**The `workflows/boot/state.yaml` close is mandatory. The step-07 guardrail verifier asserts it.**
 
 ---
 
