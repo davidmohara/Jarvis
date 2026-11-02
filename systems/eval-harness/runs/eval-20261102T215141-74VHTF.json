@@ -1,0 +1,72 @@
+{
+  "id": "eval-20261102T215141-74VHTF",
+  "agent_id": "aa0b279f3b2969703",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "general-purpose",
+  "owning_agent": null,
+  "subagent_type": "general-purpose",
+  "session_id": "9b791a79-0206-4994-a65e-a3baf9228403",
+  "trigger": "unknown",
+  "model": null,
+  "model_source": null,
+  "started": "2026-11-02T21:51:41.377078Z",
+  "completed": null,
+  "duration_seconds": null,
+  "status": "in-progress",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": null,
+      "all_steps_finished": null,
+      "tool_failures": 2,
+      "error_ids": [],
+      "tool_failure_log": [
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\ncat: /Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Other/2026-10-08 Prep Call - Becoming AI Native (Principled Business Summit).md | head -150: No such file or directory",
+          "duration_ms": 58,
+          "timestamp": "2026-11-02T15:52:15.281070"
+        },
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\nTraceback (most recent call last):\n  File \"<string>\", line 7, in <module>\n    print(e.get('start'), '|', e.get('subject') or e.get('title'), '|', e.get('organizer'), '|', [a.get('email') for a in (e.get('attendees') or [])][:10])\n                                                                                                  ^^^^^\nAttributeError: 'str' object has no attribute 'get'",
+          "duration_ms": 102,
+          "timestamp": "2026-11-02T15:52:59.215042"
+        }
+      ]
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": []
+}

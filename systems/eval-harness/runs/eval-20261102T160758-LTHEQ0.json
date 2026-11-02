@@ -1,0 +1,131 @@
+{
+  "id": "eval-20261102T160758-LTHEQ0",
+  "agent_id": "add7d9e4013a85126",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": "plaud-ingest",
+  "agent": "knox",
+  "owning_agent": "knox",
+  "subagent_type": "general-purpose",
+  "session_id": "9b791a79-0206-4994-a65e-a3baf9228403",
+  "trigger": "unknown",
+  "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+  "model_source": "subagent-transcript",
+  "started": "2026-11-02T16:07:58.554325Z",
+  "completed": "2026-11-02T16:08:15.122581Z",
+  "duration_seconds": 16.57,
+  "status": "success",
+  "steps": [
+    {
+      "name": "step-01-discover.md",
+      "step_id": "step-01-discover.md",
+      "agent": "knox",
+      "owning_agent": "knox",
+      "started": "2026-11-02T16:07:34Z",
+      "completed": "2026-11-02T16:07:34Z",
+      "duration_seconds": 0.0,
+      "status": "completed",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "kimi-k3",
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null,
+      "token_source": null
+    },
+    {
+      "name": "step-03-identify-speakers.md",
+      "step_id": "step-03-identify-speakers.md",
+      "agent": "knox",
+      "owning_agent": "knox",
+      "started": "2026-10-28T17:07:00Z",
+      "completed": "2026-10-28T17:12:00Z",
+      "duration_seconds": 300.0,
+      "status": "completed",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "kimi-k3",
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null,
+      "token_source": null
+    },
+    {
+      "name": "step-06-verify-ingest.md",
+      "step_id": "step-06-verify-ingest.md",
+      "agent": "knox",
+      "owning_agent": "knox",
+      "started": "2026-10-28T17:21:00Z",
+      "completed": "2026-10-28T17:30:00Z",
+      "duration_seconds": 540.0,
+      "status": "completed",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "sonnet",
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null,
+      "token_source": null
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/9b791a79-0206-4994-a65e-a3baf9228403/subagents/agent-add7d9e4013a85126.jsonl",
+  "total_tokens_input": 97719,
+  "total_tokens_output": 834,
+  "total_cost_usd": 0.013056,
+  "token_source": "subagent-transcript",
+  "parent_window": {
+    "token_source": "parent-window",
+    "transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/9b791a79-0206-4994-a65e-a3baf9228403.jsonl",
+    "window_start": "2026-11-02T16:07:58.554325Z",
+    "window_end": "2026-11-02T16:08:15.122581Z",
+    "model": "glm-5p3-flash",
+    "tokens_input": 417199,
+    "tokens_output": 1036,
+    "cost_usd": 0.007059,
+    "turns_matched": 5,
+    "turns_with_usage": 5,
+    "computed_at": "2026-11-02T16:08:19.666986Z"
+  },
+  "fully_loaded_cost_usd": 0.020115,
+  "fully_loaded_tokens_input": 514918,
+  "fully_loaded_tokens_output": 1870
+}

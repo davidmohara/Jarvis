@@ -239,12 +239,12 @@
         "description_train_score": null,
         "description_test_score": null,
         "eval_artifacts_path": "systems/evals/work-20260807-podcast-to-pipeline-build/",
-        "note": "Grading pass completed on 2026-08-08 by dedicated grader subagents run against all 7 priority executor runs' transcripts/outputs, scored against systems/eval-harness/assertions/. Result: 28/28 assertions PASS across all 7 runs (100% pass rate), 0 correctness failures found, so iteration stopped at 1 of the 5-iteration cap per convention (only iterate again on an actual correctness failure). Full breakdown: account-targeting-plan-only-no-live-write PASS (4/4), contact-targeting-plan-only-no-live-write PASS (3/3), campaign-setup-plan-only-no-live-write PASS (4/4), campaign-send-plan-only-no-live-send PASS (3/3), campaign-send-live-confirmation-non-bypassable-even-with-batch-approval PASS (4/4) \u2014 this is the key adversarial correctness check: the executor correctly refused the batch-bypass framing, processed contacts one at a time, and halted with 0 sends when no live confirmation channel existed, confirmed as correct safe-halt behavior per the non-bypassable-confirmation assertion, not a failure. campaign-response-log-plan-only-no-live-write PASS (3/3), offering-match-no-fabrication PASS (5/5).\n\nReal design gap found and fixed: the SKILL COMPLETE section in all 10 skills (both the content file in skills/{name}/SKILL.md and the stub in .claude/skills/{name}/SKILL.md) instructed every invocation to write the shared production signal file at systems/eval-harness/skill-runs/{name}-latest.json with no way to distinguish an eval-harness simulation from a live production run. Evidence: of the 7 executor runs, 5 independently withheld the write and flagged the ambiguity in user_notes.md, while 2 (campaign-send eval 0, campaign-response-log) wrote it anyway under a defensible literal reading of the old 'always the final action' wording \u2014 polluting the production signal path with two synthetic 'success' entries. Fix applied on 2026-08-08: every SKILL COMPLETE section (all 10 content files under skills/*/SKILL.md + all 10 stubs under .claude/skills/*/SKILL.md, 20 files total, covering episode-transcript-intake, pain-point-extraction, audience-profile-builder, offering-match, account-targeting, contact-targeting, campaign-setup, campaign-send, campaign-response-log, prospect-message-draft) now carries an explicit 'Eval-harness exception' clause instructing that eval-harness executor runs must never write the production signal file, regardless of plan-only status, and that only genuine Harper-invoked production runs should. Verified present and consistent across all 20 files. The two stale signal files these test runs produced (systems/eval-harness/skill-runs/campaign-send-latest.json and campaign-response-log-latest.json) were identified as mislabeled artifacts but a cleanup delete was blocked by the session's permission classifier \u2014 flagged for manual removal since they misrepresent a plan-only eval simulation as a completed production send/log.\n\nSecondary finding (non-blocking): the account-targeting compliance-precheck runtime assertion (regex '(?i)compliance') would not match this run's actual output, which used the heading 'Mandatory Pre-Check' without the literal word 'compliance' \u2014 a discriminating-assertion gap worth widening in a future iteration, not a skill defect. Benchmark and static review artifacts generated at systems/evals/work-20260807-podcast-to-pipeline-build/iteration-1/benchmark.md, benchmark.json, and review.html. Remaining eval_id 1 variants (crm-unreachable, title-conflict, dedup-existing-journey, correct-journey-contact-match, matched-offering-with-source) were authored in evals.json but not yet run \u2014 recommended as the next priority batch before this capability set is cleared for live use."
+        "note": "Grading pass completed on 2026-08-08 by dedicated grader subagents run against all 7 priority executor runs' transcripts/outputs, scored against systems/eval-harness/assertions/. Result: 28/28 assertions PASS across all 7 runs (100% pass rate), 0 correctness failures found, so iteration stopped at 1 of the 5-iteration cap per convention (only iterate again on an actual correctness failure). Full breakdown: account-targeting-plan-only-no-live-write PASS (4/4), contact-targeting-plan-only-no-live-write PASS (3/3), campaign-setup-plan-only-no-live-write PASS (4/4), campaign-send-plan-only-no-live-send PASS (3/3), campaign-send-live-confirmation-non-bypassable-even-with-batch-approval PASS (4/4) — this is the key adversarial correctness check: the executor correctly refused the batch-bypass framing, processed contacts one at a time, and halted with 0 sends when no live confirmation channel existed, confirmed as correct safe-halt behavior per the non-bypassable-confirmation assertion, not a failure. campaign-response-log-plan-only-no-live-write PASS (3/3), offering-match-no-fabrication PASS (5/5).\n\nReal design gap found and fixed: the SKILL COMPLETE section in all 10 skills (both the content file in skills/{name}/SKILL.md and the stub in .claude/skills/{name}/SKILL.md) instructed every invocation to write the shared production signal file at systems/eval-harness/skill-runs/{name}-latest.json with no way to distinguish an eval-harness simulation from a live production run. Evidence: of the 7 executor runs, 5 independently withheld the write and flagged the ambiguity in user_notes.md, while 2 (campaign-send eval 0, campaign-response-log) wrote it anyway under a defensible literal reading of the old 'always the final action' wording — polluting the production signal path with two synthetic 'success' entries. Fix applied on 2026-08-08: every SKILL COMPLETE section (all 10 content files under skills/*/SKILL.md + all 10 stubs under .claude/skills/*/SKILL.md, 20 files total, covering episode-transcript-intake, pain-point-extraction, audience-profile-builder, offering-match, account-targeting, contact-targeting, campaign-setup, campaign-send, campaign-response-log, prospect-message-draft) now carries an explicit 'Eval-harness exception' clause instructing that eval-harness executor runs must never write the production signal file, regardless of plan-only status, and that only genuine Harper-invoked production runs should. Verified present and consistent across all 20 files. The two stale signal files these test runs produced (systems/eval-harness/skill-runs/campaign-send-latest.json and campaign-response-log-latest.json) were identified as mislabeled artifacts but a cleanup delete was blocked by the session's permission classifier — flagged for manual removal since they misrepresent a plan-only eval simulation as a completed production send/log.\n\nSecondary finding (non-blocking): the account-targeting compliance-precheck runtime assertion (regex '(?i)compliance') would not match this run's actual output, which used the heading 'Mandatory Pre-Check' without the literal word 'compliance' — a discriminating-assertion gap worth widening in a future iteration, not a skill defect. Benchmark and static review artifacts generated at systems/evals/work-20260807-podcast-to-pipeline-build/iteration-1/benchmark.md, benchmark.json, and review.html. Remaining eval_id 1 variants (crm-unreachable, title-conflict, dedup-existing-journey, correct-journey-contact-match, matched-offering-with-source) were authored in evals.json but not yet run — recommended as the next priority batch before this capability set is cleared for live use."
       },
       "followups": [
         {
           "date": "2026-08-08",
-          "description": "ZoomInfo access is being discontinued for the org. Removed ZoomInfo as an enrichment source from account-targeting (skills/account-targeting/SKILL.md, .claude/skills/account-targeting/SKILL.md), workflows/audience-target-outreach/workflow.md, agents/harper.md Data Requirements, skills/_manifest.jsonl, and the not-yet-run eval spec at systems/evals/work-20260807-podcast-to-pipeline-build/evals/evals.json. account-targeting now runs CRM-first then public/LinkedIn research only, with an added instruction to flag lower-confidence account fits given the loss of ZoomInfo-grade firmographic enrichment. Also corrected an inaccuracy in this record's validation note: the two stale eval signal files (campaign-send-latest.json, campaign-response-log-latest.json) were described as 'blocked by the permission classifier' but were in fact deleted by an unauthorized subagent rm action during grading \u2014 verified both files no longer exist on disk."
+          "description": "ZoomInfo access is being discontinued for the org. Removed ZoomInfo as an enrichment source from account-targeting (skills/account-targeting/SKILL.md, .claude/skills/account-targeting/SKILL.md), workflows/audience-target-outreach/workflow.md, agents/harper.md Data Requirements, skills/_manifest.jsonl, and the not-yet-run eval spec at systems/evals/work-20260807-podcast-to-pipeline-build/evals/evals.json. account-targeting now runs CRM-first then public/LinkedIn research only, with an added instruction to flag lower-confidence account fits given the loss of ZoomInfo-grade firmographic enrichment. Also corrected an inaccuracy in this record's validation note: the two stale eval signal files (campaign-send-latest.json, campaign-response-log-latest.json) were described as 'blocked by the permission classifier' but were in fact deleted by an unauthorized subagent rm action during grading — verified both files no longer exist on disk."
         },
         {
           "date": "2026-08-08",
@@ -324,7 +324,7 @@
     },
     {
       "id": "work-20260720-account-pursuit-map-workflow-build",
-      "description": "REFINEMENT (post-build, same day, confirmed with David, spawned via Master/Rigby): step-04's best-case annual IT services spend input (Potential score's Revenue factor) now follows a two-path source-priority order instead of going straight to the benchmark estimate. Path 1: if the target is public, check its 10-K, annual report, or investor materials first for a disclosed technology/IT spend figure (many companies don't break this out, so an empty result is expected and not a failure -- proceed to Path 2 in that case). Path 2 (fallback): use the existing headcount/revenue x industry-benchmark estimation method, only for private companies or public companies with no disclosed figure -- same benchmark-citation requirement as before applies only to this fallback path. Mirrors the 'primary filings first' discipline already used in step-02's stated strategic priorities and in workflows/client-meeting-prep. Updated the potential_revenue_estimate record schema to capture which path was used and the Path 1 check result; updated Mandatory Execution Rule 5, SUCCESS METRICS, the icp_9box_inferences rollup line, and added a new FAILURE MODES row for the 'public but nothing disclosed' case.\n\nEARLIER REFINEMENT (post-build, same day, confirmed with David): broadened step-03's leadership map from hand-picked technically-relevant contacts to a complete org chart (full C-suite -- CEO plus every C-level exec, not just tech-relevant ones -- plus one level down: SVPs/VPs reporting to the C-suite), sourced from leadership/IR pages, LinkedIn, and news same as before. Added a CRM cross-reference sub-task: every name in the org chart gets checked against CRM for existing engagement history; contacts with history are flagged inline and get relationship-history treatment instead of cold-outreach treatment. Full narrative profiles (background, inference-labeled role read, quotable pitch angle, what-to-avoid) stay reserved for the 3-5 most strategically relevant contacts per step 02's priorities; everyone else in the C-suite+one-level-down scope is listed in a compact name/title/CRM-status table so the chart stays complete without bloating the deliverable. Separately, folded a Partner Network subsection into step-04 (renamed 'Referral & Partner Network', two clearly labeled subsections since research methods differ) covering Improving's fixed, authoritative 8-partner list -- AWS, Microsoft, GCP, Confluent, Databricks, SpaceX/xAI, Snowflake, SAP -- researching which the target account likely already uses via public tech-stack signals (job postings, press releases, case studies, cloud-provider references, conference sponsorships, all cited) and identifying partner-side contacts (account team/co-sell/alliance) who could help, tagged confirmed/needs-verification same as the referral network. workflow.md's architecture summary and Key Metrics updated to reflect both broadened steps. Original build description follows.\n\nORIGINAL: New workflow: account-pursuit-map, assigned to Chase. Builds a strategic pursuit map for landing new business at a target company \u2014 either an active-but-underleveraged expansion (Schwab pattern: existing beachhead, expand into new capability areas) or a cold/lost re-entry (Constellation pattern: no current engagement or rebuilding from a lost deal). Intentionally separate from the existing account-strategy workflow, which is a deep-dive on an account already in an active CRM relationship. Built to full Workflow Build Standards: workflow.md with Data Sources Required table (fixed research priority: primary filings/investor materials -> leadership pages/LinkedIn -> CRM -> web/news, with personal-network mapping as a parallel track), full 4-case STATE CHECK (case 3 handles the fact that this is a living document, not a one-time artifact -- most re-invocations update the existing accounts/{Company}/account-plan.md rather than starting a parallel run), and EXECUTION pointing to 5 step files. state.yaml matches the canonical schema. 5-step architecture chosen to mirror client-meeting-prep's step count while grouping the 11 requested research areas by research method rather than 1:1: step 01 (entity anchor, disambiguation via domain/ticker/HQ match -- directly targets the OFS-collision failure mode from err-20260720T144623-LSBA9A -- engagement-shape determination, timing trigger), step 02 (stated strategic priorities, primary-sources-only with mandatory citations), step 03 (competitive positioning + leadership/decision-maker map -- combined because both map Improving's org-facing posture), step 04 (referral/relationship network -- kept as its own step per explicit spec requirement to separate it from the org map, reuses the LinkedIn mutual-connections lookup mechanics from workflows/client-meeting-prep/steps/step-03-research-company-and-attendee.md Task 6 verbatim, same 5-8 cap discipline), step 05 (synthesis: contact sequencing table, entry plays, phased path that branches on step 01's engagement-shape determination -- 30/60/90 for cold/lost-reentry or Access/Prove/Expand/Partner multi-year table for active-but-underleveraged -- immediate next actions with gating-action-first ordering, open items, sources, writes the final doc to accounts/{Company}/account-plan.md, working memory write). Every step file carries a 'never assert without citable evidence' rule (confirmed vs. needs-verification tagging for every contact/relationship) and a disambiguation-first rule as lessons baked in from this session's error log. Added routing disambiguation: agents/chase.md task portfolio (new Account Pursuit Map row plus updated Account Strategy row noting the boundary), agents/master.md Workflow Registry (both account-pursuit-map and account-strategy rows cross-reference each other), and a routing note added to workflows/account-strategy/workflow.md's architecture section pointing to account-pursuit-map for new-business pursuit requests. Naming-convention gap flagged: agents/conventions.md's Output Naming Conventions table has no documented pattern for a living strategic account document like accounts/{Company}/account-plan.md (it only covers meetings/, decisions/, reviews/, and grouped-output patterns) -- used the existing convention from the two reference plans (accounts/Schwab/account-plan.md, accounts/Constellation Energy/account-plan.md) since it predates this workflow, but this is worth adding as a documented pattern in a future pass.\n\nADDENDUM (same day, second refinement, spawned via Master/Rigby): Added an 'ICP & Account 9-Box' section, modeled exactly on Improving's real account-planning methodology sourced from the company's 2026 AT&T Account Plan spreadsheet on SharePoint. Implements two weighted scores (Potential, Realized), each built from Geography (10%), Revenue (70%), and Gross Margin (20%), each factor banded -5 to +5 via the source's fixed lookup tables. Verified the weighted-formula arithmetic against AT&T's confirmed numbers (Geo 0 + Revenue 2.1 + GM 1.0 = Potential 3.1) and replicated it exactly. Best-case annual IT services spend (Potential's revenue input) is estimated from company size cross-referenced against a cited industry IT-spend benchmark rather than left blank; gross margin defaults to Improving's typical realized range (proposed mid-30s to mid-40s percent) as an override-able assumption; TTM actuals for the Realized score are pulled from CRM if engagement history exists, or defaulted to $0/0% for cold/new pursuits per David's explicit instruction not to research-guess these. Classifies the account into one of nine named 9-box zones (IDEAL, SIGNIFICANT, POISED, SOLID, CORE, STEADY, LIMITED, CONSTRAINED, CAPPED) using a 3x3 grid built around the single confirmed data point (AT&T: Realized~0 (Mid band), Potential=3.1 (High band) -> POISED). Three inferences are explicitly flagged in the step file and carried to step 06's Open Items for David to verify against the source spreadsheet: (1) geography scoring logic (0 baseline for both flags 'N', bonus scoring proposed for 'Y' flags) is inferred from a single AT&T data point; (2) the 9-box grid's remaining eight zone placements beyond the one confirmed POISED cell are a reasoned arrangement, not verified; (3) the $1M revenue-band and 20% gross-margin-band boundary ambiguity in the source (each value appears twice at a score boundary) is flagged per-account rather than silently resolved. Per David's placement decision, this section was inserted as a new step-04 immediately after the existing step-03 (leadership/org chart) and before referral/partner network research -- NOT as an early triage gate and NOT bundled with step 03's competitive-positioning content. This required renumbering: the former step-04-referral-network.md became step-05-referral-network.md, and the former step-05-synthesize-and-deliver.md became step-06-synthesize-and-deliver.md. All internal cross-references were updated: step-03's NEXT STEP now points to step-04-icp-account-9box.md; the new step-04's NEXT STEP points to step-05-referral-network.md; step-05's NEXT STEP points to step-06-synthesize-and-deliver.md; step-06's EXECUTION PROTOCOL Input line, Task 1 (contact sequencing), CONTEXT BOUNDARIES, and all 'steps 01-04'/'step 04' prose references were updated to 'steps 01-05'/'step 05' as appropriate, and its document-assembly template now inserts an '## ICP & Account 9-Box' section directly after '## Leadership / Decision-Maker Map' and before '## Referral / Relationship Network'. workflow.md's architecture summary (now 'Sequential 6-step workflow'), numbered step list, EXECUTION list, and Key Metrics section were all updated to reflect the new step and the renumbering. state.yaml was checked and confirmed not to enumerate step count, so no change was needed there.",
+      "description": "REFINEMENT (post-build, same day, confirmed with David, spawned via Master/Rigby): step-04's best-case annual IT services spend input (Potential score's Revenue factor) now follows a two-path source-priority order instead of going straight to the benchmark estimate. Path 1: if the target is public, check its 10-K, annual report, or investor materials first for a disclosed technology/IT spend figure (many companies don't break this out, so an empty result is expected and not a failure -- proceed to Path 2 in that case). Path 2 (fallback): use the existing headcount/revenue x industry-benchmark estimation method, only for private companies or public companies with no disclosed figure -- same benchmark-citation requirement as before applies only to this fallback path. Mirrors the 'primary filings first' discipline already used in step-02's stated strategic priorities and in workflows/client-meeting-prep. Updated the potential_revenue_estimate record schema to capture which path was used and the Path 1 check result; updated Mandatory Execution Rule 5, SUCCESS METRICS, the icp_9box_inferences rollup line, and added a new FAILURE MODES row for the 'public but nothing disclosed' case.\n\nEARLIER REFINEMENT (post-build, same day, confirmed with David): broadened step-03's leadership map from hand-picked technically-relevant contacts to a complete org chart (full C-suite -- CEO plus every C-level exec, not just tech-relevant ones -- plus one level down: SVPs/VPs reporting to the C-suite), sourced from leadership/IR pages, LinkedIn, and news same as before. Added a CRM cross-reference sub-task: every name in the org chart gets checked against CRM for existing engagement history; contacts with history are flagged inline and get relationship-history treatment instead of cold-outreach treatment. Full narrative profiles (background, inference-labeled role read, quotable pitch angle, what-to-avoid) stay reserved for the 3-5 most strategically relevant contacts per step 02's priorities; everyone else in the C-suite+one-level-down scope is listed in a compact name/title/CRM-status table so the chart stays complete without bloating the deliverable. Separately, folded a Partner Network subsection into step-04 (renamed 'Referral & Partner Network', two clearly labeled subsections since research methods differ) covering Improving's fixed, authoritative 8-partner list -- AWS, Microsoft, GCP, Confluent, Databricks, SpaceX/xAI, Snowflake, SAP -- researching which the target account likely already uses via public tech-stack signals (job postings, press releases, case studies, cloud-provider references, conference sponsorships, all cited) and identifying partner-side contacts (account team/co-sell/alliance) who could help, tagged confirmed/needs-verification same as the referral network. workflow.md's architecture summary and Key Metrics updated to reflect both broadened steps. Original build description follows.\n\nORIGINAL: New workflow: account-pursuit-map, assigned to Chase. Builds a strategic pursuit map for landing new business at a target company — either an active-but-underleveraged expansion (Schwab pattern: existing beachhead, expand into new capability areas) or a cold/lost re-entry (Constellation pattern: no current engagement or rebuilding from a lost deal). Intentionally separate from the existing account-strategy workflow, which is a deep-dive on an account already in an active CRM relationship. Built to full Workflow Build Standards: workflow.md with Data Sources Required table (fixed research priority: primary filings/investor materials -> leadership pages/LinkedIn -> CRM -> web/news, with personal-network mapping as a parallel track), full 4-case STATE CHECK (case 3 handles the fact that this is a living document, not a one-time artifact -- most re-invocations update the existing accounts/{Company}/account-plan.md rather than starting a parallel run), and EXECUTION pointing to 5 step files. state.yaml matches the canonical schema. 5-step architecture chosen to mirror client-meeting-prep's step count while grouping the 11 requested research areas by research method rather than 1:1: step 01 (entity anchor, disambiguation via domain/ticker/HQ match -- directly targets the OFS-collision failure mode from err-20260720T144623-LSBA9A -- engagement-shape determination, timing trigger), step 02 (stated strategic priorities, primary-sources-only with mandatory citations), step 03 (competitive positioning + leadership/decision-maker map -- combined because both map Improving's org-facing posture), step 04 (referral/relationship network -- kept as its own step per explicit spec requirement to separate it from the org map, reuses the LinkedIn mutual-connections lookup mechanics from workflows/client-meeting-prep/steps/step-03-research-company-and-attendee.md Task 6 verbatim, same 5-8 cap discipline), step 05 (synthesis: contact sequencing table, entry plays, phased path that branches on step 01's engagement-shape determination -- 30/60/90 for cold/lost-reentry or Access/Prove/Expand/Partner multi-year table for active-but-underleveraged -- immediate next actions with gating-action-first ordering, open items, sources, writes the final doc to accounts/{Company}/account-plan.md, working memory write). Every step file carries a 'never assert without citable evidence' rule (confirmed vs. needs-verification tagging for every contact/relationship) and a disambiguation-first rule as lessons baked in from this session's error log. Added routing disambiguation: agents/chase.md task portfolio (new Account Pursuit Map row plus updated Account Strategy row noting the boundary), agents/master.md Workflow Registry (both account-pursuit-map and account-strategy rows cross-reference each other), and a routing note added to workflows/account-strategy/workflow.md's architecture section pointing to account-pursuit-map for new-business pursuit requests. Naming-convention gap flagged: agents/conventions.md's Output Naming Conventions table has no documented pattern for a living strategic account document like accounts/{Company}/account-plan.md (it only covers meetings/, decisions/, reviews/, and grouped-output patterns) -- used the existing convention from the two reference plans (accounts/Schwab/account-plan.md, accounts/Constellation Energy/account-plan.md) since it predates this workflow, but this is worth adding as a documented pattern in a future pass.\n\nADDENDUM (same day, second refinement, spawned via Master/Rigby): Added an 'ICP & Account 9-Box' section, modeled exactly on Improving's real account-planning methodology sourced from the company's 2026 AT&T Account Plan spreadsheet on SharePoint. Implements two weighted scores (Potential, Realized), each built from Geography (10%), Revenue (70%), and Gross Margin (20%), each factor banded -5 to +5 via the source's fixed lookup tables. Verified the weighted-formula arithmetic against AT&T's confirmed numbers (Geo 0 + Revenue 2.1 + GM 1.0 = Potential 3.1) and replicated it exactly. Best-case annual IT services spend (Potential's revenue input) is estimated from company size cross-referenced against a cited industry IT-spend benchmark rather than left blank; gross margin defaults to Improving's typical realized range (proposed mid-30s to mid-40s percent) as an override-able assumption; TTM actuals for the Realized score are pulled from CRM if engagement history exists, or defaulted to $0/0% for cold/new pursuits per David's explicit instruction not to research-guess these. Classifies the account into one of nine named 9-box zones (IDEAL, SIGNIFICANT, POISED, SOLID, CORE, STEADY, LIMITED, CONSTRAINED, CAPPED) using a 3x3 grid built around the single confirmed data point (AT&T: Realized~0 (Mid band), Potential=3.1 (High band) -> POISED). Three inferences are explicitly flagged in the step file and carried to step 06's Open Items for David to verify against the source spreadsheet: (1) geography scoring logic (0 baseline for both flags 'N', bonus scoring proposed for 'Y' flags) is inferred from a single AT&T data point; (2) the 9-box grid's remaining eight zone placements beyond the one confirmed POISED cell are a reasoned arrangement, not verified; (3) the $1M revenue-band and 20% gross-margin-band boundary ambiguity in the source (each value appears twice at a score boundary) is flagged per-account rather than silently resolved. Per David's placement decision, this section was inserted as a new step-04 immediately after the existing step-03 (leadership/org chart) and before referral/partner network research -- NOT as an early triage gate and NOT bundled with step 03's competitive-positioning content. This required renumbering: the former step-04-referral-network.md became step-05-referral-network.md, and the former step-05-synthesize-and-deliver.md became step-06-synthesize-and-deliver.md. All internal cross-references were updated: step-03's NEXT STEP now points to step-04-icp-account-9box.md; the new step-04's NEXT STEP points to step-05-referral-network.md; step-05's NEXT STEP points to step-06-synthesize-and-deliver.md; step-06's EXECUTION PROTOCOL Input line, Task 1 (contact sequencing), CONTEXT BOUNDARIES, and all 'steps 01-04'/'step 04' prose references were updated to 'steps 01-05'/'step 05' as appropriate, and its document-assembly template now inserts an '## ICP & Account 9-Box' section directly after '## Leadership / Decision-Maker Map' and before '## Referral / Relationship Network'. workflow.md's architecture summary (now 'Sequential 6-step workflow'), numbered step list, EXECUTION list, and Key Metrics section were all updated to reflect the new step and the renumbering. state.yaml was checked and confirmed not to enumerate step count, so no change was needed there.",
       "started": "2026-07-20T00:00:00Z",
       "classification": "personal",
       "files": [
@@ -398,7 +398,7 @@
           "path": "workflows/account-pursuit-map/steps/step-04-referral-network.md",
           "action": "merge",
           "type": "personal",
-          "description": "Renamed step scope to 'Referral & Partner Network \u2014 Two Separate Tracks'. Added Mandatory Execution Rules requiring the two subsections stay clearly labeled and separate (research methods differ), renumbered existing rules. Added new YOUR TASK Task 6 (Partner Network research: Improving's fixed 8-partner list -- AWS, Microsoft, GCP, Confluent, Databricks, SpaceX/xAI, Snowflake, SAP -- confirmed/authoritative and not to be expanded/narrowed; likely_in_use tech-stack inference per partner with cited public evidence; partner_contact lookup tagged confirmed/needs-verification/not-identified) and Task 7 (partner_network_summary rollup, kept separate from referral_network). Updated CONTEXT BOUNDARIES to define 'Partner network' and its distinct research method. Updated EXECUTION PROTOCOL Input/Output lines, SUCCESS METRICS, and FAILURE MODES (added rows for no-signal-found, CRM partner records inaccessible, and no identifiable partner contact)."
+          "description": "Renamed step scope to 'Referral & Partner Network — Two Separate Tracks'. Added Mandatory Execution Rules requiring the two subsections stay clearly labeled and separate (research methods differ), renumbered existing rules. Added new YOUR TASK Task 6 (Partner Network research: Improving's fixed 8-partner list -- AWS, Microsoft, GCP, Confluent, Databricks, SpaceX/xAI, Snowflake, SAP -- confirmed/authoritative and not to be expanded/narrowed; likely_in_use tech-stack inference per partner with cited public evidence; partner_contact lookup tagged confirmed/needs-verification/not-identified) and Task 7 (partner_network_summary rollup, kept separate from referral_network). Updated CONTEXT BOUNDARIES to define 'Partner network' and its distinct research method. Updated EXECUTION PROTOCOL Input/Output lines, SUCCESS METRICS, and FAILURE MODES (added rows for no-signal-found, CRM partner records inaccessible, and no identifiable partner contact)."
         },
         {
           "path": "workflows/account-pursuit-map/workflow.md",
@@ -446,7 +446,7 @@
     },
     {
       "id": "work-20260720-client-meeting-prep-workflow-build",
-      "description": "Built the client-meeting-prep workflow end-to-end for Chase. This workflow was referenced in agents/master.md's Workflow Registry table but the workflow.md/state.yaml on disk were stale (4-step architecture mentioned in workflow.md but no steps/ directory existed at all \u2014 the last recorded state.yaml run referenced step files that were never actually built). Rebuilt to full IES spec with a 4-step architecture that encodes two same-day corrections: err-20260720T144623-LSBA9A (built a prep sheet from web research + calendar only, missed the M365/connected-email introduction thread, invented a sales narrative, got the attendee's title and company identity wrong) and David's direct feedback on the resulting Ryan Menke/OFS prep sheet (remove YAML frontmatter from the deliverable, remove the Next Steps/post-call action item section, calibrate tone/content to the actual meeting type instead of defaulting to sales-discovery framing). Step 01 gathers logistics and mandates Mac-local-time verification via osascript before any meeting time is recorded. Step 02 queries the connected email/calendar tool FIRST (before any web research) for the introduction/most-recent thread, classifies the meeting as sales-sourced / peer-relationship-referral / internal-review / unclear, grounds reason-for-call in cited evidence, and produces an explicit do-not-assume list. Step 03 disambiguates company identity via email-domain match before writing any company content (directly targets the OFS acronym-collision failure), then builds company/attendee research calibrated to step 02's classification. Step 04 assembles the final prep sheet in the exact template format validated against today's real Ryan Menke prep sheet \u2014 no frontmatter, no Next Steps section, mandatory Calibration Note, Open Questions section for every unresolved item. Implemented as a pure workflow (no separate skill file) to match the existing pattern used by partner-meeting-prep and one-on-one-prep, both of which also inline their full logic in step files rather than delegating to skills/.",
+      "description": "Built the client-meeting-prep workflow end-to-end for Chase. This workflow was referenced in agents/master.md's Workflow Registry table but the workflow.md/state.yaml on disk were stale (4-step architecture mentioned in workflow.md but no steps/ directory existed at all — the last recorded state.yaml run referenced step files that were never actually built). Rebuilt to full IES spec with a 4-step architecture that encodes two same-day corrections: err-20260720T144623-LSBA9A (built a prep sheet from web research + calendar only, missed the M365/connected-email introduction thread, invented a sales narrative, got the attendee's title and company identity wrong) and David's direct feedback on the resulting Ryan Menke/OFS prep sheet (remove YAML frontmatter from the deliverable, remove the Next Steps/post-call action item section, calibrate tone/content to the actual meeting type instead of defaulting to sales-discovery framing). Step 01 gathers logistics and mandates Mac-local-time verification via osascript before any meeting time is recorded. Step 02 queries the connected email/calendar tool FIRST (before any web research) for the introduction/most-recent thread, classifies the meeting as sales-sourced / peer-relationship-referral / internal-review / unclear, grounds reason-for-call in cited evidence, and produces an explicit do-not-assume list. Step 03 disambiguates company identity via email-domain match before writing any company content (directly targets the OFS acronym-collision failure), then builds company/attendee research calibrated to step 02's classification. Step 04 assembles the final prep sheet in the exact template format validated against today's real Ryan Menke prep sheet — no frontmatter, no Next Steps section, mandatory Calibration Note, Open Questions section for every unresolved item. Implemented as a pure workflow (no separate skill file) to match the existing pattern used by partner-meeting-prep and one-on-one-prep, both of which also inline their full logic in step files rather than delegating to skills/.",
       "started": "2026-07-20T00:00:00Z",
       "classification": "personal",
       "files": [
@@ -478,25 +478,25 @@
           "path": "workflows/client-meeting-prep/steps/step-03-research-company-and-attendee.md",
           "action": "add",
           "type": "personal",
-          "description": "New step: disambiguates company identity via email-domain match (or other hard evidence) before writing company content \u2014 targets the OFS acronym-collision failure mode. Builds company profile and attendee bio calibrated to step 02's classification. Prioritizes email-thread-stated titles over conflicting web sources."
+          "description": "New step: disambiguates company identity via email-domain match (or other hard evidence) before writing company content — targets the OFS acronym-collision failure mode. Builds company profile and attendee bio calibrated to step 02's classification. Prioritizes email-thread-stated titles over conflicting web sources."
         },
         {
           "path": "workflows/client-meeting-prep/steps/step-04-build-prep-sheet.md",
           "action": "add",
           "type": "personal",
-          "description": "New step: assembles the final prep sheet in the exact validated template \u2014 no YAML frontmatter, no Next Steps/action-item section, mandatory Calibration Note stating meeting classification and explicit do-not-do guidance, Open Questions section for every unresolved logistics/relationship/business-context item. Both frontmatter removal and Next Steps removal directly implement David's explicit feedback on today's Ryan Menke prep sheet."
+          "description": "New step: assembles the final prep sheet in the exact validated template — no YAML frontmatter, no Next Steps/action-item section, mandatory Calibration Note stating meeting classification and explicit do-not-do guidance, Open Questions section for every unresolved logistics/relationship/business-context item. Both frontmatter removal and Next Steps removal directly implement David's explicit feedback on today's Ryan Menke prep sheet."
         },
         {
           "path": "workflows/client-meeting-prep/steps/step-03-research-company-and-attendee.md",
           "action": "merge",
           "type": "personal",
-          "description": "Added Task 5: LinkedIn mutual/common connections lookup via Claude in Chrome browser tools (navigate/get_page_text/tabs_context_mcp), pulling names and companies only (no bios, no relationship speculation) from the attendee's LinkedIn profile while logged in as David. Caps display at top 5-8 most senior/relevant connections with a total-count note when capped. Records a `common_connections` block with a mandatory status of found/zero/unavailable \u2014 never left blank. Added two new FAILURE MODES rows (LinkedIn unreachable/no URL/tools unavailable \u2192 status unavailable; zero mutual connections \u2192 status zero) and a new SUCCESS METRICS line requiring common_connections to always carry a definite status."
+          "description": "Added Task 5: LinkedIn mutual/common connections lookup via Claude in Chrome browser tools (navigate/get_page_text/tabs_context_mcp), pulling names and companies only (no bios, no relationship speculation) from the attendee's LinkedIn profile while logged in as David. Caps display at top 5-8 most senior/relevant connections with a total-count note when capped. Records a `common_connections` block with a mandatory status of found/zero/unavailable — never left blank. Added two new FAILURE MODES rows (LinkedIn unreachable/no URL/tools unavailable → status unavailable; zero mutual connections → status zero) and a new SUCCESS METRICS line requiring common_connections to always carry a definite status."
         },
         {
           "path": "workflows/client-meeting-prep/steps/step-04-build-prep-sheet.md",
           "action": "merge",
           "type": "personal",
-          "description": "Added the 'Common Connections' section to the prep sheet template, placed after 'Who {He/She/They} Is' and before 'Reason for the Call' (connections are identity/context, not the reason for the meeting). Format is a compact inline list or tight 2-3 column table \u2014 names and companies only, no bios or narrative \u2014 with a total-count note when capped at top 5-8. Section always states one of found/zero/unavailable rather than being silently omitted, per David's requirement that the template stay consistent across runs. Added Mandatory Execution Rule 8 (renumbered old rule 8 to 9), an Assembly Rule on compactness, and a Quality Check line verifying placement/compactness/non-omission."
+          "description": "Added the 'Common Connections' section to the prep sheet template, placed after 'Who {He/She/They} Is' and before 'Reason for the Call' (connections are identity/context, not the reason for the meeting). Format is a compact inline list or tight 2-3 column table — names and companies only, no bios or narrative — with a total-count note when capped at top 5-8. Section always states one of found/zero/unavailable rather than being silently omitted, per David's requirement that the template stay consistent across runs. Added Mandatory Execution Rule 8 (renumbered old rule 8 to 9), an Assembly Rule on compactness, and a Quality Check line verifying placement/compactness/non-omission."
         },
         {
           "path": "agents/chase.md",
@@ -508,7 +508,7 @@
           "path": "workflows/client-meeting-prep/_deprecated-steps/step-01-meeting-details.md",
           "action": "move",
           "type": "personal",
-          "description": "Archived orphaned pre-existing step file (superseded by step-01-identify-meeting.md). Moved rather than deleted \u2014 sandbox cannot unlink files (rm returns Operation not permitted; mv/rename works). Kept for reference only, not part of the live workflow path."
+          "description": "Archived orphaned pre-existing step file (superseded by step-01-identify-meeting.md). Moved rather than deleted — sandbox cannot unlink files (rm returns Operation not permitted; mv/rename works). Kept for reference only, not part of the live workflow path."
         },
         {
           "path": "workflows/client-meeting-prep/_deprecated-steps/step-02-account-context.md",
@@ -520,13 +520,13 @@
           "path": "workflows/client-meeting-prep/_deprecated-steps/step-03-research.md",
           "action": "move",
           "type": "personal",
-          "description": "Archived orphaned pre-existing step file (superseded by step-03-research-company-and-attendee.md). Old version did web research before establishing reason-for-call from email \u2014 exactly the ordering this rebuild fixes."
+          "description": "Archived orphaned pre-existing step file (superseded by step-03-research-company-and-attendee.md). Old version did web research before establishing reason-for-call from email — exactly the ordering this rebuild fixes."
         },
         {
           "path": "workflows/client-meeting-prep/_deprecated-steps/step-04-build-brief.md",
           "action": "move",
           "type": "personal",
-          "description": "Archived orphaned pre-existing step file (superseded by step-04-build-prep-sheet.md). Note: an earlier pending-changes entry (work-20260524-eval-harness-wiring) merged an EVAL RECORD section into this file at its old path (workflows/client-meeting-prep/steps/step-04-build-brief.md) \u2014 that reference is now stale since the file has moved to _deprecated-steps/. The new step-04-build-prep-sheet.md carries its own STEP COMPLETION TRACKING section instead."
+          "description": "Archived orphaned pre-existing step file (superseded by step-04-build-prep-sheet.md). Note: an earlier pending-changes entry (work-20260524-eval-harness-wiring) merged an EVAL RECORD section into this file at its old path (workflows/client-meeting-prep/steps/step-04-build-brief.md) — that reference is now stale since the file has moved to _deprecated-steps/. The new step-04-build-prep-sheet.md carries its own STEP COMPLETION TRACKING section instead."
         },
         {
           "path": "workflows/client-meeting-prep/steps/step-05-remarkable-delivery.md",
@@ -550,7 +550,7 @@
     },
     {
       "id": "work-20260720-client-meeting-prep-consolidation",
-      "description": "Consolidation follow-up to work-20260720-client-meeting-prep-workflow-build. David decided the client-meeting-prep workflow is canonical for external call/meeting prep; retired the pre-existing chase-call-prep skill (different 5-section template: Background-History / Company Overview / Improving's Position / Proposed Agenda / Talking Points) and merged its best elements into the workflow rather than losing them. Added a 'Company Overview' section to the workflow (deeper narrative on company news/initiatives/pressures, placed after 'Who They Are' and before the attendee bio), with the same research-source priority chase-call-prep used for its company section (company website first, web search second, CRM third, Clay supplemental-only/never authoritative). Added an orthogonal 'contact_depth' (first-touch vs. repeat-meeting) classification in step 02, mirroring chase-call-prep's 'Depth by context' distinction, so step-03/04 know whether to go deep or do a brief refresh. Retired skills/chase-call-prep/SKILL.md as a deprecation stub (no prior deprecation convention found in skills/_manifest.jsonl, so the manifest entry was deleted outright rather than invented a new marker convention) and rewired every live routing reference found via repo-wide search: agents/chase.md (removed stale duplicate personal-block row), agents/chief.md and skills/shep-1on1-prep/SKILL.md (updated cross-references that named the old skill by id), .claude/skills/chase-call-prep/SKILL.md (the registered slash-command wrapper \u2014 converted to a redirect stub into the workflow rather than left forking into the retired skill), and workflows/client-meeting-prep/steps/step-05-remarkable-delivery.md (removed two citations treating the old skill as a live dependency \u2014 its reMarkable Delivery protocol was already fully inlined in step-05, the citations were precedent-only). Historical artifacts (meetings/*.md, accounts/*/prep.md, memory/episodic/*, systems/error-tracking/entries/*) that reference the old skill by name were left untouched \u2014 they document what ran at the time, not active routing.",
+      "description": "Consolidation follow-up to work-20260720-client-meeting-prep-workflow-build. David decided the client-meeting-prep workflow is canonical for external call/meeting prep; retired the pre-existing chase-call-prep skill (different 5-section template: Background-History / Company Overview / Improving's Position / Proposed Agenda / Talking Points) and merged its best elements into the workflow rather than losing them. Added a 'Company Overview' section to the workflow (deeper narrative on company news/initiatives/pressures, placed after 'Who They Are' and before the attendee bio), with the same research-source priority chase-call-prep used for its company section (company website first, web search second, CRM third, Clay supplemental-only/never authoritative). Added an orthogonal 'contact_depth' (first-touch vs. repeat-meeting) classification in step 02, mirroring chase-call-prep's 'Depth by context' distinction, so step-03/04 know whether to go deep or do a brief refresh. Retired skills/chase-call-prep/SKILL.md as a deprecation stub (no prior deprecation convention found in skills/_manifest.jsonl, so the manifest entry was deleted outright rather than invented a new marker convention) and rewired every live routing reference found via repo-wide search: agents/chase.md (removed stale duplicate personal-block row), agents/chief.md and skills/shep-1on1-prep/SKILL.md (updated cross-references that named the old skill by id), .claude/skills/chase-call-prep/SKILL.md (the registered slash-command wrapper — converted to a redirect stub into the workflow rather than left forking into the retired skill), and workflows/client-meeting-prep/steps/step-05-remarkable-delivery.md (removed two citations treating the old skill as a live dependency — its reMarkable Delivery protocol was already fully inlined in step-05, the citations were precedent-only). Historical artifacts (meetings/*.md, accounts/*/prep.md, memory/episodic/*, systems/error-tracking/entries/*) that reference the old skill by name were left untouched — they document what ran at the time, not active routing.",
       "started": "2026-07-20T00:00:00Z",
       "classification": "personal",
       "files": [
@@ -564,7 +564,7 @@
           "path": "workflows/client-meeting-prep/steps/step-03-research-company-and-attendee.md",
           "action": "merge",
           "type": "personal",
-          "description": "Added new Task 3: Build the Company Overview (deeper narrative) \u2014 recent news, strategic initiatives, competitive/market pressures, distinct from the company_profile facts table. Source priority mirrors chase-call-prep's Section 2: company website first, web search second, CRM third, Clay supplemental-only/never authoritative. Depth calibrated to contact_depth (full for first-touch, brief refresh for repeat-meeting). Renumbered subsequent tasks (CRM cross-check now Task 5, LinkedIn mutual connections now Task 6). Added company_overview to SUCCESS METRICS and two new FAILURE MODES rows (no notable news found; Clay contradicts primary sources)."
+          "description": "Added new Task 3: Build the Company Overview (deeper narrative) — recent news, strategic initiatives, competitive/market pressures, distinct from the company_profile facts table. Source priority mirrors chase-call-prep's Section 2: company website first, web search second, CRM third, Clay supplemental-only/never authoritative. Depth calibrated to contact_depth (full for first-touch, brief refresh for repeat-meeting). Renumbered subsequent tasks (CRM cross-check now Task 5, LinkedIn mutual connections now Task 6). Added company_overview to SUCCESS METRICS and two new FAILURE MODES rows (no notable news found; Clay contradicts primary sources)."
         },
         {
           "path": "workflows/client-meeting-prep/steps/step-04-build-prep-sheet.md",
@@ -576,7 +576,7 @@
           "path": "workflows/client-meeting-prep/steps/step-05-remarkable-delivery.md",
           "action": "merge",
           "type": "personal",
-          "description": "Removed two citations treating skills/chase-call-prep/SKILL.md as a live source for the reMarkable Delivery protocol \u2014 that protocol was already fully inlined in this step's own mandatory execution rules and YOUR TASK section. Reworded both citations to describe the protocol as self-contained (with a note on its origin for context) rather than pointing at a file that no longer carries that content."
+          "description": "Removed two citations treating skills/chase-call-prep/SKILL.md as a live source for the reMarkable Delivery protocol — that protocol was already fully inlined in this step's own mandatory execution rules and YOUR TASK section. Reworded both citations to describe the protocol as self-contained (with a note on its origin for context) rather than pointing at a file that no longer carries that content."
         },
         {
           "path": "skills/chase-call-prep/SKILL.md",
@@ -600,7 +600,7 @@
           "path": "agents/chase.md",
           "action": "merge",
           "type": "personal",
-          "description": "Removed the stale personal-block 'Call & Meeting Prep' task portfolio row pointing at skills/chase-call-prep/SKILL.md \u2014 redundant with (and now contradicted by) the system-block 'Client Meeting Prep' row that already points to workflows/client-meeting-prep/workflow.md."
+          "description": "Removed the stale personal-block 'Call & Meeting Prep' task portfolio row pointing at skills/chase-call-prep/SKILL.md — redundant with (and now contradicted by) the system-block 'Client Meeting Prep' row that already points to workflows/client-meeting-prep/workflow.md."
         },
         {
           "path": "agents/chief.md",
@@ -618,7 +618,7 @@
     },
     {
       "id": "work-20260601-card-skill-autonomous-login",
-      "description": "Added autonomous login capability to three Chase card offer skills. Each skill now retrieves credentials from 1Password via the op CLI (at /opt/homebrew/bin/op), writes credential temp files with 600 permissions, fills the login form via JavaScript injection, verifies authentication, and cleans up. Removes the manual 'Requires David logged in' prerequisite. Navigation remains click-only, no new tabs. 1Password item mapping confirmed: Amex \u2192 'American Express' (fields: UserID, Password), Citi \u2192 'citi.com' (fields: User ID, password), Discover \u2192 'discover.com' (fields: userID, password). Desktop Commander used as tmux substitute when tmux is unavailable in the execution environment.",
+      "description": "Added autonomous login capability to three Chase card offer skills. Each skill now retrieves credentials from 1Password via the op CLI (at /opt/homebrew/bin/op), writes credential temp files with 600 permissions, fills the login form via JavaScript injection, verifies authentication, and cleans up. Removes the manual 'Requires David logged in' prerequisite. Navigation remains click-only, no new tabs. 1Password item mapping confirmed: Amex → 'American Express' (fields: UserID, Password), Citi → 'citi.com' (fields: User ID, password), Discover → 'discover.com' (fields: userID, password). Desktop Commander used as tmux substitute when tmux is unavailable in the execution environment.",
       "started": "2026-06-01T16:00:00",
       "classification": "personal",
       "files": [
@@ -644,7 +644,7 @@
     },
     {
       "id": "work-20260531-dream-cycle-move-on-write",
-      "description": "Redesigned step-01-working-memory-cleanup to use rename (mv) instead of copy+delete for archiving working memory entries to episodic. The old pattern failed on every scheduled run for 33 nights because the sandbox cannot unlink files (Operation not permitted) but can rename them. New pattern: mutate frontmatter in-place on the source file first (set status:archived, add type:working-archive, salience.score:0), then mv to memory/episodic/{fname} \u2014 one inode operation. Added working_stranded counter and skipped_already_archived skip rule to handle dead files left by the old pattern. Trivial-body delete fallback now also leaves the file in place with status:archived on failure rather than losing it. Rename hypothesis verified empirically in sandbox: mv exit code 0, source gone, destination present. rm on the destination confirmed still blocked (unlink still fails). Added systems/sandbox-credentials/SETUP.md runbook for GitHub PAT credential flow via git credential.helper store.",
+      "description": "Redesigned step-01-working-memory-cleanup to use rename (mv) instead of copy+delete for archiving working memory entries to episodic. The old pattern failed on every scheduled run for 33 nights because the sandbox cannot unlink files (Operation not permitted) but can rename them. New pattern: mutate frontmatter in-place on the source file first (set status:archived, add type:working-archive, salience.score:0), then mv to memory/episodic/{fname} — one inode operation. Added working_stranded counter and skipped_already_archived skip rule to handle dead files left by the old pattern. Trivial-body delete fallback now also leaves the file in place with status:archived on failure rather than losing it. Rename hypothesis verified empirically in sandbox: mv exit code 0, source gone, destination present. rm on the destination confirmed still blocked (unlink still fails). Added systems/sandbox-credentials/SETUP.md runbook for GitHub PAT credential flow via git credential.helper store.",
       "started": "2026-05-31T00:00:00Z",
       "classification": "system",
       "files": [
@@ -658,7 +658,7 @@
     },
     {
       "id": "work-20260531-sandbox-git-credentials",
-      "description": "Rotation-proof GitHub PAT credential flow for Cowork sandbox git push. Root problem: the Cowork session ID (e.g., sleepy-blissful-meitner) rotates on sandbox rebuild, breaking any hardcoded absolute path in credential.helper. Solution: a committed shell script at systems/sandbox-credentials/git-credential-helper.sh resolves its own directory at runtime via $(dirname \"$0\"), then reads .git-credentials from that same directory. Git is configured with credential.helper = '!$(git rev-parse --show-toplevel)/systems/sandbox-credentials/git-credential-helper.sh' \u2014 the stored value contains no session ID. Empirically verified in sandbox: git credential fill returns correct username/password; stored config value confirmed session-ID-free. Script is committed and executable; credentials file lives at systems/sandbox-credentials/.git-credentials (600 perms, gitignored). One-time setup on David's Mac; no per-session steps required.",
+      "description": "Rotation-proof GitHub PAT credential flow for Cowork sandbox git push. Root problem: the Cowork session ID (e.g., sleepy-blissful-meitner) rotates on sandbox rebuild, breaking any hardcoded absolute path in credential.helper. Solution: a committed shell script at systems/sandbox-credentials/git-credential-helper.sh resolves its own directory at runtime via $(dirname \"$0\"), then reads .git-credentials from that same directory. Git is configured with credential.helper = '!$(git rev-parse --show-toplevel)/systems/sandbox-credentials/git-credential-helper.sh' — the stored value contains no session ID. Empirically verified in sandbox: git credential fill returns correct username/password; stored config value confirmed session-ID-free. Script is committed and executable; credentials file lives at systems/sandbox-credentials/.git-credentials (600 perms, gitignored). One-time setup on David's Mac; no per-session steps required.",
       "started": "2026-05-31T00:00:00Z",
       "classification": "system",
       "files": [
@@ -672,13 +672,13 @@
           "path": "systems/sandbox-credentials/git-credential-helper.sh",
           "action": "add",
           "type": "system",
-          "description": "New credential helper script. Reads credentials from .git-credentials in the same directory as the script. Handles get action only; store/erase are no-ops. Exits cleanly if credentials file is missing. Contains no token \u2014 path resolution only. Must be executable (chmod +x)."
+          "description": "New credential helper script. Reads credentials from .git-credentials in the same directory as the script. Handles get action only; store/erase are no-ops. Exits cleanly if credentials file is missing. Contains no token — path resolution only. Must be executable (chmod +x)."
         }
       ]
     },
     {
       "id": "work-20260524-eval-harness-assertion-wiring",
-      "description": "Wired structural assertions into post-tool-use.py hook and fixed missing morning-briefing output file instruction. P1: Added run_assertions() function to post-tool-use.py that loads systems/eval-harness/assertions/{name}.json, evaluates all 7 evaluable check types (file_exists, file_min_bytes, file_contains, file_not_contains, yaml_field_equals, step_count_gte, duration_lte) using IES_ROOT as base, skips tool_was_called with a reason note, and populates assessment.structural with assertion_results, assertions_checked, assertions_passed, expected_outputs_written, and outputs_non_empty. Added import re. Wired run_assertions() into both create_eval_record_from_state() and create_eval_record_from_skill_run() just before atomic_write_json. P2: Added mandatory WRITE OUTPUT FILE section to workflows/morning-briefing/steps/step-04-synthesize-briefing.md instructing the agent to write the full briefing to memory/working/morning-briefing-YYYY-MM-DD.md after delivery. Root cause was that step-04 had no write instruction \u2014 the assertion file expected the file but the workflow never told the agent to create it.",
+      "description": "Wired structural assertions into post-tool-use.py hook and fixed missing morning-briefing output file instruction. P1: Added run_assertions() function to post-tool-use.py that loads systems/eval-harness/assertions/{name}.json, evaluates all 7 evaluable check types (file_exists, file_min_bytes, file_contains, file_not_contains, yaml_field_equals, step_count_gte, duration_lte) using IES_ROOT as base, skips tool_was_called with a reason note, and populates assessment.structural with assertion_results, assertions_checked, assertions_passed, expected_outputs_written, and outputs_non_empty. Added import re. Wired run_assertions() into both create_eval_record_from_state() and create_eval_record_from_skill_run() just before atomic_write_json. P2: Added mandatory WRITE OUTPUT FILE section to workflows/morning-briefing/steps/step-04-synthesize-briefing.md instructing the agent to write the full briefing to memory/working/morning-briefing-YYYY-MM-DD.md after delivery. Root cause was that step-04 had no write instruction — the assertion file expected the file but the workflow never told the agent to create it.",
       "started": "2026-05-24T00:00:00Z",
       "classification": "system",
       "files": [
@@ -766,7 +766,7 @@
     },
     {
       "id": "work-20260524-eval-harness-wiring",
-      "description": "Eval harness wiring \u2014 hook-driven, model-independent. The PostToolUse hook (post-tool-use.py) now auto-creates eval records when any workflow writes state.yaml with status: complete. In Claude Code: the existing SubagentStart/Stop hooks create/close stubs as before. In Cowork: no SubagentStart fires, so the hook creates a complete record on the state.yaml completion write (tagged 'cowork-hook'). Also added close-eval-record.py helper for manual/scripted record creation, and instrumented 5 workflow final steps with eval record instructions as a documentation-only backstop. Core fix: (1) eval block is now independent of the session index block in main() \u2014 previously a topic-not-found error in Block 1 caused an early return that silently skipped the eval harness; (2) fixed topic lookup to check both 'topic' and 'name' keys; (3) added missing 'files' key initialization for topic objects that lack it. Created runs/ directory and .gitkeep. Test-verified: state.yaml write triggers record creation with correct name/agent/status/version_hash.",
+      "description": "Eval harness wiring — hook-driven, model-independent. The PostToolUse hook (post-tool-use.py) now auto-creates eval records when any workflow writes state.yaml with status: complete. In Claude Code: the existing SubagentStart/Stop hooks create/close stubs as before. In Cowork: no SubagentStart fires, so the hook creates a complete record on the state.yaml completion write (tagged 'cowork-hook'). Also added close-eval-record.py helper for manual/scripted record creation, and instrumented 5 workflow final steps with eval record instructions as a documentation-only backstop. Core fix: (1) eval block is now independent of the session index block in main() — previously a topic-not-found error in Block 1 caused an early return that silently skipped the eval harness; (2) fixed topic lookup to check both 'topic' and 'name' keys; (3) added missing 'files' key initialization for topic objects that lack it. Created runs/ directory and .gitkeep. Test-verified: state.yaml write triggers record creation with correct name/agent/status/version_hash.",
       "started": "2026-05-24T19:00:00Z",
       "classification": "system",
       "files": [
@@ -774,7 +774,7 @@
           "path": ".claude/hooks/post-tool-use.py",
           "action": "replace",
           "type": "system",
-          "description": "Core fix for eval harness wiring. (1) Restructured main() into two independent blocks: Block 1 (session index update) and Block 2 (eval harness). Previously a topic-not-found error in Block 1 caused an early return that silently skipped eval record creation. (2) Added create_eval_record_from_state() \u2014 fires in Cowork when state.yaml status=complete and no active in-progress stub exists. Creates complete record tagged 'cowork-hook'. (3) Fixed topic lookup: checks both 'topic' and 'name' keys (session index uses 'name', not 'topic'). (4) Added missing 'files' key initialization for topic objects without it. Added imports: hashlib, secrets, string, timezone."
+          "description": "Core fix for eval harness wiring. (1) Restructured main() into two independent blocks: Block 1 (session index update) and Block 2 (eval harness). Previously a topic-not-found error in Block 1 caused an early return that silently skipped eval record creation. (2) Added create_eval_record_from_state() — fires in Cowork when state.yaml status=complete and no active in-progress stub exists. Creates complete record tagged 'cowork-hook'. (3) Fixed topic lookup: checks both 'topic' and 'name' keys (session index uses 'name', not 'topic'). (4) Added missing 'files' key initialization for topic objects without it. Added imports: hashlib, secrets, string, timezone."
         },
         {
           "path": "systems/eval-harness/close-eval-record.py",
@@ -792,7 +792,7 @@
           "path": "workflows/morning-briefing/steps/step-04-synthesize-briefing.md",
           "action": "merge",
           "type": "system",
-          "description": "Added EVAL RECORD documentation section \u2014 backstop reference showing eval record creation criteria. Hook handles this automatically; section exists for transparency and manual fallback."
+          "description": "Added EVAL RECORD documentation section — backstop reference showing eval record creation criteria. Hook handles this automatically; section exists for transparency and manual fallback."
         },
         {
           "path": "workflows/daily-review/steps/step-04-root-audit.md",
@@ -880,7 +880,7 @@
           "path": "workflows/golf-booking/workflow.md",
           "action": "add",
           "type": "personal",
-          "description": "New workflow: golf-booking. Two-phase orchestrator \u2014 preview (Tue 11pm) + booking (Wed midnight). Targets Friday/Saturday/Sunday 8 days out."
+          "description": "New workflow: golf-booking. Two-phase orchestrator — preview (Tue 11pm) + booking (Wed midnight). Targets Friday/Saturday/Sunday 8 days out."
         },
         {
           "path": "workflows/golf-booking/state.yaml",
@@ -936,7 +936,7 @@
     },
     {
       "id": "integrity-2026-04-18-120000",
-      "description": "Integrity scan fixes \u2014 2 auto-corrections applied (manifest currency + model fields)",
+      "description": "Integrity scan fixes — 2 auto-corrections applied (manifest currency + model fields)",
       "started": "2026-04-18T12:00:00Z",
       "files": [
         {
@@ -957,7 +957,7 @@
           "path": "workflows/one-texas-scorecard/workflow.md",
           "action": "add",
           "type": "personal",
-          "description": "New workflow: One Texas Scorecard \u2014 pulls revenue, co-sell, pipeline, new clients via Chase skills and appends to Obsidian."
+          "description": "New workflow: One Texas Scorecard — pulls revenue, co-sell, pipeline, new clients via Chase skills and appends to Obsidian."
         },
         {
           "path": "workflows/one-texas-scorecard/state.yaml",
@@ -1049,7 +1049,7 @@
     },
     {
       "id": "work-20260329-galen-agent",
-      "description": "New agent: Galen \u2014 Longevity Advisor. Owns complete health and biometric ecosystem: WHOOP analysis, bloodwork interpretation, supplement/peptide protocol management, physician visit prep, body composition tracking, monthly health reviews. Implements Peter Attia's 4 Horsemen framework for disease prevention.",
+      "description": "New agent: Galen — Longevity Advisor. Owns complete health and biometric ecosystem: WHOOP analysis, bloodwork interpretation, supplement/peptide protocol management, physician visit prep, body composition tracking, monthly health reviews. Implements Peter Attia's 4 Horsemen framework for disease prevention.",
       "started": "2026-03-29T00:00:00Z",
       "classification": "personal",
       "files": [
@@ -1057,7 +1057,7 @@
           "path": "agents/galen.md",
           "action": "add",
           "type": "personal",
-          "description": "New agent: Galen \u2014 Longevity Advisor & Personal Health Systems Manager"
+          "description": "New agent: Galen — Longevity Advisor & Personal Health Systems Manager"
         },
         {
           "path": "skills/galen-morning-snapshot/SKILL.md",
@@ -1111,37 +1111,37 @@
           "path": ".claude/skills/galen-morning/SKILL.md",
           "action": "add",
           "type": "personal",
-          "description": "Slash command /galen-morning \u2014 registers morning snapshot skill as user-invocable command. Forks a Galen sub-agent, loads persona from agents/galen.md, executes skills/galen-morning-snapshot/SKILL.md."
+          "description": "Slash command /galen-morning — registers morning snapshot skill as user-invocable command. Forks a Galen sub-agent, loads persona from agents/galen.md, executes skills/galen-morning-snapshot/SKILL.md."
         },
         {
           "path": ".claude/skills/galen-whoop/SKILL.md",
           "action": "add",
           "type": "personal",
-          "description": "Slash command /galen-whoop \u2014 registers 30-day WHOOP analysis skill as user-invocable command. Executes skills/galen-whoop-analysis/SKILL.md."
+          "description": "Slash command /galen-whoop — registers 30-day WHOOP analysis skill as user-invocable command. Executes skills/galen-whoop-analysis/SKILL.md."
         },
         {
           "path": ".claude/skills/galen-bloodwork/SKILL.md",
           "action": "add",
           "type": "personal",
-          "description": "Slash command /galen-bloodwork \u2014 registers bloodwork interpretation skill as user-invocable command. Executes skills/galen-bloodwork/SKILL.md."
+          "description": "Slash command /galen-bloodwork — registers bloodwork interpretation skill as user-invocable command. Executes skills/galen-bloodwork/SKILL.md."
         },
         {
           "path": ".claude/skills/galen-protocols/SKILL.md",
           "action": "add",
           "type": "personal",
-          "description": "Slash command /galen-protocols \u2014 registers protocol management skill as user-invocable command. Executes skills/galen-protocols/SKILL.md."
+          "description": "Slash command /galen-protocols — registers protocol management skill as user-invocable command. Executes skills/galen-protocols/SKILL.md."
         },
         {
           "path": ".claude/skills/galen-visit-prep/SKILL.md",
           "action": "add",
           "type": "personal",
-          "description": "Slash command /galen-visit-prep \u2014 registers physician visit prep skill as user-invocable command. Executes skills/galen-visit-prep/SKILL.md."
+          "description": "Slash command /galen-visit-prep — registers physician visit prep skill as user-invocable command. Executes skills/galen-visit-prep/SKILL.md."
         }
       ]
     },
     {
       "id": "work-20260306-remarkable-sync",
-      "description": "reMarkable \u2192 Obsidian sync skill \u2014 pulls handwritten notes, transcribes via vision, saves as markdown. Dispatches to sub-agent for isolated context.",
+      "description": "reMarkable → Obsidian sync skill — pulls handwritten notes, transcribes via vision, saves as markdown. Dispatches to sub-agent for isolated context.",
       "started": "2026-03-06T10:00:00Z",
       "classification": "personal",
       "files": [
@@ -1149,13 +1149,13 @@
           "path": ".claude/skills/remarkable-sync/SKILL.md",
           "action": "add",
           "type": "personal",
-          "description": "New skill: sync reMarkable handwritten notes to Obsidian via rmapi \u2192 rmc \u2192 rsvg-convert \u2192 Claude vision pipeline. Runs as sub-agent."
+          "description": "New skill: sync reMarkable handwritten notes to Obsidian via rmapi → rmc → rsvg-convert → Claude vision pipeline. Runs as sub-agent."
         }
       ]
     },
     {
       "id": "work-20260306-knox-agent",
-      "description": "New agent: Knox \u2014 Knowledge Manager. Owns vault curation, device sync (Remarkable, Plaud), knowledge search, vault health audits, and ingestion workflows. Migrates Plaud from Chief, takes ownership of Remarkable skills.",
+      "description": "New agent: Knox — Knowledge Manager. Owns vault curation, device sync (Remarkable, Plaud), knowledge search, vault health audits, and ingestion workflows. Migrates Plaud from Chief, takes ownership of Remarkable skills.",
       "started": "2026-03-06T12:00:00Z",
       "classification": "personal",
       "files": [
@@ -1163,37 +1163,37 @@
           "path": "agents/knox.md",
           "action": "add",
           "type": "personal",
-          "description": "New agent: Knox \u2014 Knowledge Manager, Vault Curator & Information Architect"
+          "description": "New agent: Knox — Knowledge Manager, Vault Curator & Information Architect"
         },
         {
           "path": ".claude/skills/knox-vault-health/SKILL.md",
           "action": "add",
           "type": "personal",
-          "description": "New skill: Obsidian vault health audit \u2014 orphans, broken links, stale content, missing frontmatter"
+          "description": "New skill: Obsidian vault health audit — orphans, broken links, stale content, missing frontmatter"
         },
         {
           "path": ".claude/skills/knox-search/SKILL.md",
           "action": "add",
           "type": "personal",
-          "description": "New skill: deep search across vault \u2014 all sources, cross-referenced, with connections"
+          "description": "New skill: deep search across vault — all sources, cross-referenced, with connections"
         },
         {
           "path": ".claude/skills/knox-transcripts-plaud/SKILL.md",
           "action": "add",
           "type": "personal",
-          "description": "New skill: Plaud transcript ingestion \u2014 migrated from chief-plaud, re-owned by Knox"
+          "description": "New skill: Plaud transcript ingestion — migrated from chief-plaud, re-owned by Knox"
         },
         {
           "path": "workflows/knowledge-ingest/workflow.md",
           "action": "add",
           "type": "personal",
-          "description": "New workflow: unified ingestion pipeline \u2014 any capture surface \u2192 normalize \u2192 tag \u2192 link \u2192 file"
+          "description": "New workflow: unified ingestion pipeline — any capture surface → normalize → tag → link → file"
         },
         {
           "path": "workflows/weekly-knowledge-review/workflow.md",
           "action": "add",
           "type": "personal",
-          "description": "New workflow: weekly knowledge digest \u2014 captures, orphans, floating actions, suggested connections"
+          "description": "New workflow: weekly knowledge digest — captures, orphans, floating actions, suggested connections"
         },
         {
           "path": "agents/master.md",
@@ -1341,7 +1341,7 @@
     },
     {
       "id": "integrity-2026-04-18-091500",
-      "description": "Integrity scan fixes \u2014 2 auto-corrections applied: 17 workflows added to manifest, 4 agents added to manifest",
+      "description": "Integrity scan fixes — 2 auto-corrections applied: 17 workflows added to manifest, 4 agents added to manifest",
       "started": "2026-04-18T09:15:00Z",
       "classification": "system",
       "files": [
@@ -1399,7 +1399,7 @@
     },
     {
       "id": "comp-tracker-workflow-rebuild",
-      "description": "Comp tracker update workflow for Chase \u2014 monthly compensation tracking from WorkDay. Rebuilds workflow.md and all 8 step files to proper IES spec with system:start/end blocks, MANDATORY EXECUTION RULES, EXECUTION PROTOCOL tables, and detailed SUCCESS METRICS. Updates Chase task portfolio with comp-tracker trigger.",
+      "description": "Comp tracker update workflow for Chase — monthly compensation tracking from WorkDay. Rebuilds workflow.md and all 8 step files to proper IES spec with system:start/end blocks, MANDATORY EXECUTION RULES, EXECUTION PROTOCOL tables, and detailed SUCCESS METRICS. Updates Chase task portfolio with comp-tracker trigger.",
       "started": "2026-04-17T00:00:00Z",
       "classification": "personal",
       "files": [
@@ -1449,7 +1449,7 @@
           "path": "workflows/comp-tracker/steps/step-06-match-commissions.md",
           "action": "modify",
           "type": "personal",
-          "description": "Rebuilt to full IES spec: MANDATORY EXECUTION RULES, EXECUTION PROTOCOL, CONTEXT BOUNDARIES, YOUR TASK (10 numbered sections), SUCCESS METRICS, FAILURE MODES, NEXT STEP. Detailed commission calculation (GM \u00d7 3%, 12-month window) with fuzzy matching and event flags."
+          "description": "Rebuilt to full IES spec: MANDATORY EXECUTION RULES, EXECUTION PROTOCOL, CONTEXT BOUNDARIES, YOUR TASK (10 numbered sections), SUCCESS METRICS, FAILURE MODES, NEXT STEP. Detailed commission calculation (GM × 3%, 12-month window) with fuzzy matching and event flags."
         },
         {
           "path": "workflows/comp-tracker/steps/step-07-prompt-comp3.md",
@@ -1481,7 +1481,7 @@
           "path": ".claude/skills/rigby-capability-build/SKILL.md",
           "action": "merge",
           "type": "system",
-          "description": "Inserted Steps 6-9 (Author Evals, Run Tests and Grade, Iterate, Optimize Description). Renumbered existing 6\u219210 and 7\u219211. Augmented pending-changes block with validation metadata and Summary block with eval pass rates. Post-trial changes: capture_timing helper invocation in Step 7; aggregate_benchmark CLI updated to pass --skill-path and --executor-model; analyzer subagent now returns text and Rigby persists; new Plan-Only Mode requirement in Step 4 for execution-side-effect skills."
+          "description": "Inserted Steps 6-9 (Author Evals, Run Tests and Grade, Iterate, Optimize Description). Renumbered existing 6→10 and 7→11. Augmented pending-changes block with validation metadata and Summary block with eval pass rates. Post-trial changes: capture_timing helper invocation in Step 7; aggregate_benchmark CLI updated to pass --skill-path and --executor-model; analyzer subagent now returns text and Rigby persists; new Plan-Only Mode requirement in Step 4 for execution-side-effect skills."
         },
         {
           "path": ".claude/skills/rigby-capability-build/subagents/analyzer.md",
@@ -1535,13 +1535,13 @@
           "path": ".claude/skills/rigby-capability-build/scripts/aggregate_benchmark.py",
           "action": "add",
           "type": "system",
-          "description": "Ported from anthropics/skills. Reads grading.json files in iteration-N/eval-*/*/ and produces benchmark.json + benchmark.md with mean \u00b1 stddev and deltas between configurations. Post-trial patches: counts actual runs_per_configuration instead of hardcoding 3; accepts --executor-model and --analyzer-model to eliminate placeholder metadata; renders single-config benchmarks with a one-column layout instead of fake-pairing. Post-iter-2 patches: normalized delta to (experiment \u2212 baseline) regardless of directory iteration order \u2014 uses with_skill as experiment, old_skill or without_skill as baseline; delta JSON block now records experiment/baseline/convention fields; markdown table reorders columns experiment-first."
+          "description": "Ported from anthropics/skills. Reads grading.json files in iteration-N/eval-*/*/ and produces benchmark.json + benchmark.md with mean ± stddev and deltas between configurations. Post-trial patches: counts actual runs_per_configuration instead of hardcoding 3; accepts --executor-model and --analyzer-model to eliminate placeholder metadata; renders single-config benchmarks with a one-column layout instead of fake-pairing. Post-iter-2 patches: normalized delta to (experiment − baseline) regardless of directory iteration order — uses with_skill as experiment, old_skill or without_skill as baseline; delta JSON block now records experiment/baseline/convention fields; markdown table reorders columns experiment-first."
         },
         {
           "path": ".claude/skills/rigby-capability-build/scripts/run_eval.py",
           "action": "add",
           "type": "system",
-          "description": "Ported from anthropics/skills. Trigger-eval runner \u2014 tests whether a skill description triggers across a set of queries via claude -p."
+          "description": "Ported from anthropics/skills. Trigger-eval runner — tests whether a skill description triggers across a set of queries via claude -p."
         },
         {
           "path": ".claude/skills/rigby-capability-build/scripts/improve_description.py",
@@ -1583,7 +1583,7 @@
           "path": ".claude/skills/rigby-evolution-package/SKILL.md",
           "action": "merge",
           "type": "system",
-          "description": "Added exclusion rules for skill eval evidence \u2014 work-*/evals/, iteration-*/, skill-snapshot/, description-tuning/ globs are filtered out of any --git-diff or --files input before packaging. Eval evidence is personal by definition and must never enter a system evolution."
+          "description": "Added exclusion rules for skill eval evidence — work-*/evals/, iteration-*/, skill-snapshot/, description-tuning/ globs are filtered out of any --git-diff or --files input before packaging. Eval evidence is personal by definition and must never enter a system evolution."
         },
         {
           "path": ".gitignore",
@@ -1602,20 +1602,20 @@
         "evals_run": false,
         "note": "This is the bootstrap evolution that creates Rigby's eval infrastructure. Self-application of the new flow requires the scripts to be in place first. First real eval-loop validation will be on the next Rigby build after this one packages. Eval workspace path corrected from evolutions/work-{id}/ to systems/evals/work-{id}/ (evolutions/ is reserved for the packaging system).",
         "framework_issues_addressed": [
-          "Manual timing capture \u2192 capture_timing.py helper",
-          "Subagent write inconsistency \u2192 analyzer returns text, parent persists",
-          "Placeholder metadata \u2192 required --skill-path and --executor-model",
-          "Empty Config B column \u2192 single-config layout in benchmark.md",
-          "Hardcoded runs_per_configuration: 3 \u2192 counted from disk",
-          "No assertion-quality guidance \u2192 UTB-typo case study in authoring guide",
-          "Plan-only ambiguity \u2192 required section in Step 4 for execution skills",
-          "Delta sign was direction-dependent on directory order \u2192 normalized to experiment\u2212baseline with explicit fields"
+          "Manual timing capture → capture_timing.py helper",
+          "Subagent write inconsistency → analyzer returns text, parent persists",
+          "Placeholder metadata → required --skill-path and --executor-model",
+          "Empty Config B column → single-config layout in benchmark.md",
+          "Hardcoded runs_per_configuration: 3 → counted from disk",
+          "No assertion-quality guidance → UTB-typo case study in authoring guide",
+          "Plan-only ambiguity → required section in Step 4 for execution skills",
+          "Delta sign was direction-dependent on directory order → normalized to experiment−baseline with explicit fields"
         ]
       }
     },
     {
       "id": "work-20260524-eval-harness-4tier",
-      "description": "IES Eval Harness \u2014 4-Tier Assessment Framework. Full system instrumentation for workflows, skills, and agents with automated Tier 1 (mechanical success/fail), Tier 2 (structural assertions), Tier 3 (on-demand letter grading), and Tier 4 (controller feedback sampling) assessment. Includes 4 hook scripts wired into Claude Code lifecycle (SubagentStart, SubagentStop, PostToolUseFailure, SessionEnd), 6 assertion definition files covering all major workflows and the eval skills themselves, 3 new skills (rigby-eval-grade, rigby-eval-analyze, rigby-eval-dashboard), an HTML dashboard generator, eval schema, and integration into weekly-review, daily-review, and evolution-deployment workflows. Post-build adversarial review applied 15 fixes: Tier 2 assertion lookup (name over agent-type), Tier 1 no longer overwrites with hardcoded values, agent_id stored in stubs for reliable correlation, yaml import moved to top-level, tool_failure increments preserved through stop hook, failure_entry attached to records, all hooks use IES_ROOT env var, atomic writes with fcntl locking, trigger detection from state.yaml, log_error/log_info separated, weekly-review step-08 owns workflow close, daily-review and evolution-deployment assertion files added, self-assertion files for eval skills, benchmark snapshot comparison clarified as deferred, and weekly-review routing table corrected.",
+      "description": "IES Eval Harness — 4-Tier Assessment Framework. Full system instrumentation for workflows, skills, and agents with automated Tier 1 (mechanical success/fail), Tier 2 (structural assertions), Tier 3 (on-demand letter grading), and Tier 4 (controller feedback sampling) assessment. Includes 4 hook scripts wired into Claude Code lifecycle (SubagentStart, SubagentStop, PostToolUseFailure, SessionEnd), 6 assertion definition files covering all major workflows and the eval skills themselves, 3 new skills (rigby-eval-grade, rigby-eval-analyze, rigby-eval-dashboard), an HTML dashboard generator, eval schema, and integration into weekly-review, daily-review, and evolution-deployment workflows. Post-build adversarial review applied 15 fixes: Tier 2 assertion lookup (name over agent-type), Tier 1 no longer overwrites with hardcoded values, agent_id stored in stubs for reliable correlation, yaml import moved to top-level, tool_failure increments preserved through stop hook, failure_entry attached to records, all hooks use IES_ROOT env var, atomic writes with fcntl locking, trigger detection from state.yaml, log_error/log_info separated, weekly-review step-08 owns workflow close, daily-review and evolution-deployment assertion files added, self-assertion files for eval skills, benchmark snapshot comparison clarified as deferred, and weekly-review routing table corrected.",
       "started": "2026-05-23T00:00:00Z",
       "classification": "system",
       "files": [
@@ -1629,7 +1629,7 @@
           "path": "systems/eval-harness/schema.md",
           "action": "add",
           "type": "system",
-          "description": "Eval record JSON schema \u2014 full field documentation for 4-tier assessment including composite scoring formula and field lifecycle."
+          "description": "Eval record JSON schema — full field documentation for 4-tier assessment including composite scoring formula and field lifecycle."
         },
         {
           "path": "systems/eval-harness/generate-dashboard.py",
@@ -1647,7 +1647,7 @@
           "path": "systems/eval-harness/assertions/README.md",
           "action": "add",
           "type": "system",
-          "description": "Assertion system documentation \u2014 format spec, check types, and authoring guide."
+          "description": "Assertion system documentation — format spec, check types, and authoring guide."
         },
         {
           "path": "systems/eval-harness/assertions/template.json",
@@ -1695,25 +1695,25 @@
           "path": ".claude/hooks/eval-agent-start.py",
           "action": "add",
           "type": "system",
-          "description": "SubagentStart hook \u2014 creates eval record stub with agent_id (for reliable correlation), type, name, session_id, and initialized 4-tier assessment block. Uses atomic writes with fcntl locking. IES_ROOT from env var."
+          "description": "SubagentStart hook — creates eval record stub with agent_id (for reliable correlation), type, name, session_id, and initialized 4-tier assessment block. Uses atomic writes with fcntl locking. IES_ROOT from env var."
         },
         {
           "path": ".claude/hooks/eval-agent-stop.py",
           "action": "add",
           "type": "system",
-          "description": "SubagentStop hook \u2014 completes eval record: reads existing Tier 1 mechanical state (not overwritten), runs Tier 2 assertions (lookup by name then agent-type), correlates error entries, computes version_hash from workflow.md/SKILL.md, derives status (success/failure/partial/aborted) from real data. yaml imported at top-level. Atomic writes."
+          "description": "SubagentStop hook — completes eval record: reads existing Tier 1 mechanical state (not overwritten), runs Tier 2 assertions (lookup by name then agent-type), correlates error entries, computes version_hash from workflow.md/SKILL.md, derives status (success/failure/partial/aborted) from real data. yaml imported at top-level. Atomic writes."
         },
         {
           "path": ".claude/hooks/eval-tool-failure.py",
           "action": "add",
           "type": "system",
-          "description": "PostToolUseFailure hook \u2014 increments tool_failures counter and appends full failure_entry (tool, error, duration_ms, timestamp) to tool_failure_log in the active eval record. Atomic writes."
+          "description": "PostToolUseFailure hook — increments tool_failures counter and appends full failure_entry (tool, error, duration_ms, timestamp) to tool_failure_log in the active eval record. Atomic writes."
         },
         {
           "path": ".claude/hooks/eval-session-end.py",
           "action": "add",
           "type": "system",
-          "description": "SessionEnd hook \u2014 marks any in-progress eval records as aborted with abort_reason. Uses log_info (not log_error) for normal session-end events. Atomic writes."
+          "description": "SessionEnd hook — marks any in-progress eval records as aborted with abort_reason. Uses log_info (not log_error) for normal session-end events. Atomic writes."
         },
         {
           "path": ".claude/hooks/post-tool-use.py",
@@ -1725,7 +1725,7 @@
           "path": ".claude/settings.json",
           "action": "merge",
           "type": "system",
-          "description": "Registered new hooks: SubagentStart \u2192 eval-agent-start.py, SubagentStop \u2192 eval-agent-stop.py, PostToolUseFailure \u2192 eval-tool-failure.py, SessionEnd \u2192 eval-session-end.py."
+          "description": "Registered new hooks: SubagentStart → eval-agent-start.py, SubagentStop → eval-agent-stop.py, PostToolUseFailure → eval-tool-failure.py, SessionEnd → eval-session-end.py."
         },
         {
           "path": ".claude/skills/rigby-eval-grade/SKILL.md",
@@ -1749,7 +1749,7 @@
           "path": "agents/master.md",
           "action": "merge",
           "type": "system",
-          "description": "Added Tier 4 Controller Feedback Sampling to Agent Output Handling \u2014 Master samples sub-agent outputs for subjective quality ratings and writes them to eval records (assessment.feedback block)."
+          "description": "Added Tier 4 Controller Feedback Sampling to Agent Output Handling — Master samples sub-agent outputs for subjective quality ratings and writes them to eval records (assessment.feedback block)."
         },
         {
           "path": "agents/rigby.md",
@@ -1827,7 +1827,7 @@
     },
     {
       "id": "work-20260526-skill-optimize",
-      "description": "Built SkillOpt-style optimization loop for IES skills. Implements the text-space skill optimization paradigm from arXiv:2605.23904 (Microsoft/SJTU, May 2026) adapted to IES architecture: uses the 4-tier eval harness as the scoring signal, IES composite score formula as the gate criterion, and a new rigby-skill-reflect skill as the reflection engine. Core components: (1) rigby-skill-reflect \u2014 trajectory-to-edits reflection skill that reads eval records + session transcripts, separates successes from failures, identifies procedural patterns, and proposes bounded add/delete/replace edits to SKILL.md files; (2) 8-step skill-optimize workflow \u2014 setup, baseline scoring, reflect, apply candidate, score candidate, gate, slow update, report; (3) score_eval.py \u2014 authoritative Python implementation of the composite scoring formula (mechanical\u00d70.25 + assertion_rate\u00d70.35 + grade_score\u00d70.20 + feedback\u00d70.10 + no_errors\u00d70.10) with weight redistribution for null components; (4) manifest and Rigby agent updates. Key architectural decisions: simulated improvement assessment for gate (IES cannot re-run skills with candidate versions), SLOW_UPDATE_START/END protected region convention for epoch-boundary durable guidance (analogous to dream cycle for memory layer), train/selection 70/30 split of eval records.",
+      "description": "Built SkillOpt-style optimization loop for IES skills. Implements the text-space skill optimization paradigm from arXiv:2605.23904 (Microsoft/SJTU, May 2026) adapted to IES architecture: uses the 4-tier eval harness as the scoring signal, IES composite score formula as the gate criterion, and a new rigby-skill-reflect skill as the reflection engine. Core components: (1) rigby-skill-reflect — trajectory-to-edits reflection skill that reads eval records + session transcripts, separates successes from failures, identifies procedural patterns, and proposes bounded add/delete/replace edits to SKILL.md files; (2) 8-step skill-optimize workflow — setup, baseline scoring, reflect, apply candidate, score candidate, gate, slow update, report; (3) score_eval.py — authoritative Python implementation of the composite scoring formula (mechanical×0.25 + assertion_rate×0.35 + grade_score×0.20 + feedback×0.10 + no_errors×0.10) with weight redistribution for null components; (4) manifest and Rigby agent updates. Key architectural decisions: simulated improvement assessment for gate (IES cannot re-run skills with candidate versions), SLOW_UPDATE_START/END protected region convention for epoch-boundary durable guidance (analogous to dream cycle for memory layer), train/selection 70/30 split of eval records.",
       "started": "2026-05-26T00:00:00Z",
       "classification": "system",
       "files": [
@@ -1871,7 +1871,7 @@
           "path": "workflows/skill-optimize/step-04-apply-candidate.md",
           "action": "add",
           "type": "system",
-          "description": "Step 4: Load best_skill_path, apply edits in priority order, respect all protected regions (system:start/end, personal:start/end, SLOW_UPDATE_START/END). Write to candidates/round-{N}-candidate.md only \u2014 never overwrites SKILL.md directly. Adds traceability header comment."
+          "description": "Step 4: Load best_skill_path, apply edits in priority order, respect all protected regions (system:start/end, personal:start/end, SLOW_UPDATE_START/END). Write to candidates/round-{N}-candidate.md only — never overwrites SKILL.md directly. Adds traceability header comment."
         },
         {
           "path": "workflows/skill-optimize/step-05-score-candidate.md",
@@ -1913,7 +1913,7 @@
           "path": "agents/rigby.md",
           "action": "merge",
           "type": "system",
-          "description": "Added 3 new rows to Rigby task portfolio in system:start block: (1) optimize skill/run skill optimization/SkillOpt \u2192 Skill Optimize \u2192 workflows/skill-optimize/workflow.md; (2) skill reflect/reflect on skill/analyze skill runs \u2192 Skill Reflect \u2192 skills/rigby-skill-reflect/SKILL.md; (3) score evals/score this skill/compute eval score \u2192 Eval Score \u2192 systems/eval-harness/scoring/score_eval.py."
+          "description": "Added 3 new rows to Rigby task portfolio in system:start block: (1) optimize skill/run skill optimization/SkillOpt → Skill Optimize → workflows/skill-optimize/workflow.md; (2) skill reflect/reflect on skill/analyze skill runs → Skill Reflect → skills/rigby-skill-reflect/SKILL.md; (3) score evals/score this skill/compute eval score → Eval Score → systems/eval-harness/scoring/score_eval.py."
         }
       ]
     },
@@ -1921,12 +1921,12 @@
       "work_item_id": "error-improvement-cycle-run-2026-05-27",
       "created": "2026-05-27T18:59:30Z",
       "classification": "system",
-      "description": "Error improvement cycle run \u2014 0 fixes applied, 48 entries compacted to April 2026 digest, 10 routing-gate Needs Your Call items deferred",
+      "description": "Error improvement cycle run — 0 fixes applied, 48 entries compacted to April 2026 digest, 10 routing-gate Needs Your Call items deferred",
       "files": [
         {
           "path": "systems/error-tracking/digests/compact-2026-04.json",
           "action": "add",
-          "summary": "April 2026 monthly digest \u2014 48 entries archived, source deletion deferred (sandbox permissions)"
+          "summary": "April 2026 monthly digest — 48 entries archived, source deletion deferred (sandbox permissions)"
         },
         {
           "path": "memory/episodic/decisions/2026-05-27-185930-decision-rationale-error-improvement-2026-03-21-to-2026-05-27.md",
@@ -1946,7 +1946,7 @@
         {
           "path": "workflows/error-improvement/steps/step-07-summary.md",
           "action": "add",
-          "summary": "Step 7: Summary and close \u2014 delivers cycle report, closes state, runs eval record"
+          "summary": "Step 7: Summary and close — delivers cycle report, closes state, runs eval record"
         }
       ]
     },
@@ -1954,7 +1954,7 @@
       "work_item_id": "error-improvement-workflow-2026-05-27",
       "created": "2026-05-27T18:43:03.033621Z",
       "classification": "system",
-      "description": "Error improvement workflow \u2014 full triage-to-compact cycle for Rigby",
+      "description": "Error improvement workflow — full triage-to-compact cycle for Rigby",
       "files": [
         {
           "path": "workflows/error-improvement/workflow.md",
@@ -2044,7 +2044,7 @@
     },
     {
       "id": "work-20260527-system-eval-workflow",
-      "description": "Built system-eval workflow \u2014 full eval maintenance cycle that chains grade, assert, score, analyze, and dashboard regeneration into a single autonomous, stateful, resumable workflow. Registers in skills/_manifest.jsonl and adds trigger row to agents/rigby.md task portfolio. Also adds assertion definition file for system-eval itself.",
+      "description": "Built system-eval workflow — full eval maintenance cycle that chains grade, assert, score, analyze, and dashboard regeneration into a single autonomous, stateful, resumable workflow. Registers in skills/_manifest.jsonl and adds trigger row to agents/rigby.md task portfolio. Also adds assertion definition file for system-eval itself.",
       "started": "2026-05-27T20:47:49Z",
       "classification": "system",
       "files": [
@@ -2052,7 +2052,7 @@
           "path": "workflows/system-eval/workflow.md",
           "action": "add",
           "type": "system",
-          "description": "New workflow \u2014 full eval maintenance cycle. 6 steps: intake, assert, grade, score, analyze, dashboard."
+          "description": "New workflow — full eval maintenance cycle. 6 steps: intake, assert, grade, score, analyze, dashboard."
         },
         {
           "path": "workflows/system-eval/state.yaml",
@@ -2076,7 +2076,7 @@
           "path": "workflows/system-eval/steps/step-03-grade.md",
           "action": "add",
           "type": "system",
-          "description": "Grade all ungraded eval records \u2014 review output files, assign A-F with grader notes."
+          "description": "Grade all ungraded eval records — review output files, assign A-F with grader notes."
         },
         {
           "path": "workflows/system-eval/steps/step-04-score.md",
@@ -2100,7 +2100,7 @@
           "path": "systems/eval-harness/assertions/system-eval.json",
           "action": "add",
           "type": "system",
-          "description": "Assertion definition for system-eval workflow \u2014 8 assertions covering state completion, analysis report, dashboard, and skill-run signals."
+          "description": "Assertion definition for system-eval workflow — 8 assertions covering state completion, analysis report, dashboard, and skill-run signals."
         },
         {
           "path": "skills/_manifest.jsonl",
@@ -2118,7 +2118,7 @@
           "path": "workflows/system-eval/steps/step-01-intake.md",
           "action": "merge",
           "type": "system",
-          "description": "Fixed early-exit path \u2014 routes to step-04-score instead of step-05-analyze so composite scores are always refreshed even when no grading/assertion work is needed."
+          "description": "Fixed early-exit path — routes to step-04-score instead of step-05-analyze so composite scores are always refreshed even when no grading/assertion work is needed."
         },
         {
           "path": "workflows/system-eval/steps/step-06-dashboard.md",
@@ -2130,7 +2130,7 @@
     },
     {
       "id": "work-20260608-chase-call-prep-skill",
-      "description": "Built canonical call and meeting prep skill for Chase. Defines a strict five-section template (Background/History, Company Overview, Improving's Position, Proposed Agenda, Talking Points) that governs all prep sheet output. Covers both call prep (first-call/prospect) and meeting prep (existing client/partner) contexts \u2014 same template, depth varies. Explicitly prohibits post-call sections (Action Items, Notes, Follow-up Checklists, Next Steps). Registered in manifest and added trigger row to Chase personal task portfolio.",
+      "description": "Built canonical call and meeting prep skill for Chase. Defines a strict five-section template (Background/History, Company Overview, Improving's Position, Proposed Agenda, Talking Points) that governs all prep sheet output. Covers both call prep (first-call/prospect) and meeting prep (existing client/partner) contexts — same template, depth varies. Explicitly prohibits post-call sections (Action Items, Notes, Follow-up Checklists, Next Steps). Registered in manifest and added trigger row to Chase personal task portfolio.",
       "started": "2026-06-08T00:00:00Z",
       "classification": "personal",
       "files": [
@@ -2190,7 +2190,7 @@
     },
     {
       "id": "ref-pointer-audit-2026-06-11-rigby-fixes",
-      "description": "Three surgical reference pointer fixes: (1) conventions.md personal block \u2014 added pointer to reference/knowledge-layer.md for episodic/semantic schemas. (2) reference/file-map.md \u2014 renamed root label from my-os/ to IES/ and added 17 missing top-level directories. (3) dream-cycle step-03 and step-04 personal blocks \u2014 added authoritative schema pointers to reference/knowledge-layer.md.",
+      "description": "Three surgical reference pointer fixes: (1) conventions.md personal block — added pointer to reference/knowledge-layer.md for episodic/semantic schemas. (2) reference/file-map.md — renamed root label from my-os/ to IES/ and added 17 missing top-level directories. (3) dream-cycle step-03 and step-04 personal blocks — added authoritative schema pointers to reference/knowledge-layer.md.",
       "started": "2026-06-11T00:00:00Z",
       "classification": "personal",
       "files": [
@@ -2222,7 +2222,7 @@
     },
     {
       "id": "ref-pointer-audit-2026-06-11-rigby-fixes",
-      "description": "Four surgical fixes: added working-archive and account-intelligence entry types to knowledge-layer.md type list and YAML schema; added Working-Archive Entry Notes subsection to knowledge-layer.md; fixed wrong skill root path in step-05-generate-pdf.md (skills/ \u2192 .claude/skills/); created missing reference/connectors.md with standardized capability name table.",
+      "description": "Four surgical fixes: added working-archive and account-intelligence entry types to knowledge-layer.md type list and YAML schema; added Working-Archive Entry Notes subsection to knowledge-layer.md; fixed wrong skill root path in step-05-generate-pdf.md (skills/ → .claude/skills/); created missing reference/connectors.md with standardized capability name table.",
       "started": "2026-06-11T00:00:00",
       "classification": "system",
       "work_item": "ref-pointer-audit-2026-06-11",
@@ -2237,7 +2237,7 @@
           "path": "workflows/podcast-prep/steps/step-05-generate-pdf.md",
           "action": "modify",
           "work_item": "ref-pointer-audit-2026-06-11",
-          "description": "Fixed wrong skill path: skills/remarkable-upload/SKILL.md \u2192 .claude/skills/remarkable-upload/SKILL.md."
+          "description": "Fixed wrong skill path: skills/remarkable-upload/SKILL.md → .claude/skills/remarkable-upload/SKILL.md."
         },
         {
           "path": "reference/connectors.md",
@@ -2284,7 +2284,7 @@
           "path": "agents/shep.md",
           "action": "merge",
           "type": "personal",
-          "description": "Added 1:1 Prep trigger row to Shep task portfolio (system block). Trigger: 1:1 / prep for my 1:1 with [name] / build a 1:1 prep sheet for [name]. Single row referencing skills/shep-1on1-prep/SKILL.md \u2014 no protocol inlined."
+          "description": "Added 1:1 Prep trigger row to Shep task portfolio (system block). Trigger: 1:1 / prep for my 1:1 with [name] / build a 1:1 prep sheet for [name]. Single row referencing skills/shep-1on1-prep/SKILL.md — no protocol inlined."
         },
         {
           "path": "agents/chief.md",
@@ -2310,7 +2310,7 @@
           "path": "skills/add-reminder/SKILL.md",
           "action": "add",
           "type": "system",
-          "description": "New system-wide skill. Generates rem- IDs via new-entry.py, builds and appends reminder entries to data/reminders.json. Append-only \u2014 Boot handles removal. Full schema reference, boot integration docs, error handling, and usage examples for all agents."
+          "description": "New system-wide skill. Generates rem- IDs via new-entry.py, builds and appends reminder entries to data/reminders.json. Append-only — Boot handles removal. Full schema reference, boot integration docs, error handling, and usage examples for all agents."
         },
         {
           "path": "skills/_manifest.jsonl",
@@ -2404,7 +2404,7 @@
     },
     {
       "id": "work-20260708-eval-dashboard-artifact-sync",
-      "description": "Wired the system-eval workflow to automatically sync the regenerated dashboard HTML to the Cowork artifact (rigby-eval-dashboard) on every run. Step 06 now patches the Chart.js script tag via sed (safety net) and calls mcp__cowork__update_artifact immediately after dashboard regeneration. Added a failure mode row: artifact sync failures are non-blocking \u2014 dashboard on disk remains the source of truth. Also patched generate-dashboard.py to emit the approved Chart.js 4.5.0 tag with integrity hash directly, eliminating the need for sed on future runs.",
+      "description": "Wired the system-eval workflow to automatically sync the regenerated dashboard HTML to the Cowork artifact (rigby-eval-dashboard) on every run. Step 06 now patches the Chart.js script tag via sed (safety net) and calls mcp__cowork__update_artifact immediately after dashboard regeneration. Added a failure mode row: artifact sync failures are non-blocking — dashboard on disk remains the source of truth. Also patched generate-dashboard.py to emit the approved Chart.js 4.5.0 tag with integrity hash directly, eliminating the need for sed on future runs.",
       "started": "2026-07-08T00:00:00Z",
       "classification": "system",
       "files": [
@@ -2412,7 +2412,7 @@
           "path": "workflows/system-eval/steps/step-06-dashboard.md",
           "action": "merge",
           "type": "system",
-          "description": "Renamed task 2 to '2. Patch and sync the dashboard to the pinned Cowork artifact'. Added sub-task 2a (sed patch for Chart.js 4.5.0 approved tag with integrity hash, with note that it is a no-op after py script fix). Added sub-task 2b (mcp__cowork__update_artifact call with id rigby-eval-dashboard, html_path, and update_summary format). Added failure mode row: 'Artifact update fails' \u2014 log to state.yaml under dashboard_artifact_error, continue non-blocking."
+          "description": "Renamed task 2 to '2. Patch and sync the dashboard to the pinned Cowork artifact'. Added sub-task 2a (sed patch for Chart.js 4.5.0 approved tag with integrity hash, with note that it is a no-op after py script fix). Added sub-task 2b (mcp__cowork__update_artifact call with id rigby-eval-dashboard, html_path, and update_summary format). Added failure mode row: 'Artifact update fails' — log to state.yaml under dashboard_artifact_error, continue non-blocking."
         },
         {
           "path": "systems/eval-harness/generate-dashboard.py",
@@ -2432,13 +2432,13 @@
           "path": "skills/plaud-discover/SKILL.md",
           "action": "merge",
           "type": "system",
-          "description": "Step 3: Now reads frontmatter of each zzPlaud/ vault note to build a file_id set alongside the existing title set. Step 4: Replaced single-tier 70% fuzzy match with three-tier decision logic \u2014 Tier 1 exact file_id match (primary), Tier 2 title fuzzy match at 85% threshold (fallback for pre-2026-08-10 notes), Tier 3 staged-file check. Added pseudocode decision block and guidance on edge cases where 85% threshold may not match but contextual evidence (date + duration) confirms identity."
+          "description": "Step 3: Now reads frontmatter of each zzPlaud/ vault note to build a file_id set alongside the existing title set. Step 4: Replaced single-tier 70% fuzzy match with three-tier decision logic — Tier 1 exact file_id match (primary), Tier 2 title fuzzy match at 85% threshold (fallback for pre-2026-08-10 notes), Tier 3 staged-file check. Added pseudocode decision block and guidance on edge cases where 85% threshold may not match but contextual evidence (date + duration) confirms identity."
         }
       ]
     },
     {
       "id": "work-20260810-plaud-transcripts-file-id-frontmatter",
-      "description": "Added file_id to the required frontmatter fields written by plaud-transcripts at ingest time. This is the Side B fix for err-20260810T152938-EE595H \u2014 without file_id in frontmatter, plaud-discover's new Tier 1 dedup cannot function for newly ingested notes. The field was not present in any existing vault notes (confirmed by inspection of zzPlaud/ notes including Improving/ subdirectory). Future ingest runs will write file_id so next-run dedup is exact-match rather than fuzzy.",
+      "description": "Added file_id to the required frontmatter fields written by plaud-transcripts at ingest time. This is the Side B fix for err-20260810T152938-EE595H — without file_id in frontmatter, plaud-discover's new Tier 1 dedup cannot function for newly ingested notes. The field was not present in any existing vault notes (confirmed by inspection of zzPlaud/ notes including Improving/ subdirectory). Future ingest runs will write file_id so next-run dedup is exact-match rather than fuzzy.",
       "started": "2026-08-10T00:00:00Z",
       "classification": "system",
       "files": [
@@ -2446,13 +2446,13 @@
           "path": "skills/plaud-transcripts/SKILL.md",
           "action": "merge",
           "type": "system",
-          "description": "Step 4 (Transform into Obsidian notes): Added explicit 'Frontmatter \u2014 required fields' block listing file_id, date, duration_minutes, and source as always-required fields. file_id is called out as the primary dedup key for plaud-discover and marked never-omit. This replaces the implicit frontmatter guidance that was previously inferred from note structure examples only."
+          "description": "Step 4 (Transform into Obsidian notes): Added explicit 'Frontmatter — required fields' block listing file_id, date, duration_minutes, and source as always-required fields. file_id is called out as the primary dedup key for plaud-discover and marked never-omit. This replaces the implicit frontmatter guidance that was previously inferred from note structure examples only."
         }
       ]
     },
     {
       "id": "work-20260810-remarkable-push-skill",
-      "description": "Created the remarkable-push skill to codify the agent delivery protocol for pushing workflow-generated PDFs to the reMarkable tablet. Built in response to two errors from Master bypassing Rigby (err-20260810T184322-FYOUF0: wrong path, pushed to root / instead of /Meetings; err-20260810T184522-YOWLWZ: routing violation, no skill existed). The skill establishes the authoritative naming convention for reMarkable deliverables (human-readable, no dates, no slugs \u2014 consistent with SYSTEM.md Output Naming Conventions), path routing rules by document type (call prep -> /Meetings, 1:1 prep -> /Improving/One-on-ones/{person}, client accounts -> /Improving/Accounts/{client}, etc.), and a 7-step execution protocol with pre-push checklist, overwrite detection, corrupted-config recovery, and post-push verification. Distinct from .claude/skills/remarkable-upload/SKILL.md which handles interactive/ad hoc uploads \u2014 this skill is for workflow-driven agent delivery. Registered in skills/_manifest.jsonl and agents/rigby.md task portfolio. Cleanup: deleted wrong-named file from /Meetings and root /, pushed correctly-named Austin Ledesma Solace Call Prep.pdf to /Meetings.",
+      "description": "Created the remarkable-push skill to codify the agent delivery protocol for pushing workflow-generated PDFs to the reMarkable tablet. Built in response to two errors from Master bypassing Rigby (err-20260810T184322-FYOUF0: wrong path, pushed to root / instead of /Meetings; err-20260810T184522-YOWLWZ: routing violation, no skill existed). The skill establishes the authoritative naming convention for reMarkable deliverables (human-readable, no dates, no slugs — consistent with SYSTEM.md Output Naming Conventions), path routing rules by document type (call prep -> /Meetings, 1:1 prep -> /Improving/One-on-ones/{person}, client accounts -> /Improving/Accounts/{client}, etc.), and a 7-step execution protocol with pre-push checklist, overwrite detection, corrupted-config recovery, and post-push verification. Distinct from .claude/skills/remarkable-upload/SKILL.md which handles interactive/ad hoc uploads — this skill is for workflow-driven agent delivery. Registered in skills/_manifest.jsonl and agents/rigby.md task portfolio. Cleanup: deleted wrong-named file from /Meetings and root /, pushed correctly-named Austin Ledesma Solace Call Prep.pdf to /Meetings.",
       "started": "2026-08-10T00:00:00Z",
       "classification": "system",
       "files": [
@@ -2478,7 +2478,7 @@
     },
     {
       "id": "work-20260823-error-improvement-baseline",
-      "description": "Error improvement cycle baseline \u2014 analyzed 350 error entries spanning 2026-03 to 2026-08, identified 30 recurring patterns across 10 categories, applied 10 systemic fixes addressing the top patterns. Fixes include routing rules for financial queries, OmniFocus data accuracy enforcement, email voice standards, meeting prep verification, speaker ID calendar lookup, and Slack bot capability documentation. 42 error entries transitioned from proposed to applied status.",
+      "description": "Error improvement cycle baseline — analyzed 350 error entries spanning 2026-03 to 2026-08, identified 30 recurring patterns across 10 categories, applied 10 systemic fixes addressing the top patterns. Fixes include routing rules for financial queries, OmniFocus data accuracy enforcement, email voice standards, meeting prep verification, speaker ID calendar lookup, and Slack bot capability documentation. 42 error entries transitioned from proposed to applied status.",
       "started": "2026-08-23T18:23:11Z",
       "classification": "system",
       "files": [
@@ -2839,7 +2839,7 @@
     },
     {
       "id": "work-20260831-211652",
-      "description": "Built a shared PowerBI-automation skill collection (powerbi-navigate-slicer, powerbi-extract-kpis, vault-freshness-check, eval-signal-write) to replace copy-pasted Chrome/Playwright-MCP DOM logic across 5 existing Chase report skills (bookings-review, co-sell-pipeline, new-clients, pipeline-snapshot, revenue-tracker). All 4 new skills are single-file agent-agnostic utility skills (owning_agent: rigby, no .claude/skills stub, matching the git/one-password pattern) parameterized entirely by the caller: report_url, connector (chrome|playwright), slicer_pattern (text-click|checkbox-flat|dropdown-nested), select/deselect label lists, wait timings, KPI label/regex lists, vault cache file path/heading pattern/freshness threshold, and skill-run signal metadata are all documented Inputs, none hardcoded. The 5 existing skills' content files (skills/{name}/SKILL.md) were rewritten to call into the new collection for navigation, KPI/table read (where the mechanic is a plain innerText/regex read), cache-check, and signal-write, while two genuinely different mechanics \u2014 new-clients' chart-tooltip-hover read and revenue-tracker's SVG-bar-color-plus-tooltip-hover read \u2014 were deliberately kept inline in those two skills rather than forced into the generic KPI-extraction skill, since they use synthetic mouse-event dispatch and SVG fill inspection rather than a text read. Frontmatter (name, description, trigger_keywords, owning_agent) and output formats/voice were left unchanged on all 5 skills, so nothing else in the system that references them by path or trigger phrase (agents/chase.md Task Portfolio, workflows/rock1-revenue-monthly, workflows/rock4-pipeline-weekly, workflows/one-texas-scorecard, eval-harness assertions) needed to change. The .claude/skills/{name}/SKILL.md stubs for the 5 report skills were left untouched \u2014 they already just dispatch to skills/{name}/SKILL.md and carry their own SKILL COMPLETE block. Eval authoring/iteration (rigby-capability-build steps 6-9: writing evals.json, running paired executor evals, description-tuning) was deferred \u2014 flagged to the executive as a follow-up, not executed in this pass.",
+      "description": "Built a shared PowerBI-automation skill collection (powerbi-navigate-slicer, powerbi-extract-kpis, vault-freshness-check, eval-signal-write) to replace copy-pasted Chrome/Playwright-MCP DOM logic across 5 existing Chase report skills (bookings-review, co-sell-pipeline, new-clients, pipeline-snapshot, revenue-tracker). All 4 new skills are single-file agent-agnostic utility skills (owning_agent: rigby, no .claude/skills stub, matching the git/one-password pattern) parameterized entirely by the caller: report_url, connector (chrome|playwright), slicer_pattern (text-click|checkbox-flat|dropdown-nested), select/deselect label lists, wait timings, KPI label/regex lists, vault cache file path/heading pattern/freshness threshold, and skill-run signal metadata are all documented Inputs, none hardcoded. The 5 existing skills' content files (skills/{name}/SKILL.md) were rewritten to call into the new collection for navigation, KPI/table read (where the mechanic is a plain innerText/regex read), cache-check, and signal-write, while two genuinely different mechanics — new-clients' chart-tooltip-hover read and revenue-tracker's SVG-bar-color-plus-tooltip-hover read — were deliberately kept inline in those two skills rather than forced into the generic KPI-extraction skill, since they use synthetic mouse-event dispatch and SVG fill inspection rather than a text read. Frontmatter (name, description, trigger_keywords, owning_agent) and output formats/voice were left unchanged on all 5 skills, so nothing else in the system that references them by path or trigger phrase (agents/chase.md Task Portfolio, workflows/rock1-revenue-monthly, workflows/rock4-pipeline-weekly, workflows/one-texas-scorecard, eval-harness assertions) needed to change. The .claude/skills/{name}/SKILL.md stubs for the 5 report skills were left untouched — they already just dispatch to skills/{name}/SKILL.md and carry their own SKILL COMPLETE block. Eval authoring/iteration (rigby-capability-build steps 6-9: writing evals.json, running paired executor evals, description-tuning) was deferred — flagged to the executive as a follow-up, not executed in this pass.",
       "started": "2026-08-31T21:16:52Z",
       "classification": "system",
       "files": [
@@ -2905,12 +2905,12 @@
         "stopped_at_cap": false,
         "final_pass_rate": null,
         "description_optimized": false,
-        "note": "Frontmatter/trigger phrases unchanged on all 5 rewritten skills, so description-tuning (Step 9) is not applicable. Eval authoring/execution (Steps 6-8) deferred pending executive sign-off on invocation prompts \u2014 recommend running before packaging this evolution."
+        "note": "Frontmatter/trigger phrases unchanged on all 5 rewritten skills, so description-tuning (Step 9) is not applicable. Eval authoring/execution (Steps 6-8) deferred pending executive sign-off on invocation prompts — recommend running before packaging this evolution."
       }
     },
     {
       "id": "work-20260902-golf-calendar-visual-skills",
-      "description": "Built two new agent-agnostic, reusable skills and rewired the golf workflows to call them instead of inline logic. visual-verification (skills/visual-verification/SKILL.md): a HARD gate for critical human sign-off on a screenshot \u2014 displays it, requires an explicit approval or escalation decision (never a silent pass-through on timeout/no-answer), records the decision to a JSONL log. calendar-handler (skills/calendar-handler/SKILL.md): single skill, three operations selected via `operation` \u2014 conflict-check (M365 calendar pull + centralized UTC\u2192CT conversion + per-day CT timeline), date-calculate (next-weekend/current-weekend/specific-day offset math with min-days-out enforcement and self-validation), event-create (AppleScript against Calendar.app with mandatory post-create verification and a documented fallback-notify path; carries a Plan-Only Mode section since it's the one operation with a real side effect). Both are agent-agnostic (owning_agent: rigby, no .claude/skills stub) per the git/one-password/eval-signal-write pattern, since they're explicitly flagged reusable beyond golf. Updated 4 existing workflow step files to call the skills instead of the inline logic they used to carry, preserving all workflow-specific values (8-day booking-window min-days-out, Sunday/Friday-specific calendar rules, Frisco Lakes event details, the golf-booking Gate 4/Gate 5 escalation and fallback text) rather than dropping detail: workflows/golf-preview/steps/step-01-calculate-target-weekend.md (date math now via calendar-handler date-calculate, Saturday/Sunday derivation and Quality Gate 1 kept inline as the workflow's own re-validation layer), workflows/golf-preview/steps/step-02-calendar-conflict-check.md (calendar pull + UTC\u2192CT now via calendar-handler conflict-check, per-day rules and Quality Gate 2 kept inline), workflows/golf-booking/steps/step-05-visual-verification.md (DOM check kept as a supporting signal fed into visual-verification's reference_context, skill's approval/escalation decision now drives Gate 4), workflows/golf-booking/steps/step-06-calendar-block.md (AppleScript create+verify now via calendar-handler event-create, Gate 5 fallback-notify logic kept inline, deferring to the skill's own fallback_notified flag to avoid duplicate Slack alerts). Both skills registered in skills/_manifest.jsonl, skills/_manifest-rigby.jsonl, and skills/_index.md. Fairness: applicable: false on both (infrastructure/scheduling utilities against one user's own calendar, no differential treatment of people). Not committed or pushed per explicit instruction \u2014 held for review.",
+      "description": "Built two new agent-agnostic, reusable skills and rewired the golf workflows to call them instead of inline logic. visual-verification (skills/visual-verification/SKILL.md): a HARD gate for critical human sign-off on a screenshot — displays it, requires an explicit approval or escalation decision (never a silent pass-through on timeout/no-answer), records the decision to a JSONL log. calendar-handler (skills/calendar-handler/SKILL.md): single skill, three operations selected via `operation` — conflict-check (M365 calendar pull + centralized UTC→CT conversion + per-day CT timeline), date-calculate (next-weekend/current-weekend/specific-day offset math with min-days-out enforcement and self-validation), event-create (AppleScript against Calendar.app with mandatory post-create verification and a documented fallback-notify path; carries a Plan-Only Mode section since it's the one operation with a real side effect). Both are agent-agnostic (owning_agent: rigby, no .claude/skills stub) per the git/one-password/eval-signal-write pattern, since they're explicitly flagged reusable beyond golf. Updated 4 existing workflow step files to call the skills instead of the inline logic they used to carry, preserving all workflow-specific values (8-day booking-window min-days-out, Sunday/Friday-specific calendar rules, Frisco Lakes event details, the golf-booking Gate 4/Gate 5 escalation and fallback text) rather than dropping detail: workflows/golf-preview/steps/step-01-calculate-target-weekend.md (date math now via calendar-handler date-calculate, Saturday/Sunday derivation and Quality Gate 1 kept inline as the workflow's own re-validation layer), workflows/golf-preview/steps/step-02-calendar-conflict-check.md (calendar pull + UTC→CT now via calendar-handler conflict-check, per-day rules and Quality Gate 2 kept inline), workflows/golf-booking/steps/step-05-visual-verification.md (DOM check kept as a supporting signal fed into visual-verification's reference_context, skill's approval/escalation decision now drives Gate 4), workflows/golf-booking/steps/step-06-calendar-block.md (AppleScript create+verify now via calendar-handler event-create, Gate 5 fallback-notify logic kept inline, deferring to the skill's own fallback_notified flag to avoid duplicate Slack alerts). Both skills registered in skills/_manifest.jsonl, skills/_manifest-rigby.jsonl, and skills/_index.md. Fairness: applicable: false on both (infrastructure/scheduling utilities against one user's own calendar, no differential treatment of people). Not committed or pushed per explicit instruction — held for review.",
       "started": "2026-09-02T00:00:00Z",
       "classification": "system",
       "files": [
@@ -2936,7 +2936,7 @@
           "path": "workflows/golf-preview/steps/step-02-calendar-conflict-check.md",
           "action": "merge",
           "type": "system",
-          "description": "Calendar pull and UTC\u2192CT conversion now call calendar-handler (operation: conflict-check) instead of inline mcp__b8c41a14__outlook_calendar_search call and manual conversion"
+          "description": "Calendar pull and UTC→CT conversion now call calendar-handler (operation: conflict-check) instead of inline mcp__b8c41a14__outlook_calendar_search call and manual conversion"
         },
         {
           "path": "workflows/golf-booking/steps/step-05-visual-verification.md",
@@ -2976,12 +2976,12 @@
         "stopped_at_cap": false,
         "final_pass_rate": null,
         "description_optimized": false,
-        "note": "Build request explicitly asked to hold everything for review without committing or running the full validation pipeline. Steps 6-9 (eval authoring, test runs, description-tuning) deferred pending executive sign-off on invocation prompts and priorities \u2014 recommend running before packaging this evolution."
+        "note": "Build request explicitly asked to hold everything for review without committing or running the full validation pipeline. Steps 6-9 (eval authoring, test runs, description-tuning) deferred pending executive sign-off on invocation prompts and priorities — recommend running before packaging this evolution."
       }
     },
     {
       "id": "work-20260902-plaud-ingest-deterministic-gates",
-      "description": "Added 6 deterministic quality gates to the existing workflows/plaud-ingest workflow (no skill conversion \u2014 the workflow already existed with step files and state.yaml). Gates: (1) Token/Auth Confirmation \u2014 HARD post-hoc in step-01, fires only if plaud-discover's Chrome-login flow ran and failed, NOT a pre-flight check (preserved TOKEN PRE-CHECK PROHIBITION); (2) Recording Metadata Validation \u2014 SOFT in step-01, flags malformed data, hard-excludes only on missing file_id; (3) Transcription Success \u2014 HARD in step-02, retries per-recording 3x on transient failure; (4) Speaker Identification Completeness \u2014 SOFT in step-03, logs unresolved speakers without altering awaiting-input pause; (5) Vault Filing Verification \u2014 HARD in step-05, re-reads file/frontmatter after write; (6) Delivery Routing Confirmation \u2014 HARD in step-05b, confirms Alice email and Monday task ID. All additive; no existing logic dropped.",
+      "description": "Added 6 deterministic quality gates to the existing workflows/plaud-ingest workflow (no skill conversion — the workflow already existed with step files and state.yaml). Gates: (1) Token/Auth Confirmation — HARD post-hoc in step-01, fires only if plaud-discover's Chrome-login flow ran and failed, NOT a pre-flight check (preserved TOKEN PRE-CHECK PROHIBITION); (2) Recording Metadata Validation — SOFT in step-01, flags malformed data, hard-excludes only on missing file_id; (3) Transcription Success — HARD in step-02, retries per-recording 3x on transient failure; (4) Speaker Identification Completeness — SOFT in step-03, logs unresolved speakers without altering awaiting-input pause; (5) Vault Filing Verification — HARD in step-05, re-reads file/frontmatter after write; (6) Delivery Routing Confirmation — HARD in step-05b, confirms Alice email and Monday task ID. All additive; no existing logic dropped.",
       "started": "2026-09-02T18:00:00Z",
       "classification": "system",
       "files": [
@@ -3141,7 +3141,7 @@
     },
     {
       "id": "work-20260903-schema-validator-delivery-router-skills",
-      "description": "Built two new agent-agnostic, reusable skills and integrated them into the five gate call sites that previously implemented this logic inline: schema-validator (skills/schema-validator/SKILL.md) \u2014 pure, deterministic object-shape validation against a schema_spec (required_fields, word_count, format_rules, tags, em_dash_check, custom_checks including must_be_true/false/max_length/min_length/must_equal), returns {valid, errors, warnings}, no side effects, no LLM judgment on content (callers pre-compute any judgment-based booleans before calling); delivery-router (skills/delivery-router/SKILL.md) \u2014 routes content to slack/email/monday/ghost backends with per-backend verification (ghost backend calls update_post then re-fetches to confirm status/url/published_at rather than trusting the raw API response), a 3-attempt retry budget, required-vs-optional per-destination semantics, and a delivery_status/all_succeeded contract; carries a Plan-Only Mode section since every backend is a real side effect. Neither skill hardcodes any caller-specific facts (board IDs, person IDs, channel names) \u2014 those stay in the calling workflow step's config, per the skill's own Error Handling guidance, so the shared skill can't silently misroute a different caller's delivery. Integrated into: workflows/plaud-ingest/steps/step-01-discover.md (Gate 2 metadata validation now calls schema-validator per recording, same soft/hard severity split as before \u2014 only missing file_id excludes a recording), workflows/plaud-ingest/steps/step-05b-share-with-alice.md (Gate 6 Monday task creation now calls delivery-router with backend: monday; corrected the peer request's assumption that this needed slack/email backends \u2014 plaud-ingest's only real destination is Monday, per the Gate 6 rename already on record from the prior build), workflows/content-discovery/steps/step-01-discover.md (Gate 2 content schema validation now calls schema-validator, with the two genuinely judgment-based checks \u2014 post-arc element presence, source-recap detection \u2014 left as caller-supplied booleans since the skill does not interpret free text), workflows/content-approval/steps/step-01-approve.md (Gate 4 publishing pre-flight now calls schema-validator; Gate 5 delivery verification folded into the Step 3 Ghost publish call via delivery-router's ghost backend, since 'call the API' and 'verify it landed' are exactly what that backend already does as one unit \u2014 added must_equal to schema-validator's custom_checks set to support Gate 4's status=='draft' check rather than leaving a documented gap). Corrected two stale file-path assumptions in the request (content-discovery/step-02 and content-approval/step-04 and step-05 do not exist under those names post-split; actual gates live in each workflow's single step-01 file) \u2014 mapped onto the real files instead of creating phantom step files. Both skills registered in skills/_manifest.jsonl, skills/_manifest-rigby.jsonl, and skills/_index.md. Fairness: applicable: false on both. Staged (git add) but not committed per explicit instruction \u2014 held for review.",
+      "description": "Built two new agent-agnostic, reusable skills and integrated them into the five gate call sites that previously implemented this logic inline: schema-validator (skills/schema-validator/SKILL.md) — pure, deterministic object-shape validation against a schema_spec (required_fields, word_count, format_rules, tags, em_dash_check, custom_checks including must_be_true/false/max_length/min_length/must_equal), returns {valid, errors, warnings}, no side effects, no LLM judgment on content (callers pre-compute any judgment-based booleans before calling); delivery-router (skills/delivery-router/SKILL.md) — routes content to slack/email/monday/ghost backends with per-backend verification (ghost backend calls update_post then re-fetches to confirm status/url/published_at rather than trusting the raw API response), a 3-attempt retry budget, required-vs-optional per-destination semantics, and a delivery_status/all_succeeded contract; carries a Plan-Only Mode section since every backend is a real side effect. Neither skill hardcodes any caller-specific facts (board IDs, person IDs, channel names) — those stay in the calling workflow step's config, per the skill's own Error Handling guidance, so the shared skill can't silently misroute a different caller's delivery. Integrated into: workflows/plaud-ingest/steps/step-01-discover.md (Gate 2 metadata validation now calls schema-validator per recording, same soft/hard severity split as before — only missing file_id excludes a recording), workflows/plaud-ingest/steps/step-05b-share-with-alice.md (Gate 6 Monday task creation now calls delivery-router with backend: monday; corrected the peer request's assumption that this needed slack/email backends — plaud-ingest's only real destination is Monday, per the Gate 6 rename already on record from the prior build), workflows/content-discovery/steps/step-01-discover.md (Gate 2 content schema validation now calls schema-validator, with the two genuinely judgment-based checks — post-arc element presence, source-recap detection — left as caller-supplied booleans since the skill does not interpret free text), workflows/content-approval/steps/step-01-approve.md (Gate 4 publishing pre-flight now calls schema-validator; Gate 5 delivery verification folded into the Step 3 Ghost publish call via delivery-router's ghost backend, since 'call the API' and 'verify it landed' are exactly what that backend already does as one unit — added must_equal to schema-validator's custom_checks set to support Gate 4's status=='draft' check rather than leaving a documented gap). Corrected two stale file-path assumptions in the request (content-discovery/step-02 and content-approval/step-04 and step-05 do not exist under those names post-split; actual gates live in each workflow's single step-01 file) — mapped onto the real files instead of creating phantom step files. Both skills registered in skills/_manifest.jsonl, skills/_manifest-rigby.jsonl, and skills/_index.md. Fairness: applicable: false on both. Staged (git add) but not committed per explicit instruction — held for review.",
       "started": "2026-09-03T00:00:00Z",
       "classification": "system",
       "files": [
@@ -3397,12 +3397,12 @@
         "final_pass_rate": null,
         "description_optimized": false,
         "eval_artifacts_path": "systems/evals/work-20260904-episode-prep-generator/",
-        "note": "Eval artifacts were updated to match the new format but the executor/grading loop (rigby-capability-build steps 6-9) was not run in this pass \u2014 these are direct fixes to an existing capability set at the requester's explicit direction, not a fresh capability build. Recommend a live run of both podcast-prep paths (use_episode_prep true and false) before heavy reliance."
+        "note": "Eval artifacts were updated to match the new format but the executor/grading loop (rigby-capability-build steps 6-9) was not run in this pass — these are direct fixes to an existing capability set at the requester's explicit direction, not a fresh capability build. Recommend a live run of both podcast-prep paths (use_episode_prep true and false) before heavy reliance."
       }
     },
     {
       "id": "work-20260904-podcast-prep-additive-sources",
-      "description": "Corrected the podcast-prep/episode-prep-generator integration model per follow-up request: the prior implementation (work-20260904-episode-prep-podcast-prep-integration) treated episode-prep-generator output and Janine's SharePoint questions as either/or via a use_episode_prep flag. That model is wrong per explicit instruction \u2014 both sources must always feed podcast-prep simultaneously. Removed the use_episode_prep flag entirely from workflow.md, state.yaml, and all step files. step-02-gather-data.md now pulls both sources unconditionally every run (episode-prep-generator output from reviews/episode-prep/ if a matching file exists; Janine's SharePoint doc always) and writes sources_used as a list (episode-prep, sharepoint, both, or empty) rather than a binary flag/fallback field. step-03-build-prep-sheet.md now merges questions from both sources when both contributed, with an explicit Merge & Dedupe Rules subsection: read all questions from both sources before writing, treat differently-phrased-but-same-intent questions as duplicates (keep the episode-prep-grounded version's substance, optionally SharePoint's sharper phrasing), combine non-duplicates under merged thematic clusters, preserve source-appropriate follow-ups, and note the provenance/merge counts in Notes rather than interleaving it into the Questions section. step-04/step-05 (PDF distillation) needed no changes since they already operate generically on step-03's merged output. Updated agents/harper.md Task Portfolio rows for both workflows to describe the additive model. Confirmed no use_episode_prep or stale either/or fallback language remains in any current-state doc (workflow.md, state.yaml, step files, agents/harper.md) via repo-wide grep; historical eval-harness run logs and the prior pending-changes entry describing the now-superseded flag were left untouched as historical records, not living documentation.",
+      "description": "Corrected the podcast-prep/episode-prep-generator integration model per follow-up request: the prior implementation (work-20260904-episode-prep-podcast-prep-integration) treated episode-prep-generator output and Janine's SharePoint questions as either/or via a use_episode_prep flag. That model is wrong per explicit instruction — both sources must always feed podcast-prep simultaneously. Removed the use_episode_prep flag entirely from workflow.md, state.yaml, and all step files. step-02-gather-data.md now pulls both sources unconditionally every run (episode-prep-generator output from reviews/episode-prep/ if a matching file exists; Janine's SharePoint doc always) and writes sources_used as a list (episode-prep, sharepoint, both, or empty) rather than a binary flag/fallback field. step-03-build-prep-sheet.md now merges questions from both sources when both contributed, with an explicit Merge & Dedupe Rules subsection: read all questions from both sources before writing, treat differently-phrased-but-same-intent questions as duplicates (keep the episode-prep-grounded version's substance, optionally SharePoint's sharper phrasing), combine non-duplicates under merged thematic clusters, preserve source-appropriate follow-ups, and note the provenance/merge counts in Notes rather than interleaving it into the Questions section. step-04/step-05 (PDF distillation) needed no changes since they already operate generically on step-03's merged output. Updated agents/harper.md Task Portfolio rows for both workflows to describe the additive model. Confirmed no use_episode_prep or stale either/or fallback language remains in any current-state doc (workflow.md, state.yaml, step files, agents/harper.md) via repo-wide grep; historical eval-harness run logs and the prior pending-changes entry describing the now-superseded flag were left untouched as historical records, not living documentation.",
       "started": "2026-09-04T19:35:37Z",
       "files": [
         {
@@ -3503,7 +3503,7 @@
           "path": "skills/git/SKILL.md",
           "action": "merge",
           "type": "system",
-          "description": "Added standing Shell Working Directory rule: never bare cd for zip/subdirectory ops, always (cd dir && zip ...) \u2014 mirrors SYSTEM.md execution guard (err-20260829T161002-X7JBHO)"
+          "description": "Added standing Shell Working Directory rule: never bare cd for zip/subdirectory ops, always (cd dir && zip ...) — mirrors SYSTEM.md execution guard (err-20260829T161002-X7JBHO)"
         },
         {
           "path": "agents/chase.md",
@@ -3621,7 +3621,7 @@
         "stopped_at_cap": false,
         "final_pass_rate": null,
         "description_optimized": false,
-        "note": "Directed Tier 1 fix application scoped by existing error entries; verified with behavioral tests of all three record-selection functions (in-progress preference, fractional-second timestamp ordering, loud-failure exit path, stale-date warning) plus CLI arg surface checks. No executor eval loop run \u2014 fixes are deterministic script/guard changes, not a new capability. Second batch: new-entry.py validated end-to-end (valid creation, agent normalization, non-canonical severity/category/source rejection with allowed sets, empty-category rejection, unknown failure_mode warn-but-pass, --id-only unchanged); golf-booking Gate 0 validated by structural wiring review across workflow.md's three tables plus step-00/step-01 files."
+        "note": "Directed Tier 1 fix application scoped by existing error entries; verified with behavioral tests of all three record-selection functions (in-progress preference, fractional-second timestamp ordering, loud-failure exit path, stale-date warning) plus CLI arg surface checks. No executor eval loop run — fixes are deterministic script/guard changes, not a new capability. Second batch: new-entry.py validated end-to-end (valid creation, agent normalization, non-canonical severity/category/source rejection with allowed sets, empty-category rejection, unknown failure_mode warn-but-pass, --id-only unchanged); golf-booking Gate 0 validated by structural wiring review across workflow.md's three tables plus step-00/step-01 files."
       }
     },
     {
@@ -5899,7 +5899,7 @@
     },
     {
       "id": "work-20261022-182004",
-      "description": "Boot steps 01.2 + 02-04 context-tax reduction, extending the step-01.5 fix (work-20261022-143802) per controller directive with root-cause evidence from eval-20261021T151330-QNQLC5 (steps 02/03/04 at 545,309/495,386/531,500 input tokens for 628/1,014/1,354 output) and eval-20261013T114019-Q5UJLE (719,033 in / 4,291 out attributed across steps 01.2-04): (1) steps 01.2, 02, 03, and 04 now dispatch as dedicated single-purpose subagents spawned by the coordinator in sequence, each with a fresh bounded context \u2014 no master persona or SYSTEM.md load, no STATE CHECK, literal workflows/boot/workflow.md reference for eval subagent attribution; (2) all read-and-follow next-step chains removed from steps 01.2-04, replaced with explicit RETURN TO COORDINATOR handoffs \u2014 the one long-lived boot subagent that walked steps 01.2-08 was the entire 500-720k-per-step cost profile; (3) state.yaml and step-frontmatter updates mandated via Edit/Write, never Bash (per-step eval attribution keys on Edit/Write tool calls); (4) pull-once-share-many enforced end to end: step-02 reads only data/*-unified.json (zero M365/OmniFocus/Clay calls; morning-briefing steps 01-02 borrowed as mechanical file reads, not a morning-briefing workflow run \u2014 no Watchtower/Ralph), step-04 reads Clay from data/clay-reminders-unified.json instead of re-calling Clay MCP, jarvis-inbox processing spawns only when data/jarvis-inbox-unified.json shows unread items; (5) compact-results discipline: accumulated-context carries counts and itemized summaries, never raw payloads, so step-05's synthesis reads from state.yaml; (6) briefing subagent (persona master, steps 05-08 only) replaces the old main-boot-subagent range, spawned after step-04 returns; (7) runtime assertions boot-014 through boot-022 added to systems/eval-harness/assertions/boot.json guarding every step file's return-to-coordinator handoff, the absence of next-step chains, and the dedicated-dispatch model in workflow.md. Target: 1-1.5M input tokens per boot. Not committed per standing rule \u2014 held for controller review.",
+      "description": "Boot steps 01.2 + 02-04 context-tax reduction, extending the step-01.5 fix (work-20261022-143802) per controller directive with root-cause evidence from eval-20261021T151330-QNQLC5 (steps 02/03/04 at 545,309/495,386/531,500 input tokens for 628/1,014/1,354 output) and eval-20261013T114019-Q5UJLE (719,033 in / 4,291 out attributed across steps 01.2-04): (1) steps 01.2, 02, 03, and 04 now dispatch as dedicated single-purpose subagents spawned by the coordinator in sequence, each with a fresh bounded context — no master persona or SYSTEM.md load, no STATE CHECK, literal workflows/boot/workflow.md reference for eval subagent attribution; (2) all read-and-follow next-step chains removed from steps 01.2-04, replaced with explicit RETURN TO COORDINATOR handoffs — the one long-lived boot subagent that walked steps 01.2-08 was the entire 500-720k-per-step cost profile; (3) state.yaml and step-frontmatter updates mandated via Edit/Write, never Bash (per-step eval attribution keys on Edit/Write tool calls); (4) pull-once-share-many enforced end to end: step-02 reads only data/*-unified.json (zero M365/OmniFocus/Clay calls; morning-briefing steps 01-02 borrowed as mechanical file reads, not a morning-briefing workflow run — no Watchtower/Ralph), step-04 reads Clay from data/clay-reminders-unified.json instead of re-calling Clay MCP, jarvis-inbox processing spawns only when data/jarvis-inbox-unified.json shows unread items; (5) compact-results discipline: accumulated-context carries counts and itemized summaries, never raw payloads, so step-05's synthesis reads from state.yaml; (6) briefing subagent (persona master, steps 05-08 only) replaces the old main-boot-subagent range, spawned after step-04 returns; (7) runtime assertions boot-014 through boot-022 added to systems/eval-harness/assertions/boot.json guarding every step file's return-to-coordinator handoff, the absence of next-step chains, and the dedicated-dispatch model in workflow.md. Target: 1-1.5M input tokens per boot. Not committed per standing rule — held for controller review.",
       "started": "2026-10-22T18:20:04Z",
       "classification": "system",
       "files": [
@@ -5983,7 +5983,7 @@
         "stopped_at_cap": false,
         "final_pass_rate": 1.0,
         "description_optimized": false,
-        "description_optimization_note": "Skipped \u2014 workflow step optimization, not a phrase-triggered skill; invoked by explicit controller directive",
+        "description_optimization_note": "Skipped — workflow step optimization, not a phrase-triggered skill; invoked by explicit controller directive",
         "eval_artifacts_path": "systems/evals/work-20261022-182004/"
       }
     },
@@ -6215,6 +6215,420 @@
         "stopped_at_cap": false,
         "final_pass_rate": null,
         "description_optimized": false
+      }
+    },
+    {
+      "id": "work-20261102-192758",
+      "description": "Briefing-subagent optimization, Option A (slim the single spawn, keep the structure), per the approved plan at memory/working/2026-11-02-rigby-briefing-subagent-optimization-plan.md. Diagnosis from the 2026-11-02 boot (eval-20261102T161939-82ACO1): the steps 05-08 briefing subagent cost 3,369,767 input tokens over 46 assistant turns at an average prompt of 73,255 tokens, and the cost is turns x prompt size, not synthesis. 13 calls were nothing but a single Edit or Write (1.07M input, 31.6%); about 30 calls touched state.yaml, a step frontmatter block, or the clock (2.34M, 69.5%); 25.2% of the run (850k input) fell outside every attribution window because completed-at was stamped before the state writes finished. Changes: (1) the steps 05-08 spawn brief in workflow.md now carries a TURN BUDGET (22 turns or fewer, scoped to reads and bookkeeping only), READ RESTRICTIONS (four step files in one turn, state.yaml read once against accumulated-context, never the verifier source, never systems/eval-harness/**, never re-run a passing gate) and WRITE ORDER (state key first, frontmatter stamp last, completed-at read immediately before the writes); (2) each of steps 05-08 now carries a shared WRITE PROTOCOL block: one clock read per step reused for every write, state edits anchored on the literal accumulated-context: / status: / current-step: lines with no grep and no re-read, frontmatter stamp last, all Edits in one turn, never cat or Write state.yaml; (3) step-05 keeps the Chief spawn unchanged but folds the data/reminders.json inspection into the Chief turn, caps briefing_delivered at 200 characters with a fixed prefix, and replaces the 2,725-token full-file Write of workflows/morning-briefing/state.yaml with two targeted Edits; (4) step-06 replaces the open-ended consistency sweep with one deterministic index-plus-ground-truth command and caps workflows_scanned at 200 characters; (5) step-07 forbids reading boot-verify.py source, forbids re-running a gate that exited 0, and closes boot in one turn with four parallel Edits carrying status, current-step, completed-at and state_status; (6) step-08 replaces the free-form runs-directory search with one bounded command and writes the four knox_* keys in a single Edit. Untouched by design: the nested Chief spawn, the Edit/Write-only write rule (step-complete.py is a PostToolUse hook on Edit|Write), the real-clock stamp rule and timestamp-integrity gate (the fix is write order, not relaxed stamps), the guardrail punch-out and SendMessage resume protocol, the literal workflows/boot/workflow.md string, the do-not-read-any-other-step-file lines, the verbatim-final-message requirement, both boot-verify.py gates' semantics, the state.yaml schema (Phase 2 accumulated-context slimming is not approved yet), and steps 01 through 04. Target per the plan: 22 turns, under 1.3M input, peak prompt under 58k, duration under 110s, attributed share at or above 90%. Adjacent fix in the same pass: .claude/hooks/post-tool-use.py update_session_index raised AttributeError when a topics list entry was a plain string, which aborted the session-index update and injected a traceback into every writing subagent's transcript; both topic loops now guard with isinstance(t, dict) and the dict path is unchanged.",
+      "started": "2026-11-02T19:27:58Z",
+      "classification": "system",
+      "files": [
+        {
+          "path": "workflows/boot/workflow.md",
+          "action": "merge",
+          "type": "system",
+          "description": "Steps 05-08 spawn brief gains TURN BUDGET, READ RESTRICTIONS and WRITE ORDER; timestamp line restated as one clock read per step reused for both writes. Literal workflows/boot/workflow.md reference and all five do-not-read-any-other-step-file lines preserved verbatim."
+        },
+        {
+          "path": "workflows/boot/steps/step-05-synthesize-briefing.md",
+          "action": "replace",
+          "type": "system",
+          "description": "Chief spawn unchanged; reminders read folded into the Chief turn; briefing_delivered capped at 200 chars with fixed prefix; WRITE PROTOCOL block replaces the free-form state and frontmatter writes; morning-briefing/state.yaml now two targeted Edits instead of a full-file Write."
+        },
+        {
+          "path": "workflows/boot/steps/step-06-scan-workflows.md",
+          "action": "replace",
+          "type": "system",
+          "description": "One deterministic index-plus-consistency command replaces the open-ended sweep; boot's own state.yaml excluded from the comparison; response capped to one line when index and disk agree; workflows_scanned capped at 200 chars; WRITE PROTOCOL added."
+        },
+        {
+          "path": "workflows/boot/steps/step-07-verify-completion.md",
+          "action": "replace",
+          "type": "system",
+          "description": "Forbids reading boot-verify.py source and re-running a gate that exited 0; boot close carried by four parallel Edits in one turn (status, completed-at plus current-step, state_status, frontmatter); gate semantics unchanged."
+        },
+        {
+          "path": "workflows/boot/steps/step-08-knox-completion-check.md",
+          "action": "replace",
+          "type": "system",
+          "description": "One bounded command replaces the free-form runs-directory search (newest plaud-ingest record started today, incl. punch_out_signal); all four knox_* keys written in one Edit; frontmatter stamped last."
+        },
+        {
+          "path": ".claude/hooks/post-tool-use.py",
+          "action": "merge",
+          "type": "system",
+          "description": "update_session_index no longer raises AttributeError when a topics list entry is a plain string; both the unattributed and current_topic loops now require isinstance(t, dict). Restores session-index maintenance on Write/Edit and removes the traceback injected into writing subagent transcripts."
+        }
+      ],
+      "validation": {
+        "evals_run": false,
+        "eval_count": 0,
+        "iterations": 0,
+        "stopped_at_cap": false,
+        "final_pass_rate": null,
+        "description_optimized": false,
+        "description_optimization_note": "Skipped - workflow step optimization, not a phrase-triggered skill; invoked by explicit controller directive",
+        "validation_note": "Static validation only; paired with_skill/old_skill executor runs skipped, same rationale as work-20261022-143802 and work-20261022-182004: each config is a full live boot and the build's purpose is removing that cost profile. Verified: (1) conventions linter build-gate clean on all five changed workflow artifacts (0 FAIL); one size.workflow_md WARN on workflow.md at 160 lines against a 150-line guide, created by the mandated brief content, surfaced for David's approval rather than self-granted. (2) The step-06 and step-08 commands were extracted verbatim from the step files and executed from the IES root: both exit 0 with bounded output (12 and 10 stdout lines). (3) The full steps 05-08 WRITE PROTOCOL edit sequence was replayed against a synthetic fresh-run state.yaml: all seven anchors matched exactly once and the result parses as valid YAML with status complete, current-step null, completed-at set, and all seven new keys present. (4) Both state.yaml files and all five edited frontmatters parse as YAML. (5) boot-verify.py completion still exits 0 against the current repo state. (6) The 13 static boot assertions (file_contains/file_not_contains, incl. boot-022 dedicated-dispatch) pass; the 9 record-dependent assertions are not evaluable statically. (7) Hook fix exercised by direct import with INDEX_PATH pointed at a temp file: 6 cases pass, covering plain-string topics with and without current_topic, dict topics with and without current_topic, a mixed list, and path dedupe; py_compile clean. The next three live boots are the end-to-end measurement against the plan's section 4 targets (turns <= 24, input < 1.3M, peak prompt <= 58k, duration <= 110s, attributed share >= 90%). Regression trigger: any of the next three boots over 32 turns or 2.1M input means the brief is not binding and Option B is next."
+      }
+    },
+    {
+      "id": "work-20261102-212800",
+      "description": "Narrative purge of workflows/boot/workflow.md per standing rule correction err-20261102T212336-DWG2OK: workflow and skill files carry operative rules only, with no dated incident stories, err- or eval-ID provenance citations, token-spike anecdotes, or merge history. Changes to workflow.md: removed the 2026-10-26 superseded-block incident sentence (fresh-run reset rule kept); deleted the 'Two reasons this spawn prompt is shaped exactly this way' paragraph; removed the historical token numbers and eval-ID citations from the steps 01.2/02/03/04 dispatch paragraph while keeping fresh bounded subagents, no persona load, no step walking, compact results, one-at-a-time blocking spawns, and the every-brief-must-keep rule; removed the 2026-10-29 4x token-spike sentence from step-04's CONTEXT BUDGET block; removed the err-20261027T184315-93PIYQ citation from the Watchtower line; removed the 2026-10-22 42-Bash-calls anecdote from the file-tool rule; removed the 2026-10-26 stamp anecdote and the boot-verify explanation from the timestamp rule; deleted the former step-02.5/step-06.5 merge-history line; corrected the header from '7 sequential steps' to 10 to match the steps table; dropped the 10-30/11-02 turn counts and the 11-02 attribution-window sentence from the steps 05-08 spawn brief, keeping the turn-cost operating principle. Formatting: all em-dashes replaced with periods, commas, or colons; adjacent paragraphs joined where line wrapping allowed, with no operative content removed. The file went from 160 to 148 lines against the 150-line linter guide, so no conventions-exceptions entry is needed. Also fixed the guardrail column placeholders from an em-dash to 'none'.",
+      "started": "2026-11-02T21:28:00Z",
+      "classification": "system",
+      "files": [
+        {
+          "path": "workflows/boot/workflow.md",
+          "action": "replace",
+          "type": "system",
+          "description": "Narrative purge. All dated incidents, err-/eval-ID citations, token-cost anecdotes, and merge history removed; every operative rule preserved, including the literal workflows/boot/workflow.md string in all five spawn briefs, all five 'Do not read or execute any other step file' lines, the verbatim-final-message requirement, Edit/Write-only writes, real-clock stamps, gate semantics, the steps 01-04 brief content, and the blockquoted briefs. 160 to 148 lines."
+        }
+      ],
+      "validation": {
+        "evals_run": false,
+        "eval_count": 0,
+        "iterations": 0,
+        "stopped_at_cap": false,
+        "final_pass_rate": null,
+        "description_optimized": false,
+        "description_optimization_note": "Skipped: workflow orchestrator edit, not a phrase-triggered skill.",
+        "validation_note": "Static validation only. (1) validate-conventions.py --target workflows/boot/workflow.md reports 0 fail, 0 warn, 0 acknowledged at 148 lines, so no conventions-exceptions entry was added. (2) Frontmatter parses as YAML with the same six keys and fairness block as before. (3) Grep for eval-<id>, err-<id>, and 20xx-xx-xx patterns returns no narrative hits; the only 'eval-' matches are the literal systems/eval-harness/ path references, which are non-narrative tool paths. (4) Two attribution-critical static assertion patterns survive as required by systems/eval-harness/assertions/boot.json: 'dedicated calendar subagent' (boot-013) and 'dedicated single-purpose subagents' (boot-022). All five 'Do not read or execute any other step file' lines and all seven literal workflows/boot/workflow.md references are intact. (5) boot-verify.py completion exits 0 with COMPLETION PASS. (6) Zero em-dashes remain in the file. (7) Sweep for dangling references to the deleted paragraphs found only the matching narrative still present in workflows/boot/steps/step-01.5-unified-calendar-pull.md, which is outside this work item's scope and is inventoried separately for David's review."
+      }
+    },
+    {
+      "id": "work-20261102-214602",
+      "description": "Full narrative-purge sweep across workflow and skill files per standing rule err-20261102T212336-DWG2OK. Box 1: removed all err-/eval-ID citations, dated incident stories, and token war stories from sections A and B of the inventory, preserving every operative rule. Box 2: dispositioned each Category C dated-state note, keeping operational facts and stripping pure provenance; the hub go-live date and the proposed-sources approval ledger were retained as operative data. Box 3: replaced each Category E ID-only marker with a generic rule sentence that states the failure mode in words. Box 4: implemented the linter narrative guard in systems/eval-harness/validate-conventions.py (WARN in report mode, FAIL in build-gate, applied to SKILL.md and workflows/**/*.md). Residual narrative findings are confined to workflows/watchtower/proposed-sources.md, a data ledger whose dates are the record.",
+      "started": "2026-11-02T21:46:02Z",
+      "classification": "system",
+      "files": [
+        {
+          "path": "workflows/boot/steps/step-01.5-unified-calendar-pull.md",
+          "action": "replace",
+          "type": "system",
+          "description": "Narrative purge: removed 2026-10-22 next-step-chain story, eval-20261022T114429-OCSJIC citation, two err-ID citations, and the 2026-10-22 lost-records anecdote; rules kept."
+        },
+        {
+          "path": "workflows/boot/steps/step-01-load-context.md",
+          "action": "replace",
+          "type": "system",
+          "description": "Narrative purge: removed 2026-10-29 boot token analysis provenance, 804K-token fork story, 74K-token fork base, and 2026-10-26 midnight-stamp anecdote; rules kept."
+        },
+        {
+          "path": "workflows/boot/steps/step-02-gather-data.md",
+          "action": "replace",
+          "type": "system",
+          "description": "Narrative purge: removed 2026-10-22 next-step-chain story and eval-20261021T151330-QNQLC5/eval-20261013T114019-Q5UJLE token citations; rules kept."
+        },
+        {
+          "path": "workflows/boot/steps/step-03-verify-phase2.md",
+          "action": "replace",
+          "type": "system",
+          "description": "Narrative purge: removed 2026-10-22 eval-20261021T151330-QNQLC5 495k/1,014-token story; rule kept."
+        },
+        {
+          "path": "workflows/boot/steps/step-04-gather-meeting-context.md",
+          "action": "replace",
+          "type": "system",
+          "description": "Narrative purge: removed 2026-10-22 next-step-chain story, 2026-10-29 2,099,878-token/31-turn war story, 2026-10-29 off-mandate-read anecdote, and 2M-token line; context-budget rules kept."
+        },
+        {
+          "path": "workflows/boot/steps/step-05-synthesize-briefing.md",
+          "action": "replace",
+          "type": "system",
+          "description": "Narrative purge: removed Watchtower removal date and err-20261027T184315-93PIYQ citation; rule kept."
+        },
+        {
+          "path": "workflows/boot/steps/step-07-verify-completion.md",
+          "action": "replace",
+          "type": "system",
+          "description": "Narrative purge: removed 2026-11-02 state-file anecdote; uniqueness rule kept."
+        },
+        {
+          "path": "workflows/content-discovery/references/image-sourcing.md",
+          "action": "replace",
+          "type": "system",
+          "description": "Narrative purge: removed err-20260915T154324-4DLWA4 and err-20260715T195437-E6MUV6 citations; orientation and geo rules kept, failure mode restated generically."
+        },
+        {
+          "path": "workflows/content-discovery/references/message-router.md",
+          "action": "replace",
+          "type": "system",
+          "description": "Narrative purge: removed four err-ID citations and the old-detection-rule story; routing and linking rules kept."
+        },
+        {
+          "path": "workflows/content-discovery/references/gates.md",
+          "action": "replace",
+          "type": "system",
+          "description": "Narrative purge: removed err-20260715T182916-FSMOJK, err-20260915T154324-LFMX48, -4DLWA4, -VTPMUJ citations and the 2026-10-21 schema-validator provenance date; gates kept."
+        },
+        {
+          "path": "workflows/content-discovery/references/draft-quality-manifest.md",
+          "action": "replace",
+          "type": "system",
+          "description": "Narrative purge: removed err-20260915T154324-4DLWA4 and -VTPMUJ citations; field rules kept."
+        },
+        {
+          "path": "workflows/content-discovery/references/hub-registry.md",
+          "action": "replace",
+          "type": "system",
+          "description": "Narrative purge: removed tightening/review/retirement dates and the 2026-10-26 35-post sync-diff story; hub rules kept. Go-live date 2026-10-21 retained as the operative candidate cutoff."
+        },
+        {
+          "path": "workflows/content-discovery/references/digest-format.md",
+          "action": "replace",
+          "type": "system",
+          "description": "Narrative purge: removed approved-2026-10-21 provenance; structure rule kept."
+        },
+        {
+          "path": "workflows/content-discovery/references/ghost-draft-creation.md",
+          "action": "replace",
+          "type": "system",
+          "description": "Narrative purge: removed verified-2026-05-19 and verified-2026-10-21 provenance; API rules kept."
+        },
+        {
+          "path": "workflows/content-discovery/steps/step-01-discover.md",
+          "action": "replace",
+          "type": "system",
+          "description": "Narrative purge: removed err-20260908T223218-VPU9BH from the 48H RETRY RULE and approved-2026-10-21 provenance from the structure rule."
+        },
+        {
+          "path": "workflows/content-discovery/workflow.md",
+          "action": "replace",
+          "type": "system",
+          "description": "Narrative purge: removed approved-2026-10-21 provenance; citation-friendly structure rule kept."
+        },
+        {
+          "path": "workflows/plaud-ingest/workflow.md",
+          "action": "replace",
+          "type": "system",
+          "description": "Narrative purge: removed err-20260730T143152-S0TRMO, err-20260611T113806-g0pfoq, the 2026-10-26 1.65M-token/24-turn story, and the 2026-10-28 8.8M-token analysis; auth, preflight, and context-budget rules kept."
+        },
+        {
+          "path": "workflows/plaud-ingest/steps/step-01-discover.md",
+          "action": "replace",
+          "type": "system",
+          "description": "Narrative purge: removed err-20260826T190948-QQMBTP and err-20260730T143152-S0TRMO citations; dedup gate and post-hoc auth gate rules kept."
+        },
+        {
+          "path": "workflows/plaud-ingest/steps/step-03-identify-speakers.md",
+          "action": "replace",
+          "type": "system",
+          "description": "Category E: replaced three err-ID-only FAILURE MODE PREVENTED markers with generic rule sentences; removed err-20260929T024338-K3K074 from the escalation header. All speaker-resolution rules kept."
+        },
+        {
+          "path": "workflows/plaud-ingest/steps/step-06-verify-ingest.md",
+          "action": "replace",
+          "type": "system",
+          "description": "Narrative purge: replaced the 1-2.5M-token re-derivation line with a deterministic-set-diff rule."
+        },
+        {
+          "path": "workflows/plaud-ingest/references/context-budget-protocol.md",
+          "action": "replace",
+          "type": "system",
+          "description": "Narrative purge: removed the 2026-10-27/28 10.4M/8.8M-token analysis, err-20260909T010719-0BCW7C citation, and 2026-10-28 degraded-rename-mode date; protocol rules kept."
+        },
+        {
+          "path": "workflows/card-review/workflow.md",
+          "action": "replace",
+          "type": "system",
+          "description": "Narrative purge: removed err-20261016T203925-XMT2U0 citations and the 2026-10-16 Q3 Resy/lululemon/Atlas incident story; freshness and verification-boundary rules kept."
+        },
+        {
+          "path": "workflows/dream-cycle/workflow.md",
+          "action": "replace",
+          "type": "system",
+          "description": "Narrative purge: removed 2026-06-13 to 2026-06-21 lock-blocker pattern and err-20260716T133618-FUOKLP citation; host-side git rule kept."
+        },
+        {
+          "path": "workflows/dream-cycle/steps/step-01-working-memory-cleanup.md",
+          "action": "replace",
+          "type": "system",
+          "description": "Narrative purge: removed 2026-05-08 to 2026-06-09 tag-starvation provenance; enrichment rule kept."
+        },
+        {
+          "path": "workflows/dream-cycle/steps/step-05-logging.md",
+          "action": "replace",
+          "type": "system",
+          "description": "Narrative purge: removed the 2026-06-13 destructive-push origin story; lock-workaround prohibition kept, failure mode restated generically."
+        },
+        {
+          "path": "workflows/morning-briefing/workflow.md",
+          "action": "replace",
+          "type": "system",
+          "description": "Category E: replaced the err-20260715T134820-X2GOL2 error-log pointer with a generic unavailable-tool failure-mode rule; five-consecutive-boots count removed."
+        },
+        {
+          "path": "workflows/watchtower/workflow.md",
+          "action": "replace",
+          "type": "system",
+          "description": "Narrative purge: removed pre-2026-10-26 zero-step-record story and eval-20261026T142940-SP53MK citation; explicit eval-record rule kept."
+        },
+        {
+          "path": "workflows/content-approval/steps/step-01-approve.md",
+          "action": "replace",
+          "type": "system",
+          "description": "Narrative purge: removed err-20260726T164307-HSUVNE citation and retired-2026-10-20 provenance; no-regeneration rule kept."
+        },
+        {
+          "path": "workflows/content-pipeline/steps/step-02-approve.md",
+          "action": "replace",
+          "type": "system",
+          "description": "Narrative purge: removed retired-2026-10-20 provenance; delegation note kept."
+        },
+        {
+          "path": "workflows/content-calendar/steps/step-05-git-finalize.md",
+          "action": "replace",
+          "type": "system",
+          "description": "Narrative purge: removed err-20261008T222241-UHTK59 citation; hand-off-to-terminal rule kept with generic rationale."
+        },
+        {
+          "path": "workflows/account-pursuit-map/steps/step-01-entity-anchor-and-trigger.md",
+          "action": "replace",
+          "type": "system",
+          "description": "Category E: replaced the err-20260720T144623-LSBA9A OFS-collision citation with a generic entity-verification rule sentence."
+        },
+        {
+          "path": "workflows/account-pursuit-map/steps/step-03-competitive-positioning-and-leadership.md",
+          "action": "replace",
+          "type": "system",
+          "description": "Narrative purge: removed added-2026-10-23 and err-20261023T215756-0X7I4Z provenance from the offering-grounding gate; gate kept."
+        },
+        {
+          "path": "workflows/account-pursuit-map/steps/step-06-synthesize-and-deliver.md",
+          "action": "replace",
+          "type": "system",
+          "description": "Narrative purge: removed added-2026-10-23 and err-20261023T215756-0X7I4Z provenance from the offering-grounding rule; rule kept."
+        },
+        {
+          "path": "workflows/golf-booking/workflow.md",
+          "action": "replace",
+          "type": "system",
+          "description": "Category E: replaced four err-ID citations in the gate table and failure-mode table with generic irreversible-cancel, no-date-substitution, and no-visual-position rules."
+        },
+        {
+          "path": "workflows/card-walkthrough/steps/step-01-walkthrough.md",
+          "action": "replace",
+          "type": "system",
+          "description": "Category C: restated verified-live navigation as undated/re-verify, and stripped the closed-card dates; rules kept."
+        },
+        {
+          "path": "workflows/card-walkthrough/steps/step-02-offers.md",
+          "action": "replace",
+          "type": "system",
+          "description": "Narrative purge: removed last-run-2026-06-01 and the 2026-10-16 Citi Sixt error-story; error-is-not-proof-of-failure rule restated generically."
+        },
+        {
+          "path": "workflows/card-which/steps/step-01-recommend.md",
+          "action": "replace",
+          "type": "system",
+          "description": "Category C: stripped the Atlas Visa closure date; exclusion fact kept."
+        },
+        {
+          "path": "skills/plaud-speaker-id/SKILL.md",
+          "action": "replace",
+          "type": "system",
+          "description": "Category E: removed err-20260929T024338-K3K074 from the non-negotiable output-rule header; both rules kept intact."
+        },
+        {
+          "path": "skills/git/SKILL.md",
+          "action": "replace",
+          "type": "system",
+          "description": "Narrative purge: removed seen-2026-10-18 5-recurrence count, err-20261018T232304-NI2NH8, and seen-2026-10-20 from the gotchas; workarounds kept."
+        },
+        {
+          "path": "skills/chase-card-offers-discover/SKILL.md",
+          "action": "replace",
+          "type": "system",
+          "description": "Category C: restated the Capital One portal mapping undated with a re-verify note, stripped the status-table and replacement-notice dates, removed err-20261016T210131-BI38IK; UNVERIFIED offers warning kept."
+        },
+        {
+          "path": "skills/chase-card-offers-citi/SKILL.md",
+          "action": "replace",
+          "type": "system",
+          "description": "Category C: stripped 2026-10-16 provenance from the primary-path and credential-injection notes; rules kept."
+        },
+        {
+          "path": "skills/chase-card-offers-amex/SKILL.md",
+          "action": "replace",
+          "type": "system",
+          "description": "Category C: stripped 2026-10-16 provenance from the primary-path and credential-injection notes; rules kept."
+        },
+        {
+          "path": "skills/chase-card-offers-chase/SKILL.md",
+          "action": "replace",
+          "type": "system",
+          "description": "Category C: stripped 2026-10-16 provenance from the primary-path and credential-injection notes; rules kept."
+        },
+        {
+          "path": "skills/delivery-router/SKILL.md",
+          "action": "replace",
+          "type": "system",
+          "description": "Category C: removed retired-2026-10-20 provenance; consumer-status fact kept."
+        },
+        {
+          "path": "skills/schema-validator/SKILL.md",
+          "action": "replace",
+          "type": "system",
+          "description": "Category C: removed retired-2026-10-20 provenance; gate-status fact kept."
+        },
+        {
+          "path": "skills/plaud-transcripts/SKILL.md",
+          "action": "replace",
+          "type": "system",
+          "description": "Category C: replaced the 2026-10-20 change note with an undated statement that --list-all is unavailable; reconciliation rule kept."
+        },
+        {
+          "path": "skills/plaud-discover/SKILL.md",
+          "action": "replace",
+          "type": "system",
+          "description": "Narrative purge: replaced the pre-2026-08-10 tier-2 cutoff with a file_id-frontmatter condition, and removed the 100+ false-positive incident count; dedup rules kept."
+        },
+        {
+          "path": "skills/ynab-data/SKILL.md",
+          "action": "replace",
+          "type": "system",
+          "description": "Narrative purge: replaced the ad-hoc-pull history and drifted-token-path story with the single-writer rationale; cache rule kept."
+        },
+        {
+          "path": ".claude/skills/knox-search/SKILL.md",
+          "action": "replace",
+          "type": "system",
+          "description": "Narrative purge: replaced the 2026-10-15 cut-off sweep story with a generic write-progress-to-disk rule."
+        },
+        {
+          "path": ".claude/skills/remarkable-upload/SKILL.md",
+          "action": "replace",
+          "type": "system",
+          "description": "Narrative purge: removed eval E747AF/2026-06-30 and the 2026-06-30 GeniusSpark 8-iteration story; staging and pre-push rules kept."
+        },
+        {
+          "path": ".claude/skills/rigby-integrity/SKILL.md",
+          "action": "replace",
+          "type": "system",
+          "description": "Category C/E: removed the 2026-10-16 card-review/card-walkthrough defect story and restated the configured-flag staleness note undated without named tasks; verification rule kept."
+        },
+        {
+          "path": ".claude/skills/rigby-eval-grade/SKILL.md",
+          "action": "replace",
+          "type": "system",
+          "description": "Narrative purge: removed 2026-10-29 analysis provenance and sweep/boot timestamps; catch-up-window rule kept."
+        },
+        {
+          "path": "systems/eval-harness/validate-conventions.py",
+          "action": "replace",
+          "type": "system",
+          "description": "Added NARRATIVE_ID_RE and NARRATIVE_DATE_RE guard: WARN in report mode for SKILL.md and workflows/**/*.md, frontmatter and fenced code skipped, e.g./Example lines excluded, runs/ records ignored; build_gate_extra promotes to FAIL for new artifacts. Also fixed a pre-existing double-count in build_gate_extra (findings.extend of the same list)."
+        }
+      ],
+      "validation": {
+        "evals_run": false,
+        "eval_count": 0,
+        "iterations": 0,
+        "stopped_at_cap": false,
+        "final_pass_rate": null,
+        "description_optimized": false,
+        "description_optimization_note": "Skipped: documentation-only purge of workflow and skill prose; no phrase-triggered skill behavior changed.",
+        "validation_note": "Static validation. (1) validate-conventions.py py_compile clean. (2) Full-repo report mode before the linter rule: 2 fail | 11 warn | 51 acknowledged. After the sweep and with the narrative rule: 2 fail | 50 warn | 51 acknowledged. The 39 added warns are all narrative.dated_provenance in workflows/watchtower/proposed-sources.md, a data ledger, and no new fails were introduced. (3) Narrative self-check: 12/12 inline cases pass (err citation, eval citation, dated provenance, the-date-run pattern, as-of, clean rule, frontmatter skip, fenced-code skip, e.g. skip, e.g. inline skip, fail severity promotion, non-instructional path ignored). (4) Build-gate promotion verified: a target with narratives exits 2 with FAIL class; a clean skill exits 0. (5) Grep of skills/, workflows/, and .claude/skills/ for err-/eval-ID patterns leaves only section D false positives: the add-reminder ID-format demo, the step-08 frontmatter state block, and the error-improvement e.g. format example. (6) Grep for provenance-verb-plus-date leaves only workflows/watchtower/proposed-sources.md. (7) Spot-verified workflows/card-review/workflow.md, workflows/boot/steps/step-04-gather-meeting-context.md, and skills/git/SKILL.md: rules intact, stories gone. (8) No em-dashes introduced in the replacement text."
       }
     }
   ]

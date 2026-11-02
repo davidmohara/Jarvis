@@ -419,3 +419,143 @@ sources:
     added: 2026-10-26
     status: active
     notes: "DFW business leadership coverage beyond data centers and capital markets, per content_steering. RSS unconfirmed; step-01 uses site:dmagazine.com search. Proposed W44 Batch 20, approved 2026-10-26."
+
+  - name: One Useful Thing (Ethan Mollick)
+    url: https://www.oneusefulthing.org
+    rss: https://www.oneusefulthing.org/feed
+    gather_method: rss
+    topic: leadership
+    trust: high
+    added: 2026-11-02
+    status: active
+    notes: "Wharton professor on practical, evidence-based AI at work; matches the human-side, professional-identity and adoption steering. Feed verified live 2026-11-02. Proposed W45 Batch 21, approved 2026-11-02."
+
+  - name: Peter Attia MD
+    url: https://peterattiamd.com
+    rss: https://peterattiamd.com/feed/
+    gather_method: rss
+    topic: health-longevity
+    trust: high
+    added: 2026-11-02
+    status: active
+    notes: "Physician-written longevity science: weekly newsletter plus podcast notes on metabolic health, exercise, Alzheimer's risk and GLP-1s. Matches your WHOOP/DEXA and epigenetics posts. Feed verified live 2026-11-02 (latest item Oct 31); some articles are premium, so the feed gives titles and summaries only. Proposed Batch 22, approved 2026-11-02."
+
+  - name: Civil Eats
+    url: https://civileats.com
+    rss: https://civileats.com/feed/
+    gather_method: rss
+    topic: health-longevity
+    trust: high
+    added: 2026-11-02
+    status: active
+    notes: "Independent daily reporting on the US food system, regenerative agriculture and nutrition policy. Closest source to your 'Line at the Hedge' territory. Feed verified live 2026-11-02. Heavy on federal food policy and politics, so scoring should favor the farming and food-quality items. Proposed Batch 22, approved 2026-11-02."
+
+  - name: Harvard Health Blog
+    url: https://www.health.harvard.edu/blog
+    rss: null
+    gather_method: search
+    topic: health-longevity
+    trust: high
+    added: 2026-11-02
+    status: active
+    notes: "Mainstream clinical counterweight to the longevity-influencer sources: plain-language summaries of research on sleep, exercise, nutrition and chronic disease. Feed fetch returned empty on 2026-11-02, so RSS unconfirmed; gather_method: search via site:health.harvard.edu/blog. Proposed Batch 22, approved 2026-11-02."
+
+  - name: Education Next
+    url: https://www.educationnext.org
+    rss: https://www.educationnext.org/feed/
+    gather_method: rss
+    topic: education-family
+    trust: high
+    added: 2026-11-02
+    status: active
+    notes: "Research-driven education policy journal (Hoover/Harvard). Gives evidence behind stories like state reading gains and school choice. Feed verified live 2026-11-02. Proposed Batch 22, approved 2026-11-02."
+
+  - name: Behavioral Scientist
+    url: https://behavioralscientist.org
+    rss: https://behavioralscientist.org/feed/
+    gather_method: rss
+    topic: purpose-behavior
+    trust: high
+    added: 2026-11-02
+    status: active
+    notes: "Research-grounded essays on decision-making, habits and behavior change. Direct evidence base for the goals, identity and decision posts. Feed verified live 2026-11-02, but the latest item is Oct 15, so cadence is slower than weekly. Proposed Batch 22, approved 2026-11-02."
+
+  - name: Arthur Brooks, How to Build a Life (The Atlantic)
+    url: https://www.theatlantic.com/author/arthur-c-brooks/
+    rss: null
+    gather_method: search
+    topic: purpose-behavior
+    trust: high
+    added: 2026-11-02
+    status: active
+    notes: "Weekly column on happiness, purpose and work-rest balance. He is the source behind two of your 2026 posts (Work and Rest Aren't Opposites, Let Them Climb the Tree). No RSS confirmed and author page not fetched; gather_method: search via site:theatlantic.com Arthur Brooks. Paywall limits full text. Proposed Batch 22, approved 2026-11-02."
+
+  - name: University of Austin (UATX Substack)
+    url: https://uatx.substack.com
+    rss: https://uatx.substack.com/feed
+    gather_method: rss
+    topic: education-family
+    trust: high
+    added: 2026-11-02
+    status: active
+    notes: "Direct voice of the university you named: convocation addresses, faculty essays, and case-making for a different kind of college. Feed verified live 2026-11-02, but latest item is Aug 10 so cadence is slow. The uaustin.org feed is stale (last built Sep 2025), so use the Substack. Proposed Batch 23, approved 2026-11-02."
+
+  - name: Texas Public Policy Foundation
+    url: https://www.texaspolicy.com
+    rss: https://www.texaspolicy.com/feed/
+    gather_method: rss
+    topic: education-family
+    trust: high
+    added: 2026-11-02
+    status: active
+    notes: "Texas conservative think tank covering higher-ed policy, admissions, school choice and the Texas economy. Fits the regional and education lenses together. Feed verified live 2026-11-02 (item Nov 2). Posts on many topics, so score for education and economy items. Proposed Batch 23, approved 2026-11-02."
+
+  - name: FIRE (Foundation for Individual Rights and Expression)
+    url: https://www.fire.org
+    rss: https://www.fire.org/rssfeed
+    gather_method: rss
+    topic: education-family
+    trust: high
+    added: 2026-11-02
+    status: active
+    notes: "Campus free-speech and academic-freedom watchdog. Describes itself as nonpartisan and libertarian-leaning in practice; it also criticizes Republican administrations (e.g. Trump press ban items), so confirm that fits. Feed verified live 2026-11-02 (item Oct 30). Proposed Batch 23, approved 2026-11-02."
+
+  - name: American Enterprise Institute
+    url: https://www.aei.org
+    rss: https://www.aei.org/feed/
+    gather_method: rss
+    topic: education-family
+    trust: high
+    added: 2026-11-02
+    status: active
+    notes: "Free-market think tank, Arthur Brooks' former home, with a long-running education policy and higher-ed program plus economics and culture. Feed verified live 2026-11-02 (item Oct 30). Broad feed (defense, trade); score for education, work and culture. Proposed Batch 23, approved 2026-11-02."
+
+  - name: The Free Press
+    url: https://www.thefp.com
+    rss: https://www.thefp.com/feed
+    gather_method: rss
+    topic: purpose-behavior
+    trust: med
+    added: 2026-11-02
+    status: active
+    notes: "Heterodox, center-right-leaning outlet where Brooks-type writers on meaning, family and culture appear (I did not confirm Brooks publishes there now). Feed verified live 2026-11-02 (item Nov 2). Mixed political content and partly paywalled; it is not strictly conservative, so your call. Proposed Batch 23, approved 2026-11-02."
+
+  - name: Conscious Capitalism
+    url: https://www.consciouscapitalism.org
+    rss: null
+    gather_method: search
+    topic: purpose-behavior
+    trust: med
+    added: 2026-11-02
+    status: active
+    notes: "The movement you named: purpose-driven business, stakeholder leadership, conscious leadership. Blog feed returned only an empty comments feed on 2026-11-02, so RSS unconfirmed; gather_method: search via site:consciouscapitalism.org. Proposed Batch 23, approved 2026-11-02."
+
+  - name: Acton Institute (Religion and Liberty Daily)
+    url: https://blog.acton.org
+    rss: null
+    gather_method: search
+    topic: purpose-behavior
+    trust: high
+    added: 2026-11-02
+    status: active
+    notes: "Free-market, faith-informed work on virtue, vocation and markets. Matches your faith-present-not-performative voice and the purpose lens. No RSS found on 2026-11-02; gather_method: search via site:blog.acton.org. Proposed Batch 23, approved 2026-11-02."

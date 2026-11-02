@@ -1,15 +1,15 @@
 {
-  "pulled_at": "2026-10-30T14:07:45.247555Z",
+  "pulled_at": "2026-11-02T16:11:53.110878Z",
   "status": "available",
   "window_months": 12,
-  "since": "2025-11-04",
+  "since": "2025-11-07",
   "account_count": 31,
   "accounts": {
     "chase-checking": {
       "account_id": "0beb7ac4-3396-4aa6-a743-fc511a6d878b",
       "account_name": "Chase Checking",
       "type": "checking",
-      "payee_count": 88,
+      "payee_count": 90,
       "payees": [
         {
           "name": "Online Transfer 31386183698 to Santander Savings ######4121 transaction #: 31386183698 10/28",
@@ -19,8 +19,8 @@
         },
         {
           "name": "Fidelity Charitable",
-          "total": 24900.0,
-          "count": 26,
+          "total": 23900.0,
+          "count": 25,
           "last": "2026-10-16"
         },
         {
@@ -300,6 +300,12 @@
           "last": "2026-10-08"
         },
         {
+          "name": "CHECK # 188 10/30",
+          "total": 200.0,
+          "count": 1,
+          "last": "2026-10-30"
+        },
+        {
           "name": "CHECK # 183",
           "total": 145.0,
           "count": 1,
@@ -414,13 +420,13 @@
           "last": "2026-05-04"
         },
         {
-          "name": "Zelle payment to Declan O'Hara 29033198731",
+          "name": "Zelle payment to Declan O'Hara 29446261169",
           "total": 50.0,
           "count": 1,
           "last": "2026-06-01"
         },
         {
-          "name": "Zelle payment to Declan O'Hara 29446261169",
+          "name": "Zelle payment to Declan O'Hara 29033198731",
           "total": 50.0,
           "count": 1,
           "last": "2026-06-01"
@@ -438,13 +444,13 @@
           "last": "2026-07-01"
         },
         {
-          "name": "ZELLE PAYMENT TO DECLAN O'HARA 30249342488",
+          "name": "ZELLE PAYMENT TO DECLAN O'HARA 29828101592",
           "total": 50.0,
           "count": 1,
           "last": "2026-08-03"
         },
         {
-          "name": "ZELLE PAYMENT TO DECLAN O'HARA 29828101592",
+          "name": "ZELLE PAYMENT TO DECLAN O'HARA 30249342488",
           "total": 50.0,
           "count": 1,
           "last": "2026-08-03"
@@ -516,6 +522,12 @@
           "last": "2026-10-23"
         },
         {
+          "name": "ZELLE PAYMENT TO DECLAN O'HARA 31321147028",
+          "total": 40.0,
+          "count": 1,
+          "last": "2026-10-30"
+        },
+        {
           "name": "Zelle payment to Declan O'Hara 29235074032",
           "total": 20.0,
           "count": 1,
@@ -552,7 +564,7 @@
       "account_id": "c95b51b9-5d5b-4aff-8c67-9c54589ff016",
       "account_name": "Citi",
       "type": "creditCard",
-      "payee_count": 272,
+      "payee_count": 266,
       "payees": [
         {
           "name": "Farmers Insurance",
@@ -583,12 +595,6 @@
           "total": 5600.0,
           "count": 2,
           "last": "2026-10-28"
-        },
-        {
-          "name": "Berkley One",
-          "total": 5358.8,
-          "count": 2,
-          "last": "2026-02-02"
         },
         {
           "name": "Amazon",
@@ -625,6 +631,12 @@
           "total": 4406.03,
           "count": 4,
           "last": "2026-10-24"
+        },
+        {
+          "name": "Berkley One",
+          "total": 3721.55,
+          "count": 1,
+          "last": "2026-02-02"
         },
         {
           "name": "Integrity Golf Performance",
@@ -736,8 +748,8 @@
         },
         {
           "name": "Ntta",
-          "total": 1960.0,
-          "count": 49,
+          "total": 1920.0,
+          "count": 48,
           "last": "2026-10-18"
         },
         {
@@ -915,12 +927,6 @@
           "last": "2026-09-23"
         },
         {
-          "name": "Peloton",
-          "total": 649.32,
-          "count": 12,
-          "last": "2026-10-04"
-        },
-        {
           "name": "Byrna Technologies",
           "total": 638.63,
           "count": 1,
@@ -949,6 +955,12 @@
           "total": 599.22,
           "count": 8,
           "last": "2026-10-11"
+        },
+        {
+          "name": "Peloton",
+          "total": 595.21,
+          "count": 11,
+          "last": "2026-10-04"
         },
         {
           "name": "Membership Fee",
@@ -1107,12 +1119,6 @@
           "last": "2026-10-01"
         },
         {
-          "name": "200 Main",
-          "total": 340.98,
-          "count": 3,
-          "last": "2026-04-09"
-        },
-        {
           "name": "Lowe's",
           "total": 340.04,
           "count": 2,
@@ -1263,6 +1269,12 @@
           "last": "2026-01-15"
         },
         {
+          "name": "200 Main",
+          "total": 212.67,
+          "count": 2,
+          "last": "2026-04-09"
+        },
+        {
           "name": "Jones Road Beauty",
           "total": 207.38,
           "count": 2,
@@ -1335,12 +1347,6 @@
           "last": "2026-10-13"
         },
         {
-          "name": "TST*THE RUFFED GROUSE Highlands NC",
-          "total": 182.64,
-          "count": 1,
-          "last": "2025-11-05"
-        },
-        {
           "name": "Burton's Grill",
           "total": 177.62,
           "count": 1,
@@ -1401,12 +1407,6 @@
           "last": "2026-07-15"
         },
         {
-          "name": "SQ *LULU BLEU HIGHLANDS NC",
-          "total": 160.11,
-          "count": 1,
-          "last": "2025-11-05"
-        },
-        {
           "name": "Wineaux",
           "total": 156.96,
           "count": 1,
@@ -1435,12 +1435,6 @@
           "total": 148.49,
           "count": 3,
           "last": "2026-07-25"
-        },
-        {
-          "name": "Wild Thyme Gourmet",
-          "total": 146.71,
-          "count": 1,
-          "last": "2025-11-04"
         },
         {
           "name": "xx dry cleaners",
@@ -1857,18 +1851,6 @@
           "last": "2026-06-02"
         },
         {
-          "name": "The Blue Bike Cafe",
-          "total": 47.08,
-          "count": 1,
-          "last": "2025-11-05"
-        },
-        {
-          "name": "Reid's Fine Foods",
-          "total": 46.85,
-          "count": 1,
-          "last": "2025-11-05"
-        },
-        {
           "name": "AUGMENT FR* AUGMENT FR FRISCO TX",
           "total": 45.41,
           "count": 1,
@@ -2017,12 +1999,6 @@
           "total": 26.58,
           "count": 1,
           "last": "2026-08-19"
-        },
-        {
-          "name": "Slabtown Pizza",
-          "total": 25.64,
-          "count": 1,
-          "last": "2025-11-05"
         },
         {
           "name": "Lostios",
@@ -2309,12 +2285,6 @@
           "last": "2026-06-13"
         },
         {
-          "name": "Children International",
-          "total": 390.0,
-          "count": 12,
-          "last": "2026-10-05"
-        },
-        {
           "name": "Kroger Fuel",
           "total": 389.25,
           "count": 5,
@@ -2331,6 +2301,12 @@
           "total": 363.0,
           "count": 5,
           "last": "2026-10-26"
+        },
+        {
+          "name": "Children International",
+          "total": 360.0,
+          "count": 11,
+          "last": "2026-10-05"
         },
         {
           "name": "Ingles Market",
@@ -2357,16 +2333,16 @@
           "last": "2026-08-08"
         },
         {
+          "name": "Apple",
+          "total": 269.23,
+          "count": 34,
+          "last": "2026-10-29"
+        },
+        {
           "name": "Fly.io",
           "total": 260.69,
           "count": 9,
           "last": "2026-10-02"
-        },
-        {
-          "name": "Apple",
-          "total": 260.04,
-          "count": 33,
-          "last": "2026-10-21"
         },
         {
           "name": "Central Market - Plano",
@@ -2381,12 +2357,6 @@
           "last": "2026-05-26"
         },
         {
-          "name": "Spotify",
-          "total": 238.04,
-          "count": 12,
-          "last": "2026-10-05"
-        },
-        {
           "name": "Txst Parent Family",
           "total": 227.34,
           "count": 1,
@@ -2397,6 +2367,12 @@
           "total": 224.54,
           "count": 3,
           "last": "2026-09-01"
+        },
+        {
+          "name": "Spotify",
+          "total": 219.65,
+          "count": 11,
+          "last": "2026-10-05"
         },
         {
           "name": "Magna Pest Solutions",
@@ -3144,8 +3120,15 @@
       "account_id": "f53a2d07-4d80-4310-9a0b-a5631f8b8178",
       "account_name": "Savor",
       "type": "creditCard",
-      "payee_count": 0,
-      "payees": []
+      "payee_count": 1,
+      "payees": [
+        {
+          "name": "Market Street",
+          "total": 55.46,
+          "count": 2,
+          "last": "2026-10-31"
+        }
+      ]
     },
     "sapphire": {
       "account_id": "15694d56-fe61-4029-a526-b53fee53d1b6",
@@ -3397,7 +3380,7 @@
       "account_id": "bd7a4478-a655-4e19-a92c-a4a8753e0e55",
       "account_name": "Susie Apple Card",
       "type": "creditCard",
-      "payee_count": 68,
+      "payee_count": 67,
       "payees": [
         {
           "name": "Ntta",
@@ -3448,16 +3431,16 @@
           "last": "2026-04-22"
         },
         {
-          "name": "Third Coast Coffee",
-          "total": 468.85,
-          "count": 10,
-          "last": "2026-07-29"
-        },
-        {
           "name": "whatnot ventures",
           "total": 462.74,
           "count": 1,
           "last": "2026-02-16"
+        },
+        {
+          "name": "Third Coast Coffee",
+          "total": 421.36,
+          "count": 9,
+          "last": "2026-07-29"
         },
         {
           "name": "Frisco Lakes",
@@ -3688,12 +3671,6 @@
           "last": "2026-07-29"
         },
         {
-          "name": "Hudson News",
-          "total": 31.83,
-          "count": 3,
-          "last": "2026-04-14"
-        },
-        {
           "name": "Campisis 4",
           "total": 26.79,
           "count": 1,
@@ -3718,6 +3695,12 @@
           "last": "2026-07-16"
         },
         {
+          "name": "Hudson News",
+          "total": 22.59,
+          "count": 2,
+          "last": "2026-04-14"
+        },
+        {
           "name": "Salata",
           "total": 20.52,
           "count": 1,
@@ -3740,12 +3723,6 @@
           "total": 18.76,
           "count": 1,
           "last": "2026-06-27"
-        },
-        {
-          "name": "Summer House",
-          "total": 16.42,
-          "count": 1,
-          "last": "2025-11-06"
         },
         {
           "name": "7-Eleven",
@@ -3813,19 +3790,13 @@
       "account_id": "f63cfdd9-edb1-4dad-834d-97ea4aabe694",
       "account_name": "HSA",
       "type": "checking",
-      "payee_count": 19,
+      "payee_count": 18,
       "payees": [
         {
           "name": "Reimbursement Workplace Resource Group Uplift Desk From Hsa",
           "total": 1493.5,
           "count": 1,
           "last": "2026-03-18"
-        },
-        {
-          "name": "Clarkson Stonebrook, Frisco, TX (Card Transaction ID: rhn98kc)",
-          "total": 1406.0,
-          "count": 1,
-          "last": "2025-11-04"
         },
         {
           "name": "Interventional Spine",
@@ -4037,9 +4008,9 @@
       "payees": [
         {
           "name": "Rydex Monthly Nasdaq",
-          "total": 741009.71,
-          "count": 73,
-          "last": "2026-10-26"
+          "total": 755664.99,
+          "count": 75,
+          "last": "2026-11-02"
         },
         {
           "name": "Rydex Inverse Nasdaq Strategy",
@@ -4055,9 +4026,9 @@
         },
         {
           "name": "Transfer Jpmorgan Chase Ban David O Hara",
-          "total": 10000.0,
-          "count": 2,
-          "last": "2026-10-06"
+          "total": 13000.0,
+          "count": 3,
+          "last": "2026-10-30"
         },
         {
           "name": "Transfer Jpmorgan Chase Ban Not Available",
@@ -4117,12 +4088,12 @@
     }
   },
   "all_accounts": {
-    "payee_count": 570,
+    "payee_count": 564,
     "payees": [
       {
         "name": "Fidelity Charitable",
-        "total": 34900.0,
-        "count": 36,
+        "total": 33900.0,
+        "count": 35,
         "last": "2026-10-16"
       },
       {
@@ -4258,12 +4229,6 @@
         "last": "2026-10-28"
       },
       {
-        "name": "Berkley One",
-        "total": 5358.8,
-        "count": 2,
-        "last": "2026-02-02"
-      },
-      {
         "name": "Online Transfer to CHK ...7817 transaction#: 28638205205 03/31",
         "total": 5250.0,
         "count": 1,
@@ -4319,9 +4284,9 @@
       },
       {
         "name": "Market Street",
-        "total": 4333.98,
-        "count": 86,
-        "last": "2026-10-21"
+        "total": 4389.44,
+        "count": 88,
+        "last": "2026-10-31"
       },
       {
         "name": "Ls Roots And Water Win",
@@ -4348,6 +4313,12 @@
         "last": "2026-10-21"
       },
       {
+        "name": "Berkley One",
+        "total": 3721.55,
+        "count": 1,
+        "last": "2026-02-02"
+      },
+      {
         "name": "Nebraska Furniture Mart",
         "total": 3705.77,
         "count": 2,
@@ -4367,8 +4338,8 @@
       },
       {
         "name": "Ntta",
-        "total": 3544.0,
-        "count": 69,
+        "total": 3504.0,
+        "count": 68,
         "last": "2026-10-18"
       },
       {
@@ -4612,12 +4583,6 @@
         "last": "2026-03-15"
       },
       {
-        "name": "Clarkson Stonebrook, Frisco, TX (Card Transaction ID: rhn98kc)",
-        "total": 1406.0,
-        "count": 1,
-        "last": "2025-11-04"
-      },
-      {
         "name": "PGA Tournament",
         "total": 1370.44,
         "count": 1,
@@ -4798,12 +4763,6 @@
         "last": "2026-01-22"
       },
       {
-        "name": "200 Main",
-        "total": 889.74,
-        "count": 5,
-        "last": "2026-04-12"
-      },
-      {
         "name": "Zelle payment to Profound Sanctum, LLC 27101208016",
         "total": 888.94,
         "count": 1,
@@ -4868,6 +4827,12 @@
         "total": 771.7,
         "count": 1,
         "last": "2026-03-13"
+      },
+      {
+        "name": "200 Main",
+        "total": 761.43,
+        "count": 4,
+        "last": "2026-04-12"
       },
       {
         "name": "Online Transfer to CHK ...7817 transaction#: 27302966099 12/12",
@@ -4936,12 +4901,6 @@
         "last": "2026-06-14"
       },
       {
-        "name": "Peloton",
-        "total": 649.32,
-        "count": 12,
-        "last": "2026-10-04"
-      },
-      {
         "name": "Workplace Resource",
         "total": 642.65,
         "count": 1,
@@ -4994,6 +4953,12 @@
         "total": 600.0,
         "count": 2,
         "last": "2025-12-03"
+      },
+      {
+        "name": "Peloton",
+        "total": 595.21,
+        "count": 11,
+        "last": "2026-10-04"
       },
       {
         "name": "Membership Fee",
@@ -5080,12 +5045,6 @@
         "last": "2026-07-20"
       },
       {
-        "name": "Third Coast Coffee",
-        "total": 476.06,
-        "count": 11,
-        "last": "2026-07-29"
-      },
-      {
         "name": "Macy's",
         "total": 469.35,
         "count": 3,
@@ -5120,6 +5079,12 @@
         "total": 431.4,
         "count": 1,
         "last": "2026-08-30"
+      },
+      {
+        "name": "Third Coast Coffee",
+        "total": 428.57,
+        "count": 10,
+        "last": "2026-07-29"
       },
       {
         "name": "Williams Sonoma Dtc Inc",
@@ -5212,12 +5177,6 @@
         "last": "2026-06-19"
       },
       {
-        "name": "Children International",
-        "total": 390.0,
-        "count": 12,
-        "last": "2026-10-05"
-      },
-      {
         "name": "Whoop",
         "total": 382.69,
         "count": 1,
@@ -5243,9 +5202,9 @@
       },
       {
         "name": "Apple",
-        "total": 367.88,
-        "count": 36,
-        "last": "2026-10-21"
+        "total": 377.07,
+        "count": 37,
+        "last": "2026-10-29"
       },
       {
         "name": "Hertz",
@@ -5264,6 +5223,12 @@
         "total": 361.45,
         "count": 1,
         "last": "2026-08-15"
+      },
+      {
+        "name": "Children International",
+        "total": 360.0,
+        "count": 11,
+        "last": "2026-10-05"
       },
       {
         "name": "Stag Provisions",
@@ -5530,12 +5495,6 @@
         "last": "2026-05-22"
       },
       {
-        "name": "Spotify",
-        "total": 238.04,
-        "count": 12,
-        "last": "2026-10-05"
-      },
-      {
         "name": "Hirsch's Specialty Meats",
         "total": 233.55,
         "count": 2,
@@ -5662,6 +5621,12 @@
         "last": "2026-05-20"
       },
       {
+        "name": "Spotify",
+        "total": 219.65,
+        "count": 11,
+        "last": "2026-10-05"
+      },
+      {
         "name": "New Artisan Distillery",
         "total": 216.5,
         "count": 1,
@@ -5720,6 +5685,12 @@
         "total": 200.0,
         "count": 1,
         "last": "2026-10-08"
+      },
+      {
+        "name": "CHECK # 188 10/30",
+        "total": 200.0,
+        "count": 1,
+        "last": "2026-10-30"
       },
       {
         "name": "Hume Health",
@@ -5786,12 +5757,6 @@
         "total": 183.6,
         "count": 1,
         "last": "2026-10-13"
-      },
-      {
-        "name": "TST*THE RUFFED GROUSE Highlands NC",
-        "total": 182.64,
-        "count": 1,
-        "last": "2025-11-05"
       },
       {
         "name": "Bedjet",
@@ -5902,12 +5867,6 @@
         "last": "2026-07-15"
       },
       {
-        "name": "SQ *LULU BLEU HIGHLANDS NC",
-        "total": 160.11,
-        "count": 1,
-        "last": "2025-11-05"
-      },
-      {
         "name": "Exxonmobil",
         "total": 159.83,
         "count": 4,
@@ -5960,12 +5919,6 @@
         "total": 148.49,
         "count": 3,
         "last": "2026-07-25"
-      },
-      {
-        "name": "Wild Thyme Gourmet",
-        "total": 146.71,
-        "count": 1,
-        "last": "2025-11-04"
       },
       {
         "name": "Travis Matthew",
@@ -6772,13 +6725,13 @@
         "last": "2026-05-04"
       },
       {
-        "name": "Zelle payment to Declan O'Hara 29033198731",
+        "name": "Zelle payment to Declan O'Hara 29446261169",
         "total": 50.0,
         "count": 1,
         "last": "2026-06-01"
       },
       {
-        "name": "Zelle payment to Declan O'Hara 29446261169",
+        "name": "Zelle payment to Declan O'Hara 29033198731",
         "total": 50.0,
         "count": 1,
         "last": "2026-06-01"
@@ -6796,13 +6749,13 @@
         "last": "2026-07-01"
       },
       {
-        "name": "ZELLE PAYMENT TO DECLAN O'HARA 30249342488",
+        "name": "ZELLE PAYMENT TO DECLAN O'HARA 29828101592",
         "total": 50.0,
         "count": 1,
         "last": "2026-08-03"
       },
       {
-        "name": "ZELLE PAYMENT TO DECLAN O'HARA 29828101592",
+        "name": "ZELLE PAYMENT TO DECLAN O'HARA 30249342488",
         "total": 50.0,
         "count": 1,
         "last": "2026-08-03"
@@ -6854,18 +6807,6 @@
         "total": 47.25,
         "count": 1,
         "last": "2026-06-02"
-      },
-      {
-        "name": "The Blue Bike Cafe",
-        "total": 47.08,
-        "count": 1,
-        "last": "2025-11-05"
-      },
-      {
-        "name": "Reid's Fine Foods",
-        "total": 46.85,
-        "count": 1,
-        "last": "2025-11-05"
       },
       {
         "name": "Uber Eats",
@@ -7024,6 +6965,12 @@
         "last": "2026-10-23"
       },
       {
+        "name": "ZELLE PAYMENT TO DECLAN O'HARA 31321147028",
+        "total": 40.0,
+        "count": 1,
+        "last": "2026-10-30"
+      },
+      {
         "name": "DiscountMags.com",
         "total": 39.98,
         "count": 1,
@@ -7138,12 +7085,6 @@
         "last": "2026-07-29"
       },
       {
-        "name": "Hudson News",
-        "total": 31.83,
-        "count": 3,
-        "last": "2026-04-14"
-      },
-      {
         "name": "Rewilding LLC",
         "total": 30.17,
         "count": 1,
@@ -7210,12 +7151,6 @@
         "last": "2026-03-31"
       },
       {
-        "name": "Slabtown Pizza",
-        "total": 25.64,
-        "count": 1,
-        "last": "2025-11-05"
-      },
-      {
         "name": "Montana Stephen PHD",
         "total": 25.0,
         "count": 1,
@@ -7250,6 +7185,12 @@
         "total": 22.59,
         "count": 1,
         "last": "2026-05-22"
+      },
+      {
+        "name": "Hudson News",
+        "total": 22.59,
+        "count": 2,
+        "last": "2026-04-14"
       },
       {
         "name": "The Coffee Bar",
@@ -7388,12 +7329,6 @@
         "total": 16.85,
         "count": 1,
         "last": "2026-06-23"
-      },
-      {
-        "name": "Summer House",
-        "total": 16.42,
-        "count": 1,
-        "last": "2025-11-06"
       },
       {
         "name": "FedEx Office",

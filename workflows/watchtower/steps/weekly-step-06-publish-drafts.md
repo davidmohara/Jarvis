@@ -1,5 +1,5 @@
 ---
-status: complete
+status: skipped
 started-at: "2026-09-29T02:50:00Z"
 completed-at: "2026-09-29T03:05:00Z"
 ---

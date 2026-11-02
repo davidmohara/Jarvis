@@ -137,6 +137,11 @@ Running list of potential blog topics. Jarvis captures these proactively from co
 | "The Vendor's Secret Is Your Breach" | Watchtower W44 (2026-10-26) [watchtower] | security, Microsoft 365, Entra, supply chain | Draft at `Mind/Posts/_the-vendors-secret-is-your-breach.md` |
 | "Your Resilience Plan Stops at Your Cloud Provider" | Watchtower W44 (2026-10-26) [watchtower] | cloud, resilience, third-party risk, regulation | Draft at `Mind/Posts/_your-resilience-plan-stops-at-your-cloud-provider.md` |
 | "You Can't Rotate What You Haven't Inventoried" | Watchtower W44 (2026-10-26) [watchtower] | security, certificates, post-quantum | Draft at `Mind/Posts/_you-cant-rotate-what-you-havent-inventoried.md` |
+| "Your AI Vendor Just Published Its Risk Factors. Have You Read Them?" | Watchtower W45 (2026-11-02) [watchtower] | AI, vendor-risk, pricing, consulting | Draft at `Mind/Posts/_your-ai-vendor-just-published-its-risk-factors.md` |
+| "Safe Is the Floor, Not the Goal" | Watchtower W45 (2026-11-02) [watchtower] | AI, leadership, culture, adoption | Draft at `Mind/Posts/_safe-is-the-floor-not-the-goal.md` |
+| "Would You Write the Same Book in Ten Years?" | Watchtower one-off (2026-11-02) [watchtower] | leadership, health, thinking | Draft at `Mind/Posts/_would-you-write-the-same-book-in-ten-years.md`. Attia AMA #90; has a DAVID placeholder. |
+| "We Keep Looking for One Cause" | Watchtower one-off (2026-11-02) [watchtower] | family, leadership, growth | Draft at `Mind/Posts/_we-keep-looking-for-one-cause.md`. Education Next review of Restoring Childhood; related posts: Let Them Climb the Tree, Love With Your Presence. |
+| "Anxiety Is a Supermarket Aisle" | Watchtower one-off (2026-11-02) [watchtower] | purpose, leadership, AI | Draft at `Mind/Posts/_anxiety-is-a-supermarket-aisle.md`. Mark Manson on Coleman Hughes (Free Press); has a DAVID placeholder. |
 
 ## Published (for reference / avoid repeats)
 

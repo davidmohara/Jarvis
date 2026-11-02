@@ -1,0 +1,16 @@
+{
+  "id": "err-20261102T212336-DWG2OK",
+  "timestamp": "2026-11-02T21:23:36Z",
+  "session": "boot-2026-11-02 (9b791a79-0206-4994-a65e-a3baf9228403)",
+  "source": "explicit",
+  "agent": "master",
+  "category": "instructional-file-hygiene",
+  "description": "When asked whether workflows/boot/workflow.md could be trimmed, Master proposed relocating the incident narratives (dated stories, eval-ID citations, token-spike anecdotes) to a references doc inside workflows/boot/references/ and keeping one-line pointers in the workflow file. David corrected: there must NEVER be narratives in workflow or skill files themselves, not even relocated-but-referenced from the workflow. Narratives belong in memory and documentation, full stop. Workflow and skill files carry rules only.",
+  "correction": "Strip all narrative content (dated incidents, eval-ID provenance, token-spike stories, merge history) out of workflow.md entirely. Narrative context lives in memory/ and documentation files, never inside workflows/ or skills/. The workflows/ and skills/ trees should be audited for the same violation.",
+  "failure_mode": "convention-violation",
+  "systemic_fix": "Rigby pass: (1) purge narratives from workflows/boot/workflow.md, leaving operative rules only, no references-doc pointers to stories from inside the workflow; (2) audit workflows/*/workflow.md, workflows/*/steps/*.md, and skills/*/SKILL.md for narrative content (dated provenance, err-ID or eval-ID citations, incident stories) and inventory violations for review; (3) consider a linter rule so narrative patterns (YYYY-MM-DD incident sentences, err-/eval- ID citations inside workflows/ and skills/) fail the build gate instead of relying on review.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": [],
+  "related_skill": null
+}

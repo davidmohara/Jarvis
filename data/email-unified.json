@@ -1,106 +1,60 @@
 {
-  "pulled_at": "2026-10-30T14:09:00Z",
-  "message_count": 11,
-  "source_note": "M365 outlook_email_search. Inbox held 30 messages total (10 unread); all 30 paged and reviewed. The connector exposes no Outlook flag/importance bit (every result returns importance 'normal'), so is_flagged reflects unread state plus explicit deadline/RSVP/reply-requested markers in the subject or body, not the server flag. Marketing newsletters, receipts, and past-event notices excluded.",
+  "pulled_at": "2026-11-02T16:12:15Z",
+  "message_count": 6,
   "messages": [
     {
-      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA_f02HbAAA=",
-      "subject": "AI Policy- DRAFT",
-      "from": "Amber Robinson <Amber.Robinson@improving.com>",
-      "received_at": "2026-10-29T18:31:42Z",
-      "is_flagged": true,
-      "importance": "normal",
-      "snippet": "Devlin, David, Curtis: attached is a working draft of the AI Policy for review and input. Asks for perspective and AI team feedback on additional considerations and business implications. Has attachment. Review requested, no stated deadline."
+      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA_y3PRxAAA=",
+      "subject": "🚀9 Days Out: 2026 CodeLaunch WC Ticket Pace Report",
+      "from": "Ashlyn Weathers <ashlyn.weathers@improving.com>",
+      "received_at": "2026-11-02T16:00:48.000Z",
+      "is_flagged": false,
+      "importance": "high",
+      "snippet": "Keep pushing your campaign kits. We're 9 DAYS OUT / -177 tickets behind pace. Register yourself with your personalized link, then share it. Target attendance 1,500 registered guests."
     },
     {
-      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA_f02HRAAA=",
-      "subject": "Re: Catch up offer",
-      "from": "Wimberly, Taylor <Taylor.Wimberly2@7-11.com>",
-      "received_at": "2026-10-29T16:30:43Z",
-      "is_flagged": true,
-      "importance": "normal",
-      "snippet": "Happy to catch up. Lives in far north Dallas, still goes to the Irving offices, flexible schedule. Asks David to name a time. Reply owed."
-    },
-    {
-      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA_f02G6AAA=",
-      "subject": "Re: Dallas YNG membership",
-      "from": "leah wilson <leahwilson171@gmail.com>",
-      "received_at": "2026-10-29T13:17:44Z",
-      "is_flagged": true,
-      "importance": "normal",
-      "snippet": "Glad you connected with Nathan. Yes, please connect me with Milan, and I am happy to find a time for us to chat. Two actions: intro to Milan, schedule the call."
-    },
-    {
-      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA_f02G8AAA=",
-      "subject": "RE: Automatic reply: Connecting for YNG",
-      "from": "Lisa Burger <Lburger@ypo.org>",
-      "received_at": "2026-10-29T13:46:28Z",
-      "is_flagged": true,
-      "importance": "normal",
-      "snippet": "Introduces David to the YNG Austin contacts: MiKayla Schatte (YNG Austin Chair) and Seth Kassanoff as the member's path to reach out. Forward/intro action for the member."
-    },
-    {
-      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA_UQvXGAAA=",
-      "subject": "Catch up soon?",
-      "from": "Ionut Popescu <iancu.popescu@gmail.com>",
-      "received_at": "2026-10-27T18:06:16Z",
-      "is_flagged": true,
-      "importance": "normal",
-      "snippet": "Wants to catch up, asks about David and Susie, and wants to share updates from Romania. Personal relationship, reply owed."
-    },
-    {
-      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA_f02GwAAA=",
-      "subject": "Today at the Summit: Becoming AI Native at 4:20 PM CT",
-      "from": "Michelle Bernier <michelle@libertyventures.xyz>",
-      "received_at": "2026-10-29T11:41:50Z",
-      "is_flagged": true,
-      "importance": "normal",
-      "snippet": "Session reminder for the Principled Business Summit panel 'Becoming AI Native' on Thursday Oct 29 at 4:20 PM CT, Salon FG. Event has passed; retained for the session record and any follow-up with the panel."
-    },
-    {
-      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA_UQvYHAAA=",
-      "subject": "INFO & ACTION: November 1 deadlines officer identification and strategic focus pillar",
-      "from": "Shelby Meyer <smeyer@ypo.org>",
-      "received_at": "2026-10-28T16:43:05Z",
-      "is_flagged": true,
-      "importance": "normal",
-      "snippet": "YPO Western Chapter chairs: two items due November 1 - chapter commitment/officer identification and the strategic focus pillar submission."
-    },
-    {
-      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA_UQvXDAAA=",
-      "subject": "2027 Open Enrollment - Communication #1",
+      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwAicd0_np8VS5h8yLEYWS-AAAB5N7u6AABAtd68aKbhTanh4UbLkkAvAA_0tf-gAAA=",
+      "subject": "2027 Open Enrollment is LIVE ! 11/2 - 11/13",
       "from": "Nicole Larson <nicole.larson@improving.com>",
-      "received_at": "2026-10-27T17:54:51Z",
-      "is_flagged": true,
-      "importance": "normal",
-      "snippet": "2027 benefits open enrollment goes live Monday November 2. All full-time employees must complete it in Workday, even when waiving benefits."
-    },
-    {
-      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA93abxBAAA=",
-      "subject": "Your homework for the AI Leadership Summit - 5 minutes, one idea",
-      "from": "Tim Rayburn <Tim.Rayburn@Improving.com>",
-      "received_at": "2026-10-21T15:04:16Z",
-      "is_flagged": true,
-      "importance": "normal",
-      "snippet": "Pre-work for the AI Leadership Summit Nov 5-6: each attendee prepares one TED-style idea, five minutes, standing. Day 2 opens with these talks."
-    },
-    {
-      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA_UQvVqAAA=",
-      "subject": "PLEASE RSVP: Lone Star Gold November 2026 Board Meeting",
-      "from": "Tiffany Geib <tiffany@lonestargold.org>",
-      "received_at": "2026-10-26T17:52:29Z",
-      "is_flagged": true,
-      "importance": "normal",
-      "snippet": "RSVP requested for the Lone Star Gold November board meeting, Monday November 16, 1:30-3:00 PM at Chris' office (Dart Interests). Unread."
-    },
-    {
-      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA_f02IDAAA=",
-      "subject": "I want to connect",
-      "from": "Aman Sharma via LinkedIn <invitations@linkedin.com>",
-      "received_at": "2026-10-30T13:53:28Z",
+      "received_at": "2026-11-02T13:09:44.000Z",
       "is_flagged": false,
       "importance": "normal",
-      "snippet": "LinkedIn connection request from Aman Sharma, Co-Founder and General Partner at Stack Asset Management. Unread. New-contact decision for David."
+      "snippet": "Action required in Workday no later than Friday, Nov 13th. All full-time employees must complete Open Enrollment, even if waiving benefits. Benefits Q&A sessions Wed Nov 4 10:30am CT and Tue Nov 10 2:00pm CT."
+    },
+    {
+      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwAicd0_np8VS5h8yLEYWS-AAAB5N7u6AABAtd68aKbhTanh4UbLkkAvAA_0tf-iAAA=",
+      "subject": "Re: 2027 Open Enrollment is LIVE ! 11/2 - 11/13",
+      "from": "Nicole Larson <nicole.larson@improving.com>",
+      "received_at": "2026-11-02T14:13:15.000Z",
+      "is_flagged": false,
+      "importance": "high",
+      "snippet": "Access has been fixed. You should all be able to access the 2027 Open Enrollment Materials link now."
+    },
+    {
+      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA_f02IkAAA=",
+      "subject": "UTB - Training",
+      "from": "Linda King <lking@utb.com>",
+      "received_at": "2026-10-30T21:11:19.000Z",
+      "is_flagged": false,
+      "importance": "normal",
+      "snippet": "Your online compliance course is available. Go into the system and complete the course by the required due date. Portal: https://portal.betraining.com/login/ubtdtx"
+    },
+    {
+      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAilcFAABAtd68aKbhTanh4UbLkkAvAA_y3PRgAAA=",
+      "subject": "YPO Fort Worth Gold VIRTUAL Board Meeting - Tuesday, November 3, 2026, 8am-9:30am",
+      "from": "Terri Patterson <chapter.manager@ypofw.org>",
+      "received_at": "2026-11-02T12:07:36.000Z",
+      "is_flagged": false,
+      "importance": "normal",
+      "snippet": "Call-in information and agenda for tomorrow's board meeting: October 15 minutes approval, Forum update, Membership update, Financials."
+    },
+    {
+      "id": "AAMkADAyYWJiNDQxLTM3MzAtNDVlNy04ODZjLTgwMmZiYjBhNTMxYwBGAAAAAADOXXceVmu0R4GF6i2BkUXOBwBiFVZC-8sdQaJWt-ZWvgEcAAAAiq3ZAABAtd68aKbhTanh4UbLkkAvAA_jo-7uAAA=",
+      "subject": "RE: FINAL REMINDER: Nov 1 deadline for officer identification",
+      "from": "Ryan O'Connor <roconnor@oconnordistributing.com>",
+      "received_at": "2026-10-30T21:54:54.000Z",
+      "is_flagged": false,
+      "importance": "normal",
+      "snippet": "...before the November 1 deadline. We'll reach out if we run into any trouble. Deadline was to enter core officers into the system to meet chapter commitments."
     }
   ]
 }

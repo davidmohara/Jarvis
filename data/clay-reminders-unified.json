@@ -1,9 +1,7 @@
 {
-  "pulled_at": "2026-10-30T14:09:00Z",
+  "pulled_at": "2026-11-02T16:12:15Z",
   "status": "unavailable",
   "reminders": [],
   "reminder_count": 0,
-  "birthday_count": 0,
-  "attempted": true,
-  "error": "Clay MCP attempted and confirmed unavailable this run, not assumed stale. `claude mcp list` reports two Clay paths: `clay: https://mcp.clay.earth/mcp (HTTP)` is Disabled for this project, and `claude.ai Clay: https://api.clay.com/v3/mcp` Needs authentication. Tool discovery (ToolSearch for getUpcomingReminders/searchContacts) returned only mcp__claude_ai_Clay__authenticate and mcp__claude_ai_Clay__complete_authentication; no reminder, birthday, or contact read tool exists in this session. OAuth was not started because it requires an interactive browser step and this is an unattended boot run."
+  "birthday_count": 0
 }

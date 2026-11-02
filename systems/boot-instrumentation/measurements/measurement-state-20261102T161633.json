@@ -1,0 +1,230 @@
+{
+  "workflow": "boot",
+  "total_size_bytes": 21078,
+  "accumulated_context": {
+    "name": "accumulated-context",
+    "size_bytes": 21078,
+    "size_kb": 20.58,
+    "estimated_tokens": 5269,
+    "type": "dict"
+  },
+  "field_breakdown": [
+    {
+      "name": "phase2",
+      "size_bytes": 14290,
+      "size_kb": 13.96,
+      "estimated_tokens": 3572,
+      "type": "dict"
+    },
+    {
+      "name": "phase3.meeting_context",
+      "size_bytes": 2320,
+      "size_kb": 2.27,
+      "estimated_tokens": 580,
+      "type": "list"
+    },
+    {
+      "name": "workflows_scanned",
+      "size_bytes": 700,
+      "size_kb": 0,
+      "estimated_tokens": 174,
+      "type": "str"
+    },
+    {
+      "name": "briefing_delivered",
+      "size_bytes": 577,
+      "size_kb": 0,
+      "estimated_tokens": 143,
+      "type": "str"
+    },
+    {
+      "name": "state_status",
+      "size_bytes": 536,
+      "size_kb": 0,
+      "estimated_tokens": 133,
+      "type": "str"
+    },
+    {
+      "name": "knox_reason",
+      "size_bytes": 357,
+      "size_kb": 0,
+      "estimated_tokens": 89,
+      "type": "str"
+    },
+    {
+      "name": "meetings_found",
+      "size_bytes": 209,
+      "size_kb": 0,
+      "estimated_tokens": 52,
+      "type": "str"
+    },
+    {
+      "name": "step01",
+      "size_bytes": 193,
+      "size_kb": 0,
+      "estimated_tokens": 48,
+      "type": "str"
+    },
+    {
+      "name": "phase3.system_status.note",
+      "size_bytes": 165,
+      "size_kb": 0,
+      "estimated_tokens": 41,
+      "type": "str"
+    },
+    {
+      "name": "phase1-point5.files-created",
+      "size_bytes": 154,
+      "size_kb": 0.15,
+      "estimated_tokens": 38,
+      "type": "list"
+    },
+    {
+      "name": "phase1-point5.unified-data-pulls.clay",
+      "size_bytes": 151,
+      "size_kb": 0,
+      "estimated_tokens": 37,
+      "type": "str"
+    },
+    {
+      "name": "phase3.morning-briefing-step-03",
+      "size_bytes": 138,
+      "size_kb": 0,
+      "estimated_tokens": 34,
+      "type": "str"
+    },
+    {
+      "name": "phase1-point5.unified-data-pulls.jarvis-inbox",
+      "size_bytes": 106,
+      "size_kb": 0,
+      "estimated_tokens": 26,
+      "type": "str"
+    },
+    {
+      "name": "prior-run",
+      "size_bytes": 94,
+      "size_kb": 0,
+      "estimated_tokens": 23,
+      "type": "str"
+    },
+    {
+      "name": "verification_results",
+      "size_bytes": 86,
+      "size_kb": 0,
+      "estimated_tokens": 21,
+      "type": "str"
+    },
+    {
+      "name": "phase1-point5.unified-data-pulls.ynab",
+      "size_bytes": 43,
+      "size_kb": 0,
+      "estimated_tokens": 10,
+      "type": "str"
+    },
+    {
+      "name": "phase3.clay-reminders",
+      "size_bytes": 35,
+      "size_kb": 0,
+      "estimated_tokens": 8,
+      "type": "str"
+    },
+    {
+      "name": "phase3.clay-birthdays",
+      "size_bytes": 35,
+      "size_kb": 0,
+      "estimated_tokens": 8,
+      "type": "str"
+    },
+    {
+      "name": "knox_eval_id",
+      "size_bytes": 27,
+      "size_kb": 0,
+      "estimated_tokens": 6,
+      "type": "str"
+    },
+    {
+      "name": "step01.5.calendar_file",
+      "size_bytes": 26,
+      "size_kb": 0,
+      "estimated_tokens": 6,
+      "type": "str"
+    },
+    {
+      "name": "step01.5.date_range",
+      "size_bytes": 24,
+      "size_kb": 0,
+      "estimated_tokens": 6,
+      "type": "str"
+    },
+    {
+      "name": "phase1-point5.unified-data-pulls.email",
+      "size_bytes": 24,
+      "size_kb": 0,
+      "estimated_tokens": 5,
+      "type": "str"
+    },
+    {
+      "name": "phase1-point5.unified-data-pulls.omnifocus",
+      "size_bytes": 22,
+      "size_kb": 0,
+      "estimated_tokens": 5,
+      "type": "str"
+    },
+    {
+      "name": "step01.5.status",
+      "size_bytes": 7,
+      "size_kb": 0,
+      "estimated_tokens": 1,
+      "type": "str"
+    },
+    {
+      "name": "phase3.system_status.yesterday_review",
+      "size_bytes": 7,
+      "size_kb": 0,
+      "estimated_tokens": 1,
+      "type": "str"
+    },
+    {
+      "name": "knox_status",
+      "size_bytes": 7,
+      "size_kb": 0,
+      "estimated_tokens": 1,
+      "type": "str"
+    },
+    {
+      "name": "step01.5.file_size_kb",
+      "size_bytes": 5,
+      "size_kb": 0,
+      "estimated_tokens": 1,
+      "type": "float"
+    },
+    {
+      "name": "phase1-point5.total_data_on_disk_kb",
+      "size_bytes": 5,
+      "size_kb": 0,
+      "estimated_tokens": 1,
+      "type": "float"
+    },
+    {
+      "name": "phase3.system_status.yesterday_top_3",
+      "size_bytes": 4,
+      "size_kb": 0,
+      "estimated_tokens": 1,
+      "type": "NoneType"
+    },
+    {
+      "name": "knox_duration_seconds",
+      "size_bytes": 3,
+      "size_kb": 0,
+      "estimated_tokens": 0,
+      "type": "float"
+    },
+    {
+      "name": "step01.5.event_count",
+      "size_bytes": 2,
+      "size_kb": 0,
+      "estimated_tokens": 0,
+      "type": "int"
+    }
+  ]
+}

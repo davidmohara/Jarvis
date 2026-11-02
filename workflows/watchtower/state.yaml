@@ -1,601 +1,118 @@
 workflow: watchtower
 agent: knox
-status: aborted
-aborted-reason: "Aborted per David's 2026-10-30 ruling; this is the daily run he stopped himself (err-20261027T184315-93PIYQ)"
-session-started: '2026-10-27T18:27:24Z'
+status: complete
+session-started: '2026-11-02T13:27:40Z'
 session-completed: ''
-completed-at: '2026-10-30T14:19:54Z'
-session-id: wt-daily-2026-10-27
+completed-at: '2026-11-02T13:32:55Z'
+session-id: wt-weekly-2026-W45
 current-step: null
-original-request: watchtower-daily run (Knox) via workflows/boot step-04.5
-retirements_today: []
-eval_id: eval-20261027T182810-QV7YPU
+original-request: watchtower-weekly scheduled task (Knox), Monday summary
+eval_id: null
 accumulated-context:
-  daily_date: '2026-10-27'
-  item_count: 84
-  sources_fetched: 29
-  failed_sources:
-  - Hacker News (curl timeout/000)
-  - Microsoft AI Blog (410 Gone)
-  - Ben's Bites (404)
-  - Turing Post (404)
-  - EOS Worldwide Blog (404)
-  - OpenAI News (403)
-  - Gartner Newsroom (403)
-  - Axios Pro — Tech (403)
-  - xAI News (403)
-  - BCG Insights (403)
-  - D CEO (403)
-  - WebSearch (unauthorized; direct fetch fallback used)
-  raw_items:
-  - title: 'AI SRE: what is it, how could it change on-call – and does it work?'
-    url: 'https://newsletter.pragmaticengineer.com/p/ai-sre'
-    source_name: 'The Pragmatic Engineer'
-    published_date: '2026-10-27'
-    topic: it-consulting
-    raw_snippet: '“AI SRE” is fast becoming a trending term fueled by flashy demos from vendors, but has an AI SRE ever really been on-call while engineers slept? Deepdive'
-  - title: 'Import AI 478: Math for alignment; ProgramBench; and Mirendil shows what RSI means'
-    url: 'https://jack-clark.net/2026/10/26/import-ai-478-math-for-alignment-programbench-and-mirendil-shows-what-rsi-means/'
-    source_name: 'Import AI (Jack Clark)'
-    published_date: '2026-10-26'
-    topic: ai-agentic
-    raw_snippet: 'Covers agent-driven formalization of math for alignment, Claude Opus 5.5 on ProgramBench, OpenAI agent sandbox vulnerabilities, Mirendil, and an AI-discovered semiconductor candidate.'
-  - title: 'Texas early voting rate is slightly behind 2018, when Beto O’Rourke challenged Ted Cruz'
-    url: 'https://feeds.texastribune.org/link/16799/17507499/texas-early-voting-2026-election'
-    source_name: 'Texas Tribune'
-    published_date: '2026-10-27'
-    topic: texas-regional
-    raw_snippet: 'Democratic primary voters outpaced Republicans in the opening week of early voting — a result a GOP consultant called “new territory."'
-  - title: 'Dems hope to clinch the state by flipping Collin County, Paxton’s homebase and a longtime GOP bastion'
-    url: 'https://feeds.texastribune.org/link/16799/17507500/texas-collin-county-talarico-paxton-bellwether-suburbs-senate'
-    source_name: 'Texas Tribune'
-    published_date: '2026-10-27'
-    topic: texas-regional
-    raw_snippet: 'Democrats’ chances hinge on finally winning a county that for years has been trending purple.'
-  - title: 'Coalition in deep East Texas aims to build tech workforce, connect region'
-    url: 'https://feeds.texastribune.org/link/16799/17507501/east-texas-technology-coalition-launches'
-    source_name: 'Texas Tribune'
-    published_date: '2026-10-27'
-    topic: texas-regional
-    raw_snippet: 'Led by community members from 11 counties, the group plans to address major concerns about broadband expansion and provide training on how to use technology.'
-  - title: 'Feds may build border wall through South Texas refuge as original plan stalls in court'
-    url: 'https://feeds.texastribune.org/link/16799/17507255/feds-may-build-border-wall-through-south-texas-refuge-as-original-plan-stalls-in-court'
-    source_name: 'Texas Tribune'
-    published_date: '2026-10-26'
-    topic: texas-regional
-    raw_snippet: 'The original plan, which has been stalled since July, called for construction of a wall along the Santa Ana wildlife refuge.'
-  - title: 'Frustration over school takeovers, vouchers could sway Texas voters in close governor’s race'
-    url: 'https://feeds.texastribune.org/link/16799/17507153/greg-abbott-gina-hinojosa-education-texas-governor-election-2026'
-    source_name: 'Texas Tribune'
-    published_date: '2026-10-26'
-    topic: texas-regional
-    raw_snippet: 'As Democrat Gina Hinojosa focuses on “saving” public schools, Republican Gov. Greg Abbott has emphasized property tax cuts in the final weeks of the campaign.'
-  - title: 'Ties to Trump, Biden loom large in key South Texas congressional race'
-    url: 'https://feeds.texastribune.org/link/16799/17506791/texas-vicente-gonzalez-eric-flores-district-34-2026-election'
-    source_name: 'Texas Tribune'
-    published_date: '2026-10-26'
-    topic: texas-regional
-    raw_snippet: 'Democrat Vicente Gonzalez and Republican Eric Flores square off in a U.S. House district redrawn to benefit the GOP.'
-  - title: 'As South Texas Republicans brace for losses, Ryan Guillen’s career offers a possible roadmap back'
-    url: 'https://feeds.texastribune.org/link/16799/17506792/south-texas-ryan-guillen-latino-voters-trump-2026-election'
-    source_name: 'Texas Tribune'
-    published_date: '2026-10-26'
-    topic: texas-regional
-    raw_snippet: 'The former Democrat’s reputation as an unflappable moderate stands in sharp contrast to the MAGA firebrands at the top of this year’s GOP ticket.'
-  - title: '“Silence is getting a bit loud”: Emails show UT leaders took heat for slow response to Bo French post'
-    url: 'https://feeds.texastribune.org/link/16799/17506793/university-texas-ut-bo-french-response'
-    source_name: 'Texas Tribune'
-    published_date: '2026-10-26'
-    topic: texas-regional
-    raw_snippet: 'Despite pressure from students and graduates to condemn the remarks as racist, University of Texas officials took a more careful approach.'
-  - title: 'A Texas cop signed on to help ICE deport his neighbors. It tore the town apart.'
-    url: 'https://feeds.texastribune.org/link/16799/17506217/deportations-ingram-texas-287g-jaron-alexander'
-    source_name: 'Texas Tribune'
-    published_date: '2026-10-25'
-    topic: texas-regional
-    raw_snippet: 'Ingram was just rebuilding from a devastating flood when its tiny police department enrolled in ICE’s 287(g) deportation program. Within a year, cops would hand over the equivalent of 10% of the town.'
-  - title: 'NVIDIA and Oracle Expand NVIDIA Vera Rubin to Multi-Gigawatt Scale and Bring NVIDIA Vera CPU to Oracle Cloud Infrastructure'
-    url: 'https://nvidianews.nvidia.com/news/nvidia-and-oracle-expand-nvidia-vera-rubin-to-multi-gigawatt-scale-and-bring-nvidia-vera-cpu-to-oracle-cloud-infrastructure'
-    source_name: 'NVIDIA Newsroom'
-    published_date: '2026-10-27'
-    topic: ai-agentic
-    raw_snippet: 'NVIDIA and Oracle today announced plans to expand Oracle Cloud Infrastructure (OCI) Superclusters with NVIDIA Vera Rubin NVL72 systems to multi-gigawatt scale, supporting growing customer demand for AI training, inference and agentic applications.'
-  - title: 'How AI Is Changing the Pace of Discovery for Millions Living With Dementia'
-    url: 'https://blogs.nvidia.com/blog/open-source-ai-tools-cbrain-dementia/'
-    source_name: 'NVIDIA Newsroom'
-    published_date: '2026-10-27'
-    topic: ai-agentic
-    raw_snippet: 'There are 57 million people worldwide living with dementia today. For the researchers working to help them, the obstacle isn’t a lack of effort — it’s too much data, too few experts to synthesize it and a pace of discovery that can’t keep up with the disease.'
-  - title: 'NVIDIA and Meta to Expand Collaboration on Muse and Muse Family of Models Amid Robust Growth'
-    url: 'https://nvidianews.nvidia.com/news/nvidia-and-meta-to-expand-collaboration-on-muse-and-muse-family-of-models-amid-robust-growth'
-    source_name: 'NVIDIA Newsroom'
-    published_date: '2026-10-27'
-    topic: ai-agentic
-    raw_snippet: 'NVIDIA and Meta today announced they will partner to expand their work on Muse and the Muse family of models to improve inference and training performance, reflecting popular demand for useful AI agents.'
-  - title: 'Our newest AI Quest: Mapping the human brain'
-    url: 'https://blog.google/products-and-platforms/products/education/ai-quests-polar-peaks/'
-    source_name: 'Google DeepMind / Google AI Blog'
-    published_date: '2026-10-26'
-    topic: ai-agentic
-    raw_snippet: 'Learn AI literacy via Google’s latest AI Quests lesson on neuroscience, “Polar Peaks.”'
-  - title: 'The Download: Anthropic’s IPO, smarter power grids, and exercise pills'
-    url: 'https://www.technologyreview.com/2026/10/27/1147693/the-download-anthropic-ipo-smarter-power-grids-exercise-pills/'
-    source_name: 'MIT Technology Review — Making AI Work'
-    published_date: '2026-10-27'
-    topic: ai-agentic
-    raw_snippet: 'After weeks of frenzied speculation, Anthropic has filed its IPO prospectus. The 335-page document (100 pages or so are focused on risks) lays out the company’s financials.'
-  - title: 'Industrial Intelligence: The next growth opportunity for manufacturing'
-    url: 'https://www.technologyreview.com/2026/10/27/1147142/industrial-intelligence-the-next-growth-opportunity-for-manufacturing/'
-    source_name: 'MIT Technology Review — Making AI Work'
-    published_date: '2026-10-27'
-    topic: ai-agentic
-    raw_snippet: 'Every manufacturer has its own industrial intelligence. Some is documented, and some resides in the knowledge of experienced workers.'
-  - title: 'How solid-state transformers could help power the AI boom'
-    url: 'https://www.technologyreview.com/2026/10/27/1147684/solid-state-transformers/'
-    source_name: 'MIT Technology Review — Making AI Work'
-    published_date: '2026-10-27'
-    topic: ai-agentic
-    raw_snippet: 'Transformers are a crucial but nearly invisible part of our grid, complicated and in short supply, as the world races to power AI data centers.'
-  - title: 'Will the real Anthropic please stand up'
-    url: 'https://www.technologyreview.com/2026/10/26/1147672/will-the-real-anthropic-please-stand-up/'
-    source_name: 'MIT Technology Review — Making AI Work'
-    published_date: '2026-10-26'
-    topic: ai-agentic
-    raw_snippet: 'After weeks of frenzied speculation, Anthropic has filed its IPO prospectus. The 335-page document lays out the company’s unusual structure and risks.'
-  - title: 'The Download: everyday AI harms and the race to nuclear spaceflight'
-    url: 'https://www.technologyreview.com/2026/10/26/1147650/the-download-everyday-ai-harms-nuclear-spaceflight/'
-    source_name: 'MIT Technology Review — Making AI Work'
-    published_date: '2026-10-26'
-    topic: ai-agentic
-    raw_snippet: 'Daily newsletter edition covering everyday AI harms op-ed and nuclear spaceflight.'
-  - title: 'The focus on AI safety disasters ignores everyday harms'
-    url: 'https://www.technologyreview.com/2026/10/26/1147645/the-focus-on-ai-safety-disasters-ignores-everyday-harms/'
-    source_name: 'MIT Technology Review — Making AI Work'
-    published_date: '2026-10-26'
-    topic: ai-agentic
-    raw_snippet: 'Op-ed argues safety debates fixate on extreme incidents while overlooking quieter harms such as emotional dependence on chatbots and engagement-driven feeds.'
-  - title: 'Anthropic S-1, The Cost of Compute, Who Is Paying?'
-    url: 'https://stratechery.com/2026/anthropic-s-1-the-cost-of-compute-who-is-paying/'
-    source_name: 'Stratechery'
-    published_date: '2026-10-27'
-    topic: it-consulting
-    raw_snippet: 'Anthropic''s IPO is finally here; the core business is very profitable, but competition may eat all of the profits, even as investors are set up for endless dilution.'
-  - title: 'The End of the Internet'
-    url: 'https://stratechery.com/2026/the-end-of-the-internet/'
-    source_name: 'Stratechery'
-    published_date: '2026-10-26'
-    topic: it-consulting
-    raw_snippet: 'The old Internet, where anyone could host a server is over, but it''s just the final blow in an ending that has been coming for years. The future, though, is brighter than it appears.'
-  - title: 'Archer Aviation Unveils Air Taxi Networks in Dallas-Fort Worth, Houston and Austin'
-    url: 'https://s24806.pcdn.co/archer-aviation-unveils-air-taxi-networks-in-dallas-fort-worth-houston-and-austin/'
-    source_name: 'Dallas Innovates'
-    published_date: '2026-10-27'
-    topic: texas-regional
-    raw_snippet: 'In the next few months, North Texans may see air taxis — with paying passengers aboard — in the sky. Archer Aviation unveiled plans for three air taxi networks in the Texas Triangle.'
-  - title: 'Dallas Startup Warhound Raises $200M to Genetically Engineer and Clone Elite Military Dogs'
-    url: 'https://dallasinnovates.com/dallas-startup-warhound-raises-200m-to-genetically-engineer-and-clone-elite-military-dogs/'
-    source_name: 'Dallas Innovates'
-    published_date: '2026-10-27'
-    topic: texas-regional
-    raw_snippet: 'A startup co-founded by the CEO of Dallas de-extinction company Colossal Biosciences will put $200 million in seed funding toward creating genetically engineered and cloned superdogs for the military.'
-  - title: 'C-suite remains split on how tech shapes the enterprise'
-    url: 'https://www.ciodive.com/news/c-suite-split-on-role-of-tech-leaders/872810/'
-    source_name: 'CIO Dive'
-    published_date: '2026-10-27'
-    topic: it-consulting
-    raw_snippet: 'Non-technical executives put less importance on AI shaping business strategy than CIOs do.'
-  - title: 'PHP exploitation moves at slower-than-expected pace, but millions remain at risk'
-    url: 'https://www.ciodive.com/news/php-exploitation-slower-than-expected/872803/'
-    source_name: 'CIO Dive'
-    published_date: '2026-10-26'
-    topic: it-consulting
-    raw_snippet: 'Security researchers flag botnet activity, but successful compromises remain limited.'
-  - title: 'How Scotiabank, Liberty Mutual scale AI while watching costs'
-    url: 'https://www.ciodive.com/news/scotiabank-liberty-mutual-scale-ai-watch-costs/872809/'
-    source_name: 'CIO Dive'
-    published_date: '2026-10-26'
-    topic: it-consulting
-    raw_snippet: 'Maximizing value depends on a combination of technology and training, executives said.'
-  - title: 'How CIOs can set the pace for cybersecurity resilience'
-    url: 'https://www.ciodive.com/news/cybersecurity-resilience-protiviti-CIO-CISO/833819/'
-    source_name: 'CIO Dive'
-    published_date: '2026-10-26'
-    topic: it-consulting
-    raw_snippet: 'Responsiveness will separate basic security programs from organizations that withstand disruption as AI spreads.'
-  - title: 'A look inside the AI playbook at Morgan Stanley’s wealth division'
-    url: 'https://www.ciodive.com/news/ai-playbook-morgan-stanley-wealth-division/833824/'
-    source_name: 'CIO Dive'
-    published_date: '2026-10-26'
-    topic: it-consulting
-    raw_snippet: 'Morgan Stanley rethought its data approach to support AI, according to CIO Hina Shamsi.'
-  - title: 'How AI will evolve supply chains from better plans to better outcomes'
-    url: 'https://www.ciodive.com/spons/how-ai-will-evolve-supply-chains-from-better-plans-to-better-outcomes/833554/'
-    source_name: 'CIO Dive'
-    published_date: '2026-10-26'
-    topic: it-consulting
-    raw_snippet: 'Supply chains have the data and the dashboards. Now AI is adding the decisions.'
-  - title: 'Turning your Wi-Fi network into an AI-native location platform'
-    url: 'https://www.ciodive.com/spons/turning-your-wi-fi-network-into-an-ai-native-location-platform/833073/'
-    source_name: 'CIO Dive'
-    published_date: '2026-10-26'
-    topic: it-consulting
-    raw_snippet: 'Explore what''s possible with indoor location intelligence.'
-  - title: 'Washington renamed AI. The technology did not change.'
-    url: 'https://www.ciodive.com/spons/washington-renamed-ai-the-technology-did-not-change/833680/'
-    source_name: 'CIO Dive'
-    published_date: '2026-10-26'
-    topic: it-consulting
-    raw_snippet: 'Three tiers do the work: systems that predict, systems that recommend to a human who decides and systems that act.'
-  - title: 'The 50 Most Influential People in Tech Run Companies Worth a Year of U.S. GDP'
-    url: 'https://www.theinformation.com/articles/50-influential-people-tech-run-companies-worth-year-u-s-gdp'
-    source_name: 'The Information'
-    published_date: '2026-10-27'
-    topic: ai-agentic
-    raw_snippet: ''
-  - title: 'Anthropic’s S-1 Takeaways: From Giant Compute Commitments to Complex Lock-Ups'
-    url: 'https://www.theinformation.com/articles/anthropics-s-1-takeaways-giant-compute-commitments-complex-lock-ups'
-    source_name: 'The Information'
-    published_date: '2026-10-27'
-    topic: ai-agentic
-    raw_snippet: ''
-  - title: 'How Is Anthropic So Efficient?'
-    url: 'https://www.theinformation.com/articles/anthropics-85-margin-reality-check-skeptics'
-    source_name: 'The Information'
-    published_date: '2026-10-27'
-    topic: ai-agentic
-    raw_snippet: ''
-  - title: 'Exclusive: Tiny Startup Critical Loop Lands Deal to Power New Anduril Facility'
-    url: 'https://www.theinformation.com/articles/exclusive-tiny-startup-critical-loop-lands-deal-power-new-anduril-facility'
-    source_name: 'The Information'
-    published_date: '2026-10-27'
-    topic: ai-agentic
-    raw_snippet: ''
-  - title: 'Anthropic, SpaceX and Meta Cash Grabs'
-    url: 'https://www.theinformation.com/articles/anthropic-spacex-meta-cash-grabs'
-    source_name: 'The Information'
-    published_date: '2026-10-27'
-    topic: ai-agentic
-    raw_snippet: ''
-  - title: 'The Argument in Favor of Tranched Rounds'
-    url: 'https://www.theinformation.com/articles/argument-favor-tranched-rounds'
-    source_name: 'The Information'
-    published_date: '2026-10-27'
-    topic: ai-agentic
-    raw_snippet: ''
-  - title: 'Why Restrictive Cybersecurity Policies Backfire'
-    url: 'https://hbr.org/2026/10/why-restrictive-cybersecurity-policies-backfire'
-    source_name: 'HBR — AI & Leadership'
-    published_date: '2026-10-27'
-    topic: leadership
-    raw_snippet: ''
-  - title: 'From AI Investment to Workforce Readiness and Performance'
-    url: 'https://hbr.org/sponsored/2026/10/from-ai-investment-to-workforce-readiness-and-performance'
-    source_name: 'HBR — AI & Leadership'
-    published_date: '2026-10-27'
-    topic: leadership
-    raw_snippet: ''
-  - title: '3 Paths to Delivering Shareholder Returns with AI'
-    url: 'https://hbr.org/2026/10/3-paths-to-delivering-shareholder-returns-with-ai'
-    source_name: 'HBR — AI & Leadership'
-    published_date: '2026-10-27'
-    topic: leadership
-    raw_snippet: ''
-  - title: 'To Build Effective Cyber Resilience, Invest in Trust'
-    url: 'https://hbr.org/2026/10/to-build-effective-cyber-resilience-invest-in-trust'
-    source_name: 'HBR — AI & Leadership'
-    published_date: '2026-10-27'
-    topic: leadership
-    raw_snippet: ''
-  - title: 'How can CIOs course-correct AI for inherited human biases?'
-    url: 'https://www.informationweek.com/it-leadership/how-can-cios-course-correct-ai-for-inherited-human-biases-'
-    source_name: 'InformationWeek'
-    published_date: '2026-10-27'
-    topic: it-consulting
-    raw_snippet: ''
-  - title: 'Cisco chief automation officer on the power of 100x engineers'
-    url: 'https://www.informationweek.com/it-leadership/cisco-chief-automation-officer-on-the-power-of-100x-engineers'
-    source_name: 'InformationWeek'
-    published_date: '2026-10-27'
-    topic: it-consulting
-    raw_snippet: ''
-  - title: 'Kraft Group CIO: Training facility revamp brings VR to the gridiron'
-    url: 'https://www.informationweek.com/it-leadership/kraft-group-cio-training-facility-revamp-brings-vr-to-the-gridiron'
-    source_name: 'InformationWeek'
-    published_date: '2026-10-27'
-    topic: it-consulting
-    raw_snippet: ''
-  - title: 'InformationWeek Podcast: Is AI the best watchdog for the supply chain?'
-    url: 'https://www.informationweek.com/it-leadership/informationweek-podcast-is-ai-the-best-watchdog-for-the-supply-chain-'
-    source_name: 'InformationWeek'
-    published_date: '2026-10-27'
-    topic: it-consulting
-    raw_snippet: ''
-  - title: 'InformationWeek Podcast: Keeping shadow AI agents in check'
-    url: 'https://www.informationweek.com/it-leadership/informationweek-podcast-tackling-the-rise-of-shadow-ai-agents'
-    source_name: 'InformationWeek'
-    published_date: '2026-10-27'
-    topic: it-consulting
-    raw_snippet: ''
-  - title: 'How to submit an IT leadership column to InformationWeek'
-    url: 'https://www.informationweek.com/it-leadership/how-to-submit-a-column-to-informationweek'
-    source_name: 'InformationWeek'
-    published_date: '2026-10-27'
-    topic: it-consulting
-    raw_snippet: ''
-  - title: 'Reimagining Independence: How Meta’s AI Models Are Helping the University of Pittsburgh Transform Assistive Robotics'
-    url: 'https://ai.meta.com/blog/assistive-robotics-university-of-pittsburgh-sam-dino/'
-    source_name: 'Meta AI Blog'
-    published_date: '2026-10-27'
-    topic: ai-agentic
-    raw_snippet: ''
-  - title: 'How Meta’s AI Models Are Powering the First Wave of Genesis Mission Projects'
-    url: 'https://ai.meta.com/blog/genesis-mission-lawrence-berkeley-national-laboratory-segment-anything-dino/'
-    source_name: 'Meta AI Blog'
-    published_date: '2026-10-27'
-    topic: ai-agentic
-    raw_snippet: ''
-  - title: 'Introducing Muse Image and Muse Video'
-    url: 'https://ai.meta.com/blog/introducing-muse-image-muse-video-msl/'
-    source_name: 'Meta AI Blog'
-    published_date: '2026-10-27'
-    topic: ai-agentic
-    raw_snippet: ''
-  - title: 'From Brain Waves to Words: Brain2Qwerty Offers a New Path to Communication Without Surgery'
-    url: 'https://ai.meta.com/blog/brain2qwerty-brain-ai-human-communication/'
-    source_name: 'Meta AI Blog'
-    published_date: '2026-10-27'
-    topic: ai-agentic
-    raw_snippet: ''
-  - title: 'Kyndryl Report: As AI broadens modernization agenda, leaders prioritize business outcomes over replacing legacy systems'
-    url: 'https://www.kyndryl.com/us/en/about-us/news/2026/10/enterprise-it-modernization-trends'
-    source_name: 'Kyndryl Wire'
-    published_date: '2026-10-27'
-    topic: it-consulting
-    raw_snippet: ''
-  - title: 'Kyndryl opens new Cyber Defense Operations Center in Paris'
-    url: 'https://www.kyndryl.com/us/en/about-us/news/2026/10/new-cyber-defense-operations-center-paris'
-    source_name: 'Kyndryl Wire'
-    published_date: '2026-10-27'
-    topic: it-consulting
-    raw_snippet: ''
-  - title: 'ZEK extends partnership with Kyndryl to strengthen cyber resilience'
-    url: 'https://www.kyndryl.com/us/en/about-us/news/2026/10/zek-extend-partnership-cyber-resilience'
-    source_name: 'Kyndryl Wire'
-    published_date: '2026-10-27'
-    topic: it-consulting
-    raw_snippet: ''
-  - title: 'Kyndryl named a Leader in the IDC MarketScape for Worldwide Digital Workplace Services 2026'
-    url: 'https://www.kyndryl.com/us/en/about-us/news/2026/10/idc-marketscape-Leader-digital-workplace-services'
-    source_name: 'Kyndryl Wire'
-    published_date: '2026-10-27'
-    topic: it-consulting
-    raw_snippet: ''
-  - title: 'CLS completes major infrastructure modernization milestone with Kyndryl'
-    url: 'https://www.kyndryl.com/us/en/about-us/news/2026/10/cls-infrastructure-modernization'
-    source_name: 'Kyndryl Wire'
-    published_date: '2026-10-27'
-    topic: it-consulting
-    raw_snippet: ''
-  - title: 'Kyndryl, Toyota Systems and Toyota Finance modernize IT operations with agentic AI'
-    url: 'https://www.kyndryl.com/us/en/about-us/news/2026/10/toyota-agentic-ai-it-operations'
-    source_name: 'Kyndryl Wire'
-    published_date: '2026-10-27'
-    topic: it-consulting
-    raw_snippet: ''
-  - title: 'People Readiness Report 2026: Kyndryl''s 2026 People Readiness Report reveals a decline in workforce readiness as AI adoption surges—and what leading organizations are doing to prepare.'
-    url: 'https://www.kyndryl.com/us/en/insights/people-readiness-report-2026'
-    source_name: 'Kyndryl Insights'
-    published_date: '2026-10-27'
-    topic: it-consulting
-    raw_snippet: ''
-  - title: 'AI is changing the economics of the enterprise'
-    url: 'https://www.kyndryl.com/us/en/insights/articles/2026/10/ai-enterprise-economics'
-    source_name: 'Kyndryl Insights'
-    published_date: '2026-10-27'
-    topic: it-consulting
-    raw_snippet: ''
-  - title: 'What frontier AI means for healthcare leaders'
-    url: 'https://www.kyndryl.com/us/en/insights/articles/2026/10/frontier-ai-healthcare-cybersecurity'
-    source_name: 'Kyndryl Insights'
-    published_date: '2026-10-27'
-    topic: it-consulting
-    raw_snippet: ''
-  - title: 'Sovereignty debt is the new technical debt'
-    url: 'https://www.kyndryl.com/us/en/insights/articles/2026/10/digital-sovereignty-technical-debt'
-    source_name: 'Kyndryl Insights'
-    published_date: '2026-10-27'
-    topic: it-consulting
-    raw_snippet: ''
-  - title: 'Trust in motion: VIA Rail’s approach to Frontier AI'
-    url: 'https://www.kyndryl.com/us/en/insights/articles/2026/10/frontier-ai-cyber-risk'
-    source_name: 'Kyndryl Insights'
-    published_date: '2026-10-27'
-    topic: it-consulting
-    raw_snippet: ''
-  - title: 'Built To Change: Go-Live Is the Beginning, Not the Finish Line'
-    url: 'https://www.prosci.com/blog/go-live-is-the-beginning-not-the-finish-line'
-    source_name: 'Prosci Blog'
-    published_date: '2026-10-27'
-    topic: leadership
-    raw_snippet: ''
-  - title: 'How to Accelerate Digital Transformation and Drive Business Growth'
-    url: 'https://www.prosci.com/blog/how-to-accelerate-digital-transformation-and-drive-business-growth'
-    source_name: 'Prosci Blog'
-    published_date: '2026-10-27'
-    topic: leadership
-    raw_snippet: ''
-  - title: 'Post-Merger Integration: Key Phases, Challenges and Best Practices'
-    url: 'https://www.prosci.com/blog/post-merger-integration-key-phases-challenges-and-best-practices'
-    source_name: 'Prosci Blog'
-    published_date: '2026-10-27'
-    topic: leadership
-    raw_snippet: ''
-  - title: 'Why Projects Fail: Common Causes and How to Prevent Project Failure'
-    url: 'https://www.prosci.com/blog/why-projects-fail'
-    source_name: 'Prosci Blog'
-    published_date: '2026-10-27'
-    topic: leadership
-    raw_snippet: ''
-  - title: '5 Strategic Decisions for Building Organizational Change Capability in 2026'
-    url: 'https://www.prosci.com/blog/5-strategic-decisions-for-building-organizational-change-capability'
-    source_name: 'Prosci Blog'
-    published_date: '2026-10-27'
-    topic: leadership
-    raw_snippet: ''
-  - title: 'Build Organizational Resilience: A Strategic Capability for Navigating Change'
-    url: 'https://www.prosci.com/blog/build-organizational-resilience-a-strategic-capability-for-navigating-change'
-    source_name: 'Prosci Blog'
-    published_date: '2026-10-27'
-    topic: leadership
-    raw_snippet: ''
-  - title: 'The DEC Network Partners With Charles Schwab Bank to Expand Services for Entrepreneurs in Fort Worth'
-    url: 'https://dallasinnovates.com/the-dec-network-partners-with-charles-schwab-bank-to-expand-services-for-entrepreneurs-in-fort-worth/'
-    source_name: 'DEC Network'
-    published_date: '2026-10-27'
-    topic: texas-regional
-    raw_snippet: ''
-  - title: 'Charles Schwab, DEC Network Launch Create Fort Worth for Entrepreneurs'
-    url: 'https://fortworthinc.com/news/charles-schwab-dec-network-launch-create-fort-worth-for-entr/'
-    source_name: 'DEC Network'
-    published_date: '2026-10-27'
-    topic: texas-regional
-    raw_snippet: ''
-  - title: 'Entrepreneurs get support from Charles Schwab Bank and The DEC Network in Fort Worth'
-    url: 'https://texasmetronews.com/131509/entrepreneurs-get-support-from-charles-schwab-bank-and-the-dec-network-in-fort-worth/'
-    source_name: 'DEC Network'
-    published_date: '2026-10-27'
-    topic: texas-regional
-    raw_snippet: ''
-  - title: 'Five Networking Organizations for Entrepreneurs in DFW'
-    url: 'https://www.networkingexecutives.com/blog/where-entrepreneurs-network-in-dfw'
-    source_name: 'DEC Network'
-    published_date: '2026-10-27'
-    topic: texas-regional
-    raw_snippet: ''
-  - title: 'Charles Schwab Bank and The DEC Network Announce Fort Worth Entrepreneur Center'
-    url: 'https://gritdaily.com/charles-schwab-and-the-dec-network-open-fort-worth-innovation-center-for-entrepreneurs/'
-    source_name: 'DEC Network'
-    published_date: '2026-10-27'
-    topic: texas-regional
-    raw_snippet: ''
-  - title: 'The latest AI news we announced in September 2026'
-    url: 'https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-september-2026/'
-    source_name: 'Google DeepMind / Google AI Blog'
-    published_date: '2026-10-27'
-    topic: ai-agentic
-    raw_snippet: ''
-  - title: 'Investing in the public benefit: Anthropic Public Benefit Fund'
-    url: 'https://www.anthropic.com/news/public-benefit-fund'
-    source_name: 'Anthropic News'
-    published_date: '2026-10-27'
-    topic: ai-agentic
-    raw_snippet: 'Committing a portion of Anthropic’s shares to the Anthropic Public Benefit Fund, a new entity with a structure that increases the stake as the company grows.'
-  - title: 'Expanding the Cyber Verification Program'
-    url: 'https://www.anthropic.com/news/cyber-verification-program'
-    source_name: 'Anthropic News'
-    published_date: '2026-10-27'
-    topic: ai-agentic
-    raw_snippet: 'Launching a new, expanded version of the Cyber Verification Program, making advanced cyber capabilities and reduced blocking classifiers available to qualifying security professionals.'
-  - title: 'Anthropic files S-1 with the SEC for proposed initial public offering'
-    url: 'https://www.anthropic.com/news/s1-sec'
-    source_name: 'Anthropic News'
-    published_date: '2026-10-27'
-    topic: ai-agentic
-    raw_snippet: 'Anthropic filed an S-1 registration statement with the SEC for a proposed initial public offering.'
-  - title: 'Donating Agent Skills to the Agentic AI Foundation'
-    url: 'https://www.anthropic.com/news/donating-agent-skills-to-the-agentic-ai-foundation'
-    source_name: 'Anthropic News'
-    published_date: '2026-10-27'
-    topic: ai-agentic
-    raw_snippet: ''
-  - title: 'Open call for guest investigators in the life sciences'
-    url: 'https://www.anthropic.com/news/open-call-guest-investigators-life-sciences'
-    source_name: 'Anthropic News'
-    published_date: '2026-10-27'
-    topic: ai-agentic
-    raw_snippet: ''
-  - title: 'Physicist Christopher Stubbs joins Anthropic''s Long-Term Benefit Trust'
-    url: 'https://www.anthropic.com/news/christopher-stubbs-joins-long-term-benefit-trust'
-    source_name: 'Anthropic News'
-    published_date: '2026-10-27'
-    topic: ai-agentic
-    raw_snippet: ''
-  - title: '2026 Semi-Annual Labor Activity in Healthcare Report'
-    url: 'https://peopleresults.com/insights/healthcare/2026-semi-annual-labor-activity-in-healthcare-report/'
-    source_name: 'People Results'
-    published_date: '2026-10-27'
-    topic: leadership
-    raw_snippet: ''
-  - title: 'Five Things We Learned at the 2026 Wharton People Analytics Conference'
-    url: 'https://peopleresults.com/five-things-we-learned-at-the-2026-wharton-people-analytics-conference/'
-    source_name: 'People Results'
-    published_date: '2026-10-27'
-    topic: leadership
-    raw_snippet: ''
-  content_queue:
-  - title: Anthropic files S-1 with the SEC for proposed initial public offering
-    url: https://www.anthropic.com/news/s1-sec
-    source_name: Anthropic News
-    published_date: '2026-10-26'
-    topic: ai-agentic
-    score: 93
-  - title: 'Deloitte: Frontier AI Agents Are Escaping Enterprise Controls'
-    url: https://aigovernance.com/news/deloitte-frontier-ai-agents-are-escaping-enterprise-controls
-    source_name: AI Governance Institute
-    published_date: '2026-10-26'
-    topic: ai-agentic
-    score: 89
-  - title: PwC Tells Financial Firms to Govern Agentic AI as Enterprise Risk, Not Tech Risk
-    url: https://aigovernance.com/news/pwc-tells-financial-firms-to-govern-agentic-ai-as-enterprise-risk-not-tech-risk
-    source_name: AI Governance Institute
-    published_date: '2026-10-26'
-    topic: ai-agentic
-    score: 87
-  - title: 90% Hijack Rate Turns AI Coding Agents Into Attack Tools via Download Folder
-    url: https://aigovernance.com/news/90-hijack-rate-turns-ai-coding-agents-into-attack-tools-via-download-folder
-    source_name: AI Governance Institute
-    published_date: '2026-10-26'
-    topic: ai-agentic
-    score: 84
-  - title: 3 Paths to Delivering Shareholder Returns with AI
-    url: https://hbr.org/2026/10/3-paths-to-delivering-shareholder-returns-with-ai
-    source_name: HBR — AI & Leadership
-    published_date: '2026-10-26'
-    topic: leadership
-    score: 82
-  - title: 'Import AI 478: Math for alignment; ProgramBench; and Mirendil shows what RSI means'
-    url: https://jack-clark.net/2026/10/26/import-ai-478-math-for-alignment-programbench-and-mirendil-shows-what-rsi-means/
-    source_name: Import AI (Jack Clark)
-    published_date: '2026-10-26'
-    topic: ai-agentic
-    score: 79
-  - title: The End of the Internet
-    url: https://stratechery.com/2026/the-end-of-the-internet/
-    source_name: Stratechery
-    published_date: '2026-10-26'
-    topic: it-consulting
-    score: 78
-  - title: MIT Finds AI Agents Develop Unanticipated Capabilities When Left Unsupervised
-    url: https://aigovernance.com/news/mit-finds-ai-agents-develop-unanticipated-capabilities-when-left-unsupervised
-    source_name: AI Governance Institute
-    published_date: '2026-10-25'
-    topic: ai-agentic
-    score: 77
-  - title: Only 18% of Banks Have Fully Embedded AI Governance, SAS Survey Finds
-    url: https://aigovernance.com/news/only-18-of-banks-have-fully-embedded-ai-governance-sas-survey-finds
-    source_name: AI Governance Institute
-    published_date: '2026-10-25'
-    topic: ai-agentic
-    score: 77
-  - title: Email Prompt Injection Turns Trusted AI Agents Into Attack Tools
-    url: https://aigovernance.com/news/email-prompt-injection-turns-trusted-ai-agents-into-attack-tools
-    source_name: AI Governance Institute
-    published_date: '2026-10-24'
-    topic: ai-agentic
-    score: 76
+  prior-run: wt-daily-2026-10-27 aborted per David 2026-10-30; its content_queue consumed by this weekly run
   obsidian_write_method: 'desktop-commander-direct (vault root: ~/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian; Obsidian MCP 404s on subdirectory GETs)'
   pending_batches: []
   sources_added_to_registry:
   - DEC Network
   - InformationWeek
   - D CEO (D Magazine)
+  content_queue: []
+  iso_week: 2026-W45
+  items_in_queue: 10
+  themes_identified: 2
+  dropped_as_continuing: 3
+  used_fallback: false
+  delta_check_applied: true
+  weekly_themes:
+  - theme_id: 1
+    theme_title: Your AI Vendor's Economics Are Now Public
+    synthesis: 'Anthropic S-1 filed 2026-10-26; secondary coverage reports pricing pressure from agentic workloads and large fixed compute commitments (figures conflict, unverified). Tunguz 2026-10-29 earnings
+      read adds hyperscaler and ServiceNow selloffs. New: vendor risk disclosure says price is not a promise.'
+    source_items:
+    - Anthropic files S-1 with the SEC for proposed initial public offering (https://www.anthropic.com/news/s1-sec)
+    - Crossing the Trillion Dollar Chasm (https://tomtunguz.com/crossing-the-trillion-dollar-chasm/)
+    content_angles:
+    - Your AI Vendor Just Published Its Risk Factors. Have You Read Them?
+  - theme_id: 2
+    theme_title: Safe Is the Floor, Not the Goal
+    synthesis: 'MIT Technology Review op-ed 2026-10-26: safety policy targets catastrophic harms while everyday harms such as dependence and cognitive debt go unmeasured. Evidence is about teens and students;
+      workplace application is an extension.'
+    source_items:
+    - The focus on AI safety disasters ignores everyday harms (https://www.technologyreview.com/2026/10/26/1147645/the-focus-on-ai-safety-disasters-ignores-everyday-harms/)
+    content_angles:
+    - Safe Is the Floor, Not the Goal
+  dropped_themes:
+  - Agent governance cluster (continuing)
+  - AI shareholder returns / Kyndryl readiness (continuing)
+  - Stratechery End of the Internet (unverifiable)
+  data_freshness_note: Daily run not executed since 2026-10-27 abort; queue was the Oct 24-26 backlog plus targeted checks.
+  themes_processed: 2
+  drafts_created: 2
+  draft_paths:
+  - Mind/Posts/_your-ai-vendor-just-published-its-risk-factors.md (verified)
+  - Mind/Posts/_safe-is-the-floor-not-the-goal.md (verified)
+  blog_ideas_appended: 2
+  weekly_tweets:
+  - text: Go-live is not the finish line. Most AI rollouts get a launch email and no named owner for month two. Adoption is what happens after the announcement.
+    supporting_url: null
+    intent_url: https://twitter.com/intent/tweet?text=Go-live%20is%20not%20the%20finish%20line.%20Most%20AI%20rollouts%20get%20a%20launch%20email%20and%20no%20named%20owner%20for%20month%20two.%20Adoption%20is%20what%20happens%20after%20the%20announcement.
+    angle_type: provocative
+  - text: What's one AI-assisted task on your team you'd refuse to automate further, even if you could? Curious where people are drawing their own lines.
+    supporting_url: null
+    intent_url: https://twitter.com/intent/tweet?text=What%27s%20one%20AI-assisted%20task%20on%20your%20team%20you%27d%20refuse%20to%20automate%20further%2C%20even%20if%20you%20could%3F%20Curious%20where%20people%20are%20drawing%20their%20own%20lines.
+    angle_type: question
+  - text: Anthropic's S-1 puts a ticker (ANT) on an AI vendor enterprises already depend on. More public AI vendors means more earnings calls. Procurement should read those too.
+    supporting_url: https://www.anthropic.com/news/s1-sec
+    intent_url: https://twitter.com/intent/tweet?text=Anthropic%27s%20S-1%20puts%20a%20ticker%20%28ANT%29%20on%20an%20AI%20vendor%20enterprises%20already%20depend%20on.%20More%20public%20AI%20vendors%20means%20more%20earnings%20calls.%20Procurement%20should%20read%20those%20too.&url=https%3A%2F%2Fwww.anthropic.com%2Fnews%2Fs1-sec
+    angle_type: data
+  - text: The AI strategy slide has a column for tools and one for timeline. It never has a column for 'who stops doing what.' That's why most of them change nothing.
+    supporting_url: null
+    intent_url: https://twitter.com/intent/tweet?text=The%20AI%20strategy%20slide%20has%20a%20column%20for%20tools%20and%20one%20for%20timeline.%20It%20never%20has%20a%20column%20for%20%27who%20stops%20doing%20what.%27%20That%27s%20why%20most%20of%20them%20change%20nothing.
+    angle_type: provocative
+  - text: Running an AI pilot? Put your biggest skeptic in charge of it. They'll find the failure modes in a week that the champions miss for a quarter.
+    supporting_url: null
+    intent_url: https://twitter.com/intent/tweet?text=Running%20an%20AI%20pilot%3F%20Put%20your%20biggest%20skeptic%20in%20charge%20of%20it.%20They%27ll%20find%20the%20failure%20modes%20in%20a%20week%20that%20the%20champions%20miss%20for%20a%20quarter.
+    angle_type: practitioner
+  - text: A third of teens now discuss serious matters with AI companions instead of people, per Common Sense Media research cited in MIT Tech Review. Those are your future hires.
+    supporting_url: https://www.technologyreview.com/2026/10/26/1147645/the-focus-on-ai-safety-disasters-ignores-everyday-harms/
+    intent_url: https://twitter.com/intent/tweet?text=A%20third%20of%20teens%20now%20discuss%20serious%20matters%20with%20AI%20companions%20instead%20of%20people%2C%20per%20Common%20Sense%20Media%20research%20cited%20in%20MIT%20Tech%20Review.%20Those%20are%20your%20future%20hires.&url=https%3A%2F%2Fwww.technologyreview.com%2F2026%2F10%2F26%2F1147645%2Fthe-focus-on-ai-safety-disasters-ignores-everyday-harms%2F
+    angle_type: data
+  - text: Who at your company has the authority to say 'we are not using AI for this'? If nobody does, you don't have an AI strategy. You have momentum.
+    supporting_url: null
+    intent_url: https://twitter.com/intent/tweet?text=Who%20at%20your%20company%20has%20the%20authority%20to%20say%20%27we%20are%20not%20using%20AI%20for%20this%27%3F%20If%20nobody%20does%2C%20you%20don%27t%20have%20an%20AI%20strategy.%20You%20have%20momentum.
+    angle_type: question
+  - text: 'Three Texas tech stories, one week: air taxi networks planned for DFW, Houston and Austin; a $200M seed round for engineered military dogs; an 11-county East Texas coalition on broadband and
+      training. Wide tent.'
+    supporting_url: null
+    intent_url: https://twitter.com/intent/tweet?text=Three%20Texas%20tech%20stories%2C%20one%20week%3A%20air%20taxi%20networks%20planned%20for%20DFW%2C%20Houston%20and%20Austin%3B%20a%20%24200M%20seed%20round%20for%20engineered%20military%20dogs%3B%20an%2011-county%20East%20Texas%20coalition%20on%20broadband%20and%20training.%20Wide%20tent.
+    angle_type: data
+  - text: Before you buy another AI license, check whether the last one has a trained manager behind it. Tools get purchased. Adoption gets led.
+    supporting_url: null
+    intent_url: https://twitter.com/intent/tweet?text=Before%20you%20buy%20another%20AI%20license%2C%20check%20whether%20the%20last%20one%20has%20a%20trained%20manager%20behind%20it.%20Tools%20get%20purchased.%20Adoption%20gets%20led.
+    angle_type: practitioner
+  - text: 'Rule of thumb for AI governance docs: if a team lead won''t read it on one page, it gets replaced by whatever the loudest vendor says. Short beats thorough.'
+    supporting_url: null
+    intent_url: https://twitter.com/intent/tweet?text=Rule%20of%20thumb%20for%20AI%20governance%20docs%3A%20if%20a%20team%20lead%20won%27t%20read%20it%20on%20one%20page%2C%20it%20gets%20replaced%20by%20whatever%20the%20loudest%20vendor%20says.%20Short%20beats%20thorough.
+    angle_type: practitioner
+  tweets_generated: 10
+  tweets_with_links: 2
+  angle_types:
+    provocative: 2
+    practitioner: 3
+    question: 2
+    data: 3
+  blog_angles_avoided: 2
+  proposed_count: 5
+  excluded_count: 0
+  batch_number: 21
+  weekly_note_path: Watchtower/Weekly/2026-W45.md
+  artifact_updated: true
+  themes_in_note: 2
+  candidates_listed: 2
+  tweets_in_note: 10
+  themes_surfaced: 2
+  candidates_surfaced: 2
+  sources_proposed: 5
+  tweets_surfaced: 10
+  step_06: skipped (unattended scheduled run; no drafts sent to Slack)
+  adversarial_verification: flag (Ralph 2026-11-02; see note in step-07 guardrail record)
