@@ -1,13 +1,11 @@
 ---
 status: completed
 model: kimi-k3
-started-at: "2026-10-30T14:03:39Z"
-completed-at: "2026-10-30T14:03:39Z"
+started-at: "2026-11-02T16:07:34Z"
+completed-at: "2026-11-02T16:07:34Z"
 outputs:
-  previous-run-results:
-    new-recordings: 2
-    confirmed-in-vault: 156
-    api-total: 156
+  no-op: true
+  preflight-verdict: NOOP
 ---
 
 <!-- system:start -->
@@ -35,8 +33,9 @@ Auth failure is only a valid abort reason if the skill's own Chrome login flow h
    background/forked subagent — without confirming the skill's dedup ledger
    (`systems/eval-harness/skill-runs/plaud-discover-ledger-latest.json`) exists and every
    `new_recordings` entry traces to a ledger entry with a checked tier. This is the same
-   HARD GATE defined in `skills/plaud-discover/SKILL.md`; it is restated here because this
-   step has accepted an unverified fork result before (see `err-20260826T190948-QQMBTP`).
+   HARD GATE defined in `skills/plaud-discover/SKILL.md`; it is restated here because a
+   prior pass accepted an unverified fork result, and an unverified count silently
+   corrupts the dedup baseline.
    If the ledger is missing, or the new-recordings count is more than double the last
    confirmed baseline below AND more than 10% of total candidates, do not write it to state
    — re-run discovery once with explicit re-enumeration, and if the anomaly persists, mark
@@ -110,7 +109,7 @@ Auth failure is only a valid abort reason if the skill's own Chrome login flow h
 pre-check that the PRE-EXECUTION: AUTH HANDLING section above forbids. It runs strictly
 *after* `skills/plaud-discover/SKILL.md` has already executed and attempted its own
 Chrome-login/token-acquisition flow. Checking for a token file *before* the skill runs is
-the bug this gate must never become (see `err-20260730T143152-S0TRMO`).
+the bug this gate must never become: a missing cache is not an auth failure.
 A future editor tightening this gate into a pre-flight check would resurrect that exact bug.
 
 **What this gate actually checks:** whether the discovery run that just happened came back

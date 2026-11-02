@@ -209,9 +209,7 @@ The wikilink path is relative to vault root, without `.md` extension. For exampl
 
 **Before deleting any staging files, reconcile the ingest run against `all_recordings.json`.**
 
-Run the reconciliation against the full recording list. NOTE (2026-10-20): the old
-`fetch_plaud.py --list-all --out <json>` mechanism was struck — those flags were documented but
-never implemented, and argparse now rejects them. Until a real list-all mode is built
+Run the reconciliation against the full recording list. NOTE: `fetch_plaud.py --list-all --out <json>` is not available; those flags are not implemented, and argparse rejects them. Until a real list-all mode is built
 (follow-up queued), reconcile against the recording list captured in this run's step-01
 discovery output (`new-recordings` plus already-known recordings), not a fresh API dump.
 

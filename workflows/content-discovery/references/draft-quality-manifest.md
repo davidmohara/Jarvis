@@ -30,10 +30,10 @@ Field rules (these are what the eval-harness `draft_quality` assertions read —
 - `body` and `source_text` are both required — they are the evidence for the voice check. `source_text` is the digest section text or the fetched article's prose the draft was built from.
 - `is_voice_original` — your Gate 2 judgment, recorded as a plain boolean. `false` fails the run.
 - `image_landscape` — the Step 6 `w > h` pixel check result. `false` fails the run.
-- `image_search_query` — the exact query used. When `geo_specific` is `true`, `post_city` is required and the query must contain the city name (err-20260915T154324-4DLWA4).
+- `image_search_query` — the exact query used. When `geo_specific` is `true`, `post_city` is required and the query must contain the city name.
 - `image_geo_confirmed` — `true` when the post is not geo-specific, OR when a geo-specific post's image location was verified. `false` on a geo-specific post fails the run.
 - `related_published_post` — the canonical URL of a related published Ghost post, or `null` when none exists.
-- `internal_links` — every hyperlink URL built into the draft's lexical body. When `related_published_post` is set, its URL must appear here (err-20260915T154324-VTPMUJ). When the draft's tags map to a hub with `page_status: live` in `references/hub-registry.md`, the hub page URL must appear here as well.
+- `internal_links` — every hyperlink URL built into the draft's lexical body. When `related_published_post` is set, its URL must appear here. When the draft's tags map to a hub with `page_status: live` in `references/hub-registry.md`, the hub page URL must appear here as well.
 
 Use `mcp__Desktop_Commander__write_file`. This manifest is the machine-readable counterpart to the `[Gate 2]` log lines above; both are required.
 

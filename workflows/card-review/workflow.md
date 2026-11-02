@@ -38,7 +38,7 @@ Before building any dashboard, read `last_updated` in `systems/credit-cards/bene
 - **If it is more than 30 days old: STOP.** Do not produce a dashboard, do not compute usage, do not guess. Output exactly one thing: "Card data is N days stale. Run `card-walkthrough` first to refresh it, then re-run this review." Mark the run complete with `outcome: blocked-stale-data` and stop.
 - Only proceed when the data is under 30 days old.
 
-Rationale: an analysis of stale data produces confident wrong answers. The review's value is entirely dependent on the walkthrough having run first. Order matters: walkthrough refreshes, review analyzes. Never the reverse. See err-20261016T203925-XMT2U0.
+Rationale: an analysis of stale data produces confident wrong answers. The review's value is entirely dependent on the walkthrough having run first. Order matters: walkthrough refreshes, review analyzes. Never the reverse.
 
 ### VERIFICATION BOUNDARY (hard rule)
 
@@ -50,7 +50,7 @@ This workflow performs **no portal access**. It reads stored JSON only. Therefor
 - The only workflow that can assert recorded activity is `card-walkthrough`, which logs into the portals with David present.
 - Structural facts about the files themselves (a field never tracked, a stale `best_card` pointer, an internal contradiction) ARE reliable and may be stated plainly.
 
-This rule exists because the 2026-10-16 run presented stale-data inferences as findings and got them wrong (Q3 Resy, Q3 lululemon, Atlas points). See err-20261016T203925-XMT2U0.
+This rule exists because stale-file inferences presented as findings read as authoritative and are wrong. A stated age or `UNKNOWN` is the only honest output.
 <!-- system:end -->
 
 ---

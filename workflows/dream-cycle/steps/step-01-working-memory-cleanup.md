@@ -15,7 +15,7 @@ completed-at: 2026-10-09T11:42:00Z
 6. **Move-on-write only.** Do not copy files then delete. Use `mv` (rename) for the working→episodic transfer. This is a single inode operation and succeeds in the sandbox even when `rm`/`unlink` does not.
 7. Mutate frontmatter **before** moving. Write the updated file content to the source path first, then `mv` it to episodic. Never attempt `mv` on an un-mutated file.
 8. Do NOT attempt `rm` on non-trivial files at any point. The only delete target is trivial-body files, and if that delete fails, fall back to leaving the file in place with `status: archived` — do not lose data.
-9. **Enrichment is required for non-trivial archives.** Before mutating to `working-archive`, derive `date`, `tags`, `source_file`, and `related_people` from the file's frontmatter and body. The dream cycle's salience scoring depends on these fields; without them step-02 collapses to zero scores and step-03 finds zero promotion candidates. This was the proximate cause of the 2026-05-08 → 2026-06-09 tag-starvation gap.
+9. **Enrichment is required for non-trivial archives.** Before mutating to `working-archive`, derive `date`, `tags`, `source_file`, and `related_people` from the file's frontmatter and body. The dream cycle's salience scoring depends on these fields; without them step-02 collapses to zero scores and step-03 finds zero promotion candidates.
 
 ## GUARDRAIL 1: ARCHIVE SAFETY
 

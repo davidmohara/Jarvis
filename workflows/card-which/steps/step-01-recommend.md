@@ -76,7 +76,7 @@ If the purchase is international or online from a foreign merchant:
 - **NEVER** use Amex BCP (2.7% FTX fee)
 - Prefer: Citi AAdvantage or Amex Plat (no FTX). Discover it also has no FTX.
 - Chase Sapphire's foreign transaction fee is unconfirmed in the registry, so do not treat it as a safe international card.
-- (Atlas Visa closed 2026-07-01 and is no longer an option.)
+- (Atlas Visa is closed and is no longer an option.)
 
 ## Output Format
 

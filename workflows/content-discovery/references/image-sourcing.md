@@ -18,12 +18,12 @@ Use the ixid from the meta tag URL if available; omit the ixid parameter if not 
 **Image selection rules:**
 - Must be landscape-oriented (wider than tall). No portrait-oriented images. Ever.
 - Must be thematically aligned with the post's core concept — not just generically "professional." A post about auditing should show paperwork, spreadsheets, or financial review. A post about purpose/fulfillment should show open space, horizon, or journey imagery. A post about AI governance should show systems/infrastructure. Match the metaphor, not just the industry.
-- **If the post is geographically specific (names a city, region, or country in the title or hook), the image search query MUST include that location name.** A generic city skyline is not acceptable for a post about Dallas or DFW — search for "unsplash dallas skyline landscape photo site:unsplash.com/photos" or equivalent. After selecting a candidate, inspect the photo's title and description on the fetched Unsplash page to confirm the location matches before accepting. (err-20260915T154324-4DLWA4)
+- **If the post is geographically specific (names a city, region, or country in the title or hook), the image search query MUST include that location name.** A generic city skyline is not acceptable for a post about Dallas or DFW — search for "unsplash dallas skyline landscape photo site:unsplash.com/photos" or equivalent. After selecting a candidate, inspect the photo's title and description on the fetched Unsplash page to confirm the location matches before accepting.
 - Avoid portraits of people as the primary subject
 - Must be free (no Unsplash+ license required)
 - If the first candidate is premium (Unsplash+), portrait, or geographically wrong, discard it and try the next search result — do not settle
 
-> **MANDATORY — verify orientation from the actual pixels, never from the title, alt text, or search category.** Unsplash titles like "a long road with a mountain in the background" or category tags do not reliably indicate orientation — the same photo can be a portrait crop. (See err-20260715T195437-E6MUV6: a "long road / mountain" photo was used and turned out to be 2000x3000, portrait, because the title was trusted instead of the image.)
+> **MANDATORY — verify orientation from the actual pixels, never from the title, alt text, or search category.** Unsplash titles like "a long road with a mountain in the background" or category tags do not reliably indicate orientation; the same photo can be a portrait crop. A title or category tag can describe a landscape while the file itself is portrait, so the pixels are the only reliable check.
 >
 > Before accepting any candidate, fetch it and check real width vs. height via Desktop Commander:
 > ```python

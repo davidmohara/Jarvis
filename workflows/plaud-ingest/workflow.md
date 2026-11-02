@@ -37,7 +37,7 @@ Read and follow `reference/state-check-protocol.md` before any execution. Workfl
 
 **Do NOT check for token files before running step-01. Do NOT abort due to missing token files. Do NOT inspect `~/.config/plaud/token.json` or `~/.config/plaud/credentials.json` before executing the skill.**
 
-The `plaud-discover` skill and `fetch_plaud.py` script handle all authentication — including acquiring a new token via Chrome login flow when no cached token exists. Pre-checking for a token file before running the skill is a protocol violation (see `err-20260730T143152-S0TRMO`).
+The `plaud-discover` skill and `fetch_plaud.py` script handle all authentication, including acquiring a new token via Chrome login flow when no cached token exists. Pre-checking for a token file before running the skill is a protocol violation: a missing cache is not an auth failure, and the skill's own login flow is the only authorized way to recover.
 
 The only authorized auth check: let the skill run. If the skill's own auth flow fails after attempting the Chrome login, then report auth failure and abort.
 
@@ -46,8 +46,7 @@ The only authorized auth check: let the skill run. If the skill's own auth flow 
 ## NO-OP PREFLIGHT (run this before anything else)
 
 A nothing-to-do day must cost about one turn, not a persona load plus a full API
-pagination plus a vault walk. The 2026-10-26 run spent 1.65M input tokens and
-~24 turns to find zero new recordings. Do this first, before reading any step
+pagination plus a vault walk. Do this first, before reading any step
 file, loading any identity/persona file, or walking the vault:
 
 ```bash
@@ -95,7 +94,7 @@ Every step transition is machine-checked. The verifiers in `workflows/plaud-inge
 
 ## CONTEXT BUDGET (non-no-op runs)
 
-Transcript bodies never enter the Knox conversation — they move file-to-file via `skills/plaud-transcripts/scripts/context_tools.py`, and the agent judges from bounded evidence (self-ID candidates, action candidates, note digests). This is why: ingest days re-carried ~8.8M input tokens through the late steps (boot token analysis 2026-10-28, follow-up 5). On any run where the no-op preflight does not exit early, Knox loads `references/context-budget-protocol.md` before step-03 and records `accumulated-context.context-budget` (`evidence-extractions`, `transcript-body-reads` — target 0, `fallback-reasons`). The protocol's fallback ladder keeps ingestion unblocked if the broker fails, with every fallback read surfaced, never silent.
+Transcript bodies never enter the Knox conversation — they move file-to-file via `skills/plaud-transcripts/scripts/context_tools.py`, and the agent judges from bounded evidence (self-ID candidates, action candidates, note digests). Re-carrying full transcript bodies through the late steps multiplies the context every turn re-sends, so keep them out of the conversation. On any run where the no-op preflight does not exit early, Knox loads `references/context-budget-protocol.md` before step-03 and records `accumulated-context.context-budget` (`evidence-extractions`, `transcript-body-reads` — target 0, `fallback-reasons`). The protocol's fallback ladder keeps ingestion unblocked if the broker fails, with every fallback read surfaced, never silent.
 
 ---
 
@@ -165,5 +164,5 @@ This workflow only adds files to the vault and Monday — it never modifies or d
 <!-- system:end -->
 
 <!-- personal:start -->
-> **⚠️ Task E enforcement — Plaud ingest:** Spawning Knox as a background Agent with `workflows/plaud-ingest/workflow.md` is the ONLY way to satisfy this step. A manual `ls` of `~/Downloads/transcript-staging/` or reading `plaud_pending.json` does NOT count. If Knox is not spawned and allowed to run all 5 steps (discover → trigger → identify speakers → fetch → ingest), Task E is NOT complete. Mark it failed, not completed. (Error ref: err-20260611T113806-g0pfoq)
+> **⚠️ Task E enforcement — Plaud ingest:** Spawning Knox as a background Agent with `workflows/plaud-ingest/workflow.md` is the ONLY way to satisfy this step. A manual `ls` of `~/Downloads/transcript-staging/` or reading `plaud_pending.json` does NOT count. If Knox is not spawned and allowed to run all 5 steps (discover → trigger → identify speakers → fetch → ingest), Task E is NOT complete. Mark it failed, not completed.
 <!-- personal:end -->

@@ -130,10 +130,7 @@ Protocol:
    is the deliverable — it is already on disk and the next turn can resume from
    the last progress marker.
 
-This exists because a 2026-10-15 Knox webinar contact sweep ran ten minutes of
-evidence gathering across vault + email + IES files and was cut off while
-"compiling the final ranked list" with nothing written to disk — the whole run
-was lost and had to be redone.
+This exists because a long sweep that keeps all evidence in conversation and writes nothing to disk is lost entirely if the run is cut off before the final report.
 
 ## Performance Notes
 

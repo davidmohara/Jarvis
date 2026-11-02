@@ -63,7 +63,7 @@ Command: python3 "$(mdfind -name 'read.py' | grep 'systems/slack-bot/read.py' | 
 Timeout: 15000
 ```
 
-> **48H RETRY RULE (err-20260908T223218-VPU9BH):** If the 24h call returns `ok: true` with 0 messages AND the response includes the warning string `"Zero messages returned for 24h window and 48h retry"`, immediately retry with a 48h window:
+> **48H RETRY RULE:** If the 24h call returns `ok: true` with 0 messages AND the response includes the warning string `"Zero messages returned for 24h window and 48h retry"`, immediately retry with a 48h window:
 > ```
 > python3 "$(mdfind -name 'read.py' | grep 'systems/slack-bot/read.py' | head -1)" channel C0B160MA3EK 48 2>&1
 > ```
@@ -236,7 +236,7 @@ After reading CONTENT-VOICE.md, write a blog post in David's voice following the
 
 **Length:** 300-700 words.
 
-**Structure (citation-friendly, approved 2026-10-21, replacing the old prose-only rule):**
+**Structure (citation-friendly):**
 - Open with a one-sentence "bottom line": the governing claim of the post, as the first paragraph.
 - Organize the body under 2-4 H2 subheadings.
 - Close with a brief "What to do" takeaway that lands the Challenge/Takeaway arc element.

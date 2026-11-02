@@ -93,7 +93,7 @@ Walk through each card portal in sequence. For each card:
 
 Discover is serviced by Capital One. Sign-in is at `verified.capitalone.com/auth/signin`; credentials live in 1Password item "Capital One" (fields `txtUserID`, `txtPassword`), inject in memory via osascript, never write to disk or print.
 
-**Navigation (verified live 2026-10-17):**
+**Navigation (verified live, re-verify before use):**
 - After sign-in you land on `/accountSummary`.
 - Find the button whose text is exactly `View rewards`. It is a BUTTON element, not a link: the surrounding "Explore rewards and benefits" container is a DIV with no href.
 - Dispatching mousedown/mouseup/click with `bubbles:true` on that button navigates to `/Card/<opaque-token>/rewards`.
@@ -112,7 +112,7 @@ Discover is serviced by Capital One. Sign-in is at `verified.capitalone.com/auth
 
 ### 6. (Removed) Atlas Visa Infinite
 
-Closed 2026-07-01 and removed from the card set (David, 2026-10-16). No walkthrough step.
+Closed and removed from the card set (David). No walkthrough step.
 
 ---
 

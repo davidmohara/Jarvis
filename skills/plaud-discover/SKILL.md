@@ -197,7 +197,7 @@ a cleanup problem, not a reprocessing problem.
 If the recording's `file_id` is present in the vault's file_id set, it is already ingested.
 Skip it. This is authoritative — no further check needed.
 
-**Tier 2 — title fuzzy match (fallback for pre-2026-08-10 notes):**
+**Tier 2 — title fuzzy match (fallback for notes with no file_id in frontmatter):**
 Only reach this tier if the file_id was NOT found in tier 1. Normalize the API recording's
 `name` field (lowercase, strip punctuation, collapse whitespace). Compare against each
 normalized vault title using sequence similarity. A match threshold of **85%** is required.
@@ -288,8 +288,8 @@ detection automatically.
 - **API returns 429**: Rate limited. Wait 5 seconds and retry.
 - **Empty result set**: Either no recordings for the date, or wrong date/timezone. Try ±1 day.
 - **Vault enumeration fails** (Obsidian MCP `list_vault_files` errors, times out, or returns an
-  empty/partial result): Do **not** proceed without dedup — a silent fallback here has already
-  caused false-positive incidents where 100+ already-ingested recordings were reported as "new."
+  empty/partial result): Do **not** proceed without dedup; a partial or empty vault read
+  would report already-ingested recordings as "new."
   Instead: retry the vault enumeration once. If it still fails or returns a file_id count that is dramatically lower than
   the previous run's confirmed-in-vault count for an overlapping recording set, **abort this
   skill run** and report the vault-read failure explicitly (do not write a `new_recordings` list,

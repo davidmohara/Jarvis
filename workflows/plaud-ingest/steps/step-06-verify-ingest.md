@@ -34,7 +34,7 @@ outputs:
 
 ## YOUR TASK
 
-Script-first, mirroring `workflows/boot/verify/boot-verify.py`'s replacement of LLM verification in boot. The accounting this step exists for — discovered file_ids vs outcome sets vs vault on disk vs staging — is a deterministic set diff; an LLM re-derives the same table at 1-2.5M input tokens per run.
+Script-first, mirroring `workflows/boot/verify/boot-verify.py`'s replacement of LLM verification in boot. The accounting this step exists for (discovered file_ids vs outcome sets vs vault on disk vs staging) is a deterministic set diff, so run the script rather than re-deriving the same table by hand.
 
 1. **Run the reconcile:**
 

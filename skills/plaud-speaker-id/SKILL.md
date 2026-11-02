@@ -65,7 +65,7 @@ recording. This is deliberate: those are exactly the cases most likely to be a w
 resolution, and "proceed silently" was never meant to hide a mis-tag from the
 controller, only to skip bothering them when nothing looks wrong.
 
-**Two non-negotiable output rules (err-20260929T024338-K3K074):**
+**Two non-negotiable output rules:**
 
 1. **Every escalation must carry calendar evidence.** Before any `awaiting-input`
    escalation, write `accumulated-context.escalation-evidence` (the matched event's

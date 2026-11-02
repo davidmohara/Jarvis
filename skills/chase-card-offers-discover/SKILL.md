@@ -13,7 +13,7 @@ trigger_agents: [chase]
 
 <!-- personal:start -->
 
-> **PORTAL MAPPED TO CAPITAL ONE (2026-10-17):** Discover is serviced by Capital One after the acquisition. The card's portal is `myaccounts.capitalone.com`; sign-in is at `verified.capitalone.com/auth/signin`. Credentials live in 1Password item "Capital One" (fields `txtUserID`, `txtPassword`). The login, rewards, and rotating-category navigation below was verified live on 2026-10-17. The card-linked OFFERS flow on Capital One has NOT been observed: every offers step below is marked UNVERIFIED. See err-20261016T210131-BI38IK.
+> **PORTAL MAPPED TO CAPITAL ONE:** Discover is serviced by Capital One after the acquisition. The card's portal is `myaccounts.capitalone.com`; sign-in is at `verified.capitalone.com/auth/signin`. Credentials live in 1Password item "Capital One" (fields `txtUserID`, `txtPassword`). The login, rewards, and rotating-category navigation below was verified live; verify the portal mapping is current before use. The card-linked OFFERS flow on Capital One has NOT been observed: every offers step below is marked UNVERIFIED.
 
 
 # Discover Offers: Rotating Categories & Offers
@@ -173,7 +173,7 @@ for (var i = 0; i < btns.length; i++) {
 
 ## Quarterly Categories Reference
 
-| Quarter | 2026 Categories | Status (as of 2026-10-17) | Earned |
+| Quarter | 2026 Categories | Status | Earned |
 |---------|-----------------|---------------------------|--------|
 | Q1 (Jan-Mar) | Grocery Stores, Wholesale Clubs, Select Streaming | Activated (complete) | $75.00 of $75 (maxed) + $63.05 other |
 | Q2 (Apr-Jun) | Restaurants, Home Improvement Stores | Activated (complete) | $3.79 of $75 + $23.97 other |
@@ -270,7 +270,7 @@ The rotating category remains the primary value driver; any card-linked offers a
 | Cap progress ($1,500/quarter spend, $75 max earned) | Monthly | Flag when within $300, adjust routing |
 | Next quarter category announced? | Monthly from ~day 15 | Note in tracker, update routing strategy |
 | Rewards cash balance | Monthly | Note available balance in tracker |
-| Replacement card activated? | One-time (notice seen 2026-10-17) | Activate the replacement card when it arrives |
+| Replacement card activated? | One-time (notice appears when a replacement card ships) | Activate the replacement card when it arrives |
 
 ---
 

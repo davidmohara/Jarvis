@@ -50,7 +50,7 @@ fairness:
 Read `identity/VOICE.md` for full voice configuration. For blog posts specifically:
 
 - **Length:** 300-700 words. Short. 2-4 minute read.
-- **Structure (citation-friendly, approved 2026-10-21):** Open with a one-sentence bottom line (the governing claim) → body under 2-4 H2 subheadings (Story/Observation → Insight) → close with a brief "What to do" takeaway (the Challenge). When the post cites a stat, study, or firm, include at least one outbound link to the primary source.
+- **Structure (citation-friendly):** Open with a one-sentence bottom line (the governing claim) → body under 2-4 H2 subheadings (Story/Observation → Insight) → close with a brief "What to do" takeaway (the Challenge). When the post cites a stat, study, or firm, include at least one outbound link to the primary source.
 - **Tone:** Personal, reflective, direct. First person. David is writing to peers, not students.
 - **Style:** Conversational. No jargon unless it earns its place. Parenthetical asides are natural. Exclamation marks when energized.
 - **Not a summary:** The source URL is a spark, not the article to rewrite. David's reaction, angle, or insight is the post — not a recap of what he read.

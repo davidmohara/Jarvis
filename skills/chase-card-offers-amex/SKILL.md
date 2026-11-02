@@ -13,7 +13,7 @@ trigger_agents: [chase]
 
 <!-- personal:start -->
 
-> **Primary path (2026-10-16):** this skill now runs as `steps/step-02-offers.md` inside the `card-walkthrough` workflow, so offers get enrolled in the same session as the monthly data capture. Run it standalone only for an ad-hoc add between walkthroughs.
+> **Primary path:** this skill runs as `steps/step-02-offers.md` inside the `card-walkthrough` workflow, so offers get enrolled in the same session as the monthly data capture. Run it standalone only for an ad-hoc add between walkthroughs.
 
 # Amex Offers — Read & Add
 
@@ -31,7 +31,7 @@ trigger_agents: [chase]
 
 ---
 
-> **Credential injection (2026-10-16):** the `/tmp/.amex_user` temp-file flow below is blocked in sandboxed sessions as credential materialization. Where that happens, inject credentials in memory instead: read them from `op` and pass them into the page via `osascript` execute-javascript (e.g. base64 through `op` then `atob` in the page). Never write a credential to disk in a sandboxed run, and never print one.
+> **Credential injection:** the `/tmp/.amex_user` temp-file flow below is blocked in sandboxed sessions as credential materialization. Where that happens, inject credentials in memory instead: read them from `op` and pass them into the page via `osascript` execute-javascript (e.g. base64 through `op` then `atob` in the page). Never write a credential to disk in a sandboxed run, and never print one.
 
 ## Step 0 — Login via 1Password
 

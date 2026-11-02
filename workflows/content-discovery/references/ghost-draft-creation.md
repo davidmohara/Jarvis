@@ -1,7 +1,7 @@
 <!-- system:start -->
 ### 7. Create Ghost draft
 
-> **CONFIRMED MCP LIMITATIONS (verified 2026-05-19):** The Ghost MCP silently drops `feature_image`, `twitter_image`, and `lexical` content on both `create_post` and `update_post`. Tags passed as bare ID strings create junk tags. **Do not use the Ghost MCP for post creation.** Use a single Admin API POST instead.
+> **CONFIRMED MCP LIMITATIONS:** The Ghost MCP silently drops `feature_image`, `twitter_image`, and `lexical` content on both `create_post` and `update_post`. Tags passed as bare ID strings create junk tags. **Do not use the Ghost MCP for post creation.** Use a single Admin API POST instead.
 
 **Step 7 — Create post via Ghost Admin API (single call, replaces the old 7a/7b two-step):**
 
@@ -58,7 +58,7 @@ Use `mcp__Control_your_Mac__osascript` to run a Python script that:
 - `feature_image` null: the image upload failed. Retry Step 6 before proceeding.
 - `meta_title` or `meta_description` empty, null, or over the limit: the POST dropped or mangled the metas. Re-apply them via a Ghost Admin API PUT (`update_post` path) and re-verify before proceeding. A missing meta blocks the Slack notification like any other verify failure.
 
-**`updated_at` is REQUIRED on every PUT (verified 2026-10-21).** This Ghost version rejects a PUT to `/ghost/api/admin/posts/{id}` without it (422, `must have required property 'updated_at'`), and it rejects a client-generated timestamp too (optimistic lock: "Someone else is editing this post"). The value must be the post's **current server-issued `updated_at`**. So: GET the post immediately before the PUT, read `updated_at` from that response, and send that exact string in the PUT body. Do not cache it from an earlier read and do not construct it client-side. The same rule applies to the `update_post` MCP path and to the image-only PATCH in draft-edit-path.md.
+**`updated_at` is REQUIRED on every PUT.** This Ghost version rejects a PUT to `/ghost/api/admin/posts/{id}` without it (422, `must have required property 'updated_at'`), and it rejects a client-generated timestamp too (optimistic lock: "Someone else is editing this post"). The value must be the post's **current server-issued `updated_at`**. So: GET the post immediately before the PUT, read `updated_at` from that response, and send that exact string in the PUT body. Do not cache it from an earlier read and do not construct it client-side. The same rule applies to the `update_post` MCP path and to the image-only PATCH in draft-edit-path.md.
 
 Only a clean `get_post` response with content, image, real tag names, and both meta fields populated unlocks the Slack notification in Step 9.
 

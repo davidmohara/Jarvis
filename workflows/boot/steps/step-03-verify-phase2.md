@@ -1,7 +1,7 @@
 ---
 status: complete
-started-at: '2026-10-30T14:11:10Z'
-completed-at: '2026-10-30T14:11:19Z'
+started-at: '2026-11-02T16:16:30Z'
+completed-at: '2026-11-02T16:16:40Z'
 ---
 
 <!-- system:start -->
@@ -13,7 +13,7 @@ completed-at: '2026-10-30T14:11:19Z'
 2. If the script exits clean (exit 0), verification is DONE. Do NOT spawn Ralph. Record the result and return.
 3. If the script reports anomalies (exit 1), spawn Ralph (`workflows/boot-verification/workflow.md`) with a tight brief covering the flagged items only. Ralph's role is judgment on degraded data, not re-running mechanics the script already checked.
 4. Any item Ralph marks as failed must be re-run once before step-04 begins.
-5. This step never loads the master persona (`agents/master.md`) or `SYSTEM.md`, never runs STATE CHECK, and never walks other steps. The next-step chain was removed on 2026-10-22 because it let one long-lived boot subagent carry ~495k input tokens into this step for a 1,014-token output (eval-20261021T151330-QNQLC5).
+5. This step never loads the master persona (`agents/master.md`) or `SYSTEM.md`, never runs STATE CHECK, and never walks other steps. A long-lived subagent that carries the whole run's context into a small verification output multiplies cost with no added output.
 
 ---
 

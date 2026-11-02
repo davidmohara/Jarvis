@@ -21,8 +21,8 @@ trigger_keywords:
 object it just built or fetched. Currently consumed by `workflows/plaud-ingest/steps/step-01-discover.md`
 (Gate 2, recording metadata) and `workflows/content-discovery/steps/step-01-discover.md`
 (Gate 2, content schema). Formerly also consumed by
-`workflows/content-approval/steps/step-01-approve.md` (Gate 4, publishing pre-flight) —
-that gate was retired on 2026-10-20 when publishing moved external. Flagged as reusable for
+`workflows/content-approval/steps/step-01-approve.md` (Gate 4, publishing pre-flight);
+publishing moved external, so that gate is retired. Flagged as reusable for
 any future gate that boils down to "check this object against a checklist before letting it through."
 
 ## Purpose

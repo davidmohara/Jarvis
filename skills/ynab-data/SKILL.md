@@ -15,7 +15,7 @@ trigger_agents: [chase]
 
 ## Why this exists
 
-YNAB spend used to be pulled ad hoc by whichever skill needed it, with a token path that had drifted wrong, re-fetching the same 12 months every time. The cache makes the data available centrally at boot, like the calendar, email, and OmniFocus pulls.
+The cache makes YNAB spend available centrally at boot, like the calendar, email, and OmniFocus pulls, so no skill has to re-fetch the same 12 months on its own.
 
 ## Access
 

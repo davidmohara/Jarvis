@@ -60,6 +60,62 @@ STDLIB = set(sys.stdlib_module_names) if hasattr(sys, "stdlib_module_names") els
 
 USAGE_ERROR, EXEC_FAIL = 1, 2
 
+# ---------------------------------------------------------------------------
+# Narrative guard (standing rule: workflow and skill files carry operative
+# rules only; incident stories, err-/eval-ID provenance, and dated change notes
+# live in memory/ and documentation).
+# ---------------------------------------------------------------------------
+# Full err-/eval-ID citation: err-YYYYMMDDTHHMMSS-XXXX or eval-YYYYMMDDTHHMMSS-XXXX
+NARRATIVE_ID_RE = re.compile(r"\b(?:err|eval)-\d{8}T\d{6}-[A-Za-z0-9]{4,}\b")
+# Provenance-verb immediately followed by a date, or "the YYYY-MM-DD run/boot/analysis"
+_PROVENANCE_VERBS = (
+    "added|removed|retired|approved|verified|seen|updated|changed|replaced|"
+    "superseded|implemented|introduced|deprecated|migrated|fixed|corrected|"
+    "observed|reviewed|tightened|recorded|logged|noted|confirmed|validated|"
+    "discovered|occurred|happened|caused|broke|closed|opened|shipped|released"
+)
+NARRATIVE_DATE_RE = re.compile(
+    rf"(?:\b(?:{_PROVENANCE_VERBS})\b[^.\n]{{0,40}}?\b20\d{{2}}-\d{{2}}-\d{{2}}\b)"
+    rf"|(?:\bthe\s+20\d{{2}}-\d{{2}}-\d{{2}}\s+(?:run|boot|analysis|pass|sweep|session)\b)"
+    rf"|(?:\bas\s+of\s+20\d{{2}}-\d{{2}}-\d{{2}}\b)",
+    re.I,
+)
+_FENCED_CODE_RE = re.compile(r"```.*?```", re.S)
+_EXAMPLE_LINE_RE = re.compile(r"\b(e\.g\.|for example|example:)", re.I)
+
+
+def _narrative_body(text):
+    """Body with frontmatter and fenced code blocks removed."""
+    _, body = parse_frontmatter_text(text)
+    return _FENCED_CODE_RE.sub("", body)
+
+
+def check_narrative(path, text, findings, severity="warn"):
+    """Flag ID citations and dated provenance in instructional prose.
+
+    Applies only to SKILL.md files and .md files under workflows/. Both rules
+    are WARN in report mode; build_gate_extra promotes them to FAIL for a newly
+    built artifact.
+    """
+    is_skill = path.name == "SKILL.md"
+    is_workflow_md = "workflows" in path.parts and path.suffix == ".md"
+    if not (is_skill or is_workflow_md):
+        return
+    if "runs" in path.parts:
+        return  # eval run records are generated output, not instructional prose
+    body = _narrative_body(text)
+    for lineno, line in enumerate(body.split("\n"), 1):
+        if _EXAMPLE_LINE_RE.search(line):
+            continue  # format examples and deliberate ID-format demos
+        if NARRATIVE_ID_RE.search(line):
+            findings.append(finding(severity, "narrative.error_id_citation", path,
+                                    f"line {lineno}: err-/eval-ID citation in instructional prose "
+                                    f"({NARRATIVE_ID_RE.search(line).group(0)})"))
+        if NARRATIVE_DATE_RE.search(line):
+            findings.append(finding(severity, "narrative.dated_provenance", path,
+                                    f"line {lineno}: dated provenance in instructional prose "
+                                    f"({NARRATIVE_DATE_RE.search(line).group(0)})"))
+
 
 def err(msg):
     print(f"ERROR: {msg}\nExpected: see --help\nTry: python3 systems/eval-harness/validate-conventions.py --help", file=sys.stderr)
@@ -326,12 +382,23 @@ def classify_and_check(path, exceptions, manifest, error_skills):
         check_agent(path, text, exceptions, findings)
     if path.suffix == ".py":
         check_script(path, text, exceptions, findings)
+    check_narrative(path, text, findings)
     findings.extend(check_size(path, text, exceptions))
     return findings
 
 
 def build_gate_extra(target, findings):
     """FAIL rules that only apply when validating a newly built artifact."""
+    # narrative guard is WARN on the existing tree but FAIL on a new artifact
+    try:
+        text = target.read_text(encoding="utf-8", errors="ignore")
+    except OSError:
+        text = ""
+    if text:
+        findings[:] = [f for f in findings
+                       if not (f["rule"].startswith("narrative.")
+                               and f["path"] == rel_path(target))]
+        check_narrative(target, text, findings, severity="fail")
     # two-tier: agent-specific skill must ship with its stub
     if target.name == "SKILL.md" and ".claude/skills" in str(target):
         lib_twin = ROOT / "skills" / target.parent.name / "SKILL.md"
@@ -378,8 +445,8 @@ def main():
     for t in collect_targets(args.target):
         findings.extend(classify_and_check(t, exceptions, manifest, error_skills))
     if args.mode == "build-gate" and args.target:
-        findings.extend(build_gate_extra(
-            (ROOT / args.target) if not Path(args.target).is_absolute() else Path(args.target), findings))
+        build_gate_extra(
+            (ROOT / args.target) if not Path(args.target).is_absolute() else Path(args.target), findings)
 
     for f in findings:
         print(json.dumps(f))

@@ -153,7 +153,7 @@ If all checks PASS:
    chore(memory): dream-cycle {YYYY-MM-DD} — archived {N}, promoted {N} to semantic ({pattern-summary}), {N} compressed
    ```
 
-   If a command fails: stop, log the failure, surface to controller. Do not retry with workarounds. Do not run `rm -f .git/index.lock` or use `GIT_INDEX_FILE` — the 2026-06-13 destructive push originated from that workaround.
+   If a command fails: stop, log the failure, surface to controller. Do not retry with workarounds. Do not run `rm -f .git/index.lock` or use `GIT_INDEX_FILE`; forcing past a lock that way has produced destructive pushes.
 
 8. **Open a pull request for every push to a non-default branch.** A push to a branch is not finished until a PR exists for it. This overrides the general "do not create a PR unless asked" default: David has standing-authorized it for every dream-cycle push.
 

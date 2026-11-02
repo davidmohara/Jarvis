@@ -21,14 +21,14 @@ This is a hierarchy, not alternatives. Controller escalation only after 1 AND 2 
    - RULE: If calendar has attendee data for the time window, Speaker ID is RESOLVED. Calendar attendees are the authority.
    - If no event matches after ±15 min search: expand to ±45 min, check adjacent events, check recurring 1:1 patterns with names in transcript
    - Only after this full 3-strategy discipline fails: move to step 2 below
-   - **FAILURE MODE PREVENTED**: `err-20260909T000829-0JTVV6`
+   - **FAILURE MODE PREVENTED:** Skipping or truncating the calendar cross-reference and jumping straight to self-ID mislabels speakers the calendar already resolved. Run the calendar pass first and to completion before any other strategy.
 
 2. **Transcript self-identification (REQUIRED SECOND)** — For speakers calendar didn't resolve:
    - Read the FULL transcript (not just `sample_text`). Check END OF CALL FIRST (sign-offs), then beginning (introductions), then entire body.
    - Look for explicit self-introduction: "I'm [Name]", "[Name] here", "this is [Name]", or indirect: "my firm is called [Name]", "I work at [Company]"
    - A speaker who self-identifies in the transcript is resolved. No calendar confirmation needed. This step is mandatory.
    - Check for transcription errors that garble names ("even considering me having not known me" → likely "even considering you having not known [Name]")
-   - **FAILURE MODE PREVENTED**: `err-20260909T010719-0BCW7C`
+   - **FAILURE MODE PREVENTED:** Reading only `sample_text` misses an introduction or sign-off that sits outside the excerpt, leaving a resolvable speaker unresolved. Scan the full transcript before declaring a speaker unresolved.
 
 3. **Registered-speaker embedding match (OPTIONAL THIRD)** — Only for speakers still unresolved after steps 1 and 2:
    - Check whether Plaud itself already knows this voice via `get_speaker_embeddings()` vs registered profiles
@@ -37,10 +37,11 @@ This is a hierarchy, not alternatives. Controller escalation only after 1 AND 2 
 
 **Only if all three are exhausted with no confident match: add to `pending-speaker-mappings` for controller escalation.**
 
-> **⛔ ESCALATION EVIDENCE IS MANDATORY (err-20260929T024338-K3K074).** An
+> **⛔ ESCALATION EVIDENCE IS MANDATORY.** An
 > `awaiting-input` escalation is only valid if the run has (1) cross-referenced
 > the recording timestamp against calendar attendees and (2) run the transcript
-> self-ID scan. Before surfacing the prompt you MUST write the evidence for both
+> self-ID scan. Escalating without both checks hands the controller an unresolved
+> speaker the run could have resolved itself. Before surfacing the prompt you MUST write the evidence for both
 > into `accumulated-context.escalation-evidence` (a single string naming the
 > matched event's time and the attendees checked, the adjacent/recurring events
 > tried, and what the transcript self-ID scan returned) and record each

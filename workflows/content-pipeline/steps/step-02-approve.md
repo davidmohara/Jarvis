@@ -8,7 +8,7 @@ model: sonnet
 <!-- personal:start -->
 # Step 02: Tracker Resync and Editorial Edits (delegates to content-approval)
 
-> Filename retained as `step-02-approve.md` for compatibility — verify scripts and this workflow's state reference this path. The approve-keyword publish flow it used to delegate is retired (2026-10-20): publishing is external, David publishes directly in Ghost.
+> Filename retained as `step-02-approve.md` for compatibility: verify scripts and this workflow's state reference this path. The approve-keyword publish flow it used to delegate is retired: publishing is external, David publishes directly in Ghost.
 
 ## MANDATORY EXECUTION RULES
 

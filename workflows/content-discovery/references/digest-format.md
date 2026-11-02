@@ -49,7 +49,7 @@ Match sections by keyword presence in the header, not exact string match.
 
 ## Draft output structure (citation-friendly)
 
-Every post drafted from a digest follows the citation-friendly structure (approved 2026-10-21, replacing the old prose-only rule):
+Every post drafted from a digest follows the citation-friendly structure:
 
 - **Opening:** one sentence stating the bottom line, the governing claim of the post. This is the first paragraph and carries the Hook.
 - **Body:** 2-4 H2 subheadings organizing the Story/Insight material.

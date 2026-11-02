@@ -66,7 +66,7 @@ Run STATE CHECK above, then begin at step-01 for the appropriate mode.
 
 ## EVAL RECORD (daily run)
 
-The daily run is invoked from inside another workflow (boot step-04.5 or morning-briefing), so it has no user prompt. Before 2026-10-26 that meant it produced no real eval record: its cost was invisible in the parent's totals and the only artifact was a zero-step record quarantined to `runs/_phantoms/` (eval-20261026T142940-SP53MK). Record the run explicitly, the way daily-review and dream-cycle do:
+The daily run is invoked from inside another workflow (boot step-04.5 or morning-briefing), so it has no user prompt. Without an explicit record its cost is invisible in the parent's totals and the only artifact is a zero-step record quarantined to `runs/_phantoms/`. Record the run explicitly, the way daily-review and dream-cycle do:
 
 1. **Open the record** at the start of a fresh daily run, after STATE CHECK decides fresh and before `daily-step-01`:
    ```bash

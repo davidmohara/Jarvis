@@ -1,7 +1,7 @@
 ---
 status: complete
-started-at: '2026-10-30T14:03:24Z'
-completed-at: '2026-10-30T14:10:18Z'
+started-at: '2026-11-02T16:13:00Z'
+completed-at: '2026-11-02T16:16:11Z'
 ---
 
 <!-- system:start -->
@@ -11,10 +11,10 @@ completed-at: '2026-10-30T14:10:18Z'
 
 1. You are a single bounded gather pass: read the data files listed below, filter them, record compact results, exit. Nothing else.
 2. Every task must report one of three outcomes: **completed**, **nothing to surface**, or **failed — [reason]**. Silence is not an option.
-3. Record results in `state.yaml` `accumulated-context` via the **Edit tool, never Bash** — the eval harness's per-step attribution keys on Edit/Write tool calls (this is exactly how the 2026-10-22 run lost its per-step records).
+3. Record results in `state.yaml` `accumulated-context` via the **Edit tool, never Bash** — the eval harness's per-step attribution keys on Edit/Write tool calls; a Bash-written state update is invisible to it, which silently loses the run's per-step records.
 4. Record **compact summaries only** — counts, itemized lists, one-line-per-item status. Never paste raw JSON payloads into accumulated-context.
 5. Do NOT call M365, OmniFocus, or Clay. Every data source was already pulled to `data/` by step-01.5 and step-01.2. Re-pulling here is the recorded failure mode, not thoroughness.
-6. When all six tasks have a status and the state is updated, your mandate is DONE. Exit and return to the coordinator. Do NOT read, follow, or execute any other step file — the next-step chains were removed from steps 02-04 on 2026-10-22 because they let one long-lived boot subagent accumulate 500-720k input tokens per step for outputs of a few hundred tokens (eval-20261021T151330-QNQLC5: step-02 545,309 in / 628 out; eval-20261013T114019-Q5UJLE: 719,033 in / 4,291 out attributed across steps).
+6. When all six tasks have a status and the state is updated, your mandate is DONE. Exit and return to the coordinator. Do NOT read, follow, or execute any other step file: this step is one bounded gather pass, and walking the broader workflow from here multiplies cost with no added output.
 
 ---
 

@@ -8,7 +8,7 @@ model: haiku
 <!-- personal:start -->
 # Step 01: Tracker Resync, Cleanup & Editorial Edits
 
-> Filename retained as `step-01-approve.md` for compatibility — verify scripts, guardrails, and `workflows/content-pipeline/steps/step-02-approve.md` reference this path. The approve-keyword publish flow it used to implement is retired (2026-10-20): publishing is external, David publishes directly in Ghost.
+> Filename retained as `step-01-approve.md` for compatibility: verify scripts, guardrails, and `workflows/content-pipeline/steps/step-02-approve.md` reference this path. The approve-keyword publish flow it used to implement is retired: publishing is external, David publishes directly in Ghost.
 
 ## MANDATORY EXECUTION RULES
 
@@ -21,7 +21,7 @@ model: haiku
 7. You MUST remove `status: "published"` entries from pending-drafts.json on every run — they are done and take up space.
 8. You MUST remove `status: "scheduled"` entries from pending-drafts.json once their `scheduled_at` date has passed.
 9. **NO EMOJI in Slack messages.** Use text labels like `[UPDATED]`, `[ERROR]` instead. Emoji corrupt in shell-to-Slack transmission and render as garbage characters.
-10. Editorial edits execute directly via Ghost Admin API (see `references/editorial-edits.md`). This workflow has no regeneration path — substantive rewrite requests are deferred to content-discovery's DRAFT EDIT PATH, which runs on its daily schedule. (See err-20260726T164307-HSUVNE.)
+10. Editorial edits execute directly via Ghost Admin API (see `references/editorial-edits.md`). This workflow has no regeneration path: substantive rewrite requests are deferred to content-discovery's DRAFT EDIT PATH, which runs on its daily schedule.
 
 Before executing, write `status: in-progress` and `started-at` to this file's own frontmatter.
 

@@ -5,11 +5,11 @@ If the no-op preflight exited early, this protocol never runs and costs nothing.
 
 ## Why this exists
 
-On ingest days (2026-10-27, 2026-10-28) the Knox agent spent ~10.4M input
-tokens, with late steps re-carrying ~8.8M: transcripts read in step-03 (self-ID
-scans) and step-05 (parse + note composition) stayed in conversation context and
-were re-sent on every subsequent turn (boot token analysis, 2026-10-28,
-follow-up 5). The invariant below removes the driver, not the symptom.
+On ingest days the Knox agent can spend far more input tokens than the work
+requires, with late
+steps re-carrying the bulk of them: transcripts read in step-03 (self-ID
+scans) and step-05 (parse + note composition) stay in conversation context and
+are re-sent on every subsequent turn. The invariant below removes the driver, not the symptom.
 
 ## The invariant
 
@@ -52,8 +52,7 @@ outputs need not be persisted — resolutions and candidates land in
   opening/closing utterances, addressed-name mentions, topic context). The
   script scans every segment mechanically; `scan.segments_scanned ==
   scan.total_segments` is the proof the full transcript was searched. The
-  scan mandate from the error log (lazy speaker-ID escalations,
-  err-20260909T010719-0BCW7C et al.) is satisfied by the script's full pass —
+  scan mandate from the error log (lazy speaker-ID escalations) is satisfied by the script's full pass —
   a bounded excerpt skim by the agent does NOT satisfy it, and neither does
   skipping the script and eyeballing `sample_text`.
 - **step-05:** per recording — `action-candidates`, then `assemble-note`
@@ -90,7 +89,7 @@ accumulated-context:
 
 ## Gotchas
 
-- **Degraded Plaud rename mode** (2026-10-28): PATCH + `is_reload`
+- **Degraded Plaud rename mode:** PATCH + `is_reload`
   regeneration can return 200 yet leave generic `Speaker N` labels in the
   staged file. Real names must come from `speaker-mappings` and be applied by
   `assemble-note --speakers`, not expected in the staged text.

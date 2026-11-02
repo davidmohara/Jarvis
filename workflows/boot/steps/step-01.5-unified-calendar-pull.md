@@ -1,7 +1,7 @@
 ---
 status: complete
-started-at: '2026-10-30T14:04:00Z'
-completed-at: '2026-10-30T14:07:01Z'
+started-at: '2026-11-02T16:08:13Z'
+completed-at: '2026-11-02T16:10:36Z'
 ---
 
 <!-- system:start -->
@@ -13,7 +13,7 @@ completed-at: '2026-10-30T14:07:01Z'
 2. You MUST pull 4 days (today + next 3) in a single M365 call to minimize API overhead.
 3. You MUST write the raw response to disk for all downstream steps to consume.
 4. Do NOT parse or filter yet — that happens in consuming steps.
-5. When the file is written and verified, your mandate is DONE. Exit and return to the coordinator. Do NOT read, follow, or execute any other step file — the next-step handoff chains were removed from this step on 2026-10-22 because they let the calendar subagent walk the entire boot workflow (eval-20261022T114429-OCSJIC: 57 turns, 42 Bash calls, 6.27M tokens, for what should have been one API call).
+5. When the file is written and verified, your mandate is DONE. Exit and return to the coordinator. Do NOT read, follow, or execute any other step file: this step is one bounded pull, and walking the broader workflow from here multiplies cost with no added output.
 
 ---
 
@@ -91,9 +91,9 @@ completed-at: '2026-10-30T14:07:01Z'
 
 ## TOOL DISCIPLINE
 
-- M365 MCP is the only authorized calendar source. Never substitute AppleScript/Outlook (err-20260625T113803-6UZ8W4), and never declare the calendar unavailable without attempting the connector (err-20260730T133200-V5IGNY).
+- M365 MCP is the only authorized calendar source. Never substitute AppleScript or Outlook, and never declare the calendar unavailable without first attempting the connector.
 - If the M365 connector is unreachable (ToolSearch returns no calendar tool after one retry), report that failure explicitly in your final message and write the empty-file fallback per Failure Modes. A silent "calendar unavailable" is the recorded failure mode, not an acceptable shortcut.
-- Use the file tools (Read/Edit/Write) for the output file, the state.yaml update, and the step frontmatter update — never Bash redirection or heredocs. The eval harness's per-step attribution keys on Edit/Write tool calls; a Bash-written state update is invisible to it (this is exactly how the 2026-10-22 run lost its per-step records).
+- Use the file tools (Read/Edit/Write) for the output file, the state.yaml update, and the step frontmatter update — never Bash redirection or heredocs. The eval harness's per-step attribution keys on Edit/Write tool calls; a Bash-written state update is invisible to it, which silently loses the run's per-step records.
 
 ## SUCCESS METRICS
 

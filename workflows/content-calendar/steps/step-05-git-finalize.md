@@ -72,7 +72,7 @@ Calendar workflow state and recommendations committed:
    ```bash
    python3 skills/git/scripts/ies-git push origin main
    ```
-   If rejected (non-fast-forward): do NOT rebase from this session. The commit stays local; hand the pull-rebase and push to David's terminal (the OneDrive-synced .git races multi-step git; see `err-20261008T222241-UHTK59`).
+   If rejected (non-fast-forward): do NOT rebase from this session. The commit stays local; hand the pull-rebase and push to David's terminal (the OneDrive-synced .git races multi-step git, so a mid-session rebase is unsafe).
 
 ---
 

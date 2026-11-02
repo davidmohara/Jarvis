@@ -23,7 +23,7 @@ The workspace folder in the VM (`/sessions/*/mnt/IES/...`) maps to a OneDrive-sy
 
 ### Persistent Staging Rule (mandatory)
 
-**Never rely on `/tmp` surviving across separate `osascript` calls.** Each `do shell script` / Finder invocation is a fresh process boundary. A file written to `/tmp` in call N is not guaranteed to exist for call N+1 — this caused recurring `file not found` push failures (see eval `E747AF`, 2026-06-30).
+**Never rely on `/tmp` surviving across separate `osascript` calls.** Each `do shell script` / Finder invocation is a fresh process boundary. A file written to `/tmp` in call N is not guaranteed to exist for call N+1, which causes recurring `file not found` push failures.
 
 **Canonical push pattern:**
 
@@ -163,7 +163,7 @@ A clarifying question that doesn't pre-narrow the choices wastes a turn. Three-t
 
 ## Pre-Push Checklist (before every `rmapi put`)
 
-Run this gate for every file. Skipping it is how the 2026-06-30 GeniusSpark upload burned 8+ iterations.
+Run this gate for every file. Skipping it is how an upload burns iterations on filename and path failures.
 
 1. **Persistent path.** Source is under the IES tree (or a same-call `/tmp` exception documented above) — not a path that only existed in a prior osascript call.
 2. **Filename.** Human-readable words with spaces; no underscores; no date stamps in the basename (e.g. `GeniusSpark Meeting Prep.pdf`, not `genius_spark_2026-06-30.pdf`). Matches `agents/conventions.md` deliverable naming.

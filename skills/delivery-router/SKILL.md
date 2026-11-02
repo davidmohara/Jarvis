@@ -22,9 +22,9 @@ retry, escalate if it didn't" for one or more delivery backends. Currently consu
 `workflows/plaud-ingest/steps/step-05b-share-with-alice.md` (Monday task creation — this
 workflow's real terminal delivery is a Plaud share link plus a Monday task, not email or
 Slack, see note below). Formerly also consumed by
-`workflows/content-approval/steps/step-01-approve.md` for Ghost publish + verification —
-that consumer was retired on 2026-10-20 when publishing moved external (David publishes
-directly in Ghost). Flagged as reusable for any future step that needs to push content or
+`workflows/content-approval/steps/step-01-approve.md` for Ghost publish + verification;
+publishing moved external (David publishes directly in Ghost), so that consumer is retired.
+Flagged as reusable for any future step that needs to push content or
 a notification out to one or more of these backends with verified delivery.
 
 ## Purpose

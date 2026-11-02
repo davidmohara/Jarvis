@@ -22,7 +22,7 @@ Run this step immediately after step-01, in the same session, while the card por
 
 ## Why this step exists
 
-The offer skills (`chase-card-offers-*`) used to run separately and went dark (last run 2026-06-01). Tying them to the walkthrough means they run monthly, with fresh YNAB data and live sessions, instead of being forgotten.
+The offer skills (`chase-card-offers-*`) used to run separately and went dark. Tying them to the walkthrough means they run monthly, with fresh YNAB data and live sessions, instead of being forgotten.
 
 ## Process
 
@@ -76,7 +76,7 @@ Update `systems/credit-cards/benefits-tracker.json`:
 
 ## Failures and manual follow-up (hard rules)
 
-**An error message is not proof of failure.** When an enrollment attempt errors, the portal often still enrolled the offer (this happened with Citi Sixt on 2026-10-16: the page showed "Unable to enroll merchant offer" twice, but the offer WAS added). Before recording a failure:
+**An error message is not proof of failure.** When an enrollment attempt errors, the portal often still enrolled the offer: a portal can show "Unable to enroll merchant offer" and still have added the offer. Before recording a failure:
 
 1. Re-read the card's enrolled/added list.
 2. If the merchant appears there, record it as **added**, not failed.
