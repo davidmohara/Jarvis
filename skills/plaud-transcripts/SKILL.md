@@ -263,6 +263,11 @@ if missing.
 | `--read-source api` | `GET /file/simple/web` | `GET /file/detail` + S3 links | `pre_download_content_list` | yes |
 | `--read-source mcp` | MCP `list_files` | MCP `get_transcript` | MCP `get_note` | no |
 
+Status: the MCP path was verified on 2026-11-03 against the five recordings from
+2026-11-02 and 2026-11-03. Staged markdown and speaker sidecars were byte-identical
+to the api path. The default stays `api` through the five-day gate (through
+2026-11-07), then flips if the gate holds.
+
 The MCP path is read-only and is wrapped by `scripts/plaud_read.py`. It uses the
 **local stdio form only** (`npx -y @plaud-ai/mcp@0.3.14`, pinned version). Do NOT
 enable the hosted/connector form for this account, because the hosted server routes

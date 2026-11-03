@@ -176,6 +176,49 @@ fragility for the least risk.
    Confirm a single filtered call returns every recording for a date, or add a
    follow-up unfiltered pass.
 
+### Verification result, 2026-11-03 (day 1 of 5)
+
+MCP OAuth completed. The adapter was exercised end to end against the five
+recordings from 2026-11-02 and 2026-11-03.
+
+Comparison harness: run `fetch_plaud.py` once with `--read-source api` and once
+with `--read-source mcp` into separate staging directories, then compare bytes.
+
+Result: **5 of 5 staged markdown notes byte-identical** and **5 of 5
+`plaud_<name>_speakers.json` sidecars byte-identical**. Both
+`plaud_all_recordings.json` files carry 161 items. The raw per-recording JSON
+differs by design (legacy detail versus the normalized partner record).
+
+Fixes required to reach byte equality, all now in the code:
+
+- Partner ids are `of_<legacy_id>`. The adapter strips the prefix on output and
+  adds it on input, so vault frontmatter and staging filenames keep the legacy id.
+- The api path prefers `transaction_polish`; the MCP path now does too, with a
+  fallback to `transaction`.
+- `start_at` is the recording start; `created_at` is the ingest time. Prefer
+  `start_at`, and parse the partner API's naive ISO timestamps as UTC.
+- One shared MCP server process per run. A process per call raced on token
+  refresh and produced spurious 401s.
+- The auth heuristic no longer scans data payloads. A transcript mentioning
+  "401(k)" was being misread as a 401.
+- `extract_summary()` now handles raw markdown summaries, not only JSON with
+  `ai_content`.
+- Both paths strip the UI-only `![PLAUD NOTE](permanent/...)` and
+  `[](plaud://image?type=summaryCard...)` references, and repair Latin-1
+  mojibake in the legacy S3 text.
+
+Gate status: day 1 passed. Days 2 through 5 are 2026-11-04 through 2026-11-07.
+Still unverified: token refresh across an unattended 6am run. The MCP token file
+carries `expires_at` and a `refresh_token`; confirm the server refreshes without
+a browser before flipping the default.
+
+### Future capability: device highlights (`mark_memo`)
+
+`get_transcript(file_id, block="mark_memo")` returns the moments David flagged
+with the device's highlight button, under `marks`. The legacy api path has no
+equivalent. Not needed for ingestion, but worth wiring into the vault note as a
+"Highlights" section when the read path flips.
+
 ---
 
 ## Phase 3: move the rename write to the 4.0 content endpoint

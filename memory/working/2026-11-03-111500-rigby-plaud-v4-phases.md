@@ -50,6 +50,17 @@ Live tests:
 
 Verdict: file-app v4 unavailable for this account. The v3 two-write path is the route to implement in 3d, pending the 24h durability gate (due 2026-11-04 around 11:55 CT). Re-read all three places and force an app refresh and web reload.
 
+## Phase 2 verification (2026-11-03)
+David completed the MCP OAuth login. Ran fetch_plaud.py with --read-source api and --read-source mcp into separate staging directories for 2026-11-02 and 2026-11-03 and compared bytes.
+
+Result: 5/5 staged markdown notes identical, 5/5 speaker sidecars identical, both plaud_all_recordings.json at 161 items. Raw per-recording JSON differs by design.
+
+Fixes needed for equality, all committed: strip/add the `of_` partner id prefix; prefer transaction_polish (with transaction fallback); use start_at instead of created_at and parse naive ISO as UTC; one shared MCP server process per run to stop refresh-token races; auth heuristic no longer scans data payloads for "401" (a transcript mentioning 401(k) caused false auth failures); extract_summary handles raw markdown; strip ![PLAUD NOTE](permanent/...) and summaryCard references; repair Latin-1 mojibake.
+
+Gate: day 1 of 5 passed (2026-11-03). Days 2-5 are 2026-11-04 through 2026-11-07. Default stays api until then. Unverified: token refresh across an unattended run.
+
+Future capability noted in the plan: get_transcript(block="mark_memo") exposes device highlight moments under `marks`; the api path has no equivalent.
+
 ## Phase 3c test recording
 David named the 2026-11-03 10:55 AM CST recording. Resolved to file_id `900d3853c0a06d570942db021be3853d` ("11-03 Meeting: Extension Incentives and AI SOW Eligibility", start 10:53:00, 279s, transcript and summary ready). It is the only recording on 2026-11-03.
 

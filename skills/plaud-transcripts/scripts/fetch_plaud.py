@@ -43,6 +43,7 @@ import sys
 import time
 import base64
 import random
+import re
 import uuid
 from datetime import datetime, timedelta
 from pathlib import Path
@@ -420,12 +421,32 @@ def get_recording_detail(token, file_id):
     return detail
 
 
+def _repair_text_encoding(text):
+    """Repair UTF-8 bytes that were decoded as Latin-1.
+
+    The legacy S3 transcript layer occasionally double-encodes punctuation
+    (an em dash arrives as the three characters a-circumflex, 0x80, 0x94).
+    The MCP returns the correct text, so repairing here keeps the two read
+    sources identical. The guard means correctly decoded text is untouched.
+    """
+    if not isinstance(text, str):
+        return text
+    if "â\u0080" not in text and "Ã" not in text:
+        return text
+    try:
+        return text.encode("latin-1").decode("utf-8")
+    except (UnicodeEncodeError, UnicodeDecodeError):
+        return text
+
+
 def _format_segments(segments):
     """Format a list of transcript segments into readable text."""
     lines = []
     for seg in segments:
         speaker = seg.get("speaker", seg.get("spk", "Unknown"))
-        text = seg.get("content", seg.get("text", seg.get("trans_text", "")))
+        text = _repair_text_encoding(
+            seg.get("content", seg.get("text", seg.get("trans_text", "")))
+        )
         start_ms = seg.get("start_time", seg.get("st", 0))
         # start_time is in milliseconds
         start_s = start_ms / 1000 if start_ms > 1000 else start_ms
@@ -864,11 +885,22 @@ def check_generic_speakers(speakers):
     return untagged
 
 
+_SUMMARY_IMAGE_RE = re.compile(r"^\s*!\[[^\]]*\]\(permanent/[^)]*\)\s*$\n?", re.M)
+
+
+def _clean_summary(text):
+    """Drop the UI-only summary image reference and surrounding blank lines."""
+    if not isinstance(text, str):
+        return ""
+    return _SUMMARY_IMAGE_RE.sub("", text).strip()
+
+
 def extract_summary(detail):
     """Extract AI summary from a recording detail response.
 
     Summary is pre-embedded in pre_download_content_list as a JSON string
-    in the data_content field of the auto_sum item.
+    in the data_content field of the auto_sum item. Newer recordings store
+    raw markdown there instead of JSON, so both shapes are handled.
     """
     if not detail:
         return ""
@@ -882,11 +914,13 @@ def extract_summary(detail):
                     parsed = json.loads(data_content)
                     ai_content = parsed.get("ai_content", "")
                     if ai_content:
-                        return ai_content
+                        return _clean_summary(ai_content)
                 except Exception:
-                    pass
+                    # Newer recordings store the summary as raw markdown in
+                    # data_content rather than JSON with an ai_content field.
+                    return _clean_summary(data_content)
             elif isinstance(data_content, dict):
-                return data_content.get("ai_content", "")
+                return _clean_summary(data_content.get("ai_content", ""))
 
     return ""
 
@@ -912,7 +946,10 @@ def load_recordings(token, target_date, read_source):
     (id, filename, start_time in epoch seconds, duration in milliseconds).
     """
     if read_source == "mcp":
-        return _mcp_read().list_recordings(target_date)
+        # List the whole library, then let main() apply the same date filter the
+        # api path uses. This keeps plaud_all_recordings.json coverage identical
+        # between sources instead of silently narrowing it to one date.
+        return _mcp_read().list_recordings(None)
     return list_recordings(token)
 
 
@@ -930,8 +967,14 @@ def load_transcript_text(token, file_id, detail, read_source):
     the staging markdown stays identical between sources.
     """
     if read_source == "mcp":
-        segments = _mcp_read().get_transcript_segments(file_id)
-        return _format_segments(segments) if segments else ""
+        # Match the api path's layer preference: the polished render first,
+        # then the raw transaction block.
+        reader = _mcp_read()
+        for block in ("transaction_polish", "transaction"):
+            segments = reader.get_transcript_segments(file_id, block=block)
+            if segments:
+                return _format_segments(segments)
+        return ""
     return extract_transcript(detail) if detail else ""
 
 

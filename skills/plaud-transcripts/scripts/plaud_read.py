@@ -43,6 +43,7 @@ CLI for diagnostics
 """
 
 import argparse
+import atexit
 import json
 import os
 import queue
@@ -51,7 +52,9 @@ import shutil
 import subprocess
 import sys
 import threading
-from datetime import datetime, date
+import time
+from contextlib import contextmanager
+from datetime import datetime, date, timezone
 
 # Pin the tested MCP version. Upgrade deliberately, not with @latest.
 MCP_PACKAGE = "@plaud-ai/mcp@0.3.14"
@@ -61,6 +64,29 @@ MCP_START_TIMEOUT = 120      # npx may need to download the package on first use
 MCP_CALL_TIMEOUT = 180
 TRANSCRIPT_PAGE_LIMIT = 500  # server maximum
 
+# The partner API prefixes object ids with "of_" (for example
+# "of_900d3853c0a06d570942db021be3853d"). The rest of the pipeline, the
+# staging filenames, and the vault frontmatter all use the bare legacy id, so
+# the adapter strips the prefix on the way out and adds it on the way in.
+MCP_ID_PREFIX = "of_"
+_LEGACY_ID_RE = re.compile(r"^[0-9a-f]{32}$")
+
+
+def _to_mcp_id(file_id):
+    """Add the partner API's object-id prefix when given a bare legacy id."""
+    fid = str(file_id or "")
+    if fid.startswith(MCP_ID_PREFIX):
+        return fid
+    if _LEGACY_ID_RE.match(fid):
+        return MCP_ID_PREFIX + fid
+    return fid
+
+
+def _to_legacy_id(file_id):
+    """Strip the partner API prefix so downstream code sees the legacy id."""
+    fid = str(file_id or "")
+    return fid[len(MCP_ID_PREFIX):] if fid.startswith(MCP_ID_PREFIX) else fid
+
 # The server names the block in a prose preamble first, then opens the real
 # block with a source attribute. Requiring the attribute avoids matching the
 # mention in the preamble.
@@ -68,6 +94,14 @@ _UNTRUSTED_RE = re.compile(
     r'<untrusted-user-data-[0-9a-f]+\s+source="[^"]*">\n?(.*?)\n?</untrusted-user-data-[0-9a-f]+>',
     re.S,
 )
+
+# The partner API prepends a rendered summary-card reference that the legacy
+# api path never returns. Strip it so both read sources stage the same text.
+_SUMMARY_CARD_RE = re.compile(
+    r"^\s*\[\]\(plaud://image\?type=summaryCard[^)]*\)\s*$\n?",
+    re.M,
+)
+_SUMMARY_IMAGE_RE = re.compile(r"^\s*!\[[^\]]*\]\(permanent/[^)]*\)\s*$\n?", re.M)
 
 
 class McpError(RuntimeError):
@@ -91,13 +125,23 @@ def _strip_untrusted(text):
 
 
 def _is_auth_error(text):
-    lowered = (text or "").lower()
-    return (
+    """Classify an MCP response as an auth failure.
+
+    Never scan a data payload: a transcript that mentions "401(k)" would
+    otherwise be misread as a 401. Data payloads are wrapped in the
+    untrusted-data tag, and a bare 401 only counts in a short message.
+    """
+    raw = text or ""
+    if "<untrusted-user-data-" in raw:
+        return False
+    lowered = raw.lower()
+    if (
         "not authenticated" in lowered
         or "auth_failed" in lowered
         or "token invalid or expired" in lowered
-        or "401" in lowered
-    )
+    ):
+        return True
+    return len(lowered) < 400 and "401" in lowered
 
 
 def mcp_command():
@@ -257,7 +301,7 @@ class PlaudMcp:
 
     # -- tools -------------------------------------------------------------
 
-    def call_tool(self, name, arguments=None):
+    def call_tool(self, name, arguments=None, _retry=True):
         response = self._rpc("tools/call", {"name": name, "arguments": arguments or {}})
         if "error" in response:
             raise McpError(f"MCP tool '{name}' failed: {response['error']}")
@@ -270,16 +314,21 @@ class PlaudMcp:
                 text = item.get("text", "")
                 break
 
+        auth_error = False
         if result.get("isError"):
             if _is_auth_error(text):
-                raise McpAuthError(
-                    "Plaud MCP is not authenticated. Run "
-                    f"`npx -y {MCP_PACKAGE} login` and complete the browser flow, "
-                    "then retry."
-                )
-            raise McpError(f"MCP tool '{name}' returned an error: {text[:400]}")
+                auth_error = True
+            else:
+                raise McpError(f"MCP tool '{name}' returned an error: {text[:400]}")
+        elif _is_auth_error(text) and not text.lstrip().startswith(("{", "[", "<")):
+            auth_error = True
 
-        if _is_auth_error(text) and not text.lstrip().startswith(("{", "[", "<")):
+        if auth_error:
+            # A 401 can be a transient refresh race. Retry once inside the same
+            # server process before declaring the token dead.
+            if _retry:
+                time.sleep(2)
+                return self.call_tool(name, arguments, _retry=False)
             raise McpAuthError(
                 "Plaud MCP is not authenticated. Run "
                 f"`npx -y {MCP_PACKAGE} login` and complete the browser flow, "
@@ -296,6 +345,51 @@ class PlaudMcp:
             raise McpError(
                 f"MCP tool '{name}' did not return JSON: {text[:300]}"
             ) from exc
+
+
+# One long-lived server process per client process. Spawning a fresh MCP
+# process per call caused refresh-token races: concurrent processes read and
+# rotate the same token file, and later calls came back 401. Reusing one
+# process lets the server own its refresh loop.
+_shared_client = None
+
+
+def _client():
+    """Return the shared MCP client, restarting it if the process died."""
+    global _shared_client
+    if (
+        _shared_client is None
+        or _shared_client._proc is None
+        or _shared_client._proc.poll() is not None
+    ):
+        if _shared_client is not None:
+            try:
+                _shared_client.close()
+            except Exception:
+                pass
+        client = PlaudMcp()
+        client.start()
+        _shared_client = client
+    return _shared_client
+
+
+def close():
+    """Close the shared MCP client. Also runs at interpreter exit."""
+    global _shared_client
+    if _shared_client is not None:
+        try:
+            _shared_client.close()
+        finally:
+            _shared_client = None
+
+
+atexit.register(close)
+
+
+@contextmanager
+def _session():
+    """Yield the shared client without closing it on block exit."""
+    yield _client()
 
 
 # ---------------------------------------------------------------------------
@@ -315,7 +409,13 @@ def _epoch_seconds(value):
         number = int(text)
         return number / 1000 if number > 1e12 else number
     try:
-        return datetime.fromisoformat(text.replace("Z", "+00:00")).timestamp()
+        # Partner API timestamps are naive UTC strings ("2026-11-02T20:01:38").
+        # Treat a missing offset as UTC so the epoch matches the legacy
+        # start_time instead of shifting by the local offset.
+        parsed = datetime.fromisoformat(text.replace("Z", "+00:00"))
+        if parsed.tzinfo is None:
+            parsed = parsed.replace(tzinfo=timezone.utc)
+        return parsed.timestamp()
     except ValueError:
         return 0
 
@@ -342,18 +442,23 @@ def _file_items(payload):
 
 def normalize_recording(item):
     """Map an MCP file summary onto the legacy recording shape fetch_plaud uses."""
-    file_id = item.get("id") or item.get("file_id") or item.get("object_id") or ""
+    raw_id = item.get("id") or item.get("file_id") or item.get("object_id") or ""
+    file_id = _to_legacy_id(raw_id)
     name = item.get("name") or item.get("filename") or item.get("fullname") or file_id
+    # start_at is the recording start; created_at is the ingest time and can be
+    # hours later. Prefer the real start so date filtering matches the api path.
     start = (
-        item.get("created_at")
-        or item.get("created_at_show")
+        item.get("start_at")
         or item.get("start_time")
+        or item.get("created_at")
+        or item.get("created_at_show")
         or item.get("create_time")
         or 0
     )
     return {
         "id": file_id,
         "file_id": file_id,
+        "mcp_id": raw_id,
         "filename": name,
         "fullname": name,
         "start_time": _epoch_seconds(start),
@@ -376,7 +481,7 @@ def list_recordings(target_date=None, page_size=100, max_pages=200):
     and can be paged safely. No query term is used here.
     """
     recordings = []
-    with PlaudMcp() as mcp:
+    with _session() as mcp:
         page = 1
         while page <= max_pages:
             arguments = {"page": page, "page_size": page_size}
@@ -404,8 +509,8 @@ def list_recordings(target_date=None, page_size=100, max_pages=200):
 
 def get_file(file_id):
     """Return the raw MCP file record (source_list, note_list, presigned_url)."""
-    with PlaudMcp() as mcp:
-        return mcp.call_json("get_file", {"file_id": file_id})
+    with _session() as mcp:
+        return mcp.call_json("get_file", {"file_id": _to_mcp_id(file_id)})
 
 
 def get_detail(file_id):
@@ -439,9 +544,10 @@ def get_detail(file_id):
 
     name = record.get("name") or record.get("filename") or file_id
     start = (
-        record.get("created_at")
-        or record.get("created_at_show")
+        record.get("start_at")
         or record.get("start_time")
+        or record.get("created_at")
+        or record.get("created_at_show")
         or 0
     )
     return {
@@ -464,10 +570,11 @@ def get_transcript_segments(file_id, block="transaction"):
     """
     segments = []
     cursor = None
-    with PlaudMcp() as mcp:
+    mcp_file_id = _to_mcp_id(file_id)
+    with _session() as mcp:
         while True:
             arguments = {
-                "file_id": file_id,
+                "file_id": mcp_file_id,
                 "block": block,
                 "limit": TRANSCRIPT_PAGE_LIMIT,
             }
@@ -517,8 +624,8 @@ def _note_text(note):
 def get_summary(file_id):
     """Return the AI summary markdown for one recording, or '' when absent."""
     payload = None
-    with PlaudMcp() as mcp:
-        text = mcp.call_tool("get_note", {"file_id": file_id})
+    with _session() as mcp:
+        text = mcp.call_tool("get_note", {"file_id": _to_mcp_id(file_id)})
     try:
         payload = json.loads(text)
     except json.JSONDecodeError:
@@ -532,7 +639,10 @@ def get_summary(file_id):
         text_part = _note_text(note)
         if text_part:
             parts.append(text_part)
-    return "\n\n".join(parts).strip()
+    combined = "\n\n".join(parts)
+    combined = _SUMMARY_IMAGE_RE.sub("", combined)
+    combined = _SUMMARY_CARD_RE.sub("", combined)
+    return combined.strip()
 
 
 def format_segments(segments):
@@ -561,7 +671,7 @@ def format_segments(segments):
 # ---------------------------------------------------------------------------
 
 def _cmd_status():
-    with PlaudMcp() as mcp:
+    with _session() as mcp:
         return mcp.call_tool("get_current_user")
 
 
