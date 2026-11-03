@@ -1,0 +1,71 @@
+{
+  "id": "eval-20261103T153516-3C01E0",
+  "type": "workflow",
+  "name": "shutdown-cleanup",
+  "agent": "rigby",
+  "session_id": "9b791a79-0206-4994-a65e-a3baf9228403",
+  "trigger": "manual",
+  "model": "deepseek-flash-latest",
+  "model_source": "cli-arg",
+  "started": "2026-11-03T15:27:36Z",
+  "completed": null,
+  "duration_seconds": null,
+  "status": "in-progress",
+  "steps": [
+    {
+      "name": "step-01-purge-artifacts",
+      "started": "2026-11-03T15:27:36Z",
+      "completed": "2026-11-03T15:29:00Z",
+      "status": "complete"
+    },
+    {
+      "name": "step-02-organize-deliverables",
+      "started": "2026-11-03T15:29:00Z",
+      "completed": "2026-11-03T15:30:00Z",
+      "status": "complete"
+    },
+    {
+      "name": "step-03-gitignore-check",
+      "started": "2026-11-03T15:30:00Z",
+      "completed": "2026-11-03T15:31:00Z",
+      "status": "complete"
+    },
+    {
+      "name": "step-04-commit",
+      "started": "2026-11-03T15:31:00Z",
+      "completed": "2026-11-03T15:34:00Z",
+      "status": "complete"
+    },
+    {
+      "name": "step-05-verify-cleanup",
+      "started": "2026-11-03T15:31:00Z",
+      "status": "in-progress"
+    }
+  ],
+  "subagents": [],
+  "monitoring": {},
+  "assessment": {
+    "mechanical": {},
+    "structural": {},
+    "grading": {},
+    "controller_feedback": {
+      "rating": null
+    },
+    "bias_assessment": {}
+  },
+  "tags": [
+    "session-exit",
+    "cleanup"
+  ],
+  "correlation_id": "eval-20261103T153516-3C01E0",
+  "guardrails": [
+    {
+      "name": "adversarial-verification",
+      "after_step": "step-04-commit",
+      "result": "flag",
+      "reason": "Ralph 9/11 verified; item 11 minor mismatch (post-commit harness record) now committed; item 5 escalate premise refuted - wrapper audit entries for ce9b4a6c1 present in git-ops.jsonl at 15:30:11/15:30:19/15:30:25",
+      "escalated_to_human": false,
+      "timestamp": "2026-11-03T15:35:20.780760+00:00"
+    }
+  ]
+}
