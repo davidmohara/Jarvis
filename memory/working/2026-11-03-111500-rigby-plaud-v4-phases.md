@@ -37,6 +37,19 @@ All read-only:
 
 Gate: David must sign in to web.plaud.ai in Playwright or Chrome DevTools and confirm whether the v3-tagged account ever calls a `file-app` route. If it does not, the private v4 write route is unavailable and Phase 3 needs a supervised rename plus a Plaud support ticket.
 
+## Phase 3 result (browser capture plus live writes)
+David signed in to the Playwright browser. Capture findings:
+
+- Zero `file-app` requests on dashboard load and on recording-detail load. The v3 app uses `/file/simple/web` and `/file/detail/{id}`.
+- The browser's `/file/detail` token is a workspace JWT with `ver: 2`; the token the script can mint at `/user-app/auth/workspace/token/{wid}` is `ver: 1` and file-app v3/v4 both reject it with `-1800907`. Account `version_tag` is v3. Minting a ver 2 token needs the web session's `frill` exchange; credential escalation was stopped there.
+- The v3 web client's transcript write helper is `PATCH /file/{id}` with `{trans_result, support_mul_summ: true}` plus `POST /ai/update_source_info` with `{file_id, source_id: <transaction_polish full data_id>, source_type: "transaction_polish", source_content: JSON.stringify(trans_result)}`. The second call is what the script has been missing.
+
+Live tests:
+- Same-value on 3f30d76f (167 segments): both calls status 0, trans_result identical, polish identical, speakers unchanged, file_version advanced.
+- Single rename on 900d3853c0a06d570942db021be3853d: Speaker 1 -> "Speaker 1 TEST" on 22 segments. Verified in legacy trans_result, the polish source, and the web UI after reload. file_version 1793725121 -> 1793728494. Backup at ~/Downloads/transcript-staging/plaud_3c-single-rename_v3-backup-20261103T115453.json.
+
+Verdict: file-app v4 unavailable for this account. The v3 two-write path is the route to implement in 3d, pending the 24h durability gate (due 2026-11-04 around 11:55 CT). Re-read all three places and force an app refresh and web reload.
+
 ## Phase 3c test recording
 David named the 2026-11-03 10:55 AM CST recording. Resolved to file_id `900d3853c0a06d570942db021be3853d` ("11-03 Meeting: Extension Incentives and AI SOW Eligibility", start 10:53:00, 279s, transcript and summary ready). It is the only recording on 2026-11-03.
 

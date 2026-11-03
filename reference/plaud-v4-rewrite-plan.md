@@ -264,6 +264,56 @@ not, the private v4 write route is unavailable to this account, and Phase 3 must
 fall back to a supervised rename plus a Plaud support ticket rather than a
 headless write path.
 
+#### Phase 3 result: the v4 route is unavailable, but the v3 two-write path works
+
+Captured from the signed-in web client on 2026-11-03:
+
+1. **No `file-app` call is ever made.** Dashboard load and recording-detail load
+   produced zero `file-app` requests, in both the network log and
+   `performance.getEntriesByType('resource')`. The app uses
+   `GET /file/simple/web` and `GET /file/detail/{id}`.
+2. **The real `/file/detail` request carries a workspace-scoped JWT** with
+   `wid`, `mid`, `ver: 2`, `role`, and `jti` claims. The token the script can
+   mint from `POST /user-app/auth/workspace/token/{wid}` has `ver: 1`, and
+   `file-app/v3` and `file-app/v4` both reject it with `-1800907`. The account
+   is `version_tag: v3`. Minting a `ver: 2` token would require replaying the
+   web session's `frill` client exchange, which is session material and was not
+   pursued.
+3. **The v3 web client writes transcript speakers with two calls**, both on the
+   same sanctioned account token the script already has:
+   - `PATCH /file/{file_id}` with `{ "trans_result": <full array>,
+     "support_mul_summ": true }`
+   - `POST /ai/update_source_info` with
+     `{ "file_id": <id>, "source_id": <the transaction_polish item's full
+     data_id, e.g. source_transaction_polish:<hash>:<file_id>>,
+     "source_type": "transaction_polish",
+     "source_content": <JSON string of the full segment array> }`
+
+   The second call is the piece the script has been missing. `PATCH /file/{id}`
+   alone leaves the 4.0 pipeline free to rebuild from its own polish source;
+   writing that source is what makes the rename authoritative.
+
+**Same-value test (3f30d76f, 167 segments):** both calls returned `status: 0`.
+After a settle, `trans_result` was identical, the polish layer was identical
+(167/167 content and speaker matches), no speaker label changed, and
+`file_version` advanced. No side effects observed.
+
+**Single-rename test (900d3853c0a06d570942db021be3853d, David-approved):**
+`Speaker 1` -> `Speaker 1 TEST` on 22 segments. One PATCH plus one
+`update_source_info` call. Verified in three places after a reload:
+`POST /file/list` `trans_result` (22/22), the `transaction_polish` source
+(22/22), and the web UI (renders `Speaker 1 TEST`). `file_version` advanced
+from 1793725121 to 1793728494. Pre-write backup:
+`~/Downloads/transcript-staging/plaud_3c-single-rename_v3-backup-20261103T115453.json`.
+
+**Outstanding:** the 24-hour durability re-read across all three places, plus a
+forced app refresh and web reload.
+
+**Verdict:** the private v4 `file-app` route is not available to this account.
+Do not pursue it. The v3 two-write path is the supported-in-practice route and
+should become the Phase 3d implementation once the 24-hour gate passes. A Plaud
+support ticket is optional, not the critical path.
+
 ### 3c. Write verification sequence
 
 Do these in order, stopping at the first surprise:
