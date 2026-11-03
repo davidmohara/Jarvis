@@ -229,6 +229,41 @@ Capture the detail response in the same pass. It must reveal `object_id`,
 `content_id`, and `version_ms` (or whichever field carries the revision), because
 those three values are the entire safety mechanism for the write.
 
+#### Discovery result, 2026-11-03 (blocked on a human gate)
+
+Non-interactive work was done first. Findings, all read-only:
+
+1. `GET /user-app/profile/account/me` with the script's token returns
+   `data.version_tag = "v3"`. The account is tagged for the v3 web shell, not v4.
+2. Every `file-app` route tried returns HTTP 200 with `-1800907`, for **both**
+   versions: `/file-app/v3/files/detail/{id}`, `/file-app/v4/files/detail/{id}`,
+   `/file-app/v3/recordings/all`, `/file-app/v4/recordings/all`, and both
+   `/files/update/content/{id}` paths. It is not a v3-vs-v4 path problem.
+3. Header replay did not clear it. Tried, one at a time and combined:
+   `edit-from: web`, `app-platform: web`, `App-Platform: web`, `app-language`,
+   `timezone`, `X-Request-ID`, `x-device-id`, `x-pld-user: <jwt sub>`, and the
+   `version_tag` cookie at both `v3` and `v4`. All still `-1800907`.
+4. The web bundle (`app-initial-common`, build `prod-261102-162038`) shows the
+   shell constant `lc = "v3"`, `version_tag` written as a cookie, and
+   workspace-scoped requests built by `mi()` from
+   `resolveWorkspaceToken(workspaceId)` returning `{token, domain, workspaceId}`.
+   The account profile exposes no workspace, so there is no workspace token to
+   resolve.
+5. The `file-app` route strings do not appear in the v3 shell bundle at all. The
+   v3 shell uses `/user-app/...` and the legacy `/file/...` routes. This is
+   consistent with `file-app` belonging to the v4 shell that this account is not
+   on.
+6. The Playwright browser has no Plaud session: empty `localStorage`, no cookies,
+   empty page body. Nothing to capture without an interactive sign-in.
+
+**Gate:** David must sign in to `web.plaud.ai` in the Playwright browser (or
+Chrome DevTools) so a real `file-app` request can be observed, if the v4 shell
+serves one for this account. The specific question the capture must answer: does
+the web UI for this v3-tagged account call any `file-app` route at all? If it does
+not, the private v4 write route is unavailable to this account, and Phase 3 must
+fall back to a supervised rename plus a Plaud support ticket rather than a
+headless write path.
+
 ### 3c. Write verification sequence
 
 Do these in order, stopping at the first surprise:
