@@ -254,6 +254,48 @@ do shell script "cd <skill-scripts-dir> && /usr/bin/python3 fetch_plaud.py <YYYY
 The script requires `requests` — install with `/usr/bin/python3 -m pip install requests`
 if missing.
 
+### Read sources: legacy API vs official Plaud MCP
+
+`fetch_plaud.py` has two read paths, selected with `--read-source`:
+
+| Flag | Discovery | Transcript | Summary | Default |
+|---|---|---|---|---|
+| `--read-source api` | `GET /file/simple/web` | `GET /file/detail` + S3 links | `pre_download_content_list` | yes |
+| `--read-source mcp` | MCP `list_files` | MCP `get_transcript` | MCP `get_note` | no |
+
+The MCP path is read-only and is wrapped by `scripts/plaud_read.py`. It uses the
+**local stdio form only** (`npx -y @plaud-ai/mcp@0.3.14`, pinned version). Do NOT
+enable the hosted/connector form for this account, because the hosted server routes
+recording data through Plaud's US infrastructure and these recordings include client
+work.
+
+The MCP needs a one-time browser OAuth login:
+
+```
+npx -y @plaud-ai/mcp@0.3.14 login
+```
+
+Tokens live at `~/.plaud/tokens-mcp.json`, separate from the legacy JWT at
+`~/.config/plaud/token.json`. If a run reports `MCP_AUTH_REQUIRED`, that login has
+not happened or the token expired; it is a supervised step, not something an
+unattended run can complete.
+
+What stays on the legacy API regardless of `--read-source`:
+
+- the speaker read for rename verification (`POST /file/list`)
+- the rename write (`PATCH /file/{file_id}`, moving in Phase 3)
+- share link creation (`POST /share/public/create`)
+- speaker registry sync (`POST /speaker/sync`)
+
+`plaud_read.py` also has a diagnostic CLI:
+
+```
+python3 plaud_read.py status
+python3 plaud_read.py list 2026-11-03
+python3 plaud_read.py transcript <file_id>
+python3 plaud_read.py summary <file_id>
+```
+
 ### Token lifecycle
 
 The fetch script caches a JWT (~300 day lifetime) to `~/.config/plaud/token.json`

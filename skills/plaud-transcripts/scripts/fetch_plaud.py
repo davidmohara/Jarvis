@@ -11,6 +11,10 @@ Usage:
   python3 fetch_plaud.py 2026-03-18         # specific date
   python3 fetch_plaud.py --all              # all recordings
   python3 fetch_plaud.py --login            # force re-login (ignore cached token)
+  python3 fetch_plaud.py --read-source mcp  # read discovery/transcripts via the
+                                            # official Plaud MCP (local stdio).
+                                            # Requires `npx -y @plaud-ai/mcp@0.3.14
+                                            # login` once. Default is the legacy api.
 
 Authentication:
   The script authenticates automatically. It reads credentials from environment
@@ -891,13 +895,69 @@ def extract_summary(detail):
 # Main
 # ---------------------------------------------------------------------------
 
+def _mcp_read():
+    """Return the read-only MCP adapter module.
+
+    The module imports cleanly without Node installed; only starting the MCP
+    requires it. The default api path never calls into it.
+    """
+    import plaud_read
+    return plaud_read
+
+
+def load_recordings(token, target_date, read_source):
+    """Read the recording list from the selected source.
+
+    The MCP branch returns recordings already normalized to the legacy shape
+    (id, filename, start_time in epoch seconds, duration in milliseconds).
+    """
+    if read_source == "mcp":
+        return _mcp_read().list_recordings(target_date)
+    return list_recordings(token)
+
+
+def load_detail(token, file_id, read_source):
+    """Read one recording's detail from the selected source."""
+    if read_source == "mcp":
+        return _mcp_read().get_detail(file_id)
+    return get_recording_detail(token, file_id)
+
+
+def load_transcript_text(token, file_id, detail, read_source):
+    """Return the rendered transcript text for one recording.
+
+    The MCP path renders the same segment shape through the same renderer, so
+    the staging markdown stays identical between sources.
+    """
+    if read_source == "mcp":
+        segments = _mcp_read().get_transcript_segments(file_id)
+        return _format_segments(segments) if segments else ""
+    return extract_transcript(detail) if detail else ""
+
+
+def load_summary_text(token, file_id, detail, read_source):
+    """Return the AI summary text for one recording."""
+    if read_source == "mcp":
+        return _mcp_read().get_summary(file_id)
+    return extract_summary(detail) if detail else ""
+
+
 def get_target_date():
     """Parse target date from CLI args. Default: yesterday."""
+    skip_next = False
     for arg in sys.argv[1:]:
+        if skip_next:
+            skip_next = False
+            continue
         if arg in ("--login", "--force-login"):
+            continue
+        if arg == "--read-source":
+            skip_next = True
             continue
         if arg == "--all":
             return None
+        if arg.startswith("-"):
+            continue
         try:
             datetime.strptime(arg, "%Y-%m-%d")
             return arg
@@ -907,7 +967,7 @@ def get_target_date():
     return (datetime.now() - timedelta(days=1)).strftime("%Y-%m-%d")
 
 
-def main():
+def main(read_source="api"):
     if "--help" in sys.argv or "-h" in sys.argv:
         print(__doc__.strip())
         print("""
@@ -924,6 +984,7 @@ Other modes:
     print("=" * 60)
     print("Plaud Transcript Fetcher")
     print("=" * 60)
+    print(f"Read source: {read_source}")
 
     # Authenticate
     token = get_token(force_login=force_login)
@@ -939,7 +1000,7 @@ Other modes:
     os.makedirs(STAGING_DIR, exist_ok=True)
 
     print(f"\nFetching recordings for {date_label}...")
-    recordings = list_recordings(token)
+    recordings = load_recordings(token, target_date, read_source)
     print(f"Total recordings found: {len(recordings)}")
 
     if not recordings:
@@ -981,7 +1042,7 @@ Other modes:
     resolved_ids = []
     for pid, pinfo in list(pending_registry.items()):
         print(f"\nRe-checking pending: {pinfo.get('name', pid)} (ID: {pid})")
-        detail = get_recording_detail(token, pid)
+        detail = load_detail(token, pid, read_source)
         status = get_transcript_status(detail)
 
         if status == "ready":
@@ -1016,7 +1077,7 @@ Other modes:
         print(f"  Duration: {duration}s | Has transcript: {has_trans} | Has summary: {has_summary}")
 
         # Get full detail (includes transcript)
-        detail = get_recording_detail(token, file_id)
+        detail = load_detail(token, file_id, read_source)
 
         # Check transcript generation status
         trans_status = get_transcript_status(detail)
@@ -1061,8 +1122,8 @@ Other modes:
                 )
             continue
 
-        transcript_text = extract_transcript(detail) if detail else ""
-        summary_text = extract_summary(detail) if detail else ""
+        transcript_text = load_transcript_text(token, file_id, detail, read_source)
+        summary_text = load_summary_text(token, file_id, detail, read_source)
 
         if not transcript_text and has_trans:
             print("  Warning: is_trans=True but no transcript text extracted")
@@ -1436,7 +1497,7 @@ def rename_and_refetch(file_id, mapping_json):
     print(f"{'=' * 60}")
 
 
-def check_single(file_id):
+def check_single(file_id, read_source="api"):
     """Check a single recording's transcription status and process if ready.
 
     Called by the watcher scheduled task after a transcription was triggered.
@@ -1455,7 +1516,7 @@ def check_single(file_id):
         print("Token invalid.")
         sys.exit(1)
 
-    detail = get_recording_detail(token, file_id)
+    detail = load_detail(token, file_id, read_source)
     status = get_transcript_status(detail)
 
     rec_name = (detail or {}).get("filename", (detail or {}).get("fullname", file_id))
@@ -1479,8 +1540,8 @@ def check_single(file_id):
 
     if status == "ready":
         print("  Transcript is ready — fetching...")
-        transcript_text = extract_transcript(detail)
-        summary_text = extract_summary(detail)
+        transcript_text = load_transcript_text(token, file_id, detail, read_source)
+        summary_text = load_summary_text(token, file_id, detail, read_source)
 
         clean_name = "".join(c if c.isalnum() or c in " -_" else "_" for c in str(rec_name))
 
@@ -1552,6 +1613,11 @@ def check_single(file_id):
 
 
 if __name__ == "__main__":
+    try:
+        import plaud_read  # noqa: F401  (module used for MCP error types)
+    except Exception:
+        plaud_read = None
+
     ap = argparse.ArgumentParser(
         description="Fetch Plaud recordings and transcripts into the staging folder. "
                     "Default mode fetches a target date's recordings (default: yesterday).",
@@ -1575,25 +1641,41 @@ if __name__ == "__main__":
                     help="poll one recording's transcription status")
     ap.add_argument("--share", metavar="FILE_ID",
                     help="request share-token transcript for one recording")
+    ap.add_argument("--read-source", choices=["api", "mcp"], default="api",
+                    help="read recordings and transcripts from the legacy API (default) "
+                         "or the official Plaud MCP over local stdio")
     args = ap.parse_args()
 
-    if args.rename:
-        rename_and_refetch(args.rename[0], args.rename[1])
-    elif args.check:
-        check_single(args.check)
-    elif args.share:
-        _token = get_token()
-        if not _token:
-            print("NO_TOKEN")
-            sys.exit(2)
-        print(f"Sharing recording: {args.share}")
-        _detail = get_recording_detail(_token, args.share)
-        _url = share_recording(_token, args.share, detail=_detail)
-        if _url:
-            print(f"SHARE_URL={_url}")
-            sys.exit(0)
+    try:
+        if args.rename:
+            # Speaker reads and the rename write stay on the legacy API in Phase 2.
+            rename_and_refetch(args.rename[0], args.rename[1])
+        elif args.check:
+            check_single(args.check, read_source=args.read_source)
+        elif args.share:
+            _token = get_token()
+            if not _token:
+                print("NO_TOKEN")
+                sys.exit(2)
+            print(f"Sharing recording: {args.share}")
+            _detail = get_recording_detail(_token, args.share)
+            _url = share_recording(_token, args.share, detail=_detail)
+            if _url:
+                print(f"SHARE_URL={_url}")
+                sys.exit(0)
+            else:
+                print("SHARE_FAILED")
+                sys.exit(4)
         else:
-            print("SHARE_FAILED")
-            sys.exit(4)
-    else:
-        main()
+            main(read_source=args.read_source)
+    except Exception as exc:
+        # Surface MCP read failures as a clear status line, not a traceback.
+        if plaud_read is not None and isinstance(
+            exc, (plaud_read.McpError, plaud_read.McpUnavailableError)
+        ):
+            if isinstance(exc, plaud_read.McpAuthError):
+                print(f"MCP_AUTH_REQUIRED: {exc}")
+            else:
+                print(f"MCP_READ_FAILED: {exc}")
+            sys.exit(2)
+        raise
