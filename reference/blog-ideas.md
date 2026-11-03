@@ -10,6 +10,10 @@ Running list of potential blog topics. Jarvis captures these proactively from co
 
 | Idea | Source | Tags | Notes |
 |------|--------|------|-------|
+| "Thinking Partner, Not Thinking Replacement" | Content pipeline (2026-11-02, manual, David's text) | AI, family, thinking | Ghost draft, pending approval |
+| "When Americans Want Something, They Look to Each Other" | Content pipeline (2026-11-02, manual, David's notes) | conscious capitalism, business | Ghost draft, pending approval |
+| "Safe Is the Floor, Not the Goal" | Content pipeline (2026-11-02, digest) | AI, leadership, thinking | Ghost draft, pending approval |
+| "Your AI Vendor Just Published Its Risk Factors. Have You Read Them?" | Content pipeline (2026-11-02, digest) | AI, business, technology | Ghost draft, pending approval. Internal link: Agents Don't Need Seats. But They Still Cost Money. |
 | "You Can't Rotate What You Haven't Inventoried" | Content pipeline (2026-10-26, digest) | technology, leadership | Ghost draft, pending approval |
 | "Your Resilience Plan Stops at Your Cloud Provider" | Content pipeline (2026-10-26, digest) | technology, business | Ghost draft, pending approval |
 | "The Vendor's Secret Is Your Breach" | Content pipeline (2026-10-26, digest) | technology, business | Ghost draft, pending approval |
@@ -166,3 +170,6 @@ Running list of potential blog topics. Jarvis captures these proactively from co
 | "Reversibility Is the Governing Criterion" | Watchtower W40 (2026-09-28) [watchtower] | AI, agentic, governance, leadership, technology | Draft at `Mind/Posts/_reversibility-is-the-governing-criterion.md` |
 | "The Restructuring Is Not Coming. It's Here." | Watchtower W40 (2026-09-28) [watchtower] | consulting, AI, talent, leadership, business | Draft at `Mind/Posts/_the-restructuring-is-not-coming-its-here.md` |
 | "DFW's Innovation Economy Is Wider Than You Think" | Watchtower W40 (2026-09-28) [watchtower] | texas, DFW, AI, business, leadership, innovation | Draft at `Mind/Posts/_dfws-innovation-economy-is-wider-than-you-think.md` |
+| "Anxiety Is a Supermarket Aisle" | Slack #content bot draft (2026-11-02) [bot-draft] | AI, leadership, mental health | Ghost draft 6ae9e7717e8f7802823bb966 |
+| "We Keep Looking for One Cause" | Slack #content bot draft (2026-11-02) [bot-draft] | family, mental health, thinking | Ghost draft 6ae9e7717e8f7802823bb96e |
+| "Would You Write the Same Book in Ten Years?" | Slack #content bot draft (2026-11-02) [bot-draft] | health, leadership, thinking | Ghost draft 6ae9e7727e8f7802823bb976 |

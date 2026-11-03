@@ -1,0 +1,16 @@
+{
+  "id": "err-20261103T135419-PR8JFN",
+  "timestamp": "2026-11-03T13:54:19Z",
+  "session": "2026-11-03",
+  "source": "explicit",
+  "agent": "harper",
+  "category": "routing-error",
+  "description": "Content-discovery router skipped three #content bot messages ('Draft:' items without Hook/Story/Insight/Challenge keywords) as noise, and the 'Fix' note flagged a broken hub link without fixing it.",
+  "correction": "David: the drafts are NOT noise; vet them against voice/tone, add designated internal links, and post them as Ghost drafts. Fix the broken hub link and update hub pages.",
+  "failure_mode": "over-strict filter / reported instead of fixing",
+  "systemic_fix": "Treat bot-posted 'Draft:' messages as drafting candidates in content-discovery message router; fix broken hub links in-run rather than only flagging.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": [],
+  "related_skill": null
+}
