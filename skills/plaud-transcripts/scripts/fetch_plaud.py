@@ -36,6 +36,7 @@ import requests
 import json
 import os
 import sys
+import time
 import base64
 import random
 import uuid
@@ -282,6 +283,34 @@ def api_get(token, path, params=None):
             pass
 
     return resp
+
+
+def check_api_response(resp, context):
+    """Validate an HTTP response and Plaud's in-band status.
+
+    Plaud reports many failures with HTTP 200 and a non-zero `status` in the
+    body (for example -1800907 "Please re-align version"), so an HTTP status
+    check alone is not enough. Returns the parsed JSON body on success, or
+    None on failure, logging both layers when they fail.
+    """
+    if resp.status_code != 200:
+        print(f"  {context} failed: HTTP {resp.status_code}")
+        print(f"  Response: {resp.text[:300]}")
+        return None
+
+    try:
+        data = resp.json()
+    except Exception:
+        print(f"  {context} failed: response was not JSON")
+        print(f"  Response: {resp.text[:300]}")
+        return None
+
+    status = data.get("status", 0)
+    if status != 0:
+        print(f"  {context} failed: status={status} msg={data.get('msg', '')}")
+        return None
+
+    return data
 
 
 def verify_auth(token):
@@ -546,14 +575,22 @@ def share_recording(token, file_id, detail=None):
 FILE_LIST_ENDPOINT = "/file/list"
 SPEAKER_LIST_ENDPOINT = "/speaker/list"
 
+# Rename verification reads the database copy of trans_result through
+# POST /file/list. It never trusts the transaction_polish S3 layer, which the
+# PATCH does not update. A write can also read back correctly and then be
+# reverted by Plaud's async transcript rebuild, so success needs a confirming
+# re-read after a short settle pause.
+DB_VERIFY_ATTEMPTS = 2
+DB_VERIFY_WAIT_SECONDS = 4
+DB_VERIFY_SETTLE_SECONDS = 5
+
 
 def list_speakers(token):
     """Get all known speakers from the Plaud account."""
     resp = api_get(token, SPEAKER_LIST_ENDPOINT)
-    if resp.status_code != 200:
-        print(f"  /speaker/list failed: {resp.status_code}")
+    data = check_api_response(resp, SPEAKER_LIST_ENDPOINT)
+    if data is None:
         return []
-    data = resp.json()
     # Response nests speakers under data.speakers (not data_speaker_list)
     speakers = data.get("data", {}).get("speakers", [])
     if not speakers:
@@ -627,13 +664,16 @@ def sync_speaker(token, speaker_name, embedding):
         timeout=30,
     )
 
-    if resp.status_code != 200:
-        print(f"  /speaker/sync failed for '{speaker_name}': {resp.status_code}")
-        print(f"  Response: {resp.text[:300]}")
+    data = check_api_response(resp, f"/speaker/sync for '{speaker_name}'")
+    if data is None:
         return False
 
-    data = resp.json()
-    result = (data.get("data", {}).get("results") or [{}])[0]
+    results = (data.get("data") or {}).get("results") or []
+    if not results:
+        print(f"  /speaker/sync returned no results for '{speaker_name}': nothing was registered")
+        return False
+
+    result = results[0]
     merged = result.get("merged_speaker_id")
     if merged:
         print(f"  Registered '{speaker_name}' (merged with existing profile)")
@@ -658,11 +698,10 @@ def get_recording_speakers(token, file_id):
         json=[file_id],
         timeout=60,
     )
-    if resp.status_code != 200:
-        print(f"  /file/list for speakers failed: {resp.status_code}")
+    data = check_api_response(resp, f"POST {FILE_LIST_ENDPOINT} for speakers")
+    if data is None:
         return [], []
 
-    data = resp.json()
     files = data.get("data_file_list", [])
     if not files:
         return [], []
@@ -692,21 +731,28 @@ def get_recording_speakers(token, file_id):
     return speakers, trans_result
 
 
-def rename_speaker(token, file_id, trans_result, old_name, new_name):
-    """Rename a speaker in a recording's transcript and save back to Plaud.
+def rename_speakers(token, file_id, trans_result, mapping):
+    """Rename several speakers in a recording's transcript with a single PATCH.
 
-    Modifies trans_result in place, then PATCHes /file/{file_id}
-    with the updated segments. Plaud regenerates the transcript automatically.
+    Applies the whole mapping to trans_result in place, then PATCHes
+    /file/{file_id} once with the full segment array. One PATCH per recording
+    rather than one per speaker, which keeps the write atomic and gives the
+    transcript pipeline nothing to interleave with.
+
+    Returns (ok, counts), where counts is {old_name: segments_renamed}.
     """
-    renamed = 0
+    counts = {}
     for seg in trans_result:
-        if (seg.get("speaker") or "").strip() == old_name:
-            seg["speaker"] = new_name
-            renamed += 1
+        current = (seg.get("speaker") or "").strip()
+        if current in mapping:
+            new_name = mapping[current]
+            if new_name and new_name != current:
+                seg["speaker"] = new_name
+            counts[current] = counts.get(current, 0) + 1
 
-    if renamed == 0:
-        print(f"  Speaker '{old_name}' not found in transcript")
-        return False
+    if not counts:
+        print(f"  None of the mapped speakers were found in the transcript")
+        return False, counts
 
     headers = make_headers(token)
     api_base = get_api_base()
@@ -717,13 +763,12 @@ def rename_speaker(token, file_id, trans_result, old_name, new_name):
         timeout=60,
     )
 
-    if resp.status_code != 200:
-        print(f"  PATCH /file/{file_id} failed: {resp.status_code}")
-        print(f"  Response: {resp.text[:300]}")
-        return False
+    if check_api_response(resp, f"PATCH /file/{file_id}") is None:
+        return False, counts
 
-    print(f"  Renamed '{old_name}' → '{new_name}' ({renamed} segments)")
-    return True
+    for old_name, renamed in counts.items():
+        print(f"  Renamed '{old_name}' → '{mapping[old_name]}' ({renamed} segments)")
+    return True, counts
 
 
 def trigger_transcription(token, file_id, language="en"):
@@ -1103,24 +1148,65 @@ Other modes:
     print(f"{'=' * 60}")
 
 
-def check_speaker_names_in_transcript(transcript_text, mapping):
-    """Verify that new speaker names appear in the transcript markdown.
+def verify_speaker_renames(token, file_id, original_to_new):
+    """Assert the renamed speakers are stored in the recording's database record.
 
-    Returns tuple: (has_new_names, missing_names)
-    - has_new_names: True if any new speaker names found in transcript
-    - missing_names: list of new speaker names NOT found in transcript
+    Re-fetches through POST /file/list and checks every segment whose
+    original_speaker label was mapped: the segment's `speaker` field must now
+    carry the mapped name. original_speaker is the diarization label and is
+    never rewritten, so it is the stable key across the rename.
+
+    Returns (ok, problems), where problems is a list of readable mismatches.
     """
-    missing = []
-    found_any = False
+    if not original_to_new:
+        return True, []
 
-    for old_name, new_name in mapping.items():
-        # Check if new_name appears in transcript (case-insensitive)
-        if new_name.lower() in transcript_text.lower():
-            found_any = True
-        else:
-            missing.append(new_name)
+    _speakers, trans_result = get_recording_speakers(token, file_id)
+    if not trans_result:
+        return False, ["re-fetch returned no trans_result segments"]
 
-    return found_any, missing
+    problems = []
+    seen = set()
+    for seg in trans_result:
+        orig = (seg.get("original_speaker") or "").strip()
+        expected = original_to_new.get(orig)
+        if not expected:
+            continue
+        seen.add(orig)
+        actual = (seg.get("speaker") or "").strip()
+        if actual != expected:
+            uid = seg.get("segment_uid", "?")
+            problems.append(f"{uid}: original_speaker={orig} speaker={actual} expected={expected}")
+
+    for orig in sorted(set(original_to_new) - seen):
+        problems.append(
+            f"original_speaker={orig} absent from trans_result (expected {original_to_new[orig]})"
+        )
+
+    return not problems, problems
+
+
+def verify_speaker_renames_with_retry(token, file_id, original_to_new):
+    """Verify renames with a bounded retry and one confirming re-read.
+
+    Plaud rebuilds transcripts asynchronously, so a write can read back
+    correctly and then be reverted a few seconds later. The confirming re-read
+    after a settle pause catches that instead of reporting a false success.
+    """
+    ok = False
+    problems = []
+    for attempt in range(1, DB_VERIFY_ATTEMPTS + 1):
+        ok, problems = verify_speaker_renames(token, file_id, original_to_new)
+        if ok:
+            time.sleep(DB_VERIFY_SETTLE_SECONDS)
+            ok, problems = verify_speaker_renames(token, file_id, original_to_new)
+            if ok:
+                return True, []
+        if attempt < DB_VERIFY_ATTEMPTS:
+            print(f"  Verification attempt {attempt}/{DB_VERIFY_ATTEMPTS} failed, retrying in {DB_VERIFY_WAIT_SECONDS}s")
+            time.sleep(DB_VERIFY_WAIT_SECONDS)
+
+    return ok, problems
 
 
 def trigger_transcript_regeneration(token, file_id):
@@ -1151,18 +1237,11 @@ def trigger_transcript_regeneration(token, file_id):
         timeout=120,
     )
 
-    if resp.status_code != 200:
-        print(f"  Regeneration trigger failed: {resp.status_code}")
+    data = check_api_response(resp, f"Regeneration trigger for {file_id}")
+    if data is None:
         return False
 
-    try:
-        result = resp.json()
-        status = result.get("status", -1)
-        msg = result.get("msg", "")
-        print(f"  Regeneration triggered — status={status}")
-    except Exception:
-        print(f"  Regeneration triggered (response not JSON)")
-
+    print(f"  Regeneration accepted by Plaud (status=0, msg='{data.get('msg', '')}')")
     return True
 
 
@@ -1206,21 +1285,26 @@ def rename_and_refetch(file_id, mapping_json):
     else:
         print(f"  Warning: no embeddings returned — speakers won't be registered for auto-labeling")
 
-    # Build original_speaker → new_name mapping for embedding sync
-    # trans_result has both "speaker" (current) and "original_speaker" (diarization label)
+    # Build original_speaker → new_name mapping before the PATCH.
+    # trans_result has both "speaker" (current label, overwritten by the rename)
+    # and "original_speaker" (diarization label, never overwritten), so
+    # original_speaker is the stable key for verification and embedding sync.
     original_to_new = {}
     for old_name, new_name in mapping.items():
+        matched = False
         for seg in trans_result:
             if (seg.get("speaker") or "").strip() == old_name:
                 orig = (seg.get("original_speaker") or "").strip()
                 if orig:
                     original_to_new[orig] = new_name
+                matched = True
                 break
+        if not matched:
+            print(f"  Warning: '{old_name}' is not in the transcript, nothing to rename for it")
 
-    # Apply renames
-    print(f"\nApplying {len(mapping)} rename(s)...")
-    for old_name, new_name in mapping.items():
-        rename_speaker(token, file_id, trans_result, old_name, new_name)
+    # Apply every rename in one pass, then send a single PATCH
+    print(f"\nApplying {len(mapping)} rename(s) in a single PATCH...")
+    patched, counts = rename_speakers(token, file_id, trans_result, mapping)
 
     # Register renamed speakers with voice embeddings for future auto-labeling
     if embeddings and original_to_new:
@@ -1236,77 +1320,70 @@ def rename_and_refetch(file_id, mapping_json):
             else:
                 print(f"  No embedding for '{orig_label}' — can't register '{new_name}'")
 
-    # Verify speaker names were updated in trans_result
-    print(f"\nVerifying speaker updates in database...")
-    speakers_after, trans_result_after = get_recording_speakers(token, file_id)
-    trans_result_has_new = all(
-        any((s.get("speaker") or "").strip() == new_name for s in trans_result_after)
-        for old_name, new_name in mapping.items()
-    )
-    if trans_result_has_new:
-        print(f"  ✓ Database reflects speaker renames")
+    # Verify against the database copy of trans_result (POST /file/list).
+    # The transaction_polish S3 layer is a rendered artifact that the PATCH does
+    # not update, so it is not evidence that the write failed.
+    verified = False
+    if not patched:
+        print(f"\n  ✗ Rename PATCH failed, speaker names are unchanged")
+    elif not original_to_new:
+        print(f"\n  Warning: no original_speaker labels resolved, skipping database verification")
     else:
-        print(f"  ⚠ Speaker names not yet updated in database — retrying...")
+        print(f"\nVerifying speaker updates in database...")
+        verified, problems = verify_speaker_renames_with_retry(token, file_id, original_to_new)
+
+        if verified:
+            print(f"  ✓ Database holds the renamed speakers (confirmed after a settle re-read)")
+        else:
+            print(f"  ⚠ Speaker renames are not in the database record:")
+            for problem in problems[:5]:
+                print(f"    {problem}")
+
+            # Regeneration is the last resort and only fires on a genuine
+            # database verification failure, never because a rendered layer
+            # looks stale.
+            print(f"  Triggering transcript regeneration (is_reload=1) as the last resort...")
+            confirmed = False
+            if trigger_transcript_regeneration(token, file_id):
+                # Regeneration rebuilds transcript outputs asynchronously and can
+                # itself reset speaker labels, so re-verify and report honestly.
+                REGEN_WAIT = 20  # seconds between checks
+                MAX_RETRIES = 6  # up to 120s total
+                for attempt in range(1, MAX_RETRIES + 1):
+                    print(f"  Waiting {REGEN_WAIT}s for Plaud to regenerate (attempt {attempt}/{MAX_RETRIES})...")
+                    time.sleep(REGEN_WAIT)
+                    confirmed, problems = verify_speaker_renames(token, file_id, original_to_new)
+                    if confirmed:
+                        print(f"  ✓ Speaker renames confirmed in the database after regeneration")
+                        break
+                if not confirmed:
+                    print(f"  ✗ Renames still not stored after {MAX_RETRIES} checks ({MAX_RETRIES * REGEN_WAIT}s)")
+                    print(f"    Known Plaud 4.0 problem: the legacy PATCH writes a non-authoritative")
+                    print(f"    store while the 4.0 pipeline rebuilds from its own copy. Regeneration")
+                    print(f"    resets speaker labels, so re-running --rename may not help.")
+                    print(f"    See reference/plaud-v4-rewrite-plan.md.")
+            else:
+                print(f"  ✗ Regeneration trigger failed, speaker names are unchanged")
+            verified = confirmed
 
     # Re-fetch the updated recording detail and transcript
     print(f"\nRe-fetching updated transcript...")
     detail = get_recording_detail(token, file_id)
-    transcript_text = extract_transcript(detail) if detail else ""
     summary_text = extract_summary(detail) if detail else ""
+    transcript_text = ""
 
-    # VERIFY: Check if new speaker names are in the downloaded transcript
-    has_new_names, missing = check_speaker_names_in_transcript(transcript_text, mapping)
+    if patched:
+        # The renamed segments are authoritative in the recording record. The
+        # transaction_polish layer is a separate render of the transcript that
+        # the PATCH does not update, so use the database segments directly
+        # whenever a rename was applied.
+        _speakers_after, trans_result_after = get_recording_speakers(token, file_id)
+        transcript_text = _format_segments(trans_result_after) if trans_result_after else ""
+        if transcript_text:
+            print(f"  Transcript rendered from the database trans_result segments")
 
-    if not has_new_names or missing:
-        print(f"\n  ⚠ REGENERATION NEEDED: Speaker names not in transcript")
-        print(f"    Found in database but missing from transaction_polish layer: {missing}")
-        print(f"    Triggering transcript regeneration (is_reload=1)...")
-        print(f"    NOTE: regeneration temporarily clears content_list — this is normal.")
-
-        if trigger_transcript_regeneration(token, file_id):
-            import time
-            # Regeneration takes 20-60s. Use longer waits to avoid hammering
-            # while content_list is transiently empty during rebuild.
-            REGEN_WAIT = 20  # seconds between retry attempts
-            MAX_RETRIES = 6  # up to 120s total
-
-            confirmed = False
-            for attempt in range(1, MAX_RETRIES + 1):
-                print(f"  Waiting {REGEN_WAIT}s for Plaud to regenerate (attempt {attempt}/{MAX_RETRIES})...")
-                time.sleep(REGEN_WAIT)
-
-                # Must re-fetch detail to get fresh S3 presigned URLs —
-                # the old URLs expire after ~300s and content_list is rebuilt
-                # from scratch during regeneration.
-                print(f"  Re-fetching updated detail...")
-                detail = get_recording_detail(token, file_id)
-
-                # Check if transaction_polish is back yet (it's removed during regen)
-                cl = (detail or {}).get("content_list", []) if detail else []
-                types_present = [i.get("data_type") for i in cl]
-                if "transaction_polish" not in types_present:
-                    print(f"  transaction_polish not yet in content_list ({types_present}) — still regenerating")
-                    continue
-
-                transcript_text = extract_transcript(detail) if detail else ""
-                summary_text = extract_summary(detail) if detail else ""
-
-                has_new_names, missing = check_speaker_names_in_transcript(transcript_text, mapping)
-                if has_new_names and not missing:
-                    print(f"  ✓ Speaker names now confirmed in transaction_polish")
-                    confirmed = True
-                    break
-                else:
-                    print(f"  transaction_polish present but still missing: {missing}")
-
-            if not confirmed:
-                print(f"  ⚠ After {MAX_RETRIES} retries ({MAX_RETRIES * REGEN_WAIT}s), still missing: {missing}")
-                print(f"    Check Plaud web UI — regeneration may still be in progress.")
-                print(f"    Re-run --rename to retry, or wait and re-ingest manually.")
-        else:
-            print(f"  ✗ Regeneration trigger failed — proceeding with current transcript")
-    else:
-        print(f"  ✓ Speaker names verified in transaction_polish layer")
+    if not transcript_text:
+        transcript_text = extract_transcript(detail) if detail else ""
 
     rec_name = detail.get("filename", detail.get("fullname", file_id)) if detail else file_id
     clean_name = "".join(c if c.isalnum() or c in " -_" else "_" for c in str(rec_name))
@@ -1347,7 +1424,15 @@ def rename_and_refetch(file_id, mapping_json):
         print(f"  Cleaned up speaker mapping file")
 
     print(f"\n{'=' * 60}")
-    print(f"Done. Speakers renamed and transcript re-fetched.")
+    if verified:
+        print(f"Done. Speakers renamed and verified in the database.")
+    elif patched:
+        print(f"Done with warnings. PATCH was accepted but the renames are NOT")
+        print(f"stored in the database record, so the staged transcript still")
+        print(f"carries the current speaker labels.")
+    else:
+        print(f"Done with errors. The rename PATCH failed, nothing was renamed.")
+    print(f"RENAME_STATUS={'verified' if verified else ('unverified' if patched else 'failed')}")
     print(f"{'=' * 60}")
 
 

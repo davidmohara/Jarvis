@@ -2,10 +2,21 @@
 title: Plaud Speaker Renaming Sync Fix
 date: 2026-06-10
 category: Plaud Integration
-status: Implemented
+status: Superseded
+superseded-by: reference/plaud-v4-rewrite-plan.md
+superseded-date: 2026-11-03
 ---
 
 # Plaud Speaker Renaming Sync Fix
+
+> **SUPERSEDED (2026-11-03).** This document describes the pre-4.0 three-store model
+> and is historical only. On a Plaud 4.0 account the legacy `PATCH /file/{file_id}`
+> returns HTTP 200 with `status: 0` but is not authoritative: the 4.0 pipeline
+> rebuilds `speaker` back to `original_speaker`, and the `is_reload: 1` regeneration
+> described here resets the labels rather than propagating them. Do not follow the
+> procedure below. Current behavior and the rewrite plan live in
+> `reference/plaud-v4-rewrite-plan.md`; the API section of
+> `skills/plaud-transcripts/SKILL.md` states the current model.
 
 ## The Problem
 
@@ -155,6 +166,6 @@ rename_and_refetch() flow:
 
 ---
 
-**Status**: Implemented and tested
-**Impact**: Speaker names now sync to final vault notes
-**Rollback**: Can revert changes to `fetch_plaud.py` if issues arise
+**Status**: Superseded 2026-11-03 by `reference/plaud-v4-rewrite-plan.md`
+**Historical impact**: Speaker names synced to vault notes under the pre-4.0 model
+**Do not follow the procedure above on a Plaud 4.0 account**
