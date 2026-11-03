@@ -8,9 +8,9 @@
   "model": "deepseek-flash-latest",
   "model_source": "cli-arg",
   "started": "2026-11-03T15:27:36Z",
-  "completed": null,
-  "duration_seconds": null,
-  "status": "in-progress",
+  "completed": "2026-11-03T15:36:22.393243Z",
+  "duration_seconds": 526.4,
+  "status": "success",
   "steps": [
     {
       "name": "step-01-purge-artifacts",
@@ -43,9 +43,14 @@
     }
   ],
   "subagents": [],
-  "monitoring": {},
+  "monitoring": {
+    "active": false
+  },
   "assessment": {
-    "mechanical": {},
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true
+    },
     "structural": {},
     "grading": {},
     "controller_feedback": {
@@ -67,5 +72,10 @@
       "escalated_to_human": false,
       "timestamp": "2026-11-03T15:35:20.780760+00:00"
     }
-  ]
+  ],
+  "version_hash": "ef6aefc94bb7eff2",
+  "total_tokens_input": null,
+  "total_tokens_output": null,
+  "total_cost_usd": null,
+  "owning_agent": "rigby"
 }

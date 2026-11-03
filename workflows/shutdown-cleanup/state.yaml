@@ -57,7 +57,7 @@ accumulated-context:
   commit_results:
     class_a_commit_1: "ce9b4a6c1 — 29 files: reviews/daily/2026-11-03.md, 2 error entries, 2 harper YPO working notes, memory/sessions/index.json, 23 eval run records"
     class_a_commit_2: "97f83f47b — 4 files: session index indent fix (net diff vs 74131fc45 is 2 lines), shutdown-cleanup working memory, post-commit harness record, folded git-ops audit entries"
-    class_b_commit: "<recorded after commit>"
+    class_b_commit: "fad7dd763 — 9 files: both workflow state files, five step frontmatters, the eval-grade pointer, and the shutdown-cleanup eval stub"
     temp_artifacts_staged: false
     media_deletions: 0
     pushed: false
