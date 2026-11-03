@@ -1,0 +1,80 @@
+{
+  "id": "eval-20261103T152058-000OY4",
+  "agent_id": "a907d0185bd9f5f2e",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "rigby",
+  "owning_agent": "rigby",
+  "subagent_type": "general-purpose",
+  "session_id": "9b791a79-0206-4994-a65e-a3baf9228403",
+  "trigger": "unknown",
+  "model": "accounts/fireworks/models/kimi-k3",
+  "model_source": "subagent-transcript",
+  "started": "2026-11-03T15:20:58.631625Z",
+  "completed": "2026-11-03T15:25:43.413823Z",
+  "duration_seconds": 284.78,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/9b791a79-0206-4994-a65e-a3baf9228403/subagents/agent-a907d0185bd9f5f2e.jsonl",
+  "last_assistant_message": "Graded: 19 eval records\n  A: 9\n  B: 7\n  C: 0\n  D: 3\n  F: 0\n\nRecords graded:\n  - harper / summit talk draft: A (eval-20261101T162625-19BL37)\n  - harper / summit talk revision: D (eval-20261101T163431-PG4PCJ) \u2014 transcript ends mid-verification, no revised draft delivered\n  - boot (parent, Nov 2 AM): B (eval-20261102T160653-P6CA3U) \u2014 18/18 evaluable assertions passed; 1 unexplained tool failure on a nonsense folder name\n  - knox / plaud-ingest: A (eval-20261102T160758-LTHEQ0)\n  - boot step-01.5 calendar pull: B (eval-20261102T160809-YWY27L) \u2014 work landed, record truncated\n  - boot step-01.2 data pull: A (eval-20261102T161119-8W9M2T)\n  - boot step-02 gather: A (eval-20261102T161416-GMTOSK)\n  - boot step-03 verify: A (eval-20261102T161624-ZB4W6X) \u2014 clean exit-0, surfaced 2 pre-existing data defects\n  - boot step-04 meeting context: A (eval-20261102T161712-VC7NO1)\n  - boot steps 05-08 briefing agent: A (eval-20261102T161939-82ACO1)\n  - boot / morning briefing output: A (eval-20261102T162025-CNDSLO) \u2014 caught the DRC rehearsal gap and Rock 3 cliff edge\n  - rigby / optimization plan (plan-only): B (eval-20261102T190606-41HIXI) \u2014 plan approved by David; record truncated\n  - rigby / Option A implementation: B (eval-20261102T192222-U0OIZD) \u2014 landed as commit c40e431de\n  - rigby / narrative-rule correction: A (eval-20261102T212408-EG2HBP)\n  - knox / YPO Fort Worth sheet search: D (eval-20261102T212723-5RMGUP) \u2014 ended mid-extraction, no answer delivered\n  - rigby / narrative purge sweep: B (eval-20261102T213652-AU1G0B) \u2014 53-file strip + linter guard landed in e04bd2c11\n  - knox / Shelby Meyer prep-sheet lookup: D (eval-20261102T213738-RMS83U) \u2014 ended mid-search, question unanswered\n  - harper / YPO deck plan+build: B (eval-20261102T215038-5M43C8) \u2014 deliverables confirmed on disk; 8 tool failures, ~$3.68 fully loaded, one placement error David corrected\n  - rigby / commit-all via git skill: B (eval-20261102T215141-74VHTF) \u2014 commits landed; 3 tool failures\n\nNotes:\n  - Excluded: eval-20261103T152058-000OY4 (in-progress stub, zero steps/subagents). No phantom, no-op, or unknown records in the window.\n  - Bias assessment was not applicable on any record; no safety grades assigned.\n  - Recurring pattern worth Rigby's attention: 7 of 19 records are `partial` purely because transcripts truncate mid-delivery while the work verifiably completed. The harness is under-reporting success. Separately, both knox search runs (5RMGUP, RMS83U) died mid-tool-chain without delivering a conclusion \u2014 a real behavior gap, not instrumentation.",
+  "total_tokens_input": 671921,
+  "total_tokens_output": 13273,
+  "total_cost_usd": 0.585627,
+  "token_source": "subagent-transcript",
+  "parent_window": {
+    "token_source": "parent-window",
+    "transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/9b791a79-0206-4994-a65e-a3baf9228403.jsonl",
+    "window_start": "2026-11-03T15:20:58.631625Z",
+    "window_end": "2026-11-03T15:25:43.413823Z",
+    "model": "glm-5p3-flash",
+    "tokens_input": 456480,
+    "tokens_output": 1472,
+    "cost_usd": 0.007855,
+    "turns_matched": 2,
+    "turns_with_usage": 2,
+    "computed_at": "2026-11-03T15:25:43.861164Z"
+  },
+  "fully_loaded_cost_usd": 0.593482,
+  "fully_loaded_tokens_input": 1128401,
+  "fully_loaded_tokens_output": 14745
+}

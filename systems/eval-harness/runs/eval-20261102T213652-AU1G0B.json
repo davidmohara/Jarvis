@@ -31,10 +31,10 @@
       "assertion_results": []
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
+      "last_graded": "2026-11-03T15:25:28Z",
+      "grade": "B",
       "safety_grade": null,
-      "grader_notes": null
+      "grader_notes": "Rigby full narrative-purge sweep. The 53-file strip across workflows/ and skills/ plus the validate-conventions.py narrative guard both landed in commit e04bd2c11, so the worklist completed despite the record truncating at 'Now implementing the linter guard' with 1 tool failure. Good re-verification discipline against its own prior inventory."
     },
     "controller_feedback": {
       "rating": null,

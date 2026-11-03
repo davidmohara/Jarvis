@@ -1,0 +1,78 @@
+{
+  "id": "eval-20261103T152719-WGMNRM",
+  "agent_id": "a6b54008d364c4240",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "general-purpose",
+  "owning_agent": null,
+  "subagent_type": "general-purpose",
+  "session_id": "9b791a79-0206-4994-a65e-a3baf9228403",
+  "trigger": "unknown",
+  "model": null,
+  "model_source": null,
+  "started": "2026-11-03T15:27:19.311223Z",
+  "completed": null,
+  "duration_seconds": null,
+  "status": "in-progress",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": null,
+      "all_steps_finished": null,
+      "tool_failures": 3,
+      "error_ids": [],
+      "tool_failure_log": [
+        {
+          "tool": "Read",
+          "error": "File does not exist. Note: your current working directory is /Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES.",
+          "duration_ms": 1,
+          "timestamp": "2026-11-03T09:27:24.731927"
+        },
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\n=== .DS_Store ===\n./.DS_Store\n./projects/.DS_Store\n./workflows/.DS_Store\n./workflows/plaud-ingest/.DS_Store\n=== .fuse_hidden ===\n=== __pycache__ ===\n./workflows/boot/verify/__pycache__\n./workflows/final-review/verify/__pycache__\n./workflows/plaud-ingest/verify/__pycache__\n./.claude/hooks/tests/__pycache__\n./.claude/hooks/__pycache__\n./.claude/skills/rigby-capability-build/scripts/__pycache__\n./skills/omnifocus-data/scripts/__pycache__\n./skills/git/scripts/__pycache__\n./skills/plaud-transcripts/scripts/__pycache__\n./systems/eval-harness/__pycache__\n./systems/eval-harness/scoring/__pycache__\n./systems/eval-harness/vendor/yaml/__pycache__\n./systems/boot-instrumentation/__pycache__\n./systems/error-tracking/__pycache__\n./systems/cost-attribution/__pycache__\n=== *.tmp ===\n=== meetings html ===\n=== root scripts ===\n(eval):1: no matches found: *.js",
+          "duration_ms": 1365,
+          "timestamp": "2026-11-03T09:27:44.818493"
+        },
+        {
+          "tool": "Bash",
+          "error": "Exit code 1\n=== memory/working (recent) ===\ntotal 1224\n-rw-r--r--@ 1 davidohara  staff   3014 Nov  3 09:26 2026-11-02-183000-harper-ypo-ai-deck-built.md\n-rw-r--r--@ 1 davidohara  staff  25075 Nov  2 15:55 2026-11-02-harper-ypo-ai-deck-plan.md\n-rw-r--r--@ 1 davidohara  staff   1293 Nov  2 15:39 2026-11-02-165500-knox-shelby-regional-onepager-found.md\n-rw-r--r--@ 1 davidohara  staff   1973 Nov  2 15:31 2026-11-02-164200-knox-fw-gold-sheet.md\n-rw-r--r--@ 1 davidohara  staff   4242 Nov  2 15:29 2026-11-02-163500-rigby-narrative-purge.md\n-rw-r--r--@ 1 davidohara  staff   4329 Nov  2 13:29 2026-11-02-132909-rigby-briefing-optimization-build.md\n-rw-r--r--@ 1 davidohara  staff  21274 Nov  2 13:11 2026-11-02-rigby-briefing-subagent-optimization-plan.md\n-rw-r--r--@ 1 davidohara  staff   7906 Nov  2 10:21 morning-briefing-2026-11-02-102115.md\n-rw-r--r--@ 1 davidohara  staff   7816 Nov  1 10:13 morning-briefing-2026-10-30-091358.md\n-rw-r--r--@ 1 davidohara  staff   8778 Nov  1 10:13 boot-token-analysis-2026-10-16-to-2026-10-30.md\n-rw-r--r--@ 1 davidohara  staff    995 Nov  1 10:13 dream-summary-2026-10-30.md\n-rw-r--r--@ 1 davidohara  staff  16652 Oct 29 09:38 2026-10-29-143643-master-boot-token-analysis.md\n-rw-r--r--@ 1 davidohara  staff   8882 Oct 29 09:06 morning-briefing-2026-10-29-140611.md\n-rw-r--r--@ 1 davidohara  staff   1855 Oct 29 06:43 daily-review-2026-10-29-070500.md\n\n=== memory/sessions ===\ntotal 360\n-rw-r--r--@ 1 davidohara  staff  179446 Nov  2 10:08 index.json\n-rw-r--r--@ 1 davidohara  staff     103 Nov  2 10:06 harness-session.json\n\n=== plaud-ingest state ===\n(eval):1: no matches found: workflows/plaud-ingest/*.json",
+          "duration_ms": 35,
+          "timestamp": "2026-11-03T09:28:06.257747"
+        }
+      ]
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": []
+}

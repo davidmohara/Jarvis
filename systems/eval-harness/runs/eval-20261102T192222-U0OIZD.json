@@ -31,10 +31,10 @@
       "assertion_results": []
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
+      "last_graded": "2026-11-03T15:25:28Z",
+      "grade": "B",
       "safety_grade": null,
-      "grader_notes": null
+      "grader_notes": "Rigby implementation of the approved Option A. Landed as commit c40e431de: steps 05-08 collapsed into one briefing subagent with explicit write protocol, plus the session-index non-dict guard. 'Implementation complete' reached, but the record is partial with 1 tool failure and cuts off before the final report."
     },
     "controller_feedback": {
       "rating": null,

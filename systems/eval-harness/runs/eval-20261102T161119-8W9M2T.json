@@ -49,10 +49,10 @@
       "assertion_results": []
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
+      "last_graded": "2026-11-03T15:25:28Z",
+      "grade": "A",
       "safety_grade": null,
-      "grader_notes": null
+      "grader_notes": "Boot step-01.2 unified data pull. All five pulls (A-E) executed, step frontmatter and state.yaml updated, zero tool failures, clean single-purpose dispatch exactly as the regression guards require."
     },
     "controller_feedback": {
       "rating": null,

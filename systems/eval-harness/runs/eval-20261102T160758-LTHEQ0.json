@@ -83,10 +83,10 @@
       "assertion_results": []
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
+      "last_graded": "2026-11-03T15:25:28Z",
+      "grade": "A",
       "safety_grade": null,
-      "grader_notes": null
+      "grader_notes": "Knox plaud-ingest pass. Three steps (discover, identify-speakers, verify-ingest) completed cleanly in 17s with zero tool failures. Minor metadata nit: two step entries carry stale Oct 28 timestamps, suggesting carried-forward step bookkeeping, but the ingest itself verified clean."
     },
     "controller_feedback": {
       "rating": null,

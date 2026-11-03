@@ -1,0 +1,16 @@
+{
+  "id": "err-20261102T223043-C3V8B8",
+  "timestamp": "2026-11-02T22:30:43Z",
+  "session": "boot-2026-11-02 (9b791a79-0206-4994-a65e-a3baf9228403)",
+  "source": "explicit",
+  "agent": "harper",
+  "category": "file-placement",
+  "description": "Harper's YPO Forum AI deck deliverables (presentations/ypo-forum-practical-ai-2026-11-03.pptx and its handout PDF) were written to the IES-local presentations/ folder. David corrected: presentation deliverables always go in the Presentations folder on OneDrive (/Users/davidohara/Library/CloudStorage/OneDrive-Improving/Presentations), in the AI subfolder, never locally in IES presentations/.",
+  "correction": "Move both files to /Users/davidohara/Library/CloudStorage/OneDrive-Improving/Presentations/AI/. Going forward, all presentation deliverables are written to the OneDrive Presentations folder (appropriate subfolder), not IES presentations/. The IES presentations/ folder holds source/reference decks only.",
+  "failure_mode": "wrong-location",
+  "systemic_fix": "Harper deck-production convention must specify the OneDrive Presentations folder as the deliverable destination. Rigby to encode this in the harper-deck/harper-presentation skill output-location guidance so the choice is not left to per-run judgment.",
+  "fix_status": "proposed",
+  "severity": "minor",
+  "related_entries": [],
+  "related_skill": null
+}

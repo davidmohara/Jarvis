@@ -248,10 +248,10 @@
       ]
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
+      "last_graded": "2026-11-03T15:25:28Z",
+      "grade": "B",
       "safety_grade": null,
-      "grader_notes": null
+      "grader_notes": "Boot parent run, morning Nov 2. 18 of 20 structural assertions passed; the 2 non-passes are null (unevaluable meta-assertions boot-009/boot-010), not failures. All regression guards held (dispatch shape, return-to-coordinator handoffs, no next-step chains), OmniFocus/calendar/session-index outputs verified on disk, and the run produced a high-quality briefing downstream. Held back from A by 1 tool failure: outlook_email_search against folder 'ZZZNoSuchFolder123', a nonsense sentinel in a core data path with no explanation in the record."
     },
     "controller_feedback": {
       "rating": null,

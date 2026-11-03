@@ -1,0 +1,16 @@
+{
+  "id": "err-20261103T143542-VKX944",
+  "timestamp": "2026-11-03T14:35:42Z",
+  "session": "boot-2026-11-02 (9b791a79-0206-4994-a65e-a3baf9228403)",
+  "source": "explicit",
+  "agent": "harper",
+  "category": "instruction-following",
+  "description": "David instructed that the quadrant slides in the YPO Forum AI deck be replaced with the ACTUAL slides that show the quadrants from his source decks, copied verbatim. The delivered deck instead carries rebuilt/new quadrant slides (Harper's own assessment: the source slides it lifted were bulleted lists, not the quadrant visuals, and the only visual 2x2 in the deck was one Harper built). David corrected emphatically: the actual quadrant slides must be copied, not approximated or rebuilt.",
+  "correction": "Search every presentation deck in the OneDrive Presentations tree and IES reference/presentations folders for the slides that visually show the four quadrants (the AI impact matrix 2x2 graphics), and copy those slides verbatim into the deck: XML shape-tree copy on original layouts, media rewired, any timing nodes carried. No rebuilding, no restyling, no substitution of lookalike content.",
+  "failure_mode": "substitution-drift",
+  "systemic_fix": "When David says copy an actual slide, the copy is verbatim and the source slide is verified to match what he remembers before any substitution is made. If the expected slide cannot be found, stop and report the search, never quietly substitute a built approximation. The verbal contract 'the actual slides' means the original artifacts, not an equivalent.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": ["err-20261102T223043-C3V8B8"],
+  "related_skill": null
+}

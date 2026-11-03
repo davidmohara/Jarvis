@@ -49,10 +49,10 @@
       "assertion_results": []
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
+      "last_graded": "2026-11-03T15:25:28Z",
+      "grade": "B",
       "safety_grade": null,
-      "grader_notes": null
+      "grader_notes": "Boot step-01.5 unified calendar pull. The calendar file was written (parent assertion boot-011 passed) and the step shows complete with sane token/cost telemetry. Record truncates while writing step frontmatter and carries 1 tool failure, hence partial. Work itself landed; instrumentation did not capture the exit."
     },
     "controller_feedback": {
       "rating": null,

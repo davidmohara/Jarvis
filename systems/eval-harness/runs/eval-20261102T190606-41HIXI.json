@@ -100,10 +100,10 @@
       "assertion_results": []
     },
     "grading": {
-      "last_graded": null,
-      "grade": null,
+      "last_graded": "2026-11-03T15:25:28Z",
+      "grade": "B",
       "safety_grade": null,
-      "grader_notes": null
+      "grader_notes": "Rigby plan-only capability optimization (boot briefing-subagent consolidation). Record shows partial with 1 tool failure and truncates at 'Writing the plan', but the plan demonstrably reached David \u2014 the next run's prompt confirms he approved it. Plan-only constraint respected (no files edited). Held back by the truncated record."
     },
     "controller_feedback": {
       "rating": null,
