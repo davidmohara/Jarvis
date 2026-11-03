@@ -57,7 +57,11 @@ Result: 5/5 staged markdown notes identical, 5/5 speaker sidecars identical, bot
 
 Fixes needed for equality, all committed: strip/add the `of_` partner id prefix; prefer transaction_polish (with transaction fallback); use start_at instead of created_at and parse naive ISO as UTC; one shared MCP server process per run to stop refresh-token races; auth heuristic no longer scans data payloads for "401" (a transcript mentioning 401(k) caused false auth failures); extract_summary handles raw markdown; strip ![PLAUD NOTE](permanent/...) and summaryCard references; repair Latin-1 mojibake.
 
-Gate: day 1 of 5 passed (2026-11-03). Days 2-5 are 2026-11-04 through 2026-11-07. Default stays api until then. Unverified: token refresh across an unattended run.
+Gate: day 1 of 5 passed (2026-11-03). Days 2-5 are 2026-11-04 through 2026-11-07.
+
+Decision 2026-11-03: David chose to flip the default read source to mcp for the gate window, accepting the risk of a failed 6am ingest if the token refresh fails. Implemented: argparse and function defaults are mcp; api remains via --read-source api as the rollback. The run now preflights get_current_user, and on failure prints a PLAUD READ FAILED banner, writes ~/Downloads/transcript-staging/plaud_read_failure.json, prints PLAUD_READ_STATUS=failed, and exits 2. Success clears the marker and prints PLAUD_READ_STATUS=ok. Step-04 checks both and aborts on failure.
+
+Unverified: token refresh across an unattended 6am run. First unattended run is the test.
 
 Future capability noted in the plan: get_transcript(block="mark_memo") exposes device highlight moments under `marks`; the api path has no equivalent.
 

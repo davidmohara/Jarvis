@@ -207,10 +207,28 @@ Fixes required to reach byte equality, all now in the code:
   `[](plaud://image?type=summaryCard...)` references, and repair Latin-1
   mojibake in the legacy S3 text.
 
-Gate status: day 1 passed. Days 2 through 5 are 2026-11-04 through 2026-11-07.
-Still unverified: token refresh across an unattended 6am run. The MCP token file
-carries `expires_at` and a `refresh_token`; confirm the server refreshes without
-a browser before flipping the default.
+**Gate accrual method (decided 2026-11-03):** David chose to flip the default
+read source to `mcp` for the gate window, so the production daily run itself
+accrues the gate instead of a parallel comparison job. He explicitly accepted
+the risk that a failed 6am token refresh means a failed daily ingest that has to
+be cleaned up afterwards. The `api` path stays fully available as the rollback:
+`--read-source api`, or revert this commit.
+
+**Fail-closed behavior:** when the read source is `mcp`, `fetch_plaud.py` calls
+`get_current_user` before any staging work. On an auth or read failure it refuses
+to proceed, prints a `PLAUD READ FAILED - INGEST CANNOT PROCEED` banner with the
+source, error type, detail, marker path, and action, writes
+`~/Downloads/transcript-staging/plaud_read_failure.json`, prints
+`PLAUD_READ_STATUS=failed`, and exits 2. A successful run removes the stale
+marker and prints `PLAUD_READ_STATUS=ok`. Step-04 checks both, so a 6am failure
+is diagnosable from the run output or the state record in one look.
+
+Gate status: day 1 passed. Days 2 through 5 are 2026-11-04 through 2026-11-07,
+accrued by the default `mcp` run. Still unverified: token refresh across an
+unattended 6am run. The MCP token file carries `expires_at` and a
+`refresh_token`; the first unattended run is the test. If it fails, the run
+fails closed with the marker above and the fix is `npx -y @plaud-ai/mcp@0.3.14
+login` (or `--read-source api` for that day).
 
 ### Future capability: device highlights (`mark_memo`)
 

@@ -21,6 +21,7 @@ outputs:
 3. You MUST process all recordings in `ready-for-fetch`, not just the ones with speaker mappings.
 4. Regeneration (`POST /ai/transsumm` with `is_reload: 1`) fires ONLY on a genuine database verification failure, never because a rendered layer looks stale. When it does fire, the script polls and reports honestly. Read the final `RENAME_STATUS=` line (`verified`, `unverified`, or `failed`) to know what actually happened.
 5. Do NOT proceed to step-05 until all ready recordings are in staging. Record the `RENAME_STATUS` for each renamed recording in your report; `unverified` or `failed` is a known Plaud 4.0 condition, not something a re-run fixes (see `reference/plaud-v4-rewrite-plan.md`).
+6. The script reads through the official Plaud MCP by default and fails closed. Confirm `PLAUD_READ_STATUS=ok` before proceeding. On `PLAUD_READ_STATUS=failed`, read `~/Downloads/transcript-staging/plaud_read_failure.json`, mark this step failed with its `error_type` and `message`, and abort the ingest. Do not silently retry or fall back to `--read-source api` without the controller's decision.
 
 ---
 
@@ -73,6 +74,7 @@ outputs:
 5. **Report:**
    ```
    [Knox/Fetch]: Staging complete.
+     Read status: PLAUD_READ_STATUS=ok
      Files ready: N
      Speaker renames applied: N
      Gaps (expected but missing): N
@@ -91,7 +93,8 @@ If `fetch_plaud.py` exits with `NO_TOKEN`:
 
 ## SUCCESS METRICS
 
-- fetch_plaud.py ran for the target date without errors
+- fetch_plaud.py ran for the target date without errors and reported `PLAUD_READ_STATUS=ok`
+- No `plaud_read_failure.json` marker remains in staging
 - All speaker renames applied; each reports a `RENAME_STATUS` line that is captured in the report
 - Renames that report `verified` have the new names in the staged markdown; `unverified` or `failed` are reported as such, not glossed over
 - Every recording in `ready-for-fetch` has a corresponding staged markdown file
@@ -102,6 +105,7 @@ If `fetch_plaud.py` exits with `NO_TOKEN`:
 | Failure | Action |
 |---------|--------|
 | Token expired / NO_TOKEN | Run Chrome login flow, retry once. |
+| `PLAUD_READ_STATUS=failed` or `plaud_read_failure.json` present | Read the marker. `MCP_AUTH_REQUIRED` means the MCP OAuth token is dead: report its `action` line, mark the step and state failed, and abort. Do not retry blindly or switch read sources on your own. |
 | Rename API fails for one recording | Log the failure (`RENAME_STATUS=failed`), continue with the current speaker labels for that recording. Note in report. |
 | Rename PATCH accepted but `RENAME_STATUS=unverified` | Known Plaud 4.0 behavior: the legacy PATCH returns `status: 0` but the 4.0 pipeline does not treat that store as authoritative. Do NOT retry blindly. Report the status and point to `reference/plaud-v4-rewrite-plan.md`. |
 | Regeneration triggered and times out | Script reports the failure honestly and leaves the staged transcript on the current labels. Report it; a retry is not guaranteed to help for the same 4.0 reason. |

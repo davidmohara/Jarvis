@@ -507,6 +507,26 @@ def list_recordings(target_date=None, page_size=100, max_pages=200):
     return [rec for rec in recordings if not rec.get("is_trash")]
 
 
+def preflight():
+    """Verify MCP authentication before a run does any work.
+
+    Raises McpAuthError (or McpError) on failure so the caller can fail closed
+    before staging anything. Returns a short identity string on success.
+    """
+    with _session() as mcp:
+        text = mcp.call_tool("get_current_user")
+    try:
+        user = json.loads(text)
+    except json.JSONDecodeError:
+        return "unknown"
+    return (
+        user.get("email")
+        or user.get("nickname")
+        or user.get("id")
+        or "unknown"
+    )
+
+
 def get_file(file_id):
     """Return the raw MCP file record (source_list, note_list, presigned_url)."""
     with _session() as mcp:

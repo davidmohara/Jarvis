@@ -260,13 +260,20 @@ if missing.
 
 | Flag | Discovery | Transcript | Summary | Default |
 |---|---|---|---|---|
-| `--read-source api` | `GET /file/simple/web` | `GET /file/detail` + S3 links | `pre_download_content_list` | yes |
-| `--read-source mcp` | MCP `list_files` | MCP `get_transcript` | MCP `get_note` | no |
+| `--read-source mcp` | MCP `list_files` | MCP `get_transcript` | MCP `get_note` | yes |
+| `--read-source api` | `GET /file/simple/web` | `GET /file/detail` + S3 links | `pre_download_content_list` | no (rollback) |
 
 Status: the MCP path was verified on 2026-11-03 against the five recordings from
 2026-11-02 and 2026-11-03. Staged markdown and speaker sidecars were byte-identical
-to the api path. The default stays `api` through the five-day gate (through
-2026-11-07), then flips if the gate holds.
+to the api path. Per David's 2026-11-03 decision, `mcp` is now the default so the
+daily run accrues the five-day gate (through 2026-11-07). Rollback is
+`--read-source api` or a revert.
+
+The run fails closed when the MCP cannot authenticate: a
+`PLAUD READ FAILED - INGEST CANNOT PROCEED` banner, a
+`~/Downloads/transcript-staging/plaud_read_failure.json` marker, and
+`PLAUD_READ_STATUS=failed` with exit code 2. Success prints
+`PLAUD_READ_STATUS=ok` and clears the marker.
 
 The MCP path is read-only and is wrapped by `scripts/plaud_read.py`. It uses the
 **local stdio form only** (`npx -y @plaud-ai/mcp@0.3.14`, pinned version). Do NOT

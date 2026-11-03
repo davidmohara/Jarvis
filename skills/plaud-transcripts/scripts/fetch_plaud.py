@@ -11,10 +11,13 @@ Usage:
   python3 fetch_plaud.py 2026-03-18         # specific date
   python3 fetch_plaud.py --all              # all recordings
   python3 fetch_plaud.py --login            # force re-login (ignore cached token)
-  python3 fetch_plaud.py --read-source mcp  # read discovery/transcripts via the
-                                            # official Plaud MCP (local stdio).
-                                            # Requires `npx -y @plaud-ai/mcp@0.3.14
-                                            # login` once. Default is the legacy api.
+  python3 fetch_plaud.py --read-source api  # legacy web API (rollback path)
+                                            # Default is mcp: discovery and
+                                            # transcripts via the official Plaud
+                                            # MCP (local stdio). Requires
+                                            # `npx -y @plaud-ai/mcp@0.3.14 login`.
+                                            # An auth failure fails closed with
+                                            # PLAUD_READ_STATUS=failed.
 
 Authentication:
   The script authenticates automatically. It reads credentials from environment
@@ -933,10 +936,64 @@ def _mcp_read():
     """Return the read-only MCP adapter module.
 
     The module imports cleanly without Node installed; only starting the MCP
-    requires it. The default api path never calls into it.
+    requires it.
     """
     import plaud_read
     return plaud_read
+
+
+def read_failure_path():
+    """Path of the fail-closed marker the workflow and eval record can read."""
+    return os.path.join(STAGING_DIR, "plaud_read_failure.json")
+
+
+def clear_read_failure():
+    """Remove a stale failure marker after a successful read preflight."""
+    path = read_failure_path()
+    if os.path.exists(path):
+        try:
+            os.remove(path)
+        except OSError:
+            pass
+
+
+def report_read_failure(read_source, error_type, message, exit_code=2):
+    """Fail loudly: console banner plus a machine-readable staging marker.
+
+    The plaud-ingest step reads both. A 6am token failure should be obvious in
+    the run output and leave one artifact explaining exactly what broke.
+    """
+    os.makedirs(STAGING_DIR, exist_ok=True)
+    path = read_failure_path()
+    try:
+        with open(path, "w") as f:
+            json.dump({
+                "timestamp": datetime.now().isoformat(),
+                "read_source": read_source,
+                "status": "failed",
+                "error_type": error_type,
+                "message": str(message),
+                "exit_code": exit_code,
+                "action": (
+                    "run `npx -y @plaud-ai/mcp@0.3.14 login` on the host, then re-run"
+                    if error_type == "MCP_AUTH_REQUIRED"
+                    else "inspect the message; the read path did not start"
+                ),
+            }, f, indent=2)
+    except OSError as exc:
+        path = f"(could not write marker: {exc})"
+
+    bar = "!" * 72
+    print(bar)
+    print("PLAUD READ FAILED - INGEST CANNOT PROCEED")
+    print(f"  read_source : {read_source}")
+    print(f"  error       : {error_type}")
+    print(f"  detail      : {message}")
+    print(f"  marker      : {path}")
+    if error_type == "MCP_AUTH_REQUIRED":
+        print("  action      : run `npx -y @plaud-ai/mcp@0.3.14 login` on the host, then re-run")
+    print("PLAUD_READ_STATUS=failed")
+    print(bar)
 
 
 def load_recordings(token, target_date, read_source):
@@ -1010,7 +1067,7 @@ def get_target_date():
     return (datetime.now() - timedelta(days=1)).strftime("%Y-%m-%d")
 
 
-def main(read_source="api"):
+def main(read_source="mcp"):
     if "--help" in sys.argv or "-h" in sys.argv:
         print(__doc__.strip())
         print("""
@@ -1036,6 +1093,14 @@ Other modes:
     if not verify_auth(token):
         print("Token appears invalid. Try --login to re-authenticate.")
         sys.exit(1)
+
+    # When the MCP is the read source, prove its token before doing any work.
+    # A failure here fails closed before anything is staged.
+    if read_source == "mcp":
+        print("  Verifying MCP authentication...")
+        who = _mcp_read().preflight()
+        print(f"  MCP authenticated as: {who}")
+    clear_read_failure()
 
     # Determine target date
     target_date = get_target_date()
@@ -1250,6 +1315,7 @@ Other modes:
             flag = " ⚠ >24h" if age_hours > 24 else ""
             print(f"  Pending: {pinfo.get('name', pid)} ({int(age_hours)}h){flag}")
     print(f"{'=' * 60}")
+    print("PLAUD_READ_STATUS=ok")
 
 
 def verify_speaker_renames(token, file_id, original_to_new):
@@ -1540,7 +1606,7 @@ def rename_and_refetch(file_id, mapping_json):
     print(f"{'=' * 60}")
 
 
-def check_single(file_id, read_source="api"):
+def check_single(file_id, read_source="mcp"):
     """Check a single recording's transcription status and process if ready.
 
     Called by the watcher scheduled task after a transcription was triggered.
@@ -1684,9 +1750,10 @@ if __name__ == "__main__":
                     help="poll one recording's transcription status")
     ap.add_argument("--share", metavar="FILE_ID",
                     help="request share-token transcript for one recording")
-    ap.add_argument("--read-source", choices=["api", "mcp"], default="api",
-                    help="read recordings and transcripts from the legacy API (default) "
-                         "or the official Plaud MCP over local stdio")
+    ap.add_argument("--read-source", choices=["api", "mcp"], default="mcp",
+                    help="read recordings and transcripts from the official Plaud "
+                         "MCP over local stdio (default) or the legacy API "
+                         "(rollback path)")
     args = ap.parse_args()
 
     try:
@@ -1712,13 +1779,16 @@ if __name__ == "__main__":
         else:
             main(read_source=args.read_source)
     except Exception as exc:
-        # Surface MCP read failures as a clear status line, not a traceback.
+        # Fail closed and loudly: banner, marker file, and a status line the
+        # plaud-ingest step and eval record can key on. No traceback wall.
         if plaud_read is not None and isinstance(
             exc, (plaud_read.McpError, plaud_read.McpUnavailableError)
         ):
-            if isinstance(exc, plaud_read.McpAuthError):
-                print(f"MCP_AUTH_REQUIRED: {exc}")
-            else:
-                print(f"MCP_READ_FAILED: {exc}")
+            error_type = (
+                "MCP_AUTH_REQUIRED"
+                if isinstance(exc, plaud_read.McpAuthError)
+                else "MCP_READ_FAILED"
+            )
+            report_read_failure(args.read_source, error_type, exc, exit_code=2)
             sys.exit(2)
         raise
