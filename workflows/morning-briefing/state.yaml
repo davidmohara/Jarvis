@@ -1,81 +1,74 @@
 workflow: morning-briefing
 agent: chief
 status: complete
-session-id: boot-2026-11-02
-session-started: '2026-11-02T16:07:08Z'
-completed: '2026-11-02T16:21:27Z'
-original-request: 'Morning briefing 2026-11-02 — steps 01-03 completed during boot phases 2 and 3; this run executed step-04 synthesis inside boot step-05'
-current-step: step-04-synthesize-briefing
+session-id: boot-2026-11-03
+session-started: '2026-11-03T15:45:23Z'
+completed: '2026-11-03T15:56:58Z'
+original-request: 'Morning briefing 2026-11-03: steps 01-03 completed during boot phases 2 and 3; this run executed step-04 synthesis inside boot step-05'
+current-step: step-05-verify-briefing
 verification-pending: true
 accumulated-context:
   step-01-gather-calendar:
     calendar_data:
-      date: '2026-11-02'
-      source: 'data/calendar-unified.json (52 events, 2026-11-02 to 2026-11-05, pulled during boot step-01.5 at 2026-11-02T16:11Z; times wall-clock Central)'
-      meeting_count: 15
-      timed_events: 14
-      all_day_events: 1
+      date: '2026-11-03'
+      source: 'data/calendar-unified.json (44 events, 2026-11-03 to 2026-11-06, pulled during boot step-01.5; times wall-clock Central)'
+      meeting_count: 11
+      all_day_events: 2
       meetings:
-        - {time: 'all-day', subject: 'LMB - OOO (Lisa Barnes)', type: recurring-skip, attendees: 13, needs_prep: false, flags: ['organizer of the 14:00 GEHC check-in is out all day']}
-        - {time: '08:00-08:15', subject: 'Improving Prayer Call', type: team, attendees: 5, needs_prep: false}
-        - {time: '08:30-08:35', subject: 'Timesheet', type: personal, attendees: 0, needs_prep: false}
-        - {time: '09:15-09:30', subject: 'Sales & Recruiting Meeting', type: team, attendees: 17, needs_prep: false, flags: [tentative]}
-        - {time: '09:30-10:00', subject: 'Sales Scrum', type: team, attendees: 14, needs_prep: false, flags: [tentative, 'zero buffer after Recruiting']}
-        - {time: '10:30-10:45', subject: 'Prod Call for Nov 4th Recording', type: team, attendees: 4, needs_prep: false, flags: ['only prep touchpoint for the Nov 4 DRC Talent Labs Talk']}
-        - {time: '11:30-12:30', subject: 'Lunch and catch up @Hudson House, Frisco', type: personal, attendees: 0, needs_prep: false}
-        - {time: '12:30-13:30', subject: 'Overflow', type: personal, attendees: 0, needs_prep: false}
-        - {time: '13:30-14:00', subject: 'David <> William (William Steele)', type: one-on-one, attendees: 2, needs_prep: false, flags: ['Google Meet', 'no prep captured']}
-        - {time: '14:00-14:30', subject: 'GEHC Twice Weekly Internal Check-In', type: client, attendees: 5, needs_prep: true, flags: [tentative, 'double_booked with ASEI prep call', 'organizer Lisa Barnes OOO']}
-        - {time: '14:00-14:30', subject: 'Prep call for ASEI AI workshop hosted at Improving', type: external, attendees: 8, needs_prep: true, flags: ['double_booked with GEHC', 'BofA attendees', 'virtual broadcast decision open since 2026-10-22']}
-        - {time: '14:30-15:00', subject: 'YPO LSG Casino Royale Event Planning Call', type: external, attendees: 24, needs_prep: true, flags: ['David is Blue House day chair', 'zero buffer']}
-        - {time: '15:00-16:00', subject: 'Prep presentation for Forum', type: personal, attendees: 0, needs_prep: false}
-        - {time: '16:30-17:30', subject: 'Slide deck prep', type: personal, attendees: 0, needs_prep: false}
-        - {time: '19:00-21:00', subject: 'Dinner at Lulu Modern Chinese', type: personal, attendees: 2, needs_prep: false}
-      open_blocks: ['08:35-09:15 (40m)', '10:00-10:30 (30m)', '10:45-11:30 (45m)', '16:00-16:30 (30m)', '17:30-19:00 (90m)']
+        - {time: 'all-day', subject: 'LMB - OOO (Lisa Barnes)', type: personal, flags: ['PTO Nov 2-4', 'organizer of Nov 4 GEHC check-in is out']}
+        - {time: 'all-day', subject: 'Schwartz - PTO', type: personal, flags: ['Oct 26-Nov 7']}
+        - {time: '08:00-09:30', subject: 'YPO Fort Worth Gold Virtual Board Meeting', type: personal, attendees: 'Terri Patterson (2)', needs_prep: false, flags: ['video-call', 'overlaps 09:15 Sales & Recruiting']}
+        - {time: '09:15-09:30', subject: 'Sales & Recruiting Meeting', type: recurring-skip, attendees: 17, needs_prep: false, flags: [tentative, 'overlaps YPO board']}
+        - {time: '10:00-10:30', subject: 'Sales Scrum', type: recurring-skip, attendees: 13, needs_prep: false, flags: [tentative, 'overlaps All Hands']}
+        - {time: '10:00-11:00', subject: 'All Hands Call - Sales Q3 2026', type: recurring-skip, attendees: 78, needs_prep: false, flags: [tentative, all-hands]}
+        - {time: '11:00-11:30', subject: 'SAP Group Meeting', type: team, attendees: '10 (Dallas Conference Room Trust)', needs_prep: false, flags: [tentative, 'zero-buffer after All Hands']}
+        - {time: '11:30-12:30', subject: 'Lunch with Cory Littlepage @ True Food Kitchen, Plano', type: external, needs_prep: false, flags: ['zero-buffer', 'offsite Plano']}
+        - {time: '12:30-13:00', subject: 'Overflow', type: personal, needs_prep: false, flags: ['zero-buffer']}
+        - {time: '13:30-14:00', subject: 'UTB Training: Community Reinvestment Act', type: external, needs_prep: false, flags: [training]}
+        - {time: '15:00-15:30', subject: 'EWR & Exec Council Update for DRC', type: external, attendees: 'Bethany Hilton, Susan Fojtasek', needs_prep: true, flags: [tentative, 'overlaps YPO Forum']}
+        - {time: '15:00-18:00', subject: 'YPO Forum Meeting', type: personal, attendees: 'Dustin Marshall, Steve Idoux (3)', needs_prep: false, flags: ['conflict with EWR update']}
+        - {time: '18:00-21:00', subject: 'YPO Peptide Event', type: personal, needs_prep: false, flags: [evening]}
+      open_blocks: ['09:30-10:00 (30m)', '13:00-13:30 (30m)', '14:00-15:00 (60m)']
       warnings:
-        - 'HARD CONFLICT 14:00-14:30: GEHC client check-in vs ASEI AI workshop prep call.'
-        - 'Zero-buffer chain 13:30-15:00.'
-        - 'Zero-buffer pair 09:15-10:00, both tentative.'
-        - '8 of 14 timed events are video calls (controller flag).'
-        - 'No open focus block exceeds 90 minutes; 9 timed events before 15:00.'
+        - '3 overlaps: YPO board vs Sales & Recruiting 09:15; Sales Scrum vs All Hands 10:00; EWR update vs YPO Forum 15:00'
+        - '11.0h booked across 08:00-21:00, only 2h of open time total'
+        - '5 video calls exceeds the 3+ cluster flag'
+        - '7.5h of the 11h day is YPO/personal (board 1.5, Forum 3, Peptide 3)'
+        - 'lunch is offsite Plano 11:30-12:30, hard stop against 13:30 training'
   step-02-gather-tasks:
     task_data:
-      inbox_count: 18
+      inbox_count: 11
       due_today: 2
-      overdue: 6
-      flagged: []
-      overdue_detail: ['Coherence breathing (2d)', 'Review prayer list (2d)', 'Build outline for the following talk (3d)', 'Answer Q&A (3d)', 'Bible Study: predestination (3d)', 'Bible Study: handling the poor today (3d)']
-    delegation_data: {overdue: [], due_today: [], due_this_week: [], note: 'tracker has zero active rows'}
-    rocks: 'R1 Solace co-sell (Oct 17 milestones, no completion recorded); R2 South Texas recovery (gap decomposition due 2026-10-17, no completion); R3 Scorecard Truth (KR2 due 2026-10-31, two days past, no evidence; Oct close validation due Nov 14); R4 Thought Leadership (Nov 4 DRC Talent Labs Talk is the milestone; publishing via Alice performing); R5 AI Practice 2027 (one-page charter for Dec 1-2 session, signed by Dec 15, five decisions open)'
-    lookahead_72h:
-      '2026-11-03': '11 timed. YPO FW Gold Virtual Board 08:00-09:30; All Hands Sales Q3 10:00-11:00; YPO Forum Meeting 15:00-18:00 hard-conflicts the EWR/DRC update at 15:00; YPO Peptide Event 18:00-21:00.'
-      '2026-11-04': '13 timed. DRC Talent Labs Talk 08:00-12:00 (Rock 4 speaking) overlaps the Dallas Executive Huddle, DRC AI workshop, and all three 09:15-10:00 standups; haircut 13:15-14:45 overlaps GEHC 14:00.'
-      '2026-11-05': '7 timed + AI GMS in Dallas all-day (Nov 5-7). AI Leadership Summit Day 1 08:00-17:00 swallows the GEHC 10:30 sync and the Scott McMichael 1:1 at 14:00.'
-    email_triage: '6 messages, 0 Outlook-flagged, 4 time-sensitive (CodeLaunch 9 days out and 177 tickets behind pace; 2027 open enrollment Workday action by Nov 13; UTB compliance training; YPO FW Gold board agenda for Nov 3)'
-    jarvis_inbox: 'verified empty (data/jarvis-inbox-unified.json message_count 0; @Archive positive control)'
-    reminders: '2 due (rem-20261016T190151-9CFK0X MOTS-C, trigger 2026-11-02; rem-20261027T141945-KMD8KX AI Practice 2027, trigger 2026-10-29, deferred to today)'
+      overdue: 0
+      flagged: 0
+      due_today_detail: ['Identify 5 Microsoft contacts to grow relationships (Reachout, 17:00)', 'Confluent Regional Sales Director (Reachout, 17:00)']
+      due_next_3d: ['Setup Dinner Dates (Family, Nov 4)', 'Review prayer list (Deliberate Practices, Nov 4 11:00)', 'Coherence breathing (Deliberate Practices, Nov 4 10:00)', 'Build expense report (Accounting, Nov 6)']
+    delegation_data: {overdue: [], due_today: [], due_this_week: [], note: 'tracker has zero active rows (header only)'}
+    rocks: 'R1 Solace co-sell (no status line since Oct 9 Ledesma reply); R2 South Texas recovery (decomposition due Oct 17, no completion); R3 Scorecard Truth (KR dates Oct 24 and Oct 31 both passed, no status line); R4 Thought Leadership (Nov 4 Talent Labs Session 4 is the milestone); R5 AI Practice 2027 (5 decisions open, charter for Dec 1-2)'
+    lookahead_72h: 'Nov 4 8.0h: Talent Labs Talk 08:00-12:00 vs DRC AI workshop vs 08:30 Dallas Exec Huddle vs 09:15/09:30 standups; haircut 13:15 vs GEHC 14:00. Nov 5 12.0h: AI Leadership Summit Day 1 08:00-17:00 swallows GEHC 10:30 and Scott McMichael 1:1 14:00; Leave a Legacy 18:00. Nov 6 13.0h: Summit Day 2 08:00-16:00 vs Dallas Virtual Coffee Chat, Sales & Recruiting, 1st Friday Exec (151); Roots & Water 18:00-22:00.'
+    email_triage: '8 messages, 0 flagged. Time-sensitive: 2027 open enrollment (Workday due Nov 13, Q&A Nov 4 10:30), Nicole Larson SharePoint link fix, SPARC past-due opportunity close date, Bethany Hilton and Neha Maharish on Nov 4 flyer assets, Bob Tiede book chapter due Nov 15. Directive: Scott McMichael November utilization and bench. Low priority: Dylan Cohen vendor pitch.'
+    jarvis_inbox: 'nothing to surface (0 messages, confirmed via M365 and Apple Mail)'
+    reminders: '2 due (rem-20261016T190151-9CFK0X MOTS-C; rem-20261027T141945-KMD8KX AI Practice 2027, deferred from Oct 29)'
   step-03-meeting-context:
     meetings:
-      - {meeting: 'GEHC Twice Weekly Internal Check-In', prep_status: needs-prep, context: 'internal delivery check-in on the GEHC AI routing POC; five open items including Braunstein self-tuning-routing question open since 2026-09-18 and the uncaptured 2026-10-28 demo outcome'}
-      - {meeting: 'Prep call for ASEI AI workshop hosted at Improving', prep_status: needs-prep, context: 'cold start with Bank of America; virtual broadcast decision open since 2026-10-22; time disagrees between calendar (14:00) and Alice notes (14:30)'}
-      - {meeting: 'YPO LSG Casino Royale Event Planning Call', prep_status: low-context, context: 'Feb 11 black-tie agenda unconfirmed since 2026-08-28; David is Blue House day chair'}
+      - {meeting: 'EWR & Exec Council Update for DRC', prep_status: needs-prep, context: 'DRC is the Dallas Regional Chamber; Nov 4 Talent Labs session for ~40 employer participants (Baylor Scott & White, Childrens, Jacobs, Hillwood, McKesson). Attendee list never shared. Nov 4 flyer needs bio, headshot, venue, room, parking. Last prep note 2026-10-07. No vault hits for EWR or Exec Council, so agenda specifics unavailable.'}
     system_status:
       yesterday_review: missing
-      note: 'No daily review for 2026-11-01; reviews/daily/ and Obsidian Daily Reviews both stop at 2026-10-28, so four days have no review record'
+      note: 'No daily review for 2026-11-02; reviews/daily/ and Obsidian Daily Reviews stop at 2026-10-28'
   step-04-synthesize-briefing:
-    synthesized_at: '2026-11-02T16:21:15Z'
+    synthesized_at: '2026-11-03T15:56:58Z'
     delivered: true
     paragraphs: 3
     calendar_table: true
-    watchtower_section: 'omitted — no watchtower_output block in accumulated-context (expected state after the 2026-10-27 removal); not flagged'
-    reminders_section: 'rendered — 2 reminders, left pending for controller yes/no'
-    working_memory: memory/working/morning-briefing-2026-11-02-102115.md
-    eval_record: 'nested in boot record eval-20261102T160653-P6CA3U; no separate morning-briefing record this run'
-    commit: 'not run — no auto-commit per David standing instruction'
+    watchtower_section: 'omitted: not part of boot, no watchtower_output block in accumulated-context; not flagged as degraded'
+    reminders_section: 'rendered: 2 reminders, left pending for controller yes/no'
+    working_memory: memory/working/morning-briefing-2026-11-03-095619.md
+    eval_record: 'eval-20261103T155658-CU76XQ.json (status partial, Clay unavailable)'
+    commit: 'not run: no auto-commit per David standing instruction'
 degraded-sources:
-  - 'Clay MCP disabled for this project (mcp.clay.earth) and claude.ai Clay needs auth — no reminders, birthdays, or relationship context'
-  - 'Watchtower daily not run (removed from boot 2026-10-27) — not rendered, not flagged'
-  - 'No daily review written for 2026-10-29 through 2026-11-01'
-last-run: '2026-11-02T16:21:27Z'
+  - 'Clay connector unauthenticated (requires /mcp auth): no reminders, birthdays, or relationship context'
+  - 'Watchtower not run (not part of boot): section omitted, not flagged'
+  - 'No daily review written for 2026-11-02; review record stops at 2026-10-28'
+last-run: '2026-11-03T15:56:58Z'
 last-run-status: complete
-last-run-notes: '2026-11-02 meeting-heavy run. 15 events (14 timed plus the LMB OOO marker), 42 tasks (18 inbox, 2 due today, 6 overdue, 0 flagged), 0 active delegations, 6 emails with 4 time-sensitive. Briefing delivered at 10:21 CST: the day is transitions rather than work, with the 10:30 production call as the only rehearsal for the Nov 4 DRC talk and Rock 3 KR2 two days past due with no evidence. The 14:00 hour is the sharp edge — GEHC check-in (tentative, organizer OOO) against the ASEI Bank of America workshop prep call (cold start, virtual broadcast decision open since Oct 22) — with a 24-person YPO chapter call at 14:30 and zero buffer. Chase prep recommended on ASEI, Shep on the William Steele 1:1. Clay unavailable. No daily review for Nov 1.'
+last-run-notes: '2026-11-03 meeting-wall run. 11 events (13 rows including 2 all-day), 11.0h booked 08:00-21:00, only 2h open. 11 inbox tasks, 2 due today, 0 overdue, 0 flagged, 0 active delegations, 8 emails with 6 time-sensitive. Briefing delivered at 09:56 CST: the day is YPO (7.5h) with 3.5h for Improving, and the one work meeting needing prep (EWR & Exec Council Update for DRC at 15:00) collides with YPO Forum and has no agenda or attendee list. Both Reachout tasks due at 17:00 fall inside Forum. Nov 4 flyer assets (bio, headshot, venue, room, parking) still outstanding to Bethany Hilton and Neha Maharish. Chase prep recommended on EWR. Clay unavailable.'

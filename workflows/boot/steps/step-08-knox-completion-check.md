@@ -1,17 +1,11 @@
 ---
 status: complete
 started-at: '2026-11-02T16:22:15Z'
-completed-at: '2026-11-02T16:22:24Z'
-knox_status: success
-knox_reason: 'plaud-ingest eval-20261102T160758-LTHEQ0 finished with status success in
-  16.57s (started 2026-11-02T16:07:58Z, completed 16:08:15Z, agent knox, trigger unknown).
-  workflows/plaud-ingest/state.yaml records status complete and outcome no-new-recordings
-  for session pi-20261102-001. Mechanical assessment: completed true, all steps finished,
-  0 tool failures, 0 error ids, no punch-out signal. Zero structural assertions were
-  checked on this record, so there is no assertion evidence either way; recorded as an
-  evidence gap rather than a failure. Boot completion does not depend on this.'
-knox_eval_id: eval-20261102T160758-LTHEQ0
-knox_duration_seconds: 16.57
+completed-at: '2026-11-03T15:58:16Z'
+knox_status: still_running
+knox_reason: 'no eval record for 2026-11-03 yet; workflows/plaud-ingest/state.yaml shows
+  in-progress at step-04, session pi-20261103-001 started 15:46:14Z. Boot does not depend
+  on this.'
 ---
 
 <!-- system:start -->

@@ -1,8 +1,15 @@
 ---
 status: completed
 model: kimi-k3
-started-at: "2026-10-28T17:07:00Z"
-completed-at: "2026-10-28T17:12:00Z"
+started-at: "2026-11-03T15:53:30Z"
+completed-at: "2026-11-03T16:02:00Z"
+session-id: pi-20261103-001
+outputs:
+  auto-resolved: 3
+  controller-resolved: 0
+  no-speaker-file: 0
+  personal: 0
+  work: 3
 ---
 
 <!-- system:start -->

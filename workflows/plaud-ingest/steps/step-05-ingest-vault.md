@@ -1,8 +1,13 @@
 ---
 status: completed
-started-at: "2026-10-28T17:14:00Z"
-completed-at: "2026-10-28T17:19:00Z"
+started-at: "2026-11-03T16:14:00Z"
+completed-at: "2026-11-03T16:24:00Z"
+session-id: pi-20261103-001
 model: sonnet
+outputs:
+  notes_written: 3
+  david_owned_routed_monday: 2
+  non_david_left_in_notes: 8
 ---
 
 <!-- system:start -->

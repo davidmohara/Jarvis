@@ -2,49 +2,51 @@
 workflow: podcast-prep
 agent: harper
 status: complete
-session-started: 2026-10-20T00:00:00Z
-session-id: harper-podcast-prep-2026-10-20-amber
+session-started: 2026-11-03T00:00:00Z
+session-id: harper-podcast-prep-2026-11-03-jorge-pliego
 current-step: null
-original-request: "Episode with Amber, filming Monday 2026-10-26. Storyline: welcome (personal question re: desire to become a lawyer), emerging issues in legal space, outcome-based vs hourly billing shift, why paralegals won't disappear, wrap with her personal use of AI. Janine provided a list of questions to consider. Review prior episode documents for guidance."
-sources_used: [sharepoint-janine-doc, calendar, teams-chat, email]
+original-request: "Build the episode prep document for the upcoming Improving Edge episode with Jorge Pliego (Improving CFO), hosted by David O'Hara. One episode, aimed at CFO/finance-leader listeners, pain points and stories, Org ROI spine (not sales ROI, that was Ep 3). Storyline v2 with five acts: (1) big-company discipline through the SPAC-mania window to PE speed, (2) AI in his own accounting/finance function next three years, (3) Org ROI spend-versus-value math with the Growth Imperative as universal tension (never internal numbers), (4) Yall Street / TXSE what-comes-now, (5) North Texas five-year view and what's next for the CFO function. Full context and locked decisions in memory/working/2026-11-03-jorge-pliego-episode-development.md; public research in memory/working/2026-11-03-jorge-pliego-public-research.md; vault context in memory/working/knox-search-jorge-pliego-2026-11-03-1200.md. Hard constraints: never frame 'multiple IPOs'; the AgileThought Chapter 11 is entirely off the table; no Improving internal forecast numbers; public revenue anchor only ($100M before PE). Deliver the detailed reference sheet plus the single-page PDF."
+sources_used: []
 accumulated-context:
+  detailed_sheet: "meetings/podcast-prep/2026-11-19-jorge-pliego.md"
+  pdf_markdown: "meetings/podcast-prep/Episode 19.md"
+  pdf_rendered: "meetings/podcast-prep/Episode 19.pdf"
+  remarkable_upload: "uploaded to /Improving/Podcast as 'Episode 19' via rmapi on 2026-11-04 after visual verification (all 15 format checks pass, single page, 9pt floor honored)"
+  adversarial-verification:
+    verdict: "findings"
+    result: "escalate"
+    findings:
+      - "Detailed sheet provenance note wrote the internal revenue figure (~$300M) into a deliverable file. REMEDIATED 2026-11-04: numeral removed, prohibition statement kept. Recorded here per protocol; the finding stands as found."
+      - "Rendered studio PDF states 'Season 1, Episode 19' with no working-number caveat, while 19 is unconfirmed by Janine. DELIBERATE: the studio sheet is a floor document, the flag lives in the detailed sheet (4 places), this state file, and the run report; correction mode covers a renumber. Override if David wants the caveat printed."
+      - "Red-lines checklist and provenance note name the off-limits event and the 'multiple IPOs' framing as prohibitions (no values, no affirmative claims). Judged intentional: the fence has to be visible to the host to hold on air; matches the framing of David's own locked-decisions file."
+    lens: "prep-sheet completeness vs episode inputs; reference sheet + PDF both exist and are substantive"
+    note: "Ralph agent type not spawnable this session; verification executed by an independent general-purpose spawn briefed with workflows/podcast-prep-verification/steps/step-01-verify.md (separate spawn, distinct lens, no self-grading). Verifier returned 5 of 7 verified, 2 unverified, overall ESCALATE. guardrail-checkpoint.py could not record (no in-progress eval record existed for this run); verdict persisted here instead. Workflow marked complete with the escalation recorded per step-06 (filming 2026-11-19)."
+  pre-publish-review:
+    result: "flag"
+    reason: "Sheet conforms to locked format (banner, INTRO SCRIPT, remember bar, exactly 6 questions); identity matches calendar + Monday board; flagged only because episode number 19 is a working number unconfirmed by Janine"
+    note: "guardrail-checkpoint.py could not record (no in-progress eval record existed for this run); verdict persisted here instead"
   episode:
-    number: "17"
-    title: "AI Meets the Law: In-House Counsel on Risk, Policy, and the New Legal Economics (working title, TBD per Janine)"
+    number: "19"
+    title: "The CFO's Ledger: AI Spend, Org ROI, and What Comes After the Mania (working title, TBD per Janine)"
     season: 1
     primary_guest:
-      name: "Amber Robinson"
-      title: "Corporate Counsel, Improving"
-      email: "Amber.Robinson@improving.com"
-      phone: "214.226.6758"
+      name: "Jorge Pliego"
+      title: "Chief Financial Officer, Improving"
+      email: "jorge.pliego@improving.com"
     secondary_guest: null
     filming:
-      date: "2026-10-26"
-      time: "12:00 PM - 2:00 PM CT"
+      date: "2026-11-19"
+      time: "10:00 AM - 12:00 PM CT"
       location: "MarketScale Studio, 901 Main St #5300, Dallas, TX 75202"
     attendees:
       host: "David O'Hara"
       producer: "Janine Jeanson"
       coordinator: "Alice Mburu"
       marketing: "Kristin Johnson"
-      guest: "Amber Robinson"
-    status: "Scheduled - invite accepted"
-  janine_doc_uri: "file:///b!zOWa7mFJmU60YkQP77LoB11PGhEO_BVKmEGtBxvzjhj7lwZvq6LjRaU6NyFfYbVH/01M43Q7NZBAGL3VJ77IBHZPJEGREB4FMQ5"
-  janine_note: "15 questions provided; 'Feel free to change them up. I highly doubt you'll get through all 15, but I wanted you to have options. Not sure how deep into the legal side of things you want to go, so I created a range of question types/topics.'"
-  relationship_context: "Internal guest. David and Amber synced on Employee AI Usage policy in September 2026 (David asked how he could help; Curtis briefed him on the project). Janine met Amber in person in Toronto the week of 2026-09-14 and David suggested her as a guest. Booked 2026-09-24 via Teams."
-  detailed_sheet: "meetings/podcast-prep/2026-10-26-amber-robinson.md"
-  pdf_markdown: "meetings/podcast-prep/Episode 17.md"
-  pdf_rendered: "meetings/podcast-prep/Episode 17.pdf"
-  remarkable_upload: "uploaded to /Improving/Podcast as 'Episode 17' via rmapi on 2026-10-20; re-uploaded same day after page-filling revision (larger fonts, exactly one page) per David's revision request"
-  adversarial-verification:
-    verdict: "findings"
-    result: "flag"
-    findings:
-      - "Minor: detailed sheet says 'invite accepted by all attendees'; recorded state only supports 'invite accepted' (no per-attendee acceptance record). Cosmetic; does not affect filming logistics."
-    lens: "prep-sheet completeness vs episode inputs; reference sheet + PDF both exist and are substantive"
-    note: "Ralph: 10/11 items verified, 0 escalate triggers. guardrail-checkpoint.py could not record (no in-progress eval record existed for this run); verdict persisted here instead."
+      guest: "Jorge Pliego"
+    status: "Scheduled - invite accepted by all attendees; Monday board status Booked; publish target 2026-11-26"
   gathered_data:
-    sources_used: [sharepoint]
+    sources_used: []
     episode_prep_source:
       found: false
       source_path: null
@@ -53,49 +55,38 @@ accumulated-context:
       guest_research_brief: null
       notes_section: null
     sharepoint_questions:
-      found: true
-      source_file: "Season 1_Episode 17_Topics and Questions.docx (Janine's OneDrive, Teams Chat Files, modified 2026-10-20)"
-      questions:
-        - "1. What are the biggest legal risks companies take on when their employees start using AI tools at work?"
-        - "2. Who owns the content AI produces, and can a company really claim ownership of AI-generated work product?"
-        - "3. How should a company think about copyright exposure when AI tools generate text, code, or images that look similar to existing works?"
-        - "4. What should an AI usage policy cover at minimum, and which sections do companies most often leave out?"
-        - "5. What client data should never go into a public AI tool, and how do we explain that line to employees who just want to get their work done faster?"
-        - "6. What should we look for in the terms of service of AI vendors, especially around data retention, training on our inputs, and indemnification?"
-        - "7. If an AI tool gives a client wrong advice or a flawed deliverable, who is liable, and how do contracts typically allocate that risk?"
-        - "8. Do we need to disclose to clients when we use AI in their projects, and does that answer change if the client has confidentiality requirements?"
-        - "9. How should a company handle 'shadow AI,' meaning employees using tools that IT never approved, without creating a culture of fear?"
-        - "10. If you were advising a mid-sized company that is just starting its AI journey, what three things would you tell them to do in the first 90 days?"
-        - "11. What legal complexities have you come across regarding AI in your daily work as a lawyer?"
-        - "12. What's a situation where AI made your job easier, and what's one where it created more problems than it solved?"
-        - "13. Has there been a moment when a client's AI question caught you off guard, and how did you handle it?"
-        - "14. How has your own relationship with AI tools changed since you started working on these issues?"
-        - "15. If there was one takeaway you would want listeners to have after today's episode, what would it be?"
-    podcast_guide:
       found: false
+      questions: null
+      source_file: null
+    podcast_guide:
+      found: true
       key_reminders:
-        - "Conversational, light, casual tone; wide audience, avoid overly technical terms"
-        - "40% host / 60% guest speaking split"
-        - "Film ~1 hour, final cut 25-35 min; mistakes get edited out"
-        - "Unscripted, key topics as guide not script; tell personal stories, be human"
+        - "Conversational, light, casual tone; wide audience of senior executives and decision makers, avoid overly technical terms"
+        - "40% host / 60% guest speaking split; a real two-way conversation, not a host simply asking questions"
+        - "Film ~1 hour, final cut 25-35 min; mistakes get edited out; can cut and go back to a question"
+        - "Unscripted, organic; make it fun, tell personal stories, be human"
     guest_clay:
       found: false
-      full_name: "Amber Robinson"
-      title: "Corporate Counsel"
+      full_name: "Jorge Pliego Seguin"
+      title: "Chief Financial Officer"
       company: "Improving"
-      background: "Internal Improving counsel based in Dallas. Works on employee AI usage policy and AI-related legal questions for the business. Met Janine in person in Toronto week of 2026-09-14."
-      relationship_notes: "David requested a sync with her on the Employee AI Usage policy project in Sept 2026. She is responsive and informal in email ('I can just give you a ring on Sunday')."
-      last_interaction: "2026-09-16 email re: Employee AI Usage policy sync"
+      background: "Clay MCP unavailable (OAuth re-auth required). Background built from public research (memory/working/2026-11-03-jorge-pliego-public-research.md), the Monday Podcast board, and the vault sweep instead: CFO since 2022; 30 years FMCG finance (P&G, Sara Lee, Kellogg, Avery Dennison, Diageo); AgileThought CFO 2016-2021 legacy then public entity via LIV Capital SPAC listing Aug 2021; ITAM finance degree, MBA European University Barcelona, MIT exec ed; board member Unidos Somos Iguales; runs a ~40-person team at Improving."
+      relationship_notes: "Internal guest. Raised the 'Growth Imperative' ask at the Vegas retreat (Scott McMichael email 2026-10-07). On Tomorrow Fund finance committee (DRC). Booked via Janine; her invite covers dress code, valet, suite 5300, and a dress rehearsal still to be scheduled. Monday board: gift chosen (personalized Titleist Pro V1s), publish target 2026-11-26."
+      last_interaction: "2026-10-07 Growth Imperative thread (Scott McMichael email referencing Jorge's Vegas ask); podcast logistics via Janine's invite (created 2026-10-13, updated 2026-10-21)"
     email_context:
       found: true
       key_threads:
-        - "Sept 2026: 'Employee AI Usage policy' / 'Sync: Employee AI Usage policy' - David asked Amber how he could help with the AI usage policy project (Curtis briefed); Amber suggested a call. Directly relevant on-air material: she is actively writing Improving's own AI usage policy."
+        - "Oct 7, 2026: Scott McMichael 'Friday's Pipeline: The Growth Imperative' - builds on Jorge's ask at the Vegas Meeting; corroborates the Growth Imperative storyline (internal only, universal tension on air, never numbers)"
+        - "Janine's calendar invite to Jorge: dress business casual, MarketScale suite 5300 with valet parking (go one floor down before heading up to fifth floor), day-of contact Kristin Johnson, dress rehearsal to be scheduled"
+        - "No direct recent David-Jorge email threads; logistics ran through Janine"
     existing_prep:
       detailed_sheet: null
       pdf_sheet: null
     flags:
-      - "Clay MCP requires OAuth re-authentication and was unavailable this run; guest background built from M365 directory, email signature, and email/Teams history instead."
-      - "No standalone 'Podcast Guide' doc found on SharePoint this run (only Improving Edge decks); using cached key reminders from prior runs."
-      - "WebSearch unavailable (search_unauthorized); no external bio pulled. Guest is internal, so directory + internal context used."
-      - "Episode title is TBD in Janine's doc."
-      - "DAVID DIRECTIVE (mid-run): Do NOT include the personal welcome question (why she became a lawyer) anywhere in the prep doc - he is bringing it in cold, unscripted. Build flow from segment 2 (emerging legal issues). Segment mapping: emerging issues = Q1/Q4/Q7/Q9/Q10; billing shift + paralegals = fresh material framed from the buyer's perspective (Amber is in-house counsel); personal AI close = Q12/Q13/Q14/Q15. Target ~30 min."
+      - "Episode number NOT confirmed by Janine: working number 19 assigned by filming order after Episode 17 (Amber, Oct 26) and the Nov 17 Jason Taylor filming. Confirm with Janine before the PDF is treated as final."
+      - "Episode title is a working title; no Janine doc exists for this episode yet. Her invite promises 'more information (question list, a podcast guide, etc.) as we approach your filming day' and a dress rehearsal: expect her questions in the Nov 12-18 window."
+      - "No Janine SharePoint question doc found for this episode (searched 'Jorge Pliego podcast episode', 'Pliego', 'Episode Topics and Questions', 'Episode 19 Topics Questions'). Questions in step 03 are host-built from David's locked storyline v2 plus sourced public research, not freeform."
+      - "No episode-prep-generator output in meetings/podcast-prep/ for this guest. The research layer exists as three memory/working files (episode-development locked decisions, public research with sources, knox vault search) and grounds the question set."
+      - "Clay MCP requires OAuth re-authentication and was unavailable this run; guest background built from public research, Monday board, and vault instead."
+      - "DBJ Aug 28, 2026 piece quoting Jorge (unconventional economic indicators + AI strategies) is paywalled: ask him his unconventional indicator on air as a fresh moment."
+      - "HARD CONSTRAINTS from David (2026-11-03): never frame 'multiple IPOs' (one SPAC listing only); AgileThought Chapter 11 entirely off the table, do not reference even carefully; no Improving internal forecast numbers; Growth Imperative discussed as universal tension only; public revenue anchor is Jorge's own '$100M before PE' only (the ~$300M figure stays internal); Org ROI spine, not sales ROI (Ep 3 territory); the story is the pitch, do not pitch."

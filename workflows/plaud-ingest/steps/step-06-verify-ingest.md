@@ -1,13 +1,15 @@
 ---
 status: completed
-started-at: "2026-10-28T17:21:00Z"
-completed-at: "2026-10-28T17:30:00Z"
+started-at: "2026-11-03T16:28:00Z"
+completed-at: "2026-11-03T16:44:00Z"
+session-id: pi-20261103-001
 model: sonnet
 outputs:
-  verification_result: flag
-  discovered: 2
-  ingested: 2
+  verification_result: pass
+  discovered: 4
+  ingested: 4
   silent_drops: 0
+  method: ingest-reconcile.py
 ---
 
 <!-- system:start -->

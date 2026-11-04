@@ -1,11 +1,22 @@
 ---
 status: completed
 model: kimi-k3
-started-at: "2026-11-02T16:07:34Z"
-completed-at: "2026-11-02T16:07:34Z"
+started-at: "2026-11-03T15:46:14Z"
+completed-at: "2026-11-03T15:49:00Z"
+session-id: pi-20261103-001
 outputs:
-  no-op: true
-  preflight-verdict: NOOP
+  no-op: false
+  preflight-verdict: NEW
+  api_total: 160
+  vault_md_files: 215
+  vault_unique_file_ids: 156
+  new-recordings: 4
+  ledger_entries: 306
+previous-run-results:
+  - session: pi-20261102-001
+    result: "no-op (preflight NOOP), 0 new, api_total 156"
+  - session: pi-20261028-001
+    result: "full run, 2 new, api_total 156, vault 154 unique file_ids"
 ---
 
 <!-- system:start -->

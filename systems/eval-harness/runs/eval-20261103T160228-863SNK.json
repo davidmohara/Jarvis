@@ -181,11 +181,25 @@
       "agent_id": "a266ae0567b53862e",
       "agent_type": "general-purpose",
       "started": "2026-11-04T20:30:09.922993Z",
-      "completed": null,
-      "model": null,
-      "tokens_input": null,
-      "tokens_output": null,
-      "cost_usd": null
+      "completed": "2026-11-04T20:35:46.353258Z",
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 1600588,
+      "tokens_output": 12222,
+      "cost_usd": 0.081629,
+      "duration_seconds": 336.43,
+      "token_source": "subagent-transcript"
+    },
+    {
+      "agent_id": "ab9b040a42c743a2d",
+      "agent_type": "general-purpose",
+      "started": "2026-11-04T20:32:51.730887Z",
+      "completed": "2026-11-04T20:33:53.145208Z",
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 332083,
+      "tokens_output": 7761,
+      "cost_usd": 0.03067,
+      "duration_seconds": 61.41,
+      "token_source": "subagent-transcript"
     }
   ],
   "monitoring": {
