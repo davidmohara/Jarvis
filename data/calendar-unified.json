@@ -1,13 +1,13 @@
 {
-  "pulled_at": "2026-11-02T16:10:36Z",
+  "pulled_at": "2026-11-03T15:47:44Z",
   "date_range": {
-    "start": "2026-11-02",
-    "end": "2026-11-05"
+    "start": "2026-11-03",
+    "end": "2026-11-06"
   },
-  "event_count": 52,
+  "event_count": 44,
   "pagination": {
-    "pages_fetched": 3,
-    "total_result_count": 52
+    "pages_fetched": 2,
+    "total_result_count": 44
   },
   "events": [
     {
@@ -90,131 +90,6 @@
       "categories": null,
       "calendarName": null,
       "offset": 0
-    },
-    {
-      "uri": "calendar:///events/AAkALgAAAAAAHYQDEapmEc2byACqAC-EWg0AQLXevGim4U2p4eFGy5JALwAOtJB39gAA",
-      "id": "AAkALgAAAAAAHYQDEapmEc2byACqAC-EWg0AQLXevGim4U2p4eFGy5JALwAOtJB39gAA",
-      "subject": "Visit Libby & Patrick ",
-      "organizer": "David.OHara@improving.com",
-      "organizerName": "David O'Hara",
-      "attendees": null,
-      "namedAttendees": null,
-      "start": {
-        "dateTime": "2026-10-30T00:00:00.0000000",
-        "timeZone": "Central Standard Time"
-      },
-      "end": {
-        "dateTime": "2026-11-02T00:00:00.0000000",
-        "timeZone": "Central Standard Time"
-      },
-      "location": null,
-      "summary": null,
-      "importance": "normal",
-      "showAs": "busy",
-      "isAllDay": true,
-      "isCancelled": false,
-      "isOrganizer": true,
-      "recurrence": null,
-      "webLink": "https://outlook.office365.com/owa/?itemid=AAkALgAAAAAAHYQDEapmEc2byACqAC%2FEWg0AQLXevGim4U2p4eFGy5JALwAOtJB39gAA&exvsurl=1&path=/calendar/item",
-      "categories": null,
-      "calendarName": null,
-      "offset": 1
-    },
-    {
-      "uri": "calendar:///events/AAkBOQAICN83qxKMAAAuAAAAAB2EAxGqZhHNm8gAqgAvxFoNAEC13rxopuFNqeHhRsuSQC8AD2s6pZoAABA%3D",
-      "id": "AAkBOQAICN83qxKMAAAuAAAAAB2EAxGqZhHNm8gAqgAvxFoNAEC13rxopuFNqeHhRsuSQC8AD2s6pZoAABA=",
-      "subject": "LMB - OOO",
-      "organizer": "lisa.barnes@improving.com",
-      "organizerName": "Lisa Barnes",
-      "attendees": [
-        "lisa.barnes@improving.com",
-        "Robert.Perrin@improving.com",
-        "mohammad.ahmad@improving.com",
-        "Keith.Korecky@improving.com",
-        "antonio.osnaya@improving.com",
-        "Lisa.Kimbrel@improving.com",
-        "Sienna.Provvidenza@improving.com",
-        "vladimir.avila@improving.com",
-        "David.OHara@improving.com",
-        "POOJA.DHOOT@improving.com",
-        "Gaurav.Chaware@improving.com",
-        "brit.kwait@improving.com",
-        "Zachary.Sersland@improving.com"
-      ],
-      "namedAttendees": [
-        {
-          "name": "Lisa Barnes",
-          "address": "lisa.barnes@improving.com"
-        },
-        {
-          "name": "Robert Perrin",
-          "address": "Robert.Perrin@improving.com"
-        },
-        {
-          "name": "Mohammad Ahmad",
-          "address": "mohammad.ahmad@improving.com"
-        },
-        {
-          "name": "Keith Korecky",
-          "address": "Keith.Korecky@improving.com"
-        },
-        {
-          "name": "Jose Antonio Osnaya Lazo",
-          "address": "antonio.osnaya@improving.com"
-        },
-        {
-          "name": "Lisa Kimbrel",
-          "address": "Lisa.Kimbrel@improving.com"
-        },
-        {
-          "name": "Sienna Provvidenza",
-          "address": "Sienna.Provvidenza@improving.com"
-        },
-        {
-          "name": "Vladimir Avila",
-          "address": "vladimir.avila@improving.com"
-        },
-        {
-          "name": "David O'Hara",
-          "address": "David.OHara@improving.com"
-        },
-        {
-          "name": "Pooja Dhoot",
-          "address": "POOJA.DHOOT@improving.com"
-        },
-        {
-          "name": "Gaurav Chaware",
-          "address": "Gaurav.Chaware@improving.com"
-        },
-        {
-          "name": "Brit Kwait",
-          "address": "brit.kwait@improving.com"
-        },
-        {
-          "name": "Zachary Sersland",
-          "address": "Zachary.Sersland@improving.com"
-        }
-      ],
-      "start": {
-        "dateTime": "2026-11-01T00:00:00.0000000",
-        "timeZone": "Central Standard Time"
-      },
-      "end": {
-        "dateTime": "2026-11-02T00:00:00.0000000",
-        "timeZone": "Central Standard Time"
-      },
-      "location": null,
-      "summary": "I'll chat with everyone to discuss coverage while I'm out if you need anything.",
-      "importance": "normal",
-      "showAs": "free",
-      "isAllDay": true,
-      "isCancelled": false,
-      "isOrganizer": false,
-      "recurrence": null,
-      "webLink": "https://outlook.office365.com/owa/?itemid=AAkBOQAICN83qxKMAAAuAAAAAB2EAxGqZhHNm8gAqgAvxFoNAEC13rxopuFNqeHhRsuSQC8AD2s6pZoAABA%3D&exvsurl=1&path=/calendar/item",
-      "categories": null,
-      "calendarName": null,
-      "offset": 2
     },
     {
       "uri": "calendar:///events/AAkBOQAICN84dDz1wAAuAAAAAB2EAxGqZhHNm8gAqgAvxFoNAEC13rxopuFNqeHhRsuSQC8AD2s6pZoAABA%3D",
@@ -310,836 +185,7 @@
       "webLink": "https://outlook.office365.com/owa/?itemid=AAkBOQAICN84dDz1wAAuAAAAAB2EAxGqZhHNm8gAqgAvxFoNAEC13rxopuFNqeHhRsuSQC8AD2s6pZoAABA%3D&exvsurl=1&path=/calendar/item",
       "categories": null,
       "calendarName": null,
-      "offset": 3
-    },
-    {
-      "uri": "calendar:///events/AAkBOQAICN84dDz1wAAuAAAAAB2EAxGqZhHNm8gAqgAvxFoNAEC13rxopuFNqeHhRsuSQC8ADhZjz3QAABA%3D",
-      "id": "AAkBOQAICN84dDz1wAAuAAAAAB2EAxGqZhHNm8gAqgAvxFoNAEC13rxopuFNqeHhRsuSQC8ADhZjz3QAABA=",
-      "subject": "Improving Prayer Call",
-      "organizer": "Richard.Kang@Improving.com",
-      "organizerName": "Richard Kang",
-      "attendees": [
-        "Richard.Kang@Improving.com",
-        "Curtis.Hite@Improving.com",
-        "Ric.DeAnda@Improving.com",
-        "David.OHara@improving.com",
-        "Devlin.Liles@Improving.com"
-      ],
-      "namedAttendees": [
-        {
-          "name": "Richard Kang",
-          "address": "Richard.Kang@Improving.com"
-        },
-        {
-          "name": "Curtis Hite",
-          "address": "Curtis.Hite@Improving.com"
-        },
-        {
-          "name": "Ric DeAnda",
-          "address": "Ric.DeAnda@Improving.com"
-        },
-        {
-          "name": "David O'Hara",
-          "address": "David.OHara@improving.com"
-        },
-        {
-          "name": "Devlin Liles",
-          "address": "Devlin.Liles@Improving.com"
-        }
-      ],
-      "start": {
-        "dateTime": "2026-11-02T08:00:00.0000000",
-        "timeZone": "Central Standard Time"
-      },
-      "end": {
-        "dateTime": "2026-11-02T08:15:00.0000000",
-        "timeZone": "Central Standard Time"
-      },
-      "location": "Microsoft Teams Meeting",
-      "summary": "________________________________________________________________________________\r\nJoin Microsoft Teams Meeting\r\n+1 469-526-4101   United States, Dallas (Toll)\r\nConference ID: 938 918 987#\r\nLocal numbers | Reset PIN | Learn more about Teams | Meeting opt",
-      "importance": "normal",
-      "showAs": "busy",
-      "isAllDay": false,
-      "isCancelled": false,
-      "isOrganizer": false,
-      "recurrence": null,
-      "webLink": "https://outlook.office365.com/owa/?itemid=AAkBOQAICN84dDz1wAAuAAAAAB2EAxGqZhHNm8gAqgAvxFoNAEC13rxopuFNqeHhRsuSQC8ADhZjz3QAABA%3D&exvsurl=1&path=/calendar/item",
-      "categories": null,
-      "calendarName": null,
-      "offset": 4
-    },
-    {
-      "uri": "calendar:///events/AAkBOQAICN84dDz1wAAuAAAAAB2EAxGqZhHNm8gAqgAvxFoNAE34fmz_eK9FjeoMZiWJQZwAAAAB5_4AABA%3D",
-      "id": "AAkBOQAICN84dDz1wAAuAAAAAB2EAxGqZhHNm8gAqgAvxFoNAE34fmz_eK9FjeoMZiWJQZwAAAAB5_4AABA=",
-      "subject": "Timesheet",
-      "organizer": "David.Ohara@improving.com",
-      "organizerName": "David O'Hara",
-      "attendees": null,
-      "namedAttendees": null,
-      "start": {
-        "dateTime": "2026-11-02T08:30:00.0000000",
-        "timeZone": "Central Standard Time"
-      },
-      "end": {
-        "dateTime": "2026-11-02T08:35:00.0000000",
-        "timeZone": "Central Standard Time"
-      },
-      "location": null,
-      "summary": null,
-      "importance": "normal",
-      "showAs": "busy",
-      "isAllDay": false,
-      "isCancelled": false,
-      "isOrganizer": true,
-      "recurrence": null,
-      "webLink": "https://outlook.office365.com/owa/?itemid=AAkBOQAICN84dDz1wAAuAAAAAB2EAxGqZhHNm8gAqgAvxFoNAE34fmz%2BeK9FjeoMZiWJQZwAAAAB5%2B4AABA%3D&exvsurl=1&path=/calendar/item",
-      "categories": null,
-      "calendarName": null,
-      "offset": 5
-    },
-    {
-      "uri": "calendar:///events/AAkBOQAICN84dDz1wAAuAAAAAB2EAxGqZhHNm8gAqgAvxFoNAEC13rxopuFNqeHhRsuSQC8ACCB4Y10AABA%3D",
-      "id": "AAkBOQAICN84dDz1wAAuAAAAAB2EAxGqZhHNm8gAqgAvxFoNAEC13rxopuFNqeHhRsuSQC8ACCB4Y10AABA=",
-      "subject": "Sales & Recruiting Meeting",
-      "organizer": "DallasSales@improving.com",
-      "organizerName": "Dallas Sales",
-      "attendees": [
-        "DallasSales@improving.com",
-        "Bryan.Crawford@improving.com",
-        "Don.McGreal@Improving.com",
-        "Dallas-LonghornCavern@improving.com",
-        "Kevin.Baker@Improving.com",
-        "Gabriela.Garza-Ramos@Improving.com",
-        "Diana.Stevens@Improving.com",
-        "mark.miesner@improving.com",
-        "Tim.Rayburn@Improving.com",
-        "jenn.massey@improving.com",
-        "derek.nwamadi@improving.com",
-        "roderic.patane@improving.com",
-        "Steve.Pfiffner@Improving.com",
-        "David.Belcher@Improving.com",
-        "David.O'Hara@improving.com",
-        "Blake.McMillan@Improving.com",
-        "brielle.dave-turner@improving.com"
-      ],
-      "namedAttendees": [
-        {
-          "name": "Dallas Sales",
-          "address": "DallasSales@improving.com"
-        },
-        {
-          "name": "Bryan Crawford",
-          "address": "Bryan.Crawford@improving.com"
-        },
-        {
-          "name": "Don McGreal",
-          "address": "Don.McGreal@Improving.com"
-        },
-        {
-          "name": "Dallas - Longhorn Cavern",
-          "address": "Dallas-LonghornCavern@improving.com"
-        },
-        {
-          "name": "Kevin Baker",
-          "address": "Kevin.Baker@Improving.com"
-        },
-        {
-          "name": "Gabriela Garza-Ramos",
-          "address": "Gabriela.Garza-Ramos@Improving.com"
-        },
-        {
-          "name": "Diana Stevens",
-          "address": "Diana.Stevens@Improving.com"
-        },
-        {
-          "name": "Mark Miesner",
-          "address": "mark.miesner@improving.com"
-        },
-        {
-          "name": "Tim Rayburn",
-          "address": "Tim.Rayburn@Improving.com"
-        },
-        {
-          "name": "Jenn Massey",
-          "address": "jenn.massey@improving.com"
-        },
-        {
-          "name": "Derek Nwamadi",
-          "address": "derek.nwamadi@improving.com"
-        },
-        {
-          "name": "Roderic Patane",
-          "address": "roderic.patane@improving.com"
-        },
-        {
-          "name": "Steve Pfiffner",
-          "address": "Steve.Pfiffner@Improving.com"
-        },
-        {
-          "name": "David Belcher",
-          "address": "David.Belcher@Improving.com"
-        },
-        {
-          "name": "David O'Hara",
-          "address": "David.O'Hara@improving.com"
-        },
-        {
-          "name": "Blake McMillan",
-          "address": "Blake.McMillan@Improving.com"
-        },
-        {
-          "name": "Brielle Dave-Turner",
-          "address": "brielle.dave-turner@improving.com"
-        }
-      ],
-      "start": {
-        "dateTime": "2026-11-02T09:15:00.0000000",
-        "timeZone": "Central Standard Time"
-      },
-      "end": {
-        "dateTime": "2026-11-02T09:30:00.0000000",
-        "timeZone": "Central Standard Time"
-      },
-      "location": "Microsoft Teams Meeting; Dallas - Longhorn Cavern",
-      "summary": "Agenda:\r\n\r\n\r\n\r\n1. Celebrate a WIN. Any win from any attendee.\r\n\r\n2. Each seller talk about a change to the board: New, Won, Moved, Lost, Changed.\r\n\r\n... and if they need Help from any of the other attendees. (e.g. interviews, strategy, artifacts)\r\n\r\n3. GR",
-      "importance": "normal",
-      "showAs": "tentative",
-      "isAllDay": false,
-      "isCancelled": false,
-      "isOrganizer": false,
-      "recurrence": null,
-      "webLink": "https://outlook.office365.com/owa/?itemid=AAkBOQAICN84dDz1wAAuAAAAAB2EAxGqZhHNm8gAqgAvxFoNAEC13rxopuFNqeHhRsuSQC8ACCB4Y10AABA%3D&exvsurl=1&path=/calendar/item",
-      "categories": null,
-      "calendarName": null,
-      "offset": 6
-    },
-    {
-      "uri": "calendar:///events/AAkBOQAICN84dDz1wAAuAAAAAB2EAxGqZhHNm8gAqgAvxFoNAEC13rxopuFNqeHhRsuSQC8ACCvZ7ZgAABA%3D",
-      "id": "AAkBOQAICN84dDz1wAAuAAAAAB2EAxGqZhHNm8gAqgAvxFoNAEC13rxopuFNqeHhRsuSQC8ACCvZ7ZgAABA=",
-      "subject": "Sales Scrum",
-      "organizer": "stephen.johnson@improving.com",
-      "organizerName": "Stephen Johnson",
-      "attendees": [
-        "stephen.johnson@improving.com",
-        "houston-conferenceroomtrust@improving.com",
-        "erik.waldo@improving.com",
-        "devlin.liles@Improving.com",
-        "Bryan.Crawford@improving.com",
-        "Shalini.Arora@improving.com",
-        "Guillermo.Ortega@improving.com",
-        "Oscar.Velazquez@improving.com",
-        "Juan.Bernal@improving.com",
-        "jenn.massey@improving.com",
-        "ben.bertram@improving.com",
-        "Robyn.Fuentes@improving.com",
-        "scott.mai@improving.com",
-        "David.O'Hara@improving.com"
-      ],
-      "namedAttendees": [
-        {
-          "name": "Stephen Johnson",
-          "address": "stephen.johnson@improving.com"
-        },
-        {
-          "name": "Houston - Conference Room Trust",
-          "address": "houston-conferenceroomtrust@improving.com"
-        },
-        {
-          "name": "Erik Waldo",
-          "address": "erik.waldo@improving.com"
-        },
-        {
-          "name": "Devlin Liles",
-          "address": "devlin.liles@Improving.com"
-        },
-        {
-          "name": "Bryan Crawford",
-          "address": "Bryan.Crawford@improving.com"
-        },
-        {
-          "name": "Shalini Arora",
-          "address": "Shalini.Arora@improving.com"
-        },
-        {
-          "name": "Guillermo Ortega Simon",
-          "address": "Guillermo.Ortega@improving.com"
-        },
-        {
-          "name": "Oscar Velazquez Loyola",
-          "address": "Oscar.Velazquez@improving.com"
-        },
-        {
-          "name": "Juan Bernal Villalobos",
-          "address": "Juan.Bernal@improving.com"
-        },
-        {
-          "name": "Jenn Massey",
-          "address": "jenn.massey@improving.com"
-        },
-        {
-          "name": "Ben Bertram",
-          "address": "ben.bertram@improving.com"
-        },
-        {
-          "name": "Robyn Fuentes",
-          "address": "Robyn.Fuentes@improving.com"
-        },
-        {
-          "name": "Scott Mai",
-          "address": "scott.mai@improving.com"
-        },
-        {
-          "name": "David O'Hara",
-          "address": "David.O'Hara@improving.com"
-        }
-      ],
-      "start": {
-        "dateTime": "2026-11-02T09:30:00.0000000",
-        "timeZone": "Central Standard Time"
-      },
-      "end": {
-        "dateTime": "2026-11-02T10:00:00.0000000",
-        "timeZone": "Central Standard Time"
-      },
-      "location": "Microsoft Teams Meeting; Houston - Conference Room Trust",
-      "summary": "From: stephen.johnson@improving.com\r\nWhen: 9:30 AM - 10:00 AM July 29, 2024\r\nSubject: Sales Scrum\r\nLocation: Microsoft Teams Meeting; Houston - Conference Room Trust\r\n\r\n\r\n\r\n\r\n__________________________________________________________________________",
-      "importance": "normal",
-      "showAs": "tentative",
-      "isAllDay": false,
-      "isCancelled": false,
-      "isOrganizer": false,
-      "recurrence": null,
-      "webLink": "https://outlook.office365.com/owa/?itemid=AAkBOQAICN84dDz1wAAuAAAAAB2EAxGqZhHNm8gAqgAvxFoNAEC13rxopuFNqeHhRsuSQC8ACCvZ7ZgAABA%3D&exvsurl=1&path=/calendar/item",
-      "categories": null,
-      "calendarName": null,
-      "offset": 7
-    },
-    {
-      "uri": "calendar:///events/AAkALgAAAAAAHYQDEapmEc2byACqAC-EWg0AQLXevGim4U2p4eFGy5JALwAPo9HFuAAA",
-      "id": "AAkALgAAAAAAHYQDEapmEc2byACqAC-EWg0AQLXevGim4U2p4eFGy5JALwAPo9HFuAAA",
-      "subject": "Prod Call for Nov 4th Recording",
-      "organizer": "matt.moss@marketscale.com",
-      "organizerName": "Matt Moss",
-      "attendees": [
-        "matt.moss@marketscale.com",
-        "Jonathan.Heath@marketscale.com",
-        "Kristin.Johnson@Improving.com",
-        "David.O'Hara@improving.com"
-      ],
-      "namedAttendees": [
-        {
-          "name": "Matt Moss",
-          "address": "matt.moss@marketscale.com"
-        },
-        {
-          "name": "Jonathan Heath",
-          "address": "Jonathan.Heath@marketscale.com"
-        },
-        {
-          "name": "Kristin Johnson",
-          "address": "Kristin.Johnson@Improving.com"
-        },
-        {
-          "name": "David O'Hara",
-          "address": "David.O'Hara@improving.com"
-        }
-      ],
-      "start": {
-        "dateTime": "2026-11-02T10:30:00.0000000",
-        "timeZone": "Central Standard Time"
-      },
-      "end": {
-        "dateTime": "2026-11-02T10:45:00.0000000",
-        "timeZone": "Central Standard Time"
-      },
-      "location": "Microsoft Teams Meeting",
-      "summary": "________________________________________________________________________________\r\nMicrosoft Teams meeting\r\nJoin: https://teams.microsoft.com/meet/2420157833751464?p=SWeUkFGuzAw2pW5jmi\r\nMeeting ID: 242 015 783 375 146 4\r\nPasscode: HM2Jm6n9\r\n_________",
-      "importance": "normal",
-      "showAs": "busy",
-      "isAllDay": false,
-      "isCancelled": false,
-      "isOrganizer": false,
-      "recurrence": null,
-      "webLink": "https://outlook.office365.com/owa/?itemid=AAkALgAAAAAAHYQDEapmEc2byACqAC%2FEWg0AQLXevGim4U2p4eFGy5JALwAPo9HFuAAA&exvsurl=1&path=/calendar/item",
-      "categories": [
-        "Tracked To Dynamics 365"
-      ],
-      "calendarName": null,
-      "offset": 8
-    },
-    {
-      "uri": "calendar:///events/AAkALgAAAAAAHYQDEapmEc2byACqAC-EWg0AQLXevGim4U2p4eFGy5JALwAPRzCKlwAA",
-      "id": "AAkALgAAAAAAHYQDEapmEc2byACqAC-EWg0AQLXevGim4U2p4eFGy5JALwAPRzCKlwAA",
-      "subject": "Lunch and catch up @Hudson House, Frisco",
-      "organizer": "David.OHara@improving.com",
-      "organizerName": "David O'Hara",
-      "attendees": [
-        "bryce.n.hansen@gmail.com"
-      ],
-      "namedAttendees": null,
-      "start": {
-        "dateTime": "2026-11-02T11:30:00.0000000",
-        "timeZone": "Central Standard Time"
-      },
-      "end": {
-        "dateTime": "2026-11-02T12:30:00.0000000",
-        "timeZone": "Central Standard Time"
-      },
-      "location": null,
-      "summary": null,
-      "importance": "normal",
-      "showAs": "busy",
-      "isAllDay": false,
-      "isCancelled": false,
-      "isOrganizer": true,
-      "recurrence": null,
-      "webLink": "https://outlook.office365.com/owa/?itemid=AAkALgAAAAAAHYQDEapmEc2byACqAC%2FEWg0AQLXevGim4U2p4eFGy5JALwAPRzCKlwAA&exvsurl=1&path=/calendar/item",
-      "categories": null,
-      "calendarName": null,
-      "offset": 9
-    },
-    {
-      "uri": "calendar:///events/AAkALgAAAAAAHYQDEapmEc2byACqAC-EWg0AQLXevGim4U2p4eFGy5JALwAPRzCKmAAA",
-      "id": "AAkALgAAAAAAHYQDEapmEc2byACqAC-EWg0AQLXevGim4U2p4eFGy5JALwAPRzCKmAAA",
-      "subject": "Overflow",
-      "organizer": "David.OHara@improving.com",
-      "organizerName": "David O'Hara",
-      "attendees": null,
-      "namedAttendees": null,
-      "start": {
-        "dateTime": "2026-11-02T12:30:00.0000000",
-        "timeZone": "Central Standard Time"
-      },
-      "end": {
-        "dateTime": "2026-11-02T13:30:00.0000000",
-        "timeZone": "Central Standard Time"
-      },
-      "location": null,
-      "summary": null,
-      "importance": "normal",
-      "showAs": "busy",
-      "isAllDay": false,
-      "isCancelled": false,
-      "isOrganizer": true,
-      "recurrence": null,
-      "webLink": "https://outlook.office365.com/owa/?itemid=AAkALgAAAAAAHYQDEapmEc2byACqAC%2FEWg0AQLXevGim4U2p4eFGy5JALwAPRzCKmAAA&exvsurl=1&path=/calendar/item",
-      "categories": null,
-      "calendarName": null,
-      "offset": 10
-    },
-    {
-      "uri": "calendar:///events/AAkALgAAAAAAHYQDEapmEc2byACqAC-EWg0AQLXevGim4U2p4eFGy5JALwAPo9HFtgAA",
-      "id": "AAkALgAAAAAAHYQDEapmEc2byACqAC-EWg0AQLXevGim4U2p4eFGy5JALwAPo9HFtgAA",
-      "subject": "David <> William",
-      "organizer": "william@curiousbuilder.ai",
-      "organizerName": "William Steele",
-      "attendees": [
-        "william@curiousbuilder.ai",
-        "david.ohara@improving.com"
-      ],
-      "namedAttendees": [
-        {
-          "name": "William Steele",
-          "address": "william@curiousbuilder.ai"
-        },
-        {
-          "name": "David O'Hara",
-          "address": "david.ohara@improving.com"
-        }
-      ],
-      "start": {
-        "dateTime": "2026-11-02T13:30:00.0000000",
-        "timeZone": "Central Standard Time"
-      },
-      "end": {
-        "dateTime": "2026-11-02T14:00:00.0000000",
-        "timeZone": "Central Standard Time"
-      },
-      "location": "https://meet.google.com/pfn-peoy-hbs",
-      "summary": "David <> William\r\nJoin with Google Meet – You have been invited by William Steele to attend an event named David <> William on Monday Nov 2, 2026 ⋅ 1:30pm – 2pm (Central Time - Chicago).\r\n\r\nJoin with Google Meet\r\nMeeting link\r\nmeet.google.com/pfn-peoy-hbs",
-      "importance": "normal",
-      "showAs": "busy",
-      "isAllDay": false,
-      "isCancelled": false,
-      "isOrganizer": false,
-      "recurrence": null,
-      "webLink": "https://outlook.office365.com/owa/?itemid=AAkALgAAAAAAHYQDEapmEc2byACqAC%2FEWg0AQLXevGim4U2p4eFGy5JALwAPo9HFtgAA&exvsurl=1&path=/calendar/item",
-      "categories": [
-        "Tracked To Dynamics 365"
-      ],
-      "calendarName": null,
-      "offset": 11
-    },
-    {
-      "uri": "calendar:///events/AAkALgAAAAAAHYQDEapmEc2byACqAC-EWg0AQLXevGim4U2p4eFGy5JALwAO_YSB_QAA",
-      "id": "AAkALgAAAAAAHYQDEapmEc2byACqAC-EWg0AQLXevGim4U2p4eFGy5JALwAO_YSB_QAA",
-      "subject": "Prep call for ASEI AI workshop hosted at Improving",
-      "organizer": "Bethany.Hilton@Improving.com",
-      "organizerName": "Bethany Hilton",
-      "attendees": [
-        "Bethany.Hilton@Improving.com",
-        "bethany@bethanyhilton.com",
-        "neha.maharish@bofa.com",
-        "rebecca.caleb@bofa.com",
-        "manoj.prakasam@bofa.com",
-        "David.OHara@improving.com",
-        "Ric.DeAnda@Improving.com",
-        "alice.mburu@improving.com"
-      ],
-      "namedAttendees": [
-        {
-          "name": "Bethany Hilton",
-          "address": "Bethany.Hilton@Improving.com"
-        },
-        {
-          "name": "Bethany Hilton",
-          "address": "bethany@bethanyhilton.com"
-        },
-        {
-          "name": "Maharish, Neha",
-          "address": "neha.maharish@bofa.com"
-        },
-        {
-          "name": "Caleb, Becky",
-          "address": "rebecca.caleb@bofa.com"
-        },
-        {
-          "name": "Prakasam, Manoj",
-          "address": "manoj.prakasam@bofa.com"
-        },
-        {
-          "name": "David O'Hara",
-          "address": "David.OHara@improving.com"
-        },
-        {
-          "name": "Ric DeAnda",
-          "address": "Ric.DeAnda@Improving.com"
-        },
-        {
-          "name": "Alice Mburu",
-          "address": "alice.mburu@improving.com"
-        }
-      ],
-      "start": {
-        "dateTime": "2026-11-02T14:00:00.0000000",
-        "timeZone": "Central Standard Time"
-      },
-      "end": {
-        "dateTime": "2026-11-02T14:30:00.0000000",
-        "timeZone": "Central Standard Time"
-      },
-      "location": "Microsoft Teams Meeting",
-      "summary": "________________________________________________________________________________\r\nMicrosoft Teams meeting\r\nJoin: https://teams.microsoft.com/meet/245656671958795?p=ieMz8Dhd1wCMDpqJBi\r\nMeeting ID: 245 656 671 958 795\r\nPasscode: Ar2zQ7J2\r\n________________",
-      "importance": "normal",
-      "showAs": "busy",
-      "isAllDay": false,
-      "isCancelled": false,
-      "isOrganizer": false,
-      "recurrence": null,
-      "webLink": "https://outlook.office365.com/owa/?itemid=AAkALgAAAAAAHYQDEapmEc2byACqAC%2FEWg0AQLXevGim4U2p4eFGy5JALwAO%2BYSB%2BQAA&exvsurl=1&path=/calendar/item",
-      "categories": [
-        "Tracked To Dynamics 365"
-      ],
-      "calendarName": null,
-      "offset": 12
-    },
-    {
-      "uri": "calendar:///events/AAkBOQAICN84dDz1wAAuAAAAAB2EAxGqZhHNm8gAqgAvxFoNAEC13rxopuFNqeHhRsuSQC8ADtR7JPMAABA%3D",
-      "id": "AAkBOQAICN84dDz1wAAuAAAAAB2EAxGqZhHNm8gAqgAvxFoNAEC13rxopuFNqeHhRsuSQC8ADtR7JPMAABA=",
-      "subject": "GEHC Twice Weekly Internal Check-In",
-      "organizer": "lisa.barnes@improving.com",
-      "organizerName": "Lisa Barnes",
-      "attendees": [
-        "lisa.barnes@improving.com",
-        "vladimir.avila@improving.com",
-        "Tim.Rayburn@Improving.com",
-        "Lisa.Kimbrel@improving.com",
-        "David.OHara@improving.com"
-      ],
-      "namedAttendees": [
-        {
-          "name": "Lisa Barnes",
-          "address": "lisa.barnes@improving.com"
-        },
-        {
-          "name": "Vladimir Avila",
-          "address": "vladimir.avila@improving.com"
-        },
-        {
-          "name": "Tim Rayburn",
-          "address": "Tim.Rayburn@Improving.com"
-        },
-        {
-          "name": "Lisa Kimbrel",
-          "address": "Lisa.Kimbrel@improving.com"
-        },
-        {
-          "name": "David O'Hara",
-          "address": "David.OHara@improving.com"
-        }
-      ],
-      "start": {
-        "dateTime": "2026-11-02T14:00:00.0000000",
-        "timeZone": "Central Standard Time"
-      },
-      "end": {
-        "dateTime": "2026-11-02T14:30:00.0000000",
-        "timeZone": "Central Standard Time"
-      },
-      "location": "Microsoft Teams Meeting",
-      "summary": "Need to adjust the time of our Monday meeting going forward.  Please let me know of major conflicts.\r\n\r\n\r\n\r\nTeam\r\n\r\nWanted to schedule internal alignment meetings to discuss plans, progress, internal issues, etc.\r\n\r\n_______________________________________",
-      "importance": "normal",
-      "showAs": "tentative",
-      "isAllDay": false,
-      "isCancelled": false,
-      "isOrganizer": false,
-      "recurrence": null,
-      "webLink": "https://outlook.office365.com/owa/?itemid=AAkBOQAICN84dDz1wAAuAAAAAB2EAxGqZhHNm8gAqgAvxFoNAEC13rxopuFNqeHhRsuSQC8ADtR7JPMAABA%3D&exvsurl=1&path=/calendar/item",
-      "categories": null,
-      "calendarName": null,
-      "offset": 13
-    },
-    {
-      "uri": "calendar:///events/AAkALgAAAAAAHYQDEapmEc2byACqAC-EWg0AQLXevGim4U2p4eFGy5JALwAPl5l4_QAA",
-      "id": "AAkALgAAAAAAHYQDEapmEc2byACqAC-EWg0AQLXevGim4U2p4eFGy5JALwAPl5l4_QAA",
-      "subject": "YPO LSG Casino Royale Event Planning Call (Day Chair: Blue House) ",
-      "organizer": "tiffany@lonestargold.org",
-      "organizerName": null,
-      "attendees": [
-        "tiffany@lonestargold.org",
-        "matt@allata.com",
-        "David.OHara@improving.com",
-        "boethel@hotmail.com",
-        "tboethel@gmail.com",
-        "mark@tatumbrown.com",
-        "christine.danuser@gmail.com",
-        "jeastin@isn.com",
-        "mleastin@gmail.com",
-        "lskinner@isn.com",
-        "huddy9370@gmail.com",
-        "colejacobsmom84@gmail.com",
-        "ckelsey@dartinterests.com",
-        "katie.d.kelsey@gmail.com",
-        "johnm@signapay.com",
-        "patriciawfinn@gmail.com",
-        "sarahw@signapay.com",
-        "jeff.matthews@eastwestbank.com",
-        "erica.matthews@harvardbusiness.org",
-        "susie.floyd@mac.com",
-        "joshpaine99@gmail.com",
-        "Nelsonschyler@yahoo.com",
-        "jwilliams@hpcapital.com",
-        "claudiawilli@gmail.com"
-      ],
-      "namedAttendees": [
-        {
-          "name": "David O'Hara",
-          "address": "David.OHara@improving.com"
-        },
-        {
-          "name": "Carey Boethel",
-          "address": "boethel@hotmail.com"
-        },
-        {
-          "name": "Tristan Boethel",
-          "address": "tboethel@gmail.com"
-        },
-        {
-          "name": "Mark Danuser",
-          "address": "mark@tatumbrown.com"
-        },
-        {
-          "name": "Christine Danuser",
-          "address": "christine.danuser@gmail.com"
-        },
-        {
-          "name": "Joseph Eastin",
-          "address": "jeastin@isn.com"
-        },
-        {
-          "name": "Monica Eastin",
-          "address": "mleastin@gmail.com"
-        },
-        {
-          "name": "Lynn Skinner",
-          "address": "lskinner@isn.com"
-        },
-        {
-          "name": "john hudson",
-          "address": "huddy9370@gmail.com"
-        },
-        {
-          "name": "Kristin Hudson",
-          "address": "colejacobsmom84@gmail.com"
-        },
-        {
-          "name": "Chris Kelsey",
-          "address": "ckelsey@dartinterests.com"
-        },
-        {
-          "name": "Katie Kelsey",
-          "address": "katie.d.kelsey@gmail.com"
-        },
-        {
-          "name": "John Martillo",
-          "address": "johnm@signapay.com"
-        },
-        {
-          "name": "Patricia Finn",
-          "address": "patriciawfinn@gmail.com"
-        },
-        {
-          "name": "Sarah White",
-          "address": "sarahw@signapay.com"
-        },
-        {
-          "name": "Jeff Matthews",
-          "address": "jeff.matthews@eastwestbank.com"
-        },
-        {
-          "name": "Erica Matthews",
-          "address": "erica.matthews@harvardbusiness.org"
-        },
-        {
-          "name": "Susie O'Hara",
-          "address": "susie.floyd@mac.com"
-        },
-        {
-          "name": "Josh Paine",
-          "address": "joshpaine99@gmail.com"
-        },
-        {
-          "name": "Jeff Williams",
-          "address": "jwilliams@hpcapital.com"
-        },
-        {
-          "name": "Claudia Williams",
-          "address": "claudiawilli@gmail.com"
-        }
-      ],
-      "start": {
-        "dateTime": "2026-11-02T14:30:00.0000000",
-        "timeZone": "Central Standard Time"
-      },
-      "end": {
-        "dateTime": "2026-11-02T15:00:00.0000000",
-        "timeZone": "Central Standard Time"
-      },
-      "location": "Zoom",
-      "summary": "Hi all,\r\n\r\nThis call has moved to Monday, November 2 at 2:30pm. The updated time is reflected on this invite.\r\n\r\nThank you!\r\n\r\n---\r\n\r\nBlue House,\r\n\r\nMatt, David, and I have a planning call set for the Casino Royale event on Monday, November 2, at 10am. I ",
-      "importance": "normal",
-      "showAs": "busy",
-      "isAllDay": false,
-      "isCancelled": false,
-      "isOrganizer": false,
-      "recurrence": null,
-      "webLink": "https://outlook.office365.com/owa/?itemid=AAkALgAAAAAAHYQDEapmEc2byACqAC%2FEWg0AQLXevGim4U2p4eFGy5JALwAPl5l4%2BQAA&exvsurl=1&path=/calendar/item",
-      "categories": [
-        "Tracked To Dynamics 365"
-      ],
-      "calendarName": null,
-      "offset": 14
-    },
-    {
-      "uri": "calendar:///events/AAkALgAAAAAAHYQDEapmEc2byACqAC-EWg0AQLXevGim4U2p4eFGy5JALwAPHBCu3QAA",
-      "id": "AAkALgAAAAAAHYQDEapmEc2byACqAC-EWg0AQLXevGim4U2p4eFGy5JALwAPHBCu3QAA",
-      "subject": "Prep presentation for Forum",
-      "organizer": "David.OHara@improving.com",
-      "organizerName": "David O'Hara",
-      "attendees": null,
-      "namedAttendees": null,
-      "start": {
-        "dateTime": "2026-11-02T15:00:00.0000000",
-        "timeZone": "Central Standard Time"
-      },
-      "end": {
-        "dateTime": "2026-11-02T16:00:00.0000000",
-        "timeZone": "Central Standard Time"
-      },
-      "location": null,
-      "summary": null,
-      "importance": "normal",
-      "showAs": "busy",
-      "isAllDay": false,
-      "isCancelled": false,
-      "isOrganizer": true,
-      "recurrence": null,
-      "webLink": "https://outlook.office365.com/owa/?itemid=AAkALgAAAAAAHYQDEapmEc2byACqAC%2FEWg0AQLXevGim4U2p4eFGy5JALwAPHBCu3QAA&exvsurl=1&path=/calendar/item",
-      "categories": null,
-      "calendarName": null,
-      "offset": 15
-    },
-    {
-      "uri": "calendar:///events/AAkALgAAAAAAHYQDEapmEc2byACqAC-EWg0AQLXevGim4U2p4eFGy5JALwAPo9HFtwAA",
-      "id": "AAkALgAAAAAAHYQDEapmEc2byACqAC-EWg0AQLXevGim4U2p4eFGy5JALwAPo9HFtwAA",
-      "subject": "Slide deck prep ",
-      "organizer": "David.OHara@improving.com",
-      "organizerName": "David O'Hara",
-      "attendees": null,
-      "namedAttendees": null,
-      "start": {
-        "dateTime": "2026-11-02T16:30:00.0000000",
-        "timeZone": "Central Standard Time"
-      },
-      "end": {
-        "dateTime": "2026-11-02T17:30:00.0000000",
-        "timeZone": "Central Standard Time"
-      },
-      "location": null,
-      "summary": null,
-      "importance": "normal",
-      "showAs": "busy",
-      "isAllDay": false,
-      "isCancelled": false,
-      "isOrganizer": true,
-      "recurrence": null,
-      "webLink": "https://outlook.office365.com/owa/?itemid=AAkALgAAAAAAHYQDEapmEc2byACqAC%2FEWg0AQLXevGim4U2p4eFGy5JALwAPo9HFtwAA&exvsurl=1&path=/calendar/item",
-      "categories": null,
-      "calendarName": null,
-      "offset": 16
-    },
-    {
-      "uri": "calendar:///events/AAkALgAAAAAAHYQDEapmEc2byACqAC-EWg0AQLXevGim4U2p4eFGy5JALwAPVaJD-AAA",
-      "id": "AAkALgAAAAAAHYQDEapmEc2byACqAC-EWg0AQLXevGim4U2p4eFGy5JALwAPVaJD-AAA",
-      "subject": "Dinner at Lulu Modern Chinese",
-      "organizer": "David.OHara@improving.com",
-      "organizerName": "David O'Hara",
-      "attendees": [
-        "rsuchala@firstunitedbank.com",
-        "susie@everydayentries.com"
-      ],
-      "namedAttendees": [
-        {
-          "name": "rsuchala",
-          "address": "rsuchala@firstunitedbank.com"
-        },
-        {
-          "name": "Susie O'Hara",
-          "address": "susie@everydayentries.com"
-        }
-      ],
-      "start": {
-        "dateTime": "2026-11-02T19:00:00.0000000",
-        "timeZone": "Central Standard Time"
-      },
-      "end": {
-        "dateTime": "2026-11-02T21:00:00.0000000",
-        "timeZone": "Central Standard Time"
-      },
-      "location": "3310 Dallas Pkwy Suite 121, PLANO, TX 75093",
-      "summary": "Important dining information from the Restaurant:\r\nWe have a 15 minute grace period. Please call us if you are running later than 15 minutes after your reservation time.\r\n\r\nYour table will be reserved for 1 hour 15 minutes for parties of up to 2; 1 hour 3",
-      "importance": "normal",
-      "showAs": "busy",
-      "isAllDay": false,
-      "isCancelled": false,
-      "isOrganizer": true,
-      "recurrence": null,
-      "webLink": "https://outlook.office365.com/owa/?itemid=AAkALgAAAAAAHYQDEapmEc2byACqAC%2FEWg0AQLXevGim4U2p4eFGy5JALwAPVaJD%2FAAA&exvsurl=1&path=/calendar/item",
-      "categories": [
-        "Relationship"
-      ],
-      "calendarName": null,
-      "offset": 17
+      "offset": 1
     },
     {
       "uri": "calendar:///events/AAkBOQAICN85PWdfgAAuAAAAAB2EAxGqZhHNm8gAqgAvxFoNAEC13rxopuFNqeHhRsuSQC8AD2s6pZoAABA%3D",
@@ -1235,7 +281,7 @@
       "webLink": "https://outlook.office365.com/owa/?itemid=AAkBOQAICN85PWdfgAAuAAAAAB2EAxGqZhHNm8gAqgAvxFoNAEC13rxopuFNqeHhRsuSQC8AD2s6pZoAABA%3D&exvsurl=1&path=/calendar/item",
       "categories": null,
       "calendarName": null,
-      "offset": 18
+      "offset": 2
     },
     {
       "uri": "calendar:///events/AAkALgAAAAAAHYQDEapmEc2byACqAC-EWg0AQLXevGim4U2p4eFGy5JALwAOuLfFdAAA",
@@ -1276,7 +322,7 @@
         "timeZone": "Central Standard Time"
       },
       "location": "https://meet.google.com/kvu-dijx-qac",
-      "summary": "REMINDER! YPO Fort Worth Gold Virtual Board Meeting - November\r\nJoin with Google Meet – You have been invited by Terri Patterson to attend an event named REMINDER! YPO Fort Worth Gold Virtual Board Meeting - November on Tuesday Nov 3, 2026 ⋅ 8am – 9:30am ",
+      "summary": "REMINDER! YPO Fort Worth Gold Virtual Board Meeting - November\r\nJoin with Google Meet \u2013 You have been invited by Terri Patterson to attend an event named REMINDER! YPO Fort Worth Gold Virtual Board Meeting - November on Tuesday Nov 3, 2026 \u22c5 8am \u2013 9:30am ",
       "importance": "normal",
       "showAs": "busy",
       "isAllDay": false,
@@ -1288,7 +334,7 @@
         "Tracked To Dynamics 365"
       ],
       "calendarName": null,
-      "offset": 19
+      "offset": 3
     },
     {
       "uri": "calendar:///events/AAkBOQAICN85PWdfgAAuAAAAAB2EAxGqZhHNm8gAqgAvxFoNAEC13rxopuFNqeHhRsuSQC8ACCB4Y10AABA%3D",
@@ -1404,7 +450,7 @@
       "webLink": "https://outlook.office365.com/owa/?itemid=AAkBOQAICN85PWdfgAAuAAAAAB2EAxGqZhHNm8gAqgAvxFoNAEC13rxopuFNqeHhRsuSQC8ACCB4Y10AABA%3D&exvsurl=1&path=/calendar/item",
       "categories": null,
       "calendarName": null,
-      "offset": 20
+      "offset": 4
     },
     {
       "uri": "calendar:///events/AAkBOQAICN85PWdfgAAuAAAAAB2EAxGqZhHNm8gAqgAvxFoNAEC13rxopuFNqeHhRsuSQC8ACCvZ7bgAABA%3D",
@@ -1419,13 +465,13 @@
         "Shalini.Arora@improving.com",
         "devlin.liles@Improving.com",
         "Juan.Bernal@improving.com",
-        "jenn.massey@improving.com",
         "ben.bertram@improving.com",
         "Jake.Stevenson@Improving.com",
         "Robyn.Fuentes@Improving.com",
         "victoria.ochoa@improving.com",
         "scott.mai@improving.com",
-        "David.O'Hara@improving.com"
+        "David.O'Hara@improving.com",
+        "jenn.massey@improving.com"
       ],
       "namedAttendees": [
         {
@@ -1453,10 +499,6 @@
           "address": "Juan.Bernal@improving.com"
         },
         {
-          "name": "Jenn Massey",
-          "address": "jenn.massey@improving.com"
-        },
-        {
           "name": "Ben Bertram",
           "address": "ben.bertram@improving.com"
         },
@@ -1479,6 +521,10 @@
         {
           "name": "David O'Hara",
           "address": "David.O'Hara@improving.com"
+        },
+        {
+          "name": "Jenn Massey",
+          "address": "jenn.massey@improving.com"
         }
       ],
       "start": {
@@ -1490,7 +536,7 @@
         "timeZone": "Central Standard Time"
       },
       "location": "Microsoft Teams Meeting; Houston - Conference Room Trust",
-      "summary": "From: stephen.johnson@improving.com\r\nWhen: 10:00 AM - 10:30 AM March 20, 2025\r\nSubject: Sales Scrum\r\nLocation: Microsoft Teams Meeting; Houston - Conference Room Trust\r\n\r\n\r\n\r\n\r\n\r\n\r\nFrom: stephen.johnson@improving.com\r\nWhen: 9:00 a.m. - 9:30 a.m. 20 ",
+      "summary": "From: stephen.johnson@improving.com\r\nWhen: 10:00\u202fAM - 10:30\u202fAM March 20, 2025\r\nSubject: Sales Scrum\r\nLocation: Microsoft Teams Meeting; Houston - Conference Room Trust\r\n\r\n\r\n\r\n\r\n\r\n\r\nFrom: stephen.johnson@improving.com\r\nWhen: 9:00\u202fa.m. - 9:30\u202fa.m. 20 ",
       "importance": "normal",
       "showAs": "tentative",
       "isAllDay": false,
@@ -1500,7 +546,7 @@
       "webLink": "https://outlook.office365.com/owa/?itemid=AAkBOQAICN85PWdfgAAuAAAAAB2EAxGqZhHNm8gAqgAvxFoNAEC13rxopuFNqeHhRsuSQC8ACCvZ7bgAABA%3D&exvsurl=1&path=/calendar/item",
       "categories": null,
       "calendarName": null,
-      "offset": 21
+      "offset": 5
     },
     {
       "uri": "calendar:///events/AAkBOQAICN85PWdfgAAuAAAAAB2EAxGqZhHNm8gAqgAvxFoNAEC13rxopuFNqeHhRsuSQC8ADCVrpNAAABA%3D",
@@ -1568,7 +614,6 @@
         "john.huang@improving.com",
         "ehren.seim@improving.com",
         "Keylor.Arroyo@improving.com",
-        "brielle.dave-turner@improving.com",
         "mat.jones@improving.com",
         "laura.stewart@improving.com",
         "johan.reinders@improving.com",
@@ -1584,7 +629,10 @@
         "Peter.Malandra@solace.com",
         "mike.hagedorn@solace.com",
         "Vincent.Rontani@solace.com",
-        "joshua.carroll@solace.com"
+        "joshua.carroll@solace.com",
+        "nicole.hilland@improving.com",
+        "Dennis.Brinley@solace.com",
+        "brielle.dave-turner@improving.com"
       ],
       "namedAttendees": [
         {
@@ -1724,7 +772,7 @@
           "address": "thomas.distefano@improving.com"
         },
         {
-          "name": "René Larrave",
+          "name": "Ren\u00e9 Larrave",
           "address": "rene.larrave@improving.com"
         },
         {
@@ -1744,7 +792,7 @@
           "address": "juan.bernal@improving.com"
         },
         {
-          "name": "Miguel de León",
+          "name": "Miguel de Le\u00f3n",
           "address": "miguel.deleon@improving.com"
         },
         {
@@ -1824,10 +872,6 @@
           "address": "Keylor.Arroyo@improving.com"
         },
         {
-          "name": "Brielle Dave-Turner",
-          "address": "brielle.dave-turner@improving.com"
-        },
-        {
           "name": "Mat Jones",
           "address": "mat.jones@improving.com"
         },
@@ -1890,6 +934,18 @@
         {
           "name": "Joshua Carroll",
           "address": "joshua.carroll@solace.com"
+        },
+        {
+          "name": "Nicole Hilland",
+          "address": "nicole.hilland@improving.com"
+        },
+        {
+          "name": "Dennis Brinley",
+          "address": "Dennis.Brinley@solace.com"
+        },
+        {
+          "name": "Brielle Dave-Turner",
+          "address": "brielle.dave-turner@improving.com"
         }
       ],
       "start": {
@@ -1911,7 +967,7 @@
       "webLink": "https://outlook.office365.com/owa/?itemid=AAkBOQAICN85PWdfgAAuAAAAAB2EAxGqZhHNm8gAqgAvxFoNAEC13rxopuFNqeHhRsuSQC8ADCVrpNAAABA%3D&exvsurl=1&path=/calendar/item",
       "categories": null,
       "calendarName": null,
-      "offset": 22
+      "offset": 6
     },
     {
       "uri": "calendar:///events/AAkBOQAICN85PWdfgAAuAAAAAB2EAxGqZhHNm8gAqgAvxFoNAEC13rxopuFNqeHhRsuSQC8ADhZjz2sAABA%3D",
@@ -1992,12 +1048,12 @@
       "webLink": "https://outlook.office365.com/owa/?itemid=AAkBOQAICN85PWdfgAAuAAAAAB2EAxGqZhHNm8gAqgAvxFoNAEC13rxopuFNqeHhRsuSQC8ADhZjz2sAABA%3D&exvsurl=1&path=/calendar/item",
       "categories": null,
       "calendarName": null,
-      "offset": 23
+      "offset": 7
     },
     {
       "uri": "calendar:///events/AAkALgAAAAAAHYQDEapmEc2byACqAC-EWg0AQLXevGim4U2p4eFGy5JALwAPVaJD_QAA",
       "id": "AAkALgAAAAAAHYQDEapmEc2byACqAC-EWg0AQLXevGim4U2p4eFGy5JALwAPVaJD_QAA",
-      "subject": "Lunch with Cory Littlepage",
+      "subject": "Lunch with Cory Littlepage @ True Food Kitchen, Plano",
       "organizer": "David.OHara@improving.com",
       "organizerName": "David O'Hara",
       "attendees": null,
@@ -2010,7 +1066,7 @@
         "dateTime": "2026-11-03T12:30:00.0000000",
         "timeZone": "Central Standard Time"
       },
-      "location": null,
+      "location": "7601 Windrose Avenue, Suite F100, Plano, TX 75024",
       "summary": null,
       "importance": "normal",
       "showAs": "busy",
@@ -2023,7 +1079,7 @@
         "Tracked To Dynamics 365"
       ],
       "calendarName": null,
-      "offset": 24
+      "offset": 8
     },
     {
       "uri": "calendar:///events/AAkALgAAAAAAHYQDEapmEc2byACqAC-EWg0AQLXevGim4U2p4eFGy5JALwAPVaJD_gAA",
@@ -2052,7 +1108,7 @@
       "webLink": "https://outlook.office365.com/owa/?itemid=AAkALgAAAAAAHYQDEapmEc2byACqAC%2FEWg0AQLXevGim4U2p4eFGy5JALwAPVaJD%2BgAA&exvsurl=1&path=/calendar/item",
       "categories": null,
       "calendarName": null,
-      "offset": 25
+      "offset": 9
     },
     {
       "uri": "calendar:///events/AAkALgAAAAAAHYQDEapmEc2byACqAC-EWg0AQLXevGim4U2p4eFGy5JALwAO1Hsk7wAA",
@@ -2083,7 +1139,7 @@
         "UTB Board"
       ],
       "calendarName": null,
-      "offset": 26
+      "offset": 10
     },
     {
       "uri": "calendar:///events/AAkBOQAICN85PWdfgAAuAAAAAB2EAxGqZhHNm8gAqgAvxFoNAEC13rxopuFNqeHhRsuSQC8ACCPy2ugAABA%3D",
@@ -2134,7 +1190,7 @@
       "webLink": "https://outlook.office365.com/owa/?itemid=AAkBOQAICN85PWdfgAAuAAAAAB2EAxGqZhHNm8gAqgAvxFoNAEC13rxopuFNqeHhRsuSQC8ACCPy2ugAABA%3D&exvsurl=1&path=/calendar/item",
       "categories": null,
       "calendarName": null,
-      "offset": 27
+      "offset": 11
     },
     {
       "uri": "calendar:///events/AAkBOQAICN85PWdfgAAuAAAAAB2EAxGqZhHNm8gAqgAvxFoNAEC13rxopuFNqeHhRsuSQC8ACp2UXJgAABA%3D",
@@ -2184,7 +1240,7 @@
       "webLink": "https://outlook.office365.com/owa/?itemid=AAkBOQAICN85PWdfgAAuAAAAAB2EAxGqZhHNm8gAqgAvxFoNAEC13rxopuFNqeHhRsuSQC8ACp2UXJgAABA%3D&exvsurl=1&path=/calendar/item",
       "categories": null,
       "calendarName": null,
-      "offset": 28
+      "offset": 12
     },
     {
       "uri": "calendar:///events/AAkALgAAAAAAHYQDEapmEc2byACqAC-EWg0AQLXevGim4U2p4eFGy5JALwAPY7RfZQAA",
@@ -2215,7 +1271,7 @@
         "Tracked To Dynamics 365"
       ],
       "calendarName": null,
-      "offset": 29
+      "offset": 13
     },
     {
       "uri": "calendar:///events/AAkBOQAICN86BpHJQAAuAAAAAB2EAxGqZhHNm8gAqgAvxFoNAEC13rxopuFNqeHhRsuSQC8AD2s6pZoAABA%3D",
@@ -2311,7 +1367,55 @@
       "webLink": "https://outlook.office365.com/owa/?itemid=AAkBOQAICN86BpHJQAAuAAAAAB2EAxGqZhHNm8gAqgAvxFoNAEC13rxopuFNqeHhRsuSQC8AD2s6pZoAABA%3D&exvsurl=1&path=/calendar/item",
       "categories": null,
       "calendarName": null,
-      "offset": 30
+      "offset": 14
+    },
+    {
+      "uri": "calendar:///events/AAkALgAAAAAAHYQDEapmEc2byACqAC-EWg0AQLXevGim4U2p4eFGy5JALwAJ6Vc4_gAA",
+      "id": "AAkALgAAAAAAHYQDEapmEc2byACqAC-EWg0AQLXevGim4U2p4eFGy5JALwAJ6Vc4_gAA",
+      "subject": "AI workshop for the DRC's Talent Task Force",
+      "organizer": "Bethany.Hilton@Improving.com",
+      "organizerName": "Bethany Hilton",
+      "attendees": [
+        "Bethany.Hilton@Improving.com",
+        "David.OHara@improving.com",
+        "bethany@bethanyhilton.com"
+      ],
+      "namedAttendees": [
+        {
+          "name": "Bethany Hilton",
+          "address": "Bethany.Hilton@Improving.com"
+        },
+        {
+          "name": "David O'Hara",
+          "address": "David.OHara@improving.com"
+        },
+        {
+          "name": "Bethany Hilton",
+          "address": "bethany@bethanyhilton.com"
+        }
+      ],
+      "start": {
+        "dateTime": "2026-11-04T08:00:00.0000000",
+        "timeZone": "Central Standard Time"
+      },
+      "end": {
+        "dateTime": "2026-11-04T10:00:00.0000000",
+        "timeZone": "Central Standard Time"
+      },
+      "location": "Dallas Regional Chamber",
+      "summary": null,
+      "importance": "normal",
+      "showAs": "tentative",
+      "isAllDay": false,
+      "isCancelled": false,
+      "isOrganizer": false,
+      "recurrence": null,
+      "webLink": "https://outlook.office365.com/owa/?itemid=AAkALgAAAAAAHYQDEapmEc2byACqAC%2FEWg0AQLXevGim4U2p4eFGy5JALwAJ6Vc4%2BgAA&exvsurl=1&path=/calendar/item",
+      "categories": [
+        "Tracked To Dynamics 365"
+      ],
+      "calendarName": null,
+      "offset": 15
     },
     {
       "uri": "calendar:///events/AAkALgAAAAAAHYQDEapmEc2byACqAC-EWg0AQLXevGim4U2p4eFGy5JALwAIg2qT4QAA",
@@ -2342,7 +1446,7 @@
         "Tracked To Dynamics 365"
       ],
       "calendarName": null,
-      "offset": 31
+      "offset": 16
     },
     {
       "uri": "calendar:///events/AAkBOQAICN86BpHJQAAuAAAAAB2EAxGqZhHNm8gAqgAvxFoNAEC13rxopuFNqeHhRsuSQC8ADfv5OnoAABA%3D",
@@ -2473,55 +1577,7 @@
       "webLink": "https://outlook.office365.com/owa/?itemid=AAkBOQAICN86BpHJQAAuAAAAAB2EAxGqZhHNm8gAqgAvxFoNAEC13rxopuFNqeHhRsuSQC8ADfv5OnoAABA%3D&exvsurl=1&path=/calendar/item",
       "categories": null,
       "calendarName": null,
-      "offset": 32
-    },
-    {
-      "uri": "calendar:///events/AAkALgAAAAAAHYQDEapmEc2byACqAC-EWg0AQLXevGim4U2p4eFGy5JALwAJ6Vc4_gAA",
-      "id": "AAkALgAAAAAAHYQDEapmEc2byACqAC-EWg0AQLXevGim4U2p4eFGy5JALwAJ6Vc4_gAA",
-      "subject": "AI workshop for the DRC's Talent Task Force",
-      "organizer": "Bethany.Hilton@Improving.com",
-      "organizerName": "Bethany Hilton",
-      "attendees": [
-        "Bethany.Hilton@Improving.com",
-        "David.OHara@improving.com",
-        "bethany@bethanyhilton.com"
-      ],
-      "namedAttendees": [
-        {
-          "name": "Bethany Hilton",
-          "address": "Bethany.Hilton@Improving.com"
-        },
-        {
-          "name": "David O'Hara",
-          "address": "David.OHara@improving.com"
-        },
-        {
-          "name": "Bethany Hilton",
-          "address": "bethany@bethanyhilton.com"
-        }
-      ],
-      "start": {
-        "dateTime": "2026-11-04T09:00:00.0000000",
-        "timeZone": "Central Standard Time"
-      },
-      "end": {
-        "dateTime": "2026-11-04T10:30:00.0000000",
-        "timeZone": "Central Standard Time"
-      },
-      "location": "Dallas Regional Chamber",
-      "summary": null,
-      "importance": "normal",
-      "showAs": "busy",
-      "isAllDay": false,
-      "isCancelled": false,
-      "isOrganizer": false,
-      "recurrence": null,
-      "webLink": "https://outlook.office365.com/owa/?itemid=AAkALgAAAAAAHYQDEapmEc2byACqAC%2FEWg0AQLXevGim4U2p4eFGy5JALwAJ6Vc4%2BgAA&exvsurl=1&path=/calendar/item",
-      "categories": [
-        "Tracked To Dynamics 365"
-      ],
-      "calendarName": null,
-      "offset": 33
+      "offset": 17
     },
     {
       "uri": "calendar:///events/AAkBOQAICN86BpHJQAAuAAAAAB2EAxGqZhHNm8gAqgAvxFoNAEC13rxopuFNqeHhRsuSQC8ACCB4Y10AABA%3D",
@@ -2637,7 +1693,7 @@
       "webLink": "https://outlook.office365.com/owa/?itemid=AAkBOQAICN86BpHJQAAuAAAAAB2EAxGqZhHNm8gAqgAvxFoNAEC13rxopuFNqeHhRsuSQC8ACCB4Y10AABA%3D&exvsurl=1&path=/calendar/item",
       "categories": null,
       "calendarName": null,
-      "offset": 34
+      "offset": 18
     },
     {
       "uri": "calendar:///events/AAkBOQAICN86BpHJQAAuAAAAAB2EAxGqZhHNm8gAqgAvxFoNAEC13rxopuFNqeHhRsuSQC8ACCvZ7ZgAABA%3D",
@@ -2728,7 +1784,7 @@
         "timeZone": "Central Standard Time"
       },
       "location": "Microsoft Teams Meeting; Houston - Conference Room Trust",
-      "summary": "From: stephen.johnson@improving.com\r\nWhen: 9:30 AM - 10:00 AM July 29, 2024\r\nSubject: Sales Scrum\r\nLocation: Microsoft Teams Meeting; Houston - Conference Room Trust\r\n\r\n\r\n\r\n\r\n__________________________________________________________________________",
+      "summary": "From: stephen.johnson@improving.com\r\nWhen: 9:30\u202fAM - 10:00\u202fAM July 29, 2024\r\nSubject: Sales Scrum\r\nLocation: Microsoft Teams Meeting; Houston - Conference Room Trust\r\n\r\n\r\n\r\n\r\n__________________________________________________________________________",
       "importance": "normal",
       "showAs": "tentative",
       "isAllDay": false,
@@ -2738,7 +1794,7 @@
       "webLink": "https://outlook.office365.com/owa/?itemid=AAkBOQAICN86BpHJQAAuAAAAAB2EAxGqZhHNm8gAqgAvxFoNAEC13rxopuFNqeHhRsuSQC8ACCvZ7ZgAABA%3D&exvsurl=1&path=/calendar/item",
       "categories": null,
       "calendarName": null,
-      "offset": 35
+      "offset": 19
     },
     {
       "uri": "calendar:///events/AAkBOQAICN86BpHJQAAuAAAAAB2EAxGqZhHNm8gAqgAvxFoNAEC13rxopuFNqeHhRsuSQC8ADiPIXugAABA%3D",
@@ -2799,7 +1855,7 @@
           "address": "federico.german@improving.com"
         },
         {
-          "name": "Luis Guzmán",
+          "name": "Luis Guzm\u00e1n",
           "address": "luis.guzman@improving.com"
         },
         {
@@ -2834,7 +1890,7 @@
       "webLink": "https://outlook.office365.com/owa/?itemid=AAkBOQAICN86BpHJQAAuAAAAAB2EAxGqZhHNm8gAqgAvxFoNAEC13rxopuFNqeHhRsuSQC8ADiPIXugAABA%3D&exvsurl=1&path=/calendar/item",
       "categories": null,
       "calendarName": null,
-      "offset": 36
+      "offset": 20
     },
     {
       "uri": "calendar:///events/AAkALgAAAAAAHYQDEapmEc2byACqAC-EWg0AQLXevGim4U2p4eFGy5JALwAPl5l49wAA",
@@ -2865,7 +1921,7 @@
         "Work"
       ],
       "calendarName": null,
-      "offset": 37
+      "offset": 21
     },
     {
       "uri": "calendar:///events/AAkALgAAAAAAHYQDEapmEc2byACqAC-EWg0AQLXevGim4U2p4eFGy5JALwAPazqlpQAA",
@@ -2896,7 +1952,7 @@
         "Travel"
       ],
       "calendarName": null,
-      "offset": 38
+      "offset": 22
     },
     {
       "uri": "calendar:///events/AAkALgAAAAAAHYQDEapmEc2byACqAC-EWg0AQLXevGim4U2p4eFGy5JALwAO_YSB6gAA",
@@ -2927,7 +1983,7 @@
         "Personal"
       ],
       "calendarName": null,
-      "offset": 39
+      "offset": 23
     },
     {
       "uri": "calendar:///events/AAkBOQAICN86BpHJQAAuAAAAAB2EAxGqZhHNm8gAqgAvxFoNAEC13rxopuFNqeHhRsuSQC8ADtR7JPMAABA%3D",
@@ -2983,7 +2039,7 @@
       "webLink": "https://outlook.office365.com/owa/?itemid=AAkBOQAICN86BpHJQAAuAAAAAB2EAxGqZhHNm8gAqgAvxFoNAEC13rxopuFNqeHhRsuSQC8ADtR7JPMAABA%3D&exvsurl=1&path=/calendar/item",
       "categories": null,
       "calendarName": null,
-      "offset": 40
+      "offset": 25
     },
     {
       "uri": "calendar:///events/AAkALgAAAAAAHYQDEapmEc2byACqAC-EWg0AQLXevGim4U2p4eFGy5JALwAPazqlqAAA",
@@ -3014,7 +2070,7 @@
         "Travel"
       ],
       "calendarName": null,
-      "offset": 41
+      "offset": 26
     },
     {
       "uri": "calendar:///events/AAkBOQAICN87mOacwAAuAAAAAB2EAxGqZhHNm8gAqgAvxFoNAEC13rxopuFNqeHhRsuSQC8ADxwQrtoAABA%3D",
@@ -3050,7 +2106,7 @@
       "webLink": "https://outlook.office365.com/owa/?itemid=AAkBOQAICN87mOacwAAuAAAAAB2EAxGqZhHNm8gAqgAvxFoNAEC13rxopuFNqeHhRsuSQC8ADxwQrtoAABA%3D&exvsurl=1&path=/calendar/item",
       "categories": null,
       "calendarName": null,
-      "offset": 42
+      "offset": 27
     },
     {
       "uri": "calendar:///events/AAkALgAAAAAAHYQDEapmEc2byACqAC-EWg0AQLXevGim4U2p4eFGy5JALwAPT2vavgAA",
@@ -3081,7 +2137,7 @@
       "webLink": "https://outlook.office365.com/owa/?itemid=AAkALgAAAAAAHYQDEapmEc2byACqAC%2FEWg0AQLXevGim4U2p4eFGy5JALwAPT2vavgAA&exvsurl=1&path=/calendar/item",
       "categories": null,
       "calendarName": null,
-      "offset": 43
+      "offset": 28
     },
     {
       "uri": "calendar:///events/AAkALgAAAAAAHYQDEapmEc2byACqAC-EWg0AQLXevGim4U2p4eFGy5JALwAOhXXauAAA",
@@ -3156,7 +2212,7 @@
           "address": "Vishal.Biyani@improving.com"
         },
         {
-          "name": "Luis Guzmán",
+          "name": "Luis Guzm\u00e1n",
           "address": "luis.guzman@improving.com"
         },
         {
@@ -3207,7 +2263,7 @@
       "webLink": "https://outlook.office365.com/owa/?itemid=AAkALgAAAAAAHYQDEapmEc2byACqAC%2FEWg0AQLXevGim4U2p4eFGy5JALwAOhXXauAAA&exvsurl=1&path=/calendar/item",
       "categories": null,
       "calendarName": null,
-      "offset": 44
+      "offset": 29
     },
     {
       "uri": "calendar:///events/AAkALgAAAAAAHYQDEapmEc2byACqAC-EWg0AQLXevGim4U2p4eFGy5JALwAPewyUxQAA",
@@ -3270,7 +2326,7 @@
           "address": "rob.ulaszek@improving.com"
         },
         {
-          "name": "Luis Guzmán",
+          "name": "Luis Guzm\u00e1n",
           "address": "luis.guzman@improving.com"
         },
         {
@@ -3335,7 +2391,7 @@
         "Tracked To Dynamics 365"
       ],
       "calendarName": null,
-      "offset": 45
+      "offset": 30
     },
     {
       "uri": "calendar:///events/AAkBOQAICN86z7wzAAAuAAAAAB2EAxGqZhHNm8gAqgAvxFoNAEC13rxopuFNqeHhRsuSQC8ACCB4Y10AABA%3D",
@@ -3451,7 +2507,7 @@
       "webLink": "https://outlook.office365.com/owa/?itemid=AAkBOQAICN86z7wzAAAuAAAAAB2EAxGqZhHNm8gAqgAvxFoNAEC13rxopuFNqeHhRsuSQC8ACCB4Y10AABA%3D&exvsurl=1&path=/calendar/item",
       "categories": null,
       "calendarName": null,
-      "offset": 46
+      "offset": 31
     },
     {
       "uri": "calendar:///events/AAkBOQAICN86z7wzAAAuAAAAAB2EAxGqZhHNm8gAqgAvxFoNAEC13rxopuFNqeHhRsuSQC8ACCvZ7bgAABA%3D",
@@ -3537,7 +2593,7 @@
         "timeZone": "Central Standard Time"
       },
       "location": "Microsoft Teams Meeting; Houston - Conference Room Trust",
-      "summary": "From: stephen.johnson@improving.com\r\nWhen: 10:00 AM - 10:30 AM March 20, 2025\r\nSubject: Sales Scrum\r\nLocation: Microsoft Teams Meeting; Houston - Conference Room Trust\r\n\r\n\r\n\r\n\r\n\r\n\r\nFrom: stephen.johnson@improving.com\r\nWhen: 9:00 a.m. - 9:30 a.m. 20 ",
+      "summary": "From: stephen.johnson@improving.com\r\nWhen: 10:00\u202fAM - 10:30\u202fAM March 20, 2025\r\nSubject: Sales Scrum\r\nLocation: Microsoft Teams Meeting; Houston - Conference Room Trust\r\n\r\n\r\n\r\n\r\n\r\n\r\nFrom: stephen.johnson@improving.com\r\nWhen: 9:00\u202fa.m. - 9:30\u202fa.m. 20 ",
       "importance": "normal",
       "showAs": "tentative",
       "isAllDay": false,
@@ -3547,7 +2603,7 @@
       "webLink": "https://outlook.office365.com/owa/?itemid=AAkBOQAICN86z7wzAAAuAAAAAB2EAxGqZhHNm8gAqgAvxFoNAEC13rxopuFNqeHhRsuSQC8ACCvZ7bgAABA%3D&exvsurl=1&path=/calendar/item",
       "categories": null,
       "calendarName": null,
-      "offset": 47
+      "offset": 32
     },
     {
       "uri": "calendar:///events/AAkBOQAICN86BpHJQAAuAAAAAB2EAxGqZhHNm8gAqgAvxFoNAEC13rxopuFNqeHhRsuSQC8ADri3xUwAABA%3D",
@@ -3613,7 +2669,7 @@
         "timeZone": "Central Standard Time"
       },
       "location": "Microsoft Teams Meeting",
-      "summary": "GEHC is tied up Monday-Wednesday.  Will shift this meeting one-time.  Let me know if this time doesn’t work.\r\n\r\n\r\n\r\n\r\n\r\nChanging the invite as I think Copilot/Facilitator was corrupted and just easier to start over.\r\n\r\nLooks like this time will probably w",
+      "summary": "GEHC is tied up Monday-Wednesday.  Will shift this meeting one-time.  Let me know if this time doesn\u2019t work.\r\n\r\n\r\n\r\n\r\n\r\nChanging the invite as I think Copilot/Facilitator was corrupted and just easier to start over.\r\n\r\nLooks like this time will probably w",
       "importance": "normal",
       "showAs": "tentative",
       "isAllDay": false,
@@ -3625,7 +2681,64 @@
         "Tracked To Dynamics 365"
       ],
       "calendarName": null,
-      "offset": 48
+      "offset": 33
+    },
+    {
+      "uri": "calendar:///events/AAkALgAAAAAAHYQDEapmEc2byACqAC-EWg0AQLXevGim4U2p4eFGy5JALwAPtcioaQAA",
+      "id": "AAkALgAAAAAAHYQDEapmEc2byACqAC-EWg0AQLXevGim4U2p4eFGy5JALwAPtcioaQAA",
+      "subject": "Family: Where Mental Health Begins, with Psychologist Camila Alba from Terapify | Come Together English Virtual Talk  ",
+      "organizer": "sandy.hermosillo@improving.com",
+      "organizerName": "Sandy Hermosillo",
+      "attendees": [
+        "sandy.hermosillo@improving.com",
+        "camila.alba1991@gmail.com",
+        "macarena@terapify.com",
+        "beatriz.penaloza@improving.com",
+        "sofia.plascencia@improving.com",
+        "AllImprovers@improving.com"
+      ],
+      "namedAttendees": [
+        {
+          "name": "Sandy Hermosillo",
+          "address": "sandy.hermosillo@improving.com"
+        },
+        {
+          "name": "Macarena Jimenez Estefan",
+          "address": "macarena@terapify.com"
+        },
+        {
+          "name": "Beatriz Penaloza",
+          "address": "beatriz.penaloza@improving.com"
+        },
+        {
+          "name": "Sofia Plascencia",
+          "address": "sofia.plascencia@improving.com"
+        },
+        {
+          "name": "AllImprovers",
+          "address": "AllImprovers@improving.com"
+        }
+      ],
+      "start": {
+        "dateTime": "2026-11-05T12:00:00.0000000",
+        "timeZone": "Central Standard Time"
+      },
+      "end": {
+        "dateTime": "2026-11-05T13:00:00.0000000",
+        "timeZone": "Central Standard Time"
+      },
+      "location": "Microsoft Teams Meeting",
+      "summary": "Join Psychologist Camila Alba from Terapify as we explore how family relationships shape our mental health and emotional well-being. Discover the importance of communication, emotional support, and healthy connections in creating a positive environment wh",
+      "importance": "normal",
+      "showAs": "tentative",
+      "isAllDay": false,
+      "isCancelled": false,
+      "isOrganizer": false,
+      "recurrence": null,
+      "webLink": "https://outlook.office365.com/owa/?itemid=AAkALgAAAAAAHYQDEapmEc2byACqAC%2FEWg0AQLXevGim4U2p4eFGy5JALwAPtcioaQAA&exvsurl=1&path=/calendar/item",
+      "categories": null,
+      "calendarName": null,
+      "offset": 34
     },
     {
       "uri": "calendar:///events/AAkBOQAICN86z7wzAAAuAAAAAB2EAxGqZhHNm8gAqgAvxFoNAEC13rxopuFNqeHhRsuSQC8ACCPyl_QAABA%3D",
@@ -3661,7 +2774,7 @@
       "webLink": "https://outlook.office365.com/owa/?itemid=AAkBOQAICN86z7wzAAAuAAAAAB2EAxGqZhHNm8gAqgAvxFoNAEC13rxopuFNqeHhRsuSQC8ACCPyl%2BQAABA%3D&exvsurl=1&path=/calendar/item",
       "categories": null,
       "calendarName": null,
-      "offset": 49
+      "offset": 35
     },
     {
       "uri": "calendar:///events/AAkBOQAICN86z7wzAAAuAAAAAB2EAxGqZhHNm8gAqgAvxFoNAEC13rxopuFNqeHhRsuSQC8ABvaZ4PoAABA%3D",
@@ -3891,7 +3004,7 @@
         },
         {
           "name": "Keith Egner",
-          "address": "Keith.Egner@Improving.com"
+          "address": "Keith.Egner@improving.com"
         },
         {
           "name": "Robyn Fuentes",
@@ -3987,7 +3100,7 @@
         "timeZone": "Central Standard Time"
       },
       "location": null,
-      "summary": "Please accept this monthly calendar reminder to submit all credit card reporting before the end of the day – on the 5th calendar day of each month.\r\n\r\nApprovals are due on the 6th calendar day of each month.\r\n\r\nThis calendar invite will replace the manual",
+      "summary": "Please accept this monthly calendar reminder to submit all credit card reporting before the end of the day \u2013 on the 5th calendar day of each month.\r\n\r\nApprovals are due on the 6th calendar day of each month.\r\n\r\nThis calendar invite will replace the manual",
       "importance": "normal",
       "showAs": "free",
       "isAllDay": false,
@@ -3997,7 +3110,7 @@
       "webLink": "https://outlook.office365.com/owa/?itemid=AAkBOQAICN86z7wzAAAuAAAAAB2EAxGqZhHNm8gAqgAvxFoNAEC13rxopuFNqeHhRsuSQC8ABvaZ4PoAABA%3D&exvsurl=1&path=/calendar/item",
       "categories": null,
       "calendarName": null,
-      "offset": 50
+      "offset": 36
     },
     {
       "uri": "calendar:///events/AAkALgAAAAAAHYQDEapmEc2byACqAC-EWg0AQLXevGim4U2p4eFGy5JALwAO6WosVAAA",
@@ -4026,7 +3139,1522 @@
       "webLink": "https://outlook.office365.com/owa/?itemid=AAkALgAAAAAAHYQDEapmEc2byACqAC%2FEWg0AQLXevGim4U2p4eFGy5JALwAO6WosVAAA&exvsurl=1&path=/calendar/item",
       "categories": null,
       "calendarName": null,
-      "offset": 51
+      "offset": 37
+    },
+    {
+      "uri": "calendar:///events/AAkALgAAAAAAHYQDEapmEc2byACqAC-EWg0AQLXevGim4U2p4eFGy5JALwAPJC7rbgAA",
+      "id": "AAkALgAAAAAAHYQDEapmEc2byACqAC-EWg0AQLXevGim4U2p4eFGy5JALwAPJC7rbgAA",
+      "subject": "Eric - PTO",
+      "organizer": "eric.sowell@improving.com",
+      "organizerName": "Eric Sowell",
+      "attendees": [
+        "eric.sowell@improving.com",
+        "TexasLeaders@improving.com",
+        "ralph.nicosia@improving.com",
+        "Kevin.Baker@Improving.com",
+        "David.Schwartz@improving.com",
+        "Tonya.Guadiz@Improving.com",
+        "Tim.Rayburn@Improving.com",
+        "Blake.McMillan@Improving.com",
+        "Don.McGreal@Improving.com"
+      ],
+      "namedAttendees": [
+        {
+          "name": "Eric Sowell",
+          "address": "eric.sowell@improving.com"
+        },
+        {
+          "name": "Texas Leaders",
+          "address": "TexasLeaders@improving.com"
+        },
+        {
+          "name": "Ralph Nicosia",
+          "address": "ralph.nicosia@improving.com"
+        },
+        {
+          "name": "Kevin Baker",
+          "address": "Kevin.Baker@Improving.com"
+        },
+        {
+          "name": "David Schwartz",
+          "address": "David.Schwartz@improving.com"
+        },
+        {
+          "name": "Tonya Guadiz",
+          "address": "Tonya.Guadiz@Improving.com"
+        },
+        {
+          "name": "Tim Rayburn",
+          "address": "Tim.Rayburn@Improving.com"
+        },
+        {
+          "name": "Blake McMillan",
+          "address": "Blake.McMillan@Improving.com"
+        },
+        {
+          "name": "Don McGreal",
+          "address": "Don.McGreal@Improving.com"
+        }
+      ],
+      "start": {
+        "dateTime": "2026-11-06T00:00:00.0000000",
+        "timeZone": "Central Standard Time"
+      },
+      "end": {
+        "dateTime": "2026-11-07T00:00:00.0000000",
+        "timeZone": "Central Standard Time"
+      },
+      "location": null,
+      "summary": null,
+      "importance": "normal",
+      "showAs": "free",
+      "isAllDay": true,
+      "isCancelled": false,
+      "isOrganizer": false,
+      "recurrence": null,
+      "webLink": "https://outlook.office365.com/owa/?itemid=AAkALgAAAAAAHYQDEapmEc2byACqAC%2FEWg0AQLXevGim4U2p4eFGy5JALwAPJC7rbgAA&exvsurl=1&path=/calendar/item",
+      "categories": null,
+      "calendarName": null,
+      "offset": 38
+    },
+    {
+      "uri": "calendar:///events/AAkBOQAICN87mOacwAAuAAAAAB2EAxGqZhHNm8gAqgAvxFoNAEC13rxopuFNqeHhRsuSQC8ADtR7JPgAABA%3D",
+      "id": "AAkBOQAICN87mOacwAAuAAAAAB2EAxGqZhHNm8gAqgAvxFoNAEC13rxopuFNqeHhRsuSQC8ADtR7JPgAABA=",
+      "subject": "IGP Bible Study",
+      "organizer": "David.OHara@improving.com",
+      "organizerName": "David O'Hara",
+      "attendees": null,
+      "namedAttendees": null,
+      "start": {
+        "dateTime": "2026-11-06T06:30:00.0000000",
+        "timeZone": "Central Standard Time"
+      },
+      "end": {
+        "dateTime": "2026-11-06T07:30:00.0000000",
+        "timeZone": "Central Standard Time"
+      },
+      "location": "Integrity Golf Performance\n6363 Dallas Pkwy, Unit 115, Frisco, TX  75034, United States",
+      "summary": null,
+      "importance": "normal",
+      "showAs": "busy",
+      "isAllDay": false,
+      "isCancelled": false,
+      "isOrganizer": true,
+      "recurrence": null,
+      "webLink": "https://outlook.office365.com/owa/?itemid=AAkBOQAICN87mOacwAAuAAAAAB2EAxGqZhHNm8gAqgAvxFoNAEC13rxopuFNqeHhRsuSQC8ADtR7JPgAABA%3D&exvsurl=1&path=/calendar/item",
+      "categories": null,
+      "calendarName": null,
+      "offset": 39
+    },
+    {
+      "uri": "calendar:///events/AAkALgAAAAAAHYQDEapmEc2byACqAC-EWg0AQLXevGim4U2p4eFGy5JALwAPewyUxgAA",
+      "id": "AAkALgAAAAAAHYQDEapmEc2byACqAC-EWg0AQLXevGim4U2p4eFGy5JALwAPewyUxgAA",
+      "subject": "AI Leadership Summit (Day 2)",
+      "organizer": "Tim.Rayburn@Improving.com",
+      "organizerName": "Tim Rayburn",
+      "attendees": [
+        "Tim.Rayburn@Improving.com",
+        "Curtis.Hite@Improving.com",
+        "Vishal.Biyani@improving.com",
+        "torey.lomenda@improving.com",
+        "john.ruzick@improving.com",
+        "gerardo.hernandez@improving.com",
+        "eric.siebeneich@improving.com",
+        "rob.ulaszek@improving.com",
+        "luis.guzman@improving.com",
+        "gregg.flagg@improving.com",
+        "Blake.McMillan@Improving.com",
+        "David.OHara@improving.com",
+        "Devlin.Liles@Improving.com",
+        "Bill.Curry@improving.com",
+        "daniel.scheufler@improving.com",
+        "michael.slater@improving.com",
+        "michael.ell@improving.com",
+        "Keylor.Arroyo@improving.com",
+        "Justin.Butterfield@improving.com"
+      ],
+      "namedAttendees": [
+        {
+          "name": "Tim Rayburn",
+          "address": "Tim.Rayburn@Improving.com"
+        },
+        {
+          "name": "Curtis Hite",
+          "address": "Curtis.Hite@Improving.com"
+        },
+        {
+          "name": "Vishal Biyani",
+          "address": "Vishal.Biyani@improving.com"
+        },
+        {
+          "name": "Torey Lomenda",
+          "address": "torey.lomenda@improving.com"
+        },
+        {
+          "name": "John Ruzick",
+          "address": "john.ruzick@improving.com"
+        },
+        {
+          "name": "Luis Gerardo Hernandez",
+          "address": "gerardo.hernandez@improving.com"
+        },
+        {
+          "name": "Eric Siebeneich",
+          "address": "eric.siebeneich@improving.com"
+        },
+        {
+          "name": "Rob Ulaszek",
+          "address": "rob.ulaszek@improving.com"
+        },
+        {
+          "name": "Luis Guzm\u00e1n",
+          "address": "luis.guzman@improving.com"
+        },
+        {
+          "name": "Gregg Flagg",
+          "address": "gregg.flagg@improving.com"
+        },
+        {
+          "name": "Blake McMillan",
+          "address": "Blake.McMillan@Improving.com"
+        },
+        {
+          "name": "David O'Hara",
+          "address": "David.OHara@improving.com"
+        },
+        {
+          "name": "Devlin Liles",
+          "address": "Devlin.Liles@Improving.com"
+        },
+        {
+          "name": "Bill Curry",
+          "address": "Bill.Curry@improving.com"
+        },
+        {
+          "name": "Daniel Scheufler",
+          "address": "daniel.scheufler@improving.com"
+        },
+        {
+          "name": "Michael Slater",
+          "address": "michael.slater@improving.com"
+        },
+        {
+          "name": "Michael Ell",
+          "address": "michael.ell@improving.com"
+        },
+        {
+          "name": "Keylor Arroyo Villegas",
+          "address": "Keylor.Arroyo@improving.com"
+        },
+        {
+          "name": "Justin Butterfield",
+          "address": "Justin.Butterfield@improving.com"
+        }
+      ],
+      "start": {
+        "dateTime": "2026-11-06T08:00:00.0000000",
+        "timeZone": "Central Standard Time"
+      },
+      "end": {
+        "dateTime": "2026-11-06T16:00:00.0000000",
+        "timeZone": "Central Standard Time"
+      },
+      "location": "Microsoft Teams Meeting",
+      "summary": "________________________________________________________________________________\r\nMicrosoft Teams meeting\r\nJoin: https://teams.microsoft.com/meet/2740908075474781?p=SDDBVQnveDjHime8p5\r\nMeeting ID: 274 090 807 547 478 1\r\nPasscode: oV2kg9LF\r\n_____________",
+      "importance": "normal",
+      "showAs": "busy",
+      "isAllDay": false,
+      "isCancelled": false,
+      "isOrganizer": false,
+      "recurrence": null,
+      "webLink": "https://outlook.office365.com/owa/?itemid=AAkALgAAAAAAHYQDEapmEc2byACqAC%2FEWg0AQLXevGim4U2p4eFGy5JALwAPewyUxgAA&exvsurl=1&path=/calendar/item",
+      "categories": [
+        "Tracked To Dynamics 365"
+      ],
+      "calendarName": null,
+      "offset": 40
+    },
+    {
+      "uri": "calendar:///events/AAkBOQAICN87mOacwAAuAAAAAB2EAxGqZhHNm8gAqgAvxFoNAEC13rxopuFNqeHhRsuSQC8AB-JnYjUAABA%3D",
+      "id": "AAkBOQAICN87mOacwAAuAAAAAB2EAxGqZhHNm8gAqgAvxFoNAEC13rxopuFNqeHhRsuSQC8AB-JnYjUAABA=",
+      "subject": "Dallas Virtual Coffee Chat",
+      "organizer": "Anthony.Marrical@Improving.com",
+      "organizerName": "Bud Marrical",
+      "attendees": [
+        "Anthony.Marrical@Improving.com",
+        "vaughn.jackson@improving.com",
+        "Enterprise-Dallas@improving.com",
+        "nathan.mynarcik@improving.com",
+        "jake.stevens@improving.com",
+        "Richard.Gyger@improving.com",
+        "Craig.Neuwirt@Improving.com",
+        "tanner.morris@improving.com",
+        "Blake.McMillan@improving.com",
+        "joshua.fryer@improving.com",
+        "hugh.obrien@improving.com",
+        "Ralph.Nicosia@improving.com",
+        "Tim.Rayburn@Improving.com",
+        "Brian.Mackey@improving.com",
+        "Matthew.McMaster@improving.com",
+        "david.hardin@improving.com",
+        "Steve.Carse@improving.com",
+        "eric.sowell@improving.com",
+        "Mark.Cooke@improving.com",
+        "tim.dickey@improving.com",
+        "Ed.Grannan@Improving.com",
+        "Shelby.Stephens@improving.com",
+        "jennifer.spaulding@improving.com",
+        "Kevin.Baker@improving.com",
+        "David.Schwartz@improving.com",
+        "Harold.Pulcher@Improving.com",
+        "kris.mcginnes@Improving.com",
+        "Ric.DeAnda@Improving.com",
+        "casey.holland@improving.com",
+        "Marcos.Lopez@improving.com",
+        "eric.young@improving.com",
+        "Cozetta.Owens@Improving.com",
+        "david.nelson@improving.com",
+        "Don.McGreal@improving.com",
+        "Amber.Leese@improving.com",
+        "Dawn.Dearstone@improving.com",
+        "Scooter.Mebarek@improving.com",
+        "Ken.Howard@Improving.com",
+        "stephen.hunt@improving.com",
+        "roderic.patane@improving.com",
+        "Ken.Byrd@Improving.com",
+        "Curtis.Hite@Improving.com",
+        "rene.larrave@improving.com",
+        "Tony.Brown@Improving.com",
+        "ashlyn.udden@improving.com",
+        "josh.rizzo@improving.com",
+        "mason.steeger@improving.com",
+        "thomas.distefano@improving.com",
+        "peter.karaganis@improving.com",
+        "bennett.valentine@improving.com",
+        "josue.aguilar@improving.com",
+        "memis.cetinkaya@improving.com",
+        "james.lovell@improving.com",
+        "David.Vibbert@Improving.com",
+        "martin.capeletto@improving.com",
+        "Amber.Robinson@improving.com",
+        "Michael.Wallace@Improving.com",
+        "ashok.Iyengar@improving.com",
+        "/o=ExchangeLabs/ou=Exchange Administrative Group (FYDIBOHF23SPDLT)/cn=Recipients/cn=548cb77bcf4f45d5b73c915251b7bfcd-Ben.Kennedy",
+        "Steven.Leija@Improving.com",
+        "suman.mallapu@improving.com",
+        "alice.mburu@improving.com",
+        "David.O'Hara@improving.com",
+        "Bethany.Hilton@Improving.com"
+      ],
+      "namedAttendees": [
+        {
+          "name": "Bud Marrical",
+          "address": "Anthony.Marrical@Improving.com"
+        },
+        {
+          "name": "Vaughn Jackson",
+          "address": "vaughn.jackson@improving.com"
+        },
+        {
+          "name": "Enterprise - Dallas",
+          "address": "Enterprise-Dallas@improving.com"
+        },
+        {
+          "name": "Nathan Mynarcik",
+          "address": "nathan.mynarcik@improving.com"
+        },
+        {
+          "name": "Jake Stevens",
+          "address": "jake.stevens@improving.com"
+        },
+        {
+          "name": "Richard Gyger",
+          "address": "Richard.Gyger@improving.com"
+        },
+        {
+          "name": "Craig Neuwirt",
+          "address": "Craig.Neuwirt@Improving.com"
+        },
+        {
+          "name": "Tanner Morris",
+          "address": "tanner.morris@improving.com"
+        },
+        {
+          "name": "Blake McMillan",
+          "address": "Blake.McMillan@improving.com"
+        },
+        {
+          "name": "Josh Fryer",
+          "address": "joshua.fryer@improving.com"
+        },
+        {
+          "name": "Hugh O'Brien",
+          "address": "hugh.obrien@improving.com"
+        },
+        {
+          "name": "Ralph Nicosia",
+          "address": "Ralph.Nicosia@improving.com"
+        },
+        {
+          "name": "Tim Rayburn",
+          "address": "Tim.Rayburn@Improving.com"
+        },
+        {
+          "name": "Brian Mackey",
+          "address": "Brian.Mackey@improving.com"
+        },
+        {
+          "name": "Matthew McMaster",
+          "address": "Matthew.McMaster@improving.com"
+        },
+        {
+          "name": "David Hardin",
+          "address": "david.hardin@improving.com"
+        },
+        {
+          "name": "Steve Carse",
+          "address": "Steve.Carse@improving.com"
+        },
+        {
+          "name": "Eric Sowell",
+          "address": "eric.sowell@improving.com"
+        },
+        {
+          "name": "Mark Cooke",
+          "address": "Mark.Cooke@improving.com"
+        },
+        {
+          "name": "Tim Dickey",
+          "address": "tim.dickey@improving.com"
+        },
+        {
+          "name": "Ed Grannan",
+          "address": "Ed.Grannan@Improving.com"
+        },
+        {
+          "name": "Shelby Stephens",
+          "address": "Shelby.Stephens@improving.com"
+        },
+        {
+          "name": "Jennifer Spaulding",
+          "address": "jennifer.spaulding@improving.com"
+        },
+        {
+          "name": "Kevin Baker",
+          "address": "Kevin.Baker@improving.com"
+        },
+        {
+          "name": "David Schwartz",
+          "address": "David.Schwartz@improving.com"
+        },
+        {
+          "name": "Harold Pulcher",
+          "address": "Harold.Pulcher@Improving.com"
+        },
+        {
+          "name": "Kris McGinnes",
+          "address": "kris.mcginnes@Improving.com"
+        },
+        {
+          "name": "Ric DeAnda",
+          "address": "Ric.DeAnda@Improving.com"
+        },
+        {
+          "name": "Casey Holland",
+          "address": "casey.holland@improving.com"
+        },
+        {
+          "name": "Marcos Lopez-Rivera",
+          "address": "Marcos.Lopez@improving.com"
+        },
+        {
+          "name": "Eric Young",
+          "address": "eric.young@improving.com"
+        },
+        {
+          "name": "Cozetta Owens",
+          "address": "Cozetta.Owens@Improving.com"
+        },
+        {
+          "name": "David Nelson",
+          "address": "david.nelson@improving.com"
+        },
+        {
+          "name": "Don McGreal",
+          "address": "Don.McGreal@improving.com"
+        },
+        {
+          "name": "Amber Leese",
+          "address": "Amber.Leese@improving.com"
+        },
+        {
+          "name": "Dawn Dearstone",
+          "address": "Dawn.Dearstone@improving.com"
+        },
+        {
+          "name": "Scooter Mebarek",
+          "address": "Scooter.Mebarek@improving.com"
+        },
+        {
+          "name": "Ken Howard",
+          "address": "Ken.Howard@Improving.com"
+        },
+        {
+          "name": "Stephen Hunt",
+          "address": "stephen.hunt@improving.com"
+        },
+        {
+          "name": "Roderic Patane",
+          "address": "roderic.patane@improving.com"
+        },
+        {
+          "name": "Ken Byrd",
+          "address": "Ken.Byrd@Improving.com"
+        },
+        {
+          "name": "Curtis Hite",
+          "address": "Curtis.Hite@Improving.com"
+        },
+        {
+          "name": "Ren\u00e9 Larrave",
+          "address": "rene.larrave@improving.com"
+        },
+        {
+          "name": "Tony Brown",
+          "address": "Tony.Brown@Improving.com"
+        },
+        {
+          "name": "Ashlyn Udden",
+          "address": "ashlyn.udden@improving.com"
+        },
+        {
+          "name": "Josh Rizzo",
+          "address": "josh.rizzo@improving.com"
+        },
+        {
+          "name": "Mason Steeger",
+          "address": "mason.steeger@improving.com"
+        },
+        {
+          "name": "Thomas Distefano",
+          "address": "thomas.distefano@improving.com"
+        },
+        {
+          "name": "Peter Karaganis",
+          "address": "peter.karaganis@improving.com"
+        },
+        {
+          "name": "Bennett Valentine",
+          "address": "bennett.valentine@improving.com"
+        },
+        {
+          "name": "Josue Aguilar",
+          "address": "josue.aguilar@improving.com"
+        },
+        {
+          "name": "Memis Cetinkaya",
+          "address": "memis.cetinkaya@improving.com"
+        },
+        {
+          "name": "James Lovell",
+          "address": "james.lovell@improving.com"
+        },
+        {
+          "name": "David Vibbert",
+          "address": "David.Vibbert@Improving.com"
+        },
+        {
+          "name": "Martin Capeletto",
+          "address": "martin.capeletto@improving.com"
+        },
+        {
+          "name": "Amber Robinson",
+          "address": "Amber.Robinson@improving.com"
+        },
+        {
+          "name": "Michael Wallace",
+          "address": "Michael.Wallace@Improving.com"
+        },
+        {
+          "name": "Ashok Iyengar",
+          "address": "ashok.Iyengar@improving.com"
+        },
+        {
+          "name": "Ben Kennedy",
+          "address": "/o=ExchangeLabs/ou=Exchange Administrative Group (FYDIBOHF23SPDLT)/cn=Recipients/cn=548cb77bcf4f45d5b73c915251b7bfcd-Ben.Kennedy"
+        },
+        {
+          "name": "Steven Leija",
+          "address": "Steven.Leija@Improving.com"
+        },
+        {
+          "name": "Suman Mallapu",
+          "address": "suman.mallapu@improving.com"
+        },
+        {
+          "name": "Alice Mburu",
+          "address": "alice.mburu@improving.com"
+        },
+        {
+          "name": "David O'Hara",
+          "address": "David.O'Hara@improving.com"
+        },
+        {
+          "name": "Bethany Hilton",
+          "address": "Bethany.Hilton@Improving.com"
+        }
+      ],
+      "start": {
+        "dateTime": "2026-11-06T08:00:00.0000000",
+        "timeZone": "Central Standard Time"
+      },
+      "end": {
+        "dateTime": "2026-11-06T09:00:00.0000000",
+        "timeZone": "Central Standard Time"
+      },
+      "location": "Microsoft Teams Meeting",
+      "summary": "Fall Into Friday Virtual Coffee Talks! \u2615\ud83c\udf41\r\n\r\n\r\n\r\nHello Everyone,\r\n\r\n\r\n\r\nAs we settle into November and embrace the crisp autumn air, we\u2019re thrilled to continue our Friday Virtual Coffee Talks through the fall season! \ud83c\udf41 Grab your favorite warm drink and ",
+      "importance": "normal",
+      "showAs": "tentative",
+      "isAllDay": false,
+      "isCancelled": false,
+      "isOrganizer": false,
+      "recurrence": null,
+      "webLink": "https://outlook.office365.com/owa/?itemid=AAkBOQAICN87mOacwAAuAAAAAB2EAxGqZhHNm8gAqgAvxFoNAEC13rxopuFNqeHhRsuSQC8AB%2FJnYjUAABA%3D&exvsurl=1&path=/calendar/item",
+      "categories": null,
+      "calendarName": null,
+      "offset": 41
+    },
+    {
+      "uri": "calendar:///events/AAkBOQAICN87mOacwAAuAAAAAB2EAxGqZhHNm8gAqgAvxFoNAEC13rxopuFNqeHhRsuSQC8ACCB4Y10AABA%3D",
+      "id": "AAkBOQAICN87mOacwAAuAAAAAB2EAxGqZhHNm8gAqgAvxFoNAEC13rxopuFNqeHhRsuSQC8ACCB4Y10AABA=",
+      "subject": "Sales & Recruiting Meeting",
+      "organizer": "DallasSales@improving.com",
+      "organizerName": "Dallas Sales",
+      "attendees": [
+        "DallasSales@improving.com",
+        "Bryan.Crawford@improving.com",
+        "Don.McGreal@Improving.com",
+        "Dallas-LonghornCavern@improving.com",
+        "Kevin.Baker@Improving.com",
+        "Gabriela.Garza-Ramos@Improving.com",
+        "Diana.Stevens@Improving.com",
+        "mark.miesner@improving.com",
+        "Tim.Rayburn@Improving.com",
+        "jenn.massey@improving.com",
+        "derek.nwamadi@improving.com",
+        "roderic.patane@improving.com",
+        "Steve.Pfiffner@Improving.com",
+        "David.Belcher@Improving.com",
+        "David.O'Hara@improving.com",
+        "Blake.McMillan@Improving.com",
+        "brielle.dave-turner@improving.com"
+      ],
+      "namedAttendees": [
+        {
+          "name": "Dallas Sales",
+          "address": "DallasSales@improving.com"
+        },
+        {
+          "name": "Bryan Crawford",
+          "address": "Bryan.Crawford@improving.com"
+        },
+        {
+          "name": "Don McGreal",
+          "address": "Don.McGreal@Improving.com"
+        },
+        {
+          "name": "Dallas - Longhorn Cavern",
+          "address": "Dallas-LonghornCavern@improving.com"
+        },
+        {
+          "name": "Kevin Baker",
+          "address": "Kevin.Baker@Improving.com"
+        },
+        {
+          "name": "Gabriela Garza-Ramos",
+          "address": "Gabriela.Garza-Ramos@Improving.com"
+        },
+        {
+          "name": "Diana Stevens",
+          "address": "Diana.Stevens@Improving.com"
+        },
+        {
+          "name": "Mark Miesner",
+          "address": "mark.miesner@improving.com"
+        },
+        {
+          "name": "Tim Rayburn",
+          "address": "Tim.Rayburn@Improving.com"
+        },
+        {
+          "name": "Jenn Massey",
+          "address": "jenn.massey@improving.com"
+        },
+        {
+          "name": "Derek Nwamadi",
+          "address": "derek.nwamadi@improving.com"
+        },
+        {
+          "name": "Roderic Patane",
+          "address": "roderic.patane@improving.com"
+        },
+        {
+          "name": "Steve Pfiffner",
+          "address": "Steve.Pfiffner@Improving.com"
+        },
+        {
+          "name": "David Belcher",
+          "address": "David.Belcher@Improving.com"
+        },
+        {
+          "name": "David O'Hara",
+          "address": "David.O'Hara@improving.com"
+        },
+        {
+          "name": "Blake McMillan",
+          "address": "Blake.McMillan@Improving.com"
+        },
+        {
+          "name": "Brielle Dave-Turner",
+          "address": "brielle.dave-turner@improving.com"
+        }
+      ],
+      "start": {
+        "dateTime": "2026-11-06T09:15:00.0000000",
+        "timeZone": "Central Standard Time"
+      },
+      "end": {
+        "dateTime": "2026-11-06T09:30:00.0000000",
+        "timeZone": "Central Standard Time"
+      },
+      "location": "Microsoft Teams Meeting; Dallas - Longhorn Cavern",
+      "summary": "Agenda:\r\n\r\n\r\n\r\n1. Celebrate a WIN. Any win from any attendee.\r\n\r\n2. Each seller talk about a change to the board: New, Won, Moved, Lost, Changed.\r\n\r\n... and if they need Help from any of the other attendees. (e.g. interviews, strategy, artifacts)\r\n\r\n3. GR",
+      "importance": "normal",
+      "showAs": "tentative",
+      "isAllDay": false,
+      "isCancelled": false,
+      "isOrganizer": false,
+      "recurrence": null,
+      "webLink": "https://outlook.office365.com/owa/?itemid=AAkBOQAICN87mOacwAAuAAAAAB2EAxGqZhHNm8gAqgAvxFoNAEC13rxopuFNqeHhRsuSQC8ACCB4Y10AABA%3D&exvsurl=1&path=/calendar/item",
+      "categories": null,
+      "calendarName": null,
+      "offset": 42
+    },
+    {
+      "uri": "calendar:///events/AAkBOQAICN87mOacwAAuAAAAAB2EAxGqZhHNm8gAqgAvxFoNAEC13rxopuFNqeHhRsuSQC8ACO4OuN8AABA%3D",
+      "id": "AAkBOQAICN87mOacwAAuAAAAAB2EAxGqZhHNm8gAqgAvxFoNAEC13rxopuFNqeHhRsuSQC8ACO4OuN8AABA=",
+      "subject": "1st Friday Executive Meeting",
+      "organizer": "Mark.Kovacevich@Improving.com",
+      "organizerName": "Mark Kovacevich",
+      "attendees": [
+        "Mark.Kovacevich@Improving.com",
+        "executivemeeting@improving.com",
+        "Josh.Morris@improving.com",
+        "brendon.anderson@improving.com",
+        "James.Hopkins@improving.com",
+        "Claudio.Lassala@Improving.com",
+        "amy.widicus@improving.com",
+        "angharad.green@improving.com",
+        "stephen.johnson@improving.com",
+        "andy.haynssen@improving.com",
+        "Kyle.Thorburn@improving.com",
+        "alicia.buechler@improving.com",
+        "nick.larson@improving.com",
+        "scott.poulin@improving.com",
+        "Shervin.Joseph@improving.com",
+        "Kristin.Johnson@Improving.com",
+        "stephen.anderson@improving.com",
+        "jay.bailey@improving.com",
+        "michael.ell@improving.com",
+        "eric.sowell@improving.com",
+        "ed.grannan@improving.com",
+        "iago.rodriguez@improving.com",
+        "jennifer.spaulding@improving.com",
+        "david.sandoval@improving.com",
+        "brian.vandervoort@improving.com",
+        "lisa.lueck@improving.com",
+        "esther.macwilliam@improving.com",
+        "Darren.Kuik@improving.com",
+        "Ken.Chase@improving.com",
+        "Tonya.Guadiz@Improving.com",
+        "jenn.massey@improving.com",
+        "natalia.coutinho@improving.com",
+        "Robyn.Fuentes@Improving.com",
+        "john.glisson@improving.com",
+        "Tim.Rayburn@Improving.com",
+        "Michael.Matrick@improving.com",
+        "james.lovell@improving.com",
+        "cait.magee@improving.com",
+        "Nitin.Cunha@improving.com",
+        "Christina.Liles@Improving.com",
+        "Jeff.Armstrong@improving.com",
+        "Shane.Fatzinger@improving.com",
+        "Evan.Bosscher@improving.com",
+        "Tal.Phillips@improving.com",
+        "miguel.deleon@improving.com",
+        "lyle.rousselle@improving.com",
+        "josh.barbieri@improving.com",
+        "Ric.DeAnda@Improving.com",
+        "jay.brettingen@improving.com",
+        "matthew.vanzante@improving.com",
+        "eric.foster-johnson@improving.com",
+        "Patrick.Emmons@improving.com",
+        "Natalie.Lopez@improving.com",
+        "Sara.Jop@improving.com",
+        "jorge.pliego@improving.com",
+        "Craig.Stuntz@Improving.com",
+        "rene.larrave@improving.com",
+        "michael.slater@improving.com",
+        "steve.banks@improving.com",
+        "shelley.lockhart@improving.com",
+        "paul.forbing@improving.com",
+        "Rod.Giesbrecht@improving.com",
+        "Dawn.Dearstone@Improving.com",
+        "preston.mesarvey@improving.com",
+        "Susan.Fojtasek@Improving.com",
+        "Lyn.Barrett@improving.com",
+        "Amber.Robinson@improving.com",
+        "Sunelle.Pink@improving.com",
+        "Christopher.Lee@improving.com",
+        "Jacquie.Bickel@Improving.com",
+        "kevin.jourdain@improving.com",
+        "paloma.olivera@improving.com",
+        "Bethany.Hilton@Improving.com",
+        "David.Belcher@Improving.com",
+        "scott.bock@improving.com",
+        "Justin.Butterfield@improving.com",
+        "maryna.boryshkevych@improving.com",
+        "Chris.Steele@Improving.com",
+        "Gabriela.Garza-Ramos@Improving.com",
+        "neil.derraugh@improving.com",
+        "esteban.cortes@improving.com",
+        "Kyle.Porter@improving.com",
+        "martin.capeletto@improving.com",
+        "kevin.bosak@improving.com",
+        "scott.mcmichael@improving.com",
+        "Scooter.Mebarek@improving.com",
+        "clara.sponitz@improving.com",
+        "Jesse.Dyck@improving.com",
+        "Sean.Antonello@improving.com",
+        "Yang.Cao@improving.com",
+        "ralph.keipert@improving.com",
+        "Anurag.Kumar@improving.com",
+        "david.sidwell@improving.com",
+        "sergey.vershinin@improving.com",
+        "Richard.Fox@improving.com",
+        "toren.huntley@improving.com",
+        "David.Schwartz@improving.com",
+        "Lowell.Messner@improving.com",
+        "Blake.McMillan@Improving.com",
+        "Don.McGreal@Improving.com",
+        "sandy.hermosillo@improving.com",
+        "jeremy.edmondson@improving.com",
+        "russell.maloney@improving.com",
+        "Mike.Diehl@improving.com",
+        "scott.greenlay@improving.com",
+        "Ben.Kennedy@Improving.com",
+        "Richard.Kang@Improving.com",
+        "matt.russell@improving.com",
+        "kimberly.roberts@improving.com",
+        "Cory.Hascal@improving.com",
+        "rodrigo.pineda@improving.com",
+        "andres.delacerda@improving.com",
+        "Guillermo.Ortega@improving.com",
+        "mike.peckenschneider@improving.com",
+        "ehren.seim@improving.com",
+        "Kazim.Mir@improving.com",
+        "marisol.sanchez@improving.com",
+        "luke.mcgrath@improving.com",
+        "Bill.Curry@improving.com",
+        "matt.nihiser@improving.com",
+        "Matthew.Hsu@improving.com",
+        "arseny.kostenko@improving.com",
+        "Ross.Dutkiewicz@improving.com",
+        "mykola.pereyma@improving.com",
+        "wilson.carvalho@improving.com",
+        "diana.corigliano@improving.com",
+        "Keylor.Arroyo@improving.com",
+        "Laura.Paniagua@improving.com",
+        "Ray.Lum@improving.com",
+        "Anju.Yadav@improving.com",
+        "peter.karaganis@improving.com",
+        "mariela.quijano@improving.com",
+        "Devlin.Liles@Improving.com",
+        "ashok.Iyengar@improving.com",
+        "mei.jiang@improving.com",
+        "sergio.fermanelli@improving.com",
+        "andy.connor@improving.com",
+        "sofia.chiodi@improving.com",
+        "gerardo.hernandez@improving.com",
+        "Jason.W.Taylor@improving.com",
+        "amit.chhabra@improving.com",
+        "Chetan.Deshmukh@improving.com",
+        "jay.alexander@improving.com",
+        "rob.ulaszek@improving.com",
+        "Asrai.Porter@improving.com",
+        "Kevin.Baker@Improving.com",
+        "victoria.ochoa@improving.com",
+        "fernanda.rodriguez@improving.com",
+        "manolo.guerrero@improving.com",
+        "Curtis.Hite@Improving.com",
+        "Ken.Howard@Improving.com"
+      ],
+      "namedAttendees": [
+        {
+          "name": "Mark Kovacevich",
+          "address": "Mark.Kovacevich@Improving.com"
+        },
+        {
+          "name": "Friday Executive Meetings",
+          "address": "executivemeeting@improving.com"
+        },
+        {
+          "name": "Josh Morris",
+          "address": "Josh.Morris@improving.com"
+        },
+        {
+          "name": "Brendon Anderson",
+          "address": "brendon.anderson@improving.com"
+        },
+        {
+          "name": "James Hopkins",
+          "address": "James.Hopkins@improving.com"
+        },
+        {
+          "name": "Claudio Lassala",
+          "address": "Claudio.Lassala@Improving.com"
+        },
+        {
+          "name": "Amy Widicus",
+          "address": "amy.widicus@improving.com"
+        },
+        {
+          "name": "Angharad Green",
+          "address": "angharad.green@improving.com"
+        },
+        {
+          "name": "Stephen Johnson",
+          "address": "stephen.johnson@improving.com"
+        },
+        {
+          "name": "Andy Haynssen",
+          "address": "andy.haynssen@improving.com"
+        },
+        {
+          "name": "Kyle Thorburn",
+          "address": "Kyle.Thorburn@improving.com"
+        },
+        {
+          "name": "Alicia Buechler",
+          "address": "alicia.buechler@improving.com"
+        },
+        {
+          "name": "Nick Larson",
+          "address": "nick.larson@improving.com"
+        },
+        {
+          "name": "Scott Poulin",
+          "address": "scott.poulin@improving.com"
+        },
+        {
+          "name": "Shervin Joseph",
+          "address": "Shervin.Joseph@improving.com"
+        },
+        {
+          "name": "Kristin Johnson",
+          "address": "Kristin.Johnson@Improving.com"
+        },
+        {
+          "name": "Stephen Anderson",
+          "address": "stephen.anderson@improving.com"
+        },
+        {
+          "name": "Jay Bailey",
+          "address": "jay.bailey@improving.com"
+        },
+        {
+          "name": "Michael Ell",
+          "address": "michael.ell@improving.com"
+        },
+        {
+          "name": "Eric Sowell",
+          "address": "eric.sowell@improving.com"
+        },
+        {
+          "name": "Ed Grannan",
+          "address": "ed.grannan@improving.com"
+        },
+        {
+          "name": "Iago Rodriguez",
+          "address": "iago.rodriguez@improving.com"
+        },
+        {
+          "name": "Jennifer Spaulding",
+          "address": "jennifer.spaulding@improving.com"
+        },
+        {
+          "name": "David Sandoval",
+          "address": "david.sandoval@improving.com"
+        },
+        {
+          "name": "Brian van der Voort",
+          "address": "brian.vandervoort@improving.com"
+        },
+        {
+          "name": "Lisa Lueck",
+          "address": "lisa.lueck@improving.com"
+        },
+        {
+          "name": "Esther MacWilliam",
+          "address": "esther.macwilliam@improving.com"
+        },
+        {
+          "name": "Darren Kuik",
+          "address": "Darren.Kuik@improving.com"
+        },
+        {
+          "name": "Ken Chase",
+          "address": "Ken.Chase@improving.com"
+        },
+        {
+          "name": "Tonya Guadiz",
+          "address": "Tonya.Guadiz@Improving.com"
+        },
+        {
+          "name": "Jenn Massey",
+          "address": "jenn.massey@improving.com"
+        },
+        {
+          "name": "Natalia Coutinho",
+          "address": "natalia.coutinho@improving.com"
+        },
+        {
+          "name": "Robyn Fuentes",
+          "address": "Robyn.Fuentes@Improving.com"
+        },
+        {
+          "name": "John Glisson",
+          "address": "john.glisson@improving.com"
+        },
+        {
+          "name": "Tim Rayburn",
+          "address": "Tim.Rayburn@Improving.com"
+        },
+        {
+          "name": "Michael Matrick",
+          "address": "Michael.Matrick@improving.com"
+        },
+        {
+          "name": "James Lovell",
+          "address": "james.lovell@improving.com"
+        },
+        {
+          "name": "Cait Magee",
+          "address": "cait.magee@improving.com"
+        },
+        {
+          "name": "Nitin Cunha",
+          "address": "Nitin.Cunha@improving.com"
+        },
+        {
+          "name": "Christina Liles",
+          "address": "Christina.Liles@Improving.com"
+        },
+        {
+          "name": "Jeff Armstrong",
+          "address": "Jeff.Armstrong@improving.com"
+        },
+        {
+          "name": "Shane Fatzinger",
+          "address": "Shane.Fatzinger@improving.com"
+        },
+        {
+          "name": "Evan Bosscher",
+          "address": "Evan.Bosscher@improving.com"
+        },
+        {
+          "name": "Tal Phillips",
+          "address": "Tal.Phillips@improving.com"
+        },
+        {
+          "name": "Miguel de Le\u00f3n",
+          "address": "miguel.deleon@improving.com"
+        },
+        {
+          "name": "Lyle Rousselle",
+          "address": "lyle.rousselle@improving.com"
+        },
+        {
+          "name": "Josh Barbieri",
+          "address": "josh.barbieri@improving.com"
+        },
+        {
+          "name": "Ric DeAnda",
+          "address": "Ric.DeAnda@Improving.com"
+        },
+        {
+          "name": "Jay Brettingen",
+          "address": "jay.brettingen@improving.com"
+        },
+        {
+          "name": "Matthew Van Zante",
+          "address": "matthew.vanzante@improving.com"
+        },
+        {
+          "name": "Eric Foster Johnson",
+          "address": "eric.foster-johnson@improving.com"
+        },
+        {
+          "name": "Patrick Emmons",
+          "address": "Patrick.Emmons@improving.com"
+        },
+        {
+          "name": "Natalie Lopez",
+          "address": "Natalie.Lopez@improving.com"
+        },
+        {
+          "name": "Sara Jop Quintero",
+          "address": "Sara.Jop@improving.com"
+        },
+        {
+          "name": "Jorge Pliego",
+          "address": "jorge.pliego@improving.com"
+        },
+        {
+          "name": "Craig Stuntz",
+          "address": "Craig.Stuntz@Improving.com"
+        },
+        {
+          "name": "Ren\u00e9 Larrave",
+          "address": "rene.larrave@improving.com"
+        },
+        {
+          "name": "Michael Slater",
+          "address": "michael.slater@improving.com"
+        },
+        {
+          "name": "Steve Banks",
+          "address": "steve.banks@improving.com"
+        },
+        {
+          "name": "Shelley Lockhart",
+          "address": "shelley.lockhart@improving.com"
+        },
+        {
+          "name": "Paul Forbing",
+          "address": "paul.forbing@improving.com"
+        },
+        {
+          "name": "Rod Giesbrecht",
+          "address": "Rod.Giesbrecht@improving.com"
+        },
+        {
+          "name": "Dawn Dearstone",
+          "address": "Dawn.Dearstone@Improving.com"
+        },
+        {
+          "name": "Preston Mesarvey",
+          "address": "preston.mesarvey@improving.com"
+        },
+        {
+          "name": "Susan Fojtasek",
+          "address": "Susan.Fojtasek@Improving.com"
+        },
+        {
+          "name": "Lyn Barrett",
+          "address": "Lyn.Barrett@improving.com"
+        },
+        {
+          "name": "Amber Robinson",
+          "address": "Amber.Robinson@improving.com"
+        },
+        {
+          "name": "Sunelle Pink",
+          "address": "Sunelle.Pink@improving.com"
+        },
+        {
+          "name": "Christopher Lee",
+          "address": "Christopher.Lee@improving.com"
+        },
+        {
+          "name": "Jacquie Bickel",
+          "address": "Jacquie.Bickel@Improving.com"
+        },
+        {
+          "name": "Kevin Jourdain",
+          "address": "kevin.jourdain@improving.com"
+        },
+        {
+          "name": "Paloma Olivera",
+          "address": "paloma.olivera@improving.com"
+        },
+        {
+          "name": "Bethany Hilton",
+          "address": "Bethany.Hilton@Improving.com"
+        },
+        {
+          "name": "David Belcher",
+          "address": "David.Belcher@Improving.com"
+        },
+        {
+          "name": "Scott Bock",
+          "address": "scott.bock@improving.com"
+        },
+        {
+          "name": "Justin Butterfield",
+          "address": "Justin.Butterfield@improving.com"
+        },
+        {
+          "name": "Maryna Boryshkevych",
+          "address": "maryna.boryshkevych@improving.com"
+        },
+        {
+          "name": "Chris Steele",
+          "address": "Chris.Steele@Improving.com"
+        },
+        {
+          "name": "Gabriela Garza-Ramos",
+          "address": "Gabriela.Garza-Ramos@Improving.com"
+        },
+        {
+          "name": "Neil Derraugh",
+          "address": "neil.derraugh@improving.com"
+        },
+        {
+          "name": "Esteban Cortes",
+          "address": "esteban.cortes@improving.com"
+        },
+        {
+          "name": "Kyle Porter",
+          "address": "Kyle.Porter@improving.com"
+        },
+        {
+          "name": "Martin Capeletto",
+          "address": "martin.capeletto@improving.com"
+        },
+        {
+          "name": "Kevin Bosak",
+          "address": "kevin.bosak@improving.com"
+        },
+        {
+          "name": "Scott McMichael",
+          "address": "scott.mcmichael@improving.com"
+        },
+        {
+          "name": "Scooter Mebarek",
+          "address": "Scooter.Mebarek@improving.com"
+        },
+        {
+          "name": "Clara Sponitz",
+          "address": "clara.sponitz@improving.com"
+        },
+        {
+          "name": "Jesse Dyck",
+          "address": "Jesse.Dyck@improving.com"
+        },
+        {
+          "name": "Sean Antonello",
+          "address": "Sean.Antonello@improving.com"
+        },
+        {
+          "name": "Yang Cao",
+          "address": "Yang.Cao@improving.com"
+        },
+        {
+          "name": "Ralph Keipert",
+          "address": "ralph.keipert@improving.com"
+        },
+        {
+          "name": "Anurag Kumar",
+          "address": "Anurag.Kumar@improving.com"
+        },
+        {
+          "name": "David Sidwell",
+          "address": "david.sidwell@improving.com"
+        },
+        {
+          "name": "Sergey Vershinin",
+          "address": "sergey.vershinin@improving.com"
+        },
+        {
+          "name": "Richard Fox",
+          "address": "Richard.Fox@improving.com"
+        },
+        {
+          "name": "Toren Huntley",
+          "address": "toren.huntley@improving.com"
+        },
+        {
+          "name": "David Schwartz",
+          "address": "David.Schwartz@improving.com"
+        },
+        {
+          "name": "Lowell Messner",
+          "address": "Lowell.Messner@improving.com"
+        },
+        {
+          "name": "Blake McMillan",
+          "address": "Blake.McMillan@Improving.com"
+        },
+        {
+          "name": "Don McGreal",
+          "address": "Don.McGreal@Improving.com"
+        },
+        {
+          "name": "Sandy Hermosillo",
+          "address": "sandy.hermosillo@improving.com"
+        },
+        {
+          "name": "Jeremy Edmondson",
+          "address": "jeremy.edmondson@improving.com"
+        },
+        {
+          "name": "Russell Maloney",
+          "address": "russell.maloney@improving.com"
+        },
+        {
+          "name": "Mike Diehl",
+          "address": "Mike.Diehl@improving.com"
+        },
+        {
+          "name": "Scott Greenlay",
+          "address": "scott.greenlay@improving.com"
+        },
+        {
+          "name": "Ben Kennedy",
+          "address": "Ben.Kennedy@Improving.com"
+        },
+        {
+          "name": "Richard Kang",
+          "address": "Richard.Kang@Improving.com"
+        },
+        {
+          "name": "Matt Russell",
+          "address": "matt.russell@improving.com"
+        },
+        {
+          "name": "Kimberly Roberts",
+          "address": "kimberly.roberts@improving.com"
+        },
+        {
+          "name": "Cory Hascal",
+          "address": "Cory.Hascal@improving.com"
+        },
+        {
+          "name": "Rodrigo Pineda",
+          "address": "rodrigo.pineda@improving.com"
+        },
+        {
+          "name": "Andres De la Cerda",
+          "address": "andres.delacerda@improving.com"
+        },
+        {
+          "name": "Guillermo Ortega Simon",
+          "address": "Guillermo.Ortega@improving.com"
+        },
+        {
+          "name": "Mike Peckenschneider",
+          "address": "mike.peckenschneider@improving.com"
+        },
+        {
+          "name": "Ehren Seim",
+          "address": "ehren.seim@improving.com"
+        },
+        {
+          "name": "Kazim Mir",
+          "address": "Kazim.Mir@improving.com"
+        },
+        {
+          "name": "Marisol Sanchez",
+          "address": "marisol.sanchez@improving.com"
+        },
+        {
+          "name": "Luke McGrath",
+          "address": "luke.mcgrath@improving.com"
+        },
+        {
+          "name": "Bill Curry",
+          "address": "Bill.Curry@improving.com"
+        },
+        {
+          "name": "Matt Nihiser",
+          "address": "matt.nihiser@improving.com"
+        },
+        {
+          "name": "Matthew Hsu",
+          "address": "Matthew.Hsu@improving.com"
+        },
+        {
+          "name": "Arseny Kostenko",
+          "address": "arseny.kostenko@improving.com"
+        },
+        {
+          "name": "Ross Dutkiewicz",
+          "address": "Ross.Dutkiewicz@improving.com"
+        },
+        {
+          "name": "Mykola Pereyma",
+          "address": "mykola.pereyma@improving.com"
+        },
+        {
+          "name": "Wilson Carvalho",
+          "address": "wilson.carvalho@improving.com"
+        },
+        {
+          "name": "Diana Corigliano",
+          "address": "diana.corigliano@improving.com"
+        },
+        {
+          "name": "Keylor Arroyo Villegas",
+          "address": "Keylor.Arroyo@improving.com"
+        },
+        {
+          "name": "Laura Paniagua Villegas",
+          "address": "Laura.Paniagua@improving.com"
+        },
+        {
+          "name": "Ray Lum",
+          "address": "Ray.Lum@improving.com"
+        },
+        {
+          "name": "Anju Yadav",
+          "address": "Anju.Yadav@improving.com"
+        },
+        {
+          "name": "Peter Karaganis",
+          "address": "peter.karaganis@improving.com"
+        },
+        {
+          "name": "Mariela Ruedaquijano",
+          "address": "mariela.quijano@improving.com"
+        },
+        {
+          "name": "Devlin Liles",
+          "address": "Devlin.Liles@Improving.com"
+        },
+        {
+          "name": "Ashok Iyengar",
+          "address": "ashok.Iyengar@improving.com"
+        },
+        {
+          "name": "Mei Jiang",
+          "address": "mei.jiang@improving.com"
+        },
+        {
+          "name": "Sergio Fermanelli",
+          "address": "sergio.fermanelli@improving.com"
+        },
+        {
+          "name": "Andy Connor",
+          "address": "andy.connor@improving.com"
+        },
+        {
+          "name": "Sofia Chiodi",
+          "address": "sofia.chiodi@improving.com"
+        },
+        {
+          "name": "Luis Gerardo Hernandez",
+          "address": "gerardo.hernandez@improving.com"
+        },
+        {
+          "name": "Jason W. Taylor",
+          "address": "Jason.W.Taylor@improving.com"
+        },
+        {
+          "name": "Amit Chhabra",
+          "address": "amit.chhabra@improving.com"
+        },
+        {
+          "name": "Chetan Deshmukh",
+          "address": "Chetan.Deshmukh@improving.com"
+        },
+        {
+          "name": "Jay Alexander",
+          "address": "jay.alexander@improving.com"
+        },
+        {
+          "name": "Rob Ulaszek",
+          "address": "rob.ulaszek@improving.com"
+        },
+        {
+          "name": "Asrai Porter",
+          "address": "Asrai.Porter@improving.com"
+        },
+        {
+          "name": "Kevin Baker",
+          "address": "Kevin.Baker@Improving.com"
+        },
+        {
+          "name": "Victoria Ochoa Landeros",
+          "address": "victoria.ochoa@improving.com"
+        },
+        {
+          "name": "Fernanda Rodriguez",
+          "address": "fernanda.rodriguez@improving.com"
+        },
+        {
+          "name": "Manolo Guerrero",
+          "address": "manolo.guerrero@improving.com"
+        },
+        {
+          "name": "Curtis Hite",
+          "address": "Curtis.Hite@Improving.com"
+        },
+        {
+          "name": "Ken Howard",
+          "address": "Ken.Howard@Improving.com"
+        }
+      ],
+      "start": {
+        "dateTime": "2026-11-06T09:30:00.0000000",
+        "timeZone": "Central Standard Time"
+      },
+      "end": {
+        "dateTime": "2026-11-06T10:00:00.0000000",
+        "timeZone": "Central Standard Time"
+      },
+      "location": "Microsoft Teams Meeting",
+      "summary": "Quarterly Agenda\r\n\r\nMonth 1 (Jan, Apr, Jul, Oct)\r\n1st Sales (Russell), Corporate Special Topics*, GoTogether Update (McMichael/Liles)\r\n2nd Balanced Scorecard (Roberts/Keipert), Business Agility & Training (McMillan), CIO (Keipert)\r\n4th Canada Update (Gree",
+      "importance": "normal",
+      "showAs": "tentative",
+      "isAllDay": false,
+      "isCancelled": false,
+      "isOrganizer": false,
+      "recurrence": null,
+      "webLink": "https://outlook.office365.com/owa/?itemid=AAkBOQAICN87mOacwAAuAAAAAB2EAxGqZhHNm8gAqgAvxFoNAEC13rxopuFNqeHhRsuSQC8ACO4OuN8AABA%3D&exvsurl=1&path=/calendar/item",
+      "categories": null,
+      "calendarName": null,
+      "offset": 43
+    },
+    {
+      "uri": "calendar:///events/AAkALgAAAAAAHYQDEapmEc2byACqAC-EWg0AQLXevGim4U2p4eFGy5JALwAPo9HFtQAA",
+      "id": "AAkALgAAAAAAHYQDEapmEc2byACqAC-EWg0AQLXevGim4U2p4eFGy5JALwAPo9HFtQAA",
+      "subject": "Roots & Water Anniversary Party",
+      "organizer": "David.OHara@improving.com",
+      "organizerName": "David O'Hara",
+      "attendees": null,
+      "namedAttendees": null,
+      "start": {
+        "dateTime": "2026-11-06T18:00:00.0000000",
+        "timeZone": "Central Standard Time"
+      },
+      "end": {
+        "dateTime": "2026-11-06T22:00:00.0000000",
+        "timeZone": "Central Standard Time"
+      },
+      "location": null,
+      "summary": null,
+      "importance": "normal",
+      "showAs": "busy",
+      "isAllDay": false,
+      "isCancelled": false,
+      "isOrganizer": true,
+      "recurrence": null,
+      "webLink": "https://outlook.office365.com/owa/?itemid=AAkALgAAAAAAHYQDEapmEc2byACqAC%2FEWg0AQLXevGim4U2p4eFGy5JALwAPo9HFtQAA&exvsurl=1&path=/calendar/item",
+      "categories": null,
+      "calendarName": null,
+      "offset": 44
     }
   ]
 }

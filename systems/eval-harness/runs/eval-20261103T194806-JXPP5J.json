@@ -1,0 +1,90 @@
+{
+  "id": "eval-20261103T194806-JXPP5J",
+  "type": "skill",
+  "name": "knox-search",
+  "agent": "general-purpose",
+  "session_id": "c3204b29-a7bd-4ad3-81a3-236348967873",
+  "trigger": "boot",
+  "model": "glm-5p3",
+  "model_source": "session-transcript-window",
+  "started": "2026-11-03T19:47:55.128850Z",
+  "completed": "2026-11-03T19:48:06.991461Z",
+  "duration_seconds": 11.9,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": true,
+      "outputs_non_empty": true,
+      "assertions_checked": 4,
+      "assertions_passed": 3,
+      "assertion_results": [
+        {
+          "assertion": "knox-search-signal-written",
+          "description": "knox-search skill-run signal file was written",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "knox-search-signal-status",
+          "description": "knox-search skill-run did not end in failure",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "knox-sea-002-substantive",
+          "description": "knox-search output is substantive (>200 bytes)",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "knox-sea-003-content",
+          "description": "knox-search output contains expected content",
+          "category": "structure",
+          "passed": false
+        }
+      ],
+      "category_breakdown": {
+        "structure": {
+          "passed": 3,
+          "checked": 4
+        },
+        "content": {
+          "passed": 0,
+          "checked": 0
+        },
+        "quality": {
+          "passed": 0,
+          "checked": 0
+        }
+      }
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "deterministic_gate": {
+      "score": 0.8958,
+      "gate_status": "pass",
+      "computed_at": "2026-11-03T19:48:08.195263Z"
+    }
+  },
+  "version_hash": "db4a0c249fcef2f4",
+  "prior_baseline_id": null,
+  "tags": [
+    "cowork-hook",
+    "skill"
+  ]
+}

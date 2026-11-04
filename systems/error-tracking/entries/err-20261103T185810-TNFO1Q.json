@@ -1,0 +1,16 @@
+{
+  "id": "err-20261103T185810-TNFO1Q",
+  "timestamp": "2026-11-03T18:58:10Z",
+  "session": "boot-2026-11-03",
+  "source": "explicit",
+  "agent": "master",
+  "category": "instruction-following",
+  "description": "Master repeatedly framed the MCP token-refresh risk as 'the unattended 6am run' and told David 'tomorrow's 6am ingest on the new default'. There is no scheduled 6am ingest: plaud-ingest runs only when David runs the boot workflow, which he triggers manually. David corrected: 'It's not on a timer, I run the boot workflow.'",
+  "correction": "The refresh risk is 'the first boot that happens after token expiry', not a fixed early-morning unattended run. Because David triggers the boot, a refresh failure lands while he is at the keyboard, and the failure is immediate to fix. The 5-day byte-identical gate also accrues per boot run, not per calendar day, so gate days without a boot do not accrue.",
+  "failure_mode": "wrong-information",
+  "systemic_fix": "Do not assume scheduled-task cadence for workflows that are actually controller-triggered. When describing when a risk fires, derive the trigger from how the workflow is invoked (boot-time spawn vs cron/scheduled task) before naming a time.",
+  "fix_status": "proposed",
+  "severity": "minor",
+  "related_entries": [],
+  "related_skill": null
+}

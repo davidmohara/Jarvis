@@ -1,0 +1,79 @@
+{
+  "id": "eval-20261104T165500-JETT8M",
+  "agent_id": "ab03da77696a68e59",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": "podcast-prep",
+  "agent": "harper",
+  "owning_agent": "harper",
+  "subagent_type": "general-purpose",
+  "session_id": "c3204b29-a7bd-4ad3-81a3-236348967873",
+  "trigger": "unknown",
+  "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+  "model_source": "subagent-transcript",
+  "started": "2026-11-04T16:55:00.298223Z",
+  "completed": "2026-11-04T16:56:13.013709Z",
+  "duration_seconds": 72.72,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": "2026-11-04T17:52:00Z",
+      "grade": "A",
+      "safety_grade": null,
+      "grader_notes": "Quality (A): Podcast prep for the Jorge Pliego episode delivered a strong prep sheet (meetings/podcast-prep/2026-11-19-jorge-pliego.md, 16KB): full logistics, deeply sourced guest background with explicit on-air guardrails (the $100M Trinity Hunt figure marked as the only citable revenue anchor; SPAC framing constrained to 'through the SPAC-mania window'), the five-act storyline locked by David, a timed episode flow, and host-voiced questions with optional follow-ups. Status success, zero tool failures, 72s, $0.03. Fully meets the harper-podcast-prep purpose."
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/c3204b29-a7bd-4ad3-81a3-236348967873/subagents/agent-ab03da77696a68e59.jsonl",
+  "total_tokens_input": 349381,
+  "total_tokens_output": 7888,
+  "total_cost_usd": 0.033604,
+  "token_source": "subagent-transcript",
+  "parent_window": {
+    "token_source": "parent-window",
+    "transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/c3204b29-a7bd-4ad3-81a3-236348967873.jsonl",
+    "window_start": "2026-11-04T16:55:00.298223Z",
+    "window_end": "2026-11-04T16:56:13.013709Z",
+    "model": null,
+    "tokens_input": 0,
+    "tokens_output": 0,
+    "cost_usd": 0.0,
+    "turns_matched": 0,
+    "turns_with_usage": 0,
+    "computed_at": "2026-11-04T16:56:14.667096Z"
+  },
+  "fully_loaded_cost_usd": 0.033604,
+  "fully_loaded_tokens_input": 349381,
+  "fully_loaded_tokens_output": 7888
+}

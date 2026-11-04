@@ -1,0 +1,92 @@
+{
+  "id": "eval-20261104T165718-N8MZ60",
+  "type": "workflow",
+  "name": "podcast-prep",
+  "agent": "harper",
+  "owning_agent": "harper",
+  "session_id": "c3204b29-a7bd-4ad3-81a3-236348967873",
+  "trigger": "manual",
+  "model": "glm-5p3",
+  "model_source": "session-transcript-latest",
+  "started": "2026-11-04T16:56:18.255512Z",
+  "completed": "2026-11-04T16:57:18.255512Z",
+  "duration_seconds": 60.0,
+  "status": "success",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": false,
+      "outputs_non_empty": false,
+      "assertions_checked": 5,
+      "assertions_passed": 1,
+      "assertion_results": [
+        {
+          "assertion": "podcast-001-state-complete",
+          "description": "Podcast prep workflow state.yaml shows status: complete",
+          "category": "structure",
+          "passed": true
+        },
+        {
+          "assertion": "podcast--001-exists",
+          "description": "podcast-prep output file was written",
+          "category": "structure",
+          "passed": false
+        },
+        {
+          "assertion": "podcast--002-substantive",
+          "description": "podcast-prep output is substantive (>200 bytes)",
+          "category": "structure",
+          "passed": false
+        },
+        {
+          "assertion": "podcast--003-content",
+          "description": "podcast-prep output contains expected content",
+          "category": "structure",
+          "passed": false
+        },
+        {
+          "assertion": "podcast-002-adversarial-verification-ran",
+          "description": "Stage 5 Phase 4A: step-06 spawns Ralph (podcast-prep-verification workflow) and records an 'adversarial-verification' guardrail result on this run. Read from the eval record's own guardrails array. A separate agent confirms both deliverables (reference sheet + studio PDF) exist and are substantive, and that questions reflect the recorded episode sources.",
+          "category": "quality",
+          "passed": false
+        }
+      ],
+      "category_breakdown": {
+        "structure": {
+          "passed": 1,
+          "checked": 4
+        },
+        "content": {
+          "passed": 0,
+          "checked": 0
+        },
+        "quality": {
+          "passed": 0,
+          "checked": 1
+        }
+      }
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    }
+  },
+  "version_hash": "21f858fc553c5cee",
+  "prior_baseline_id": null,
+  "tags": [
+    "cowork-hook",
+    "phantom-candidate"
+  ]
+}

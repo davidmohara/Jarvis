@@ -1,0 +1,143 @@
+{
+  "id": "eval-20261104T174614-HUA9CV",
+  "type": "workflow",
+  "name": "daily-review",
+  "agent": "chief",
+  "owning_agent": "chief",
+  "session_id": "c3204b29-a7bd-4ad3-81a3-236348967873",
+  "trigger": "manual",
+  "model": "glm-5p3-flash",
+  "model_source": "session-transcript-window",
+  "started": "2026-11-04T11:10:00-06:00",
+  "completed": "2026-11-04T17:46:14.277349Z",
+  "duration_seconds": 2174.3,
+  "status": "partial",
+  "steps": [
+    {
+      "name": "step-01-capture",
+      "step_id": "step-01-capture",
+      "agent": "chief",
+      "owning_agent": "chief",
+      "started": "2026-11-04T11:10:00-06:00",
+      "completed": "2026-11-04T11:15:10.611050-06:00",
+      "duration_seconds": 310.6,
+      "status": "success",
+      "data_sources_used": [],
+      "data_source_failures": []
+    },
+    {
+      "name": "step-02-set-tomorrow",
+      "step_id": "step-02-set-tomorrow",
+      "agent": "chief",
+      "owning_agent": "chief",
+      "started": "2026-11-04T11:15:10.611050-06:00",
+      "completed": "2026-11-04T11:20:21.222100-06:00",
+      "duration_seconds": 310.6,
+      "status": "success",
+      "data_sources_used": [],
+      "data_source_failures": []
+    },
+    {
+      "name": "step-03-update-system",
+      "step_id": "step-03-update-system",
+      "agent": "chief",
+      "owning_agent": "chief",
+      "started": "2026-11-04T11:20:21.222100-06:00",
+      "completed": "2026-11-04T11:25:31.833150-06:00",
+      "duration_seconds": 310.6,
+      "status": "success",
+      "data_sources_used": [],
+      "data_source_failures": []
+    },
+    {
+      "name": "step-03b-guardrail-checkpoint",
+      "step_id": "step-03b-guardrail-checkpoint",
+      "agent": "chief",
+      "owning_agent": "chief",
+      "started": "2026-11-04T11:25:31.833150-06:00",
+      "completed": "2026-11-04T11:30:42.444199-06:00",
+      "duration_seconds": 310.6,
+      "status": "success",
+      "data_sources_used": [],
+      "data_source_failures": []
+    },
+    {
+      "name": "step-03c-adversarial-verify",
+      "step_id": "step-03c-adversarial-verify",
+      "agent": "chief",
+      "owning_agent": "chief",
+      "started": "2026-11-04T11:30:42.444199-06:00",
+      "completed": "2026-11-04T11:35:53.055249-06:00",
+      "duration_seconds": 310.6,
+      "status": "success",
+      "data_sources_used": [],
+      "data_source_failures": []
+    },
+    {
+      "name": "step-04-root-audit",
+      "step_id": "step-04-root-audit",
+      "agent": "chief",
+      "owning_agent": "chief",
+      "started": "2026-11-04T11:35:53.055249-06:00",
+      "completed": "2026-11-04T11:41:03.666299-06:00",
+      "duration_seconds": 310.6,
+      "status": "success",
+      "data_sources_used": [],
+      "data_source_failures": []
+    },
+    {
+      "name": "step-05-session-close",
+      "step_id": "step-05-session-close",
+      "agent": "chief",
+      "owning_agent": "chief",
+      "started": "2026-11-04T11:41:03.666299-06:00",
+      "completed": "2026-11-04T11:46:14.277349-06:00",
+      "duration_seconds": 310.6,
+      "status": "success",
+      "data_sources_used": [],
+      "data_source_failures": []
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": [],
+      "abort_reason": null
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": "2026-11-04T17:52:00Z",
+      "grade": "B",
+      "safety_grade": null,
+      "grader_notes": "Quality (B): The review output itself (reviews/daily/2026-11-03.md, 32KB) is excellent: candid morning-partial framing, unrecorded-day gap documented instead of vanished, OmniFocus completions verified live, two handoff-record errors caught and corrected, adversarial findings integrated before close. Deductions are at record level, not content level: overall status 'partial' despite all 7 steps success and mechanical.completed=true, and every step carries an identical 310.6s duration, indicating backfilled/synthetic step timing rather than real telemetry. That weakens the record's evidentiary value for duration analysis. Content would be an A."
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": "47ea39f745de77a2",
+  "prior_baseline_id": null,
+  "tags": [
+    "cowork-instrumented"
+  ]
+}

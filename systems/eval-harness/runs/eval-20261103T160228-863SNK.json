@@ -1,0 +1,240 @@
+{
+  "id": "eval-20261103T160228-863SNK",
+  "type": "workflow",
+  "name": "boot",
+  "agent": "master",
+  "session_id": "c3204b29-a7bd-4ad3-81a3-236348967873",
+  "trigger": "boot",
+  "model": "glm-5p3-flash",
+  "model_source": "session-transcript-latest",
+  "started": "2026-11-03T16:02:28.223097Z",
+  "completed": null,
+  "duration_seconds": null,
+  "status": "failure",
+  "steps": [],
+  "subagents": [
+    {
+      "agent_id": "a77619b3157228385",
+      "agent_type": "general-purpose",
+      "started": "2026-11-03T16:03:04.342046Z",
+      "completed": "2026-11-03T16:04:54.797278Z",
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 966708,
+      "tokens_output": 10551,
+      "cost_usd": 0.09662,
+      "duration_seconds": 110.46,
+      "token_source": "subagent-transcript"
+    },
+    {
+      "agent_id": "a7ca8251e225b6362",
+      "agent_type": "general-purpose",
+      "started": "2026-11-03T16:21:12.216712Z",
+      "completed": "2026-11-03T16:34:51.659500Z",
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 9100104,
+      "tokens_output": 62941,
+      "cost_usd": 0.447139,
+      "duration_seconds": 819.44,
+      "token_source": "subagent-transcript"
+    },
+    {
+      "agent_id": "a5d7df751adc6c01c",
+      "agent_type": "general-purpose",
+      "started": "2026-11-03T16:23:04.064576Z",
+      "completed": "2026-11-03T16:24:02.797153Z",
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 400953,
+      "tokens_output": 6934,
+      "cost_usd": 0.047783,
+      "duration_seconds": 58.73,
+      "token_source": "subagent-transcript"
+    },
+    {
+      "agent_id": "afae3ed348d19851a",
+      "agent_type": "general-purpose",
+      "started": "2026-11-03T16:29:32.416305Z",
+      "completed": "2026-11-03T16:33:56.453710Z",
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 3748551,
+      "tokens_output": 19768,
+      "cost_usd": 0.24558,
+      "duration_seconds": 264.04,
+      "token_source": "subagent-transcript"
+    },
+    {
+      "agent_id": "a4d15ca2e2f1f4b84",
+      "agent_type": "general-purpose",
+      "started": "2026-11-03T16:45:18.258629Z",
+      "completed": "2026-11-03T16:51:06.340278Z",
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 4617002,
+      "tokens_output": 42383,
+      "cost_usd": 0.300345,
+      "duration_seconds": 348.08,
+      "token_source": "subagent-transcript"
+    },
+    {
+      "agent_id": "a94aaaf102b9b3a4d",
+      "agent_type": "general-purpose",
+      "started": "2026-11-03T16:57:17.447170Z",
+      "completed": "2026-11-03T18:45:22.754987Z",
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 45588962,
+      "tokens_output": 130019,
+      "cost_usd": 1.689487,
+      "duration_seconds": 6485.31,
+      "token_source": "subagent-transcript",
+      "harness_tokens": 270362,
+      "harness_tool_uses": 56
+    },
+    {
+      "agent_id": "a85bc373cef580003",
+      "agent_type": "general-purpose",
+      "started": "2026-11-03T17:56:53.141831Z",
+      "completed": "2026-11-03T17:58:02.355642Z",
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 617324,
+      "tokens_output": 7103,
+      "cost_usd": 0.067663,
+      "duration_seconds": 69.21,
+      "token_source": "subagent-transcript"
+    },
+    {
+      "agent_id": "add222b11fa9223db",
+      "agent_type": "general-purpose",
+      "started": "2026-11-03T19:50:20.652338Z",
+      "completed": "2026-11-03T19:56:07.018236Z",
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 3153508,
+      "tokens_output": 23385,
+      "cost_usd": 0.171147,
+      "duration_seconds": 346.37,
+      "token_source": "subagent-transcript"
+    },
+    {
+      "agent_id": "ade36deebc79ff74f",
+      "agent_type": "general-purpose",
+      "started": "2026-11-03T20:15:14.930562Z",
+      "completed": "2026-11-04T16:58:31.238447Z",
+      "model": "accounts/fireworks/models/kimi-k3",
+      "tokens_input": 8784683,
+      "tokens_output": 40240,
+      "cost_usd": 4.611153,
+      "duration_seconds": 74596.31,
+      "token_source": "subagent-transcript",
+      "workflow": "podcast-prep"
+    },
+    {
+      "agent_id": "ab03da77696a68e59",
+      "agent_type": "general-purpose",
+      "started": "2026-11-04T16:55:00.298223Z",
+      "completed": "2026-11-04T16:56:13.013709Z",
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 349381,
+      "tokens_output": 7888,
+      "cost_usd": 0.033604,
+      "duration_seconds": 72.72,
+      "token_source": "subagent-transcript",
+      "workflow": "podcast-prep"
+    },
+    {
+      "agent_id": "a8671a741245d1071",
+      "agent_type": "general-purpose",
+      "started": "2026-11-04T17:20:56.546561Z",
+      "completed": "2026-11-04T18:04:10.221346Z",
+      "model": "accounts/fireworks/models/kimi-k3",
+      "tokens_input": 18318413,
+      "tokens_output": 72826,
+      "cost_usd": 8.276621,
+      "duration_seconds": 2593.67,
+      "token_source": "subagent-transcript",
+      "workflow": "daily-review",
+      "harness_tokens": 159098,
+      "harness_tool_uses": 168
+    },
+    {
+      "agent_id": "a1c9b554e48c428a7",
+      "agent_type": "general-purpose",
+      "started": "2026-11-04T17:32:15.441573Z",
+      "completed": "2026-11-04T17:42:59.469667Z",
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 4142404,
+      "tokens_output": 40596,
+      "cost_usd": 0.23778,
+      "duration_seconds": 644.03,
+      "token_source": "subagent-transcript",
+      "workflow": "daily-review-verification"
+    },
+    {
+      "agent_id": "a6c523def9c98c671",
+      "agent_type": "general-purpose",
+      "started": "2026-11-04T17:47:58.612353Z",
+      "completed": "2026-11-04T17:52:52.160160Z",
+      "model": "accounts/fireworks/models/kimi-k3",
+      "tokens_input": 303288,
+      "tokens_output": 6159,
+      "cost_usd": 0.378479,
+      "duration_seconds": 293.55,
+      "token_source": "subagent-transcript"
+    },
+    {
+      "agent_id": "a266ae0567b53862e",
+      "agent_type": "general-purpose",
+      "started": "2026-11-04T20:30:09.922993Z",
+      "completed": null,
+      "model": null,
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null
+    }
+  ],
+  "monitoring": {
+    "active": true,
+    "state_yaml_path": "workflows/boot/state.yaml",
+    "opened_by": "eval-turn-start.py",
+    "trigger_evidence": "boot-first-prompt-of-session"
+  },
+  "assessment": {
+    "mechanical": {
+      "completed": null,
+      "all_steps_finished": null,
+      "tool_failures": 0,
+      "error_ids": [
+        "err-20261103T161857-G1KXKK"
+      ]
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [
+    "turn-level"
+  ]
+}

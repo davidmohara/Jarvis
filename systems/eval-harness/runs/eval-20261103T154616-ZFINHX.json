@@ -1,0 +1,121 @@
+{
+  "id": "eval-20261103T154616-ZFINHX",
+  "agent_id": "adda5119778a677cf",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": "boot",
+  "agent": "master",
+  "owning_agent": "master",
+  "subagent_type": "general-purpose",
+  "session_id": "c3204b29-a7bd-4ad3-81a3-236348967873",
+  "trigger": "unknown",
+  "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+  "model_source": "subagent-transcript",
+  "started": "2026-11-03T15:46:16.350277Z",
+  "completed": "2026-11-03T15:48:08.299142Z",
+  "duration_seconds": 111.95,
+  "status": "partial",
+  "steps": [
+    {
+      "name": "step-01.5-unified-calendar-pull.md",
+      "agent": "general-purpose",
+      "step_id": "step-01.5-unified-calendar-pull.md",
+      "owning_agent": "general-purpose",
+      "started": "2026-11-03T15:46:22Z",
+      "completed": "2026-11-03T15:47:52Z",
+      "status": "complete",
+      "tokens_input": 860694,
+      "tokens_output": 9228,
+      "cost_usd": 0.0818,
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "token_source": "windowed",
+      "turns_matched": 19,
+      "turns_with_usage": 19,
+      "duration_seconds": 90.0
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 2,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/c3204b29-a7bd-4ad3-81a3-236348967873/subagents/agent-adda5119778a677cf.jsonl",
+  "total_tokens_input": 1204361,
+  "total_tokens_output": 11202,
+  "total_cost_usd": 0.10908,
+  "token_source": "subagent-transcript",
+  "guardrails": [
+    {
+      "name": "step-01.5-checkpoint",
+      "after_step": "step-01.5-unified-calendar-pull.md",
+      "result": "retry",
+      "reason": "sub-agent output failed schema validation (2 errors); re-run the step and repopulate the declared fields",
+      "escalated_to_human": false,
+      "timestamp": "2026-11-03T15:48:08.690678Z",
+      "validation_errors": [
+        "calendar_file: required field missing",
+        "calendar_status: required field missing"
+      ]
+    }
+  ],
+  "retry_signal": {
+    "step": "step-01.5-unified-calendar-pull.md",
+    "checkpoint": "step-01.5-checkpoint",
+    "reason": "sub-agent output failed schema validation (2 errors); re-run the step and repopulate the declared fields",
+    "feedback": "sub-agent output failed schema validation (2 errors); re-run the step and repopulate the declared fields",
+    "instruction": "Sub-agent output failed schema validation on declared fields: calendar_file: required field missing; calendar_status: required field missing. Re-run the step and repopulate those fields.",
+    "attempt_number": 1,
+    "timestamp": "2026-11-03T15:48:08.690867Z",
+    "max_attempts": 2
+  },
+  "parent_window": {
+    "token_source": "parent-window",
+    "transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/c3204b29-a7bd-4ad3-81a3-236348967873.jsonl",
+    "window_start": "2026-11-03T15:46:16.350277Z",
+    "window_end": "2026-11-03T15:48:08.299142Z",
+    "model": "glm-5p3-flash",
+    "tokens_input": 89551,
+    "tokens_output": 244,
+    "cost_usd": 0.001545,
+    "turns_matched": 1,
+    "turns_with_usage": 1,
+    "computed_at": "2026-11-03T15:48:08.815339Z"
+  },
+  "fully_loaded_cost_usd": 0.110625,
+  "fully_loaded_tokens_input": 1293912,
+  "fully_loaded_tokens_output": 11446
+}

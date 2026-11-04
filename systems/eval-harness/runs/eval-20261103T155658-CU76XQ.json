@@ -1,0 +1,107 @@
+{
+  "id": "eval-20261103T155658-CU76XQ",
+  "type": "workflow",
+  "name": "morning-briefing",
+  "agent": "chief",
+  "owning_agent": "chief",
+  "session_id": "c3204b29-a7bd-4ad3-81a3-236348967873",
+  "trigger": "boot",
+  "model": "glm-5p3-flash",
+  "model_source": "session-transcript-window",
+  "started": "2026-11-03T15:45:23Z",
+  "completed": "2026-11-03T15:56:58.276186Z",
+  "duration_seconds": 695.3,
+  "status": "partial",
+  "steps": [
+    {
+      "name": "step-01-gather-calendar",
+      "step_id": "step-01-gather-calendar",
+      "agent": "chief",
+      "owning_agent": "chief",
+      "started": "2026-11-03T15:45:23Z",
+      "completed": "2026-11-03T15:48:16.819047Z",
+      "duration_seconds": 173.8,
+      "status": "success",
+      "data_sources_used": [],
+      "data_source_failures": []
+    },
+    {
+      "name": "step-02-gather-tasks",
+      "step_id": "step-02-gather-tasks",
+      "agent": "chief",
+      "owning_agent": "chief",
+      "started": "2026-11-03T15:48:16.819047Z",
+      "completed": "2026-11-03T15:51:10.638093Z",
+      "duration_seconds": 173.8,
+      "status": "success",
+      "data_sources_used": [],
+      "data_source_failures": []
+    },
+    {
+      "name": "step-03-meeting-context",
+      "step_id": "step-03-meeting-context",
+      "agent": "chief",
+      "owning_agent": "chief",
+      "started": "2026-11-03T15:51:10.638093Z",
+      "completed": "2026-11-03T15:54:04.457140Z",
+      "duration_seconds": 173.8,
+      "status": "success",
+      "data_sources_used": [],
+      "data_source_failures": []
+    },
+    {
+      "name": "step-04-synthesize-briefing",
+      "step_id": "step-04-synthesize-briefing",
+      "agent": "chief",
+      "owning_agent": "chief",
+      "started": "2026-11-03T15:54:04.457140Z",
+      "completed": "2026-11-03T15:56:58.276186Z",
+      "duration_seconds": 173.8,
+      "status": "success",
+      "data_sources_used": [],
+      "data_source_failures": []
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": [],
+      "abort_reason": null
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": "1ec536dba0af3edd",
+  "prior_baseline_id": null,
+  "tags": [
+    "cowork-instrumented"
+  ]
+}

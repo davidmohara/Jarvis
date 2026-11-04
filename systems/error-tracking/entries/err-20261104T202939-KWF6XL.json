@@ -1,0 +1,16 @@
+{
+  "id": "err-20261104T202939-KWF6XL",
+  "timestamp": "2026-11-04T20:29:39Z",
+  "session": "boot-2026-11-03 (spanning to 2026-11-04)",
+  "source": "explicit",
+  "agent": "master",
+  "category": "instruction-following",
+  "description": "After David ran /exit, Master completed the exit sequence but held the final commit step, asking David to say 'commit' before it would run, citing the no-auto-commit-on-exit feedback. David pushed back: 'Why is everything not committed?' An explicit exit signal from David is a request to run the full exit protocol including the commit; the standing feedback rejected unattended automatic commit machinery (hooks), not committing when David himself initiates the exit.",
+  "correction": "Spawn Rigby immediately to stage and commit the working tree via the git skill. Updated the feedback memory to clarify: explicit exit (conversational or /exit) routes to the commit path; when in doubt mid-exit, commit rather than hold.",
+  "failure_mode": "over_correction",
+  "systemic_fix": "The no-auto-commit rule governs unattended automation, not David-initiated exits. On any explicit exit signal, run the complete exit protocol including the commit, and report what was committed. Only hold a commit when automation would be the actor without David's initiation.",
+  "fix_status": "applied",
+  "severity": "moderate",
+  "related_entries": ["err-20261103T162825-54J2RL"],
+  "related_skill": "skills/git/SKILL.md"
+}

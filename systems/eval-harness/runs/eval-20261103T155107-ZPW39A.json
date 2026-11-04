@@ -1,0 +1,119 @@
+{
+  "id": "eval-20261103T155107-ZPW39A",
+  "agent_id": "a0246f879523bae00",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": "boot",
+  "agent": "master",
+  "owning_agent": "master",
+  "subagent_type": "general-purpose",
+  "session_id": "c3204b29-a7bd-4ad3-81a3-236348967873",
+  "trigger": "unknown",
+  "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+  "model_source": "subagent-transcript",
+  "started": "2026-11-03T15:51:07.828096Z",
+  "completed": "2026-11-03T15:52:57.183701Z",
+  "duration_seconds": 109.36,
+  "status": "partial",
+  "steps": [
+    {
+      "name": "step-02-gather-data.md",
+      "agent": "general-purpose",
+      "step_id": "step-02-gather-data.md",
+      "owning_agent": "general-purpose",
+      "started": "2026-11-03T15:51:58Z",
+      "completed": "2026-11-03T15:52:47Z",
+      "status": "complete",
+      "tokens_input": 502248,
+      "tokens_output": 7401,
+      "cost_usd": 0.035202,
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "token_source": "windowed",
+      "turns_matched": 7,
+      "turns_with_usage": 7,
+      "duration_seconds": 49.0
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 2,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/c3204b29-a7bd-4ad3-81a3-236348967873/subagents/agent-a0246f879523bae00.jsonl",
+  "total_tokens_input": 1419524,
+  "total_tokens_output": 16386,
+  "total_cost_usd": 0.111486,
+  "token_source": "subagent-transcript",
+  "guardrails": [
+    {
+      "name": "step-02-checkpoint",
+      "after_step": "step-02-gather-data.md",
+      "result": "pass",
+      "reason": "4/4 Phase 2 tasks have real backing data on disk",
+      "escalated_to_human": false,
+      "timestamp": "2026-11-03T15:52:57.584751Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "completed_tasks": [
+          "task-g-72hr-lookahead",
+          "task-h-email-triage",
+          "task-i-jarvis-inbox",
+          "task-j-reminders"
+        ],
+        "completed_count": 4,
+        "missing_tasks": [],
+        "phase2_status": "complete"
+      }
+    }
+  ],
+  "parent_window": {
+    "token_source": "parent-window",
+    "transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/c3204b29-a7bd-4ad3-81a3-236348967873.jsonl",
+    "window_start": "2026-11-03T15:51:07.828096Z",
+    "window_end": "2026-11-03T15:52:57.183701Z",
+    "model": "glm-5p3-flash",
+    "tokens_input": 94014,
+    "tokens_output": 25,
+    "cost_usd": 0.001578,
+    "turns_matched": 1,
+    "turns_with_usage": 1,
+    "computed_at": "2026-11-03T15:52:57.732903Z"
+  },
+  "fully_loaded_cost_usd": 0.113064,
+  "fully_loaded_tokens_input": 1513538,
+  "fully_loaded_tokens_output": 16411
+}

@@ -1,0 +1,16 @@
+{
+  "id": "err-20261103T161857-G1KXKK",
+  "timestamp": "2026-11-03T16:18:57Z",
+  "session": "boot-2026-11-03 (pi-20261103-001)",
+  "source": "self-detected",
+  "agent": "knox",
+  "category": "tool-misuse",
+  "description": "Passed a vault-relative --target to context_tools.py assemble-note during plaud-ingest; the flag resolves against cwd, not the vault root, so three vault notes were written into a stray zzPlaud/ tree inside the IES repo instead of the Obsidian vault.",
+  "correction": "Moved the three notes into the vault, deleted the stray tree before Gate 5 ran, and used an absolute target path for the fourth note.",
+  "failure_mode": "tool-ignorance",
+  "systemic_fix": "assemble-note --target must always receive an absolute path. The broker script should validate that the resolved target sits under the vault root and reject writes that would land inside the IES repo before any file is created.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": [],
+  "related_skill": "skills/plaud-transcripts"
+}

@@ -1,8 +1,8 @@
 {
-  "pulled_at": "2026-11-02T16:11:53.110878Z",
+  "pulled_at": "2026-11-03T15:48:28.349484Z",
   "status": "available",
   "window_months": 12,
-  "since": "2025-11-07",
+  "since": "2025-11-08",
   "account_count": 31,
   "accounts": {
     "chase-checking": {
@@ -37,8 +37,8 @@
         },
         {
           "name": "Venmo",
-          "total": 14715.59,
-          "count": 24,
+          "total": 14536.56,
+          "count": 23,
           "last": "2026-10-05"
         },
         {
@@ -420,13 +420,13 @@
           "last": "2026-05-04"
         },
         {
-          "name": "Zelle payment to Declan O'Hara 29446261169",
+          "name": "Zelle payment to Declan O'Hara 29033198731",
           "total": 50.0,
           "count": 1,
           "last": "2026-06-01"
         },
         {
-          "name": "Zelle payment to Declan O'Hara 29033198731",
+          "name": "Zelle payment to Declan O'Hara 29446261169",
           "total": 50.0,
           "count": 1,
           "last": "2026-06-01"
@@ -444,13 +444,13 @@
           "last": "2026-07-01"
         },
         {
-          "name": "ZELLE PAYMENT TO DECLAN O'HARA 29828101592",
+          "name": "ZELLE PAYMENT TO DECLAN O'HARA 30249342488",
           "total": 50.0,
           "count": 1,
           "last": "2026-08-03"
         },
         {
-          "name": "ZELLE PAYMENT TO DECLAN O'HARA 30249342488",
+          "name": "ZELLE PAYMENT TO DECLAN O'HARA 29828101592",
           "total": 50.0,
           "count": 1,
           "last": "2026-08-03"
@@ -564,7 +564,7 @@
       "account_id": "c95b51b9-5d5b-4aff-8c67-9c54589ff016",
       "account_name": "Citi",
       "type": "creditCard",
-      "payee_count": 266,
+      "payee_count": 268,
       "payees": [
         {
           "name": "Farmers Insurance",
@@ -598,9 +598,9 @@
         },
         {
           "name": "Amazon",
-          "total": 4972.35,
-          "count": 106,
-          "last": "2026-10-28"
+          "total": 4987.04,
+          "count": 107,
+          "last": "2026-11-01"
         },
         {
           "name": "American Airlines",
@@ -748,15 +748,15 @@
         },
         {
           "name": "Ntta",
-          "total": 1920.0,
-          "count": 48,
-          "last": "2026-10-18"
+          "total": 1960.0,
+          "count": 49,
+          "last": "2026-10-30"
         },
         {
           "name": "Augment Frisco",
-          "total": 1770.86,
-          "count": 52,
-          "last": "2026-10-26"
+          "total": 1793.56,
+          "count": 53,
+          "last": "2026-11-01"
         },
         {
           "name": "Boardroom Salon",
@@ -1047,10 +1047,10 @@
           "last": "2026-08-30"
         },
         {
-          "name": "Circle K",
-          "total": 428.08,
-          "count": 7,
-          "last": "2026-09-14"
+          "name": "YMCA Dallas",
+          "total": 428.64,
+          "count": 6,
+          "last": "2026-11-01"
         },
         {
           "name": "Williams Sonoma Dtc Inc",
@@ -1083,6 +1083,12 @@
           "last": "2026-10-14"
         },
         {
+          "name": "Circle K",
+          "total": 374.08,
+          "count": 6,
+          "last": "2026-09-14"
+        },
+        {
           "name": "Hertz",
           "total": 367.42,
           "count": 1,
@@ -1107,16 +1113,16 @@
           "last": "2026-01-07"
         },
         {
+          "name": "Blueprint on 3rd",
+          "total": 354.0,
+          "count": 1,
+          "last": "2026-10-30"
+        },
+        {
           "name": "FedEx",
           "total": 349.64,
           "count": 2,
           "last": "2026-08-29"
-        },
-        {
-          "name": "YMCA Dallas",
-          "total": 345.64,
-          "count": 5,
-          "last": "2026-10-01"
         },
         {
           "name": "Lowe's",
@@ -1969,6 +1975,12 @@
           "total": 30.0,
           "count": 2,
           "last": "2025-12-26"
+        },
+        {
+          "name": "American Airlines Admirals Club",
+          "total": 29.06,
+          "count": 1,
+          "last": "2026-10-30"
         },
         {
           "name": "Market Street",
@@ -3120,8 +3132,14 @@
       "account_id": "f53a2d07-4d80-4310-9a0b-a5631f8b8178",
       "account_name": "Savor",
       "type": "creditCard",
-      "payee_count": 1,
+      "payee_count": 2,
       "payees": [
+        {
+          "name": "Back Forty Beer Co",
+          "total": 112.73,
+          "count": 1,
+          "last": "2026-11-02"
+        },
         {
           "name": "Market Street",
           "total": 55.46,
@@ -3380,7 +3398,7 @@
       "account_id": "bd7a4478-a655-4e19-a92c-a4a8753e0e55",
       "account_name": "Susie Apple Card",
       "type": "creditCard",
-      "payee_count": 67,
+      "payee_count": 66,
       "payees": [
         {
           "name": "Ntta",
@@ -3401,16 +3419,16 @@
           "last": "2026-06-14"
         },
         {
-          "name": "Grey Stone Nails Bar",
-          "total": 873.6,
-          "count": 10,
-          "last": "2026-07-22"
-        },
-        {
           "name": "Chewy.com",
           "total": 789.61,
           "count": 13,
           "last": "2026-07-13"
+        },
+        {
+          "name": "Grey Stone Nails Bar",
+          "total": 777.6,
+          "count": 9,
+          "last": "2026-07-22"
         },
         {
           "name": "Magnolis Dermatology",
@@ -3681,12 +3699,6 @@
           "total": 25.84,
           "count": 4,
           "last": "2026-07-24"
-        },
-        {
-          "name": "Paper Dolls",
-          "total": 25.0,
-          "count": 1,
-          "last": "2025-11-07"
         },
         {
           "name": "Chipotle",
@@ -4008,9 +4020,9 @@
       "payees": [
         {
           "name": "Rydex Monthly Nasdaq",
-          "total": 755664.99,
-          "count": 75,
-          "last": "2026-11-02"
+          "total": 755717.12,
+          "count": 76,
+          "last": "2026-11-03"
         },
         {
           "name": "Rydex Inverse Nasdaq Strategy",
@@ -4088,7 +4100,7 @@
     }
   },
   "all_accounts": {
-    "payee_count": 564,
+    "payee_count": 566,
     "payees": [
       {
         "name": "Fidelity Charitable",
@@ -4122,8 +4134,8 @@
       },
       {
         "name": "Venmo",
-        "total": 14715.59,
-        "count": 24,
+        "total": 14536.56,
+        "count": 23,
         "last": "2026-10-05"
       },
       {
@@ -4194,9 +4206,9 @@
       },
       {
         "name": "Amazon",
-        "total": 6043.08,
-        "count": 115,
-        "last": "2026-10-28"
+        "total": 6057.77,
+        "count": 116,
+        "last": "2026-11-01"
       },
       {
         "name": "CHECK # 184",
@@ -4338,9 +4350,9 @@
       },
       {
         "name": "Ntta",
-        "total": 3504.0,
-        "count": 68,
-        "last": "2026-10-18"
+        "total": 3544.0,
+        "count": 69,
+        "last": "2026-10-30"
       },
       {
         "name": "Lakeside Paws",
@@ -4530,9 +4542,9 @@
       },
       {
         "name": "Augment Frisco",
-        "total": 1770.86,
-        "count": 52,
-        "last": "2026-10-26"
+        "total": 1793.56,
+        "count": 53,
+        "last": "2026-11-01"
       },
       {
         "name": "Thorne Research",
@@ -4691,12 +4703,6 @@
         "last": "2026-07-29"
       },
       {
-        "name": "Circle K",
-        "total": 1024.08,
-        "count": 17,
-        "last": "2026-09-28"
-      },
-      {
         "name": "Terry Costa",
         "total": 1022.96,
         "count": 1,
@@ -4719,6 +4725,12 @@
         "total": 979.79,
         "count": 3,
         "last": "2026-04-24"
+      },
+      {
+        "name": "Circle K",
+        "total": 970.08,
+        "count": 16,
+        "last": "2026-09-28"
       },
       {
         "name": "Athletic Greens",
@@ -4769,12 +4781,6 @@
         "last": "2025-11-26"
       },
       {
-        "name": "Grey Stone Nails Bar",
-        "total": 873.6,
-        "count": 10,
-        "last": "2026-07-22"
-      },
-      {
         "name": "Uplift Desk",
         "total": 850.85,
         "count": 1,
@@ -4821,6 +4827,12 @@
         "total": 789.61,
         "count": 13,
         "last": "2026-07-13"
+      },
+      {
+        "name": "Grey Stone Nails Bar",
+        "total": 777.6,
+        "count": 9,
+        "last": "2026-07-22"
       },
       {
         "name": "AMERICAN EXPRESS ACH PMT M5528 WEB ID: 2005032111",
@@ -5081,6 +5093,12 @@
         "last": "2026-08-30"
       },
       {
+        "name": "YMCA Dallas",
+        "total": 428.64,
+        "count": 6,
+        "last": "2026-11-01"
+      },
+      {
         "name": "Third Coast Coffee",
         "total": 428.57,
         "count": 10,
@@ -5243,6 +5261,12 @@
         "last": "2026-01-07"
       },
       {
+        "name": "Blueprint on 3rd",
+        "total": 354.0,
+        "count": 1,
+        "last": "2026-10-30"
+      },
+      {
         "name": "FedEx",
         "total": 349.64,
         "count": 2,
@@ -5259,12 +5283,6 @@
         "total": 348.11,
         "count": 4,
         "last": "2026-05-19"
-      },
-      {
-        "name": "YMCA Dallas",
-        "total": 345.64,
-        "count": 5,
-        "last": "2026-10-01"
       },
       {
         "name": "Lowe's",
@@ -6167,6 +6185,12 @@
         "last": "2026-08-14"
       },
       {
+        "name": "Back Forty Beer Co",
+        "total": 112.73,
+        "count": 1,
+        "last": "2026-11-02"
+      },
+      {
         "name": "Blade Hq",
         "total": 112.14,
         "count": 1,
@@ -6725,13 +6749,13 @@
         "last": "2026-05-04"
       },
       {
-        "name": "Zelle payment to Declan O'Hara 29446261169",
+        "name": "Zelle payment to Declan O'Hara 29033198731",
         "total": 50.0,
         "count": 1,
         "last": "2026-06-01"
       },
       {
-        "name": "Zelle payment to Declan O'Hara 29033198731",
+        "name": "Zelle payment to Declan O'Hara 29446261169",
         "total": 50.0,
         "count": 1,
         "last": "2026-06-01"
@@ -6749,13 +6773,13 @@
         "last": "2026-07-01"
       },
       {
-        "name": "ZELLE PAYMENT TO DECLAN O'HARA 29828101592",
+        "name": "ZELLE PAYMENT TO DECLAN O'HARA 30249342488",
         "total": 50.0,
         "count": 1,
         "last": "2026-08-03"
       },
       {
-        "name": "ZELLE PAYMENT TO DECLAN O'HARA 30249342488",
+        "name": "ZELLE PAYMENT TO DECLAN O'HARA 29828101592",
         "total": 50.0,
         "count": 1,
         "last": "2026-08-03"
@@ -7109,6 +7133,12 @@
         "last": "2026-04-04"
       },
       {
+        "name": "American Airlines Admirals Club",
+        "total": 29.06,
+        "count": 1,
+        "last": "2026-10-30"
+      },
+      {
         "name": "Late Fee",
         "total": 29.0,
         "count": 1,
@@ -7155,12 +7185,6 @@
         "total": 25.0,
         "count": 1,
         "last": "2026-01-22"
-      },
-      {
-        "name": "Paper Dolls",
-        "total": 25.0,
-        "count": 1,
-        "last": "2025-11-07"
       },
       {
         "name": "Lostios",

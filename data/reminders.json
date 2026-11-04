@@ -5,29 +5,10 @@
   "_schema_ref": "skills/add-reminder/SKILL.md",
   "reminders": [
     {
-      "id": "rem-20261016T190151-9CFK0X",
-      "created": "2026-10-16T14:02:23-05:00",
-      "created_by": "master",
-      "trigger_date": "2026-11-02",
-      "trigger_prompt": "Did you start the MOTS-C cycle today (5mg every 5 days, running through end of year)?",
-      "routing": {
-        "agent": "galen",
-        "action_prompt": "David confirmed he started the MOTS-C cycle on 2026-11-02: 5mg (50u) every 5 days, morning fasted, running through end of year (through 2026-12-31). Confirm the cycle is recorded and log it in the health tracking file, then report back. Steps: (1) Read /Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/data/health/tracking.json. The MOTS-C cycle 3 entry ALREADY EXISTS in peptide_cycles with status 'planned' (added 2026-10-16). Do NOT append a duplicate -- change its status from 'planned' to 'active' and confirm start_date 2026-11-02, end_date 2026-12-31, dose '5mg (50u)', frequency 'every 5 days, morning fasted'. Reference values: peptide='MOTS-C', cycle_number=3, status='active', start_date='2026-11-02', duration_days=59, end_date='2026-12-31', frequency='every 5 days, morning fasted', purpose='Metabolic - AMPK, VAT reduction, insulin sensitivity', notes='Restarted per David''s cycle plan, running through end of year. Dose confirmed as 5mg (50u) by David 2026-10-16; verify against reconstitution before finalizing.' (2) Dose reconciliation: MOTS-C reconstitution is 40mg + 4ml BW = 10mg/ml (per skills/galen-protocols/SKILL.md), so 25 units on an insulin syringe = 0.25ml = 2.5mg. Prior cycles used 5mg (50u). If David''s ''25IU'' is a syringe-unit dose, record dose as ''2.5mg (25u)''. If it maps to something else, record the correct value. If it cannot be resolved from available data, record dose as ''25IU (unconfirmed)'' and flag it prominently in your report so David can correct it. (3) If the MOTS-C cycle 2 entry still shows status ''active'', change it to ''completed'' (it ended 2026-08-23). (4) Update the top-level _last_updated field to ''2026-11-02'' and _updated_by to ''jarvis/galen''. (5) Check /Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/data/health/supplement-stack.json for a current-state MOTS-C entry. It currently has none (only a passing reference inside the myo_inositol purpose string), so this is likely a no-op; if a current-state peptide entry does exist, set it to active with the new cycle. (6) Report: the cycle entry written (cycle_number, start_date, end_date, duration_days, dose), confirmation that cycle 2 was closed, and any dose ambiguity that needs David''s correction."
-      },
-      "on_yes": "execute_action_prompt",
-      "on_no": {
-        "action": "snooze",
-        "snooze_days": 1,
-        "message": "Got it. I'll check again tomorrow whether the MOTS-C cycle started."
-      },
-      "auto_remove_on": "acknowledged",
-      "notes": "Created via an add-reminder invocation on 2026-10-16 (source text: 'Reminder for Monday 2026-11-02: David starts MOTS-C 25IU every 5 days today, running through end of year. Confirm the cycle started and it is logged in data/health/tracking.json.'). trigger_date 2026-11-02 is the Monday the cycle is scheduled to start; the reminder confirms the start and ensures the cycle is logged in data/health/tracking.json. Context: MOTS-C cycle 2 (5mg every 5 days) ran 2026-06-28 to 2026-08-23 and is the last recorded cycle; the stated '25IU' differs from prior cycles' 50u/5mg, so the action prompt flags it for reconciliation. Reconstitution math: 10mg/ml, so 25u = 2.5mg."
-    },
-    {
       "id": "rem-20261027T141945-KMD8KX",
       "created": "2026-10-27T09:19:45-05:00",
       "created_by": "master",
-      "trigger_date": "2026-10-29",
+      "trigger_date": "2026-11-04",
       "trigger_prompt": "Ready to revisit the AI Practice 2027 build plan and settle the five open decisions for Curtis before the one-page charter has to go to the Dec 1-2 session?",
       "routing": {
         "agent": "master",
@@ -41,8 +22,26 @@
       },
       "auto_remove_on": "acknowledged",
       "notes": "Created by Master on 2026-10-27 via an add-reminder invocation. Source request: 'Later this week (by Friday 2026-10-30): revisit the AI Practice 2027 build plan at reference/ai-practice-2027-plan.md. David wanted to let it breathe. Candidate next steps to raise: the five open decisions for Curtis (revenue range, protected allocation %, pre-sales person, Texas-first scope, what David stops doing) and drafting the one-page charter for the Dec 1-2 president session.' trigger_date is 2026-10-29 (Thursday), not the stated Friday 2026-10-30, so the reminder surfaces with one day of runway before the Friday deadline; a one-day snooze from Thursday lands exactly on Friday 2026-10-30. If Friday was meant literally, edit trigger_date to 2026-10-30. Deadline pressure behind this: the one-page charter (plan action A1) is meant to be ratified at the Dec 1-2 2027 strategy session and signed by Curtis and every president by Dec 15, which is the Rock 5 date. The plan's own rule is that the charter should not go to the room until David can answer what each president gets back for protected allocation. The plan was written 2026-10-26 and David deliberately set it aside to let it breathe before deciding.",
-      "trigger": "2026-11-02",
-      "note": "David said no for today 2026-10-30; revisit Monday 2026-11-02"
+      "note": "David said no on 2026-10-30 and again on 2026-11-03; snoozed to 2026-11-04. Prior snooze wrote a stray 'trigger' field instead of trigger_date (data defect, removed 2026-11-03)."
+    },
+    {
+      "id": "rem-20261103T175720-FRL5LH",
+      "created": "2026-11-03T11:57:22-06:00",
+      "created_by": "master",
+      "trigger_date": "2026-11-04",
+      "trigger_prompt": "Ready for me to run the 24h Plaud durability gate on recording 900d3853, revert the 'Speaker 1 TEST' label, and only then let Knox ingest it?",
+      "routing": {
+        "agent": "rigby",
+        "action_prompt": "HARD HOLD FIRST. Plaud recording file_id 900d3853c0a06d570942db021be3853d (\"11-03 Meeting: Extension Incentives and AI SOW Eligibility\") carries a temporary test label \"Speaker 1 TEST\" on 22 segments, left over from the Phase 3c v3 write-path test run on 2026-11-03 at about 11:55 CT. Knox / workflows/plaud-ingest must NOT ingest it while that label is present. If a plaud-ingest run has already started or starts before this completes, the recording must be excluded from the ingest set (workflow state lives at /Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/workflows/plaud-ingest/state.yaml). Read /Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/memory/working/2026-11-03-115656-rigby-plaud-v3-write-path-proven.md and /Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES/reference/plaud-v4-rewrite-plan.md before touching anything.\n\nSTEP 1, TIMING CHECK. The 24h durability gate is due 2026-11-04 at about 11:55 CT, 24 hours after the test write. If the current time is before that window, say so plainly and do not run the gate early. Do not fake or infer durability. Re-check in the same day or tell David when you will return.\n\nSTEP 2, DURABILITY GATE. Re-read all three stores for 900d3853 and confirm whether \"Speaker 1 TEST\" survived 24 hours: (a) legacy trans_result via the file detail read (GET /file/detail/{id} on the existing account token), (b) the transaction_polish source in /ai/update_source_info data, and (c) the web UI rendering after a full page reload. Also force an app refresh by reloading the Plaud web app session before reading, so a cached view cannot pass the gate. Expect 22 of 22 segments labeled \"Speaker 1 TEST\" in each store. Record exact counts per store.\n\nSTEP 3A, IF THE LABEL DID NOT PERSIST. If the 4.0 pipeline rebuilt the transcript and the label is gone or partially gone, do NOT re-apply it. The test is failed or inconclusive; record precisely what each store shows and stop at reporting. The recording is still blocked from ingest until the transcript is clean of the string \"TEST\".\n\nSTEP 3B, IF THE LABEL PERSISTED. Revert \"Speaker 1 TEST\" back to \"Speaker 1\" on all 22 segments using the committed v3 two-write sequence, in this order: (1) PATCH /file/{id} with {\"trans_result\": <full corrected trans_result>, \"support_mul_summ\": true}; (2) POST /ai/update_source_info with {file_id, source_id: <transaction_polish full data_id>, source_type: \"transaction_polish\", source_content: JSON.stringify(trans_result)}. The second call is mandatory: PATCH alone leaves the 4.0 pipeline free to rebuild from its own polish source. Use the existing account token; the private v4 file-app route is unavailable for this account and must not be pursued.\n\nSTEP 4, VERIFY THE REVERT. After writing, reload and re-read all three stores plus the web UI. Require 0 of 22 segments containing \"TEST\" and 22 of 22 reading \"Speaker 1\". Capture file_version before and after. A pre-change backup exists at /Users/davidohara/Downloads/transcript-staging/plaud_3c-single-rename_v3-backup-20261103T115453.json if a rollback reference is needed; do not overwrite it.\n\nSTEP 5, CLEAR OR KEEP THE BLOCK. Only if step 4 is fully clean, mark the recording cleared for Knox / plaud-ingest. If any store still shows \"TEST\", keep the block and say so as the headline of your report.\n\nREPORT BACK: the gate result per store (segments labeled TEST out of 22 for legacy trans_result, polish source, web UI), whether the revert ran, segments changed, file_version before and after, remaining \"TEST\" occurrences anywhere, and one explicit line stating whether recording 900d3853 is cleared for ingest or still blocked and why. Constraints: no em-dashes in anything you write. Do not ingest the recording yourself; that is Knox's job in workflows/plaud-ingest."
+      },
+      "on_yes": "execute_action_prompt",
+      "on_no": {
+        "action": "snooze",
+        "snooze_days": 1,
+        "message": "Understood. The recording stays blocked from ingest and I will raise the durability gate again tomorrow. The label 'Speaker 1 TEST' is still on 22 segments."
+      },
+      "auto_remove_on": "acknowledged",
+      "notes": "Created by Master on 2026-11-03 via an add-reminder invocation. Source request: hold Plaud recording 900d3853c0a06d570942db021be3853d out of Knox/plaud-ingest because it carries the temporary test label \"Speaker 1 TEST\" on 22 segments from the Phase 3c v3 write-path test. The 24h durability gate is due 2026-11-04 around 11:55 CT. Sequence: gate across all three stores plus a forced app refresh, then revert the label with the committed v3 two-write sequence (PATCH /file/{id} with trans_result + support_mul_summ, then POST /ai/update_source_info with the transaction_polish source_id), verify the revert, and only then allow ingest. Context doc: memory/working/2026-11-03-115656-rigby-plaud-v3-write-path-proven.md. Test write committed as a7cae2d82. The gate is time-sensitive, so a one-day snooze pushes the ingest block out a day rather than dropping it."
     }
   ]
 }

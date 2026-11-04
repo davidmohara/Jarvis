@@ -1,0 +1,16 @@
+{
+  "id": "err-20261103T180040-658XF4",
+  "timestamp": "2026-11-03T18:00:40Z",
+  "session": "boot-2026-11-03",
+  "source": "explicit",
+  "agent": "master",
+  "category": "instruction-following",
+  "description": "Master instructed David to run 'npx -y @plaud-ai/mcp@0.3.14 login' for the Plaud MCP OAuth login. No 'login' CLI subcommand exists: the bin's only subcommands are (none, stdio server), install, install --yes/--no-login, http, and the deprecated setup. The command David ran started the stdio MCP server, which prints nothing and blocks on stdin, which he reported as 'it just sits there'.",
+  "correction": "The OAuth login is reached via 'npx -y @plaud-ai/mcp@0.3.14 install' (runs OAuth inline, prints the URL if the browser does not open, listens on port 8199, 2-minute timeout), or by asking an MCP-connected client to call the 'login' tool. Gave David the corrected command.",
+  "failure_mode": "wrong-information",
+  "systemic_fix": "Before handing David a CLI command sourced from documentation prose, verify the subcommand exists in the installed package (inspect the bin's argv dispatch or run --help). Documentation summaries describe capabilities, not exact CLI surface; the package on disk is the authority.",
+  "fix_status": "proposed",
+  "severity": "minor",
+  "related_entries": [],
+  "related_skill": null
+}

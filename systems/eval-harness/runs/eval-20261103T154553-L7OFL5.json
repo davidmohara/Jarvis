@@ -1,0 +1,305 @@
+{
+  "id": "eval-20261103T154553-L7OFL5",
+  "agent_id": "a3daff7753e6ccf98",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": "plaud-ingest",
+  "agent": "knox",
+  "owning_agent": "knox",
+  "subagent_type": "general-purpose",
+  "session_id": "c3204b29-a7bd-4ad3-81a3-236348967873",
+  "trigger": "unknown",
+  "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+  "model_source": "subagent-transcript",
+  "started": "2026-11-03T15:45:53.792257Z",
+  "completed": "2026-11-03T16:18:38.066004Z",
+  "duration_seconds": 1964.27,
+  "status": "partial",
+  "steps": [
+    {
+      "name": "step-01-discover.md",
+      "agent": "general-purpose",
+      "step_id": "step-01-discover.md",
+      "owning_agent": "general-purpose",
+      "started": "2026-11-03T15:46:14Z",
+      "completed": "2026-11-03T15:49:00Z",
+      "status": "completed",
+      "tokens_input": 2361874,
+      "tokens_output": 14414,
+      "cost_usd": 0.148812,
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "token_source": "windowed",
+      "turns_matched": 36,
+      "turns_with_usage": 36,
+      "duration_seconds": 166.0
+    },
+    {
+      "name": "step-02-trigger-transcription.md",
+      "agent": "general-purpose",
+      "step_id": "step-02-trigger-transcription.md",
+      "owning_agent": "general-purpose",
+      "started": "2026-11-03T15:49:00Z",
+      "completed": "2026-11-03T15:53:30Z",
+      "status": "completed",
+      "tokens_input": 3105565,
+      "tokens_output": 12274,
+      "cost_usd": 0.162041,
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "token_source": "windowed",
+      "turns_matched": 28,
+      "turns_with_usage": 28,
+      "duration_seconds": 270.0
+    },
+    {
+      "name": "step-03-identify-speakers.md",
+      "agent": "general-purpose",
+      "step_id": "step-03-identify-speakers.md",
+      "owning_agent": "general-purpose",
+      "started": "2026-11-03T15:53:30Z",
+      "completed": "2026-11-03T16:02:00Z",
+      "status": "completed",
+      "tokens_input": 7282764,
+      "tokens_output": 18721,
+      "cost_usd": 0.272102,
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "token_source": "windowed",
+      "turns_matched": 46,
+      "turns_with_usage": 46,
+      "duration_seconds": 510.0
+    },
+    {
+      "name": "step-05-ingest-vault.md",
+      "agent": "general-purpose",
+      "step_id": "step-05-ingest-vault.md",
+      "owning_agent": "general-purpose",
+      "started": "2026-11-03T16:14:00Z",
+      "completed": "2026-11-03T16:24:00Z",
+      "status": "completed",
+      "tokens_input": 5523867,
+      "tokens_output": 14899,
+      "cost_usd": 0.199584,
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "token_source": "windowed",
+      "turns_matched": 25,
+      "turns_with_usage": 25,
+      "duration_seconds": 600.0
+    },
+    {
+      "name": "step-05b-share-with-alice.md",
+      "agent": "general-purpose",
+      "step_id": "step-05b-share-with-alice.md",
+      "owning_agent": "general-purpose",
+      "started": "2026-11-03T16:24:00Z",
+      "completed": "2026-11-03T16:28:00Z",
+      "status": "completed",
+      "duration_seconds": 240.0
+    },
+    {
+      "name": "step-06-verify-ingest.md",
+      "agent": "general-purpose",
+      "step_id": "step-06-verify-ingest.md",
+      "owning_agent": "general-purpose",
+      "started": "2026-11-03T16:28:00Z",
+      "completed": "2026-11-03T16:44:00Z",
+      "status": "completed",
+      "duration_seconds": 960.0
+    },
+    {
+      "name": "step-04-fetch-staging.md",
+      "step_id": "step-04-fetch-staging.md",
+      "agent": "knox",
+      "owning_agent": "knox",
+      "started": "2026-11-03T16:02:00Z",
+      "completed": "2026-11-03T16:14:00Z",
+      "duration_seconds": 720.0,
+      "status": "completed",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "glm-5p3-flash",
+      "tokens_input": 547000,
+      "tokens_output": 2521,
+      "cost_usd": 0.01019,
+      "token_source": "windowed",
+      "turns_matched": 7
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 3,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/c3204b29-a7bd-4ad3-81a3-236348967873/subagents/agent-a3daff7753e6ccf98.jsonl",
+  "total_tokens_input": 23638922,
+  "total_tokens_output": 68605,
+  "total_cost_usd": 1.01096,
+  "token_source": "subagent-transcript",
+  "guardrails": [
+    {
+      "name": "step-01-discover-checkpoint",
+      "after_step": "step-01-discover.md",
+      "result": "pass",
+      "reason": "4 new recording(s) discovered and well-formed",
+      "escalated_to_human": false,
+      "timestamp": "2026-11-03T16:18:38.551492Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "new_recordings_count": 4,
+        "malformed_records": [],
+        "duplicate_file_ids": []
+      }
+    },
+    {
+      "name": "step-02-trigger-transcription-checkpoint",
+      "after_step": "step-02-trigger-transcription.md",
+      "result": "pass",
+      "reason": "All 4 new recording(s) accounted for across ready/pending/triggered",
+      "escalated_to_human": false,
+      "timestamp": "2026-11-03T16:18:38.714666Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "total_new": 4,
+        "coverage_count": 4,
+        "unaccounted_file_ids": [],
+        "ready_for_fetch_count": 4,
+        "pending_recordings_count": 0,
+        "transcription_triggered_count": 0,
+        "step_02_summary": {},
+        "summary_vs_list_mismatch": false
+      }
+    },
+    {
+      "name": "step-03-identify-speakers-checkpoint",
+      "after_step": "step-03-identify-speakers.md",
+      "result": "pass",
+      "reason": "Speaker identification resolved: 4 mapping(s), 4 recording(s) classified, no unresolved mappings",
+      "escalated_to_human": false,
+      "timestamp": "2026-11-03T16:18:38.884220Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "status": "complete",
+        "pending_count": 0,
+        "speaker_mappings_count": 4,
+        "recording_classification_count": 4,
+        "ready_for_fetch_count": 4
+      }
+    },
+    {
+      "name": "step-04-fetch-staging-checkpoint",
+      "after_step": "step-04-fetch-staging.md",
+      "result": "retry",
+      "reason": "sub-agent output failed schema validation (1 errors); re-run the step and repopulate the declared fields",
+      "escalated_to_human": false,
+      "timestamp": "2026-11-03T16:18:39.023445Z",
+      "validation_errors": [
+        "staged-files: required field missing"
+      ]
+    },
+    {
+      "name": "step-05-ingest-vault-checkpoint",
+      "after_step": "step-05-ingest-vault.md",
+      "result": "pass",
+      "reason": "No staged files were present for this run \u2014 nothing for step-05 to ingest",
+      "escalated_to_human": false,
+      "timestamp": "2026-11-03T16:18:39.206221Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "staged_files_count": 0,
+        "ingested_notes_count": 4,
+        "staging_leftover_count": 0,
+        "staging_leftover_files": [],
+        "working_memory_written": true,
+        "working_memory_file": "plaud-ingest-2026-11-03-101815.md"
+      }
+    },
+    {
+      "name": "step-05b-share-with-alice-checkpoint",
+      "after_step": "step-05b-share-with-alice.md",
+      "result": "pass",
+      "reason": "Workflow reached terminal state (status: complete, current-step: step-05b) with 3 work recording(s) classified",
+      "escalated_to_human": false,
+      "timestamp": "2026-11-03T16:18:39.342050Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "status": "complete",
+        "current_step": "step-06",
+        "work_recordings_count": 3,
+        "personal_recordings_count": 1
+      }
+    },
+    {
+      "name": "adversarial-verification",
+      "after_step": "step-06-verify-ingest.md",
+      "result": "pass",
+      "reason": "Adversarial verification recorded with result 'pass'",
+      "escalated_to_human": false,
+      "timestamp": "2026-11-03T16:18:39.712728Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "adversarial_verification_recorded": true,
+        "verification_result": "pass",
+        "findings_count": 0,
+        "guardrail_entry_present": true
+      }
+    }
+  ],
+  "retry_signal": {
+    "step": "step-04-fetch-staging.md",
+    "checkpoint": "step-04-fetch-staging-checkpoint",
+    "reason": "sub-agent output failed schema validation (1 errors); re-run the step and repopulate the declared fields",
+    "feedback": "sub-agent output failed schema validation (1 errors); re-run the step and repopulate the declared fields",
+    "instruction": "Sub-agent output failed schema validation on declared fields: staged-files: required field missing. Re-run the step and repopulate those fields.",
+    "attempt_number": 1,
+    "timestamp": "2026-11-03T16:18:39.023578Z",
+    "max_attempts": 2
+  },
+  "parent_window": {
+    "token_source": "parent-window",
+    "transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/c3204b29-a7bd-4ad3-81a3-236348967873.jsonl",
+    "window_start": "2026-11-03T15:45:53.792257Z",
+    "window_end": "2026-11-03T16:18:38.066004Z",
+    "model": "glm-5p3-flash",
+    "tokens_input": 2049835,
+    "tokens_output": 7704,
+    "cost_usd": 0.037572,
+    "turns_matched": 23,
+    "turns_with_usage": 21,
+    "computed_at": "2026-11-03T16:18:40.728171Z"
+  },
+  "fully_loaded_cost_usd": 1.048532,
+  "fully_loaded_tokens_input": 25688757,
+  "fully_loaded_tokens_output": 76309
+}

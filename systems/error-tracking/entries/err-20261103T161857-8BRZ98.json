@@ -1,0 +1,16 @@
+{
+  "id": "err-20261103T161857-8BRZ98",
+  "timestamp": "2026-11-03T16:18:57Z",
+  "session": "boot-2026-11-03 (pi-20261103-001)",
+  "source": "self-detected",
+  "agent": "knox",
+  "category": "process-skip",
+  "description": "During plaud-ingest, step-02's trigger call for recording d6e687e2b0d0a74baba20d28fa1832b4 returned status -12; the step was marked complete and the run moved on, leaving that recording with no outcome until step-06's reconcile flagged it as a silent drop.",
+  "correction": "On the reconcile's silent-drop flag, re-checked the recording, found the fetch script had re-triggered it and Plaud had finished the transcript, then fetched, speaker-ID'd, ingested and filed it so the run ended with zero silent drops.",
+  "failure_mode": "protocol-skip",
+  "systemic_fix": "A non-success trigger status in plaud-ingest step-02 must be recorded as an explicit per-recording outcome (retry, failed, or skipped-with-reason) rather than absorbed into a completed step; step-06's reconcile should then be a confirmation, not the first line of defense.",
+  "fix_status": "proposed",
+  "severity": "moderate",
+  "related_entries": [],
+  "related_skill": "skills/plaud-trigger"
+}

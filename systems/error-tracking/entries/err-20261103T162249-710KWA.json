@@ -1,0 +1,16 @@
+{
+  "id": "err-20261103T162249-710KWA",
+  "timestamp": "2026-11-03T16:22:49Z",
+  "session": "boot-2026-11-03",
+  "source": "explicit",
+  "agent": "master",
+  "category": "instruction-following",
+  "description": "The morning-briefing relay presented the DRC MarketScale video shoot as an item on David's watch list ('still waiting on room audio/lavalier and a room picture from DRC's Olivia. If that room picture doesn't show up today, the shoot improvises'), implying David needed to chase it. David corrected: the shoot is a delegation, the other party is handling it, not him.",
+  "correction": "Before flagging a workstream as David's follow-up, check ownership: if the work is delegated or owned by another party, present it as delegation status, not as David's action item. Delegation-aware briefing, not ownership-blind flagging.",
+  "failure_mode": "overreach",
+  "systemic_fix": "Briefing follow-up lists must distinguish three states: David's action item, delegated (owner named, tracked), and other party's obligation (not David's to chase). When ownership is unknown, say so instead of defaulting it to David.",
+  "fix_status": "proposed",
+  "severity": "minor",
+  "related_entries": [],
+  "related_skill": null
+}

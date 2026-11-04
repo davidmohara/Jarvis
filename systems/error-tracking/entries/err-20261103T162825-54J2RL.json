@@ -1,0 +1,16 @@
+{
+  "id": "err-20261103T162825-54J2RL",
+  "timestamp": "2026-11-03T16:28:25Z",
+  "session": "boot-2026-11-03",
+  "source": "explicit",
+  "agent": "master",
+  "category": "instruction-following",
+  "description": "David's 'Atlas is a no-go because I'm booked' was a complete decision. Master acknowledged it but then re-asked whether to close, leave open, or re-date the Monday task, re-litigating a settled question.",
+  "correction": "When David states a decision, act on its operational consequences without re-asking. A no-go on a task means close it (or mark it per the obvious disposition) and report the action; only ask a follow-up if the decision is genuinely ambiguous about the outcome, not the bookkeeping.",
+  "failure_mode": "excessive_questions",
+  "systemic_fix": "Apply the 'don't ask unnecessary questions' rule to bookkeeping: decisions imply their file updates. Ask only when the disposition itself is ambiguous, and default to the disposition that matches the words given.",
+  "fix_status": "proposed",
+  "severity": "minor",
+  "related_entries": [],
+  "related_skill": null
+}
