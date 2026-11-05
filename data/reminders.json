@@ -8,7 +8,7 @@
       "id": "rem-20261027T141945-KMD8KX",
       "created": "2026-10-27T09:19:45-05:00",
       "created_by": "master",
-      "trigger_date": "2026-11-04",
+      "trigger_date": "2026-11-07",
       "trigger_prompt": "Ready to revisit the AI Practice 2027 build plan and settle the five open decisions for Curtis before the one-page charter has to go to the Dec 1-2 session?",
       "routing": {
         "agent": "master",
@@ -21,7 +21,7 @@
         "message": "Understood. I will raise it again tomorrow, which is the Friday deadline you set."
       },
       "auto_remove_on": "acknowledged",
-      "notes": "Created by Master on 2026-10-27 via an add-reminder invocation. Source request: 'Later this week (by Friday 2026-10-30): revisit the AI Practice 2027 build plan at reference/ai-practice-2027-plan.md. David wanted to let it breathe. Candidate next steps to raise: the five open decisions for Curtis (revenue range, protected allocation %, pre-sales person, Texas-first scope, what David stops doing) and drafting the one-page charter for the Dec 1-2 president session.' trigger_date is 2026-10-29 (Thursday), not the stated Friday 2026-10-30, so the reminder surfaces with one day of runway before the Friday deadline; a one-day snooze from Thursday lands exactly on Friday 2026-10-30. If Friday was meant literally, edit trigger_date to 2026-10-30. Deadline pressure behind this: the one-page charter (plan action A1) is meant to be ratified at the Dec 1-2 2027 strategy session and signed by Curtis and every president by Dec 15, which is the Rock 5 date. The plan's own rule is that the charter should not go to the room until David can answer what each president gets back for protected allocation. The plan was written 2026-10-26 and David deliberately set it aside to let it breathe before deciding.",
+      "notes": "Created by Master on 2026-10-27 via an add-reminder invocation. Source request: 'Later this week (by Friday 2026-10-30): revisit the AI Practice 2027 build plan at reference/ai-practice-2027-plan.md. David wanted to let it breathe. Candidate next steps to raise: the five open decisions for Curtis (revenue range, protected allocation %, pre-sales person, Texas-first scope, what David stops doing) and drafting the one-page charter for the Dec 1-2 president session.' trigger_date is 2026-10-29 (Thursday), not the stated Friday 2026-10-30, so the reminder surfaces with one day of runway before the Friday deadline; a one-day snooze from Thursday lands exactly on Friday 2026-10-30. If Friday was meant literally, edit trigger_date to 2026-10-30. Deadline pressure behind this: the one-page charter (plan action A1) is meant to be ratified at the Dec 1-2 2027 strategy session and signed by Curtis and every president by Dec 15, which is the Rock 5 date. The plan's own rule is that the charter should not go to the room until David can answer what each president gets back for protected allocation. The plan was written 2026-10-26 and David deliberately set it aside to let it breathe before deciding. | 2026-11-05: David parked it until after the AI Leadership Summit (Nov 5-6); re-ask Nov 7.",
       "note": "David said no on 2026-10-30 and again on 2026-11-03; snoozed to 2026-11-04. Prior snooze wrote a stray 'trigger' field instead of trigger_date (data defect, removed 2026-11-03)."
     },
     {
@@ -41,7 +41,11 @@
         "message": "Understood. The recording stays blocked from ingest and I will raise the durability gate again tomorrow. The label 'Speaker 1 TEST' is still on 22 segments."
       },
       "auto_remove_on": "acknowledged",
-      "notes": "Created by Master on 2026-11-03 via an add-reminder invocation. Source request: hold Plaud recording 900d3853c0a06d570942db021be3853d out of Knox/plaud-ingest because it carries the temporary test label \"Speaker 1 TEST\" on 22 segments from the Phase 3c v3 write-path test. The 24h durability gate is due 2026-11-04 around 11:55 CT. Sequence: gate across all three stores plus a forced app refresh, then revert the label with the committed v3 two-write sequence (PATCH /file/{id} with trans_result + support_mul_summ, then POST /ai/update_source_info with the transaction_polish source_id), verify the revert, and only then allow ingest. Context doc: memory/working/2026-11-03-115656-rigby-plaud-v3-write-path-proven.md. Test write committed as a7cae2d82. The gate is time-sensitive, so a one-day snooze pushes the ingest block out a day rather than dropping it."
+      "notes": "Created by Master on 2026-11-03 via an add-reminder invocation. Source request: hold Plaud recording 900d3853c0a06d570942db021be3853d out of Knox/plaud-ingest because it carries the temporary test label \"Speaker 1 TEST\" on 22 segments from the Phase 3c v3 write-path test. The 24h durability gate is due 2026-11-04 around 11:55 CT. Sequence: gate across all three stores plus a forced app refresh, then revert the label with the committed v3 two-write sequence (PATCH /file/{id} with trans_result + support_mul_summ, then POST /ai/update_source_info with the transaction_polish source_id), verify the revert, and only then allow ingest. Context doc: memory/working/2026-11-03-115656-rigby-plaud-v3-write-path-proven.md. Test write committed as a7cae2d82. The gate is time-sensitive, so a one-day snooze pushes the ingest block out a day rather than dropping it.",
+      "answered": "yes (late-run, window passed; David confirmed 2026-11-05)",
+      "status": "resolved",
+      "resolved_at": "2026-11-05T22:50:00Z",
+      "resolution": "Gate passed (22/22 TEST persisted across ~53h in all three stores + MCP); label reverted via v3 two-write sequence, verified 0 TEST everywhere; recording cleared. Vault residue fix delegated to Knox."
     }
   ]
 }

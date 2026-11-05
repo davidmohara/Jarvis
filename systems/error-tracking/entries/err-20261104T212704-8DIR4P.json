@@ -1,0 +1,17 @@
+{
+  "id": "err-20261104T212704-8DIR4P",
+  "timestamp": "2026-11-04T21:27:04.673911Z",
+  "session": "pi-20261104-001",
+  "source": "self-detected",
+  "agent": "knox",
+  "category": "tool-misuse",
+  "description": "fetch_plaud.py aborts the entire fetch with PLAUD_READ_STATUS=failed when it re-checks a stale entry in ~/Downloads/transcript-staging/plaud_pending.json whose recording no longer exists in Plaud. The entry a93aa078b699d69c62c4a2cef8dcf5b2 ('2026-09-25 09:27:43', triggered 2026-09-28) returns 404 on MCP get_file and is absent from all 161 API records, so every fetch run died before reaching its target date.",
+  "correction": "Backed up plaud_pending.json, reset the queue to {}, removed plaud_read_failure.json, and retried once on the same MCP read source. The retry staged the 2026-11-03 recording and returned PLAUD_READ_STATUS=ok. No read-source fallback was used.",
+  "failure_mode": "stale-cache",
+  "systemic_fix": "fetch_plaud.py should drop a pending entry that returns 404/not-found from Plaud after one confirmation instead of failing the whole run, and should never let pending re-checks precede target-date processing.",
+  "fix_status": "applied",
+  "fix_note": "Applied 2026-11-05 (root-cause fix 10, reviews/boot-root-implementation): fetch_plaud.py now processes the target date first, then re-checks the pending queue non-fatally (recheck_pending). A confirmed-gone entry (not-found detail read AND absent from the freshly-listed library) is dropped with a log line; any other pending-recheck error keeps the entry queued and never aborts the run.",
+  "severity": "moderate",
+  "related_entries": [],
+  "related_skill": "plaud-transcripts"
+}

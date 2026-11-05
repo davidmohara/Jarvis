@@ -1,0 +1,427 @@
+{
+  "id": "eval-20261104T212943-QGM9VB",
+  "agent_id": "ad1ed98ff550b55ce",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": "boot",
+  "agent": "master",
+  "owning_agent": "master",
+  "subagent_type": "general-purpose",
+  "session_id": "5011d157-0c88-4fb3-b9da-86250e3bd54f",
+  "trigger": "unknown",
+  "model": "accounts/fireworks/models/kimi-k3",
+  "model_source": "subagent-transcript",
+  "started": "2026-11-04T21:29:43.145746Z",
+  "completed": "2026-11-04T21:37:59.532987Z",
+  "duration_seconds": 496.39,
+  "status": "success",
+  "steps": [
+    {
+      "name": "step-05-synthesize-briefing.md",
+      "agent": "general-purpose",
+      "step_id": "step-05-synthesize-briefing.md",
+      "owning_agent": "general-purpose",
+      "started": "2026-11-02T16:19:42Z",
+      "completed": "2026-11-04T21:34:13Z",
+      "status": "complete",
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null,
+      "model": "accounts/fireworks/models/kimi-k3",
+      "token_source": "stale-window",
+      "turns_matched": 0,
+      "turns_with_usage": 31,
+      "duration_seconds": null
+    },
+    {
+      "name": "step-06-scan-workflows.md",
+      "agent": "general-purpose",
+      "step_id": "step-06-scan-workflows.md",
+      "owning_agent": "general-purpose",
+      "started": "2026-11-02T16:21:30Z",
+      "completed": "2026-11-04T21:34:25Z",
+      "status": "complete",
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null,
+      "model": "accounts/fireworks/models/kimi-k3",
+      "token_source": "stale-window",
+      "turns_matched": 0,
+      "turns_with_usage": 32,
+      "duration_seconds": null
+    },
+    {
+      "name": "step-07-verify-completion.md",
+      "agent": "general-purpose",
+      "step_id": "step-07-verify-completion.md",
+      "owning_agent": "general-purpose",
+      "started": "2026-11-02T16:21:55Z",
+      "completed": "2026-11-04T21:34:47Z",
+      "status": "complete",
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null,
+      "model": "accounts/fireworks/models/kimi-k3",
+      "token_source": "stale-window",
+      "turns_matched": 0,
+      "turns_with_usage": 36,
+      "duration_seconds": null
+    },
+    {
+      "name": "step-08-knox-completion-check.md",
+      "agent": "general-purpose",
+      "step_id": "step-08-knox-completion-check.md",
+      "owning_agent": "general-purpose",
+      "started": "2026-11-02T16:22:15Z",
+      "completed": "2026-11-04T21:35:13Z",
+      "status": "complete",
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null,
+      "model": "accounts/fireworks/models/kimi-k3",
+      "token_source": "stale-window",
+      "turns_matched": 0,
+      "turns_with_usage": 38,
+      "duration_seconds": null
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/5011d157-0c88-4fb3-b9da-86250e3bd54f/subagents/agent-ad1ed98ff550b55ce.jsonl",
+  "total_tokens_input": 2377456,
+  "total_tokens_output": 15595,
+  "total_cost_usd": 1.104067,
+  "token_source": "subagent-transcript",
+  "guardrails": [
+    {
+      "name": "step-05-checkpoint",
+      "after_step": "step-05-synthesize-briefing.md",
+      "result": "pass",
+      "reason": "Briefing delivered with 2 sections (829 chars)",
+      "escalated_to_human": false,
+      "timestamp": "2026-11-04T21:36:04.664353Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "briefing_delivered": true,
+        "briefing_sections": 2,
+        "briefing_section_labels": [
+          "Briefing led on the asymmetry",
+          "Tomorrow needs prep today"
+        ],
+        "briefing_content_length": 829,
+        "last_run_status": "complete"
+      }
+    },
+    {
+      "name": "step-06-checkpoint",
+      "after_step": "step-06-scan-workflows.md",
+      "result": "pass",
+      "reason": "Scanned 75 workflow state files, found 0 genuinely in-progress",
+      "escalated_to_human": false,
+      "timestamp": "2026-11-04T21:36:05.115068Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "in_flight_list": [],
+        "in_flight_count": 0,
+        "workflows_scanned": 75,
+        "unreadable_state_files": [],
+        "active_yaml_count": 0
+      }
+    },
+    {
+      "name": "step-07-checkpoint",
+      "after_step": "step-07-verify-completion.md",
+      "result": "pass",
+      "reason": "All 8 prior steps complete, state.yaml status=complete, session index present",
+      "escalated_to_human": false,
+      "timestamp": "2026-11-04T21:36:05.236155Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "state_status": "complete",
+        "steps_verified": 8,
+        "failed_steps": [],
+        "session_index_path": "memory/sessions/index.json",
+        "session_index_exists": true
+      }
+    },
+    {
+      "name": "step-08-knox-completion-check-checkpoint",
+      "after_step": "step-08-knox-completion-check.md",
+      "result": "pass",
+      "reason": "Knox eval record found (eval-20261104T211632-963724): status=failure",
+      "escalated_to_human": false,
+      "timestamp": "2026-11-04T21:36:05.505162Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "knox_status": "failure",
+        "knox_eval_id": "eval-20261104T211632-963724",
+        "knox_raw_status": "failure",
+        "knox_duration_seconds": 651.15
+      }
+    },
+    {
+      "name": "step-05-checkpoint",
+      "after_step": "step-05-synthesize-briefing.md",
+      "result": "pass",
+      "reason": "Briefing delivered with 2 sections (829 chars)",
+      "escalated_to_human": false,
+      "timestamp": "2026-11-04T21:36:50.300328Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "briefing_delivered": true,
+        "briefing_sections": 2,
+        "briefing_section_labels": [
+          "Briefing led on the asymmetry",
+          "Tomorrow needs prep today"
+        ],
+        "briefing_content_length": 829,
+        "last_run_status": "complete"
+      }
+    },
+    {
+      "name": "step-06-checkpoint",
+      "after_step": "step-06-scan-workflows.md",
+      "result": "pass",
+      "reason": "Scanned 75 workflow state files, found 0 genuinely in-progress",
+      "escalated_to_human": false,
+      "timestamp": "2026-11-04T21:36:50.551983Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "in_flight_list": [],
+        "in_flight_count": 0,
+        "workflows_scanned": 75,
+        "unreadable_state_files": [],
+        "active_yaml_count": 0
+      }
+    },
+    {
+      "name": "step-07-checkpoint",
+      "after_step": "step-07-verify-completion.md",
+      "result": "pass",
+      "reason": "All 8 prior steps complete, state.yaml status=complete, session index present",
+      "escalated_to_human": false,
+      "timestamp": "2026-11-04T21:36:50.696180Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "state_status": "complete",
+        "steps_verified": 8,
+        "failed_steps": [],
+        "session_index_path": "memory/sessions/index.json",
+        "session_index_exists": true
+      }
+    },
+    {
+      "name": "step-08-knox-completion-check-checkpoint",
+      "after_step": "step-08-knox-completion-check.md",
+      "result": "pass",
+      "reason": "Knox eval record found (eval-20261104T211632-963724): status=failure",
+      "escalated_to_human": false,
+      "timestamp": "2026-11-04T21:36:50.955615Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "knox_status": "failure",
+        "knox_eval_id": "eval-20261104T211632-963724",
+        "knox_raw_status": "failure",
+        "knox_duration_seconds": 651.15
+      }
+    },
+    {
+      "name": "step-05-checkpoint",
+      "after_step": "step-05-synthesize-briefing.md",
+      "result": "pass",
+      "reason": "Briefing delivered with 2 sections (829 chars)",
+      "escalated_to_human": false,
+      "timestamp": "2026-11-04T21:37:55.250951Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "briefing_delivered": true,
+        "briefing_sections": 2,
+        "briefing_section_labels": [
+          "Briefing led on the asymmetry",
+          "Tomorrow needs prep today"
+        ],
+        "briefing_content_length": 829,
+        "last_run_status": "complete"
+      }
+    },
+    {
+      "name": "step-06-checkpoint",
+      "after_step": "step-06-scan-workflows.md",
+      "result": "pass",
+      "reason": "Scanned 75 workflow state files, found 0 genuinely in-progress",
+      "escalated_to_human": false,
+      "timestamp": "2026-11-04T21:37:55.545285Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "in_flight_list": [],
+        "in_flight_count": 0,
+        "workflows_scanned": 75,
+        "unreadable_state_files": [],
+        "active_yaml_count": 0
+      }
+    },
+    {
+      "name": "step-07-checkpoint",
+      "after_step": "step-07-verify-completion.md",
+      "result": "pass",
+      "reason": "All 8 prior steps complete, state.yaml status=complete, session index present",
+      "escalated_to_human": false,
+      "timestamp": "2026-11-04T21:37:55.698631Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "state_status": "complete",
+        "steps_verified": 8,
+        "failed_steps": [],
+        "session_index_path": "memory/sessions/index.json",
+        "session_index_exists": true
+      }
+    },
+    {
+      "name": "step-08-knox-completion-check-checkpoint",
+      "after_step": "step-08-knox-completion-check.md",
+      "result": "pass",
+      "reason": "Knox eval record found (eval-20261104T211632-963724): status=failure",
+      "escalated_to_human": false,
+      "timestamp": "2026-11-04T21:37:55.991593Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "knox_status": "failure",
+        "knox_eval_id": "eval-20261104T211632-963724",
+        "knox_raw_status": "failure",
+        "knox_duration_seconds": 651.15
+      }
+    },
+    {
+      "name": "step-05-checkpoint",
+      "after_step": "step-05-synthesize-briefing.md",
+      "result": "pass",
+      "reason": "Briefing delivered with 2 sections (829 chars)",
+      "escalated_to_human": false,
+      "timestamp": "2026-11-04T21:37:59.980641Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "briefing_delivered": true,
+        "briefing_sections": 2,
+        "briefing_section_labels": [
+          "Briefing led on the asymmetry",
+          "Tomorrow needs prep today"
+        ],
+        "briefing_content_length": 829,
+        "last_run_status": "complete"
+      }
+    },
+    {
+      "name": "step-06-checkpoint",
+      "after_step": "step-06-scan-workflows.md",
+      "result": "pass",
+      "reason": "Scanned 75 workflow state files, found 0 genuinely in-progress",
+      "escalated_to_human": false,
+      "timestamp": "2026-11-04T21:38:00.224038Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "in_flight_list": [],
+        "in_flight_count": 0,
+        "workflows_scanned": 75,
+        "unreadable_state_files": [],
+        "active_yaml_count": 0
+      }
+    },
+    {
+      "name": "step-07-checkpoint",
+      "after_step": "step-07-verify-completion.md",
+      "result": "pass",
+      "reason": "All 8 prior steps complete, state.yaml status=complete, session index present",
+      "escalated_to_human": false,
+      "timestamp": "2026-11-04T21:38:00.356507Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "state_status": "complete",
+        "steps_verified": 8,
+        "failed_steps": [],
+        "session_index_path": "memory/sessions/index.json",
+        "session_index_exists": true
+      }
+    },
+    {
+      "name": "step-08-knox-completion-check-checkpoint",
+      "after_step": "step-08-knox-completion-check.md",
+      "result": "pass",
+      "reason": "Knox eval record found (eval-20261104T211632-963724): status=failure",
+      "escalated_to_human": false,
+      "timestamp": "2026-11-04T21:38:00.599685Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "knox_status": "failure",
+        "knox_eval_id": "eval-20261104T211632-963724",
+        "knox_raw_status": "failure",
+        "knox_duration_seconds": 651.15
+      }
+    }
+  ],
+  "parent_window": {
+    "token_source": "parent-window",
+    "transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/5011d157-0c88-4fb3-b9da-86250e3bd54f.jsonl",
+    "window_start": "2026-11-04T21:29:43.145746Z",
+    "window_end": "2026-11-04T21:37:59.532987Z",
+    "model": "glm-5p3-flash",
+    "tokens_input": 370063,
+    "tokens_output": 2221,
+    "cost_usd": 0.020401,
+    "turns_matched": 4,
+    "turns_with_usage": 4,
+    "computed_at": "2026-11-04T21:38:00.667935Z"
+  },
+  "fully_loaded_cost_usd": 1.124468,
+  "fully_loaded_tokens_input": 2747519,
+  "fully_loaded_tokens_output": 17816,
+  "last_assistant_message": "Stale timer again. Boot steps 05-08 remain complete; the final report was delivered. No action.",
+  "harness_tokens": 71688,
+  "harness_tool_uses": 51,
+  "harness_duration_ms": 493373,
+  "attribution_integrity": {
+    "status": "repaired",
+    "method": "manual-data-repair-2026-11-05 (root-cause fixes 6+7)",
+    "pre_repair_step_sum": 7126731,
+    "run_total": 2377456,
+    "post_repair_step_sum": 0,
+    "reason": "all four step windows carried 2026-11-02 started-at stamps against a 2026-11-04 run (stale frontmatter); strict windows over the agent transcript over-summed the run 3x",
+    "checked_at": "2026-11-05T20:48:05.435502Z"
+  }
+}

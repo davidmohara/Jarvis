@@ -1,0 +1,131 @@
+{
+  "id": "eval-20261105T234303-ZQLCKC",
+  "type": "workflow",
+  "name": "daily-review",
+  "agent": "chief",
+  "owning_agent": "chief",
+  "session_id": "5011d157-0c88-4fb3-b9da-86250e3bd54f",
+  "trigger": "manual",
+  "model": "glm-5p3-flash",
+  "model_source": "session-transcript-latest",
+  "started": "2026-11-05T17:11:00-06:00",
+  "completed": "2026-11-05T23:43:00.748660Z",
+  "duration_seconds": 1920.7,
+  "status": "partial",
+  "steps": [
+    {
+      "name": "step-01-capture",
+      "step_id": "step-01-capture",
+      "agent": "chief",
+      "owning_agent": "chief",
+      "started": "2026-11-05T17:11:00-06:00",
+      "completed": "2026-11-05T17:16:20.124777-06:00",
+      "duration_seconds": 320.1,
+      "status": "success",
+      "data_sources_used": [],
+      "data_source_failures": []
+    },
+    {
+      "name": "step-02-set-tomorrow",
+      "step_id": "step-02-set-tomorrow",
+      "agent": "chief",
+      "owning_agent": "chief",
+      "started": "2026-11-05T17:16:20.124777-06:00",
+      "completed": "2026-11-05T17:21:40.249553-06:00",
+      "duration_seconds": 320.1,
+      "status": "success",
+      "data_sources_used": [],
+      "data_source_failures": []
+    },
+    {
+      "name": "step-03-update-system",
+      "step_id": "step-03-update-system",
+      "agent": "chief",
+      "owning_agent": "chief",
+      "started": "2026-11-05T17:21:40.249553-06:00",
+      "completed": "2026-11-05T17:27:00.374330-06:00",
+      "duration_seconds": 320.1,
+      "status": "success",
+      "data_sources_used": [],
+      "data_source_failures": []
+    },
+    {
+      "name": "step-03c-adversarial-verify",
+      "step_id": "step-03c-adversarial-verify",
+      "agent": "chief",
+      "owning_agent": "chief",
+      "started": "2026-11-05T17:27:00.374330-06:00",
+      "completed": "2026-11-05T17:32:20.499107-06:00",
+      "duration_seconds": 320.1,
+      "status": "success",
+      "data_sources_used": [],
+      "data_source_failures": []
+    },
+    {
+      "name": "step-04-root-audit",
+      "step_id": "step-04-root-audit",
+      "agent": "chief",
+      "owning_agent": "chief",
+      "started": "2026-11-05T17:32:20.499107-06:00",
+      "completed": "2026-11-05T17:37:40.623883-06:00",
+      "duration_seconds": 320.1,
+      "status": "success",
+      "data_sources_used": [],
+      "data_source_failures": []
+    },
+    {
+      "name": "step-05-session-close",
+      "step_id": "step-05-session-close",
+      "agent": "chief",
+      "owning_agent": "chief",
+      "started": "2026-11-05T17:37:40.623883-06:00",
+      "completed": "2026-11-05T17:43:00.748660-06:00",
+      "duration_seconds": 320.1,
+      "status": "success",
+      "data_sources_used": [],
+      "data_source_failures": []
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": [],
+      "abort_reason": null
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": "47ea39f745de77a2",
+  "prior_baseline_id": null,
+  "tags": [
+    "cowork-instrumented"
+  ]
+}

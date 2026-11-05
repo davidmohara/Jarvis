@@ -1,0 +1,83 @@
+{
+  "id": "eval-20261105T141656-Q7P4IC",
+  "agent_id": "a46644a28f6153313",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": null,
+  "agent": "rigby",
+  "owning_agent": "rigby",
+  "subagent_type": "general-purpose",
+  "session_id": "5011d157-0c88-4fb3-b9da-86250e3bd54f",
+  "trigger": "unknown",
+  "model": "accounts/fireworks/models/kimi-k3",
+  "model_source": "subagent-transcript",
+  "started": "2026-11-05T14:16:56.705055Z",
+  "completed": "2026-11-05T14:23:09.971639Z",
+  "duration_seconds": 373.27,
+  "status": "partial",
+  "steps": [],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 1,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/5011d157-0c88-4fb3-b9da-86250e3bd54f/subagents/agent-a46644a28f6153313.jsonl",
+  "total_tokens_input": 521435,
+  "total_tokens_output": 13987,
+  "total_cost_usd": 0.522579,
+  "token_source": "subagent-transcript",
+  "parent_window": {
+    "token_source": "parent-window",
+    "transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/5011d157-0c88-4fb3-b9da-86250e3bd54f.jsonl",
+    "window_start": "2026-11-05T14:16:56.705055Z",
+    "window_end": "2026-11-05T14:23:09.971639Z",
+    "model": "deepseek-v4p1-flash-1017",
+    "tokens_input": 101775,
+    "tokens_output": 53,
+    "cost_usd": null,
+    "turns_matched": 1,
+    "turns_with_usage": 1,
+    "computed_at": "2026-11-05T14:23:11.327440Z",
+    "unpriced_models": [
+      "deepseek-v4p1-flash-1017"
+    ]
+  },
+  "fully_loaded_cost_usd": 0.522579,
+  "fully_loaded_tokens_input": 623210,
+  "fully_loaded_tokens_output": 14040,
+  "fully_loaded_note": "parent window contains unpriced model(s) ['deepseek-v4p1-flash-1017']; their tokens are in the token sums but not in cost_usd"
+}

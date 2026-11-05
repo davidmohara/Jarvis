@@ -1,0 +1,501 @@
+{
+  "id": "eval-20261104T211453-019TAZ",
+  "type": "workflow",
+  "name": "boot",
+  "agent": "master",
+  "session_id": "5011d157-0c88-4fb3-b9da-86250e3bd54f",
+  "trigger": "boot",
+  "model": "glm-5p3-flash",
+  "model_source": "parent-window",
+  "started": "2026-11-04T21:14:53.381301Z",
+  "completed": "2026-11-04T21:36:25.714944Z",
+  "duration_seconds": 1292.33,
+  "status": "partial",
+  "steps": [
+    {
+      "name": "step-01-load-context.md",
+      "step_id": "step-01-load-context.md",
+      "agent": "master",
+      "owning_agent": "master",
+      "started": "2026-11-04T21:15:32Z",
+      "completed": "2026-11-04T21:17:02Z",
+      "duration_seconds": 90.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "glm-5p3-flash",
+      "tokens_input": 519699,
+      "tokens_output": 1524,
+      "cost_usd": 0.013468,
+      "token_source": "windowed",
+      "turns_matched": 8
+    },
+    {
+      "name": "step-01.5-unified-calendar-pull.md",
+      "step_id": "step-01.5-unified-calendar-pull.md",
+      "agent": "master",
+      "owning_agent": "master",
+      "started": "2026-11-04T21:17:25Z",
+      "completed": "2026-11-04T21:19:02Z",
+      "duration_seconds": 97.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "glm-5p3-flash",
+      "tokens_input": 77382,
+      "tokens_output": 258,
+      "cost_usd": 0.001507,
+      "token_source": "windowed",
+      "turns_matched": 1
+    },
+    {
+      "name": "step-01.2-unified-data-pull.md",
+      "step_id": "step-01.2-unified-data-pull.md",
+      "agent": "master",
+      "owning_agent": "master",
+      "started": "2026-11-04T21:20:30Z",
+      "completed": "2026-11-04T21:23:35Z",
+      "duration_seconds": 185.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "glm-5p3-flash",
+      "tokens_input": 157882,
+      "tokens_output": 376,
+      "cost_usd": 0.003134,
+      "token_source": "windowed",
+      "turns_matched": 2
+    },
+    {
+      "name": "step-02-gather-data.md",
+      "step_id": "step-02-gather-data.md",
+      "agent": "master",
+      "owning_agent": "master",
+      "started": "2026-11-04T21:24:00Z",
+      "completed": "2026-11-04T21:25:41Z",
+      "duration_seconds": 101.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "glm-5p3-flash",
+      "tokens_input": 162260,
+      "tokens_output": 426,
+      "cost_usd": 0.003263,
+      "token_source": "windowed",
+      "turns_matched": 2
+    },
+    {
+      "name": "step-03-verify-phase2.md",
+      "step_id": "step-03-verify-phase2.md",
+      "agent": "master",
+      "owning_agent": "master",
+      "started": "2026-11-04T21:26:52Z",
+      "completed": "2026-11-04T21:26:54Z",
+      "duration_seconds": 2.0,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "glm-5p3-flash",
+      "tokens_input": 83390,
+      "tokens_output": 23,
+      "cost_usd": 0.001461,
+      "token_source": "windowed",
+      "turns_matched": 1
+    },
+    {
+      "name": "step-04-gather-meeting-context.md",
+      "step_id": "step-04-gather-meeting-context.md",
+      "agent": "master",
+      "owning_agent": "master",
+      "started": "2026-11-04T21:27:30.013752Z",
+      "completed": "2026-11-04T21:28:52Z",
+      "duration_seconds": null,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "accounts/fireworks/models/kimi-k3",
+      "tokens_input": 543220,
+      "tokens_output": 5602,
+      "cost_usd": 0.511188,
+      "token_source": "subagent-transcript",
+      "executed_by_agent_id": "a41aec9a162e6511c",
+      "attribution_note": "whole-run attribution from executor a41aec9a162e6511c: manual-data-repair-2026-11-05 (root-cause fixes 6+7)"
+    },
+    {
+      "name": "step-05-synthesize-briefing.md",
+      "step_id": "step-05-synthesize-briefing.md",
+      "agent": "master",
+      "owning_agent": "master",
+      "started": "2026-11-02T16:19:42Z",
+      "completed": "2026-11-04T21:34:13Z",
+      "duration_seconds": null,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "glm-5p3-flash",
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null,
+      "token_source": "stale-window",
+      "turns_matched": 0
+    },
+    {
+      "name": "step-06-scan-workflows.md",
+      "step_id": "step-06-scan-workflows.md",
+      "agent": "master",
+      "owning_agent": "master",
+      "started": "2026-11-02T16:21:30Z",
+      "completed": "2026-11-04T21:34:25Z",
+      "duration_seconds": null,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "glm-5p3-flash",
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null,
+      "token_source": "stale-window",
+      "turns_matched": 0
+    },
+    {
+      "name": "step-07-verify-completion.md",
+      "step_id": "step-07-verify-completion.md",
+      "agent": "master",
+      "owning_agent": "master",
+      "started": "2026-11-02T16:21:55Z",
+      "completed": "2026-11-04T21:34:47Z",
+      "duration_seconds": null,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "glm-5p3-flash",
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null,
+      "token_source": "stale-window",
+      "turns_matched": 0
+    },
+    {
+      "name": "step-08-knox-completion-check.md",
+      "step_id": "step-08-knox-completion-check.md",
+      "agent": "master",
+      "owning_agent": "master",
+      "started": "2026-11-02T16:22:15Z",
+      "completed": "2026-11-04T21:35:13Z",
+      "duration_seconds": null,
+      "status": "complete",
+      "data_sources_used": [],
+      "data_source_failures": [],
+      "model": "glm-5p3-flash",
+      "tokens_input": null,
+      "tokens_output": null,
+      "cost_usd": null,
+      "token_source": "stale-window",
+      "turns_matched": 0
+    }
+  ],
+  "subagents": [
+    {
+      "agent_id": "a124054d19f674849",
+      "agent_type": "general-purpose",
+      "started": "2026-11-04T21:16:32.544608Z",
+      "completed": "2026-11-04T21:27:23.698325Z",
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 14839248,
+      "tokens_output": 39029,
+      "cost_usd": 0.545694,
+      "duration_seconds": 651.15,
+      "token_source": "subagent-transcript",
+      "workflow": "plaud-ingest"
+    },
+    {
+      "agent_id": "ad53eec24b56254ac",
+      "agent_type": "general-purpose",
+      "started": "2026-11-04T21:17:20.860518Z",
+      "completed": "2026-11-04T21:19:31.313345Z",
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 1291283,
+      "tokens_output": 14722,
+      "cost_usd": 0.070534,
+      "duration_seconds": 130.45,
+      "token_source": "subagent-transcript",
+      "workflow": "boot"
+    },
+    {
+      "agent_id": "a256869c3f0bc70b5",
+      "agent_type": "general-purpose",
+      "started": "2026-11-04T21:21:10.918029Z",
+      "completed": "2026-11-04T21:24:02.698633Z",
+      "model": "accounts/fireworks/models/kimi-k3",
+      "tokens_input": 732024,
+      "tokens_output": 8007,
+      "cost_usd": 0.50341,
+      "duration_seconds": 171.78,
+      "token_source": "subagent-transcript",
+      "workflow": "boot"
+    },
+    {
+      "agent_id": "a44406ecb0999eb1e",
+      "agent_type": "general-purpose",
+      "started": "2026-11-04T21:24:29.260211Z",
+      "completed": "2026-11-04T21:26:38.420395Z",
+      "model": "accounts/fireworks/models/kimi-k3",
+      "tokens_input": 537905,
+      "tokens_output": 7654,
+      "cost_usd": 0.545134,
+      "duration_seconds": 129.16,
+      "token_source": "subagent-transcript",
+      "workflow": "boot"
+    },
+    {
+      "agent_id": "a236bbf1acb1cdbe7",
+      "agent_type": "general-purpose",
+      "started": "2026-11-04T21:26:48.210989Z",
+      "completed": "2026-11-04T21:27:18.178548Z",
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 320661,
+      "tokens_output": 2446,
+      "cost_usd": 0.018499,
+      "duration_seconds": 29.97,
+      "token_source": "subagent-transcript",
+      "workflow": "boot"
+    },
+    {
+      "agent_id": "a41aec9a162e6511c",
+      "agent_type": "general-purpose",
+      "started": "2026-11-04T21:27:30.013752Z",
+      "completed": "2026-11-04T21:29:29.304147Z",
+      "model": "accounts/fireworks/models/kimi-k3",
+      "tokens_input": 543220,
+      "tokens_output": 5602,
+      "cost_usd": 0.511188,
+      "duration_seconds": 119.29,
+      "token_source": "subagent-transcript",
+      "workflow": "boot"
+    },
+    {
+      "agent_id": "ad1ed98ff550b55ce",
+      "agent_type": "general-purpose",
+      "started": "2026-11-04T21:29:43.145746Z",
+      "completed": "2026-11-04T21:37:59.532987Z",
+      "model": "accounts/fireworks/models/kimi-k3",
+      "tokens_input": 2377456,
+      "tokens_output": 15595,
+      "cost_usd": 1.104067,
+      "duration_seconds": 496.39,
+      "token_source": "subagent-transcript",
+      "workflow": "boot",
+      "harness_tokens": 71688,
+      "harness_tool_uses": 51
+    },
+    {
+      "agent_id": "a7f340991802b503a",
+      "agent_type": "general-purpose",
+      "started": "2026-11-04T21:30:45.448208Z",
+      "completed": "2026-11-04T21:33:46.804724Z",
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "tokens_input": 673426,
+      "tokens_output": 13727,
+      "cost_usd": 0.046929,
+      "duration_seconds": 181.36,
+      "token_source": "subagent-transcript"
+    }
+  ],
+  "monitoring": {
+    "active": false,
+    "state_yaml_path": "workflows/boot/state.yaml",
+    "opened_by": "eval-turn-start.py",
+    "trigger_evidence": "run the morning boot workflow"
+  },
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 1,
+      "error_ids": [],
+      "tool_failure_log": [
+        {
+          "tool": "Read",
+          "error": "File does not exist. Note: your current working directory is /Users/davidohara/Library/CloudStorage/OneDrive-Improving/IES.",
+          "duration_ms": 7,
+          "timestamp": "2026-11-04T15:15:08.124896"
+        }
+      ]
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 20,
+      "assertions_passed": 19,
+      "assertion_results": [
+        {
+          "assertion": "boot-001-state-complete",
+          "description": "Boot workflow state.yaml shows status: complete",
+          "passed": true
+        },
+        {
+          "assertion": "boot-002-session-index-exists",
+          "description": "Session index file exists \u2014 boot's Session Index Boot step must have created/appended it",
+          "passed": true
+        },
+        {
+          "assertion": "boot-003-session-index-substantive",
+          "description": "Session index is a real record, not an empty stub",
+          "passed": true
+        },
+        {
+          "assertion": "boot-005-omnifocus-data-file-exists",
+          "description": "OmniFocus pull (step-01.2 Pull B) wrote its consolidated data file",
+          "passed": true
+        },
+        {
+          "assertion": "boot-007-omnifocus-no-completed-tasks-leaked",
+          "description": "No completed task leaked into the OmniFocus pull. The inbox permanently holds ~247 completed tasks alongside ~8 incomplete ones, and Clean Up does NOT remove them, so the query itself must carry `completed is false`. Any `completed: true` in the output means the filter was dropped from the call.",
+          "passed": true
+        },
+        {
+          "assertion": "boot-008-omnifocus-filter-documented",
+          "description": "Regression guard: the boot pull instructions still mandate the completed=false filter on the inbox query. Matches the JSON field form (\"completed\": false), the old prose form (`completed is false`), and the current canonical phrasing (`completed` MUST be present and false on every task) \u2014 the guard previously false-fired on the 2026-10-22 rewrite because the pattern had not been widened with it. If someone strips the filter entirely, this trips before the leak reaches a briefing.",
+          "passed": true
+        },
+        {
+          "assertion": "boot-009-step-owner-manifest",
+          "description": "Master J2 (routing correctness): no step on this run that belongs to a specialist workflow (per workflows/<name>/workflow.md's agent frontmatter) or to a specialist's boot-step range (per agents/manifest.md) may carry owning_agent: master. Fails if the coordinator is recorded as owning a specialist's step \u2014 e.g. a plaud-ingest step (owned by knox) stamped master. A step whose own workflow is master-owned (boot's own steps) or that the manifest assigns to master is not flagged. This is the routing-assertion hook J2's A/B evidence requires; it reads the manifest ownership table and the workflow step definitions, not self-reported claims.",
+          "passed": true
+        },
+        {
+          "assertion": "boot-010-j4-grade-threshold",
+          "description": "Master J4 (Tier 3 grade >= B on >= 80% of graded coordination runs): voice/quality of a coordination run can only be judged by Tier 3 grading, so this assertion defers (skipped, not failed) until the record carries a grade, then requires grade B or better. The >= 80% pass-rate threshold across runs is applied by the Stage 3 rollup, not by this per-record check.",
+          "passed": null
+        },
+        {
+          "assertion": "boot-011-calendar-file-exists",
+          "description": "The step-01.5 calendar pull (dedicated calendar subagent) wrote the unified calendar file that every downstream consumer (step-02 Task G, meeting prep, morning briefing) reads from disk instead of calling M365.",
+          "passed": true
+        },
+        {
+          "assertion": "boot-012-calendar-step-returns-to-coordinator",
+          "description": "Regression guard: step-01.5 must end with the return-to-coordinator handoff, not a read-and-follow chain into step-02. The next-step chain is what let the 2026-10-22 calendar subagent walk the whole boot workflow (eval-20261022T114429-OCSJIC, 6.27M tokens) instead of exiting after one M365 call. If this trips, someone reintroduced the chain.",
+          "passed": true
+        },
+        {
+          "assertion": "boot-013-calendar-dedicated-dispatch",
+          "description": "Regression guard: workflow.md must keep step-01.5 dispatched as its own tightly-briefed single-purpose subagent (one M365 call, no persona load, explicit workflows/boot/workflow.md reference for eval attribution). If this trips, the dispatch collapsed back into the walk-everything boot subagent.",
+          "passed": true
+        },
+        {
+          "assertion": "boot-014-datapull-step-returns-to-coordinator",
+          "description": "Regression guard: step-01.2 must end with the return-to-coordinator handoff, not a read-and-follow chain into step-02. Part of the 2026-10-22 steps-02-04 context-tax fix (work-20261022-182004): one long-lived boot subagent walking steps 01.2-08 carried 500-720k input tokens per step for outputs of a few hundred tokens (eval-20261021T151330-QNQLC5, eval-20261013T114019-Q5UJLE). If this trips, someone reintroduced the chain.",
+          "passed": true
+        },
+        {
+          "assertion": "boot-015-datapull-no-next-step-chain",
+          "description": "Regression guard: step-01.2 must not contain a 'Read fully and follow' next-step chain. The chain is what let subagents walk the whole boot workflow instead of exiting after their single-purpose mandate.",
+          "passed": true
+        },
+        {
+          "assertion": "boot-016-gather-step-returns-to-coordinator",
+          "description": "Regression guard: step-02 must end with the return-to-coordinator handoff, not a read-and-follow chain into step-03. Eval evidence for the fix: eval-20261021T151330-QNQLC5 step-02 carried 545,309 input tokens for a 628-token output; eval-20261013T114019-Q5UJLE attributed 719,033 in / 4,291 out across the same steps. If this trips, someone reintroduced the chain.",
+          "passed": true
+        },
+        {
+          "assertion": "boot-017-gather-no-next-step-chain",
+          "description": "Regression guard: step-02 must not contain a 'Read fully and follow' next-step chain.",
+          "passed": true
+        },
+        {
+          "assertion": "boot-018-verify-step-returns-to-coordinator",
+          "description": "Regression guard: step-03 must end with the return-to-coordinator handoff, not a read-and-follow chain into step-04. Eval evidence: eval-20261021T151330-QNQLC5 step-03 carried 495,386 input tokens for a 1,014-token output. If this trips, someone reintroduced the chain.",
+          "passed": true
+        },
+        {
+          "assertion": "boot-019-verify-no-next-step-chain",
+          "description": "Regression guard: step-03 must not contain a 'Read fully and follow' next-step chain.",
+          "passed": true
+        },
+        {
+          "assertion": "boot-020-meetingcontext-step-returns-to-coordinator",
+          "description": "Regression guard: step-04 must end with the return-to-coordinator handoff, not a read-and-follow chain into step-05. Eval evidence: eval-20261021T151330-QNQLC5 step-04 carried 531,500 input tokens for a 1,354-token output. If this trips, someone reintroduced the chain.",
+          "passed": true
+        },
+        {
+          "assertion": "boot-021-meetingcontext-no-next-step-chain",
+          "description": "Regression guard: step-04 must not contain a 'Read fully and follow' next-step chain.",
+          "passed": true
+        },
+        {
+          "assertion": "boot-022-gather-steps-dedicated-dispatch",
+          "description": "Regression guard: workflow.md must keep steps 01.2, 02, 03, and 04 dispatched as their own tightly-briefed single-purpose subagents (no persona/SYSTEM.md load, explicit workflows/boot/workflow.md reference for eval attribution, Edit-not-Bash state updates), with the briefing subagent covering only steps 05-08. If this trips, the dispatch collapsed back into one long-lived walk-everything boot subagent.",
+          "passed": true
+        }
+      ]
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": "2f3aa6f45e92874e1f1519bfb1198879e4f44b5afedc695d344dfa545e772685",
+  "prior_baseline_id": null,
+  "tags": [
+    "turn-level"
+  ],
+  "workflow": "boot",
+  "guardrails": [
+    {
+      "name": "pre-completion-review",
+      "after_step": "step-06-scan-workflows",
+      "result": "pass",
+      "reason": "verifier clean; briefing matches accumulated-context, Clay unavailable flagged, Watchtower omitted per rule; scan agrees with empty index",
+      "escalated_to_human": false,
+      "timestamp": "2026-11-04T21:34:47.856494+00:00"
+    }
+  ],
+  "total_tokens_input": 22315836,
+  "total_tokens_output": 109389,
+  "total_cost_usd": 3.368288,
+  "parent_window": {
+    "token_source": "parent-window",
+    "transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/5011d157-0c88-4fb3-b9da-86250e3bd54f.jsonl",
+    "window_start": "2026-11-04T21:14:53.381301Z",
+    "window_end": "2026-11-04T21:36:25.714944Z",
+    "model": "glm-5p3-flash",
+    "tokens_input": 1967321,
+    "tokens_output": 7853,
+    "cost_usd": 0.061252,
+    "turns_matched": 28,
+    "turns_with_usage": 28,
+    "computed_at": "2026-11-04T21:36:25.721006Z"
+  },
+  "fully_loaded_cost_usd": 3.331357,
+  "fully_loaded_tokens_input": 23067653,
+  "fully_loaded_tokens_output": 114463,
+  "harness_tokens_total": 71688,
+  "attribution_integrity": {
+    "status": "repaired",
+    "method": "manual-data-repair-2026-11-05 (root-cause fixes 6+7)",
+    "pre_repair_step_sum": 8502741,
+    "pre_repair_total_tokens_input": 29603073,
+    "post_repair_step_sum": 1543833,
+    "post_repair_total_tokens_input": 22315836,
+    "reason": "steps 05-08 carried 2026-11-02 started-at stamps sliced over the main session transcript (4x 1,875,532 phantom tokens, ~53h durations); step-04 had no started-at; totals re-aggregated",
+    "checked_at": "2026-11-05T20:48:05.435502Z"
+  }
+}

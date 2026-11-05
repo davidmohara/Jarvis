@@ -3800,7 +3800,85 @@
           "systems/eval-harness/runs/eval-20261104T165500-JETT8M.json",
           "systems/eval-harness/runs/eval-20261104T172056-6L65EL.json",
           "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/memory/feedback_no_auto_commit_on_exit.md",
-          "systems/error-tracking/entries/err-20261104T202939-KWF6XL.json"
+          "systems/error-tracking/entries/err-20261104T202939-KWF6XL.json",
+          "data/.knox-last-run"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "session-2026-11-04-152100",
+    "started": "2026-11-04T15:21:00-06:00",
+    "closed": null,
+    "current_topic": "morning-boot",
+    "topics": [
+      {
+        "name": "morning-boot",
+        "loops": [
+          {
+            "task": "boot-sequence",
+            "resolved": false
+          }
+        ],
+        "files": [
+          "workflows/boot/steps/step-01-load-context.md",
+          "workflows/boot/state.yaml",
+          "workflows/plaud-ingest/state.yaml",
+          "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/5011d157-0c88-4fb3-b9da-86250e3bd54f/scratchpad/discover_run.py",
+          "workflows/plaud-ingest/steps/step-01-discover.md",
+          "workflows/plaud-ingest/steps/step-02-trigger-transcription.md",
+          "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/5011d157-0c88-4fb3-b9da-86250e3bd54f/scratchpad/merge_calendar.py",
+          "data/calendar-unified.json",
+          "workflows/boot/steps/step-01.5-unified-calendar-pull.md",
+          "workflows/plaud-ingest/steps/step-03-identify-speakers.md",
+          "workflows/plaud-ingest/steps/step-04-fetch-staging.md",
+          "data/email-unified.json",
+          "data/clay-reminders-unified.json",
+          "data/jarvis-inbox-unified.json",
+          "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Improving/2026-11-03 Extension Incentives and AI SOW Eligibility.md",
+          "workflows/boot/steps/step-01.2-unified-data-pull.md",
+          "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/Calendar/2026/11-November/2026-11-03.md",
+          "workflows/plaud-ingest/steps/step-05-ingest-vault.md",
+          "memory/working/plaud-ingest-2026-11-04-152433.md",
+          "workflows/plaud-ingest/steps/step-05b-share-with-alice.md",
+          "workflows/boot/steps/step-02-gather-data.md",
+          "workflows/plaud-ingest/steps/step-06-verify-ingest.md",
+          "workflows/boot/steps/step-03-verify-phase2.md",
+          "systems/error-tracking/entries/err-20261104T212704-8DIR4P.json",
+          "workflows/boot/steps/step-04-gather-meeting-context.md",
+          "memory/working/morning-briefing-2026-11-04-153116.md",
+          "workflows/morning-briefing/state.yaml",
+          "workflows/boot/steps/step-05-synthesize-briefing.md",
+          "workflows/boot/steps/step-06-scan-workflows.md",
+          "workflows/boot/steps/step-07-verify-completion.md",
+          "workflows/boot/steps/step-08-knox-completion-check.md",
+          "reviews/boot-cost-review-2026-11-05.md",
+          "reviews/boot-root-cause-2026-11-05.md",
+          "systems/eval-harness/record-step.py",
+          "systems/eval-harness/guardrail-checkpoint.py",
+          "systems/eval-harness/hook_utils.py",
+          ".claude/hooks/post-tool-use.py",
+          ".claude/hooks/eval-tool-failure.py",
+          ".claude/hooks/eval-agent-stop.py",
+          ".claude/hooks/eval-turn-stop.py",
+          ".claude/hooks/eval-session-end.py",
+          ".claude/hooks/tests/test_eval_session_end.py",
+          "systems/eval-harness/success-rate.py",
+          "systems/eval-harness/generate-dashboard.py",
+          "systems/eval-harness/schema.md",
+          ".claude/hooks/eval-turn-start.py",
+          "skills/plaud-transcripts/scripts/fetch_plaud.py",
+          "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/5011d157-0c88-4fb3-b9da-86250e3bd54f/scratchpad/repair-eval-records.py",
+          "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/5011d157-0c88-4fb3-b9da-86250e3bd54f/scratchpad/verify-fixes.py",
+          "reviews/boot-fix-implementation-2026-11-05.md",
+          "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/5011d157-0c88-4fb3-b9da-86250e3bd54f/scratchpad/gate_read.py",
+          "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/5011d157-0c88-4fb3-b9da-86250e3bd54f/scratchpad/gate_read_filelist.py",
+          "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/5011d157-0c88-4fb3-b9da-86250e3bd54f/scratchpad/probe_filelist.py",
+          "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/5011d157-0c88-4fb3-b9da-86250e3bd54f/scratchpad/probe_auth.py",
+          "/private/tmp/claude-501/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/5011d157-0c88-4fb3-b9da-86250e3bd54f/scratchpad/gate_revert.py",
+          "reviews/daily/2026-11-05.md",
+          "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/Daily Reviews/2026-11-05 The Summit Day the Harness Got Audited.md",
+          "memory/working/daily-review-2026-11-05-174500.md"
         ]
       }
     ]

@@ -1,0 +1,338 @@
+{
+  "id": "eval-20261104T211632-963724",
+  "agent_id": "a124054d19f674849",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": "plaud-ingest",
+  "agent": "knox",
+  "owning_agent": "knox",
+  "subagent_type": "general-purpose",
+  "session_id": "5011d157-0c88-4fb3-b9da-86250e3bd54f",
+  "trigger": "unknown",
+  "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+  "model_source": "subagent-transcript",
+  "started": "2026-11-04T21:16:32.544608Z",
+  "completed": "2026-11-04T21:27:23.698325Z",
+  "duration_seconds": 651.15,
+  "status": "failure",
+  "steps": [
+    {
+      "name": "step-01-discover.md",
+      "agent": "general-purpose",
+      "step_id": "step-01-discover.md",
+      "owning_agent": "general-purpose",
+      "started": "2026-11-04T21:16:51Z",
+      "completed": "2026-11-04T21:20:30Z",
+      "status": "completed",
+      "tokens_input": 2468065,
+      "tokens_output": 11210,
+      "cost_usd": 0.111951,
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "token_source": "windowed-partition",
+      "turns_matched": 39,
+      "turns_with_usage": 39,
+      "duration_seconds": 219.0
+    },
+    {
+      "name": "step-02-trigger-transcription.md",
+      "agent": "general-purpose",
+      "step_id": "step-02-trigger-transcription.md",
+      "owning_agent": "general-purpose",
+      "started": "2026-11-04T21:20:30Z",
+      "completed": "2026-11-04T21:22:10Z",
+      "status": "completed",
+      "tokens_input": 1201497,
+      "tokens_output": 5937,
+      "cost_usd": 0.048349,
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "token_source": "windowed-partition",
+      "turns_matched": 11,
+      "turns_with_usage": 11,
+      "duration_seconds": 100.0
+    },
+    {
+      "name": "step-03-identify-speakers.md",
+      "agent": "general-purpose",
+      "step_id": "step-03-identify-speakers.md",
+      "owning_agent": "general-purpose",
+      "started": "2026-11-04T21:22:10Z",
+      "completed": "2026-11-04T21:23:00Z",
+      "status": "completed",
+      "tokens_input": 2247955,
+      "tokens_output": 6858,
+      "cost_usd": 0.083531,
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "token_source": "windowed-partition",
+      "turns_matched": 17,
+      "turns_with_usage": 17,
+      "duration_seconds": 50.0
+    },
+    {
+      "name": "step-04-fetch-staging.md",
+      "agent": "general-purpose",
+      "step_id": "step-04-fetch-staging.md",
+      "owning_agent": "general-purpose",
+      "started": "2026-11-04T21:19:30Z",
+      "completed": "2026-11-04T21:23:30Z",
+      "status": "completed",
+      "tokens_input": 590599,
+      "tokens_output": 2619,
+      "cost_usd": 0.025034,
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "token_source": "windowed-partition",
+      "turns_matched": 6,
+      "turns_with_usage": 6,
+      "duration_seconds": 240.0
+    },
+    {
+      "name": "step-05-ingest-vault.md",
+      "agent": "general-purpose",
+      "step_id": "step-05-ingest-vault.md",
+      "owning_agent": "general-purpose",
+      "started": "2026-11-04T21:23:30Z",
+      "completed": "2026-11-04T21:24:33Z",
+      "status": "completed",
+      "tokens_input": 1939827,
+      "tokens_output": 3256,
+      "cost_usd": 0.066812,
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "token_source": "windowed-partition",
+      "turns_matched": 13,
+      "turns_with_usage": 13,
+      "duration_seconds": 63.0
+    },
+    {
+      "name": "step-05b-share-with-alice.md",
+      "agent": "general-purpose",
+      "step_id": "step-05b-share-with-alice.md",
+      "owning_agent": "general-purpose",
+      "started": "2026-11-04T21:24:33Z",
+      "completed": "2026-11-04T21:26:00Z",
+      "status": "completed",
+      "tokens_input": 3174398,
+      "tokens_output": 4295,
+      "cost_usd": 0.104888,
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "token_source": "windowed-partition",
+      "turns_matched": 19,
+      "turns_with_usage": 19,
+      "duration_seconds": 87.0
+    },
+    {
+      "name": "step-06-verify-ingest.md",
+      "agent": "general-purpose",
+      "step_id": "step-06-verify-ingest.md",
+      "owning_agent": "general-purpose",
+      "started": "2026-11-04T21:26:00Z",
+      "completed": "2026-11-04T21:27:00Z",
+      "status": "completed",
+      "tokens_input": 3216907,
+      "tokens_output": 4854,
+      "cost_usd": 0.105129,
+      "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "token_source": "windowed-partition",
+      "turns_matched": 18,
+      "turns_with_usage": 18,
+      "duration_seconds": 60.0
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 1,
+      "error_ids": [
+        "err-20261104T212704-8DIR4P"
+      ]
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": "negative",
+      "comment": "error-log-correlated: err-20261104T212704-8DIR4P",
+      "timestamp": "2026-11-04T21:27:23.698325Z"
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/5011d157-0c88-4fb3-b9da-86250e3bd54f/subagents/agent-a124054d19f674849.jsonl",
+  "total_tokens_input": 14839248,
+  "total_tokens_output": 39029,
+  "total_cost_usd": 0.545694,
+  "token_source": "subagent-transcript",
+  "guardrails": [
+    {
+      "name": "step-01-discover-checkpoint",
+      "after_step": "step-01-discover.md",
+      "result": "pass",
+      "reason": "1 new recording(s) discovered and well-formed",
+      "escalated_to_human": false,
+      "timestamp": "2026-11-04T21:27:24.193147Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "new_recordings_count": 1,
+        "malformed_records": [],
+        "duplicate_file_ids": []
+      }
+    },
+    {
+      "name": "step-02-trigger-transcription-checkpoint",
+      "after_step": "step-02-trigger-transcription.md",
+      "result": "pass",
+      "reason": "All 1 new recording(s) accounted for across ready/pending/triggered",
+      "escalated_to_human": false,
+      "timestamp": "2026-11-04T21:27:24.334805Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "total_new": 1,
+        "coverage_count": 1,
+        "unaccounted_file_ids": [],
+        "ready_for_fetch_count": 1,
+        "pending_recordings_count": 0,
+        "transcription_triggered_count": 0,
+        "step_02_summary": {},
+        "summary_vs_list_mismatch": false
+      }
+    },
+    {
+      "name": "step-03-identify-speakers-checkpoint",
+      "after_step": "step-03-identify-speakers.md",
+      "result": "pass",
+      "reason": "Speaker identification resolved: 0 mapping(s), 1 recording(s) classified, no unresolved mappings",
+      "escalated_to_human": false,
+      "timestamp": "2026-11-04T21:27:24.494667Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "status": "complete",
+        "pending_count": 0,
+        "speaker_mappings_count": 0,
+        "recording_classification_count": 1,
+        "ready_for_fetch_count": 1
+      }
+    },
+    {
+      "name": "step-04-fetch-staging-checkpoint",
+      "after_step": "step-04-fetch-staging.md",
+      "result": "retry",
+      "reason": "1 of 1 claimed staged-files are not actually present in /Users/davidohara/Downloads/transcript-staging",
+      "escalated_to_human": false,
+      "timestamp": "2026-11-04T21:27:24.677812Z",
+      "validation_errors": [
+        "claimed_staged_file_missing"
+      ],
+      "computed_fields": {
+        "staging_dir_reachable": true,
+        "staged_files_on_disk": 149,
+        "ready_for_fetch_count": 1,
+        "claimed_staged_files_count": 1,
+        "missing_claimed_files": [
+          "plaud_11-03 Meeting_ Extension Incentives and AI SOW Eligibility.md"
+        ]
+      }
+    },
+    {
+      "name": "step-05-ingest-vault-checkpoint",
+      "after_step": "step-05-ingest-vault.md",
+      "result": "pass",
+      "reason": "1 note(s) ingested, staging clean, working memory file plaud-ingest-2026-11-04-152433.md present",
+      "escalated_to_human": false,
+      "timestamp": "2026-11-04T21:27:24.886331Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "staged_files_count": 1,
+        "ingested_notes_count": 1,
+        "staging_leftover_count": 0,
+        "staging_leftover_files": [],
+        "working_memory_written": true,
+        "working_memory_file": "plaud-ingest-2026-11-04-152433.md"
+      }
+    },
+    {
+      "name": "step-05b-share-with-alice-checkpoint",
+      "after_step": "step-05b-share-with-alice.md",
+      "result": "pass",
+      "reason": "Workflow reached terminal state (status: complete, current-step: step-05b) with 1 work recording(s) classified",
+      "escalated_to_human": false,
+      "timestamp": "2026-11-04T21:27:25.002428Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "status": "complete",
+        "current_step": "step-06",
+        "work_recordings_count": 1,
+        "personal_recordings_count": 0
+      }
+    },
+    {
+      "name": "adversarial-verification",
+      "after_step": "step-06-verify-ingest.md",
+      "result": "pass",
+      "reason": "Adversarial verification recorded with result 'pass'",
+      "escalated_to_human": false,
+      "timestamp": "2026-11-04T21:27:25.347787Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "adversarial_verification_recorded": true,
+        "verification_result": "pass",
+        "findings_count": 0,
+        "guardrail_entry_present": true
+      }
+    }
+  ],
+  "retry_signal": {
+    "step": "step-04-fetch-staging.md",
+    "checkpoint": "step-04-fetch-staging-checkpoint",
+    "reason": "1 of 1 claimed staged-files are not actually present in /Users/davidohara/Downloads/transcript-staging",
+    "feedback": "1 of 1 claimed staged-files are not actually present in /Users/davidohara/Downloads/transcript-staging",
+    "instruction": "Re-run fetch_plaud.py for the missing recordings \u2014 the staged files referenced in state.yaml do not exist on disk.",
+    "attempt_number": 1,
+    "timestamp": "2026-11-04T21:27:24.677959Z",
+    "max_attempts": 2
+  },
+  "parent_window": {
+    "token_source": "parent-window",
+    "transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/5011d157-0c88-4fb3-b9da-86250e3bd54f.jsonl",
+    "window_start": "2026-11-04T21:16:32.544608Z",
+    "window_end": "2026-11-04T21:27:23.698325Z",
+    "model": "glm-5p3-flash",
+    "tokens_input": 944869,
+    "tokens_output": 2324,
+    "cost_usd": 0.017923,
+    "turns_matched": 12,
+    "turns_with_usage": 12,
+    "computed_at": "2026-11-04T21:27:25.421135Z"
+  },
+  "fully_loaded_cost_usd": 0.563617,
+  "fully_loaded_tokens_input": 15784117,
+  "fully_loaded_tokens_output": 41353,
+  "attribution_integrity": {
+    "status": "repaired",
+    "method": "manual-data-repair-2026-11-05 (root-cause fixes 6+7)",
+    "pre_repair_step_sum": 15945291,
+    "run_total": 14839248,
+    "post_repair_step_sum": 14839248,
+    "reason": "step-04's claimed window overlapped steps 01-02, so strict per-step slices double-counted turns (15.94M over a 14.84M run); re-partitioned the agent transcript across steps by started-at order",
+    "checked_at": "2026-11-05T20:48:05.435502Z"
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "id": "eval-20261104T212730-LC6KLO",
+  "agent_id": "a41aec9a162e6511c",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": "boot",
+  "agent": "master",
+  "owning_agent": "master",
+  "subagent_type": "general-purpose",
+  "session_id": "5011d157-0c88-4fb3-b9da-86250e3bd54f",
+  "trigger": "unknown",
+  "model": "accounts/fireworks/models/kimi-k3",
+  "model_source": "subagent-transcript",
+  "started": "2026-11-04T21:27:30.013752Z",
+  "completed": "2026-11-04T21:29:29.304147Z",
+  "duration_seconds": 119.29,
+  "status": "failure",
+  "steps": [
+    {
+      "name": "step-04-gather-meeting-context.md",
+      "agent": "general-purpose",
+      "step_id": "step-04-gather-meeting-context.md",
+      "owning_agent": "general-purpose",
+      "started": "2026-11-04T21:27:30.013752Z",
+      "completed": "2026-11-04T21:29:29.304147Z",
+      "status": "complete",
+      "tokens_input": 543220,
+      "tokens_output": 5602,
+      "cost_usd": 0.511188,
+      "model": "accounts/fireworks/models/kimi-k3",
+      "token_source": "subagent-transcript",
+      "attribution_note": "whole-run attribution: manual-data-repair-2026-11-05 (root-cause fixes 6+7) (single-step agent; step had no started-at so no window existed)"
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 0,
+      "error_ids": [
+        "err-20261104T212704-8DIR4P"
+      ]
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": "negative",
+      "comment": "error-log-correlated: err-20261104T212704-8DIR4P",
+      "timestamp": "2026-11-04T21:29:29.304147Z"
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/5011d157-0c88-4fb3-b9da-86250e3bd54f/subagents/agent-a41aec9a162e6511c.jsonl",
+  "total_tokens_input": 543220,
+  "total_tokens_output": 5602,
+  "total_cost_usd": 0.511188,
+  "token_source": "subagent-transcript",
+  "guardrails": [
+    {
+      "name": "step-04-checkpoint",
+      "after_step": "step-04-gather-meeting-context.md",
+      "result": "escalate",
+      "reason": "CRITICAL: Step missing started-at or completed-at timestamp",
+      "escalated_to_human": true,
+      "timestamp": "2026-11-04T21:29:29.758221Z",
+      "validation_errors": [
+        "missing_timestamps"
+      ]
+    }
+  ],
+  "punch_out_signal": {
+    "step": "step-04-gather-meeting-context.md",
+    "checkpoint": "step-04-checkpoint",
+    "reason": "CRITICAL: Step missing started-at or completed-at timestamp",
+    "awaiting_controller_decision": true,
+    "timestamp": "2026-11-04T21:29:29.758454Z"
+  },
+  "parent_window": {
+    "token_source": "parent-window",
+    "transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/5011d157-0c88-4fb3-b9da-86250e3bd54f.jsonl",
+    "window_start": "2026-11-04T21:27:30.013752Z",
+    "window_end": "2026-11-04T21:29:29.304147Z",
+    "model": "glm-5p3-flash",
+    "tokens_input": 86601,
+    "tokens_output": 320,
+    "cost_usd": 0.001814,
+    "turns_matched": 1,
+    "turns_with_usage": 1,
+    "computed_at": "2026-11-04T21:29:29.886530Z"
+  },
+  "fully_loaded_cost_usd": 0.513002,
+  "fully_loaded_tokens_input": 629821,
+  "fully_loaded_tokens_output": 5922
+}

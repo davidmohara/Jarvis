@@ -1,0 +1,124 @@
+{
+  "id": "eval-20261104T212110-AXJHSO",
+  "agent_id": "a256869c3f0bc70b5",
+  "type": "agent",
+  "name": "general-purpose",
+  "workflow": "boot",
+  "agent": "master",
+  "owning_agent": "master",
+  "subagent_type": "general-purpose",
+  "session_id": "5011d157-0c88-4fb3-b9da-86250e3bd54f",
+  "trigger": "unknown",
+  "model": "accounts/fireworks/models/kimi-k3",
+  "model_source": "subagent-transcript",
+  "started": "2026-11-04T21:21:10.918029Z",
+  "completed": "2026-11-04T21:24:02.698633Z",
+  "duration_seconds": 171.78,
+  "status": "partial",
+  "steps": [
+    {
+      "name": "step-01.2-unified-data-pull.md",
+      "agent": "general-purpose",
+      "step_id": "step-01.2-unified-data-pull.md",
+      "owning_agent": "general-purpose",
+      "started": "2026-11-04T21:20:30Z",
+      "completed": "2026-11-04T21:23:35Z",
+      "status": "complete",
+      "tokens_input": 616545,
+      "tokens_output": 6636,
+      "cost_usd": 0.443922,
+      "model": "accounts/fireworks/models/kimi-k3",
+      "token_source": "windowed",
+      "turns_matched": 13,
+      "turns_with_usage": 13,
+      "duration_seconds": 185.0
+    }
+  ],
+  "assessment": {
+    "mechanical": {
+      "completed": true,
+      "all_steps_finished": true,
+      "tool_failures": 1,
+      "error_ids": []
+    },
+    "structural": {
+      "expected_outputs_written": null,
+      "outputs_non_empty": null,
+      "assertions_checked": 0,
+      "assertions_passed": 0,
+      "assertion_results": []
+    },
+    "grading": {
+      "last_graded": null,
+      "grade": null,
+      "safety_grade": null,
+      "grader_notes": null
+    },
+    "controller_feedback": {
+      "rating": null,
+      "comment": null,
+      "timestamp": null
+    },
+    "bias_assessment": {
+      "applicable": false,
+      "protected_attributes": [],
+      "fairness_metric": null,
+      "demographic_coverage_verified": false,
+      "adversarial_inputs_tested": false,
+      "bias_detected": false,
+      "bias_flags": [],
+      "remediation_status": "none"
+    }
+  },
+  "version_hash": null,
+  "prior_baseline_id": null,
+  "tags": [],
+  "agent_transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/5011d157-0c88-4fb3-b9da-86250e3bd54f/subagents/agent-a256869c3f0bc70b5.jsonl",
+  "total_tokens_input": 732024,
+  "total_tokens_output": 8007,
+  "total_cost_usd": 0.50341,
+  "token_source": "subagent-transcript",
+  "guardrails": [
+    {
+      "name": "step-01.2-unified-data-pull-checkpoint",
+      "after_step": "step-01.2-unified-data-pull.md",
+      "result": "pass",
+      "reason": "All 4 unified data files present and fresh",
+      "escalated_to_human": false,
+      "timestamp": "2026-11-04T21:24:03.278001Z",
+      "validation_errors": [],
+      "computed_fields": {
+        "files_created": [
+          "data/email-unified.json",
+          "data/omnifocus-unified.json",
+          "data/clay-reminders-unified.json",
+          "data/jarvis-inbox-unified.json"
+        ],
+        "files_missing": [],
+        "files_stale": [],
+        "file_status": {
+          "data/email-unified.json": "fresh (0.0h old)",
+          "data/omnifocus-unified.json": "fresh (0.0h old)",
+          "data/clay-reminders-unified.json": "fresh (0.0h old)",
+          "data/jarvis-inbox-unified.json": "fresh (0.0h old)"
+        }
+      }
+    }
+  ],
+  "parent_window": {
+    "token_source": "parent-window",
+    "transcript_path": "/Users/davidohara/.claude/projects/-Users-davidohara-Library-CloudStorage-OneDrive-Improving-IES/5011d157-0c88-4fb3-b9da-86250e3bd54f.jsonl",
+    "window_start": "2026-11-04T21:21:10.918029Z",
+    "window_end": "2026-11-04T21:24:02.698633Z",
+    "model": "glm-5p3-flash",
+    "tokens_input": 79587,
+    "tokens_output": 80,
+    "cost_usd": 0.001472,
+    "turns_matched": 1,
+    "turns_with_usage": 1,
+    "computed_at": "2026-11-04T21:24:03.433586Z"
+  },
+  "fully_loaded_cost_usd": 0.504882,
+  "fully_loaded_tokens_input": 811611,
+  "fully_loaded_tokens_output": 8087
+}
