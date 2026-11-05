@@ -241,8 +241,10 @@ A sentinel is a file *separate from the workflow/skill/agent being evaluated* th
 |-------|------|-------------|
 | `completed` | boolean | Workflow reached `status: complete` in state.yaml |
 | `all_steps_finished` | boolean | All steps have `completed-at` in frontmatter |
-| `tool_failures` | number | Count of PostToolUseFailure events |
-| `error_ids` | array | IDs of error entries written during/after run |
+| `tool_failures` | number | Count of PostToolUseFailure events classified `real` by `eval-tool-failure.py` — routine existence probes (Read file-not-found, MCP NOT_FOUND folder lookups) are logged in `tool_failure_log` with a `classification` and counted separately in `benign_tool_failures`, so `tool_failures > 0 -> partial` keeps signal (root-cause fix 5, 2026-11-05) |
+| `benign_tool_failures` | number | Count of benign existence-probe failures (audit counter; never affects status) |
+| `error_ids` | array | IDs of error entries written during/after run. Correlation is scoped by the error entry's `agent` field vs. the record's workflow owner (root-cause fix 4): a cross-workflow error no longer stamps `failure` on an unrelated open record |
+| `abort_reason` | string | Machine-readable abort cause. Canonical session-lifecycle codes (root-cause fix 8, vocabulary in `hook_utils.SESSION_EXIT_ABORT_REASONS`): `session-exit-normal` (session-exit sweep), `session-end-mid-run` (abandoned record, state never reached terminal), `stale-state-open` (monitored state's completion predates the record's open). Other codes: `error-logged`, `state-aborted`/`state-blocked`, `zero-duration-no-execution`, `unspecified`. Retired divergent spelling on historical records: `session-ended` |
 
 #### Tier 2: Structural Assertions
 

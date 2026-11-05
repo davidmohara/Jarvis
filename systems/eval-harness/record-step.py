@@ -72,6 +72,15 @@ def parse_started(ts) -> "datetime | None":
 def find_most_recent_eval_record(workflow_name: str, runs_dir=None) -> Path | None:
     """Find the most recent IN-PROGRESS eval record for this workflow.
 
+    Matches on `name` OR the additive `workflow` field: a subagent-run
+    workflow's record carries `name: "general-purpose"` (the Claude Code
+    subagent type) with the real workflow in `workflow` (stamped by
+    eval-agent-stop.py's spawn-prompt mining or post-tool-use.py's step-path
+    stamping). Matching `name` alone made every subagent-run workflow
+    unfindable here — the 4-consecutive-run "no in-progress eval record"
+    guardrail gap on pi-20261027..20261104 (root cause,
+    reviews/boot-root-cause-2026-11-05.md, fix 3).
+
     Only records with status == "in-progress" are eligible — a closed/success
     record must never be a step-recording target (err-20260911T080849-3TCTQW:
     record-step overwrote yesterday's closed record when today's fresh record
@@ -92,7 +101,8 @@ def find_most_recent_eval_record(workflow_name: str, runs_dir=None) -> Path | No
         try:
             with open(f, "r") as file:
                 data = json.load(file)
-            if data.get("name") == workflow_name and data.get("status") == "in-progress":
+            if ((data.get("name") == workflow_name or data.get("workflow") == workflow_name)
+                    and data.get("status") == "in-progress"):
                 parsed = parse_started(data.get("started", ""))
                 if parsed is None:
                     parsed = datetime.min.replace(tzinfo=timezone.utc)

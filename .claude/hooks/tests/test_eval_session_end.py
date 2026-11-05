@@ -163,7 +163,10 @@ def test_inline_fallback_without_canonical_script():
         assert real["status"] == "aborted", (
             f"inline fallback should mark in-progress records aborted, got {real['status']}"
         )
-        assert real["assessment"]["mechanical"]["abort_reason"] == "session-ended"
+        assert real["assessment"]["mechanical"]["abort_reason"] == "session-exit-normal", (
+            "inline fallback must use the canonical session-exit code, not the "
+            "retired divergent 'session-ended' spelling"
+        )
         phantom = read_record(runs_dir, phantom_id)
         assert phantom["status"] == "aborted", (
             f"inline fallback has no phantom-deletion (canonical script owns that); "

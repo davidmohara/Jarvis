@@ -71,6 +71,42 @@ def find_active_eval_record(session_id: str) -> Path | None:
         log_error(f"Failed to find eval record: {e}")
     return None
 
+def classify_tool_failure(tool_name, error) -> str:
+    """Classify a failed tool call: a benign existence probe or a real failure.
+
+    Root cause (reviews/boot-root-cause-2026-11-05.md, fix 5): the finalize
+    rules turn `tool_failures > 0` into `partial`, but the counter counted
+    EVERY failed call — including the routine check-then-create probes the
+    workflows themselves treat as expected. Four genuinely complete boots
+    (2026-10-30, 11-02, 11-03, 11-04) closed `partial` on exactly these:
+
+      - Read on a file that doesn't exist yet (the standard probe before
+        creating/checking a file) — error text "File does not exist."
+      - Outlook MCP folder lookup against a deliberately non-existent
+        folder name (auth capability probe) — error carries
+        "code": "NOT_FOUND".
+
+    Benign classes return a classification label and are still logged in
+    tool_failure_log (audit trail intact) but do NOT increment
+    tool_failures, so `partial` keeps signal: it now means a real failure
+    happened, not that a workflow probed the filesystem. Anything that
+    doesn't match a benign class is "real" and counts as before.
+    """
+    err = str(error)
+    lowered = err.lower()
+    if tool_name == "Read" and (
+            "file does not exist" in lowered
+            or "no such file or directory" in lowered
+            or "enoent" in lowered
+            or "not found" in lowered):
+        return "file-not-found-probe"
+    if str(tool_name).startswith("mcp__") and "not_found" in lowered:
+        # MCP existence probes surface the connector's NOT_FOUND error code
+        # (e.g. outlook_email_search against a deliberately fake folder).
+        return "existence-probe"
+    return "real"
+
+
 def main():
     """Main hook logic."""
     payload = read_stdin()
@@ -126,19 +162,28 @@ def main():
         with open(eval_path, "r") as f:
             eval_record = json.load(f)
 
-        # Increment tool failure count
-        eval_record["assessment"]["mechanical"]["tool_failures"] += 1
+        # Classify before counting (see classify_tool_failure): benign
+        # existence probes are logged for audit but do not increment
+        # tool_failures, so the finalize rule `tool_failures > 0 -> partial`
+        # stops firing on routine probes.
+        classification = classify_tool_failure(tool_name, error)
+        mech = eval_record["assessment"]["mechanical"]
+        if classification == "real":
+            mech["tool_failures"] = mech.get("tool_failures", 0) + 1
+        else:
+            mech["benign_tool_failures"] = mech.get("benign_tool_failures", 0) + 1
 
         # Build failure entry and attach to eval record
         failure_entry = {
             "tool": tool_name,
             "error": str(error),
             "duration_ms": duration_ms,
-            "timestamp": datetime.now().isoformat()
+            "timestamp": datetime.now().isoformat(),
+            "classification": classification,
         }
-        if "tool_failure_log" not in eval_record["assessment"]["mechanical"]:
-            eval_record["assessment"]["mechanical"]["tool_failure_log"] = []
-        eval_record["assessment"]["mechanical"]["tool_failure_log"].append(failure_entry)
+        if "tool_failure_log" not in mech:
+            mech["tool_failure_log"] = []
+        mech["tool_failure_log"].append(failure_entry)
 
         # Write updated eval record atomically
         atomic_write_json(eval_path, eval_record)

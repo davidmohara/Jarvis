@@ -923,6 +923,28 @@ ABANDONED_RECORD_AFTER_HOURS = 6.0
 # state.yaml at every step, so a running one is always well inside this.
 LIVE_STATE_MTIME_MINUTES = 45.0
 
+# Canonical abort_reason codes for the session-lifecycle abort class
+# (root-cause fix 8, reviews/boot-root-cause-2026-11-05.md). Before this
+# vocabulary the same underlying event — the session ended before the
+# workflow finished — was recorded as at least four different strings
+# depending on which sweep caught the record, so clustering retry-stacks
+# required reading free-text close_reason off every record:
+#   session-exit-normal  — close-open-evals.py / eval-session-end.py sweep
+#                          at SessionEnd (status incomplete)
+#   session-end-mid-run  — eval-turn-stop.py abandoned-record close: the
+#                          session died with state.yaml still non-terminal
+#   stale-state-open     — eval-turn-stop.py stale-evidence close: the
+#                          monitored state.yaml's completion predates the
+#                          record's own open (spurious open / dead run)
+# Historical records also carry the retired divergent spelling
+# "session-ended" (eval-session-end.py's pre-fix inline sweep); consumers
+# that tier records should treat it as the same class for continuity.
+SESSION_EXIT_ABORT_REASONS = (
+    "session-exit-normal",
+    "session-end-mid-run",
+    "stale-state-open",
+)
+
 
 def is_turn_level_record(data: dict) -> bool:
     """A turn-level workflow record that still claims to be monitored.
@@ -1086,6 +1108,27 @@ def open_turn_level_record_exists(workflow_name: str, session_id: str | None = N
         try:
             with open(f, "r") as file:
                 data = json.load(file)
+            if (
+                data.get("type") == "agent"
+                and data.get("workflow") == workflow_name
+                and data.get("status") == "in-progress"
+            ):
+                # A dispatched workflow running as a subagent holds an
+                # agent-type record whose `name` is the Claude Code subagent
+                # type ("general-purpose") and whose `workflow` field is the
+                # real workflow. The turn-level check below cannot see it, so
+                # GUARD 2 in post-tool-use.py wrote phantom "completed"
+                # records for every state.yaml write while the real
+                # subagent record was still open (the three 2026-11-04
+                # plaud-ingest phantoms, reviews/boot-root-cause-2026-11-05.md
+                # section 2 / fix 3). Recency guard: an agent record that has
+                # sat in-progress for hours (crashed SubagentStop) must not
+                # block a later run the way the abandoned turn-level record
+                # below is skipped.
+                age_hours = record_age_hours(data)
+                if age_hours is None or age_hours < ABANDONED_RECORD_AFTER_HOURS:
+                    return True
+                continue
             if not (
                 data.get("type") == "workflow"
                 and data.get("name") == workflow_name

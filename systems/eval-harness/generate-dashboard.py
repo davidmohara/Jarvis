@@ -21,6 +21,10 @@ try:
 except Exception:
     def merge_reporting_agent(a):
         return a
+try:
+    from hook_utils import SESSION_EXIT_ABORT_REASONS
+except Exception:
+    SESSION_EXIT_ABORT_REASONS = ("session-exit-normal",)
 
 
 def parse_args():
@@ -113,8 +117,11 @@ def calculate_metrics(records):
     failure = sum(1 for r in records if r.get("status") == "failure")
     aborted = sum(1 for r in records if r.get("status") == "aborted")
 
-    # Exclude session-ended aborts and incomplete evals from success rate calculation (these are incomplete work, not failures)
-    session_ended_aborts = sum(1 for r in records if (r.get("status") == "aborted" and r.get("assessment", {}).get("mechanical", {}).get("abort_reason") in [None, "session-ended"]) or r.get("status") == "incomplete")
+    # Exclude session-ended aborts and incomplete evals from success rate calculation (these are incomplete work, not failures).
+    # Canonical session-lifecycle codes live in hook_utils.SESSION_EXIT_ABORT_REASONS
+    # (root-cause fix 8); "session-ended" is the retired divergent spelling kept
+    # recognized for historical records.
+    session_ended_aborts = sum(1 for r in records if (r.get("status") == "aborted" and r.get("assessment", {}).get("mechanical", {}).get("abort_reason") in list(SESSION_EXIT_ABORT_REASONS) + [None, "session-ended"]) or r.get("status") == "incomplete")
     partial = sum(1 for r in records if r.get("status") == "partial")
 
     # Tier 1 metrics

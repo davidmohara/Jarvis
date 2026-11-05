@@ -4,8 +4,8 @@
 Metric definition (unchanged from the 2026-10-08 baseline):
   strict     = record status in (success, complete)
   mech       = strict + partial (ran to completion with degraded output)
-  session-exit aborts (abort_reason == 'session-exit-normal') are excluded
-  from the mech denominator and counted separately
+  session-exit aborts (abort_reason in hook_utils.SESSION_EXIT_ABORT_REASONS)
+  are excluded from the mech denominator and counted separately
   instrumented = record has at least one step with token attribution
 
 Usage:
@@ -16,9 +16,16 @@ import argparse
 import csv
 import glob
 import json
+import sys
 from pathlib import Path
 
 IES_ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+try:
+    from hook_utils import SESSION_EXIT_ABORT_REASONS as _SESSION_EXIT_CODES
+except Exception:
+    _SESSION_EXIT_CODES = ("session-exit-normal",)
+
 CANDIDATES = ["boot", "morning-briefing", "daily-review", "plaud-ingest"]
 
 
@@ -37,7 +44,7 @@ def tier(record: dict) -> str:
     if status == "partial" and mech.get("completed") and mech.get("all_steps_finished"):
         return "degraded"  # mech tier: finished every step, degraded output
     abort = mech.get("abort_reason")
-    if status in ("aborted", "incomplete") and abort == "session-exit-normal":
+    if status in ("aborted", "incomplete") and abort in _SESSION_EXIT_CODES:
         return "session-exit"
     return "other"  # failure, incomplete w/o session-exit reason, in-progress
 

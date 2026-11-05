@@ -805,6 +805,14 @@ def try_finalize(eval_path: Path, transcript_path: str | None = None) -> bool:
         # closed the record (compute_parent_window=False).
         age_hours = (datetime.now(timezone.utc) - opened_at).total_seconds() / 3600 if opened_at else 0
         if age_hours >= ABANDONED_RECORD_AFTER_HOURS:
+            # Canonical abort_reason code (root-cause fix 8): the session
+            # ended without the workflow finishing and nothing ever wrote a
+            # terminal state. A machine-readable code instead of free-text
+            # close_reason makes the session-lifecycle abort class queryable
+            # (the 27-record retry-stack analysis needed free-text reads to
+            # cluster these).
+            eval_record.setdefault("assessment", {}).setdefault(
+                "mechanical", {})["abort_reason"] = "session-end-mid-run"
             finalize(eval_path, eval_record, state_data, force_status="aborted",
                      reason=(f"abandoned: state.yaml stayed "
                              f"{state_data.get('status')!r} for {age_hours:.1f}h — the session "
@@ -855,6 +863,12 @@ def try_finalize(eval_path: Path, transcript_path: str | None = None) -> bool:
                 except Exception as e:
                     log_error(f"Failed to delete phantom eval record {eval_path}: {e}", TAG)
                 return True
+            # Canonical abort_reason code (root-cause fix 8): the monitored
+            # state.yaml's completion predates this record's open — stale
+            # evidence of a PREVIOUS run, so this record's own run never
+            # produced completion evidence before going stale.
+            eval_record.setdefault("assessment", {}).setdefault(
+                "mechanical", {})["abort_reason"] = "stale-state-open"
             finalize(eval_path, eval_record, state_data, force_status="aborted",
                      reason=f"state.yaml's own completion timestamp predates this record's open time by {age_hours:.1f}h — likely a spurious open, not a real run",
                      transcript_path=transcript_path)

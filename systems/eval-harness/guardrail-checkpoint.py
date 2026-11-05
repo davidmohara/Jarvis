@@ -63,7 +63,13 @@ def find_most_recent_eval_record(workflow_name: str) -> Path | None:
             # A stale but already-closed record (status success/aborted/etc.)
             # must never be matched here — see err-20260904T081107-GYF8D1 and
             # err-20260827T081312-8HOA70.
-            if data.get("name") == workflow_name and data.get("status") == "in-progress":
+            # Match `name` OR the additive `workflow` field: a subagent-run
+            # workflow's record carries name="general-purpose" with the real
+            # workflow in `workflow`, so name-only matching made every
+            # subagent-run workflow unfindable (the 4-run guardrail recording
+            # gap, reviews/boot-root-cause-2026-11-05.md, fix 3).
+            if ((data.get("name") == workflow_name or data.get("workflow") == workflow_name)
+                    and data.get("status") == "in-progress"):
                 # Sort on the parsed datetime, not the raw string: records with
                 # differing fractional-second precision invert under plain
                 # lexicographic sort ('.' sorts below 'Z'), which can rank an

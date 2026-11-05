@@ -1067,6 +1067,209 @@ def get_target_date():
     return (datetime.now() - timedelta(days=1)).strftime("%Y-%m-%d")
 
 
+def process_recording(token, rec, read_source, target_date, pending_registry):
+    """Process one recording: detail read, transcript status check, staging.
+
+    Extracted from main() (err-20261104T212704-8DIR4P fix) so the target-date
+    pass and the pending re-check pass share one code path. Mutates
+    pending_registry (registers newly-pending recordings). Returns
+    "processed", "pending", or "missing" (transcript triggered, queued).
+    """
+    file_id = rec.get("id", rec.get("file_id", ""))
+    name = rec.get("filename", rec.get("fullname", file_id))
+    has_trans = rec.get("is_trans", False)
+    has_summary = rec.get("is_summary", False)
+    duration = rec.get("duration", 0)
+    clean_name = "".join(c if c.isalnum() or c in " -_" else "_" for c in str(name))
+
+    print(f"\nProcessing: {name} (ID: {file_id})")
+    print(f"  Duration: {duration}s | Has transcript: {has_trans} | Has summary: {has_summary}")
+
+    # Get full detail (includes transcript)
+    detail = load_detail(token, file_id, read_source)
+
+    # Check transcript generation status
+    trans_status = get_transcript_status(detail)
+
+    if trans_status == "missing":
+        print(f"  No transcription exists — triggering Plaud to generate one")
+        trigger_transcription(token, file_id)
+        if file_id not in pending_registry:
+            pending_registry[file_id] = {
+                "name": name,
+                "first_seen": datetime.now().timestamp(),
+                "recording": rec,
+                "triggered": True,
+            }
+
+        with open(f"{STAGING_DIR}/plaud_{clean_name}_raw.json", "w") as f:
+            json.dump(
+                {"recording": rec, "detail": detail},
+                f,
+                indent=2,
+                default=str,
+            )
+        return "missing"
+
+    if trans_status == "pending":
+        print(f"  Transcript generation in progress — saving to pending queue")
+        if file_id not in pending_registry:
+            pending_registry[file_id] = {
+                "name": name,
+                "first_seen": datetime.now().timestamp(),
+                "recording": rec,
+            }
+
+        with open(f"{STAGING_DIR}/plaud_{clean_name}_raw.json", "w") as f:
+            json.dump(
+                {"recording": rec, "detail": detail},
+                f,
+                indent=2,
+                default=str,
+            )
+        return "pending"
+
+    transcript_text = load_transcript_text(token, file_id, detail, read_source)
+    summary_text = load_summary_text(token, file_id, detail, read_source)
+
+    if not transcript_text and has_trans:
+        print("  Warning: is_trans=True but no transcript text extracted")
+
+    # Check for generic/untagged speakers
+    speakers, trans_result = get_recording_speakers(token, file_id)
+    untagged = check_generic_speakers(speakers) if speakers else []
+
+    if untagged:
+        print(f"  Found {len(untagged)} untagged speaker(s):")
+        for s in untagged:
+            sample = f' — "{s["sample_text"]}"' if s["sample_text"] else ""
+            print(f"    {s['name']} ({s['segments_count']} segments){sample}")
+
+        # Write speaker mapping file for Knox to act on
+        speaker_file = {
+            "file_id": file_id,
+            "recording_name": name,
+            "all_speakers": speakers,
+            "untagged_speakers": untagged,
+            "known_speakers": list_speakers(token),
+            "status": "needs_mapping",
+        }
+        speaker_path = f"{STAGING_DIR}/plaud_{clean_name}_speakers.json"
+        with open(speaker_path, "w") as f:
+            json.dump(speaker_file, f, indent=2, default=str)
+        print(f"  Speaker mapping file: {speaker_path}")
+
+    # Save raw JSON for debugging
+    with open(f"{STAGING_DIR}/plaud_{clean_name}_raw.json", "w") as f:
+        json.dump(
+            {"recording": rec, "detail": detail},
+            f,
+            indent=2,
+            default=str,
+        )
+
+    # Determine recording date from start_time
+    start_ts = rec.get("start_time", 0)
+    if isinstance(start_ts, (int, float)):
+        if start_ts > 1e12:
+            start_ts = start_ts / 1000
+        rec_date = datetime.fromtimestamp(start_ts).strftime("%Y-%m-%d")
+    else:
+        rec_date = target_date or "unknown"
+
+    # Save formatted transcript
+    output = f"# {name}\n\n"
+    output += f"**Date:** {rec_date}\n"
+    output += f"**Duration:** {duration}s\n"
+    output += f"**Source:** Plaud AI\n\n"
+
+    if summary_text:
+        output += f"## AI Summary\n\n{summary_text}\n\n"
+
+    if transcript_text:
+        output += f"## Transcript\n\n{transcript_text}\n"
+    else:
+        output += "## Transcript\n\n_No transcript available._\n"
+
+    outpath = f"{STAGING_DIR}/plaud_{clean_name}.md"
+    with open(outpath, "w") as f:
+        f.write(output)
+
+    print(f"  Saved: {outpath}")
+    return "processed"
+
+
+def _looks_not_found(exc) -> bool:
+    """Does an exception's message read as a Plaud 404 / record-not-found?"""
+    msg = str(exc).lower()
+    return "404" in msg or "not found" in msg or "no record" in msg
+
+
+def recheck_pending(token, read_source, recordings, pending_registry, target_date=None):
+    """Re-check the pending queue, non-fatally (err-20261104T212704-8DIR4P).
+
+    The old re-check ran BEFORE target-date processing and let one stale
+    queue entry abort the whole run with PLAUD_READ_STATUS=failed: entry
+    a93aa078b699d69c62c4a2cef8dcf5b2 (a recording deleted from Plaud)
+    404'd on every run, so the 2026-11-03 target-date recording was never
+    staged until the queue was manually wiped.
+
+    New contract:
+      - Called AFTER the target date has been processed, so a pending
+        entry can never preempt the run's actual work.
+      - A confirmed-gone entry (not-found from the detail read AND absent
+        from the freshly-listed library — one confirmation on each side)
+        is DROPPED from the queue with a log line, not a failure.
+      - Any other error on a pending entry (transient MCP/auth trouble)
+        keeps the entry queued with a warning; it never fails the run.
+      - A recording whose transcript is now ready is processed through the
+        same process_recording path and removed from the queue.
+
+    Returns the number of pending entries resolved (processed) this run.
+    """
+    resolved_ids = []
+    library_ids = {
+        r.get("id", r.get("file_id")) for r in (recordings or [])
+    }
+    for pid, pinfo in list(pending_registry.items()):
+        print(f"\nRe-checking pending: {pinfo.get('name', pid)} (ID: {pid})")
+        try:
+            detail = load_detail(token, pid, read_source)
+        except Exception as exc:
+            if _looks_not_found(exc) and pid not in library_ids:
+                print(f"  Recording no longer exists in Plaud (not-found, absent "
+                      f"from library) — dropping stale pending entry")
+                pending_registry.pop(pid, None)
+            else:
+                print(f"  WARNING: pending re-check failed ({exc}) — entry kept "
+                      f"for the next run; the run is NOT aborted")
+            continue
+        if detail is None and pid not in library_ids:
+            # API read path returns None on failure; absence from the fresh
+            # library listing confirms the recording is gone.
+            print(f"  Recording no longer exists in Plaud (unreadable, absent "
+                  f"from library) — dropping stale pending entry")
+            pending_registry.pop(pid, None)
+            continue
+
+        status = get_transcript_status(detail)
+        if status == "ready":
+            print(f"  Transcript now ready — will process")
+            outcome = process_recording(
+                token, pinfo.get("recording", {"id": pid}),
+                read_source, target_date, pending_registry)
+            if outcome == "processed":
+                resolved_ids.append(pid)
+                pending_registry.pop(pid, None)
+        else:
+            age_hours = (datetime.now().timestamp() - pinfo.get("first_seen", 0)) / 3600
+            if age_hours > 24:
+                print(f"  WARNING: Pending for {int(age_hours)}h — may have failed generation")
+            else:
+                print(f"  Still pending ({int(age_hours)}h old)")
+    return len(resolved_ids)
+
+
 def main(read_source="mcp"):
     if "--help" in sys.argv or "-h" in sys.argv:
         print(__doc__.strip())
@@ -1140,164 +1343,28 @@ Other modes:
             print(f"  {name}: {date_str}")
         sys.exit(0)
 
-    # Re-check any previously pending recordings before processing new ones
+    # Pending queue (err-20261104T212704-8DIR4P): loaded here, but re-checks
+    # run AFTER the target date is processed (see recheck_pending) so a stale
+    # or failing pending entry can never preempt the run's actual work.
     pending_path = os.path.join(STAGING_DIR, "plaud_pending.json")
     pending_registry = {}
     if os.path.exists(pending_path):
         with open(pending_path) as f:
             pending_registry = json.load(f)
 
-    resolved_ids = []
-    for pid, pinfo in list(pending_registry.items()):
-        print(f"\nRe-checking pending: {pinfo.get('name', pid)} (ID: {pid})")
-        detail = load_detail(token, pid, read_source)
-        status = get_transcript_status(detail)
-
-        if status == "ready":
-            print(f"  Transcript now ready — will process")
-            # Inject into filtered list so it gets processed below
-            filtered.append(pinfo.get("recording", {"id": pid}))
-            resolved_ids.append(pid)
-        else:
-            age_hours = (datetime.now().timestamp() - pinfo.get("first_seen", 0)) / 3600
-            if age_hours > 24:
-                print(f"  WARNING: Pending for {int(age_hours)}h — may have failed generation")
-            else:
-                print(f"  Still pending ({int(age_hours)}h old)")
-
-    # Remove resolved entries
-    for pid in resolved_ids:
-        del pending_registry[pid]
-
-    # Fetch detail + transcript for each recording
+    # Fetch detail + transcript for each recording (the target date FIRST)
     processed_count = 0
     pending_count = 0
 
     for rec in filtered:
-        file_id = rec.get("id", rec.get("file_id", ""))
-        name = rec.get("filename", rec.get("fullname", file_id))
-        has_trans = rec.get("is_trans", False)
-        has_summary = rec.get("is_summary", False)
-        duration = rec.get("duration", 0)
-        clean_name = "".join(c if c.isalnum() or c in " -_" else "_" for c in str(name))
-
-        print(f"\nProcessing: {name} (ID: {file_id})")
-        print(f"  Duration: {duration}s | Has transcript: {has_trans} | Has summary: {has_summary}")
-
-        # Get full detail (includes transcript)
-        detail = load_detail(token, file_id, read_source)
-
-        # Check transcript generation status
-        trans_status = get_transcript_status(detail)
-
-        if trans_status == "missing":
-            print(f"  No transcription exists — triggering Plaud to generate one")
-            trigger_transcription(token, file_id)
-            if file_id not in pending_registry:
-                pending_registry[file_id] = {
-                    "name": name,
-                    "first_seen": datetime.now().timestamp(),
-                    "recording": rec,
-                    "triggered": True,
-                }
+        outcome = process_recording(token, rec, read_source, target_date, pending_registry)
+        if outcome == "processed":
+            processed_count += 1
+        else:  # "pending" or "missing" (transcript triggered, queued)
             pending_count += 1
 
-            with open(f"{STAGING_DIR}/plaud_{clean_name}_raw.json", "w") as f:
-                json.dump(
-                    {"recording": rec, "detail": detail},
-                    f,
-                    indent=2,
-                    default=str,
-                )
-            continue
-
-        if trans_status == "pending":
-            print(f"  Transcript generation in progress — saving to pending queue")
-            if file_id not in pending_registry:
-                pending_registry[file_id] = {
-                    "name": name,
-                    "first_seen": datetime.now().timestamp(),
-                    "recording": rec,
-                }
-            pending_count += 1
-
-            with open(f"{STAGING_DIR}/plaud_{clean_name}_raw.json", "w") as f:
-                json.dump(
-                    {"recording": rec, "detail": detail},
-                    f,
-                    indent=2,
-                    default=str,
-                )
-            continue
-
-        transcript_text = load_transcript_text(token, file_id, detail, read_source)
-        summary_text = load_summary_text(token, file_id, detail, read_source)
-
-        if not transcript_text and has_trans:
-            print("  Warning: is_trans=True but no transcript text extracted")
-
-        # Check for generic/untagged speakers
-        speakers, trans_result = get_recording_speakers(token, file_id)
-        untagged = check_generic_speakers(speakers) if speakers else []
-
-        if untagged:
-            print(f"  Found {len(untagged)} untagged speaker(s):")
-            for s in untagged:
-                sample = f' — "{s["sample_text"]}"' if s["sample_text"] else ""
-                print(f"    {s['name']} ({s['segments_count']} segments){sample}")
-
-            # Write speaker mapping file for Knox to act on
-            speaker_file = {
-                "file_id": file_id,
-                "recording_name": name,
-                "all_speakers": speakers,
-                "untagged_speakers": untagged,
-                "known_speakers": list_speakers(token),
-                "status": "needs_mapping",
-            }
-            speaker_path = f"{STAGING_DIR}/plaud_{clean_name}_speakers.json"
-            with open(speaker_path, "w") as f:
-                json.dump(speaker_file, f, indent=2, default=str)
-            print(f"  Speaker mapping file: {speaker_path}")
-
-        # Save raw JSON for debugging
-        with open(f"{STAGING_DIR}/plaud_{clean_name}_raw.json", "w") as f:
-            json.dump(
-                {"recording": rec, "detail": detail},
-                f,
-                indent=2,
-                default=str,
-            )
-
-        # Determine recording date from start_time
-        start_ts = rec.get("start_time", 0)
-        if isinstance(start_ts, (int, float)):
-            if start_ts > 1e12:
-                start_ts = start_ts / 1000
-            rec_date = datetime.fromtimestamp(start_ts).strftime("%Y-%m-%d")
-        else:
-            rec_date = target_date or "unknown"
-
-        # Save formatted transcript
-        output = f"# {name}\n\n"
-        output += f"**Date:** {rec_date}\n"
-        output += f"**Duration:** {duration}s\n"
-        output += f"**Source:** Plaud AI\n\n"
-
-        if summary_text:
-            output += f"## AI Summary\n\n{summary_text}\n\n"
-
-        if transcript_text:
-            output += f"## Transcript\n\n{transcript_text}\n"
-        else:
-            output += "## Transcript\n\n_No transcript available._\n"
-
-        outpath = f"{STAGING_DIR}/plaud_{clean_name}.md"
-        with open(outpath, "w") as f:
-            f.write(output)
-
-        print(f"  Saved: {outpath}")
-        processed_count += 1
+    # Now re-check previously pending recordings, non-fatally.
+    recheck_pending(token, read_source, recordings, pending_registry, target_date)
 
     # Write pending registry
     if pending_registry:

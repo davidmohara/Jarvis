@@ -1029,7 +1029,38 @@ def update_eval_record_step_frontmatter(eval_path: Path, file_path: str, content
         # turns there: lenient_fallback is deliberately OFF so nothing is
         # written rather than a fabricated whole-transcript number -- those
         # steps are filled by step-complete.py at SubagentStop instead.
-        if (usage_between
+        #
+        # Stale-window guard (2026-11-05, root-cause fix 1): step frontmatter
+        # started-at is agent-authored, and a step whose executor never
+        # re-stamped it carries a PRIOR run's start time alongside this run's
+        # completed-at. Slicing the transcript over that window attributes two
+        # days of turns to one step — the 2026-11-04 boot back-half (four steps
+        # each "windowed" at 1,875,532 input tokens, 53h durations, against a
+        # 22-minute run). partition_usage_by_steps has rejected exactly this
+        # class since 2026-10-21 (token_source: stale-window, null tokens);
+        # this path is its mirror: a started-at that predates the target
+        # record's own open time by more than the tolerance below gets null
+        # tokens and an explicit stale-window label instead of a fabricated
+        # slice. Tolerance 60s so clock rounding at second precision can never
+        # false-positive a genuinely fresh stamp.
+        record_started_dt = parse_ts_assume_utc(eval_record.get("started"))
+        step_started_dt = parse_ts_assume_utc(step_entry.get("started"))
+        if (step_started_dt is not None and record_started_dt is not None
+                and (record_started_dt - step_started_dt).total_seconds() > 60):
+            step_entry["token_source"] = "stale-window"
+            step_entry["turns_matched"] = 0
+            step_entry["tokens_input"] = None
+            step_entry["tokens_output"] = None
+            step_entry["cost_usd"] = None
+            # duration over the same stamps is equally fabricated — null it.
+            step_entry["duration_seconds"] = None
+            log_error(
+                f"[INFO] Step {step_name} on {eval_path.name} claims started-at "
+                f"{step_entry.get('started')} which predates the record's open "
+                f"{eval_record.get('started')} — tokens left null, token_source "
+                f"stale-window (agent-authored stale frontmatter, not trusted)"
+            )
+        elif (usage_between
                 and transcript_path
                 and frontmatter.get("status") in ("complete", "completed")
                 and step_entry.get("started") and step_entry.get("completed")):
@@ -1101,7 +1132,17 @@ def check_error_tracking_write(file_path: str, session_id: str):
     status: failure onto whatever in-progress record happens to share this
     session_id previously turned an unrelated error (from a completely
     different task running in the same session) into a fabricated boot
-    failure. See err-20260829T161711-3IPMKR."""
+    failure. See err-20260829T161711-3IPMKR.
+
+    Agent scoping (2026-11-05, root-cause fix 4): the error entry itself
+    carries an `agent` field naming the IES agent that made the mistake.
+    Temporal correlation alone (an error written while record X is open)
+    stamped Knox's plaud-ingest tooling error onto an open BOOT absorber
+    record on 2026-11-03 (863SNK) — a boot "failure" that had nothing to do
+    with boot. Now: when the error entry names a manifest agent, the error
+    only lands on a record whose workflow family is owned by that agent
+    (workflow_owner_agent of the record's workflow). Entries without a
+    resolvable agent keep the old behavior (activity-gated correlation)."""
     try:
         if "error-tracking/entries" not in file_path:
             return
@@ -1112,6 +1153,17 @@ def check_error_tracking_write(file_path: str, session_id: str):
 
         # Extract error ID from filename
         error_id = Path(file_path).stem
+
+        # The error entry's own agent field — the reporting agent, which is
+        # the only causal signal the entry carries. Unreadable/unparseable
+        # entries degrade to agent=None (old behavior).
+        error_agent = None
+        try:
+            with open(IES_ROOT / file_path, "r") as f:
+                error_entry = json.load(f)
+            error_agent = normalize_agent_label(error_entry.get("agent")) if normalize_agent_label else None
+        except Exception:
+            error_agent = None
 
         with open(eval_path, "r") as f:
             eval_record = json.load(f)
@@ -1129,6 +1181,28 @@ def check_error_tracking_write(file_path: str, session_id: str):
                 "assessment yet, so this error can't be attributed to that workflow"
             )
             return
+
+        # Agent/workflow-family scoping. workflow_owner_agent reads
+        # workflows/<wf>/workflow.md's `agent:` frontmatter (e.g.
+        # plaud-ingest -> knox, boot -> master), so an error reported by Knox
+        # can only stamp records whose workflow Knox owns. The workflow field
+        # is authoritative for subagent-run records; `name` is the fallback
+        # for records where it was never stamped.
+        if error_agent is not None:
+            record_workflow = eval_record.get("workflow") or eval_record.get("name")
+            record_owner = (
+                normalize_agent_label(workflow_owner_agent(record_workflow))
+                if (normalize_agent_label and workflow_owner_agent) else None
+            )
+            if record_owner is not None and record_owner != error_agent:
+                log_error(
+                    f"[INFO] Skipping error correlation of {error_id} (agent "
+                    f"'{error_agent}') onto {eval_record.get('id')} — record's "
+                    f"workflow '{record_workflow}' is owned by '{record_owner}', "
+                    "not the error's reporting agent, so this is a cross-workflow "
+                    "error, not a failure of that workflow"
+                )
+                return
 
         # Add error ID to mechanical assessment
         if error_id not in eval_record["assessment"]["mechanical"]["error_ids"]:

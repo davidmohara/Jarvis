@@ -23,6 +23,7 @@ already creates its eval record via post-tool-use.py's
 create_eval_record_from_skill_run. Opening a stub here too would double it.
 """
 
+import json
 import re
 import sys
 from pathlib import Path
@@ -35,7 +36,7 @@ import yaml
 from hook_utils import (
     IES_ROOT, EVAL_RUNS_DIR, log_error, log_info, atomic_write_json,
     read_stdin, new_eval_id, infer_session_id, extract_workflow_path_reference,
-    open_turn_level_record_exists,
+    open_turn_level_record_exists, SESSION_EXIT_ABORT_REASONS,
 )
 try:
     from token_usage import latest_turn_model
@@ -267,6 +268,26 @@ def is_first_prompt_this_session(session_id: str) -> bool:
 BOOT_STALE_COMPLETION_AFTER_HOURS = 12
 
 
+def _read_state_yaml(state_path: Path) -> dict:
+    """Parsed body (frontmatter markers stripped) of a workflow state.yaml,
+    or {} when unreadable."""
+    if not state_path.exists():
+        return {}
+    try:
+        content = state_path.read_text()
+        lines = content.split("\n")
+        body = content
+        if lines and lines[0].strip() == "---":
+            for i, line in enumerate(lines[1:], start=1):
+                if line.strip() == "---":
+                    body = "\n".join(lines[1:i])
+                    break
+        return yaml.safe_load(body) or {}
+    except Exception as e:
+        log_error(f"failed reading {state_path}: {e}", TAG)
+        return {}
+
+
 def boot_is_fresh() -> bool:
     """True if workflows/boot/state.yaml shows a boot is about to start
     fresh (not already in-progress from a prior, still-live turn).
@@ -280,41 +301,159 @@ def boot_is_fresh() -> bool:
     perfect (it can't prove THIS session will run boot), but it stops the
     common case: a stale multi-day-old 'complete' status being read as
     permission to open a new record every single session thereafter."""
-    state_path = WORKFLOWS_DIR / "boot" / "state.yaml"
-    if not state_path.exists():
+    data = _read_state_yaml(WORKFLOWS_DIR / "boot" / "state.yaml")
+    if not data:
         return True
+    status = data.get("status")
+    if status in (None, "not-started"):
+        return True
+    if status not in ("complete", "aborted"):
+        return False
+
+    completed_at = data.get("completed-at")
+    if not completed_at:
+        return True  # no timestamp to judge staleness by — don't block on it
     try:
-        content = state_path.read_text()
-        lines = content.split("\n")
-        body = content
-        if lines and lines[0].strip() == "---":
-            for i, line in enumerate(lines[1:], start=1):
-                if line.strip() == "---":
-                    body = "\n".join(lines[1:i])
-                    break
-        data = yaml.safe_load(body) or {}
-        status = data.get("status")
-        if status in (None, "not-started"):
-            return True
-        if status not in ("complete", "aborted"):
-            return False
+        ts = str(completed_at).replace("Z", "+00:00")
+        completed_dt = datetime.fromisoformat(ts)
+        if completed_dt.tzinfo is None:
+            completed_dt = completed_dt.replace(tzinfo=timezone.utc)
+    except Exception:
+        return True  # unparseable — don't block on it either
 
-        completed_at = data.get("completed-at")
-        if not completed_at:
-            return True  # no timestamp to judge staleness by — don't block on it
+    age_hours = (datetime.now(timezone.utc) - completed_dt).total_seconds() / 3600
+    return age_hours < BOOT_STALE_COMPLETION_AFTER_HOURS
+
+
+# ---------------------------------------------------------------------------
+# Cross-session continuation policy (root-cause fix 9,
+# reviews/boot-root-cause-2026-11-05.md)
+#
+# POLICY: one eval record per logical workflow run, across sessions. IES
+# workflows already have continuation semantics at the workflow layer —
+# state.yaml persists current-step and a resumed session picks up where the
+# dead one left off — so the eval layer now mirrors that instead of minting
+# a fresh record per session attempt. The retry-stack evidence: 27 records
+# across 13 boot days, 2-4 records per real boot, each with its own verdict,
+# because a session that died mid-boot got its record closed by a
+# session-lifecycle sweep and the next session's boot opened a brand-new one.
+#
+# Mechanism: when this hook is about to open a turn-level record for
+# workflow W, and a prior record for W was closed by a session-lifecycle
+# sweep (abort_reason in SESSION_EXIT_ABORT_REASONS) within
+# CONTINUATION_WINDOW_HOURS, and W's state.yaml is still in-progress (the
+# run genuinely never finished), REOPEN that record under this session
+# instead of opening a new one: status back to in-progress, session_id
+# re-keyed to this session, monitoring reactivated, with a `continuations`
+# audit list recording every session that carried the run. The record's
+# original `started` is kept, so the final duration honestly spans the whole
+# logical run (sessions included).
+#
+# Deliberate non-goals / residual choices:
+#   - A prior record closed as success/failure/partial is never adopted:
+#     that run reached a real verdict; a re-run is a new run.
+#   - A graded record (grading.last_graded set) is never adopted.
+#   - A NEW run started from step-01 in a later session (David re-runs boot
+#     from the top rather than resuming) still adopts if the prior record
+#     died mid-run within the window: it is the same boot-day attempt chain,
+#     the continuations list makes the merge visible, and steps re-run under
+#     their own names simply overwrite their prior entries.
+#   - Old-session subagent records keep their old session_id; late stops of
+#     those agents resolve their parent by subagents[] membership or the
+#     orphan re-attach path (session + workflow + window), which does not
+#     match the re-keyed session — a residual known gap, mitigated by the
+#     fact that a dead session's subagents almost always stop before its
+#     SessionEnd sweep runs.
+# ---------------------------------------------------------------------------
+CONTINUATION_WINDOW_HOURS = 24
+
+
+def find_continuable_record(workflow_name: str) -> "Path | None":
+    """Most recent prior turn-level record for this workflow that was closed
+    by a session-lifecycle sweep within the continuation window, while the
+    workflow's own state.yaml is still in-progress. None when no such record
+    exists (the normal case: finished runs, stale closures, fresh days)."""
+    if not EVAL_RUNS_DIR.exists():
+        return None
+    # The workflow must be genuinely unfinished — a terminal state.yaml
+    # means the prior run completed and this is a new run, not a continuation.
+    state = _read_state_yaml(WORKFLOWS_DIR / workflow_name / "state.yaml")
+    if state.get("status") != "in-progress":
+        return None
+
+    candidates = []
+    now = datetime.now(timezone.utc)
+    for f in EVAL_RUNS_DIR.glob("eval-*.json"):
         try:
-            ts = str(completed_at).replace("Z", "+00:00")
-            completed_dt = datetime.fromisoformat(ts)
-            if completed_dt.tzinfo is None:
-                completed_dt = completed_dt.replace(tzinfo=timezone.utc)
+            data = json.load(open(f))
         except Exception:
-            return True  # unparseable — don't block on it either
+            continue
+        if data.get("type") != "workflow":
+            continue
+        if data.get("name") != workflow_name and data.get("workflow") != workflow_name:
+            continue
+        if data.get("status") not in ("aborted", "incomplete"):
+            continue
+        mech = (data.get("assessment") or {}).get("mechanical") or {}
+        if mech.get("abort_reason") not in SESSION_EXIT_ABORT_REASONS:
+            continue
+        if (data.get("assessment", {}).get("grading") or {}).get("last_graded"):
+            continue  # already graded — never reopen a graded record
+        started = data.get("started")
+        try:
+            started_dt = datetime.fromisoformat(str(started).replace("Z", "+00:00"))
+            if started_dt.tzinfo is None:
+                started_dt = started_dt.replace(tzinfo=timezone.utc)
+        except Exception:
+            continue
+        if (now - started_dt).total_seconds() > CONTINUATION_WINDOW_HOURS * 3600:
+            continue
+        candidates.append((started, f))
+    if not candidates:
+        return None
+    candidates.sort(key=lambda x: str(x[0]), reverse=True)
+    return candidates[0][1]
 
-        age_hours = (datetime.now(timezone.utc) - completed_dt).total_seconds() / 3600
-        return age_hours < BOOT_STALE_COMPLETION_AFTER_HOURS
-    except Exception as e:
-        log_error(f"boot_is_fresh check failed: {e}", TAG)
+
+def adopt_continuation_record(prior_path: Path, session_id: str, trigger: str,
+                              evidence: str) -> bool:
+    """Reopen a session-lifecycle-closed record under the new session
+    (see the continuation policy block above). Returns True when the record
+    was reopened and is now the run's live record; False on any failure
+    (the caller then falls back to opening a fresh record)."""
+    try:
+        with open(prior_path, "r") as f:
+            record = json.load(f)
+        prior_status = record.get("status")
+        prior_reason = (record.get("assessment") or {}).get("mechanical", {}).get("abort_reason")
+        now_iso = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
+        record["status"] = "in-progress"
+        record["session_id"] = session_id
+        record["completed"] = None
+        record["duration_seconds"] = None
+        mech = record.setdefault("assessment", {}).setdefault("mechanical", {})
+        mech.pop("abort_reason", None)
+        mech["completed"] = None
+        mech["all_steps_finished"] = None
+        monitoring = record.setdefault("monitoring", {})
+        monitoring["active"] = True
+        continuations = monitoring.setdefault("continuations", [])
+        continuations.append({
+            "resumed_in_session": session_id,
+            "resumed_at": now_iso,
+            "prior_status": prior_status,
+            "prior_abort_reason": prior_reason,
+            "trigger_evidence": (evidence or "")[:200],
+        })
+        atomic_write_json(prior_path, record)
+        log_info(
+            f"Adopted continuation record {record.get('id')} for '{record.get('name')}' "
+            f"(closed {prior_status}/{prior_reason}, reopened under session {session_id}) "
+            f"— same logical run, no new record", TAG)
         return True
+    except Exception as e:
+        log_error(f"continuation adoption failed for {prior_path.name}: {e}", TAG)
+        return False
 
 
 def open_eval_record(workflow_name: str, fm: dict, session_id: str, trigger: str, evidence: str = "",
@@ -412,9 +551,21 @@ def main():
 
     # boot special-case: CLAUDE.md mandates it unconditionally on session
     # start, independent of what the first prompt says.
-    if not workflow_name and "boot" in master_workflows and is_first_prompt_this_session(session_id) and boot_is_fresh():
-        workflow_name = "boot"
-        evidence = "boot-first-prompt-of-session"
+    if not workflow_name and "boot" in master_workflows and is_first_prompt_this_session(session_id):
+        if boot_is_fresh():
+            workflow_name = "boot"
+            evidence = "boot-first-prompt-of-session"
+        elif _read_state_yaml(WORKFLOWS_DIR / "boot" / "state.yaml").get("status") == "in-progress":
+            # A prior session's boot never finished (state.yaml still
+            # in-progress) and CLAUDE.md mandates boot on every session —
+            # this session is resuming that run. The first-prompt heuristic
+            # previously skipped this case entirely (boot_is_fresh() is
+            # False for an in-progress state), so a resumed boot opened no
+            # turn-level record at all unless the prompt text happened to
+            # match. Continuation policy (root-cause fix 9): open/adopt a
+            # record for the SAME logical run.
+            workflow_name = "boot"
+            evidence = "boot-resumed-mid-run"
 
     if not workflow_name:
         return
@@ -423,7 +574,17 @@ def main():
         log_info(f"Eval already open for '{workflow_name}' this session, skipping (evidence={evidence[:120]!r})", TAG)
         return
 
-    open_eval_record(workflow_name, master_workflows[workflow_name], session_id, trigger="boot" if workflow_name == "boot" else "manual", evidence=evidence,
+    # Cross-session continuation (root-cause fix 9): if this workflow's
+    # prior run died with its session (record closed by a session-lifecycle
+    # sweep) and the workflow is still in-progress, continue THAT record
+    # instead of minting a new one. See the policy block above
+    # find_continuable_record.
+    trigger = "boot" if workflow_name == "boot" else "manual"
+    prior = find_continuable_record(workflow_name)
+    if prior is not None and adopt_continuation_record(prior, session_id, trigger, evidence):
+        return
+
+    open_eval_record(workflow_name, master_workflows[workflow_name], session_id, trigger=trigger, evidence=evidence,
                      transcript_path=payload.get("transcript_path"))
 
 

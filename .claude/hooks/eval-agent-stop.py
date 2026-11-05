@@ -49,6 +49,7 @@ try:
         _read_first_user_message_text,
         find_records_by_agent_id, make_agent_stub, first_transcript_timestamp,
         read_subagent_meta, find_turn_record_for_workflow,
+        aggregate_record_totals,
         infer_session_id as _shared_infer_session_id,
     )
 except Exception:
@@ -62,6 +63,7 @@ except Exception:
     first_transcript_timestamp = None
     read_subagent_meta = None
     find_turn_record_for_workflow = None
+    aggregate_record_totals = None
     _shared_infer_session_id = None
 try:
     import assertion_checks as _assertion_checks
@@ -508,6 +510,108 @@ def run_assertions(eval_record: dict, transcript_path: str = None) -> dict:
         log_error=log_error,
     )
 
+
+def enforce_step_sum_integrity(eval_record: dict, agent_transcript_path: str | None,
+                               agent_id: str):
+    """Sum-integrity check (and repair) for an agent record's per-step slices.
+
+    Root cause (reviews/boot-root-cause-2026-11-05.md, fix 7): the strict
+    per-step window paths (step-complete.py extract_step_tokens, the
+    post-tool-use.py inline path) trust agent-authored started-at stamps,
+    and overlapping claimed windows make independent per-step slices
+    DOUBLE-COUNT the same transcript turns — the 2026-11-04 plaud-ingest
+    record summed 15.94M across its steps against a 14.84M whole-run total.
+    partition_usage_by_steps has enforced sum == whole-transcript since
+    2026-10-21; the strict paths had no such invariant.
+
+    Rule: when the record's own total_tokens_input is known and its steps'
+    tokens_input sum OVER it, re-partition this agent's transcript across
+    its steps (the partition attributes every turn to exactly one step and
+    restores the invariant by construction, labeling stale-start steps
+    null/stale-window). When re-partitioning is impossible (no transcript,
+    module unavailable), flag the over-sum on the record as
+    attribution_integrity instead of silently keeping fabricated numbers.
+    A repaired record keeps an audit trail of the pre-repair sums.
+
+    Mutates eval_record in place; returns True if a repair or flag was
+    written, False when the invariant already held (or nothing to check).
+    """
+    steps = [s for s in (eval_record.get("steps") or []) if isinstance(s, dict)]
+    counted = [s for s in steps if s.get("tokens_input") is not None]
+    total = eval_record.get("total_tokens_input")
+    if not counted or total is None:
+        return False
+    step_sum = sum(s["tokens_input"] for s in counted)
+    if step_sum <= total:
+        return False
+
+    log_info(
+        f"step sum-integrity violation for {agent_id}: steps sum "
+        f"{step_sum} > whole-run {total} (overlapping agent-authored windows) "
+        f"— attempting partition repair"
+    )
+    repaired = False
+    if partition_usage_by_steps and agent_transcript_path and Path(agent_transcript_path).exists():
+        try:
+            partition = partition_usage_by_steps(
+                agent_transcript_path, steps,
+                eval_record.get("started"), eval_record.get("completed"))
+            for s in steps:
+                u = partition.get(s.get("name"))
+                if u is None:
+                    continue
+                if u.get("tokens_input") is not None:
+                    s["tokens_input"] = u["tokens_input"]
+                    s["tokens_output"] = u["tokens_output"]
+                    s["cost_usd"] = u["cost_usd"]
+                    if u.get("model"):
+                        s["model"] = u["model"]
+                    s["turns_matched"] = u.get("turns_matched")
+                    s["turns_with_usage"] = u.get("turns_with_usage")
+                    s["token_source"] = "windowed-partition"
+                    repaired = True
+                elif u.get("token_source") == "stale-window":
+                    # Stale claimed window: the partition refuses to guess;
+                    # null the fabricated slice and label why (same contract
+                    # as partition_usage_by_steps and post-tool-use's inline
+                    # stale-window guard).
+                    s["tokens_input"] = None
+                    s["tokens_output"] = None
+                    s["cost_usd"] = None
+                    s["turns_matched"] = 0
+                    s["token_source"] = "stale-window"
+                    repaired = True
+            new_sum = sum(s["tokens_input"] or 0 for s in steps)
+            eval_record["attribution_integrity"] = {
+                "status": "repaired" if repaired else "over-sum",
+                "pre_repair_step_sum": step_sum,
+                "post_repair_step_sum": new_sum,
+                "run_total": total,
+                "method": "partition-re-slice",
+                "checked_at": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
+            }
+            log_info(
+                f"step sum-integrity {'repair applied' if repaired else 'flagged'} for "
+                f"{agent_id}: {step_sum} -> {new_sum} (whole-run {total})"
+            )
+        except Exception as e:
+            log_error(f"partition repair failed for {agent_id}: {e}")
+            eval_record["attribution_integrity"] = {
+                "status": "over-sum-unrepaired",
+                "step_sum": step_sum,
+                "run_total": total,
+                "error": str(e),
+            }
+            return True
+    else:
+        eval_record["attribution_integrity"] = {
+            "status": "over-sum-unrepaired",
+            "step_sum": step_sum,
+            "run_total": total,
+            "reason": "transcript or partition module unavailable",
+        }
+    return True
+
 def main():
     """Main hook logic."""
     payload = read_stdin()
@@ -638,6 +742,16 @@ def main():
                          f"{note_usage.get('harness_tokens')} harness tokens "
                          f"({note_usage.get('harness_tool_uses')} tool uses)")
 
+    # Sum-integrity pass #1 (root-cause fix 7): steps already on the record
+    # (written during the run by the post-tool-use inline path) can over-sum
+    # the whole-run total through overlapping claimed windows. Repair BEFORE
+    # the parent backfill below, so a corrupted child step can never be
+    # adopted onto the parent as-is.
+    try:
+        enforce_step_sum_integrity(eval_record, agent_transcript_path, agent_id)
+    except Exception as e:
+        log_error(f"step sum-integrity check failed for {agent_id}: {e}")
+
     # Workflow recovery (2026-10-22): a dispatched workflow's subagent record
     # usually carries name="general-purpose" and workflow=None — SubagentStart
     # could not recover the spawn prompt at start time (its payload carries no
@@ -743,6 +857,14 @@ def main():
                     if not any(s.get("agent_id") == agent_id
                                for s in subs if isinstance(s, dict)):
                         subs.append(entry)
+                        # Re-aggregate the parent's totals after the re-attach
+                        # (root-cause fix 6): without this the newly linked
+                        # subagent's tokens sit in subagents[] but never roll
+                        # into total_tokens_input unless some later closer
+                        # happens to aggregate — totals were order-dependent
+                        # on stop-hook timing.
+                        if aggregate_record_totals:
+                            aggregate_record_totals(parent)
                         atomic_write_json(adopted, parent)
                         log_info(f"Re-attached orphaned subagent {agent_id} to "
                                  f"{adopted.name} ('{eval_record['workflow']}') — "
@@ -868,6 +990,11 @@ def main():
                         filled += 1
 
                 if filled:
+                    # Re-aggregate after the backfill (root-cause fix 6): the
+                    # steps just filled carry tokens that must land in the
+                    # parent's totals now, not only if a later closer runs.
+                    if aggregate_record_totals:
+                        aggregate_record_totals(parent)
                     atomic_write_json(parent_path, parent)
                     whole = eval_record.get("total_tokens_input")
                     log_info(f"step backfill for {agent_id} into {parent_path.name}: "
@@ -897,6 +1024,14 @@ def main():
                 # Re-read eval record to get step data updated by hooks
                 with open(eval_record_path, "r") as f:
                     eval_record = json.load(f)
+                # Sum-integrity pass #2 (root-cause fix 7): the step-complete
+                # fan-out above just wrote fresh strict-window slices; check
+                # them against the whole-run total too. (Pass #1 ran before
+                # the fan-out, on steps written during the run.)
+                try:
+                    enforce_step_sum_integrity(eval_record, agent_transcript_path, agent_id)
+                except Exception as e:
+                    log_error(f"post-fanout step sum-integrity check failed for {agent_id}: {e}")
             else:
                 log_info(f"No steps directory for workflow '{workflow_name}' "
                          f"(name={eval_record.get('name')!r}, workflow={eval_record.get('workflow')!r}), "
@@ -1129,6 +1264,15 @@ def main():
                         if eval_record.get("workflow"):
                             entry["workflow"] = eval_record.get("workflow")
                         break
+                # Re-aggregate after the rollup (root-cause fix 6): on
+                # 2026-11-03 the plaud-ingest subagent's stop fired AFTER the
+                # parent's finalize had already aggregated, so its 23.6M
+                # tokens updated subagents[] but never the run total — the
+                # same tokens landed in the total on 2026-11-04 only because
+                # the timing happened to differ. Aggregating here makes the
+                # parent's totals independent of stop-hook arrival order.
+                if aggregate_record_totals:
+                    aggregate_record_totals(parent)
                 atomic_write_json(parent_path, parent)
         except Exception as e:
             log_error(f"Failed to roll up subagent {agent_id} into open turn record: {e}")

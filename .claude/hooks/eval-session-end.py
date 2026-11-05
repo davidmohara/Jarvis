@@ -115,7 +115,10 @@ def run_synchronous() -> bool:
 def sweep_inline():
     """Last resort (canonical script missing): the pre-2026-10-10 inline
     behavior — mark every in-progress record aborted so nothing is left
-    looking live. Kept atomically written as before."""
+    looking live. Kept atomically written as before. The abort_reason code
+    is the canonical `session-exit-normal` (root-cause fix 8): this sweep
+    previously wrote the divergent `session-ended`, which success-rate.py
+    and generate-dashboard.py each had to special-case separately."""
     aborted_count = 0
     for f in EVAL_RUNS_DIR.glob("eval-*.json"):
         try:
@@ -130,7 +133,7 @@ def sweep_inline():
                 if "mechanical" not in data["assessment"]:
                     data["assessment"]["mechanical"] = {}
                 data["assessment"]["mechanical"]["completed"] = False
-                data["assessment"]["mechanical"]["abort_reason"] = "session-ended"
+                data["assessment"]["mechanical"]["abort_reason"] = "session-exit-normal"
 
                 tmp_path = f.with_suffix(".tmp")
                 try:
