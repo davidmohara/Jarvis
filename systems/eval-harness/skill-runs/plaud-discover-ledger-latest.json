@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-11-03T15:48:17.116802Z",
-  "api_total": 160,
-  "vault_md_files": 215,
-  "vault_unique_file_ids": 156,
-  "new_count": 4,
+  "generated_at": "2026-11-04T21:18:09.741767Z",
+  "api_total": 161,
+  "vault_md_files": 219,
+  "vault_unique_file_ids": 160,
+  "new_count": 1,
   "entries": [
     {
-      "id_or_title": "d6e687e2b0d0a74baba20d28fa1832b4",
-      "name": "2026-11-02 14:32:48",
+      "id_or_title": "900d3853c0a06d570942db021be3853d",
+      "name": "11-03 Meeting: Extension Incentives and AI SOW Eligibility",
       "tiers_checked": [
         1,
         2,
@@ -16,46 +16,51 @@
       "vault_match": false,
       "decision": "new",
       "match": null,
-      "fuzzy_best": 0.214
+      "fuzzy_best": 0.487
+    },
+    {
+      "id_or_title": "d6e687e2b0d0a74baba20d28fa1832b4",
+      "name": "11-02 Casino Royale Event Planning and Operations Meeting",
+      "tiers_checked": [
+        1
+      ],
+      "vault_match": true,
+      "decision": "skip",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/YPO/2026-11-02 YPO LSG Casino Royale Event Planning Call.md",
+      "fuzzy_best": null
     },
     {
       "id_or_title": "3f30d76fc4f8757490008c4e4a3dbadb",
-      "name": "11-02 Planning Meeting: AI in Action Workshop, Hybrid Access, and Promotion",
+      "name": "11-02 Improving and ASEI Collaborative Event Planning Meeting",
       "tiers_checked": [
-        1,
-        2,
-        3
+        1
       ],
-      "vault_match": false,
-      "decision": "new",
-      "match": null,
-      "fuzzy_best": 0.537
+      "vault_match": true,
+      "decision": "skip",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Improving/2026-11-02 ASEI AI Workshop Prep Call.md",
+      "fuzzy_best": null
     },
     {
       "id_or_title": "7206d95d1abb74720f82efeb340c1b6e",
-      "name": "Collaboration Review: Atlas Copco AI Workshop Facilitation",
+      "name": "11-02 Atlas Copco Executive AI Workshop: Co-Facilitation Needs and Platform Expansion Opportunity",
       "tiers_checked": [
-        1,
-        2,
-        3
+        1
       ],
-      "vault_match": false,
-      "decision": "new",
-      "match": null,
-      "fuzzy_best": 0.535
+      "vault_match": true,
+      "decision": "skip",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Client/2026-11-02 Atlas Copco AI Workshop Facilitation.md",
+      "fuzzy_best": null
     },
     {
       "id_or_title": "897bf6d170860a7e472e114c2ea1a44c",
-      "name": "11-02 Meeting: David\u2019s DRC Workshop Recording and Video Production",
+      "name": "11-02 Production Strategy and Logistics for David's YPO Qualification Workshop at DRC",
       "tiers_checked": [
-        1,
-        2,
-        3
+        1
       ],
-      "vault_match": false,
-      "decision": "new",
-      "match": null,
-      "fuzzy_best": 0.504
+      "vault_match": true,
+      "decision": "skip",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/YPO/2026-11-02 DRC Workshop Video Production.md",
+      "fuzzy_best": null
     },
     {
       "id_or_title": "4bc3ab005e16f853fbf236a1e1ae90fc",
@@ -65,7 +70,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Client/2026-10-27 Lockton - AI Adoption and Enablement Roadmap.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Client/2026-10-27 Lockton - AI Adoption and Enablement Roadmap.md",
       "fuzzy_best": null
     },
     {
@@ -76,7 +81,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Improving/2026-10-27 One Texas and 2027 Speaking Opportunities.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Improving/2026-10-27 One Texas and 2027 Speaking Opportunities.md",
       "fuzzy_best": null
     },
     {
@@ -87,7 +92,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Other/2026-10-26 Connect - Russell Frees (Henricksen).md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Other/2026-10-26 Connect - Russell Frees (Henricksen).md",
       "fuzzy_best": null
     },
     {
@@ -98,7 +103,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Improving/2026-10-26 The Improving Edge - Content Strategy and Guest Pipeline.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Improving/2026-10-26 The Improving Edge - Content Strategy and Guest Pipeline.md",
       "fuzzy_best": null
     },
     {
@@ -109,7 +114,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Client/2026-10-26 Helixor Partnership Introduction - Lance Clevinger and Eric.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Client/2026-10-26 Helixor Partnership Introduction - Lance Clevinger and Eric.md",
       "fuzzy_best": null
     },
     {
@@ -120,7 +125,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Client/2026-10-26 Peak Precision - App Business Framework Whiteboard.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Client/2026-10-26 Peak Precision - App Business Framework Whiteboard.md",
       "fuzzy_best": null
     },
     {
@@ -131,7 +136,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Personal/2026-10-21 Coaching Conversation - Strengths Perspective and Family Context.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Personal/2026-10-21 Coaching Conversation - Strengths Perspective and Family Context.md",
       "fuzzy_best": null
     },
     {
@@ -142,7 +147,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Other/2026-10-08 Prep Call - Becoming AI Native (Principled Business Summit).md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Other/2026-10-08 Prep Call - Becoming AI Native (Principled Business Summit).md",
       "fuzzy_best": null
     },
     {
@@ -153,7 +158,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Other/2026-10-08 Dallas Chamber Talent Lab - AI in HR Session Prep.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Other/2026-10-08 Dallas Chamber Talent Lab - AI in HR Session Prep.md",
       "fuzzy_best": null
     },
     {
@@ -164,7 +169,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Client/2026-10-07 DRC Talent Labs AI, Culture, and Talent Session Planning.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Client/2026-10-07 DRC Talent Labs AI, Culture, and Talent Session Planning.md",
       "fuzzy_best": null
     },
     {
@@ -175,7 +180,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/YPO/2026-09-28 YPO Chapter Session Design and Facilitation Logistics.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/YPO/2026-09-28 YPO Chapter Session Design and Facilitation Logistics.md",
       "fuzzy_best": null
     },
     {
@@ -186,7 +191,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Improving/2026-09-25 4th Friday Executive Meeting - GDS Strategy and Global Delivery.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Improving/2026-09-25 4th Friday Executive Meeting - GDS Strategy and Global Delivery.md",
       "fuzzy_best": null
     },
     {
@@ -197,7 +202,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Client/2026-09-25 Remington Hotels - AI Project Reset and Innovation Lab Proposal.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Client/2026-09-25 Remington Hotels - AI Project Reset and Innovation Lab Proposal.md",
       "fuzzy_best": null
     },
     {
@@ -208,7 +213,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Improving/2026-09-24 The Improving Edge - Podcast Strategy and Content Performance.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Improving/2026-09-24 The Improving Edge - Podcast Strategy and Content Performance.md",
       "fuzzy_best": null
     },
     {
@@ -219,7 +224,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Client/2026-09-24 GEHC Architecture Proposal - Event Routing and AI Dispatch.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Client/2026-09-24 GEHC Architecture Proposal - Event Routing and AI Dispatch.md",
       "fuzzy_best": null
     },
     {
@@ -230,7 +235,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Client/2026-09-18 GEHC AI-Driven DICOM Routing Architecture Review.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Client/2026-09-18 GEHC AI-Driven DICOM Routing Architecture Review.md",
       "fuzzy_best": null
     },
     {
@@ -241,7 +246,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Client/2026-09-18 AI Project Architecture and Data Routing.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Client/2026-09-18 AI Project Architecture and Data Routing.md",
       "fuzzy_best": null
     },
     {
@@ -252,7 +257,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Client/2026-09-17 GEHC Improving - AI Routing weekly sync.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Client/2026-09-17 GEHC Improving - AI Routing weekly sync.md",
       "fuzzy_best": null
     },
     {
@@ -263,7 +268,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Client/2026-09-16 SST AI Takeoff Weekly - P2 AI Project Plan, Model Testing, and Scope Risks.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Client/2026-09-16 SST AI Takeoff Weekly - P2 AI Project Plan, Model Testing, and Scope Risks.md",
       "fuzzy_best": null
     },
     {
@@ -274,7 +279,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Other/2026-09-14 FEI Monthly Meeting - KPMG AI in Finance Transformation Presentation.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Other/2026-09-14 FEI Monthly Meeting - KPMG AI in Finance Transformation Presentation.md",
       "fuzzy_best": null
     },
     {
@@ -285,7 +290,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Improving/2026-09-14 GEHC AI Routing for DICOM Images - Project Status and Team Intro.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Improving/2026-09-14 GEHC AI Routing for DICOM Images - Project Status and Team Intro.md",
       "fuzzy_best": null
     },
     {
@@ -296,7 +301,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Improving/2026-09-14 Summer Craig Call - ACG Houston Speaking Engagement Planning.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Improving/2026-09-14 Summer Craig Call - ACG Houston Speaking Engagement Planning.md",
       "fuzzy_best": null
     },
     {
@@ -307,7 +312,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Improving/2026-09-14 Sync AI Executive Workshop in California (Ashok Iyengar).md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Improving/2026-09-14 Sync AI Executive Workshop in California (Ashok Iyengar).md",
       "fuzzy_best": null
     },
     {
@@ -318,7 +323,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Improving/2026-09-14 Syncing Up Devlin and O'Hara - Production Hosting Handoff, Capacity Risk, and October Boot Camp Planning.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Improving/2026-09-14 Syncing Up Devlin and O'Hara - Production Hosting Handoff, Capacity Risk, and October Boot Camp Planning.md",
       "fuzzy_best": null
     },
     {
@@ -329,7 +334,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/YPO/2026-09-08 Architecting a Personalized AI Executive Assistant with Renzi Stone.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/YPO/2026-09-08 Architecting a Personalized AI Executive Assistant with Renzi Stone.md",
       "fuzzy_best": null
     },
     {
@@ -340,7 +345,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Improving/2026-09-03 David-Robyn 1-on-1 - Account Portfolio Review and CIO-Partner Outreach Strategy.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Improving/2026-09-03 David-Robyn 1-on-1 - Account Portfolio Review and CIO-Partner Outreach Strategy.md",
       "fuzzy_best": null
     },
     {
@@ -351,7 +356,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Improving/2026-09-02 Podcast Prep Interview with Tosan Ojeahere (Thomson Reuters) - AI in Legal Tech and Talent Transformation.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Improving/2026-09-02 Podcast Prep Interview with Tosan Ojeahere (Thomson Reuters) - AI in Legal Tech and Talent Transformation.md",
       "fuzzy_best": null
     },
     {
@@ -362,7 +367,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/YPO/2026-08-28 Meeting - YPO Gold Chapter Strategy, Events, Membership, and Compliance.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/YPO/2026-08-28 Meeting - YPO Gold Chapter Strategy, Events, Membership, and Compliance.md",
       "fuzzy_best": null
     },
     {
@@ -373,7 +378,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Other/2026-08-26 Professional Catch-Up with Robbie - Health, Family, and Business Evolution.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Other/2026-08-26 Professional Catch-Up with Robbie - Health, Family, and Business Evolution.md",
       "fuzzy_best": null
     },
     {
@@ -384,7 +389,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Other/2026-08-25 SIM Enclave DFW Dinner - CIO Role Evolution.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Other/2026-08-25 SIM Enclave DFW Dinner - CIO Role Evolution.md",
       "fuzzy_best": null
     },
     {
@@ -395,7 +400,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Client/2026-08-25 Remington Hotels AI Executive Workshop.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Client/2026-08-25 Remington Hotels AI Executive Workshop.md",
       "fuzzy_best": null
     },
     {
@@ -406,7 +411,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Improving/2026-08-24 Podcast-to-Pipeline Touch Base with Keylor Arroyo and Alice Mburu.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Improving/2026-08-24 Podcast-to-Pipeline Touch Base with Keylor Arroyo and Alice Mburu.md",
       "fuzzy_best": null
     },
     {
@@ -417,7 +422,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Improving/2026-08-24 CC Breakfast Alignment with Bethany Hilton - Conscious Capitalism Event Logistics.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Improving/2026-08-24 CC Breakfast Alignment with Bethany Hilton - Conscious Capitalism Event Logistics.md",
       "fuzzy_best": null
     },
     {
@@ -428,7 +433,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Client/2026-08-24 Sallie Mae AI Training Workshop Consultation.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Client/2026-08-24 Sallie Mae AI Training Workshop Consultation.md",
       "fuzzy_best": null
     },
     {
@@ -439,7 +444,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Improving/2026-08-24 David-Robyn 1-on-1 - Sales Strategy and Account Management Review.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Improving/2026-08-24 David-Robyn 1-on-1 - Sales Strategy and Account Management Review.md",
       "fuzzy_best": null
     },
     {
@@ -450,7 +455,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Client/2026-08-24 RTP Plastics Manufacturer AI Workshop Scoping with Jack Claeys.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Client/2026-08-24 RTP Plastics Manufacturer AI Workshop Scoping with Jack Claeys.md",
       "fuzzy_best": null
     },
     {
@@ -461,7 +466,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Improving/2026-08-21 XTI CIO Referral Call with Greg Pascuzzi.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Improving/2026-08-21 XTI CIO Referral Call with Greg Pascuzzi.md",
       "fuzzy_best": null
     },
     {
@@ -472,7 +477,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/YPO/2026-08-20 YPO Western Region Area Officer Board Meeting.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/YPO/2026-08-20 YPO Western Region Area Officer Board Meeting.md",
       "fuzzy_best": null
     },
     {
@@ -483,7 +488,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Client/2026-08-14 Health and Safety Council - AI Workflow Discovery Proposal Walkthrough.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Client/2026-08-14 Health and Safety Council - AI Workflow Discovery Proposal Walkthrough.md",
       "fuzzy_best": null
     },
     {
@@ -494,7 +499,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Improving/2026-08-11 Plan for Executive Networking Breakfast to Promote Conscious Capitalism and Code Launch.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Improving/2026-08-11 Plan for Executive Networking Breakfast to Promote Conscious Capitalism and Code Launch.md",
       "fuzzy_best": null
     },
     {
@@ -505,7 +510,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Other/2026-08-11 Professional and Personal Catch-Up on Business Integration AI Strategy and Life Updates.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Other/2026-08-11 Professional and Personal Catch-Up on Business Integration AI Strategy and Life Updates.md",
       "fuzzy_best": null
     },
     {
@@ -516,7 +521,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/YPO/2026-08-10 Hospitality Plan for UTB YPO Events Pending Budget Approval.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/YPO/2026-08-10 Hospitality Plan for UTB YPO Events Pending Budget Approval.md",
       "fuzzy_best": null
     },
     {
@@ -527,7 +532,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Client/2026-08-10 Strategic Partnership and Account Planning (Solace).md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Client/2026-08-10 Strategic Partnership and Account Planning (Solace).md",
       "fuzzy_best": null
     },
     {
@@ -538,7 +543,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Client/2026-08-10 AI Executive Workshop Planning for Remington.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Client/2026-08-10 AI Executive Workshop Planning for Remington.md",
       "fuzzy_best": null
     },
     {
@@ -549,7 +554,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Improving/2026-08-07 Podcast-to-Pipeline Strategy Session with Keylor Arroyo.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Improving/2026-08-07 Podcast-to-Pipeline Strategy Session with Keylor Arroyo.md",
       "fuzzy_best": null
     },
     {
@@ -560,7 +565,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Client/2026-08-07 Mash AI Platform Demo - Brand-Context Tool and Go-to-Market Options.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Client/2026-08-07 Mash AI Platform Demo - Brand-Context Tool and Go-to-Market Options.md",
       "fuzzy_best": null
     },
     {
@@ -571,7 +576,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Client/2026-08-06 Systemic Compliance - SC IMS Architecture and GitHub Backup Working Session.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Client/2026-08-06 Systemic Compliance - SC IMS Architecture and GitHub Backup Working Session.md",
       "fuzzy_best": null
     },
     {
@@ -582,7 +587,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/YPO/2026-08-06 Western Region Area Officer Kickoff - Tools, Chapter Commitments, Swag Feedback.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/YPO/2026-08-06 Western Region Area Officer Kickoff - Tools, Chapter Commitments, Swag Feedback.md",
       "fuzzy_best": null
     },
     {
@@ -593,7 +598,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Client/2026-08-05 Strategy Meeting - Wendy's Account Growth and GCP Partnership.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Client/2026-08-05 Strategy Meeting - Wendy's Account Growth and GCP Partnership.md",
       "fuzzy_best": null
     },
     {
@@ -604,7 +609,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Client/2026-08-05 Magline and Improving AI Enablement Discovery Call.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Client/2026-08-05 Magline and Improving AI Enablement Discovery Call.md",
       "fuzzy_best": null
     },
     {
@@ -615,7 +620,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Other/2026-08-05 Clinical Follow-Up - Diagnostic Injection Relief with Dr. Nathan Walters.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Other/2026-08-05 Clinical Follow-Up - Diagnostic Injection Relief with Dr. Nathan Walters.md",
       "fuzzy_best": null
     },
     {
@@ -626,7 +631,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Client/2026-08-03 Moto-Chevron Kickoff - Operational Support and BOT Scoping.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Client/2026-08-03 Moto-Chevron Kickoff - Operational Support and BOT Scoping.md",
       "fuzzy_best": null
     },
     {
@@ -637,7 +642,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Improving/2026-08-03 Introductory Call with Luke (GearVox) - Podcast Guest and Partnership Exploration.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Improving/2026-08-03 Introductory Call with Luke (GearVox) - Podcast Guest and Partnership Exploration.md",
       "fuzzy_best": null
     },
     {
@@ -648,7 +653,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Improving/2026-07-30 EA Sync with Alice - Retreat Booking, YPO Board Calendars, Tools Access.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Improving/2026-07-30 EA Sync with Alice - Retreat Booking, YPO Board Calendars, Tools Access.md",
       "fuzzy_best": null
     },
     {
@@ -659,7 +664,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Improving/2026-07-30 Texas Weekly - McKesson Update, Regional Scorecard, Partner Strategy Reset.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Improving/2026-07-30 Texas Weekly - McKesson Update, Regional Scorecard, Partner Strategy Reset.md",
       "fuzzy_best": null
     },
     {
@@ -670,7 +675,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Improving/2026-07-30 Mid-Year Strategic Review with Minu - Regional Director Role Goals.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Improving/2026-07-30 Mid-Year Strategic Review with Minu - Regional Director Role Goals.md",
       "fuzzy_best": null
     },
     {
@@ -681,7 +686,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Other/2026-07-30 Lunch with Pastor Jim - Preston Trail Departure and Headship Discussion.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Other/2026-07-30 Lunch with Pastor Jim - Preston Trail Departure and Headship Discussion.md",
       "fuzzy_best": null
     },
     {
@@ -692,7 +697,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Other/2026-07-30 Athena EA Partnership Review \u2014 Anne Mwelu.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Other/2026-07-30 Athena EA Partnership Review \u2014 Anne Mwelu.md",
       "fuzzy_best": null
     },
     {
@@ -703,7 +708,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Other/2026-07-29 Ronald Besonen Financial Review \u2014 Trust and Portfolio Allocation.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Other/2026-07-29 Ronald Besonen Financial Review \u2014 Trust and Portfolio Allocation.md",
       "fuzzy_best": null
     },
     {
@@ -714,7 +719,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Other/2026-07-29 Lunch with Michael Tapp \u2014 Family, Business, and AI Adoption.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Other/2026-07-29 Lunch with Michael Tapp \u2014 Family, Business, and AI Adoption.md",
       "fuzzy_best": null
     },
     {
@@ -725,7 +730,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Client/2026-07-29 AI Pricing and Buying Tool Discovery - Steve Hall Used Car Retailer.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Client/2026-07-29 AI Pricing and Buying Tool Discovery - Steve Hall Used Car Retailer.md",
       "fuzzy_best": null
     },
     {
@@ -736,7 +741,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Improving/2026-07-29 AI Leaders Weekly \u2014 Model Gateway Strategy and Copilot Cowork Evaluation.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Improving/2026-07-29 AI Leaders Weekly \u2014 Model Gateway Strategy and Copilot Cowork Evaluation.md",
       "fuzzy_best": null
     },
     {
@@ -747,7 +752,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Client/2026-07-28 Concentrate AI Platform Demo.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Client/2026-07-28 Concentrate AI Platform Demo.md",
       "fuzzy_best": null
     },
     {
@@ -758,7 +763,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Client/2026-07-28 Improving + Solace TOLA Partnership Onsite.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Client/2026-07-28 Improving + Solace TOLA Partnership Onsite.md",
       "fuzzy_best": null
     },
     {
@@ -769,7 +774,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Client/2026-07-28 Moto-Chevron Opportunity - NOC Build and Acquirer Certifications (Colin Referral).md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Client/2026-07-28 Moto-Chevron Opportunity - NOC Build and Acquirer Certifications (Colin Referral).md",
       "fuzzy_best": null
     },
     {
@@ -780,7 +785,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Client/2026-07-22 Sales Proposal - Santa's Wonderland Technology Discovery.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Client/2026-07-22 Sales Proposal - Santa's Wonderland Technology Discovery.md",
       "fuzzy_best": null
     },
     {
@@ -791,7 +796,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Improving/2026-07-21 Casual Conversation - AI Strategy and Be The Bison.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Improving/2026-07-21 Casual Conversation - AI Strategy and Be The Bison.md",
       "fuzzy_best": null
     },
     {
@@ -802,7 +807,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Client/2026-07-16 Wendy's AI Maturity Review - Governance and Deep Learning Program.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Client/2026-07-16 Wendy's AI Maturity Review - Governance and Deep Learning Program.md",
       "fuzzy_best": null
     },
     {
@@ -813,7 +818,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Improving/2026-07-16 FEI Financial Executives - AI Speaking Opportunity.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Improving/2026-07-16 FEI Financial Executives - AI Speaking Opportunity.md",
       "fuzzy_best": null
     },
     {
@@ -824,7 +829,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/YPO/2026-07-16 YPO Networking Call with Mason - AI as Assisted Intelligence.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/YPO/2026-07-16 YPO Networking Call with Mason - AI as Assisted Intelligence.md",
       "fuzzy_best": null
     },
     {
@@ -835,7 +840,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Other/2026-07-16 Founding Membership Setup - New Club Opening.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Other/2026-07-16 Founding Membership Setup - New Club Opening.md",
       "fuzzy_best": null
     },
     {
@@ -846,7 +851,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/2026-07-16 FEI Speaking Opportunity - UMB Bank Partnership.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/2026-07-16 FEI Speaking Opportunity - UMB Bank Partnership.md",
       "fuzzy_best": null
     },
     {
@@ -857,7 +862,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/2026-07-14 SOAP Note O'Hara - L5 Radiculopathy.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/2026-07-14 SOAP Note O'Hara - L5 Radiculopathy.md",
       "fuzzy_best": null
     },
     {
@@ -868,7 +873,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Client/2026-07-14 Coffee with Steve Hall \u2014 Automotive AI Use Cases and Just Capital Partnership.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Client/2026-07-14 Coffee with Steve Hall \u2014 Automotive AI Use Cases and Just Capital Partnership.md",
       "fuzzy_best": null
     },
     {
@@ -879,7 +884,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Other/2026-07-13 Lunch with Kapil Dabi \u2014 Agentic Commerce, Google UCP, and AI in Retail.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Other/2026-07-13 Lunch with Kapil Dabi \u2014 Agentic Commerce, Google UCP, and AI in Retail.md",
       "fuzzy_best": null
     },
     {
@@ -890,7 +895,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Improving/2026-07-10 Aligning on a Centralized AI Agent Landing Zone.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Improving/2026-07-10 Aligning on a Centralized AI Agent Landing Zone.md",
       "fuzzy_best": null
     },
     {
@@ -901,7 +906,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Other/2026-07-09 Medical Appointment \u2014 Tarlov Cyst Nerve Block Consult.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Other/2026-07-09 Medical Appointment \u2014 Tarlov Cyst Nerve Block Consult.md",
       "fuzzy_best": null
     },
     {
@@ -912,7 +917,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Client/2026-07-09 Systemic Compliance \u2014 Orb Platform Demo and Technical Architecture Review.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Client/2026-07-09 Systemic Compliance \u2014 Orb Platform Demo and Technical Architecture Review.md",
       "fuzzy_best": null
     },
     {
@@ -923,7 +928,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Improving/2026-07-08 Sales Scrum \u2014 Brief Recording.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Improving/2026-07-08 Sales Scrum \u2014 Brief Recording.md",
       "fuzzy_best": null
     },
     {
@@ -934,7 +939,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Client/2026-07-08 Systemic Compliance Whiteboard \u2014 AI-Native Platform Architecture, Governance, and GTM Strategy.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Client/2026-07-08 Systemic Compliance Whiteboard \u2014 AI-Native Platform Architecture, Governance, and GTM Strategy.md",
       "fuzzy_best": null
     },
     {
@@ -945,7 +950,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Client/2026-07-07 Strategic Discussion \u2014 Basic Memory AI Startup and Potential Partnership.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Client/2026-07-07 Strategic Discussion \u2014 Basic Memory AI Startup and Potential Partnership.md",
       "fuzzy_best": null
     },
     {
@@ -956,7 +961,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Improving/2026-07-07 1-on-1 Tim Rayburn \u2014 AI Client Opportunities, Speaking Engagements, and Fractional AI Playbook.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Improving/2026-07-07 1-on-1 Tim Rayburn \u2014 AI Client Opportunities, Speaking Engagements, and Fractional AI Playbook.md",
       "fuzzy_best": null
     },
     {
@@ -967,7 +972,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Improving/2026-07-07 Catch-up Devlin Liles \u2014 Upskilling Sales and Large Deal Strategy.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Improving/2026-07-07 Catch-up Devlin Liles \u2014 Upskilling Sales and Large Deal Strategy.md",
       "fuzzy_best": null
     },
     {
@@ -978,7 +983,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Other/2026-07-07 Lunch with Nahid Giga \u2014 Business, Family, and Life Philosophies.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Other/2026-07-07 Lunch with Nahid Giga \u2014 Business, Family, and Life Philosophies.md",
       "fuzzy_best": null
     },
     {
@@ -989,7 +994,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Other/2026-07-02 SOAP Note \u2014 Dr. Frank Feigenbaum Consultation on Symptomatic Tarlov Cysts.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Other/2026-07-02 SOAP Note \u2014 Dr. Frank Feigenbaum Consultation on Symptomatic Tarlov Cysts.md",
       "fuzzy_best": null
     },
     {
@@ -1000,7 +1005,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Other/2026-07-02 Lunch with Scott Sexton \u2014 Professional and Personal Catch-up.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Other/2026-07-02 Lunch with Scott Sexton \u2014 Professional and Personal Catch-up.md",
       "fuzzy_best": null
     },
     {
@@ -1011,7 +1016,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Improving/2026-07-02 Josh Stevenson Microsoft Houston Hub \u2014 Improving Partnership Exploration.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Improving/2026-07-02 Josh Stevenson Microsoft Houston Hub \u2014 Improving Partnership Exploration.md",
       "fuzzy_best": null
     },
     {
@@ -1022,7 +1027,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Client/2026-07-01 Nexben Discussion \u2014 Platform Modernization and AI Integration.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Client/2026-07-01 Nexben Discussion \u2014 Platform Modernization and AI Integration.md",
       "fuzzy_best": null
     },
     {
@@ -1033,7 +1038,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Client/2026-07-01 Microsoft Responsible AI and Improving Partnership \u2014 Follow-up After Houston AI Tour.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Client/2026-07-01 Microsoft Responsible AI and Improving Partnership \u2014 Follow-up After Houston AI Tour.md",
       "fuzzy_best": null
     },
     {
@@ -1044,7 +1049,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Client/2026-06-30 Improving x Xero \u2014 AI Training Workshop Proposal Discussion.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Client/2026-06-30 Improving x Xero \u2014 AI Training Workshop Proposal Discussion.md",
       "fuzzy_best": null
     },
     {
@@ -1055,7 +1060,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Client/2026-06-30 Systemic Compliance \u2014 Fractional AI Advisory Kickoff with Kevin Graham and Mehmet Yasar.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Client/2026-06-30 Systemic Compliance \u2014 Fractional AI Advisory Kickoff with Kevin Graham and Mehmet Yasar.md",
       "fuzzy_best": null
     },
     {
@@ -1066,7 +1071,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Client/2026-06-30 Concentrate AI Demo and Reconnect with Ari Jacoby.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Client/2026-06-30 Concentrate AI Demo and Reconnect with Ari Jacoby.md",
       "fuzzy_best": null
     },
     {
@@ -1077,7 +1082,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Client/2026-06-26 Kazakhstan IVLP Delegation \u2014 AI Strategy and US Approaches to Regulation.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Client/2026-06-26 Kazakhstan IVLP Delegation \u2014 AI Strategy and US Approaches to Regulation.md",
       "fuzzy_best": null
     },
     {
@@ -1088,7 +1093,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Improving/2026-06-23 Sales Team Performance Review - Commission Attribution and Vistage Coaching Fit.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Improving/2026-06-23 Sales Team Performance Review - Commission Attribution and Vistage Coaching Fit.md",
       "fuzzy_best": null
     },
     {
@@ -1099,7 +1104,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Improving/2026-06-23 Strategic Dialogue - Corporate Structure Leadership and Growth.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Improving/2026-06-23 Strategic Dialogue - Corporate Structure Leadership and Growth.md",
       "fuzzy_best": null
     },
     {
@@ -1110,7 +1115,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Client/2026-06-22 SpaceXAI Improving Partnership - Grok AI Adoption in TOLA.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Client/2026-06-22 SpaceXAI Improving Partnership - Grok AI Adoption in TOLA.md",
       "fuzzy_best": null
     },
     {
@@ -1121,7 +1126,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Client/2026-06-16 Spring Line Advisory - AI Strategy Governance and Investor Readiness.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Client/2026-06-16 Spring Line Advisory - AI Strategy Governance and Investor Readiness.md",
       "fuzzy_best": null
     },
     {
@@ -1132,7 +1137,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Client/2026-06-15 Strategic AI Implementation in Small to Medium-Sized Businesses.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Client/2026-06-15 Strategic AI Implementation in Small to Medium-Sized Businesses.md",
       "fuzzy_best": null
     },
     {
@@ -1143,7 +1148,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Client/2026-06-12 AI Adoption Governance and Scaling (Topgolf Lecture).md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Client/2026-06-12 AI Adoption Governance and Scaling (Topgolf Lecture).md",
       "fuzzy_best": null
     },
     {
@@ -1154,7 +1159,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Client/2026-06-12 AI Discussion on Practical Frameworks and Adoption.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Client/2026-06-12 AI Discussion on Practical Frameworks and Adoption.md",
       "fuzzy_best": null
     },
     {
@@ -1165,7 +1170,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Client/2026-06-12 TopGolf Executive AI Briefing.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Client/2026-06-12 TopGolf Executive AI Briefing.md",
       "fuzzy_best": null
     },
     {
@@ -1176,7 +1181,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Client/2026-06-09 PE Firm AI Consultation - Data Strategy and AI Adoption for Lower Middle Market Fund.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Client/2026-06-09 PE Firm AI Consultation - Data Strategy and AI Adoption for Lower Middle Market Fund.md",
       "fuzzy_best": null
     },
     {
@@ -1187,7 +1192,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Improving/2026-06-09 SMU MS in AI for Business - Advisory Board Partnership Discussion with Aren Cambre.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Improving/2026-06-09 SMU MS in AI for Business - Advisory Board Partnership Discussion with Aren Cambre.md",
       "fuzzy_best": null
     },
     {
@@ -1198,7 +1203,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Improving/2026-06-09 SMU MS in AI for Business \u2014 Advisory Board and Guest Lecture Partnership with Aren Cambre.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Improving/2026-06-09 SMU MS in AI for Business \u2014 Advisory Board and Guest Lecture Partnership with Aren Cambre.md",
       "fuzzy_best": null
     },
     {
@@ -1209,7 +1214,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Client/2026-06-08 Wendy's AI Strategy - Cognition Devin Introduction.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Client/2026-06-08 Wendy's AI Strategy - Cognition Devin Introduction.md",
       "fuzzy_best": null
     },
     {
@@ -1220,7 +1225,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Improving/2026-06-08 IBP Mentorship \u2014 Randall Dunigan on Sales Identity, Quick Thinking, and One Texas.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Improving/2026-06-08 IBP Mentorship \u2014 Randall Dunigan on Sales Identity, Quick Thinking, and One Texas.md",
       "fuzzy_best": null
     },
     {
@@ -1231,7 +1236,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Client/2026-06-08 Kate Bugakova \u2014 TechBar SW Partnership Exploration for Data Engineering and AI.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Client/2026-06-08 Kate Bugakova \u2014 TechBar SW Partnership Exploration for Data Engineering and AI.md",
       "fuzzy_best": null
     },
     {
@@ -1242,7 +1247,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Client/2026-05-28 Consultation - 3-Month AI Build Program Windsor Oct 2026 (Cara Antonacci).md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Client/2026-05-28 Consultation - 3-Month AI Build Program Windsor Oct 2026 (Cara Antonacci).md",
       "fuzzy_best": null
     },
     {
@@ -1253,7 +1258,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Client/2026-05-26 JSX Head of IT Interview - Adeel Ali.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Client/2026-05-26 JSX Head of IT Interview - Adeel Ali.md",
       "fuzzy_best": null
     },
     {
@@ -1264,7 +1269,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Improving/2026-05-22 Partner-Led AI Engagement Model for Mid-Market and Sales Alignment.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Improving/2026-05-22 Partner-Led AI Engagement Model for Mid-Market and Sales Alignment.md",
       "fuzzy_best": null
     },
     {
@@ -1275,7 +1280,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Other/2026-05-22 Meeting - Austin Principled Business Summit Planning (Alexander McCobin).md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Other/2026-05-22 Meeting - Austin Principled Business Summit Planning (Alexander McCobin).md",
       "fuzzy_best": null
     },
     {
@@ -1286,7 +1291,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Client/2026-05-22 THL and Odessa - Service Margin Erosion Intro with Rob Spies.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Client/2026-05-22 THL and Odessa - Service Margin Erosion Intro with Rob Spies.md",
       "fuzzy_best": null
     },
     {
@@ -1297,7 +1302,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Improving/2026-05-18 AI Maturity Gates and Evaluation.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Improving/2026-05-18 AI Maturity Gates and Evaluation.md",
       "fuzzy_best": null
     },
     {
@@ -1308,7 +1313,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Client/2026-05-14 Matthew Smart - Synexus AI Workshop Discovery Call.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Client/2026-05-14 Matthew Smart - Synexus AI Workshop Discovery Call.md",
       "fuzzy_best": null
     },
     {
@@ -1319,7 +1324,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Client/2026-05-13 Enterprise Claude Governance Fraud Mitigation and Upskilling at Exeter Finance.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Client/2026-05-13 Enterprise Claude Governance Fraud Mitigation and Upskilling at Exeter Finance.md",
       "fuzzy_best": null
     },
     {
@@ -1330,7 +1335,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Client/2026-05-13 Consultation - Fractional CTO-CIO Business Strategy (Alex Wilcox).md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Client/2026-05-13 Consultation - Fractional CTO-CIO Business Strategy (Alex Wilcox).md",
       "fuzzy_best": null
     },
     {
@@ -1341,7 +1346,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Client/2026-05-13 Consultation Rob Private Equity Firm - Odessa Underperformance.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Client/2026-05-13 Consultation Rob Private Equity Firm - Odessa Underperformance.md",
       "fuzzy_best": null
     },
     {
@@ -1352,7 +1357,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Improving/2026-05-12 Meeting Note - AI Workshop Economic Impact and Data Sourcing.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Improving/2026-05-12 Meeting Note - AI Workshop Economic Impact and Data Sourcing.md",
       "fuzzy_best": null
     },
     {
@@ -1363,7 +1368,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Client/2026-05-12 Workshop - Executive AI Strategy and Use-Case Prioritization (Topgolf).md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Client/2026-05-12 Workshop - Executive AI Strategy and Use-Case Prioritization (Topgolf).md",
       "fuzzy_best": null
     },
     {
@@ -1374,7 +1379,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Client/2026-05-12 Lunch Meeting - DSO Access Strategy Cosm Immersive MVP and Wealth Platform.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Client/2026-05-12 Lunch Meeting - DSO Access Strategy Cosm Immersive MVP and Wealth Platform.md",
       "fuzzy_best": null
     },
     {
@@ -1385,7 +1390,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Client/2026-05-05 AI Starting Point Discussion - Windsurf Tooling and AI Adoption Strategy.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Client/2026-05-05 AI Starting Point Discussion - Windsurf Tooling and AI Adoption Strategy.md",
       "fuzzy_best": null
     },
     {
@@ -1396,7 +1401,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Other/2026-04-21 Strategic Advisory on Scaling an AI Startup.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Other/2026-04-21 Strategic Advisory on Scaling an AI Startup.md",
       "fuzzy_best": null
     },
     {
@@ -1407,7 +1412,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Client/2026-04-20 AI Enablement and Agent Governance for SAP and Digital Teams at McKesson.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Client/2026-04-20 AI Enablement and Agent Governance for SAP and Digital Teams at McKesson.md",
       "fuzzy_best": null
     },
     {
@@ -1418,7 +1423,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Improving/2026-04-17 SMU-Improving Collaboration on AI Strategy Education and Hackathon Planning.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Improving/2026-04-17 SMU-Improving Collaboration on AI Strategy Education and Hackathon Planning.md",
       "fuzzy_best": null
     },
     {
@@ -1429,7 +1434,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Improving/2026-04-17 Weekly Meeting Onboarding and Management Training.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Improving/2026-04-17 Weekly Meeting Onboarding and Management Training.md",
       "fuzzy_best": null
     },
     {
@@ -1440,7 +1445,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/YPO/2026-04-14 Strategic Perspective on AI Growth and Business Adoption.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/YPO/2026-04-14 Strategic Perspective on AI Growth and Business Adoption.md",
       "fuzzy_best": null
     },
     {
@@ -1451,7 +1456,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Other/2026-04-13 Athena Kickoff \u2014 Alice Mburu Partnership Manager Onboarding.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Other/2026-04-13 Athena Kickoff \u2014 Alice Mburu Partnership Manager Onboarding.md",
       "fuzzy_best": null
     },
     {
@@ -1462,7 +1467,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Client/2026-04-07 Meredith Anastasio - Opal Conference Speaker Search.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Client/2026-04-07 Meredith Anastasio - Opal Conference Speaker Search.md",
       "fuzzy_best": null
     },
     {
@@ -1473,7 +1478,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Client/2026-04-06 Don McGreal - Vistage Membership Consultation.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Client/2026-04-06 Don McGreal - Vistage Membership Consultation.md",
       "fuzzy_best": null
     },
     {
@@ -1484,7 +1489,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Client/2026-04-06 Birgo - AI Solutions for Property Management Efficiency.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Client/2026-04-06 Birgo - AI Solutions for Property Management Efficiency.md",
       "fuzzy_best": null
     },
     {
@@ -1495,7 +1500,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Improving/2026-04-02 McLane Account Strategy - AI Engagement and GTM Performance.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Improving/2026-04-02 McLane Account Strategy - AI Engagement and GTM Performance.md",
       "fuzzy_best": null
     },
     {
@@ -1506,7 +1511,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Improving/2026-04-02 One Texas Strategy - Key Accounts Intuit Oxy Live Nation.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Improving/2026-04-02 One Texas Strategy - Key Accounts Intuit Oxy Live Nation.md",
       "fuzzy_best": null
     },
     {
@@ -1517,7 +1522,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Client/2026-04-02 Specialty Capital SaaS System Replacement Consultation.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Client/2026-04-02 Specialty Capital SaaS System Replacement Consultation.md",
       "fuzzy_best": null
     },
     {
@@ -1528,7 +1533,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Improving/2026-04-01 One Texas Dallas SKO Account Brainstorm.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Improving/2026-04-01 One Texas Dallas SKO Account Brainstorm.md",
       "fuzzy_best": null
     },
     {
@@ -1539,7 +1544,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Speaking/2026-03-26 DRC Talent Labs Planning Call.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Speaking/2026-03-26 DRC Talent Labs Planning Call.md",
       "fuzzy_best": null
     },
     {
@@ -1550,7 +1555,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Improving/2026-03-25 LiftNet Vendor Partnership Strategic Reset.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Improving/2026-03-25 LiftNet Vendor Partnership Strategic Reset.md",
       "fuzzy_best": null
     },
     {
@@ -1561,7 +1566,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Other/2026-03-24 Texas Tribune Y'all Street Event Panel.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Other/2026-03-24 Texas Tribune Y'all Street Event Panel.md",
       "fuzzy_best": null
     },
     {
@@ -1572,7 +1577,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/YPO/2026-03-23 Disciplined AI Adoption Secure Agent Operations Executive Peer Networks.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/YPO/2026-03-23 Disciplined AI Adoption Secure Agent Operations Executive Peer Networks.md",
       "fuzzy_best": null
     },
     {
@@ -1583,7 +1588,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/YPO/2026-03-23 Strategic AI Implementation From Cultural Adoption to Technical Execution.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/YPO/2026-03-23 Strategic AI Implementation From Cultural Adoption to Technical Execution.md",
       "fuzzy_best": null
     },
     {
@@ -1594,7 +1599,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Other/2026-03-20 Athena EA Month-to-Month Trial Evaluation.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Other/2026-03-20 Athena EA Month-to-Month Trial Evaluation.md",
       "fuzzy_best": null
     },
     {
@@ -1605,7 +1610,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Client/2026-03-12 NextBen ICHRA Pre-Sales Analysis Tool Consultation.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Client/2026-03-12 NextBen ICHRA Pre-Sales Analysis Tool Consultation.md",
       "fuzzy_best": null
     },
     {
@@ -1616,7 +1621,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Improving/2026-03-10 Steve Hall EA System Integration \u2014 Jarvis Onboarding and Ecosystem Alignment.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Improving/2026-03-10 Steve Hall EA System Integration \u2014 Jarvis Onboarding and Ecosystem Alignment.md",
       "fuzzy_best": null
     },
     {
@@ -1627,7 +1632,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Client/2026-03-06 Meeting Azure Go-Live Event-Driven POC Legacy Code Analysis.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Client/2026-03-06 Meeting Azure Go-Live Event-Driven POC Legacy Code Analysis.md",
       "fuzzy_best": null
     },
     {
@@ -1638,7 +1643,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Client/2026-03-05 Strategic Discussion AI Integration Professional Services.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Client/2026-03-05 Strategic Discussion AI Integration Professional Services.md",
       "fuzzy_best": null
     },
     {
@@ -1649,7 +1654,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Improving/2026-02-24 Meeting DRC Event Strategy AI Workshop Promotion Outreach Plan.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Improving/2026-02-24 Meeting DRC Event Strategy AI Workshop Promotion Outreach Plan.md",
       "fuzzy_best": null
     },
     {
@@ -1660,7 +1665,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Client/2026-02-23 Meeting AI Training Program DevOps IT Infrastructure FUB.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Client/2026-02-23 Meeting AI Training Program DevOps IT Infrastructure FUB.md",
       "fuzzy_best": null
     },
     {
@@ -1671,7 +1676,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Client/2026-02-20 McKesson Databricks Partnership Snowflake Migration Strategy.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Client/2026-02-20 McKesson Databricks Partnership Snowflake Migration Strategy.md",
       "fuzzy_best": null
     },
     {
@@ -1682,7 +1687,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Other/2026-02-20 Vistage Speaker Opportunity Onboarding.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Other/2026-02-20 Vistage Speaker Opportunity Onboarding.md",
       "fuzzy_best": null
     },
     {
@@ -1693,7 +1698,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Client/2026-02-13 Cardinal IT Solutions Improving Partnership Discussion.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Client/2026-02-13 Cardinal IT Solutions Improving Partnership Discussion.md",
       "fuzzy_best": null
     },
     {
@@ -1704,7 +1709,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Improving/2026-02-12 Confluent Partner Alignment Meeting.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Improving/2026-02-12 Confluent Partner Alignment Meeting.md",
       "fuzzy_best": null
     },
     {
@@ -1715,7 +1720,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Improving/2026-01-14 Weekly Meeting Enterprise Presidents Roles Sales Leadership Microsoft Partnership.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Improving/2026-01-14 Weekly Meeting Enterprise Presidents Roles Sales Leadership Microsoft Partnership.md",
       "fuzzy_best": null
     },
     {
@@ -1726,7 +1731,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Other/2026-01-13 Liberty Ventures Panel Discussion Capitalism Venture Capital Angel Investing.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Other/2026-01-13 Liberty Ventures Panel Discussion Capitalism Venture Capital Angel Investing.md",
       "fuzzy_best": null
     },
     {
@@ -1737,7 +1742,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Other/2026-01-13 Liberty Ventures Interview Chrissy and Mark Angel Investing.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Other/2026-01-13 Liberty Ventures Interview Chrissy and Mark Angel Investing.md",
       "fuzzy_best": null
     },
     {
@@ -1748,7 +1753,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Other/2026-01-13 Liberty Ventures Investor Summit Capitalism Angel Investing.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Other/2026-01-13 Liberty Ventures Investor Summit Capitalism Angel Investing.md",
       "fuzzy_best": null
     },
     {
@@ -1759,7 +1764,7 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Client/2025-12-22 Unity AI Strategy Data Infrastructure Partnership Kickoff.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Client/2025-12-22 Unity AI Strategy Data Infrastructure Partnership Kickoff.md",
       "fuzzy_best": null
     },
     {
@@ -1770,1614 +1775,2094 @@
       ],
       "vault_match": true,
       "decision": "skip",
-      "match": "zzPlaud/Improving/2025-12-08 Meeting SAP S4HANA Migration Strategy.md",
+      "match": "/Users/davidohara/Library/Mobile Documents/iCloud~md~obsidian/Documents/Obsidian/zzPlaud/Improving/2025-12-08 Meeting SAP S4HANA Migration Strategy.md",
       "fuzzy_best": null
     },
     {
-      "id_or_title": "plaud_08-11 Professional and Personal Catch-Up on Business Integration_ AI Strategy_ and Life Updates.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/Other/2026-08-11 Professional and Personal Catch-Up on Business Integration AI Strategy and Life Updates.md",
-      "note": "tier-2 title match >=0.85"
-    },
-    {
-      "id_or_title": "plaud_04-02 Consultation_ Specialty Capital - SaaS System Replacement.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/Client/2026-04-02 Specialty Capital - SaaS System Replacement.md",
-      "note": "contextual: same MM-DD 04-02 + title similarity 0.81"
-    },
-    {
-      "id_or_title": "plaud_06-16 Consultation_ AI Strategy _ Governance.md",
+      "id_or_title": "staged:01-13 Interview_ Chrissy and Mark - Angel Investing Strategies",
+      "name": "01-13 Interview_ Chrissy and Mark - Angel Investing Strategies",
       "tiers_checked": [
         1,
         2
       ],
       "vault_match": false,
-      "decision": "skip-staged-leftover",
-      "match": "zzPlaud/Client/2026-08-07 08-07 Consultation: Podcast Monetization Strategy.md",
-      "note": "unresolved title (best 0.61); pre-existing backlog, not this run"
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 1229.0
     },
     {
-      "id_or_title": "plaud_09-08 Architecting a Personalized AI Executive Assistant.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/YPO/2026-09-08 Architecting a Personalized AI Executive Assistant with Renzi Stone.md",
-      "note": "contextual: same MM-DD 09-08 + title similarity 0.81"
-    },
-    {
-      "id_or_title": "plaud_07-02 Professional Catch-up on Business_ Technology_ and Personal Life.md",
+      "id_or_title": "staged:01-13 Investor Summit_ Liberty Ventures_ Capitalism_ and Angel Investing",
+      "name": "01-13 Investor Summit_ Liberty Ventures_ Capitalism_ and Angel Investing",
       "tiers_checked": [
         1,
         2
       ],
       "vault_match": false,
-      "decision": "skip-staged-leftover",
-      "match": "zzPlaud/Other/2026-08-11 Professional and Personal Catch-Up on Business Integration AI Strategy and Life Updates.md",
-      "note": "unresolved title (best 0.62); pre-existing backlog, not this run"
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 1229.0
     },
     {
-      "id_or_title": "plaud_04-21 Strategic Advisory on Scaling an AI Startup.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/Other/2026-04-21 Strategic Advisory on Scaling an AI Startup.md",
-      "note": "tier-2 title match >=0.85"
-    },
-    {
-      "id_or_title": "plaud_09-25 Weekly Meeting_ AI Project Reset and Innovation Lab Proposal.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/Client/2026-09-25 Remington Hotels - AI Project Reset and Innovation Lab Proposal.md",
-      "note": "contextual: same MM-DD 09-25 + title similarity 0.79"
-    },
-    {
-      "id_or_title": "plaud_08-06 Architecting _SC IMS_ as the Intelligent Core of the _Orb_ Platform.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/Other/2026-08-06 08-06 Architecting \"SC IMS\" as the Intelligent Core of the \"Orb\" Platform.md",
-      "note": "tier-2 title match >=0.85"
-    },
-    {
-      "id_or_title": "plaud_2026-06-12 TopGolf Executive AI Briefing.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/Client/2026-06-12 TopGolf Executive AI Briefing.md",
-      "note": "tier-2 title match >=0.85"
-    },
-    {
-      "id_or_title": "plaud_07-14 Strategic Discussion on AI Implementation in Automotive and Personal Health.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/2026-07-14 Strategic Discussion on AI Implementation in Automotive and Personal Health.md",
-      "note": "tier-2 title match >=0.85"
-    },
-    {
-      "id_or_title": "plaud_12-22 Partnership Meeting_ AI Strategy and Data Infrastructure.md",
+      "id_or_title": "staged:01-13 Panel Discussion_ Capitalism_ Venture Capital_ and Angel Investing",
+      "name": "01-13 Panel Discussion_ Capitalism_ Venture Capital_ and Angel Investing",
       "tiers_checked": [
         1,
         2
       ],
       "vault_match": false,
-      "decision": "skip-staged-leftover",
-      "match": "zzPlaud/Client/2026-02-23 Meeting AI Training Program DevOps IT Infrastructure FUB.md",
-      "note": "unresolved title (best 0.60); pre-existing backlog, not this run"
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 1229.0
     },
     {
-      "id_or_title": "plaud_08-20 Western Region Board Meeting and Strategic Initiative Review.md",
+      "id_or_title": "staged:01-14 Weekly Meeting_ Enterprise Presidents_ Roles_ Sales Leadership_ and Microsoft Partnership",
+      "name": "01-14 Weekly Meeting_ Enterprise Presidents_ Roles_ Sales Leadership_ and Microsoft Partnership",
       "tiers_checked": [
         1,
         2
       ],
       "vault_match": false,
-      "decision": "skip-staged-leftover",
-      "match": "zzPlaud/YPO/2026-08-20 YPO Western Region Area Officer Board Meeting.md",
-      "note": "unresolved title (best 0.52); pre-existing backlog, not this run"
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 1229.0
     },
     {
-      "id_or_title": "plaud_07-01 Technology Partnership Exploration for Platform Modernization.md",
+      "id_or_title": "staged:02-12 Confluent Meeting",
+      "name": "02-12 Confluent Meeting",
       "tiers_checked": [
         1,
         2
       ],
       "vault_match": false,
-      "decision": "skip-staged-leftover",
-      "match": "zzPlaud/Client/2026-06-08 Kate Bugakova \u2014 TechBar SW Partnership Exploration for Data Engineering and AI.md",
-      "note": "unresolved title (best 0.59); pre-existing backlog, not this run"
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 1229.0
     },
     {
-      "id_or_title": "plaud_04-02 Strategy Meeting_ Key Accounts _Intuit_ Oxy_ Live Nation_.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/Improving/2026-04-02 One Texas Strategy - Key Accounts Intuit Oxy Live Nation.md",
-      "note": "contextual: same MM-DD 04-02 + title similarity 0.82"
-    },
-    {
-      "id_or_title": "plaud_04-06 Consultation_ AI Solutions for Property Management Efficiency.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/Client/2026-04-06 Birgo - AI Solutions for Property Management Efficiency.md",
-      "note": "contextual: same MM-DD 04-06 + title similarity 0.82"
-    },
-    {
-      "id_or_title": "plaud_06-08 Consultation_ Cognition_ Improving_ and Wendy_s AI Strategy.md",
+      "id_or_title": "staged:02-13 Meeting_ Cardinal IT Solutions _ Improving Partnership",
+      "name": "02-13 Meeting_ Cardinal IT Solutions _ Improving Partnership",
       "tiers_checked": [
         1,
         2
       ],
       "vault_match": false,
-      "decision": "skip-staged-leftover",
-      "match": "zzPlaud/Client/2026-08-07 08-07 Consultation: Podcast Monetization Strategy.md",
-      "note": "unresolved title (best 0.62); pre-existing backlog, not this run"
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 1229.0
     },
     {
-      "id_or_title": "plaud_02-23 Meeting_ AI Training Program for DevOps and IT Infrastructure _ Adoption Levels_ Compliance_ Structure_ Pricing.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/Client/2026-02-23 Meeting AI Training Program DevOps IT Infrastructure FUB.md",
-      "note": "contextual: same MM-DD 02-23 + title similarity 0.65"
-    },
-    {
-      "id_or_title": "plaud_05-26 Interview_ Head of IT_Technology Role.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/Client/2026-05-26 Interview - Head of IT Technology Role (Adeel Ali).md",
-      "note": "contextual: same MM-DD 05-26 + title similarity 0.82"
-    },
-    {
-      "id_or_title": "plaud_09-14 Meeting_ Production Hosting Strategy_ Capacity Risks_ and October Boot Camp Planning for ML_DLP Programs.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/Improving/2026-09-14 Syncing Up Devlin and O'Hara - Production Hosting Handoff, Capacity Risk, and October Boot Camp Planning.md",
-      "note": "contextual: same MM-DD 09-14 + title similarity 0.67"
-    },
-    {
-      "id_or_title": "plaud_07-30 Meeting_ Personal Retreat Planning_ YPO Board Scheduling_ Expenses and Tools Access_ External Outreach.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/YPO/2026-07-30 07-30 Meeting: Personal Retreat Planning, YPO Board Scheduling, Expenses and Tools Access, External Outreach.md",
-      "note": "tier-2 title match >=0.85"
-    },
-    {
-      "id_or_title": "plaud_09-14 Meeting_ Project Status on AI Routing for DICOM Images.md",
+      "id_or_title": "staged:02-20 Expanding McKesson Account via Databricks Partnership and Snowflake Migration Strategy",
+      "name": "02-20 Expanding McKesson Account via Databricks Partnership and Snowflake Migration Strategy",
       "tiers_checked": [
         1,
         2
       ],
       "vault_match": false,
-      "decision": "skip-staged-leftover",
-      "match": "zzPlaud/Improving/2026-09-14 GEHC AI Routing for DICOM Images - Project Status and Team Intro.md",
-      "note": "unresolved title (best 0.50); pre-existing backlog, not this run"
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 1229.0
     },
     {
-      "id_or_title": "plaud_03-23 Disciplined AI Adoption and Secure Agent Operations Enabled by Executive Peer Networks.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/YPO/2026-03-23 Disciplined AI Adoption Secure Agent Operations Executive Peer Networks.md",
-      "note": "tier-2 title match >=0.85"
-    },
-    {
-      "id_or_title": "plaud_09-24 Meeting_ Architecture Proposal for Event Routing and AI-Driven Dispatch.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/Client/2026-09-24 GEHC Architecture Proposal - Event Routing and AI Dispatch.md",
-      "note": "contextual: same MM-DD 09-24 + title similarity 0.80"
-    },
-    {
-      "id_or_title": "plaud_04-13 Executive Partner Kickoff Call_ Aligning Goals_ Access_ and Operating Rhythm.md",
+      "id_or_title": "staged:02-20 Meeting_ Vistage Speaker Opportunity",
+      "name": "02-20 Meeting_ Vistage Speaker Opportunity",
       "tiers_checked": [
         1,
         2
       ],
       "vault_match": false,
-      "decision": "skip-staged-leftover",
-      "match": "zzPlaud/Improving/2026-09-25 4th Friday Executive Meeting - GDS Strategy and Global Delivery.md",
-      "note": "unresolved title (best 0.46); pre-existing backlog, not this run"
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 1229.0
     },
     {
-      "id_or_title": "plaud_07-09 Medical SOAP Note_ O_Hara - Tarlov Cysts.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/Other/2026-07-09 Medical Appointment \u2014 Tarlov Cyst Nerve Block Consult.md",
-      "note": "contextual: same MM-DD 07-09 + title similarity 0.55"
-    },
-    {
-      "id_or_title": "plaud_03-12 Consultation_ NextBen ICHRA Pre-Sales Analysis Tool_Scalability_ Integration_ and Broker Enablement.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/Client/2026-03-12 NextBen ICHRA Pre-Sales Analysis Tool Consultation.md",
-      "note": "contextual: same MM-DD 03-12 + title similarity 0.61"
-    },
-    {
-      "id_or_title": "plaud_08-24 Business Operations and Sales Strategy Review.md",
+      "id_or_title": "staged:02-23 Meeting_ AI Training Program for DevOps and IT Infrastructure _ Adoption Levels_ Compliance_ Structure_ Pricing",
+      "name": "02-23 Meeting_ AI Training Program for DevOps and IT Infrastructure _ Adoption Levels_ Compliance_ Structure_ Pricing",
       "tiers_checked": [
         1,
         2
       ],
       "vault_match": false,
-      "decision": "skip-staged-leftover",
-      "match": "zzPlaud/Improving/2026-07-30 Texas Weekly - McKesson Update, Regional Scorecard, Partner Strategy Reset.md",
-      "note": "unresolved title (best 0.51); pre-existing backlog, not this run"
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 1229.0
     },
     {
-      "id_or_title": "plaud_07-10 Strategic Alignment on an Enterprise AI Agent Landing Zone.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/Improving/2026-07-10 Aligning on a Centralized AI Agent Landing Zone.md",
-      "note": "contextual: same MM-DD 07-10 + title similarity 0.68"
-    },
-    {
-      "id_or_title": "plaud_08-28 YPO Gold Chapter Board Meeting_ Membership Strategy and Event Planning.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/YPO/2026-08-28 Meeting - YPO Gold Chapter Strategy, Events, Membership, and Compliance.md",
-      "note": "contextual: same MM-DD 08-28 + title similarity 0.61"
-    },
-    {
-      "id_or_title": "plaud_08-14 Consultation_ Health and Safety Council - AI for Training Workflow.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/Client/2026-08-14 08-14 Consultation: Health and Safety Council - AI for Training Workflow.md",
-      "note": "tier-2 title match >=0.85"
-    },
-    {
-      "id_or_title": "plaud_04-07 Consultation_ Meredith - Conference Speaker Search.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/Client/2026-04-07 Meredith Anastasio - Opal Conference Speaker Search.md",
-      "note": "contextual: same MM-DD 04-07 + title similarity 0.67"
-    },
-    {
-      "id_or_title": "plaud_05-28 Consultation_ 3_Month AI Build Program for Remote Leadership Offsite _Windsor_ Oct 2026_.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/Client/2026-05-28 Consultation - 3-Month AI Build Program Windsor Oct 2026 (Cara Antonacci).md",
-      "note": "contextual: same MM-DD 05-28 + title similarity 0.68"
-    },
-    {
-      "id_or_title": "plaud_06-09 SMU and Improving Explore Partnership for New MS in AI for Business Program_ Focusing on Guest Lecturing and Curriculum Advising.md",
+      "id_or_title": "staged:02-24 Meeting_ DRC Event Strategy_ AI Workshop Promotion_ and Outreach Plan",
+      "name": "02-24 Meeting_ DRC Event Strategy_ AI Workshop Promotion_ and Outreach Plan",
       "tiers_checked": [
         1,
         2
       ],
       "vault_match": false,
-      "decision": "skip-staged-leftover",
-      "match": "zzPlaud/Improving/2026-06-09 SMU MS in AI for Business \u2014 Advisory Board and Guest Lecture Partnership with Aren Cambre.md",
-      "note": "unresolved title (best 0.46); pre-existing backlog, not this run"
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 1229.0
     },
     {
-      "id_or_title": "plaud_05-14 Workshop_ AI Hands-On Build Session for Synexus Leaders _ RFP Automation_ Copilot 365_ Notebook LM_ SharePoint.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/Client/2026-05-14 Consultation - AI Hands-On Build Session for Synexus Leaders (Matthew Smart).md",
-      "note": "contextual: same MM-DD 05-14 + title similarity 0.66"
-    },
-    {
-      "id_or_title": "plaud_09-03 Strategic Account Review and Growth Planning.md",
+      "id_or_title": "staged:03-05 Strategic Discussion on AI Integration in Professional Services",
+      "name": "03-05 Strategic Discussion on AI Integration in Professional Services",
       "tiers_checked": [
         1,
         2
       ],
       "vault_match": false,
-      "decision": "skip-staged-leftover",
-      "match": "zzPlaud/Other/2026-07-30 07-30 Mid-Year Strategic Review and Personal Updates.md",
-      "note": "unresolved title (best 0.55); pre-existing backlog, not this run"
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 1229.0
     },
     {
-      "id_or_title": "plaud_03-20 Consultation_ Athena EA Month-to-Month Trial_ Proactivity_ Microsoft 365 Integration_ and Security.md",
+      "id_or_title": "staged:03-06 Meeting_ Azure Go-Live_ Event-Driven POC_ and Legacy Code Analysis Strategy",
+      "name": "03-06 Meeting_ Azure Go-Live_ Event-Driven POC_ and Legacy Code Analysis Strategy",
       "tiers_checked": [
         1,
         2
       ],
       "vault_match": false,
-      "decision": "skip-staged-leftover",
-      "match": "zzPlaud/Other/2026-03-20 Athena EA Month-to-Month Trial Evaluation.md",
-      "note": "unresolved title (best 0.52); pre-existing backlog, not this run"
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 1229.0
     },
     {
-      "id_or_title": "plaud_05-22 Meeting_ Austin Summit Planning_ Speakers_ Sponsorships_ YPO Outreach_ and Ethical AI Talk.md",
+      "id_or_title": "staged:03-10 Meeting_ Executive Assistant AI System Integration_ Calendar_Storage Mapping_ and Onboarding Plan",
+      "name": "03-10 Meeting_ Executive Assistant AI System Integration_ Calendar_Storage Mapping_ and Onboarding Plan",
       "tiers_checked": [
         1,
         2
       ],
       "vault_match": false,
-      "decision": "skip-staged-leftover",
-      "match": "zzPlaud/Other/2026-05-22 Meeting - Austin Principled Business Summit Planning (Alexander McCobin).md",
-      "note": "unresolved title (best 0.47); pre-existing backlog, not this run"
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 1229.0
     },
     {
-      "id_or_title": "plaud_07-30 Mid-Year Strategic Review and Personal Updates.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/Other/2026-07-30 07-30 Mid-Year Strategic Review and Personal Updates.md",
-      "note": "tier-2 title match >=0.85"
-    },
-    {
-      "id_or_title": "plaud_05-18 Meeting_ AI Workshop Planning.md",
+      "id_or_title": "staged:03-12 Consultation_ NextBen ICHRA Pre-Sales Analysis Tool_Scalability_ Integration_ and Broker Enablement",
+      "name": "03-12 Consultation_ NextBen ICHRA Pre-Sales Analysis Tool_Scalability_ Integration_ and Broker Enablement",
       "tiers_checked": [
         1,
         2
       ],
       "vault_match": false,
-      "decision": "skip-staged-leftover",
-      "match": "zzPlaud/Client/2026-05-12 TopGolf Executive AI Workshop Scoping.md",
-      "note": "unresolved title (best 0.62); pre-existing backlog, not this run"
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 1229.0
     },
     {
-      "id_or_title": "plaud_01-13 Investor Summit_ Liberty Ventures_ Capitalism_ and Angel Investing.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/Other/2026-01-13 Liberty Ventures Investor Summit Capitalism Angel Investing.md",
-      "note": "contextual: same MM-DD 01-13 + title similarity 0.69"
-    },
-    {
-      "id_or_title": "plaud_08-05 Improving and Google Partnership Alignment for the Wendy_s Account.md",
+      "id_or_title": "staged:03-20 Consultation_ Athena EA Month-to-Month Trial_ Proactivity_ Microsoft 365 Integration_ and Security",
+      "name": "03-20 Consultation_ Athena EA Month-to-Month Trial_ Proactivity_ Microsoft 365 Integration_ and Security",
       "tiers_checked": [
         1,
         2
       ],
       "vault_match": false,
-      "decision": "skip-staged-leftover",
-      "match": "zzPlaud/Client/2026-07-28 Improving + Solace TOLA Partnership Onsite.md",
-      "note": "unresolved title (best 0.52); pre-existing backlog, not this run"
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 1229.0
     },
     {
-      "id_or_title": "plaud_02-20 Meeting_ Vistage Speaker Opportunity.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/Other/2026-02-20 Vistage Speaker Opportunity Onboarding.md",
-      "note": "contextual: same MM-DD 02-20 + title similarity 0.68"
-    },
-    {
-      "id_or_title": "plaud_04-14 Strategic Perspective on AI Growth and Business Adoption.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/YPO/2026-04-14 Strategic Perspective on AI Growth and Business Adoption.md",
-      "note": "tier-2 title match >=0.85"
-    },
-    {
-      "id_or_title": "plaud_06-09 Consultation on AI Implementation and Data Strategy.md",
+      "id_or_title": "staged:03-23 Disciplined AI Adoption and Secure Agent Operations Enabled by Executive Peer Networks",
+      "name": "03-23 Disciplined AI Adoption and Secure Agent Operations Enabled by Executive Peer Networks",
       "tiers_checked": [
         1,
         2
       ],
       "vault_match": false,
-      "decision": "skip-staged-leftover",
-      "match": "zzPlaud/Client/2026-08-07 08-07 Consultation: Podcast Monetization Strategy.md",
-      "note": "unresolved title (best 0.65); pre-existing backlog, not this run"
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 1229.0
     },
     {
-      "id_or_title": "plaud_06-12 Lecture_ AI Adoption_ Governance_ and Scaling.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/Client/2026-06-12 AI Adoption Governance and Scaling (Topgolf Lecture).md",
-      "note": "contextual: same MM-DD 06-12 + title similarity 0.69"
-    },
-    {
-      "id_or_title": "plaud_09-18 AI-Driven DICOM Routing Architecture Review.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/Client/2026-09-18 GEHC AI-Driven DICOM Routing Architecture Review.md",
-      "note": "tier-2 title match >=0.85"
-    },
-    {
-      "id_or_title": "plaud_08-21 Strategy Note_ XTI CIO Replacement and AI Roadmap for Regulated Aerospace Integration.md",
+      "id_or_title": "staged:03-23 Strategic AI Implementation_ From Cultural Adoption to Technical Execution",
+      "name": "03-23 Strategic AI Implementation_ From Cultural Adoption to Technical Execution",
       "tiers_checked": [
         1,
         2
       ],
       "vault_match": false,
-      "decision": "skip-staged-leftover",
-      "match": "zzPlaud/Client/2026-08-07 08-07 Consultation: Mash AI Platform for Content Creation.md",
-      "note": "unresolved title (best 0.45); pre-existing backlog, not this run"
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 1229.0
     },
     {
-      "id_or_title": "plaud_08-24 Event Readiness Under Strain_ Leadership Resilience and Logistics for Conscious Capitalism Discussion _Aug 24_ 2026_.md",
+      "id_or_title": "staged:03-24 Texas_s Strategy to Become a Global Financial Hub __Y_all Street__",
+      "name": "03-24 Texas_s Strategy to Become a Global Financial Hub __Y_all Street__",
       "tiers_checked": [
         1,
         2
       ],
       "vault_match": false,
-      "decision": "skip-staged-leftover",
-      "match": "zzPlaud/Improving/2026-08-03 08-03 Interview: David O'Hara (Improving) and Luke (GearVox) \u2014 Global Boutique Strategy, Conscious Capitalism, and AI Customer Engagement.md",
-      "note": "unresolved title (best 0.44); pre-existing backlog, not this run"
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 1229.0
     },
     {
-      "id_or_title": "plaud_09-28 Meeting_ YPO Chapter Session Design_ Facilitation Logistics_ and Travel Coordination.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/YPO/2026-09-28 YPO Chapter Session Design and Facilitation Logistics.md",
-      "note": "contextual: same MM-DD 09-28 + title similarity 0.70"
-    },
-    {
-      "id_or_title": "plaud_03-25 Vendor Partnership Failure and Strategic Reset Due to Guatemala Team_s Capability Gap.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/Client/2026-03-25 Vendor Partnership Failure and Strategic Reset \u2014 Guatemala Team Capability Gap.md",
-      "note": "tier-2 title match >=0.85"
-    },
-    {
-      "id_or_title": "plaud_06-09 Mentorship and Career Development Discussion.md",
+      "id_or_title": "staged:03-25 Vendor Partnership Failure and Strategic Reset Due to Guatemala Team_s Capability Gap",
+      "name": "03-25 Vendor Partnership Failure and Strategic Reset Due to Guatemala Team_s Capability Gap",
       "tiers_checked": [
         1,
         2
       ],
       "vault_match": false,
-      "decision": "skip-staged-leftover",
-      "match": "zzPlaud/Improving/2026-06-09 IBP Coaching Call - Joshua Fryer on Cohort Dynamics, AI Coaching, and Career Development.md",
-      "note": "unresolved title (best 0.48); pre-existing backlog, not this run"
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 1229.0
     },
     {
-      "id_or_title": "plaud_06-15 Leveraging AI for Business Operations and Competitive Advantage.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/Client/2026-06-15 Dustin Shaffer \u2014 Leveraging AI for Business Operations and Competitive Advantage.md",
-      "note": "tier-2 title match >=0.85"
-    },
-    {
-      "id_or_title": "plaud_04-06 Exploratory Meeting on Vistage Membership for a New President.md",
+      "id_or_title": "staged:03-26 DRC_s Talent Labs Repositions as Senior HR Leadership Incubator with AI Focus",
+      "name": "03-26 DRC_s Talent Labs Repositions as Senior HR Leadership Incubator with AI Focus",
       "tiers_checked": [
         1,
         2
       ],
       "vault_match": false,
-      "decision": "skip-staged-leftover",
-      "match": "zzPlaud/Other/2026-09-14 FEI Monthly Meeting - KPMG AI in Finance Transformation Presentation.md",
-      "note": "unresolved title (best 0.50); pre-existing backlog, not this run"
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 1229.0
     },
     {
-      "id_or_title": "plaud_06-08 Mentoring Session on Professional Development and Self-Improvement.md",
+      "id_or_title": "staged:04-01 Meeting_ Account Plan Strategy _ Key Accounts _Simpson_ Entergy_ AT_T_",
+      "name": "04-01 Meeting_ Account Plan Strategy _ Key Accounts _Simpson_ Entergy_ AT_T_",
       "tiers_checked": [
         1,
         2
       ],
       "vault_match": false,
-      "decision": "skip-staged-leftover",
-      "match": "zzPlaud/Client/2026-07-30 07-30 Discussion on Church Leadership, Personal Health, and Theological Differences.md",
-      "note": "unresolved title (best 0.48); pre-existing backlog, not this run"
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 1229.0
     },
     {
-      "id_or_title": "plaud_08-25 The Evolving Role of the CIO_ From Technology Operator to Enterprise Orchestrator.md",
+      "id_or_title": "staged:04-02 Consultation_ Specialty Capital - SaaS System Replacement",
+      "name": "04-02 Consultation_ Specialty Capital - SaaS System Replacement",
       "tiers_checked": [
         1,
         2
       ],
       "vault_match": false,
-      "decision": "skip-staged-leftover",
-      "match": "zzPlaud/Improving/2026-08-03 08-03 Partnership to Support Moto\u2019s Chevron Deal with Operational and Engineering Services.md",
-      "note": "unresolved title (best 0.40); pre-existing backlog, not this run"
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 1229.0
     },
     {
-      "id_or_title": "plaud_08-03 Interview_ David O_Hara _Improving_ and Luke _GearVox_ _ Global Boutique Strategy_ Conscious Capitalism_ and AI Customer Engagement.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/Improving/2026-08-03 08-03 Interview: David O'Hara (Improving) and Luke (GearVox) \u2014 Global Boutique Strategy, Conscious Capitalism, and AI Customer Engagement.md",
-      "note": "tier-2 title match >=0.85"
-    },
-    {
-      "id_or_title": "plaud_05-13 Consultation_ Enterprise Claude Governance_ Fraud Mitigation_ and Upskilling at Exeter Finance.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/Client/2026-05-13 Enterprise Claude Governance Fraud Mitigation and Upskilling at Exeter Finance.md",
-      "note": "tier-2 title match >=0.85"
-    },
-    {
-      "id_or_title": "plaud_05-05 AI Development Tooling Strategy for Client Engagement.md",
+      "id_or_title": "staged:04-02 Strategy Meeting_ Key Accounts _Intuit_ Oxy_ Live Nation_",
+      "name": "04-02 Strategy Meeting_ Key Accounts _Intuit_ Oxy_ Live Nation_",
       "tiers_checked": [
         1,
         2
       ],
       "vault_match": false,
-      "decision": "skip-staged-leftover",
-      "match": "zzPlaud/Improving/2026-04-02 McLane Account Strategy - AI Engagement and GTM Performance.md",
-      "note": "unresolved title (best 0.47); pre-existing backlog, not this run"
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 1229.0
     },
     {
-      "id_or_title": "plaud_05-12 Lunch Meeting_ DSO Access Strategy_ Cosm Immersive MVP_ Corporate Underwriting_ and Wealth Platform Transition.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/Client/2026-05-12 Lunch Meeting - DSO Access Strategy Cosm Immersive MVP and Wealth Platform.md",
-      "note": "contextual: same MM-DD 05-12 + title similarity 0.78"
-    },
-    {
-      "id_or_title": "plaud_04-01 Meeting_ Account Plan Strategy _ Key Accounts _Simpson_ Entergy_ AT_T_.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/Improving/2026-04-01 One Texas Account Plan Strategy \u2014 Simpson, Entergy, AT&T Brainstorm.md",
-      "note": "contextual: same MM-DD 04-01 + title similarity 0.68"
-    },
-    {
-      "id_or_title": "plaud_06-08 Introductory Meeting_ Partnership Exploration with Improving for Data Engineering _ AI.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/Client/2026-06-08 Kate Bugakova \u2014 TechBar SW Partnership Exploration for Data Engineering and AI.md",
-      "note": "contextual: same MM-DD 06-08 + title similarity 0.64"
-    },
-    {
-      "id_or_title": "plaud_09-14 Meeting_ O_Hara_s ACG Houston Speaking Engagement on AI Adoption.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/Improving/2026-09-14 Summer Craig Call - ACG Houston Speaking Engagement Planning.md",
-      "note": "contextual: same MM-DD 09-14 + title similarity 0.66"
-    },
-    {
-      "id_or_title": "plaud_03-10 Meeting_ Executive Assistant AI System Integration_ Calendar_Storage Mapping_ and Onboarding Plan.md",
+      "id_or_title": "staged:04-02 Weekly Meeting_ McLane Account Strategy_ AI Engagement_ and GTM Performance",
+      "name": "04-02 Weekly Meeting_ McLane Account Strategy_ AI Engagement_ and GTM Performance",
       "tiers_checked": [
         1,
         2
       ],
       "vault_match": false,
-      "decision": "skip-staged-leftover",
-      "match": "zzPlaud/Client/2026-03-10 Steve Hall EA System Integration Jarvis Onboarding.md",
-      "note": "unresolved title (best 0.53); pre-existing backlog, not this run"
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 1229.0
     },
     {
-      "id_or_title": "plaud_02-13 Meeting_ Cardinal IT Solutions _ Improving Partnership.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/Client/2026-02-13 Cardinal IT Solutions Improving Partnership Discussion.md",
-      "note": "contextual: same MM-DD 02-13 + title similarity 0.77"
-    },
-    {
-      "id_or_title": "plaud_05-13 Consultation_ Fractional CTO_CIO _ Business Strategy.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/Client/2026-05-13 Consultation - Fractional CTO-CIO Business Strategy (Alex Wilcox).md",
-      "note": "contextual: same MM-DD 05-13 + title similarity 0.84"
-    },
-    {
-      "id_or_title": "plaud_07-30 EA Performance Alignment and Growth Plan_ Elevating Alice from Task Execution to Strategic Partner for David O_Hara.md",
+      "id_or_title": "staged:04-06 Consultation_ AI Solutions for Property Management Efficiency",
+      "name": "04-06 Consultation_ AI Solutions for Property Management Efficiency",
       "tiers_checked": [
         1,
         2
       ],
       "vault_match": false,
-      "decision": "skip-staged-leftover",
-      "match": "zzPlaud/Client/2026-06-22 Cole Estrate \u2014 xAI and Improving Strategic Partnership Exploration.md",
-      "note": "unresolved title (best 0.46); pre-existing backlog, not this run"
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 1229.0
     },
     {
-      "id_or_title": "plaud_01-14 Weekly Meeting_ Enterprise Presidents_ Roles_ Sales Leadership_ and Microsoft Partnership.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/Improving/2026-01-14 Weekly Meeting Enterprise Presidents Roles Sales Leadership Microsoft Partnership.md",
-      "note": "tier-2 title match >=0.85"
-    },
-    {
-      "id_or_title": "plaud_07-16 Casual Conversation_ YPO Networking_ Assisted Intelligence in Business_ and Personal Life Insights.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/YPO/2026-07-16 07-16 Casual Conversation: YPO Networking, Assisted Intelligence in Business, and Personal Life Insights.md",
-      "note": "tier-2 title match >=0.85"
-    },
-    {
-      "id_or_title": "plaud_07-01 Microsoft and Improving Partnership Exploration for Responsible AI Governance.md",
+      "id_or_title": "staged:04-06 Exploratory Meeting on Vistage Membership for a New President",
+      "name": "04-06 Exploratory Meeting on Vistage Membership for a New President",
       "tiers_checked": [
         1,
         2
       ],
       "vault_match": false,
-      "decision": "skip-staged-leftover",
-      "match": "zzPlaud/Improving/2026-07-02 Josh Stevenson Microsoft Houston Hub \u2014 Improving Partnership Exploration.md",
-      "note": "unresolved title (best 0.61); pre-existing backlog, not this run"
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 1229.0
     },
     {
-      "id_or_title": "plaud_07-13 Strategic Discussion on Personal Legal Challenges and AI Business Development.md",
+      "id_or_title": "staged:04-07 Consultation_ Meredith - Conference Speaker Search",
+      "name": "04-07 Consultation_ Meredith - Conference Speaker Search",
       "tiers_checked": [
         1,
         2
       ],
       "vault_match": false,
-      "decision": "skip-staged-leftover",
-      "match": "zzPlaud/YPO/2026-04-14 Strategic Perspective on AI Growth and Business Adoption.md",
-      "note": "unresolved title (best 0.52); pre-existing backlog, not this run"
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 1229.0
     },
     {
-      "id_or_title": "plaud_08-10 Strategic Partnership and Account Planning Session.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/Client/2026-08-10 Strategic Partnership and Account Planning (Solace).md",
-      "note": "tier-2 title match >=0.85"
-    },
-    {
-      "id_or_title": "plaud_01-13 Interview_ Chrissy and Mark - Angel Investing Strategies.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/Other/2026-01-13 Liberty Ventures Interview Chrissy and Mark Angel Investing.md",
-      "note": "contextual: same MM-DD 01-13 + title similarity 0.75"
-    },
-    {
-      "id_or_title": "plaud_07-22 Proposal Meeting_ Santa_s Wonderland Digital Transformation with Improving.md",
+      "id_or_title": "staged:04-13 Executive Partner Kickoff Call_ Aligning Goals_ Access_ and Operating Rhythm",
+      "name": "04-13 Executive Partner Kickoff Call_ Aligning Goals_ Access_ and Operating Rhythm",
       "tiers_checked": [
         1,
         2
       ],
       "vault_match": false,
-      "decision": "skip-staged-leftover",
-      "match": "zzPlaud/Client/2026-07-22 Sales Proposal - Santa's Wonderland Technology Discovery.md",
-      "note": "unresolved title (best 0.51); pre-existing backlog, not this run"
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 1229.0
     },
     {
-      "id_or_title": "plaud_08-05 Strategic AI Implementation and Adoption at Magline.md",
+      "id_or_title": "staged:04-14 Strategic Perspective on AI Growth and Business Adoption",
+      "name": "04-14 Strategic Perspective on AI Growth and Business Adoption",
       "tiers_checked": [
         1,
         2
       ],
       "vault_match": false,
-      "decision": "skip-staged-leftover",
-      "match": "zzPlaud/YPO/2026-03-23 Strategic AI Implementation From Cultural Adoption to Technical Execution.md",
-      "note": "unresolved title (best 0.66); pre-existing backlog, not this run"
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 1229.0
     },
     {
-      "id_or_title": "plaud_08-25 Strategic AI Implementation_ From Task Compression to Agentic Operations.md",
+      "id_or_title": "staged:04-17 Meeting_ SMU_Improving Collaboration on AI Strategy_ Education_ and Hackathon Planning",
+      "name": "04-17 Meeting_ SMU_Improving Collaboration on AI Strategy_ Education_ and Hackathon Planning",
       "tiers_checked": [
         1,
         2
       ],
       "vault_match": false,
-      "decision": "skip-staged-leftover",
-      "match": "zzPlaud/YPO/2026-03-23 Strategic AI Implementation From Cultural Adoption to Technical Execution.md",
-      "note": "unresolved title (best 0.73); pre-existing backlog, not this run"
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 1229.0
     },
     {
-      "id_or_title": "plaud_03-06 Meeting_ Azure Go-Live_ Event-Driven POC_ and Legacy Code Analysis Strategy.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/Client/2026-03-06 Meeting Azure Go-Live Event-Driven POC Legacy Code Analysis.md",
-      "note": "tier-2 title match >=0.85"
-    },
-    {
-      "id_or_title": "plaud_03-23 Strategic AI Implementation_ From Cultural Adoption to Technical Execution.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/YPO/2026-03-23 Strategic AI Implementation From Cultural Adoption to Technical Execution.md",
-      "note": "tier-2 title match >=0.85"
-    },
-    {
-      "id_or_title": "plaud_09-14 Strategy and Execution Plan for South Bay Executive AI Workshop.md",
+      "id_or_title": "staged:04-17 Weekly Meeting_ Onboarding and Management Training",
+      "name": "04-17 Weekly Meeting_ Onboarding and Management Training",
       "tiers_checked": [
         1,
         2
       ],
       "vault_match": false,
-      "decision": "skip-staged-leftover",
-      "match": "zzPlaud/Client/2026-05-12 TopGolf Executive AI Workshop Scoping.md",
-      "note": "unresolved title (best 0.51); pre-existing backlog, not this run"
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 1229.0
     },
     {
-      "id_or_title": "plaud_07-16 FEI_UMB September Event Plan_ Practical AI for Finance Keynote by O_Hara_Content_ Positioning_ and Approval Timeline.md",
+      "id_or_title": "staged:04-20 Consultation_ AI Enablement and Agent Governance for SAP _ Digital Teams at Maxon_McKesson",
+      "name": "04-20 Consultation_ AI Enablement and Agent Governance for SAP _ Digital Teams at Maxon_McKesson",
       "tiers_checked": [
         1,
         2
       ],
       "vault_match": false,
-      "decision": "skip-staged-leftover",
-      "match": "zzPlaud/Client/2026-06-15 Dustin Shaffer \u2014 Leveraging AI for Business Operations and Competitive Advantage.md",
-      "note": "unresolved title (best 0.42); pre-existing backlog, not this run"
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 1229.0
     },
     {
-      "id_or_title": "plaud_05-22 Meeting_ Partner-Led AI Engagement Model for Mid-Market and Sales Alignment Challenges.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/Improving/2026-05-22 Partner-Led AI Engagement Model for Mid-Market and Sales Alignment.md",
-      "note": "contextual: same MM-DD 05-22 + title similarity 0.84"
-    },
-    {
-      "id_or_title": "plaud_08-11 Plan for Executive Networking Breakfast to Promote Conscious Capitalism and Code Launch.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/Improving/2026-08-11 Plan for Executive Networking Breakfast to Promote Conscious Capitalism and Code Launch.md",
-      "note": "tier-2 title match >=0.85"
-    },
-    {
-      "id_or_title": "plaud_08-07 Consultation_ Mash AI Platform for Content Creation.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/Client/2026-08-07 08-07 Consultation: Mash AI Platform for Content Creation.md",
-      "note": "tier-2 title match >=0.85"
-    },
-    {
-      "id_or_title": "plaud_06-23 Sales Team Performance and Strategy Review.md",
+      "id_or_title": "staged:04-21 Strategic Advisory on Scaling an AI Startup",
+      "name": "04-21 Strategic Advisory on Scaling an AI Startup",
       "tiers_checked": [
         1,
         2
       ],
       "vault_match": false,
-      "decision": "skip-staged-leftover",
-      "match": "zzPlaud/Other/2026-07-30 07-30 Weekly Meeting: McKesson Project, Texas Performance, and Partner Strategy.md",
-      "note": "unresolved title (best 0.58); pre-existing backlog, not this run"
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 1229.1
     },
     {
-      "id_or_title": "plaud_07-07 Professional and Personal Catch-up on Business Ventures_ Family Life_ and Investment Philosophies.md",
+      "id_or_title": "staged:05-05 AI Development Tooling Strategy for Client Engagement",
+      "name": "05-05 AI Development Tooling Strategy for Client Engagement",
       "tiers_checked": [
         1,
         2
       ],
       "vault_match": false,
-      "decision": "skip-staged-leftover",
-      "match": "zzPlaud/Other/2026-08-11 Professional and Personal Catch-Up on Business Integration AI Strategy and Life Updates.md",
-      "note": "unresolved title (best 0.66); pre-existing backlog, not this run"
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 1229.1
     },
     {
-      "id_or_title": "plaud_01-13 Panel Discussion_ Capitalism_ Venture Capital_ and Angel Investing.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/Other/2026-01-13 Liberty Ventures Panel Discussion Capitalism Venture Capital Angel Investing.md",
-      "note": "contextual: same MM-DD 01-13 + title similarity 0.84"
-    },
-    {
-      "id_or_title": "plaud_07-29 Strategic Evaluation of AI Gateway Platforms for Enterprise Use.md",
+      "id_or_title": "staged:05-12 Lunch Meeting_ DSO Access Strategy_ Cosm Immersive MVP_ Corporate Underwriting_ and Wealth Platform Transition",
+      "name": "05-12 Lunch Meeting_ DSO Access Strategy_ Cosm Immersive MVP_ Corporate Underwriting_ and Wealth Platform Transition",
       "tiers_checked": [
         1,
         2
       ],
       "vault_match": false,
-      "decision": "skip-staged-leftover",
-      "match": "zzPlaud/Client/2026-08-07 08-07 Consultation: Mash AI Platform for Content Creation.md",
-      "note": "unresolved title (best 0.53); pre-existing backlog, not this run"
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 1229.1
     },
     {
-      "id_or_title": "plaud_02-20 Expanding McKesson Account via Databricks Partnership and Snowflake Migration Strategy.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/Client/2026-02-20 McKesson Databricks Partnership Snowflake Migration Strategy.md",
-      "note": "contextual: same MM-DD 02-20 + title similarity 0.79"
-    },
-    {
-      "id_or_title": "plaud_05-12 Meeting Note_ AI Workshop_ Economic Impact _ Data Sourcing.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/Improving/2026-05-12 Meeting Note - AI Workshop Economic Impact and Data Sourcing.md",
-      "note": "tier-2 title match >=0.85"
-    },
-    {
-      "id_or_title": "plaud_07-02 Partnership Exploration Between Improving and Microsoft_s Houston Innovation Hub.md",
+      "id_or_title": "staged:05-12 Meeting Note_ AI Workshop_ Economic Impact _ Data Sourcing",
+      "name": "05-12 Meeting Note_ AI Workshop_ Economic Impact _ Data Sourcing",
       "tiers_checked": [
         1,
         2
       ],
       "vault_match": false,
-      "decision": "skip-staged-leftover",
-      "match": "zzPlaud/Client/2026-06-08 Kate Bugakova \u2014 TechBar SW Partnership Exploration for Data Engineering and AI.md",
-      "note": "unresolved title (best 0.48); pre-existing backlog, not this run"
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 1229.1
     },
     {
-      "id_or_title": "plaud_07-08 Strategic Deep-Dive on SC_s AI-Powered Compliance Platform.md",
+      "id_or_title": "staged:05-12 Workshop_ Executive AI Strategy and Departmental Use-Case Prioritization",
+      "name": "05-12 Workshop_ Executive AI Strategy and Departmental Use-Case Prioritization",
       "tiers_checked": [
         1,
         2
       ],
       "vault_match": false,
-      "decision": "skip-staged-leftover",
-      "match": "zzPlaud/Other/2026-07-16 07-16 Strategic Review of AI Adoption and Organizational Readiness.md",
-      "note": "unresolved title (best 0.46); pre-existing backlog, not this run"
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 1229.1
     },
     {
-      "id_or_title": "plaud_08-26 Personal and Professional Catch-up_ Navigating Mid-Life Health_ Family_ and Career Evolution in the Age of AI.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/Other/2026-08-26 Professional Catch-Up with Robbie - Health, Family, and Business Evolution.md",
-      "note": "contextual: same MM-DD 08-26 + title similarity 0.62"
-    },
-    {
-      "id_or_title": "plaud_06-26 Kazakhstan_s Digital and AI Ecosystem Overview for Potential U_S_ Collaboration.md",
+      "id_or_title": "staged:05-13 Consultation_ Bob _Private Equity Firm_ - Odessa Underperformance",
+      "name": "05-13 Consultation_ Bob _Private Equity Firm_ - Odessa Underperformance",
       "tiers_checked": [
         1,
         2
       ],
       "vault_match": false,
-      "decision": "skip-staged-leftover",
-      "match": "zzPlaud/Client/2026-08-07 08-07 Consultation: Mash AI Platform for Content Creation.md",
-      "note": "unresolved title (best 0.47); pre-existing backlog, not this run"
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 1229.1
     },
     {
-      "id_or_title": "plaud_02-24 Meeting_ DRC Event Strategy_ AI Workshop Promotion_ and Outreach Plan.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/Improving/2026-02-24 Meeting DRC Event Strategy AI Workshop Promotion Outreach Plan.md",
-      "note": "tier-2 title match >=0.85"
-    },
-    {
-      "id_or_title": "plaud_07-07 AI Advisory GTM Consolidation and Delivery Readiness_ Packaging Nonprofit Three-Track Opportunity_ Fractional AI Governance Playbook_ and Speaking-Driven Pipeline.md",
+      "id_or_title": "staged:05-13 Consultation_ Enterprise Claude Governance_ Fraud Mitigation_ and Upskilling at Exeter Finance",
+      "name": "05-13 Consultation_ Enterprise Claude Governance_ Fraud Mitigation_ and Upskilling at Exeter Finance",
       "tiers_checked": [
         1,
         2
       ],
       "vault_match": false,
-      "decision": "skip-staged-leftover",
-      "match": "zzPlaud/Client/2026-06-16 Spring Line Advisory - AI Strategy Governance and Investor Readiness.md",
-      "note": "unresolved title (best 0.36); pre-existing backlog, not this run"
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 1229.1
     },
     {
-      "id_or_title": "plaud_08-24 Reasoning Note_ Executive AI Workshop Strategy and Two-Track Engagement for RTP.md",
+      "id_or_title": "staged:05-13 Consultation_ Fractional CTO_CIO _ Business Strategy",
+      "name": "05-13 Consultation_ Fractional CTO_CIO _ Business Strategy",
       "tiers_checked": [
         1,
         2
       ],
       "vault_match": false,
-      "decision": "skip-staged-leftover",
-      "match": "zzPlaud/Client/2026-08-10 AI Executive Workshop Planning for Remington.md",
-      "note": "unresolved title (best 0.52); pre-existing backlog, not this run"
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 1229.1
     },
     {
-      "id_or_title": "plaud_09-18 Meeting_ AI Project Architecture and Data Routing.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/Client/2026-09-18 AI Project Architecture and Data Routing.md",
-      "note": "tier-2 title match >=0.85"
-    },
-    {
-      "id_or_title": "plaud_07-29 Consultation_ AI-Driven Pricing and Purchase Tools for Used Car Retailer.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/Client/2026-07-29 07-29 Consultation: AI-Driven Pricing and Purchase Tools for Used Car Retailer.md",
-      "note": "tier-2 title match >=0.85"
-    },
-    {
-      "id_or_title": "plaud_05-13 Consultation_ Bob _Private Equity Firm_ - Odessa Underperformance.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/Client/2026-05-13 Consultation Rob Private Equity Firm - Odessa Underperformance.md",
-      "note": "tier-2 title match >=0.85"
-    },
-    {
-      "id_or_title": "plaud_09-24 Weekly Meeting_ Podcast Strategy_ Content Performance_ and Scheduling.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/Improving/2026-09-24 The Improving Edge - Podcast Strategy and Content Performance.md",
-      "note": "contextual: same MM-DD 09-24 + title similarity 0.64"
-    },
-    {
-      "id_or_title": "plaud_04-02 Weekly Meeting_ McLane Account Strategy_ AI Engagement_ and GTM Performance.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/Improving/2026-04-02 McLane Account Strategy - AI Engagement and GTM Performance.md",
-      "note": "contextual: same MM-DD 04-02 + title similarity 0.84"
-    },
-    {
-      "id_or_title": "plaud_07-08 Remote Work Is Easy_ Not Simple_ Strategic Risks_ Trade-offs_ and Operational Discipline.md",
+      "id_or_title": "staged:05-14 Workshop_ AI Hands-On Build Session for Synexus Leaders _ RFP Automation_ Copilot 365_ Notebook LM_ SharePoint",
+      "name": "05-14 Workshop_ AI Hands-On Build Session for Synexus Leaders _ RFP Automation_ Copilot 365_ Notebook LM_ SharePoint",
       "tiers_checked": [
         1,
         2
       ],
       "vault_match": false,
-      "decision": "skip-staged-leftover",
-      "match": "zzPlaud/Other/2026-07-30 07-30 Mid-Year Strategic Review and Personal Updates.md",
-      "note": "unresolved title (best 0.54); pre-existing backlog, not this run"
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 1229.1
     },
     {
-      "id_or_title": "plaud_07-28 Chevron Payments Failover to Takeover_ Moto NOC Build_ Multi_Region AWS Ops_ and Acquirer Certifications Plan.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/Improving/2026-07-28 07-28 Chevron Payments Failover to Takeover: Moto NOC Build, Multi\u2011Region AWS Ops, and Acquirer Certifications Plan.md",
-      "note": "tier-2 title match >=0.85"
-    },
-    {
-      "id_or_title": "plaud_03-05 Strategic Discussion on AI Integration in Professional Services.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/Client/2026-03-05 Strategic Discussion AI Integration Professional Services.md",
-      "note": "tier-2 title match >=0.85"
-    },
-    {
-      "id_or_title": "plaud_08-06 Area Officer Kickoff and Resource Training.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/YPO/2026-08-06 08-06 Area Officer Kickoff and Resource Training.md",
-      "note": "tier-2 title match >=0.85"
-    },
-    {
-      "id_or_title": "plaud_07-16 Consultation_ Founding Membership and Club Opening.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/Client/2026-07-16 07-16 Consultation: Founding Membership and Club Opening.md",
-      "note": "tier-2 title match >=0.85"
-    },
-    {
-      "id_or_title": "plaud_07-29 Investment Portfolio Review and Strategic Financial Planning.md",
+      "id_or_title": "staged:05-18 Meeting_ AI Workshop Planning",
+      "name": "05-18 Meeting_ AI Workshop Planning",
       "tiers_checked": [
         1,
         2
       ],
       "vault_match": false,
-      "decision": "skip-staged-leftover",
-      "match": "zzPlaud/Improving/2026-04-17 SMU-Improving Collaboration on AI Strategy Education and Hackathon Planning.md",
-      "note": "unresolved title (best 0.50); pre-existing backlog, not this run"
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 1229.1
     },
     {
-      "id_or_title": "plaud_07-07 Strategic Meeting_ Upskilling Sales and Targeting Large Deals.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/Improving/2026-07-07 Catch-up Devlin Liles \u2014 Upskilling Sales and Large Deal Strategy.md",
-      "note": "contextual: same MM-DD 07-07 + title similarity 0.59"
-    },
-    {
-      "id_or_title": "plaud_06-22 Strategic Partnership Exploration between xAI and Improving.md",
+      "id_or_title": "staged:05-22 Consultation_ THL _ Odessa - Service Margin Erosion",
+      "name": "05-22 Consultation_ THL _ Odessa - Service Margin Erosion",
       "tiers_checked": [
         1,
         2
       ],
       "vault_match": false,
-      "decision": "skip-staged-leftover",
-      "match": "zzPlaud/Client/2026-06-08 Kate Bugakova \u2014 TechBar SW Partnership Exploration for Data Engineering and AI.md",
-      "note": "unresolved title (best 0.57); pre-existing backlog, not this run"
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 1229.1
     },
     {
-      "id_or_title": "plaud_09-02 Interview_ David O_Hara - AI Impact in Legal Tech and Talent Transformation.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/Improving/2026-09-02 Podcast Prep Interview with Tosan Ojeahere (Thomson Reuters) - AI in Legal Tech and Talent Transformation.md",
-      "note": "contextual: same MM-DD 09-02 + title similarity 0.68"
-    },
-    {
-      "id_or_title": "plaud_08-03 Partnership to Support Moto_s Chevron Deal with Operational and Engineering Services.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/Improving/2026-08-03 08-03 Partnership to Support Moto\u2019s Chevron Deal with Operational and Engineering Services.md",
-      "note": "tier-2 title match >=0.85"
-    },
-    {
-      "id_or_title": "plaud_09-25 GDS Strategic Pivot to Outcome-Based Managed Services and Global Sales Enablement.md",
+      "id_or_title": "staged:05-22 Meeting_ Austin Summit Planning_ Speakers_ Sponsorships_ YPO Outreach_ and Ethical AI Talk",
+      "name": "05-22 Meeting_ Austin Summit Planning_ Speakers_ Sponsorships_ YPO Outreach_ and Ethical AI Talk",
       "tiers_checked": [
         1,
         2
       ],
       "vault_match": false,
-      "decision": "skip-staged-leftover",
-      "match": "zzPlaud/Other/2026-07-30 07-30 Mid-Year Strategic Review and Personal Updates.md",
-      "note": "unresolved title (best 0.45); pre-existing backlog, not this run"
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 1229.1
     },
     {
-      "id_or_title": "plaud_04-17 Weekly Meeting_ Onboarding and Management Training.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/Improving/2026-04-17 Weekly Meeting Onboarding and Management Training.md",
-      "note": "tier-2 title match >=0.85"
-    },
-    {
-      "id_or_title": "plaud_07-30 Discussion on Church Leadership_ Personal Health_ and Theological Differences.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/Client/2026-07-30 07-30 Discussion on Church Leadership, Personal Health, and Theological Differences.md",
-      "note": "tier-2 title match >=0.85"
-    },
-    {
-      "id_or_title": "plaud_03-26 DRC_s Talent Labs Repositions as Senior HR Leadership Incubator with AI Focus.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/Client/2026-03-26 DRC Talent Labs Senior HR Leadership Incubator AI Focus.md",
-      "note": "contextual: same MM-DD 03-26 + title similarity 0.80"
-    },
-    {
-      "id_or_title": "plaud_07-16 Strategic Framework for Integrating AI in Professional Services.md",
+      "id_or_title": "staged:05-22 Meeting_ Partner-Led AI Engagement Model for Mid-Market and Sales Alignment Challenges",
+      "name": "05-22 Meeting_ Partner-Led AI Engagement Model for Mid-Market and Sales Alignment Challenges",
       "tiers_checked": [
         1,
         2
       ],
       "vault_match": false,
-      "decision": "skip-staged-leftover",
-      "match": "zzPlaud/Client/2026-03-05 Strategic Discussion AI Integration Professional Services.md",
-      "note": "unresolved title (best 0.70); pre-existing backlog, not this run"
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 1229.1
     },
     {
-      "id_or_title": "plaud_07-07 Professional Catch-up and Startup Pitch.md",
+      "id_or_title": "staged:05-26 Interview_ Head of IT_Technology Role",
+      "name": "05-26 Interview_ Head of IT_Technology Role",
       "tiers_checked": [
         1,
         2
       ],
       "vault_match": false,
-      "decision": "skip-staged-leftover",
-      "match": "zzPlaud/Other/2026-08-26 Professional Catch-Up with Robbie - Health, Family, and Business Evolution.md",
-      "note": "unresolved title (best 0.50); pre-existing backlog, not this run"
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 1229.1
     },
     {
-      "id_or_title": "plaud_06-12 Meeting_ AI Discussion on Practical Frameworks and Adoption.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/Client/2026-06-12 AI Discussion on Practical Frameworks and Adoption.md",
-      "note": "tier-2 title match >=0.85"
-    },
-    {
-      "id_or_title": "plaud_08-10 AI Workshop Strategy for Remington_s Executive Team.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/Client/2026-08-10 AI Executive Workshop Planning for Remington.md",
-      "note": "contextual: same MM-DD 08-10 + title similarity 0.55"
-    },
-    {
-      "id_or_title": "plaud_09-17 Project Onboarding and Architectural Review for AI-Driven DICOM Routing.md",
+      "id_or_title": "staged:05-28 Consultation_ 3_Month AI Build Program for Remote Leadership Offsite _Windsor_ Oct 2026_",
+      "name": "05-28 Consultation_ 3_Month AI Build Program for Remote Leadership Offsite _Windsor_ Oct 2026_",
       "tiers_checked": [
         1,
         2
       ],
       "vault_match": false,
-      "decision": "skip-staged-leftover",
-      "match": "zzPlaud/Client/2026-09-18 AI Project Architecture and Data Routing.md",
-      "note": "unresolved title (best 0.56); pre-existing backlog, not this run"
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 1229.1
     },
     {
-      "id_or_title": "plaud_07-28 Meeting_ Solace Partnership Strategy_ Sales Structure_ and Event Mesh_Agent Mesh Enablement.md",
+      "id_or_title": "staged:06-08 Consultation_ Cognition_ Improving_ and Wendy_s AI Strategy",
+      "name": "06-08 Consultation_ Cognition_ Improving_ and Wendy_s AI Strategy",
       "tiers_checked": [
         1,
         2
       ],
       "vault_match": false,
-      "decision": "skip-staged-leftover",
-      "match": "zzPlaud/Client/2026-05-12 Lunch Meeting - DSO Access Strategy Cosm Immersive MVP and Wealth Platform.md",
-      "note": "unresolved title (best 0.49); pre-existing backlog, not this run"
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.3
     },
     {
-      "id_or_title": "plaud_12-08 Meeting_ SAP S_4HANA Migration Strategy.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/Improving/2025-12-08 Meeting SAP S4HANA Migration Strategy.md",
-      "note": "tier-2 title match >=0.85"
-    },
-    {
-      "id_or_title": "plaud_05-22 Consultation_ THL _ Odessa - Service Margin Erosion.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/Client/2026-05-22 Consultation - THL Odessa Service Margin Erosion (Rob Spies).md",
-      "note": "tier-2 title match >=0.85"
-    },
-    {
-      "id_or_title": "plaud_09-14 Strategic Implementation of AI in Finance.md",
+      "id_or_title": "staged:06-08 Introductory Meeting_ Partnership Exploration with Improving for Data Engineering _ AI",
+      "name": "06-08 Introductory Meeting_ Partnership Exploration with Improving for Data Engineering _ AI",
       "tiers_checked": [
         1,
         2
       ],
       "vault_match": false,
-      "decision": "skip-staged-leftover",
-      "match": "zzPlaud/Client/2026-06-15 Strategic AI Implementation in Small to Medium-Sized Businesses.md",
-      "note": "unresolved title (best 0.56); pre-existing backlog, not this run"
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.3
     },
     {
-      "id_or_title": "plaud_08-07 Consultation_ Podcast Monetization Strategy.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/Client/2026-08-07 08-07 Consultation: Podcast Monetization Strategy.md",
-      "note": "tier-2 title match >=0.85"
-    },
-    {
-      "id_or_title": "plaud_08-24 Strategizing a Lead Generation Framework for the Improving Edge Podcast.md",
+      "id_or_title": "staged:06-08 Mentoring Session on Professional Development and Self-Improvement",
+      "name": "06-08 Mentoring Session on Professional Development and Self-Improvement",
       "tiers_checked": [
         1,
         2
       ],
       "vault_match": false,
-      "decision": "skip-staged-leftover",
-      "match": "zzPlaud/YPO/2026-03-23 Strategic AI Implementation From Cultural Adoption to Technical Execution.md",
-      "note": "unresolved title (best 0.45); pre-existing backlog, not this run"
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.3
     },
     {
-      "id_or_title": "plaud_07-14 SOAP Note_ O_Hara - L5 Radiculopathy.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/2026-07-14 SOAP Note O'Hara - L5 Radiculopathy.md",
-      "note": "tier-2 title match >=0.85"
-    },
-    {
-      "id_or_title": "plaud_07-21 Personal and Professional Catch-Up.md",
+      "id_or_title": "staged:06-09 Consultation on AI Implementation and Data Strategy",
+      "name": "06-09 Consultation on AI Implementation and Data Strategy",
       "tiers_checked": [
         1,
         2
       ],
       "vault_match": false,
-      "decision": "skip-staged-leftover",
-      "match": "zzPlaud/Other/2026-07-02 Lunch with Scott Sexton \u2014 Professional and Personal Catch-up.md",
-      "note": "unresolved title (best 0.55); pre-existing backlog, not this run"
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.3
     },
     {
-      "id_or_title": "plaud_08-10 Hospitality Plan Defined for UTB_YPO Events_ Pending Budget Approval.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/YPO/2026-08-10 Hospitality Plan for UTB YPO Events Pending Budget Approval.md",
-      "note": "tier-2 title match >=0.85"
-    },
-    {
-      "id_or_title": "plaud_03-24 Texas_s Strategy to Become a Global Financial Hub __Y_all Street__.md",
+      "id_or_title": "staged:06-09 Mentorship and Career Development Discussion",
+      "name": "06-09 Mentorship and Career Development Discussion",
       "tiers_checked": [
         1,
         2
       ],
       "vault_match": false,
-      "decision": "skip-staged-leftover",
-      "match": "zzPlaud/Other/2026-03-24 Texas Financial Hub Strategy Y'all Street DRC Texas Tribune.md",
-      "note": "unresolved title (best 0.50); pre-existing backlog, not this run"
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.3
     },
     {
-      "id_or_title": "plaud_04-20 Consultation_ AI Enablement and Agent Governance for SAP _ Digital Teams at Maxon_McKesson.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/Client/2026-04-20 AI Enablement and Agent Governance for SAP and Digital Teams at McKesson.md",
-      "note": "contextual: same MM-DD 04-20 + title similarity 0.82"
-    },
-    {
-      "id_or_title": "plaud_07-09 Meeting_ Orb Platform Demo_ Multi-Tenant Architecture_ OQ Module_ SCIMS Integration_ and MVP Compliance Features.md",
+      "id_or_title": "staged:06-09 SMU and Improving Explore Partnership for New MS in AI for Business Program_ Focusing on Guest Lecturing and Curriculum Advising",
+      "name": "06-09 SMU and Improving Explore Partnership for New MS in AI for Business Program_ Focusing on Guest Lecturing and Curriculum Advising",
       "tiers_checked": [
         1,
         2
       ],
       "vault_match": false,
-      "decision": "skip-staged-leftover",
-      "match": "zzPlaud/Client/2026-07-09 Systemic Compliance \u2014 Orb Platform Demo and Technical Architecture Review.md",
-      "note": "unresolved title (best 0.47); pre-existing backlog, not this run"
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.3
     },
     {
-      "id_or_title": "plaud_07-02 Medical Consultation for Low Back and Leg Pain.md",
+      "id_or_title": "staged:06-12 Lecture_ AI Adoption_ Governance_ and Scaling",
+      "name": "06-12 Lecture_ AI Adoption_ Governance_ and Scaling",
       "tiers_checked": [
         1,
         2
       ],
       "vault_match": false,
-      "decision": "skip-staged-leftover",
-      "match": "zzPlaud/Client/2026-07-16 07-16 Consultation: Founding Membership and Club Opening.md",
-      "note": "unresolved title (best 0.54); pre-existing backlog, not this run"
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.3
     },
     {
-      "id_or_title": "plaud_02-12 Confluent Meeting.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/Improving/2026-02-12 Confluent Partner Alignment Meeting.md",
-      "note": "contextual: same MM-DD 02-12 + title similarity 0.59"
-    },
-    {
-      "id_or_title": "plaud_09-16 Project Alignment and Acceptance Criteria for P2 AI Development.md",
+      "id_or_title": "staged:06-12 Meeting_ AI Discussion on Practical Frameworks and Adoption",
+      "name": "06-12 Meeting_ AI Discussion on Practical Frameworks and Adoption",
       "tiers_checked": [
         1,
         2
       ],
       "vault_match": false,
-      "decision": "skip-staged-leftover",
-      "match": "zzPlaud/Client/2026-04-20 AI Enablement and Agent Governance for SAP and Digital Teams at McKesson.md",
-      "note": "unresolved title (best 0.48); pre-existing backlog, not this run"
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.3
     },
     {
-      "id_or_title": "plaud_06-23 Strategic Dialogue on Corporate Structure_ Leadership_ and Growth.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/Improving/2026-06-23 Strategic Dialogue - Corporate Structure Leadership and Growth.md",
-      "note": "tier-2 title match >=0.85"
-    },
-    {
-      "id_or_title": "plaud_07-30 Weekly Meeting_ McKesson Project_ Texas Performance_ and Partner Strategy.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/Other/2026-07-30 07-30 Weekly Meeting: McKesson Project, Texas Performance, and Partner Strategy.md",
-      "note": "tier-2 title match >=0.85"
-    },
-    {
-      "id_or_title": "plaud_04-17 Meeting_ SMU_Improving Collaboration on AI Strategy_ Education_ and Hackathon Planning.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/Improving/2026-04-17 Meeting - SMU Improving Collaboration on AI Strategy Education and Hackathon Planning.md",
-      "note": "tier-2 title match >=0.85"
-    },
-    {
-      "id_or_title": "plaud_07-16 Strategic Review of AI Adoption and Organizational Readiness.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/Other/2026-07-16 07-16 Strategic Review of AI Adoption and Organizational Readiness.md",
-      "note": "tier-2 title match >=0.85"
-    },
-    {
-      "id_or_title": "plaud_06-30 Strategic AI Advisory for Systemic Compliance.md",
+      "id_or_title": "staged:06-15 Leveraging AI for Business Operations and Competitive Advantage",
+      "name": "06-15 Leveraging AI for Business Operations and Competitive Advantage",
       "tiers_checked": [
         1,
         2
       ],
       "vault_match": false,
-      "decision": "skip-staged-leftover",
-      "match": "zzPlaud/Other/2026-04-21 Strategic Advisory on Scaling an AI Startup.md",
-      "note": "unresolved title (best 0.53); pre-existing backlog, not this run"
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.3
     },
     {
-      "id_or_title": "plaud_07-28 Concentrate AI Platform Demonstration for Improving.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/Client/2026-07-28 Concentrate AI Platform Demo.md",
-      "note": "contextual: same MM-DD 07-28 + title similarity 0.66"
-    },
-    {
-      "id_or_title": "plaud_06-30 Proposal Review_ Large-Scale AI Training Workshop for Zero_s Leadership.md",
+      "id_or_title": "staged:06-16 Consultation_ AI Strategy _ Governance",
+      "name": "06-16 Consultation_ AI Strategy _ Governance",
       "tiers_checked": [
         1,
         2
       ],
       "vault_match": false,
-      "decision": "skip-staged-leftover",
-      "match": "zzPlaud/Client/2026-08-24 Sallie Mae AI Training Workshop Consultation.md",
-      "note": "unresolved title (best 0.53); pre-existing backlog, not this run"
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.3
     },
     {
-      "id_or_title": "plaud_07-29 Professional and Personal Updates_ Navigating Family Life and Business Challenges.md",
+      "id_or_title": "staged:06-22 Strategic Partnership Exploration between xAI and Improving",
+      "name": "06-22 Strategic Partnership Exploration between xAI and Improving",
       "tiers_checked": [
         1,
         2
       ],
       "vault_match": false,
-      "decision": "skip-staged-leftover",
-      "match": "zzPlaud/Other/2026-08-26 Professional Catch-Up with Robbie - Health, Family, and Business Evolution.md",
-      "note": "unresolved title (best 0.54); pre-existing backlog, not this run"
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.3
     },
     {
-      "id_or_title": "plaud_06-30 Product Demo and Strategic Partnership Proposal for an AI Model Management Platform.md",
+      "id_or_title": "staged:06-23 Sales Team Performance and Strategy Review",
+      "name": "06-23 Sales Team Performance and Strategy Review",
       "tiers_checked": [
         1,
         2
       ],
       "vault_match": false,
-      "decision": "skip-staged-leftover",
-      "match": "zzPlaud/Client/2026-08-10 Strategic Partnership and Account Planning (Solace).md",
-      "note": "unresolved title (best 0.48); pre-existing backlog, not this run"
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.3
     },
     {
-      "id_or_title": "plaud_08-24 Consultation_ Sally Mae - AI Training Workshop for Executives.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/Client/2026-08-24 Sallie Mae AI Training Workshop Consultation.md",
-      "note": "contextual: same MM-DD 08-24 + title similarity 0.63"
-    },
-    {
-      "id_or_title": "plaud_05-12 Workshop_ Executive AI Strategy and Departmental Use-Case Prioritization.md",
-      "tiers_checked": [
-        1,
-        2
-      ],
-      "vault_match": true,
-      "decision": "skip",
-      "match": "zzPlaud/Client/2026-05-12 Workshop - Executive AI Strategy and Use-Case Prioritization (Topgolf).md",
-      "note": "contextual: same MM-DD 05-12 + title similarity 0.81"
-    },
-    {
-      "id_or_title": "plaud_08-05 Clinical Reasoning Note _ Diagnostic Confirmation and Repeat Anti-Inflammatory Injection Plan.md",
+      "id_or_title": "staged:06-23 Strategic Dialogue on Corporate Structure_ Leadership_ and Growth",
+      "name": "06-23 Strategic Dialogue on Corporate Structure_ Leadership_ and Growth",
       "tiers_checked": [
         1,
         2
       ],
       "vault_match": false,
-      "decision": "skip-staged-leftover",
-      "match": "zzPlaud/Other/2026-08-05 Clinical Follow-Up - Diagnostic Injection Relief with Dr. Nathan Walters.md",
-      "note": "unresolved title (best 0.43); pre-existing backlog, not this run"
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.3
+    },
+    {
+      "id_or_title": "staged:06-26 Kazakhstan_s Digital and AI Ecosystem Overview for Potential U_S_ Collaboration",
+      "name": "06-26 Kazakhstan_s Digital and AI Ecosystem Overview for Potential U_S_ Collaboration",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.3
+    },
+    {
+      "id_or_title": "staged:06-30 Product Demo and Strategic Partnership Proposal for an AI Model Management Platform",
+      "name": "06-30 Product Demo and Strategic Partnership Proposal for an AI Model Management Platform",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:06-30 Proposal Review_ Large-Scale AI Training Workshop for Zero_s Leadership",
+      "name": "06-30 Proposal Review_ Large-Scale AI Training Workshop for Zero_s Leadership",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:06-30 Strategic AI Advisory for Systemic Compliance",
+      "name": "06-30 Strategic AI Advisory for Systemic Compliance",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:07-01 Microsoft and Improving Partnership Exploration for Responsible AI Governance",
+      "name": "07-01 Microsoft and Improving Partnership Exploration for Responsible AI Governance",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:07-01 Technology Partnership Exploration for Platform Modernization",
+      "name": "07-01 Technology Partnership Exploration for Platform Modernization",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:07-02 Medical Consultation for Low Back and Leg Pain",
+      "name": "07-02 Medical Consultation for Low Back and Leg Pain",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:07-02 Partnership Exploration Between Improving and Microsoft_s Houston Innovation Hub",
+      "name": "07-02 Partnership Exploration Between Improving and Microsoft_s Houston Innovation Hub",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:07-02 Professional Catch-up on Business_ Technology_ and Personal Life",
+      "name": "07-02 Professional Catch-up on Business_ Technology_ and Personal Life",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:07-07 AI Advisory GTM Consolidation and Delivery Readiness_ Packaging Nonprofit Three-Track Opportunity_ Fractional AI Governance Playbook_ and Speaking-Driven Pipeline",
+      "name": "07-07 AI Advisory GTM Consolidation and Delivery Readiness_ Packaging Nonprofit Three-Track Opportunity_ Fractional AI Governance Playbook_ and Speaking-Driven Pipeline",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:07-07 Professional Catch-up and Startup Pitch",
+      "name": "07-07 Professional Catch-up and Startup Pitch",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:07-07 Professional and Personal Catch-up on Business Ventures_ Family Life_ and Investment Philosophies",
+      "name": "07-07 Professional and Personal Catch-up on Business Ventures_ Family Life_ and Investment Philosophies",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:07-07 Strategic Meeting_ Upskilling Sales and Targeting Large Deals",
+      "name": "07-07 Strategic Meeting_ Upskilling Sales and Targeting Large Deals",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:07-08 Remote Work Is Easy_ Not Simple_ Strategic Risks_ Trade-offs_ and Operational Discipline",
+      "name": "07-08 Remote Work Is Easy_ Not Simple_ Strategic Risks_ Trade-offs_ and Operational Discipline",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:07-08 Strategic Deep-Dive on SC_s AI-Powered Compliance Platform",
+      "name": "07-08 Strategic Deep-Dive on SC_s AI-Powered Compliance Platform",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:07-09 Medical SOAP Note_ O_Hara - Tarlov Cysts",
+      "name": "07-09 Medical SOAP Note_ O_Hara - Tarlov Cysts",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:07-09 Meeting_ Orb Platform Demo_ Multi-Tenant Architecture_ OQ Module_ SCIMS Integration_ and MVP Compliance Features",
+      "name": "07-09 Meeting_ Orb Platform Demo_ Multi-Tenant Architecture_ OQ Module_ SCIMS Integration_ and MVP Compliance Features",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:07-10 Strategic Alignment on an Enterprise AI Agent Landing Zone",
+      "name": "07-10 Strategic Alignment on an Enterprise AI Agent Landing Zone",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:07-13 Strategic Discussion on Personal Legal Challenges and AI Business Development",
+      "name": "07-13 Strategic Discussion on Personal Legal Challenges and AI Business Development",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:07-14 SOAP Note_ O_Hara - L5 Radiculopathy",
+      "name": "07-14 SOAP Note_ O_Hara - L5 Radiculopathy",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:07-14 Strategic Discussion on AI Implementation in Automotive and Personal Health",
+      "name": "07-14 Strategic Discussion on AI Implementation in Automotive and Personal Health",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:07-16 Casual Conversation_ YPO Networking_ Assisted Intelligence in Business_ and Personal Life Insights",
+      "name": "07-16 Casual Conversation_ YPO Networking_ Assisted Intelligence in Business_ and Personal Life Insights",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:07-16 Consultation_ Founding Membership and Club Opening",
+      "name": "07-16 Consultation_ Founding Membership and Club Opening",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:07-16 FEI_UMB September Event Plan_ Practical AI for Finance Keynote by O_Hara_Content_ Positioning_ and Approval Timeline",
+      "name": "07-16 FEI_UMB September Event Plan_ Practical AI for Finance Keynote by O_Hara_Content_ Positioning_ and Approval Timeline",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:07-16 Strategic Framework for Integrating AI in Professional Services",
+      "name": "07-16 Strategic Framework for Integrating AI in Professional Services",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:07-16 Strategic Review of AI Adoption and Organizational Readiness",
+      "name": "07-16 Strategic Review of AI Adoption and Organizational Readiness",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:07-21 Personal and Professional Catch-Up",
+      "name": "07-21 Personal and Professional Catch-Up",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:07-22 Proposal Meeting_ Santa_s Wonderland Digital Transformation with Improving",
+      "name": "07-22 Proposal Meeting_ Santa_s Wonderland Digital Transformation with Improving",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:07-28 Chevron Payments Failover to Takeover_ Moto NOC Build_ Multi_Region AWS Ops_ and Acquirer Certifications Plan",
+      "name": "07-28 Chevron Payments Failover to Takeover_ Moto NOC Build_ Multi_Region AWS Ops_ and Acquirer Certifications Plan",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:07-28 Concentrate AI Platform Demonstration for Improving",
+      "name": "07-28 Concentrate AI Platform Demonstration for Improving",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:07-28 Meeting_ Solace Partnership Strategy_ Sales Structure_ and Event Mesh_Agent Mesh Enablement",
+      "name": "07-28 Meeting_ Solace Partnership Strategy_ Sales Structure_ and Event Mesh_Agent Mesh Enablement",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:07-29 Consultation_ AI-Driven Pricing and Purchase Tools for Used Car Retailer",
+      "name": "07-29 Consultation_ AI-Driven Pricing and Purchase Tools for Used Car Retailer",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:07-29 Investment Portfolio Review and Strategic Financial Planning",
+      "name": "07-29 Investment Portfolio Review and Strategic Financial Planning",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:07-29 Professional and Personal Updates_ Navigating Family Life and Business Challenges",
+      "name": "07-29 Professional and Personal Updates_ Navigating Family Life and Business Challenges",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:07-29 Strategic Evaluation of AI Gateway Platforms for Enterprise Use",
+      "name": "07-29 Strategic Evaluation of AI Gateway Platforms for Enterprise Use",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:07-30 Discussion on Church Leadership_ Personal Health_ and Theological Differences",
+      "name": "07-30 Discussion on Church Leadership_ Personal Health_ and Theological Differences",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:07-30 EA Performance Alignment and Growth Plan_ Elevating Alice from Task Execution to Strategic Partner for David O_Hara",
+      "name": "07-30 EA Performance Alignment and Growth Plan_ Elevating Alice from Task Execution to Strategic Partner for David O_Hara",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:07-30 Meeting_ Personal Retreat Planning_ YPO Board Scheduling_ Expenses and Tools Access_ External Outreach",
+      "name": "07-30 Meeting_ Personal Retreat Planning_ YPO Board Scheduling_ Expenses and Tools Access_ External Outreach",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:07-30 Mid-Year Strategic Review and Personal Updates",
+      "name": "07-30 Mid-Year Strategic Review and Personal Updates",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:07-30 Weekly Meeting_ McKesson Project_ Texas Performance_ and Partner Strategy",
+      "name": "07-30 Weekly Meeting_ McKesson Project_ Texas Performance_ and Partner Strategy",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:08-03 Interview_ David O_Hara _Improving_ and Luke _GearVox_ _ Global Boutique Strategy_ Conscious Capitalism_ and AI Customer Engagement",
+      "name": "08-03 Interview_ David O_Hara _Improving_ and Luke _GearVox_ _ Global Boutique Strategy_ Conscious Capitalism_ and AI Customer Engagement",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:08-03 Partnership to Support Moto_s Chevron Deal with Operational and Engineering Services",
+      "name": "08-03 Partnership to Support Moto_s Chevron Deal with Operational and Engineering Services",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:08-05 Clinical Reasoning Note _ Diagnostic Confirmation and Repeat Anti-Inflammatory Injection Plan",
+      "name": "08-05 Clinical Reasoning Note _ Diagnostic Confirmation and Repeat Anti-Inflammatory Injection Plan",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:08-05 Improving and Google Partnership Alignment for the Wendy_s Account",
+      "name": "08-05 Improving and Google Partnership Alignment for the Wendy_s Account",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:08-05 Strategic AI Implementation and Adoption at Magline",
+      "name": "08-05 Strategic AI Implementation and Adoption at Magline",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:08-06 Architecting _SC IMS_ as the Intelligent Core of the _Orb_ Platform",
+      "name": "08-06 Architecting _SC IMS_ as the Intelligent Core of the _Orb_ Platform",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:08-06 Area Officer Kickoff and Resource Training",
+      "name": "08-06 Area Officer Kickoff and Resource Training",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:08-07 Consultation_ Mash AI Platform for Content Creation",
+      "name": "08-07 Consultation_ Mash AI Platform for Content Creation",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:08-07 Consultation_ Podcast Monetization Strategy",
+      "name": "08-07 Consultation_ Podcast Monetization Strategy",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:08-10 AI Workshop Strategy for Remington_s Executive Team",
+      "name": "08-10 AI Workshop Strategy for Remington_s Executive Team",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:08-10 Hospitality Plan Defined for UTB_YPO Events_ Pending Budget Approval",
+      "name": "08-10 Hospitality Plan Defined for UTB_YPO Events_ Pending Budget Approval",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:08-10 Strategic Partnership and Account Planning Session",
+      "name": "08-10 Strategic Partnership and Account Planning Session",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:08-11 Plan for Executive Networking Breakfast to Promote Conscious Capitalism and Code Launch",
+      "name": "08-11 Plan for Executive Networking Breakfast to Promote Conscious Capitalism and Code Launch",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:08-11 Professional and Personal Catch-Up on Business Integration_ AI Strategy_ and Life Updates",
+      "name": "08-11 Professional and Personal Catch-Up on Business Integration_ AI Strategy_ and Life Updates",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:08-14 Consultation_ Health and Safety Council - AI for Training Workflow",
+      "name": "08-14 Consultation_ Health and Safety Council - AI for Training Workflow",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:08-20 Western Region Board Meeting and Strategic Initiative Review",
+      "name": "08-20 Western Region Board Meeting and Strategic Initiative Review",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:08-21 Strategy Note_ XTI CIO Replacement and AI Roadmap for Regulated Aerospace Integration",
+      "name": "08-21 Strategy Note_ XTI CIO Replacement and AI Roadmap for Regulated Aerospace Integration",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:08-24 Business Operations and Sales Strategy Review",
+      "name": "08-24 Business Operations and Sales Strategy Review",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:08-24 Consultation_ Sally Mae - AI Training Workshop for Executives",
+      "name": "08-24 Consultation_ Sally Mae - AI Training Workshop for Executives",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:08-24 Event Readiness Under Strain_ Leadership Resilience and Logistics for Conscious Capitalism Discussion _Aug 24_ 2026_",
+      "name": "08-24 Event Readiness Under Strain_ Leadership Resilience and Logistics for Conscious Capitalism Discussion _Aug 24_ 2026_",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:08-24 Reasoning Note_ Executive AI Workshop Strategy and Two-Track Engagement for RTP",
+      "name": "08-24 Reasoning Note_ Executive AI Workshop Strategy and Two-Track Engagement for RTP",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:08-24 Strategizing a Lead Generation Framework for the Improving Edge Podcast",
+      "name": "08-24 Strategizing a Lead Generation Framework for the Improving Edge Podcast",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:08-25 Strategic AI Implementation_ From Task Compression to Agentic Operations",
+      "name": "08-25 Strategic AI Implementation_ From Task Compression to Agentic Operations",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:08-25 The Evolving Role of the CIO_ From Technology Operator to Enterprise Orchestrator",
+      "name": "08-25 The Evolving Role of the CIO_ From Technology Operator to Enterprise Orchestrator",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:08-26 Personal and Professional Catch-up_ Navigating Mid-Life Health_ Family_ and Career Evolution in the Age of AI",
+      "name": "08-26 Personal and Professional Catch-up_ Navigating Mid-Life Health_ Family_ and Career Evolution in the Age of AI",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:08-28 YPO Gold Chapter Board Meeting_ Membership Strategy and Event Planning",
+      "name": "08-28 YPO Gold Chapter Board Meeting_ Membership Strategy and Event Planning",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:09-02 Interview_ David O_Hara - AI Impact in Legal Tech and Talent Transformation",
+      "name": "09-02 Interview_ David O_Hara - AI Impact in Legal Tech and Talent Transformation",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:09-03 Strategic Account Review and Growth Planning",
+      "name": "09-03 Strategic Account Review and Growth Planning",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:09-08 Architecting a Personalized AI Executive Assistant",
+      "name": "09-08 Architecting a Personalized AI Executive Assistant",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:09-14 Meeting_ O_Hara_s ACG Houston Speaking Engagement on AI Adoption",
+      "name": "09-14 Meeting_ O_Hara_s ACG Houston Speaking Engagement on AI Adoption",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:09-14 Meeting_ Production Hosting Strategy_ Capacity Risks_ and October Boot Camp Planning for ML_DLP Programs",
+      "name": "09-14 Meeting_ Production Hosting Strategy_ Capacity Risks_ and October Boot Camp Planning for ML_DLP Programs",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:09-14 Meeting_ Project Status on AI Routing for DICOM Images",
+      "name": "09-14 Meeting_ Project Status on AI Routing for DICOM Images",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:09-14 Strategic Implementation of AI in Finance",
+      "name": "09-14 Strategic Implementation of AI in Finance",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:09-14 Strategy and Execution Plan for South Bay Executive AI Workshop",
+      "name": "09-14 Strategy and Execution Plan for South Bay Executive AI Workshop",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:09-16 Project Alignment and Acceptance Criteria for P2 AI Development",
+      "name": "09-16 Project Alignment and Acceptance Criteria for P2 AI Development",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:09-17 Project Onboarding and Architectural Review for AI-Driven DICOM Routing",
+      "name": "09-17 Project Onboarding and Architectural Review for AI-Driven DICOM Routing",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:09-18 AI-Driven DICOM Routing Architecture Review",
+      "name": "09-18 AI-Driven DICOM Routing Architecture Review",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:09-18 Meeting_ AI Project Architecture and Data Routing",
+      "name": "09-18 Meeting_ AI Project Architecture and Data Routing",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:09-24 Meeting_ Architecture Proposal for Event Routing and AI-Driven Dispatch",
+      "name": "09-24 Meeting_ Architecture Proposal for Event Routing and AI-Driven Dispatch",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:09-24 Weekly Meeting_ Podcast Strategy_ Content Performance_ and Scheduling",
+      "name": "09-24 Weekly Meeting_ Podcast Strategy_ Content Performance_ and Scheduling",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:09-25 GDS Strategic Pivot to Outcome-Based Managed Services and Global Sales Enablement",
+      "name": "09-25 GDS Strategic Pivot to Outcome-Based Managed Services and Global Sales Enablement",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:09-25 Weekly Meeting_ AI Project Reset and Innovation Lab Proposal",
+      "name": "09-25 Weekly Meeting_ AI Project Reset and Innovation Lab Proposal",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:09-28 Meeting_ YPO Chapter Session Design_ Facilitation Logistics_ and Travel Coordination",
+      "name": "09-28 Meeting_ YPO Chapter Session Design_ Facilitation Logistics_ and Travel Coordination",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.4
+    },
+    {
+      "id_or_title": "staged:11-02 Atlas Copco Executive AI Workshop_ Co-Facilitation Needs and Platform Expansion Opportunity",
+      "name": "11-02 Atlas Copco Executive AI Workshop_ Co-Facilitation Needs and Platform Expansion Opportunity",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 29.0
+    },
+    {
+      "id_or_title": "staged:11-02 Casino Royale Event Planning and Operations Meeting",
+      "name": "11-02 Casino Royale Event Planning and Operations Meeting",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 29.0
+    },
+    {
+      "id_or_title": "staged:11-02 Improving and ASEI Collaborative Event Planning Meeting",
+      "name": "11-02 Improving and ASEI Collaborative Event Planning Meeting",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 29.0
+    },
+    {
+      "id_or_title": "staged:12-08 Meeting_ SAP S_4HANA Migration Strategy",
+      "name": "12-08 Meeting_ SAP S_4HANA Migration Strategy",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 1229.0
+    },
+    {
+      "id_or_title": "staged:12-22 Partnership Meeting_ AI Strategy and Data Infrastructure",
+      "name": "12-22 Partnership Meeting_ AI Strategy and Data Infrastructure",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 1229.0
+    },
+    {
+      "id_or_title": "staged:2026-06-12 TopGolf Executive AI Briefing",
+      "name": "2026-06-12 TopGolf Executive AI Briefing",
+      "tiers_checked": [
+        1,
+        2
+      ],
+      "vault_match": false,
+      "decision": "stale-candidate",
+      "match": null,
+      "fuzzy_best": null,
+      "note": "stale-staged-unresolved",
+      "age_hours": 724.3
     }
   ]
 }

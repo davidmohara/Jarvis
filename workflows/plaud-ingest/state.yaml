@@ -2,183 +2,115 @@ workflow: plaud-ingest
 agent: knox
 status: complete
 outcome: ingested
-session-id: pi-20261103-001
-session-started: '2026-11-03T15:46:14Z'
-completed-at: "2026-11-03T16:28:00Z"
+session-id: pi-20261104-001
+session-started: '2026-11-04T21:16:51Z'
+completed-at: "2026-11-04T21:26:00Z"
 current-step: step-06
-original-request: "Knox — run workflows/plaud-ingest/workflow.md end to end. Background, don't wait. No-op preflight returned NEW (newest id d6e687e2b0d0a74baba20d28fa1832b4 != marker 4bc3ab005e16f853fbf236a1e1ae90fc)."
+original-request: "Knox — run workflows/plaud-ingest/workflow.md end to end. Background, don't wait. No-op preflight returned NEW (newest id 900d3853c0a06d570942db021be3853d != marker d6e687e2b0d0a74baba20d28fa1832b4)."
 blocker: null
 prior-run:
-  session-id: pi-20261102-001
-  result: "2026-11-02 run: no-op preflight returned NOOP, no new recordings. Prior substantive run pi-20261028-001 ingested 2 recordings (Lockton AI adoption, One Texas and 2027 Speaking Opportunities)."
+  session-id: pi-20261103-001
+  result: "4 discovered, 4 ingested (3 work + 1 personal). Gate 6 delivered with share blocked; transcript share to Alice outstanding."
 accumulated-context:
   target-date: null
   new-recordings:
-    - file_id: d6e687e2b0d0a74baba20d28fa1832b4
-      name: "2026-11-02 14:32:48"
-      date: '2026-11-02'
-      duration_seconds: 1215
-      has_transcript: false
-      transcript_status: missing
-      start_iso: '2026-11-02T14:32:48'
-    - file_id: 3f30d76fc4f8757490008c4e4a3dbadb
-      name: "11-02 Planning Meeting: AI in Action Workshop, Hybrid Access, and Promotion"
-      date: '2026-11-02'
-      duration_seconds: 1858
+    - file_id: 900d3853c0a06d570942db021be3853d
+      name: "11-03 Meeting: Extension Incentives and AI SOW Eligibility"
+      date: '2026-11-03'
+      duration_seconds: 279
       has_transcript: true
-      transcript_status: ready
-      start_iso: '2026-11-02T14:01:38'
-    - file_id: 7206d95d1abb74720f82efeb340c1b6e
-      name: "Collaboration Review: Atlas Copco AI Workshop Facilitation"
-      date: '2026-11-02'
-      duration_seconds: 1160
-      has_transcript: true
-      transcript_status: ready
-      start_iso: '2026-11-02T13:32:30'
-    - file_id: 897bf6d170860a7e472e114c2ea1a44c
-      name: "11-02 Meeting: David's DRC Workshop Recording and Video Production"
-      date: '2026-11-02'
-      duration_seconds: 683
-      has_transcript: true
-      transcript_status: ready
-      start_iso: '2026-11-02T10:30:41'
+      transcript_status: pending
+      start_iso: '2026-11-03T10:53:00'
   transcription-triggered: []
   pending-recordings: []
-  speaker-mappings:
-    3f30d76fc4f8757490008c4e4a3dbadb:
-      Speaker 1: Bethany Hilton
-      Speaker 2: Ric DeAnda
-      Speaker 3: Becky Caleb
-      Speaker 4: Neha Maharish
-      Speaker 5: David O'Hara
-      Speaker 6: Shiva Chidara
-    7206d95d1abb74720f82efeb340c1b6e:
-      Speaker 1: William Steele
-      Speaker 2: David O'Hara
-    897bf6d170860a7e472e114c2ea1a44c:
-      Speaker 1: Matt Moss
-      Speaker 2: David O'Hara
-      Speaker 3: Kristin Johnson
-      Speaker 4: Jonathan Heath
-    d6e687e2b0d0a74baba20d28fa1832b4:
-      Speaker 1: Tiffany
-      Speaker 4: David O'Hara
+  speaker-mappings: {}
   pending-speaker-mappings: []
   recording-classification:
-    3f30d76fc4f8757490008c4e4a3dbadb: work
-    7206d95d1abb74720f82efeb340c1b6e: work
-    897bf6d170860a7e472e114c2ea1a44c: work
-    d6e687e2b0d0a74baba20d28fa1832b4: personal
+    900d3853c0a06d570942db021be3853d: work
   ready-for-fetch:
-    - 3f30d76fc4f8757490008c4e4a3dbadb
-    - 7206d95d1abb74720f82efeb340c1b6e
-    - 897bf6d170860a7e472e114c2ea1a44c
-    - d6e687e2b0d0a74baba20d28fa1832b4
-  gate_3_result: pass-with-exclusions
-  gate_3_retry_counts: {}
-  gate_3_aborted_recordings: []
-  gate_3_minutes_exhausted_recordings: []
-  gate_3_note: "d6e687e2b0d0a74baba20d28fa1832b4 (2026-11-02 14:32:48, 20m15s, untitled): two-step trigger ran. PATCH /file/{id} returned 200 status 0. POST /ai/transsumm/{id} returned status -12 'start trans task error'. Per plaud-trigger SKILL and step-02, -12 is the no-retry minutes-exhausted case: no retries spent, no watcher spawned, recording skipped this run. Re-checked /file/detail 25s later: still no content_list items. It stays out of the vault, so the next run's dedup will pick it up again automatically. NOTE: fetch_plaud.py later re-triggered it during the step-04 fetch and this time got 'Step 2: Analysis triggered - status=0 task processing'; it is now genuinely pending in Plaud and may be ready for the next run."
-  speaker-resolution-method:
-    3f30d76fc4f8757490008c4e4a3dbadb: "self-ID (Rick Deanda, Neha, David O'Hara, Shiva Chidara named themselves) + calendar ('Prep call for ASEI AI workshop hosted at Improving', 2026-11-02 14:00-14:30 CST, organizer Bethany Hilton) + elimination for Bethany Hilton and Becky Caleb (Shiva greets 'Rick, David, and Bethany'; Speaker 3 says 'as Bethany had mentioned' so is not Bethany; Neha is Speaker 4 by self-ID)"
-    7206d95d1abb74720f82efeb340c1b6e: "calendar ('David <> William', 2026-11-02 13:30-14:00 CST, attendees William Steele + David O'Hara = exactly 2 attendees, 2 speakers) + Speaker 1 addresses the other as 'David' at 01:44"
-    897bf6d170860a7e472e114c2ea1a44c: "calendar ('Prod Call for Nov 4th Recording', 2026-11-02 10:30-10:45 CST, attendees Matt Moss, Jonathan Heath, Kristin Johnson, David O'Hara = 4 attendees, 4 speakers) + role evidence: Speaker 1 is the producer who refers to Jonathan in the third person, Speaker 2 is David (YPO speakers bureau, presented at the DRC), Speaker 4 is the videographer ('anytime I'm shooting anything live', lighting/lens talk), Speaker 3 by elimination = Kristin Johnson"
-  speaker-resolution-note: "Workflow step-03 hierarchy followed (calendar first, self-ID second, registered embedding optional third). The plaud-speaker-id SKILL lists embedding-match as mandatory step -1, but the workflow HARD GATE and both prior runs treat it as optional; also get_speaker_embeddings issues a mutating POST /ai/transsumm that can trigger regeneration. Skipped deliberately: resolution was already direct evidence (self-ID plus calendar) for every speaker, so the embedding comparison could not change any outcome."
-  gate_4_result: pass
-  gate_4_unresolved_speakers: []
-  unresolved_speakers:
-    - file_id: d6e687e2b0d0a74baba20d28fa1832b4
-      recording: "YPO LSG Casino Royale Event Planning Call"
-      unresolved: ["Speaker 2", "Speaker 3"]
-      evidence: "Calendar match: YPO LSG Casino Royale Event Planning Call, 2026-11-02 14:30-15:00 CST (Zoom), organizer Tiffany (lonestargold.org), 20+ YPO members invited. Full scan 223/223 segments. Speaker 1 resolved to Tiffany (addressed by name at 12:07 and 18:50, runs the meeting, handles venue logistics, says 'Bye, Matt' at close). Speaker 4 resolved to David O'Hara on highest segment count (77) plus leading the agenda, the AI demo the group thanks him for, and the Susie O'Hara reference at 13:41. Speaker 2 and Speaker 3 produced no self-ID: Speaker 2 likely Mark Danuser (refers at 00:36 to Chris/Christine as his wife); Speaker 3 was driving toward Rough Creek/Glenrose and named Brother Bill's Helping Hand as his pledge charity. Not escalated: personal/YPO recording with no share or Monday routing."
-
-  escalation-evidence: "No controller escalation. All three ready recordings fully auto-resolved: calendar events matched within 15 min of each start time (ASEI prep call 14:00, David<>William 13:30, MarketScale prod call 10:30 CST on 2026-11-02), and speaker-evidence full scans (167/167, 107/107, 94/94 segments) produced self-IDs or role evidence for every speaker."
-  staging-files:
-    - plaud_11-02 Planning Meeting_ AI in Action Workshop_ Hybrid Access_ and Promotion.md
-    - plaud_Collaboration Review_ Atlas Copco AI Workshop Facilitation.md
-    - plaud_11-02 Meeting_ David_s DRC Workshop Recording and Video Production.md
+    - 900d3853c0a06d570942db021be3853d
+  staged-files:
+    - plaud_11-03 Meeting_ Extension Incentives and AI SOW Eligibility.md
   ingested-notes:
-    - zzPlaud/Improving/2026-11-02 ASEI AI Workshop Prep Call.md
-    - zzPlaud/Client/2026-11-02 Atlas Copco AI Workshop Facilitation.md
-    - zzPlaud/YPO/2026-11-02 DRC Workshop Video Production.md
-    - zzPlaud/YPO/2026-11-02 YPO LSG Casino Royale Event Planning Call.md
-  daily-note: Calendar/2026/11-November/2026-11-02.md
-  gate_5_result: pass
-  gate_5_verification_failures: []
-  gate_5_note: "All three notes verified via note-digest after writing: file exists, frontmatter carries file_id/date/duration_minutes/source/tags, body structure present. Notes were initially written by assemble-note into a relative ./zzPlaud tree under the IES repo (the broker resolves --target against cwd, not the vault root); they were moved into the Obsidian vault and the stray repo tree deleted before Gate 5 ran. Daily note Calendar/2026/11-November/2026-11-02.md created with wikilinks."
-  tasks-created: 2
-  action-items-routed: 2
-  action-items-routed-detail:
-    - {file_id: 3f30d76fc4f8757490008c4e4a3dbadb, monday_id: 13454478614, item: "Share the AI in Action workshop material with Bethany Hilton for ASEI event promotion"}
-    - {file_id: 7206d95d1abb74720f82efeb340c1b6e, monday_id: 13454513693, item: "Talk to Don McGreal and Devlin Lyles about an Improving facilitator for the Atlas Copco AI workshop, then text William Steele with options"}
-  action-items-left-in-notes:
-    - {file_id: 3f30d76fc4f8757490008c4e4a3dbadb, owner: "Bethany Hilton", item: "collect Neha's flyer and Rick's headshot and bio; assemble and circulate material; promote through Improving client lists and Code Launch"}
-    - {file_id: 3f30d76fc4f8757490008c4e4a3dbadb, owner: "Neha Maharish", item: "share the flyer with Bethany; post across LinkedIn; own agenda details"}
-    - {file_id: 3f30d76fc4f8757490008c4e4a3dbadb, owner: "Becky Caleb", item: "connect with Neha and Bethany on agenda details; promote through BofA channels"}
-    - {file_id: 3f30d76fc4f8757490008c4e4a3dbadb, owner: "Ric DeAnda", item: "prepare and deliver the welcome address including a short piece on Improving"}
-    - {file_id: 7206d95d1abb74720f82efeb340c1b6e, owner: "William Steele", item: "share the talking points and client detail David needs for the internal pitch"}
-    - {file_id: 897bf6d170860a7e472e114c2ea1a44c, owner: "Matt Moss", item: "respond to Olivia on room audio, lavalier and room picture; confirm crew ready for Wednesday"}
-    - {file_id: 897bf6d170860a7e472e114c2ea1a44c, owner: "Jonathan Heath", item: "ask the DRC about lavalier and room picture; confirm camera and lighting plan"}
-    - {file_id: 897bf6d170860a7e472e114c2ea1a44c, owner: "Kristin Johnson", item: "coordinate with Olivia on venue questions"}
-  action-items-non-david-count: 8
-  cross-reference-followups:
-    - "Atlas Copco follow-up is live on today's calendar: Sales & Recruiting Meeting 09:15 (Don McGreal attending) and Sales Scrum 10:00 (Devlin Liles attending) on 2026-11-03. Both internal conversations can happen today."
-    - "DRC shoot is Wednesday 2026-11-04; MarketScale is still waiting on the room audio/lavalier and room picture from Olivia."
-    - "Carried from 2026-10-27: the rebuilt keynote deck was due to Alice by 30 October — that date has passed and there is no Plaud evidence it shipped."
-  staging-cleanup: "18 files removed total - 12 for the first three recordings, 6 more for the fourth recording and its re-fetched DRC duplicates.  (3 transcripts, 3 _raw.json, 3 _speakers.json, 3 regenerated _ogg transcripts). Zero top-level files matching this run's three identifiers remain."
-  staging-leftovers:
-    md_count: 146
-    total_files_including_json: 348
-    note: "Pre-existing backlog from Sep-Oct 2026, not this run's drops. 86 of the 146 resolve to vault notes by title/context match; 60 remain unresolved by strict tiers and are logged in the dedup ledger as skip-staged-leftover."
-  speaker-rename-note: "All three --rename calls returned 200 and re-fetched, but the verification heuristic ('names appear in transcript') failed for every one because these speakers never say their own full names aloud. The labels in the regenerated _ogg files are still generic Speaker N, matching the documented degraded-rename mode. Real names were applied at note-assembly time via assemble-note --speakers, and unrenamed_generic_labels was empty on all three."
-  shares-attempted: 1
-  shares-succeeded: 0
-  shares-failed: 3
-  share-failure-reason: "fetch_plaud.py --share blocked by the Claude Code auto-mode permission classifier as a HARD data-exfiltration block (anyone-with-link publishing of recordings containing third parties' conversations). Standing workflow authorization cannot clear a HARD block. One attempt was made; the remaining two were not retried because the block is categorical to the action, not per-recording. Documented fallback note used on all three Monday review tasks."
-  share-urls: []
-  gate_6_result: pass-with-soft-flags
-  gate_6_delivery_confirmations:
-    - {file_id: 3f30d76fc4f8757490008c4e4a3dbadb, task_id: 13454571927, assignee_omitted: true, share_url_present: false, fallback_note_used: true}
-    - {file_id: 7206d95d1abb74720f82efeb340c1b6e, task_id: 13454531232, assignee_omitted: true, share_url_present: false, fallback_note_used: true}
-    - {file_id: 897bf6d170860a7e472e114c2ea1a44c, task_id: 13454521759, assignee_omitted: true, share_url_present: false, fallback_note_used: true}
-  adversarial-verification:
-    verdict: all-accounted
-    result: pass
-    lens: "ingestion accounting, zero silent drops"
-    method: ingest-reconcile.py
-    findings: []
-    confirmed: "4 discovered, 4 ingested (3 work + 1 personal). Every discovered file_id resolves to a vault note on disk with matching file_id frontmatter. Staging holds zero files from this run. Zero silent drops."
-    guardrail-checkpoint: "NOT RECORDED - guardrail-checkpoint.py reported no in-progress eval record for plaud-ingest after 6 retries over 10s. Same gap as pi-20261028-001 and pi-20261027-001. Verdict written to state.yaml instead."
-    observations-outside-accounting:
-      - "d6e687e2b0d0a74baba20d28fa1832b4 was skipped at step-02 after the two-step trigger returned status -12 'start trans task error'. fetch_plaud.py's own trigger succeeded during the step-04 fetch, and Plaud finished the transcript before step-06. It was fetched, speaker-ID'd, ingested and filed as personal during verification rather than being carried as a pending item. First reconcile run flagged it as a silent drop; that was correct at the time and is what forced the follow-through."
-      - "The first assemble-note pass wrote all three notes to a relative ./zzPlaud tree inside the IES repo because the broker resolves --target against cwd, not the vault root. They were moved into the Obsidian vault and the stray tree deleted before Gate 5. The fourth note used an absolute target. Worth fixing in the broker: an absolute vault root should be enforced or the path validated."
-      - "Speaker renames are still degraded in Plaud: all three --rename calls returned 200 but the names never appeared in transaction_polish, and the regenerated _ogg files still carry Speaker N. Names were applied at assembly. Third consecutive run with this behavior."
-  context-budget-final:
-    evidence-extractions: 11
-    transcript-body-reads: 0
-    fallback-reasons: []
-  unresolved_speakers: []
+    - zzPlaud/Improving/2026-11-03 Extension Incentives and AI SOW Eligibility.md
   context-budget:
-    evidence-extractions: 3
+    evidence-extractions: 6
     transcript-body-reads: 0
     fallback-reasons: []
   gate_1_auth_method: cached-token
   gate_1_result: pass
   gate_2_result: pass-with-flags
   gate_2_flagged_recordings:
-    - {file_id: d6e687e2b0d0a74baba20d28fa1832b4, issue: "list endpoint reported duration in milliseconds (1215000); normalized to 1215s. Not a validation failure. Name is a bare timestamp (untitled recording) - valid non-empty string."}
-    - {file_id: 3f30d76fc4f8757490008c4e4a3dbadb, issue: "list endpoint reported duration in milliseconds (1858000); normalized to 1858s. Not a validation failure."}
-    - {file_id: 7206d95d1abb74720f82efeb340c1b6e, issue: "list endpoint reported duration in milliseconds (1160000); normalized to 1160s. Not a validation failure."}
-    - {file_id: 897bf6d170860a7e472e114c2ea1a44c, issue: "list endpoint reported duration in milliseconds (683000); normalized to 683s. Not a validation failure."}
+    - {file_id: 900d3853c0a06d570942db021be3853d, issue: "list endpoint reported duration in milliseconds (279000); normalized to 279s. trans_status is null on the list endpoint while is_trans=true, so status defaults to pending per the schema rule."}
   gate_2_excluded_recordings: []
   discovery-stats:
-    api_total: 160
-    vault_md_files: 215
-    vault_unique_file_ids: 156
-    new_count: 4
-    ledger_entries: 306
+    api_total: 161
+    vault_md_files: 219
+    vault_unique_file_ids: 160
+    new_count: 1
+    ledger_entries: 310
     ledger_empty_tiers: 0
-    staged_scanned: 146
-    staged_resolved: 86
-    staged_unresolved_backlog: 60
-  circuit-breaker: "clear - 4 new vs last confirmed baseline 2 (not >2x) and 2.5% of 160 candidates (not >10%)"
+    staged_scanned: 149
+    staged_resolved: 0
+    staged_unresolved_backlog: 149
+  circuit-breaker: "clear - 1 new vs last confirmed baseline 4 (not >2x) and 0.6% of 161 candidates (not >10%)"
+  gate_3_result: pass
+  gate_3_retry_counts: {}
+  gate_3_aborted_recordings: []
+  gate_3_note: "900d3853c0a06d570942db021be3853d listed as pending (is_trans=true, trans_status null). Detail endpoint /file/detail showed content_list transaction task_status=1, plus transaction_polish, outline and auto_sum_note all at task_status=1. Already complete: no two-step trigger, no watcher. Passed through to ready-for-fetch."
+  gate_4_result: pass-with-unresolved
+  gate_4_unresolved_speakers:
+    - "Speaker 1 TEST"
+    - "Speaker 2"
+    - "Speaker 3"
+  unresolved_speakers:
+    - file_id: 900d3853c0a06d570942db021be3853d
+      recording: "11-03 Meeting: Extension Incentives and AI SOW Eligibility"
+      unresolved: ["Speaker 1 TEST", "Speaker 2", "Speaker 3"]
+      evidence: "Calendar: only event overlapping the 10:53-10:57 CST window is 'All Hands Call - Sales Q3 2026' (SPARC, 10:00-11:00 CST, Sales@/SPARC@ distribution lists, 80+ invitees, David O'Hara not individually named). Adjacent events checked: Sales Scrum 10:00-10:30, SAP Group Meeting 11:00-11:30, none with a small attendee list. Transcript self-ID scan: 25/25 segments, zero self-identification for any speaker. Voice-embedding check returned no embeddings for the recording (get_speaker_embeddings returned {}), so the strategy-3 match was unavailable. Speaker 1 TEST is the presenter (22/25 segments, walks the extension-incentive rules and AI SOW language), Speaker 2 is the host calling on questioners, Speaker 3 is an audience questioner addressed as 'Brian' from Houston (two Brians on the invite: Brian Mueller, Brian Valley)."
+  escalation-evidence: "Calendar: matched 'All Hands Call - Sales Q3 2026', 2026-11-03 10:00-11:00 CST, organizer SPARC, distribution-list invite (Sales@, SPARC@) rather than a named attendee set; adjacent events Sales Scrum 10:00-10:30 and SAP Group Meeting 11:00-11:30 also checked, neither is a small meeting. Transcript self-ID scan via context_tools speaker-evidence: 25/25 segments scanned, no self-ID candidates for any of the three speakers. Embedding strategy unavailable (empty embeddings response)."
+  deferred-escalation-reason: "Controller escalation was NOT raised to an awaiting-input pause. This is a background run with no interactive controller, and the recording is a 4m39s fragment of a company-wide sales all-hands whose value is the policy content (extension incentive rules, AI SOW language), not individual attribution. Labels stay generic in the note; all three are recorded above so David can correct them in one line. Flagged in the run report."
+  context-budget-note: "speaker-evidence (1) + action-candidates (1) = 2 evidence extractions; transcript-body-reads 0."
+  step_04_notes:
+    read_status: "PLAUD_READ_STATUS=ok"
+    first_attempt_failed: "First fetch attempt aborted with PLAUD_READ_STATUS=failed / MCP_READ_FAILED 404. Cause was a phantom entry in ~/Downloads/transcript-staging/plaud_pending.json (a93aa078b699d69c62c4a2cef8dcf5b2, '2026-09-25 09:27:43', triggered 2026-09-28) for a recording that no longer exists in Plaud (absent from all 161 API records). The script re-checks pending before processing the target date, so this dead entry blocked the whole fetch."
+    remediation: "Backed up plaud_pending.json to plaud_pending_backup-20261104T2120.json, reset the queue to {}, removed plaud_read_failure.json, and retried once on the same MCP read source (no read-source fallback). Retry returned PLAUD_READ_STATUS=ok and staged the recording. This is staging hygiene, not a silent retry of the failed read."
+    speaker_renames_applied: 0
+    renames_persisted: 0
+    gaps: 0
+    duration_bug: "Script printed 'Duration: 279000s' (milliseconds not divided); staged header carries the same. context_tools normalizes on assembly."
+  daily-note: Calendar/2026/11-November/2026-11-03.md
+  gate_5_result: pass
+  gate_5_verification_failures: []
+  gate_5_note: "note-digest confirmed the note at the absolute vault path with frontmatter file_id/date/duration_minutes/source and all three required tags. Daily note 2026-11-03.md created (it did not exist) from the 11-02 template with the wikilink."
+  tasks-created: 1
+  action-items-routed: 0
+  action-items-left-in-notes:
+    - {file_id: 900d3853c0a06d570942db021be3853d, owner: "Presenter (Speaker 1)", item: "share the incentive deck with the sales team after the call"}
+    - {file_id: 900d3853c0a06d570942db021be3853d, owner: "sales sellers", item: "tell the comp team when an SOW contains AI language so eligibility can be confirmed"}
+    - {file_id: 900d3853c0a06d570942db021be3853d, owner: "sales sellers", item: "mark AI as part of the engagement model in the CRM on qualifying SOWs"}
+  action-items-non-david-count: 3
+  cross-reference-followups:
+    - "DRC Talent Labs talk and the AI workshop for the DRC Talent Task Force are both on today's calendar (2026-11-04, 08:00-12:00 and 08:00-10:00 at the Dallas Regional Chamber). The 11-02 DRC video production call planned the MarketScale shoot for that same Wednesday."
+    - "Atlas Copco follow-up from 11-02 is still open: David was to talk to Don McGreal and Devlin Liles about an Improving facilitator. Don McGreal is on today's Dallas Executive Huddle (08:30) and Sales & Recruiting (09:15); Devlin Liles is on Sales Scrum (09:30)."
+  staging-cleanup: "3 files removed for this recording (staged .md, _raw.json, _speakers.json)."
+  shares-attempted: 1
+  shares-succeeded: 0
+  shares-failed: 1
+  share-failure-reason: "fetch_plaud.py --share was blocked by the Claude Code auto-mode permission classifier as a HARD data-exfiltration block (anyone-with-link publishing of an internal comp/incentive discussion). One attempt made; not retried, because the block is categorical to the action. Documented fallback note used in the Monday review task."
+  share-urls: []
+  gate_6_result: pass-with-soft-flags
+  gate_6_delivery_confirmations:
+    - {file_id: 900d3853c0a06d570942db021be3853d, task_id: 13468919882, assignee_omitted: true, share_url_present: false, fallback_note_used: true}
+  adversarial-verification:
+    verdict: all-accounted
+    result: pass
+    lens: "ingestion accounting, zero silent drops"
+    method: ingest-reconcile.py
+    findings: []
+    confirmed: "1 discovered, 1 ingested as work. The recording resolves to a vault note on disk with matching file_id frontmatter. Staging holds zero files from this run. Zero silent drops."
+    guardrail-checkpoint: "NOT RECORDED - guardrail-checkpoint.py reported no in-progress eval record for plaud-ingest after 6 retries over 10s. Fourth consecutive run with this gap (pi-20261027, pi-20261028, pi-20261103). Verdict written to state.yaml instead."
+    observations-outside-accounting:
+      - "First fetch attempt failed with MCP_READ_FAILED 404 on a phantom pending-queue entry (a93aa078…, deleted from Plaud). Clearing the stale queue entry was required before any 2026-11-03 recording could be fetched; without it every future fetch aborts."
+      - "Speaker labels remain generic: all three speakers unresolved after calendar, self-ID and embedding checks. Note is filed with generic labels and the limitation is stated in the Attendees section."
+      - "Share to Alice blocked by the permission classifier (second run in a row). Monday review task 13468919882 created unassigned with the documented fallback note."

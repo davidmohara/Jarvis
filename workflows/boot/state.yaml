@@ -1,161 +1,149 @@
 agent: master
 status: complete
-session-id: boot-2026-11-03
-session-started: '2026-11-03T15:45:23Z'
-completed-at: '2026-11-03T15:58:16Z'
+session-id: boot-2026-11-04
+session-started: '2026-11-04T21:15:32Z'
+completed-at: null
 original-request: Run morning boot workflow
+completed-at: '2026-11-04T21:34:47Z'
 current-step: null
 accumulated-context:
-  state_status: "complete: gate passed, guardrail flag, all 8 steps complete; boot closed 2026-11-03T15:58:16Z"
-  knox_status: "still_running"
-  knox_reason: "no eval record for 2026-11-03 yet; workflows/plaud-ingest/state.yaml shows in-progress at step-04, session pi-20261103-001 started 15:46:14Z"
-  workflows_scanned: "complete: 1 in-progress (plaud-ingest step-04, Knox background job spawned step-01); _active.yaml empty, disagrees; boot self excluded"
-  briefing_delivered: "yes: 3 paragraphs + 13-row calendar + 2 reminders; WM: memory/working/morning-briefing-2026-11-03-095619.md"
-  prior-run: boot-2026-11-02 completed 2026-11-02T16:22:12Z; fresh run, prior accumulated-context discarded
-  step01: "complete - 9 context files loaded, 0 missing; knox preflight NEW (new recording), full-run Knox spawned in background, marker written 2026-11-03; session index appended (69 records)"
-  step01.5:
-    calendar_file: "data/calendar-unified.json"
-    event_count: 44
-    date_range: "2026-11-03 to 2026-11-06"
-    file_size_kb: 151
-    status: "written"
+  knox_status: "failure"
+  knox_reason: "plaud-ingest eval-20261104T211632-963724 completed status=failure at 21:27:23Z after 651s; no punch-out signal; boot does not depend on Knox"
+  knox_eval_id: "eval-20261104T211632-963724"
+  knox_duration_seconds: 651
+  state_status: "complete: gate passed, guardrail pass, all 8 steps complete; boot closed 2026-11-04T21:34:47Z"
+  workflows_scanned: "complete: 0 in-progress (index and disk agree, boot self excluded)"
+  briefing_delivered: "yes: 3 paragraphs + 15-row calendar + 2 reminders; WM: memory/working/morning-briefing-2026-11-04-153116.md"
+  prior-run: boot-2026-11-03 completed 2026-11-03T15:58:16Z; fresh run, prior accumulated-context discarded
+  step01: "complete - 9 context files loaded, 0 missing; knox preflight NEW (new recording), full-run Knox spawned in background, marker written 2026-11-04; session index appended (70 records)"
+  calendar_file: "data/calendar-unified.json"
+  event_count: 34
+  date_range: "2026-11-04 to 2026-11-07"
+  file_size_kb: 169
+  status: "written"
   phase1-point5:
     unified-data-pulls:
-      email: "completed - 8 messages (0 flagged in Inbox, 0 unread high-priority missed)"
-      omnifocus: "completed - 30 tasks"
-      clay: "failed - Clay connector unauthenticated, requires /mcp auth, but attempted anyway"
-      jarvis-inbox: "nothing-to-surface - /Jarvis folder empty (0 messages, confirmed via M365 + Apple Mail)"
-      ynab: "completed - 644 payees across 31 accounts"
+      email: "completed — 7 messages"
+      omnifocus: "completed — 28 tasks"
+      clay: "nothing-to-surface — Clay MCP requires OAuth authentication, real tools unavailable; attempted anyway"
+      jarvis-inbox: "nothing-to-surface — folder not found (checked Apple Mail Improving account and M365 folder list)"
+      ynab: "completed — 565 payees (all accounts, 12-month window)"
     files-created:
       - "data/email-unified.json"
       - "data/omnifocus-unified.json"
       - "data/clay-reminders-unified.json"
       - "data/jarvis-inbox-unified.json"
       - "data/ynab-unified.json"
-    total_data_on_disk_kb: 200
+    total_data_on_disk_kb: 180
   phase2:
-    morning-briefing-steps-01-02: "completed - 11 meetings today (11.0h booked, 08:00-21:00), 11 inbox tasks, 2 due today, 0 overdue, 0 flagged"
-    calendar_data:
-      date: "2026-11-03"
-      meeting_count: 11
-      all_day: ["LMB - OOO (Nov 2-4, Lisa Barnes)", "Schwartz - PTO (Oct 26-Nov 7)"]
-      meetings:
-        - {time: "08:00-09:30", subject: "YPO Fort Worth Gold Virtual Board Meeting", type: personal, attendees: "Terri Patterson (2)", needs_prep: false, flags: ["video-call", "overlaps 09:15 Sales & Recruiting"]}
-        - {time: "09:15-09:30", subject: "Sales & Recruiting Meeting", type: recurring-skip, attendees: "17", needs_prep: false, flags: ["tentative", "overlaps YPO board"]}
-        - {time: "10:00-10:30", subject: "Sales Scrum", type: recurring-skip, attendees: "13", needs_prep: false, flags: ["tentative", "overlaps All Hands"]}
-        - {time: "10:00-11:00", subject: "All Hands Call - Sales Q3 2026", type: recurring-skip, attendees: "78", needs_prep: false, flags: ["tentative", "all-hands"]}
-        - {time: "11:00-11:30", subject: "SAP Group Meeting", type: team, attendees: "10 (Dallas Conference Room Trust)", needs_prep: false, flags: ["tentative", "zero-buffer after All Hands"]}
-        - {time: "11:30-12:30", subject: "Lunch with Cory Littlepage @ True Food Kitchen, Plano", type: external, attendees: "not captured", needs_prep: false, flags: ["zero-buffer", "offsite Plano"]}
-        - {time: "12:30-13:00", subject: "Overflow", type: personal, attendees: "0", needs_prep: false, flags: ["zero-buffer"]}
-        - {time: "13:30-14:00", subject: "UTB Training: Community Reinvestment Act", type: external, attendees: "not captured", needs_prep: false, flags: ["training"]}
-        - {time: "15:00-15:30", subject: "EWR & Exec Council Update for DRC", type: external, attendees: "Bethany Hilton, Susan Fojtasek (4 rows, 1 dup)", needs_prep: true, flags: ["tentative", "overlaps YPO Forum"]}
-        - {time: "15:00-18:00", subject: "YPO Forum Meeting", type: personal, attendees: "Dustin Marshall, Steve Idoux (3)", needs_prep: false, flags: ["conflict with EWR update"]}
-        - {time: "18:00-21:00", subject: "YPO Peptide Event", type: personal, attendees: "0", needs_prep: false, flags: ["evening"]}
-      open_blocks: ["09:30-10:00 (30m)", "13:00-13:30 (30m)", "14:00-15:00 (60m)"]
+    morning-briefing-steps-01-02:
+      status: "completed — 13 timed events + 1 cancelled + 1 all-day; 28 tasks"
+      calendar_data:
+        date: 2026-11-04
+        meeting_count: 13
+        meetings:
+          - "all-day LMB - OOO (recurring-skip, informational)"
+          - "08:00-10:00 AI workshop for DRC Talent Task Force — external, Dallas Regional Chamber, needs_prep, overlaps own 08:00-12:00 talk block"
+          - "08:00-12:00 DRC Talent Labs Talk (AI) — external, David speaking, needs_prep"
+          - "08:30-09:00 Dallas Executive Huddle — team, 20 attendees, conflicts with DRC talk"
+          - "09:15-09:30 Sales & Recruiting Meeting — recurring-skip, conflicts with DRC talk"
+          - "09:30-10:00 Sales Scrum — recurring-skip, conflicts with DRC talk"
+          - "09:30-10:00 Canceled: AI Leaders Weekly — cancelled, noted only"
+          - "12:00-12:30 Overflow — personal block"
+          - "12:50-13:00 Drive To — personal"
+          - "13:15-14:45 Haircut — personal"
+          - "14:00-14:30 GEHC Twice Weekly Internal Check-In — client, 5 attendees, overlaps haircut"
+          - "15:00-15:20 Drive From — personal"
+          - "15:30-16:00 Friday Week Wrap-Up — personal recurring"
+          - "17:30-18:30 Drinks & Catch up (Eric Soden, Capitalize Consulting) — external, Roots and Water"
+        open_blocks: ["10:00-12:00", "16:00-17:30"]
+        warnings:
+          - "Morning quadruple-booking 08:00-10:00: DRC talk vs Executive Huddle, Sales & Recruiting, Sales Scrum"
+          - "GEHC check-in 14:00-14:30 overlaps haircut 13:15-14:45"
+          - "AI Leaders Weekly cancelled"
+      task_data:
+        inbox_count: 12
+        due_today: []
+        overdue: []
+        flagged: []
+        note: "28 tasks total; nearest due dates are tomorrow (Coherence breathing 10:00, Review prayer list 11:00); no flagged items"
+      delegation_data:
+        overdue: []
+        due_today: []
+        due_this_week: []
+        note: "tracker Active Delegations table is empty"
+      rocks:
+        - "Rock 1: Solace Co-Sell Motions — committed; Q4 plays AT&T, McKesson, SLB via Austin Ledesma"
+        - "Rock 2: South Texas Revenue Recovery — Chase decomposition commissioned, was due Oct 17"
+        - "Rock 3: Scorecard Truth — committed; month-end hygiene and H2 target tracking"
+        - "Rock 4: Thought Leadership — podcast/speaking continue; publishing running via Alice and performing"
+        - "Rock 5: AI Practice Leadership Plan 2027 with Curtis — charter for Dec 1-2 session, signed by Dec 15"
+    task-g-72hr-lookahead:
+      status: "completed — 16 events across 2026-11-05 to 2026-11-07"
+      days:
+        - "2026-11-05 (heavy): AI GMS in Dallas (all-day thru 11-07); AI Leadership Summit Day 1 08:00-17:00 (19); Sales & Recruiting 09:15; Sales Scrum 10:00; GEHC AI Routing weekly sync 10:30 (client, 9, needs_prep); Terapify virtual talk 11:00-12:00 (external, 364); 1:1 Scott McMichael 14:00 (needs Shep prep); Monthly Credit Card Reporting Reminder 15:00; Leave a Legacy 18:00-21:00 (personal)"
+        - "2026-11-06: Eric PTO (all-day); IGP Bible Study 06:30 (personal); AI Leadership Summit Day 2 08:00-16:00 (19); Dallas Virtual Coffee Chat 08:00-09:00 (64, overlaps Summit); Sales & Recruiting 09:15; 1st Friday Executive Meeting 09:30 (151); Roots & Water Anniversary Party 18:00-22:00 (personal)"
+        - "2026-11-07: Golf Frisco Lakes 13:00-17:30 (personal); Dinner at Lulu Modern Chinese 19:00-21:00 (personal, 2 guests)"
       warnings:
-        - "3 overlaps: YPO board vs Sales & Recruiting 09:15; Sales Scrum vs All Hands 10:00; EWR update vs YPO Forum 15:00"
-        - "11.0h booked across 08:00-21:00, no lunch-hour recovery, only 2h of open time total"
-        - "5 video calls today (YPO board, Sales & Recruiting, Sales Scrum, All Hands, EWR) exceeds 3+ cluster flag"
-        - "4 YPO/personal blocks on a full workday, ending 21:00"
-        - "lunch is offsite Plano 11:30-12:30, tight against 13:30 training"
-    task_data:
-      inbox_count: 11
-      inbox_items: ["Higgsfield - video", "Movies", "Take hanger for jacket to work", "Clint ARK", "Size watches", "Team Day at Augment", "Buy Kaps cigars", "Code Reviewer", "Obsidian skills", "Libby - cookbook keeper for kitchen", "Jim Johnson - message on book read"]
-      due_today:
-        - {task: "Identify 5 Microsoft contacts to grow relationships", project: "Reachout", due: "2026-11-03 17:00"}
-        - {task: "Confluent Regional Sales Director", project: "Reachout", due: "2026-11-03 17:00"}
-      due_next_3d:
-        - {task: "Setup Dinner Dates", project: "Family", due: "2026-11-04"}
-        - {task: "Review prayer list", project: "Deliberate Practices", due: "2026-11-04 11:00"}
-        - {task: "Coherence breathing", project: "Deliberate Practices", due: "2026-11-04 10:00"}
-        - {task: "Build expense report", project: "Accounting", due: "2026-11-06"}
-      overdue: []
-      flagged: []
-    delegation_data:
-      overdue: []
-      due_today: []
-      due_this_week: []
-      note: "delegations/tracker.md has 0 active rows (header only)"
-    rocks:
-      - {name: "R1 Solace Co-Sell Motions to Milestones and Won-Dollars (AT&T, McKesson, SLB)", status: "committed 2026-10-10; last recorded move Oct 9 reply to Ledesma; joint call next, no status line since"}
-      - {name: "R2 South Texas Revenue Recovery", status: "committed 2026-10-10; Chase decomposition was due Oct 17, no completion recorded in objectives file"}
-      - {name: "R3 Scorecard Truth", status: "committed 2026-10-10; KR dates Oct 24 (Sept close) and Oct 31 ($2M+/$750K+ tracking) now passed, no status line recorded"}
-      - {name: "R4 Thought Leadership (podcast, speaking, publishing)", status: "committed 2026-10-10; Talent Labs Session 4 lands Nov 4; podcast status capture due Nov 30"}
-      - {name: "R5 AI Practice Leadership Plan (2027)", status: "committed 2026-10-10; plan defined by Dec 15 (soft date); 5 open decisions still open per rem-20261027T141945"}
-    task-g-72hr-lookahead: "completed - 2026-11-04 to 2026-11-06, 27 events across 3 days, 3 heavy days (8.0h / 12.0h / 13.0h booked)"
-    lookahead_detail:
-      - date: "2026-11-04"
-        booked: "8.0h"
-        key:
-          - {time: "08:00-12:00", subject: "DRC Talent Labs Talk (AI) + AI workshop for DRC Talent Task Force", type: external, attendees: "Bethany Hilton, David (3 rows)", needs_prep: true, flags: ["Rock 4 speaking", "BofA flyer needs David bio/headshot/venue/parking", "06:00+ conflict stack in the 08:00-10:00 window"]}
-          - {time: "13:15-14:45", subject: "Haircut", type: personal, flags: ["collides with GEHC client check-in 14:00-14:30"]}
-          - {time: "14:00-14:30", subject: "GEHC Twice Weekly Internal Check-In", type: client, attendees: "Lisa Barnes, Vladimir Avila, Tim Rayburn, Lisa Kimbrel (5)", needs_prep: true, flags: ["tentative", "Lisa Barnes OOO through Nov 4"]}
-        conflicts: ["08:00 DRC workshop vs 08:00-12:00 Talent Labs Talk vs 08:30 Dallas Exec Huddle vs 09:15 Sales & Recruiting vs 09:30 Sales Scrum / AI Leaders Weekly", "Haircut vs GEHC check-in 14:00", "Friday Week Wrap-Up scheduled on a Wednesday 15:30"]
-      - date: "2026-11-05"
-        booked: "12.0h"
-        key:
-          - {time: "08:00-17:00", subject: "AI Leadership Summit (Day 1)", type: team, attendees: "19 (Rayburn, Hite, Liles, Curry, Scheufler, +14)", needs_prep: true, flags: ["all-day dominant", "swallows 5 overlapping items incl. GEHC AI Routing sync 10:30"]}
-          - {time: "14:00-14:30", subject: "one-on-one Scott McMichael", type: "1:1", attendees: "Scott McMichael (1)", needs_prep: true, flags: ["US Presidents leader", "inside summit block"]}
-          - {time: "18:00-21:00", subject: "Leave a Legacy", type: personal, flags: ["evening after 9h summit"]}
-      - date: "2026-11-06"
-        booked: "13.0h"
-        key:
-          - {time: "06:30-07:30", subject: "IGP Bible Study", type: personal}
-          - {time: "08:00-16:00", subject: "AI Leadership Summit (Day 2)", type: team, attendees: "19", needs_prep: true, flags: ["overlaps Dallas Virtual Coffee Chat 08:00, Sales & Recruiting 09:15, 1st Friday Exec 09:30 (151 attendees)"]}
-          - {time: "18:00-22:00", subject: "Roots & Water Anniversary Party", type: personal, flags: ["13.0h day ending 22:00"]}
-    heavy_day_warning: "Nov 5 and Nov 6 are back-to-back 12h and 13h days after an 11h Nov 3. Three consecutive heavy days with the summit as the anchor."
-    task-h-email-triage: "completed - 0 flagged, 6 time-sensitive + 1 directive + 1 low-priority vendor"
-    email_detail:
-      flagged: []
-      time_sensitive:
-        - "Nicole Larson | 2027 Open Enrollment is LIVE! 11/2-11/13 | Workday action due Fri Nov 13; Benefits Q&A Wed Nov 4 10:30 CT is tomorrow"
-        - "Nicole Larson (high importance) | Re: 2027 Open Enrollment | SharePoint link fixed, unblocks the same Nov 13 Workday action"
-        - "SPARC | Action Required: Update Estimated Close Date or Status on Open Opportunity | 1 open opp with est. close on/before 10/31/2026, already past due"
-        - "Bethany Hilton | Re: Prep call for ASEI AI workshop hosted at Improving | needs David's bio, headshot, address, room details, parking for the flyer; workshop is Nov 4"
-        - "Neha Maharish (Bank of America) | RE: Prep call for ASEI AI workshop hosted at Improving | same ask, same Nov 4 workshop, client-side requester"
-        - "Bob Tiede | Due Nov 15: Invitation to Be Part of My New Book | chapter submission deadline Nov 15"
-      directive:
-        - "Scott McMichael | November can be a Short Month - Please manage accordingly! | operational directive to US Presidents on utilization and bench for all of November"
-      low_priority:
-        - "Dylan Cohen (Talent International) | Re: Azure related hiring | vendor pitch asking to connect this week, no commitment made"
-    task-i-jarvis-inbox: "nothing-to-surface (0 unread, no subagent spawned)"
-    task-j-reminders: "completed (2 due)"
-    reminders_detail:
-      - id: "rem-20261016T190151-9CFK0X"
-        trigger_date: "2026-11-02"
-        trigger_prompt: "Did you start the MOTS-C cycle today (5mg every 5 days, running through end of year)?"
-        agent: galen
-        action_prompt_summary: "Flip existing MOTS-C cycle 3 entry in data/health/tracking.json from planned to active (start 2026-11-02, end 2026-12-31, 5mg/50u every 5 days fasted), reconcile the 25IU vs 2.5mg dose ambiguity, close cycle 2 active status, check supplement-stack.json for a current-state entry, report. Full action_prompt text in data/reminders.json under this id."
-        on_no: {snooze_days: 1, message: "Got it. I'll check again tomorrow whether the MOTS-C cycle started."}
-      - id: "rem-20261027T141945-KMD8KX"
-        trigger_date: "2026-10-29 (slipped to 2026-11-02; David said no on 10-30)"
-        trigger_prompt: "Ready to revisit the AI Practice 2027 build plan and settle the five open decisions for Curtis before the one-page charter has to go to the Dec 1-2 session?"
-        agent: master
-        action_prompt_summary: "Re-immerse brief, then work the 5 open decisions one at a time (D1 revenue range, D2 protected allocation %, D3 pre-sales person, D4 Texas-first vs all-Improving scope, D5 what David stops doing), draft the one-page charter for the Dec 1-2 session, write only after approval to reference/ai-practice-2027-charter.md, report open items. Full action_prompt text in data/reminders.json under this id."
-        on_no: {snooze_days: 1, message: "Understood. I will raise it again tomorrow, which is the Friday deadline you set."}
-  phase2_status: "complete - all 6 tasks executed (A calendar + A tasks counted separately), 0 failures"
-  verification_results: "pass — boot-verify phase2 clean (measurement + manifest, no LLM verification needed); state.yaml had a malformed lookahead_detail block (heavy_day_warning key at sequence indent) that broke the measurement half on first run — repaired, re-measured 11.15 KB / ~2855 tokens"
+        - "Nov 5 is a heavy stacked day on top of the all-day AI Leadership Summit"
+        - "Nov 6 coffee chat and Sales & Recruiting overlap Summit Day 2"
+        - "Client-facing prep needed: GEHC AI Routing sync (Nov 5); 1:1 Scott McMichael (Nov 5)"
+    task-h-email-triage:
+      status: "completed — 0 flagged, 2 time-sensitive (same thread)"
+      items:
+        - "Diana Stevens, 19:56Z, 'RE: Innovation Lab on the 13th' — David must reply to Remington; info needed right away, event is next Friday Nov 13"
+        - "Nicole Shanks (Remington CHRO), 21:00Z, 'RE: Preparations for Innovation Workshop' — she is coordinating; directs all prep comms to her"
+      note: "7 messages in window, all normal importance, none flagged; remainder of thread is internal coordination (Randall Dunigan, Diana Stevens)"
+    task-i-jarvis-inbox: "nothing-to-surface — 0 unread items in data/jarvis-inbox-unified.json; no subagent spawned"
+    task-j-reminders:
+      status: "completed — 2 due (trigger_date <= 2026-11-04)"
+      due:
+        - id: rem-20261027T141945-KMD8KX
+          trigger_prompt: "Ready to revisit the AI Practice 2027 build plan and settle the five open decisions for Curtis before the one-page charter has to go to the Dec 1-2 session?"
+          agent: master
+          action_summary: "Working review of reference/ai-practice-2027-plan.md: 200-word re-immersion brief, walk five open decisions (revenue range, protected allocation %, pre-sales person, Texas-first scope, what David stops doing), draft one-page charter, report back. Full action_prompt in data/reminders.json."
+          on_no: "snooze 1 day — 'Understood. I will raise it again tomorrow, which is the Friday deadline you set.'"
+          note: "David said no 2026-10-30 and 2026-11-03; snoozed to today"
+        - id: rem-20261103T175720-FRL5LH
+          trigger_prompt: "Ready for me to run the 24h Plaud durability gate on recording 900d3853, revert the 'Speaker 1 TEST' label, and only then let Knox ingest it?"
+          agent: rigby
+          action_summary: "HARD HOLD on ingest of Plaud 900d3853; after ~11:55 CT run 24h durability gate across 3 stores, revert 'Speaker 1 TEST' label on 22 segments via v3 two-write, verify, then clear for Knox. Full action_prompt in data/reminders.json."
+          on_no: "snooze 1 day — recording stays blocked from ingest"
+          note: "time-sensitive: gate window due ~11:55 CT today"
+  phase2_status: "complete — all 6 tasks executed, 0 failures"
+  verification_results: "pass — boot-verify phase2 clean (measurement + manifest, no LLM verification needed)"
+  phase2_measurement: "6.6 KB (~1689 tokens) — measurement-state-20261104T212652.json"
   phase3:
     meeting_context:
-      - meeting: "EWR & Exec Council Update for DRC"
-        time: "15:00-15:30"
-        attendees: ["Bethany Hilton (organizer, Improving Marketing/Events)", "Susan Fojtasek (Chief of Staff)", "David O'Hara"]
+      - meeting: "DRC Talent Labs Talk (AI) 08:00-12:00 + AI workshop for DRC Talent Task Force 08:00-10:00 (probable duplicate — resolve before 08:00)"
+        attendees: ["David (speaking)", "Bethany Hilton (Improving Marketing/Events)", "~40 DRC employer participants (senior HR/talent)"]
         context_found:
-          - "DRC is the Dallas Regional Chamber, an active Improving relationship: AI for Executives workshop (May 21, 2026) and the Talent Labs series, where David owns the Talent in Action slot"
-          - "Most recent DRC note 2026-10-07 (Bethany Hilton): Nov 4 session 'AI, Culture, and Talent' for ~40 employer participants (~500K employees: Baylor Scott & White, Children's, Jacobs, Hillwood, McKesson), senior HR and talent audience"
-          - "Agreed Nov 4 direction: practical session on how Improving actually uses AI, ending with a toolkit or plan participants leave with (Tyler Files/DRC ask); David planned to repurpose his executive AI workshop for an HR/talent audience"
-          - "Susan Fojtasek is Chief of Staff and a constant in David's executive conversations; Bethany Hilton owns Improving marketing/events and the DRC relationship"
-        open_items:
-          - "DRC has still not shared the Nov 4 attendee list"
-          - "Nov 4 workshop flyer needs David's bio, headshot, venue address, room details, parking (Bethany and Neha Maharish/BofA ask, per email triage)"
-          - "Nov 4 DRC session content not finalized; last prep note is 2026-10-07 and David rated it third-to-fifth priority"
-        prep_status: "needs-prep"
-        note: "No vault hits for EWR or Exec Council; agenda specifics unavailable. Meeting overlaps YPO Forum 15:00-18:00."
+          - "2026-10-07 planning note (vault): Improving owns the Talent in Action slot, 'AI, Culture, and Talent'; practical session showing how Improving uses AI, ending with a toolkit/plan attendees leave with"
+          - "Audience: year-one profile only — Baylor Scott & White, Children's, Jacobs, Hillwood, McKesson, ~500K employees represented; DRC never shared attendee list"
+          - "Talk outline completed 11-03 09:43 (was overdue since 10-30); plan was to repurpose executive AI workshop material"
+        open_items: ["resolve the duplicate calendar listing (talk 08:00-12:00 vs workshop 08:00-10) — flagged on yesterday's review, still unresolved"]
+        prep_status: ready
+      - meeting: "GEHC Twice Weekly Internal Check-In 14:00-14:30 (client, 5 attendees, tentative, overlaps haircut)"
+        attendees: ["GEHC client team (Michael Braunstein per Sept notes)", "Vladimir Avila (Improving Mexico delivery)"]
+        context_found:
+          - "Project: AI routing for DICOM images; event-routing + AI-dispatch architecture proposal reviewed 09-24"
+          - "David's stance going in: avoid over-engineering — shared SQLite registry, single self-contained event; client likely to critique complexity"
+          - "Yesterday's review: organizer LMB is OOO through 11-04 and haircut collides 13:15-14:45 — expect move or cancel, confirm before driving"
+        open_items: ["confirm the check-in is still happening given LMB OOO"]
+        prep_status: ready
+      - meeting: "Drinks & Catch up with Eric Soden (Capitalize Consulting) 17:30-18:30, Roots and Water (external)"
+        attendees: ["Eric Soden (ericsoden@capitalizeconsulting.com)"]
+        context_found: ["no vault notes, no email or task history — first-recorded contact in IES data"]
+        open_items: []
+        prep_status: low-context
     system_status:
-      yesterday_review: "missing"
-      yesterday_top_3: null
-    morning-briefing-step-03: "completed (1 meeting with context)"
-    clay-reminders: "none: Clay unavailable, carried from step-01.2"
-    clay-birthdays: "none: Clay unavailable, carried from step-01.2"
-  meetings_found: "11 events today, 1 flagged needs_prep: context gathered for EWR & Exec Council Update for DRC"
+      yesterday_review: completed
+      yesterday_top_3:
+        - "DRC Talent Labs Talk 08:00-12:00 — resolve duplicate listing (outline closed 11-03)"
+        - "Run Plaud 24h durability gate ~11:55 CT on recording 900d3853, then clear or hold Knox ingest"
+        - "Close Rocks 1-3 evidence: Chase decomposition, 3 dated Solace milestones, September close status"
+    morning-briefing-step-03: "completed (3 meetings with context)"
+    clay-reminders: "Clay unavailable — carried from step-01.2 (unified pull status: unavailable, OAuth required)"
+    clay-birthdays: "Clay unavailable — carried from step-01.2 (unified pull status: unavailable, OAuth required)"
+  meetings_found: "13 events today — context gathered for DRC Talent Labs talk/workshop, GEHC check-in, Eric Soden drinks; Obsidian MCP down (ECONNREFUSED), fell back to bounded filesystem search of vault"
 outputs: {}

@@ -1,12 +1,12 @@
 ---
 status: completed
-started-at: "2026-11-03T16:02:00Z"
-completed-at: "2026-11-03T16:14:00Z"
-session-id: pi-20261103-001
+started-at: "2026-11-04T21:19:30Z"
+completed-at: "2026-11-04T21:23:30Z"
+session-id: pi-20261104-001
 model: haiku
 outputs:
-  files_ready: 3
-  speaker_renames_applied: 3
+  files_ready: 1
+  speaker_renames_applied: 0
   renames_persisted: 0
   gaps: 0
 ---

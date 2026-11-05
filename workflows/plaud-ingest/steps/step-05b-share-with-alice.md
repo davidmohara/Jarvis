@@ -1,14 +1,14 @@
 ---
 status: completed
-started-at: "2026-11-03T16:24:00Z"
-completed-at: "2026-11-03T16:28:00Z"
-session-id: pi-20261103-001
+started-at: "2026-11-04T21:24:33Z"
+completed-at: "2026-11-04T21:26:00Z"
+session-id: pi-20261104-001
 model: sonnet
 outputs:
   shares_attempted: 1
   shares_succeeded: 0
-  shares_failed: 3
-  monday_review_tasks: 3
+  shares_failed: 1
+  monday_review_tasks: 1
   personal_skipped: 0
 ---
 

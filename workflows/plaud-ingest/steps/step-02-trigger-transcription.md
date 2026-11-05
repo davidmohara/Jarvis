@@ -1,15 +1,15 @@
 ---
 status: completed
-started-at: "2026-11-03T15:49:00Z"
-completed-at: "2026-11-03T15:53:30Z"
-session-id: pi-20261103-001
+started-at: "2026-11-04T21:20:30Z"
+completed-at: "2026-11-04T21:22:10Z"
+session-id: pi-20261104-001
 model: kimi-k3
 outputs:
-  already_ready: 3
+  already_ready: 1
   triggered_now: 0
   pending_with_watcher: 0
-  skipped_minutes_exhausted: 1
-  skipped_ids: [d6e687e2b0d0a74baba20d28fa1832b4]
+  skipped_minutes_exhausted: 0
+  skipped_ids: []
 ---
 
 <!-- system:start -->
