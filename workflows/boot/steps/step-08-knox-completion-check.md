@@ -1,11 +1,10 @@
 ---
 status: complete
 started-at: '2026-11-02T16:22:15Z'
-completed-at: '2026-11-03T15:58:16Z'
-knox_status: still_running
-knox_reason: 'no eval record for 2026-11-03 yet; workflows/plaud-ingest/state.yaml shows
-  in-progress at step-04, session pi-20261103-001 started 15:46:14Z. Boot does not depend
-  on this.'
+completed-at: '2026-11-04T21:35:13Z'
+knox_status: failure
+knox_reason: 'plaud-ingest eval-20261104T211632-963724 completed status=failure at 21:27:23Z
+  after 651s; no punch-out signal. Boot does not depend on this.'
 ---
 
 <!-- system:start -->
@@ -28,6 +27,8 @@ knox_reason: 'no eval record for 2026-11-03 yet; workflows/plaud-ingest/state.ya
 ---
 
 ## YOUR TASK
+
+**Start-of-step stamp (your first action, before any other work):** set this step file's frontmatter `status: in-progress` and `started-at` to the real UTC clock time from `date -u +%Y-%m-%dT%H:%M:%SZ` (paste the exact output; never estimate or round), via the Edit tool. The eval harness derives this step's attribution window from `started-at`; a missing or stale stamp (copied from a prior run) leaves the step's tokens unattributed or misattributed.
 
 1. **Run the one deterministic lookup** from the IES root. It prints the newest `plaud-ingest` record started today, or one line saying there is none. Do not search the runs directory any other way, and do not open any record by hand.
 
@@ -73,7 +74,7 @@ knox_reason: 'no eval record for 2026-11-03 yet; workflows/plaud-ingest/state.ya
 
 1. One clock read: `date -u +%Y-%m-%dT%H:%M:%SZ`. Reuse that exact value for the frontmatter stamp.
 2. One Edit to `workflows/boot/state.yaml`, anchored on the literal `accumulated-context:` line: insert all four `knox_*` keys beneath it in a single edit. No grep, no re-read. If the keys already exist (a retry), edit those existing lines instead of inserting duplicates. **Match the whole line including the line break**, because prose values in this file can contain the same substring, and the Edit tool refuses a non-unique `old_string`.
-3. One Edit to this step file's frontmatter. Do it last, in the same turn as the state edit.
+3. One Edit to this step file's frontmatter: `status: complete`, `completed-at` = the clock value (`started-at` stays exactly as stamped at step start). Do it last, in the same turn as the state edit.
 4. Issue the two Edits as parallel tool calls in one turn.
 5. Never `cat` state.yaml. Never Write state.yaml. **Step-07 already closed `workflows/boot/state.yaml`; do not touch `status`, `current-step`, or `completed-at` here.**
 

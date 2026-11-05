@@ -1,7 +1,7 @@
 ---
 status: complete
 started-at: '2026-11-02T16:21:30Z'
-completed-at: '2026-11-03T15:57:58Z'
+completed-at: '2026-11-04T21:34:25Z'
 ---
 
 <!-- system:start -->
@@ -32,6 +32,8 @@ completed-at: '2026-11-03T15:57:58Z'
 ---
 
 ## YOUR TASK
+
+**Start-of-step stamp (your first action, before any other work):** set this step file's frontmatter `status: in-progress` and `started-at` to the real UTC clock time from `date -u +%Y-%m-%dT%H:%M:%SZ` (paste the exact output; never estimate or round), via the Edit tool. The eval harness derives this step's attribution window from `started-at`; a missing or stale stamp (copied from a prior run) leaves the step's tokens unattributed or misattributed.
 
 1. **Run the one deterministic index-plus-consistency command** from the IES root. It reads `_active.yaml` first and prints the ground truth in the same call:
 
@@ -74,7 +76,7 @@ completed-at: '2026-11-03T15:57:58Z'
 
 1. One clock read: `date -u +%Y-%m-%dT%H:%M:%SZ`. Reuse that exact value for both writes below.
 2. One Edit to `workflows/boot/state.yaml`, anchored on the literal `accumulated-context:` line: insert this step's key directly beneath it. No grep, no re-read. If the key already exists (a retry), edit that existing line instead of inserting a second copy. **Match the whole line including the line break**, because prose values in this file can contain the same substring, and the Edit tool refuses a non-unique `old_string`.
-3. One Edit to this step file's frontmatter. Do it last, in the same turn as the state edit.
+3. One Edit to this step file's frontmatter: `status: complete`, `completed-at` = the clock value (`started-at` stays exactly as stamped at step start). Do it last, in the same turn as the state edit.
 4. Issue the two Edits as parallel tool calls in one turn.
 5. Never `cat` state.yaml. Never Write state.yaml.
 

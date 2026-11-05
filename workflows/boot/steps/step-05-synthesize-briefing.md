@@ -1,7 +1,7 @@
 ---
 status: complete
 started-at: '2026-11-02T16:19:42Z'
-completed-at: '2026-11-03T15:57:51Z'
+completed-at: '2026-11-04T21:34:13Z'
 ---
 
 <!-- system:start -->
@@ -32,6 +32,8 @@ completed-at: '2026-11-03T15:57:51Z'
 ---
 
 ## YOUR TASK
+
+**Start-of-step stamp (your first action, before any other work):** set this step file's frontmatter `status: in-progress` and `started-at` to the real UTC clock time from `date -u +%Y-%m-%dT%H:%M:%SZ` (paste the exact output; never estimate or round), via the Edit tool. The eval harness derives this step's attribution window from `started-at`; a missing or stale stamp (copied from a prior run) leaves the step's tokens unattributed or misattributed.
 
 1. **Spawn Chief for morning briefing step-04.**
    Spawn **Chief** with `workflows/morning-briefing/steps/step-04-*.md`, the owning agent runs it in full. Provide it with the full accumulated-context as input so all gathered data is incorporated into the briefing.
@@ -66,7 +68,7 @@ completed-at: '2026-11-03T15:57:51Z'
    If a key already exists (a retry), edit that existing line instead of inserting a second copy.
    **Match whole lines including the line break.** `accumulated-context:` is also the anchor every step uses, and prose values in this file contain text that can collide with a bare substring; the Edit tool refuses a non-unique `old_string`.
 3. Edits to `workflows/morning-briefing/state.yaml`: a targeted Edit on `current-step: step-04-synthesize-briefing` → `step-05-verify-briefing`, and a targeted Edit on the `completed:` line → the same clock value. Get that `completed:` line in the same Bash call as the clock read (`grep -n '^completed:' workflows/morning-briefing/state.yaml`), never in a turn of its own. If Chief already advanced either value during its own post-completion protocol, skip that one and do not hunt for an absent anchor. **Never a full-file Write**: today that Write alone cost 2,725 output tokens.
-4. One Edit to this step file's frontmatter: `status: complete`, `completed-at` = the clock value.
+4. One Edit to this step file's frontmatter: `status: complete`, `completed-at` = the clock value. Leave `started-at` exactly as stamped at step start.
 5. Issue the Edits as parallel tool calls in one turn. The clock read is the only call that must precede them.
 6. Never `cat` state.yaml. Never Write state.yaml.
 

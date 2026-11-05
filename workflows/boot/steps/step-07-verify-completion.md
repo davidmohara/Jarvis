@@ -1,8 +1,8 @@
 ---
 status: complete
 started-at: '2026-11-02T16:21:55Z'
-completed-at: '2026-11-03T15:58:16Z'
-guardrail-result: flag
+completed-at: '2026-11-04T21:34:47Z'
+guardrail-result: pass
 ---
 
 <!-- system:start -->
@@ -28,6 +28,8 @@ guardrail-result: flag
 ---
 
 ## YOUR TASK
+
+**Start-of-step stamp (your first action, before any other work):** set this step file's frontmatter `status: in-progress` and `started-at` to the real UTC clock time from `date -u +%Y-%m-%dT%H:%M:%SZ` (paste the exact output; never estimate or round), via the Edit tool. The eval harness derives this step's attribution window from `started-at`; a missing or stale stamp (copied from a prior run) leaves the step's tokens unattributed or misattributed.
 
 1. **Run the consolidated verifier** from IES root:
 
@@ -71,7 +73,7 @@ The PASS branch closes boot. All three state writes and the frontmatter stamp la
 2. **Edit 1**: `workflows/boot/state.yaml`, anchored on the `status: in-progress` line → `status: complete`. No grep, no re-read. **Match the whole line including its line break:** the string `status: in-progress` can also appear inside a prose value in a state file, and the Edit tool refuses a non-unique `old_string`.
 3. **Edit 2**: anchored on the line `current-step: step-06-scan-workflows.md`. Step-05 set it and step-06 does not advance it, so that is the value on disk at entry. Replace it with `completed-at: '<clock>'` on its own line followed by `current-step: null`. This adds the top-level `completed-at` key (absent on a fresh run) and nulls the pointer in one edit. If the line reads something else, anchor on whatever `current-step:` value is there rather than reading the file.
 4. **Edit 3**: anchored on the literal `accumulated-context:` line: insert `state_status` directly beneath it. Same anchor every step uses. Match the whole line including its line break.
-5. **Edit 4**: this step file's frontmatter: `status: complete`, `completed-at` = the same clock value. Issued last, in the same turn.
+5. **Edit 4**: this step file's frontmatter: `status: complete`, `completed-at` = the same clock value (`started-at` stays exactly as stamped at step start). Issued last, in the same turn.
 6. Issue all four Edits as parallel tool calls in one turn. Never `cat` state.yaml. Never Write state.yaml.
 
 Why four Edits and not one: the four keys are not contiguous, and `session-id` / `session-started` / `original-request` sit between two of them with run-varying values, so no single literal `old_string` can span them without reintroducing a read. Turn count is the cost driver, not call count: one turn holds all four.

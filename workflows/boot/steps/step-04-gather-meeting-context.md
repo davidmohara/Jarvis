@@ -1,6 +1,7 @@
 ---
 status: complete
-completed-at: '2026-11-03T15:55:16Z'
+started-at: '2026-11-04T21:27:30Z'
+completed-at: '2026-11-04T21:28:52Z'
 ---
 
 <!-- system:start -->
@@ -50,6 +51,8 @@ Enforce all of the following. Unbounded full-body reads inflate the context that
 
 ## YOUR TASK
 
+**Start-of-step stamp (your first action, before any other work):** set this step file's frontmatter `status: in-progress` and `started-at` to the real UTC clock time from `date -u +%Y-%m-%dT%H:%M:%SZ` (paste the exact output; never estimate or round), via the Edit tool. The eval harness derives this step's attribution window from `started-at`; a missing or stale stamp (copied from a prior run) leaves the step's tokens unattributed or misattributed.
+
 1. **Read the flagged meetings.** Open `workflows/boot/state.yaml` and read `accumulated-context.phase2.morning-briefing-steps-01-02.calendar_data`. Every meeting with `needs_prep: true` gets a context lookup.
 
 2. **Run morning-briefing step-03's gather rules directly.** Read `workflows/morning-briefing/steps/step-03-gather-context.md` and apply its sequence:
@@ -81,7 +84,7 @@ Enforce all of the following. Unbounded full-body reads inflate the context that
      meetings_found: "N events today — context gathered for [meeting subjects]"
    ```
 
-5. **Update step frontmatter:** Set `status: complete` and `completed-at` to the real UTC clock time from `date -u +%Y-%m-%dT%H:%M:%SZ` (paste the exact output; never estimate or round) — Edit tool.
+5. **Update step frontmatter:** Set `status: complete` and `completed-at` to the real UTC clock time from `date -u +%Y-%m-%dT%H:%M:%SZ` (paste the exact output; never estimate or round) — Edit tool. Leave `started-at` exactly as stamped at step start.
 
 6. **Update state.yaml:** Set `current-step: step-05-synthesize-briefing.md` — Edit tool.
 
