@@ -9,7 +9,9 @@ original-request: "Execute dream-cycle workflow for today (scheduled task)"
 last-successful-run: 2026-11-06T09:10:00Z
 accumulated-context:
   prior-run: "2026-10-30 complete; earlier per-run blocks reset per fresh-run protocol (history in memory/dream.log)"
-  pr_status: pending
+  pr_status: created
+  pr_number: 9
+  pr_url: https://github.com/davidmohara/Jarvis/pull/9
   step-2026-11-06-summary:
     working_archived: 18
     episodic_scanned: 390
