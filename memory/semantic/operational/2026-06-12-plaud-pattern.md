@@ -3,7 +3,7 @@ type: semantic
 domain: operational
 primary-tag: plaud
 created: 2026-06-12
-last-updated: 2026-10-14
+last-updated: 2026-11-06
 confidence: medium
 synthesized-from: 3
 tags:
@@ -66,3 +66,15 @@ Confidence held at medium — this source predates (09-17) the two real-ingest e
 ### Cycle 2026-10-14
 - 2026-10-14: 2026-10-09-111643-knox-plaud-ingest.md (score 10) — Knox run pi-20261009-001: 2 new recordings (API total 149), filed to zzPlaud/Other/. Speaker resolution needed two David rulings after the run: Speaker 5 was Michelle Bernier, and a 2-segment "Robyn Fuentes" mis-tag was actually Eric Taussig (verified against the invite and a prep email). Final REC1 speaker list had zero generic labels and 2 new voice profiles registered.
 - New signal: for this cluster the speaker-ID failure mode is now mis-tag by existing voice profile, not only unresolved generic labels. An off-invite name from the profile DB should be treated as suspect and checked against the invite list. Also flagged: a stale orphan in plaud_pending.json (a93aa078) absent from both the API and vault, left in place. Monday task creation worked this run (3 David-owned tasks plus 2 review tasks), contrasting with the earlier MCP-unavailable sightings. Confidence held at medium.
+
+## Evidence (added 2026-11-06)
+
+- Ingest runs: pi-20261009-001 (2 recordings), 2026-10-27 (4 recordings, Ralph flag with 5 state-integrity findings all corrected), pi-20261103-001 (4 recordings, reconcile exit 0, zero silent drops). Plaud share links were blocked by the permission classifier on consecutive runs, so Alice gets no links until David decides on the share step.
+- 2026-10-29-004500-rigby-plaud-context-budget.md: transcript bodies no longer enter the Knox conversation on ingest days (context_tools.py broker). Measured savings were small on single-recording runs (-4.8% / +2.6%); the real test is a multi-recording day.
+- 2026-11-03 diagnosis and fixes: speaker renames stopped persisting in the Oct 9-22 window. The script treated HTTP 200 as success while Plaud reports failures in-band (status -1800907). Fixed with check_api_response, a single PATCH, honest segment-level verification, and no default regeneration; an MCP stdio read adapter was added (commits e8137f95f, a3ae3082e). The v4 write path remains blocked: the account reports version_tag v3 and every file-app write returns -1800907.
+
+## Implications (added 2026-11-06)
+
+- Treat a 200 from Plaud as unverified. Success must be asserted by re-reading segment-level state.
+- The v4 write path is an open blocker needing a supervised MCP login and a human decision; do not retry it unattended.
+- Share-link blocking has now recurred across runs, so it needs a David decision rather than another retry.

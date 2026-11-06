@@ -4,7 +4,7 @@ domain: operational
 tags: [dream-cycle, system-maintenance, memory-system, semantic-promotion, git-issues]
 confidence: high
 created: 2026-04-26
-last-updated: 2026-07-02
+last-updated: 2026-11-06
 synthesized-from:
   - memory/episodic/2026-04-24-dream-cycle-summary.md
   - memory/episodic/2026-04-22-dream-cycle-summary.md
@@ -185,3 +185,11 @@ The IES dream cycle has been running nightly since April 18, 2026. Across 7 comp
 - **Score inflation has held flat at 31 of 41 entries scoring 10.** Today's run produced identical distribution to yesterday's because no new tagged episodic content was added. The 2026-05-11 entry archived in this run has no tags field (score 0). This is the second consecutive run where the only meaningful semantic update is "no new pattern observed" — diminishing returns on the current scoring algorithm are now mathematically obvious.
 - **Score-algorithm fix is now deferred for 7 consecutive runs.** Without intervention from a live session, this will be deferred every night indefinitely. The dream cycle is producing semantically correct but informationally null output.
 - **Git sync blocked for 16th consecutive run.** `.git/index.lock` remains irremovable (Operation not permitted). All evolution from April 22 forward is local-only. No remediation path exists from within the dream cycle itself.
+
+## Evidence (added 2026-11-06)
+
+- eval-harness-hook-fix-2026-08-21.md (score 5): .claude/settings.json never registered a PostToolUse hook, so post-tool-use.py had never fired; a naive/aware datetime crash was also fixed. This is the origin of the long-running missing in-progress eval record problem seen by the step-03b checkpoint.
+
+## Implications (added 2026-11-06)
+
+- The step-03b 'no in-progress eval record' failure traces to harness wiring, not to the dream cycle itself. Rigby owns the fix.

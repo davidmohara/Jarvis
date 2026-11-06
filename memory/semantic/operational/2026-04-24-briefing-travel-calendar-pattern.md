@@ -4,7 +4,7 @@ domain: operational
 tags: [briefing, calendar, omnifocus, google-next, travel, overdue-tasks, leads]
 confidence: high
 created: 2026-04-24
-last-updated: 2026-10-30
+last-updated: 2026-11-06
 synthesized-from: 22
   - memory/episodic/2026-04-20-morning-briefing.md
   - memory/episodic/2026-04-21-morning-briefing.md
@@ -590,3 +590,11 @@ Two briefings from 2026-10-26 and 2026-10-27 (morning-briefing-2026-10-26-145500
 
 47. **The briefing is now the main place rock status surfaces.** Rocks 2, 3 and 4 appear in both briefings back to back, and the Rock 4 co-sell gap rides along with revenue on 10-26. Surfacing is consistent; the open question remains conversion into tasks, as in implication 44.
 48. **Briefings were rebuilt mid-window.** Rigby's 10-26 boot-token fixes and the 10-27 removal of the Watchtower step from boot changed what feeds the briefing between these two runs. A briefing section that appears or vanishes in this window is a pipeline change, not a content change.
+
+## Evidence (added 2026-11-06)
+
+- morning-briefing-2026-11-03-095619.md (score 10): synthesis from boot steps 01-04. 11 events today, 30 OmniFocus tasks (11 inbox, 2 due, 0 overdue), delegation tracker header-only, Watchtower omitted per its removal from boot.
+
+## Implications (added 2026-11-06)
+
+- Delegation tracker is empty again, reversing the 09-18 break in the empty streak.

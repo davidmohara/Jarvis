@@ -1,12 +1,26 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "rigby-2026-10-29-000815"
 agent-source: rigby
 created: 2026-10-29T00:45:00Z
 expires: 2026-10-31T00:45:00Z
-status: active
+status: archived
 context: "plaud-ingest non-no-op context budget build (boot token analysis follow-up 5) — 2026-10-29"
+date: 2026-10-29
+source_file: memory/working/2026-10-29-004500-rigby-plaud-context-budget.md
+tags:
+  - rigby
+  - calendar
+  - omnifocus
+  - plaud
+  - boot
+  - knox
+related_people:
+salience:
+  score: 10
+  last-promoted-check: 2026-11-06
+  promoted: true
 ---
 
 # Rigby — plaud-ingest context budget (work-20261029-000815)

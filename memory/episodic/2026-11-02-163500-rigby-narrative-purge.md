@@ -1,12 +1,28 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "rigby-2026-11-02-163500"
 agent-source: rigby
 created: 2026-11-02T16:35:00-06:00
 expires: 2026-11-04T16:35:00-06:00
-status: active
+status: archived
 context: "Rigby purged narratives from workflows/boot/workflow.md and inventoried the tree for the same violation (err-20261102T212336-DWG2OK) — 2026-11-02"
+date: 2026-11-02
+source_file: memory/working/2026-11-02-163500-rigby-narrative-purge.md
+tags:
+  - rigby
+  - briefing
+  - plaud
+  - boot
+  - dream-cycle
+  - credit-cards
+  - chase
+  - knox
+related_people:
+salience:
+  score: 10
+  last-promoted-check: 2026-11-06
+  promoted: true
 ---
 
 # Narrative Purge — boot workflow.md trimmed, tree inventoried

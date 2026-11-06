@@ -1,12 +1,31 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "master-2026-10-29-143643"
 agent-source: master
 created: 2026-10-29T14:36:43Z
 expires: 2026-10-31T14:36:43Z
-status: active
+status: archived
 context: "Boot token usage 2026-10-15..10-29: per-run totals, per-step attribution, trend vs the 10-22 dispatch change, Sonnet cost, dated 2026-10-29"
+date: 2026-10-29
+source_file: memory/working/2026-10-29-143643-master-boot-token-analysis.md
+tags:
+  - master
+  - briefing
+  - morning-briefing
+  - calendar
+  - omnifocus
+  - 1on1-prep
+  - plaud
+  - boot
+  - chase
+  - rigby
+related_people:
+  - tim-rayburn
+salience:
+  score: 10
+  last-promoted-check: 2026-11-06
+  promoted: true
 ---
 
 # Boot Token Performance Analysis: 2026-10-29

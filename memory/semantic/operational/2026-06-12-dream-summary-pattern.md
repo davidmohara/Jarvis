@@ -3,7 +3,7 @@ type: semantic
 domain: operational
 primary-tag: dream-summary
 created: 2026-06-12
-last-updated: 2026-10-30
+last-updated: 2026-11-06
 confidence: high
 synthesized-from: 31
   - dream-summary-2026-09-16.md
@@ -498,3 +498,11 @@ Re-checked delegation tracker: unchanged since 09-23 (Steve Hall/Derek Nwamadi, 
 ### Cycle 2026-10-30
 - 2026-10-30: dream-summary-2026-10-26.md (score 10), the 10-26 cycle's own summary, archived after its one-cycle hold. It recorded 16 archives after a 10-day gap, 14 promotions into 7 patterns (one new, credit cards), a goal-alignment drift of about 38% against the 30% threshold driven by Stage 5 remediation, and a $992 Amex Platinum credit balance resetting 12-31.
 - The step-03b guardrail checkpoint gap carried forward unchanged (no in-progress eval record), now three consecutive cycles recorded as a manual verdict.
+
+## Evidence (added 2026-11-06)
+
+- dream-summary-2026-10-30.md (score 10): 13 archived, 11 promoted into 5 patterns. The 5-entry compression gate was deferred and then approved by David in-session. The Watchtower removal left follow-ups and the step-03b checkpoint still cannot record.
+
+## Implications (added 2026-11-06)
+
+- The compression approval gate still routes through David even in unattended runs; deferral is the established behavior.

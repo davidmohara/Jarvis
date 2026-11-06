@@ -3,7 +3,7 @@ type: semantic
 domain: operational
 confidence: low
 created: 2026-06-25
-last-updated: 2026-10-30
+last-updated: 2026-11-06
 tags:
   - rigby
 synthesized-from:
@@ -52,3 +52,15 @@ Recurring rigby activity observed across 2 episodic entries within the 30-day sa
 - A build can be correct and still be reversed. The 10-26 Watchtower wiring was removed within a day, so the real acceptance test is David's reaction at the next boot, not the validation checklist. Ask before wiring new work into boot.
 - Reversals leave residue: stale invoker references and net-zero evolution entries need a cleanup owner or they accumulate as noise.
 - Broad cleanup globs are a recurring Rigby risk. The 33-file restore worked because the files were tracked; untracked scratch state is unrecoverable, so cleanup should enumerate paths rather than glob.
+
+## Evidence (added 2026-11-06)
+
+- 2026-10-28-151700-rigby-boot-token-analysis.md (score 10) and 2026-10-29-143643-master-boot-token-analysis.md (score 10): per-step boot token baselines that fed a three-change capability batch (2026-10-28-171218-master-rigby-capability-batch.md, score 10): an async eval-recording hook fix (SubagentStart fires per resume segment; the session-end sweep phantom-deleted a live stub), a scripted plaud-ingest reconcile replacing a 1-2.5M-token LLM verify, and a measure.py key-sanitize.
+- 2026-11-02-132909-rigby-briefing-optimization-build.md (score 10): Option A slimming of the boot briefing subagent (turn budget, read restrictions, write order, deterministic step-06 sweep, one-turn step-07 close) plus a post-tool-use hook guard for plain-string topic entries that had thrown AttributeError 13 times in one run.
+- 2026-11-02-163500-rigby-narrative-purge.md (score 10): David's standing rule that workflow and skill files carry operative rules only, no dated incident stories or err-/eval- ID provenance. Boot workflow.md purged (160 to 148 lines); a roughly 21-file mechanical-strip backlog and a linter guard proposal were inventoried and left awaiting approval.
+
+## Implications (added 2026-11-06)
+
+- The boot token work followed a stable loop: measure per step, approve a bounded change, implement, verify with lint and live one-liners. Savings came from structural changes (scripted verify, turn budgets, deterministic sweeps), not from prompt trimming.
+- Narrative content belongs in memory, never in workflow or skill files. Rigby build work should strip provenance as it goes rather than leaving a sweep backlog.
+- Several Rigby deliveries ended with items parked for David (size exceptions, backlog strip approval, linter guard). Unresolved approvals are the recurring residue of this agent's work; surface them in the next briefing.
