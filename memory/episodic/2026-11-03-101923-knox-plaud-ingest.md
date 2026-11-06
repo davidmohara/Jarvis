@@ -1,12 +1,29 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "knox-2026-11-03-101923"
 agent-source: knox
 created: 2026-11-03T10:19:23-05:00
 expires: 2026-11-05T10:19:23-05:00
-status: active
+status: archived
 context: "Knox plaud-ingest full run (pi-20261103-001) — 4 new Nov 2 recordings ingested — 2026-11-03"
+date: 2026-11-03
+source_file: memory/working/2026-11-03-101923-knox-plaud-ingest.md
+tags:
+  - knox
+  - calendar
+  - ypo
+  - drc-workshop
+  - plaud
+  - boot
+  - atlas
+related_people:
+  - don-mcgreal
+  - devlin
+salience:
+  score: 10
+  last-promoted-check: 2026-11-06
+  promoted: true
 ---
 
 # Knox plaud-ingest — 2026-11-03 (pi-20261103-001)

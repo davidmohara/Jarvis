@@ -1,12 +1,31 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "chief-2026-11-03-095619"
 agent-source: chief
 created: 2026-11-03T09:56:19
 expires: 2026-11-05T09:56:19
-status: active
+status: archived
 context: "Morning briefing synthesis for 2026-11-03 (boot-2026-11-03), step-04 of workflows/morning-briefing: 2026-11-03"
+date: 2026-11-03
+source_file: memory/working/morning-briefing-2026-11-03-095619.md
+tags:
+  - briefing
+  - chief
+  - morning-briefing
+  - calendar
+  - omnifocus
+  - ypo
+  - drc-workshop
+  - utb-board
+  - rock2
+  - rock3
+related_people:
+  - curtis
+salience:
+  score: 10
+  last-promoted-check: 2026-11-06
+  promoted: true
 ---
 
 # Morning Briefing Synthesis: 2026-11-03

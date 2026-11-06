@@ -1,12 +1,27 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "rigby-2026-11-02-132909"
 agent-source: rigby
 created: 2026-11-02T13:29:09-06:00
 expires: 2026-11-04T13:29:09-06:00
-status: active
+status: archived
 context: "Rigby implemented boot briefing-subagent optimization Option A plus post-tool-use hook fix — 2026-11-02"
+date: 2026-11-02
+source_file: memory/working/2026-11-02-132909-rigby-briefing-optimization-build.md
+tags:
+  - rigby
+  - briefing
+  - omnifocus
+  - plaud
+  - boot
+  - knox
+  - chief
+related_people:
+salience:
+  score: 10
+  last-promoted-check: 2026-11-06
+  promoted: true
 ---
 
 # Boot Briefing Subagent Optimization — Option A implemented

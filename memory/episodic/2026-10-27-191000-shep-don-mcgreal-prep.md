@@ -17,7 +17,7 @@ related_people:
   - don-mcgreal
 salience:
   score: 1
-  last-promoted-check: 2026-10-30
+  last-promoted-check: 2026-11-06
 ---
 
 # Shep — Don McGreal 1:1 prep

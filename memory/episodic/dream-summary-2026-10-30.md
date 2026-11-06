@@ -1,12 +1,30 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "dream-cycle-2026-10-30-080000"
 agent-source: jarvis
 created: 2026-10-30 08:05
 expires: 2026-11-01
-status: active
+status: archived
 context: "Dream cycle summary — 2026-10-30"
+date: 2026-10-30
+source_file: memory/working/dream-summary-2026-10-30.md
+tags:
+  - dream-summary
+  - jarvis
+  - plaud
+  - boot
+  - semantic-promotion
+  - dream-cycle
+  - chase
+  - rigby
+  - knox
+  - shep
+related_people:
+salience:
+  score: 10
+  last-promoted-check: 2026-11-06
+  promoted: true
 ---
 
 # Dream Cycle Summary: 2026-10-30

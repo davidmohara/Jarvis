@@ -5,7 +5,7 @@ subject: "Pattern around session-wrap"
 synthesized-from:
   - memory/episodic/shutdown-cleanup-2026-09-15-025313.md
   - memory/episodic/shutdown-cleanup-2026-06-16-071444.md
-last-updated: 2026-09-18
+last-updated: 2026-11-06
 tags:
   - calendar
   - co-sell
@@ -91,3 +91,11 @@ Sources this cycle:
 - `memory/episodic/shutdown-cleanup-2026-09-15-025313.md` (score 5) — tags: session-wrap, chief, system-maintenance, git-blocked, xcode-license, cleanup. Genuinely new failure mode for this cluster: the shutdown-cleanup commit step was blocked outright by the host's system `git` refusing every invocation with "You have not agreed to the Xcode license agreements," confirmed on both a plain `git status` and `git diff --name-only HEAD`. No alternate git binary was available and `sudo -n true` required an interactive password, so the session couldn't self-resolve — it correctly stopped and left `state.yaml` and the step file marked `status: blocked` rather than guessing or skipping the commit. A separate ambiguous-cleanup decision (two non-canonical root directories, `Calendar/` and `zzPlaud/`, both holding real content) was also escalated to the controller rather than resolved unilaterally, consistent with this cluster's established escalate-when-ambiguous behavior (see the 08-27/08-31/09-03 entries above).
 
 This is the first source in this cluster where the blocker is the git tooling itself rather than routing, naming, or file-placement ambiguity — worth flagging as a distinct sub-mode (tooling-availability blocker) alongside the established ambiguous-cleanup-decision sub-mode, not a replacement for it. Confidence held at medium (10th dated evidence entry) — one new sub-mode isn't yet enough evidence to escalate.
+
+## Evidence (added 2026-11-06)
+
+- shutdown-cleanup-2026-11-03-093133.md (score 10): purged 21 temp artifacts, committed 29 files, closed the session record. Flags: two non-canonical root entries (deliverables/, spiritual-gifts-assessment.html), 11 older unclosed session-index records, dead improving-brand reference, and a harness transcript-truncation measurement bug.
+
+## Implications (added 2026-11-06)
+
+- Unclosed session-index records are accumulating (11 older ones); closure needs an owner.

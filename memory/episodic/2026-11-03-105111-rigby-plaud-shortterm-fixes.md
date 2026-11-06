@@ -1,12 +1,25 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "rigby-2026-11-03-105111"
 agent-source: rigby
 created: 2026-11-03T10:51:11-05:00
 expires: 2026-11-05T10:51:11-05:00
-status: active
+status: archived
 context: "Rigby implemented Plaud short-term fixes in fetch_plaud.py and authored the v4 rewrite plan — 2026-11-03"
+date: 2026-11-03
+source_file: memory/working/2026-11-03-105111-rigby-plaud-shortterm-fixes.md
+tags:
+  - rigby
+  - omnifocus
+  - pipeline
+  - plaud
+  - knox
+related_people:
+salience:
+  score: 10
+  last-promoted-check: 2026-11-06
+  promoted: true
 ---
 
 # Rigby: Plaud short-term fixes + v4 rewrite plan

@@ -1,12 +1,30 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "rigby-2026-10-28-151700"
 agent-source: rigby
 created: 2026-10-28T15:17:00-05:00
 expires: 2026-10-30T15:17:00-05:00
-status: active
+status: archived
 context: "Boot token performance analysis expanded to 10/26-10/28 boots — 2026-10-28"
+date: 2026-10-28
+source_file: memory/working/2026-10-28-151700-rigby-boot-token-analysis.md
+tags:
+  - rigby
+  - briefing
+  - calendar
+  - omnifocus
+  - plaud
+  - boot
+  - dream-cycle
+  - knox
+  - shep
+related_people:
+  - tim-rayburn
+salience:
+  score: 10
+  last-promoted-check: 2026-11-06
+  promoted: true
 ---
 
 # Boot Token Performance Analysis — 2026-10-28 (supersedes 2026-10-26 note)

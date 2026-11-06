@@ -1,12 +1,25 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "harper-2026-11-02-183000"
 agent-source: harper
 created: 2026-11-02T18:30:00-06:00
 expires: 2026-11-04T18:30:00-06:00
-status: active
+status: archived
 context: "Harper built the YPO Forum practical-AI deck and handout for the Nov 3 Forum talk — 2026-11-02"
+date: 2026-11-02
+source_file: memory/working/2026-11-02-183000-harper-ypo-ai-deck-built.md
+tags:
+  - harper
+  - omnifocus
+  - ypo
+  - rigby
+  - chief
+related_people:
+salience:
+  score: 10
+  last-promoted-check: 2026-11-06
+  promoted: true
 ---
 
 # YPO Forum Practical AI Deck — built

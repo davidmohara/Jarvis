@@ -15,8 +15,8 @@ tags:
   - session
 related_people:
 salience:
-  score: 0
-  last-promoted-check: 2026-10-30
+  score: 1
+  last-promoted-check: 2026-11-06
 ---
 
 **What was requested/produced:** David asked to reconcile Obsidian `_`-prefixed drafts against live Ghost posts. Harper scanned 128 underscore-prefixed files across Mind/, Mind/Posts/, Mind/Articles/ and matched against all 105 Ghost posts.

@@ -1,12 +1,24 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "rigby-2026-11-03-103306"
 agent-source: rigby
 created: 2026-11-03T10:33:06-05:00
 expires: 2026-11-05T10:33:06-05:00
-status: active
+status: archived
 context: "Rigby root-cause diagnosis of Plaud speaker-rename persistence failure — 2026-11-03"
+date: 2026-11-03
+source_file: memory/working/2026-11-03-103306-rigby-plaud-rename-diagnosis.md
+tags:
+  - rigby
+  - omnifocus
+  - pipeline
+  - plaud
+related_people:
+salience:
+  score: 10
+  last-promoted-check: 2026-11-06
+  promoted: true
 ---
 
 # Rigby diagnosis: Plaud speaker rename does not persist

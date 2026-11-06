@@ -1,12 +1,23 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "knox-2026-11-02-165500"
 agent-source: knox
 created: 2026-11-02T16:55:00-06:00
 expires: 2026-11-04T16:55:00-06:00
-status: active
+status: archived
 context: "Knox located the Shelby Meyer regional prep document for upcoming YPO board meetings — 2026-11-02"
+date: 2026-11-02
+source_file: memory/working/2026-11-02-165500-knox-shelby-regional-onepager-found.md
+tags:
+  - knox
+  - omnifocus
+  - ypo
+related_people:
+salience:
+  score: 10
+  last-promoted-check: 2026-11-06
+  promoted: true
 ---
 
 # Found: YPO Western US Region Update one-pager (from Shelby Meyer's emails)

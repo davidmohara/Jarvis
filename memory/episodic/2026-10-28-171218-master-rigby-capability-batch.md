@@ -1,12 +1,23 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "master-2026-10-28-171218"
 agent-source: rigby
 created: 2026-10-28T22:12:18Z
 expires: 2026-10-30T22:12:18Z
-status: active
+status: archived
 context: "Rigby capability batch work-20261028-221500: harness async-agent recording, plaud step-06 scripted verify, measure.py key-sanitize — 2026-10-28"
+date: 2026-10-28
+source_file: memory/working/2026-10-28-171218-master-rigby-capability-batch.md
+tags:
+  - rigby
+  - plaud
+  - boot
+related_people:
+salience:
+  score: 10
+  last-promoted-check: 2026-11-06
+  promoted: true
 ---
 
 Rigby completed the three-change capability batch David approved after the boot token analysis (baseline: memory/working/2026-10-28-151700-rigby-boot-token-analysis.md).

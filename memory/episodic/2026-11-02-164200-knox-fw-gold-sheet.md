@@ -1,12 +1,23 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "knox-2026-11-02-164200"
 agent-source: knox
 created: 2026-11-02T16:42:00-06:00
 expires: 2026-11-04T16:42:00-06:00
-status: active
+status: archived
 context: "Knox searched for the Fort Worth Gold board sheet ahead of the Nov 3 YPO FW Gold board meeting — 2026-11-02"
+date: 2026-11-02
+source_file: memory/working/2026-11-02-164200-knox-fw-gold-sheet.md
+tags:
+  - knox
+  - omnifocus
+  - ypo
+related_people:
+salience:
+  score: 10
+  last-promoted-check: 2026-11-06
+  promoted: true
 ---
 
 # FW Gold Board Sheet Search (Nov 3 board meeting, 8:00 AM)

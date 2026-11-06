@@ -3,7 +3,7 @@ type: semantic
 domain: operational
 primary-tag: daily-review
 created: 2026-06-12
-last-updated: 2026-10-26
+last-updated: 2026-11-06
 confidence: high
 synthesized-from: 21
   - daily-review-2026-06-08-212450.md
@@ -148,3 +148,11 @@ New signal for this cluster: Q3 rocks unsigned since 07-30 with the quarter clos
 - The 10-16 entry is an auto review (no live controller) synthesized from session record, working memory and git log; it flags 16 phantom-success scheduled runs now blocked from recording success and 14 C-grades addressed by the step-auto working-memory restructure, needing a fresh window to register.
 - The 10-19 review (written 10-20) carries the same stale-instrumentation themes: step-03b checkpoint not recordable, eval health 20 runs with 11 success, 5 partial, 1 no-op, 3 failure, and a proposed top 3 led by Rock 1 KR1 and Rock 2 gap decomposition status.
 - Cluster signal: reviews now exist on consecutive days again after the 11-day gap, but the instrumentation around them (phantom successes, missing working-memory writes) is the live weakness. Confidence held at high.
+
+## Evidence (added 2026-11-06)
+
+- daily-review-2026-10-29-070500.md (score 10): review of 10-28 (Austin summit day, evening IES build session). Ralph flagged findings corrected pre-commit; real gap was unrouted action items (Lockton proposal); Rock 1/2/3 statuses 12/12/5 days late; git held per standing rule.
+
+## Implications (added 2026-11-06)
+
+- Rock status updates are overdue by 5-12 days; daily reviews keep proposing them as a top priority without closure.

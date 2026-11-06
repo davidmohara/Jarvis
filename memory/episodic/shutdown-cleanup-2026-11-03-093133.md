@@ -1,12 +1,26 @@
 ---
-type: working
+type: working-archive
 task_id: "session"
 session_id: "chief-2026-11-03-093133"
 agent-source: chief
 created: 2026-11-03T09:31:33
 expires: 2026-11-05T09:31:33
-status: active
+status: archived
 context: "Session exit cleanup for the 2026-11-02/03 session, 2026-11-03"
+date: 2026-11-03
+source_file: memory/working/shutdown-cleanup-2026-11-03-093133.md
+tags:
+  - session-wrap
+  - chief
+  - omnifocus
+  - ypo
+  - session-index
+  - harper
+related_people:
+salience:
+  score: 10
+  last-promoted-check: 2026-11-06
+  promoted: true
 ---
 
 # Shutdown Cleanup: 2026-11-03
